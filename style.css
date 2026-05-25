@@ -193,6 +193,85 @@ ul { list-style: none; }
 .mobile-nav.open { display: block; }
 
 /* =========================================
+   서브페이지 오버레이 (홈 헤더 아래에 표시)
+   ========================================= */
+#subPageOverlay {
+  display: none;
+  position: fixed;
+  top: 80px; left: 0;
+  width: 100%;
+  height: calc(100vh - 80px);
+  overflow-y: auto;
+  z-index: 900;
+  background: var(--light);
+}
+
+/* 프로그램 소개 카드 */
+.prog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.prog-card { background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 2px 16px rgba(0,0,0,0.07); display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s; }
+.prog-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.12); }
+.prog-img { height: 200px; background-size: cover; background-position: center; position: relative; }
+.prog-img::after { content:''; position:absolute; inset:0; background:linear-gradient(to bottom,rgba(0,0,0,.15) 0%,rgba(0,0,0,.35) 100%); }
+.prog-tag { position:absolute; top:16px; left:16px; z-index:1; background:#e8a04a; color:#fff; font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:4px 12px; border-radius:20px; }
+.prog-body { padding:24px 22px 22px; display:flex; flex-direction:column; flex:1; gap:12px; }
+.prog-title { font-size:17px; font-weight:700; color:#1a2e2a; line-height:1.4; }
+.prog-desc { font-size:13.5px; color:#555; line-height:1.85; flex:1; }
+.prog-meta { display:flex; gap:12px; font-size:12.5px; color:#888; }
+.prog-btns { display:flex; gap:10px; margin-top:4px; }
+.btn-outline { flex:1; text-align:center; padding:9px 0; font-size:13px; font-weight:600; color:#1a2e2a; border:1.5px solid #1a2e2a; border-radius:8px; text-decoration:none; transition:background .2s,color .2s; cursor:pointer; background:transparent; font-family:var(--font); }
+.btn-outline:hover { background:#1a2e2a; color:#fff; }
+.btn-solid { flex:1; text-align:center; padding:9px 0; font-size:13px; font-weight:600; color:#fff; background:#1a2e2a; border-radius:8px; text-decoration:none; transition:background .2s; cursor:pointer; border:none; font-family:var(--font); }
+.btn-solid:hover { background:#e8a04a; }
+
+/* Where to Next? 게시판 */
+.sp-hero { background:#1a2e2a; color:#fff; padding:48px 64px 36px; }
+.sp-hero p { font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#e8a04a; margin-bottom:10px; }
+.sp-hero h1 { font-size:clamp(22px,4vw,32px); font-weight:800; line-height:1.3; }
+.sp-wrap { max-width:900px; margin:0 auto; padding:40px 40px 80px; }
+.sp-toolbar { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; padding:8px 0; }
+.sp-count { font-size:13px; color:#666; }
+.sp-count strong { color:#1a2e2a; }
+.sp-btn-write { background:#1a2e2a; color:#fff; border:none; padding:9px 20px; font-size:13px; font-weight:600; border-radius:6px; cursor:pointer; font-family:var(--font); }
+.sp-btn-write:hover { background:#243d38; }
+.sp-table { width:100%; border-collapse:collapse; background:#fff; border-radius:10px; overflow:hidden; box-shadow:0 1px 8px rgba(0,0,0,0.06); }
+.sp-table thead tr { background:#f0eeea; border-bottom:2px solid #e0ddd8; }
+.sp-table th { padding:13px 16px; font-size:13px; font-weight:700; color:#555; text-align:center; }
+.sp-table th.sp-col-title { text-align:left; }
+.sp-table td { padding:14px 16px; font-size:14px; border-bottom:1px solid #f0eeea; vertical-align:middle; }
+.sp-table td.sp-col-no { text-align:center; color:#aaa; font-size:13px; width:60px; }
+.sp-table td.sp-col-title a { color:#1a2e2a; font-weight:500; line-height:1.5; cursor:pointer; text-decoration:none; }
+.sp-table td.sp-col-title a:hover { color:#e8a04a; }
+.sp-table td.sp-col-date { text-align:center; color:#999; font-size:13px; width:90px; }
+.sp-table tbody tr:last-child td { border-bottom:none; }
+.sp-table tbody tr:hover td { background:#faf9f7; }
+.sp-empty { text-align:center; padding:60px 0; color:#aaa; font-size:14px; }
+.sp-paging { display:flex; justify-content:center; align-items:center; gap:6px; margin-top:28px; }
+.sp-paging a, .sp-paging span { width:34px; height:34px; display:flex; align-items:center; justify-content:center; border-radius:6px; font-size:13px; color:#555; border:1px solid #e0ddd8; background:#fff; cursor:pointer; text-decoration:none; }
+.sp-paging span.active { background:#1a2e2a; color:#fff; border-color:#1a2e2a; font-weight:700; }
+.sp-paging a:hover { background:#f5f5f3; }
+.sp-search { display:flex; justify-content:center; margin-top:32px; }
+.sp-search select { padding:9px 12px; font-size:13px; border:1px solid #ddd; border-right:none; border-radius:6px 0 0 6px; background:#fff; font-family:var(--font); color:#555; outline:none; }
+.sp-search input { padding:9px 14px; font-size:13px; border:1px solid #ddd; width:240px; font-family:var(--font); outline:none; }
+.sp-search button { padding:9px 18px; font-size:13px; background:#1a2e2a; color:#fff; border:none; border-radius:0 6px 6px 0; cursor:pointer; font-family:var(--font); font-weight:600; }
+.sp-search button:hover { background:#243d38; }
+.sp-write-dim { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.45); z-index:2000; align-items:center; justify-content:center; }
+.sp-write-dim.open { display:flex; }
+.sp-write-box { background:#fff; border-radius:14px; padding:36px 32px; width:100%; max-width:520px; margin:16px; }
+.sp-write-box h2 { font-size:18px; font-weight:700; color:#1a2e2a; margin-bottom:24px; }
+.sp-write-field { margin-bottom:16px; }
+.sp-write-field label { display:block; font-size:13px; font-weight:600; color:#444; margin-bottom:6px; }
+.sp-write-field input, .sp-write-field textarea { width:100%; padding:10px 14px; font-size:14px; border:1px solid #ddd; border-radius:8px; font-family:var(--font); outline:none; box-sizing:border-box; }
+.sp-write-field input:focus, .sp-write-field textarea:focus { border-color:#1a2e2a; }
+.sp-write-field textarea { height:120px; resize:vertical; }
+.sp-write-actions { display:flex; gap:10px; justify-content:flex-end; margin-top:8px; }
+.sp-btn-cancel { padding:10px 22px; font-size:13px; font-weight:600; color:#666; background:#f5f5f3; border:1px solid #ddd; border-radius:8px; cursor:pointer; font-family:var(--font); }
+.sp-btn-post { padding:10px 22px; font-size:13px; font-weight:600; color:#fff; background:#1a2e2a; border:none; border-radius:8px; cursor:pointer; font-family:var(--font); }
+.sp-btn-post:hover { background:#243d38; }
+
+@media (max-width:900px) { .prog-grid { grid-template-columns:repeat(2,1fr); } .sp-hero { padding:40px 24px 28px; } .sp-wrap { padding:24px 16px 60px; } }
+@media (max-width:580px) { .prog-grid { grid-template-columns:1fr; } }
+
+/* =========================================
    HERO — 100vh 풀스크린
    ========================================= */
 .hero {
