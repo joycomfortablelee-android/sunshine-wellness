@@ -191,46 +191,87 @@ const programData = {
   },
   market: {
     tag: 'Market',
-    title: '부산 떡볶이 미식 투어',
-    desc: '부평깡통시장의 시원한 무 떡볶이, 남천동의 굵은 가래떡, 영도 골목의 30년 전통 즉석떡볶이까지 — 지역마다 다른 맛과 공간을 따라가는 부산 로컬 푸드 투어입니다.',
+    title: '부산 시장 & 떡볶이 미식 투어',
+    desc: '부전시장에서 시작해 부평깡통시장·남천동·영도까지 — 부산의 시장, 해변, 골목을 따라 지역마다 다른 떡볶이의 맛과 이야기를 경험하는 부산형 로컬 미식 탐방입니다.',
     items: [
       '프로그램 유형: 부산 로컬 음식 탐방',
       '대상: 외국인 관광객, 가족·친구·연인, 음식문화 관심자',
-      '반일형 A코스: 4–5시간 (부평깡통시장 → 남천동)',
-      '1일형 B코스: 6–7시간 (부평깡통시장 → 남천동 → 영도)',
-      '이동: 대중교통 + 도보 또는 전용 차량',
+      '반일형 A코스: 4–5시간 (부전시장 → 이가네 → 다리집)',
+      '1일형 B코스: 8–9시간 (부전시장 → 이가네 → 다리집 → 도날드)',
+      '이동: 대중교통 + 도보 또는 전용 차량 / 운영 언어: 한국어·영어',
     ],
     spots: [
       {
         num: '01',
-        name: '이가네떡볶이',
-        sub: 'Hot, Refreshing & Savory',
-        addr: '부산 중구 부평1길 48 (부평깡통시장)',
-        desc: '물을 넣지 않고 얇게 썬 무에서 나온 수분으로 조리하는 부산 대표 시장 떡볶이. 매콤하면서도 시원한 맛, 어묵 꼬치와 함께.',
-        mapUrl: 'https://map.naver.com/p/search/%EC%9D%B4%EA%B0%80%EB%84%A4%EB%96%A1%EB%B3%B6%EC%9D%B4%20%EB%B6%80%EC%82%B0%20%EC%A4%91%EA%B5%AC%20%EB%B6%80%ED%8F%891%EA%B8%B8%2048',
+        name: '부전시장',
+        sub: 'Busan Local Market — First Stop',
+        addr: '부산광역시 부산진구 중앙대로783번길 23',
+        desc: '부산 대표 전통시장. 농수산물·건어물·반찬·인삼시장 등 로컬 식재료와 생활시장 분위기를 체험합니다. 본격적인 떡볶이 투어 전, 부산의 시장문화를 이해하는 도입 코스입니다.',
+        mapUrl: 'https://www.google.com/maps/search/?api=1&query=부전시장+부산광역시+부산진구+중앙대로783번길+23',
       },
       {
         num: '02',
-        name: '다리집 본점',
-        sub: 'Thick Rice Cakes & Deep-Fried Squid',
-        addr: '부산 수영구 남천바다로10번길 70',
-        desc: '굵은 가래떡과 매콤달콤한 고추장 양념, 길고 통통한 오징어튀김의 조합이 대표 메뉴. 광안리 해변 근처.',
-        mapUrl: 'https://map.naver.com/p/search/%EB%8B%A4%EB%A6%AC%EC%A7%91%20%EB%B3%B8%EC%A0%90%20%EB%B6%80%EC%82%B0%20%EC%88%98%EC%98%81%EA%B5%AC%20%EB%82%A8%EC%B2%9C%EB%B0%94%EB%8B%A4%EB%A1%9C10%EB%B2%88%EA%B8%B8%2070',
+        name: '이가네떡볶이',
+        sub: 'Hot, Refreshing & Savory',
+        addr: '부산광역시 중구 부평1길 48 (부평깡통시장)',
+        desc: '물을 넣지 않고 얇게 썬 무에서 나온 수분으로 조리하는 부산 대표 시장 떡볶이. 매콤하면서도 시원한 맛, 어묵 꼬치와 함께.',
+        mapUrl: 'https://www.google.com/maps/search/?api=1&query=이가네떡볶이+부산광역시+중구+부평1길+48',
       },
       {
         num: '03',
+        name: '다리집 본점',
+        sub: 'Thick Rice Cakes & Deep-Fried Squid',
+        addr: '부산광역시 수영구 남천바다로10번길 70 101호',
+        desc: '굵은 가래떡과 매콤달콤한 고추장 양념, 길고 통통한 오징어튀김의 조합이 대표 메뉴. 광안리 해변 근처.',
+        mapUrl: 'https://www.google.com/maps/search/?api=1&query=다리집+본점+부산광역시+수영구+남천바다로10번길+70+101호',
+      },
+      {
+        num: '04',
         name: '도날드즉석떡볶이',
         sub: 'Local Tabletop Tteokbokki',
-        addr: '부산 영도구 꿈나무길 267',
+        addr: '부산광역시 영도구 꿈나무길 267',
         desc: '30년 전통 영도식 즉석떡볶이. 떡·어묵·라면·쫄면·삶은 달걀이 어우러지며 끓일수록 깊어지는 양념 맛.',
-        mapUrl: 'https://map.naver.com/p/search/%EB%8F%84%EB%82%A0%EB%93%9C%20%EB%96%A1%EB%B3%B6%EC%9D%B4%20%EB%B6%80%EC%82%B0%20%EC%98%81%EB%8F%84%EA%B5%AC%20%EA%BF%88%EB%82%98%EB%AC%B4%EA%B8%B8%20267',
+        mapUrl: 'https://www.google.com/maps/search/?api=1&query=도날드+떡볶이+부산광역시+영도구+꿈나무길+267',
       },
     ],
-    tip: '반일형은 A코스(이가네→다리집), 1일형은 B코스(이가네→다리집→도날드) 선택 가능. 현금 지참 권장.',
+    schedules: [
+      {
+        type: '반일형 A코스 (4–5시간)',
+        rows: [
+          { time: '09:30', place: '부전시장 집결', desc: '오리엔테이션, 부산 전통시장 문화 소개' },
+          { time: '09:40', place: '부전시장 탐방', desc: '농수산물·건어물·반찬·인삼시장 등 로컬 식재료 체험' },
+          { time: '10:40', place: '부평깡통시장 이동', desc: '부산 원도심 시장권 이동' },
+          { time: '11:20', place: '이가네떡볶이', desc: '시장형 무 떡볶이와 어묵 국물 체험' },
+          { time: '12:20', place: '남천동 이동', desc: '광안리 해변권 이동' },
+          { time: '13:00', place: '다리집 본점', desc: '굵은 떡볶이와 오징어튀김 체험' },
+          { time: '14:00', place: '광안리 해변 산책', desc: '사진 촬영 및 마무리' },
+          { time: '14:30', place: '종료', desc: '개별 해산' },
+        ],
+      },
+      {
+        type: '1일형 B코스 (8–9시간)',
+        rows: [
+          { time: '09:30', place: '부전시장 집결', desc: '오리엔테이션, 부산 전통시장 문화 소개' },
+          { time: '09:40', place: '부전시장 탐방', desc: '농수산물·건어물·반찬·인삼시장 등 로컬 식재료 체험' },
+          { time: '10:40', place: '부평깡통시장 이동', desc: '부산 원도심 시장권 이동' },
+          { time: '11:20', place: '이가네떡볶이', desc: '무 떡볶이와 어묵 국물 체험' },
+          { time: '12:10', place: '국제시장·부평깡통시장 산책', desc: '원도심 시장문화 탐방' },
+          { time: '13:30', place: '남천동 이동', desc: '광안리 해변권 미식권 소개' },
+          { time: '14:00', place: '다리집 본점', desc: '굵은 가래떡 떡볶이와 오징어튀김 체험' },
+          { time: '15:00', place: '광안리 해변 산책', desc: '미식 후 바다 경관 감상' },
+          { time: '16:20', place: '영도 이동', desc: '영도 골목문화 소개' },
+          { time: '16:50', place: '도날드즉석떡볶이', desc: '30년 전통 즉석떡볶이 체험' },
+          { time: '18:00', place: '마무리 토크', desc: '오늘의 맛 비교, 사진 공유' },
+          { time: '18:30', place: '종료', desc: '개별 해산' },
+        ],
+      },
+    ],
+    tip: '반일형은 A코스(부전시장→이가네→다리집), 1일형은 B코스(부전시장→이가네→다리집→도날드) 선택 가능. 현금 지참 권장.',
     links: [
       { label: '부산은 맛있다 — 떡볶이 특별편 (Visit Busan)', url: 'https://www.visitbusan.net/index.do?lang_cd=ko&menuCd=DOM_000000202003001000&uc_seq=1032' },
       { label: '이가네떡볶이 공식 정보 (Visit Busan)', url: 'https://www.visitbusan.net/index.do?lang_cd=ko&menuCd=DOM_000000201002001000&uc_seq=1527' },
-      { label: '도날드즉석떡볶이 공식 정보 (Visit Busan)', url: 'https://www.visitbusan.net/index.do?lang_cd=ko&menuCd=DOM_000000201002001000&uc_seq=1133' },
+      { label: '다리집 본점 공식 정보 (Visit Busan)', url: 'https://www.visitbusan.net/index.do?menuCd=DOM_000000201002001000&uc_seq=942' },
+      { label: '도날드즉석떡볶이 공식 정보 (Visit Busan)', url: 'https://www.visitbusan.net/index.do?menuCd=DOM_000000202002001000&uc_seq=2178' },
       { label: '오이소! 보이소! 사이소! 자갈치시장 (Visit Busan)', url: 'https://www.visitbusan.net/index.do?lang_cd=ko&menuCd=DOM_000000201003001000&uc_seq=412' },
       { label: '자갈치시장 공식 홈페이지', url: 'https://www.bisco.or.kr/jagalchimarket/' },
     ],
@@ -350,6 +391,17 @@ function openModal(programKey) {
           </div>
         </div>`).join('')}
     </div>` : '';
+
+  const schedulesHtml = d.schedules && d.schedules.length ? d.schedules.map(sch => `
+    <div class="info-schedule">
+      <h3 class="info-schedule-title">${sch.type}</h3>
+      <table class="schedule-table">
+        <thead><tr><th>시간</th><th>장소</th><th>내용</th></tr></thead>
+        <tbody>
+          ${sch.rows.map(r => `<tr><td class="sch-time">${r.time}</td><td class="sch-place">${r.place}</td><td class="sch-desc">${r.desc}</td></tr>`).join('')}
+        </tbody>
+      </table>
+    </div>`).join('') : '';
 
   const routeHtml = d.route ? `
     <div class="info-route">
@@ -499,6 +551,18 @@ function openModal(programKey) {
       text-decoration: none;
     }
     .info-links a:hover { background: #e8a04a; }
+    /* 일정표 */
+    .info-schedule { margin-bottom: 20px; }
+    .info-schedule-title { font-size: 15px; font-weight: 700; color: #1a2e2a; margin-bottom: 10px; padding-left: 10px; border-left: 3px solid #e8a04a; }
+    .schedule-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .schedule-table thead tr { background: #1a2e2a; color: #fff; }
+    .schedule-table thead th { padding: 8px 10px; text-align: left; font-weight: 600; }
+    .schedule-table tbody tr:nth-child(even) { background: #f8f7f4; }
+    .schedule-table tbody tr:hover { background: #e8f5f0; }
+    .schedule-table td { padding: 8px 10px; vertical-align: top; border-bottom: 1px solid #eee; }
+    .sch-time { font-weight: 700; color: #e8a04a; white-space: nowrap; width: 54px; }
+    .sch-place { font-weight: 600; color: #1a2e2a; width: 140px; }
+    .sch-desc { color: #555; }
     .info-source { font-size: 12px; color: #aaa; margin-top: 32px; }
     /* 섹션 구분선 */
     hr { border: none; border-top: 1px solid #e5e5e5; margin: 28px 0; }
@@ -523,6 +587,7 @@ function openModal(programKey) {
     </section>` : ''}
     ${spotsHtml ? `<section><h2 class="section-title">방문 장소</h2>${spotsHtml}</section>` : ''}
     ${coursesHtml ? `<section><h2 class="section-title">추천 코스</h2>${coursesHtml}</section>` : ''}
+    ${schedulesHtml ? `<section><h2 class="section-title">코스 일정표</h2>${schedulesHtml}</section>` : ''}
     ${routeHtml ? `<section>${routeHtml}</section>` : ''}
     ${d.tip ? `<section><h2 class="section-title">여행 팁</h2><div class="tip-box">💡 ${d.tip}</div></section>` : ''}
     ${linksHtml ? `<section>${linksHtml}</section>` : ''}
