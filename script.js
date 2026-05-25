@@ -253,6 +253,126 @@ const translations = {
     'footer.contact': 'Contact',
     'footer.copyright': '© 2026 Sunshine Wellness. All rights reserved.',
   },
+
+  zh: {
+    // 导航
+    'nav.about': '关于我们',
+    'nav.programs': '项目介绍',
+    'nav.contact': '咨询预约',
+    'nav.wheretonext': '下一站去哪？',
+    'nav.contactus': '联系我们',
+    'auth.login': '登录',
+    'auth.signup': '注册',
+
+    // 幻灯片 1
+    'slide1.title': '您宝贵人生的<br /><strong>"第三幕"</strong>',
+    'slide1.desc': '为新中年量身定制的洞察之旅与健康旅游',
+    'slide1.tagline': 'Journey with Purpose, Wellness All Around',
+
+    // 幻灯片 2
+    'slide2.title': '藏在巷弄里的<br /><strong>釜山故事</strong>',
+    'slide2.desc': '甘川文化村——与专业解说员共同深度探访',
+    'slide2.tagline': 'Stories Hidden in Every Alley',
+
+    // 幻灯片 3
+    'slide3.title': '在静谧中<br /><strong>放下心灵</strong>',
+    'slide3.desc': '梵鱼寺、海东龙宫寺——釜山寺院禅修之旅',
+    'slide3.tagline': 'Find Peace in Ancient Temples',
+
+    // 幻灯片 4
+    'slide4.title': '预算有限<br /><strong>也没关系！</strong>',
+    'slide4.desc': '国际市场、富平罐头市场、札嘎其市场——釜山三大市场徒步游',
+    'slide4.tagline': 'Walk the Markets, Taste the City',
+
+    // 幻灯片 5
+    'slide5.title': '铭记伤痛<br /><strong>学习和平</strong>',
+    'slide5.desc': '掠夺·避难·重建·和平——釜山黑色旅游',
+    'slide5.tagline': 'Remember the Past, Walk Toward Peace',
+
+    // 幻灯片 6
+    'slide6.title': '艺术染色的<br /><strong>釜山一日</strong>',
+    'slide6.desc': '釜山当代美术馆、釜山双年展——深度探访釜山艺术空间',
+    'slide6.tagline': 'Art Flows Through Every Street',
+
+    // 关于我们
+    'about.label': 'About Us',
+    'about.title': '用全身心感受<br /><strong>釜山之美</strong>',
+    'about.desc': '阳光健康旅游提供定制化健康旅行，让您深入缓慢地体验釜山的自然、文化、艺术与历史。漫步、观赏、休憩——遇见属于您的釜山。',
+    'stat1.label': '专业项目',
+    'stat2.label': '定制旅游',
+    'stat3.label': '本地专业旅行社',
+
+    // 项目介绍
+    'programs.label': 'Our Programs',
+    'programs.title': '健康旅游<br /><strong>项目</strong>',
+    'programs.desc': '身心共同休憩的<br />釜山特别旅程',
+
+    // 卡片 1
+    'card1.tag': '旅游',
+    'card1.title': '釜山近郊游',
+    'card1.desc': '探访机张、海云台、影岛等釜山近郊隐藏的宝藏之地。',
+
+    // 卡片 2
+    'card2.tag': '文化',
+    'card2.title': '甘川文化村解说',
+    'card2.desc': '与专业解说员一同聆听甘川文化村的历史、艺术与巷弄故事。',
+
+    // 卡片 3
+    'card3.tag': '禅修',
+    'card3.title': '寺院之旅',
+    'card3.desc': '在梵鱼寺、海东龙宫寺等釜山古刹体验禅修与寺院文化。',
+
+    // 卡片 4
+    'card4.tag': '艺术',
+    'card4.title': '釜山艺术之旅',
+    'card4.desc': '深度探访釜山艺术空间——叮叮艺术村、F1963、釜山当代美术馆。',
+
+    // 卡片 5
+    'card5.tag': '美食',
+    'card5.title': '市场&炒年糕美食游',
+    'card5.desc': '富田市场→利家→桥家→唐纳德——沿釜山市场、海岸与小巷，品味各地炒年糕的故事。',
+
+    // 卡片 6
+    'card6.tag': '历史',
+    'card6.title': '釜山黑色旅游',
+    'card6.desc': '掠夺·避难·重建·和平——实地走访，学习釜山近现代历史。',
+
+    // 卡片 공통
+    'card.info': '旅游详情',
+    'card.contact': '咨询 →',
+
+    // 联系我们
+    'contact.label': 'Contact',
+    'contact.title': '开启您的<br /><strong>旅程</strong>',
+    'contact.desc': '告诉我们您感兴趣的项目，我们将为您量身定制行程。',
+    'contact.address': '釜山西面朱迪斯泰和百货前',
+
+    // 表单
+    'form.name': '姓名',
+    'form.namePlaceholder': '张三',
+    'form.phone': '联系电话',
+    'form.phonePlaceholder': '+82-10-0000-0000',
+    'form.program': '感兴趣的项目',
+    'form.programDefault': '请选择',
+    'prog.tour': '釜山近郊游',
+    'prog.culture': '甘川文化村解说',
+    'prog.art': '釜山艺术之旅',
+    'prog.temple': '寺院之旅',
+    'prog.market': '市场徒步游',
+    'form.message': '咨询内容',
+    'form.messagePlaceholder': '请填写希望的日期、人数及特别要求。',
+    'form.submit': '发送咨询',
+    'form.sending': '发送中...',
+    'form.success': '感谢您！我们将尽快与您联系。',
+    'form.error': '发生错误，请重试。',
+
+    // 页脚
+    'footer.tagline': '从釜山出发的特别健康之旅',
+    'footer.about': '关于',
+    'footer.programs': '项目',
+    'footer.contact': '联系',
+    'footer.copyright': '© 2026 阳光健康旅游. All rights reserved.',
+  },
 };
 
 const modalLabels = {
@@ -271,6 +391,14 @@ const modalLabels = {
     tip: 'Travel Tips',
     links: 'Useful Links',
     source: 'Source',
+  },
+  zh: {
+    programInfo: '项目信息',
+    spots: '游览地点',
+    courses: '推荐路线',
+    tip: '旅行小贴士',
+    links: '相关链接',
+    source: '资料来源',
   },
 };
 
@@ -386,6 +514,18 @@ const programData = {
       links: [{ label: 'Haeundae Tourist Info', url: 'https://www.haeundae.go.kr' }],
       source: 'Busan Tourism Organization',
     },
+    zh: {
+      title: '釜山疗愈之旅',
+      duration: '1晚2天',
+      price: '请咨询',
+      maxPeople: '最多10人',
+      description: '以海云台、广安里、太宗台为中心，探访釜山代表性的疗愈胜地。在海洋与自然交融的旅途中，洗去日常疲惫。',
+      spots: ['海云台海水浴场', '广安大桥夜景', '太宗台自然公园', '冬柏岛'],
+      courses: ['上午：海云台漫步与游泳', '午餐：海云台市场海鲜', '下午：广安里咖啡店探访', '傍晚：广安大桥夜景', '第二天：太宗台徒步'],
+      tip: '周末和旺季海云台非常拥挤，建议平日前往。',
+      links: [{ label: '海云台旅游信息', url: 'https://www.haeundae.go.kr' }],
+      source: '釜山旅游公社',
+    },
   },
 
   culture: {
@@ -412,6 +552,18 @@ const programData = {
       tip: 'Busan Museum of Art is closed every Monday. Check before visiting.',
       links: [{ label: 'Busan Museum of Art', url: 'https://www.busan.go.kr/museum' }],
       source: 'Busan Cultural Foundation',
+    },
+    zh: {
+      title: '甘川文化村解说游',
+      duration: '当日往返',
+      price: '请咨询',
+      maxPeople: '最多15人',
+      description: '与专业解说员一同，深度体验釜山传统文化与当代艺术的特别文化之旅。包含与当地艺术家的交流及传统工艺体验。',
+      spots: ['釜山市立美术馆', '釜山文化会馆', '民主公园', '宝水洞书街'],
+      courses: ['上午：釜山市立美术馆参观', '午餐：南浦洞街头美食', '下午：宝水洞书街探访', '傍晚：民主公园参观'],
+      tip: '釜山市立美术馆每周一休馆，请提前确认。',
+      links: [{ label: '釜山市立美术馆', url: 'https://www.busan.go.kr/museum' }],
+      source: '釜山文化财团',
     },
   },
 
@@ -440,6 +592,18 @@ const programData = {
       links: [{ label: 'Gamcheon Culture Village', url: 'http://www.gamcheon.or.kr' }],
       source: 'Gamcheon Culture Village Residents Council',
     },
+    zh: {
+      title: '甘川艺术之旅',
+      duration: '半天',
+      price: '请咨询',
+      maxPeople: '最多12人',
+      description: '在釜山艺术村甘川文化村，与当地艺术家共同体验特别的艺术之旅。漫步五彩斑斓的小巷，欣赏各处艺术作品。',
+      spots: ['甘川文化村', '小王子雕塑', '鱼形阶梯壁画', '村庄画廊'],
+      courses: ['上午：甘川文化村导览游', '途中：巷弄艺术作品欣赏', '村庄咖啡厅休息', '下午：当地艺术家工作室参观'],
+      tip: '甘川文化村地势有坡，请穿着舒适的鞋子。上午参观人较少。',
+      links: [{ label: '甘川文化村', url: 'http://www.gamcheon.or.kr' }],
+      source: '甘川文化村居民协会',
+    },
   },
 
   temple: {
@@ -467,6 +631,18 @@ const programData = {
       links: [{ label: 'Beomeosa Official Site', url: 'http://www.beomeosa.co.kr' }],
       source: 'Busan Buddhist Culture Center',
     },
+    zh: {
+      title: '寺院禅修体验',
+      duration: '当日往返',
+      price: '请咨询',
+      maxPeople: '最多8人',
+      description: '在梵鱼寺与海东龙宫寺进行深度禅修与寺院体验项目。在闹市中的静谧寺院，寻找内心的平静。',
+      spots: ['梵鱼寺', '海东龙宫寺', '金井山步道', '寺院庭园'],
+      courses: ['清晨：梵鱼寺晨钟礼佛', '上午：寺院禅修体验', '午餐：寺院素食', '下午：海东龙宫寺参观', '黄昏：金井山日落'],
+      tip: '晨钟礼佛于凌晨4时开始，请着素雅服装。',
+      links: [{ label: '梵鱼寺官方网站', url: 'http://www.beomeosa.co.kr' }],
+      source: '釜山佛教文化院',
+    },
   },
 
   market: {
@@ -493,6 +669,18 @@ const programData = {
       tip: 'Visit Jagalchi Market early in the morning for the freshest seafood.',
       links: [{ label: 'Jagalchi Market', url: 'https://www.jagalchi.kr' }],
       source: 'Busan Tourism Promotion Division',
+    },
+    zh: {
+      title: '市场美食游',
+      duration: '半天',
+      price: '请咨询',
+      maxPeople: '最多12人',
+      description: '探访釜山传统市场与夜市，体验当地饮食文化。从新鲜海鲜到街头小吃，尽享釜山的美味。',
+      spots: ['釜山札嘎其市场', '国际市场', '富平罐头市场', '南浦洞美食街'],
+      courses: ['上午：札嘎其市场海鲜游', '午餐：国际市场美食探访', '下午：富平罐头市场购物', '傍晚：南浦洞夜市'],
+      tip: '清早前往札嘎其市场可以买到最新鲜的海鲜。',
+      links: [{ label: '札嘎其市场', url: 'https://www.jagalchi.kr' }],
+      source: '釜山广域市旅游振兴科',
     },
   },
 
@@ -541,6 +729,28 @@ const programData = {
       ],
       source: 'Busan Metropolitan City Historical Culture Division',
     },
+    zh: {
+      title: '釜山黑色旅游',
+      duration: '当日往返',
+      price: '请咨询',
+      maxPeople: '最多15人',
+      description: '走访承载韩国战争伤痛的釜山历史遗址，学习和平的珍贵。这是一段理解战时难民生活与历史的特别旅程。',
+      spots: ['联合国纪念公园', '临时首都纪念馆', '釜山近现代历史馆', '战争难民定居遗址', '国立日帝强制动员历史馆', '釜山港第一码头'],
+      courses: [
+        '上午：联合国纪念公园参拜与悼念',
+        '上午中段：临时首都纪念馆参观（釜山作为战时临时首都）',
+        '午餐：釜山镇区传统餐厅',
+        '下午：釜山近现代历史馆（日据时代至现代）',
+        '下午中段：国立日帝强制动员历史馆',
+        '傍晚：釜山港第一码头历史探访',
+      ],
+      tip: '联合国纪念公园免费入场，建议着庄重服装。部分展馆周一休馆。',
+      links: [
+        { label: '联合国纪念公园', url: 'https://www.unmck.or.kr' },
+        { label: '国立日帝强制动员历史馆', url: 'https://www.fomo.or.kr' },
+      ],
+      source: '釜山广域市历史文化科',
+    },
   },
 };
 
@@ -553,7 +763,7 @@ function openModal(programKey) {
 
   const d = prog[currentLang] || prog.ko;
   const ml = modalLabels[currentLang] || modalLabels.ko;
-  const lang = currentLang === 'ko' ? 'ko' : 'en';
+  const lang = currentLang === 'ko' ? 'ko' : currentLang === 'zh' ? 'zh' : 'en';
 
   const spotsHTML = d.spots
     .map(s => `<li>${s}</li>`)
