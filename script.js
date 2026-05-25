@@ -493,7 +493,7 @@ function openAboutPage() {
     { bg: '#1a2e2a', color: '#fff', center: true, content: `
       <p style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#e8a04a;margin-bottom:14px;">Sunshine Wellness</p>
       <h1 style="font-size:clamp(24px,5vw,40px);font-weight:800;line-height:1.35;margin-bottom:22px;">가치있는 당신의 인생,<br/><span style="color:#e8a04a;">제 3막을 함께합니다</span></h1>
-      <p style="font-size:15px;color:rgba(255,255,255,.75);max-width:560px;margin:0 auto;line-height:1.9;">선샤인 웰니스는 신중년의 배움과 성장, 몸과 마음의 균형을 지원하는 맞춤형 웰니스 여행 전문 여행사입니다.</p>` },
+      <p style="font-size:15px;color:#FFD966;max-width:560px;margin:0 auto;line-height:1.9;">선샤인 웰니스는 신중년의 배움과 성장, 몸과 마음의 균형을 지원하는 맞춤형 웰니스 여행 전문 여행사입니다.</p>` },
     { bg: '#fff', color: '#1a1a1a', center: false, content: `
       <p style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#e8a04a;margin-bottom:12px;">Who We Are</p>
       <h2 style="font-size:clamp(18px,3vw,26px);font-weight:700;color:#1a2e2a;margin-bottom:24px;">단순한 여행을 넘어,<br/>인생의 동반자가 되겠습니다</h2>
@@ -525,7 +525,16 @@ function openAboutPage() {
       <a href="https://www.sunshinewellness.co.kr/#contact" target="_parent" style="display:inline-block;background:#fff;color:#e8a04a;font-size:14px;font-weight:700;padding:13px 34px;border-radius:30px;text-decoration:none;">문의하기 →</a>` },
   ];
 
-  const body = sections.map(s => `
+  const header = `
+    <header style="position:fixed;top:0;left:0;width:100%;height:72px;background:rgba(0,0,0,0.55);backdrop-filter:blur(8px);z-index:1000;display:flex;align-items:center;padding:0 48px;justify-content:space-between;">
+      <a href="https://www.sunshinewellness.co.kr" target="_parent" style="text-decoration:none;display:flex;flex-direction:column;gap:2px;">
+        <span style="font-size:1rem;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:#e8a04a;">Sunshine Wellness</span>
+        <span style="font-size:0.55rem;letter-spacing:0.14em;color:rgba(232,160,74,0.7);">선샤인 웰니스</span>
+      </a>
+      <a href="https://www.sunshinewellness.co.kr/#contact" target="_parent" style="font-size:0.8rem;font-weight:600;color:#e8a04a;text-decoration:none;border:1px solid rgba(232,160,74,0.5);padding:7px 20px;border-radius:20px;letter-spacing:0.04em;">문의하기</a>
+    </header>`;
+
+  const body = `${header}` + sections.map(s => `
     <section style="background:${s.bg};padding:88px 32px;${s.center?'text-align:center;':''}">
       <div style="max-width:720px;margin:0 auto;">${s.content}</div>
     </section>`).join('');
