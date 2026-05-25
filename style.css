@@ -378,7 +378,9 @@ ul { list-style: none; }
   background: rgba(255,255,255,0.35);
   border: none;
   cursor: pointer;
-  padding: 0;
+  padding: 8px;
+  margin: -8px;
+  box-sizing: content-box;
   transition: background 0.35s ease, transform 0.35s ease;
 }
 .pdot.active {

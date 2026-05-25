@@ -326,31 +326,25 @@ function stopAutoPlay() {
   clearInterval(slideInterval);
 }
 
-// 도트 네비게이션
-const dotsContainer = document.querySelector('.slide-dots');
-if (dotsContainer) {
-  slides.forEach((_, i) => {
-    const dot = document.createElement('button');
-    dot.classList.add('dot');
-    if (i === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => {
-      stopAutoPlay();
-      goToSlide(i);
-      startAutoPlay();
-    });
-    dotsContainer.appendChild(dot);
+// 도트 네비게이션 (HTML의 .pdot 버튼에 이벤트 연결)
+const pdots = document.querySelectorAll('.pdot');
+pdots.forEach(dot => {
+  dot.addEventListener('click', () => {
+    stopAutoPlay();
+    goToSlide(parseInt(dot.dataset.index, 10));
+    startAutoPlay();
   });
-}
+});
 
 function updateDots() {
-  document.querySelectorAll('.dot').forEach((dot, i) => {
+  pdots.forEach((dot, i) => {
     dot.classList.toggle('active', i === currentSlide);
   });
 }
 
 // 화살표 버튼
-const prevBtn = document.querySelector('.slide-prev');
-const nextBtn = document.querySelector('.slide-next');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
 if (prevBtn) prevBtn.addEventListener('click', () => { stopAutoPlay(); goToSlide(currentSlide - 1); startAutoPlay(); });
 if (nextBtn) nextBtn.addEventListener('click', () => { stopAutoPlay(); nextSlide(); startAutoPlay(); });
 
