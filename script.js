@@ -525,13 +525,34 @@ function openAboutPage() {
       <a href="https://www.sunshinewellness.co.kr/#contact" target="_parent" style="display:inline-block;background:#fff;color:#e8a04a;font-size:14px;font-weight:700;padding:13px 34px;border-radius:30px;text-decoration:none;">문의하기 →</a>` },
   ];
 
+  const BASE = 'https://www.sunshinewellness.co.kr';
   const header = `
-    <header style="position:fixed;top:0;left:0;width:100%;height:72px;background:rgba(0,0,0,0.55);backdrop-filter:blur(8px);z-index:1000;display:flex;align-items:center;padding:0 48px;justify-content:space-between;">
-      <a href="https://www.sunshinewellness.co.kr" target="_parent" style="text-decoration:none;display:flex;flex-direction:column;gap:2px;">
-        <span style="font-size:1rem;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:#e8a04a;">Sunshine Wellness</span>
-        <span style="font-size:0.55rem;letter-spacing:0.14em;color:rgba(232,160,74,0.7);">선샤인 웰니스</span>
-      </a>
-      <a href="https://www.sunshinewellness.co.kr/#contact" target="_parent" style="font-size:0.8rem;font-weight:600;color:#e8a04a;text-decoration:none;border:1px solid rgba(232,160,74,0.5);padding:7px 20px;border-radius:20px;letter-spacing:0.04em;">문의하기</a>
+    <header style="position:fixed;top:0;left:0;width:100%;height:80px;background:#ffffff;box-shadow:0 1px 16px rgba(0,0,0,0.06);z-index:1000;">
+      <div style="height:80px;max-width:1160px;margin:0 auto;padding:0 64px;display:flex;align-items:center;justify-content:space-between;">
+        <a href="${BASE}" target="_parent" style="text-decoration:none;display:flex;flex-direction:column;gap:1px;">
+          <span style="font-size:1.05rem;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:#111111;">Sunshine Wellness</span>
+          <span style="font-size:0.6rem;letter-spacing:0.14em;color:#888888;">선샤인 웰니스</span>
+        </a>
+        <nav style="display:flex;gap:32px;align-items:center;">
+          <a href="${BASE}/#about"    target="_parent" style="font-size:0.8rem;font-weight:500;letter-spacing:0.04em;color:#222222;text-decoration:none;">웰니스 소개</a>
+          <a href="${BASE}/#programs" target="_parent" style="font-size:0.8rem;font-weight:500;letter-spacing:0.04em;color:#222222;text-decoration:none;">프로그램 소개</a>
+          <a href="${BASE}/#contact"  target="_parent" style="font-size:0.8rem;font-weight:500;letter-spacing:0.04em;color:#222222;text-decoration:none;">견적의뢰 및 문의</a>
+          <a href="${BASE}"           target="_parent" style="font-size:0.8rem;font-weight:500;letter-spacing:0.04em;color:#222222;text-decoration:none;">Where to Next?</a>
+          <a href="${BASE}/#contact"  target="_parent" style="font-size:0.8rem;font-weight:500;letter-spacing:0.04em;color:#222222;text-decoration:none;">Contact Us</a>
+        </nav>
+        <div style="display:flex;align-items:center;gap:20px;">
+          <div style="display:flex;align-items:center;gap:8px;font-size:0.75rem;color:#888888;">
+            <a href="#" target="_parent" style="color:#888888;text-decoration:none;">로그인</a>
+            <span style="opacity:.5;">·</span>
+            <a href="#" target="_parent" style="color:#888888;text-decoration:none;">회원가입</a>
+          </div>
+          <div style="display:flex;gap:4px;">
+            <button style="width:34px;height:34px;border-radius:50%;border:1px solid #e0e0e0;background:transparent;color:#888888;font-size:0.58rem;font-weight:600;letter-spacing:0.04em;cursor:pointer;">KOR</button>
+            <button style="width:34px;height:34px;border-radius:50%;border:1px solid #e0e0e0;background:transparent;color:#888888;font-size:0.58rem;font-weight:600;letter-spacing:0.04em;cursor:pointer;">ENG</button>
+            <button style="width:34px;height:34px;border-radius:50%;border:1px solid #e0e0e0;background:transparent;color:#888888;font-size:0.58rem;font-weight:600;letter-spacing:0.04em;cursor:pointer;">CH</button>
+          </div>
+        </div>
+      </div>
     </header>`;
 
   const body = `${header}` + sections.map(s => `
