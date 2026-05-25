@@ -491,9 +491,9 @@ startAutoPlay();
 function openAboutPage() {
   const sections = [
     { bg: '#1a2e2a', color: '#fff', center: true, content: `
-      <p style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#e8a04a;margin-bottom:14px;">Sunshine Wellness</p>
-      <h1 style="font-size:clamp(24px,5vw,40px);font-weight:800;line-height:1.35;margin-bottom:22px;">가치있는 당신의 인생,<br/><span style="color:#e8a04a;">제 3막을 함께합니다</span></h1>
-      <p style="font-size:15px;color:#FFD966;max-width:560px;margin:0 auto;line-height:1.9;">선샤인 웰니스는 신중년의 배움과 성장, 몸과 마음의 균형을 지원하는 맞춤형 웰니스 여행 전문 여행사입니다.</p>` },
+      <p style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:14px;">Sunshine Wellness</p>
+      <h1 style="font-size:clamp(24px,5vw,40px);font-weight:800;line-height:1.35;margin-bottom:22px;color:#fff;">가치있는 당신의 인생,<br/><span style="color:#fff;">제 3막을 함께합니다</span></h1>
+      <p style="font-size:15px;color:rgba(255,255,255,0.7);max-width:560px;margin:0 auto;line-height:1.9;">선샤인 웰니스는 신중년의 배움과 성장, 몸과 마음의 균형을 지원하는 맞춤형 웰니스 여행 전문 여행사입니다.</p>` },
     { bg: '#fff', color: '#1a1a1a', center: false, content: `
       <p style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#e8a04a;margin-bottom:12px;">Who We Are</p>
       <h2 style="font-size:clamp(18px,3vw,26px);font-weight:700;color:#1a2e2a;margin-bottom:24px;">단순한 여행을 넘어,<br/>인생의 동반자가 되겠습니다</h2>
