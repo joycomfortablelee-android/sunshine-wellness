@@ -3,7 +3,7 @@
 // =========================================
 
 // --- 헤더: 스크롤 시 투명 → 흰색 ---
-const header = document.getElementById('main-header');
+const header = document.getElementById('header');
 window.addEventListener('scroll', () => {
   header.classList.toggle('scrolled', window.scrollY > 50);
 });
