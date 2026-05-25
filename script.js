@@ -1582,7 +1582,7 @@ if (contactForm) {
 // =========================================
 // 스무스 스크롤 (네비 링크)
 // =========================================
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+document.querySelectorAll('a[href^="#"]:not([onclick])').forEach(anchor => {
   anchor.addEventListener('click', e => {
     const target = document.querySelector(anchor.getAttribute('href'));
     if (target) {
