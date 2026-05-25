@@ -486,6 +486,419 @@ requestAnimationFrame(() => requestAnimationFrame(() => {
 startAutoPlay();
 
 // =========================================
+// Where to Next? 게시판 새 창
+// =========================================
+function openWhereToNextPage() {
+  const BASE = 'https://www.sunshinewellness.co.kr';
+
+  const samplePosts = [
+    { id: 8, title: '제주도 웰니스 여행 후기 — 사찰 스테이가 최고였어요', date: '05-22' },
+    { id: 7, title: '60대에 혼자 부산 여행, 선샤인 웰니스 덕분에 잊지 못할 경험', date: '05-20' },
+    { id: 6, title: '다음 행선지 고민 중 — 교토 vs 부산, 어디가 좋을까요?', date: '05-18' },
+    { id: 5, title: '감천문화마을 투어 다녀왔습니다! 해설사 선생님이 너무 좋았어요', date: '05-15' },
+    { id: 4, title: '부산 시장 투어 후기 — 자갈치에서 활어회 먹은 게 아직도 생각나요', date: '05-12' },
+    { id: 3, title: '해동용궁사 새벽 예불 체험, 삶이 바뀌는 느낌이었습니다', date: '05-08' },
+    { id: 2, title: '신중년 여행 동행 구합니다 — 6월 부산 근교 투어 같이 가실 분?', date: '05-03' },
+    { id: 1, title: '선샤인 웰니스 첫 번째 후기 — 기대 이상이었습니다 :)', date: '04-28' },
+  ];
+
+  const header = `
+    <header style="position:fixed;top:0;left:0;width:100%;height:80px;background:#ffffff;box-shadow:0 1px 16px rgba(0,0,0,0.06);z-index:1000;font-family:'Noto Sans KR',sans-serif;">
+      <div style="height:80px;max-width:1200px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;">
+        <a href="${BASE}" target="_parent" style="text-decoration:none;display:flex;flex-direction:column;gap:1px;">
+          <span style="font-size:1.05rem;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:#111111;">Sunshine Wellness</span>
+          <span style="font-size:0.6rem;letter-spacing:0.14em;color:#888888;">선샤인 웰니스</span>
+        </a>
+        <nav style="display:flex;gap:28px;align-items:center;">
+          <a href="${BASE}/#about"    target="_parent" style="font-size:0.95rem;font-weight:500;color:#222;text-decoration:none;">웰니스 소개</a>
+          <a href="${BASE}/#programs" target="_parent" style="font-size:0.95rem;font-weight:500;color:#222;text-decoration:none;">프로그램 소개</a>
+          <a href="${BASE}/#contact"  target="_parent" style="font-size:0.95rem;font-weight:500;color:#222;text-decoration:none;">견적의뢰 및 문의</a>
+          <a href="#" style="font-size:0.95rem;font-weight:700;color:#1a2e2a;text-decoration:none;border-bottom:2px solid #e8a04a;padding-bottom:2px;">Where to Next?</a>
+          <a href="${BASE}/#contact"  target="_parent" style="font-size:0.95rem;font-weight:500;color:#222;text-decoration:none;">Contact Us</a>
+        </nav>
+        <div style="display:flex;align-items:center;gap:16px;">
+          <div style="display:flex;gap:6px;font-size:0.88rem;color:#888;">
+            <a href="#" style="color:#888;text-decoration:none;">로그인</a>
+            <span style="opacity:.4;">·</span>
+            <a href="#" style="color:#888;text-decoration:none;">회원가입</a>
+          </div>
+          <a href="${BASE}" target="_parent" style="width:34px;height:34px;border-radius:50%;border:1px solid #222;background:#222;color:#fff;font-size:0.75rem;font-weight:600;display:flex;align-items:center;justify-content:center;text-decoration:none;">홈</a>
+        </div>
+      </div>
+    </header>`;
+
+  const postsJson = JSON.stringify(samplePosts);
+
+  const html = `<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Where to Next? — 선샤인 웰니스</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Noto Sans KR',sans-serif;background:#f5f5f3;color:#222;}
+    a{text-decoration:none;color:inherit;}
+    .page-wrap{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+    /* 페이지 타이틀 */
+    .board-hero{background:#1a2e2a;color:#fff;padding:48px 0 36px;}
+    .board-hero-inner{max-width:860px;margin:0 auto;padding:0 24px;}
+    .board-hero p{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#e8a04a;margin-bottom:10px;}
+    .board-hero h1{font-size:clamp(22px,4vw,32px);font-weight:800;line-height:1.3;}
+    .board-hero span{font-weight:300;opacity:.7;}
+    /* 툴바 */
+    .board-toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;padding:16px 0 10px;}
+    .board-count{font-size:13px;color:#666;}
+    .board-count strong{color:#1a2e2a;}
+    .btn-write{background:#1a2e2a;color:#fff;border:none;padding:9px 20px;font-size:13px;font-weight:600;border-radius:6px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;}
+    .btn-write:hover{background:#243d38;}
+    /* 테이블 */
+    .board-table{width:100%;border-collapse:collapse;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 8px rgba(0,0,0,0.06);}
+    .board-table thead tr{background:#f0eeea;border-bottom:2px solid #e0ddd8;}
+    .board-table th{padding:13px 16px;font-size:13px;font-weight:700;color:#555;text-align:center;}
+    .board-table th.col-title{text-align:left;}
+    .board-table td{padding:14px 16px;font-size:14px;border-bottom:1px solid #f0eeea;vertical-align:middle;}
+    .board-table td.col-no{text-align:center;color:#aaa;font-size:13px;width:60px;}
+    .board-table td.col-title a{color:#1a2e2a;font-weight:500;line-height:1.5;}
+    .board-table td.col-title a:hover{color:#e8a04a;}
+    .board-table td.col-date{text-align:center;color:#999;font-size:13px;width:90px;}
+    .board-table tbody tr:last-child td{border-bottom:none;}
+    .board-table tbody tr:hover td{background:#faf9f7;}
+    .board-empty{text-align:center;padding:60px 0;color:#aaa;font-size:14px;}
+    /* 페이지네이션 */
+    .board-paging{display:flex;justify-content:center;align-items:center;gap:6px;margin-top:28px;}
+    .board-paging a,.board-paging span{width:34px;height:34px;display:flex;align-items:center;justify-content:center;border-radius:6px;font-size:13px;color:#555;border:1px solid #e0ddd8;background:#fff;}
+    .board-paging span.active{background:#1a2e2a;color:#fff;border-color:#1a2e2a;font-weight:700;}
+    .board-paging a:hover{background:#f5f5f3;}
+    /* 검색 */
+    .board-search{display:flex;justify-content:center;margin-top:32px;}
+    .board-search select{padding:9px 12px;font-size:13px;border:1px solid #ddd;border-right:none;border-radius:6px 0 0 6px;background:#fff;font-family:'Noto Sans KR',sans-serif;color:#555;}
+    .board-search input{padding:9px 14px;font-size:13px;border:1px solid #ddd;width:240px;font-family:'Noto Sans KR',sans-serif;outline:none;}
+    .board-search button{padding:9px 18px;font-size:13px;background:#1a2e2a;color:#fff;border:none;border-radius:0 6px 6px 0;cursor:pointer;font-family:'Noto Sans KR',sans-serif;font-weight:600;}
+    .board-search button:hover{background:#243d38;}
+    /* 글쓰기 폼 오버레이 */
+    .write-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:2000;align-items:center;justify-content:center;}
+    .write-overlay.open{display:flex;}
+    .write-box{background:#fff;border-radius:14px;padding:36px 32px;width:100%;max-width:520px;margin:16px;}
+    .write-box h2{font-size:18px;font-weight:700;color:#1a2e2a;margin-bottom:24px;}
+    .write-field{margin-bottom:16px;}
+    .write-field label{display:block;font-size:13px;font-weight:600;color:#444;margin-bottom:6px;}
+    .write-field input,.write-field textarea{width:100%;padding:10px 14px;font-size:14px;border:1px solid #ddd;border-radius:8px;font-family:'Noto Sans KR',sans-serif;outline:none;}
+    .write-field input:focus,.write-field textarea:focus{border-color:#1a2e2a;}
+    .write-field textarea{height:120px;resize:vertical;}
+    .write-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:8px;}
+    .btn-cancel{padding:10px 22px;font-size:13px;font-weight:600;color:#666;background:#f5f5f3;border:1px solid #ddd;border-radius:8px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;}
+    .btn-submit{padding:10px 22px;font-size:13px;font-weight:600;color:#fff;background:#1a2e2a;border:none;border-radius:8px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;}
+    .btn-submit:hover{background:#243d38;}
+  </style>
+</head>
+<body>
+  ${header}
+
+  <div style="padding-top:80px;">
+    <div class="board-hero">
+      <div class="board-hero-inner">
+        <p>Community</p>
+        <h1>Where to Next? <span>— 다음 여행지</span></h1>
+      </div>
+    </div>
+
+    <div class="page-wrap">
+      <div class="board-toolbar">
+        <p class="board-count">총 <strong id="totalCount">0</strong>건</p>
+        <button class="btn-write" onclick="openWriteForm()">글쓰기</button>
+      </div>
+
+      <table class="board-table">
+        <thead>
+          <tr>
+            <th style="width:60px;">NO.</th>
+            <th class="col-title">제목</th>
+            <th style="width:90px;">날짜</th>
+          </tr>
+        </thead>
+        <tbody id="postList"></tbody>
+      </table>
+
+      <div class="board-paging" id="paging"></div>
+
+      <div class="board-search">
+        <select id="searchType">
+          <option value="title">제목내용</option>
+          <option value="author">글쓴이</option>
+        </select>
+        <input type="text" id="searchInput" placeholder="검색어를 입력하세요" onkeydown="if(event.key==='Enter')doSearch()"/>
+        <button onclick="doSearch()">검색</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 글쓰기 오버레이 -->
+  <div class="write-overlay" id="writeOverlay">
+    <div class="write-box">
+      <h2>글쓰기</h2>
+      <div class="write-field">
+        <label>작성자</label>
+        <input type="text" id="wAuthor" placeholder="닉네임"/>
+      </div>
+      <div class="write-field">
+        <label>제목</label>
+        <input type="text" id="wTitle" placeholder="제목을 입력하세요"/>
+      </div>
+      <div class="write-field">
+        <label>내용</label>
+        <textarea id="wContent" placeholder="내용을 입력하세요"></textarea>
+      </div>
+      <div class="write-actions">
+        <button class="btn-cancel" onclick="closeWriteForm()">취소</button>
+        <button class="btn-submit" onclick="submitPost()">등록</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const POSTS_PER_PAGE = 15;
+    let allPosts = ${postsJson};
+    let filtered = [...allPosts];
+    let currentPage = 1;
+
+    function formatDate(d){ return d instanceof Date ? (d.getMonth()+1).toString().padStart(2,'0')+'-'+d.getDate().toString().padStart(2,'0') : d; }
+
+    function renderBoard(){
+      const list = document.getElementById('postList');
+      const total = document.getElementById('totalCount');
+      total.textContent = filtered.length;
+
+      const start = (currentPage-1)*POSTS_PER_PAGE;
+      const page  = filtered.slice(start, start+POSTS_PER_PAGE);
+
+      if(!page.length){
+        list.innerHTML = '<tr><td colspan="3" class="board-empty">게시글이 없습니다.</td></tr>';
+      } else {
+        list.innerHTML = page.map((p,i) =>
+          '<tr>' +
+          '<td class="col-no">'+(filtered.length - start - i)+'</td>' +
+          '<td class="col-title"><a href="#">'+p.title+'</a></td>' +
+          '<td class="col-date">'+formatDate(p.date)+'</td>' +
+          '</tr>'
+        ).join('');
+      }
+      renderPaging();
+    }
+
+    function renderPaging(){
+      const totalPages = Math.max(1, Math.ceil(filtered.length/POSTS_PER_PAGE));
+      const pg = document.getElementById('paging');
+      let html = '';
+      if(currentPage>1) html += '<a href="#" onclick="goPage('+(currentPage-1)+');return false;">&#8249;</a>';
+      for(let i=1;i<=totalPages;i++){
+        if(i===currentPage) html += '<span class="active">'+i+'</span>';
+        else html += '<a href="#" onclick="goPage('+i+');return false;">'+i+'</a>';
+      }
+      if(currentPage<totalPages) html += '<a href="#" onclick="goPage('+(currentPage+1)+');return false;">&#8250;</a>';
+      pg.innerHTML = html;
+    }
+
+    function goPage(p){ currentPage=p; renderBoard(); window.scrollTo(0,0); }
+
+    function doSearch(){
+      const q = document.getElementById('searchInput').value.trim().toLowerCase();
+      filtered = q ? allPosts.filter(p=>p.title.toLowerCase().includes(q)) : [...allPosts];
+      currentPage=1;
+      renderBoard();
+    }
+
+    function openWriteForm(){ document.getElementById('writeOverlay').classList.add('open'); }
+    function closeWriteForm(){ document.getElementById('writeOverlay').classList.remove('open'); }
+
+    function submitPost(){
+      const title  = document.getElementById('wTitle').value.trim();
+      const author = document.getElementById('wAuthor').value.trim();
+      if(!title){ alert('제목을 입력해주세요.'); return; }
+      const today = new Date();
+      const newPost = {
+        id: allPosts.length + 1,
+        title: title,
+        author: author || '익명',
+        date: formatDate(today),
+      };
+      allPosts.unshift(newPost);
+      filtered = [...allPosts];
+      currentPage = 1;
+      renderBoard();
+      closeWriteForm();
+      document.getElementById('wTitle').value='';
+      document.getElementById('wAuthor').value='';
+      document.getElementById('wContent').value='';
+    }
+
+    document.getElementById('writeOverlay').addEventListener('click', function(e){
+      if(e.target===this) closeWriteForm();
+    });
+
+    renderBoard();
+  </script>
+</body>
+</html>`;
+
+  const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+  const url  = URL.createObjectURL(blob);
+  const win  = window.open(url, '_blank', 'noopener,noreferrer');
+  if (win) win.addEventListener('unload', () => URL.revokeObjectURL(url), { once: true });
+}
+
+// =========================================
+// Contact Us 새 창
+// =========================================
+function openContactPage() {
+  const BASE = 'https://www.sunshinewellness.co.kr';
+
+  const navHtml = `
+    <header style="position:fixed;top:0;left:0;width:100%;height:80px;background:#fff;box-shadow:0 1px 16px rgba(0,0,0,0.06);z-index:1000;">
+      <div style="height:80px;width:100%;padding:0 64px;display:flex;align-items:center;justify-content:space-between;">
+        <a href="${BASE}" target="_parent" style="text-decoration:none;display:flex;flex-direction:column;gap:1px;">
+          <span style="font-size:1.05rem;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:#111;">Sunshine Wellness</span>
+          <span style="font-size:0.6rem;letter-spacing:0.14em;color:#888;">선샤인 웰니스</span>
+        </a>
+        <nav style="display:flex;gap:32px;align-items:center;">
+          <a href="${BASE}/#about"    target="_parent" style="font-size:0.95rem;font-weight:500;color:#222;text-decoration:none;">웰니스 소개</a>
+          <a href="${BASE}/#programs" target="_parent" style="font-size:0.95rem;font-weight:500;color:#222;text-decoration:none;">프로그램 소개</a>
+          <a href="${BASE}/#contact"  target="_parent" style="font-size:0.95rem;font-weight:500;color:#222;text-decoration:none;">견적의뢰 및 문의</a>
+          <a href="${BASE}"           target="_parent" style="font-size:0.95rem;font-weight:500;color:#222;text-decoration:none;">Where to Next?</a>
+          <a href="#" style="font-size:0.95rem;font-weight:700;color:#1a2e2a;text-decoration:none;border-bottom:2px solid #e8a04a;padding-bottom:2px;">Contact Us</a>
+        </nav>
+        <div style="display:flex;align-items:center;gap:20px;">
+          <div style="display:flex;align-items:center;gap:8px;font-size:0.88rem;color:#888;">
+            <a href="#" style="color:#888;text-decoration:none;">로그인</a><span style="opacity:.5;">·</span>
+            <a href="#" style="color:#888;text-decoration:none;">회원가입</a>
+          </div>
+          <div style="display:flex;gap:4px;">
+            <button style="width:34px;height:34px;border-radius:50%;border:1px solid #e0e0e0;background:transparent;color:#888;font-size:0.7rem;font-weight:600;cursor:pointer;">KOR</button>
+            <button style="width:34px;height:34px;border-radius:50%;border:1px solid #e0e0e0;background:transparent;color:#888;font-size:0.7rem;font-weight:600;cursor:pointer;">ENG</button>
+            <button style="width:34px;height:34px;border-radius:50%;border:1px solid #e0e0e0;background:transparent;color:#888;font-size:0.7rem;font-weight:600;cursor:pointer;">CH</button>
+          </div>
+        </div>
+      </div>
+    </header>`;
+
+  const body = `${navHtml}
+  <div style="padding-top:80px;min-height:100vh;background:#f5f5f3;">
+
+    <!-- 히어로 -->
+    <div style="background:#1a2e2a;padding:56px 64px 48px;">
+      <p style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#e8a04a;margin-bottom:10px;">Contact Us</p>
+      <h1 style="font-size:clamp(24px,4vw,38px);font-weight:800;color:#fff;line-height:1.3;margin-bottom:12px;">여행을 <span style="font-weight:300;">시작해보세요</span></h1>
+      <p style="font-size:15px;color:rgba(255,255,255,.65);max-width:560px;line-height:1.8;">원하는 프로그램을 알려주시면 맞춤 일정을 안내해 드립니다.<br/>선샤인 웰니스가 당신만의 부산 여행을 함께 설계합니다.</p>
+    </div>
+
+    <!-- 본문 2열 -->
+    <div style="max-width:1100px;margin:0 auto;padding:60px 40px 80px;display:grid;grid-template-columns:1fr 1.4fr;gap:48px;align-items:start;">
+
+      <!-- 왼쪽: 회사 정보 -->
+      <div>
+        <h2 style="font-size:20px;font-weight:700;color:#1a2e2a;margin-bottom:28px;">선샤인 웰니스</h2>
+
+        <div style="display:flex;flex-direction:column;gap:18px;margin-bottom:36px;">
+          <div style="display:flex;gap:14px;align-items:flex-start;">
+            <span style="font-size:20px;line-height:1;margin-top:2px;">📍</span>
+            <div>
+              <p style="font-size:12px;font-weight:700;color:#888;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px;">주소</p>
+              <p style="font-size:14px;color:#333;line-height:1.6;">부산광역시 부산진구<br/>서면 쥬디스태화 백화점 앞</p>
+            </div>
+          </div>
+          <div style="display:flex;gap:14px;align-items:flex-start;">
+            <span style="font-size:20px;line-height:1;margin-top:2px;">📞</span>
+            <div>
+              <p style="font-size:12px;font-weight:700;color:#888;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px;">전화</p>
+              <p style="font-size:14px;color:#333;">010-XXXX-XXXX</p>
+            </div>
+          </div>
+          <div style="display:flex;gap:14px;align-items:flex-start;">
+            <span style="font-size:20px;line-height:1;margin-top:2px;">✉️</span>
+            <div>
+              <p style="font-size:12px;font-weight:700;color:#888;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px;">이메일</p>
+              <p style="font-size:14px;color:#333;">healthylee7@gmail.com</p>
+            </div>
+          </div>
+          <div style="display:flex;gap:14px;align-items:flex-start;">
+            <span style="font-size:20px;line-height:1;margin-top:2px;">🕐</span>
+            <div>
+              <p style="font-size:12px;font-weight:700;color:#888;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px;">운영시간</p>
+              <p style="font-size:14px;color:#333;line-height:1.7;">평일 09:00 – 18:00<br/><span style="font-size:13px;color:#aaa;">점심 12:00 – 13:00 제외</span></p>
+            </div>
+          </div>
+        </div>
+
+        <div style="border-top:1px solid #e0e0e0;padding-top:24px;">
+          <p style="font-size:12px;font-weight:700;color:#888;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px;">SNS</p>
+          <div style="display:flex;gap:10px;">
+            <a href="https://instagram.com" target="_blank" style="display:flex;align-items:center;gap:7px;padding:8px 16px;background:#fff;border:1px solid #e0e0e0;border-radius:8px;font-size:13px;font-weight:600;color:#333;text-decoration:none;">📷 Instagram</a>
+            <a href="https://blog.naver.com" target="_blank" style="display:flex;align-items:center;gap:7px;padding:8px 16px;background:#fff;border:1px solid #e0e0e0;border-radius:8px;font-size:13px;font-weight:600;color:#333;text-decoration:none;">📝 Blog</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 오른쪽: 문의 폼 -->
+      <div style="background:#fff;border-radius:18px;padding:40px 36px;box-shadow:0 2px 24px rgba(0,0,0,0.07);">
+        <h3 style="font-size:18px;font-weight:700;color:#1a2e2a;margin-bottom:6px;">견적 의뢰 / 문의하기</h3>
+        <p style="font-size:13px;color:#888;margin-bottom:28px;">아래 양식을 작성해 주시면 빠르게 답변드리겠습니다.</p>
+        <form action="https://formspree.io/f/healthylee7@gmail.com" method="POST" style="display:flex;flex-direction:column;gap:18px;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div>
+              <label style="display:block;font-size:13px;font-weight:600;color:#444;margin-bottom:6px;">이름 *</label>
+              <input name="name" type="text" placeholder="홍길동" required style="width:100%;padding:11px 14px;border:1px solid #e0e0e0;border-radius:8px;font-size:14px;font-family:'Noto Sans KR',sans-serif;outline:none;" onfocus="this.style.borderColor='#1a2e2a'" onblur="this.style.borderColor='#e0e0e0'"/>
+            </div>
+            <div>
+              <label style="display:block;font-size:13px;font-weight:600;color:#444;margin-bottom:6px;">연락처 *</label>
+              <input name="phone" type="tel" placeholder="010-0000-0000" required style="width:100%;padding:11px 14px;border:1px solid #e0e0e0;border-radius:8px;font-size:14px;font-family:'Noto Sans KR',sans-serif;outline:none;" onfocus="this.style.borderColor='#1a2e2a'" onblur="this.style.borderColor='#e0e0e0'"/>
+            </div>
+          </div>
+          <div>
+            <label style="display:block;font-size:13px;font-weight:600;color:#444;margin-bottom:6px;">관심 프로그램</label>
+            <select name="program" style="width:100%;padding:11px 14px;border:1px solid #e0e0e0;border-radius:8px;font-size:14px;font-family:'Noto Sans KR',sans-serif;outline:none;background:#fff;" onfocus="this.style.borderColor='#1a2e2a'" onblur="this.style.borderColor='#e0e0e0'">
+              <option value="">선택해주세요</option>
+              <option>부산 근교 투어</option>
+              <option>감천문화마을 해설</option>
+              <option>사찰 투어</option>
+              <option>부산 예술 여행</option>
+              <option>시장 &amp; 떡볶이 미식 투어</option>
+              <option>부산 다크 투어리즘</option>
+              <option>기타 문의</option>
+            </select>
+          </div>
+          <div>
+            <label style="display:block;font-size:13px;font-weight:600;color:#444;margin-bottom:6px;">문의 내용</label>
+            <textarea name="message" placeholder="희망 날짜, 인원, 요청 사항을 적어주세요." rows="5" style="width:100%;padding:11px 14px;border:1px solid #e0e0e0;border-radius:8px;font-size:14px;font-family:'Noto Sans KR',sans-serif;resize:vertical;outline:none;" onfocus="this.style.borderColor='#1a2e2a'" onblur="this.style.borderColor='#e0e0e0'"></textarea>
+          </div>
+          <button type="submit" style="width:100%;padding:14px;background:#1a2e2a;color:#fff;font-size:15px;font-weight:700;font-family:'Noto Sans KR',sans-serif;border:none;border-radius:10px;cursor:pointer;letter-spacing:.04em;transition:background .2s;" onmouseover="this.style.background='#e8a04a'" onmouseout="this.style.background='#1a2e2a'">문의 보내기</button>
+        </form>
+      </div>
+
+    </div>
+  </div>`;
+
+  const css = `
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Noto Sans KR',sans-serif;color:#222;background:#f5f5f3;}
+    a{text-decoration:none;color:inherit;}
+    @media(max-width:780px){
+      div[style*="grid-template-columns:1fr 1.4fr"]{grid-template-columns:1fr!important;}
+      header div[style*="padding:0 64px"]{padding:0 20px!important;}
+      nav{display:none!important;}
+      div[style*="padding:56px 64px"]{padding:40px 24px 36px!important;}
+    }
+  `;
+
+  const html = `<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>Contact Us — 선샤인 웰니스</title><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/><style>${css}</style></head><body>${body}</body></html>`;
+
+  const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+  const url  = URL.createObjectURL(blob);
+  const win  = window.open(url, '_blank', 'noopener,noreferrer');
+  if (win) win.addEventListener('unload', () => URL.revokeObjectURL(url), { once: true });
+}
+
+// =========================================
 // 프로그램 소개 새 창
 // =========================================
 function openProgramsPage() {
