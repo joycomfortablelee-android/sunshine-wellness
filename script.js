@@ -527,7 +527,7 @@ function openAboutPage() {
 
   const BASE = 'https://www.sunshinewellness.co.kr';
   const header = `
-    <header style="position:fixed;top:0;left:0;width:100%;height:80px;background:#ffffff;box-shadow:0 1px 16px rgba(0,0,0,0.06);z-index:1000;">
+    <header style="position:fixed;top:0;left:0;width:100%;height:80px;background:#ffffff;box-shadow:0 1px 16px rgba(0,0,0,0.06);z-index:1000;font-family:'Noto Sans KR',sans-serif;">
       <div style="height:80px;width:100%;padding:0 64px;display:flex;align-items:center;justify-content:space-between;">
         <a href="${BASE}" target="_parent" style="text-decoration:none;display:flex;flex-direction:column;gap:1px;">
           <span style="font-size:1.05rem;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:#111111;">Sunshine Wellness</span>
@@ -561,7 +561,7 @@ function openAboutPage() {
       <div style="max-width:720px;margin:0 auto;">${s.content}</div>
     </section>`).join('');
 
-  const html = '<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>웰니스 소개 — 선샤인 웰니스</title><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&display=swap" rel="stylesheet"/><style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}body{font-family:\'Noto Sans KR\',sans-serif;}@media(max-width:580px){section > div > div[style*="grid-template-columns:1fr 1fr"],section > div > div[style*="grid-template-columns:repeat(3"]{grid-template-columns:1fr!important;}}</style></head><body>' + body + '</body></html>';
+  const html = '<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>웰니스 소개 — 선샤인 웰니스</title><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&display=swap" rel="stylesheet"/><style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}body{font-family:\'Noto Sans KR\',sans-serif;padding-top:80px;}@media(max-width:580px){section > div > div[style*="grid-template-columns:1fr 1fr"],section > div > div[style*="grid-template-columns:repeat(3"]{grid-template-columns:1fr!important;}}</style></head><body>' + body + '</body></html>';
 
   const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
   const url  = URL.createObjectURL(blob);
