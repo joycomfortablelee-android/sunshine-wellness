@@ -4,6 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>선샤인 웰니스 | Sunshine Wellness Tour</title>
+  <meta name="description" content="선샤인 웰니스 — 부산의 자연, 문화, 예술, 역사를 깊고 느리게 경험하는 맞춤형 웰니스 여행. 감천 문화 마을, 사찰 투어, 부산 근교 투어 등 6가지 프로그램." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.sunshinewellness.co.kr" />
+  <meta property="og:title" content="선샤인 웰니스 | Sunshine Wellness Tour" />
+  <meta property="og:description" content="부산의 아름다움을 온몸으로 느끼는 맞춤형 웰니스 여행" />
+  <meta property="og:image" content="https://www.sunshinewellness.co.kr/images/gwangan-bridge-haeundae-busan-korea.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="선샤인 웰니스 | Sunshine Wellness Tour" />
+  <meta name="twitter:description" content="부산의 아름다움을 온몸으로 느끼는 맞춤형 웰니스 여행" />
+  <meta name="twitter:image" content="https://www.sunshinewellness.co.kr/images/gwangan-bridge-haeundae-busan-korea.jpg" />
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
 </head>
@@ -297,25 +307,25 @@
           <p class="section-desc">원하는 프로그램을 알려주시면 맞춤 일정을 안내해 드립니다.</p>
           <div class="contact-info">
             <div class="info-item"><span class="info-icon">📍</span><span>부산광역시</span></div>
-            <div class="info-item"><span class="info-icon">📞</span><span>010-0000-0000</span></div>
-            <div class="info-item"><span class="info-icon">✉️</span><span>info@sunshine-wellness.kr</span></div>
+            <div class="info-item"><span class="info-icon">📞</span><span>010-XXXX-XXXX</span></div>
+            <div class="info-item"><span class="info-icon">✉️</span><span>healthylee7@gmail.com</span></div>
           </div>
         </div>
         <form class="contact-form" id="contactForm">
           <div class="form-row">
             <div class="form-group">
               <label>이름</label>
-              <input type="text" placeholder="홍길동" required />
+              <input type="text" name="name" placeholder="홍길동" required />
             </div>
             <div class="form-group">
               <label>연락처</label>
-              <input type="tel" placeholder="010-0000-0000" required />
+              <input type="tel" name="phone" placeholder="010-0000-0000" required />
             </div>
           </div>
           <div class="form-row">
             <div class="form-group full">
               <label>관심 프로그램</label>
-              <select>
+              <select name="program">
                 <option value="">선택해주세요</option>
                 <option>부산 근교 투어</option>
                 <option>감천 문화 마을 해설</option>
@@ -328,7 +338,7 @@
           <div class="form-row">
             <div class="form-group full">
               <label>문의 내용</label>
-              <textarea placeholder="희망 날짜, 인원, 요청 사항을 적어주세요."></textarea>
+              <textarea name="message" placeholder="희망 날짜, 인원, 요청 사항을 적어주세요."></textarea>
             </div>
           </div>
           <button type="submit" class="btn-submit">문의 보내기</button>

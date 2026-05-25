@@ -248,17 +248,42 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeModal();
 });
 
-// --- 문의 폼 ---
-document.getElementById('contactForm').addEventListener('submit', function(e) {
+// --- 문의 폼 (Formspree 연동) ---
+// 사용법: https://formspree.io 에서 새 폼 생성 후 아래 FORM_ID를 교체하세요.
+const FORMSPREE_ID = 'YOUR_FORM_ID';
+
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   const btn = this.querySelector('.btn-submit');
-  btn.textContent = '감사합니다! 곧 연락드리겠습니다.';
-  btn.style.background = '#3B6259';
+  const originalText = btn.textContent;
+  btn.textContent = '전송 중...';
   btn.disabled = true;
-  setTimeout(() => {
-    btn.textContent = '문의 보내기';
-    btn.style.background = '';
-    btn.disabled = false;
-    this.reset();
-  }, 4000);
+
+  try {
+    const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      method: 'POST',
+      body: new FormData(this),
+      headers: { Accept: 'application/json' },
+    });
+    if (res.ok) {
+      btn.textContent = '감사합니다! 곧 연락드리겠습니다.';
+      btn.style.background = '#3B6259';
+      this.reset();
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 4000);
+    } else {
+      throw new Error('서버 오류');
+    }
+  } catch {
+    btn.textContent = '오류가 발생했습니다. 다시 시도해주세요.';
+    btn.style.background = '#c0392b';
+    setTimeout(() => {
+      btn.textContent = originalText;
+      btn.style.background = '';
+      btn.disabled = false;
+    }, 3000);
+  }
 });
