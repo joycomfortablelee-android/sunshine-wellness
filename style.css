@@ -149,6 +149,21 @@ ul { list-style: none; }
   color: var(--dark);
 }
 
+.home-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background: var(--dark);
+  border-color: var(--dark);
+  color: var(--white);
+}
+.home-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--white);
+}
+
 /* 햄버거 */
 .hamburger {
   display: none;
