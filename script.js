@@ -534,23 +534,23 @@ function openAboutPage() {
           <span style="font-size:0.6rem;letter-spacing:0.14em;color:#888888;">선샤인 웰니스</span>
         </a>
         <nav style="display:flex;gap:32px;align-items:center;">
-          <a href="${BASE}/#about"    target="_parent" style="font-size:0.8rem;font-weight:500;letter-spacing:0.04em;color:#222222;text-decoration:none;">웰니스 소개</a>
-          <a href="${BASE}/#programs" target="_parent" style="font-size:0.8rem;font-weight:500;letter-spacing:0.04em;color:#222222;text-decoration:none;">프로그램 소개</a>
-          <a href="${BASE}/#contact"  target="_parent" style="font-size:0.8rem;font-weight:500;letter-spacing:0.04em;color:#222222;text-decoration:none;">견적의뢰 및 문의</a>
-          <a href="${BASE}"           target="_parent" style="font-size:0.8rem;font-weight:500;letter-spacing:0.04em;color:#222222;text-decoration:none;">Where to Next?</a>
-          <a href="${BASE}/#contact"  target="_parent" style="font-size:0.8rem;font-weight:500;letter-spacing:0.04em;color:#222222;text-decoration:none;">Contact Us</a>
+          <a href="${BASE}/#about"    target="_parent" style="font-size:0.95rem;font-weight:500;letter-spacing:0.04em;color:#222222;text-decoration:none;">웰니스 소개</a>
+          <a href="${BASE}/#programs" target="_parent" style="font-size:0.95rem;font-weight:500;letter-spacing:0.04em;color:#222222;text-decoration:none;">프로그램 소개</a>
+          <a href="${BASE}/#contact"  target="_parent" style="font-size:0.95rem;font-weight:500;letter-spacing:0.04em;color:#222222;text-decoration:none;">견적의뢰 및 문의</a>
+          <a href="${BASE}"           target="_parent" style="font-size:0.95rem;font-weight:500;letter-spacing:0.04em;color:#222222;text-decoration:none;">Where to Next?</a>
+          <a href="${BASE}/#contact"  target="_parent" style="font-size:0.95rem;font-weight:500;letter-spacing:0.04em;color:#222222;text-decoration:none;">Contact Us</a>
         </nav>
         <div style="display:flex;align-items:center;gap:20px;">
-          <div style="display:flex;align-items:center;gap:8px;font-size:0.75rem;color:#888888;">
+          <div style="display:flex;align-items:center;gap:8px;font-size:0.88rem;color:#888888;">
             <a href="#" target="_parent" style="color:#888888;text-decoration:none;">로그인</a>
             <span style="opacity:.5;">·</span>
             <a href="#" target="_parent" style="color:#888888;text-decoration:none;">회원가입</a>
           </div>
           <div style="display:flex;gap:4px;">
             <a href="${BASE}" target="_parent" style="width:34px;height:34px;border-radius:50%;border:1px solid #222222;background:#222222;color:#ffffff;font-size:0.75rem;font-weight:600;letter-spacing:0.04em;cursor:pointer;display:flex;align-items:center;justify-content:center;text-decoration:none;">홈</a>
-            <button style="width:34px;height:34px;border-radius:50%;border:1px solid #e0e0e0;background:transparent;color:#888888;font-size:0.58rem;font-weight:600;letter-spacing:0.04em;cursor:pointer;">KOR</button>
-            <button style="width:34px;height:34px;border-radius:50%;border:1px solid #e0e0e0;background:transparent;color:#888888;font-size:0.58rem;font-weight:600;letter-spacing:0.04em;cursor:pointer;">ENG</button>
-            <button style="width:34px;height:34px;border-radius:50%;border:1px solid #e0e0e0;background:transparent;color:#888888;font-size:0.58rem;font-weight:600;letter-spacing:0.04em;cursor:pointer;">CH</button>
+            <button style="width:34px;height:34px;border-radius:50%;border:1px solid #e0e0e0;background:transparent;color:#888888;font-size:0.7rem;font-weight:600;letter-spacing:0.04em;cursor:pointer;">KOR</button>
+            <button style="width:34px;height:34px;border-radius:50%;border:1px solid #e0e0e0;background:transparent;color:#888888;font-size:0.7rem;font-weight:600;letter-spacing:0.04em;cursor:pointer;">ENG</button>
+            <button style="width:34px;height:34px;border-radius:50%;border:1px solid #e0e0e0;background:transparent;color:#888888;font-size:0.7rem;font-weight:600;letter-spacing:0.04em;cursor:pointer;">CH</button>
           </div>
         </div>
       </div>
