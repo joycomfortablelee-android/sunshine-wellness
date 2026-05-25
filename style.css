@@ -235,6 +235,7 @@ ul { list-style: none; }
 .slide.active {
   opacity: 1;
   pointer-events: auto;
+  z-index: 1;
 }
 
 /* 슬라이드 — overflow hidden 필수 */
