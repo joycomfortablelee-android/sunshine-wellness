@@ -528,7 +528,7 @@ function openAboutPage() {
   const BASE = 'https://www.sunshinewellness.co.kr';
   const header = `
     <header style="position:fixed;top:0;left:0;width:100%;height:80px;background:#ffffff;box-shadow:0 1px 16px rgba(0,0,0,0.06);z-index:1000;">
-      <div style="height:80px;max-width:1160px;margin:0 auto;padding:0 64px;display:flex;align-items:center;justify-content:space-between;">
+      <div style="height:80px;width:100%;padding:0 64px;display:flex;align-items:center;justify-content:space-between;">
         <a href="${BASE}" target="_parent" style="text-decoration:none;display:flex;flex-direction:column;gap:1px;">
           <span style="font-size:1.05rem;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:#111111;">Sunshine Wellness</span>
           <span style="font-size:0.6rem;letter-spacing:0.14em;color:#888888;">선샤인 웰니스</span>
