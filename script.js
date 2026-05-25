@@ -490,52 +490,73 @@ startAutoPlay();
 // =========================================
 function openProgramsPage() {
   const BASE = 'https://www.sunshinewellness.co.kr';
-  const t = translations[currentLang] || translations.ko;
+  const lang = currentLang || 'ko';
+  const t = translations[lang] || translations.ko;
+
+  const IMGS = {
+    tour:    `${BASE}/images/gwangan-bridge-haeundae-busan-korea.jpg`,
+    culture: `${BASE}/images/51315836390_c2d8b2c7e2_o.jpg`,
+    temple:  `${BASE}/images/haedong-yonggungsa-temple-haeundae-sea-busan-buddhist-temple-busan-south-korea.jpg`,
+    art:     `${BASE}/images/(BB2024)부산현대미술관_외부.jpg`,
+    market:  `${BASE}/images/Inside_Jagalchi_Fish_Market,_Busan.jpg`,
+    history: `${BASE}/images/sulee-busan-tower-825463.jpg`,
+  };
 
   const cards = [
-    { key:'tour',    tag: t['card1.tag'], title: t['card1.title'], desc: t['card1.desc'] },
-    { key:'culture', tag: t['card2.tag'], title: t['card2.title'], desc: t['card2.desc'] },
-    { key:'temple',  tag: t['card3.tag'], title: t['card3.title'], desc: t['card3.desc'] },
-    { key:'art',     tag: t['card4.tag'], title: t['card4.title'], desc: t['card4.desc'] },
-    { key:'market',  tag: t['card5.tag'], title: t['card5.title'], desc: t['card5.desc'] },
-    { key:'history', tag: t['card6.tag'], title: t['card6.title'], desc: t['card6.desc'] },
-  ];
+    { key:'tour',    tag:t['card1.tag'], title:t['card1.title'], desc:t['card1.desc'] },
+    { key:'culture', tag:t['card2.tag'], title:t['card2.title'], desc:t['card2.desc'] },
+    { key:'temple',  tag:t['card3.tag'], title:t['card3.title'], desc:t['card3.desc'] },
+    { key:'art',     tag:t['card4.tag'], title:t['card4.title'], desc:t['card4.desc'] },
+    { key:'market',  tag:t['card5.tag'], title:t['card5.title'], desc:t['card5.desc'] },
+    { key:'history', tag:t['card6.tag'], title:t['card6.title'], desc:t['card6.desc'] },
+  ].map(c => {
+    const pd = (programData[c.key] && programData[c.key][lang]) || (programData[c.key] && programData[c.key].ko) || {};
+    return { ...c, duration: pd.duration || '당일~1박2일', people: pd.maxPeople || '소규모' };
+  });
 
   const cardHtml = cards.map(c => `
-    <div style="background:#fff;border:1px solid #e8e8e8;border-radius:16px;padding:28px 24px;display:flex;flex-direction:column;gap:14px;">
-      <span style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#e8a04a;">${c.tag}</span>
-      <h3 style="font-size:17px;font-weight:700;color:#1a2e2a;line-height:1.4;">${c.title}</h3>
-      <p style="font-size:14px;color:#555;line-height:1.85;flex:1;">${c.desc}</p>
-      <div style="display:flex;gap:10px;margin-top:4px;">
-        <a href="${BASE}/#programs" target="_parent" style="flex:1;text-align:center;padding:9px 0;font-size:13px;font-weight:600;color:#1a2e2a;border:1px solid #1a2e2a;border-radius:8px;text-decoration:none;">여행 정보</a>
-        <a href="${BASE}/#contact"  target="_parent" style="flex:1;text-align:center;padding:9px 0;font-size:13px;font-weight:600;color:#fff;background:#1a2e2a;border-radius:8px;text-decoration:none;">문의하기 →</a>
+    <div class="prog-card">
+      <div class="prog-img" style="background-image:url('${IMGS[c.key]}');">
+        <span class="prog-tag">${c.tag}</span>
+      </div>
+      <div class="prog-body">
+        <h3 class="prog-title">${c.title}</h3>
+        <p class="prog-desc">${c.desc}</p>
+        <div class="prog-meta">
+          <span>⏱ ${c.duration}</span>
+          <span>👥 ${c.people}</span>
+        </div>
+        <div class="prog-btns">
+          <a href="${BASE}/#programs" target="_parent" class="btn-outline">여행 정보</a>
+          <a href="${BASE}/#contact"  target="_parent" class="btn-solid">문의하기 →</a>
+        </div>
       </div>
     </div>`).join('');
 
+  const navLink = s => `font-size:0.95rem;font-weight:500;letter-spacing:0.04em;color:#222;text-decoration:none;`;
   const header = `
-    <header style="position:fixed;top:0;left:0;width:100%;height:80px;background:#ffffff;box-shadow:0 1px 16px rgba(0,0,0,0.06);z-index:1000;">
+    <header style="position:fixed;top:0;left:0;width:100%;height:80px;background:#fff;box-shadow:0 1px 16px rgba(0,0,0,0.06);z-index:1000;">
       <div style="height:80px;width:100%;padding:0 64px;display:flex;align-items:center;justify-content:space-between;">
         <a href="${BASE}" target="_parent" style="text-decoration:none;display:flex;flex-direction:column;gap:1px;">
-          <span style="font-size:1.05rem;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:#111111;">Sunshine Wellness</span>
-          <span style="font-size:0.6rem;letter-spacing:0.14em;color:#888888;">선샤인 웰니스</span>
+          <span style="font-size:1.05rem;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:#111;">Sunshine Wellness</span>
+          <span style="font-size:0.6rem;letter-spacing:0.14em;color:#888;">선샤인 웰니스</span>
         </a>
         <nav style="display:flex;gap:32px;align-items:center;">
-          <a href="${BASE}/#about"    target="_parent" style="font-size:0.95rem;font-weight:500;letter-spacing:0.04em;color:#222222;text-decoration:none;">웰니스 소개</a>
-          <a href="${BASE}/#programs" target="_parent" style="font-size:0.95rem;font-weight:500;letter-spacing:0.04em;color:#222222;text-decoration:none;">프로그램 소개</a>
-          <a href="${BASE}/#contact"  target="_parent" style="font-size:0.95rem;font-weight:500;letter-spacing:0.04em;color:#222222;text-decoration:none;">견적의뢰 및 문의</a>
-          <a href="${BASE}"           target="_parent" style="font-size:0.95rem;font-weight:500;letter-spacing:0.04em;color:#222222;text-decoration:none;">Where to Next?</a>
-          <a href="${BASE}/#contact"  target="_parent" style="font-size:0.95rem;font-weight:500;letter-spacing:0.04em;color:#222222;text-decoration:none;">Contact Us</a>
+          <a href="${BASE}/#about"    target="_parent" style="${navLink()}">웰니스 소개</a>
+          <a href="${BASE}/#programs" target="_parent" style="${navLink()}font-weight:700;border-bottom:2px solid #1a2e2a;padding-bottom:2px;">프로그램 소개</a>
+          <a href="${BASE}/#contact"  target="_parent" style="${navLink()}">견적의뢰 및 문의</a>
+          <a href="${BASE}"           target="_parent" style="${navLink()}">Where to Next?</a>
+          <a href="${BASE}/#contact"  target="_parent" style="${navLink()}">Contact Us</a>
         </nav>
         <div style="display:flex;align-items:center;gap:20px;">
-          <div style="display:flex;align-items:center;gap:8px;font-size:0.88rem;color:#888888;">
-            <a href="#" style="color:#888888;text-decoration:none;">로그인</a>
-            <span style="opacity:.5;">·</span>
-            <a href="#" style="color:#888888;text-decoration:none;">회원가입</a>
+          <div style="display:flex;align-items:center;gap:8px;font-size:0.88rem;color:#888;">
+            <a href="#" style="color:#888;text-decoration:none;">로그인</a><span style="opacity:.5;">·</span>
+            <a href="#" style="color:#888;text-decoration:none;">회원가입</a>
           </div>
           <div style="display:flex;gap:4px;">
-            <button style="width:34px;height:34px;border-radius:50%;border:1px solid #e0e0e0;background:transparent;color:#888888;font-size:0.7rem;font-weight:600;cursor:pointer;">KOR</button>
-            <button style="width:34px;height:34px;border-radius:50%;border:1px solid #e0e0e0;background:transparent;color:#888888;font-size:0.7rem;font-weight:600;cursor:pointer;">ENG</button>
-            <button style="width:34px;height:34px;border-radius:50%;border:1px solid #e0e0e0;background:transparent;color:#888888;font-size:0.7rem;font-weight:600;cursor:pointer;">CH</button>
+            <button style="width:34px;height:34px;border-radius:50%;border:1px solid #e0e0e0;background:transparent;color:#888;font-size:0.7rem;font-weight:600;cursor:pointer;">KOR</button>
+            <button style="width:34px;height:34px;border-radius:50%;border:1px solid #e0e0e0;background:transparent;color:#888;font-size:0.7rem;font-weight:600;cursor:pointer;">ENG</button>
+            <button style="width:34px;height:34px;border-radius:50%;border:1px solid #e0e0e0;background:transparent;color:#888;font-size:0.7rem;font-weight:600;cursor:pointer;">CH</button>
           </div>
         </div>
       </div>
@@ -543,17 +564,37 @@ function openProgramsPage() {
 
   const body = `${header}
     <div style="padding-top:80px;background:#f5f5f3;min-height:100vh;">
-      <div style="max-width:1100px;margin:0 auto;padding:64px 40px;">
+      <div style="max-width:1160px;margin:0 auto;padding:64px 40px 80px;">
         <p style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#e8a04a;margin-bottom:12px;">Our Programs</p>
-        <h2 style="font-size:clamp(26px,4vw,38px);font-weight:800;color:#1a2e2a;line-height:1.3;margin-bottom:10px;">웰니스 여행<br/><span style="font-weight:300;">프로그램</span></h2>
-        <p style="font-size:15px;color:#666;margin-bottom:48px;">몸과 마음이 함께 쉬어가는<br/>부산의 특별한 여정</p>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
-          ${cardHtml}
-        </div>
+        <h2 style="font-size:clamp(28px,4vw,42px);font-weight:800;color:#1a2e2a;line-height:1.25;margin-bottom:10px;">웰니스 여행 <span style="font-weight:300;">프로그램</span></h2>
+        <p style="font-size:15px;color:#666;margin-bottom:52px;line-height:1.8;">몸과 마음이 함께 쉬어가는 부산의 특별한 여정.<br/>신중년의 배움과 성장을 위한 맞춤형 웰니스 투어입니다.</p>
+        <div class="grid">${cardHtml}</div>
       </div>
     </div>`;
 
-  const html = `<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>프로그램 소개 — 선샤인 웰니스</title><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&display=swap" rel="stylesheet"/><style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}body{font-family:'Noto Sans KR',sans-serif;}@media(max-width:800px){div[style*="grid-template-columns:repeat(3"]{grid-template-columns:1fr!important;}}@media(min-width:801px) and (max-width:1060px){div[style*="grid-template-columns:repeat(3"]{grid-template-columns:repeat(2,1fr)!important;}}</style></head><body>${body}</body></html>`;
+  const css = `
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans KR', sans-serif; color: #222; background: #f5f5f3; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .prog-card { background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 2px 16px rgba(0,0,0,0.07); display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s; }
+    .prog-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.12); }
+    .prog-img { height: 200px; background-size: cover; background-position: center; position: relative; }
+    .prog-img::after { content:''; position:absolute; inset:0; background:linear-gradient(to bottom, rgba(0,0,0,.15) 0%, rgba(0,0,0,.35) 100%); }
+    .prog-tag { position: absolute; top: 16px; left: 16px; z-index:1; background: #e8a04a; color: #fff; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; }
+    .prog-body { padding: 24px 22px 22px; display: flex; flex-direction: column; flex: 1; gap: 12px; }
+    .prog-title { font-size: 17px; font-weight: 700; color: #1a2e2a; line-height: 1.4; }
+    .prog-desc { font-size: 13.5px; color: #555; line-height: 1.85; flex: 1; }
+    .prog-meta { display: flex; gap: 12px; font-size: 12.5px; color: #888; }
+    .prog-btns { display: flex; gap: 10px; margin-top: 4px; }
+    .btn-outline { flex:1; text-align:center; padding:9px 0; font-size:13px; font-weight:600; color:#1a2e2a; border:1.5px solid #1a2e2a; border-radius:8px; text-decoration:none; transition: background .2s, color .2s; }
+    .btn-outline:hover { background:#1a2e2a; color:#fff; }
+    .btn-solid { flex:1; text-align:center; padding:9px 0; font-size:13px; font-weight:600; color:#fff; background:#1a2e2a; border-radius:8px; text-decoration:none; transition: background .2s; }
+    .btn-solid:hover { background:#e8a04a; }
+    @media (max-width: 900px) { .grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 580px) { .grid { grid-template-columns: 1fr; } header div[style*="padding:0 64px"] { padding: 0 20px !important; } nav { display: none !important; } }
+  `;
+
+  const html = `<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>프로그램 소개 — 선샤인 웰니스</title><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&display=swap" rel="stylesheet"/><style>${css}</style></head><body>${body}</body></html>`;
 
   const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
   const url  = URL.createObjectURL(blob);
