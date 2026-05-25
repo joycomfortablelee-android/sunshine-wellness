@@ -157,6 +157,7 @@ ul { list-style: none; }
   background: var(--dark);
   border-color: var(--dark);
   color: var(--white);
+  font-size: 0.75rem;
 }
 .home-btn:hover {
   background: var(--accent);

@@ -547,7 +547,7 @@ function openAboutPage() {
             <a href="#" target="_parent" style="color:#888888;text-decoration:none;">회원가입</a>
           </div>
           <div style="display:flex;gap:4px;">
-            <a href="${BASE}" target="_parent" style="width:34px;height:34px;border-radius:50%;border:1px solid #222222;background:#222222;color:#ffffff;font-size:0.58rem;font-weight:600;letter-spacing:0.04em;cursor:pointer;display:flex;align-items:center;justify-content:center;text-decoration:none;">홈</a>
+            <a href="${BASE}" target="_parent" style="width:34px;height:34px;border-radius:50%;border:1px solid #222222;background:#222222;color:#ffffff;font-size:0.75rem;font-weight:600;letter-spacing:0.04em;cursor:pointer;display:flex;align-items:center;justify-content:center;text-decoration:none;">홈</a>
             <button style="width:34px;height:34px;border-radius:50%;border:1px solid #e0e0e0;background:transparent;color:#888888;font-size:0.58rem;font-weight:600;letter-spacing:0.04em;cursor:pointer;">KOR</button>
             <button style="width:34px;height:34px;border-radius:50%;border:1px solid #e0e0e0;background:transparent;color:#888888;font-size:0.58rem;font-weight:600;letter-spacing:0.04em;cursor:pointer;">ENG</button>
             <button style="width:34px;height:34px;border-radius:50%;border:1px solid #e0e0e0;background:transparent;color:#888888;font-size:0.58rem;font-weight:600;letter-spacing:0.04em;cursor:pointer;">CH</button>
