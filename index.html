@@ -31,9 +31,9 @@
         <ul>
           <li><a href="#about" onclick="openAboutPage(); return false;" data-i18n="nav.about">웰니스 소개</a></li>
           <li><a href="#programs" onclick="openProgramsPage(); return false;" data-i18n="nav.programs">프로그램 소개</a></li>
-          <li><a href="#contact" onclick="openContactPage(); return false;" data-i18n="nav.contact">견적의뢰 및 문의</a></li>
+          <li><a href="#" onclick="openContactPage(); return false;" data-i18n="nav.contact">견적의뢰 및 문의</a></li>
           <li><a href="#" onclick="openWhereToNextPage(); return false;" data-i18n="nav.wheretonext">Where to Next?</a></li>
-          <li><a href="#contact" onclick="openContactPage(); return false;" data-i18n="nav.contactus">Contact Us</a></li>
+          <li><a href="#" onclick="openContactPage(); return false;" data-i18n="nav.contactus">Contact Us</a></li>
         </ul>
       </nav>
 
@@ -44,7 +44,7 @@
           <a href="#" data-i18n="auth.signup">회원가입</a>
         </div>
         <div class="lang-wrap">
-          <a href="#" class="lang-btn home-btn">홈</a>
+          <a href="#" class="lang-btn home-btn" onclick="closeSubPage(); return false;">홈</a>
           <button class="lang-btn active" data-lang="ko">KOR</button>
           <button class="lang-btn"        data-lang="en">ENG</button>
           <button class="lang-btn"        data-lang="zh">CH</button>
@@ -60,8 +60,8 @@
       <ul>
         <li><a href="#about" class="mobile-link" onclick="openAboutPage(); return false;" data-i18n="nav.about">웰니스 소개</a></li>
         <li><a href="#programs" class="mobile-link" onclick="openProgramsPage(); return false;" data-i18n="nav.programs">프로그램 소개</a></li>
-        <li><a href="#contact" class="mobile-link" onclick="openContactPage(); return false;" data-i18n="nav.contact">견적의뢰 및 문의</a></li>
-        <li><a href="#contact" class="mobile-link" onclick="openContactPage(); return false;" data-i18n="nav.contactus">Contact Us</a></li>
+        <li><a href="#" class="mobile-link" onclick="openContactPage(); return false;" data-i18n="nav.contact">견적의뢰 및 문의</a></li>
+        <li><a href="#" class="mobile-link" onclick="openContactPage(); return false;" data-i18n="nav.contactus">Contact Us</a></li>
       </ul>
     </nav>
   </header>
@@ -346,6 +346,8 @@
       </div>
     </div>
   </footer>
+
+  <div id="subPageOverlay"></div>
 
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal-box" id="modalBox">
