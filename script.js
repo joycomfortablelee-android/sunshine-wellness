@@ -27,10 +27,7 @@ let timer;
 function goTo(index) {
   current = (index + total) % total;
 
-  // 슬라이드 이동 — 슬라이드 수에 따라 자동 계산
-  wrapper.style.transform = `translateX(-${current * (100 / total)}%)`;
-
-  // Ken Burns — 활성 슬라이드 재시작
+  // 크로스페이드 — active 클래스로 opacity 전환
   slides.forEach((s, i) => {
     s.classList.remove('active');
     if (i === current) {
