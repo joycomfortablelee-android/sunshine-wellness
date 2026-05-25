@@ -444,9 +444,21 @@ section { padding: 100px 0; }
   align-items: center;
 }
 
-.about-text .section-desc { margin-bottom: 20px; }
-.about-text .section-desc:last-child { margin-bottom: 0; }
-.about-desc-secondary { color: #666; font-size: 0.9rem; }
+.about-text .section-desc { margin-bottom: 0; }
+.about-more-btn {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 10px 24px;
+  background: transparent;
+  border: 1.5px solid var(--primary);
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.about-more-btn:hover { background: var(--primary); color: #fff; }
 
 /* ---- About 2: Third Age 정의 ---- */
 .about-define {

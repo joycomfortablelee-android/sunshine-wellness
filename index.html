@@ -29,7 +29,7 @@
 
       <nav class="gnb">
         <ul>
-          <li><a href="#about"    data-i18n="nav.about">웰니스 소개</a></li>
+          <li><a href="#about" onclick="openAboutPage(); return false;" data-i18n="nav.about">웰니스 소개</a></li>
           <li><a href="#programs" data-i18n="nav.programs">프로그램 소개</a></li>
           <li><a href="#contact"  data-i18n="nav.contact">견적의뢰 및 문의</a></li>
           <li><a href="#"         data-i18n="nav.wheretonext">Where to Next?</a></li>
@@ -57,7 +57,7 @@
 
     <nav class="mobile-nav" id="mobileNav">
       <ul>
-        <li><a href="#about"    class="mobile-link" data-i18n="nav.about">웰니스 소개</a></li>
+        <li><a href="#about" class="mobile-link" onclick="openAboutPage(); return false;" data-i18n="nav.about">웰니스 소개</a></li>
         <li><a href="#programs" class="mobile-link" data-i18n="nav.programs">프로그램 소개</a></li>
         <li><a href="#contact"  class="mobile-link" data-i18n="nav.contact">견적의뢰 및 문의</a></li>
         <li><a href="#contact"  class="mobile-link" data-i18n="nav.contactus">Contact Us</a></li>
@@ -160,6 +160,7 @@
           <div class="section-label" data-i18n="about.label">About Us</div>
           <h2 class="section-title"  data-i18n="about.title">부산의 아름다움을<br /><strong>온몸으로 느끼세요</strong></h2>
           <p class="section-desc"    data-i18n="about.desc">선샤인 웰니스는 부산의 자연, 문화, 예술, 역사를 깊고 느리게 경험하는 맞춤형 웰니스 여행을 제공합니다. 걷고, 보고, 쉬며 — 당신만의 부산을 만나보세요.</p>
+          <button class="about-more-btn" onclick="openAboutPage()">더 알아보기 →</button>
         </div>
         <div class="about-stats">
           <div class="stat">
