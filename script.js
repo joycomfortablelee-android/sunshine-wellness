@@ -146,6 +146,7 @@ const programData = {
         sub: 'Hot, Refreshing & Savory',
         addr: '부산 중구 부평1길 48 (부평깡통시장)',
         desc: '물을 넣지 않고 얇게 썬 무에서 나온 수분으로 조리하는 부산 대표 시장 떡볶이. 매콤하면서도 시원한 맛, 어묵 꼬치와 함께.',
+        mapUrl: 'https://map.naver.com/p/search/%EC%9D%B4%EA%B0%80%EB%84%A4%EB%96%A1%EB%B3%B6%EC%9D%B4%20%EB%B6%80%EC%82%B0%20%EC%A4%91%EA%B5%AC%20%EB%B6%80%ED%8F%891%EA%B8%B8%2048',
       },
       {
         num: '02',
@@ -153,19 +154,24 @@ const programData = {
         sub: 'Thick Rice Cakes & Deep-Fried Squid',
         addr: '부산 수영구 남천바다로10번길 70',
         desc: '굵은 가래떡과 매콤달콤한 고추장 양념, 길고 통통한 오징어튀김의 조합이 대표 메뉴. 광안리 해변 근처.',
+        mapUrl: 'https://map.naver.com/p/search/%EB%8B%A4%EB%A6%AC%EC%A7%91%20%EB%B3%B8%EC%A0%90%20%EB%B6%80%EC%82%B0%20%EC%88%98%EC%98%81%EA%B5%AC%20%EB%82%A8%EC%B2%9C%EB%B0%94%EB%8B%A4%EB%A1%9C10%EB%B2%88%EA%B8%B8%2070',
       },
       {
         num: '03',
-        name: '도날드',
+        name: '도날드즉석떡볶이',
         sub: 'Local Tabletop Tteokbokki',
         addr: '부산 영도구 꿈나무길 267',
         desc: '30년 전통 영도식 즉석떡볶이. 떡·어묵·라면·쫄면·삶은 달걀이 어우러지며 끓일수록 깊어지는 양념 맛.',
+        mapUrl: 'https://map.naver.com/p/search/%EB%8F%84%EB%82%A0%EB%93%9C%20%EB%96%A1%EB%B3%B6%EC%9D%B4%20%EB%B6%80%EC%82%B0%20%EC%98%81%EB%8F%84%EA%B5%AC%20%EA%BF%88%EB%82%98%EB%AC%B4%EA%B8%B8%20267',
       },
     ],
     tip: '반일형은 A코스(이가네→다리집), 1일형은 B코스(이가네→다리집→도날드) 선택 가능. 현금 지참 권장.',
     links: [
-      { label: '부산 떡볶이 투어 (Visit Busan)', url: 'https://visitbusan.net/index.do?menuCd=DOM_000000302003001000&uc_seq=1032&lang_cd=en' },
-      { label: '자갈치시장 공식', url: 'https://www.jagalchi.co.kr/' },
+      { label: '부산은 맛있다 — 떡볶이 특별편 (Visit Busan)', url: 'https://www.visitbusan.net/index.do?lang_cd=ko&menuCd=DOM_000000202003001000&uc_seq=1032' },
+      { label: '이가네떡볶이 공식 정보 (Visit Busan)', url: 'https://www.visitbusan.net/index.do?lang_cd=ko&menuCd=DOM_000000201002001000&uc_seq=1527' },
+      { label: '도날드즉석떡볶이 공식 정보 (Visit Busan)', url: 'https://www.visitbusan.net/index.do?lang_cd=ko&menuCd=DOM_000000201002001000&uc_seq=1133' },
+      { label: '오이소! 보이소! 사이소! 자갈치시장 (Visit Busan)', url: 'https://www.visitbusan.net/index.do?lang_cd=ko&menuCd=DOM_000000201003001000&uc_seq=412' },
+      { label: '자갈치시장 공식 홈페이지', url: 'https://www.bisco.or.kr/jagalchimarket/' },
     ],
   },
   history: {
@@ -276,7 +282,10 @@ function openModal(programKey) {
             <strong>${s.name}</strong>
             <em>${s.sub}</em>
             <p>${s.desc}</p>
-            <span class="info-spot-addr">📍 ${s.addr}</span>
+            <div class="info-spot-footer">
+              <span class="info-spot-addr">📍 ${s.addr}</span>
+              ${s.mapUrl ? `<a class="info-spot-map" href="${s.mapUrl}" target="_blank" rel="noopener noreferrer">🗺 지도 보기</a>` : ''}
+            </div>
           </div>
         </div>`).join('')}
     </div>` : '';
@@ -375,7 +384,15 @@ function openModal(programKey) {
     .info-spot-body strong { display: block; font-size: 16px; font-weight: 700; margin-bottom: 2px; }
     .info-spot-body em { display: block; font-size: 12px; color: #888; margin-bottom: 8px; font-style: normal; }
     .info-spot-body p { font-size: 14px; color: #555; margin-bottom: 6px; }
+    .info-spot-footer { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
     .info-spot-addr { font-size: 13px; color: #888; }
+    .info-spot-map {
+      font-size: 12px; font-weight: 600;
+      color: #1a2e2a; background: #e8f5f0;
+      padding: 3px 10px; border-radius: 12px;
+      text-decoration: none; white-space: nowrap;
+    }
+    .info-spot-map:hover { background: #1a2e2a; color: #fff; }
     /* 코스 */
     .info-course { background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,.06); margin-bottom: 16px; }
     .info-course-title { font-size: 16px; font-weight: 700; color: #1a2e2a; margin-bottom: 4px; }
