@@ -247,7 +247,7 @@ const programData = {
     ],
     tip: '도심 A코스와 기장 B코스는 이동 거리를 고려해 별도 일정으로 나누어 운영합니다. 편한 운동화 필수.',
     links: [
-      { label: '부산 다크투어리즘 (Visit Busan)', url: 'https://www.visitbusan.net/index.do?menuCd=DOM_000000302003001000&uc_seq=1032' },
+      { label: '부산 다크투어리즘 (Visit Busan)', url: 'https://www.visitbusan.net/index.do?menuCd=DOM_000000202002001000&uc_seq=2178&lang_cd=ko' },
       { label: '유엔기념공원 공식', url: 'https://www.unmck.or.kr/' },
       { label: '부산근현대역사관', url: 'https://museum.busan.go.kr/modern' },
       { label: '유엔평화기념관 공식', url: 'https://www.unpfk.or.kr/' },
