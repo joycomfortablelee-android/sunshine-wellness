@@ -354,6 +354,13 @@ const nextBtn = document.querySelector('.slide-next');
 if (prevBtn) prevBtn.addEventListener('click', () => { stopAutoPlay(); goToSlide(currentSlide - 1); startAutoPlay(); });
 if (nextBtn) nextBtn.addEventListener('click', () => { stopAutoPlay(); nextSlide(); startAutoPlay(); });
 
+// 첫 슬라이드 즉시 표시 (transition 없이)
+slides[0].style.transition = 'none';
+slides[0].classList.add('active');
+requestAnimationFrame(() => requestAnimationFrame(() => {
+  slides[0].style.transition = '';
+}));
+
 startAutoPlay();
 
 // =========================================
