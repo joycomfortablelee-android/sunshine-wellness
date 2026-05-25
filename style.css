@@ -378,9 +378,7 @@ ul { list-style: none; }
   background: rgba(255,255,255,0.35);
   border: none;
   cursor: pointer;
-  padding: 8px;
-  margin: -8px;
-  box-sizing: content-box;
+  padding: 0;
   transition: background 0.35s ease, transform 0.35s ease;
 }
 .pdot.active {
@@ -446,7 +444,84 @@ section { padding: 100px 0; }
   align-items: center;
 }
 
-.about-text .section-desc { margin-bottom: 0; }
+.about-text .section-desc { margin-bottom: 20px; }
+.about-text .section-desc:last-child { margin-bottom: 0; }
+.about-desc-secondary { color: #666; font-size: 0.9rem; }
+
+/* ---- About 2: Third Age 정의 ---- */
+.about-define {
+  background: #1a2e2a;
+  padding: 96px 0;
+}
+.about-define-label {
+  color: rgba(255,255,255,.5);
+  margin-bottom: 48px;
+}
+.define-grid {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 0 60px;
+  align-items: start;
+}
+.define-divider { background: rgba(255,255,255,.15); }
+.define-block { padding: 0 20px; }
+.define-icon { font-size: 2rem; margin-bottom: 16px; display: block; }
+.define-block h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #e8a04a;
+  margin-bottom: 16px;
+}
+.define-block p {
+  font-size: 0.92rem;
+  line-height: 1.85;
+  color: rgba(255,255,255,.75);
+}
+.define-block p strong { color: #fff; }
+
+/* ---- About 3: 세 가지 약속 ---- */
+.about-pillars { background: #f8f7f4; padding: 96px 0; }
+.about-pillars-header { margin-bottom: 48px; }
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.pillar {
+  background: #fff;
+  border-radius: 16px;
+  padding: 36px 28px 32px;
+  border-top: 3px solid #e8a04a;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+}
+.pillar-num {
+  display: block;
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #ece8e0;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.pillar h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1a2e2a;
+  margin-bottom: 8px;
+}
+.pillar-tag {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #e8a04a;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.pillar p {
+  font-size: 0.88rem;
+  color: #666;
+  line-height: 1.8;
+}
 
 .about-stats {
   border-top: 1px solid var(--border);
@@ -903,6 +978,9 @@ section { padding: 100px 0; }
   .slide-content { left: 32px; max-width: 90%; }
   .cards-grid { grid-template-columns: repeat(2, 1fr); }
   .about-inner { grid-template-columns: 1fr; gap: 40px; }
+  .define-grid { grid-template-columns: 1fr; gap: 40px 0; }
+  .define-divider { display: none; }
+  .pillars-grid { grid-template-columns: 1fr; }
   .contact-inner { grid-template-columns: 1fr; gap: 40px; }
   .programs-header { flex-direction: column; align-items: flex-start; gap: 12px; }
 }
