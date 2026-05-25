@@ -486,6 +486,53 @@ requestAnimationFrame(() => requestAnimationFrame(() => {
 startAutoPlay();
 
 // =========================================
+// 서브 페이지 공통 헤더 (홈 헤더와 동일 구조)
+// =========================================
+function makeSubPageHeader(BASE, activeKey) {
+  const NL = '\n';
+  const base = `font-size:0.95rem;font-weight:500;letter-spacing:0.04em;color:#222222;text-decoration:none;`;
+  const act  = `font-size:0.95rem;font-weight:700;letter-spacing:0.04em;color:#1a2e2a;text-decoration:none;border-bottom:2px solid #e8a04a;padding-bottom:2px;`;
+
+  const navItems = [
+    { key: 'about',       label: '웰니스 소개',    href: BASE + '/#about' },
+    { key: 'programs',    label: '프로그램 소개',   href: BASE + '/#programs' },
+    { key: 'contact',     label: '견적의뢰 및 문의', href: BASE + '/#contact' },
+    { key: 'wheretonext', label: 'Where to Next?', href: BASE + '/#' },
+    { key: 'contactus',   label: 'Contact Us',     href: BASE + '/#contact' },
+  ];
+
+  const navHtml = navItems.map(n =>
+    `<a href="${n.href}" target="_parent" style="${n.key === activeKey ? act : base}">${n.label}</a>`
+  ).join(NL + '          ');
+
+  return `
+    <header style="position:fixed;top:0;left:0;width:100%;height:80px;background:#ffffff;box-shadow:0 1px 16px rgba(0,0,0,0.06);z-index:1000;font-family:'Noto Sans KR',sans-serif;">
+      <div style="height:80px;max-width:1200px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;">
+        <a href="${BASE}" target="_parent" style="text-decoration:none;display:flex;flex-direction:column;gap:1px;">
+          <span style="font-size:1.05rem;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:#111111;">Sunshine Wellness</span>
+          <span style="font-size:0.6rem;letter-spacing:0.14em;color:#888888;">선샤인 웰니스</span>
+        </a>
+        <nav style="display:flex;gap:32px;align-items:center;">
+          ${navHtml}
+        </nav>
+        <div style="display:flex;align-items:center;gap:20px;">
+          <div style="display:flex;align-items:center;gap:8px;font-size:0.88rem;color:#888888;">
+            <a href="#" style="color:#888888;text-decoration:none;">로그인</a>
+            <span style="opacity:.5;">·</span>
+            <a href="#" style="color:#888888;text-decoration:none;">회원가입</a>
+          </div>
+          <div style="display:flex;gap:4px;">
+            <a href="${BASE}" target="_parent" style="width:34px;height:34px;border-radius:50%;border:1px solid #222222;background:#222222;color:#ffffff;font-size:0.75rem;font-weight:600;letter-spacing:0.04em;display:flex;align-items:center;justify-content:center;text-decoration:none;">홈</a>
+            <button style="width:34px;height:34px;border-radius:50%;border:1px solid #e0e0e0;background:transparent;color:#888888;font-size:0.7rem;font-weight:600;letter-spacing:0.04em;cursor:pointer;font-family:'Noto Sans KR',sans-serif;">KOR</button>
+            <button style="width:34px;height:34px;border-radius:50%;border:1px solid #e0e0e0;background:transparent;color:#888888;font-size:0.7rem;font-weight:600;letter-spacing:0.04em;cursor:pointer;font-family:'Noto Sans KR',sans-serif;">ENG</button>
+            <button style="width:34px;height:34px;border-radius:50%;border:1px solid #e0e0e0;background:transparent;color:#888888;font-size:0.7rem;font-weight:600;letter-spacing:0.04em;cursor:pointer;font-family:'Noto Sans KR',sans-serif;">CH</button>
+          </div>
+        </div>
+      </div>
+    </header>`;
+}
+
+// =========================================
 // Where to Next? 게시판 새 창
 // =========================================
 function openWhereToNextPage() {
