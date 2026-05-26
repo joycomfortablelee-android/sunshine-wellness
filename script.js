@@ -666,8 +666,13 @@ function openContactPage() {
       <p class="co-section-title">FAQ</p>
       <h2 class="co-heading">자주 묻는 질문</h2>
       <div class="co-faq" id="coFaq">
+        <div class="co-faq-thead">
+          <span class="co-faq-th co-faq-th-no">NO.</span>
+          <span class="co-faq-th co-faq-th-q">질문</span>
+        </div>
         <div class="co-faq-item">
           <button class="co-faq-btn" onclick="coFaqToggle(this)">
+            <span class="co-faq-no">01</span>
             <span class="co-faq-q">투어 인원은 몇 명부터 가능한가요?</span>
             <span class="co-faq-icon">+</span>
           </button>
@@ -675,6 +680,7 @@ function openContactPage() {
         </div>
         <div class="co-faq-item">
           <button class="co-faq-btn" onclick="coFaqToggle(this)">
+            <span class="co-faq-no">02</span>
             <span class="co-faq-q">여행 일정은 어떻게 정해지나요?</span>
             <span class="co-faq-icon">+</span>
           </button>
@@ -682,6 +688,7 @@ function openContactPage() {
         </div>
         <div class="co-faq-item">
           <button class="co-faq-btn" onclick="coFaqToggle(this)">
+            <span class="co-faq-no">03</span>
             <span class="co-faq-q">예약금과 취소 정책이 어떻게 되나요?</span>
             <span class="co-faq-icon">+</span>
           </button>
@@ -689,6 +696,7 @@ function openContactPage() {
         </div>
         <div class="co-faq-item">
           <button class="co-faq-btn" onclick="coFaqToggle(this)">
+            <span class="co-faq-no">04</span>
             <span class="co-faq-q">외국어 가이드 서비스도 가능한가요?</span>
             <span class="co-faq-icon">+</span>
           </button>
@@ -696,6 +704,7 @@ function openContactPage() {
         </div>
         <div class="co-faq-item">
           <button class="co-faq-btn" onclick="coFaqToggle(this)">
+            <span class="co-faq-no">05</span>
             <span class="co-faq-q">숙박 연계 패키지도 있나요?</span>
             <span class="co-faq-icon">+</span>
           </button>
@@ -703,7 +712,10 @@ function openContactPage() {
         </div>
         <div class="co-faq-item">
           <button class="co-faq-btn" onclick="coFaqToggle(this)">
+            <span class="co-faq-no">06</span>
             <span class="co-faq-q">비용 결제는 어떻게 하나요?</span>
+            <span class="co-faq-icon">+</span>
+          </button>
             <span class="co-faq-icon">+</span>
           </button>
           <div class="co-faq-a">계좌이체, 신용카드(온라인 결제링크) 방식을 지원합니다. 세금계산서 및 현금영수증 발행도 가능합니다.</div>
