@@ -765,11 +765,12 @@ function openAboutPage() {
     </div>`).join('');
 
   const sec3 = `
-    <section style="background:#1a2e2a;padding:88px 40px;">
-      <div style="max-width:920px;margin:0 auto;">
-        <p style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,0.36);margin-bottom:18px;">For You</p>
+    <section style="background:url('images/beach-landscape-sea-coast-horizon-boardwalk-796287-pxhere.com.jpg') center/cover no-repeat;padding:88px 40px;position:relative;">
+      <div style="position:absolute;inset:0;background:rgba(10,30,40,0.52);"></div>
+      <div style="max-width:920px;margin:0 auto;position:relative;">
+        <p style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:18px;">For You</p>
         <h2 style="font-size:clamp(22px,3vw,32px);font-weight:800;color:#fff;margin-bottom:12px;">40~60대 신중년을 위해<br/>설계된 여행</h2>
-        <p style="font-size:15px;color:rgba(255,255,255,0.56);margin-bottom:48px;line-height:1.8;">시간과 여유가 생긴 지금, 진정한 나를 찾는 여정을 시작해보세요.</p>
+        <p style="font-size:15px;color:rgba(255,255,255,0.75);margin-bottom:48px;line-height:1.8;">시간과 여유가 생긴 지금, 진정한 나를 찾는 여정을 시작해보세요.</p>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">${forYouCards}</div>
       </div>
     </section>`;
