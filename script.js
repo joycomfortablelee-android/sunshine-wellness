@@ -535,7 +535,7 @@ function _boardRender() {
     list.innerHTML = page.map((p, i) =>
       `<tr>
         <td class="sp-col-no">${_boardFiltered.length - start - i}</td>
-        <td class="sp-col-title"><a href="#">${p.title}</a></td>
+        <td class="sp-col-title"><a href="javascript:void(0)">${p.title}</a></td>
         <td class="sp-col-date">${p.date}</td>
       </tr>`
     ).join('');
@@ -634,142 +634,13 @@ function openWhereToNextPage() {
 
 
 // =========================================
-// Contact Us — 새 창
+// Contact Us — 메인 페이지 섹션으로 스크롤
 // =========================================
 function openContactPage() {
-  const BASE = 'https://www.sunshinewellness.co.kr';
-
-  const navHtml = `
-    <header style="position:fixed;top:0;left:0;width:100%;height:80px;background:#fff;box-shadow:0 1px 16px rgba(0,0,0,0.06);z-index:1000;">
-      <div style="height:80px;width:100%;padding:0 64px;display:flex;align-items:center;justify-content:space-between;">
-        <a href="${BASE}" target="_parent" style="text-decoration:none;display:flex;flex-direction:column;gap:1px;">
-          <span style="font-size:1.05rem;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:#111;">Sunshine Wellness</span>
-          <span style="font-size:0.6rem;letter-spacing:0.14em;color:#888;">선샤인 웰니스</span>
-        </a>
-        <nav style="display:flex;gap:32px;align-items:center;">
-          <a href="${BASE}/#about"    target="_parent" style="font-size:0.95rem;font-weight:500;color:#222;text-decoration:none;">웰니스 소개</a>
-          <a href="${BASE}/#programs" target="_parent" style="font-size:0.95rem;font-weight:500;color:#222;text-decoration:none;">프로그램 소개</a>
-          <a href="${BASE}/#contact"  target="_parent" style="font-size:0.95rem;font-weight:500;color:#222;text-decoration:none;">견적의뢰 및 문의</a>
-          <a href="${BASE}"           target="_parent" style="font-size:0.95rem;font-weight:500;color:#222;text-decoration:none;">Where to Next?</a>
-          <a href="#" style="font-size:0.95rem;font-weight:700;color:#1a2e2a;text-decoration:none;border-bottom:2px solid #e8a04a;padding-bottom:2px;">Contact Us</a>
-        </nav>
-        <div style="display:flex;align-items:center;gap:20px;">
-          <div style="display:flex;align-items:center;gap:8px;font-size:0.88rem;color:#888;">
-            <a href="#" style="color:#888;text-decoration:none;">로그인</a><span style="opacity:.5;">·</span>
-            <a href="#" style="color:#888;text-decoration:none;">회원가입</a>
-          </div>
-          <div style="display:flex;gap:4px;">
-            <button style="width:34px;height:34px;border-radius:50%;border:1px solid #e0e0e0;background:transparent;color:#888;font-size:0.7rem;font-weight:600;cursor:pointer;">KOR</button>
-            <button style="width:34px;height:34px;border-radius:50%;border:1px solid #e0e0e0;background:transparent;color:#888;font-size:0.7rem;font-weight:600;cursor:pointer;">ENG</button>
-            <button style="width:34px;height:34px;border-radius:50%;border:1px solid #e0e0e0;background:transparent;color:#888;font-size:0.7rem;font-weight:600;cursor:pointer;">CH</button>
-          </div>
-        </div>
-      </div>
-    </header>`;
-
-  const body = `${navHtml}
-  <div style="padding-top:80px;min-height:100vh;background:#f5f5f3;">
-    <div style="background:#1a2e2a;padding:56px 64px 48px;">
-      <p style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#e8a04a;margin-bottom:10px;">Contact Us</p>
-      <h1 style="font-size:clamp(24px,4vw,38px);font-weight:800;color:#fff;line-height:1.3;margin-bottom:12px;">여행을 <span style="font-weight:300;">시작해보세요</span></h1>
-      <p style="font-size:15px;color:rgba(255,255,255,.65);max-width:560px;line-height:1.8;">원하는 프로그램을 알려주시면 맞춤 일정을 안내해 드립니다.<br/>선샤인 웰니스가 당신만의 부산 여행을 함께 설계합니다.</p>
-    </div>
-    <div style="max-width:1100px;margin:0 auto;padding:60px 40px 80px;display:grid;grid-template-columns:1fr 1.4fr;gap:48px;align-items:start;">
-      <div>
-        <h2 style="font-size:20px;font-weight:700;color:#1a2e2a;margin-bottom:28px;">선샤인 웰니스</h2>
-        <div style="display:flex;flex-direction:column;gap:18px;margin-bottom:36px;">
-          <div style="display:flex;gap:14px;align-items:flex-start;">
-            <span style="font-size:20px;line-height:1;margin-top:2px;">📍</span>
-            <div>
-              <p style="font-size:12px;font-weight:700;color:#888;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px;">주소</p>
-              <p style="font-size:14px;color:#333;line-height:1.6;">부산광역시 부산진구<br/>서면 쥬디스태화 백화점 앞</p>
-            </div>
-          </div>
-          <div style="display:flex;gap:14px;align-items:flex-start;">
-            <span style="font-size:20px;line-height:1;margin-top:2px;">📞</span>
-            <div>
-              <p style="font-size:12px;font-weight:700;color:#888;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px;">전화</p>
-              <p style="font-size:14px;color:#333;">010-XXXX-XXXX</p>
-            </div>
-          </div>
-          <div style="display:flex;gap:14px;align-items:flex-start;">
-            <span style="font-size:20px;line-height:1;margin-top:2px;">✉️</span>
-            <div>
-              <p style="font-size:12px;font-weight:700;color:#888;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px;">이메일</p>
-              <p style="font-size:14px;color:#333;">healthylee7@gmail.com</p>
-            </div>
-          </div>
-          <div style="display:flex;gap:14px;align-items:flex-start;">
-            <span style="font-size:20px;line-height:1;margin-top:2px;">🕐</span>
-            <div>
-              <p style="font-size:12px;font-weight:700;color:#888;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px;">운영시간</p>
-              <p style="font-size:14px;color:#333;line-height:1.7;">평일 09:00 – 18:00<br/><span style="font-size:13px;color:#aaa;">점심 12:00 – 13:00 제외</span></p>
-            </div>
-          </div>
-        </div>
-        <div style="border-top:1px solid #e0e0e0;padding-top:24px;">
-          <p style="font-size:12px;font-weight:700;color:#888;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px;">SNS</p>
-          <div style="display:flex;gap:10px;">
-            <a href="https://instagram.com" target="_blank" style="display:flex;align-items:center;gap:7px;padding:8px 16px;background:#fff;border:1px solid #e0e0e0;border-radius:8px;font-size:13px;font-weight:600;color:#333;text-decoration:none;">📷 Instagram</a>
-            <a href="https://blog.naver.com" target="_blank" style="display:flex;align-items:center;gap:7px;padding:8px 16px;background:#fff;border:1px solid #e0e0e0;border-radius:8px;font-size:13px;font-weight:600;color:#333;text-decoration:none;">📝 Blog</a>
-          </div>
-        </div>
-      </div>
-      <div style="background:#fff;border-radius:18px;padding:40px 36px;box-shadow:0 2px 24px rgba(0,0,0,0.07);">
-        <h3 style="font-size:18px;font-weight:700;color:#1a2e2a;margin-bottom:6px;">견적 의뢰 / 문의하기</h3>
-        <p style="font-size:13px;color:#888;margin-bottom:28px;">아래 양식을 작성해 주시면 빠르게 답변드리겠습니다.</p>
-        <form action="https://formspree.io/f/healthylee7@gmail.com" method="POST" style="display:flex;flex-direction:column;gap:18px;">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-            <div>
-              <label style="display:block;font-size:13px;font-weight:600;color:#444;margin-bottom:6px;">이름 *</label>
-              <input name="name" type="text" placeholder="홍길동" required style="width:100%;padding:11px 14px;border:1px solid #e0e0e0;border-radius:8px;font-size:14px;font-family:'Noto Sans KR',sans-serif;outline:none;" onfocus="this.style.borderColor='#1a2e2a'" onblur="this.style.borderColor='#e0e0e0'"/>
-            </div>
-            <div>
-              <label style="display:block;font-size:13px;font-weight:600;color:#444;margin-bottom:6px;">연락처 *</label>
-              <input name="phone" type="tel" placeholder="010-0000-0000" required style="width:100%;padding:11px 14px;border:1px solid #e0e0e0;border-radius:8px;font-size:14px;font-family:'Noto Sans KR',sans-serif;outline:none;" onfocus="this.style.borderColor='#1a2e2a'" onblur="this.style.borderColor='#e0e0e0'"/>
-            </div>
-          </div>
-          <div>
-            <label style="display:block;font-size:13px;font-weight:600;color:#444;margin-bottom:6px;">관심 프로그램</label>
-            <select name="program" style="width:100%;padding:11px 14px;border:1px solid #e0e0e0;border-radius:8px;font-size:14px;font-family:'Noto Sans KR',sans-serif;outline:none;background:#fff;" onfocus="this.style.borderColor='#1a2e2a'" onblur="this.style.borderColor='#e0e0e0'">
-              <option value="">선택해주세요</option>
-              <option>부산 근교 투어</option>
-              <option>감천문화마을 해설</option>
-              <option>사찰 투어</option>
-              <option>부산 예술 여행</option>
-              <option>시장 &amp; 떡볶이 미식 투어</option>
-              <option>부산 다크 투어리즘</option>
-              <option>기타 문의</option>
-            </select>
-          </div>
-          <div>
-            <label style="display:block;font-size:13px;font-weight:600;color:#444;margin-bottom:6px;">문의 내용</label>
-            <textarea name="message" placeholder="희망 날짜, 인원, 요청 사항을 적어주세요." rows="5" style="width:100%;padding:11px 14px;border:1px solid #e0e0e0;border-radius:8px;font-size:14px;font-family:'Noto Sans KR',sans-serif;resize:vertical;outline:none;" onfocus="this.style.borderColor='#1a2e2a'" onblur="this.style.borderColor='#e0e0e0'"></textarea>
-          </div>
-          <button type="submit" style="width:100%;padding:14px;background:#1a2e2a;color:#fff;font-size:15px;font-weight:700;font-family:'Noto Sans KR',sans-serif;border:none;border-radius:10px;cursor:pointer;letter-spacing:.04em;" onmouseover="this.style.background='#e8a04a'" onmouseout="this.style.background='#1a2e2a'">문의 보내기</button>
-        </form>
-      </div>
-    </div>
-  </div>`;
-
-  const css = `
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    body{font-family:'Noto Sans KR',sans-serif;color:#222;background:#f5f5f3;}
-    a{text-decoration:none;color:inherit;}
-    @media(max-width:780px){
-      div[style*="grid-template-columns:1fr 1.4fr"]{grid-template-columns:1fr!important;}
-      header div[style*="padding:0 64px"]{padding:0 20px!important;}
-      nav{display:none!important;}
-      div[style*="padding:56px 64px"]{padding:40px 24px 36px!important;}
-    }
-  `;
-
-  const html = `<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>Contact Us — 선샤인 웰니스</title><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/><style>${css}</style></head><body>${body}</body></html>`;
-
-  const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
-  const url  = URL.createObjectURL(blob);
-  const win  = window.open(url, '_blank', 'noopener,noreferrer');
-  if (win) win.addEventListener('unload', () => URL.revokeObjectURL(url), { once: true });
+  closeSubPage();
+  setTimeout(() => {
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+  }, 50);
 }
 
 // =========================================
