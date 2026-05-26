@@ -649,9 +649,11 @@ function openWhereToNextPage() {
 function openContactPage() {
   showSubPageFull(`
     <div class="co-fullbg-wrap">
-    <div class="co-page-header">
-      <p>Inquiry</p>
-      <h1>견적의뢰 및 문의 <span style="font-weight:300;opacity:.7;">— Contact Us</span></h1>
+    <div class="co-fullbg-banner">
+      <div class="co-page-header">
+        <p>Inquiry</p>
+        <h1>견적의뢰 및 문의 <span style="font-weight:300;opacity:.7;">— Contact Us</span></h1>
+      </div>
     </div>
     <div class="co-wrap">
 
