@@ -752,12 +752,12 @@ section { padding: 100px 0; }
   background-color: #402A3A;
 }
 .card-img-3 {
-  background-image: url('images/(BB2024)부산현대미술관_외부.jpg');
-  background-color: #2A3550;
-}
-.card-img-4 {
   background-image: url('images/haedong-yonggungsa-temple-haeundae-sea-busan-buddhist-temple-busan-south-korea.jpg');
   background-color: #303D2A;
+}
+.card-img-4 {
+  background-image: url('images/(BB2024)부산현대미술관_외부.jpg');
+  background-color: #2A3550;
 }
 .card-img-5 {
   background-image: url('images/Inside_Jagalchi_Fish_Market,_Busan.jpg');
