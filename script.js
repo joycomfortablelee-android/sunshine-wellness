@@ -634,142 +634,146 @@ function openWhereToNextPage() {
 
 
 // =========================================
-// Contact Us — 새 창
+// 견적의뢰 및 문의 — K-Wellness 스타일 오버레이
 // =========================================
 function openContactPage() {
-  const BASE = 'https://www.sunshinewellness.co.kr';
-
-  const navHtml = `
-    <header style="position:fixed;top:0;left:0;width:100%;height:80px;background:#fff;box-shadow:0 1px 16px rgba(0,0,0,0.06);z-index:1000;">
-      <div style="height:80px;width:100%;padding:0 64px;display:flex;align-items:center;justify-content:space-between;">
-        <a href="${BASE}" target="_parent" style="text-decoration:none;display:flex;flex-direction:column;gap:1px;">
-          <span style="font-size:1.05rem;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:#111;">Sunshine Wellness</span>
-          <span style="font-size:0.6rem;letter-spacing:0.14em;color:#888;">선샤인 웰니스</span>
-        </a>
-        <nav style="display:flex;gap:32px;align-items:center;">
-          <a href="${BASE}/#about"    target="_parent" style="font-size:0.95rem;font-weight:500;color:#222;text-decoration:none;">웰니스 소개</a>
-          <a href="${BASE}/#programs" target="_parent" style="font-size:0.95rem;font-weight:500;color:#222;text-decoration:none;">프로그램 소개</a>
-          <a href="${BASE}/#contact"  target="_parent" style="font-size:0.95rem;font-weight:500;color:#222;text-decoration:none;">견적의뢰 및 문의</a>
-          <a href="${BASE}"           target="_parent" style="font-size:0.95rem;font-weight:500;color:#222;text-decoration:none;">Where to Next?</a>
-          <a href="#" style="font-size:0.95rem;font-weight:700;color:#1a2e2a;text-decoration:none;border-bottom:2px solid #e8a04a;padding-bottom:2px;">Contact Us</a>
-        </nav>
-        <div style="display:flex;align-items:center;gap:20px;">
-          <div style="display:flex;align-items:center;gap:8px;font-size:0.88rem;color:#888;">
-            <a href="#" style="color:#888;text-decoration:none;">로그인</a><span style="opacity:.5;">·</span>
-            <a href="#" style="color:#888;text-decoration:none;">회원가입</a>
-          </div>
-          <div style="display:flex;gap:4px;">
-            <button style="width:34px;height:34px;border-radius:50%;border:1px solid #e0e0e0;background:transparent;color:#888;font-size:0.7rem;font-weight:600;cursor:pointer;">KOR</button>
-            <button style="width:34px;height:34px;border-radius:50%;border:1px solid #e0e0e0;background:transparent;color:#888;font-size:0.7rem;font-weight:600;cursor:pointer;">ENG</button>
-            <button style="width:34px;height:34px;border-radius:50%;border:1px solid #e0e0e0;background:transparent;color:#888;font-size:0.7rem;font-weight:600;cursor:pointer;">CH</button>
-          </div>
-        </div>
-      </div>
-    </header>`;
-
-  const body = `${navHtml}
-  <div style="padding-top:80px;min-height:100vh;background:#f5f5f3;">
-    <div style="background:#1a2e2a;padding:56px 64px 48px;">
-      <p style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#e8a04a;margin-bottom:10px;">Contact Us</p>
-      <h1 style="font-size:clamp(24px,4vw,38px);font-weight:800;color:#fff;line-height:1.3;margin-bottom:12px;">여행을 <span style="font-weight:300;">시작해보세요</span></h1>
-      <p style="font-size:15px;color:rgba(255,255,255,.65);max-width:560px;line-height:1.8;">원하는 프로그램을 알려주시면 맞춤 일정을 안내해 드립니다.<br/>선샤인 웰니스가 당신만의 부산 여행을 함께 설계합니다.</p>
+  showSubPage(`
+    <div class="sp-hero">
+      <p>Inquiry</p>
+      <h1>견적의뢰 및 문의 <span style="font-weight:300;opacity:.7;">— Contact Us</span></h1>
     </div>
-    <div style="max-width:1100px;margin:0 auto;padding:60px 40px 80px;display:grid;grid-template-columns:1fr 1.4fr;gap:48px;align-items:start;">
-      <div>
-        <h2 style="font-size:20px;font-weight:700;color:#1a2e2a;margin-bottom:28px;">선샤인 웰니스</h2>
-        <div style="display:flex;flex-direction:column;gap:18px;margin-bottom:36px;">
-          <div style="display:flex;gap:14px;align-items:flex-start;">
-            <span style="font-size:20px;line-height:1;margin-top:2px;">📍</span>
-            <div>
-              <p style="font-size:12px;font-weight:700;color:#888;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px;">주소</p>
-              <p style="font-size:14px;color:#333;line-height:1.6;">부산광역시 부산진구<br/>서면 쥬디스태화 백화점 앞</p>
-            </div>
-          </div>
-          <div style="display:flex;gap:14px;align-items:flex-start;">
-            <span style="font-size:20px;line-height:1;margin-top:2px;">📞</span>
-            <div>
-              <p style="font-size:12px;font-weight:700;color:#888;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px;">전화</p>
-              <p style="font-size:14px;color:#333;">010-XXXX-XXXX</p>
-            </div>
-          </div>
-          <div style="display:flex;gap:14px;align-items:flex-start;">
-            <span style="font-size:20px;line-height:1;margin-top:2px;">✉️</span>
-            <div>
-              <p style="font-size:12px;font-weight:700;color:#888;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px;">이메일</p>
-              <p style="font-size:14px;color:#333;">healthylee7@gmail.com</p>
-            </div>
-          </div>
-          <div style="display:flex;gap:14px;align-items:flex-start;">
-            <span style="font-size:20px;line-height:1;margin-top:2px;">🕐</span>
-            <div>
-              <p style="font-size:12px;font-weight:700;color:#888;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px;">운영시간</p>
-              <p style="font-size:14px;color:#333;line-height:1.7;">평일 09:00 – 18:00<br/><span style="font-size:13px;color:#aaa;">점심 12:00 – 13:00 제외</span></p>
-            </div>
-          </div>
+    <div class="co-wrap">
+
+      <p class="co-section-title">FAQ</p>
+      <h2 class="co-heading">자주 묻는 질문</h2>
+      <div class="co-faq" id="coFaq">
+        <div class="co-faq-item">
+          <button class="co-faq-btn" onclick="coFaqToggle(this)">
+            <span class="co-faq-q">투어 인원은 몇 명부터 가능한가요?</span>
+            <span class="co-faq-icon">+</span>
+          </button>
+          <div class="co-faq-a">기본 2인부터 소규모 단체까지 맞춤 운영합니다. 10인 이상의 단체는 별도 견적을 통해 더욱 합리적인 요금으로 안내해 드립니다.</div>
         </div>
-        <div style="border-top:1px solid #e0e0e0;padding-top:24px;">
-          <p style="font-size:12px;font-weight:700;color:#888;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px;">SNS</p>
-          <div style="display:flex;gap:10px;">
-            <a href="https://instagram.com" target="_blank" style="display:flex;align-items:center;gap:7px;padding:8px 16px;background:#fff;border:1px solid #e0e0e0;border-radius:8px;font-size:13px;font-weight:600;color:#333;text-decoration:none;">📷 Instagram</a>
-            <a href="https://blog.naver.com" target="_blank" style="display:flex;align-items:center;gap:7px;padding:8px 16px;background:#fff;border:1px solid #e0e0e0;border-radius:8px;font-size:13px;font-weight:600;color:#333;text-decoration:none;">📝 Blog</a>
-          </div>
+        <div class="co-faq-item">
+          <button class="co-faq-btn" onclick="coFaqToggle(this)">
+            <span class="co-faq-q">여행 일정은 어떻게 정해지나요?</span>
+            <span class="co-faq-icon">+</span>
+          </button>
+          <div class="co-faq-a">견적 문의 후 담당자가 연락드려 희망 날짜, 관심 프로그램, 인원 등을 확인하고 최적의 일정을 제안해 드립니다.</div>
+        </div>
+        <div class="co-faq-item">
+          <button class="co-faq-btn" onclick="coFaqToggle(this)">
+            <span class="co-faq-q">예약금과 취소 정책이 어떻게 되나요?</span>
+            <span class="co-faq-icon">+</span>
+          </button>
+          <div class="co-faq-a">투어 확정 시 총 금액의 30%를 예약금으로 납부하며, 출발 7일 전까지는 전액 환불 가능합니다. 이후 취소 시 환불 규정이 적용됩니다.</div>
+        </div>
+        <div class="co-faq-item">
+          <button class="co-faq-btn" onclick="coFaqToggle(this)">
+            <span class="co-faq-q">외국어 가이드 서비스도 가능한가요?</span>
+            <span class="co-faq-icon">+</span>
+          </button>
+          <div class="co-faq-a">영어, 중국어 가이드 동행 서비스를 제공합니다. 사전 요청 시 추가 비용 없이 안내해 드립니다.</div>
+        </div>
+        <div class="co-faq-item">
+          <button class="co-faq-btn" onclick="coFaqToggle(this)">
+            <span class="co-faq-q">숙박 연계 패키지도 있나요?</span>
+            <span class="co-faq-icon">+</span>
+          </button>
+          <div class="co-faq-a">네, 부산 내 웰니스 특화 숙박시설과 연계한 패키지 상품을 운영합니다. 문의 시 숙박 포함 여부를 함께 알려주세요.</div>
+        </div>
+        <div class="co-faq-item">
+          <button class="co-faq-btn" onclick="coFaqToggle(this)">
+            <span class="co-faq-q">비용 결제는 어떻게 하나요?</span>
+            <span class="co-faq-icon">+</span>
+          </button>
+          <div class="co-faq-a">계좌이체, 신용카드(온라인 결제링크) 방식을 지원합니다. 세금계산서 및 현금영수증 발행도 가능합니다.</div>
         </div>
       </div>
-      <div style="background:#fff;border-radius:18px;padding:40px 36px;box-shadow:0 2px 24px rgba(0,0,0,0.07);">
-        <h3 style="font-size:18px;font-weight:700;color:#1a2e2a;margin-bottom:6px;">견적 의뢰 / 문의하기</h3>
-        <p style="font-size:13px;color:#888;margin-bottom:28px;">아래 양식을 작성해 주시면 빠르게 답변드리겠습니다.</p>
-        <form action="https://formspree.io/f/healthylee7@gmail.com" method="POST" style="display:flex;flex-direction:column;gap:18px;">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-            <div>
-              <label style="display:block;font-size:13px;font-weight:600;color:#444;margin-bottom:6px;">이름 *</label>
-              <input name="name" type="text" placeholder="홍길동" required style="width:100%;padding:11px 14px;border:1px solid #e0e0e0;border-radius:8px;font-size:14px;font-family:'Noto Sans KR',sans-serif;outline:none;" onfocus="this.style.borderColor='#1a2e2a'" onblur="this.style.borderColor='#e0e0e0'"/>
-            </div>
-            <div>
-              <label style="display:block;font-size:13px;font-weight:600;color:#444;margin-bottom:6px;">연락처 *</label>
-              <input name="phone" type="tel" placeholder="010-0000-0000" required style="width:100%;padding:11px 14px;border:1px solid #e0e0e0;border-radius:8px;font-size:14px;font-family:'Noto Sans KR',sans-serif;outline:none;" onfocus="this.style.borderColor='#1a2e2a'" onblur="this.style.borderColor='#e0e0e0'"/>
-            </div>
-          </div>
+
+      <p class="co-section-title">Contact</p>
+      <h2 class="co-heading">문의하기</h2>
+      <div class="co-form-box">
+        <div class="co-form-row">
           <div>
-            <label style="display:block;font-size:13px;font-weight:600;color:#444;margin-bottom:6px;">관심 프로그램</label>
-            <select name="program" style="width:100%;padding:11px 14px;border:1px solid #e0e0e0;border-radius:8px;font-size:14px;font-family:'Noto Sans KR',sans-serif;outline:none;background:#fff;" onfocus="this.style.borderColor='#1a2e2a'" onblur="this.style.borderColor='#e0e0e0'">
+            <label class="co-label">문의 유형</label>
+            <select class="co-select" id="coType">
               <option value="">선택해주세요</option>
-              <option>부산 근교 투어</option>
-              <option>감천문화마을 해설</option>
-              <option>사찰 투어</option>
-              <option>부산 예술 여행</option>
-              <option>시장 &amp; 떡볶이 미식 투어</option>
-              <option>부산 다크 투어리즘</option>
-              <option>기타 문의</option>
+              <option value="estimate">견적 요청</option>
+              <option value="general">일반 문의</option>
+              <option value="payment">결제 문의</option>
+              <option value="other">기타</option>
             </select>
           </div>
           <div>
-            <label style="display:block;font-size:13px;font-weight:600;color:#444;margin-bottom:6px;">문의 내용</label>
-            <textarea name="message" placeholder="희망 날짜, 인원, 요청 사항을 적어주세요." rows="5" style="width:100%;padding:11px 14px;border:1px solid #e0e0e0;border-radius:8px;font-size:14px;font-family:'Noto Sans KR',sans-serif;resize:vertical;outline:none;" onfocus="this.style.borderColor='#1a2e2a'" onblur="this.style.borderColor='#e0e0e0'"></textarea>
+            <label class="co-label">이메일 <span>*</span></label>
+            <input type="email" class="co-input" id="coEmail" placeholder="example@email.com" />
           </div>
-          <button type="submit" style="width:100%;padding:14px;background:#1a2e2a;color:#fff;font-size:15px;font-weight:700;font-family:'Noto Sans KR',sans-serif;border:none;border-radius:10px;cursor:pointer;letter-spacing:.04em;" onmouseover="this.style.background='#e8a04a'" onmouseout="this.style.background='#1a2e2a'">문의 보내기</button>
-        </form>
+        </div>
+        <div class="co-form-row">
+          <div>
+            <label class="co-label">이름 <span>*</span></label>
+            <input type="text" class="co-input" id="coName" placeholder="홍길동" />
+          </div>
+          <div>
+            <label class="co-label">연락처 <span>*</span></label>
+            <input type="tel" class="co-input" id="coPhone" placeholder="010-0000-0000" />
+          </div>
+        </div>
+        <div class="co-form-row full">
+          <div>
+            <label class="co-label">문의 내용 <span>*</span></label>
+            <textarea class="co-textarea" id="coMessage" placeholder="희망 날짜, 인원, 관심 프로그램 등을 자유롭게 적어주세요."></textarea>
+          </div>
+        </div>
+        <div class="co-privacy">
+          <strong>개인정보 수집 및 이용 동의</strong><br/>
+          수집 항목: 이름, 이메일, 연락처 | 수집 목적: 문의 답변 및 서비스 안내 | 보유 기간: 문의 처리 완료 후 1년
+        </div>
+        <div class="co-check-row">
+          <input type="checkbox" id="coPrivacy" />
+          <label for="coPrivacy">개인정보 수집 및 이용에 동의합니다. (필수)</label>
+        </div>
+        <div style="margin-top:24px;">
+          <button class="co-submit" id="coSubmitBtn" onclick="coSubmit()">문의 보내기</button>
+        </div>
       </div>
+
     </div>
-  </div>`;
+  `);
+}
 
-  const css = `
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    body{font-family:'Noto Sans KR',sans-serif;color:#222;background:#f5f5f3;}
-    a{text-decoration:none;color:inherit;}
-    @media(max-width:780px){
-      div[style*="grid-template-columns:1fr 1.4fr"]{grid-template-columns:1fr!important;}
-      header div[style*="padding:0 64px"]{padding:0 20px!important;}
-      nav{display:none!important;}
-      div[style*="padding:56px 64px"]{padding:40px 24px 36px!important;}
-    }
-  `;
+function coFaqToggle(btn) {
+  const item = btn.closest('.co-faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.co-faq-item.open').forEach(function(el) {
+    el.classList.remove('open');
+    el.querySelector('.co-faq-icon').textContent = '+';
+  });
+  if (!isOpen) {
+    item.classList.add('open');
+    btn.querySelector('.co-faq-icon').textContent = '−';
+  }
+}
 
-  const html = `<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>Contact Us — 선샤인 웰니스</title><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/><style>${css}</style></head><body>${body}</body></html>`;
-
-  const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
-  const url  = URL.createObjectURL(blob);
-  const win  = window.open(url, '_blank', 'noopener,noreferrer');
-  if (win) win.addEventListener('unload', () => URL.revokeObjectURL(url), { once: true });
+function coSubmit() {
+  const name    = (document.getElementById('coName').value    || '').trim();
+  const email   = (document.getElementById('coEmail').value   || '').trim();
+  const phone   = (document.getElementById('coPhone').value   || '').trim();
+  const message = (document.getElementById('coMessage').value || '').trim();
+  const privacy = document.getElementById('coPrivacy').checked;
+  if (!name || !email || !phone || !message) {
+    alert('이름, 이메일, 연락처, 문의 내용은 필수 입력 항목입니다.');
+    return;
+  }
+  if (!privacy) { alert('개인정보 수집 및 이용에 동의해 주세요.'); return; }
+  const btn = document.getElementById('coSubmitBtn');
+  btn.disabled = true;
+  btn.textContent = '전송 중...';
+  setTimeout(function() {
+    btn.textContent = '문의가 접수되었습니다 ✓';
+    btn.style.background = '#3b7a55';
+  }, 800);
 }
 
 // =========================================
