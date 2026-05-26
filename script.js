@@ -777,6 +777,77 @@ function coSubmit() {
 }
 
 // =========================================
+// Contact Us — 회사 정보 오버레이
+// =========================================
+function openContactUsPage() {
+  showSubPage(`
+    <div class="sp-hero">
+      <p>Contact Us</p>
+      <h1>선샤인 웰니스 <span style="font-weight:300;opacity:.7;">— Sunshine Wellness</span></h1>
+    </div>
+    <div class="cu-wrap">
+
+      <div class="cu-grid">
+
+        <div class="cu-card">
+          <div class="cu-icon">📍</div>
+          <h3 class="cu-card-title">오시는 길</h3>
+          <p class="cu-card-body">부산광역시 부산진구<br/>서면 쥬디스태화 백화점 앞</p>
+        </div>
+
+        <div class="cu-card">
+          <div class="cu-icon">📞</div>
+          <h3 class="cu-card-title">전화 문의</h3>
+          <p class="cu-card-body">010-XXXX-XXXX<br/><span style="font-size:12px;color:#999;">평일 09:00 – 18:00</span></p>
+        </div>
+
+        <div class="cu-card">
+          <div class="cu-icon">✉️</div>
+          <h3 class="cu-card-title">이메일</h3>
+          <p class="cu-card-body"><a href="mailto:healthylee7@gmail.com" style="color:#1a2e2a;text-decoration:none;">healthylee7@gmail.com</a></p>
+        </div>
+
+        <div class="cu-card">
+          <div class="cu-icon">🕐</div>
+          <h3 class="cu-card-title">운영 시간</h3>
+          <p class="cu-card-body">평일 09:00 – 18:00<br/>점심 12:00 – 13:00<br/><span style="font-size:12px;color:#999;">주말 · 공휴일 휴무</span></p>
+        </div>
+
+      </div>
+
+      <div class="cu-divider"></div>
+
+      <div class="cu-sns-section">
+        <p class="cu-sns-label">SNS</p>
+        <div class="cu-sns-row">
+          <a class="cu-sns-btn" href="https://www.instagram.com/" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            Instagram
+          </a>
+          <a class="cu-sns-btn" href="https://www.facebook.com/" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            Facebook
+          </a>
+          <a class="cu-sns-btn" href="https://blog.naver.com/" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15H9V8h2v9zm4 0h-2V8h2v9z"/></svg>
+            Blog
+          </a>
+        </div>
+      </div>
+
+      <div class="cu-divider"></div>
+
+      <div class="cu-biz">
+        <p>대표: 이 〇〇 &nbsp;|&nbsp; 사업자등록번호: 000-00-00000</p>
+        <p>주소: 부산광역시 부산진구 서면 쥬디스태화 백화점 앞</p>
+        <p style="margin-top:8px;color:#aaa;">© 2026 선샤인 웰니스. All rights reserved.</p>
+      </div>
+
+    </div>
+  `);
+}
+
+// =========================================
 // 프로그램 소개 새 창
 // =========================================
 function openProgramsPage() {

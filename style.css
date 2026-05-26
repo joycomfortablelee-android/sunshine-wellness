@@ -304,6 +304,22 @@ ul { list-style: none; }
 .co-submit:disabled { background:#aaa; cursor:not-allowed; }
 @media (max-width:640px) { .co-wrap { padding:32px 20px 60px; } .co-form-row { grid-template-columns:1fr; } .co-form-box { padding:28px 20px 32px; } }
 
+/* Contact Us 회사 정보 오버레이 */
+.cu-wrap { max-width:860px; margin:0 auto; padding:48px 40px 80px; }
+.cu-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:40px; }
+.cu-card { background:#fff; border:1px solid #e8e8e4; border-radius:14px; padding:28px 28px 26px; }
+.cu-icon { font-size:28px; margin-bottom:12px; }
+.cu-card-title { font-size:14px; font-weight:700; color:#1a2e2a; margin-bottom:10px; letter-spacing:.02em; }
+.cu-card-body { font-size:14px; color:#555; line-height:1.85; }
+.cu-divider { border:none; border-top:1px solid #e8e8e4; margin:8px 0 36px; }
+.cu-sns-section { margin-bottom:36px; }
+.cu-sns-label { font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#999; margin-bottom:16px; }
+.cu-sns-row { display:flex; gap:12px; flex-wrap:wrap; }
+.cu-sns-btn { display:inline-flex; align-items:center; gap:8px; padding:11px 22px; border:1.5px solid #ddd; border-radius:30px; font-size:14px; font-weight:600; color:#333; text-decoration:none; transition:all .2s; background:#fff; }
+.cu-sns-btn:hover { border-color:#1a2e2a; color:#1a2e2a; background:#f5f5f3; }
+.cu-biz { font-size:12.5px; color:#888; line-height:2; }
+@media (max-width:600px) { .cu-wrap { padding:32px 20px 60px; } .cu-grid { grid-template-columns:1fr; } }
+
 /* =========================================
    HERO — 100vh 풀스크린
    ========================================= */
