@@ -727,8 +727,6 @@ function openContactPage() {
             <span class="co-faq-date">04-01</span>
             <span class="co-faq-icon">+</span>
           </button>
-            <span class="co-faq-icon">+</span>
-          </button>
           <div class="co-faq-a">계좌이체, 신용카드(온라인 결제링크) 방식을 지원합니다. 세금계산서 및 현금영수증 발행도 가능합니다.</div>
         </div>
       </div>
