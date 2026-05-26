@@ -814,7 +814,7 @@ function openProgramsPage() {
           <span>👥 ${c.people}</span>
         </div>
         <div class="prog-btns">
-          <a href="${BASE}/#programs" target="_parent" class="btn-outline">여행 정보</a>
+          <button class="btn-outline" onclick="openModal('${c.key}')">여행 정보</button>
           <button class="btn-solid" onclick="openContactPage()">문의하기 →</button>
         </div>
       </div>
