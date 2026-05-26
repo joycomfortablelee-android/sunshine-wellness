@@ -494,6 +494,7 @@ function showSubPage(html) {
   el.style.display = 'block';
   el.scrollTop = 0;
   document.body.style.overflow = 'hidden';
+  document.getElementById('header').classList.add('scrolled');
 }
 
 function closeSubPage() {
@@ -502,6 +503,9 @@ function closeSubPage() {
   el.style.display = 'none';
   el.innerHTML = '';
   document.body.style.overflow = '';
+  if (window.scrollY <= 50) {
+    document.getElementById('header').classList.remove('scrolled');
+  }
 }
 
 // =========================================

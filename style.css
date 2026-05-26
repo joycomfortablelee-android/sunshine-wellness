@@ -49,14 +49,25 @@ ul { list-style: none; }
   width: 100%;
   z-index: 1000;
   height: 80px;
-  background: #ffffff;
-  box-shadow: 0 1px 16px rgba(0,0,0,0.06);
-  transition: background var(--ease), box-shadow var(--ease);
+  background: transparent;
+  box-shadow: none;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
 }
 #header.scrolled {
   background: #ffffff;
   box-shadow: 0 1px 16px rgba(0,0,0,0.08);
 }
+
+/* 투명 헤더일 때 — 히어로 이미지 위에서 텍스트 흰색 */
+#header:not(.scrolled) .logo-en { color: #ffffff; }
+#header:not(.scrolled) .logo-kr { color: rgba(255,255,255,0.75); }
+#header:not(.scrolled) .gnb a  { color: #ffffff; }
+#header:not(.scrolled) .gnb a::after { background: #ffffff; }
+#header:not(.scrolled) .auth-links { color: rgba(255,255,255,0.85); }
+#header:not(.scrolled) .lang-btn { border-color: rgba(255,255,255,0.55); color: rgba(255,255,255,0.85); }
+#header:not(.scrolled) .lang-btn.active,
+#header:not(.scrolled) .lang-btn:hover { border-color: #ffffff; color: #ffffff; }
+#header:not(.scrolled) .hamburger span { background: #ffffff; }
 
 .header-inner {
   height: 80px;
