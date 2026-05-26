@@ -938,29 +938,29 @@ function openAboutPage() {
 
   // 1. Hero — 다크그린 + 숫자 스탯
   const sec1 = `
-    <section style="background:linear-gradient(rgba(10,40,55,0.55),rgba(10,40,55,0.55)),url('images/부산광역시 사하구 을숙도 고니3.jpg') center/cover no-repeat;padding:100px 40px 80px;text-align:center;">
+    <section style="background:#fff;padding:72px 40px 64px;text-align:center;">
       <div style="max-width:680px;margin:0 auto;">
-        <p style="font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:28px;">Sunshine Wellness</p>
-        <h1 style="font-size:clamp(28px,5vw,46px);font-weight:800;line-height:1.25;color:#fff;margin-bottom:28px;">가치있는 당신의 인생<br/>제 3막을 함께합니다</h1>
-        <p style="font-size:16px;color:rgba(255,255,255,0.82);line-height:1.9;max-width:480px;margin:0 auto;">신중년의 배움과 성장, 몸과 마음의 균형을 지원하는<br/>맞춤형 웰니스 여행 전문 여행사입니다.</p>
+        <p style="font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#3B6259;margin-bottom:28px;">Sunshine Wellness</p>
+        <h1 style="font-size:clamp(28px,5vw,42px);font-weight:800;line-height:1.25;color:#1a2e2a;margin-bottom:28px;">가치있는 당신의 인생<br/>제 3막을 함께합니다</h1>
+        <p style="font-size:16px;color:#666;line-height:1.9;max-width:480px;margin:0 auto;">신중년의 배움과 성장, 몸과 마음의 균형을 지원하는<br/>맞춤형 웰니스 여행 전문 여행사입니다.</p>
         <div style="margin-top:56px;display:flex;justify-content:center;align-items:center;">
           <div style="text-align:center;padding:0 40px;">
-            <span style="display:block;font-size:32px;font-weight:800;color:#fff;">6</span>
-            <span style="font-size:10px;color:rgba(255,255,255,0.65);letter-spacing:.12em;text-transform:uppercase;margin-top:6px;display:block;">전문 프로그램</span>
+            <span style="display:block;font-size:32px;font-weight:800;color:#1a2e2a;">6</span>
+            <span style="font-size:10px;color:#888;letter-spacing:.12em;text-transform:uppercase;margin-top:6px;display:block;">전문 프로그램</span>
           </div>
-          <div style="width:1px;height:36px;background:rgba(255,255,255,0.3);"></div>
+          <div style="width:1px;height:36px;background:#e0e0e0;"></div>
           <div style="text-align:center;padding:0 40px;">
-            <span style="display:block;font-size:32px;font-weight:800;color:#fff;">100%</span>
-            <span style="font-size:10px;color:rgba(255,255,255,0.65);letter-spacing:.12em;text-transform:uppercase;margin-top:6px;display:block;">맞춤형 투어</span>
+            <span style="display:block;font-size:32px;font-weight:800;color:#1a2e2a;">100%</span>
+            <span style="font-size:10px;color:#888;letter-spacing:.12em;text-transform:uppercase;margin-top:6px;display:block;">맞춤형 투어</span>
           </div>
-          <div style="width:1px;height:36px;background:rgba(255,255,255,0.3);"></div>
+          <div style="width:1px;height:36px;background:#e0e0e0;"></div>
           <div style="text-align:center;padding:0 40px;">
-            <span style="display:block;font-size:32px;font-weight:800;color:#fff;">부산</span>
-            <span style="font-size:10px;color:rgba(255,255,255,0.65);letter-spacing:.12em;text-transform:uppercase;margin-top:6px;display:block;">로컬 전문</span>
+            <span style="display:block;font-size:32px;font-weight:800;color:#1a2e2a;">부산</span>
+            <span style="font-size:10px;color:#888;letter-spacing:.12em;text-transform:uppercase;margin-top:6px;display:block;">로컬 전문</span>
           </div>
         </div>
       </div>
-    </section>`;
+    </section>`
 
   // 2. Who We Are — 2단 레이아웃 + 인용구
   const sec2 = `
@@ -1038,7 +1038,7 @@ function openAboutPage() {
       </div>
     </section>`;
 
-  showSubPage(sec1 + sec2 + sec3 + sec4 + sec5);
+  showSubPageFull(`<div class="co-fullbg-wrap"><div class="co-fullbg-banner banner-temple"><div class="co-page-header"><p>About</p><h1>웰니스 소개 <span style="font-weight:300;opacity:.7;">— Sunshine Wellness</span></h1></div></div>` + sec1 + sec2 + sec3 + sec4 + sec5 + `</div>`)
 }
 
 // =========================================
