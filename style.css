@@ -402,8 +402,8 @@ ul { list-style: none; }
   background-color: #3D3525;
 }
 .slide-5 .slide-bg {
-  background-image: url('images/sulee-busan-tower-825463.jpg');
-  background-color: #2A2A40;
+  background-image: url('images/algrin25-busan-night-scene-1747130_1920.jpg');
+  background-color: #1a1a2e;
 }
 .slide-6 .slide-bg {
   background-image: url('images/(BB2024)부산현대미술관_외부.jpg');
@@ -713,20 +713,20 @@ section { padding: 100px 0; }
 
 /* 카드 이미지 — images/ 폴더 사진 적용 */
 .card-img-1 {
-  background-image: url('images/gwangan-bridge-haeundae-busan-korea.jpg');
+  background-image: url('images/haeundae-sand-festival-in-busan-south-korea-518632.jpg');
   background-color: #2A4040;
 }
 .card-img-2 {
-  background-image: url('images/51315836390_c2d8b2c7e2_o.jpg');
+  background-image: url('images/colorful-houses-busan-south-korea.jpg');
   background-color: #402A3A;
 }
 .card-img-3 {
-  background-image: url('images/(BB2024)부산현대미술관_외부.jpg');
+  background-image: url('images/haedong-yonggungsa-temple-haeundae-sea-busan-buddhist-temple-busan-south-korea (1).jpg');
   background-color: #2A3550;
 }
 .card-img-4 {
-  background-image: url('images/haedong-yonggungsa-temple-haeundae-sea-busan-buddhist-temple-busan-south-korea.jpg');
-  background-color: #303D2A;
+  background-image: url('images/busan-landmarks-lighted-up-in-purple-for-bts-june-2019-2a179a-640.jpg');
+  background-color: #2a1a40;
 }
 .card-img-5 {
   background-image: url('images/Inside_Jagalchi_Fish_Market,_Busan.jpg');
@@ -968,7 +968,11 @@ section { padding: 100px 0; }
 /* =========================================
    CONTACT
    ========================================= */
-.contact { background: var(--light); }
+.contact {
+  background:
+    linear-gradient(rgba(245,245,243,0.87), rgba(245,245,243,0.87)),
+    url('images/부산광역시 사하구 을숙도 고니3.jpg') center/cover no-repeat;
+}
 
 .contact-inner {
   display: grid;
