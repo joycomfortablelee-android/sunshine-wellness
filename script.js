@@ -89,8 +89,8 @@ const translations = {
 
     // 카드 5 - 시장
     'card5.tag': '미식',
-    'card5.title': '시장 & 떡볶이 미식 투어',
-    'card5.desc': '부전시장 → 이가네 → 다리집 → 도날드 — 부산 시장·해변·골목을 따라 지역별 떡볶이의 맛과 이야기를 탐방합니다.',
+    'card5.title': '부산 전통시장 & 떡볶이 미식 투어',
+    'card5.desc': '부전시장 로컬 식재료 탐방 → 이가네떡볶이 → 다리집 본점 → 도날드 — 부산 전통시장과 골목·해변을 따라가는 미식 투어입니다.',
 
     // 카드 6 - 역사
     'card6.tag': '역사',
@@ -209,7 +209,7 @@ const translations = {
 
     // Card 5 - Market
     'card5.tag': 'Food',
-    'card5.title': 'Market & Tteokbokki Food Tour',
+    'card5.title': 'Delicious Busan Market & Tteokbokki Tour',
     'card5.desc': 'Bujeon Market → Igane → Darijip → Donald — follow Busan\'s markets, beaches & alleys to taste and discover regional tteokbokki stories.',
 
     // Card 6 - History
@@ -972,40 +972,79 @@ const programData = {
 
   market: {
     ko: {
-      title: '시장 미식 투어',
-      duration: '반나절',
+      title: '부산 전통시장 & 떡볶이 미식 투어',
+      duration: '반일(A) / 1일(B)',
       price: '문의',
       maxPeople: '최대 12명',
-      description: '부산의 전통 시장과 야시장을 탐방하며 현지 음식 문화를 체험합니다. 신선한 해산물부터 길거리 음식까지 부산의 맛을 만끽하세요.',
-      spots: ['부산 자갈치 시장', '국제시장', '부평깡통시장', '남포동 먹자골목'],
-      courses: ['오전: 자갈치 시장 해산물 투어', '점심: 국제시장 맛집 탐방', '오후: 부평깡통시장 쇼핑', '저녁: 남포동 야시장'],
-      tip: '자갈치 시장은 오전 일찍 방문하면 가장 신선한 해산물을 만날 수 있습니다.',
-      links: [{ label: '자갈치 시장', url: 'https://www.jagalchi.kr' }],
-      source: '부산광역시 관광진흥과',
+      description: '부전시장에서 로컬 식재료와 시장의 활기를 느끼고, 부평깡통시장 이가네떡볶이·남천동 다리집·영도 도날드까지 이어지는 부산형 시장·골목·해변 미식 투어. 단순한 맛집 방문이 아니라, 부산 사람들이 실제로 장보고 먹고 머무는 생활공간을 함께 걷는 코스입니다.',
+      spots: [
+        '부전시장 — 부산진구 중앙대로783번길 23 (농수산물·건어물·인삼·반찬 등 전통시장)',
+        '이가네떡볶이 — 중구 부평1길 48, 부평깡통시장 (무에서 나온 수분으로 조리하는 시원한 시장형 떡볶이)',
+        '다리집 본점 — 수영구 남천바다로10번길 70 101호 (굵은 가래떡과 오징어튀김 조합)',
+        '도날드 — 영도구 꿈나무길 267 (30년 전통 골목형 즉석떡볶이)',
+      ],
+      courses: [
+        'A코스 반일형 (4~5시간): 09:30 부전시장 집결·탐방 → 11:20 이가네떡볶이 → 12:20 남천동 이동 → 13:00 다리집 본점 → 14:00 광안리 해변 산책 후 해산',
+        'B코스 1일형 (7~8시간): 09:30 부전시장 집결·탐방 → 11:20 이가네떡볶이 → 12:10 국제시장 산책 → 14:00 다리집 본점 → 15:00 광안리 해변 → 16:50 도날드(영도) → 18:00 마무리 토크 → 18:30 해산',
+      ],
+      tip: '반일형 A코스는 부전시장·이가네·다리집까지, 1일형 B코스는 도날드(영도)까지 포함. 현금 지참 권장.',
+      links: [
+        { label: '부전시장 (부산진구 관광)', url: 'https://www.busanjin.go.kr/tour/index.busanjin?menuCd=DOM_000001004004003000' },
+        { label: '이가네떡볶이 (트리플가이드)', url: 'https://triple.guide/restaurants/1bf7f5cf-fc32-443c-b51d-92b4d9d7cabd' },
+        { label: '다리집 본점 (Visit Busan)', url: 'https://www.visitbusan.net/index.do?menuCd=DOM_000000201002001000&uc_seq=942' },
+        { label: '도날드 (Visit Busan)', url: 'https://www.visitbusan.net/index.do?menuCd=DOM_000000202002001000&uc_seq=2178' },
+      ],
+      source: 'Visit Busan / 부산진구청',
     },
     en: {
-      title: 'Market Food Tour',
-      duration: 'Half Day',
+      title: 'Delicious Busan Market & Tteokbokki Tour',
+      duration: 'Half Day (A) / Full Day (B)',
       price: 'Inquire',
       maxPeople: 'Max 12 people',
-      description: 'Explore Busan\'s traditional markets and night markets to experience local food culture. Enjoy Busan\'s flavors from fresh seafood to street food.',
-      spots: ['Busan Jagalchi Market', 'Gukje Market', 'Bupyeong Kkangtong Market', 'Nampo-dong Food Alley'],
-      courses: ['Morning: Jagalchi Market seafood tour', 'Lunch: Gukje Market restaurants', 'Afternoon: Bupyeong Market shopping', 'Evening: Nampo-dong night market'],
-      tip: 'Visit Jagalchi Market early in the morning for the freshest seafood.',
-      links: [{ label: 'Jagalchi Market', url: 'https://www.jagalchi.kr' }],
-      source: 'Busan Tourism Promotion Division',
+      description: 'Start at Bujeon Market to absorb local ingredients and traditional market energy, then follow the tteokbokki trail — Igane at Bupyeong Market, Darijip in Namcheon-dong, and Donald in Yeongdo alley. A real Busan locals' food and market journey.',
+      spots: [
+        'Bujeon Market — 23 Jungang-daero 783beon-gil, Busanjin-gu (seafood, dried goods, ginseng, side dishes)',
+        'Igane Tteokbokki — 48 Bupyeong 1-gil, Jung-gu, Bupyeong Market (refreshing radish-broth tteokbokki)',
+        'Darijip Main Branch — 70-101 Namcheon Bada-ro 10beon-gil, Suyeong-gu (thick rice cakes & fried squid)',
+        'Donald — 267 Kkumnamu-gil, Yeongdo-gu (30-year tabletop tteokbokki, Yeongdo style)',
+      ],
+      courses: [
+        'Course A – Half Day (4–5 hrs): 09:30 Bujeon Market → 11:20 Igane Tteokbokki → 13:00 Darijip Main Branch → 14:00 Gwangalli Beach walk & wrap-up',
+        'Course B – Full Day (7–8 hrs): 09:30 Bujeon Market → 11:20 Igane → 12:10 Gukje Market stroll → 14:00 Darijip → 15:00 Gwangalli Beach → 16:50 Donald (Yeongdo) → 18:00 Wrap-up talk → 18:30 End',
+      ],
+      tip: 'Course A (half-day) ends at Darijip; Course B (full day) adds Donald in Yeongdo. Cash recommended at all spots.',
+      links: [
+        { label: 'Bujeon Market (Busanjin-gu Tourism)', url: 'https://www.busanjin.go.kr/tour/index.busanjin?menuCd=DOM_000001004004003000' },
+        { label: 'Igane Tteokbokki (Triple Guide)', url: 'https://triple.guide/restaurants/1bf7f5cf-fc32-443c-b51d-92b4d9d7cabd' },
+        { label: 'Darijip Main Branch (Visit Busan)', url: 'https://www.visitbusan.net/index.do?menuCd=DOM_000000201002001000&uc_seq=942' },
+        { label: 'Donald (Visit Busan)', url: 'https://www.visitbusan.net/index.do?menuCd=DOM_000000202002001000&uc_seq=2178' },
+      ],
+      source: 'Visit Busan / Busanjin-gu Office',
     },
     zh: {
-      title: '市场美食游',
-      duration: '半天',
+      title: '釜山传统市场与年糕美食之旅',
+      duration: '半日(A) / 全日(B)',
       price: '请咨询',
       maxPeople: '最多12人',
-      description: '探访釜山传统市场与夜市，体验当地饮食文化。从新鲜海鲜到街头小吃，尽享釜山的美味。',
-      spots: ['釜山札嘎其市场', '国际市场', '富平罐头市场', '南浦洞美食街'],
-      courses: ['上午：札嘎其市场海鲜游', '午餐：国际市场美食探访', '下午：富平罐头市场购物', '傍晚：南浦洞夜市'],
-      tip: '清早前往札嘎其市场可以买到最新鲜的海鲜。',
-      links: [{ label: '札嘎其市场', url: 'https://www.jagalchi.kr' }],
-      source: '釜山广域市旅游振兴科',
+      description: '从富田市场感受釜山传统市场的活力与本地食材，沿富平罐头市场李家年糕、南川洞桥家本店、影岛唐纳德一路品味——体验釜山人真实生活的市场·胡同·海边美食之旅。',
+      spots: [
+        '富田市场 — 釜山镇区中央大路783号街23号 (农水产·干货·人参·小菜等传统市场)',
+        '李家年糕 — 中区富平1街48号，富平罐头市场 (萝卜汤炒年糕，清爽微辣)',
+        '桥家本店 — 水营区南川海路10巷70号101室 (粗糯米年糕配炸鱿鱼)',
+        '唐纳德 — 影岛区꿈나무길267号 (30年传统即席炒年糕)',
+      ],
+      courses: [
+        'A路线 半日游(4~5小时): 09:30 富田市场集合·探访 → 11:20 李家年糕 → 13:00 桥家本店 → 14:00 广安里海边散步后解散',
+        'B路线 全日游(7~8小时): 09:30 富田市场 → 11:20 李家年糕 → 12:10 国际市场 → 14:00 桥家本店 → 15:00 广安里海边 → 16:50 唐纳德(影岛) → 18:00 总结分享 → 18:30 解散',
+      ],
+      tip: 'A路线(半日)至桥家本店结束，B路线(全日)含影岛唐纳德。建议全程携带现金。',
+      links: [
+        { label: '富田市场 (釜山镇区观光)', url: 'https://www.busanjin.go.kr/tour/index.busanjin?menuCd=DOM_000001004004003000' },
+        { label: '李家年糕 (Triple Guide)', url: 'https://triple.guide/restaurants/1bf7f5cf-fc32-443c-b51d-92b4d9d7cabd' },
+        { label: '桥家本店 (Visit Busan)', url: 'https://www.visitbusan.net/index.do?menuCd=DOM_000000201002001000&uc_seq=942' },
+        { label: '唐纳德 (Visit Busan)', url: 'https://www.visitbusan.net/index.do?menuCd=DOM_000000202002001000&uc_seq=2178' },
+      ],
+      source: 'Visit Busan / 釜山镇区厅',
     },
   },
 
