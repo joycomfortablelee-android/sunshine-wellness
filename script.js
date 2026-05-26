@@ -665,6 +665,10 @@ function openContactPage() {
 
       <p class="co-section-title">FAQ</p>
       <h2 class="co-heading">자주 묻는 질문</h2>
+      <div class="sp-toolbar" style="margin-bottom:10px;">
+        <p class="sp-count">총 <strong>6</strong>건</p>
+        <button class="sp-btn-write" onclick="document.getElementById('coFormBox').scrollIntoView({behavior:'smooth'})">문의하기</button>
+      </div>
       <div class="co-faq" id="coFaq">
         <div class="co-faq-thead">
           <span class="co-faq-th co-faq-th-no">NO.</span>
@@ -731,7 +735,7 @@ function openContactPage() {
 
       <p class="co-section-title">Contact</p>
       <h2 class="co-heading">문의하기</h2>
-      <div class="co-form-box">
+      <div class="co-form-box" id="coFormBox">
         <div class="co-form-row">
           <div>
             <label class="co-label">문의 유형</label>
