@@ -66,3 +66,37 @@
 - **URL:** https://commons.wikimedia.org/wiki/File:(BB2024)부산현대미술관_외부.jpg
 - **라이선스:** CC BY-SA 4.0
 - **사용 조건:** 작가명 표기 필수, 2차 저작물도 동일 라이선스 적용
+
+---
+
+## beach-landscape-sea-coast-horizon-boardwalk-796287-pxhere.com.jpg
+- **제목 (Title):** Beach Landscape, Sea Coast, Horizon, Boardwalk
+- **출처 (Source):** PxHere
+- **URL:** https://pxhere.com/en/photo/796287
+- **라이선스:** CC0 1.0 Public Domain
+- **사용 조건:** 저작권 없음, 자유롭게 사용 가능
+
+---
+
+## busan-landmarks-lighted-up-in-purple-for-bts-j...jpg
+- **제목 (Title):** Busan Landmarks Lighted Up in Purple for BTS
+- **출처 (Source):** 미확인
+- **비고:** 저작권 정보 확인 필요
+
+---
+
+## haeundae-sand-festival-in-busan-south-korea-518632.jpg
+## haeundae-sand-festival-in-busan-south-korea-518632 (2).jpg
+- **제목 (Title):** Haeundae Sand Festival in Busan, South Korea
+- **출처 (Source):** Pixabay (추정)
+- **비고:** 저작권 정보 확인 필요
+
+---
+
+## 부산광역시 사하구 을숙도 고니3.jpg
+- **제목 (Title):** 부산광역시 사하구 을숙도 고니3
+- **작가 (Author):** 부산광역시 사하구
+- **출처 (Source):** 공공누리 공공저작물 포털
+- **라이선스:** 공공누리 제1유형 (출처 표시)
+- **사용 조건:** 출처 표기 필수 / 상업적 이용 가능 / 변형 가능
+- **출처 표기 예시:** 출처: 부산광역시 사하구, 「부산광역시 사하구 을숙도 고니3」, 공공누리 제1유형
