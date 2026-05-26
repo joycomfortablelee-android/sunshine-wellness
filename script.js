@@ -1136,42 +1136,474 @@ const programData = {
 
   temple: {
     ko: {
-      title: '사찰 명상 체험',
-      duration: '당일치기',
+      title: '부산·양산·밀양 사찰 힐링 투어',
+      duration: '반나절~1일 (코스별)',
       price: '문의',
-      maxPeople: '최대 8명',
-      description: '범어사와 해동용궁사에서 진행되는 깊이 있는 명상과 사찰 체험 프로그램입니다. 도심 속 고요한 사찰에서 마음의 평화를 찾아보세요.',
-      spots: ['범어사', '해동용궁사', '금정산 산책로', '사찰 정원'],
-      courses: ['이른 아침: 범어사 새벽 예불 참관', '오전: 사찰 명상 체험', '점심: 사찰 채식 식사', '오후: 해동용궁사 방문', '해질녘: 금정산 일몰 감상'],
-      tip: '새벽 예불은 오전 4시에 시작됩니다. 조용한 복장을 권장합니다.',
-      links: [{ label: '범어사 공식 사이트', url: 'http://www.beomeosa.co.kr' }],
-      source: '부산불교문화원',
+      maxPeople: '최대 12명',
+      description: '도심에서 가까운 산사와 바다 사찰, 그리고 역사 깊은 명찰을 따라 떠나는 사찰 여행입니다. 부산의 대표 사찰인 범어사와 해동용궁사, 기장의 고즈넉한 장안사, 양산의 대찰 통도사, 밀양의 호국불교 유산 표충사까지 지역별 특색에 따라 선택할 수 있는 코스로 구성했습니다.',
+      spots: [
+        '범어사 — 부산광역시 금정구 범어사로 250',
+        '해동용궁사 — 부산광역시 기장군 기장읍 용궁길 86',
+        '장안사 — 부산광역시 기장군 장안읍 장안로 482',
+        '통도사 — 경상남도 양산시 하북면 통도사로 108',
+        '표충사 — 경상남도 밀양시 단장면 표충로 1338',
+      ],
+      courses: [
+        '코스 1 (부산 대표): 범어사 → 해동용궁사 — 산사와 바다 사찰을 하루에 (반나절~1일)',
+        '코스 2 (기장 힐링): 해동용궁사 → 장안사 — 이동 부담 없는 기장권 집중 코스 (반나절~1일)',
+        '코스 3 (양산 역사): 통도사 단독 답사 — 대형 사찰·불교문화 심층 탐방 (반나절~1일)',
+        '코스 4 (밀양 호국불교): 표충사 단독 답사 — 사명대사·호국불교 역사 해설 (1일)',
+      ],
+      tip: '편한 신발과 단정한 복장을 권장합니다. 통도사·표충사는 부산에서 차로 약 1~1.5시간 소요됩니다. 사찰 내부 촬영 시 예절을 지켜주세요.',
+      links: [
+        { label: '범어사 공식 사이트', url: 'http://www.beomeosa.co.kr' },
+        { label: '해동용궁사 공식 사이트', url: 'https://www.yongkungsa.or.kr' },
+        { label: '통도사 공식 사이트', url: 'https://www.tongdosa.or.kr' },
+        { label: '범어사 지도', url: 'https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EA%B8%88%EC%A0%95%EA%B5%AC%20%EB%B2%94%EC%96%B4%EC%82%AC%EB%A1%9C%20250' },
+        { label: '해동용궁사 지도', url: 'https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EA%B8%B0%EC%9E%A5%EA%B5%B0%20%EA%B8%B0%EC%9E%A5%EC%9D%8D%20%EC%9A%A9%EA%B6%81%EA%B8%B8%2086' },
+        { label: '장안사 지도', url: 'https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EA%B8%B0%EC%9E%A5%EA%B5%B0%20%EC%9E%A5%EC%95%88%EC%9D%8D%20%EC%9E%A5%EC%95%88%EB%A1%9C%20482' },
+        { label: '통도사 지도', url: 'https://map.naver.com/p/search/%EA%B2%BD%EC%83%81%EB%82%A8%EB%8F%84%20%EC%96%91%EC%82%B0%EC%8B%9C%20%ED%95%98%EB%B6%81%EB%A9%B4%20%ED%86%B5%EB%8F%84%EC%82%AC%EB%A1%9C%20108' },
+        { label: '표충사 지도', url: 'https://map.naver.com/p/search/%EA%B2%BD%EC%83%81%EB%82%A8%EB%8F%84%20%EB%B0%80%EC%96%91%EC%8B%9C%20%EB%8B%A8%EC%9E%A5%EB%A9%B4%20%ED%91%9C%EC%B6%A9%EB%A1%9C%201338' },
+      ],
+      source: 'Visit Busan / 부산관광공사',
+      spotDetails: [
+        {
+          name: '범어사',
+          address: '부산광역시 금정구 범어사로 250',
+          description: '금정산 자락에 자리한 부산의 대표 사찰입니다. 울창한 숲길과 고즈넉한 전각, 산사의 차분한 분위기가 어우러져 부산의 불교문화와 자연경관을 함께 느낄 수 있습니다. 도심과 가까우면서도 깊은 산사에 들어온 듯한 평온함을 경험할 수 있는 곳입니다.',
+          commentPoint: '일주문을 지나 사찰 안으로 들어가는 과정은 일상에서 벗어나 마음을 가다듬는 여정처럼 느껴집니다.',
+          mapUrl: 'https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EA%B8%88%EC%A0%95%EA%B5%AC%20%EB%B2%94%EC%96%B4%EC%82%AC%EB%A1%9C%20250',
+          officialUrl: 'http://www.beomeosa.co.kr',
+        },
+        {
+          name: '해동용궁사',
+          address: '부산광역시 기장군 기장읍 용궁길 86',
+          description: '바다와 맞닿아 있는 부산의 대표 해안 사찰입니다. 일반적인 산속 사찰과 달리 푸른 바다를 배경으로 전각이 이어져 있어 독특한 경관을 자랑합니다. 기도처이자 관광 명소로도 인기가 높으며, 일출과 해안 풍경을 감상하기 좋은 장소입니다.',
+          commentPoint: '탁 트인 해안 풍경 속에서 기도와 관광, 휴식이 함께 이루어지는 공간으로, 바다를 생활권으로 삼아온 지역성과 불교 신앙이 결합된 장소입니다.',
+          mapUrl: 'https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EA%B8%B0%EC%9E%A5%EA%B5%B0%20%EA%B8%B0%EC%9E%A5%EC%9D%8D%20%EC%9A%A9%EA%B6%81%EA%B8%B8%2086',
+          officialUrl: 'https://www.yongkungsa.or.kr',
+        },
+        {
+          name: '장안사',
+          address: '부산광역시 기장군 장안읍 장안로 482',
+          description: '불광산 자락에 위치한 조용한 사찰입니다. 해동용궁사가 바다와 관광의 이미지가 강하다면, 장안사는 산과 계곡, 고즈넉한 분위기가 돋보입니다. 복잡한 관광지보다 차분한 사찰 산책을 원하는 여행객에게 잘 어울립니다.',
+          commentPoint: '해동용궁사와 함께 방문하면 해안 사찰과 산사의 분위기를 비교하며 감상할 수 있습니다.',
+          mapUrl: 'https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EA%B8%B0%EC%9E%A5%EA%B5%B0%20%EC%9E%A5%EC%95%88%EC%9D%8D%20%EC%9E%A5%EC%95%88%EB%A1%9C%20482',
+        },
+        {
+          name: '통도사',
+          address: '경상남도 양산시 하북면 통도사로 108',
+          description: '영남권을 대표하는 명찰 중 하나입니다. 사찰의 규모가 크고 문화유산이 풍부해 불교문화 답사 코스로 적합합니다. 경내를 천천히 걸으며 전각, 숲길, 사찰 주변 풍경을 함께 감상할 수 있습니다.',
+          commentPoint: '대웅전, 사리 신앙, 사찰의 공간 배치 등을 중심으로 한국 불교문화의 깊이를 만날 수 있는 곳입니다.',
+          mapUrl: 'https://map.naver.com/p/search/%EA%B2%BD%EC%83%81%EB%82%A8%EB%8F%84%20%EC%96%91%EC%82%B0%EC%8B%9C%20%ED%95%98%EB%B6%81%EB%A9%B4%20%ED%86%B5%EB%8F%84%EC%82%AC%EB%A1%9C%20108',
+          officialUrl: 'https://www.tongdosa.or.kr',
+        },
+        {
+          name: '표충사',
+          address: '경상남도 밀양시 단장면 표충로 1338',
+          description: '밀양을 대표하는 사찰로, 사명대사와 관련된 역사적 의미가 깊은 곳입니다. 불교문화뿐 아니라 임진왜란, 호국불교, 지역 역사 해설과 연결하기 좋습니다. 사찰 주변 자연경관도 아름다워 조용한 힐링 여행지로도 좋습니다.',
+          commentPoint: '"기도의 공간"이면서 동시에 "역사를 기억하는 공간"입니다. 사명대사, 임진왜란, 호국불교의 의미를 연결하면 인상 깊은 여행이 됩니다.',
+          mapUrl: 'https://map.naver.com/p/search/%EA%B2%BD%EC%83%81%EB%82%A8%EB%8F%84%20%EB%B0%80%EC%96%91%EC%8B%9C%20%EB%8B%A8%EC%9E%A5%EB%A9%B4%20%ED%91%9C%EC%B6%A9%EB%A1%9C%201338',
+        },
+      ],
+      courseDetails: [
+        {
+          title: '부산 대표 사찰 코스',
+          spots: '범어사 · 해동용궁사',
+          subtitle: '산사와 바다 사찰을 하루에 만나는 부산 대표 코스',
+          intro: '금정산의 숲과 고즈넉한 사찰 분위기, 기장 해안의 탁 트인 바다 풍경을 모두 경험할 수 있습니다.',
+          info: [
+            ['추천 대상', '부산 대표 사찰을 처음 방문하는 여행객'],
+            ['여행 분위기', '역사, 자연, 바다 풍경, 사진 명소'],
+            ['추천 소요', '반나절~1일'],
+            ['이동 난이도', '보통'],
+          ],
+          itinerary: [
+            ['오전', '범어사 도착 및 산사 관람'],
+            ['점심', '금정구 또는 기장 이동 후 식사'],
+            ['오후', '해동용궁사 관람 및 해안 풍경 감상'],
+            ['선택', '기장 카페거리 또는 오시리아 관광단지 연계'],
+          ],
+        },
+        {
+          title: '기장 힐링 사찰 코스',
+          spots: '해동용궁사 · 장안사',
+          subtitle: '바다와 계곡을 함께 만나는 기장 집중 코스',
+          intro: '이동 부담이 비교적 적은 기장권 사찰 여행으로, 해동용궁사의 바다 풍경과 장안사의 산과 계곡 분위기를 함께 즐길 수 있어 가족 여행이나 어르신 동반 여행에도 적합합니다.',
+          info: [
+            ['추천 대상', '이동 거리를 줄이고 싶은 여행객'],
+            ['여행 분위기', '바다, 산사, 계곡, 힐링'],
+            ['추천 소요', '반나절~1일'],
+            ['이동 난이도', '쉬움'],
+          ],
+          itinerary: [
+            ['오전', '해동용궁사 관람'],
+            ['점심', '기장 해안가 식사'],
+            ['오후', '장안사 관람 및 산책'],
+            ['선택', '일광해수욕장, 기장 카페, 오시리아 관광단지 연계'],
+          ],
+        },
+        {
+          title: '양산 역사 사찰 코스',
+          spots: '통도사 단독 답사',
+          subtitle: '한국 불교문화를 깊이 만나는 양산 대표 코스',
+          intro: '통도사는 양산을 대표하는 대형 사찰로 규모와 역사성이 뛰어납니다. 짧게 둘러보기보다 하루 코스로 여유 있게 방문하는 것이 좋습니다.',
+          info: [
+            ['추천 대상', '역사와 불교문화에 관심 있는 여행객'],
+            ['여행 분위기', '역사, 문화유산, 전통 사찰'],
+            ['추천 소요', '반나절~1일'],
+            ['이동 난이도', '보통'],
+          ],
+          itinerary: [
+            ['오전', '부산 출발, 양산 통도사 이동'],
+            ['오전~점심', '통도사 경내 관람'],
+            ['점심', '통도사 인근 식사'],
+            ['오후', '통도사 주변 산책 및 카페 휴식'],
+            ['선택', '양산 내원사계곡 또는 양산 시내 연계'],
+          ],
+        },
+        {
+          title: '밀양 호국불교 코스',
+          spots: '표충사 단독 답사',
+          subtitle: '사명대사의 정신과 산사의 고요함을 만나는 밀양 코스',
+          intro: '표충사는 사명대사와 관련된 역사적 의미가 깊은 곳으로, 불교문화뿐 아니라 임진왜란·호국불교·지역 역사 해설과 연결하기 좋습니다.',
+          info: [
+            ['추천 대상', '역사 해설형 여행을 원하는 여행객'],
+            ['여행 분위기', '역사, 호국불교, 산사, 자연'],
+            ['추천 소요', '1일'],
+            ['이동 난이도', '보통~다소 높음'],
+          ],
+          itinerary: [
+            ['오전', '부산 또는 양산 출발, 밀양 이동'],
+            ['오전~점심', '표충사 관람'],
+            ['점심', '밀양 향토 음식 식사'],
+            ['오후', '표충사 주변 산책'],
+            ['선택', '얼음골, 영남루, 밀양강 주변 관광 연계'],
+          ],
+        },
+      ],
+      courseGuide: [
+        ['부산 대표 사찰을 보고 싶다면', '범어사 · 해동용궁사'],
+        ['이동을 줄이고 편하게 보고 싶다면', '해동용궁사 · 장안사'],
+        ['불교문화와 대형 사찰을 깊이 보고 싶다면', '통도사'],
+        ['역사 해설과 호국불교를 함께 보고 싶다면', '표충사'],
+        ['어르신·가족 동반 여행이라면', '해동용궁사 · 장안사'],
+        ['교육·답사형 여행이라면', '통도사 또는 표충사'],
+      ],
     },
     en: {
-      title: 'Temple Meditation Experience',
-      duration: 'Day Trip',
+      title: 'Busan · Yangsan · Miryang Temple Healing Tour',
+      duration: 'Half Day~Full Day (by course)',
       price: 'Inquire',
-      maxPeople: 'Max 8 people',
-      description: 'A profound meditation and temple stay program at Beomeosa and Haedong Yonggungsa temples. Find inner peace at serene temples nestled in the city.',
-      spots: ['Beomeosa Temple', 'Haedong Yonggungsa Temple', 'Geumjeongsan Trail', 'Temple Gardens'],
-      courses: ['Early morning: Beomeosa dawn ritual', 'Morning: Temple meditation', 'Lunch: Temple vegetarian meal', 'Afternoon: Haedong Yonggungsa visit', 'Dusk: Geumjeongsan sunset'],
-      tip: 'The dawn ritual begins at 4 AM. Quiet, modest clothing is recommended.',
-      links: [{ label: 'Beomeosa Official Site', url: 'http://www.beomeosa.co.kr' }],
-      source: 'Busan Buddhist Culture Center',
+      maxPeople: 'Max 12 people',
+      description: 'A temple journey through mountain temples, seaside temples, and historic Buddhist sites near Busan. Choose from courses centered on Beomeosa & Haedong Yonggungsa in Busan, Jangan-sa in Gijang, Tongdosa in Yangsan, and Pyochungsa in Miryang.',
+      spots: [
+        'Beomeosa — 250 Beomeosa-ro, Geumjeong-gu, Busan',
+        'Haedong Yonggungsa — 86 Yonggung-gil, Gijang-eup, Gijang-gun, Busan',
+        'Jangan-sa — 482 Jangan-ro, Jangan-eup, Gijang-gun, Busan',
+        'Tongdosa — 108 Tongdosa-ro, Habuk-myeon, Yangsan, Gyeongnam',
+        'Pyochungsa — 1338 Pyochung-ro, Danjang-myeon, Miryang, Gyeongnam',
+      ],
+      courses: [
+        'Course 1 (Busan Classics): Beomeosa → Haedong Yonggungsa — Mountain & seaside temples in one day',
+        'Course 2 (Gijang Healing): Haedong Yonggungsa → Jangan-sa — Compact Gijang-area tour',
+        'Course 3 (Yangsan History): Tongdosa solo visit — Deep Buddhist culture exploration',
+        'Course 4 (Miryang Patriotic): Pyochungsa solo visit — History & patriotic Buddhism commentary',
+      ],
+      tip: 'Wear comfortable shoes and modest attire. Tongdosa and Pyochungsa are about 1–1.5 hours from Busan by car. Please observe temple etiquette when photographing.',
+      links: [
+        { label: 'Beomeosa Official Site', url: 'http://www.beomeosa.co.kr' },
+        { label: 'Haedong Yonggungsa Official Site', url: 'https://www.yongkungsa.or.kr' },
+        { label: 'Tongdosa Official Site', url: 'https://www.tongdosa.or.kr' },
+        { label: 'Beomeosa Map', url: 'https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EA%B8%88%EC%A0%95%EA%B5%AC%20%EB%B2%94%EC%96%B4%EC%82%AC%EB%A1%9C%20250' },
+        { label: 'Haedong Yonggungsa Map', url: 'https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EA%B8%B0%EC%9E%A5%EA%B5%B0%20%EA%B8%B0%EC%9E%A5%EC%9D%8D%20%EC%9A%A9%EA%B6%81%EA%B8%B8%2086' },
+        { label: 'Jangan-sa Map', url: 'https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EA%B8%B0%EC%9E%A5%EA%B5%B0%20%EC%9E%A5%EC%95%88%EC%9D%8D%20%EC%9E%A5%EC%95%88%EB%A1%9C%20482' },
+        { label: 'Tongdosa Map', url: 'https://map.naver.com/p/search/%EA%B2%BD%EC%83%81%EB%82%A8%EB%8F%84%20%EC%96%91%EC%82%B0%EC%8B%9C%20%ED%95%98%EB%B6%81%EB%A9%B4%20%ED%86%B5%EB%8F%84%EC%82%AC%EB%A1%9C%20108' },
+        { label: 'Pyochungsa Map', url: 'https://map.naver.com/p/search/%EA%B2%BD%EC%83%81%EB%82%A8%EB%8F%84%20%EB%B0%80%EC%96%91%EC%8B%9C%20%EB%8B%A8%EC%9E%A5%EB%A9%B4%20%ED%91%9C%EC%B6%A9%EB%A1%9C%201338' },
+      ],
+      source: 'Visit Busan / Busan Tourism Organization',
+      spotDetails: [
+        {
+          name: 'Beomeosa',
+          address: '250 Beomeosa-ro, Geumjeong-gu, Busan',
+          description: "Busan's representative mountain temple nestled in Geumjeongsan. Lush forest trails, serene halls, and a calm atmosphere let you experience both Buddhist culture and natural scenery. Despite being close to the city, it feels like a deep mountain retreat.",
+          commentPoint: 'Walking through the Iljumun gate feels like crossing into a different world — a journey to clear the mind away from daily life.',
+          mapUrl: 'https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EA%B8%88%EC%A0%95%EA%B5%AC%20%EB%B2%94%EC%96%B4%EC%82%AC%EB%A1%9C%20250',
+          officialUrl: 'http://www.beomeosa.co.kr',
+        },
+        {
+          name: 'Haedong Yonggungsa',
+          address: '86 Yonggung-gil, Gijang-eup, Gijang-gun, Busan',
+          description: "Busan's iconic coastal temple right at the sea. Its halls stretch along a blue ocean backdrop for a unique landscape unlike typical mountain temples. Popular as both a prayer site and tourist attraction — excellent for sunrise and coastal views.",
+          commentPoint: 'Prayer, sightseeing, and relaxation coexist in this open coastal setting where local maritime life and Buddhist faith have long been intertwined.',
+          mapUrl: 'https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EA%B8%B0%EC%9E%A5%EA%B5%B0%20%EA%B8%B0%EC%9E%A5%EC%9D%8D%20%EC%9A%A9%EA%B6%81%EA%B8%B8%2086',
+          officialUrl: 'https://www.yongkungsa.or.kr',
+        },
+        {
+          name: 'Jangan-sa',
+          address: '482 Jangan-ro, Jangan-eup, Gijang-gun, Busan',
+          description: 'A quiet temple at the foot of Bulgwangsan. Where Haedong Yonggungsa is known for ocean views and tourism, Jangan-sa stands out for its mountain and valley atmosphere. Well suited for travelers who prefer a calm temple stroll.',
+          commentPoint: 'Visiting alongside Haedong Yonggungsa lets you contrast coastal temple and mountain temple experiences.',
+          mapUrl: 'https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EA%B8%B0%EC%9E%A5%EA%B5%B0%20%EC%9E%A5%EC%95%88%EC%9D%8D%20%EC%9E%A5%EC%95%88%EB%A1%9C%20482',
+        },
+        {
+          name: 'Tongdosa',
+          address: '108 Tongdosa-ro, Habuk-myeon, Yangsan, Gyeongnam',
+          description: 'One of the most representative major temples in the Yeongnam region, with outstanding scale and cultural heritage. Ideal for a Buddhist culture study tour — stroll leisurely through halls, forest paths, and surrounding landscape.',
+          commentPoint: 'Focus on the Daeungjeon hall, relic faith, and spatial layout to reveal the depth of Korean Buddhist culture.',
+          mapUrl: 'https://map.naver.com/p/search/%EA%B2%BD%EC%83%81%EB%82%A8%EB%8F%84%20%EC%96%91%EC%82%B0%EC%8B%9C%20%ED%95%98%EB%B6%81%EB%A9%B4%20%ED%86%B5%EB%8F%84%EC%82%AC%EB%A1%9C%20108',
+          officialUrl: 'https://www.tongdosa.or.kr',
+        },
+        {
+          name: 'Pyochungsa',
+          address: '1338 Pyochung-ro, Danjang-myeon, Miryang, Gyeongnam',
+          description: "Miryang's representative temple with deep historical significance related to the monk Samyeongdang. Excellent for connecting Buddhist culture with the Imjin War, patriotic Buddhism, and local history. Beautiful natural surroundings make it a fine healing destination too.",
+          commentPoint: 'Both a "space for prayer" and a "space that remembers history." Linking Samyeongdang, the Imjin War, and patriotic Buddhism creates a memorable interpretive tour.',
+          mapUrl: 'https://map.naver.com/p/search/%EA%B2%BD%EC%83%81%EB%82%A8%EB%8F%84%20%EB%B0%80%EC%96%91%EC%8B%9C%20%EB%8B%A8%EC%9E%A5%EB%A9%B4%20%ED%91%9C%EC%B6%A9%EB%A1%9C%201338',
+        },
+      ],
+      courseDetails: [
+        {
+          title: 'Busan Classic Temple Course',
+          spots: 'Beomeosa · Haedong Yonggungsa',
+          subtitle: 'Mountain and seaside temple in one day',
+          intro: "Experience Geumjeongsan's forest and serene temple atmosphere alongside Gijang's open coastal scenery.",
+          info: [
+            ['Best For', 'First-time Busan temple visitors'],
+            ['Atmosphere', 'History, nature, ocean views, photo spots'],
+            ['Duration', 'Half day~full day'],
+            ['Difficulty', 'Moderate'],
+          ],
+          itinerary: [
+            ['Morning', 'Arrive Beomeosa, temple tour'],
+            ['Lunch', 'Move to Geumjeong-gu or Gijang for meal'],
+            ['Afternoon', 'Haedong Yonggungsa tour & coastal views'],
+            ['Optional', 'Gijang café street or Osiria Tourist Complex'],
+          ],
+        },
+        {
+          title: 'Gijang Healing Temple Course',
+          spots: 'Haedong Yonggungsa · Jangan-sa',
+          subtitle: 'Sea and valley in one focused Gijang tour',
+          intro: 'A lower-travel-burden Gijang tour combining ocean views of Haedong Yonggungsa with the mountain and valley feel of Jangan-sa. Suitable for family or senior group travel.',
+          info: [
+            ['Best For', 'Travelers wanting minimal travel distance'],
+            ['Atmosphere', 'Sea, mountain temple, valley, healing'],
+            ['Duration', 'Half day~full day'],
+            ['Difficulty', 'Easy'],
+          ],
+          itinerary: [
+            ['Morning', 'Haedong Yonggungsa tour'],
+            ['Lunch', 'Meal at Gijang coastal restaurant'],
+            ['Afternoon', 'Jangan-sa tour & stroll'],
+            ['Optional', 'Ilgwang Beach, Gijang café, Osiria Tourist Complex'],
+          ],
+        },
+        {
+          title: 'Yangsan History Temple Course',
+          spots: 'Tongdosa — Solo Visit',
+          subtitle: 'A deep dive into Korean Buddhist culture',
+          intro: "Tongdosa is Yangsan's representative large temple with outstanding scale and historical significance. Plan a full day for a leisurely exploration.",
+          info: [
+            ['Best For', 'Travelers interested in history & Buddhist culture'],
+            ['Atmosphere', 'History, cultural heritage, traditional temple'],
+            ['Duration', 'Half day~full day'],
+            ['Difficulty', 'Moderate'],
+          ],
+          itinerary: [
+            ['Morning', 'Depart Busan, travel to Tongdosa, Yangsan'],
+            ['Morning~Lunch', 'Tongdosa grounds tour'],
+            ['Lunch', 'Meal near Tongdosa'],
+            ['Afternoon', 'Stroll around Tongdosa & café rest'],
+            ['Optional', "Naewon-sa Valley or Yangsan city center"],
+          ],
+        },
+        {
+          title: 'Miryang Patriotic Buddhism Course',
+          spots: 'Pyochungsa — Solo Visit',
+          subtitle: "Samyeongdang's spirit and mountain temple serenity in Miryang",
+          intro: 'Pyochungsa holds deep historical significance related to Samyeongdang, excellent for connecting with the Imjin War and patriotic Buddhism.',
+          info: [
+            ['Best For', 'Travelers wanting history-commentary tours'],
+            ['Atmosphere', 'History, patriotic Buddhism, mountain temple, nature'],
+            ['Duration', 'Full day'],
+            ['Difficulty', 'Moderate~somewhat demanding'],
+          ],
+          itinerary: [
+            ['Morning', 'Depart Busan or Yangsan, travel to Miryang'],
+            ['Morning~Lunch', 'Pyochungsa tour'],
+            ['Lunch', 'Local Miryang cuisine'],
+            ['Afternoon', 'Stroll around Pyochungsa'],
+            ['Optional', 'Ice Valley (Eolgumgol), Yeongnamnu, Miryang River area'],
+          ],
+        },
+      ],
+      courseGuide: [
+        ["Want Busan's top temples", 'Beomeosa · Haedong Yonggungsa'],
+        ['Prefer minimal travel distance', 'Haedong Yonggungsa · Jangan-sa'],
+        ['Want in-depth Buddhist culture', 'Tongdosa'],
+        ['Want history & patriotic Buddhism', 'Pyochungsa'],
+        ['Family or senior group travel', 'Haedong Yonggungsa · Jangan-sa'],
+        ['Educational / study tour', 'Tongdosa or Pyochungsa'],
+      ],
     },
     zh: {
-      title: '寺院禅修体验',
-      duration: '当日往返',
+      title: '釜山·梁山·密阳寺院疗愈之旅',
+      duration: '半天~全天（按路线）',
       price: '请咨询',
-      maxPeople: '最多8人',
-      description: '在梵鱼寺与海东龙宫寺进行深度禅修与寺院体验项目。在闹市中的静谧寺院，寻找内心的平静。',
-      spots: ['梵鱼寺', '海东龙宫寺', '金井山步道', '寺院庭园'],
-      courses: ['清晨：梵鱼寺晨钟礼佛', '上午：寺院禅修体验', '午餐：寺院素食', '下午：海东龙宫寺参观', '黄昏：金井山日落'],
-      tip: '晨钟礼佛于凌晨4时开始，请着素雅服装。',
-      links: [{ label: '梵鱼寺官方网站', url: 'http://www.beomeosa.co.kr' }],
-      source: '釜山佛教文化院',
+      maxPeople: '最多12人',
+      description: '沿着城市近郊山寺、海边寺院及历史悠久的名刹出发的寺院旅行。从釜山代表性寺院梵鱼寺与海东龙宫寺，到机张的幽静长安寺，梁山的大刹通度寺，以及密阳的护国佛教遗产表忠寺，按地区特色提供可选路线。',
+      spots: [
+        '梵鱼寺 — 釜山广域市金井区梵鱼寺路250号',
+        '海东龙宫寺 — 釜山广域市机张郡机张邑龙宫路86号',
+        '长安寺 — 釜山广域市机张郡长安邑长安路482号',
+        '通度寺 — 庆尚南道梁山市下北面通度寺路108号',
+        '表忠寺 — 庆尚南道密阳市丹场面表忠路1338号',
+      ],
+      courses: [
+        '路线1（釜山代表）：梵鱼寺 → 海东龙宫寺 — 一天游览山寺与海边寺院',
+        '路线2（机张疗愈）：海东龙宫寺 → 长安寺 — 机张集中路线，交通便利',
+        '路线3（梁山历史）：通度寺单独参访 — 深度体验佛教文化',
+        '路线4（密阳护国佛教）：表忠寺单独参访 — 四溟大师与护国佛教历史讲解',
+      ],
+      tip: '建议穿舒适的鞋子和整洁的服装。从釜山到通度寺、表忠寺约需1~1.5小时车程。在寺院内拍照时请遵守礼仪。',
+      links: [
+        { label: '梵鱼寺官方网站', url: 'http://www.beomeosa.co.kr' },
+        { label: '海东龙宫寺官方网站', url: 'https://www.yongkungsa.or.kr' },
+        { label: '通度寺官方网站', url: 'https://www.tongdosa.or.kr' },
+        { label: '梵鱼寺地图', url: 'https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EA%B8%88%EC%A0%95%EA%B5%AC%20%EB%B2%94%EC%96%B4%EC%82%AC%EB%A1%9C%20250' },
+        { label: '海东龙宫寺地图', url: 'https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EA%B8%B0%EC%9E%A5%EA%B5%B0%20%EA%B8%B0%EC%9E%A5%EC%9D%8D%20%EC%9A%A9%EA%B6%81%EA%B8%B8%2086' },
+        { label: '长安寺地图', url: 'https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EA%B8%B0%EC%9E%A5%EA%B5%B0%20%EC%9E%A5%EC%95%88%EC%9D%8D%20%EC%9E%A5%EC%95%88%EB%A1%9C%20482' },
+        { label: '通度寺地图', url: 'https://map.naver.com/p/search/%EA%B2%BD%EC%83%81%EB%82%A8%EB%8F%84%20%EC%96%91%EC%82%B0%EC%8B%9C%20%ED%95%98%EB%B6%81%EB%A9%B4%20%ED%86%B5%EB%8F%84%EC%82%AC%EB%A1%9C%20108' },
+        { label: '表忠寺地图', url: 'https://map.naver.com/p/search/%EA%B2%BD%EC%83%81%EB%82%A8%EB%8F%84%20%EB%B0%80%EC%96%91%EC%8B%9C%20%EB%8B%A8%EC%9E%A5%EB%A9%B4%20%ED%91%9C%EC%B6%A9%EB%A1%9C%201338' },
+      ],
+      source: 'Visit Busan / 釜山旅游公社',
+      spotDetails: [
+        {
+          name: '梵鱼寺',
+          address: '釜山广域市金井区梵鱼寺路250号',
+          description: '位于金井山山麓的釜山代表性寺院。郁郁葱葱的林间小道、幽静的殿阁与山寺宁静的氛围相互交融，可同时感受釜山的佛教文化与自然景观。虽然距市区不远，却让人感受到深山古刹般的平静。',
+          commentPoint: '穿过一柱门进入寺院的过程，如同离开日常、沉淀心绪的旅程。',
+          mapUrl: 'https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EA%B8%88%EC%A0%95%EA%B5%AC%20%EB%B2%94%EC%96%B4%EC%82%AC%EB%A1%9C%20250',
+          officialUrl: 'http://www.beomeosa.co.kr',
+        },
+        {
+          name: '海东龙宫寺',
+          address: '釜山广域市机张郡机张邑龙宫路86号',
+          description: '釜山代表性的海边寺院，与大海相接。与一般的山中寺院不同，殿阁以蓝色大海为背景延伸而来，景观独特。作为祈祷圣地与旅游名胜均颇受欢迎，也是观赏日出和海岸风光的好去处。',
+          commentPoint: '在开阔的海岸风景中，祈祷、观光与休闲融为一体，是当地海洋生活与佛教信仰相结合的场所。',
+          mapUrl: 'https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EA%B8%B0%EC%9E%A5%EA%B5%B0%20%EA%B8%B0%EC%9E%A5%EC%9D%8D%20%EC%9A%A9%EA%B6%81%EA%B8%B8%2086',
+          officialUrl: 'https://www.yongkungsa.or.kr',
+        },
+        {
+          name: '长安寺',
+          address: '釜山广域市机张郡长安邑长安路482号',
+          description: '位于佛光山山麓的安静寺院。如果说海东龙宫寺以大海与观光形象著称，长安寺则以山岳、溪谷与宁静的氛围见长。更适合希望远离热闹景点、在寺院中静心漫步的游客。',
+          commentPoint: '与海东龙宫寺一同游览，可对比感受海边寺院与山中寺院的不同氛围。',
+          mapUrl: 'https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EA%B8%B0%EC%9E%A5%EA%B5%B0%20%EC%9E%A5%EC%95%88%EC%9D%8D%20%EC%9E%A5%EC%95%88%EB%A1%9C%20482',
+        },
+        {
+          name: '通度寺',
+          address: '庆尚南道梁山市下北面通度寺路108号',
+          description: '岭南地区的代表性名刹之一。规模宏大，文化遗产丰富，适合作为佛教文化探访路线。可在寺内悠闲漫步，欣赏殿阁、林间小道及寺院周边景色。',
+          commentPoint: '围绕大雄殿、舍利信仰与寺院空间布局进行讲解，可以深入感受韩国佛教文化的厚度。',
+          mapUrl: 'https://map.naver.com/p/search/%EA%B2%BD%EC%83%81%EB%82%A8%EB%8F%84%20%EC%96%91%EC%82%B0%EC%8B%9C%20%ED%95%98%EB%B6%81%EB%A9%B4%20%ED%86%B5%EB%8F%84%EC%82%AC%EB%A1%9C%20108',
+          officialUrl: 'https://www.tongdosa.or.kr',
+        },
+        {
+          name: '表忠寺',
+          address: '庆尚南道密阳市丹场面表忠路1338号',
+          description: '密阳的代表性寺院，与四溟大师相关，历史意义深厚。除佛教文化外，还适合结合壬辰倭乱、护国佛教与当地历史进行讲解。周边自然风光秀美，也是安静的疗愈旅游地。',
+          commentPoint: '既是"祈祷的空间"，也是"铭记历史的空间"。将四溟大师、壬辰倭乱与护国佛教的意义相联系，可带来深刻的旅行体验。',
+          mapUrl: 'https://map.naver.com/p/search/%EA%B2%BD%EC%83%81%EB%82%A8%EB%8F%84%20%EB%B0%80%EC%96%91%EC%8B%9C%20%EB%8B%A8%EC%9E%A5%EB%A9%B4%20%ED%91%9C%EC%B6%A9%EB%A1%9C%201338',
+        },
+      ],
+      courseDetails: [
+        {
+          title: '釜山代表寺院路线',
+          spots: '梵鱼寺 · 海东龙宫寺',
+          subtitle: '一天游览山寺与海边寺院的釜山代表路线',
+          intro: '可同时体验金井山的森林与幽静寺院氛围，以及机张海岸开阔的海景。',
+          info: [
+            ['推荐对象', '初次访问釜山代表寺院的游客'],
+            ['旅行氛围', '历史、自然、海景、拍照胜地'],
+            ['建议用时', '半天~全天'],
+            ['交通难度', '一般'],
+          ],
+          itinerary: [
+            ['上午', '抵达梵鱼寺，游览山寺'],
+            ['午餐', '移至金井区或机张用餐'],
+            ['下午', '游览海东龙宫寺，欣赏海岸风光'],
+            ['可选', '机张咖啡街或奥西利亚观光区'],
+          ],
+        },
+        {
+          title: '机张疗愈寺院路线',
+          spots: '海东龙宫寺 · 长安寺',
+          subtitle: '同时感受大海与溪谷的机张集中路线',
+          intro: '交通负担较小的机张地区寺院之旅，可同时享受海东龙宫寺的海景与长安寺的山岳溪谷氛围，也适合家庭或老年人同行旅游。',
+          info: [
+            ['推荐对象', '希望减少移动距离的游客'],
+            ['旅行氛围', '大海、山寺、溪谷、疗愈'],
+            ['建议用时', '半天~全天'],
+            ['交通难度', '轻松'],
+          ],
+          itinerary: [
+            ['上午', '游览海东龙宫寺'],
+            ['午餐', '机张海岸餐厅用餐'],
+            ['下午', '游览长安寺，漫步散心'],
+            ['可选', '日光海水浴场、机张咖啡馆、奥西利亚观光区'],
+          ],
+        },
+        {
+          title: '梁山历史寺院路线',
+          spots: '通度寺单独参访',
+          subtitle: '深度体验韩国佛教文化的梁山代表路线',
+          intro: '通度寺是梁山的代表性大型寺院，规模宏大，历史性突出。建议以全天行程从容游览，而非匆匆一瞥。',
+          info: [
+            ['推荐对象', '对历史与佛教文化感兴趣的游客'],
+            ['旅行氛围', '历史、文化遗产、传统寺院'],
+            ['建议用时', '半天~全天'],
+            ['交通难度', '一般'],
+          ],
+          itinerary: [
+            ['上午', '从釜山出发，前往梁山通度寺'],
+            ['上午~午餐', '游览通度寺寺内'],
+            ['午餐', '通度寺附近用餐'],
+            ['下午', '通度寺周边漫步及咖啡休憩'],
+            ['可选', '内院寺溪谷或梁山市区'],
+          ],
+        },
+        {
+          title: '密阳护国佛教路线',
+          spots: '表忠寺单独参访',
+          subtitle: '在密阳感受四溟大师精神与山寺静谧',
+          intro: '表忠寺与四溟大师相关，历史意义深厚，适合将佛教文化与壬辰倭乱、护国佛教、地区历史相结合进行讲解。',
+          info: [
+            ['推荐对象', '希望体验历史讲解型旅行的游客'],
+            ['旅行氛围', '历史、护国佛教、山寺、自然'],
+            ['建议用时', '全天'],
+            ['交通难度', '一般~略高'],
+          ],
+          itinerary: [
+            ['上午', '从釜山或梁山出发，前往密阳'],
+            ['上午~午餐', '游览表忠寺'],
+            ['午餐', '密阳乡土料理'],
+            ['下午', '表忠寺周边漫步'],
+            ['可选', '冰窟、岭南楼、密阳江周边观光'],
+          ],
+        },
+      ],
+      courseGuide: [
+        ['想游览釜山代表寺院', '梵鱼寺 · 海东龙宫寺'],
+        ['希望减少移动距离', '海东龙宫寺 · 长安寺'],
+        ['想深度体验佛教文化与大型寺院', '通度寺'],
+        ['想结合历史讲解与护国佛教', '表忠寺'],
+        ['老年人·家庭同行旅游', '海东龙宫寺 · 长安寺'],
+        ['教育·探访型旅游', '通度寺或表忠寺'],
+      ],
     },
-  },
+  }
 
   market: {
     ko: {
@@ -1347,6 +1779,29 @@ function openModal(programKey) {
        </div>`
     : '';
 
+  const spotDetailsHTML = d.spotDetails ? d.spotDetails.map(sp => {
+    const mapLink = sp.mapUrl ? '<a href="' + sp.mapUrl + '" target="_blank" rel="noopener">\uC9C0\uB3C4 \uBCF4\uAE30</a>' : '';
+    const offLink = sp.officialUrl ? ' <a href="' + sp.officialUrl + '" target="_blank" rel="noopener">\uACF5\uC2DD \uC0AC\uC774\uD2B8</a>' : '';
+    const pt = sp.commentPoint ? '<div class="spot-point">\uD83D\uDCA1 ' + sp.commentPoint + '</div>' : '';
+    return '<div class="spot-card"><h4>' + sp.name + '</h4><span class="spot-addr">\uD83D\uDCCD ' + sp.address + '</span><div class="spot-link-row">' + mapLink + offLink + '</div><p class="spot-desc">' + sp.description + '</p>' + pt + '</div>';
+  }).join('') : null;
+
+  const courseDetailsHTML = d.courseDetails ? d.courseDetails.map((cd, idx) => {
+    const courseWord = lang === 'zh' ? '\u8DEF\u7EBF' : lang === 'en' ? 'Course' : '\ucf54\uc2a4';
+    const itWord = lang === 'zh' ? '\u63A8\u8350\u884C\u7A0B' : lang === 'en' ? 'Suggested Itinerary' : '\uCD94\uCC9C \uC77C\uC815';
+    const infoRows = cd.info.map(([k, v]) => '<tr><td>' + k + '</td><td>' + v + '</td></tr>').join('');
+    const itRows = cd.itinerary.map(([t, s]) => '<tr><td>' + t + '</td><td>' + s + '</td></tr>').join('');
+    return '<div class="course-card"><div class="course-num">' + courseWord + ' ' + (idx + 1) + '</div><h4>' + cd.title + '</h4><div class="course-spots-label">' + cd.spots + '</div><p class="course-subtitle">' + cd.subtitle + '</p><p class="course-intro">' + cd.intro + '</p><table class="course-info-table">' + infoRows + '</table><div class="itinerary"><h5>' + itWord + '</h5><table class="itinerary-table">' + itRows + '</table></div></div>';
+  }).join('') : null;
+
+  const courseGuideBlock = d.courseGuide ? (() => {
+    const h3 = lang === 'zh' ? '\u8DEF\u7EBF\u9009\u62E9\u6307\u5357' : lang === 'en' ? 'Course Selection Guide' : '\ucf54\uc2a4 \uc120\ud0dd \uac00\uc774\ub4dc';
+    const th1 = lang === 'zh' ? '\u65C5\u884C\u76EE\u7684' : lang === 'en' ? 'Travel Purpose' : '\uc5ec\ud589 \ubaa9\uc801';
+    const th2 = lang === 'zh' ? '\u63A8\u8350\u8DEF\u7EBF' : lang === 'en' ? 'Recommended Course' : '\ucd94\ucc9c \ucf54\uc2a4';
+    const rows = d.courseGuide.map(([cond, course]) => '<tr><td>' + cond + '</td><td>' + course + '</td></tr>').join('');
+    return '<div class="modal-section"><h3>' + h3 + '</h3><table class="guide-table"><thead><tr><th>' + th1 + '</th><th>' + th2 + '</th></tr></thead><tbody>' + rows + '</tbody></table></div>';
+  })() : '';
+
   const html = `<!DOCTYPE html>
 <html lang="${lang}">
 <head>
@@ -1368,6 +1823,30 @@ function openModal(programKey) {
     a { color: #2c5f2e; }
     .tip-box { background: #fff8e1; border-left: 4px solid #ffc107; padding: 0.8rem 1rem; border-radius: 0 8px 8px 0; font-size: 0.95rem; }
     .source { margin-top: 2rem; font-size: 0.8rem; color: #999; border-top: 1px solid #ddd; padding-top: 0.8rem; }
+    .course-card { border: 1px solid #e0e0e0; border-radius: 12px; padding: 20px 22px; margin-bottom: 14px; background: #fafafa; }
+    .course-num { font-size: 11px; font-weight: 700; color: #2c5f2e; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 4px; }
+    .course-card h4 { font-size: 1rem; color: #1a2e2a; margin-bottom: 3px; font-weight: 700; }
+    .course-spots-label { font-size: 0.88rem; color: #2c5f2e; font-weight: 600; margin-bottom: 6px; }
+    .course-subtitle { font-size: 0.82rem; color: #888; font-style: italic; margin-bottom: 7px; }
+    .course-intro { font-size: 0.88rem; color: #555; line-height: 1.6; margin-bottom: 10px; }
+    .course-info-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin-bottom: 10px; }
+    .course-info-table td { padding: 4px 8px; border-bottom: 1px solid #f0f0f0; }
+    .course-info-table td:first-child { width: 90px; color: #888; font-weight: 600; }
+    .itinerary h5 { font-size: 0.82rem; color: #555; margin-bottom: 5px; }
+    .itinerary-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    .itinerary-table td { padding: 4px 8px; border-bottom: 1px solid #f5f5f5; }
+    .itinerary-table td:first-child { width: 80px; color: #2c5f2e; font-weight: 600; white-space: nowrap; }
+    .spot-card { border: 1px solid #e0e0e0; border-radius: 10px; padding: 16px 18px; margin-bottom: 10px; background: #fff; }
+    .spot-card h4 { font-size: 0.98rem; color: #1a2e2a; margin-bottom: 4px; font-weight: 700; }
+    .spot-addr { font-size: 0.8rem; color: #888; display: block; margin-bottom: 6px; }
+    .spot-link-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+    .spot-link-row a { font-size: 0.78rem; background: #e8f5e9; padding: 2px 10px; border-radius: 99px; text-decoration: none; color: #2c5f2e; }
+    .spot-desc { font-size: 0.86rem; color: #555; line-height: 1.65; margin-bottom: 7px; }
+    .spot-point { font-size: 0.84rem; color: #2c5f2e; background: #f0f8f0; padding: 7px 11px; border-radius: 6px; line-height: 1.55; }
+    .guide-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+    .guide-table th { background: #2c5f2e; color: #fff; padding: 7px 10px; text-align: left; font-weight: 600; }
+    .guide-table td { padding: 6px 10px; border-bottom: 1px solid #eee; }
+    .guide-table tr:nth-child(even) td { background: #f9f9f9; }
     @media (prefers-color-scheme: dark) {
       body { background: #1a1a1a; color: #e0e0e0; }
       .meta span { background: #2d4a2e; }
@@ -1387,15 +1866,11 @@ function openModal(programKey) {
     </div>
     <p class="desc">${d.description}</p>
 
-    <div class="modal-section">
-      <h3>${ml.spots}</h3>
-      <ul>${spotsHTML}</ul>
-    </div>
-
-    <div class="modal-section">
-      <h3>${ml.courses}</h3>
-      <ul>${coursesHTML}</ul>
-    </div>
+    ${!courseDetailsHTML ? `<div class="modal-section"><h3>${ml.spots}</h3><ul>${spotsHTML}</ul></div>` : ''}
+    ${!courseDetailsHTML ? `<div class="modal-section"><h3>${ml.courses}</h3><ul>${coursesHTML}</ul></div>` : ''}
+    ${courseDetailsHTML ? `<div class="modal-section"><h3>${lang === 'zh' ? '\u63A8\u8350\u8DEF\u7EBF' : lang === 'en' ? 'Recommended Courses' : '\uCD94\uCC9C \ucf54\uc2a4'}</h3>${courseDetailsHTML}</div>` : ''}
+    ${spotDetailsHTML ? `<div class="modal-section"><h3>${lang === 'zh' ? '\u5404\u5BFA\u9662\u8BE6\u7EC6\u4ECB\u7ECD' : lang === 'en' ? 'Temple Details' : '\uc0ac\ucc30\ubcc4 \uc0c1\uc138 \uc548\ub0b4'}</h3>${spotDetailsHTML}</div>` : ''}
+    ${courseGuideBlock}
 
     <div class="modal-section">
       <h3>${ml.tip}</h3>
