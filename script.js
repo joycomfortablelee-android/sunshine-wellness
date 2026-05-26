@@ -791,14 +791,14 @@ function openContactUsPage() {
 
         <div class="cu-card">
           <div class="cu-icon">📍</div>
-          <h3 class="cu-card-title">오시는 길</h3>
+          <h3 class="cu-card-title">모이는 장소</h3>
           <p class="cu-card-body">부산광역시 부산진구<br/>서면 쥬디스태화 백화점 앞</p>
         </div>
 
         <div class="cu-card">
           <div class="cu-icon">📞</div>
           <h3 class="cu-card-title">전화 문의</h3>
-          <p class="cu-card-body">010-XXXX-XXXX<br/><span style="font-size:12px;color:#999;">평일 09:00 – 18:00</span></p>
+          <p class="cu-card-body">010-5759-5485<br/><span style="font-size:12px;color:#999;">평일 09:00 – 18:00</span></p>
         </div>
 
         <div class="cu-card">
@@ -820,17 +820,14 @@ function openContactUsPage() {
       <div class="cu-sns-section">
         <p class="cu-sns-label">SNS</p>
         <div class="cu-sns-row">
-          <a class="cu-sns-btn" href="https://www.instagram.com/" target="_blank" rel="noopener">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-            Instagram
+          <a class="cu-sns-btn" href="https://www.instagram.com/" target="_blank" rel="noopener" title="Instagram">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
           </a>
-          <a class="cu-sns-btn" href="https://www.facebook.com/" target="_blank" rel="noopener">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-            Facebook
+          <a class="cu-sns-btn" href="https://www.facebook.com/" target="_blank" rel="noopener" title="Facebook">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
           </a>
-          <a class="cu-sns-btn" href="https://blog.naver.com/" target="_blank" rel="noopener">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15H9V8h2v9zm4 0h-2V8h2v9z"/></svg>
-            Blog
+          <a class="cu-sns-btn" href="https://blog.naver.com/" target="_blank" rel="noopener" title="Blog">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15H9V8h2v9zm4 0h-2V8h2v9z"/></svg>
           </a>
         </div>
       </div>

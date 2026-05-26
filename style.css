@@ -315,7 +315,7 @@ ul { list-style: none; }
 .cu-sns-section { margin-bottom:36px; }
 .cu-sns-label { font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#999; margin-bottom:16px; }
 .cu-sns-row { display:flex; gap:12px; flex-wrap:wrap; }
-.cu-sns-btn { display:inline-flex; align-items:center; gap:8px; padding:11px 22px; border:1.5px solid #ddd; border-radius:30px; font-size:14px; font-weight:600; color:#333; text-decoration:none; transition:all .2s; background:#fff; }
+.cu-sns-btn { display:inline-flex; align-items:center; justify-content:center; width:48px; height:48px; border:1.5px solid #ddd; border-radius:50%; color:#555; text-decoration:none; transition:all .2s; background:#fff; }
 .cu-sns-btn:hover { border-color:#1a2e2a; color:#1a2e2a; background:#f5f5f3; }
 .cu-biz { font-size:12.5px; color:#888; line-height:2; }
 @media (max-width:600px) { .cu-wrap { padding:32px 20px 60px; } .cu-grid { grid-template-columns:1fr; } }
