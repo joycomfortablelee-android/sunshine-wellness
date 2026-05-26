@@ -914,14 +914,20 @@ function openProgramsPage() {
       </div>
     </div>`).join('');
 
-  showSubPage(`
+  showSubPageFull(`
+    <div class="co-fullbg-wrap">
+    <div class="co-fullbg-banner banner-colorful">
+      <div class="co-page-header">
+        <p>Our Programs</p>
+        <h1>웰니스 여행 <span style="font-weight:300;opacity:.7;">프로그램</span></h1>
+      </div>
+    </div>
     <div style="background:#f5f5f3;min-height:100%;">
-      <div style="max-width:1160px;margin:0 auto;padding:64px 40px 80px;">
-        <p style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#e8a04a;margin-bottom:12px;">Our Programs</p>
-        <h2 style="font-size:clamp(28px,4vw,42px);font-weight:800;color:#1a2e2a;line-height:1.25;margin-bottom:10px;">웰니스 여행 <span style="font-weight:300;">프로그램</span></h2>
-        <p style="font-size:15px;color:#666;margin-bottom:52px;line-height:1.8;">몸과 마음이 함께 쉬어가는 부산의 특별한 여정.<br/>신중년의 배움과 성장을 위한 맞춤형 웰니스 투어입니다.</p>
+      <div style="max-width:1160px;margin:0 auto;padding:56px 40px 80px;">
+        <p style="font-size:15px;color:#666;margin-bottom:48px;line-height:1.8;">몸과 마음이 함께 쉬어가는 부산의 특별한 여정.<br/>신중년의 배움과 성장을 위한 맞춤형 웰니스 투어입니다.</p>
         <div class="prog-grid">${cardHtml}</div>
       </div>
+    </div>
     </div>`);
 }
 
