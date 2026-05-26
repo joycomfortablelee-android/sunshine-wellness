@@ -606,6 +606,8 @@ function openWhereToNextPage() {
       </div>
     </div>
     <div class="sp-wrap">
+      <p class="co-section-title">Community</p>
+      <h2 class="co-heading">다음 여행지</h2>
       <div class="sp-toolbar">
         <p class="sp-count">총 <strong id="boardTotal">0</strong>건</p>
         <button class="sp-btn-write" onclick="boardOpenWrite()">글쓰기</button>
