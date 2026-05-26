@@ -314,8 +314,10 @@ ul { list-style: none; }
 .co-faq { margin-bottom:56px; background:#fff; border-radius:10px; overflow:hidden; box-shadow:0 1px 8px rgba(0,0,0,0.06); }
 .co-faq-thead { display:flex; align-items:center; background:#f0eeea; border-bottom:2px solid #e0ddd8; padding:13px 16px; gap:16px; }
 .co-faq-th { font-size:13px; font-weight:700; color:#555; }
-.co-faq-th-no { width:48px; text-align:center; flex-shrink:0; }
-.co-faq-th-q { flex:1; }
+.co-faq-th-no   { width:48px; text-align:center; flex-shrink:0; }
+.co-faq-th-q    { flex:1; }
+.co-faq-th-date { width:80px; text-align:center; flex-shrink:0; }
+.co-faq-date    { width:80px; text-align:center; flex-shrink:0; color:#999; font-size:13px; }
 .co-faq-item { border-bottom:1px solid #f0eeea; }
 .co-faq-item:last-child { border-bottom:none; }
 .co-faq-btn { width:100%; display:flex; align-items:center; padding:16px 16px; background:none; border:none; cursor:pointer; font-family:var(--font); text-align:left; gap:16px; }
