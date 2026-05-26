@@ -597,10 +597,13 @@ function boardSubmit() {
 }
 
 function openWhereToNextPage() {
-  showSubPage(`
-    <div class="sp-hero">
-      <p>Community</p>
-      <h1>Where to Next? <span style="font-weight:300;opacity:.7;">— 다음 여행지</span></h1>
+  showSubPageFull(`
+    <div class="co-fullbg-wrap">
+    <div class="co-fullbg-banner banner-beach">
+      <div class="co-page-header">
+        <p>Community</p>
+        <h1>Where to Next? <span style="font-weight:300;opacity:.7;">— 다음 여행지</span></h1>
+      </div>
     </div>
     <div class="sp-wrap">
       <div class="sp-toolbar">
@@ -636,6 +639,7 @@ function openWhereToNextPage() {
         </div>
       </div>
     </div>
+    </div>
   `);
   _boardFiltered = [..._boardAllPosts];
   _boardPage = 1;
@@ -649,7 +653,7 @@ function openWhereToNextPage() {
 function openContactPage() {
   showSubPageFull(`
     <div class="co-fullbg-wrap">
-    <div class="co-fullbg-banner">
+    <div class="co-fullbg-banner banner-night">
       <div class="co-page-header">
         <p>Inquiry</p>
         <h1>견적의뢰 및 문의 <span style="font-weight:300;opacity:.7;">— Contact Us</span></h1>
@@ -794,10 +798,13 @@ function coSubmit() {
 // Contact Us — 회사 정보 오버레이
 // =========================================
 function openContactUsPage() {
-  showSubPage(`
-    <div class="sp-hero">
-      <p>Contact Us</p>
-      <h1>선샤인 웰니스 <span style="font-weight:300;opacity:.7;">— Sunshine Wellness</span></h1>
+  showSubPageFull(`
+    <div class="co-fullbg-wrap">
+    <div class="co-fullbg-banner banner-bridge">
+      <div class="co-page-header">
+        <p>Contact Us</p>
+        <h1>선샤인 웰니스 <span style="font-weight:300;opacity:.7;">— Sunshine Wellness</span></h1>
+      </div>
     </div>
     <div class="cu-wrap">
 
@@ -854,6 +861,7 @@ function openContactUsPage() {
         <p style="margin-top:8px;color:#aaa;">© 2026 선샤인 웰니스. All rights reserved.</p>
       </div>
 
+    </div>
     </div>
   `);
 }
