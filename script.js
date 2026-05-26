@@ -496,11 +496,21 @@ function showSubPage(html) {
   document.body.style.overflow = 'hidden';
 }
 
+function showSubPageFull(html) {
+  const el = document.getElementById('subPageOverlay');
+  el.innerHTML = html;
+  el.classList.add('fullbg');
+  el.style.display = 'block';
+  el.scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+}
+
 function closeSubPage() {
   const el = document.getElementById('subPageOverlay');
   if (!el || el.style.display === 'none') return;
   el.style.display = 'none';
   el.innerHTML = '';
+  el.classList.remove('fullbg');
   document.body.style.overflow = '';
 }
 
@@ -637,8 +647,9 @@ function openWhereToNextPage() {
 // 견적의뢰 및 문의 — K-Wellness 스타일 오버레이
 // =========================================
 function openContactPage() {
-  showSubPage(`
-    <div class="sp-hero">
+  showSubPageFull(`
+    <div class="co-fullbg-wrap">
+    <div class="co-page-header">
       <p>Inquiry</p>
       <h1>견적의뢰 및 문의 <span style="font-weight:300;opacity:.7;">— Contact Us</span></h1>
     </div>
@@ -739,6 +750,7 @@ function openContactPage() {
         </div>
       </div>
 
+    </div>
     </div>
   `);
 }
@@ -1843,7 +1855,7 @@ const programData = {
         {
           name: 'Busan Modern History Museum',
           address: '104 Daecheong-ro, Jung-gu, Busan',
-          description: 'Housed in the former Busan Customs building from the Japanese colonial era, this museum traces Busan from the port-opening period to the modern day. It is the city's premier space for understanding colonial-era exploitation and Busan's transformation.',
+          description: 'Housed in the former Busan Customs building from the Japanese colonial era, this museum traces Busan from the port-opening period to the modern day. It is the city\'s premier space for understanding colonial-era exploitation and Busan\'s transformation.',
           commentPoint: 'The building itself is historical evidence. Explaining how the space changed over time alongside the exhibits adds meaningful depth.',
           mapUrl: 'https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EC%A4%91%EA%B5%AC%20%EB%8C%80%EC%B2%AD%EB%A1%9C%20104',
         },
@@ -1851,7 +1863,7 @@ const programData = {
           name: 'Provisional Capital Memorial Museum',
           address: '45 Imsi Sudo Ginyeom-ro, Seo-gu, Busan',
           description: 'A memorial preserving the memory of Busan as the provisional capital of South Korea during the Korean War. The former presidential residence is kept as it was, vividly conveying daily life and governance during the wartime refuge period.',
-          commentPoint: 'Frame it as "Busan as the refuge capital" rather than just war history — this connects naturally to Busan's modern identity.',
+          commentPoint: 'Frame it as "Busan as the refuge capital" rather than just war history — this connects naturally to Busan\'s modern identity.',
           mapUrl: 'https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EC%84%9C%EA%B5%AC%20%EC%9E%84%EC%8B%9C%EC%88%98%EB%8F%84%EA%B8%B0%EB%85%90%EB%A1%9C%2045',
         },
         {
@@ -1865,14 +1877,14 @@ const programData = {
         {
           name: "Piranmin Village Ibagu-gil",
           address: '533 Mangyang-ro area, Dong-gu, Busan',
-          description: 'An alleyway village formed when wartime refugees settled on the hillsides of Dong-gu. "Ibagu" means "story" in the Busan dialect, and every corner holds memories of wartime life — the 168 Steps, Yoo Chi-hwan's Postbox, and the Kkaekkomak steep path.',
+          description: 'An alleyway village formed when wartime refugees settled on the hillsides of Dong-gu. "Ibagu" means "story" in the Busan dialect, and every corner holds memories of wartime life — the 168 Steps, Yoo Chi-hwan\'s Postbox, and the Kkaekkomak steep path.',
           commentPoint: "This alley is living history. Talk about refugees' daily lives, the will to rebuild, and Busan's working-class culture — all present here.",
           mapUrl: 'https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EB%8F%99%EA%B5%AC%20%EB%A7%9D%EC%96%91%EB%A1%9C%20533',
         },
         {
           name: 'National Forced Labor History Museum',
           address: '10 UN Pyeonghwa-ro 625beon-gil, Nam-gu, Busan',
-          description: 'A national institution documenting and commemorating the victims of Japanese colonial-era forced mobilization. Systematic exhibits cover the reality of forced labor, survivors' lives, and historical lessons — a key stop on any history education tour.',
+          description: 'A national institution documenting and commemorating the victims of Japanese colonial-era forced mobilization. Systematic exhibits cover the reality of forced labor, survivors\' lives, and historical lessons — a key stop on any history education tour.',
           commentPoint: 'History remembered not as abstraction but through specific names and faces. A powerful, humanizing experience.',
           mapUrl: 'https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EB%82%A8%EA%B5%AC%20%EC%9C%A0%EC%97%94%ED%8F%89%ED%99%94%EB%A1%9C%20625%EB%B2%88%EA%B8%B8%2010',
           officialUrl: 'https://www.fomo.or.kr',
@@ -1889,8 +1901,8 @@ const programData = {
         {
           title: 'Downtown History Loop',
           spots: 'Modern History Museum · Provisional Capital Museum · UN Cemetery · Ibagu-gil',
-          subtitle: 'Walk through Busan's modern history from the colonial era to the Korean War',
-          intro: 'A course linking Busan's modern historical sites concentrated in the downtown area. Move from colonial-era traces to wartime refuge memories to a symbol of international solidarity.',
+          subtitle: 'Walk through Busan\'s modern history from the colonial era to the Korean War',
+          intro: 'A course linking Busan\'s modern historical sites concentrated in the downtown area. Move from colonial-era traces to wartime refuge memories to a symbol of international solidarity.',
           info: [
             ['Best For', 'Travelers interested in Korean War & colonial history'],
             ['Atmosphere', 'History, education, reflective walk, alleys'],
