@@ -1038,7 +1038,7 @@ function openAboutPage() {
       </div>
     </section>`;
 
-  showSubPageFull(`<div class="co-fullbg-wrap"><div class="co-fullbg-banner banner-temple"><div class="co-page-header"><p>About</p><h1>웰니스 소개 <span style="font-weight:300;opacity:.7;">— Sunshine Wellness</span></h1></div></div>` + sec1 + sec2 + sec3 + sec4 + sec5 + `</div>`)
+  showSubPageFull(`<div class="co-fullbg-wrap"><div class="co-fullbg-banner banner-dadaepo"><div class="co-page-header"><p>About</p><h1>웰니스 소개 <span style="font-weight:300;opacity:.7;">— Sunshine Wellness</span></h1></div></div>` + sec1 + sec2 + sec3 + sec4 + sec5 + `</div>`)
 }
 
 // =========================================
