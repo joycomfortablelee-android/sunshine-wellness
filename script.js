@@ -914,7 +914,7 @@ function openAboutPage() {
 
   // 1. Hero — 다크그린 + 숫자 스탯
   const sec1 = `
-    <section style="background:linear-gradient(135deg,#2a7fa8 0%,#3ea8c8 50%,#4ec4d4 100%);padding:100px 40px 80px;text-align:center;">
+    <section style="background:linear-gradient(rgba(10,40,55,0.55),rgba(10,40,55,0.55)),url('images/부산광역시 사하구 을숙도 고니3.jpg') center/cover no-repeat;padding:100px 40px 80px;text-align:center;">
       <div style="max-width:680px;margin:0 auto;">
         <p style="font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:28px;">Sunshine Wellness</p>
         <h1 style="font-size:clamp(28px,5vw,46px);font-weight:800;line-height:1.25;color:#fff;margin-bottom:28px;">가치있는 당신의 인생<br/>제 3막을 함께합니다</h1>

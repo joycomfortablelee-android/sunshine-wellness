@@ -979,11 +979,7 @@ section { padding: 100px 0; }
 /* =========================================
    CONTACT
    ========================================= */
-.contact {
-  background:
-    linear-gradient(rgba(245,245,243,0.87), rgba(245,245,243,0.87)),
-    url('images/부산광역시 사하구 을숙도 고니3.jpg') center/cover no-repeat;
-}
+.contact { background: var(--light); }
 
 .contact-inner {
   display: grid;
