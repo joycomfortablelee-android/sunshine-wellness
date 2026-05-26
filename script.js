@@ -675,8 +675,8 @@ function openContactPage() {
           <button class="co-faq-btn" onclick="coFaqToggle(this)">
             <span class="co-faq-no">01</span>
             <span class="co-faq-q">투어 인원은 몇 명부터 가능한가요?</span>
-            <span class="co-faq-icon">+</span>
             <span class="co-faq-date">04-01</span>
+            <span class="co-faq-icon">+</span>
           </button>
           <div class="co-faq-a">기본 2인부터 소규모 단체까지 맞춤 운영합니다. 10인 이상의 단체는 별도 견적을 통해 더욱 합리적인 요금으로 안내해 드립니다.</div>
         </div>
@@ -684,8 +684,8 @@ function openContactPage() {
           <button class="co-faq-btn" onclick="coFaqToggle(this)">
             <span class="co-faq-no">02</span>
             <span class="co-faq-q">여행 일정은 어떻게 정해지나요?</span>
-            <span class="co-faq-icon">+</span>
             <span class="co-faq-date">04-01</span>
+            <span class="co-faq-icon">+</span>
           </button>
           <div class="co-faq-a">견적 문의 후 담당자가 연락드려 희망 날짜, 관심 프로그램, 인원 등을 확인하고 최적의 일정을 제안해 드립니다.</div>
         </div>
@@ -693,8 +693,8 @@ function openContactPage() {
           <button class="co-faq-btn" onclick="coFaqToggle(this)">
             <span class="co-faq-no">03</span>
             <span class="co-faq-q">예약금과 취소 정책이 어떻게 되나요?</span>
-            <span class="co-faq-icon">+</span>
             <span class="co-faq-date">04-01</span>
+            <span class="co-faq-icon">+</span>
           </button>
           <div class="co-faq-a">투어 확정 시 총 금액의 30%를 예약금으로 납부하며, 출발 7일 전까지는 전액 환불 가능합니다. 이후 취소 시 환불 규정이 적용됩니다.</div>
         </div>
@@ -702,8 +702,8 @@ function openContactPage() {
           <button class="co-faq-btn" onclick="coFaqToggle(this)">
             <span class="co-faq-no">04</span>
             <span class="co-faq-q">외국어 가이드 서비스도 가능한가요?</span>
-            <span class="co-faq-icon">+</span>
             <span class="co-faq-date">04-01</span>
+            <span class="co-faq-icon">+</span>
           </button>
           <div class="co-faq-a">영어, 중국어 가이드 동행 서비스를 제공합니다. 사전 요청 시 추가 비용 없이 안내해 드립니다.</div>
         </div>
@@ -711,8 +711,8 @@ function openContactPage() {
           <button class="co-faq-btn" onclick="coFaqToggle(this)">
             <span class="co-faq-no">05</span>
             <span class="co-faq-q">숙박 연계 패키지도 있나요?</span>
-            <span class="co-faq-icon">+</span>
             <span class="co-faq-date">04-01</span>
+            <span class="co-faq-icon">+</span>
           </button>
           <div class="co-faq-a">네, 부산 내 웰니스 특화 숙박시설과 연계한 패키지 상품을 운영합니다. 문의 시 숙박 포함 여부를 함께 알려주세요.</div>
         </div>
@@ -720,8 +720,8 @@ function openContactPage() {
           <button class="co-faq-btn" onclick="coFaqToggle(this)">
             <span class="co-faq-no">06</span>
             <span class="co-faq-q">비용 결제는 어떻게 하나요?</span>
-            <span class="co-faq-icon">+</span>
             <span class="co-faq-date">04-01</span>
+            <span class="co-faq-icon">+</span>
           </button>
             <span class="co-faq-icon">+</span>
           </button>
