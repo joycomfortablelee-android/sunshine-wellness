@@ -799,11 +799,12 @@ function openAboutPage() {
 
   // 5. CTA — 다크그린
   const sec5 = `
-    <section style="background:#1a2e2a;padding:88px 40px;text-align:center;">
-      <div style="max-width:560px;margin:0 auto;">
-        <p style="font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,0.36);margin-bottom:22px;">Get Started</p>
+    <section style="background:url('images/haeundae-sand-festival-in-busan-south-korea-518632 (2).jpg') center/cover no-repeat;padding:88px 40px;text-align:center;position:relative;">
+      <div style="position:absolute;inset:0;background:rgba(10,25,35,0.55);"></div>
+      <div style="max-width:560px;margin:0 auto;position:relative;">
+        <p style="font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:22px;">Get Started</p>
         <h2 style="font-size:clamp(24px,3vw,34px);font-weight:800;color:#fff;margin-bottom:16px;line-height:1.3;">지금, 당신의 여정을<br/>시작하세요</h2>
-        <p style="font-size:15px;color:rgba(255,255,255,0.6);margin-bottom:40px;line-height:1.8;">선샤인 웰니스가 당신만의 맞춤 웰니스 여행을 함께 설계합니다.</p>
+        <p style="font-size:15px;color:rgba(255,255,255,0.8);margin-bottom:40px;line-height:1.8;">선샤인 웰니스가 당신만의 맞춤 웰니스 여행을 함께 설계합니다.</p>
         <button onclick="openContactPage()" style="display:inline-block;background:#fff;color:#1a2e2a;font-size:14px;font-weight:700;padding:15px 44px;border-radius:30px;border:none;cursor:pointer;letter-spacing:.04em;font-family:'Noto Sans KR',sans-serif;">문의하기 →</button>
       </div>
     </section>`;
