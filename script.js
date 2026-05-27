@@ -1032,7 +1032,7 @@ function openAboutPage() {
       <div style="max-width:680px;margin:0 auto;">
         <p style="font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#3B6259;margin-bottom:28px;">Sunshine Wellness</p>
         <h1 style="font-size:clamp(28px,5vw,42px);font-weight:800;line-height:1.25;color:#1a2e2a;margin-bottom:28px;">가치있는 당신의 인생<br/>제 3막을 함께합니다</h1>
-        <p style="font-size:clamp(13px,3.5vw,16px);color:#666;line-height:1.9;max-width:480px;margin:0 auto;">신중년의 배움과 성장, 몸과 마음의 균형을 지원하는<br/>맞춤형 웰니스 여행 전문 여행사입니다.</p>
+        <p style="font-size:clamp(13px,3.5vw,16px);color:#666;line-height:1.9;max-width:480px;margin:0 auto;">신중년의 배움과 성장, 몸과 마음의 균형을 지원하는 맞춤형 웰니스 여행 전문 여행사입니다.</p>
         <div class="ab-stats" style="margin-top:56px;display:flex;justify-content:center;align-items:center;">
           <div class="ab-stats-item" style="text-align:center;padding:0 40px;">
             <span style="display:block;font-size:32px;font-weight:800;color:#1a2e2a;">9</span>
