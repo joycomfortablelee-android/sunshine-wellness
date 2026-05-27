@@ -1177,6 +1177,17 @@ section { padding: 100px 0; }
   .footer-top { flex-direction: column; }
 }
 
+/* About 페이지 — 모바일 반응형 */
+@media (max-width: 640px) {
+  .ab-section { padding-left: 24px !important; padding-right: 24px !important; }
+  .ab-stats { flex-direction: column !important; gap: 20px !important; }
+  .ab-stats-sep { display: none !important; }
+  .ab-stats-item { padding: 0 !important; }
+  .ab-who-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
+  .ab-for-you-grid { grid-template-columns: 1fr !important; }
+  .ab-promise-grid { grid-template-columns: 1fr !important; }
+}
+
 /* 터치 기기 — hover 없으므로 카드 버튼 항상 표시 */
 @media (hover: none) {
   .card-info-btn,

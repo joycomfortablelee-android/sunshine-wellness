@@ -107,6 +107,11 @@ const translations = {
     'card8.title': '부산 축제 투어',
     'card8.desc': '송도 불꽃 축제, 부산 국제 영화제, 광안리 불꽃 축제 등 부산의 대표 축제를 현지 전문가와 함께 깊이 즐기는 특별 투어입니다.',
 
+    // 카드 9 - 야간
+    'card9.tag': '야간',
+    'card9.title': '부산의 밤 — 야경·야식 투어',
+    'card9.desc': '황령산 전망대에서 부산 도심 야경을 내려다보고, 서면 포차 골목에서 야식을 즐긴 후 광안대교의 빛나는 야경으로 마무리하는 저녁 투어입니다.',
+
     // 카드 공통
     'card.info': '여행 정보',
     'card.contact': '문의하기 →',
@@ -237,6 +242,11 @@ const translations = {
     'card8.title': 'Busan Festival Tour',
     'card8.desc': 'Experience Busan\'s iconic festivals — Songdo Fire Festival, Busan International Film Festival, and Gwangalli Fireworks — with a local expert guide.',
 
+    // Card 9 - Night
+    'card9.tag': 'Night',
+    'card9.title': 'Busan After Dark — Night View · Late-Night Bites',
+    'card9.desc': 'From Hwangnyeong Mountain panoramic views to Bupyeong night market and Gwangandaegyo Bridge — a full evening tour of Busan by night.',
+
     // Card common
     'card.info': 'Travel Info',
     'card.contact': 'Inquire →',
@@ -366,6 +376,11 @@ const translations = {
     'card8.tag': '节庆',
     'card8.title': '釜山节日游',
     'card8.desc': '与本地专家一起深度体验松岛烟花节、釜山国际电影节、广安里烟花节等釜山代表性节庆活动。',
+
+    // 卡片 9
+    'card9.tag': '夜游',
+    'card9.title': '釜山之夜 — 夜景·宵夜二合一游',
+    'card9.desc': '从黄岭山夜景到釜平罐头夜市、广安大桥美景——用夜景和宵夜双重体验填满釜山的夜晚。',
 
     // 卡片 공통
     'card.info': '旅游详情',
@@ -952,6 +967,7 @@ function openProgramsPage() {
     history:  'images/sulee-busan-tower-825463.jpg',
     ecology:  'images/부산광역시 사하구 을숙도 고니3.jpg',
     festival: 'images/songdo-festival.jpg',
+    night:    'images/20191229151710512.jpeg',
   };
 
   const cards = [
@@ -963,6 +979,7 @@ function openProgramsPage() {
     { key:'history', tag:t['card6.tag'], title:t['card6.title'], desc:t['card6.desc'] },
     { key:'ecology',  tag:t['card7.tag'], title:t['card7.title'], desc:t['card7.desc'] },
     { key:'festival', tag:t['card8.tag'], title:t['card8.title'], desc:t['card8.desc'] },
+    { key:'night',    tag:t['card9.tag'], title:t['card9.title'], desc:t['card9.desc'] },
   ].map(c => {
     const pd = (programData[c.key] && programData[c.key][lang]) || (programData[c.key] && programData[c.key].ko) || {};
     return { ...c, duration: pd.duration || '당일~1박2일', people: pd.maxPeople || '소규모' };
@@ -1011,23 +1028,23 @@ function openAboutPage() {
 
   // 1. Hero — 다크그린 + 숫자 스탯
   const sec1 = `
-    <section style="background:#fff;padding:72px 40px 64px;text-align:center;">
+    <section class="ab-section" style="background:#fff;padding:72px 40px 64px;text-align:center;">
       <div style="max-width:680px;margin:0 auto;">
         <p style="font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#3B6259;margin-bottom:28px;">Sunshine Wellness</p>
         <h1 style="font-size:clamp(28px,5vw,42px);font-weight:800;line-height:1.25;color:#1a2e2a;margin-bottom:28px;">가치있는 당신의 인생<br/>제 3막을 함께합니다</h1>
         <p style="font-size:16px;color:#666;line-height:1.9;max-width:480px;margin:0 auto;">신중년의 배움과 성장, 몸과 마음의 균형을 지원하는<br/>맞춤형 웰니스 여행 전문 여행사입니다.</p>
-        <div style="margin-top:56px;display:flex;justify-content:center;align-items:center;">
-          <div style="text-align:center;padding:0 40px;">
-            <span style="display:block;font-size:32px;font-weight:800;color:#1a2e2a;">8</span>
+        <div class="ab-stats" style="margin-top:56px;display:flex;justify-content:center;align-items:center;">
+          <div class="ab-stats-item" style="text-align:center;padding:0 40px;">
+            <span style="display:block;font-size:32px;font-weight:800;color:#1a2e2a;">9</span>
             <span style="font-size:10px;color:#888;letter-spacing:.12em;text-transform:uppercase;margin-top:6px;display:block;">전문 프로그램</span>
           </div>
-          <div style="width:1px;height:36px;background:#e0e0e0;"></div>
-          <div style="text-align:center;padding:0 40px;">
+          <div class="ab-stats-sep" style="width:1px;height:36px;background:#e0e0e0;"></div>
+          <div class="ab-stats-item" style="text-align:center;padding:0 40px;">
             <span style="display:block;font-size:32px;font-weight:800;color:#1a2e2a;">100%</span>
             <span style="font-size:10px;color:#888;letter-spacing:.12em;text-transform:uppercase;margin-top:6px;display:block;">맞춤형 투어</span>
           </div>
-          <div style="width:1px;height:36px;background:#e0e0e0;"></div>
-          <div style="text-align:center;padding:0 40px;">
+          <div class="ab-stats-sep" style="width:1px;height:36px;background:#e0e0e0;"></div>
+          <div class="ab-stats-item" style="text-align:center;padding:0 40px;">
             <span style="display:block;font-size:32px;font-weight:800;color:#1a2e2a;">부산</span>
             <span style="font-size:10px;color:#888;letter-spacing:.12em;text-transform:uppercase;margin-top:6px;display:block;">로컬 전문</span>
           </div>
@@ -1037,8 +1054,8 @@ function openAboutPage() {
 
   // 2. Who We Are — 2단 레이아웃 + 인용구
   const sec2 = `
-    <section style="background:#fff;padding:88px 40px;">
-      <div style="max-width:920px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;">
+    <section class="ab-section" style="background:#fff;padding:88px 40px;">
+      <div class="ab-who-grid" style="max-width:920px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;">
         <div>
           <p style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3B6259;margin-bottom:18px;">Who We Are</p>
           <h2 style="font-size:clamp(22px,3vw,32px);font-weight:800;color:#1a2e2a;line-height:1.35;">단순한 여행을 넘어,<br/>인생의<br/>동반자가 되겠습니다</h2>
@@ -1067,13 +1084,13 @@ function openAboutPage() {
     </div>`).join('');
 
   const sec3 = `
-    <section style="background:url('images/beach-landscape-sea-coast-horizon-boardwalk-796287-pxhere.com.jpg') center/cover no-repeat;padding:88px 40px;position:relative;">
+    <section class="ab-section" style="background:url('images/beach-landscape-sea-coast-horizon-boardwalk-796287-pxhere.com.jpg') center/cover no-repeat;padding:88px 40px;position:relative;">
       <div style="position:absolute;inset:0;background:rgba(10,30,40,0.52);"></div>
       <div style="max-width:920px;margin:0 auto;position:relative;">
         <p style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:18px;">For You</p>
         <h2 style="font-size:clamp(22px,3vw,32px);font-weight:800;color:#fff;margin-bottom:12px;">40~60대 신중년을 위해<br/>설계된 여행</h2>
         <p style="font-size:15px;color:rgba(255,255,255,0.75);margin-bottom:48px;line-height:1.8;">시간과 여유가 생긴 지금, 진정한 나를 찾는 여정을 시작해보세요.</p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">${forYouCards}</div>
+        <div class="ab-for-you-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">${forYouCards}</div>
       </div>
     </section>`;
 
@@ -1091,23 +1108,23 @@ function openAboutPage() {
     </div>`).join('');
 
   const sec4 = `
-    <section style="background:#f5f5f3;padding:88px 40px;">
+    <section class="ab-section" style="background:#f5f5f3;padding:88px 40px;">
       <div style="max-width:920px;margin:0 auto;">
         <p style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3B6259;margin-bottom:18px;">Our Promise</p>
         <h2 style="font-size:clamp(22px,3vw,32px);font-weight:800;color:#1a2e2a;margin-bottom:48px;">선샤인 웰니스의<br/>세 가지 약속</h2>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">${promiseCards}</div>
+        <div class="ab-promise-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">${promiseCards}</div>
       </div>
     </section>`;
 
   // 5. CTA — 다크그린
   const sec5 = `
-    <section style="background:url('images/haeundae-sand-festival-in-busan-south-korea-518632 (2).jpg') center/cover no-repeat;padding:88px 40px;text-align:center;position:relative;">
+    <section class="ab-section" style="background:url('images/haeundae-sand-festival-in-busan-south-korea-518632 (2).jpg') center/cover no-repeat;padding:88px 40px;text-align:center;position:relative;">
       <div style="position:absolute;inset:0;background:rgba(10,25,35,0.55);"></div>
       <div style="max-width:560px;margin:0 auto;position:relative;">
         <p style="font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:22px;">Get Started</p>
         <h2 style="font-size:clamp(24px,3vw,34px);font-weight:800;color:#fff;margin-bottom:16px;line-height:1.3;">지금, 당신의 여정을<br/>시작하세요</h2>
         <p style="font-size:15px;color:rgba(255,255,255,0.8);margin-bottom:40px;line-height:1.8;">선샤인 웰니스가 당신만의 맞춤 웰니스 여행을 함께 설계합니다.</p>
-        <button onclick="openContactPage()" style="display:inline-block;background:#fff;color:#1a2e2a;font-size:14px;font-weight:700;padding:15px 44px;border-radius:30px;border:none;cursor:pointer;letter-spacing:.04em;font-family:'Noto Sans KR',sans-serif;">문의하기 →</button>
+        <button onclick="openContactPage()" style="display:inline-block;background:#fff;color:#1a2e2a;font-size:14px;font-weight:700;padding:15px 44px;border-radius:30px;border:none;cursor:pointer;letter-spacing:.04em;font-family:'Noto Sans KR',sans-serif;min-width:180px;">문의하기 →</button>
       </div>
     </section>`;
 
@@ -2370,7 +2387,114 @@ const programData = {
         ['釜山多日游', 'B路线'],
       ],
     },
-  }};
+  },
+
+  night: {
+    ko: {
+      title: '부산의 밤 — 야경·야식 투어',
+      duration: '저녁 반나절 (약 4시간)',
+      price: '문의',
+      maxPeople: '최대 12명',
+      description: '부산의 밤은 낮보다 더 아름답습니다. 황령산에서 도심 야경을 파노라마로 내려다보고, 서면 포차 골목에서 부산 토박이 야식을 즐긴 후, 광안대교가 빛나는 해변에서 하루를 마무리하는 저녁 특화 투어입니다.',
+      spots: [
+        '황령산 전망쉼터 — 부산광역시 남구 황령산로 391-39',
+        '서면 포차 골목 — 부산광역시 부산진구 서면 일대',
+        '광안리 해수욕장 야경 — 부산광역시 수영구 광안해변로 219',
+      ],
+      courses: [
+        'A코스 (야경 → 야식 → 야경): 황령산 전망쉼터 → 서면 포차 골목 → 광안리 해변',
+      ],
+      tip: '황령산 전망쉼터는 날씨 맑은 날 광안대교부터 해운대까지 한눈에 볼 수 있는 부산 최고의 야경 포인트입니다. 서면 포차는 저녁 6시 이후 본격 운영됩니다. 편한 신발 착용 권장.',
+      links: [
+        { label: '황령산 전망쉼터 — Visit Busan', url: 'https://www.visitbusan.net/kr/index.do?menuCd=DOM_000000201001001000&uc_seq=371&lang_cd=ko' },
+        { label: '광안리 해수욕장 지도', url: 'https://map.naver.com/p/search/광안리해수욕장' },
+      ],
+      source: 'Visit Busan / 부산관광공사',
+      spotDetails: [
+        {
+          name: '황령산 전망쉼터',
+          address: '부산광역시 남구 황령산로 391-39',
+          description: '해발 427m 황령산 정상부에 위치한 야경 명소. 부산 도심, 광안대교, 해운대, 센텀시티까지 360도 파노라마 야경을 감상할 수 있어 부산 최고의 야경 뷰포인트 중 하나로 꼽힙니다. Visit Busan 추천 야간 관광 핵심 명소.',
+          commentPoint: '해질녘 도착해 노을과 야경을 동시에 즐기는 타이밍이 가장 아름답습니다. 블루뱅 카페가 새벽 2시까지 운영합니다.',
+          mapUrl: 'https://map.naver.com/p/search/황령산전망쉼터',
+        },
+        {
+          name: '서면 포차 골목',
+          address: '부산광역시 부산진구 서면 일대',
+          description: '부산 최대 번화가 서면에 자리한 포차 골목. 돼지국밥, 밀면, 어묵탕, 해산물 포차까지 부산 토박이 야식을 다양하게 즐길 수 있는 저녁 식도락의 중심지입니다.',
+          commentPoint: '포차마다 메뉴와 분위기가 달라 골목 전체를 천천히 걸으며 고르는 재미가 있습니다. 현지인이 즐겨 찾는 골목 안쪽 포차를 추천합니다.',
+          mapUrl: 'https://map.naver.com/p/search/서면포차골목',
+        },
+        {
+          name: '광안리 해수욕장 야경',
+          address: '부산광역시 수영구 광안해변로 219',
+          description: '광안대교의 환상적인 야간 조명이 바다에 반사되는 부산 대표 야경 명소. 해변을 따라 이어지는 카페와 레스토랑에서 야경을 바라보며 하루를 마무리하기에 최적입니다.',
+          commentPoint: '광안대교 야간 조명은 계절마다 색이 바뀌며, 주말·기념일에는 특별 조명 이벤트가 열립니다.',
+          mapUrl: 'https://map.naver.com/p/search/광안리해수욕장',
+        },
+      ],
+      courseGuide: [
+        ['야경 감상 위주', 'A코스 (황령산 → 광안리)'],
+        ['야식 탐방 위주', 'A코스 (서면 포차 집중)'],
+        ['야경 + 야식 모두', 'A코스 전체'],
+      ],
+    },
+    en: {
+      title: 'Busan After Dark — Night View · Late-Night Bites',
+      duration: 'Evening half day (approx. 4 hours)',
+      price: 'On request',
+      maxPeople: 'Up to 12',
+      description: 'Busan shines brightest after sunset. Panoramic city views from Hwangnyeong Mountain, late-night bites at Seomyeon pojangmacha alley, then the glittering Gwangandaegyo Bridge to close the evening.',
+      spots: [
+        'Hwangnyeong Mountain Observatory — 391-39 Hwangnyeongsan-ro, Nam-gu, Busan',
+        'Seomyeon Pojangmacha Alley — Busanjin-gu, Busan',
+        'Gwangalli Beach Night View — 219 Gwangan Haebyon-ro, Suyeong-gu, Busan',
+      ],
+      courses: [
+        'Course A: Hwangnyeong Observatory → Seomyeon night food alley → Gwangalli beach',
+      ],
+      tip: 'Best on clear evenings for unobstructed panoramic views. Pojangmacha stalls open from 6pm. Wear comfortable shoes.',
+      links: [
+        { label: 'Hwangnyeong Observatory — Visit Busan', url: 'https://www.visitbusan.net/kr/index.do?menuCd=DOM_000000201001001000&uc_seq=371&lang_cd=ko' },
+        { label: 'Gwangalli Beach Map', url: 'https://map.naver.com/p/search/광안리해수욕장' },
+      ],
+      source: 'Visit Busan / Busan Tourism Organization',
+      spotDetails: [],
+      courseGuide: [
+        ['Night view focus', 'Course A'],
+        ['Street food focus', 'Course B'],
+        ['All-in night experience', 'Course A (full)'],
+      ],
+    },
+    zh: {
+      title: '釜山之夜 — 夜景·宵夜二合一游',
+      duration: '傍晚半天（约4小时）',
+      price: '询价',
+      maxPeople: '最多12人',
+      description: '从黄岭山俯瞰釜山璀璨夜景，在西面布帐马车胡同享用地道宵夜，最后在广安大桥的灯光倒影中完美收尾。',
+      spots: [
+        '黄岭山展望休息处 — 釜山广域市南区黄岭山路391-39',
+        '西面布帐马车胡同 — 釜山广域市釜山镇区西面一带',
+        '广安里海水浴场夜景 — 釜山广域市水营区广安海边路219号',
+      ],
+      courses: [
+        'A路线：黄岭山展望台 → 西面宵夜胡同 → 广安里海边',
+      ],
+      tip: '晴天傍晚前往夜景最佳。西面布帐马车18:00后开始营业。建议穿舒适的鞋子。',
+      links: [
+        { label: '黄岭山展望台 — Visit Busan', url: 'https://www.visitbusan.net/kr/index.do?menuCd=DOM_000000201001001000&uc_seq=371&lang_cd=ko' },
+        { label: '广安里海水浴场地图', url: 'https://map.naver.com/p/search/광안리해수욕장' },
+      ],
+      source: 'Visit Busan / 釜山旅游公社',
+      spotDetails: [],
+      courseGuide: [
+        ['以夜景为主', 'A路线'],
+        ['以美食为主', 'B路线'],
+        ['夜景+宵夜全体验', 'A路线（完整）'],
+      ],
+    },
+  }
+};
 
 // =========================================
 // 모달 (새 탭)
