@@ -1032,7 +1032,7 @@ function openAboutPage() {
       <div style="max-width:680px;margin:0 auto;">
         <p style="font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#3B6259;margin-bottom:28px;">Sunshine Wellness</p>
         <h1 style="font-size:clamp(28px,5vw,42px);font-weight:800;line-height:1.25;color:#1a2e2a;margin-bottom:28px;">가치있는 당신의 인생<br/>제 3막을 함께합니다</h1>
-        <p style="font-size:16px;color:#666;line-height:1.9;max-width:480px;margin:0 auto;">신중년의 배움과 성장, 몸과 마음의 균형을 지원하는<br/>맞춤형 웰니스 여행 전문 여행사입니다.</p>
+        <p style="font-size:clamp(13px,3.5vw,16px);color:#666;line-height:1.9;max-width:480px;margin:0 auto;">신중년의 배움과 성장, 몸과 마음의 균형을 지원하는<br/>맞춤형 웰니스 여행 전문 여행사입니다.</p>
         <div class="ab-stats" style="margin-top:56px;display:flex;justify-content:center;align-items:center;">
           <div class="ab-stats-item" style="text-align:center;padding:0 40px;">
             <span style="display:block;font-size:32px;font-weight:800;color:#1a2e2a;">9</span>
@@ -1064,7 +1064,7 @@ function openAboutPage() {
           <p style="font-size:15px;color:#555;line-height:1.95;margin-bottom:20px;">선샤인 웰니스는 여행이 단순한 휴식이 아니라 인생의 의미를 찾고 성장하는 시간이 될 수 있다고 믿습니다.</p>
           <p style="font-size:15px;color:#555;line-height:1.95;">부산의 자연·문화·역사와 깊이 만나는 경험이 삶에 새로운 활력을 불어넣어 줍니다. 웰니스와 문화 체험을 결합한 독창적인 프로그램으로 몸과 마음의 균형을 되찾도록 돕겠습니다.</p>
           <blockquote style="margin-top:32px;padding:20px 24px;background:#f5f5f3;border-left:3px solid #1a2e2a;border-radius:0 8px 8px 0;">
-            <p style="font-size:14px;font-weight:600;color:#1a2e2a;line-height:1.75;font-style:italic;">"여행의 모든 순간이 의미 있고 가치 있게 완성되도록,<br/>선샤인 웰니스는 진심 어린 동반자가 되겠습니다."</p>
+            <p style="font-size:14px;font-weight:600;color:#1a2e2a;line-height:1.75;font-style:italic;">"여행의 모든 순간이 의미 있고 가치 있게 완성되도록, 선샤인 웰니스는 진심 어린 동반자가 되겠습니다."</p>
           </blockquote>
         </div>
       </div>
