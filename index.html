@@ -58,10 +58,16 @@
 
     <nav class="mobile-nav" id="mobileNav">
       <ul>
+        <li><a href="javascript:void(0)" class="mobile-link" onclick="closeSubPage()" data-i18n="nav.home">홈</a></li>
         <li><a href="javascript:void(0)" class="mobile-link" onclick="openAboutPage()" data-i18n="nav.about">웰니스 소개</a></li>
         <li><a href="javascript:void(0)" class="mobile-link" onclick="openProgramsPage()" data-i18n="nav.programs">프로그램 소개</a></li>
         <li><a href="javascript:void(0)" class="mobile-link" onclick="openContactPage()" data-i18n="nav.contact">견적의뢰 및 문의</a></li>
         <li><a href="javascript:void(0)" class="mobile-link" onclick="openContactUsPage()" data-i18n="nav.contactus">Contact Us</a></li>
+        <li class="mobile-lang">
+          <button class="lang-btn active" data-lang="ko">KOR</button>
+          <button class="lang-btn" data-lang="en">ENG</button>
+          <button class="lang-btn" data-lang="zh">CH</button>
+        </li>
       </ul>
     </nav>
   </header>

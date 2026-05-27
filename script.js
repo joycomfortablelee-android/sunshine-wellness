@@ -97,6 +97,16 @@ const translations = {
     'card6.title': '부산 다크 투어리즘',
     'card6.desc': '수탈·피란·재건·평화 — 부산이 견디고 회복해 온 근현대사를 현장에서 걷고 배웁니다.',
 
+    // 카드 7 - 생태
+    'card7.tag': '생태',
+    'card7.title': '을숙도 생태 투어',
+    'card7.desc': '철새 도래지 을숙도와 낙동강 하구 에코센터를 탐방하며 부산의 자연 생태를 오감으로 느끼는 힐링 투어입니다.',
+
+    // 카드 8 - 축제
+    'card8.tag': '축제',
+    'card8.title': '부산 축제 투어',
+    'card8.desc': '송도 불꽃 축제, 부산 국제 영화제, 광안리 불꽃 축제 등 부산의 대표 축제를 현지 전문가와 함께 깊이 즐기는 특별 투어입니다.',
+
     // 카드 공통
     'card.info': '여행 정보',
     'card.contact': '문의하기 →',
@@ -216,6 +226,16 @@ const translations = {
     'card6.tag': 'History',
     'card6.title': 'Busan Dark Tourism',
     'card6.desc': 'Exploitation · Refuge · Reconstruction · Peace — walk and learn Busan\'s modern history on-site.',
+
+    // Card 7 - Ecology
+    'card7.tag': 'Ecology',
+    'card7.title': 'Eulsukdo Eco Tour',
+    'card7.desc': 'Explore Eulsukdo migratory bird sanctuary and the Nakdong Estuary Eco Center — a healing nature walk along Busan\'s waterways.',
+
+    // Card 8 - Festival
+    'card8.tag': 'Festival',
+    'card8.title': 'Busan Festival Tour',
+    'card8.desc': 'Experience Busan\'s iconic festivals — Songdo Fire Festival, Busan International Film Festival, and Gwangalli Fireworks — with a local expert guide.',
 
     // Card common
     'card.info': 'Travel Info',
@@ -337,6 +357,16 @@ const translations = {
     'card6.title': '釜山黑色旅游',
     'card6.desc': '掠夺·避难·重建·和平——实地走访，学习釜山近现代历史。',
 
+    // 卡片 7
+    'card7.tag': '生态',
+    'card7.title': '乙淑岛生态游',
+    'card7.desc': '探访乙淑岛候鸟栖息地和洛东江河口生态中心，感受釜山大自然的生命力。',
+
+    // 卡片 8
+    'card8.tag': '节庆',
+    'card8.title': '釜山节日游',
+    'card8.desc': '与本地专家一起深度体验松岛烟花节、釜山国际电影节、广安里烟花节等釜山代表性节庆活动。',
+
     // 卡片 공통
     'card.info': '旅游详情',
     'card.contact': '咨询 →',
@@ -427,6 +457,26 @@ function setLang(lang) {
 document.querySelectorAll('.lang-btn').forEach(btn =>
   btn.addEventListener('click', () => setLang(btn.dataset.lang))
 );
+
+// =========================================
+// 햄버거 메뉴
+// =========================================
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+
+if (hamburger && mobileNav) {
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileNav.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+  });
+
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      hamburger.classList.remove('open');
+    });
+  });
+}
 
 // =========================================
 // 히어로 캐러셀 (crossfade)
@@ -890,17 +940,18 @@ function openContactUsPage() {
 // 프로그램 소개 새 창
 // =========================================
 function openProgramsPage() {
-  const BASE = 'https://www.sunshinewellness.co.kr';
   const lang = currentLang || 'ko';
   const t = translations[lang] || translations.ko;
 
   const IMGS = {
-    tour:    `${BASE}/images/gwangan-bridge-haeundae-busan-korea.jpg`,
-    culture: `${BASE}/images/51315836390_c2d8b2c7e2_o.jpg`,
-    temple:  `${BASE}/images/haedong-yonggungsa-temple-haeundae-sea-busan-buddhist-temple-busan-south-korea.jpg`,
-    art:     `${BASE}/images/(BB2024)부산현대미술관_외부.jpg`,
-    market:  `${BASE}/images/Inside_Jagalchi_Fish_Market,_Busan.jpg`,
-    history: `${BASE}/images/sulee-busan-tower-825463.jpg`,
+    tour:     'images/gwangan-bridge-haeundae-busan-korea.jpg',
+    culture:  'images/51315836390_c2d8b2c7e2_o.jpg',
+    temple:   'images/haedong-yonggungsa-temple-haeundae-sea-busan-buddhist-temple-busan-south-korea.jpg',
+    art:      'images/(BB2024)부산현대미술관_외부.jpg',
+    market:   'images/Inside_Jagalchi_Fish_Market,_Busan.jpg',
+    history:  'images/sulee-busan-tower-825463.jpg',
+    ecology:  'images/부산광역시 사하구 을숙도 고니3.jpg',
+    festival: 'images/songdo-festival.jpg',
   };
 
   const cards = [
@@ -910,6 +961,8 @@ function openProgramsPage() {
     { key:'art',     tag:t['card4.tag'], title:t['card4.title'], desc:t['card4.desc'] },
     { key:'market',  tag:t['card5.tag'], title:t['card5.title'], desc:t['card5.desc'] },
     { key:'history', tag:t['card6.tag'], title:t['card6.title'], desc:t['card6.desc'] },
+    { key:'ecology',  tag:t['card7.tag'], title:t['card7.title'], desc:t['card7.desc'] },
+    { key:'festival', tag:t['card8.tag'], title:t['card8.title'], desc:t['card8.desc'] },
   ].map(c => {
     const pd = (programData[c.key] && programData[c.key][lang]) || (programData[c.key] && programData[c.key].ko) || {};
     return { ...c, duration: pd.duration || '당일~1박2일', people: pd.maxPeople || '소규모' };
@@ -965,7 +1018,7 @@ function openAboutPage() {
         <p style="font-size:16px;color:#666;line-height:1.9;max-width:480px;margin:0 auto;">신중년의 배움과 성장, 몸과 마음의 균형을 지원하는<br/>맞춤형 웰니스 여행 전문 여행사입니다.</p>
         <div style="margin-top:56px;display:flex;justify-content:center;align-items:center;">
           <div style="text-align:center;padding:0 40px;">
-            <span style="display:block;font-size:32px;font-weight:800;color:#1a2e2a;">6</span>
+            <span style="display:block;font-size:32px;font-weight:800;color:#1a2e2a;">8</span>
             <span style="font-size:10px;color:#888;letter-spacing:.12em;text-transform:uppercase;margin-top:6px;display:block;">전문 프로그램</span>
           </div>
           <div style="width:1px;height:36px;background:#e0e0e0;"></div>
@@ -2113,8 +2166,211 @@ const programData = {
         ['想全面了解釜山近现代历史', 'A+B路线联合'],
       ],
     },
+  },
+
+  ecology: {
+    ko: {
+      title: '을숙도 생태 투어 — 낙동강 하구 자연 탐방',
+      duration: '반나절',
+      price: '문의',
+      maxPeople: '최대 12명',
+      description: '부산 사하구 을숙도는 천연기념물 제179호로 지정된 철새 도래지입니다. 낙동강 하구 에코센터와 함께 탐방하며, 청둥오리·큰고니·백로 등 다양한 철새와 부산의 자연 생태를 오감으로 경험하는 힐링 투어입니다.',
+      spots: [
+        '을숙도 철새 도래지 — 부산광역시 사하구 낙동남로 1240',
+        '낙동강 하구 에코센터 — 부산광역시 사하구 낙동남로 1240',
+        '을숙도 생태공원 산책로 — 낙동강 하구 일원',
+      ],
+      courses: [
+        'A코스 (반나절): 낙동강하구에코센터 전시 관람 → 을숙도 철새 탐조 → 생태공원 산책',
+      ],
+      tip: '철새 탐조 최적 시기는 10월~3월입니다. 이른 아침 방문 시 더 많은 철새를 만날 수 있으며, 망원경 대여 서비스를 제공합니다. 에코센터는 월요일 휴관입니다.',
+      links: [
+        { label: '낙동강하구에코센터 공식', url: 'https://www.busan.go.kr/ecopark' },
+        { label: '을숙도 지도', url: 'https://map.naver.com/p/search/을숙도' },
+      ],
+      source: '부산광역시 낙동강하구에코센터',
+      spotDetails: [
+        {
+          name: '을숙도 철새 도래지',
+          address: '부산광역시 사하구 낙동남로 1240',
+          description: '매년 수만 마리의 철새가 찾아오는 천연기념물 제179호 지정 철새 도래지입니다. 낙동강 하구의 갈대밭과 모래톱이 어우러진 자연 경관 속에서 큰고니, 청둥오리, 도요새 등 다양한 새를 관찰할 수 있습니다.',
+          commentPoint: '계절마다 볼 수 있는 철새 종류가 달라 언제 방문해도 새로운 발견이 있는 곳입니다.',
+          mapUrl: 'https://map.naver.com/p/search/을숙도',
+        },
+        {
+          name: '낙동강하구에코센터',
+          address: '부산광역시 사하구 낙동남로 1240',
+          description: '낙동강 하구의 생태를 체계적으로 소개하는 전시관입니다. 철새 생태, 낙동강 생물 다양성, 갯벌 생태계 등을 생생한 자료로 이해할 수 있습니다.',
+          commentPoint: '자연 탐방 전 사전 학습 공간으로 활용하면 탐조 체험의 이해도가 높아집니다.',
+          mapUrl: 'https://map.naver.com/p/search/낙동강하구에코센터',
+        },
+      ],
+      courseGuide: [
+        ['자연·생태에 관심 있는 분', 'A코스'],
+        ['철새 탐조 첫 방문', 'A코스 (해설사 동행 권장)'],
+        ['어린이·가족 동반', 'A코스 + 에코센터 체험 프로그램'],
+      ],
+    },
+    en: {
+      title: 'Eulsukdo Eco Tour — Nakdong Estuary Nature Walk',
+      duration: 'Half day',
+      price: 'On request',
+      maxPeople: 'Up to 12',
+      description: 'Eulsukdo, designated Natural Monument No.179, is home to thousands of migratory birds. Explore the Nakdong Estuary Eco Center and the bird sanctuary for a healing nature experience.',
+      spots: [
+        'Eulsukdo Migratory Bird Sanctuary — 1240 Nakdongnnam-ro, Saha-gu, Busan',
+        'Nakdong Estuary Eco Center — 1240 Nakdongnnam-ro, Saha-gu, Busan',
+      ],
+      courses: [
+        'Course A (Half day): Eco Center exhibits → Bird watching → Ecological park walk',
+      ],
+      tip: 'Best season for migratory birds: October–March. Early morning visits are recommended. Telescope rental available. Closed Mondays.',
+      links: [
+        { label: 'Nakdong Eco Center Official', url: 'https://www.busan.go.kr/ecopark' },
+      ],
+      source: 'Busan Nakdong Estuary Eco Center',
+      spotDetails: [],
+      courseGuide: [
+        ['Nature & ecology lovers', 'Course A'],
+        ['First-time birdwatching', 'Course A with guide'],
+      ],
+    },
+    zh: {
+      title: '乙淑岛生态游 — 洛东江河口自然探访',
+      duration: '半天',
+      price: '询价',
+      maxPeople: '最多12人',
+      description: '乙淑岛被指定为天然纪念物第179号，是候鸟的栖息地。在洛东江河口生态中心和鸟类保护区探索釜山的自然生态之美。',
+      spots: [
+        '乙淑岛候鸟栖息地 — 釜山广域市沙下区洛东南路1240号',
+        '洛东江河口生态中心 — 釜山广域市沙下区洛东南路1240号',
+      ],
+      courses: [
+        'A路线（半天）：生态中心参观 → 候鸟观察 → 生态公园散步',
+      ],
+      tip: '最佳赏鸟季节：10月至3月。建议清晨参观，可提供望远镜租借。周一休馆。',
+      links: [
+        { label: '洛东江生态中心官网', url: 'https://www.busan.go.kr/ecopark' },
+      ],
+      source: '釜山洛东江河口生态中心',
+      spotDetails: [],
+      courseGuide: [
+        ['热爱自然生态', 'A路线'],
+        ['首次观鸟', 'A路线（含导游）'],
+      ],
+    },
   }
-};
+,
+
+  festival: {
+    ko: {
+      title: '부산 축제 투어 — 빛과 열기의 현장',
+      duration: '반나절 ~ 1박 2일',
+      price: '문의',
+      maxPeople: '최대 15명',
+      description: '송도 불꽃 축제, 부산 국제 영화제(BIFF), 광안리 어방 불꽃 축제 등 부산을 대표하는 축제를 현지 전문 가이드와 함께 즐기는 특별 투어입니다. 축제 시즌에 맞춘 맞춤 일정으로 부산의 열기를 온몸으로 경험하세요.',
+      spots: [
+        '송도 해수욕장 — 부산광역시 서구 송도해변로 68',
+        '광안리 해수욕장 — 부산광역시 수영구 광안해변로 219',
+        'BIFF 광장 — 부산광역시 중구 비프광장로 30',
+        '해운대 해수욕장 — 부산광역시 해운대구 해운대해변로 264',
+      ],
+      courses: [
+        'A코스 (반나절, 축제 당일): 축제 현장 탐방 + 해설사 동행 관람',
+        'B코스 (1박 2일): 축제 관람 + 부산 주요 명소 연계',
+      ],
+      tip: '축제 일정은 매년 변동되므로 문의 시 시즌 확인이 필요합니다. 송도 불꽃 축제는 주로 10월, 광안리 불꽃 축제는 11월, BIFF는 10월 개최입니다. 성수기 숙박 연계 시 사전 예약 필수.',
+      links: [
+        { label: 'BIFF 공식', url: 'https://www.biff.kr' },
+        { label: 'Visit Busan 축제 일정', url: 'https://www.visitbusan.net' },
+      ],
+      source: 'Visit Busan / 부산관광공사',
+      spotDetails: [
+        {
+          name: '송도 해수욕장 (송도 불꽃 축제)',
+          address: '부산광역시 서구 송도해변로 68',
+          description: '부산 최초의 공설 해수욕장인 송도에서 매년 가을 열리는 불꽃 축제. 해상 케이블카와 어우러진 불꽃쇼는 부산만의 독특한 야경을 만들어 냅니다.',
+          commentPoint: '케이블카 위에서 바라보는 불꽃 장면은 부산 어디서도 볼 수 없는 특별한 경험입니다.',
+          mapUrl: 'https://map.naver.com/p/search/부산 서구 송도해변로 68',
+        },
+        {
+          name: '광안리 해수욕장 (광안리 어방 불꽃 축제)',
+          address: '부산광역시 수영구 광안해변로 219',
+          description: '광안대교를 배경으로 펼쳐지는 국내 최대 규모의 불꽃 축제. 매년 100만 명 이상이 찾는 부산 대표 축제입니다.',
+          commentPoint: '광안대교 야경과 불꽃의 조화는 방문 전날부터 자리를 잡아야 할 만큼 인기입니다.',
+          mapUrl: 'https://map.naver.com/p/search/광안리해수욕장',
+        },
+        {
+          name: 'BIFF 광장 (부산국제영화제)',
+          address: '부산광역시 중구 비프광장로 30',
+          description: '아시아 최대 규모의 국제 영화제. 핸드프린팅 거리와 야외 상영, 레드카펫 행사 등 영화 도시 부산의 진면목을 경험할 수 있습니다.',
+          commentPoint: '영화제 기간 중 무료 야외 상영 및 거리 공연이 풍성하게 열려 티켓 없이도 충분히 즐길 수 있습니다.',
+          mapUrl: 'https://map.naver.com/p/search/BIFF광장',
+        },
+      ],
+      courseGuide: [
+        ['불꽃 축제 관람', 'A코스 (송도 또는 광안리)'],
+        ['영화·문화에 관심', 'A코스 (BIFF 시즌)'],
+        ['부산 2박 이상 일정', 'B코스 (축제 + 명소 연계)'],
+      ],
+    },
+    en: {
+      title: 'Busan Festival Tour — Light, Fire & Culture',
+      duration: 'Half day – 2 days',
+      price: 'On request',
+      maxPeople: 'Up to 15',
+      description: 'Join a local expert to experience Busan\'s landmark festivals: Songdo Fire Festival, Gwangalli Fireworks, and the Busan International Film Festival.',
+      spots: [
+        'Songdo Beach — 68 Songdo Haebyon-ro, Seo-gu, Busan',
+        'Gwangalli Beach — 219 Gwangan Haebyon-ro, Suyeong-gu, Busan',
+        'BIFF Square — 30 Biff Gwangjang-ro, Jung-gu, Busan',
+      ],
+      courses: [
+        'Course A (Half day): Festival site visit with guided commentary',
+        'Course B (2 days): Festival + Busan landmarks',
+      ],
+      tip: 'Songdo Fire Festival: October. Gwangalli Fireworks: November. BIFF: October. Pre-booking required for peak season accommodation.',
+      links: [
+        { label: 'BIFF Official', url: 'https://www.biff.kr' },
+        { label: 'Visit Busan Events', url: 'https://www.visitbusan.net' },
+      ],
+      source: 'Visit Busan / Busan Tourism Organization',
+      spotDetails: [],
+      courseGuide: [
+        ['Fireworks fan', 'Course A (Songdo or Gwangalli)'],
+        ['Film & culture lover', 'Course A (BIFF season)'],
+        ['Extended Busan trip', 'Course B'],
+      ],
+    },
+    zh: {
+      title: '釜山节日游 — 光与火的盛典',
+      duration: '半天 ~ 2天',
+      price: '询价',
+      maxPeople: '最多15人',
+      description: '与本地专家一起体验松岛烟花节、广安里烟花节、釜山国际电影节等釜山代表性节庆活动。',
+      spots: [
+        '松岛海水浴场 — 釜山广域市西区松岛海边路68号',
+        '广安里海水浴场 — 釜山广域市水营区广安海边路219号',
+        'BIFF广场 — 釜山广域市中区BIFF广场路30号',
+      ],
+      courses: [
+        'A路线（半天）：节庆现场游览+导游解说',
+        'B路线（2天）：节庆观赏+釜山主要景点联游',
+      ],
+      tip: '松岛烟花节：10月。广安里烟花节：11月。BIFF：10月。旺季住宿需提前预订。',
+      links: [
+        { label: 'BIFF官网', url: 'https://www.biff.kr' },
+        { label: 'Visit Busan活动', url: 'https://www.visitbusan.net' },
+      ],
+      source: 'Visit Busan / 釜山旅游公社',
+      spotDetails: [],
+      courseGuide: [
+        ['喜爱烟花', 'A路线（松岛或广安里）'],
+        ['电影文化爱好者', 'A路线（BIFF季节）'],
+        ['釜山多日游', 'B路线'],
+      ],
+    },
+  }};
 
 // =========================================
 // 모달 (새 탭)
