@@ -1180,7 +1180,8 @@ section { padding: 100px 0; }
 
 /* About 페이지 — 모바일 반응형 */
 @media (max-width: 640px) {
-  .ab-section { padding-left: 24px !important; padding-right: 24px !important; }
+  .ab-section { padding-left: 16px !important; padding-right: 16px !important; }
+  .ab-section p { font-size: 12px !important; }
   .ab-stats { flex-direction: column !important; gap: 20px !important; }
   .ab-stats-sep { display: none !important; }
   .ab-stats-item { padding: 0 !important; }
