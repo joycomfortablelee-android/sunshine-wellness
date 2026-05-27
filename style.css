@@ -319,8 +319,8 @@ ul { list-style: none; }
 .sp-col-toggle { text-align:center; width:60px; }
 .co-faq-icon { display:inline-block; padding:3px 9px; border-radius:20px; border:1.5px solid #bbb; font-size:11px; font-weight:700; color:#888; letter-spacing:.02em; white-space:nowrap; transition:all .25s; }
 .co-faq-item.open .co-faq-icon { background:#1a2e2a; border-color:#1a2e2a; color:#fff; }
-.co-faq-btn { color:#111; }
-.co-faq-q { color:#111; }
+.co-faq-btn { color:#111; font-weight:700; }
+.co-faq-q { color:#111; font-weight:700; }
 .co-faq-a { padding:12px 16px 18px calc(60px + 16px); font-size:14px; color:#555; line-height:1.85; }
 /* 문의 폼 */
 .co-form-box { background:#fff; border:1px solid #e8e8e4; border-radius:16px; padding:36px 40px 40px; box-shadow:0 2px 16px rgba(0,0,0,0.05); }
