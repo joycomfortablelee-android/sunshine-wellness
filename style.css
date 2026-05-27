@@ -205,7 +205,7 @@ ul { list-style: none; }
   background: var(--white);
   border-top: 1px solid var(--border);
 }
-.mobile-nav ul { padding: 20px 40px; display: flex; flex-direction: column; gap: 18px; }
+.mobile-nav ul { padding: 20px 28px; display: flex; flex-direction: column; gap: 18px; }
 .mobile-nav a { font-size: 0.95rem; font-weight: 500; color: var(--dark); }
 .mobile-nav.open { display: block; }
 
@@ -1167,6 +1167,7 @@ section { padding: 100px 0; }
 
 @media (max-width: 600px) {
   .header-inner { padding: 0 20px; }
+  .mobile-nav ul { padding-left: 20px; }
   .cards-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .slide-title { font-size: 2.2rem; }
