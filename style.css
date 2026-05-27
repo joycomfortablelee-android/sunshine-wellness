@@ -285,7 +285,8 @@ ul { list-style: none; }
 .sp-btn-post { padding:10px 22px; font-size:13px; font-weight:600; color:#fff; background:#1a2e2a; border:none; border-radius:8px; cursor:pointer; font-family:var(--font); }
 .sp-btn-post:hover { background:#243d38; }
 
-@media (max-width:900px) { .prog-grid { grid-template-columns:repeat(2,1fr); } .sp-hero { padding:40px 24px 28px; } .sp-wrap { padding:24px 16px 60px; } }
+@media (max-width:900px) { .prog-grid { grid-template-columns:repeat(2,1fr); } .sp-hero { padding:40px 28px 28px; } .sp-wrap { padding:24px 16px 60px; } .co-page-header { padding:0 28px 36px; } }
+@media (max-width:600px) { .sp-hero { padding:40px 20px 28px; } .co-page-header { padding:0 20px 32px; } }
 @media (max-width:580px) { .prog-grid { grid-template-columns:1fr; } }
 
 /* 견적의뢰 및 문의 오버레이 */
