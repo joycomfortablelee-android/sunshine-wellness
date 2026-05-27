@@ -1026,107 +1026,109 @@ function openProgramsPage() {
 // =========================================
 function openAboutPage() {
 
-  // 1. Hero — 다크그린 + 숫자 스탯
+
+  // 1. Hero
   const sec1 = `
     <section class="ab-section" style="background:#fff;padding:72px 40px 64px;text-align:center;">
-      <div style="max-width:680px;margin:0 auto;">
-        <p style="font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#3B6259;margin-bottom:28px;">Sunshine Wellness</p>
-        <h1 style="font-size:clamp(28px,5vw,42px);font-weight:800;line-height:1.25;color:#1a2e2a;margin-bottom:28px;">가치있는 당신의 인생<br/>제 3막을 함께합니다</h1>
-        <p style="font-size:clamp(13px,3.5vw,16px);color:#666;line-height:1.9;max-width:480px;margin:0 auto;">신중년의 배움과 성장,<br/>몸과 마음의 균형을 지원하는<br/>맞춤형 웰니스 여행 전문 여행사입니다.</p>
-        <div class="ab-stats" style="margin-top:56px;display:flex;justify-content:center;align-items:center;">
-          <div class="ab-stats-item" style="text-align:center;padding:0 40px;">
-            <span style="display:block;font-size:32px;font-weight:800;color:#1a2e2a;">9</span>
-            <span style="font-size:10px;color:#888;letter-spacing:.12em;text-transform:uppercase;margin-top:6px;display:block;">전문 프로그램</span>
+      <div style="max-width:640px;margin:0 auto;">
+        <p class="ab-eyebrow" style="color:#3B6259;">Sunshine Wellness</p>
+        <h1 class="ab-h1">가치있는 당신의 인생<br/>제 3막을 함께합니다</h1>
+        <p class="ab-body" style="color:#777;max-width:460px;margin:0 auto;">신중년의 배움과 성장,<br/>몸과 마음의 균형을 지원하는<br/>맞춤형 웰니스 여행 전문 여행사입니다.</p>
+        <div class="ab-stats" style="margin-top:52px;display:flex;justify-content:center;align-items:center;">
+          <div class="ab-stats-item" style="text-align:center;padding:0 36px;">
+            <span style="display:block;font-size:30px;font-weight:800;color:#1a2e2a;line-height:1;">9</span>
+            <span class="ab-eyebrow" style="color:#999;margin-top:8px;margin-bottom:0;">전문 프로그램</span>
           </div>
-          <div class="ab-stats-sep" style="width:1px;height:36px;background:#e0e0e0;"></div>
-          <div class="ab-stats-item" style="text-align:center;padding:0 40px;">
-            <span style="display:block;font-size:32px;font-weight:800;color:#1a2e2a;">100%</span>
-            <span style="font-size:10px;color:#888;letter-spacing:.12em;text-transform:uppercase;margin-top:6px;display:block;">맞춤형 투어</span>
+          <div class="ab-stats-sep" style="width:1px;height:32px;background:#e0e0e0;"></div>
+          <div class="ab-stats-item" style="text-align:center;padding:0 36px;">
+            <span style="display:block;font-size:30px;font-weight:800;color:#1a2e2a;line-height:1;">100%</span>
+            <span class="ab-eyebrow" style="color:#999;margin-top:8px;margin-bottom:0;">맞춤형 투어</span>
           </div>
-          <div class="ab-stats-sep" style="width:1px;height:36px;background:#e0e0e0;"></div>
-          <div class="ab-stats-item" style="text-align:center;padding:0 40px;">
-            <span style="display:block;font-size:32px;font-weight:800;color:#1a2e2a;">부산</span>
-            <span style="font-size:10px;color:#888;letter-spacing:.12em;text-transform:uppercase;margin-top:6px;display:block;">로컬 전문</span>
+          <div class="ab-stats-sep" style="width:1px;height:32px;background:#e0e0e0;"></div>
+          <div class="ab-stats-item" style="text-align:center;padding:0 36px;">
+            <span style="display:block;font-size:30px;font-weight:800;color:#1a2e2a;line-height:1;">부산</span>
+            <span class="ab-eyebrow" style="color:#999;margin-top:8px;margin-bottom:0;">로컬 전문</span>
           </div>
         </div>
       </div>
     </section>`
 
-  // 2. Who We Are — 2단 레이아웃 + 인용구
+  // 2. Who We Are
   const sec2 = `
-    <section class="ab-section" style="background:#fff;padding:88px 40px;">
-      <div class="ab-who-grid" style="max-width:920px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;">
+    <section class="ab-section" style="background:#fff;padding:80px 40px;">
+      <div class="ab-who-grid" style="max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;">
         <div>
-          <p style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3B6259;margin-bottom:18px;">Who We Are</p>
-          <h2 style="font-size:clamp(22px,3vw,32px);font-weight:800;color:#1a2e2a;line-height:1.35;">단순한 여행을 넘어,<br/>인생의<br/>동반자가 되겠습니다</h2>
+          <p class="ab-eyebrow" style="color:#3B6259;">Who We Are</p>
+          <h2 class="ab-h2">단순한 여행을 넘어,<br/>인생의<br/>동반자가 되겠습니다</h2>
         </div>
         <div>
-          <p style="font-size:15px;color:#555;line-height:1.95;margin-bottom:20px;">선샤인 웰니스는 여행이 단순한 휴식이 아니라 인생의 의미를 찾고 성장하는 시간이 될 수 있다고 믿습니다.</p>
-          <p style="font-size:15px;color:#555;line-height:1.95;">부산의 자연·문화·역사와 깊이 만나는 경험이 삶에 새로운 활력을 불어넣어 줍니다. 웰니스와 문화 체험을 결합한 독창적인 프로그램으로 몸과 마음의 균형을 되찾도록 돕겠습니다.</p>
-          <blockquote style="margin-top:32px;padding:20px 24px;background:#f5f5f3;border-left:3px solid #1a2e2a;border-radius:0 8px 8px 0;">
-            <p style="font-size:14px;font-weight:600;color:#1a2e2a;line-height:1.75;font-style:italic;">"여행의 모든 순간이 의미 있고 가치 있게 완성되도록, 선샤인 웰니스는 진심 어린 동반자가 되겠습니다."</p>
+          <p class="ab-body" style="margin-bottom:18px;">선샤인 웰니스는 여행이 단순한 휴식이 아니라 인생의 의미를 찾고 성장하는 시간이 될 수 있다고 믿습니다.</p>
+          <p class="ab-body">부산의 자연·문화·역사와 깊이 만나는 경험이 삶에 새로운 활력을 불어넣어 줍니다. 웰니스와 문화 체험을 결합한 독창적인 프로그램으로 몸과 마음의 균형을 되찾도록 돕겠습니다.</p>
+          <blockquote style="margin-top:28px;padding:18px 22px;background:#f5f5f3;border-left:3px solid #1a2e2a;border-radius:0 8px 8px 0;">
+            <p class="ab-caption" style="font-weight:600;color:#1a2e2a;font-style:italic;">"여행의 모든 순간이 의미 있고 가치 있게 완성되도록, 선샤인 웰니스는 진심 어린 동반자가 되겠습니다."</p>
           </blockquote>
         </div>
       </div>
     </section>`;
 
-  // 3. For You — 번호형 카드 4개
+  // 3. For You
   const forYouCards = [
     ['지속적인 성장', '은퇴 후에도 배움을 멈추지 않고, 새로운 경험으로 지적·정서적 성장을 이어가고 싶은 분께 맞춤 여정을 제안합니다.'],
     ['삶의 균형 회복', '오랜 시간 타인을 위해 살아온 분들이 자신을 위한 시간을 되찾고, 몸과 마음의 균형을 회복하는 여행입니다.'],
     ['의미의 재발견', '인생 3막을 어떻게 살아갈지 고민하는 분들과 부산의 깊은 이야기 속에서 새로운 방향을 찾아갑니다.'],
     ['의미 있는 인연', '같은 가치를 공유하는 동반자들과 함께 걷고 이야기하며, 서로의 경험을 나누는 소규모 그룹 여행입니다.'],
   ].map(([t, d], i) => `
-    <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:28px 24px;">
-      <span style="display:block;font-size:11px;font-weight:700;color:rgba(255,255,255,0.28);letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;">0${i + 1}</span>
-      <h3 style="font-size:16px;font-weight:700;color:#fff;margin-bottom:10px;line-height:1.4;">${t}</h3>
-      <p style="font-size:13px;color:rgba(255,255,255,0.58);line-height:1.85;">${d}</p>
+    <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:24px 20px;">
+      <span class="ab-eyebrow" style="color:rgba(255,255,255,0.35);margin-bottom:12px;display:block;">0${i + 1}</span>
+      <h3 style="font-size:15px;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.4;">${t}</h3>
+      <p class="ab-caption" style="color:rgba(255,255,255,0.6);">${d}</p>
     </div>`).join('');
 
   const sec3 = `
-    <section class="ab-section" style="background:url('images/beach-landscape-sea-coast-horizon-boardwalk-796287-pxhere.com.jpg') center/cover no-repeat;padding:88px 40px;position:relative;">
-      <div style="position:absolute;inset:0;background:rgba(10,30,40,0.52);"></div>
-      <div style="max-width:920px;margin:0 auto;position:relative;">
-        <p style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:18px;">For You</p>
-        <h2 style="font-size:clamp(22px,3vw,32px);font-weight:800;color:#fff;margin-bottom:12px;">40~60대 신중년을 위해<br/>설계된 여행</h2>
-        <p style="font-size:15px;color:rgba(255,255,255,0.75);margin-bottom:48px;line-height:1.8;">시간과 여유가 생긴 지금, 진정한 나를 찾는 여정을 시작해보세요.</p>
-        <div class="ab-for-you-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">${forYouCards}</div>
+    <section class="ab-section" style="background:url('images/beach-landscape-sea-coast-horizon-boardwalk-796287-pxhere.com.jpg') center/cover no-repeat;padding:80px 40px;position:relative;">
+      <div style="position:absolute;inset:0;background:rgba(10,30,40,0.54);"></div>
+      <div style="max-width:900px;margin:0 auto;position:relative;">
+        <p class="ab-eyebrow" style="color:rgba(255,255,255,0.55);">For You</p>
+        <h2 class="ab-h2" style="color:#fff;margin-bottom:10px;">40~60대 신중년을 위해<br/>설계된 여행</h2>
+        <p class="ab-body" style="color:rgba(255,255,255,0.72);margin-bottom:44px;">시간과 여유가 생긴 지금, 진정한 나를 찾는 여정을 시작해보세요.</p>
+        <div class="ab-for-you-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">${forYouCards}</div>
       </div>
     </section>`;
 
-  // 4. Our Promise — 번호 카드 3개, 그린 상단선
+  // 4. Our Promise
   const promiseCards = [
     ['01', '즐길거리', '배움과 여가가 함께하는 여행', '역사·문화·예술·자연을 깊이 탐방하는 웰니스 여행. 단순 관광이 아닌 진정한 체험으로 설계합니다.'],
     ['02', '먹거리', '건강한 부산의 맛', '여행 중 건강을 지키는 로컬 음식과 건강 간식으로 몸이 활기차게 여정을 이어갈 수 있도록 돕습니다.'],
     ['03', '일거리', '교육 및 일자리 연계', '여행 이후에도 삶이 이어지도록, 교육과 일자리 연계 서비스로 사회와 연결된 삶을 지원합니다.'],
   ].map(([n, t, tag, d]) => `
-    <div style="background:#fff;border-radius:16px;padding:32px 24px;border-top:3px solid #1a2e2a;box-shadow:0 2px 16px rgba(0,0,0,0.06);">
-      <span style="display:block;font-size:36px;font-weight:800;color:#e8e8e4;line-height:1;margin-bottom:18px;">${n}</span>
-      <h3 style="font-size:18px;font-weight:700;color:#1a2e2a;margin-bottom:6px;">${t}</h3>
-      <span style="display:block;font-size:10px;font-weight:700;color:#3B6259;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;">${tag}</span>
-      <p style="font-size:13px;color:#666;line-height:1.85;">${d}</p>
+    <div style="background:#fff;border-radius:14px;padding:28px 22px;border-top:3px solid #1a2e2a;box-shadow:0 2px 14px rgba(0,0,0,0.06);">
+      <span style="display:block;font-size:28px;font-weight:800;color:#ececea;line-height:1;margin-bottom:16px;">${n}</span>
+      <h3 style="font-size:16px;font-weight:700;color:#1a2e2a;margin-bottom:4px;">${t}</h3>
+      <span class="ab-eyebrow" style="color:#3B6259;margin-bottom:12px;display:block;">${tag}</span>
+      <p class="ab-caption" style="color:#666;">${d}</p>
     </div>`).join('');
 
   const sec4 = `
-    <section class="ab-section" style="background:#f5f5f3;padding:88px 40px;">
-      <div style="max-width:920px;margin:0 auto;">
-        <p style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3B6259;margin-bottom:18px;">Our Promise</p>
-        <h2 style="font-size:clamp(22px,3vw,32px);font-weight:800;color:#1a2e2a;margin-bottom:48px;">선샤인 웰니스의<br/>세 가지 약속</h2>
-        <div class="ab-promise-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">${promiseCards}</div>
+    <section class="ab-section" style="background:#f5f5f3;padding:80px 40px;">
+      <div style="max-width:900px;margin:0 auto;">
+        <p class="ab-eyebrow" style="color:#3B6259;">Our Promise</p>
+        <h2 class="ab-h2">선샤인 웰니스의<br/>세 가지 약속</h2>
+        <div class="ab-promise-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px;">${promiseCards}</div>
       </div>
     </section>`;
 
-  // 5. CTA — 다크그린
+  // 5. CTA
   const sec5 = `
-    <section class="ab-section" style="background:url('images/haeundae-sand-festival-in-busan-south-korea-518632 (2).jpg') center/cover no-repeat;padding:88px 40px;text-align:center;position:relative;">
-      <div style="position:absolute;inset:0;background:rgba(10,25,35,0.55);"></div>
-      <div style="max-width:560px;margin:0 auto;position:relative;">
-        <p style="font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:22px;">Get Started</p>
-        <h2 style="font-size:clamp(24px,3vw,34px);font-weight:800;color:#fff;margin-bottom:16px;line-height:1.3;">지금, 당신의 여정을<br/>시작하세요</h2>
-        <p style="font-size:15px;color:rgba(255,255,255,0.8);margin-bottom:40px;line-height:1.8;">선샤인 웰니스가 당신만의 맞춤 웰니스 여행을 함께 설계합니다.</p>
-        <button onclick="openContactPage()" style="display:inline-block;background:#fff;color:#1a2e2a;font-size:14px;font-weight:700;padding:15px 44px;border-radius:30px;border:none;cursor:pointer;letter-spacing:.04em;font-family:'Noto Sans KR',sans-serif;min-width:180px;">문의하기 →</button>
+    <section class="ab-section" style="background:url('images/haeundae-sand-festival-in-busan-south-korea-518632 (2).jpg') center/cover no-repeat;padding:80px 40px;text-align:center;position:relative;">
+      <div style="position:absolute;inset:0;background:rgba(10,25,35,0.56);"></div>
+      <div style="max-width:520px;margin:0 auto;position:relative;">
+        <p class="ab-eyebrow" style="color:rgba(255,255,255,0.55);">Get Started</p>
+        <h2 class="ab-h2" style="color:#fff;margin-bottom:14px;">지금, 당신의 여정을<br/>시작하세요</h2>
+        <p class="ab-body" style="color:rgba(255,255,255,0.78);margin-bottom:36px;">선샤인 웰니스가 당신만의 맞춤 웰니스 여행을 함께 설계합니다.</p>
+        <button onclick="openContactPage()" style="display:inline-block;background:#fff;color:#1a2e2a;font-size:14px;font-weight:700;padding:14px 40px;border-radius:30px;border:none;cursor:pointer;letter-spacing:.04em;font-family:'Noto Sans KR',sans-serif;">문의하기 →</button>
       </div>
     </section>`;
+
 
   showSubPageFull(`<div class="co-fullbg-wrap"><div class="co-fullbg-banner banner-seagull"><div class="co-page-header"><p>About</p><h1>웰니스 소개 <span style="font-weight:300;opacity:.7;">— Sunshine Wellness</span></h1></div></div>` + sec1 + sec2 + sec3 + sec4 + sec5 + `</div>`)
 }

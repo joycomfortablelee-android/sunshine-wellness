@@ -1181,10 +1181,21 @@ section { padding: 100px 0; }
   .footer-top { flex-direction: column; }
 }
 
+/* About 페이지 — 타이포그래피 클래스 */
+.ab-eyebrow { font-size:11px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; margin-bottom:20px; }
+.ab-h1      { font-size:clamp(26px,5vw,40px); font-weight:800; line-height:1.28; color:#1a2e2a; margin-bottom:20px; }
+.ab-h2      { font-size:clamp(20px,3.2vw,30px); font-weight:800; line-height:1.35; color:#1a2e2a; margin-bottom:16px; }
+.ab-body    { font-size:15px; line-height:1.9; color:#555; }
+.ab-caption { font-size:13px; line-height:1.85; }
+
 /* About 페이지 — 모바일 반응형 */
 @media (max-width: 640px) {
   .ab-section { padding-left: 16px !important; padding-right: 16px !important; }
-  .ab-section p { font-size: 12px !important; }
+  .ab-eyebrow { font-size:10px !important; margin-bottom:14px !important; }
+  .ab-h1      { font-size:22px !important; margin-bottom:16px !important; }
+  .ab-h2      { font-size:19px !important; margin-bottom:12px !important; }
+  .ab-body    { font-size:13.5px !important; }
+  .ab-caption { font-size:12.5px !important; }
   .ab-stats { flex-direction: column !important; gap: 20px !important; }
   .ab-stats-sep { display: none !important; }
   .ab-stats-item { padding: 0 !important; }
