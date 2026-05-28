@@ -2747,69 +2747,25 @@ const boardData = [
 function openBoardPost(id) {
   const post = boardData.find(function(p) { return p.id === id; });
   if (!post) return;
-
-  const prev = document.getElementById('_boardPostOvl');
-  if (prev) prev.remove();
-
-  const ov = document.createElement('div');
-  ov.id = '_boardPostOvl';
-  ov.style.cssText = [
-    'position:fixed', 'top:0', 'left:0', 'width:100%', 'height:100%',
-    'background:#f8f9fa', 'z-index:9999', 'overflow-y:auto',
-    'font-family:inherit'
-  ].join(';');
-
-  const inner = document.createElement('div');
-  inner.style.cssText = 'max-width:760px;margin:0 auto;padding:48px 24px 80px;';
-
-  const closeBtn = document.createElement('button');
-  closeBtn.textContent = '← 목록으로 돌아가기';
-  closeBtn.style.cssText = [
-    'display:inline-flex', 'align-items:center', 'gap:6px',
-    'color:#2c5f2e', 'font-size:14px', 'font-weight:600',
-    'background:none', 'border:none', 'cursor:pointer',
-    'margin-bottom:32px', 'padding:0'
-  ].join(';');
-  closeBtn.addEventListener('click', function() {
-    ov.remove();
-    document.body.style.overflow = '';
-  });
-
-  const metaTop = document.createElement('div');
-  metaTop.style.cssText = 'display:flex;align-items:center;gap:10px;margin-bottom:12px;';
-  metaTop.innerHTML =
-    '<span style="background:#2c5f2e;color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.06em;">여행 이야기</span>' +
-    '<span style="font-size:12px;color:#aaa;">No. ' + post.id + '</span>';
-
-  const title = document.createElement('h1');
-  title.textContent = post.title;
-  title.style.cssText = 'font-size:1.5rem;font-weight:700;line-height:1.45;color:#1a1a1a;margin-bottom:18px;';
-
-  const meta = document.createElement('div');
-  meta.style.cssText = 'display:flex;gap:18px;font-size:13px;color:#888;padding-bottom:20px;border-bottom:2px solid #2c5f2e;margin-bottom:32px;flex-wrap:wrap;';
-  meta.innerHTML =
-    '<span>작성자: <strong style="color:#555;">' + post.author + '</strong></span>' +
-    '<span>작성일: ' + post.date + '</span>' +
-    '<span>조회: ' + post.views + '</span>';
-
-  const body = document.createElement('div');
-  body.style.cssText = 'font-size:1rem;line-height:1.9;color:#444;';
-  body.innerHTML = post.content;
-
-  const footer = document.createElement('div');
-  footer.style.cssText = 'margin-top:48px;padding-top:24px;border-top:1px solid #e8e8e8;text-align:center;font-size:13px;color:#aaa;';
-  footer.innerHTML = '<strong style="color:#2c5f2e;">선샤인 웰니스</strong> — 신중년을 위한 맞춤형 웰니스 여행';
-
-  inner.appendChild(closeBtn);
-  inner.appendChild(metaTop);
-  inner.appendChild(title);
-  inner.appendChild(meta);
-  inner.appendChild(body);
-  inner.appendChild(footer);
-  ov.appendChild(inner);
-  document.body.appendChild(ov);
-  document.body.style.overflow = 'hidden';
-  ov.scrollTop = 0;
+  showSubPage(
+    '<div style="max-width:760px;margin:0 auto;padding:48px 24px 80px;">' +
+      '<button onclick="closeSubPage()" style="display:inline-flex;align-items:center;gap:6px;color:#2c5f2e;font-size:14px;font-weight:600;background:none;border:none;cursor:pointer;margin-bottom:32px;padding:0;">← 목록으로 돌아가기</button>' +
+      '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">' +
+        '<span style="background:#2c5f2e;color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.06em;">여행 이야기</span>' +
+        '<span style="font-size:12px;color:#aaa;">No. ' + post.id + '</span>' +
+      '</div>' +
+      '<h1 style="font-size:1.5rem;font-weight:700;line-height:1.45;color:#1a1a1a;margin-bottom:18px;">' + post.title + '</h1>' +
+      '<div style="display:flex;gap:18px;font-size:13px;color:#888;padding-bottom:20px;border-bottom:2px solid #2c5f2e;margin-bottom:32px;flex-wrap:wrap;">' +
+        '<span>작성자: <strong style="color:#555;">' + post.author + '</strong></span>' +
+        '<span>작성일: ' + post.date + '</span>' +
+        '<span>조회: ' + post.views + '</span>' +
+      '</div>' +
+      '<div style="font-size:1rem;line-height:1.9;color:#444;">' + post.content + '</div>' +
+      '<div style="margin-top:48px;padding-top:24px;border-top:1px solid #e8e8e8;text-align:center;font-size:13px;color:#aaa;">' +
+        '<strong style="color:#2c5f2e;">선샤인 웰니스</strong> — 신중년을 위한 맞춤형 웰니스 여행' +
+      '</div>' +
+    '</div>'
+  );
 }
 
 // =========================================
