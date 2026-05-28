@@ -2635,6 +2635,173 @@ function openModal(programKey) {
 }
 
 // =========================================
+// 여행 이야기 게시판
+// =========================================
+const boardData = [
+  {
+    id: 1,
+    title: '선샤인 웰니스 첫 번째 후기 — 기대 이상이었습니다 :)',
+    date: '2026-04-28',
+    author: '황미경',
+    views: 602,
+    content: `
+      <p>처음에는 반신반의하는 마음으로 신청했습니다. 신중년 전용 여행이라고 해서 '천천히 걷는 관광이겠지' 싶었는데, 직접 참여하고 보니 완전히 달랐어요.</p>
+      <p>감천문화마을 해설사 선생님이 골목 하나하나의 이야기를 풀어주시는데, 그냥 보는 것과 듣고 보는 것이 이렇게 다를 수가 없더라고요. 50년 전 피란민들이 이 언덕을 오르내렸을 때의 모습을 상상하니 가슴이 뭉클했습니다.</p>
+      <p>점심은 자갈치시장 근처 횟집에서 신선한 광어회를 먹었는데, 가이드님이 흥정하는 법까지 알려주셔서 웃음이 터졌어요. 일행 분들과 자연스럽게 이야기를 나누게 되고, 혼자 왔는데도 전혀 어색하지 않았습니다.</p>
+      <p>오후에는 해동용궁사에서 잠시 앉아 바다를 바라봤습니다. 파도 소리를 들으며 '아, 이게 힐링이구나' 싶었어요. 몸도 마음도 충전된 느낌으로 집에 돌아왔습니다. 다음 달 프로그램도 꼭 참여할 계획입니다!</p>
+    `
+  },
+  {
+    id: 2,
+    title: '신중년 여행 동행 구합니다 — 5월 사찰 투어 같이 가실 분!',
+    date: '2026-05-03',
+    author: '이정란',
+    views: 156,
+    content: `
+      <p>안녕하세요, 올해 63세 이정란입니다. 5월 중순 사찰 투어를 혼자 신청해놓았는데, 혹시 비슷한 시기에 참여하시는 분 계신지 여쭤보고 싶어서 글 남깁니다.</p>
+      <p>저는 부산 토박이인데도 막상 범어사를 제대로 돌아본 적이 없더라고요. 아이들 키우고 직장 다니는 동안 늘 지나치기만 했는데, 이번 기회에 천천히 걸으며 제대로 보고 싶어요.</p>
+      <p>통도사 1박 2일 코스도 눈여겨보고 있습니다. 혼자 가기엔 조금 긴 여정이라 같이 다닐 동행이 있으면 더 즐거울 것 같아서요. 비슷한 생각이신 분은 댓글 달아주시거나 문의 페이지로 연락 주세요.</p>
+      <p>부담 없이 조용히 걷고 이야기 나눌 수 있는 분이면 좋겠습니다. 잘 부탁드립니다 :)</p>
+    `
+  },
+  {
+    id: 3,
+    title: '해동용궁사 새벽 예불 체험기 — 말로는 못 다 설명합니다',
+    date: '2026-05-08',
+    author: '손명희',
+    views: 534,
+    content: `
+      <p>선샤인 웰니스 특별 프로그램인 해동용궁사 새벽 예불 체험에 다녀왔습니다. 새벽 5시 30분 집결이라 걱정됐는데, 막상 도착해보니 바다 위에 떠오르는 해를 보는 순간 그 피로가 싹 사라졌어요.</p>
+      <p>스님께서 예불의 의미와 순서를 한국어·영어로 차근차근 설명해 주셨고, 직접 목탁을 두드려 볼 수 있는 시간도 주셨습니다. 처음에는 어색해서 머뭇거렸는데 나중엔 소리에 집중하다 보니 머릿속이 맑아지는 느낌이었어요.</p>
+      <p>예불 후 공양간에서 먹은 사찰 음식이 특히 기억에 남습니다. 된장국 한 그릇이 그렇게 따뜻하고 담백할 수가 없었어요. 첨가물 없는 재료 본연의 맛이 이런 거구나 싶었습니다.</p>
+      <p>파도 소리, 목탁 소리, 독경 소리가 한데 어우러진 그 아침을 오래 기억할 것 같아요. 강력 추천합니다!</p>
+    `
+  },
+  {
+    id: 4,
+    title: '부산 시장 투어 후기 — 이가네 떡볶이 줄이 이렇게 길다고요?',
+    date: '2026-05-12',
+    author: '김태성',
+    views: 388,
+    content: `
+      <p>아내와 둘이 참여한 부산 시장·미식 투어 후기입니다. 평소 부산 출장을 자주 왔는데도 시장 구석구석은 몰랐던 터라 기대가 컸어요.</p>
+      <p>부전시장에서 시작해 이가네떡볶이까지 걸어가는 길에 가이드님이 골목 가게들을 하나하나 소개해 주셨습니다. 50년 넘은 포목점 할머니 이야기, 6.25 이후 자리를 잡은 건어물 가게 사연... 시장이 살아있는 역사책 같았어요.</p>
+      <p>이가네떡볶이는 평일인데도 줄이 꽤 길었습니다. 기다리는 동안 같은 투어 팀 어르신들과 이야기 꽃을 피웠는데, 결국 떡볶이는 덤이고 사람들과 나눈 웃음이 진짜 맛이었던 것 같아요.</p>
+      <p>도날드 즉석떡볶이에서 마무리했는데 두 집이 스타일이 달라서 비교하는 재미도 있었습니다. 다음에는 야시장 코스도 도전해보고 싶어요.</p>
+    `
+  },
+  {
+    id: 5,
+    title: '감천문화마을 투어 — 60대 체력으로도 충분히 걸을 수 있었어요',
+    date: '2026-05-15',
+    author: '정순자',
+    views: 421,
+    content: `
+      <p>언덕 마을이라 체력이 걱정됐는데 가이드님이 처음부터 "무리하지 않아도 됩니다, 쉬엄쉬엄 가겠습니다"라고 말씀해 주셔서 마음이 놓였어요.</p>
+      <p>골목을 오르다 쉬는 포인트마다 쉴 수 있는 벤치나 카페가 있었고, 힘들면 언제든 말하라고 하셔서 부담이 없었습니다. 결국 저도 큰 무리 없이 코스를 완주했네요.</p>
+      <p>가장 인상 깊었던 건 작은 갤러리 골목이었어요. 주민 분이 직접 그린 그림들이 걸려 있었는데, 작품 하나하나에 삶의 이야기가 담겨 있어 오래 멈춰 서 있었습니다. 어른이 돼서야 비로소 보이는 것들이 있다는 걸 새삼 느꼈어요.</p>
+      <p>혼자 왔는데도 일행분들이 자연스럽게 어우러져 주셔서 너무 좋았습니다. 선샤인 웰니스, 앞으로도 자주 이용할게요!</p>
+    `
+  },
+  {
+    id: 6,
+    title: '다음 행선지 고민 중 — 사찰 투어 vs 역사 투어, 어떤 게 더 좋았나요?',
+    date: '2026-05-18',
+    author: '최미선',
+    views: 189,
+    content: `
+      <p>이달 초 감천문화마을 투어를 다녀온 뒤로 다음 프로그램을 고민하고 있습니다. 6월에 사찰 투어와 역사(다크 투어리즘) 투어 중 하나를 선택해야 할 것 같은데, 먼저 다녀오신 분들 의견이 궁금해요.</p>
+      <p>저는 역사에 관심이 많은 편이라 다크 투어리즘이 끌리는데, 주변 지인 분은 "무거운 주제라 여행 분위기가 가라앉지 않냐"고 하더라고요. 실제로 다녀오신 분들은 어떠셨나요?</p>
+      <p>사찰 투어 쪽은 통도사 1박 2일 코스가 마음에 걸립니다. 혼자 참여해도 괜찮을지, 체력적으로 무리는 없는지도 궁금하고요.</p>
+      <p>경험 나눠주시면 정말 감사하겠습니다. 선샤인 웰니스 프로그램 모두 훌륭하다고 들어서 어느 쪽을 택해도 후회는 없을 것 같은데... 고르기가 너무 어렵네요 :)</p>
+    `
+  },
+  {
+    id: 7,
+    title: '60대에 혼자 부산 여행 — 선샤인 웰니스가 없었다면 못 왔을 것 같아요',
+    date: '2026-05-20',
+    author: '박용수',
+    views: 312,
+    content: `
+      <p>올해 68세입니다. 퇴직하고 3년이 지났는데, 여행은 가고 싶어도 혼자 낯선 곳을 다니기가 겁났어요. 자식들은 바쁘고, 친구들은 건강 문제로 못 움직이는 분들이 많아서 결국 혼자 신청했습니다.</p>
+      <p>처음 집합 장소에 나갔을 때 비슷한 연배의 분들이 많아서 안도했어요. 담당 가이드님이 제 이름을 먼저 불러주시며 인사해 주셨는데, 그 작은 배려가 얼마나 마음을 열게 해주는지 모릅니다.</p>
+      <p>부산근대역사관과 임시수도기념관을 돌면서 제가 살아온 시대와 교차되는 이야기들이 많았습니다. 젊었을 때는 그냥 흘려들었던 역사가 나이가 드니 비로소 온몸으로 느껴지더라고요. 눈물을 참은 순간이 한두 번이 아니었어요.</p>
+      <p>저처럼 혼자 오시는 분들 걱정 안 하셔도 됩니다. 분위기가 따뜻하고 자연스럽게 어울릴 수 있어요. 내년에는 사찰 1박 2일 코스에 꼭 도전해볼 생각입니다.</p>
+    `
+  },
+  {
+    id: 8,
+    title: '제주도 웰니스 여행 후기 — 사찰 스테이가 최고였어요',
+    date: '2026-05-22',
+    author: '이화진',
+    views: 247,
+    content: `
+      <p>선샤인 웰니스 제주 프로그램을 통해 처음으로 사찰 스테이를 경험했습니다. 절에서 하룻밤 자는 게 불편하지 않을까 걱정했는데, 오히려 생애 가장 깊은 잠을 잤습니다.</p>
+      <p>저녁 공양 후 스님과 함께하는 소등 전 차담(茶談) 시간이 특히 좋았어요. 일상의 속도에서 완전히 내려놓고, 뜨거운 녹차 한 잔 손에 쥐고 그냥 침묵 속에 앉아 있는 그 순간이 참 귀했습니다.</p>
+      <p>이튿날 새벽 4시 30분 예불 참여는 선택이었는데, 일어나보니 이미 일행 대부분이 나와 있더라고요. 새벽빛 속에 울려 퍼지는 범종 소리는 정말 잊을 수 없어요.</p>
+      <p>부산 사찰 투어도 꼭 가보고 싶어졌습니다. 통도사 1박 2일 코스를 눈여겨보고 있는데, 다녀오신 분들 후기 댓글로 부탁드려요. 선샤인 웰니스 덕분에 여행이 단순한 구경이 아닌 '경험'이 됐습니다. 감사합니다!</p>
+    `
+  }
+];
+
+function openBoardPost(id) {
+  const post = boardData.find(p => p.id === id);
+  if (!post) return;
+  const html = `<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${post.title} — 선샤인 웰니스</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif; background: #f8f9fa; color: #333; min-height: 100vh; }
+  .post-wrap { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
+  .post-back { display: inline-flex; align-items: center; gap: 6px; color: #2c5f2e; font-size: 14px; font-weight: 600; text-decoration: none; margin-bottom: 32px; cursor: pointer; background: none; border: none; padding: 0; }
+  .post-back:hover { text-decoration: underline; }
+  .post-meta-top { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .post-category { background: #2c5f2e; color: #fff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; letter-spacing: .06em; }
+  .post-num { font-size: 12px; color: #aaa; }
+  .post-title { font-size: 1.5rem; font-weight: 700; line-height: 1.45; color: #1a1a1a; margin-bottom: 18px; }
+  .post-meta { display: flex; gap: 18px; font-size: 13px; color: #888; padding-bottom: 20px; border-bottom: 2px solid #2c5f2e; margin-bottom: 32px; }
+  .post-body { font-size: 1rem; line-height: 1.9; color: #444; }
+  .post-body p { margin-bottom: 1.4em; }
+  .post-footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid #e8e8e8; text-align: center; font-size: 13px; color: #aaa; }
+  .post-footer strong { color: #2c5f2e; }
+  @media (max-width: 600px) {
+    .post-wrap { padding: 32px 16px 60px; }
+    .post-title { font-size: 1.25rem; }
+    .post-body { font-size: 0.95rem; }
+  }
+</style>
+</head>
+<body>
+<div class="post-wrap">
+  <button class="post-back" onclick="window.close()">← 목록으로 돌아가기</button>
+  <div class="post-meta-top">
+    <span class="post-category">여행 이야기</span>
+    <span class="post-num">No. ${post.id}</span>
+  </div>
+  <h1 class="post-title">${post.title}</h1>
+  <div class="post-meta">
+    <span>작성자: <strong style="color:#555">${post.author}</strong></span>
+    <span>작성일: ${post.date}</span>
+    <span>조회: ${post.views}</span>
+  </div>
+  <div class="post-body">
+    ${post.content}
+  </div>
+  <div class="post-footer">
+    <strong>선샤인 웰니스</strong> — 신중년을 위한 맞춤형 웰니스 여행
+  </div>
+</div>
+</body>
+</html>`;
+  const blob = new Blob([html], { type: 'text/html' });
+  window.open(URL.createObjectURL(blob), '_blank');
+}
+
+// =========================================
 // 카드 클릭 이벤트
 // =========================================
 document.querySelectorAll('.card-info-btn').forEach(btn => {
