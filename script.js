@@ -1,6 +1,7 @@
 // =========================================
 // SUNSHINE WELLNESS — script.js
 // =========================================
+console.log('[SCRIPT] 로딩됨 v=20260528r');
 
 // --- 헤더: 스크롤 시 투명 → 흰색 ---
 const header = document.getElementById('header');
@@ -2746,6 +2747,7 @@ function openBoardPost(id) {
   boardTable.style.display = 'none';
   boardPostView.style.display = 'block';
   console.log('[BOARD] display 전환 완료. boardPostView display:', boardPostView.style.display);
+  console.log('[BOARD] showSubPage 호출 직전');
 
   boardPostView.innerHTML =
     '<div class="board-post-detail">' +
@@ -2803,33 +2805,30 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// 전역 클릭 진단 — 모든 클릭의 실제 target 확인
-document.addEventListener('click', function(e) {
-  var t = e.target;
-  console.log('[CLICK-ALL] tag=' + t.tagName + ' | class="' + t.className + '" | id="' + t.id + '" | text="' + (t.textContent || '').trim().slice(0, 20) + '"');
-}, true);
+// =========================================
+// 게시판 클릭 이벤트 위임 (capture phase)
+// =========================================
+console.log('[BOARD] 클릭 위임 등록 시작');
 
-// document 캡처 위임 — 다른 요소가 클릭을 가로채는 경우에도 작동
 document.addEventListener('click', function(e) {
   var target = e.target;
 
-  var row    = target.closest('.board-row');
-  var button = target.closest('.board-post-button');
-  var item   = button || row;
-
+  var item = target.closest('.board-row, .board-post-button, .board-post-link');
   if (!item) return;
 
   e.preventDefault();
   e.stopPropagation();
 
-  var idSource = item.dataset.id || item.getAttribute('data-id');
-  console.log('[BOARD] 캡처 클릭 감지:', item.tagName, '/ id:', idSource);
+  var row = target.closest('.board-row');
+  var id  = item.dataset.id || (row && row.dataset.id);
 
-  var id = parseInt(idSource, 10);
-  if (!Number.isNaN(id)) {
+  console.log('[BOARD] 실제 게시판 클릭 감지:', item);
+  console.log('[BOARD] 클릭 id:', id);
+
+  if (id) {
     openBoardPost(id);
   } else {
-    console.warn('[BOARD] data-id 없음:', item);
+    console.warn('[BOARD] 클릭 요소에 data-id 없음:', item);
   }
 }, true);
 
