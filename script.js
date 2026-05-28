@@ -2896,13 +2896,20 @@ document.querySelectorAll('.card, .about-content, .stat-item').forEach(el => obs
 
 // [DEBUG] script.js 완전 로딩 확인 + board-row 클릭 이벤트 강제 연결
 console.log('[DEBUG] script.js 로딩 완료. openBoardPost 타입:', typeof openBoardPost);
-document.querySelectorAll('.board-row').forEach(function(row) {
+
+var _boardRows = document.querySelectorAll('.board-row');
+console.log('[DEBUG] .board-row 발견 수:', _boardRows.length);
+
+_boardRows.forEach(function(row) {
   var onc = row.getAttribute('onclick');
   var m = onc && onc.match(/openBoardPost\((\d+)\)/);
   if (m) {
+    var pid = parseInt(m[1], 10);
+    row.style.cursor = 'pointer';
     row.addEventListener('click', function(e) {
-      console.log('[DEBUG] board-row 클릭됨. id=' + m[1]);
-      openBoardPost(parseInt(m[1], 10));
-    });
+      console.log('[DEBUG] board-row 클릭됨. id=' + pid);
+      alert('[TEST] 행 클릭 확인! id=' + pid + '\nopenBoardPost 호출 직전...');
+      openBoardPost(pid);
+    }, true); // capture 단계에서 실행 (다른 핸들러보다 먼저)
   }
 });
