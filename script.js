@@ -2653,7 +2653,7 @@ const boardData = [
   },
   {
     id: 2,
-    title: '신중년 여행 동행 구합니다 — 5월 사찰 투어 같이 가실 분!',
+    title: '신중년 여행 동행 구합니다 — 6월 부산 근교 투어 같이 가실 분?',
     date: '2026-05-03',
     author: '이정란',
     views: 156,
@@ -2666,7 +2666,7 @@ const boardData = [
   },
   {
     id: 3,
-    title: '해동용궁사 새벽 예불 체험기 — 말로는 못 다 설명합니다',
+    title: '해동용궁사 새벽 예불 체험, 삶이 바뀌는 느낌이었습니다',
     date: '2026-05-08',
     author: '손명희',
     views: 534,
@@ -2679,7 +2679,7 @@ const boardData = [
   },
   {
     id: 4,
-    title: '부산 시장 투어 후기 — 이가네 떡볶이 줄이 이렇게 길다고요?',
+    title: '부산 시장 투어 후기 — 자갈치에서 활어회 먹은 게 아직도 생각나요',
     date: '2026-05-12',
     author: '김태성',
     views: 388,
@@ -2692,7 +2692,7 @@ const boardData = [
   },
   {
     id: 5,
-    title: '감천문화마을 투어 — 60대 체력으로도 충분히 걸을 수 있었어요',
+    title: '감천문화마을 투어 다녀왔습니다! 해설사 선생님이 너무 좋았어요',
     date: '2026-05-15',
     author: '정순자',
     views: 421,
@@ -2705,7 +2705,7 @@ const boardData = [
   },
   {
     id: 6,
-    title: '다음 행선지 고민 중 — 사찰 투어 vs 역사 투어, 어떤 게 더 좋았나요?',
+    title: '다음 행선지 고민 중 — 교토 vs 부산, 어디가 좋을까요?',
     date: '2026-05-18',
     author: '최미선',
     views: 189,
@@ -2718,7 +2718,7 @@ const boardData = [
   },
   {
     id: 7,
-    title: '60대에 혼자 부산 여행 — 선샤인 웰니스가 없었다면 못 왔을 것 같아요',
+    title: '60대에 혼자 부산 여행, 선샤인 웰니스 덕분에 잊지 못할 경험',
     date: '2026-05-20',
     author: '박용수',
     views: 312,
@@ -2747,58 +2747,27 @@ const boardData = [
 function openBoardPost(id) {
   const post = boardData.find(p => p.id === id);
   if (!post) return;
-  const html = `<!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${post.title} — 선샤인 웰니스</title>
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif; background: #f8f9fa; color: #333; min-height: 100vh; }
-  .post-wrap { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
-  .post-back { display: inline-flex; align-items: center; gap: 6px; color: #2c5f2e; font-size: 14px; font-weight: 600; text-decoration: none; margin-bottom: 32px; cursor: pointer; background: none; border: none; padding: 0; }
-  .post-back:hover { text-decoration: underline; }
-  .post-meta-top { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
-  .post-category { background: #2c5f2e; color: #fff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; letter-spacing: .06em; }
-  .post-num { font-size: 12px; color: #aaa; }
-  .post-title { font-size: 1.5rem; font-weight: 700; line-height: 1.45; color: #1a1a1a; margin-bottom: 18px; }
-  .post-meta { display: flex; gap: 18px; font-size: 13px; color: #888; padding-bottom: 20px; border-bottom: 2px solid #2c5f2e; margin-bottom: 32px; }
-  .post-body { font-size: 1rem; line-height: 1.9; color: #444; }
-  .post-body p { margin-bottom: 1.4em; }
-  .post-footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid #e8e8e8; text-align: center; font-size: 13px; color: #aaa; }
-  .post-footer strong { color: #2c5f2e; }
-  @media (max-width: 600px) {
-    .post-wrap { padding: 32px 16px 60px; }
-    .post-title { font-size: 1.25rem; }
-    .post-body { font-size: 0.95rem; }
-  }
-</style>
-</head>
-<body>
-<div class="post-wrap">
-  <button class="post-back" onclick="window.close()">← 목록으로 돌아가기</button>
-  <div class="post-meta-top">
-    <span class="post-category">여행 이야기</span>
-    <span class="post-num">No. ${post.id}</span>
-  </div>
-  <h1 class="post-title">${post.title}</h1>
-  <div class="post-meta">
-    <span>작성자: <strong style="color:#555">${post.author}</strong></span>
-    <span>작성일: ${post.date}</span>
-    <span>조회: ${post.views}</span>
-  </div>
-  <div class="post-body">
-    ${post.content}
-  </div>
-  <div class="post-footer">
-    <strong>선샤인 웰니스</strong> — 신중년을 위한 맞춤형 웰니스 여행
-  </div>
-</div>
-</body>
-</html>`;
-  const blob = new Blob([html], { type: 'text/html' });
-  window.open(URL.createObjectURL(blob), '_blank');
+  const html = `
+  <div style="max-width:760px;margin:0 auto;padding:48px 24px 80px;">
+    <button onclick="closeSubPage()" style="display:inline-flex;align-items:center;gap:6px;color:#2c5f2e;font-size:14px;font-weight:600;background:none;border:none;cursor:pointer;margin-bottom:32px;padding:0;">← 목록으로 돌아가기</button>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+      <span style="background:#2c5f2e;color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.06em;">여행 이야기</span>
+      <span style="font-size:12px;color:#aaa;">No. ${post.id}</span>
+    </div>
+    <h1 style="font-size:1.5rem;font-weight:700;line-height:1.45;color:#1a1a1a;margin-bottom:18px;">${post.title}</h1>
+    <div style="display:flex;gap:18px;font-size:13px;color:#888;padding-bottom:20px;border-bottom:2px solid #2c5f2e;margin-bottom:32px;">
+      <span>작성자: <strong style="color:#555;">${post.author}</strong></span>
+      <span>작성일: ${post.date}</span>
+      <span>조회: ${post.views}</span>
+    </div>
+    <div style="font-size:1rem;line-height:1.9;color:#444;">
+      ${post.content}
+    </div>
+    <div style="margin-top:48px;padding-top:24px;border-top:1px solid #e8e8e8;text-align:center;font-size:13px;color:#aaa;">
+      <strong style="color:#2c5f2e;">선샤인 웰니스</strong> — 신중년을 위한 맞춤형 웰니스 여행
+    </div>
+  </div>`;
+  showSubPage(html);
 }
 
 // =========================================
