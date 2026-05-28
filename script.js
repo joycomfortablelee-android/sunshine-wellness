@@ -1,7 +1,7 @@
 // =========================================
 // SUNSHINE WELLNESS — script.js
 // =========================================
-console.log('[SCRIPT] 로딩됨 v=20260528x');
+console.log('[SCRIPT] 로딩됨 v=20260528y');
 
 // --- 헤더: 스크롤 시 투명 → 흰색 ---
 const header = document.getElementById('header');
@@ -718,11 +718,11 @@ function openWhereToNextPage() {
       <table class="sp-table">
         <thead>
           <tr>
-            <th style="width:60px;">번호</th>
-            <th style="width:80px;white-space:nowrap;">여행지</th>
+            <th class="sp-col-no"  style="width:60px;">번호</th>
+            <th class="sp-col-dest" style="width:80px;white-space:nowrap;">여행지</th>
             <th class="sp-col-title">제목</th>
-            <th style="width:72px;white-space:nowrap;">작성자</th>
-            <th style="width:72px;white-space:nowrap;">등록일</th>
+            <th class="sp-col-author" style="white-space:nowrap;">작성자</th>
+            <th class="sp-col-date"  style="white-space:nowrap;">등록일</th>
           </tr>
         </thead>
         <tbody id="boardList"></tbody>
