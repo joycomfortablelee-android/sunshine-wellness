@@ -2745,8 +2745,10 @@ const boardData = [
 ];
 
 function openBoardPost(id) {
+  console.log('[BOARD] openBoardPost 호출됨, id=', id);
   const post = boardData.find(function(p) { return p.id === id; });
-  if (!post) return;
+  if (!post) { console.log('[BOARD] post not found!'); return; }
+  console.log('[BOARD] showSubPage 호출 직전');
   showSubPage(
     '<div style="max-width:760px;margin:0 auto;padding:48px 24px 80px;">' +
       '<button onclick="closeSubPage()" style="display:inline-flex;align-items:center;gap:6px;color:#2c5f2e;font-size:14px;font-weight:600;background:none;border:none;cursor:pointer;margin-bottom:32px;padding:0;">← 목록으로 돌아가기</button>' +
