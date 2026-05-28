@@ -1195,7 +1195,7 @@ section { padding: 100px 0; }
   .ab-h1      { font-size:22px !important; margin-bottom:16px !important; }
   .ab-h2      { font-size:19px !important; margin-bottom:12px !important; }
   .ab-body    { font-size:13.5px !important; }
-  .ab-caption { font-size:12.5px !important; }
+  .ab-caption { font-size:13.5px !important; }
   .ab-stats { flex-direction: column !important; gap: 20px !important; }
   .ab-stats-sep { display: none !important; }
   .ab-stats-item { padding: 0 !important; }
