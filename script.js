@@ -2803,6 +2803,12 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+// 전역 클릭 진단 — 모든 클릭의 실제 target 확인
+document.addEventListener('click', function(e) {
+  var t = e.target;
+  console.log('[CLICK-ALL] tag=' + t.tagName + ' | class="' + t.className + '" | id="' + t.id + '" | text="' + (t.textContent || '').trim().slice(0, 20) + '"');
+}, true);
+
 // document 캡처 위임 — 다른 요소가 클릭을 가로채는 경우에도 작동
 document.addEventListener('click', function(e) {
   var target = e.target;
@@ -2812,9 +2818,6 @@ document.addEventListener('click', function(e) {
   var item   = button || row;
 
   if (!item) return;
-
-  var boardArea = target.closest('#boardTable, .board-section');
-  if (!boardArea) return;
 
   e.preventDefault();
   e.stopPropagation();
