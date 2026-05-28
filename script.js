@@ -2,16 +2,6 @@
 // SUNSHINE WELLNESS — script.js
 // =========================================
 
-// [DEBUG] 전역 JS 에러 캐처 — 어떤 에러든 화면에 표시
-window.onerror = function(msg, src, line, col, err) {
-  var box = document.createElement('div');
-  box.style.cssText = 'position:fixed;bottom:0;left:0;right:0;background:#c00;color:#fff;padding:12px 16px;z-index:99999;font-size:13px;font-family:monospace;white-space:pre-wrap;';
-  box.textContent = '[JS ERROR] ' + msg + '\n  Line: ' + line + ', Col: ' + col + '\n  File: ' + src;
-  document.body.appendChild(box);
-  setTimeout(function() { box.remove(); }, 15000);
-  return false;
-};
-
 // --- 헤더: 스크롤 시 투명 → 흰색 ---
 const header = document.getElementById('header');
 window.addEventListener('scroll', () => {
@@ -2894,28 +2884,14 @@ const observer = new IntersectionObserver(
 
 document.querySelectorAll('.card, .about-content, .stat-item').forEach(el => observer.observe(el));
 
-// [DEBUG] script.js 완전 로딩 확인 + board-row 클릭 이벤트 강제 연결
-console.log('[DEBUG] script.js 로딩 완료. openBoardPost 타입:', typeof openBoardPost);
-
-var _boardRows = document.querySelectorAll('.board-row');
-console.log('[DEBUG] .board-row 발견 수:', _boardRows.length);
-
-// body 전체 클릭 감지 (capture) — 클릭이 JS까지 오는지 확인
-document.body.addEventListener('click', function(e) {
-  var cls = (e.target.className || '').toString().substring(0, 40);
-  var tag = e.target.tagName;
-  console.log('[DEBUG] BODY CLICK → tag=' + tag + ' class="' + cls + '"');
-  // board-row 또는 그 자식을 클릭했으면 바로 openBoardPost 호출
+// =========================================
+// 여행 이야기 게시판 클릭 핸들러
+// =========================================
+document.addEventListener('click', function(e) {
   var row = e.target.closest('.board-row');
-  if (row) {
-    var onc = row.getAttribute('onclick') || '';
-    var m = onc.match(/openBoardPost\((\d+)\)/);
-    if (m) {
-      e.stopImmediatePropagation();
-      var pid = parseInt(m[1], 10);
-      console.log('[DEBUG] board-row 클릭! id=' + pid + ' → openBoardPost 호출');
-      alert('[TEST] board-row 클릭됨! id=' + pid);
-      openBoardPost(pid);
-    }
-  }
+  if (!row) return;
+  e.preventDefault();
+  e.stopPropagation();
+  var id = parseInt(row.dataset.id, 10);
+  if (!isNaN(id)) openBoardPost(id);
 }, true);
