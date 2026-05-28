@@ -2745,29 +2745,51 @@ const boardData = [
 ];
 
 function openBoardPost(id) {
-  console.log('[BOARD] openBoardPost 호출됨, id=', id);
-  const post = boardData.find(function(p) { return p.id === id; });
-  if (!post) { console.log('[BOARD] post not found!'); return; }
-  console.log('[BOARD] showSubPage 호출 직전');
-  showSubPage(
-    '<div style="max-width:760px;margin:0 auto;padding:48px 24px 80px;">' +
-      '<button onclick="closeSubPage()" style="display:inline-flex;align-items:center;gap:6px;color:#2c5f2e;font-size:14px;font-weight:600;background:none;border:none;cursor:pointer;margin-bottom:32px;padding:0;">← 목록으로 돌아가기</button>' +
-      '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">' +
-        '<span style="background:#2c5f2e;color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.06em;">여행 이야기</span>' +
-        '<span style="font-size:12px;color:#aaa;">No. ' + post.id + '</span>' +
+  var post = boardData.find(function(p) { return p.id === id; });
+  if (!post) return;
+
+  var prev = document.getElementById('_bpOvl');
+  if (prev) prev.remove();
+
+  var ov = document.createElement('div');
+  ov.id = '_bpOvl';
+  ov.style.cssText = [
+    'position:fixed', 'top:0', 'left:0', 'width:100%', 'height:100%',
+    'background:#fff', 'z-index:99999', 'overflow-y:auto',
+    "font-family:'Noto Sans KR',sans-serif"
+  ].join(';');
+
+  ov.innerHTML =
+    '<div style="background:#2c5f2e;padding:13px 20px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:1;">' +
+      '<button id="_bpBack" style="background:none;border:none;color:#fff;font-size:20px;line-height:1;cursor:pointer;padding:2px 6px;">&#8592;</button>' +
+      '<span style="color:#fff;font-size:13px;font-weight:700;letter-spacing:.06em;">여행 이야기</span>' +
+    '</div>' +
+    '<div style="background:#f9f9f9;border-bottom:1px solid #e0e0e0;padding:22px 24px 18px;">' +
+      '<div style="font-size:11px;color:#2c5f2e;font-weight:700;letter-spacing:.08em;margin-bottom:8px;">No. ' + post.id + '</div>' +
+      '<h2 style="font-size:1.18rem;font-weight:700;color:#1a1a1a;line-height:1.5;margin:0 0 12px;">' + post.title + '</h2>' +
+      '<div style="display:flex;gap:16px;font-size:12.5px;color:#999;flex-wrap:wrap;">' +
+        '<span>작성자 <strong style="color:#555;font-weight:600;">' + post.author + '</strong></span>' +
+        '<span>' + post.date + '</span>' +
+        '<span>조회 ' + post.views + '</span>' +
       '</div>' +
-      '<h1 style="font-size:1.5rem;font-weight:700;line-height:1.45;color:#1a1a1a;margin-bottom:18px;">' + post.title + '</h1>' +
-      '<div style="display:flex;gap:18px;font-size:13px;color:#888;padding-bottom:20px;border-bottom:2px solid #2c5f2e;margin-bottom:32px;flex-wrap:wrap;">' +
-        '<span>작성자: <strong style="color:#555;">' + post.author + '</strong></span>' +
-        '<span>작성일: ' + post.date + '</span>' +
-        '<span>조회: ' + post.views + '</span>' +
+    '</div>' +
+    '<div style="max-width:780px;margin:0 auto;padding:36px 24px 80px;">' +
+      '<div style="font-size:15px;line-height:1.95;color:#333;">' + post.content + '</div>' +
+      '<div style="margin-top:48px;padding-top:20px;border-top:1px solid #ebebeb;">' +
+        '<button id="_bpBack2" style="background:#2c5f2e;color:#fff;border:none;padding:11px 30px;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;">&#8592; 목록으로</button>' +
       '</div>' +
-      '<div style="font-size:1rem;line-height:1.9;color:#444;">' + post.content + '</div>' +
-      '<div style="margin-top:48px;padding-top:24px;border-top:1px solid #e8e8e8;text-align:center;font-size:13px;color:#aaa;">' +
-        '<strong style="color:#2c5f2e;">선샤인 웰니스</strong> — 신중년을 위한 맞춤형 웰니스 여행' +
-      '</div>' +
-    '</div>'
-  );
+    '</div>';
+
+  document.body.appendChild(ov);
+  document.body.style.overflow = 'hidden';
+
+  function closeBoardPost() {
+    ov.remove();
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('_bpBack').addEventListener('click', closeBoardPost);
+  document.getElementById('_bpBack2').addEventListener('click', closeBoardPost);
 }
 
 // =========================================
@@ -2842,14 +2864,3 @@ const observer = new IntersectionObserver(
 
 document.querySelectorAll('.card, .about-content, .stat-item').forEach(el => observer.observe(el));
 
-// =========================================
-// 여행 이야기 게시판 클릭 핸들러
-// =========================================
-document.addEventListener('click', function(e) {
-  var row = e.target.closest('.board-row');
-  if (!row) return;
-  e.preventDefault();
-  e.stopPropagation();
-  var id = parseInt(row.dataset.id, 10);
-  if (!isNaN(id)) openBoardPost(id);
-}, true);
