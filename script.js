@@ -2782,14 +2782,14 @@ document.addEventListener('DOMContentLoaded', function() {
   var rows = document.querySelectorAll('#boardTable .board-row');
   console.log('[BOARD] rows found:', rows.length);
 
-  var btns = document.querySelectorAll('#boardTable .bc-link-btn');
+  var btns = document.querySelectorAll('#boardTable .board-post-button');
   console.log('[BOARD] buttons found:', btns.length);
   btns.forEach(function(btn) {
     btn.addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
       var id = btn.dataset.id;
-      console.log('[BOARD] button clicked:', id);
+      console.log('[BOARD] button clicked (direct):', id);
       openBoardPost(id);
     });
   });
@@ -2797,11 +2797,38 @@ document.addEventListener('DOMContentLoaded', function() {
   rows.forEach(function(row) {
     row.addEventListener('click', function() {
       var id = row.dataset.id;
-      console.log('[BOARD] row clicked:', id);
+      console.log('[BOARD] row clicked (direct):', id);
       openBoardPost(id);
     });
   });
 });
+
+// document 캡처 위임 — 다른 요소가 클릭을 가로채는 경우에도 작동
+document.addEventListener('click', function(e) {
+  var target = e.target;
+
+  var row    = target.closest('.board-row');
+  var button = target.closest('.board-post-button');
+  var item   = button || row;
+
+  if (!item) return;
+
+  var boardArea = target.closest('#boardTable, .board-section');
+  if (!boardArea) return;
+
+  e.preventDefault();
+  e.stopPropagation();
+
+  var idSource = item.dataset.id || item.getAttribute('data-id');
+  console.log('[BOARD] 캡처 클릭 감지:', item.tagName, '/ id:', idSource);
+
+  var id = parseInt(idSource, 10);
+  if (!Number.isNaN(id)) {
+    openBoardPost(id);
+  } else {
+    console.warn('[BOARD] data-id 없음:', item);
+  }
+}, true);
 
 // =========================================
 // 카드 클릭 이벤트
