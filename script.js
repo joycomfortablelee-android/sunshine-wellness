@@ -2810,9 +2810,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // =========================================
 console.log('[BOARD] 클릭 위임 등록 시작');
 
-document.addEventListener('click', function(e) {
+function _boardHandleClick(e) {
   var target = e.target;
-
   var item = target.closest('.board-row, .board-post-button, .board-post-link');
   if (!item) return;
 
@@ -2822,15 +2821,16 @@ document.addEventListener('click', function(e) {
   var row = target.closest('.board-row');
   var id  = item.dataset.id || (row && row.dataset.id);
 
-  console.log('[BOARD] 실제 게시판 클릭 감지:', item);
-  console.log('[BOARD] 클릭 id:', id);
-
+  console.log('[BOARD] 실제 게시판 클릭 감지:', item.tagName, 'id:', id);
   if (id) {
     openBoardPost(id);
   } else {
     console.warn('[BOARD] 클릭 요소에 data-id 없음:', item);
   }
-}, true);
+}
+
+document.addEventListener('click', _boardHandleClick, true);
+window.addEventListener('click', _boardHandleClick, true);
 
 // =========================================
 // 카드 클릭 이벤트
