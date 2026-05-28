@@ -2726,6 +2726,7 @@ function openBoardPost(id) {
   var post = boardData.find(function(p) {
     return String(p.id) === String(id);
   });
+  console.log('[BOARD] post:', post ? post.title : 'NOT FOUND');
 
   if (!post) {
     console.warn('[BOARD] post not found:', id);
@@ -2734,9 +2735,17 @@ function openBoardPost(id) {
 
   var boardTable = document.getElementById('boardTable');
   var boardPostView = document.getElementById('boardPostView');
+  console.log('[BOARD] boardTable:', boardTable);
+  console.log('[BOARD] boardPostView:', boardPostView);
+
+  if (!boardTable || !boardPostView) {
+    console.error('[BOARD] 요소를 찾을 수 없습니다!');
+    return;
+  }
 
   boardTable.style.display = 'none';
   boardPostView.style.display = 'block';
+  console.log('[BOARD] display 전환 완료. boardPostView display:', boardPostView.style.display);
 
   boardPostView.innerHTML =
     '<div class="board-post-detail">' +
@@ -2753,6 +2762,9 @@ function openBoardPost(id) {
         '<button type="button" class="board-back-btn" id="boardBackBottom">목록으로</button>' +
       '</div>' +
     '</div>';
+  console.log('[BOARD] innerHTML 삽입 완료');
+
+  boardPostView.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
   document.getElementById('boardBackTop').addEventListener('click', closeBoardPost);
   document.getElementById('boardBackBottom').addEventListener('click', closeBoardPost);
