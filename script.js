@@ -2900,16 +2900,22 @@ console.log('[DEBUG] script.js 로딩 완료. openBoardPost 타입:', typeof ope
 var _boardRows = document.querySelectorAll('.board-row');
 console.log('[DEBUG] .board-row 발견 수:', _boardRows.length);
 
-_boardRows.forEach(function(row) {
-  var onc = row.getAttribute('onclick');
-  var m = onc && onc.match(/openBoardPost\((\d+)\)/);
-  if (m) {
-    var pid = parseInt(m[1], 10);
-    row.style.cursor = 'pointer';
-    row.addEventListener('click', function(e) {
-      console.log('[DEBUG] board-row 클릭됨. id=' + pid);
-      alert('[TEST] 행 클릭 확인! id=' + pid + '\nopenBoardPost 호출 직전...');
+// body 전체 클릭 감지 (capture) — 클릭이 JS까지 오는지 확인
+document.body.addEventListener('click', function(e) {
+  var cls = (e.target.className || '').toString().substring(0, 40);
+  var tag = e.target.tagName;
+  console.log('[DEBUG] BODY CLICK → tag=' + tag + ' class="' + cls + '"');
+  // board-row 또는 그 자식을 클릭했으면 바로 openBoardPost 호출
+  var row = e.target.closest('.board-row');
+  if (row) {
+    var onc = row.getAttribute('onclick') || '';
+    var m = onc.match(/openBoardPost\((\d+)\)/);
+    if (m) {
+      e.stopImmediatePropagation();
+      var pid = parseInt(m[1], 10);
+      console.log('[DEBUG] board-row 클릭! id=' + pid + ' → openBoardPost 호출');
+      alert('[TEST] board-row 클릭됨! id=' + pid);
       openBoardPost(pid);
-    }, true); // capture 단계에서 실행 (다른 핸들러보다 먼저)
+    }
   }
-});
+}, true);
