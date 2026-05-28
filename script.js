@@ -1,7 +1,7 @@
 // =========================================
 // SUNSHINE WELLNESS — script.js
 // =========================================
-console.log('[SCRIPT] 로딩됨 v=20260528y');
+console.log('[SCRIPT] 로딩됨 v=20260528za');
 
 // --- 헤더: 스크롤 시 투명 → 흰색 ---
 const header = document.getElementById('header');
@@ -2875,6 +2875,28 @@ function _boardHandleClick(e) {
 
 document.addEventListener('click', _boardHandleClick, true);
 window.addEventListener('click', _boardHandleClick, true);
+
+// =========================================
+// 퀵 사이드바 — 히어로 지나면 표시
+// =========================================
+(function () {
+  var sidebar = document.getElementById('quickSidebar');
+  var hero    = document.querySelector('.hero');
+  if (!sidebar || !hero) return;
+
+  function checkSidebar() {
+    var heroBottom = hero.offsetTop + hero.offsetHeight;
+    var scrollY    = window.scrollY || window.pageYOffset;
+    if (scrollY > heroBottom - 120) {
+      sidebar.classList.add('is-visible');
+    } else {
+      sidebar.classList.remove('is-visible');
+    }
+  }
+
+  window.addEventListener('scroll', checkSidebar, { passive: true });
+  checkSidebar();
+}());
 
 // =========================================
 // 카드 클릭 이벤트
