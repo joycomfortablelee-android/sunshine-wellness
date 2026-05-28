@@ -2644,12 +2644,9 @@ const boardData = [
     date: '2026-04-28',
     author: '황미경',
     views: 602,
-    content: `
-      <p>처음에는 반신반의하는 마음으로 신청했습니다. 신중년 전용 여행이라고 해서 '천천히 걷는 관광이겠지' 싶었는데, 직접 참여하고 보니 완전히 달랐어요.</p>
-      <p>감천문화마을 해설사 선생님이 골목 하나하나의 이야기를 풀어주시는데, 그냥 보는 것과 듣고 보는 것이 이렇게 다를 수가 없더라고요. 50년 전 피란민들이 이 언덕을 오르내렸을 때의 모습을 상상하니 가슴이 뭉클했습니다.</p>
-      <p>점심은 자갈치시장 근처 횟집에서 신선한 광어회를 먹었는데, 가이드님이 흥정하는 법까지 알려주셔서 웃음이 터졌어요. 일행 분들과 자연스럽게 이야기를 나누게 되고, 혼자 왔는데도 전혀 어색하지 않았습니다.</p>
-      <p>오후에는 해동용궁사에서 잠시 앉아 바다를 바라봤습니다. 파도 소리를 들으며 '아, 이게 힐링이구나' 싶었어요. 몸도 마음도 충전된 느낌으로 집에 돌아왔습니다. 다음 달 프로그램도 꼭 참여할 계획입니다!</p>
-    `
+    content: `<p>처음에는 큰 기대 없이 신청했는데, 막상 참여해보니 생각보다 훨씬 만족스러운 여행이었습니다. 선샤인 웰니스 프로그램은 단순히 관광지를 둘러보는 일정이 아니라, 몸과 마음을 편안하게 회복하는 여행에 가까웠습니다.</p>
+<p>일정이 여유롭게 구성되어 있어 부담이 적었고, 해설과 체험이 적절히 어우러져 지루하지 않았습니다. 특히 여행 중간중간 쉬어갈 수 있는 시간이 있어 중장년층에게도 잘 맞는 프로그램이라고 느꼈습니다.</p>
+<p>혼자 참여해도 어색하지 않았고, 함께한 분들과 자연스럽게 대화를 나눌 수 있어 좋았습니다. 다음 프로그램도 기회가 된다면 다시 참여하고 싶습니다.</p>`
   },
   {
     id: 2,
@@ -2657,12 +2654,9 @@ const boardData = [
     date: '2026-05-03',
     author: '이정란',
     views: 156,
-    content: `
-      <p>안녕하세요, 올해 63세 이정란입니다. 5월 중순 사찰 투어를 혼자 신청해놓았는데, 혹시 비슷한 시기에 참여하시는 분 계신지 여쭤보고 싶어서 글 남깁니다.</p>
-      <p>저는 부산 토박이인데도 막상 범어사를 제대로 돌아본 적이 없더라고요. 아이들 키우고 직장 다니는 동안 늘 지나치기만 했는데, 이번 기회에 천천히 걸으며 제대로 보고 싶어요.</p>
-      <p>통도사 1박 2일 코스도 눈여겨보고 있습니다. 혼자 가기엔 조금 긴 여정이라 같이 다닐 동행이 있으면 더 즐거울 것 같아서요. 비슷한 생각이신 분은 댓글 달아주시거나 문의 페이지로 연락 주세요.</p>
-      <p>부담 없이 조용히 걷고 이야기 나눌 수 있는 분이면 좋겠습니다. 잘 부탁드립니다 :)</p>
-    `
+    content: `<p>6월에 부산 근교 여행을 함께하실 신중년 여행 동행을 찾습니다. 혼자 여행도 좋지만, 비슷한 관심사를 가진 분들과 함께 걸으며 이야기 나누는 여행도 좋을 것 같아 글을 남깁니다.</p>
+<p>관심 있는 코스는 해동용궁사, 범어사, 기장 바다 산책, 부산 전통시장 투어, 감천문화마을 등입니다. 너무 빠듯한 일정이 아니라 천천히 걷고, 좋은 음식을 먹고, 편안하게 쉬는 여행을 생각하고 있습니다.</p>
+<p>웰니스 여행, 문화해설 투어, 사찰 방문, 시장 탐방에 관심 있는 분들이라면 함께 즐거운 시간을 보낼 수 있을 것 같습니다. 관심 있으신 분들은 댓글로 편하게 남겨주세요.</p>`
   },
   {
     id: 3,
@@ -2670,12 +2664,9 @@ const boardData = [
     date: '2026-05-08',
     author: '손명희',
     views: 534,
-    content: `
-      <p>선샤인 웰니스 특별 프로그램인 해동용궁사 새벽 예불 체험에 다녀왔습니다. 새벽 5시 30분 집결이라 걱정됐는데, 막상 도착해보니 바다 위에 떠오르는 해를 보는 순간 그 피로가 싹 사라졌어요.</p>
-      <p>스님께서 예불의 의미와 순서를 한국어·영어로 차근차근 설명해 주셨고, 직접 목탁을 두드려 볼 수 있는 시간도 주셨습니다. 처음에는 어색해서 머뭇거렸는데 나중엔 소리에 집중하다 보니 머릿속이 맑아지는 느낌이었어요.</p>
-      <p>예불 후 공양간에서 먹은 사찰 음식이 특히 기억에 남습니다. 된장국 한 그릇이 그렇게 따뜻하고 담백할 수가 없었어요. 첨가물 없는 재료 본연의 맛이 이런 거구나 싶었습니다.</p>
-      <p>파도 소리, 목탁 소리, 독경 소리가 한데 어우러진 그 아침을 오래 기억할 것 같아요. 강력 추천합니다!</p>
-    `
+    content: `<p>해동용궁사 새벽 예불 체험은 이번 여행에서 가장 특별한 시간이었습니다. 이른 새벽 바다를 바라보며 사찰에 도착했을 때의 고요한 분위기가 아직도 생생합니다.</p>
+<p>파도 소리와 목탁 소리가 함께 들리는 순간, 마음속 복잡한 생각들이 조금씩 정리되는 느낌이었습니다. 종교적인 의미를 떠나, 자신을 돌아보고 조용히 숨을 고를 수 있는 시간이었습니다.</p>
+<p>해동용궁사는 낮에 방문해도 아름답지만, 새벽 예불 시간에는 전혀 다른 감동이 있습니다. 바쁜 일상 속에서 잠시 멈춤이 필요한 분들에게 꼭 추천하고 싶은 경험입니다.</p>`
   },
   {
     id: 4,
@@ -2683,12 +2674,9 @@ const boardData = [
     date: '2026-05-12',
     author: '김태성',
     views: 388,
-    content: `
-      <p>아내와 둘이 참여한 부산 시장·미식 투어 후기입니다. 평소 부산 출장을 자주 왔는데도 시장 구석구석은 몰랐던 터라 기대가 컸어요.</p>
-      <p>부전시장에서 시작해 이가네떡볶이까지 걸어가는 길에 가이드님이 골목 가게들을 하나하나 소개해 주셨습니다. 50년 넘은 포목점 할머니 이야기, 6.25 이후 자리를 잡은 건어물 가게 사연... 시장이 살아있는 역사책 같았어요.</p>
-      <p>이가네떡볶이는 평일인데도 줄이 꽤 길었습니다. 기다리는 동안 같은 투어 팀 어르신들과 이야기 꽃을 피웠는데, 결국 떡볶이는 덤이고 사람들과 나눈 웃음이 진짜 맛이었던 것 같아요.</p>
-      <p>도날드 즉석떡볶이에서 마무리했는데 두 집이 스타일이 달라서 비교하는 재미도 있었습니다. 다음에는 야시장 코스도 도전해보고 싶어요.</p>
-    `
+    content: `<p>부산 여행에서 가장 생생하게 기억나는 일정은 시장 투어였습니다. 특히 자갈치시장에서 먹었던 활어회는 아직도 생각납니다.</p>
+<p>시장 특유의 활기찬 분위기와 상인분들의 정겨운 모습이 인상적이었습니다. 해산물이 신선했고, 직접 보고 고른 음식을 바로 맛볼 수 있다는 점이 부산 시장 투어의 큰 매력이었습니다.</p>
+<p>자갈치시장뿐만 아니라 주변 시장과 골목을 함께 둘러보니 부산 사람들의 일상과 지역 문화를 조금 더 가까이 느낄 수 있었습니다. 관광지 중심의 여행도 좋지만, 시장 투어처럼 지역의 생활을 체험하는 여행도 정말 의미 있다고 생각합니다.</p>`
   },
   {
     id: 5,
@@ -2696,12 +2684,9 @@ const boardData = [
     date: '2026-05-15',
     author: '정순자',
     views: 421,
-    content: `
-      <p>언덕 마을이라 체력이 걱정됐는데 가이드님이 처음부터 "무리하지 않아도 됩니다, 쉬엄쉬엄 가겠습니다"라고 말씀해 주셔서 마음이 놓였어요.</p>
-      <p>골목을 오르다 쉬는 포인트마다 쉴 수 있는 벤치나 카페가 있었고, 힘들면 언제든 말하라고 하셔서 부담이 없었습니다. 결국 저도 큰 무리 없이 코스를 완주했네요.</p>
-      <p>가장 인상 깊었던 건 작은 갤러리 골목이었어요. 주민 분이 직접 그린 그림들이 걸려 있었는데, 작품 하나하나에 삶의 이야기가 담겨 있어 오래 멈춰 서 있었습니다. 어른이 돼서야 비로소 보이는 것들이 있다는 걸 새삼 느꼈어요.</p>
-      <p>혼자 왔는데도 일행분들이 자연스럽게 어우러져 주셔서 너무 좋았습니다. 선샤인 웰니스, 앞으로도 자주 이용할게요!</p>
-    `
+    content: `<p>감천문화마을 투어에 다녀왔습니다. 사진으로만 보던 알록달록한 마을을 직접 걸어보니 훨씬 더 인상적이었습니다.</p>
+<p>무엇보다 해설사 선생님의 설명이 정말 좋았습니다. 단순히 예쁜 골목을 둘러보는 것이 아니라, 감천문화마을이 어떻게 형성되었고 어떤 이야기를 품고 있는지 들을 수 있어 여행의 깊이가 달라졌습니다.</p>
+<p>골목마다 숨어 있는 벽화와 전망 포인트도 좋았고, 천천히 걸으며 마을의 분위기를 느낄 수 있어 만족스러웠습니다. 부산을 처음 방문하는 분들뿐만 아니라, 부산에 살아도 감천문화마을을 제대로 경험해보지 못한 분들에게 추천하고 싶습니다.</p>`
   },
   {
     id: 6,
@@ -2709,12 +2694,9 @@ const boardData = [
     date: '2026-05-18',
     author: '최미선',
     views: 189,
-    content: `
-      <p>이달 초 감천문화마을 투어를 다녀온 뒤로 다음 프로그램을 고민하고 있습니다. 6월에 사찰 투어와 역사(다크 투어리즘) 투어 중 하나를 선택해야 할 것 같은데, 먼저 다녀오신 분들 의견이 궁금해요.</p>
-      <p>저는 역사에 관심이 많은 편이라 다크 투어리즘이 끌리는데, 주변 지인 분은 "무거운 주제라 여행 분위기가 가라앉지 않냐"고 하더라고요. 실제로 다녀오신 분들은 어떠셨나요?</p>
-      <p>사찰 투어 쪽은 통도사 1박 2일 코스가 마음에 걸립니다. 혼자 참여해도 괜찮을지, 체력적으로 무리는 없는지도 궁금하고요.</p>
-      <p>경험 나눠주시면 정말 감사하겠습니다. 선샤인 웰니스 프로그램 모두 훌륭하다고 들어서 어느 쪽을 택해도 후회는 없을 것 같은데... 고르기가 너무 어렵네요 :)</p>
-    `
+    content: `<p>다음 여행지를 고민하고 있습니다. 교토와 부산 중 어디를 선택하면 좋을지 아직 결정하지 못했습니다.</p>
+<p>교토는 전통적인 분위기와 사찰, 정원, 오래된 골목길이 매력적이라 조용한 여행을 좋아하는 분들에게 잘 맞을 것 같습니다. 반면 부산은 바다, 사찰, 시장, 문화마을, 온천과 웰니스 프로그램까지 다양하게 즐길 수 있다는 점이 좋습니다.</p>
+<p>특히 부산은 이동 거리가 비교적 짧고, 해동용궁사나 감천문화마을, 자갈치시장처럼 개성이 뚜렷한 장소가 많아 여행 만족도가 높을 것 같습니다. 혹시 두 지역을 모두 다녀오신 분이 있다면 어떤 여행지가 더 좋았는지 의견을 나눠주시면 감사하겠습니다.</p>`
   },
   {
     id: 7,
@@ -2722,12 +2704,9 @@ const boardData = [
     date: '2026-05-20',
     author: '박용수',
     views: 312,
-    content: `
-      <p>올해 68세입니다. 퇴직하고 3년이 지났는데, 여행은 가고 싶어도 혼자 낯선 곳을 다니기가 겁났어요. 자식들은 바쁘고, 친구들은 건강 문제로 못 움직이는 분들이 많아서 결국 혼자 신청했습니다.</p>
-      <p>처음 집합 장소에 나갔을 때 비슷한 연배의 분들이 많아서 안도했어요. 담당 가이드님이 제 이름을 먼저 불러주시며 인사해 주셨는데, 그 작은 배려가 얼마나 마음을 열게 해주는지 모릅니다.</p>
-      <p>부산근대역사관과 임시수도기념관을 돌면서 제가 살아온 시대와 교차되는 이야기들이 많았습니다. 젊었을 때는 그냥 흘려들었던 역사가 나이가 드니 비로소 온몸으로 느껴지더라고요. 눈물을 참은 순간이 한두 번이 아니었어요.</p>
-      <p>저처럼 혼자 오시는 분들 걱정 안 하셔도 됩니다. 분위기가 따뜻하고 자연스럽게 어울릴 수 있어요. 내년에는 사찰 1박 2일 코스에 꼭 도전해볼 생각입니다.</p>
-    `
+    content: `<p>혼자 여행을 떠나는 것이 처음이라 걱정이 많았습니다. 하지만 선샤인 웰니스 프로그램을 통해 부산을 여행하면서 그 걱정이 금세 사라졌습니다.</p>
+<p>일정은 너무 빠듯하지 않았고, 해설사 선생님께서 장소마다 이야기를 잘 풀어주셔서 혼자였지만 외롭지 않았습니다. 바다를 바라보며 걷는 시간, 전통시장에서 음식을 맛보는 시간, 그리고 함께 여행 온 분들과 나눈 대화가 모두 따뜻한 기억으로 남았습니다.</p>
+<p>특히 60대 이후에도 충분히 새로운 경험을 할 수 있다는 자신감을 얻었습니다. 혼자 여행을 고민하시는 분들께 꼭 추천하고 싶은 프로그램입니다.</p>`
   },
   {
     id: 8,
@@ -2735,62 +2714,69 @@ const boardData = [
     date: '2026-05-22',
     author: '이화진',
     views: 247,
-    content: `
-      <p>선샤인 웰니스 제주 프로그램을 통해 처음으로 사찰 스테이를 경험했습니다. 절에서 하룻밤 자는 게 불편하지 않을까 걱정했는데, 오히려 생애 가장 깊은 잠을 잤습니다.</p>
-      <p>저녁 공양 후 스님과 함께하는 소등 전 차담(茶談) 시간이 특히 좋았어요. 일상의 속도에서 완전히 내려놓고, 뜨거운 녹차 한 잔 손에 쥐고 그냥 침묵 속에 앉아 있는 그 순간이 참 귀했습니다.</p>
-      <p>이튿날 새벽 4시 30분 예불 참여는 선택이었는데, 일어나보니 이미 일행 대부분이 나와 있더라고요. 새벽빛 속에 울려 퍼지는 범종 소리는 정말 잊을 수 없어요.</p>
-      <p>부산 사찰 투어도 꼭 가보고 싶어졌습니다. 통도사 1박 2일 코스를 눈여겨보고 있는데, 다녀오신 분들 후기 댓글로 부탁드려요. 선샤인 웰니스 덕분에 여행이 단순한 구경이 아닌 '경험'이 됐습니다. 감사합니다!</p>
-    `
+    content: `<p>이번 제주도 웰니스 여행에서 가장 기억에 남는 일정은 단연 사찰 스테이였습니다. 조용한 산사에서 하루를 보내며 바쁜 일상에서 잠시 벗어날 수 있었고, 새벽 예불과 명상 시간은 마음을 차분하게 정리하는 데 큰 도움이 되었습니다.</p>
+<p>특히 사찰 주변을 천천히 걷는 시간이 좋았습니다. 자연의 소리와 맑은 공기, 그리고 따뜻한 차 한 잔이 주는 여유가 오래 기억에 남습니다. 여행이 단순히 관광지를 둘러보는 것이 아니라, 몸과 마음을 돌보는 시간이 될 수 있다는 것을 느꼈습니다.</p>
+<p>선샤인 웰니스 일정은 무리하지 않게 구성되어 있어 중장년층도 편안하게 참여할 수 있었습니다. 다음에도 이런 조용하고 깊이 있는 여행을 다시 경험하고 싶습니다.</p>`
   }
 ];
 
 function openBoardPost(id) {
-  var post = boardData.find(function(p) { return p.id === id; });
-  if (!post) return;
+  console.log('[BOARD] openBoardPost 호출됨:', id);
 
-  var prev = document.getElementById('_bpOvl');
-  if (prev) prev.remove();
+  var post = boardData.find(function(p) {
+    return String(p.id) === String(id);
+  });
 
-  var ov = document.createElement('div');
-  ov.id = '_bpOvl';
-  ov.style.cssText = [
-    'position:fixed', 'top:0', 'left:0', 'width:100%', 'height:100%',
-    'background:#fff', 'z-index:99999', 'overflow-y:auto',
-    "font-family:'Noto Sans KR',sans-serif"
-  ].join(';');
+  if (!post) {
+    console.warn('[BOARD] post not found:', id);
+    return;
+  }
 
-  ov.innerHTML =
-    '<div style="background:#2c5f2e;padding:13px 20px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:1;">' +
-      '<button id="_bpBack" style="background:none;border:none;color:#fff;font-size:20px;line-height:1;cursor:pointer;padding:2px 6px;">&#8592;</button>' +
-      '<span style="color:#fff;font-size:13px;font-weight:700;letter-spacing:.06em;">여행 이야기</span>' +
-    '</div>' +
-    '<div style="background:#f9f9f9;border-bottom:1px solid #e0e0e0;padding:22px 24px 18px;">' +
-      '<div style="font-size:11px;color:#2c5f2e;font-weight:700;letter-spacing:.08em;margin-bottom:8px;">No. ' + post.id + '</div>' +
-      '<h2 style="font-size:1.18rem;font-weight:700;color:#1a1a1a;line-height:1.5;margin:0 0 12px;">' + post.title + '</h2>' +
-      '<div style="display:flex;gap:16px;font-size:12.5px;color:#999;flex-wrap:wrap;">' +
-        '<span>작성자 <strong style="color:#555;font-weight:600;">' + post.author + '</strong></span>' +
-        '<span>' + post.date + '</span>' +
-        '<span>조회 ' + post.views + '</span>' +
+  var boardTable = document.getElementById('boardTable');
+  var boardPostView = document.getElementById('boardPostView');
+
+  boardTable.style.display = 'none';
+  boardPostView.style.display = 'block';
+
+  boardPostView.innerHTML =
+    '<div class="board-post-detail">' +
+      '<button type="button" class="board-back-btn" id="boardBackTop">← 목록으로</button>' +
+      '<div class="board-post-meta">No. ' + post.id + '</div>' +
+      '<h2 class="board-post-title">' + post.title + '</h2>' +
+      '<div class="board-post-info">' +
+        '<span>작성자 ' + (post.author || '선샤인 웰니스') + '</span>' +
+        '<span>' + (post.date || '') + '</span>' +
+        '<span>조회 ' + (post.views || 0) + '</span>' +
       '</div>' +
-    '</div>' +
-    '<div style="max-width:780px;margin:0 auto;padding:36px 24px 80px;">' +
-      '<div style="font-size:15px;line-height:1.95;color:#333;">' + post.content + '</div>' +
-      '<div style="margin-top:48px;padding-top:20px;border-top:1px solid #ebebeb;">' +
-        '<button id="_bpBack2" style="background:#2c5f2e;color:#fff;border:none;padding:11px 30px;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;">&#8592; 목록으로</button>' +
+      '<div class="board-post-content">' + post.content + '</div>' +
+      '<div class="board-post-bottom">' +
+        '<button type="button" class="board-back-btn" id="boardBackBottom">목록으로</button>' +
       '</div>' +
     '</div>';
 
-  document.body.appendChild(ov);
-  document.body.style.overflow = 'hidden';
-
-  function closeBoardPost() {
-    ov.remove();
-    document.body.style.overflow = '';
-  }
-
-  document.getElementById('_bpBack').addEventListener('click', closeBoardPost);
-  document.getElementById('_bpBack2').addEventListener('click', closeBoardPost);
+  document.getElementById('boardBackTop').addEventListener('click', closeBoardPost);
+  document.getElementById('boardBackBottom').addEventListener('click', closeBoardPost);
 }
+
+function closeBoardPost() {
+  var boardTable = document.getElementById('boardTable');
+  var boardPostView = document.getElementById('boardPostView');
+  boardPostView.style.display = 'none';
+  boardPostView.innerHTML = '';
+  boardTable.style.display = '';
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  var rows = document.querySelectorAll('#boardTable .board-row');
+  console.log('[BOARD] rows found:', rows.length);
+  rows.forEach(function(row) {
+    row.addEventListener('click', function() {
+      var id = row.dataset.id;
+      console.log('[BOARD] row clicked:', id);
+      openBoardPost(id);
+    });
+  });
+});
 
 // =========================================
 // 카드 클릭 이벤트
