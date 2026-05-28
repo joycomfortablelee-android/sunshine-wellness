@@ -1,7 +1,7 @@
 // =========================================
 // SUNSHINE WELLNESS — script.js
 // =========================================
-console.log('[SCRIPT] 로딩됨 v=20260528r');
+console.log('[SCRIPT] 로딩됨 v=20260528x');
 
 // --- 헤더: 스크롤 시 투명 → 흰색 ---
 const header = document.getElementById('header');
@@ -606,15 +606,21 @@ function _boardRender() {
   const start = (_boardPage - 1) * _BOARD_PER_PAGE;
   const page  = _boardFiltered.slice(start, start + _BOARD_PER_PAGE);
   if (!page.length) {
-    list.innerHTML = '<tr><td colspan="3" class="sp-empty">게시글이 없습니다.</td></tr>';
+    list.innerHTML = '<tr><td colspan="5" class="sp-empty">게시글이 없습니다.</td></tr>';
   } else {
-    list.innerHTML = page.map((p, i) =>
-      `<tr>
+    list.innerHTML = page.map((p, i) => {
+      const full = boardData.find(b => String(b.id) === String(p.id)) || {};
+      const dest   = full.destination || '부산';
+      const author = full.author || '';
+      const date   = full.date ? full.date.substring(5) : p.date;
+      return `<tr onclick="_openBoardDetailInOverlay(${p.id})" style="cursor:pointer">
         <td class="sp-col-no">${_boardFiltered.length - start - i}</td>
+        <td class="sp-col-dest">${dest}</td>
         <td class="sp-col-title"><a href="javascript:void(0)">${p.title}</a></td>
-        <td class="sp-col-date">${p.date}</td>
-      </tr>`
-    ).join('');
+        <td class="sp-col-author">${author}</td>
+        <td class="sp-col-date">${date}</td>
+      </tr>`;
+    }).join('');
   }
   _boardRenderPaging();
 }
@@ -635,6 +641,37 @@ function _boardRenderPaging() {
 }
 
 function boardGoPage(p) { _boardPage = p; _boardRender(); document.getElementById('subPageOverlay').scrollTop = 0; }
+
+function _openBoardDetailInOverlay(id) {
+  const post = boardData.find(p => String(p.id) === String(id));
+  if (!post) return;
+  const overlay = document.getElementById('subPageOverlay');
+  overlay.scrollTop = 0;
+  overlay.innerHTML = `
+    <div class="co-fullbg-wrap">
+      <div class="co-fullbg-banner banner-beach">
+        <div class="co-page-header">
+          <p>Community</p>
+          <h1>여행 이야기 <span style="font-weight:300;opacity:.7;">— 상세보기</span></h1>
+        </div>
+      </div>
+      <div class="sp-wrap">
+        <button onclick="openWhereToNextPage()" class="board-back-btn" style="margin-bottom:28px;">← 목록으로</button>
+        <div class="board-post-meta">No. ${post.id}</div>
+        <h2 class="board-post-title">${post.title}</h2>
+        <div class="board-post-info">
+          <span>작성자 ${post.author || '선샤인 웰니스'}</span>
+          <span>${post.date || ''}</span>
+          <span>조회 ${post.views || 0}</span>
+        </div>
+        <div class="board-post-content" style="margin-top:24px;">${post.content}</div>
+        <div class="board-post-bottom">
+          <button onclick="openWhereToNextPage()" class="board-back-btn">목록으로</button>
+        </div>
+      </div>
+    </div>
+  `;
+}
 
 function boardSearch() {
   const q = (document.getElementById('boardSearchInput').value || '').trim().toLowerCase();
@@ -681,9 +718,11 @@ function openWhereToNextPage() {
       <table class="sp-table">
         <thead>
           <tr>
-            <th style="width:60px;">NO.</th>
+            <th style="width:60px;">번호</th>
+            <th style="width:80px;white-space:nowrap;">여행지</th>
             <th class="sp-col-title">제목</th>
-            <th style="width:90px;">날짜</th>
+            <th style="width:72px;white-space:nowrap;">작성자</th>
+            <th style="width:72px;white-space:nowrap;">등록일</th>
           </tr>
         </thead>
         <tbody id="boardList"></tbody>
@@ -2644,6 +2683,7 @@ const boardData = [
     title: '선샤인 웰니스 첫 번째 후기 — 기대 이상이었습니다 :)',
     date: '2026-04-28',
     author: '황미경',
+    destination: '부산',
     views: 602,
     content: `<p>처음에는 큰 기대 없이 신청했는데, 막상 참여해보니 생각보다 훨씬 만족스러운 여행이었습니다. 선샤인 웰니스 프로그램은 단순히 관광지를 둘러보는 일정이 아니라, 몸과 마음을 편안하게 회복하는 여행에 가까웠습니다.</p>
 <p>일정이 여유롭게 구성되어 있어 부담이 적었고, 해설과 체험이 적절히 어우러져 지루하지 않았습니다. 특히 여행 중간중간 쉬어갈 수 있는 시간이 있어 중장년층에게도 잘 맞는 프로그램이라고 느꼈습니다.</p>
@@ -2654,6 +2694,7 @@ const boardData = [
     title: '신중년 여행 동행 구합니다 — 6월 부산 근교 투어 같이 가실 분?',
     date: '2026-05-03',
     author: '이정란',
+    destination: '부산',
     views: 156,
     content: `<p>6월에 부산 근교 여행을 함께하실 신중년 여행 동행을 찾습니다. 혼자 여행도 좋지만, 비슷한 관심사를 가진 분들과 함께 걸으며 이야기 나누는 여행도 좋을 것 같아 글을 남깁니다.</p>
 <p>관심 있는 코스는 해동용궁사, 범어사, 기장 바다 산책, 부산 전통시장 투어, 감천문화마을 등입니다. 너무 빠듯한 일정이 아니라 천천히 걷고, 좋은 음식을 먹고, 편안하게 쉬는 여행을 생각하고 있습니다.</p>
@@ -2664,6 +2705,7 @@ const boardData = [
     title: '해동용궁사 새벽 예불 체험, 삶이 바뀌는 느낌이었습니다',
     date: '2026-05-08',
     author: '손명희',
+    destination: '부산',
     views: 534,
     content: `<p>해동용궁사 새벽 예불 체험은 이번 여행에서 가장 특별한 시간이었습니다. 이른 새벽 바다를 바라보며 사찰에 도착했을 때의 고요한 분위기가 아직도 생생합니다.</p>
 <p>파도 소리와 목탁 소리가 함께 들리는 순간, 마음속 복잡한 생각들이 조금씩 정리되는 느낌이었습니다. 종교적인 의미를 떠나, 자신을 돌아보고 조용히 숨을 고를 수 있는 시간이었습니다.</p>
@@ -2674,6 +2716,7 @@ const boardData = [
     title: '부산 시장 투어 후기 — 자갈치에서 활어회 먹은 게 아직도 생각나요',
     date: '2026-05-12',
     author: '김태성',
+    destination: '부산',
     views: 388,
     content: `<p>부산 여행에서 가장 생생하게 기억나는 일정은 시장 투어였습니다. 특히 자갈치시장에서 먹었던 활어회는 아직도 생각납니다.</p>
 <p>시장 특유의 활기찬 분위기와 상인분들의 정겨운 모습이 인상적이었습니다. 해산물이 신선했고, 직접 보고 고른 음식을 바로 맛볼 수 있다는 점이 부산 시장 투어의 큰 매력이었습니다.</p>
@@ -2684,6 +2727,7 @@ const boardData = [
     title: '감천문화마을 투어 다녀왔습니다! 해설사 선생님이 너무 좋았어요',
     date: '2026-05-15',
     author: '정순자',
+    destination: '부산',
     views: 421,
     content: `<p>감천문화마을 투어에 다녀왔습니다. 사진으로만 보던 알록달록한 마을을 직접 걸어보니 훨씬 더 인상적이었습니다.</p>
 <p>무엇보다 해설사 선생님의 설명이 정말 좋았습니다. 단순히 예쁜 골목을 둘러보는 것이 아니라, 감천문화마을이 어떻게 형성되었고 어떤 이야기를 품고 있는지 들을 수 있어 여행의 깊이가 달라졌습니다.</p>
@@ -2694,6 +2738,7 @@ const boardData = [
     title: '다음 행선지 고민 중 — 교토 vs 부산, 어디가 좋을까요?',
     date: '2026-05-18',
     author: '최미선',
+    destination: '미정',
     views: 189,
     content: `<p>다음 여행지를 고민하고 있습니다. 교토와 부산 중 어디를 선택하면 좋을지 아직 결정하지 못했습니다.</p>
 <p>교토는 전통적인 분위기와 사찰, 정원, 오래된 골목길이 매력적이라 조용한 여행을 좋아하는 분들에게 잘 맞을 것 같습니다. 반면 부산은 바다, 사찰, 시장, 문화마을, 온천과 웰니스 프로그램까지 다양하게 즐길 수 있다는 점이 좋습니다.</p>
@@ -2704,6 +2749,7 @@ const boardData = [
     title: '60대에 혼자 부산 여행, 선샤인 웰니스 덕분에 잊지 못할 경험',
     date: '2026-05-20',
     author: '박용수',
+    destination: '부산',
     views: 312,
     content: `<p>혼자 여행을 떠나는 것이 처음이라 걱정이 많았습니다. 하지만 선샤인 웰니스 프로그램을 통해 부산을 여행하면서 그 걱정이 금세 사라졌습니다.</p>
 <p>일정은 너무 빠듯하지 않았고, 해설사 선생님께서 장소마다 이야기를 잘 풀어주셔서 혼자였지만 외롭지 않았습니다. 바다를 바라보며 걷는 시간, 전통시장에서 음식을 맛보는 시간, 그리고 함께 여행 온 분들과 나눈 대화가 모두 따뜻한 기억으로 남았습니다.</p>
@@ -2714,6 +2760,7 @@ const boardData = [
     title: '제주도 웰니스 여행 후기 — 사찰 스테이가 최고였어요',
     date: '2026-05-22',
     author: '이화진',
+    destination: '제주도',
     views: 247,
     content: `<p>이번 제주도 웰니스 여행에서 가장 기억에 남는 일정은 단연 사찰 스테이였습니다. 조용한 산사에서 하루를 보내며 바쁜 일상에서 잠시 벗어날 수 있었고, 새벽 예불과 명상 시간은 마음을 차분하게 정리하는 데 큰 도움이 되었습니다.</p>
 <p>특히 사찰 주변을 천천히 걷는 시간이 좋았습니다. 자연의 소리와 맑은 공기, 그리고 따뜻한 차 한 잔이 주는 여유가 오래 기억에 남습니다. 여행이 단순히 관광지를 둘러보는 것이 아니라, 몸과 마음을 돌보는 시간이 될 수 있다는 것을 느꼈습니다.</p>
@@ -2814,9 +2861,6 @@ function _boardHandleClick(e) {
   var target = e.target;
   var item = target.closest('.board-row, .board-post-button, .board-post-link');
   if (!item) return;
-
-  e.preventDefault();
-  e.stopPropagation();
 
   var row = target.closest('.board-row');
   var id  = item.dataset.id || (row && row.dataset.id);
