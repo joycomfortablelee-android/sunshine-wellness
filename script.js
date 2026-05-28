@@ -2774,6 +2774,7 @@ document.addEventListener('DOMContentLoaded', function() {
   console.log('[BOARD] buttons found:', btns.length);
   btns.forEach(function(btn) {
     btn.addEventListener('click', function(e) {
+      e.preventDefault();
       e.stopPropagation();
       var id = btn.dataset.id;
       console.log('[BOARD] button clicked:', id);
