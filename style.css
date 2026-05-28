@@ -1216,7 +1216,9 @@ section { padding: 100px 0; }
 .board-row { cursor: pointer; transition: background .15s; }
 .board-row:last-child td { border-bottom: none; }
 .board-row:hover { background: #f0f7f0; }
-.board-row:hover .bc-title { color: #2c5f2e; text-decoration: underline; text-underline-offset: 3px; }
+.board-row:hover .bc-title { color: #2c5f2e; }
+.bc-link-btn { background: none; border: none; padding: 0; margin: 0; font: inherit; color: inherit; cursor: pointer; text-align: left; width: 100%; display: block; }
+.board-row:hover .bc-link-btn { color: #2c5f2e; text-decoration: underline; text-underline-offset: 3px; }
 .board-row td { padding: 16px 24px; border-bottom: 1px solid #f0f0f0; }
 .bc-num { font-size: 13px; color: #aaa; text-align: center; }
 .bc-title { font-size: 14px; color: #333; font-weight: 500; line-height: 1.5; }

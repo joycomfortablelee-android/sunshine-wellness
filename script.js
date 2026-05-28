@@ -2769,6 +2769,18 @@ function closeBoardPost() {
 document.addEventListener('DOMContentLoaded', function() {
   var rows = document.querySelectorAll('#boardTable .board-row');
   console.log('[BOARD] rows found:', rows.length);
+
+  var btns = document.querySelectorAll('#boardTable .bc-link-btn');
+  console.log('[BOARD] buttons found:', btns.length);
+  btns.forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var id = btn.dataset.id;
+      console.log('[BOARD] button clicked:', id);
+      openBoardPost(id);
+    });
+  });
+
   rows.forEach(function(row) {
     row.addEventListener('click', function() {
       var id = row.dataset.id;
