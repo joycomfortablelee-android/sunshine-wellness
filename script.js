@@ -2,6 +2,16 @@
 // SUNSHINE WELLNESS — script.js
 // =========================================
 
+// [DEBUG] 전역 JS 에러 캐처 — 어떤 에러든 화면에 표시
+window.onerror = function(msg, src, line, col, err) {
+  var box = document.createElement('div');
+  box.style.cssText = 'position:fixed;bottom:0;left:0;right:0;background:#c00;color:#fff;padding:12px 16px;z-index:99999;font-size:13px;font-family:monospace;white-space:pre-wrap;';
+  box.textContent = '[JS ERROR] ' + msg + '\n  Line: ' + line + ', Col: ' + col + '\n  File: ' + src;
+  document.body.appendChild(box);
+  setTimeout(function() { box.remove(); }, 15000);
+  return false;
+};
+
 // --- 헤더: 스크롤 시 투명 → 흰색 ---
 const header = document.getElementById('header');
 window.addEventListener('scroll', () => {
@@ -2883,3 +2893,16 @@ const observer = new IntersectionObserver(
 );
 
 document.querySelectorAll('.card, .about-content, .stat-item').forEach(el => observer.observe(el));
+
+// [DEBUG] script.js 완전 로딩 확인 + board-row 클릭 이벤트 강제 연결
+console.log('[DEBUG] script.js 로딩 완료. openBoardPost 타입:', typeof openBoardPost);
+document.querySelectorAll('.board-row').forEach(function(row) {
+  var onc = row.getAttribute('onclick');
+  var m = onc && onc.match(/openBoardPost\((\d+)\)/);
+  if (m) {
+    row.addEventListener('click', function(e) {
+      console.log('[DEBUG] board-row 클릭됨. id=' + m[1]);
+      openBoardPost(parseInt(m[1], 10));
+    });
+  }
+});
