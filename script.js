@@ -1,7 +1,7 @@
 // =========================================
 // SUNSHINE WELLNESS — script.js
 // =========================================
-console.log('[SCRIPT] 로딩됨 v=20260529a');
+console.log('[SCRIPT] 로딩됨 v=20260529b');
 
 // --- 헤더: 스크롤 시 투명 → 흰색 ---
 const header = document.getElementById('header');
@@ -67,6 +67,7 @@ const translations = {
     'programs.label': 'Our Programs',
     'programs.title': '웰니스 여행<br /><strong>프로그램</strong>',
     'programs.desc': '몸과 마음이 함께 쉬어가는<br />부산의 특별한 여정',
+    'programs.more': '여행상품 더보기',
 
     // 카드 1 - 투어
     'card1.tag': '투어',
@@ -202,6 +203,7 @@ const translations = {
     'programs.label': 'Our Programs',
     'programs.title': 'Wellness Travel<br /><strong>Programs</strong>',
     'programs.desc': 'A special journey in Busan<br />where body and mind rest together',
+    'programs.more': 'View All Tours',
 
     // Card 1 - Tour
     'card1.tag': 'Tour',
@@ -337,6 +339,7 @@ const translations = {
     'programs.label': 'Our Programs',
     'programs.title': '健康旅游<br /><strong>项目</strong>',
     'programs.desc': '身心共同休憩的<br />釜山特别旅程',
+    'programs.more': '查看全部旅游产品',
 
     // 卡片 1
     'card1.tag': '旅游',

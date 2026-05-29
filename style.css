@@ -857,6 +857,40 @@ section { padding: 100px 0; }
   transition: var(--ease);
 }
 
+.programs-more-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 52px;
+}
+.programs-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 36px;
+  background: transparent;
+  border: 1.5px solid var(--primary);
+  color: var(--primary);
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-radius: 32px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.programs-more-btn::after {
+  content: '↓';
+  font-size: 16px;
+  transition: transform 0.2s;
+}
+.programs-more-btn:hover {
+  background: var(--primary);
+  color: #fff;
+}
+.programs-more-btn:hover::after {
+  transform: translateY(3px);
+}
+
 /* =========================================
    모달
    ========================================= */
