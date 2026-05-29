@@ -1581,6 +1581,27 @@ section { padding: 100px 0; }
   .slide-content { left: 32px; max-width: 90%; }
   .cards-grid { grid-template-columns: repeat(2, 1fr); }
   .about-inner { grid-template-columns: 1fr; gap: 40px; }
+  .about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: none;
+    gap: 1px;
+    background: var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .stat {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px 16px;
+    gap: 6px;
+    border-bottom: none;
+    background: var(--light);
+  }
+  .stat-num { font-size: 1.7rem; }
+  .stat-label { font-size: 0.75rem; line-height: 1.4; }
   .define-grid { grid-template-columns: 1fr; gap: 40px 0; }
   .define-divider { display: none; }
   .pillars-grid { grid-template-columns: 1fr; }
