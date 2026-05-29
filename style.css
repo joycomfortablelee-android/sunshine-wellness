@@ -1038,11 +1038,11 @@ section { padding: 100px 0; }
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4px;
-  padding: 14px 6px;
+  gap: 3px;
+  padding: 10px 6px;
   border-bottom: 1px solid #eee;
   color: #555;
-  font-size: 10.5px;
+  font-size: 10px;
   text-align: center;
   line-height: 1.4;
   text-decoration: none;
@@ -1055,7 +1055,7 @@ section { padding: 100px 0; }
   color: var(--accent);
 }
 .quick-icon {
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1;
 }
 .quick-top {
@@ -1388,6 +1388,13 @@ section { padding: 100px 0; }
   text-align: center;
   font-size: 0.72rem;
   color: rgba(255,255,255,0.2);
+}
+.footer-biz {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 6px;
+  line-height: 1.8;
+  word-break: keep-all;
 }
 
 /* =========================================
