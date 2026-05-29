@@ -2879,7 +2879,7 @@ window.addEventListener('click', _boardHandleClick, true);
 // =========================================
 // 입금안내 모달
 // =========================================
-(function () {
+document.addEventListener('DOMContentLoaded', function () {
   var bg    = document.getElementById('depositModalBg');
   var btn   = document.getElementById('btnDepositInfo');
   var close = document.getElementById('depositModalClose');
@@ -2890,7 +2890,7 @@ window.addEventListener('click', _boardHandleClick, true);
   bg.addEventListener('click', function (e) {
     if (e.target === bg) bg.classList.remove('is-open');
   });
-}());
+});
 
 
 // =========================================
