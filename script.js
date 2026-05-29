@@ -779,7 +779,6 @@ function openContactPage() {
           <tr>
             <th style="width:60px;">NO.</th>
             <th class="sp-col-title">제목</th>
-            <th style="width:90px;">날짜</th>
             <th style="width:60px;">열기</th>
           </tr>
         </thead>
@@ -787,45 +786,45 @@ function openContactPage() {
           <tr class="co-faq-item" onclick="coFaqToggle(this)">
             <td class="sp-col-no">01</td>
             <td class="sp-col-title">투어 인원은 몇 명부터 가능한가요?</td>
-            <td class="sp-col-date">04-01</td>
+
             <td class="sp-col-toggle"><span class="co-faq-icon">클릭</span></td>
           </tr>
-          <tr class="co-faq-answer"><td colspan="4" class="co-faq-a">기본 2인부터 소규모 단체까지 맞춤 운영합니다. 10인 이상의 단체는 별도 견적을 통해 더욱 합리적인 요금으로 안내해 드립니다.</td></tr>
+          <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">기본 2인부터 소규모 단체까지 맞춤 운영합니다. 10인 이상의 단체는 별도 견적을 통해 더욱 합리적인 요금으로 안내해 드립니다.</td></tr>
           <tr class="co-faq-item" onclick="coFaqToggle(this)">
             <td class="sp-col-no">02</td>
             <td class="sp-col-title">여행 일정은 어떻게 정해지나요?</td>
-            <td class="sp-col-date">04-01</td>
+
             <td class="sp-col-toggle"><span class="co-faq-icon">클릭</span></td>
           </tr>
-          <tr class="co-faq-answer"><td colspan="4" class="co-faq-a">견적 문의 후 담당자가 연락드려 희망 날짜, 관심 프로그램, 인원 등을 확인하고 최적의 일정을 제안해 드립니다.</td></tr>
+          <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">견적 문의 후 담당자가 연락드려 희망 날짜, 관심 프로그램, 인원 등을 확인하고 최적의 일정을 제안해 드립니다.</td></tr>
           <tr class="co-faq-item" onclick="coFaqToggle(this)">
             <td class="sp-col-no">03</td>
             <td class="sp-col-title">예약금과 취소 정책이 어떻게 되나요?</td>
-            <td class="sp-col-date">04-01</td>
+
             <td class="sp-col-toggle"><span class="co-faq-icon">클릭</span></td>
           </tr>
-          <tr class="co-faq-answer"><td colspan="4" class="co-faq-a">투어 확정 시 총 금액의 30%를 예약금으로 납부하며, 출발 7일 전까지는 전액 환불 가능합니다. 이후 취소 시 환불 규정이 적용됩니다.</td></tr>
+          <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">투어 확정 시 총 금액의 30%를 예약금으로 납부하며, 출발 7일 전까지는 전액 환불 가능합니다. 이후 취소 시 환불 규정이 적용됩니다.</td></tr>
           <tr class="co-faq-item" onclick="coFaqToggle(this)">
             <td class="sp-col-no">04</td>
             <td class="sp-col-title">외국어 가이드 서비스도 가능한가요?</td>
-            <td class="sp-col-date">04-01</td>
+
             <td class="sp-col-toggle"><span class="co-faq-icon">클릭</span></td>
           </tr>
-          <tr class="co-faq-answer"><td colspan="4" class="co-faq-a">영어, 중국어 가이드 동행 서비스를 제공합니다. 사전 요청 시 추가 비용 없이 안내해 드립니다.</td></tr>
+          <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">영어, 중국어 가이드 동행 서비스를 제공합니다. 사전 요청 시 추가 비용 없이 안내해 드립니다.</td></tr>
           <tr class="co-faq-item" onclick="coFaqToggle(this)">
             <td class="sp-col-no">05</td>
             <td class="sp-col-title">숙박 연계 패키지도 있나요?</td>
-            <td class="sp-col-date">04-01</td>
+
             <td class="sp-col-toggle"><span class="co-faq-icon">클릭</span></td>
           </tr>
-          <tr class="co-faq-answer"><td colspan="4" class="co-faq-a">네, 부산 내 웰니스 특화 숙박시설과 연계한 패키지 상품을 운영합니다. 문의 시 숙박 포함 여부를 함께 알려주세요.</td></tr>
+          <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">네, 부산 내 웰니스 특화 숙박시설과 연계한 패키지 상품을 운영합니다. 문의 시 숙박 포함 여부를 함께 알려주세요.</td></tr>
           <tr class="co-faq-item" onclick="coFaqToggle(this)">
             <td class="sp-col-no">06</td>
             <td class="sp-col-title">비용 결제는 어떻게 하나요?</td>
-            <td class="sp-col-date">04-01</td>
+
             <td class="sp-col-toggle"><span class="co-faq-icon">클릭</span></td>
           </tr>
-          <tr class="co-faq-answer"><td colspan="4" class="co-faq-a">계좌이체, 신용카드(온라인 결제링크) 방식을 지원합니다. 세금계산서 및 현금영수증 발행도 가능합니다.</td></tr>
+          <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">계좌이체, 신용카드(온라인 결제링크) 방식을 지원합니다. 세금계산서 및 현금영수증 발행도 가능합니다.</td></tr>
         </tbody>
       </table>
 
