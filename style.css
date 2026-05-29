@@ -123,6 +123,23 @@ ul { list-style: none; }
 }
 .gnb a:hover::after { width: 100%; }
 
+.gnb-partner > a {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+  padding-bottom: 2px;
+}
+.gnb-partner-label {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  text-transform: uppercase;
+  line-height: 1;
+  opacity: 0.85;
+}
+
 /* 오른쪽 — 로그인 + 언어 */
 .header-right {
   display: flex;
