@@ -1510,11 +1510,23 @@ section { padding: 100px 0; }
   color: rgba(255,255,255,0.2);
 }
 .footer-biz {
-  font-size: 0.72rem;
-  color: rgba(255,255,255,0.35);
-  margin-bottom: 6px;
-  line-height: 1.8;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.32);
+  margin-bottom: 5px;
+  line-height: 1.9;
   word-break: keep-all;
+}
+.footer-biz-cert {
+  color: rgba(255,255,255,0.45);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+  margin-bottom: 10px;
+}
+.footer-copyright {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.2);
+  margin-top: 4px;
 }
 
 /* =========================================
