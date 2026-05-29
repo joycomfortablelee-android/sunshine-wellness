@@ -466,29 +466,25 @@
     </div>
   </div>
 
-  <script src="script.js?v=20260529e"></script>
+  <script src="script.js?v=20260529f"></script>
   <!-- QUICK SIDEBAR -->
   <aside class="quick-sidebar" id="quickSidebar">
-    <a href="#programs" class="quick-item">
+    <a href="javascript:void(0)" onclick="quickNavTo('#programs')" class="quick-item">
       <span class="quick-icon">🗺</span>
       <span>프로그램<br>보기</span>
     </a>
-    <a href="#board" class="quick-item">
+    <a href="javascript:void(0)" onclick="quickNavTo('#board')" class="quick-item">
       <span class="quick-icon">📝</span>
       <span>여행<br>이야기</span>
     </a>
-    <a href="#contact" class="quick-item">
+    <a href="javascript:void(0)" onclick="quickNavTo('#contact')" class="quick-item">
       <span class="quick-icon">✉</span>
       <span>맞춤 일정<br>문의</span>
     </a>
-    <a href="#board" class="quick-item">
-      <span class="quick-icon">💬</span>
-      <span>묻고<br>답하기</span>
-    </a>
-    <a href="#contact" class="quick-item">
+    <button type="button" class="quick-item quick-item-btn" onclick="openHelpCenterPage()">
       <span class="quick-icon">📞</span>
       <span>고객<br>센터</span>
-    </a>
+    </button>
     <button type="button" class="quick-item quick-item-btn" id="btnDepositInfo">
       <span class="quick-icon">🏦</span>
       <span>입금<br>안내</span>

@@ -581,6 +581,79 @@ function closeSubPage() {
 }
 
 // =========================================
+// 퀵 사이드바 네비게이션 (오버레이 닫고 이동)
+// =========================================
+function quickNavTo(hash) {
+  closeSubPage();
+  var el = document.querySelector(hash);
+  if (!el) return;
+  setTimeout(function () {
+    el.scrollIntoView({ behavior: 'smooth' });
+  }, 80);
+}
+
+// =========================================
+// 고객센터 페이지
+// =========================================
+function openHelpCenterPage() {
+  showSubPageFull(`
+    <div class="co-fullbg-wrap">
+      <div class="co-fullbg-banner banner-beach">
+        <div class="co-page-header">
+          <p>Support</p>
+          <h1>고객센터 <span style="font-weight:300;opacity:.7;">— Customer Service</span></h1>
+        </div>
+      </div>
+      <div class="co-wrap">
+        <div class="hc-grid">
+
+          <div class="hc-card">
+            <div class="hc-card-icon">📞</div>
+            <div class="hc-card-title">전화 문의</div>
+            <div class="hc-card-main">010-5759-5485</div>
+            <div class="hc-card-sub">평일 09:00 – 18:00<br>점심 12:00 – 13:00<br>주말 · 공휴일 휴무</div>
+          </div>
+
+          <div class="hc-card">
+            <div class="hc-card-icon">✉️</div>
+            <div class="hc-card-title">이메일 문의</div>
+            <div class="hc-card-main">healthylee7@gmail.com</div>
+            <div class="hc-card-sub">접수 후 1영업일 이내 답변<br>드립니다.</div>
+          </div>
+
+          <div class="hc-card hc-card-kakao" onclick="window.open('https://open.kakao.com/o/sl2k01wi','_blank')" style="cursor:pointer;">
+            <div class="hc-card-icon">💛</div>
+            <div class="hc-card-title">카카오 채널</div>
+            <div class="hc-card-main">카카오 친구추가</div>
+            <div class="hc-card-sub">실시간 채팅 상담<br>빠른 답변을 도와드립니다.</div>
+          </div>
+
+        </div>
+
+        <div class="hc-quick">
+          <div class="hc-quick-title">바로가기</div>
+          <div class="hc-quick-grid">
+            <button class="hc-quick-btn" onclick="closeSubPage(); setTimeout(function(){document.querySelector('#board').scrollIntoView({behavior:'smooth'})},80)">
+              📝 여행 이야기 게시판
+            </button>
+            <button class="hc-quick-btn" onclick="closeSubPage(); setTimeout(function(){document.querySelector('#contact').scrollIntoView({behavior:'smooth'})},80)">
+              ✉ 맞춤 일정 문의하기
+            </button>
+            <button class="hc-quick-btn" onclick="openContactPage()">
+              ❓ 자주 묻는 질문 (FAQ)
+            </button>
+          </div>
+        </div>
+
+        <div class="hc-notice">
+          <strong>📍 모이는 장소</strong> &nbsp; 부산광역시 부산진구 서면 쥬디스태화 백화점 앞
+        </div>
+      </div>
+    </div>
+  `);
+}
+
+// =========================================
 // Where to Next? 게시판 (오버레이)
 // =========================================
 const _boardInitPosts = [
