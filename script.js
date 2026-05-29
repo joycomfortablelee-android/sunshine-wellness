@@ -1,7 +1,7 @@
 // =========================================
 // SUNSHINE WELLNESS — script.js
 // =========================================
-console.log('[SCRIPT] 로딩됨 v=20260529c');
+console.log('[SCRIPT] 로딩됨 v=20260529d');
 
 // --- 헤더: 스크롤 시 투명 → 흰색 ---
 const header = document.getElementById('header');
@@ -22,6 +22,7 @@ const translations = {
     'nav.contact': '견적의뢰 및 문의',
     'nav.wheretonext': 'Where to Next?',
     'nav.contactus': 'Contact Us',
+    'nav.artconcierge': '아트 컨시어지',
     'auth.login': '로그인',
     'auth.signup': '회원가입',
 
@@ -158,6 +159,7 @@ const translations = {
     'nav.contact': 'Inquire',
     'nav.wheretonext': 'Where to Next?',
     'nav.contactus': 'Contact Us',
+    'nav.artconcierge': 'Art Concierge',
     'auth.login': 'Log In',
     'auth.signup': 'Sign Up',
 
@@ -294,6 +296,7 @@ const translations = {
     'nav.contact': '咨询预约',
     'nav.wheretonext': '下一站去哪？',
     'nav.contactus': '联系我们',
+    'nav.artconcierge': '艺术礼宾',
     'auth.login': '登录',
     'auth.signup': '注册',
 
@@ -1071,6 +1074,97 @@ function openContactUsPage() {
       </div>
 
     </div>
+    </div>
+  `);
+}
+
+// =========================================
+// 제휴 여행사 — 아트 컨시어지
+// =========================================
+function openArtConciergePage() {
+  showSubPageFull(`
+    <div class="co-fullbg-wrap">
+
+      <div class="co-fullbg-banner" style="background:linear-gradient(rgba(10,10,20,0.60),rgba(10,10,20,0.55)),url('images/51315836390_c2d8b2c7e2_o.jpg') center/cover no-repeat;padding-top:80px;">
+        <div class="co-page-header">
+          <p style="color:rgba(255,255,255,0.55);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px;">Partner Agency</p>
+          <h1 style="font-size:clamp(22px,4vw,34px);font-weight:800;color:#fff;line-height:1.3;">아트 컨시어지<br/><span style="font-size:0.6em;font-weight:400;opacity:.75;">Art Concierge — Destination Art Travel</span></h1>
+        </div>
+      </div>
+
+      <div style="max-width:860px;margin:0 auto;padding:56px 40px 80px;">
+
+        <!-- 소개 -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-bottom:56px;">
+          <div>
+            <p style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#3B6259;margin-bottom:14px;">About</p>
+            <h2 style="font-size:clamp(20px,3vw,26px);font-weight:800;color:#1a2e2a;line-height:1.4;margin-bottom:20px;">예술 그 자체가<br/>목적인 여행</h2>
+            <p style="font-size:14.5px;color:#555;line-height:1.9;margin-bottom:16px;">아트 컨시어지는 단순히 여행 중 공연이나 미술관을 방문하는 것이 아닌, <strong>특정 공연·전시·건축 공간을 주목적으로 기획하는 1인 전문 여행사</strong>입니다.</p>
+            <p style="font-size:14.5px;color:#555;line-height:1.9;">"그곳에 가야만 볼 수 있는 예술"이라는 <em>데스티네이션 아트(Destination Art)</em> 철학 아래, 서유럽 음악·콘서트·건축 공간 VIP 투어를 전문으로 합니다.</p>
+          </div>
+          <div>
+            <p style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#3B6259;margin-bottom:14px;">대표자</p>
+            <div style="background:#f5f5f3;border-radius:14px;padding:28px 26px;">
+              <p style="font-size:17px;font-weight:800;color:#1a2e2a;margin-bottom:6px;">이상훈 대표</p>
+              <p style="font-size:12.5px;color:#888;margin-bottom:20px;letter-spacing:.04em;">Art Concierge · Destination Art Specialist</p>
+              <div style="display:flex;flex-direction:column;gap:10px;">
+                <div style="display:flex;align-items:baseline;gap:10px;"><span style="font-size:22px;font-weight:800;color:#3B6259;min-width:52px;">1,400<span style="font-size:12px;font-weight:500;color:#888;">+</span></span><span style="font-size:13px;color:#555;">누적 방문 도시</span></div>
+                <div style="display:flex;align-items:baseline;gap:10px;"><span style="font-size:22px;font-weight:800;color:#3B6259;min-width:52px;">400<span style="font-size:12px;font-weight:500;color:#888;">+</span></span><span style="font-size:13px;color:#555;">보유 미술관 도록</span></div>
+                <div style="display:flex;align-items:baseline;gap:10px;"><span style="font-size:22px;font-weight:800;color:#3B6259;min-width:52px;">60~70</span><span style="font-size:13px;color:#555;">관리 중인 축제 정보</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2023년 하이라이트 -->
+        <div style="background:#1a2e2a;border-radius:16px;padding:36px 40px;margin-bottom:48px;">
+          <p style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:20px;">2023 하이라이트</p>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.1);border-radius:8px;overflow:hidden;">
+            <div style="background:#1a2e2a;padding:24px 20px;text-align:center;">
+              <span style="display:block;font-size:32px;font-weight:800;color:#e8a04a;line-height:1;">170</span>
+              <span style="font-size:12px;color:rgba(255,255,255,0.55);margin-top:6px;display:block;">방문 도시</span>
+            </div>
+            <div style="background:#1a2e2a;padding:24px 20px;text-align:center;">
+              <span style="display:block;font-size:32px;font-weight:800;color:#e8a04a;line-height:1;">64</span>
+              <span style="font-size:12px;color:rgba(255,255,255,0.55);margin-top:6px;display:block;">관람 공연</span>
+            </div>
+            <div style="background:#1a2e2a;padding:24px 20px;text-align:center;">
+              <span style="display:block;font-size:32px;font-weight:800;color:#e8a04a;line-height:1;">126</span>
+              <span style="font-size:12px;color:rgba(255,255,255,0.55);margin-top:6px;display:block;">방문 미술관</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 전문 서비스 -->
+        <div style="margin-bottom:48px;">
+          <p style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#3B6259;margin-bottom:20px;">전문 서비스</p>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+            ${[
+              ['🎼','음악 · 콘서트','빈 필하모닉, 잘츠부르크 페스티벌 등 서유럽 정상급 음악 공연 VIP 관람 기획'],
+              ['🏛️','건축 공간 투어','사그라다 파밀리아, 루이 뷔통 재단 등 현대 건축 걸작을 전문 해설과 함께'],
+              ['🎨','미술관 컨시어지','루브르, 오르세, 테이트 등 400여 개 도록 기반의 깊이 있는 관람 설계'],
+            ].map(([icon, title, desc]) => `
+              <div style="background:#fff;border:1px solid #e8e8e4;border-radius:14px;padding:24px 20px;border-top:3px solid #3B6259;">
+                <span style="font-size:26px;display:block;margin-bottom:12px;">${icon}</span>
+                <h3 style="font-size:14px;font-weight:700;color:#1a2e2a;margin-bottom:8px;">${title}</h3>
+                <p style="font-size:13px;color:#666;line-height:1.75;">${desc}</p>
+              </div>`).join('')}
+          </div>
+        </div>
+
+        <!-- 선샤인 웰니스 × 아트 컨시어지 -->
+        <div style="background:linear-gradient(135deg,#f0f7f4 0%,#e8f0ec 100%);border-radius:16px;padding:36px 40px;margin-bottom:48px;border-left:4px solid #3B6259;">
+          <p style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#3B6259;margin-bottom:12px;">Partnership</p>
+          <h3 style="font-size:18px;font-weight:800;color:#1a2e2a;margin-bottom:14px;">선샤인 웰니스 × 아트 컨시어지</h3>
+          <p style="font-size:14.5px;color:#555;line-height:1.9;">신중년을 위한 맞춤형 웰니스 여행과 데스티네이션 아트가 만났습니다. 부산을 넘어 서유럽의 예술과 문화를 깊이 경험하고 싶은 분들을 위해 두 전문 여행사가 함께합니다.</p>
+        </div>
+
+        <!-- CTA -->
+        <div style="text-align:center;">
+          <button onclick="openContactPage()" style="display:inline-flex;align-items:center;gap:10px;background:#1a2e2a;color:#fff;font-size:14px;font-weight:700;padding:15px 40px;border-radius:32px;border:none;cursor:pointer;font-family:'Noto Sans KR',sans-serif;letter-spacing:.04em;">문의하기 →</button>
+        </div>
+
+      </div>
     </div>
   `);
 }
