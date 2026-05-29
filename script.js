@@ -1,7 +1,7 @@
 // =========================================
 // SUNSHINE WELLNESS — script.js
 // =========================================
-console.log('[SCRIPT] 로딩됨 v=20260529d');
+console.log('[SCRIPT] 로딩됨 v=20260529e');
 
 // --- 헤더: 스크롤 시 투명 → 흰색 ---
 const header = document.getElementById('header');
@@ -1093,6 +1093,32 @@ function openArtConciergePage() {
       </div>
 
       <div style="max-width:860px;margin:0 auto;padding:56px 40px 80px;">
+
+        <!-- 원문 자료 링크 -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:52px;">
+          <a href="https://www.busan.com/view/busan/view.php?code=2024010814490253602" target="_blank" rel="noopener"
+             style="display:flex;align-items:center;gap:16px;background:#fff;border:1px solid #e0ddd8;border-radius:14px;padding:20px 22px;text-decoration:none;transition:box-shadow .2s,transform .2s;"
+             onmouseover="this.style.boxShadow='0 6px 24px rgba(0,0,0,0.10)';this.style.transform='translateY(-2px)'"
+             onmouseout="this.style.boxShadow='none';this.style.transform='none'">
+            <span style="font-size:28px;flex-shrink:0;">📰</span>
+            <div>
+              <p style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3B6259;margin-bottom:4px;">부산일보 기사</p>
+              <p style="font-size:13.5px;font-weight:700;color:#1a2e2a;line-height:1.4;">"예술 그 자체가 목적인 여행"<br/>아트컨시어지 이상훈 대표</p>
+              <p style="font-size:11.5px;color:#aaa;margin-top:6px;">새 탭에서 열기 ↗</p>
+            </div>
+          </a>
+          <a href="https://busandabom.net/bofels/BBS_202302020440515501.pdf" target="_blank" rel="noopener"
+             style="display:flex;align-items:center;gap:16px;background:#fff;border:1px solid #e0ddd8;border-radius:14px;padding:20px 22px;text-decoration:none;transition:box-shadow .2s,transform .2s;"
+             onmouseover="this.style.boxShadow='0 6px 24px rgba(0,0,0,0.10)';this.style.transform='translateY(-2px)'"
+             onmouseout="this.style.boxShadow='none';this.style.transform='none'">
+            <span style="font-size:28px;flex-shrink:0;">📄</span>
+            <div>
+              <p style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3B6259;margin-bottom:4px;">공식 소개 자료 (PDF)</p>
+              <p style="font-size:13.5px;font-weight:700;color:#1a2e2a;line-height:1.4;">아트 컨시어지<br/>서비스 소개서</p>
+              <p style="font-size:11.5px;color:#aaa;margin-top:6px;">PDF 새 탭에서 열기 ↗</p>
+            </div>
+          </a>
+        </div>
 
         <!-- 소개 -->
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-bottom:56px;">
