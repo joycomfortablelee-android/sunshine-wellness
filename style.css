@@ -1071,8 +1071,100 @@ section { padding: 100px 0; }
   transition: background .18s;
 }
 .quick-top:hover { background: var(--accent); }
+.quick-item-btn {
+  width: 100%;
+  border: none;
+  background: #fff;
+  cursor: pointer;
+  font-family: var(--font);
+}
 
 @media (max-width: 1100px) { .quick-sidebar { display: none; } }
+
+/* 입금안내 모달 */
+.deposit-modal-bg {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 99999;
+  align-items: center;
+  justify-content: center;
+}
+.deposit-modal-bg.is-open { display: flex; }
+.deposit-modal {
+  background: #fff;
+  border-radius: 20px;
+  padding: 40px 36px 32px;
+  width: 320px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 12px 48px rgba(0,0,0,0.18);
+}
+.deposit-modal-close {
+  position: absolute;
+  top: 14px; right: 18px;
+  background: none; border: none;
+  font-size: 18px; color: #aaa;
+  cursor: pointer; line-height: 1;
+}
+.deposit-modal-close:hover { color: #444; }
+.deposit-modal-icon { font-size: 40px; margin-bottom: 10px; }
+.deposit-modal-title {
+  font-size: 1.1rem; font-weight: 800;
+  color: var(--black); margin-bottom: 24px;
+}
+.deposit-modal-body {
+  background: #f7f9f8;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 18px;
+  text-align: left;
+}
+.deposit-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #e8eeec;
+}
+.deposit-row:last-child { border-bottom: none; }
+.deposit-label { font-size: 0.82rem; color: var(--gray); }
+.deposit-value { font-size: 0.9rem; font-weight: 700; color: var(--black); }
+.deposit-modal-note { font-size: 0.78rem; color: var(--gray); line-height: 1.7; }
+
+/* Contact 섹션 하단 서비스 버튼 */
+.contact-services {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 48px;
+  padding-top: 36px;
+  border-top: 1px solid var(--border);
+}
+.cs-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 24px 12px;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  text-decoration: none;
+  color: var(--dark);
+  transition: border-color .2s, box-shadow .2s, transform .2s;
+}
+.cs-btn:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 16px rgba(59,98,89,0.10);
+  transform: translateY(-3px);
+}
+.cs-icon { font-size: 28px; line-height: 1; }
+.cs-label { font-size: 0.8rem; font-weight: 600; text-align: center; word-break: keep-all; }
+@media (max-width: 640px) {
+  .contact-services { grid-template-columns: repeat(2, 1fr); margin-top: 32px; }
+}
 
 /* =========================================
    BEST 후기 — REVIEWS SECTION

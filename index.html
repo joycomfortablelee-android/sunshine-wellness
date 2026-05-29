@@ -414,6 +414,24 @@
           <button type="submit" class="btn-submit" data-i18n="form.submit">문의 보내기</button>
         </form>
       </div>
+      <div class="contact-services">
+        <a href="#contact" class="cs-btn">
+          <span class="cs-icon">📋</span>
+          <span class="cs-label">예약확인 / 결제</span>
+        </a>
+        <a href="#contact" class="cs-btn">
+          <span class="cs-icon">✏️</span>
+          <span class="cs-label">DIY 맞춤견적</span>
+        </a>
+        <a href="#contact" class="cs-btn">
+          <span class="cs-icon">📱</span>
+          <span class="cs-label">앱 다운로드</span>
+        </a>
+        <a href="#contact" class="cs-btn">
+          <span class="cs-icon">🎫</span>
+          <span class="cs-label">할인쿠폰</span>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -447,27 +465,51 @@
     </div>
   </div>
 
-  <script src="script.js?v=20260528zb"></script>
+  <script src="script.js?v=20260529a"></script>
   <!-- QUICK SIDEBAR -->
   <aside class="quick-sidebar" id="quickSidebar">
-    <a href="#programs" class="quick-item">
-      <span class="quick-icon">🗺</span>
-      <span>프로그램<br>보기</span>
-    </a>
     <a href="#board" class="quick-item">
-      <span class="quick-icon">📝</span>
-      <span>여행<br>이야기</span>
+      <span class="quick-icon">💬</span>
+      <span>묻고<br>답하기</span>
     </a>
     <a href="#contact" class="quick-item">
-      <span class="quick-icon">✉</span>
-      <span>맞춤 일정<br>문의</span>
+      <span class="quick-icon">📞</span>
+      <span>고객<br>센터</span>
     </a>
+    <button type="button" class="quick-item quick-item-btn" id="btnDepositInfo">
+      <span class="quick-icon">🏦</span>
+      <span>입금<br>안내</span>
+    </button>
     <a href="https://pf.kakao.com/_sunshine" target="_blank" class="quick-item quick-kakao">
-      <span class="quick-icon">💬</span>
-      <span>카카오<br>채널</span>
+      <span class="quick-icon">💛</span>
+      <span>카카오<br>친구추가</span>
     </a>
     <button type="button" class="quick-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">▲ TOP</button>
   </aside>
+
+  <!-- 입금안내 모달 -->
+  <div class="deposit-modal-bg" id="depositModalBg">
+    <div class="deposit-modal">
+      <button type="button" class="deposit-modal-close" id="depositModalClose">✕</button>
+      <div class="deposit-modal-icon">🏦</div>
+      <h3 class="deposit-modal-title">입금 안내</h3>
+      <div class="deposit-modal-body">
+        <div class="deposit-row">
+          <span class="deposit-label">은행</span>
+          <span class="deposit-value">우리은행</span>
+        </div>
+        <div class="deposit-row">
+          <span class="deposit-label">계좌번호</span>
+          <span class="deposit-value">1002-033-556-363</span>
+        </div>
+        <div class="deposit-row">
+          <span class="deposit-label">예금주</span>
+          <span class="deposit-value">이유안</span>
+        </div>
+      </div>
+      <p class="deposit-modal-note">입금 후 고객센터(010-5759-5485)로<br>연락 주시면 확인해 드립니다.</p>
+    </div>
+  </div>
 
 </body>
 </html>

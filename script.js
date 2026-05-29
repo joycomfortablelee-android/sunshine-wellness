@@ -1,7 +1,7 @@
 // =========================================
 // SUNSHINE WELLNESS — script.js
 // =========================================
-console.log('[SCRIPT] 로딩됨 v=20260528za');
+console.log('[SCRIPT] 로딩됨 v=20260529a');
 
 // --- 헤더: 스크롤 시 투명 → 흰색 ---
 const header = document.getElementById('header');
@@ -2875,6 +2875,22 @@ function _boardHandleClick(e) {
 
 document.addEventListener('click', _boardHandleClick, true);
 window.addEventListener('click', _boardHandleClick, true);
+
+// =========================================
+// 입금안내 모달
+// =========================================
+(function () {
+  var bg    = document.getElementById('depositModalBg');
+  var btn   = document.getElementById('btnDepositInfo');
+  var close = document.getElementById('depositModalClose');
+  if (!bg || !btn || !close) return;
+
+  btn.addEventListener('click', function () { bg.classList.add('is-open'); });
+  close.addEventListener('click', function () { bg.classList.remove('is-open'); });
+  bg.addEventListener('click', function (e) {
+    if (e.target === bg) bg.classList.remove('is-open');
+  });
+}());
 
 
 // =========================================
