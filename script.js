@@ -1,7 +1,7 @@
 // =========================================
 // SUNSHINE WELLNESS — script.js
 // =========================================
-console.log('[SCRIPT] 로딩됨 v=20260529b');
+console.log('[SCRIPT] 로딩됨 v=20260529c');
 
 // --- 헤더: 스크롤 시 투명 → 흰색 ---
 const header = document.getElementById('header');
@@ -484,9 +484,18 @@ const hamburger = document.getElementById('hamburger');
 const mobileNav = document.getElementById('mobileNav');
 
 if (hamburger && mobileNav) {
-  hamburger.addEventListener('click', () => {
+  hamburger.addEventListener('click', (e) => {
+    e.stopPropagation();
     const isOpen = mobileNav.classList.toggle('open');
     hamburger.classList.toggle('open', isOpen);
+  });
+
+  // 바깥 클릭 시 닫기
+  document.addEventListener('click', (e) => {
+    if (!mobileNav.classList.contains('open')) return;
+    if (e.target.closest('#mobileNav') || e.target.closest('#hamburger')) return;
+    mobileNav.classList.remove('open');
+    hamburger.classList.remove('open');
   });
 
   document.querySelectorAll('.mobile-link').forEach(link => {
