@@ -1615,9 +1615,9 @@ section { padding: 100px 0; }
   .cards-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .slide-title { font-size: 2.2rem; }
-  .hero-dots { bottom: 90px; left: 20px; }
-  .prev { right: 80px; bottom: 80px; }
-  .next { right: 24px; bottom: 80px; }
+  .hero-dots { bottom: 64px; left: 20px; }
+  .prev { right: 80px; bottom: 54px; }
+  .next { right: 24px; bottom: 54px; }
   .footer-top { flex-direction: column; }
 }
 
