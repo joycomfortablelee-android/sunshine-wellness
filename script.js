@@ -1323,7 +1323,7 @@ function openArtConciergePage() {
 
         <div style="margin-bottom:40px;">
           <p style="font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#3B6259;margin-bottom:12px;">About</p>
-          <h2 style="font-size:clamp(22px,3vw,28px);font-weight:800;color:#1a2e2a;line-height:1.35;margin-bottom:18px;">예술 그 자체가<br/>목적인 여행</h2>
+          <h2 style="font-size:clamp(22px,3vw,28px);font-weight:800;color:#1a2e2a;line-height:1.1;margin-bottom:18px;">예술 그 자체가<br/>목적인 여행</h2>
           <p style="font-size:15px;color:#555;line-height:1.9;margin-bottom:14px;">아트 컨시어지는 단순히 여행 중 공연이나 미술관을 방문하는 것이 아닌, <strong style="color:#1a2e2a;">특정 공연·전시·건축 공간을 주목적으로 기획하는 1인 전문 여행사</strong>입니다.</p>
           <p style="font-size:15px;color:#555;line-height:1.9;">"그곳에 가야만 볼 수 있는 예술"이라는 <em>데스티네이션 아트(Destination Art)</em> 철학 아래, 서유럽 음악·콘서트·건축 공간 VIP 투어를 전문으로 합니다.</p>
         </div>
@@ -1343,6 +1343,27 @@ function openArtConciergePage() {
               <span style="font-size:11px;color:#aaa;">${l}</span>
             </div>`).join('')}
           </div>
+        </div>
+
+        <!-- 이상훈 대표 사진 + 특강 링크 -->
+        <div class="ac-lsh-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px;margin-bottom:40px;align-items:stretch;">
+          <div style="border-radius:14px;overflow:hidden;background:#111;aspect-ratio:4/3;">
+            <img src="images/lsh.jpg" alt="이상훈 대표" style="width:100%;height:100%;object-fit:cover;display:block;opacity:.92;" />
+          </div>
+          <a href="https://uni.dongseo.ac.kr/qcollege/index.php?pCode=MN2000065&pg=2&mode=view&idx=322" target="_blank" rel="noopener"
+             style="display:flex;flex-direction:column;justify-content:space-between;background:#f7f6f3;border:1px solid #e8e8e4;border-radius:14px;padding:24px 22px;text-decoration:none;transition:box-shadow .2s,transform .2s;"
+             onmouseover="this.style.boxShadow='0 6px 20px rgba(0,0,0,0.09)';this.style.transform='translateY(-2px)'"
+             onmouseout="this.style.boxShadow='none';this.style.transform='none'">
+            <div>
+              <p style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3B6259;margin-bottom:10px;">Lecture · 동서대학교</p>
+              <h3 style="font-size:15px;font-weight:800;color:#1a2e2a;line-height:1.45;margin-bottom:12px;">스토리를 찾아 떠나는<br/>유럽 그랜드 투어</h3>
+              <p style="font-size:13px;color:#666;line-height:1.75;">성당을 서점으로, 오페라 극장을 서점으로 — 유럽의 건축과 공간에 담긴 스토리를 찾아가는 아트 트래블 특강.</p>
+            </div>
+            <div style="margin-top:16px;display:flex;align-items:center;justify-content:space-between;">
+              <span style="font-size:11.5px;color:#aaa;">2022년 9월 16일 · 동서대학교</span>
+              <span style="font-size:13px;color:#3B6259;font-weight:700;">보기 ↗</span>
+            </div>
+          </a>
         </div>
 
         <div style="height:1px;background:#ece9e4;margin-bottom:40px;"></div>
