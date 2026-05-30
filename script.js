@@ -1172,7 +1172,7 @@ function openContactUsPage() {
     <div class="cu-wrap">
 
       <p class="co-section-title">Support</p>
-      <h2 class="co-heading">고객센터 서비스</h2>
+      <h2 class="co-heading">고객센터</h2>
       <div class="sp-toolbar" style="margin-bottom:24px;">
         <p class="sp-count">총 <strong>9</strong>건</p>
         <button onclick="openContactPage()" class="sp-btn-write">문의하기</button>
