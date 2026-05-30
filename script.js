@@ -1385,7 +1385,7 @@ function openArtConciergePage() {
         <div style="display:grid;grid-template-columns:1fr;gap:12px;">
           ${[
             ['📰','부산일보 기사','"예술 그 자체가 목적인 여행"','https://www.busan.com/view/busan/view.php?code=2024010814490253602'],
-            ['📄','소개자료 PDF','서비스 소개서 (busandabom.net)','https://busandabom.net/bofels/BBS_202302020440515501.pdf'],
+            ['🎫','부산콘서트홀 VIP 투어 완판','2박 3일 242만 원 · 2025.06.20 · 부산관광공사 × 아트컨시어지','https://www.mice.or.kr/bbs/board.php?bo_table=news&wr_id=1479'],
             ['🗞️','부산일보 연재','이상훈의 시그너처 문화공간 이야기','https://www.busan.com/search/index.php?search_string=[이상훈의시그너처문화공간이야기]'],
           ].map(([icon,label,desc,url]) => `
             <a href="${url}" target="_blank" rel="noopener"
