@@ -1224,7 +1224,7 @@ function openContactUsPage() {
       <p class="co-section-title">How to Book</p>
       <h2 class="co-heading">이용 안내</h2>
       <div class="sp-toolbar" style="margin-bottom:28px;">
-        <p class="sp-count" style="font-size:13px;color:#666;">예약부터 출발까지</p>
+        <p class="sp-count">예약부터 출발까지</p>
       </div>
       <div style="display:flex;flex-direction:column;gap:0;">
         ${[
