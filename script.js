@@ -1532,7 +1532,7 @@ function openAboutPage() {
       <div class="ab-who-grid" style="max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;">
         <div>
           <p class="ab-eyebrow" style="color:#3B6259;">Who We Are</p>
-          <h2 class="ab-h2">단순한 여행을 넘어,<br/>인생의<br/>동반자가 되겠습니다</h2>
+          <h2 class="ab-h2">단순한 여행을 넘어,<br/>인생의 동반자가 되겠습니다</h2>
         </div>
         <div>
           <p class="ab-body" style="margin-bottom:18px;">선샤인 웰니스는 여행이 단순한 휴식이 아니라 인생의 의미를 찾고 성장하는 시간이 될 수 있다고 믿습니다.</p>
