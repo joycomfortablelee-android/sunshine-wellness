@@ -1378,6 +1378,24 @@ function openArtConciergePage() {
               </div>`).join('')}
           </div>
         </div>
+        <!-- 링크 카드 — 전문 서비스 카드 바로 아래 -->
+        <div class="ac-links-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px;">
+          ${[
+            ['📰','부산일보 기사','"예술 그 자체가 목적인 여행"','https://www.busan.com/view/busan/view.php?code=2024010814490253602'],
+            ['📄','소개자료 PDF','서비스 소개서 (busandabom.net)','https://busandabom.net/bofels/BBS_202302020440515501.pdf'],
+          ].map(([icon,label,desc,url]) => `
+            <a href="${url}" target="_blank" rel="noopener"
+               style="display:flex;align-items:center;gap:14px;background:#fff;border:1px solid #e0ddd8;border-radius:14px;padding:16px 18px;text-decoration:none;transition:box-shadow .2s,transform .2s;"
+               onmouseover="this.style.boxShadow='0 6px 20px rgba(0,0,0,0.09)';this.style.transform='translateY(-2px)'"
+               onmouseout="this.style.boxShadow='none';this.style.transform='none'">
+              <span style="font-size:24px;flex-shrink:0;">${icon}</span>
+              <div style="flex:1;min-width:0;">
+                <p style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#3B6259;margin-bottom:2px;">${label}</p>
+                <p style="font-size:12.5px;font-weight:600;color:#1a2e2a;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${desc}</p>
+              </div>
+              <span style="font-size:14px;color:#bbb;flex-shrink:0;">↗</span>
+            </a>`).join('')}
+        </div>
       </div>
 
       <!-- ⑥ 4 Partnership 투어 카드 -->
@@ -1405,25 +1423,8 @@ function openArtConciergePage() {
         </div>
       </div>
 
-      <!-- 링크 카드 + CTA -->
+      <!-- CTA -->
       <div style="max-width:900px;margin:0 auto;padding:40px 40px 64px;">
-        <div class="ac-links-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:48px;">
-          ${[
-            ['📰','부산일보 기사','"예술 그 자체가 목적인 여행"','https://www.busan.com/view/busan/view.php?code=2024010814490253602'],
-            ['📄','소개자료 PDF','서비스 소개서 (busandabom.net)','https://busandabom.net/bofels/BBS_202302020440515501.pdf'],
-          ].map(([icon,label,desc,url]) => `
-            <a href="${url}" target="_blank" rel="noopener"
-               style="display:flex;align-items:center;gap:14px;background:#fff;border:1px solid #e0ddd8;border-radius:14px;padding:16px 18px;text-decoration:none;transition:box-shadow .2s,transform .2s;"
-               onmouseover="this.style.boxShadow='0 6px 20px rgba(0,0,0,0.09)';this.style.transform='translateY(-2px)'"
-               onmouseout="this.style.boxShadow='none';this.style.transform='none'">
-              <span style="font-size:24px;flex-shrink:0;">${icon}</span>
-              <div style="flex:1;min-width:0;">
-                <p style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#3B6259;margin-bottom:2px;">${label}</p>
-                <p style="font-size:12.5px;font-weight:600;color:#1a2e2a;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${desc}</p>
-              </div>
-              <span style="font-size:14px;color:#bbb;flex-shrink:0;">↗</span>
-            </a>`).join('')}
-        </div>
         <div style="text-align:center;">
           <p style="font-size:13px;color:#999;margin-bottom:20px;">선샤인 웰니스와 아트 컨시어지가 함께 설계하는 특별한 여행</p>
           <button onclick="openContactPage()" style="display:inline-flex;align-items:center;gap:10px;background:#1a2e2a;color:#fff;font-size:14px;font-weight:700;padding:15px 44px;border-radius:32px;border:none;cursor:pointer;font-family:'Noto Sans KR',sans-serif;letter-spacing:.04em;">문의하기 →</button>
