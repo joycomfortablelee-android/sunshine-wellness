@@ -1285,6 +1285,9 @@ function openArtConciergePage() {
           <p>Partner Agency</p>
           <h1>아트 컨시어지<span class="co-page-subtitle">Art Concierge — Destination Art Travel</span></h1>
         </div>
+        <div class="ac-banner-tags">
+          ${['#음악','#건축','#미술관','#VIP','#서유럽','#Destination Art'].map(t=>`<span class="ac-banner-tag">${t}</span>`).join('')}
+        </div>
       </div>
 
       <!-- ① Partnership 헤더만 — Where to Next?와 동일 구조 -->
@@ -1299,6 +1302,7 @@ function openArtConciergePage() {
 
       <!-- ② 이상훈 대표 프로필 + 2023 하이라이트 -->
       <div class="sp-wrap" style="padding-top:48px;padding-bottom:0;">
+        <p class="co-section-title">Who · 이상훈 대표</p>
         <div style="display:flex;align-items:center;gap:20px;margin-bottom:24px;padding:20px 28px 20px 0;background:#f7f6f3;border-radius:14px;">
           <div style="width:64px;height:64px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid #e0ddd8;margin-left:0;">
             <img src="images/LSH2.jpeg" alt="이상훈 대표" style="width:100%;height:100%;object-fit:cover;display:block;" />
@@ -1325,11 +1329,14 @@ function openArtConciergePage() {
             </div>`).join('')}
           </div>
         </div>
+        <div class="ac-tags">
+          ${['#이상훈대표','#1400도시','#아트트래블'].map(t=>`<span class="ac-tag">${t}</span>`).join('')}
+        </div>
       </div>
 
       <!-- ③ About -->
       <div class="sp-wrap" style="padding-top:48px;padding-bottom:0;">
-        <p class="co-section-title">About</p>
+        <p class="co-section-title">Why · About</p>
         <h2 class="co-heading">예술 그 자체가<br/>목적인 여행</h2>
         <p style="font-size:15px;color:#555;line-height:1.9;margin-bottom:14px;">아트 컨시어지는 단순히 여행 중 공연이나 미술관을 방문하는 것이 아닌, <strong style="color:#1a2e2a;">특정 공연·전시·건축 공간을 주목적으로 기획하는 1인 전문 여행사</strong>입니다.</p>
         <p style="font-size:15px;color:#555;line-height:1.9;">"그곳에 가야만 볼 수 있는 예술"이라는 <em>데스티네이션 아트(Destination Art)</em> 철학 아래, 서유럽 음악·콘서트·건축 공간 VIP 투어를 전문으로 합니다.</p>
@@ -1356,12 +1363,15 @@ function openArtConciergePage() {
             </div>
           </a>
         </div>
+        <div class="ac-tags">
+          ${['#데스티네이션아트','#예술여행철학','#서유럽'].map(t=>`<span class="ac-tag">${t}</span>`).join('')}
+        </div>
       </div>
 
       <!-- ⑤ Specialty 전문 서비스 -->
       <div style="background:#f5f5f3;padding:0;margin-top:48px;">
         <div class="sp-wrap" style="padding-bottom:40px;">
-          <p class="co-section-title">Specialty</p>
+          <p class="co-section-title">What · Specialty</p>
           <h2 class="co-heading" style="margin-bottom:32px;">전문 서비스</h2>
           <div class="ac-service-wide">
             ${[
@@ -1377,10 +1387,13 @@ function openArtConciergePage() {
                 </div>
               </div>`).join('')}
           </div>
+          <div class="ac-tags">
+            ${['#클래식음악','#건축기행','#미술관컨시어지'].map(t=>`<span class="ac-tag">${t}</span>`).join('')}
+          </div>
         </div>
         <!-- 링크 카드 — 3행 1열 (sp-wrap 기준) -->
         <div class="sp-wrap" style="padding-top:48px;padding-bottom:48px;">
-          <p class="co-section-title">Press</p>
+          <p class="co-section-title">Proof · Press</p>
           <h2 class="co-heading">언론 보도</h2>
         <div style="display:grid;grid-template-columns:1fr;gap:12px;">
           ${[
@@ -1400,13 +1413,16 @@ function openArtConciergePage() {
               <span style="font-size:14px;color:#bbb;flex-shrink:0;">↗</span>
             </a>`).join('')}
         </div>
+          <div class="ac-tags">
+            ${['#부산일보','#부산콘서트홀','#완판'].map(t=>`<span class="ac-tag">${t}</span>`).join('')}
+          </div>
         </div><!-- /sp-wrap -->
       </div>
 
       <!-- ⑥ 4 Partnership 투어 카드 -->
       <div style="background:#f5f5f3;padding:0 0 56px;">
         <div class="sp-wrap" style="padding-top:48px;">
-          <p class="co-section-title">Signature Tours</p>
+          <p class="co-section-title">Experience · Signature Tours</p>
           <h2 class="co-heading">시그너처 투어</h2>
           <div class="ac-tour-grid">
             ${[
@@ -1426,6 +1442,9 @@ function openArtConciergePage() {
                   <p style="font-size:13.5px;color:#666;line-height:1.8;">${desc}</p>
                 </div>
               </div>`).join('')}
+          </div>
+          <div class="ac-tags">
+            ${['#잘츠부르크','#빈필하모닉','#루브르','#사그라다'].map(t=>`<span class="ac-tag">${t}</span>`).join('')}
           </div>
         </div>
       </div>
