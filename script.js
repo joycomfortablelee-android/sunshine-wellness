@@ -1,7 +1,7 @@
 // =========================================
 // SUNSHINE WELLNESS — script.js
 // =========================================
-console.log('[SCRIPT] 로딩됨 v=20260529e');
+console.log('[SCRIPT] 로딩됨 v=20260530a');
 
 // --- 헤더: 스크롤 시 투명 → 흰색 ---
 const header = document.getElementById('header');
@@ -619,53 +619,284 @@ function openHelpCenterPage() {
           <h1>고객센터 <span style="font-weight:300;opacity:.7;">— Customer Service</span></h1>
         </div>
       </div>
-      <div class="co-wrap">
-        <div class="hc-grid">
 
-          <div class="hc-card">
-            <div class="hc-card-icon">📞</div>
-            <div class="hc-card-title">전화 문의</div>
-            <div class="hc-card-main">010-5759-5485</div>
-            <div class="hc-card-sub">평일 09:00 – 18:00<br>점심 12:00 – 13:00<br>주말 · 공휴일 휴무</div>
+      <div class="hc-layout">
+        <nav class="hc-sidebar">
+          <div class="hc-sidebar-head">고객센터</div>
+          <button class="hc-sidebar-item active" onclick="hcShowSection('home')">고객센터</button>
+          <button class="hc-sidebar-item" onclick="hcShowSection('notice')">공지사항</button>
+          <button class="hc-sidebar-item" onclick="hcShowSection('faq')">자주 묻는 질문</button>
+          <button class="hc-sidebar-item" onclick="hcShowSection('qna')">묻고 답하기</button>
+          <button class="hc-sidebar-item" onclick="hcShowSection('voice')">고객의 소리</button>
+          <button class="hc-sidebar-item" onclick="hcShowSection('tomorrow')">친절한 내일씨</button>
+          <button class="hc-sidebar-item" onclick="hcShowSection('delivery')">우편배송조회</button>
+          <button class="hc-sidebar-item" onclick="hcShowSection('receipt')">현금영수증 발급 방법</button>
+          <button class="hc-sidebar-item" onclick="hcShowSection('vip')">우수고객 등급혜택 안내</button>
+          <button class="hc-sidebar-item" onclick="hcShowSection('events')">이벤트 당첨자 발표</button>
+        </nav>
+
+        <div class="hc-content">
+
+          <div class="hc-section active" id="hc-home">
+            <p class="co-section-title">Support</p>
+            <h2 class="co-heading">고객센터</h2>
+            <div class="hc-grid">
+              <div class="hc-card"><div class="hc-card-icon">📞</div><div class="hc-card-title">전화 문의</div><div class="hc-card-main">010-5759-5485</div><div class="hc-card-sub">평일 09:00 – 18:00<br>점심 12:00 – 13:00<br>주말 · 공휴일 휴무</div></div>
+              <div class="hc-card"><div class="hc-card-icon">✉️</div><div class="hc-card-title">이메일 문의</div><div class="hc-card-main">healthylee7@gmail.com</div><div class="hc-card-sub">접수 후 1영업일 이내 답변 드립니다.</div></div>
+              <div class="hc-card hc-card-kakao" onclick="window.open('https://open.kakao.com/o/sl2k01wi','_blank')" style="cursor:pointer;"><div class="hc-card-icon">💛</div><div class="hc-card-title">카카오 채널</div><div class="hc-card-main">카카오 친구추가</div><div class="hc-card-sub">실시간 채팅 상담<br>빠른 답변을 도와드립니다.</div></div>
+            </div>
+            <div class="hc-quick">
+              <div class="hc-quick-title">바로가기</div>
+              <div class="hc-quick-grid" style="grid-template-columns:repeat(3,1fr);">
+                <button class="hc-quick-btn" onclick="hcShowSection('notice')">📢 공지사항</button>
+                <button class="hc-quick-btn" onclick="hcShowSection('faq')">❓ 자주 묻는 질문</button>
+                <button class="hc-quick-btn" onclick="hcShowSection('qna')">💬 묻고 답하기</button>
+                <button class="hc-quick-btn" onclick="hcShowSection('voice')">⭐ 고객의 소리</button>
+                <button class="hc-quick-btn" onclick="hcShowSection('delivery')">📦 우편배송조회</button>
+                <button class="hc-quick-btn" onclick="hcShowSection('events')">🎉 이벤트 당첨자</button>
+              </div>
+            </div>
+            <div class="hc-notice"><strong>📍 모이는 장소</strong> &nbsp;부산광역시 부산진구 서면 쥬디스태화 백화점 앞</div>
           </div>
 
-          <div class="hc-card">
-            <div class="hc-card-icon">✉️</div>
-            <div class="hc-card-title">이메일 문의</div>
-            <div class="hc-card-main">healthylee7@gmail.com</div>
-            <div class="hc-card-sub">접수 후 1영업일 이내 답변<br>드립니다.</div>
+          <div class="hc-section" id="hc-notice">
+            <p class="co-section-title">Notice</p>
+            <h2 class="co-heading">공지사항</h2>
+            <table class="hc-notice-table">
+              <thead><tr><th style="width:54px;">번호</th><th style="width:68px;">구분</th><th style="text-align:left;padding-left:16px;">제목</th><th style="width:96px;">등록일</th></tr></thead>
+              <tbody>
+                <tr><td style="text-align:center;">8</td><td style="text-align:center;"><span class="hc-notice-badge gold">공지</span></td><td style="padding-left:16px;">2026년 하계 웰니스 투어 상품 안내</td><td style="text-align:center;color:#888;font-size:12px;">2026-05-20</td></tr>
+                <tr><td style="text-align:center;">7</td><td style="text-align:center;"><span class="hc-notice-badge gold">이벤트</span></td><td style="padding-left:16px;">5월 가정의 달 특별 할인 이벤트</td><td style="text-align:center;color:#888;font-size:12px;">2026-05-01</td></tr>
+                <tr><td style="text-align:center;">6</td><td style="text-align:center;"><span class="hc-notice-badge">안내</span></td><td style="padding-left:16px;">카카오 채널 오픈 안내</td><td style="text-align:center;color:#888;font-size:12px;">2026-04-15</td></tr>
+                <tr><td style="text-align:center;">5</td><td style="text-align:center;"><span class="hc-notice-badge">안내</span></td><td style="padding-left:16px;">개인정보처리방침 개정 안내 (2026. 04. 01)</td><td style="text-align:center;color:#888;font-size:12px;">2026-04-01</td></tr>
+                <tr><td style="text-align:center;">4</td><td style="text-align:center;"><span class="hc-notice-badge">안내</span></td><td style="padding-left:16px;">2026 봄 시즌 투어 일정 확정 안내</td><td style="text-align:center;color:#888;font-size:12px;">2026-03-10</td></tr>
+                <tr><td style="text-align:center;">3</td><td style="text-align:center;"><span class="hc-notice-badge">안내</span></td><td style="padding-left:16px;">설 연휴 고객센터 운영 시간 안내</td><td style="text-align:center;color:#888;font-size:12px;">2026-01-25</td></tr>
+                <tr><td style="text-align:center;">2</td><td style="text-align:center;"><span class="hc-notice-badge">안내</span></td><td style="padding-left:16px;">선샤인 웰니스 홈페이지 오픈 안내</td><td style="text-align:center;color:#888;font-size:12px;">2025-12-01</td></tr>
+                <tr><td style="text-align:center;">1</td><td style="text-align:center;"><span class="hc-notice-badge">안내</span></td><td style="padding-left:16px;">선샤인 웰니스 서비스 시작 안내</td><td style="text-align:center;color:#888;font-size:12px;">2025-11-15</td></tr>
+              </tbody>
+            </table>
           </div>
 
-          <div class="hc-card hc-card-kakao" onclick="window.open('https://open.kakao.com/o/sl2k01wi','_blank')" style="cursor:pointer;">
-            <div class="hc-card-icon">💛</div>
-            <div class="hc-card-title">카카오 채널</div>
-            <div class="hc-card-main">카카오 친구추가</div>
-            <div class="hc-card-sub">실시간 채팅 상담<br>빠른 답변을 도와드립니다.</div>
+          <div class="hc-section" id="hc-faq">
+            <p class="co-section-title">FAQ</p>
+            <h2 class="co-heading">자주 묻는 질문</h2>
+            <table class="sp-table co-faq">
+              <thead><tr><th style="width:60px;">NO.</th><th class="sp-col-title">제목</th><th style="width:60px;">열기</th></tr></thead>
+              <tbody>
+                <tr class="co-faq-item" onclick="coFaqToggle(this)"><td class="sp-col-no">01</td><td class="sp-col-title">투어 인원은 몇 명부터 가능한가요?</td><td class="sp-col-toggle"><span class="co-faq-icon">클릭</span></td></tr>
+                <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">기본 2인부터 소규모 단체까지 맞춤 운영합니다. 10인 이상 단체는 별도 견적으로 더욱 합리적인 요금을 안내해 드립니다.</td></tr>
+                <tr class="co-faq-item" onclick="coFaqToggle(this)"><td class="sp-col-no">02</td><td class="sp-col-title">여행 일정은 어떻게 정해지나요?</td><td class="sp-col-toggle"><span class="co-faq-icon">클릭</span></td></tr>
+                <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">견적 문의 후 담당자가 연락드려 희망 날짜, 관심 프로그램, 인원 등을 확인하고 최적의 일정을 제안해 드립니다.</td></tr>
+                <tr class="co-faq-item" onclick="coFaqToggle(this)"><td class="sp-col-no">03</td><td class="sp-col-title">예약금과 취소 정책이 어떻게 되나요?</td><td class="sp-col-toggle"><span class="co-faq-icon">클릭</span></td></tr>
+                <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">투어 확정 시 총 금액의 30%를 예약금으로 납부하며, 출발 7일 전까지는 전액 환불 가능합니다.</td></tr>
+                <tr class="co-faq-item" onclick="coFaqToggle(this)"><td class="sp-col-no">04</td><td class="sp-col-title">외국어 가이드 서비스도 가능한가요?</td><td class="sp-col-toggle"><span class="co-faq-icon">클릭</span></td></tr>
+                <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">영어, 중국어 가이드 동행 서비스를 제공합니다. 사전 요청 시 추가 비용 없이 안내해 드립니다.</td></tr>
+                <tr class="co-faq-item" onclick="coFaqToggle(this)"><td class="sp-col-no">05</td><td class="sp-col-title">숙박 연계 패키지도 있나요?</td><td class="sp-col-toggle"><span class="co-faq-icon">클릭</span></td></tr>
+                <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">네, 부산 내 웰니스 특화 숙박시설과 연계한 패키지 상품을 운영합니다. 문의 시 숙박 포함 여부를 함께 알려주세요.</td></tr>
+                <tr class="co-faq-item" onclick="coFaqToggle(this)"><td class="sp-col-no">06</td><td class="sp-col-title">비용 결제는 어떻게 하나요?</td><td class="sp-col-toggle"><span class="co-faq-icon">클릭</span></td></tr>
+                <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">계좌이체, 신용카드(온라인 결제링크) 방식을 지원합니다. 세금계산서 및 현금영수증 발행도 가능합니다.</td></tr>
+              </tbody>
+            </table>
           </div>
 
-        </div>
-
-        <div class="hc-quick">
-          <div class="hc-quick-title">바로가기</div>
-          <div class="hc-quick-grid">
-            <button class="hc-quick-btn" onclick="closeSubPage(); setTimeout(function(){document.querySelector('#board').scrollIntoView({behavior:'smooth'})},80)">
-              📝 여행 이야기 게시판
-            </button>
-            <button class="hc-quick-btn" onclick="closeSubPage(); setTimeout(function(){document.querySelector('#contact').scrollIntoView({behavior:'smooth'})},80)">
-              ✉ 맞춤 일정 문의하기
-            </button>
-            <button class="hc-quick-btn" onclick="openContactPage()">
-              ❓ 자주 묻는 질문 (FAQ)
-            </button>
+          <div class="hc-section" id="hc-qna">
+            <p class="co-section-title">Q&amp;A</p>
+            <h2 class="co-heading">묻고 답하기</h2>
+            <table class="sp-table">
+              <thead><tr><th style="width:54px;">번호</th><th class="sp-col-title">제목</th><th style="width:72px;">작성자</th><th style="width:72px;">상태</th><th style="width:80px;">등록일</th></tr></thead>
+              <tbody>
+                <tr><td style="text-align:center;color:#888;">5</td><td>감천문화마을 투어 시간이 얼마나 걸리나요?</td><td style="text-align:center;color:#888;">이**</td><td style="text-align:center;"><span style="color:var(--accent);font-weight:700;font-size:12px;">답변완료</span></td><td style="text-align:center;color:#888;font-size:12px;">05-20</td></tr>
+                <tr><td style="text-align:center;color:#888;">4</td><td>단체 할인은 몇 명부터 적용되나요?</td><td style="text-align:center;color:#888;">박**</td><td style="text-align:center;"><span style="color:var(--accent);font-weight:700;font-size:12px;">답변완료</span></td><td style="text-align:center;color:#888;font-size:12px;">05-15</td></tr>
+                <tr><td style="text-align:center;color:#888;">3</td><td>우천시 투어 진행 여부가 궁금합니다</td><td style="text-align:center;color:#888;">김**</td><td style="text-align:center;"><span style="color:#e8a04a;font-weight:700;font-size:12px;">답변대기</span></td><td style="text-align:center;color:#888;font-size:12px;">05-25</td></tr>
+                <tr><td style="text-align:center;color:#888;">2</td><td>영어 가이드 예약은 얼마 전에 해야 하나요?</td><td style="text-align:center;color:#888;">최**</td><td style="text-align:center;"><span style="color:var(--accent);font-weight:700;font-size:12px;">답변완료</span></td><td style="text-align:center;color:#888;font-size:12px;">05-10</td></tr>
+                <tr><td style="text-align:center;color:#888;">1</td><td>예약 변경은 어떻게 하나요?</td><td style="text-align:center;color:#888;">정**</td><td style="text-align:center;"><span style="color:var(--accent);font-weight:700;font-size:12px;">답변완료</span></td><td style="text-align:center;color:#888;font-size:12px;">04-28</td></tr>
+              </tbody>
+            </table>
+            <div class="hc-qna-form">
+              <h3>질문 등록하기</h3>
+              <input type="text" class="hc-qna-input" id="hcQnaName" placeholder="작성자 (예: 홍**)" />
+              <input type="text" class="hc-qna-input" id="hcQnaTitle" placeholder="제목을 입력하세요" />
+              <textarea class="hc-qna-textarea" id="hcQnaContent" placeholder="문의 내용을 입력해주세요."></textarea>
+              <button class="hc-qna-submit" onclick="hcQnaSubmit()">등록하기</button>
+            </div>
           </div>
-        </div>
 
-        <div class="hc-notice">
-          <strong>📍 모이는 장소</strong> &nbsp; 부산광역시 부산진구 서면 쥬디스태화 백화점 앞
+          <div class="hc-section" id="hc-voice">
+            <p class="co-section-title">Customer Voice</p>
+            <h2 class="co-heading">고객의 소리</h2>
+            <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:32px;">
+              <div style="background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:22px 24px;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;"><span style="font-weight:700;font-size:14px;">이*경 님</span><span style="color:#888;font-size:12px;">2026-05-22</span></div><div style="color:#e8a04a;font-size:14px;margin-bottom:8px;">★★★★★</div><p style="font-size:14px;color:#444;line-height:1.7;">감천문화마을 투어가 정말 좋았습니다. 해설사 선생님 덕분에 깊이 있는 부산 이야기를 들을 수 있었어요.</p></div>
+              <div style="background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:22px 24px;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;"><span style="font-weight:700;font-size:14px;">박*수 님</span><span style="color:#888;font-size:12px;">2026-05-15</span></div><div style="color:#e8a04a;font-size:14px;margin-bottom:8px;">★★★★☆</div><p style="font-size:14px;color:#444;line-height:1.7;">신중년 대상 프로그램이라 무리 없이 잘 다닐 수 있었어요. 일정이 여유 있어서 너무 좋았습니다.</p></div>
+            </div>
+            <div class="hc-voice-form">
+              <h3>후기 작성하기</h3>
+              <label style="font-size:13px;font-weight:600;color:#555;display:block;margin-bottom:6px;">별점</label>
+              <div class="hc-voice-stars" id="hcVoiceStars" onclick="hcSetStar(event)"><span data-v="1">☆</span><span data-v="2">☆</span><span data-v="3">☆</span><span data-v="4">☆</span><span data-v="5">☆</span></div>
+              <input type="text" class="hc-qna-input" id="hcVoiceName" placeholder="이름 (예: 홍*동)" />
+              <textarea class="hc-qna-textarea" id="hcVoiceContent" placeholder="소중한 후기를 남겨주세요."></textarea>
+              <button class="hc-qna-submit" onclick="hcVoiceSubmit()">후기 등록</button>
+            </div>
+          </div>
+
+          <div class="hc-section" id="hc-tomorrow">
+            <p class="co-section-title">Customer Care</p>
+            <h2 class="co-heading">친절한 내일씨</h2>
+            <div class="hc-tomorrow-box">
+              <div class="hc-tomorrow-avatar">🌞</div>
+              <div class="hc-tomorrow-name">친절한 내일씨</div>
+              <p class="hc-tomorrow-desc">안녕하세요! 선샤인 웰니스 전담 상담사 <strong>내일씨</strong>입니다.<br>여행 계획부터 예약, 취소, 변경까지 — 무엇이든 편하게 물어보세요. 😊</p>
+              <div class="hc-tomorrow-btns">
+                <button class="hc-tomorrow-btn hc-tomorrow-btn-primary" onclick="window.open('https://open.kakao.com/o/sl2k01wi','_blank')">💛 카카오 채팅 상담</button>
+                <button class="hc-tomorrow-btn hc-tomorrow-btn-secondary" onclick="hcShowSection('qna')">✍️ 묻고 답하기</button>
+                <button class="hc-tomorrow-btn hc-tomorrow-btn-secondary" onclick="openContactPage()">📋 견적의뢰 문의</button>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;">
+              <div style="background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:22px;text-align:center;"><div style="font-size:26px;margin-bottom:8px;">⏰</div><div style="font-size:13px;font-weight:700;color:#1a2e2a;margin-bottom:5px;">운영 시간</div><div style="font-size:12px;color:#666;line-height:1.6;">평일 09:00 – 18:00<br>점심 12:00 – 13:00<br>주말·공휴일 휴무</div></div>
+              <div style="background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:22px;text-align:center;"><div style="font-size:26px;margin-bottom:8px;">📱</div><div style="font-size:13px;font-weight:700;color:#1a2e2a;margin-bottom:5px;">전화 상담</div><div style="font-size:12px;color:#666;line-height:1.6;">010-5759-5485<br>언제든 남겨주시면<br>빠르게 연락드립니다</div></div>
+              <div style="background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:22px;text-align:center;"><div style="font-size:26px;margin-bottom:8px;">✉️</div><div style="font-size:13px;font-weight:700;color:#1a2e2a;margin-bottom:5px;">이메일</div><div style="font-size:12px;color:#666;line-height:1.6;">healthylee7@gmail.com<br>1영업일 이내<br>답변 드립니다</div></div>
+            </div>
+          </div>
+
+          <div class="hc-section" id="hc-delivery">
+            <p class="co-section-title">Delivery</p>
+            <h2 class="co-heading">우편배송조회</h2>
+            <div style="background:#fff8f0;border:1.5px solid #f5d9a8;border-radius:12px;padding:14px 18px;margin-bottom:28px;font-size:13.5px;color:#7a5000;line-height:1.6;">ℹ️ 선샤인 웰니스 투어 관련 우편물(여행 확인서, 영수증 등)의 배송 현황을 조회하실 수 있습니다.</div>
+            <div style="background:#f8f9fa;border-radius:16px;padding:40px;text-align:center;margin-bottom:24px;">
+              <p style="font-size:28px;margin-bottom:12px;">📦</p>
+              <p style="font-size:16px;font-weight:700;color:#1a2e2a;margin-bottom:6px;">우편 운송장 번호로 조회하기</p>
+              <p style="font-size:13px;color:#888;margin-bottom:22px;">운송장 번호 13자리를 입력하세요</p>
+              <div style="display:flex;justify-content:center;max-width:480px;margin:0 auto;">
+                <input type="text" id="hcDeliveryNum" placeholder="운송장 번호 입력" style="flex:1;padding:12px 16px;border:1.5px solid var(--border);border-right:none;border-radius:8px 0 0 8px;font-size:14px;font-family:var(--font);" />
+                <button onclick="hcDeliverySearch()" style="padding:12px 22px;background:var(--accent);color:#fff;border:none;border-radius:0 8px 8px 0;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--font);">조회</button>
+              </div>
+            </div>
+            <div style="padding:20px 24px;background:#f8f9fa;border-radius:12px;">
+              <p style="font-size:13px;font-weight:700;color:#1a2e2a;margin-bottom:12px;">기타 택배사 직접 조회</p>
+              <div style="display:flex;flex-wrap:wrap;gap:10px;">
+                <a href="https://service.epost.go.kr/" target="_blank" style="padding:8px 18px;background:#fff;border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-weight:600;color:#444;text-decoration:none;">우체국 택배</a>
+                <a href="https://www.cjlogistics.com/ko/tool/parcel/tracking" target="_blank" style="padding:8px 18px;background:#fff;border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-weight:600;color:#444;text-decoration:none;">CJ대한통운</a>
+                <a href="https://www.lotteglogis.com/home/reservation/tracking/index" target="_blank" style="padding:8px 18px;background:#fff;border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-weight:600;color:#444;text-decoration:none;">롯데택배</a>
+                <a href="https://kdexp.com/serviceDelivery.do" target="_blank" style="padding:8px 18px;background:#fff;border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-weight:600;color:#444;text-decoration:none;">경동택배</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="hc-section" id="hc-receipt">
+            <p class="co-section-title">Receipt</p>
+            <h2 class="co-heading">현금영수증 발급 방법</h2>
+            <div style="background:#fff8f0;border:1.5px solid #f5d9a8;border-radius:12px;padding:14px 18px;margin-bottom:28px;font-size:13.5px;color:#7a5000;line-height:1.6;">ℹ️ 현금 결제 시 현금영수증을 발급해 드립니다. 발급 완료 후 <strong>국세청 홈택스</strong>에서 확인하실 수 있습니다.</div>
+            <div class="hc-receipt-steps">
+              <div class="hc-receipt-step"><div class="hc-receipt-num">1</div><div class="hc-receipt-body"><h4>결제 완료 확인</h4><p>투어 대금 현금 결제 후 입금 확인이 완료된 상태여야 합니다. 계좌이체 영수증을 보관해 두세요.</p></div></div>
+              <div class="hc-receipt-step"><div class="hc-receipt-num">2</div><div class="hc-receipt-body"><h4>발급 요청</h4><p>이메일(healthylee7@gmail.com) 또는 카카오 채널로 <strong>현금영수증 발급 요청</strong>을 보내주세요.<br>포함 정보: 이름, 연락처 또는 사업자등록번호, 결제 금액, 결제일</p></div></div>
+              <div class="hc-receipt-step"><div class="hc-receipt-num">3</div><div class="hc-receipt-body"><h4>처리 완료 통보</h4><p>요청 접수 후 <strong>1영업일 이내</strong>에 발급 처리 후 완료 안내를 드립니다.</p></div></div>
+              <div class="hc-receipt-step"><div class="hc-receipt-num">4</div><div class="hc-receipt-body"><h4>국세청 홈택스에서 확인</h4><p>홈택스(hometax.go.kr) → 로그인 → 조회/발급 → 현금영수증 → 사용내역(소비자) 조회</p></div></div>
+            </div>
+            <div style="margin-top:20px;padding:14px 18px;background:#f0f5f4;border-left:4px solid var(--accent);border-radius:8px;font-size:13px;color:#444;line-height:1.7;">
+              <strong>📌 참고사항</strong><br>
+              • 현금영수증은 결제일로부터 <strong>3년 이내</strong>에 신청 가능합니다.<br>
+              • 사업자는 지출증빙용, 개인은 소득공제용으로 발급받으실 수 있습니다.<br>
+              • 문의: 010-5759-5485 또는 healthylee7@gmail.com
+            </div>
+          </div>
+
+          <div class="hc-section" id="hc-vip">
+            <p class="co-section-title">VIP Benefits</p>
+            <h2 class="co-heading">우수고객 등급혜택 안내</h2>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:32px;">
+              <div style="background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:20px 14px;text-align:center;"><div style="font-size:24px;margin-bottom:8px;">👤</div><div style="font-size:14px;font-weight:800;color:#888;margin-bottom:3px;">일반</div><div style="font-size:11px;color:#aaa;margin-bottom:9px;">첫 이용 고객</div><hr style="border:none;border-top:1px solid var(--border);margin-bottom:9px;"><div style="font-size:12px;color:#555;line-height:1.9;">기본 서비스<br>이메일 상담<br>—<br>—</div></div>
+              <div style="background:#fff;border:2px solid var(--accent);border-radius:14px;padding:20px 14px;text-align:center;"><div style="font-size:24px;margin-bottom:8px;">⭐</div><div style="font-size:14px;font-weight:800;color:var(--accent);margin-bottom:3px;">우수</div><div style="font-size:11px;color:#aaa;margin-bottom:9px;">2회 이상 이용</div><hr style="border:none;border-top:1px solid var(--border);margin-bottom:9px;"><div style="font-size:12px;color:#555;line-height:1.9;">기본 서비스<br>이메일 상담<br>5% 할인 쿠폰<br>—</div></div>
+              <div style="background:#fffde7;border:2px solid #e8a04a;border-radius:14px;padding:20px 14px;text-align:center;"><div style="font-size:24px;margin-bottom:8px;">🥇</div><div style="font-size:14px;font-weight:800;color:#c47a00;margin-bottom:3px;">VIP</div><div style="font-size:11px;color:#aaa;margin-bottom:9px;">5회 이상 이용</div><hr style="border:none;border-top:1px solid #f5d9a8;margin-bottom:9px;"><div style="font-size:12px;color:#555;line-height:1.9;">기본 서비스<br>전담 상담사<br>10% 할인 쿠폰<br>우선 예약권</div></div>
+              <div style="background:#1a2e2a;border:2px solid #1a2e2a;border-radius:14px;padding:20px 14px;text-align:center;"><div style="font-size:24px;margin-bottom:8px;">👑</div><div style="font-size:14px;font-weight:800;color:#e8a04a;margin-bottom:3px;">VVIP</div><div style="font-size:11px;color:#888;margin-bottom:9px;">10회 이상 이용</div><hr style="border:none;border-top:1px solid #2d4a40;margin-bottom:9px;"><div style="font-size:12px;color:#aaa;line-height:1.9;">기본 서비스<br>전담 상담사<br>15% 할인 쿠폰<br>맞춤 투어 서비스</div></div>
+            </div>
+            <table class="hc-grade-table">
+              <thead><tr><th>혜택</th><th>일반</th><th style="color:var(--accent);">우수</th><th style="background:#fffde7;color:#c47a00;">VIP</th><th style="background:#1a2e2a;color:#e8a04a;">VVIP</th></tr></thead>
+              <tbody>
+                <tr><td style="text-align:left;padding-left:14px;font-weight:600;">이메일 상담</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+                <tr><td style="text-align:left;padding-left:14px;font-weight:600;">카카오 채팅 상담</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+                <tr><td style="text-align:left;padding-left:14px;font-weight:600;">전담 상담사 배정</td><td style="color:#ccc;">—</td><td style="color:#ccc;">—</td><td>✓</td><td>✓</td></tr>
+                <tr><td style="text-align:left;padding-left:14px;font-weight:600;">할인 쿠폰</td><td style="color:#ccc;">—</td><td>5%</td><td>10%</td><td>15%</td></tr>
+                <tr><td style="text-align:left;padding-left:14px;font-weight:600;">우선 예약권</td><td style="color:#ccc;">—</td><td style="color:#ccc;">—</td><td>✓</td><td>✓</td></tr>
+                <tr><td style="text-align:left;padding-left:14px;font-weight:600;">맞춤 투어 제안</td><td style="color:#ccc;">—</td><td style="color:#ccc;">—</td><td style="color:#ccc;">—</td><td>✓</td></tr>
+                <tr><td style="text-align:left;padding-left:14px;font-weight:600;">기념일 특별 혜택</td><td style="color:#ccc;">—</td><td style="color:#ccc;">—</td><td style="color:#ccc;">—</td><td>✓</td></tr>
+              </tbody>
+            </table>
+            <div style="margin-top:14px;padding:12px 16px;background:#f0f5f4;border-left:4px solid var(--accent);border-radius:8px;font-size:13px;color:#444;line-height:1.7;">📌 등급은 최근 1년간 이용 횟수를 기준으로 매월 1일 자동 갱신됩니다. 문의: 010-5759-5485</div>
+          </div>
+
+          <div class="hc-section" id="hc-events">
+            <p class="co-section-title">Event</p>
+            <h2 class="co-heading">이벤트 당첨자 발표</h2>
+            <div style="background:#fff8f0;border:1.5px solid #f5d9a8;border-radius:12px;padding:14px 18px;margin-bottom:28px;font-size:13.5px;color:#7a5000;line-height:1.6;">🎉 당첨자는 등록하신 연락처로 개별 통보되며, 개인정보 보호를 위해 이름 일부를 가려서 공개합니다.</div>
+            <table class="hc-winner-table">
+              <thead><tr><th style="width:54px;">번호</th><th style="text-align:left;padding-left:16px;">이벤트명</th><th style="width:72px;">당첨자</th><th style="width:90px;">발표일</th><th style="width:110px;">경품</th></tr></thead>
+              <tbody>
+                <tr><td>5</td><td style="text-align:left;padding-left:16px;">5월 가정의 달 SNS 이벤트</td><td>이**경</td><td>2026-05-25</td><td style="color:var(--accent);font-weight:700;">부산 투어 1인 무료</td></tr>
+                <tr><td>4</td><td style="text-align:left;padding-left:16px;">봄 여행 후기 이벤트</td><td>박**호</td><td>2026-04-30</td><td style="color:var(--accent);font-weight:700;">커피 기프티콘</td></tr>
+                <tr><td>3</td><td style="text-align:left;padding-left:16px;">회원가입 웰컴 이벤트</td><td>김**미</td><td>2026-04-01</td><td style="color:var(--accent);font-weight:700;">10% 할인 쿠폰</td></tr>
+                <tr><td>2</td><td style="text-align:left;padding-left:16px;">설 연휴 특별 이벤트</td><td>최**준</td><td>2026-02-10</td><td style="color:var(--accent);font-weight:700;">쇼핑백 &amp; 굿즈</td></tr>
+                <tr><td>1</td><td style="text-align:left;padding-left:16px;">오픈 기념 선착순 이벤트</td><td>정**(외 4명)</td><td>2025-12-15</td><td style="color:var(--accent);font-weight:700;">투어 20% 할인권</td></tr>
+              </tbody>
+            </table>
+            <div style="margin-top:24px;text-align:center;padding:40px 24px;background:#f8f9fa;border-radius:16px;">
+              <p style="font-size:24px;margin-bottom:10px;">🎁</p>
+              <p style="font-size:15px;font-weight:700;color:#1a2e2a;margin-bottom:5px;">다음 이벤트를 기대해 주세요!</p>
+              <p style="font-size:13px;color:#888;">선샤인 웰니스 SNS를 팔로우하시면 이벤트 정보를 가장 먼저 받으실 수 있습니다.</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
   `);
+}
+
+function hcShowSection(id) {
+  document.querySelectorAll('.hc-section').forEach(function(el) { el.classList.remove('active'); });
+  var target = document.getElementById('hc-' + id);
+  if (target) target.classList.add('active');
+  var order = ['home','notice','faq','qna','voice','tomorrow','delivery','receipt','vip','events'];
+  var idx = order.indexOf(id);
+  document.querySelectorAll('.hc-sidebar-item').forEach(function(el, i) {
+    el.classList.toggle('active', i === idx);
+  });
+  var overlay = document.getElementById('subPageOverlay');
+  if (overlay) overlay.scrollTop = 0;
+}
+
+function hcQnaSubmit() {
+  var title = (document.getElementById('hcQnaTitle').value || '').trim();
+  var name  = (document.getElementById('hcQnaName').value  || '').trim();
+  if (!title || !name) { alert('작성자와 제목을 입력해주세요.'); return; }
+  alert('질문이 등록되었습니다. 빠른 시일 내에 답변 드리겠습니다.');
+  document.getElementById('hcQnaTitle').value   = '';
+  document.getElementById('hcQnaName').value    = '';
+  document.getElementById('hcQnaContent').value = '';
+}
+
+function hcSetStar(e) {
+  var v = parseInt(e.target.getAttribute('data-v'));
+  if (!v) return;
+  document.querySelectorAll('#hcVoiceStars span').forEach(function(s, i) {
+    s.textContent = i < v ? '★' : '☆';
+    s.style.color = i < v ? '#e8a04a' : '#ccc';
+  });
+}
+
+function hcVoiceSubmit() {
+  var content = (document.getElementById('hcVoiceContent').value || '').trim();
+  var name    = (document.getElementById('hcVoiceName').value    || '').trim();
+  if (!content || !name) { alert('이름과 후기 내용을 입력해주세요.'); return; }
+  alert('소중한 후기를 남겨주셔서 감사합니다!');
+  document.getElementById('hcVoiceName').value    = '';
+  document.getElementById('hcVoiceContent').value = '';
+  document.querySelectorAll('#hcVoiceStars span').forEach(function(s) { s.textContent = '☆'; s.style.color = ''; });
+}
+
+function hcDeliverySearch() {
+  var num = (document.getElementById('hcDeliveryNum').value || '').trim();
+  if (!num) { alert('운송장 번호를 입력해주세요.'); return; }
+  window.open('https://service.epost.go.kr/trace.RetrieveRegiTraceList.comm?sid1=' + encodeURIComponent(num), '_blank');
 }
 
 // =========================================
@@ -1092,10 +1323,10 @@ function openArtConciergePage() {
         </div>
       </div>
 
-      <div style="max-width:860px;margin:0 auto;padding:56px 40px 80px;">
+      <div class="ac-wrap" style="max-width:860px;margin:0 auto;padding:56px 40px 80px;">
 
         <!-- 원문 자료 링크 -->
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:52px;">
+        <div class="ac-links-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:52px;">
           <a href="https://www.busan.com/view/busan/view.php?code=2024010814490253602" target="_blank" rel="noopener"
              style="display:flex;align-items:center;gap:16px;background:#fff;border:1px solid #e0ddd8;border-radius:14px;padding:20px 22px;text-decoration:none;transition:box-shadow .2s,transform .2s;"
              onmouseover="this.style.boxShadow='0 6px 24px rgba(0,0,0,0.10)';this.style.transform='translateY(-2px)'"
@@ -1121,7 +1352,7 @@ function openArtConciergePage() {
         </div>
 
         <!-- 소개 -->
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-bottom:56px;">
+        <div class="ac-intro-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-bottom:56px;">
           <div>
             <p style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#3B6259;margin-bottom:14px;">About</p>
             <h2 style="font-size:clamp(20px,3vw,26px);font-weight:800;color:#1a2e2a;line-height:1.4;margin-bottom:20px;">예술 그 자체가<br/>목적인 여행</h2>
@@ -1145,7 +1376,7 @@ function openArtConciergePage() {
         <!-- 2023년 하이라이트 -->
         <div style="background:#1a2e2a;border-radius:16px;padding:36px 40px;margin-bottom:48px;">
           <p style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:20px;">2023 하이라이트</p>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.1);border-radius:8px;overflow:hidden;">
+          <div class="ac-stats-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.1);border-radius:8px;overflow:hidden;">
             <div style="background:#1a2e2a;padding:24px 20px;text-align:center;">
               <span style="display:block;font-size:32px;font-weight:800;color:#e8a04a;line-height:1;">170</span>
               <span style="font-size:12px;color:rgba(255,255,255,0.55);margin-top:6px;display:block;">방문 도시</span>
@@ -1164,7 +1395,7 @@ function openArtConciergePage() {
         <!-- 전문 서비스 -->
         <div style="margin-bottom:48px;">
           <p style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#3B6259;margin-bottom:20px;">전문 서비스</p>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+          <div class="ac-service-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
             ${[
               ['🎼','음악 · 콘서트','빈 필하모닉, 잘츠부르크 페스티벌 등 서유럽 정상급 음악 공연 VIP 관람 기획'],
               ['🏛️','건축 공간 투어','사그라다 파밀리아, 루이 뷔통 재단 등 현대 건축 걸작을 전문 해설과 함께'],

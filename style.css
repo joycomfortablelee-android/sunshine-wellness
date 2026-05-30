@@ -1811,10 +1811,12 @@ section { padding: 100px 0; }
   .ab-who-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
   .ab-for-you-grid { grid-template-columns: 1fr !important; }
   .ab-promise-grid { grid-template-columns: 1fr !important; }
-  /* 아트 컨시어지 모바일 */
-  .ac-intro-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
-  .ac-service-grid { grid-template-columns: 1fr !important; }
-  .co-fullbg-wrap [style*="padding:56px 40px"] { padding: 36px 20px 60px !important; }
+  /* 아트 컨시어지 모바일 — 전체 1열 */
+  .ac-links-grid   { grid-template-columns: 1fr !important; gap: 12px !important; }
+  .ac-intro-grid   { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .ac-stats-grid   { grid-template-columns: repeat(3,1fr) !important; }
+  .ac-service-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
+  .ac-wrap { padding: 32px 20px 60px !important; }
 }
 
 /* ── 게시판 ───────────────────────────────────── */
