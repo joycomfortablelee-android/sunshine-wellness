@@ -1298,9 +1298,11 @@ function openArtConciergePage() {
       </div>
 
       <!-- ② 이상훈 대표 프로필 + 2023 하이라이트 -->
-      <div style="max-width:900px;margin:0 auto;padding:4px 40px 0;">
+      <div class="sp-wrap" style="padding-top:16px;padding-bottom:0;">
         <div style="display:flex;align-items:center;gap:20px;margin-bottom:24px;padding:24px 28px;background:#f7f6f3;border-radius:14px;">
-          <div style="width:52px;height:52px;border-radius:50%;background:#1a2e2a;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px;">🎭</div>
+          <div style="width:64px;height:64px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid #e0ddd8;">
+            <img src="images/LSH2.jpeg" alt="이상훈 대표" style="width:100%;height:100%;object-fit:cover;display:block;" />
+          </div>
           <div style="flex:1;">
             <p style="font-size:16px;font-weight:800;color:#1a2e2a;margin-bottom:2px;">이상훈 대표</p>
             <p style="font-size:12px;color:#999;letter-spacing:.04em;">Art Concierge · Destination Art Specialist</p>
@@ -1326,7 +1328,7 @@ function openArtConciergePage() {
       </div>
 
       <!-- ③ About -->
-      <div style="max-width:900px;margin:0 auto;padding:40px 40px 0;">
+      <div class="sp-wrap" style="padding-top:36px;padding-bottom:0;">
         <p style="font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#3B6259;margin-bottom:12px;">About</p>
         <h2 style="font-size:clamp(22px,3vw,28px);font-weight:800;color:#1a2e2a;line-height:1.35;margin-bottom:18px;">예술 그 자체가<br/>목적인 여행</h2>
         <p style="font-size:15px;color:#555;line-height:1.9;margin-bottom:14px;">아트 컨시어지는 단순히 여행 중 공연이나 미술관을 방문하는 것이 아닌, <strong style="color:#1a2e2a;">특정 공연·전시·건축 공간을 주목적으로 기획하는 1인 전문 여행사</strong>입니다.</p>
@@ -1334,7 +1336,7 @@ function openArtConciergePage() {
       </div>
 
       <!-- ④ 이상훈 사진 + 동서대 강의 카드 -->
-      <div style="max-width:900px;margin:0 auto;padding:32px 40px 0;">
+      <div class="sp-wrap" style="padding-top:28px;padding-bottom:0;">
         <div class="ac-lsh-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch;">
           <div style="border-radius:14px;overflow:hidden;background:#111;aspect-ratio:4/3;">
             <img src="images/lsh.jpg" alt="이상훈 대표" style="width:100%;height:100%;object-fit:cover;display:block;opacity:.92;" />
