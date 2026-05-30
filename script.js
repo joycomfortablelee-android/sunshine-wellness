@@ -638,7 +638,7 @@ function cuShowSection(id) {
     '<div class="co-fullbg-wrap">' +
     '<div class="co-fullbg-banner banner-beach"><div class="co-page-header">' +
     '<p>Support — ' + m.label + '</p>' +
-    '<h1>고객센터 <span style="font-weight:300;opacity:.7;">— ' + m.title + '</span></h1>' +
+    '<h1>고객센터<span class="co-page-subtitle">— ' + m.title + '</span></h1>' +
     '</div></div>' +
     '<div class="co-wrap">' +
     '<button onclick="openContactUsPage()" class="cu-back-btn">← Contact Us</button>' +
@@ -891,7 +891,7 @@ function _openBoardDetailInOverlay(id) {
       <div class="co-fullbg-banner banner-beach">
         <div class="co-page-header">
           <p>Community</p>
-          <h1>여행 이야기 <span style="font-weight:300;opacity:.7;">— 상세보기</span></h1>
+          <h1>여행 이야기<span class="co-page-subtitle">— 상세보기</span></h1>
         </div>
       </div>
       <div class="sp-wrap">
@@ -944,7 +944,7 @@ function openWhereToNextPage() {
     <div class="co-fullbg-banner banner-beach">
       <div class="co-page-header">
         <p>Community</p>
-        <h1>Where to Next? <span style="font-weight:300;opacity:.7;">— 다음 여행지</span></h1>
+        <h1>Where to Next?<span class="co-page-subtitle">— 다음 여행지</span></h1>
       </div>
     </div>
     <div class="sp-wrap">
@@ -1002,7 +1002,7 @@ function openContactPage() {
     <div class="co-fullbg-banner banner-night">
       <div class="co-page-header">
         <p>Inquiry</p>
-        <h1>견적의뢰 및 문의 <span style="font-weight:300;opacity:.7;">— Contact Us</span></h1>
+        <h1>견적의뢰 및 문의<span class="co-page-subtitle">— Contact Us</span></h1>
       </div>
     </div>
     <div class="co-wrap">
@@ -1166,7 +1166,7 @@ function openContactUsPage() {
     <div class="co-fullbg-banner banner-songdo">
       <div class="co-page-header">
         <p>Contact Us</p>
-        <h1>선샤인 웰니스 <span style="font-weight:300;opacity:.7;">— Sunshine Wellness</span></h1>
+        <h1>선샤인 웰니스<span class="co-page-subtitle">— Sunshine Wellness</span></h1>
       </div>
     </div>
     <div class="cu-wrap">
@@ -1253,8 +1253,8 @@ function openArtConciergePage() {
 
       <div class="co-fullbg-banner" style="background:linear-gradient(rgba(10,10,20,0.60),rgba(10,10,20,0.55)),url('images/51315836390_c2d8b2c7e2_o.jpg') center/cover no-repeat;padding-top:80px;">
         <div class="co-page-header">
-          <p style="color:rgba(255,255,255,0.55);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px;">Partner Agency</p>
-          <h1 style="font-size:clamp(22px,4vw,34px);font-weight:800;color:#fff;line-height:1.3;">아트 컨시어지<br/><span style="font-size:0.6em;font-weight:400;opacity:.75;">Art Concierge — Destination Art Travel</span></h1>
+          <p>Partner Agency</p>
+          <h1>아트 컨시어지<span class="co-page-subtitle">Art Concierge — Destination Art Travel</span></h1>
         </div>
       </div>
 
@@ -1417,7 +1417,7 @@ function openProgramsPage() {
     <div class="co-fullbg-banner banner-colorful">
       <div class="co-page-header">
         <p>Our Programs</p>
-        <h1>웰니스 여행 프로그램 <span style="font-weight:300;opacity:.7;">— 몸과 마음이 함께 쉬어가는 시간</span></h1>
+        <h1>웰니스 여행 프로그램<span class="co-page-subtitle">— 몸과 마음이 함께 쉬어가는 시간</span></h1>
       </div>
     </div>
     <div style="background:#f5f5f3;min-height:100%;">
