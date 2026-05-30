@@ -1515,11 +1515,185 @@ function openArtConciergePage() {
         </div>
       </div>
 
+      <!-- ⑨ Cultural Archive 1뎁스 + 2뎁스 -->
+      <div style="background:#fff;padding:56px 0;border-top:1px solid #e8e8e4;">
+        <div class="sp-wrap">
+          <p class="co-section-title">Cultural Archive · 문화공간 아카이브</p>
+          <h2 class="co-heading">세계의 도시가 기억되는 방식</h2>
+          <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;max-width:560px;">이상훈 대표가 직접 다녀온 세계의 문화공간 — 음악, 건축, 축제, 재생, 재단이 도시 정체성을 만들어가는 50가지 장면.</p>
+          <div style="display:flex;align-items:flex-end;gap:32px;margin-bottom:44px;flex-wrap:wrap;">
+            ${[['50','Cases'],['6','Types'],['12+','Countries']].map(([n,l])=>`
+              <div style="display:flex;flex-direction:column;gap:3px;">
+                <span style="font-size:30px;font-weight:800;color:#1a2e2a;line-height:1;">${n}</span>
+                <span style="font-size:10px;color:#aaa;letter-spacing:.1em;text-transform:uppercase;">${l}</span>
+              </div>`).join('<div style="width:1px;height:38px;background:#e0ddd8;margin:0 4px;align-self:center;"></div>')}
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;">
+            ${[
+              {type:'T1',label:'음악도시와 공연장',en:'Music City & Hall',desc:'클래식 공연장과 음악 전통이 도시 정체성을 만들어온 사례들.',tags:['#카탈루냐음악당','#무지크페어라인','#콘세르트헤바우']},
+              {type:'T2',label:'축제와 예술가의 도시',en:'Festival & Artist City',desc:'예술가의 삶과 페스티벌이 도시를 목적지로 만든 사례들.',tags:['#바이로이트','#달리극장미술관','#베로나아레나']},
+              {type:'T3',label:'산업유산과 도시재생',en:'Heritage & Regeneration',desc:'산업 유산이 문화공간으로 전환된 도시재생 사례들.',tags:['#엘프필하모니','#배터시발전소','#루마재단']},
+              {type:'T4',label:'재단·기업·컬렉션 기반',en:'Foundation & Collection',desc:'기업·재단·개인 컬렉션이 공공 문화자산이 된 사례들.',tags:['#킴벨미술관','#루이비통재단','#비트라캠퍼스']},
+              {type:'T5',label:'건축 실험과 감각 경험',en:'Architecture & Senses',desc:'건축 자체가 목적지가 된 공간 실험 사례들.',tags:['#라무랄라로하','#발스온천','#마르케스데리스칼']},
+              {type:'T6',label:'기술·시장·플랫폼',en:'Tech · Market · Platform',desc:'기술, 시장, 글로벌 네트워크가 문화를 확장한 사례들.',tags:['#스피어','#TEFAF','#MASP상파울루']},
+            ].map(({type,label,en,desc,tags})=>`
+              <div style="border:1px solid #e0ddd8;border-radius:14px;padding:22px 20px;background:#fafaf8;display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s;"
+                   onmouseover="this.style.boxShadow='0 8px 28px rgba(0,0,0,0.09)';this.style.transform='translateY(-3px)'"
+                   onmouseout="this.style.boxShadow='none';this.style.transform='none'">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+                  <span style="font-size:10px;font-weight:800;letter-spacing:.1em;color:#fff;background:#1a2e2a;padding:3px 10px;border-radius:20px;">${type}</span>
+                  <span style="font-size:10px;color:#bbb;font-style:italic;">${en}</span>
+                </div>
+                <h3 style="font-size:14px;font-weight:700;color:#1a2e2a;margin-bottom:8px;line-height:1.4;">${label}</h3>
+                <p style="font-size:12.5px;color:#777;line-height:1.75;flex:1;margin-bottom:12px;">${desc}</p>
+                <div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px;">
+                  ${tags.map(t=>`<span style="font-size:10px;font-weight:600;color:#3B6259;background:#eef5f2;padding:3px 9px;border-radius:20px;">${t}</span>`).join('')}
+                </div>
+                <button onclick="openCulturalCasePage('${type}')"
+                        style="display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;color:#1a2e2a;background:transparent;border:1.5px solid #1a2e2a;border-radius:8px;padding:6px 14px;width:fit-content;cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:background .2s,color .2s;"
+                        onmouseover="this.style.background='#1a2e2a';this.style.color='#fff'"
+                        onmouseout="this.style.background='transparent';this.style.color='#1a2e2a'">
+                  사례 보기 →
+                </button>
+              </div>`).join('')}
+          </div>
+          <p style="font-size:11.5px;color:#bbb;text-align:right;padding-top:14px;">Source · 부산일보 「이상훈의 시그니처 문화공간 이야기」 칼럼 기반</p>
+        </div>
+      </div>
+
       <!-- CTA -->
       <div style="max-width:900px;margin:0 auto;padding:40px 40px 64px;">
         <div style="text-align:center;">
           <p style="font-size:13px;color:#999;margin-bottom:20px;">선샤인 웰니스와 아트 컨시어지가 함께 설계하는 특별한 여행</p>
           <button onclick="openContactPage()" style="display:inline-flex;align-items:center;gap:10px;background:#1a2e2a;color:#fff;font-size:14px;font-weight:700;padding:15px 44px;border-radius:32px;border:none;cursor:pointer;font-family:'Noto Sans KR',sans-serif;letter-spacing:.04em;">문의하기 →</button>
+        </div>
+      </div>
+
+    </div>
+  `);
+}
+
+// =========================================
+// 문화공간 아카이브 사례 상세 (3뎁스)
+// =========================================
+function openCulturalCasePage(selectedType) {
+  const types = {
+    T1:{label:'음악도시와 공연장',en:'Music City & Hall'},
+    T2:{label:'축제와 예술가의 도시',en:'Festival & Artist City'},
+    T3:{label:'산업유산과 도시재생',en:'Heritage & Regeneration'},
+    T4:{label:'재단·기업·컬렉션 기반',en:'Foundation & Collection'},
+    T5:{label:'건축 실험과 감각 경험',en:'Architecture & Senses'},
+    T6:{label:'기술·시장·플랫폼',en:'Tech · Market · Platform'},
+  };
+
+  const cases = [
+    // T1 — 음악도시와 공연장
+    {type:'T1',name:'카탈루냐 음악당',city:'바르셀로나',country:'스페인',concept:'민족주의 상징 공연장',desc:'음악, 장식예술, 민족 정체성이 결합된 바르셀로나의 상징적 공연장.',tags:['#음악당','#바르셀로나','#건축유산'],url:'#'},
+    {type:'T1',name:'루돌피눔',city:'프라하',country:'체코',concept:'전통 공연장형 문화공간',desc:'프라하의 역사와 음악성이 결합된 전통 공연장형 문화공간.',tags:['#프라하','#클래식','#체코'],url:'#'},
+    {type:'T1',name:'무파 부다페스트',city:'부다페스트',country:'헝가리',concept:'공연장·문화지구 결합',desc:'현대 공연장과 문화지구가 결합된 부다페스트의 대표 문화 앵커.',tags:['#부다페스트','#문화지구','#공연장'],url:'#'},
+    {type:'T1',name:'콘세르트헤바우',city:'암스테르담',country:'네덜란드',concept:'도시 음악 브랜드',desc:'암스테르담의 음악 전통과 도시 품격을 상징하는 클래식 공연장.',tags:['#암스테르담','#오케스트라','#클래식'],url:'#'},
+    {type:'T1',name:'KKL 루체른',city:'루체른',country:'스위스',concept:'음악·컨벤션·경관 복합',desc:'음향, 호수 경관, 페스티벌이 결합된 루체른의 대표 문화컨벤션 공간.',tags:['#루체른','#호수경관','#복합문화'],url:'#'},
+    {type:'T1',name:'게반트하우스',city:'라이프치히',country:'독일',concept:'음악도시 정체성 대표 공연장',desc:'라이프치히의 음악도시 정체성을 대표하는 공연장.',tags:['#라이프치히','#바흐','#오케스트라'],url:'#'},
+    {type:'T1',name:'빈 콘체르트하우스',city:'빈',country:'오스트리아',concept:'클래식 전통과 도시 문화생활',desc:'클래식 전통과 도시 문화생활이 만나는 빈의 대표 공연장.',tags:['#빈','#클래식','#문화생활'],url:'#'},
+    {type:'T1',name:'무지크페어라인',city:'빈',country:'오스트리아',concept:'국가적 음악 브랜드 상징',desc:'국가적 음악 브랜드를 상징하는 빈의 클래식 공연공간.',tags:['#무지크페어라인','#빈필하모닉','#황금홀'],url:'#'},
+    {type:'T1',name:'룩셈부르크 필하모니',city:'룩셈부르크',country:'룩셈부르크',concept:'국가 문화 이미지 상징',desc:'국가 문화 이미지를 상징하는 현대 공연장.',tags:['#룩셈부르크','#필하모니','#현대건축'],url:'#'},
+    {type:'T1',name:'하르파',city:'레이캬비크',country:'아이슬란드',concept:'지리적 경관과 현대 건축 결합',desc:'지리적 경관과 현대 건축을 결합한 아이슬란드의 문화 랜드마크.',tags:['#아이슬란드','#현대건축','#랜드마크'],url:'#'},
+    {type:'T1',name:'오슬로 오페라하우스',city:'오슬로',country:'노르웨이',concept:'워터프론트 공공문화공간',desc:'시민이 걷고 머무는 워터프론트 공공문화공간으로 설계된 오페라하우스.',tags:['#오슬로','#워터프론트','#공공건축'],url:'#'},
+
+    // T2 — 축제와 예술가의 도시
+    {type:'T2',name:'달리 극장미술관',city:'피게레스',country:'스페인',concept:'예술가 성지형 문화도시',desc:'살바도르 달리가 직접 설계하고 잠든 초현실주의 문화공간.',tags:['#달리','#초현실주의','#피게레스'],url:'https://www.busan.com/view/busan/view.php?code=2026021217095653845'},
+    {type:'T2',name:'아비뇽 교황청',city:'아비뇽',country:'프랑스',concept:'역사도시형 문화공간',desc:'중세 유산과 현대 예술이 만나는 역사도시형 문화공간.',tags:['#아비뇽','#역사도시','#축제'],url:'#'},
+    {type:'T2',name:'바이로이트 축제극장',city:'바이로이트',country:'독일',concept:'음악 성지형 도시',desc:'바그너 예술세계를 중심으로 도시를 음악 성지로 만든 공연장.',tags:['#바그너','#오페라','#축제극장'],url:'#'},
+    {type:'T2',name:'베르비에 페스티벌',city:'베르비에',country:'스위스',concept:'고급 문화관광',desc:'알프스 리조트와 클래식 음악축제가 결합된 고급 문화관광 사례.',tags:['#알프스','#클래식','#문화관광'],url:'#'},
+    {type:'T2',name:'베로나 아레나',city:'베로나',country:'이탈리아',concept:'역사 유산형 공연공간',desc:'고대 원형경기장을 현대 공연무대로 활용한 역사 유산형 공연공간.',tags:['#베로나','#아레나','#야외오페라'],url:'#'},
+    {type:'T2',name:'브레겐츠 수상무대',city:'브레겐츠',country:'오스트리아',concept:'자연경관·공연 확장',desc:'호수 위 무대를 활용해 자연경관을 공연 경험으로 확장한 축제공간.',tags:['#브레겐츠','#호수무대','#야외오페라'],url:'https://www.busan.com/view/busan/view.php?code=2024082217563682352'},
+    {type:'T2',name:'글라인드본',city:'글라인드본',country:'영국',concept:'사적 축제형 문화공간',desc:'전원 풍경과 오페라 축제가 결합된 사적 축제형 문화공간.',tags:['#글라인드본','#오페라','#전원풍경'],url:'#'},
+    {type:'T2',name:'부활절 축제',city:'잘츠부르크',country:'오스트리아',concept:'비수기 관광 활성화',desc:'도시의 비수기 관광을 고급 음악축제로 활성화한 사례.',tags:['#잘츠부르크','#부활절','#클래식축제'],url:'#'},
+
+    // T3 — 산업유산과 도시재생
+    {type:'T3',name:'엘프필하모니',city:'함부르크',country:'독일',concept:'항만 창고 재생 아이콘',desc:'항구 도시의 낡은 창고가 세계 최고의 콘서트홀로 재탄생한 문화 아이콘.',tags:['#함부르크','#항만재생','#콘서트홀'],url:'https://www.busan.com/view/busan/view.php?code=2024071117513822757'},
+    {type:'T3',name:'함부르거 반호프',city:'베를린',country:'독일',concept:'철도역→현대미술관',desc:'철도역을 현대미술관으로 전환한 산업유산 활용 사례.',tags:['#베를린','#현대미술','#산업유산'],url:'#'},
+    {type:'T3',name:'벙커 미술관',city:'베를린',country:'독일',concept:'군사유산→예술공간',desc:'군사 유산을 예술공간으로 전환한 기억과 문화의 접점.',tags:['#벙커','#예술공간','#도시재생'],url:'#'},
+    {type:'T3',name:'배터시 발전소',city:'런던',country:'영국',concept:'산업유산 복합공간 전환',desc:'산업유산을 상업·문화·여가 복합공간으로 전환한 런던 사례.',tags:['#배터시','#런던','#복합공간'],url:'#'},
+    {type:'T3',name:'루마 재단',city:'아를',country:'프랑스',concept:'산업도시→현대미술 플랫폼',desc:'산업도시 아를을 현대미술과 창작 플랫폼으로 전환한 사례.',tags:['#아를','#현대미술','#창작플랫폼'],url:'#'},
+    {type:'T3',name:'스타라이트 익스프레스',city:'보훔',country:'독일',concept:'콘텐츠 상설화 도시',desc:'특정 콘텐츠를 상설 공연화하여 도시 방문 동기를 만든 사례.',tags:['#보훔','#상설공연','#뮤지컬'],url:'#'},
+
+    // T4 — 재단·기업·컬렉션 기반
+    {type:'T4',name:'킴벨 미술관',city:'포트워스',country:'미국',concept:'건축·미술 감상의 본질',desc:'자연광과 절제된 건축미로 미술 감상의 본질을 강조한 미술관.',tags:['#킴벨','#포트워스','#루이칸'],url:'#'},
+    {type:'T4',name:'반스 재단',city:'필라델피아',country:'미국',concept:'컬렉터 미학·교육 철학 구현',desc:'컬렉터의 미학과 교육 철학이 미술관 공간으로 구현된 사례.',tags:['#반스재단','#필라델피아','#컬렉션'],url:'#'},
+    {type:'T4',name:'루이비통 재단',city:'파리',country:'프랑스',concept:'현대 미술·건축 동시',desc:'프랭크 게리가 설계한 건물 안에서 현대 미술과 건축이 동시에 빛나는 갤러리.',tags:['#루이비통재단','#파리','#프랭크게리'],url:'https://www.busan.com/view/busan/view.php?code=2025050817570975724'},
+    {type:'T4',name:'굴벤키안 재단',city:'리스본',country:'포르투갈',concept:'예술·정원·재단 통합',desc:'예술, 정원, 재단 운영이 통합된 리스본의 복합 문화공간.',tags:['#리스본','#굴벤키안','#재단'],url:'#'},
+    {type:'T4',name:'하버드 미술관',city:'케임브리지',country:'미국',concept:'대학·연구·전시 결합',desc:'대학, 연구, 전시가 결합된 지식 기반 문화공간.',tags:['#하버드','#대학미술관','#지식공간'],url:'#'},
+    {type:'T4',name:'노바티스 캠퍼스',city:'바젤',country:'스위스',concept:'기업 캠퍼스 디자인 클러스터',desc:'기업 캠퍼스를 세계적 건축가들의 디자인 실험장으로 만든 문화 클러스터.',tags:['#바젤','#노바티스','#건축실험'],url:'#'},
+    {type:'T4',name:'비트라 캠퍼스',city:'바일암라인',country:'독일',concept:'디자인·건축·브랜드 클러스터',desc:'디자인, 건축, 기업 브랜드가 결합된 세계적 디자인 클러스터.',tags:['#비트라','#디자인','#건축클러스터'],url:'#'},
+    {type:'T4',name:'샤토 라코스테',city:'루베롱',country:'프랑스',concept:'와이너리·건축·현대미술 체류',desc:'와이너리, 건축, 현대미술이 결합된 예술형 체류 공간.',tags:['#와이너리','#현대미술','#체류공간'],url:'#'},
+    {type:'T4',name:'매캘란 에스테이트',city:'스코틀랜드',country:'영국',concept:'브랜드·체험 문화공간',desc:'위스키 양조장을 건축·브랜드·체험이 만나는 문화공간으로 확장한 사례.',tags:['#매캘란','#위스키','#브랜드공간'],url:'#'},
+    {type:'T4',name:'롤렉스 공연장 네트워크',city:'글로벌',country:'복수',concept:'민간 후원·공연 생태계',desc:'민간 후원과 공연예술 생태계가 연결된 글로벌 문화공간 사례.',tags:['#롤렉스','#공연후원','#글로벌'],url:'#'},
+
+    // T5 — 건축 실험과 감각 경험
+    {type:'T5',name:'라 무랄라 로하',city:'칼페',country:'스페인',concept:'공동체 주거→예술 공간',desc:'색채와 기하학적 구조를 통해 공동체 주거를 예술적 공간으로 만든 건축 사례.',tags:['#라무랄라로하','#건축예술','#주거'],url:'#'},
+    {type:'T5',name:'발스 온천',city:'발스',country:'스위스',concept:'감각·치유 체류 공간',desc:'감각적 건축과 치유 경험이 결합된 체류형 문화공간.',tags:['#발스','#온천','#페터춤토르'],url:'#'},
+    {type:'T5',name:'바르셀로나 예술과학도시',city:'바르셀로나',country:'스페인',concept:'미래형 도시 이미지 창출',desc:'미래적 건축을 통해 도시 이미지를 새롭게 만든 문화관광 랜드마크.',tags:['#바르셀로나','#예술과학도시','#랜드마크'],url:'#'},
+    {type:'T5',name:'마르케스 데 리스칼',city:'엘시에고',country:'스페인',concept:'와이너리+스타건축 지역 브랜딩',desc:'와이너리와 스타 건축을 결합해 지역 브랜드를 높인 사례.',tags:['#리스칼','#프랭크게리','#와이너리'],url:'#'},
+    {type:'T5',name:'로마 현대 삽입 사례',city:'로마',country:'이탈리아',concept:'역사도시 현대 건축 삽입',desc:'역사도시 안에 현대 건축을 조심스럽게 삽입한 공간 전략 사례.',tags:['#로마','#현대건축','#역사도시'],url:'#'},
+
+    // T6 — 기술·시장·플랫폼
+    {type:'T6',name:'스피어',city:'라스베이거스',country:'미국',concept:'몰입형 미디어 공연공간',desc:'초대형 미디어 기술과 공연 경험이 결합된 몰입형 문화공간.',tags:['#스피어','#라스베이거스','#몰입형'],url:'#'},
+    {type:'T6',name:'MASP 상파울루',city:'상파울루',country:'브라질',concept:'도시 공공성·현대미술 결합',desc:'남미 현대미술과 도시 공공성이 결합된 대표 미술관.',tags:['#MASP','#상파울루','#공공미술관'],url:'#'},
+    {type:'T6',name:'TEFAF 마스트리흐트',city:'마스트리흐트',country:'네덜란드',concept:'도시→세계 아트마켓',desc:'도시를 세계적 아트마켓의 장으로 만든 문화경제형 사례.',tags:['#TEFAF','#아트마켓','#마스트리흐트'],url:'#'},
+    {type:'T6',name:'루브르·퐁피두 분관',city:'아부다비 외',country:'복수',concept:'미술관 브랜드 글로벌 확장',desc:'세계적 미술관 브랜드가 도시 개발과 문화관광으로 확장된 사례.',tags:['#루브르','#퐁피두','#분관'],url:'#'},
+    {type:'T6',name:'휴스턴 미술관지구',city:'휴스턴',country:'미국',concept:'문화시설 집적 네트워크',desc:'여러 문화시설이 집적되어 도시 문화 네트워크를 형성한 사례.',tags:['#휴스턴','#미술관지구','#문화클러스터'],url:'#'},
+    {type:'T6',name:'바스콘셀로스 도서관',city:'멕시코시티',country:'멕시코',concept:'도서관→도시 문화 인프라',desc:'도서관을 지식, 공공성, 건축미가 결합된 도시 문화 인프라로 확장한 사례.',tags:['#멕시코시티','#도서관','#공공건축'],url:'#'},
+    {type:'T6',name:'멕시코시티 소칼로',city:'멕시코시티',country:'멕시코',concept:'상징적 공공 광장',desc:'국가적 기억, 시민 집회, 축제가 교차하는 상징적 공공광장.',tags:['#소칼로','#멕시코시티','#공공광장'],url:'#'},
+    {type:'T6',name:'메세 뮌헨',city:'뮌헨',country:'독일',concept:'전시·컨벤션 도시 경쟁력',desc:'전시·컨벤션 기능을 통해 도시의 이벤트 경쟁력을 강화한 공간.',tags:['#뮌헨','#전시','#컨벤션'],url:'#'},
+  ];
+
+  const filtered = cases.filter(c => c.type === selectedType);
+  const typeInfo = types[selectedType];
+
+  showSubPageFull(`
+    <div class="co-fullbg-wrap">
+
+      <!-- 3뎁스 헤더 -->
+      <div style="background:#1a2e2a;padding:48px 0 36px;">
+        <div class="sp-wrap">
+          <button onclick="openArtConciergePage()"
+                  style="display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:#a0bfb5;background:transparent;border:none;cursor:pointer;font-family:'Noto Sans KR',sans-serif;margin-bottom:24px;padding:0;letter-spacing:.02em;">
+            ← 아트 컨시어지로 돌아가기
+          </button>
+          <p style="font-size:11px;font-weight:700;letter-spacing:.15em;color:#7aaa99;text-transform:uppercase;margin-bottom:10px;">Cultural Space Case</p>
+          <h1 style="font-size:26px;font-weight:800;color:#fff;line-height:1.25;margin-bottom:8px;">${typeInfo.label}</h1>
+          <p style="font-size:13px;color:#a0bfb5;">${typeInfo.en} · ${filtered.length} Cases</p>
+        </div>
+      </div>
+
+      <!-- 사례 카드 목록 -->
+      <div style="background:#fafaf8;padding:44px 0 72px;">
+        <div class="sp-wrap">
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;">
+            ${filtered.map(c=>`
+              <div style="border:1px solid #e0ddd8;border-radius:14px;padding:24px 22px;background:#fff;display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s;"
+                   onmouseover="this.style.boxShadow='0 8px 28px rgba(0,0,0,0.09)';this.style.transform='translateY(-3px)'"
+                   onmouseout="this.style.boxShadow='none';this.style.transform='none'">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+                  <span style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#3B6259;">${c.city} · ${c.country}</span>
+                  <span style="font-size:10px;font-weight:800;color:#fff;background:#1a2e2a;padding:2px 9px;border-radius:20px;">${c.type}</span>
+                </div>
+                <h3 style="font-size:15px;font-weight:700;color:#1a2e2a;line-height:1.4;margin-bottom:7px;">${c.name}</h3>
+                <p style="font-size:11.5px;font-weight:600;color:#3B6259;margin-bottom:10px;">${c.concept}</p>
+                <p style="font-size:13px;color:#666;line-height:1.8;flex:1;margin-bottom:14px;">${c.desc}</p>
+                <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;">
+                  ${c.tags.map(t=>`<span style="font-size:10px;font-weight:600;color:#3B6259;background:#eef5f2;padding:3px 9px;border-radius:20px;">${t}</span>`).join('')}
+                </div>
+                ${c.url !== '#' ? `<a href="${c.url}" target="_blank" rel="noopener noreferrer"
+                   style="display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:700;color:#1a2e2a;text-decoration:none;border:1.5px solid #1a2e2a;border-radius:8px;padding:7px 16px;width:fit-content;transition:background .2s,color .2s;"
+                   onmouseover="this.style.background='#1a2e2a';this.style.color='#fff'"
+                   onmouseout="this.style.background='transparent';this.style.color='#1a2e2a'">
+                  원문 보기 ↗
+                </a>` : `<span style="font-size:11px;color:#ccc;font-style:italic;">칼럼 준비 중</span>`}
+              </div>`).join('')}
+          </div>
+          <p style="font-size:11.5px;color:#bbb;text-align:right;padding-top:20px;">Source · 부산일보 「이상훈의 시그니처 문화공간 이야기」 칼럼 기반</p>
         </div>
       </div>
 
