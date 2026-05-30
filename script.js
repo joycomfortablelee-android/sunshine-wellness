@@ -1,7 +1,7 @@
 // =========================================
 // SUNSHINE WELLNESS — script.js
 // =========================================
-console.log('[SCRIPT] 로딩됨 v=20260530a');
+console.log('[SCRIPT] 로딩됨 v=20260530b');
 
 // --- 헤더: 스크롤 시 투명 → 흰색 ---
 const header = document.getElementById('header');
@@ -1323,102 +1323,100 @@ function openArtConciergePage() {
         </div>
       </div>
 
-      <div class="ac-wrap" style="max-width:860px;margin:0 auto;padding:56px 40px 80px;">
+      <div class="ac-wrap" style="max-width:680px;margin:0 auto;padding:56px 40px 80px;">
 
         <!-- 원문 자료 링크 -->
-        <div class="ac-links-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:52px;">
-          <a href="https://www.busan.com/view/busan/view.php?code=2024010814490253602" target="_blank" rel="noopener"
-             style="display:flex;align-items:center;gap:16px;background:#fff;border:1px solid #e0ddd8;border-radius:14px;padding:20px 22px;text-decoration:none;transition:box-shadow .2s,transform .2s;"
-             onmouseover="this.style.boxShadow='0 6px 24px rgba(0,0,0,0.10)';this.style.transform='translateY(-2px)'"
-             onmouseout="this.style.boxShadow='none';this.style.transform='none'">
-            <span style="font-size:28px;flex-shrink:0;">📰</span>
-            <div>
-              <p style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3B6259;margin-bottom:4px;">부산일보 기사</p>
-              <p style="font-size:13.5px;font-weight:700;color:#1a2e2a;line-height:1.4;">"예술 그 자체가 목적인 여행"<br/>아트컨시어지 이상훈 대표</p>
-              <p style="font-size:11.5px;color:#aaa;margin-top:6px;">새 탭에서 열기 ↗</p>
-            </div>
-          </a>
-          <a href="https://busandabom.net/bofels/BBS_202302020440515501.pdf" target="_blank" rel="noopener"
-             style="display:flex;align-items:center;gap:16px;background:#fff;border:1px solid #e0ddd8;border-radius:14px;padding:20px 22px;text-decoration:none;transition:box-shadow .2s,transform .2s;"
-             onmouseover="this.style.boxShadow='0 6px 24px rgba(0,0,0,0.10)';this.style.transform='translateY(-2px)'"
-             onmouseout="this.style.boxShadow='none';this.style.transform='none'">
-            <span style="font-size:28px;flex-shrink:0;">📄</span>
-            <div>
-              <p style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3B6259;margin-bottom:4px;">공식 소개 자료 (PDF)</p>
-              <p style="font-size:13.5px;font-weight:700;color:#1a2e2a;line-height:1.4;">아트 컨시어지<br/>서비스 소개서</p>
-              <p style="font-size:11.5px;color:#aaa;margin-top:6px;">PDF 새 탭에서 열기 ↗</p>
-            </div>
-          </a>
-        </div>
-
-        <!-- 소개 -->
-        <div class="ac-intro-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-bottom:56px;">
-          <div>
-            <p style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#3B6259;margin-bottom:14px;">About</p>
-            <h2 style="font-size:clamp(20px,3vw,26px);font-weight:800;color:#1a2e2a;line-height:1.4;margin-bottom:20px;">예술 그 자체가<br/>목적인 여행</h2>
-            <p style="font-size:14.5px;color:#555;line-height:1.9;margin-bottom:16px;">아트 컨시어지는 단순히 여행 중 공연이나 미술관을 방문하는 것이 아닌, <strong>특정 공연·전시·건축 공간을 주목적으로 기획하는 1인 전문 여행사</strong>입니다.</p>
-            <p style="font-size:14.5px;color:#555;line-height:1.9;">"그곳에 가야만 볼 수 있는 예술"이라는 <em>데스티네이션 아트(Destination Art)</em> 철학 아래, 서유럽 음악·콘서트·건축 공간 VIP 투어를 전문으로 합니다.</p>
-          </div>
-          <div>
-            <p style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#3B6259;margin-bottom:14px;">대표자</p>
-            <div style="background:#f5f5f3;border-radius:14px;padding:28px 26px;">
-              <p style="font-size:17px;font-weight:800;color:#1a2e2a;margin-bottom:6px;">이상훈 대표</p>
-              <p style="font-size:12.5px;color:#888;margin-bottom:20px;letter-spacing:.04em;">Art Concierge · Destination Art Specialist</p>
-              <div style="display:flex;flex-direction:column;gap:10px;">
-                <div style="display:flex;align-items:baseline;gap:10px;"><span style="font-size:22px;font-weight:800;color:#3B6259;min-width:52px;">1,400<span style="font-size:12px;font-weight:500;color:#888;">+</span></span><span style="font-size:13px;color:#555;">누적 방문 도시</span></div>
-                <div style="display:flex;align-items:baseline;gap:10px;"><span style="font-size:22px;font-weight:800;color:#3B6259;min-width:52px;">400<span style="font-size:12px;font-weight:500;color:#888;">+</span></span><span style="font-size:13px;color:#555;">보유 미술관 도록</span></div>
-                <div style="display:flex;align-items:baseline;gap:10px;"><span style="font-size:22px;font-weight:800;color:#3B6259;min-width:52px;">60~70</span><span style="font-size:13px;color:#555;">관리 중인 축제 정보</span></div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:56px;">
+          ${[
+            ['📰','부산일보 기사','"예술 그 자체가 목적인 여행" — 아트컨시어지 이상훈 대표','https://www.busan.com/view/busan/view.php?code=2024010814490253602'],
+            ['📄','공식 소개자료 PDF','아트 컨시어지 서비스 소개서 (busandabom.net)','https://busandabom.net/bofels/BBS_202302020440515501.pdf'],
+          ].map(([icon,label,desc,url]) => `
+            <a href="${url}" target="_blank" rel="noopener"
+               style="display:flex;align-items:center;gap:18px;background:#fff;border:1px solid #e0ddd8;border-radius:14px;padding:18px 22px;text-decoration:none;transition:box-shadow .2s,transform .2s;"
+               onmouseover="this.style.boxShadow='0 6px 20px rgba(0,0,0,0.09)';this.style.transform='translateY(-2px)'"
+               onmouseout="this.style.boxShadow='none';this.style.transform='none'">
+              <span style="font-size:26px;flex-shrink:0;">${icon}</span>
+              <div style="flex:1;">
+                <p style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3B6259;margin-bottom:3px;">${label}</p>
+                <p style="font-size:13.5px;font-weight:600;color:#1a2e2a;line-height:1.5;">${desc}</p>
               </div>
-            </div>
+              <span style="font-size:16px;color:#bbb;flex-shrink:0;">↗</span>
+            </a>`).join('')}
+        </div>
+
+        <!-- About -->
+        <div style="margin-bottom:40px;">
+          <p style="font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#3B6259;margin-bottom:12px;">About</p>
+          <h2 style="font-size:clamp(22px,3vw,28px);font-weight:800;color:#1a2e2a;line-height:1.35;margin-bottom:18px;">예술 그 자체가<br/>목적인 여행</h2>
+          <p style="font-size:15px;color:#555;line-height:1.9;margin-bottom:14px;">아트 컨시어지는 단순히 여행 중 공연이나 미술관을 방문하는 것이 아닌, <strong style="color:#1a2e2a;">특정 공연·전시·건축 공간을 주목적으로 기획하는 1인 전문 여행사</strong>입니다.</p>
+          <p style="font-size:15px;color:#555;line-height:1.9;">"그곳에 가야만 볼 수 있는 예술"이라는 <em>데스티네이션 아트(Destination Art)</em> 철학 아래, 서유럽 음악·콘서트·건축 공간 VIP 투어를 전문으로 합니다.</p>
+        </div>
+
+        <div style="height:1px;background:#ece9e4;margin-bottom:40px;"></div>
+
+        <!-- 대표자 -->
+        <div style="display:flex;align-items:center;gap:20px;margin-bottom:40px;padding:24px 28px;background:#f7f6f3;border-radius:14px;">
+          <div style="width:52px;height:52px;border-radius:50%;background:#1a2e2a;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px;">🎭</div>
+          <div style="flex:1;">
+            <p style="font-size:16px;font-weight:800;color:#1a2e2a;margin-bottom:2px;">이상훈 대표</p>
+            <p style="font-size:12px;color:#999;letter-spacing:.04em;">Art Concierge · Destination Art Specialist</p>
+          </div>
+          <div style="display:flex;gap:24px;flex-shrink:0;">
+            ${[['1,400+','도시'],['400+','도록'],['64+','공연']].map(([n,l])=>`
+            <div style="text-align:center;">
+              <span style="display:block;font-size:17px;font-weight:800;color:#3B6259;">${n}</span>
+              <span style="font-size:11px;color:#aaa;">${l}</span>
+            </div>`).join('')}
           </div>
         </div>
 
-        <!-- 2023년 하이라이트 -->
-        <div style="background:#1a2e2a;border-radius:16px;padding:36px 40px;margin-bottom:48px;">
-          <p style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:20px;">2023 하이라이트</p>
-          <div class="ac-stats-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.1);border-radius:8px;overflow:hidden;">
-            <div style="background:#1a2e2a;padding:24px 20px;text-align:center;">
-              <span style="display:block;font-size:32px;font-weight:800;color:#e8a04a;line-height:1;">170</span>
-              <span style="font-size:12px;color:rgba(255,255,255,0.55);margin-top:6px;display:block;">방문 도시</span>
-            </div>
-            <div style="background:#1a2e2a;padding:24px 20px;text-align:center;">
-              <span style="display:block;font-size:32px;font-weight:800;color:#e8a04a;line-height:1;">64</span>
-              <span style="font-size:12px;color:rgba(255,255,255,0.55);margin-top:6px;display:block;">관람 공연</span>
-            </div>
-            <div style="background:#1a2e2a;padding:24px 20px;text-align:center;">
-              <span style="display:block;font-size:32px;font-weight:800;color:#e8a04a;line-height:1;">126</span>
-              <span style="font-size:12px;color:rgba(255,255,255,0.55);margin-top:6px;display:block;">방문 미술관</span>
-            </div>
+        <div style="height:1px;background:#ece9e4;margin-bottom:40px;"></div>
+
+        <!-- 2023 하이라이트 -->
+        <div style="background:#1a2e2a;border-radius:14px;padding:28px 32px;margin-bottom:40px;">
+          <p style="font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:20px;">2023 하이라이트</p>
+          <div style="display:flex;justify-content:space-around;text-align:center;">
+            ${[['170','방문 도시'],['64','관람 공연'],['126','방문 미술관']].map(([n,l])=>`
+            <div>
+              <span style="display:block;font-size:36px;font-weight:800;color:#e8a04a;line-height:1;">${n}</span>
+              <span style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:6px;display:block;">${l}</span>
+            </div>`).join('')}
           </div>
         </div>
+
+        <div style="height:1px;background:#ece9e4;margin-bottom:40px;"></div>
 
         <!-- 전문 서비스 -->
-        <div style="margin-bottom:48px;">
-          <p style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#3B6259;margin-bottom:20px;">전문 서비스</p>
-          <div class="ac-service-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+        <div style="margin-bottom:40px;">
+          <p style="font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#3B6259;margin-bottom:20px;">전문 서비스</p>
+          <div style="display:flex;flex-direction:column;gap:14px;">
             ${[
               ['🎼','음악 · 콘서트','빈 필하모닉, 잘츠부르크 페스티벌 등 서유럽 정상급 음악 공연 VIP 관람 기획'],
               ['🏛️','건축 공간 투어','사그라다 파밀리아, 루이 뷔통 재단 등 현대 건축 걸작을 전문 해설과 함께'],
               ['🎨','미술관 컨시어지','루브르, 오르세, 테이트 등 400여 개 도록 기반의 깊이 있는 관람 설계'],
-            ].map(([icon, title, desc]) => `
-              <div style="background:#fff;border:1px solid #e8e8e4;border-radius:14px;padding:24px 20px;border-top:3px solid #3B6259;">
-                <span style="font-size:26px;display:block;margin-bottom:12px;">${icon}</span>
-                <h3 style="font-size:14px;font-weight:700;color:#1a2e2a;margin-bottom:8px;">${title}</h3>
-                <p style="font-size:13px;color:#666;line-height:1.75;">${desc}</p>
+            ].map(([icon,title,desc])=>`
+              <div style="display:flex;align-items:flex-start;gap:18px;padding:20px 22px;background:#fff;border:1px solid #ece9e4;border-left:3px solid #3B6259;border-radius:12px;">
+                <span style="font-size:24px;flex-shrink:0;margin-top:2px;">${icon}</span>
+                <div>
+                  <h3 style="font-size:14px;font-weight:700;color:#1a2e2a;margin-bottom:5px;">${title}</h3>
+                  <p style="font-size:13.5px;color:#666;line-height:1.75;">${desc}</p>
+                </div>
               </div>`).join('')}
           </div>
         </div>
 
-        <!-- 선샤인 웰니스 × 아트 컨시어지 -->
-        <div style="background:linear-gradient(135deg,#f0f7f4 0%,#e8f0ec 100%);border-radius:16px;padding:36px 40px;margin-bottom:48px;border-left:4px solid #3B6259;">
-          <p style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#3B6259;margin-bottom:12px;">Partnership</p>
-          <h3 style="font-size:18px;font-weight:800;color:#1a2e2a;margin-bottom:14px;">선샤인 웰니스 × 아트 컨시어지</h3>
+        <div style="height:1px;background:#ece9e4;margin-bottom:40px;"></div>
+
+        <!-- Partnership -->
+        <div style="padding:28px 32px;background:linear-gradient(135deg,#f0f7f4,#e6f0eb);border-radius:14px;margin-bottom:48px;">
+          <p style="font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#3B6259;margin-bottom:10px;">Partnership</p>
+          <h3 style="font-size:17px;font-weight:800;color:#1a2e2a;margin-bottom:12px;">선샤인 웰니스 × 아트 컨시어지</h3>
           <p style="font-size:14.5px;color:#555;line-height:1.9;">신중년을 위한 맞춤형 웰니스 여행과 데스티네이션 아트가 만났습니다. 부산을 넘어 서유럽의 예술과 문화를 깊이 경험하고 싶은 분들을 위해 두 전문 여행사가 함께합니다.</p>
         </div>
 
         <!-- CTA -->
         <div style="text-align:center;">
-          <button onclick="openContactPage()" style="display:inline-flex;align-items:center;gap:10px;background:#1a2e2a;color:#fff;font-size:14px;font-weight:700;padding:15px 40px;border-radius:32px;border:none;cursor:pointer;font-family:'Noto Sans KR',sans-serif;letter-spacing:.04em;">문의하기 →</button>
+          <button onclick="openContactPage()" style="display:inline-flex;align-items:center;gap:10px;background:#1a2e2a;color:#fff;font-size:14px;font-weight:700;padding:15px 44px;border-radius:32px;border:none;cursor:pointer;font-family:'Noto Sans KR',sans-serif;letter-spacing:.04em;">문의하기 →</button>
         </div>
 
       </div>
