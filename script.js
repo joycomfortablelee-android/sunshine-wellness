@@ -1283,7 +1283,7 @@ function openArtConciergePage() {
       </div>
 
       <!-- ① 제휴 투어 — 배너 바로 아래, sp-wrap (900px) -->
-      <div style="background:#f5f5f3;padding:56px 0 64px;">
+      <div style="background:#f5f5f3;padding:56px 0 28px;">
         <div class="sp-wrap">
           <p class="co-section-title">Partnership</p>
           <h2 class="co-heading">제휴 투어</h2>
@@ -1314,7 +1314,7 @@ function openArtConciergePage() {
       </div>
 
       <!-- ② About · 대표자 · 하이라이트 · 링크 — ac-wrap (680px) -->
-      <div class="ac-wrap" style="max-width:900px;margin:0 auto;padding:56px 40px 48px;">
+      <div class="ac-wrap" style="max-width:900px;margin:0 auto;padding:28px 40px 48px;">
 
         <div style="margin-bottom:40px;">
           <p style="font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#3B6259;margin-bottom:12px;">About</p>
