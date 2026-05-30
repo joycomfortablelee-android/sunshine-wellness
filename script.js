@@ -1359,7 +1359,7 @@ function openArtConciergePage() {
       </div>
 
       <!-- ⑤ Specialty 전문 서비스 -->
-      <div style="background:#f5f5f3;padding:48px 0 0;margin-top:48px;">
+      <div style="background:#f5f5f3;padding:0;margin-top:48px;">
         <div class="sp-wrap" style="padding-bottom:40px;">
           <p class="co-section-title">Specialty</p>
           <h2 class="co-heading" style="margin-bottom:32px;">전문 서비스</h2>
