@@ -1287,38 +1287,55 @@ function openArtConciergePage() {
         </div>
       </div>
 
-      <!-- ① 제휴 투어 — 배너 바로 아래, sp-wrap (900px) -->
-      <div style="background:#f5f5f3;padding:56px 0 28px;">
+      <!-- ① Partnership 헤더만 -->
+      <div style="background:#f5f5f3;padding:48px 0 36px;">
         <div class="sp-wrap">
           <p class="co-section-title">Partnership</p>
           <h2 class="co-heading">제휴 투어</h2>
-          <div class="sp-toolbar" style="margin-bottom:32px;">
+          <div class="sp-toolbar">
             <p class="sp-count">선샤인 웰니스 × 아트 컨시어지</p>
             <button onclick="openContactPage()" class="sp-btn-write">문의하기</button>
-          </div>
-          <div class="ac-tour-grid">
-            ${[
-              ['🎼','Exclusive','잘츠부르크 음악 페스티벌 VIP','오스트리아 · 8박 10일','매년 여름 개최되는 세계 최고의 클래식 음악 축제. VIP 좌석과 리허설 관람, 아티스트 백스테이지 투어 포함.','#e8a04a'],
-              ['🏛️','Curated','빈 필하모닉 골든홀 콘서트','오스트리아 · 5박 7일','세계 3대 콘서트홀 무직페라인 황금홀에서의 특별 공연 관람. 비엔나 왕궁·미술사박물관 연계 투어.','#3B6259'],
-              ['🎨','Curated','루브르 야간 VIP 관람','프랑스 · 6박 8일','일반 관람객 없는 시간대의 루브르 전용 투어. 큐레이터 해설과 함께하는 깊이 있는 감상 경험.','#3B6259'],
-              ['🏗️','Exclusive','사그라다 파밀리아 건축 기행','스페인 · 7박 9일','가우디 건축의 정수를 탑 입장권·건축 전문가 해설과 함께. 바르셀로나 현대 건축 도시 탐방 포함.','#e8a04a'],
-            ].map(([icon,tag,title,sub,desc,color])=>`
-              <div style="display:flex;flex-direction:column;gap:12px;padding:24px 24px 22px;background:#fff;border:1px solid #e8e8e4;border-top:3px solid ${color};border-radius:14px;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
-                <div style="display:flex;align-items:center;gap:12px;">
-                  <span style="font-size:26px;">${icon}</span>
-                  <span style="font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:${color};">${tag}</span>
-                </div>
-                <div>
-                  <h3 style="font-size:15px;font-weight:700;color:#1a2e2a;margin-bottom:4px;">${title}</h3>
-                  <p style="font-size:12px;color:#aaa;margin-bottom:10px;">${sub}</p>
-                  <p style="font-size:13.5px;color:#666;line-height:1.8;">${desc}</p>
-                </div>
-              </div>`).join('')}
           </div>
         </div>
       </div>
 
-      <!-- 이상훈 대표 사진 + 특강 링크 -->
+      <!-- ② 이상훈 대표 프로필 + 2023 하이라이트 -->
+      <div style="max-width:900px;margin:0 auto;padding:40px 40px 0;">
+        <div style="display:flex;align-items:center;gap:20px;margin-bottom:24px;padding:24px 28px;background:#f7f6f3;border-radius:14px;">
+          <div style="width:52px;height:52px;border-radius:50%;background:#1a2e2a;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px;">🎭</div>
+          <div style="flex:1;">
+            <p style="font-size:16px;font-weight:800;color:#1a2e2a;margin-bottom:2px;">이상훈 대표</p>
+            <p style="font-size:12px;color:#999;letter-spacing:.04em;">Art Concierge · Destination Art Specialist</p>
+          </div>
+          <div style="display:flex;gap:24px;flex-shrink:0;">
+            ${[['1,400+','도시'],['400+','도록'],['64+','공연']].map(([n,l])=>`
+            <div style="text-align:center;">
+              <span style="display:block;font-size:17px;font-weight:800;color:#3B6259;">${n}</span>
+              <span style="font-size:11px;color:#aaa;">${l}</span>
+            </div>`).join('')}
+          </div>
+        </div>
+        <div style="background:#1a2e2a;border-radius:14px;padding:28px 32px;">
+          <p style="font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:20px;">2023 하이라이트</p>
+          <div style="display:flex;justify-content:space-around;text-align:center;">
+            ${[['170','방문 도시'],['64','관람 공연'],['126','방문 미술관']].map(([n,l])=>`
+            <div>
+              <span style="display:block;font-size:36px;font-weight:800;color:#e8a04a;line-height:1;">${n}</span>
+              <span style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:6px;display:block;">${l}</span>
+            </div>`).join('')}
+          </div>
+        </div>
+      </div>
+
+      <!-- ③ About -->
+      <div style="max-width:900px;margin:0 auto;padding:40px 40px 0;">
+        <p style="font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#3B6259;margin-bottom:12px;">About</p>
+        <h2 style="font-size:clamp(22px,3vw,28px);font-weight:800;color:#1a2e2a;line-height:1.35;margin-bottom:18px;">예술 그 자체가<br/>목적인 여행</h2>
+        <p style="font-size:15px;color:#555;line-height:1.9;margin-bottom:14px;">아트 컨시어지는 단순히 여행 중 공연이나 미술관을 방문하는 것이 아닌, <strong style="color:#1a2e2a;">특정 공연·전시·건축 공간을 주목적으로 기획하는 1인 전문 여행사</strong>입니다.</p>
+        <p style="font-size:15px;color:#555;line-height:1.9;">"그곳에 가야만 볼 수 있는 예술"이라는 <em>데스티네이션 아트(Destination Art)</em> 철학 아래, 서유럽 음악·콘서트·건축 공간 VIP 투어를 전문으로 합니다.</p>
+      </div>
+
+      <!-- ④ 이상훈 사진 + 동서대 강의 카드 -->
       <div style="max-width:900px;margin:0 auto;padding:32px 40px 0;">
         <div class="ac-lsh-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch;">
           <div style="border-radius:14px;overflow:hidden;background:#111;aspect-ratio:4/3;">
@@ -1341,69 +1358,8 @@ function openArtConciergePage() {
         </div>
       </div>
 
-      <!-- ② About · 대표자 · 하이라이트 · 링크 — ac-wrap (680px) -->
-      <div class="ac-wrap" style="max-width:900px;margin:0 auto;padding:28px 40px 48px;">
-
-        <div style="margin-bottom:40px;">
-          <p style="font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#3B6259;margin-bottom:12px;">About</p>
-          <h2 style="font-size:clamp(22px,3vw,28px);font-weight:800;color:#1a2e2a;line-height:1.1;margin-bottom:18px;">예술 그 자체가<br/>목적인 여행</h2>
-          <p style="font-size:15px;color:#555;line-height:1.9;margin-bottom:14px;">아트 컨시어지는 단순히 여행 중 공연이나 미술관을 방문하는 것이 아닌, <strong style="color:#1a2e2a;">특정 공연·전시·건축 공간을 주목적으로 기획하는 1인 전문 여행사</strong>입니다.</p>
-          <p style="font-size:15px;color:#555;line-height:1.9;">"그곳에 가야만 볼 수 있는 예술"이라는 <em>데스티네이션 아트(Destination Art)</em> 철학 아래, 서유럽 음악·콘서트·건축 공간 VIP 투어를 전문으로 합니다.</p>
-        </div>
-
-        <div style="height:1px;background:#ece9e4;margin-bottom:40px;"></div>
-
-        <div style="display:flex;align-items:center;gap:20px;margin-bottom:40px;padding:24px 28px;background:#f7f6f3;border-radius:14px;">
-          <div style="width:52px;height:52px;border-radius:50%;background:#1a2e2a;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px;">🎭</div>
-          <div style="flex:1;">
-            <p style="font-size:16px;font-weight:800;color:#1a2e2a;margin-bottom:2px;">이상훈 대표</p>
-            <p style="font-size:12px;color:#999;letter-spacing:.04em;">Art Concierge · Destination Art Specialist</p>
-          </div>
-          <div style="display:flex;gap:24px;flex-shrink:0;">
-            ${[['1,400+','도시'],['400+','도록'],['64+','공연']].map(([n,l])=>`
-            <div style="text-align:center;">
-              <span style="display:block;font-size:17px;font-weight:800;color:#3B6259;">${n}</span>
-              <span style="font-size:11px;color:#aaa;">${l}</span>
-            </div>`).join('')}
-          </div>
-        </div>
-
-        <div style="background:#1a2e2a;border-radius:14px;padding:28px 32px;">
-          <p style="font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:20px;">2023 하이라이트</p>
-          <div style="display:flex;justify-content:space-around;text-align:center;">
-            ${[['170','방문 도시'],['64','관람 공연'],['126','방문 미술관']].map(([n,l])=>`
-            <div>
-              <span style="display:block;font-size:36px;font-weight:800;color:#e8a04a;line-height:1;">${n}</span>
-              <span style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:6px;display:block;">${l}</span>
-            </div>`).join('')}
-          </div>
-        </div>
-
-        <div style="height:1px;background:#ece9e4;margin:40px 0 32px;"></div>
-
-        <!-- 링크 카드 — 좌우 2열 -->
-        <div class="ac-links-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-          ${[
-            ['📰','부산일보 기사','"예술 그 자체가 목적인 여행"','https://www.busan.com/view/busan/view.php?code=2024010814490253602'],
-            ['📄','소개자료 PDF','서비스 소개서 (busandabom.net)','https://busandabom.net/bofels/BBS_202302020440515501.pdf'],
-          ].map(([icon,label,desc,url]) => `
-            <a href="${url}" target="_blank" rel="noopener"
-               style="display:flex;align-items:center;gap:14px;background:#fff;border:1px solid #e0ddd8;border-radius:14px;padding:16px 18px;text-decoration:none;transition:box-shadow .2s,transform .2s;"
-               onmouseover="this.style.boxShadow='0 6px 20px rgba(0,0,0,0.09)';this.style.transform='translateY(-2px)'"
-               onmouseout="this.style.boxShadow='none';this.style.transform='none'">
-              <span style="font-size:24px;flex-shrink:0;">${icon}</span>
-              <div style="flex:1;min-width:0;">
-                <p style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#3B6259;margin-bottom:2px;">${label}</p>
-                <p style="font-size:12.5px;font-weight:600;color:#1a2e2a;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${desc}</p>
-              </div>
-              <span style="font-size:14px;color:#bbb;flex-shrink:0;">↗</span>
-            </a>`).join('')}
-        </div>
-
-      </div><!-- /ac-wrap -->
-
-      <!-- ③ 전문 서비스 — sp-wrap (900px) -->
-      <div style="background:#f5f5f3;padding:56px 0 64px;">
+      <!-- ⑤ Specialty 전문 서비스 -->
+      <div style="background:#f5f5f3;padding:56px 0 40px;margin-top:40px;">
         <div class="sp-wrap">
           <p class="co-section-title">Specialty</p>
           <h2 class="co-heading" style="margin-bottom:32px;">전문 서비스</h2>
@@ -1424,10 +1380,54 @@ function openArtConciergePage() {
         </div>
       </div>
 
-      <!-- CTA -->
-      <div class="sp-wrap" style="text-align:center;padding-top:48px;padding-bottom:64px;">
-        <p style="font-size:13px;color:#999;margin-bottom:20px;">선샤인 웰니스와 아트 컨시어지가 함께 설계하는 특별한 여행</p>
-        <button onclick="openContactPage()" style="display:inline-flex;align-items:center;gap:10px;background:#1a2e2a;color:#fff;font-size:14px;font-weight:700;padding:15px 44px;border-radius:32px;border:none;cursor:pointer;font-family:'Noto Sans KR',sans-serif;letter-spacing:.04em;">문의하기 →</button>
+      <!-- ⑥ 4 Partnership 투어 카드 -->
+      <div style="background:#f5f5f3;padding:0 0 56px;">
+        <div class="sp-wrap">
+          <div class="ac-tour-grid">
+            ${[
+              ['🎼','Exclusive','잘츠부르크 음악 페스티벌 VIP','오스트리아 · 8박 10일','매년 여름 개최되는 세계 최고의 클래식 음악 축제. VIP 좌석과 리허설 관람, 아티스트 백스테이지 투어 포함.','#e8a04a'],
+              ['🏛️','Curated','빈 필하모닉 골든홀 콘서트','오스트리아 · 5박 7일','세계 3대 콘서트홀 무직페라인 황금홀에서의 특별 공연 관람. 비엔나 왕궁·미술사박물관 연계 투어.','#3B6259'],
+              ['🎨','Curated','루브르 야간 VIP 관람','프랑스 · 6박 8일','일반 관람객 없는 시간대의 루브르 전용 투어. 큐레이터 해설과 함께하는 깊이 있는 감상 경험.','#3B6259'],
+              ['🏗️','Exclusive','사그라다 파밀리아 건축 기행','스페인 · 7박 9일','가우디 건축의 정수를 탑 입장권·건축 전문가 해설과 함께. 바르셀로나 현대 건축 도시 탐방 포함.','#e8a04a'],
+            ].map(([icon,tag,title,sub,desc,color])=>`
+              <div style="display:flex;flex-direction:column;gap:12px;padding:24px 24px 22px;background:#fff;border:1px solid #e8e8e4;border-top:3px solid ${color};border-radius:14px;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
+                <div style="display:flex;align-items:center;gap:12px;">
+                  <span style="font-size:26px;">${icon}</span>
+                  <span style="font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:${color};">${tag}</span>
+                </div>
+                <div>
+                  <h3 style="font-size:15px;font-weight:700;color:#1a2e2a;margin-bottom:4px;">${title}</h3>
+                  <p style="font-size:12px;color:#aaa;margin-bottom:10px;">${sub}</p>
+                  <p style="font-size:13.5px;color:#666;line-height:1.8;">${desc}</p>
+                </div>
+              </div>`).join('')}
+          </div>
+        </div>
+      </div>
+
+      <!-- 링크 카드 + CTA -->
+      <div style="max-width:900px;margin:0 auto;padding:40px 40px 64px;">
+        <div class="ac-links-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:48px;">
+          ${[
+            ['📰','부산일보 기사','"예술 그 자체가 목적인 여행"','https://www.busan.com/view/busan/view.php?code=2024010814490253602'],
+            ['📄','소개자료 PDF','서비스 소개서 (busandabom.net)','https://busandabom.net/bofels/BBS_202302020440515501.pdf'],
+          ].map(([icon,label,desc,url]) => `
+            <a href="${url}" target="_blank" rel="noopener"
+               style="display:flex;align-items:center;gap:14px;background:#fff;border:1px solid #e0ddd8;border-radius:14px;padding:16px 18px;text-decoration:none;transition:box-shadow .2s,transform .2s;"
+               onmouseover="this.style.boxShadow='0 6px 20px rgba(0,0,0,0.09)';this.style.transform='translateY(-2px)'"
+               onmouseout="this.style.boxShadow='none';this.style.transform='none'">
+              <span style="font-size:24px;flex-shrink:0;">${icon}</span>
+              <div style="flex:1;min-width:0;">
+                <p style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#3B6259;margin-bottom:2px;">${label}</p>
+                <p style="font-size:12.5px;font-weight:600;color:#1a2e2a;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${desc}</p>
+              </div>
+              <span style="font-size:14px;color:#bbb;flex-shrink:0;">↗</span>
+            </a>`).join('')}
+        </div>
+        <div style="text-align:center;">
+          <p style="font-size:13px;color:#999;margin-bottom:20px;">선샤인 웰니스와 아트 컨시어지가 함께 설계하는 특별한 여행</p>
+          <button onclick="openContactPage()" style="display:inline-flex;align-items:center;gap:10px;background:#1a2e2a;color:#fff;font-size:14px;font-weight:700;padding:15px 44px;border-radius:32px;border:none;cursor:pointer;font-family:'Noto Sans KR',sans-serif;letter-spacing:.04em;">문의하기 →</button>
+        </div>
       </div>
 
     </div>
