@@ -1378,8 +1378,9 @@ function openArtConciergePage() {
               </div>`).join('')}
           </div>
         </div>
-        <!-- 링크 카드 — 3행 1열 -->
-        <div style="display:grid;grid-template-columns:1fr;gap:12px;margin-top:16px;">
+        <!-- 링크 카드 — 3행 1열 (sp-wrap 기준) -->
+        <div class="sp-wrap" style="padding-top:16px;padding-bottom:40px;">
+        <div style="display:grid;grid-template-columns:1fr;gap:12px;">
           ${[
             ['📰','부산일보 기사','"예술 그 자체가 목적인 여행"','https://www.busan.com/view/busan/view.php?code=2024010814490253602'],
             ['📄','소개자료 PDF','서비스 소개서 (busandabom.net)','https://busandabom.net/bofels/BBS_202302020440515501.pdf'],
@@ -1397,6 +1398,7 @@ function openArtConciergePage() {
               <span style="font-size:14px;color:#bbb;flex-shrink:0;">↗</span>
             </a>`).join('')}
         </div>
+        </div><!-- /sp-wrap -->
       </div>
 
       <!-- ⑥ 4 Partnership 투어 카드 -->
