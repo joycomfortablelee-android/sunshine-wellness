@@ -1171,7 +1171,12 @@ function openContactUsPage() {
     </div>
     <div class="cu-wrap">
 
-      <p class="cu-section-label">고객센터 서비스</p>
+      <p class="co-section-title">Support</p>
+      <h2 class="co-heading" style="margin-bottom:10px;">고객센터 서비스</h2>
+      <div class="sp-toolbar" style="margin-bottom:24px;">
+        <p class="sp-count">총 9개 항목</p>
+        <button onclick="openContactPage()" class="sp-btn-write">문의하기</button>
+      </div>
       <div class="cu-hc-grid">
         <button class="cu-hc-box" onclick="cuShowSection('notice')"><span class="cu-hc-box-icon">📢</span><span class="cu-hc-box-label">공지사항</span></button>
         <button class="cu-hc-box" onclick="cuShowSection('faq')"><span class="cu-hc-box-icon">❓</span><span class="cu-hc-box-label">자주 묻는 질문</span></button>
