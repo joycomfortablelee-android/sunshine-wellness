@@ -72,7 +72,12 @@
         <li><a href="javascript:void(0)" class="mobile-link" onclick="openContactPage()" data-i18n="nav.contact">견적의뢰 및 문의</a></li>
         <li><a href="javascript:void(0)" class="mobile-link" onclick="openWhereToNextPage()" data-i18n="nav.wheretonext">Where to Next?</a></li>
         <li><a href="javascript:void(0)" class="mobile-link" onclick="openContactUsPage()" data-i18n="nav.contactus">Contact Us</a></li>
-        <li><a href="javascript:void(0)" class="mobile-link" onclick="openArtConciergePage()" data-i18n="nav.artconcierge">아트 컨시어지</a></li>
+        <li class="mobile-partner">
+          <a href="javascript:void(0)" class="mobile-link" onclick="openArtConciergePage()">
+            <span class="mobile-partner-label">VIP 제휴여행사</span>
+            <span data-i18n="nav.artconcierge">아트 컨시어지</span>
+          </a>
+        </li>
         <li class="mobile-lang">
           <button class="lang-btn active" data-lang="ko">KOR</button>
           <button class="lang-btn" data-lang="en">ENG</button>
@@ -444,6 +449,92 @@
           <span class="cs-icon">🎫</span>
           <span class="cs-label">할인쿠폰</span>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 고객센터 푸터 섹션 -->
+  <section class="footer-hc">
+    <div class="container">
+      <p class="footer-hc-label">Support</p>
+      <h2 class="footer-hc-title">고객센터</h2>
+      <div class="footer-hc-cards">
+        <div class="footer-hc-card">
+          <div class="footer-hc-icon">📞</div>
+          <div class="footer-hc-cname">전화 문의</div>
+          <div class="footer-hc-main">010-5759-5485</div>
+          <div class="footer-hc-sub">평일 09:00 – 18:00<br>점심 12:00 – 13:00<br>주말 · 공휴일 휴무</div>
+        </div>
+        <div class="footer-hc-card">
+          <div class="footer-hc-icon">✉️</div>
+          <div class="footer-hc-cname">이메일 문의</div>
+          <div class="footer-hc-main">healthylee7@gmail.com</div>
+          <div class="footer-hc-sub">접수 후 1영업일 이내 답변 드립니다.</div>
+        </div>
+        <div class="footer-hc-card footer-hc-card-kakao" onclick="window.open('https://open.kakao.com/o/sl2k01wi','_blank')" style="cursor:pointer;">
+          <div class="footer-hc-icon">💛</div>
+          <div class="footer-hc-cname">카카오 채널</div>
+          <div class="footer-hc-main">카카오 친구추가</div>
+          <div class="footer-hc-sub">실시간 채팅 상담<br>빠른 답변을 도와드립니다.</div>
+        </div>
+      </div>
+      <div class="footer-hc-quick-wrap">
+        <p class="footer-hc-quick-label">바로가기</p>
+        <div class="footer-hc-quick-grid">
+          <button class="footer-hc-qbtn" onclick="openHelpCenterPage()">📢 공지사항</button>
+          <button class="footer-hc-qbtn" onclick="openHelpCenterPage();setTimeout(function(){hcShowSection('faq')},80)">❓ 자주 묻는 질문</button>
+          <button class="footer-hc-qbtn" onclick="openHelpCenterPage();setTimeout(function(){hcShowSection('qna')},80)">💬 묻고 답하기</button>
+          <button class="footer-hc-qbtn" onclick="openHelpCenterPage();setTimeout(function(){hcShowSection('voice')},80)">⭐ 고객의 소리</button>
+          <button class="footer-hc-qbtn" onclick="openHelpCenterPage();setTimeout(function(){hcShowSection('delivery')},80)">📦 우편배송조회</button>
+          <button class="footer-hc-qbtn" onclick="openHelpCenterPage();setTimeout(function(){hcShowSection('events')},80)">🎉 이벤트 당첨자</button>
+        </div>
+      </div>
+      <div class="footer-hc-info">
+        <div class="footer-hc-info-item">
+          <div class="footer-hc-info-icon">📍</div>
+          <div>
+            <div class="footer-hc-info-label">모이는 장소</div>
+            <div class="footer-hc-info-value">부산광역시 부산진구<br>서면 쥬디스태화 백화점 앞</div>
+          </div>
+        </div>
+        <div class="footer-hc-info-item">
+          <div class="footer-hc-info-icon">📞</div>
+          <div>
+            <div class="footer-hc-info-label">전화 문의</div>
+            <div class="footer-hc-info-value">010-5759-5485<br><span style="font-size:12px;font-weight:400;color:#888;">평일 09:00 – 18:00</span></div>
+          </div>
+        </div>
+        <div class="footer-hc-info-item">
+          <div class="footer-hc-info-icon">✉️</div>
+          <div>
+            <div class="footer-hc-info-label">이메일</div>
+            <div class="footer-hc-info-value">healthylee7@gmail.com</div>
+          </div>
+        </div>
+        <div class="footer-hc-info-item">
+          <div class="footer-hc-info-icon">🕐</div>
+          <div>
+            <div class="footer-hc-info-label">운영 시간</div>
+            <div class="footer-hc-info-value">평일 09:00 – 18:00<br>점심 12:00 – 13:00<br><span style="font-size:12px;font-weight:400;color:#888;">주말 · 공휴일 휴무</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-hc-sns">
+        <p class="footer-hc-sns-label">SNS</p>
+        <div class="footer-hc-sns-links">
+          <a href="https://open.kakao.com/o/sl2k01wi" target="_blank" class="footer-hc-sns-btn">
+            <span class="footer-hc-sns-icon">💛</span> 카카오
+          </a>
+          <a href="javascript:void(0)" class="footer-hc-sns-btn">
+            <span class="footer-hc-sns-icon">📸</span> 인스타그램
+          </a>
+          <a href="javascript:void(0)" class="footer-hc-sns-btn">
+            <span class="footer-hc-sns-icon">▶️</span> 유튜브
+          </a>
+          <a href="javascript:void(0)" class="footer-hc-sns-btn">
+            <span class="footer-hc-sns-icon">📘</span> 블로그
+          </a>
+        </div>
       </div>
     </div>
   </section>
