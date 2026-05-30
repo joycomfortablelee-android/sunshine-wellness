@@ -1287,15 +1287,13 @@ function openArtConciergePage() {
         </div>
       </div>
 
-      <!-- ① Partnership 헤더만 -->
-      <div style="background:#f5f5f3;padding:48px 0 0;">
-        <div class="sp-wrap" style="padding-bottom:20px;">
-          <p class="co-section-title">Partnership</p>
-          <h2 class="co-heading">제휴 투어</h2>
-          <div class="sp-toolbar">
-            <p class="sp-count">선샤인 웰니스 × 아트 컨시어지</p>
-            <button onclick="openContactPage()" class="sp-btn-write">문의하기</button>
-          </div>
+      <!-- ① Partnership 헤더만 — Where to Next?와 동일 구조 -->
+      <div class="sp-wrap" style="padding-bottom:20px;">
+        <p class="co-section-title">Partnership</p>
+        <h2 class="co-heading">제휴 투어</h2>
+        <div class="sp-toolbar">
+          <p class="sp-count">선샤인 웰니스 × 아트 컨시어지</p>
+          <button onclick="openContactPage()" class="sp-btn-write">문의하기</button>
         </div>
       </div>
 
