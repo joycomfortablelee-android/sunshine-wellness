@@ -1378,20 +1378,21 @@ function openArtConciergePage() {
               </div>`).join('')}
           </div>
         </div>
-        <!-- 링크 카드 — 전문 서비스 카드 바로 아래 -->
-        <div class="ac-links-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px;">
+        <!-- 링크 카드 — 2열 그리드 -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px;">
           ${[
-            ['📰','부산일보 기사','"예술 그 자체가 목적인 여행"','https://www.busan.com/view/busan/view.php?code=2024010814490253602'],
-            ['📄','소개자료 PDF','서비스 소개서 (busandabom.net)','https://busandabom.net/bofels/BBS_202302020440515501.pdf'],
-          ].map(([icon,label,desc,url]) => `
+            ['📰','부산일보 기사','"예술 그 자체가 목적인 여행"','https://www.busan.com/view/busan/view.php?code=2024010814490253602',''],
+            ['📄','소개자료 PDF','서비스 소개서 (busandabom.net)','https://busandabom.net/bofels/BBS_202302020440515501.pdf',''],
+            ['🗞️','부산일보 연재','이상훈의 시그너처 문화공간 이야기','https://www.busan.com/search/index.php?search_string=[이상훈의시그너처문화공간이야기]','grid-column:1/-1;'],
+          ].map(([icon,label,desc,url,span]) => `
             <a href="${url}" target="_blank" rel="noopener"
-               style="display:flex;align-items:center;gap:14px;background:#fff;border:1px solid #e0ddd8;border-radius:14px;padding:16px 18px;text-decoration:none;transition:box-shadow .2s,transform .2s;"
+               style="${span}display:flex;align-items:center;gap:14px;background:#fff;border:1px solid #e0ddd8;border-radius:14px;padding:16px 18px;text-decoration:none;transition:box-shadow .2s,transform .2s;"
                onmouseover="this.style.boxShadow='0 6px 20px rgba(0,0,0,0.09)';this.style.transform='translateY(-2px)'"
                onmouseout="this.style.boxShadow='none';this.style.transform='none'">
               <span style="font-size:24px;flex-shrink:0;">${icon}</span>
               <div style="flex:1;min-width:0;">
                 <p style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#3B6259;margin-bottom:2px;">${label}</p>
-                <p style="font-size:12.5px;font-weight:600;color:#1a2e2a;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${desc}</p>
+                <p style="font-size:12.5px;font-weight:600;color:#1a2e2a;line-height:1.4;">${desc}</p>
               </div>
               <span style="font-size:14px;color:#bbb;flex-shrink:0;">↗</span>
             </a>`).join('')}
