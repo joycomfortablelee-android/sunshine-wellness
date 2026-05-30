@@ -1298,7 +1298,7 @@ function openArtConciergePage() {
       </div>
 
       <!-- ② 이상훈 대표 프로필 + 2023 하이라이트 -->
-      <div class="sp-wrap" style="padding-top:16px;padding-bottom:0;">
+      <div class="sp-wrap" style="padding-top:48px;padding-bottom:0;">
         <div style="display:flex;align-items:center;gap:20px;margin-bottom:24px;padding:20px 28px 20px 0;background:#f7f6f3;border-radius:14px;">
           <div style="width:64px;height:64px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid #e0ddd8;margin-left:0;">
             <img src="images/LSH2.jpeg" alt="이상훈 대표" style="width:100%;height:100%;object-fit:cover;display:block;" />
@@ -1328,7 +1328,7 @@ function openArtConciergePage() {
       </div>
 
       <!-- ③ About -->
-      <div class="sp-wrap" style="padding-top:36px;padding-bottom:0;">
+      <div class="sp-wrap" style="padding-top:48px;padding-bottom:0;">
         <p class="co-section-title">About</p>
         <h2 class="co-heading">예술 그 자체가<br/>목적인 여행</h2>
         <p style="font-size:15px;color:#555;line-height:1.9;margin-bottom:14px;">아트 컨시어지는 단순히 여행 중 공연이나 미술관을 방문하는 것이 아닌, <strong style="color:#1a2e2a;">특정 공연·전시·건축 공간을 주목적으로 기획하는 1인 전문 여행사</strong>입니다.</p>
@@ -1336,7 +1336,7 @@ function openArtConciergePage() {
       </div>
 
       <!-- ④ 이상훈 사진 + 동서대 강의 카드 -->
-      <div class="sp-wrap" style="padding-top:28px;padding-bottom:0;">
+      <div class="sp-wrap" style="padding-top:48px;padding-bottom:0;">
         <div class="ac-lsh-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch;">
           <div style="border-radius:14px;overflow:hidden;background:#111;aspect-ratio:4/3;">
             <img src="images/lsh.jpg" alt="이상훈 대표" style="width:100%;height:100%;object-fit:cover;display:block;opacity:.92;" />
@@ -1359,7 +1359,7 @@ function openArtConciergePage() {
       </div>
 
       <!-- ⑤ Specialty 전문 서비스 -->
-      <div style="background:#f5f5f3;padding:56px 0 40px;margin-top:40px;">
+      <div style="background:#f5f5f3;padding:48px 0 0;margin-top:48px;">
         <div class="sp-wrap" style="padding-bottom:40px;">
           <p class="co-section-title">Specialty</p>
           <h2 class="co-heading" style="margin-bottom:32px;">전문 서비스</h2>
@@ -1379,7 +1379,7 @@ function openArtConciergePage() {
           </div>
         </div>
         <!-- 링크 카드 — 3행 1열 (sp-wrap 기준) -->
-        <div class="sp-wrap" style="padding-top:16px;padding-bottom:40px;">
+        <div class="sp-wrap" style="padding-top:48px;padding-bottom:48px;">
           <p class="co-section-title">Press</p>
           <h2 class="co-heading">언론 보도</h2>
         <div style="display:grid;grid-template-columns:1fr;gap:12px;">
@@ -1405,7 +1405,7 @@ function openArtConciergePage() {
 
       <!-- ⑥ 4 Partnership 투어 카드 -->
       <div style="background:#f5f5f3;padding:0 0 56px;">
-        <div class="sp-wrap" style="padding-top:16px;">
+        <div class="sp-wrap" style="padding-top:48px;">
           <p class="co-section-title">Signature Tours</p>
           <h2 class="co-heading">시그너처 투어</h2>
           <div class="ac-tour-grid">
