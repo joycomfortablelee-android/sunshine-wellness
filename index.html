@@ -38,7 +38,7 @@
           <li><a href="javascript:void(0)" onclick="openContactUsPage()" data-i18n="nav.contactus">Contact Us</a></li>
           <li class="gnb-partner">
             <a href="javascript:void(0)" onclick="openArtConciergePage()">
-              <span class="gnb-partner-label">VIP 제휴 여행사</span>
+              <span class="gnb-partner-label" data-i18n="nav.partnerlabel">VIP 제휴여행사</span>
               <span data-i18n="nav.artconcierge">아트 컨시어지</span>
             </a>
           </li>
@@ -74,7 +74,7 @@
         <li><a href="javascript:void(0)" class="mobile-link" onclick="openContactUsPage()" data-i18n="nav.contactus">Contact Us</a></li>
         <li class="mobile-partner">
           <a href="javascript:void(0)" class="mobile-link" onclick="openArtConciergePage()">
-            <span class="mobile-partner-label">VIP 제휴여행사</span>
+            <span class="mobile-partner-label" data-i18n="nav.partnerlabel">VIP 제휴여행사</span>
             <span data-i18n="nav.artconcierge">아트 컨시어지</span>
           </a>
         </li>
@@ -481,12 +481,12 @@
       <div class="footer-hc-quick-wrap">
         <p class="footer-hc-quick-label">바로가기</p>
         <div class="footer-hc-quick-grid">
-          <button class="footer-hc-qbtn" onclick="openHelpCenterPage()">📢 공지사항</button>
-          <button class="footer-hc-qbtn" onclick="openHelpCenterPage();setTimeout(function(){hcShowSection('faq')},80)">❓ 자주 묻는 질문</button>
-          <button class="footer-hc-qbtn" onclick="openHelpCenterPage();setTimeout(function(){hcShowSection('qna')},80)">💬 묻고 답하기</button>
-          <button class="footer-hc-qbtn" onclick="openHelpCenterPage();setTimeout(function(){hcShowSection('voice')},80)">⭐ 고객의 소리</button>
-          <button class="footer-hc-qbtn" onclick="openHelpCenterPage();setTimeout(function(){hcShowSection('delivery')},80)">📦 우편배송조회</button>
-          <button class="footer-hc-qbtn" onclick="openHelpCenterPage();setTimeout(function(){hcShowSection('events')},80)">🎉 이벤트 당첨자</button>
+          <button class="footer-hc-qbtn" onclick="openContactUsPage()">📢 공지사항</button>
+          <button class="footer-hc-qbtn" onclick="cuShowSection('faq')">❓ 자주 묻는 질문</button>
+          <button class="footer-hc-qbtn" onclick="cuShowSection('qna')">💬 묻고 답하기</button>
+          <button class="footer-hc-qbtn" onclick="cuShowSection('voice')">⭐ 고객의 소리</button>
+          <button class="footer-hc-qbtn" onclick="cuShowSection('delivery')">📦 우편배송조회</button>
+          <button class="footer-hc-qbtn" onclick="cuShowSection('events')">🎉 이벤트 당첨자</button>
         </div>
       </div>
       <div class="footer-hc-info">
@@ -599,7 +599,7 @@
       <span class="quick-icon">✉</span>
       <span>맞춤 일정<br>문의</span>
     </a>
-    <button type="button" class="quick-item quick-item-btn" onclick="openHelpCenterPage()">
+    <button type="button" class="quick-item quick-item-btn" onclick="openContactUsPage()">
       <span class="quick-icon">📞</span>
       <span>고객<br>센터</span>
     </button>
