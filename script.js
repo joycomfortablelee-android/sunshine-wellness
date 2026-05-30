@@ -1286,7 +1286,7 @@ function openArtConciergePage() {
       <div style="background:#f5f5f3;padding:56px 0 64px;">
         <div class="sp-wrap">
           <p class="co-section-title">Partnership</p>
-          <h2 class="co-heading" style="margin-bottom:10px;">제휴 투어</h2>
+          <h2 class="co-heading">제휴 투어</h2>
           <div class="sp-toolbar" style="margin-bottom:32px;">
             <p class="sp-count">선샤인 웰니스 × 아트 컨시어지</p>
             <button onclick="openContactPage()" class="sp-btn-write">문의하기</button>
