@@ -1299,8 +1299,8 @@ function openArtConciergePage() {
 
       <!-- ② 이상훈 대표 프로필 + 2023 하이라이트 -->
       <div class="sp-wrap" style="padding-top:16px;padding-bottom:0;">
-        <div style="display:flex;align-items:center;gap:20px;margin-bottom:24px;padding:24px 28px;background:#f7f6f3;border-radius:14px;">
-          <div style="width:64px;height:64px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid #e0ddd8;">
+        <div style="display:flex;align-items:center;gap:20px;margin-bottom:24px;padding:20px 28px 20px 0;background:#f7f6f3;border-radius:14px;">
+          <div style="width:64px;height:64px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid #e0ddd8;margin-left:0;">
             <img src="images/LSH2.jpeg" alt="이상훈 대표" style="width:100%;height:100%;object-fit:cover;display:block;" />
           </div>
           <div style="flex:1;">
