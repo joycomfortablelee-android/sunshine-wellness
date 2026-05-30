@@ -1378,8 +1378,8 @@ function openArtConciergePage() {
               </div>`).join('')}
           </div>
         </div>
-        <!-- 링크 카드 — 전문 서비스와 동일한 3열 -->
-        <div class="ac-service-wide" style="margin-top:16px;">
+        <!-- 링크 카드 — 3행 1열 -->
+        <div style="display:grid;grid-template-columns:1fr;gap:12px;margin-top:16px;">
           ${[
             ['📰','부산일보 기사','"예술 그 자체가 목적인 여행"','https://www.busan.com/view/busan/view.php?code=2024010814490253602'],
             ['📄','소개자료 PDF','서비스 소개서 (busandabom.net)','https://busandabom.net/bofels/BBS_202302020440515501.pdf'],
