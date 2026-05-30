@@ -627,7 +627,7 @@ function cuShowSection(id) {
     faq:      { label: 'FAQ',            title: '자주 묻는 질문' },
     qna:      { label: 'Q&A',            title: '묻고 답하기' },
     voice:    { label: 'Customer Voice', title: '고객의 소리' },
-    tomorrow: { label: 'Customer Care',  title: '친절한 내일씨' },
+    tomorrow: { label: 'Customer Care',  title: '친절한 햇살씨' },
     delivery: { label: 'Delivery',       title: '우편배송조회' },
     receipt:  { label: 'Receipt',        title: '현금영수증 발급 방법' },
     vip:      { label: 'VIP Benefits',   title: '우수고객 등급혜택 안내' },
@@ -703,7 +703,7 @@ function _cuSectionBody(id) {
 
     tomorrow: '<div class="hc-tomorrow-box">' +
       '<div class="hc-tomorrow-avatar">&#127774;</div>' +
-      '<div class="hc-tomorrow-name">친절한 내일씨</div>' +
+      '<div class="hc-tomorrow-name">친절한 햇살씨</div>' +
       '<p class="hc-tomorrow-desc">안녕하세요! 선샵인 웰니스 전담 상담사 <strong>내일씨</strong>입니다.<br>여행 계획부터 예약, 취소, 변경까지 — 먴드시든 편하게 물어보세요. &#128522;</p>' +
       '<div class="hc-tomorrow-btns">' +
       '<button class="hc-tomorrow-btn hc-tomorrow-btn-primary" onclick="window.open(\'https://open.kakao.com/o/sl2k01wi\',\'_blank\')">&#128155; 카카오 채팅 상담</button>' +
@@ -1171,6 +1171,20 @@ function openContactUsPage() {
     </div>
     <div class="cu-wrap">
 
+      <p class="cu-section-label">고객센터 서비스</p>
+      <div class="cu-hc-grid">
+        <button class="cu-hc-box" onclick="cuShowSection('notice')"><span class="cu-hc-box-icon">📢</span><span class="cu-hc-box-label">공지사항</span></button>
+        <button class="cu-hc-box" onclick="cuShowSection('faq')"><span class="cu-hc-box-icon">❓</span><span class="cu-hc-box-label">자주 묻는 질문</span></button>
+        <button class="cu-hc-box" onclick="cuShowSection('qna')"><span class="cu-hc-box-icon">💬</span><span class="cu-hc-box-label">묻고 답하기</span></button>
+        <button class="cu-hc-box" onclick="cuShowSection('voice')"><span class="cu-hc-box-icon">⭐</span><span class="cu-hc-box-label">고객의 소리</span></button>
+        <button class="cu-hc-box" onclick="cuShowSection('tomorrow')"><span class="cu-hc-box-icon">🌞</span><span class="cu-hc-box-label">친절한 햇살씨</span></button>
+        <button class="cu-hc-box" onclick="cuShowSection('delivery')"><span class="cu-hc-box-icon">📦</span><span class="cu-hc-box-label">우편배송조회</span></button>
+        <button class="cu-hc-box" onclick="cuShowSection('receipt')"><span class="cu-hc-box-icon">🧾</span><span class="cu-hc-box-label">현금영수증 발급 방법</span></button>
+        <button class="cu-hc-box" onclick="cuShowSection('vip')"><span class="cu-hc-box-icon">👑</span><span class="cu-hc-box-label">우수고객 등급혜택 안내</span></button>
+        <button class="cu-hc-box" onclick="cuShowSection('events')"><span class="cu-hc-box-icon">🎉</span><span class="cu-hc-box-label">이벤트 당첨자 발표</span></button>
+      </div>
+      <div class="cu-divider"></div>
+
       <div class="cu-grid">
 
         <div class="cu-card">
@@ -1201,6 +1215,30 @@ function openContactUsPage() {
 
       <div class="cu-divider"></div>
 
+      <!-- 이용 안내 — How to Book -->
+      <p class="co-section-title">How to Book</p>
+      <h2 class="co-heading">이용 안내</h2>
+      <div class="sp-toolbar" style="margin-bottom:28px;">
+        <p class="sp-count" style="font-size:13px;color:#666;">예약부터 출발까지</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0;">
+        ${[
+          ['01','문의','전화·이메일·카카오톡으로 원하는 프로그램과 일정을 알려주세요.'],
+          ['02','일정 확인','담당자가 맞춤 일정과 견적을 안내해 드립니다. (1~2 영업일 내)'],
+          ['03','입금 확인','안내받은 계좌로 입금 후 예약이 확정됩니다.'],
+          ['04','출발','확정된 일정에 맞춰 모이는 장소에서 출발합니다. 즐거운 여행 되세요!'],
+        ].map(([step, title, desc], i, arr) => `
+          <div style="display:flex;gap:20px;padding:22px 0;${i < arr.length-1 ? 'border-bottom:1px solid #ece9e4;' : ''}">
+            <div style="flex-shrink:0;width:36px;height:36px;border-radius:50%;background:#1a2e2a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;letter-spacing:.04em;">${step}</div>
+            <div>
+              <p style="font-size:14px;font-weight:700;color:#1a2e2a;margin-bottom:4px;">${title}</p>
+              <p style="font-size:13.5px;color:#666;line-height:1.75;">${desc}</p>
+            </div>
+          </div>`).join('')}
+      </div>
+
+      <div class="cu-divider"></div>
+
       <div class="cu-sns-section">
         <p class="cu-sns-label">SNS</p>
         <div class="cu-sns-row">
@@ -1224,20 +1262,6 @@ function openContactUsPage() {
         <p style="margin-top:8px;color:#aaa;">© 2026 선샤인 웰니스. All rights reserved.</p>
       </div>
 
-      <div class="cu-divider"></div>
-
-      <p class="cu-section-label">고객센터 서비스</p>
-      <div class="cu-hc-grid">
-        <button class="cu-hc-box" onclick="cuShowSection('notice')"><span class="cu-hc-box-icon">📢</span><span class="cu-hc-box-label">공지사항</span></button>
-        <button class="cu-hc-box" onclick="cuShowSection('faq')"><span class="cu-hc-box-icon">❓</span><span class="cu-hc-box-label">자주 묻는 질문</span></button>
-        <button class="cu-hc-box" onclick="cuShowSection('qna')"><span class="cu-hc-box-icon">💬</span><span class="cu-hc-box-label">묻고 답하기</span></button>
-        <button class="cu-hc-box" onclick="cuShowSection('voice')"><span class="cu-hc-box-icon">⭐</span><span class="cu-hc-box-label">고객의 소리</span></button>
-        <button class="cu-hc-box" onclick="cuShowSection('tomorrow')"><span class="cu-hc-box-icon">🌞</span><span class="cu-hc-box-label">친절한 내일씨</span></button>
-        <button class="cu-hc-box" onclick="cuShowSection('delivery')"><span class="cu-hc-box-icon">📦</span><span class="cu-hc-box-label">우편배송조회</span></button>
-        <button class="cu-hc-box" onclick="cuShowSection('receipt')"><span class="cu-hc-box-icon">🧾</span><span class="cu-hc-box-label">현금영수증 발급 방법</span></button>
-        <button class="cu-hc-box" onclick="cuShowSection('vip')"><span class="cu-hc-box-icon">👑</span><span class="cu-hc-box-label">우수고객 등급혜택 안내</span></button>
-        <button class="cu-hc-box" onclick="cuShowSection('events')"><span class="cu-hc-box-icon">🎉</span><span class="cu-hc-box-label">이벤트 당첨자 발표</span></button>
-      </div>
 
     </div>
     </div>
