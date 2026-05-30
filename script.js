@@ -1288,7 +1288,7 @@ function openArtConciergePage() {
       </div>
 
       <!-- ① Partnership 헤더만 -->
-      <div style="background:#f5f5f3;padding:48px 0 36px;">
+      <div style="background:#f5f5f3;padding:48px 0 16px;">
         <div class="sp-wrap">
           <p class="co-section-title">Partnership</p>
           <h2 class="co-heading">제휴 투어</h2>
@@ -1300,7 +1300,7 @@ function openArtConciergePage() {
       </div>
 
       <!-- ② 이상훈 대표 프로필 + 2023 하이라이트 -->
-      <div style="max-width:900px;margin:0 auto;padding:40px 40px 0;">
+      <div style="max-width:900px;margin:0 auto;padding:16px 40px 0;">
         <div style="display:flex;align-items:center;gap:20px;margin-bottom:24px;padding:24px 28px;background:#f7f6f3;border-radius:14px;">
           <div style="width:52px;height:52px;border-radius:50%;background:#1a2e2a;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px;">🎭</div>
           <div style="flex:1;">
