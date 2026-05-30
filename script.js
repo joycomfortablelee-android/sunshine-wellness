@@ -580,6 +580,7 @@ function showSubPage(html) {
   el.innerHTML = html;
   el.style.display = 'block';
   el.scrollTop = 0;
+  document.documentElement.style.overflow = 'hidden';
   document.body.style.overflow = 'hidden';
 }
 
@@ -589,15 +590,17 @@ function showSubPageFull(html) {
   el.classList.add('fullbg');
   el.style.display = 'block';
   el.scrollTop = 0;
+  document.documentElement.style.overflow = 'hidden';
   document.body.style.overflow = 'hidden';
 }
 
 function closeSubPage() {
   const el = document.getElementById('subPageOverlay');
-  if (!el || el.style.display === 'none') return;
+  if (!el) return;
   el.style.display = 'none';
   el.innerHTML = '';
   el.classList.remove('fullbg');
+  document.documentElement.style.overflow = '';
   document.body.style.overflow = '';
 }
 
@@ -703,8 +706,8 @@ function _cuSectionBody(id) {
       '<div class="hc-tomorrow-name">친절한 내일씨</div>' +
       '<p class="hc-tomorrow-desc">안녕하세요! 선샵인 웰니스 전담 상담사 <strong>내일씨</strong>입니다.<br>여행 계획부터 예약, 취소, 변경까지 — 먴드시든 편하게 물어보세요. &#128522;</p>' +
       '<div class="hc-tomorrow-btns">' +
-      '<button class="hc-tomorrow-btn hc-tomorrow-btn-primary" onclick="window.open('https://open.kakao.com/o/sl2k01wi','_blank')">&#128155; 카카오 채팅 상담</button>' +
-      '<button class="hc-tomorrow-btn hc-tomorrow-btn-secondary" onclick="cuShowSection('qna')">&#9997;&#65039; 묻고 답하기</button>' +
+      '<button class="hc-tomorrow-btn hc-tomorrow-btn-primary" onclick="window.open(\'https://open.kakao.com/o/sl2k01wi\',\'_blank\')">&#128155; 카카오 채팅 상담</button>' +
+      '<button class="hc-tomorrow-btn hc-tomorrow-btn-secondary" onclick="cuShowSection(\'qna\')">&#9997;&#65039; 묻고 답하기</button>' +
       '<button class="hc-tomorrow-btn hc-tomorrow-btn-secondary" onclick="openContactPage()">&#128203; 견적의뢰 문의</button>' +
       '</div></div>' +
       '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px;">' +
