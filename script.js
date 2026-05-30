@@ -1380,6 +1380,8 @@ function openArtConciergePage() {
         </div>
         <!-- 링크 카드 — 3행 1열 (sp-wrap 기준) -->
         <div class="sp-wrap" style="padding-top:16px;padding-bottom:40px;">
+          <p class="co-section-title">Press</p>
+          <h2 class="co-heading">언론 보도</h2>
         <div style="display:grid;grid-template-columns:1fr;gap:12px;">
           ${[
             ['📰','부산일보 기사','"예술 그 자체가 목적인 여행"','https://www.busan.com/view/busan/view.php?code=2024010814490253602'],
