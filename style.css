@@ -1829,6 +1829,14 @@ section { padding: 100px 0; }
   .ac-stats-grid   { grid-template-columns: repeat(3,1fr) !important; }
   .ac-service-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
   .ac-wrap { padding: 32px 20px 60px !important; }
+  .ac-tour-grid { grid-template-columns: 1fr !important; }
+}
+
+/* 제휴 투어 그리드 — 데스크탑 2열 */
+.ac-tour-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 
 /* ── 게시판 ───────────────────────────────────── */
