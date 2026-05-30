@@ -391,7 +391,7 @@ ul { list-style: none; }
 @media (max-width:640px) { .co-wrap { padding:32px 20px 60px; } .co-form-row { grid-template-columns:1fr; } .co-form-box { padding:28px 20px 32px; } }
 
 /* Contact Us 회사 정보 오버레이 */
-.cu-wrap { max-width:860px; margin:0 auto; padding:48px 40px 80px; }
+.cu-wrap { max-width:900px; margin:0 auto; padding:40px 40px 80px; }
 .cu-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:40px; }
 .cu-card { background:#fff; border:1px solid #e8e8e4; border-radius:14px; padding:28px 28px 26px; }
 .cu-icon { font-size:28px; margin-bottom:12px; }
