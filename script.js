@@ -1420,8 +1420,8 @@ function openArtConciergePage() {
       </div>
 
       <!-- ⑥ 4 Partnership 투어 카드 -->
-      <div style="background:#f5f5f3;padding:0 0 56px;">
-        <div class="sp-wrap" style="padding-top:48px;">
+      <div style="background:#f5f5f3;">
+        <div class="sp-wrap" style="padding-top:48px;padding-bottom:40px;">
           <p class="co-section-title">Experience · Signature Tours</p>
           <h2 class="co-heading">시그너처 투어</h2>
           <div class="ac-tour-grid">
@@ -1445,6 +1445,72 @@ function openArtConciergePage() {
           </div>
           <div class="ac-tags">
             ${['#잘츠부르크','#빈필하모닉','#루브르','#사그라다'].map(t=>`<span class="ac-tag">${t}</span>`).join('')}
+          </div>
+        </div>
+      </div>
+
+      <!-- ⑦ Signature Cultural Spaces 칼럼 섹션 -->
+      <div style="background:#fff;padding:56px 0;border-top:1px solid #e8e8e4;">
+        <div class="sp-wrap">
+          <p class="co-section-title">Cultural Insight · Column</p>
+          <h2 class="co-heading">Signature Cultural Spaces</h2>
+          <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:36px;max-width:540px;">이상훈 대표가 직접 다녀온 세계의 문화공간 — 건축, 음악, 미술이 하나로 만나는 여행의 장면들.</p>
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:28px;">
+            ${[
+              {
+                city:'독일 함부르크', date:'2024.07.11',
+                title:'10년 담금질로 태어난 플래그십 콘서트홀, 엘프필하모니',
+                summary:'항구 도시의 낡은 창고가 세계 최고의 콘서트홀로 재탄생했다. Herzog & de Meuron이 설계한 엘프필하모니는 건물 자체가 이미 목적지인 데스티네이션 아트의 상징.',
+                tags:['#콘서트홀','#함부르크','#건축기행'],
+                url:'https://www.busan.com/view/busan/view.php?code=2024071117513822757'
+              },
+              {
+                city:'스페인 피게레스', date:'2026.02.12',
+                title:'초현실주의의 거대한 무대… 피게레스 달리 극장미술관',
+                summary:'살바도르 달리가 직접 설계하고 잠든 곳. 미술관 전체가 하나의 초현실주의 작품이자 공간 퍼포먼스다. 세상에 단 하나뿐인 미술관 경험.',
+                tags:['#달리','#초현실주의','#피게레스'],
+                url:'https://www.busan.com/view/busan/view.php?code=2026021217095653845'
+              },
+              {
+                city:'프랑스 파리', date:'2025.05.08',
+                title:'루이비통 재단에서 만난 데이비드 호크니',
+                summary:'프랭크 게리가 설계한 유리 돛단배 같은 건물 안에서 호크니의 색채 폭발을 만나는 경험. 현대 미술과 건축이 동시에 빛나는 파리의 갤러리.',
+                tags:['#루이비통재단','#호크니','#파리'],
+                url:'https://www.busan.com/view/busan/view.php?code=2025050817570975724'
+              },
+              {
+                city:'오스트리아 브레겐츠', date:'2024.08.22',
+                title:'호수 위에서 만나는 혁신적인 오페라 무대, 브레겐츠 페스티벌',
+                summary:'호수 위 거대한 무대 위 오페라. 제임스 본드 영화에도 등장한 세계에서 가장 극적인 공연 풍경. 매년 여름 단 몇 주만 열리는 희소한 경험.',
+                tags:['#브레겐츠','#야외오페라','#호수무대'],
+                url:'https://www.busan.com/view/busan/view.php?code=2024082217563682352'
+              }
+            ].map(c=>`
+              <div style="border:1px solid #e0ddd8;border-radius:14px;padding:24px 22px;background:#fafaf8;display:flex;flex-direction:column;gap:0;transition:box-shadow .2s,transform .2s;"
+                   onmouseover="this.style.boxShadow='0 8px 28px rgba(0,0,0,0.09)';this.style.transform='translateY(-3px)'"
+                   onmouseout="this.style.boxShadow='none';this.style.transform='none'">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+                  <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#3B6259;">${c.city}</span>
+                  <span style="font-size:11px;color:#bbb;">${c.date}</span>
+                </div>
+                <h3 style="font-size:14.5px;font-weight:700;color:#1a2e2a;line-height:1.45;margin-bottom:10px;">${c.title}</h3>
+                <p style="font-size:13px;color:#666;line-height:1.8;flex:1;margin-bottom:14px;">${c.summary}</p>
+                <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;">
+                  ${c.tags.map(t=>`<span style="font-size:10.5px;font-weight:600;color:#3B6259;background:#eef5f2;padding:3px 10px;border-radius:20px;">${t}</span>`).join('')}
+                </div>
+                <a href="${c.url}" target="_blank" rel="noopener noreferrer"
+                   style="display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:700;color:#1a2e2a;text-decoration:none;border:1.5px solid #1a2e2a;border-radius:8px;padding:7px 16px;width:fit-content;transition:background .2s,color .2s;"
+                   onmouseover="this.style.background='#1a2e2a';this.style.color='#fff'"
+                   onmouseout="this.style.background='transparent';this.style.color='#1a2e2a'">
+                  원문 보기 <span style="font-size:13px;">↗</span>
+                </a>
+              </div>`).join('')}
+          </div>
+          <div style="text-align:right;padding-top:4px;">
+            <a href="https://www.busan.com/search/index.php?search_string=[이상훈의시그니처문화공간이야기]&page=1&sort=DATE/DESC&type=B" target="_blank" rel="noopener noreferrer"
+               style="font-size:13px;font-weight:600;color:#888;text-decoration:none;border-bottom:1px solid #ccc;padding-bottom:1px;">
+              시리즈 전체 보기 (54편) →
+            </a>
           </div>
         </div>
       </div>
