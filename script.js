@@ -1288,8 +1288,8 @@ function openArtConciergePage() {
       </div>
 
       <!-- ① Partnership 헤더만 -->
-      <div style="background:#f5f5f3;padding:48px 0 4px;">
-        <div class="sp-wrap">
+      <div style="background:#f5f5f3;padding:48px 0 0;">
+        <div class="sp-wrap" style="padding-bottom:20px;">
           <p class="co-section-title">Partnership</p>
           <h2 class="co-heading">제휴 투어</h2>
           <div class="sp-toolbar">
