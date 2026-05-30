@@ -1366,6 +1366,32 @@ function openArtConciergePage() {
 
         <div style="height:1px;background:#ece9e4;margin-bottom:40px;"></div>
 
+        <!-- 제휴 투어 -->
+        <p class="co-section-title">Partnership</p>
+        <h2 class="co-heading" style="margin-bottom:10px;">제휴 투어</h2>
+        <div class="sp-toolbar" style="margin-bottom:28px;">
+          <p class="sp-count">선샤인 웰니스 × 아트 컨시어지</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:40px;">
+          ${[
+            ['🎼','Exclusive','잘츠부르크 음악 페스티벌 VIP','오스트리아 · 8박 10일','매년 여름 개최되는 세계 최고의 클래식 음악 축제. VIP 좌석과 리허설 관람, 아티스트 백스테이지 투어 포함.','#e8a04a'],
+            ['🏛️','Curated','빈 필하모닉 골든홀 콘서트','오스트리아 · 5박 7일','세계 3대 콘서트홀 무직페라인 황금홀에서의 특별 공연 관람. 비엔나 왕궁·미술사박물관 연계 투어.','#3B6259'],
+            ['🎨','Curated','루브르 야간 VIP 관람','프랑스 · 6박 8일','일반 관람객 없는 시간대의 루브르 전용 투어. 큐레이터 해설과 함께하는 깊이 있는 감상 경험.','#3B6259'],
+            ['🏗️','Exclusive','사그라다 파밀리아 건축 기행','스페인 · 7박 9일','가우디 건축의 정수를 탑 입장권·건축 전문가 해설과 함께. 바르셀로나 현대 건축 도시 탐방 포함.','#e8a04a'],
+          ].map(([icon,tag,title,sub,desc,color])=>`
+            <div style="display:flex;align-items:flex-start;gap:18px;padding:20px 22px;background:#fff;border:1px solid #ece9e4;border-left:3px solid ${color};border-radius:12px;">
+              <span style="font-size:24px;flex-shrink:0;margin-top:2px;">${icon}</span>
+              <div>
+                <span style="font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:${color};display:block;margin-bottom:4px;">${tag}</span>
+                <h3 style="font-size:14px;font-weight:700;color:#1a2e2a;margin-bottom:3px;">${title}</h3>
+                <p style="font-size:12px;color:#aaa;margin-bottom:8px;letter-spacing:.02em;">${sub}</p>
+                <p style="font-size:13.5px;color:#666;line-height:1.75;">${desc}</p>
+              </div>
+            </div>`).join('')}
+        </div>
+
+        <div style="height:1px;background:#ece9e4;margin-bottom:40px;"></div>
+
         <!-- Partnership -->
         <div style="padding:28px 32px;background:linear-gradient(135deg,#f0f7f4,#e6f0eb);border-radius:14px;margin-bottom:48px;">
           <p style="font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#3B6259;margin-bottom:10px;">Partnership</p>
