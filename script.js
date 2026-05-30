@@ -1405,7 +1405,9 @@ function openArtConciergePage() {
 
       <!-- ⑥ 4 Partnership 투어 카드 -->
       <div style="background:#f5f5f3;padding:0 0 56px;">
-        <div class="sp-wrap">
+        <div class="sp-wrap" style="padding-top:16px;">
+          <p class="co-section-title">Signature Tours</p>
+          <h2 class="co-heading">시그너처 투어</h2>
           <div class="ac-tour-grid">
             ${[
               ['🎼','Exclusive','잘츠부르크 음악 페스티벌 VIP','오스트리아 · 8박 10일','매년 여름 개최되는 세계 최고의 클래식 음악 축제. VIP 좌석과 리허설 관람, 아티스트 백스테이지 투어 포함.','#e8a04a'],
