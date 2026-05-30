@@ -1838,6 +1838,15 @@ section { padding: 100px 0; }
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
+/* 전문 서비스 그리드 — 데스크탑 3열 */
+.ac-service-wide {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+@media (max-width: 640px) {
+  .ac-service-wide { grid-template-columns: 1fr !important; }
+}
 
 /* ── 게시판 ───────────────────────────────────── */
 .board-section { padding: 96px 0; background: #f8f9fa; }
