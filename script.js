@@ -1249,6 +1249,77 @@ function openContactUsPage() {
 }
 
 // =========================================
+// Cultural Archive 2뎁스 카드 생성 (데이터 파일 기반)
+// =========================================
+function _buildArchiveCards() {
+  const TC = {
+    T1:{badge:'#2e3e72',bg:'#f0f1f7',border:'#c8ccdf',tagBg:'#e2e5f4',tagTxt:'#2e3e72'},
+    T2:{badge:'#9a4f28',bg:'#fdf3ee',border:'#e8cfc2',tagBg:'#fde0d0',tagTxt:'#9a4f28'},
+    T3:{badge:'#3b5847',bg:'#eff4f1',border:'#c4d8cc',tagBg:'#daeae1',tagTxt:'#3b5847'},
+    T4:{badge:'#6b3a5a',bg:'#f5f0f4',border:'#d8c8d4',tagBg:'#ecdde8',tagTxt:'#6b3a5a'},
+    T5:{badge:'#7a6428',bg:'#faf6ea',border:'#ddd4b4',tagBg:'#f2ead4',tagTxt:'#7a6428'},
+    T6:{badge:'#1e6868',bg:'#ecf4f4',border:'#b8d8d8',tagBg:'#d5eaea',tagTxt:'#1e6868'},
+  };
+  const TE = {
+    T1:'Music City & Hall', T2:'Festival & Artist City',
+    T3:'Heritage & Regeneration', T4:'Foundation & Collection',
+    T5:'Architecture & Senses', T6:'Tech · Market · Platform',
+  };
+  return typeDefinitions.map(function(td) {
+    var c = TC[td.type];
+    var preview = culturalArchiveData.filter(function(d){ return d.type === td.type; }).slice(0,2);
+    var previewHtml = preview.map(function(p) {
+      var linkHtml = p.sourceUrl
+        ? '<a href="' + p.sourceUrl + '" target="_blank" rel="noopener noreferrer" style="font-size:11.5px;font-weight:700;color:' + c.badge + ';text-decoration:none;">원문 보기 ↗</a>'
+        : '';
+      var calumnBadge = p.sourceUrl
+        ? '<span style="font-size:9px;font-weight:700;color:' + c.badge + ';background:' + c.tagBg + ';padding:2px 7px;border-radius:10px;">칼럼</span>'
+        : '';
+      var tagMargin = p.sourceUrl ? 'margin-bottom:9px;' : '';
+      return '<div style="border:1px solid ' + c.border + ';border-radius:10px;padding:13px 15px;background:#fff;">'
+        + '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;">'
+        + '<span style="font-size:9.5px;font-weight:700;color:' + c.badge + ';letter-spacing:.04em;">' + p.city + ' · ' + p.country + '</span>'
+        + calumnBadge
+        + '</div>'
+        + '<p style="font-size:13px;font-weight:700;color:#1a2e2a;margin-bottom:3px;line-height:1.4;">' + p.caseName + '</p>'
+        + '<p style="font-size:11px;color:#999;margin-bottom:9px;">' + p.concept + '</p>'
+        + '<div style="display:flex;flex-wrap:wrap;gap:4px;' + tagMargin + '">'
+        + '<span style="font-size:9.5px;color:' + c.tagTxt + ';background:' + c.tagBg + ';padding:2px 8px;border-radius:20px;">#' + p.spatialStrategyKeyword + '</span>'
+        + '<span style="font-size:9.5px;color:' + c.tagTxt + ';background:' + c.tagBg + ';padding:2px 8px;border-radius:20px;">#' + p.city + '</span>'
+        + '</div>'
+        + linkHtml
+        + '</div>';
+    }).join('');
+    return '<div style="border:1px solid ' + c.border + ';border-radius:16px;overflow:hidden;">'
+      + '<div style="background:' + c.bg + ';padding:18px 22px 16px;border-bottom:1px solid ' + c.border + ';">'
+      + '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">'
+      + '<div style="display:flex;align-items:center;gap:8px;">'
+      + '<span style="font-size:10px;font-weight:800;color:#fff;background:' + c.badge + ';padding:3px 10px;border-radius:20px;">' + td.type + '</span>'
+      + '<span style="font-size:10px;color:#aaa;font-style:italic;">' + TE[td.type] + '</span>'
+      + '</div>'
+      + '<span style="font-size:10px;color:#aaa;">' + td.count + ' Cases</span>'
+      + '</div>'
+      + '<h3 style="font-size:14.5px;font-weight:700;color:#1a2e2a;margin-bottom:5px;">' + td.typeName + '</h3>'
+      + '<p style="font-size:12px;color:#777;line-height:1.7;margin:0;">' + td.description + '</p>'
+      + '</div>'
+      + '<div style="background:#fafaf8;padding:14px 22px 16px;">'
+      + '<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:12px;">'
+      + previewHtml
+      + '</div>'
+      + '<div style="text-align:right;">'
+      + '<button onclick="openCulturalCasePage(\'' + td.type + '\')"'
+      + ' style="font-size:11.5px;font-weight:700;color:' + c.badge + ';background:transparent;border:1.5px solid ' + c.badge + ';border-radius:8px;padding:5px 14px;cursor:pointer;font-family:\'Noto Sans KR\',sans-serif;transition:background .2s,color .2s;"'
+      + ' onmouseover="this.style.background=\'' + c.badge + '\';this.style.color=\'#fff\'"'
+      + ' onmouseout="this.style.background=\'transparent\';this.style.color=\'' + c.badge + '\'">'
+      + '전체 사례 보기 (' + td.count + '개) →'
+      + '</button>'
+      + '</div>'
+      + '</div>'
+      + '</div>';
+  }).join('');
+}
+
+// =========================================
 // 제휴 여행사 — 아트 컨시어지
 // =========================================
 function openArtConciergePage() {
@@ -1262,6 +1333,14 @@ function openArtConciergePage() {
         <div class="co-page-header">
           <p>Partner Agency</p>
           <h1>아트 컨시어지<span class="co-page-subtitle">Art Concierge — Destination Art Travel</span></h1>
+        </div>
+      </div>
+
+      <div style="background:#FAF7F2;padding:28px 24px 0;">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div style="flex:1;height:1px;background:#e0dcd6;"></div>
+          <span style="font-size:9px;font-weight:700;letter-spacing:.22em;color:#9a9088;text-transform:uppercase;">PART 01 · The Person</span>
+          <div style="flex:1;height:1px;background:#e0dcd6;"></div>
         </div>
       </div>
 
@@ -1576,65 +1655,7 @@ function openArtConciergePage() {
               </div>`).join('<div style="width:1px;height:38px;background:#e0ddd8;margin:0 4px;align-self:center;"></div>')}
           </div>
           <div style="display:flex;flex-direction:column;gap:20px;">
-            ${(()=>{
-              const TC = {
-                T1:{badge:'#2e3e72',bg:'#f0f1f7',border:'#c8ccdf',tagBg:'#e2e5f4',tagTxt:'#2e3e72'},
-                T2:{badge:'#9a4f28',bg:'#fdf3ee',border:'#e8cfc2',tagBg:'#fde0d0',tagTxt:'#9a4f28'},
-                T3:{badge:'#3b5847',bg:'#eff4f1',border:'#c4d8cc',tagBg:'#daeae1',tagTxt:'#3b5847'},
-                T4:{badge:'#6b3a5a',bg:'#f5f0f4',border:'#d8c8d4',tagBg:'#ecdde8',tagTxt:'#6b3a5a'},
-                T5:{badge:'#7a6428',bg:'#faf6ea',border:'#ddd4b4',tagBg:'#f2ead4',tagTxt:'#7a6428'},
-                T6:{badge:'#1e6868',bg:'#ecf4f4',border:'#b8d8d8',tagBg:'#d5eaea',tagTxt:'#1e6868'},
-              };
-              const TE = {
-                T1:'Music City & Hall', T2:'Festival & Artist City',
-                T3:'Heritage & Regeneration', T4:'Foundation & Collection',
-                T5:'Architecture & Senses', T6:'Tech · Market · Platform',
-              };
-              return typeDefinitions.map(td => {
-                const c = TC[td.type];
-                const preview = culturalArchiveData.filter(d => d.type === td.type).slice(0,2);
-                return \`
-              <div style="border:1px solid \${c.border};border-radius:16px;overflow:hidden;">
-                <div style="background:\${c.bg};padding:18px 22px 16px;border-bottom:1px solid \${c.border};">
-                  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
-                    <div style="display:flex;align-items:center;gap:8px;">
-                      <span style="font-size:10px;font-weight:800;color:#fff;background:\${c.badge};padding:3px 10px;border-radius:20px;">\${td.type}</span>
-                      <span style="font-size:10px;color:#aaa;font-style:italic;">\${TE[td.type]}</span>
-                    </div>
-                    <span style="font-size:10px;color:#aaa;">\${td.count} Cases</span>
-                  </div>
-                  <h3 style="font-size:14.5px;font-weight:700;color:#1a2e2a;margin-bottom:5px;">\${td.typeName}</h3>
-                  <p style="font-size:12px;color:#777;line-height:1.7;margin:0;">\${td.description}</p>
-                </div>
-                <div style="background:#fafaf8;padding:14px 22px 16px;">
-                  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:12px;">
-                    \${preview.map(p=>\`
-                      <div style="border:1px solid \${c.border};border-radius:10px;padding:13px 15px;background:#fff;">
-                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;">
-                          <span style="font-size:9.5px;font-weight:700;color:\${c.badge};letter-spacing:.04em;">\${p.city} · \${p.country}</span>
-                          \${p.sourceUrl ? \`<span style="font-size:9px;font-weight:700;color:\${c.badge};background:\${c.tagBg};padding:2px 7px;border-radius:10px;">칼럼</span>\` : ''}
-                        </div>
-                        <p style="font-size:13px;font-weight:700;color:#1a2e2a;margin-bottom:3px;line-height:1.4;">\${p.caseName}</p>
-                        <p style="font-size:11px;color:#999;margin-bottom:9px;">\${p.concept}</p>
-                        <div style="display:flex;flex-wrap:wrap;gap:4px;\${p.sourceUrl ? 'margin-bottom:9px;' : ''}">
-                          <span style="font-size:9.5px;color:\${c.tagTxt};background:\${c.tagBg};padding:2px 8px;border-radius:20px;">#\${p.spatialStrategyKeyword}</span>
-                          <span style="font-size:9.5px;color:\${c.tagTxt};background:\${c.tagBg};padding:2px 8px;border-radius:20px;">#\${p.city}</span>
-                        </div>
-                        \${p.sourceUrl ? \`<a href="\${p.sourceUrl}" target="_blank" rel="noopener noreferrer" style="font-size:11.5px;font-weight:700;color:\${c.badge};text-decoration:none;">원문 보기 ↗</a>\` : ''}
-                      </div>\`).join('')}
-                  </div>
-                  <div style="text-align:right;">
-                    <button onclick="openCulturalCasePage('\${td.type}')"
-                            style="font-size:11.5px;font-weight:700;color:\${c.badge};background:transparent;border:1.5px solid \${c.badge};border-radius:8px;padding:5px 14px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:background .2s,color .2s;"
-                            onmouseover="this.style.background='\${c.badge}';this.style.color='#fff'"
-                            onmouseout="this.style.background='transparent';this.style.color='\${c.badge}'">
-                      전체 사례 보기 (\${td.count}개) →
-                    </button>
-                  </div>
-                </div>
-              </div>\`;
-              }).join('');
-            })()}
+            ${_buildArchiveCards()}
           </div>
           <p style="font-size:11.5px;color:#bbb;text-align:right;padding-top:14px;">Source · 부산일보 「이상훈의 시그니처 문화공간 이야기」 칼럼 기반</p>
         </div>
