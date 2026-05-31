@@ -72,6 +72,10 @@ ul { list-style: none; }
 #header:not(.scrolled) .lang-btn:hover { border-color: #ffffff; color: #ffffff; }
 #header:not(.scrolled) .hamburger span { background: #ffffff; }
 
+/* 스크롤 후 — nav 링크 허니 골드 */
+#header.scrolled .gnb a { color: #d4a843; }
+#header.scrolled .gnb a::after { background: #d4a843; }
+
 .header-inner {
   height: 80px;
   display: flex;
@@ -936,30 +940,36 @@ section { padding: 100px 0; }
 .programs-more-btn {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 14px 36px;
-  background: transparent;
-  border: 1.5px solid var(--primary);
+  justify-content: space-between;
+  gap: 32px;
+  padding: 18px 28px 18px 32px;
+  background: #faf8f4;
+  border: 1.5px solid #d8cfc2;
   color: var(--primary);
   font-family: var(--font);
   font-size: 14px;
   font-weight: 600;
-  letter-spacing: 0.04em;
-  border-radius: 32px;
+  letter-spacing: 0.05em;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s, transform 0.2s;
+  min-width: 240px;
+  box-shadow: 3px 4px 14px rgba(0,0,0,0.08);
+  transition: box-shadow 0.2s, transform 0.2s, background 0.2s;
 }
 .programs-more-btn::after {
-  content: '↓';
-  font-size: 16px;
+  content: '→';
+  font-size: 18px;
+  font-weight: 300;
+  color: #a89880;
   transition: transform 0.2s;
 }
 .programs-more-btn:hover {
-  background: var(--primary);
-  color: #fff;
+  background: #f2ede5;
+  box-shadow: 4px 6px 20px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
 }
 .programs-more-btn:hover::after {
-  transform: translateY(3px);
+  transform: translateX(5px);
 }
 
 /* =========================================
