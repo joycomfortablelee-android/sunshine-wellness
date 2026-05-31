@@ -57,12 +57,15 @@ ul { list-style: none; }
   transition: background 0.4s ease, box-shadow 0.4s ease;
 }
 #header.scrolled {
+  background: #ffffff;
   box-shadow: 0 1px 16px rgba(0,0,0,0.08);
 }
-@media (min-width: 901px) {
-  #header.scrolled {
-    background: #ffffff;
-  }
+
+/* 모바일 스크롤 후 — 햄버거 + 로고 그린 */
+@media (max-width: 900px) {
+  #header.scrolled .hamburger span { background: #3B6259; }
+  #header.scrolled .logo-en { color: #3B6259; }
+  #header.scrolled .logo-kr { color: #3B6259; opacity: .75; }
 }
 
 /* 투명 헤더일 때 — 히어로 이미지 위에서 텍스트 흰색 */
