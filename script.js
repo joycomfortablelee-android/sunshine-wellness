@@ -1340,6 +1340,14 @@ function _buildArchiveCards() {
 // =========================================
 // 제휴 여행사 — 아트 컨시어지
 // =========================================
+function openArtConciergeArchive() {
+  openArtConciergePage();
+  setTimeout(function() {
+    var sec = document.getElementById('ac-archive-section');
+    if (sec) sec.scrollIntoView({ behavior: 'smooth' });
+  }, 250);
+}
+
 function openArtConciergePage() {
   const orn = `<svg class="ac-ornament" viewBox="0 0 300 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M26 13 C16 13 9 11 8 8 C7 5 9 2 11 3 C13 4 12 7 10 8" stroke="#2d4a42" stroke-width="1.1" stroke-linecap="round"/><line x1="26" y1="13" x2="128" y2="13" stroke="#2d4a42" stroke-width="0.8" opacity="0.55"/><circle cx="138" cy="13" r="1.3" fill="#2d4a42" opacity="0.45"/><path d="M150 8 L154.5 13 L150 18 L145.5 13 Z" fill="#2d4a42" opacity="0.75"/><circle cx="162" cy="13" r="1.3" fill="#2d4a42" opacity="0.45"/><line x1="172" y1="13" x2="274" y2="13" stroke="#2d4a42" stroke-width="0.8" opacity="0.55"/><path d="M274 13 C284 13 291 11 292 8 C293 5 291 2 289 3 C287 4 288 7 290 8" stroke="#2d4a42" stroke-width="1.1" stroke-linecap="round"/></svg>`;
   const orn2 = `<svg class="ac-ornament" viewBox="0 0 300 26" xmlns="http://www.w3.org/2000/svg"><line x1="20" y1="13" x2="95" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/><text x="150" y="19" text-anchor="middle" font-size="15" fill="#2d4a42" opacity="0.72" font-family="Georgia,serif">∗ · · ✦ · · ∗</text><line x1="205" y1="13" x2="280" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/></svg>`;
@@ -1503,7 +1511,7 @@ function openArtConciergePage() {
               <span style="font-size:18px;flex-shrink:0;">${icon}</span>
               <div style="flex:1;min-width:0;">
                 <p style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3B6259;margin-bottom:6px;">${label}</p>
-                <p style="font-size:18px;font-weight:600;color:#1a2e2a;line-height:1.45;">${desc}</p>
+                <p style="font-size:16px;font-weight:700;color:#1a2e2a;line-height:1.5;font-family:'Merriweather',Georgia,serif;">${desc}</p>
               </div>
               <span style="font-size:20px;color:#bbb;flex-shrink:0;">↗</span>
             </a>`).join('')}
