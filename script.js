@@ -1901,7 +1901,7 @@ function openAboutPage() {
         <p class="ab-body" style="margin-bottom:18px;">선샤인 웰니스는 여행이 단순한 휴식이 아니라 인생의 의미를 찾고 성장하는 시간이 될 수 있다고 믿습니다.</p>
         <p class="ab-body">부산의 자연·문화·역사와 깊이 만나는 경험이 삶에 새로운 활력을 불어넣어 줍니다. 웰니스와 문화 체험을 결합한 독창적인 프로그램으로 몸과 마음의 균형을 되찾도록 돕겠습니다.</p>
         <blockquote style="margin-top:28px;padding:18px 24px;background:#f5f5f3;border-radius:8px;border:none;">
-          <p class="ab-caption" style="font-weight:600;color:#1a2e2a;font-style:italic;">"여행의 모든 순간이 의미 있고 가치 있게 완성되도록, 선샤인 웰니스는 진심 어린 동반자가 되겠습니다."</p>
+          <p class="ab-caption" style="font-weight:600;color:#1a2e2a;font-style:italic;font-family:Georgia,serif;">"여행의 모든 순간이 의미 있고 가치 있게 완성되도록, 선샤인 웰니스는 진심 어린 동반자가 되겠습니다."</p>
         </blockquote>
       </div>
     </section>`;
