@@ -1478,7 +1478,7 @@ function openArtConciergePage() {
         </div>
       </div>
       <!-- ⑤ PROOF — PART 01 에 포함 -->
-      <div style="background:#EBF0E8;padding:0;margin-top:0;">
+      <div style="background:#F5F5F3;padding:0;margin-top:0;">
         <!-- 링크 카드 — PROOF -->
         <div class="sp-wrap" style="padding-bottom:40px;">
           ${orn2}
@@ -1560,7 +1560,7 @@ function openArtConciergePage() {
                   </div>
                   <p style="font-size:13px;color:#666;line-height:1.7;margin:0;">${s.desc}</p>
                 </div>
-                <div style="background:#fafaf8;padding:16px 22px 20px;">
+                <div style="background:#fff;padding:16px 22px 20px;">
                   <div style="display:grid;grid-template-columns:1fr;gap:16px;">
                     ${s.tours.map(t=>`
                       <div style="border:none;border-left:3px solid ${t.color};padding:14px 0 14px 20px;background:transparent;">
