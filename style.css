@@ -72,9 +72,9 @@ ul { list-style: none; }
 #header:not(.scrolled) .lang-btn:hover { border-color: #ffffff; color: #ffffff; }
 #header:not(.scrolled) .hamburger span { background: #ffffff; }
 
-/* 스크롤 후 — nav 링크 허니 골드 */
-#header.scrolled .gnb a { color: #d4a843; }
-#header.scrolled .gnb a::after { background: #d4a843; }
+/* 스크롤 후 — nav 링크 딥 그린 */
+#header.scrolled .gnb a { color: #3B6259; }
+#header.scrolled .gnb a::after { background: #3B6259; }
 
 .header-inner {
   height: 80px;
