@@ -1188,9 +1188,10 @@ function openContactUsPage() {
         <button class="cu-ucard cu-ucard-btn" onclick="cuShowSection('vip')"><div class="cu-ucard-icon">👑</div><h3 class="cu-ucard-title">우수고객 등급혜택 안내</h3></button>
         <button class="cu-ucard cu-ucard-btn" onclick="cuShowSection('events')"><div class="cu-ucard-icon">🎉</div><h3 class="cu-ucard-title">이벤트 당첨자 발표</h3></button>
         <div class="cu-ucard"><div class="cu-ucard-icon">📍</div><h3 class="cu-ucard-title">모이는 장소</h3><p class="cu-ucard-body">부산광역시 부산진구<br/>서면 쥬디스태화 백화점 앞</p></div>
-        <div class="cu-ucard"><div class="cu-ucard-icon">📞</div><h3 class="cu-ucard-title">전화 문의</h3><p class="cu-ucard-body">010-5759-5485<br/><span style="font-size:12px;color:#999;">평일 09:00 – 18:00</span></p></div>
-        <div class="cu-ucard"><div class="cu-ucard-icon">✉️</div><h3 class="cu-ucard-title">이메일</h3><p class="cu-ucard-body"><a href="mailto:healthylee7@gmail.com" style="color:#1a2e2a;text-decoration:none;">healthylee7@gmail.com</a></p></div>
-        <div class="cu-ucard"><div class="cu-ucard-icon">🕐</div><h3 class="cu-ucard-title">운영 시간</h3><p class="cu-ucard-body">평일 09:00 – 18:00<br/>점심 12:00 – 13:00<br/><span style="font-size:12px;color:#999;">주말 · 공휴일 휴무</span></p></div>
+        <div class="cu-ucard"><div class="cu-ucard-icon">📞</div><h3 class="cu-ucard-title">전화 문의</h3><p class="cu-ucard-body">010-5759-5485<br/>평일 09:00 – 18:00<br/>점심 12:00 – 13:00<br/><span style="font-size:11.5px;color:#999;">주말 · 공휴일 휴무</span></p></div>
+        <div class="cu-ucard"><div class="cu-ucard-icon">✉️</div><h3 class="cu-ucard-title">이메일 문의</h3><p class="cu-ucard-body"><a href="mailto:healthylee7@gmail.com" style="color:#1a2e2a;text-decoration:none;">healthylee7@gmail.com</a><br/>접수 후 1영업일 이내<br/>답변 드립니다.</p></div>
+        <div class="cu-ucard"><div class="cu-ucard-icon">💛</div><h3 class="cu-ucard-title">카카오 채널</h3><p class="cu-ucard-body">실시간 채팅 상담<br/>빠른 답변을 도와드립니다.<br/><a href="https://pf.kakao.com" target="_blank" rel="noopener noreferrer" style="color:#3B6259;font-weight:700;text-decoration:none;">바로가기 →</a></p></div>
+        <div class="cu-ucard"><div class="cu-ucard-icon">🕐</div><h3 class="cu-ucard-title">운영 시간</h3><p class="cu-ucard-body">평일 09:00 – 18:00<br/>점심 12:00 – 13:00<br/><span style="font-size:11.5px;color:#999;">주말 · 공휴일 휴무</span></p></div>
       </div>
 
       <div class="cu-divider"></div>

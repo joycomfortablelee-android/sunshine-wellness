@@ -76,6 +76,11 @@ ul { list-style: none; }
 #header.scrolled .gnb a { color: #3B6259; }
 #header.scrolled .gnb a::after { background: #3B6259; }
 
+/* 아트 컨시어지 — 스크롤 후 딥 그린, 히어로 위 흰색 */
+#header.scrolled .gnb-partner > a { color: #3B6259 !important; }
+#header.scrolled .gnb-partner > a::after { background: #3B6259 !important; }
+#header.scrolled .gnb-partner .gnb-partner-label { color: #3B6259 !important; }
+
 .header-inner {
   height: 80px;
   display: flex;
@@ -432,7 +437,7 @@ ul { list-style: none; }
 .cu-hc-box:hover { border-color:var(--accent); background:#eef5f3; transform:translateY(-2px); }
 .cu-hc-box-icon { font-size:26px; line-height:1; }
 .cu-hc-box-label { font-size:12.5px; font-weight:600; color:#333; text-align:center; word-break:keep-all; line-height:1.4; }
-.cu-unified-grid { display:grid; grid-template-columns:repeat(3,1fr); grid-auto-rows:185px; gap:16px; margin-bottom:40px; }
+.cu-unified-grid { display:grid; grid-template-columns:repeat(3,1fr); grid-auto-rows:200px; gap:16px; margin-bottom:40px; }
 .cu-ucard { display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; background:#fff; border:1px solid #e8e8e4; border-radius:14px; padding:26px 18px 24px; }
 .cu-ucard-btn { cursor:pointer; font-family:var(--font); transition:border-color .2s, background .2s, transform .2s; }
 .cu-ucard-btn:hover { border-color:var(--accent); background:#eef5f3; transform:translateY(-2px); }
@@ -441,7 +446,7 @@ ul { list-style: none; }
 .cu-ucard-body { font-size:12.5px; color:#666; line-height:1.85; margin-top:8px; }
 .cu-back-btn { display:inline-flex; align-items:center; gap:6px; padding:9px 18px; background:#f0f5f4; border:1.5px solid var(--border); border-radius:8px; font-size:13.5px; font-weight:600; color:#1a2e2a; cursor:pointer; font-family:var(--font); margin-bottom:28px; transition:background .2s, border-color .2s; }
 .cu-back-btn:hover { background:#dde8e5; border-color:var(--accent); }
-@media (max-width:600px) { .cu-wrap { padding:32px 20px 60px; } .cu-grid { grid-template-columns:1fr; } .cu-hc-grid { grid-template-columns:repeat(2,1fr); } .cu-unified-grid { grid-template-columns:repeat(2,1fr); grid-auto-rows:185px; } }
+@media (max-width:600px) { .cu-wrap { padding:32px 20px 60px; } .cu-grid { grid-template-columns:1fr; } .cu-hc-grid { grid-template-columns:repeat(2,1fr); } .cu-unified-grid { grid-template-columns:repeat(2,1fr); grid-auto-rows:200px; } }
 
 /* =========================================
    HERO — 100vh 풀스크린
