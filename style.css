@@ -168,7 +168,7 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.88rem;
+  font-size: 0.75rem;
   color: var(--gray);
   transition: color var(--ease);
   white-space: nowrap;
@@ -178,6 +178,7 @@ ul { list-style: none; }
 .lang-wrap {
   display: flex;
   gap: 4px;
+  margin-left: 8px;
 }
 .lang-btn {
   width: 34px; height: 34px;
