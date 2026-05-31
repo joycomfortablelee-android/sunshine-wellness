@@ -1538,7 +1538,7 @@ function openArtConciergePage() {
         </div>
           <div style="display:flex;flex-direction:column;gap:20px;">
             ${[
-              {icon:'🎼',title:'음악 · 콘서트',desc:'빈 필하모닉, 잘츠부르크 페스티벌 등 서유럽 정상급 음악 공연 VIP 관람 기획',bg:'#eff4f1',border:'#c4d8cc',color:'#3B6259',
+              {icon:'🎼',title:'음악 · 콘서트',desc:'빈 필하모닉, 잘츠부르크 페스티벌 등 서유럽 정상급 음악 공연 VIP 관람 기획',bg:'linear-gradient(135deg,#1a3d30 0%,#3B6259 100%)',border:'#2d5a48',color:'#3B6259',headerWhite:true,
                tours:[
                  {icon:'🎼',tag:'Exclusive',title:'잘츠부르크 음악 페스티벌 VIP',sub:'오스트리아 · 8박 10일',desc:'매년 여름 개최되는 세계 최고의 클래식 음악 축제. VIP 좌석과 리허설 관람, 아티스트 백스테이지 투어 포함.',color:'#e8a04a'},
                  {icon:'🏛️',tag:'Curated',title:'빈 필하모닉 골든홀 콘서트',sub:'오스트리아 · 5박 7일',desc:'세계 3대 콘서트홀 무직페라인 황금홀에서의 특별 공연 관람. 비엔나 왕궁·미술사박물관 연계 투어.',color:'#3B6259'},
@@ -1556,9 +1556,9 @@ function openArtConciergePage() {
                 <div style="background:${s.bg};padding:18px 22px 16px;border-bottom:1px solid ${s.border};">
                   <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
                     <span style="font-size:24px;">${s.icon}</span>
-                    <h3 style="font-size:15px;font-weight:700;color:#1a2e2a;">${s.title}</h3>
+                    <h3 style="font-size:15px;font-weight:700;color:${s.headerWhite?'#fff':'#1a2e2a'};">${s.title}</h3>
                   </div>
-                  <p style="font-size:13px;color:#666;line-height:1.7;margin:0;">${s.desc}</p>
+                  <p style="font-size:13px;color:${s.headerWhite?'rgba(255,255,255,0.82)':'#666'};line-height:1.7;margin:0;">${s.desc}</p>
                 </div>
                 <div style="background:#fff;padding:16px 22px 20px;">
                   <div style="display:grid;grid-template-columns:1fr;gap:16px;">
