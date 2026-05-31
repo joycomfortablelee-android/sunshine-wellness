@@ -1560,16 +1560,16 @@ function openArtConciergePage() {
                   </div>
                   <p style="font-size:13px;color:#666;line-height:1.7;margin:0;">${s.desc}</p>
                 </div>
-                <div style="background:#fafaf8;padding:14px 22px 16px;">
-                  <div style="display:grid;grid-template-columns:1fr;gap:12px;">
+                <div style="background:#fafaf8;padding:16px 22px 20px;">
+                  <div style="display:grid;grid-template-columns:1fr;gap:16px;">
                     ${s.tours.map(t=>`
-                      <div style="border:1px solid #e8e8e4;border-top:3px solid ${t.color};border-radius:12px;padding:20px;background:#fff;">
-                        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-                          <span style="font-size:22px;">${t.icon}</span>
+                      <div style="border:none;border-left:3px solid ${t.color};padding:14px 0 14px 20px;background:transparent;">
+                        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+                          <span style="font-size:20px;">${t.icon}</span>
                           <span style="font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:${t.color};">${t.tag}</span>
                         </div>
                         <h4 style="font-size:14.5px;font-weight:700;color:#1a2e2a;margin-bottom:4px;">${t.title}</h4>
-                        <p style="font-size:11.5px;color:#aaa;margin-bottom:10px;">${t.sub}</p>
+                        <p style="font-size:11.5px;color:#aaa;margin-bottom:8px;">${t.sub}</p>
                         <p style="font-size:13px;color:#666;line-height:1.8;">${t.desc}</p>
                       </div>`).join('')}
                   </div>
