@@ -35,7 +35,7 @@
           <li><a href="javascript:void(0)" onclick="openProgramsPage()" data-i18n="nav.programs">프로그램 소개</a></li>
           <li><a href="javascript:void(0)" onclick="openContactPage()" data-i18n="nav.contact">견적의뢰 및 문의</a></li>
           <li><a href="javascript:void(0)" onclick="openWhereToNextPage()" data-i18n="nav.wheretonext">Where to Next?</a></li>
-          <li><a href="javascript:void(0)" onclick="openContactUsPage()" data-i18n="nav.contactus">Contact Us</a></li>
+          <li><a href="javascript:void(0)" onclick="openContactUsPage()" data-i18n="nav.contactus">고객센터</a></li>
           <li class="gnb-partner">
             <a href="javascript:void(0)" onclick="openArtConciergePage()">
               <span class="gnb-partner-label" data-i18n="nav.partnerlabel">VIP 제휴여행사</span>
@@ -71,7 +71,7 @@
         <li><a href="javascript:void(0)" class="mobile-link" onclick="openProgramsPage()" data-i18n="nav.programs">프로그램 소개</a></li>
         <li><a href="javascript:void(0)" class="mobile-link" onclick="openContactPage()" data-i18n="nav.contact">견적의뢰 및 문의</a></li>
         <li><a href="javascript:void(0)" class="mobile-link" onclick="openWhereToNextPage()" data-i18n="nav.wheretonext">Where to Next?</a></li>
-        <li><a href="javascript:void(0)" class="mobile-link" onclick="openContactUsPage()" data-i18n="nav.contactus">Contact Us</a></li>
+        <li><a href="javascript:void(0)" class="mobile-link" onclick="openContactUsPage()" data-i18n="nav.contactus">고객센터</a></li>
         <li class="mobile-partner">
           <a href="javascript:void(0)" class="mobile-link" onclick="openArtConciergePage()">
             <span class="mobile-partner-label" data-i18n="nav.partnerlabel">VIP 제휴여행사</span>
@@ -508,10 +508,10 @@
           <div class="fhc-card-icon">🎉</div>
           <div class="fhc-card-title">이벤트 당첨자</div>
         </button>
-        <a href="https://open.kakao.com/o/sl2k01wi" target="_blank" rel="noopener" class="fhc-card fhc-card-link">
-          <div class="fhc-card-icon">💛</div>
-          <div class="fhc-card-title">카카오</div>
-        </a>
+        <button class="fhc-card fhc-card-btn" onclick="openCouponModal()">
+          <div class="fhc-card-icon">🎟️</div>
+          <div class="fhc-card-title">할인쿠폰</div>
+        </button>
         <a href="javascript:void(0)" class="fhc-card fhc-card-link">
           <div class="fhc-card-icon">📸</div>
           <div class="fhc-card-title">인스타그램</div>
@@ -574,7 +574,8 @@
   </div>
 
   <script src="ART/culturalArchiveData.js"></script>
-  <script src="script.js?v=20260531d"></script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js" defer></script>
+  <script src="script.js?v=20260531e"></script>
   <!-- QUICK SIDEBAR -->
   <aside class="quick-sidebar" id="quickSidebar">
     <a href="javascript:void(0)" onclick="quickNavTo('#programs')" class="quick-item">
