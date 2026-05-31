@@ -2128,3 +2128,186 @@ section { padding: 100px 0; }
   .hc-tomorrow-box { padding: 32px 20px; }
   .hc-qna-form, .hc-voice-form { padding: 24px 18px; }
 }
+
+/* =========================================
+   할인쿠폰 모달
+   ========================================= */
+#couponModal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  background: rgba(15,35,25,0.82);
+  backdrop-filter: blur(6px);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+#couponCard {
+  width: 100%;
+  background: #FAF7F2;
+  border: 2.5px dashed #3B6259;
+  border-radius: 18px;
+  overflow: hidden;
+  font-family: 'Noto Sans KR', sans-serif;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.cpn-header {
+  background: #3B6259;
+  padding: 20px 24px 22px;
+  text-align: center;
+}
+.cpn-scissors {
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: .04em;
+  margin-bottom: 10px;
+}
+.cpn-brand {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .28em;
+  color: rgba(255,255,255,0.65);
+  text-transform: uppercase;
+  margin-bottom: 7px;
+}
+.cpn-title {
+  font-size: 19px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: .02em;
+  margin-bottom: 4px;
+}
+.cpn-sub {
+  font-size: 12px;
+  color: rgba(255,255,255,0.65);
+}
+
+.cpn-body {
+  padding: 26px 24px 18px;
+  text-align: center;
+  background: #FAF7F2;
+}
+.cpn-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .2em;
+  color: #3B6259;
+  opacity: .7;
+  margin-bottom: 10px;
+}
+.cpn-num-wrap { line-height: 1; margin-bottom: 2px; }
+.cpn-num {
+  font-size: 84px;
+  font-weight: 900;
+  color: #3B6259;
+  letter-spacing: -.02em;
+}
+.cpn-pct {
+  font-size: 46px;
+  font-weight: 900;
+  color: #3B6259;
+  vertical-align: top;
+  margin-top: 10px;
+  display: inline-block;
+}
+.cpn-off {
+  font-size: 24px;
+  font-weight: 800;
+  color: #3B6259;
+  letter-spacing: .14em;
+  margin-bottom: 12px;
+}
+.cpn-scope {
+  font-size: 12px;
+  color: #999;
+}
+
+.cpn-divider {
+  margin: 0 20px;
+  border-top: 1.5px dashed #c8c4be;
+}
+
+.cpn-meta {
+  padding: 14px 24px;
+  background: #FAF7F2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cpn-meta-label {
+  font-size: 9px;
+  color: #bbb;
+  letter-spacing: .1em;
+  margin-bottom: 3px;
+}
+.cpn-meta-val {
+  font-size: 14px;
+  font-weight: 700;
+  color: #555;
+}
+.cpn-code {
+  font-size: 17px;
+  font-weight: 800;
+  color: #3B6259;
+  letter-spacing: .1em;
+}
+.cpn-vline {
+  width: 1px;
+  height: 32px;
+  background: #e0dbd5;
+}
+
+.cpn-terms {
+  padding: 10px 24px 16px;
+  background: #FAF7F2;
+  text-align: center;
+}
+.cpn-terms p {
+  font-size: 10px;
+  color: #bbb;
+  line-height: 1.7;
+}
+
+.cpn-hint {
+  color: rgba(255,255,255,0.65);
+  font-size: 12px;
+  text-align: center;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.cpn-dl-btn {
+  background: #3B6259;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 11px 22px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Noto Sans KR', sans-serif;
+  letter-spacing: .03em;
+  transition: background .2s;
+}
+.cpn-dl-btn:hover { background: #2e4f48; }
+
+.cpn-close-btn {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 50px;
+  padding: 11px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Noto Sans KR', sans-serif;
+  letter-spacing: .03em;
+  transition: background .2s;
+}
+.cpn-close-btn:hover { background: rgba(255,255,255,0.22); }
+
