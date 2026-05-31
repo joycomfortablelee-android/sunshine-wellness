@@ -1477,19 +1477,7 @@ function openArtConciergePage() {
           ${['#데스티네이션아트','#예술여행철학','#서유럽'].map(t=>`<span class="ac-tag">${t}</span>`).join('')}
         </div>
       </div>
-      </div><!-- /PART 01 -->
-
-      <div style="background:#EBF0E8;padding:28px 0 0;">
-        <div class="sp-wrap" style="padding-top:0;padding-bottom:0;">
-          <div style="display:flex;align-items:center;gap:14px;">
-            <div style="flex:1;height:1px;background:#c8c2b8;"></div>
-            <span style="font-size:9px;font-weight:700;letter-spacing:.22em;color:#9a9088;text-transform:uppercase;">PART 02 · The Offering</span>
-            <div style="flex:1;height:1px;background:#c8c2b8;"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ⑤ Specialty 전문 서비스 -->
+      <!-- ⑤ PROOF — PART 01 에 포함 -->
       <div style="background:#EBF0E8;padding:0;margin-top:0;">
         <!-- 링크 카드 — PROOF -->
         <div class="sp-wrap" style="padding-bottom:40px;">
@@ -1524,6 +1512,19 @@ function openArtConciergePage() {
             ${['#부산일보','#부산콘서트홀','#완판'].map(t=>`<span class="ac-tag">${t}</span>`).join('')}
           </div>
         </div>
+      </div><!-- /PROOF (PART 01) -->
+      </div><!-- /PART 01 -->
+
+      <div style="background:#EBF0E8;padding:28px 0 0;">
+        <div class="sp-wrap" style="padding-top:0;padding-bottom:0;">
+          <div style="display:flex;align-items:center;gap:14px;">
+            <div style="flex:1;height:1px;background:#c8c2b8;"></div>
+            <span style="font-size:9px;font-weight:700;letter-spacing:.22em;color:#9a9088;text-transform:uppercase;">PART 02 · 시그너처</span>
+            <div style="flex:1;height:1px;background:#c8c2b8;"></div>
+          </div>
+        </div>
+      </div>
+
         <!-- WHAT + EXPERIENCE 통합 -->
         <div class="sp-wrap" style="padding-top:48px;padding-bottom:48px;">
           ${orn2}
