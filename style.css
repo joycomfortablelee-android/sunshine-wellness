@@ -1542,7 +1542,7 @@ section { padding: 100px 0; }
   font-size: 0.85rem; flex-shrink: 0;
 }
 
-.contact-form { display: flex; flex-direction: column; gap: 0; }
+.contact-form { display: flex; flex-direction: column; gap: 0; padding-top: 32px; }
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;

@@ -1433,24 +1433,45 @@ function openArtConciergePage() {
 
       <!-- ④ 이상훈 사진 + 동서대 강의 카드 -->
       <div class="sp-wrap" style="padding-top:48px;padding-bottom:0;">
-        <div class="ac-lsh-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch;">
-          <div style="border-radius:14px;overflow:hidden;background:#111;aspect-ratio:4/3;">
-            <img src="images/lsh.jpg" alt="이상훈 대표" style="width:100%;height:100%;object-fit:cover;display:block;opacity:.92;" />
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div class="ac-lsh-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch;">
+            <div style="border-radius:14px;overflow:hidden;background:#111;aspect-ratio:4/3;">
+              <img src="images/lsh.jpg" alt="이상훈 대표" style="width:100%;height:100%;object-fit:cover;display:block;opacity:.92;" />
+            </div>
+            <a href="https://uni.dongseo.ac.kr/qcollege/index.php?pCode=MN2000065&pg=2&mode=view&idx=322" target="_blank" rel="noopener"
+               style="display:flex;flex-direction:column;justify-content:space-between;background:#f7f6f3;border:1px solid #e8e8e4;border-radius:14px;padding:24px 22px;text-decoration:none;transition:box-shadow .2s,transform .2s;"
+               onmouseover="this.style.boxShadow='0 6px 20px rgba(0,0,0,0.09)';this.style.transform='translateY(-2px)'"
+               onmouseout="this.style.boxShadow='none';this.style.transform='none'">
+              <div>
+                <p style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3B6259;margin-bottom:10px;">Lecture · 동서대학교</p>
+                <h3 style="font-size:15px;font-weight:800;color:#1a2e2a;line-height:1.45;margin-bottom:12px;">스토리를 찾아 떠나는<br/>유럽 그랜드 투어</h3>
+                <p style="font-size:13px;color:#666;line-height:1.75;">성당을 서점으로, 오페라 극장을 서점으로 — 유럽의 건축과 공간에 담긴 스토리를 찾아가는 아트 트래블 특강.</p>
+              </div>
+              <div style="margin-top:16px;display:flex;align-items:center;justify-content:space-between;">
+                <span style="font-size:11.5px;color:#aaa;">2022년 9월 16일 · 동서대학교</span>
+                <span style="font-size:13px;color:#3B6259;font-weight:700;">보기 ↗</span>
+              </div>
+            </a>
           </div>
-          <a href="https://uni.dongseo.ac.kr/qcollege/index.php?pCode=MN2000065&pg=2&mode=view&idx=322" target="_blank" rel="noopener"
-             style="display:flex;flex-direction:column;justify-content:space-between;background:#f7f6f3;border:1px solid #e8e8e4;border-radius:14px;padding:24px 22px;text-decoration:none;transition:box-shadow .2s,transform .2s;"
-             onmouseover="this.style.boxShadow='0 6px 20px rgba(0,0,0,0.09)';this.style.transform='translateY(-2px)'"
-             onmouseout="this.style.boxShadow='none';this.style.transform='none'">
-            <div>
-              <p style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3B6259;margin-bottom:10px;">Lecture · 동서대학교</p>
-              <h3 style="font-size:15px;font-weight:800;color:#1a2e2a;line-height:1.45;margin-bottom:12px;">스토리를 찾아 떠나는<br/>유럽 그랜드 투어</h3>
-              <p style="font-size:13px;color:#666;line-height:1.75;">성당을 서점으로, 오페라 극장을 서점으로 — 유럽의 건축과 공간에 담긴 스토리를 찾아가는 아트 트래블 특강.</p>
+          <div class="ac-lsh-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch;">
+            <div style="border-radius:14px;overflow:hidden;background:#111;aspect-ratio:4/3;">
+              <img src="ART/lsh dsu.jpg" alt="이상훈 대표 동서대학교 강의" style="width:100%;height:100%;object-fit:cover;display:block;opacity:.92;" />
             </div>
-            <div style="margin-top:16px;display:flex;align-items:center;justify-content:space-between;">
-              <span style="font-size:11.5px;color:#aaa;">2022년 9월 16일 · 동서대학교</span>
-              <span style="font-size:13px;color:#3B6259;font-weight:700;">보기 ↗</span>
-            </div>
-          </a>
+            <a href="https://www.dongseo.ac.kr/kr/index.php?pCode=MN2000192&pg=38&mode=view&idx=86997" target="_blank" rel="noopener"
+               style="display:flex;flex-direction:column;justify-content:space-between;background:#f7f6f3;border:1px solid #e8e8e4;border-radius:14px;padding:24px 22px;text-decoration:none;transition:box-shadow .2s,transform .2s;"
+               onmouseover="this.style.boxShadow='0 6px 20px rgba(0,0,0,0.09)';this.style.transform='translateY(-2px)'"
+               onmouseout="this.style.boxShadow='none';this.style.transform='none'">
+              <div>
+                <p style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3B6259;margin-bottom:10px;">Lecture · 동서대학교</p>
+                <h3 style="font-size:15px;font-weight:800;color:#1a2e2a;line-height:1.45;margin-bottom:12px;">스토리를 찾아 떠나는<br/>유럽 그랜드 투어</h3>
+                <p style="font-size:13px;color:#666;line-height:1.75;">성당을 서점으로, 오페라 극장을 서점으로 — 유럽의 건축과 공간에 담긴 스토리를 찾아가는 아트 트래블 특강.</p>
+              </div>
+              <div style="margin-top:16px;display:flex;align-items:center;justify-content:space-between;">
+                <span style="font-size:11.5px;color:#aaa;">2022년 9월 16일 · 동서대학교</span>
+                <span style="font-size:13px;color:#3B6259;font-weight:700;">보기 ↗</span>
+              </div>
+            </a>
+          </div>
         </div>
         <div class="ac-tags">
           ${['#데스티네이션아트','#예술여행철학','#서유럽'].map(t=>`<span class="ac-tag">${t}</span>`).join('')}
