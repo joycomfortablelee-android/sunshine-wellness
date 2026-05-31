@@ -1219,7 +1219,7 @@ function openContactUsPage() {
       <div class="sp-toolbar" style="margin-bottom:28px;">
         <p class="sp-count">예약부터 출발까지</p>
       </div>
-      <div style="display:flex;flex-direction:column;gap:0;">
+      <div style="display:flex;flex-direction:column;gap:0;background:#fff;border:1px solid #e8e8e4;border-radius:14px;padding:8px 20px;">
         ${[
           ['01','문의','전화·이메일·카카오톡으로 원하는 프로그램과 일정을 알려주세요.'],
           ['02','일정 확인','담당자가 맞춤 일정과 견적을 안내해 드립니다. (1~2 영업일 내)'],
