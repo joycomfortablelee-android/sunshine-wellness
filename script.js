@@ -1425,7 +1425,7 @@ function openArtConciergePage() {
           <span class="ac-who-label">WHY</span>
           <span class="ac-who-name" style="font-size:17px;">예술 그 자체가 목적인 여행</span>
         </div>
-        <div style="background:#fff;border:1px solid #e8e8e4;border-radius:16px;padding:28px 32px;border-left:4px solid #3B6259;">
+        <div style="background:#fff;border:1px solid #e8e8e4;border-radius:16px;padding:28px 32px;border-left:1.5px solid #3B6259;">
           <p style="font-size:15px;color:#555;line-height:1.9;margin-bottom:14px;">아트 컨시어지는 단순히 여행 중 공연이나 미술관을 방문하는 것이 아닌, <strong style="color:#1a2e2a;">특정 공연·전시·건축 공간을 주목적으로 기획하는 1인 전문 여행사</strong>입니다.</p>
           <p style="font-size:15px;color:#555;line-height:1.9;margin:0;">"그곳에 가야만 볼 수 있는 예술"이라는 <em>데스티네이션 아트(Destination Art)</em> 철학 아래, 서유럽 음악·콘서트·건축 공간 VIP 투어를 전문으로 합니다.</p>
         </div>
@@ -1481,22 +1481,22 @@ function openArtConciergePage() {
           <span class="ac-who-label">PROOF</span>
           <span class="ac-who-name">언론 보도</span>
         </div>
-        <div style="display:grid;grid-template-columns:1fr;gap:12px;">
+        <div style="display:grid;grid-template-columns:1fr;gap:16px;">
           ${[
             ['📰','부산일보 기사','"예술 그 자체가 목적인 여행"','https://www.busan.com/view/busan/view.php?code=2024010814490253602'],
             ['🎫','부산콘서트홀 VIP 투어 완판','2박 3일 242만 원 · 2025.06.20 · 부산관광공사 × 아트컨시어지','https://www.mice.or.kr/bbs/board.php?bo_table=news&wr_id=1479'],
             ['🗞️','부산일보 연재','이상훈의 시그너처 문화공간 이야기','https://www.busan.com/search/index.php?search_string=[이상훈의시그너처문화공간이야기]'],
           ].map(([icon,label,desc,url]) => `
             <a href="${url}" target="_blank" rel="noopener"
-               style="display:flex;align-items:center;gap:14px;background:#fff;border:1px solid #e0ddd8;border-radius:14px;padding:16px 18px;text-decoration:none;transition:box-shadow .2s,transform .2s;"
+               style="display:flex;align-items:center;gap:20px;background:#fff;border:1px solid #e0ddd8;border-radius:16px;padding:24px 26px;text-decoration:none;transition:box-shadow .2s,transform .2s;"
                onmouseover="this.style.boxShadow='0 6px 20px rgba(0,0,0,0.09)';this.style.transform='translateY(-2px)'"
                onmouseout="this.style.boxShadow='none';this.style.transform='none'">
-              <span style="font-size:24px;flex-shrink:0;">${icon}</span>
+              <span style="font-size:36px;flex-shrink:0;">${icon}</span>
               <div style="flex:1;min-width:0;">
-                <p style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#3B6259;margin-bottom:2px;">${label}</p>
-                <p style="font-size:15px;font-weight:600;color:#1a2e2a;line-height:1.4;">${desc}</p>
+                <p style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3B6259;margin-bottom:6px;">${label}</p>
+                <p style="font-size:18px;font-weight:600;color:#1a2e2a;line-height:1.45;">${desc}</p>
               </div>
-              <span style="font-size:14px;color:#bbb;flex-shrink:0;">↗</span>
+              <span style="font-size:20px;color:#bbb;flex-shrink:0;">↗</span>
             </a>`).join('')}
         </div>
           <div class="ac-tags">
@@ -1539,7 +1539,7 @@ function openArtConciergePage() {
                   <p style="font-size:13px;color:#666;line-height:1.7;margin:0;">${s.desc}</p>
                 </div>
                 <div style="background:#fafaf8;padding:14px 22px 16px;">
-                  <div style="display:grid;grid-template-columns:${s.tours.length>1?'repeat(2,1fr)':'1fr'};gap:12px;">
+                  <div style="display:grid;grid-template-columns:1fr;gap:12px;">
                     ${s.tours.map(t=>`
                       <div style="border:1px solid #e8e8e4;border-top:3px solid ${t.color};border-radius:12px;padding:20px;background:#fff;">
                         <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
