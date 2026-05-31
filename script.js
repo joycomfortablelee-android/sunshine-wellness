@@ -1439,7 +1439,7 @@ function openArtConciergePage() {
               <img src="images/lsh.jpg" alt="이상훈 대표" style="width:100%;height:100%;object-fit:cover;display:block;opacity:.92;" />
             </div>
             <a href="https://uni.dongseo.ac.kr/qcollege/index.php?pCode=MN2000065&pg=2&mode=view&idx=322" target="_blank" rel="noopener"
-               style="display:flex;flex-direction:column;justify-content:space-between;background:#f7f6f3;border:1px solid #e8e8e4;border-radius:14px;padding:24px 22px;text-decoration:none;transition:box-shadow .2s,transform .2s;"
+               style="display:flex;flex-direction:column;justify-content:space-between;background:#fff;border:1px solid #e8e8e4;border-radius:14px;padding:24px 22px;text-decoration:none;transition:box-shadow .2s,transform .2s;"
                onmouseover="this.style.boxShadow='0 6px 20px rgba(0,0,0,0.09)';this.style.transform='translateY(-2px)'"
                onmouseout="this.style.boxShadow='none';this.style.transform='none'">
               <div>
@@ -1458,7 +1458,7 @@ function openArtConciergePage() {
               <img src="ART/lsh dsu.jpg" alt="이상훈 대표 동서대학교 강의" style="width:100%;height:100%;object-fit:cover;display:block;opacity:.92;" />
             </div>
             <a href="https://www.dongseo.ac.kr/kr/index.php?pCode=MN2000192&pg=38&mode=view&idx=86997" target="_blank" rel="noopener"
-               style="display:flex;flex-direction:column;justify-content:space-between;background:#f7f6f3;border:1px solid #e8e8e4;border-radius:14px;padding:24px 22px;text-decoration:none;transition:box-shadow .2s,transform .2s;"
+               style="display:flex;flex-direction:column;justify-content:space-between;background:#fff;border:1px solid #e8e8e4;border-radius:14px;padding:24px 22px;text-decoration:none;transition:box-shadow .2s,transform .2s;"
                onmouseover="this.style.boxShadow='0 6px 20px rgba(0,0,0,0.09)';this.style.transform='translateY(-2px)'"
                onmouseout="this.style.boxShadow='none';this.style.transform='none'">
               <div>
