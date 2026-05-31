@@ -1650,7 +1650,7 @@ function openArtConciergePage() {
           <span class="ac-who-label">CULTURAL ARCHIVE</span>
           <span class="ac-who-name">Signature Cultural Spaces</span>
         </div>
-          <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;max-width:560px;"><span style="display:block;font-size:16px;font-weight:700;color:#1a2e2a;margin-bottom:6px;">세계의 도시가 기억되는 방식</span>이상훈 대표가 직접 다녀온 세계의 문화공간 — 음악, 건축, 축제, 재생, 재단이 도시 정체성을 만들어가는 50가지 장면.</p>
+          <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;text-align:center;"><span style="display:block;font-size:16px;font-weight:700;color:#1a2e2a;margin-bottom:6px;">세계의 도시가 기억되는 방식</span>이상훈 대표가 직접 다녀온 세계의 문화공간 — 음악, 건축, 축제, 재생, 재단이 도시 정체성을 만들어가는 50가지 장면.</p>
           <div style="display:flex;align-items:flex-end;justify-content:center;gap:32px;margin-bottom:44px;flex-wrap:wrap;">
             ${[['50','Cases'],['6','Types'],['12+','Countries']].map(([n,l])=>`
               <div style="display:flex;flex-direction:column;gap:3px;">
