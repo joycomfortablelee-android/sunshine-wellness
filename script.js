@@ -1342,10 +1342,22 @@ function _buildArchiveCards() {
 // =========================================
 function openArtConciergeArchive() {
   openArtConciergePage();
-  setTimeout(function() {
-    var sec = document.getElementById('ac-archive-section');
-    if (sec) sec.scrollIntoView({ behavior: 'smooth' });
-  }, 250);
+  // rAF 2회 — innerHTML 주입 후 브라우저 레이아웃 완료를 보장
+  requestAnimationFrame(function() {
+    requestAnimationFrame(function() {
+      var sec = document.getElementById('ac-archive-section');
+      var overlay = document.getElementById('subPageOverlay');
+      if (!sec || !overlay) return;
+      // 오버레이 기준 절대 오프셋 계산
+      var offsetTop = 0;
+      var el = sec;
+      while (el && el !== overlay) {
+        offsetTop += el.offsetTop;
+        el = el.offsetParent;
+      }
+      overlay.scrollTo({ top: offsetTop, behavior: 'smooth' });
+    });
+  });
 }
 
 function openArtConciergePage() {
@@ -1749,10 +1761,6 @@ function openCulturalCasePage(selectedType) {
       <!-- 3뎁스 헤더 -->
       <div style="background:#1a2e2a;padding:48px 0 36px;">
         <div class="sp-wrap">
-          <button onclick="_backToArchive()"
-                  style="display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:#a0bfb5;background:transparent;border:none;cursor:pointer;font-family:'Noto Sans KR',sans-serif;margin-bottom:24px;padding:0;letter-spacing:.02em;">
-            ← 아트 컨시어지로 돌아가기
-          </button>
           <p style="font-size:11px;font-weight:700;letter-spacing:.15em;color:#7aaa99;text-transform:uppercase;margin-bottom:10px;">Cultural Space Case</p>
           <h1 style="font-size:26px;font-weight:800;color:#fff;line-height:1.25;margin-bottom:8px;">${typeDef.typeName}</h1>
           <p style="font-size:13px;color:#a0bfb5;">${TYPE_EN[selectedType]} · ${filtered.length} Cases</p>
@@ -1762,6 +1770,10 @@ function openCulturalCasePage(selectedType) {
       <!-- 사례 카드 목록 -->
       <div style="background:#fafaf8;padding:44px 0 72px;">
         <div class="sp-wrap">
+          <button onclick="_backToArchive()"
+                  style="display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:#3B6259;background:transparent;border:none;cursor:pointer;font-family:'Noto Sans KR',sans-serif;margin-bottom:20px;padding:0;letter-spacing:.02em;">
+            ← 아트 컨시어지로 돌아가기
+          </button>
           <div class="ca-case-grid">
             ${filtered.map(d=>`
               <div style="border:1px solid #e0ddd8;border-radius:14px;padding:24px 22px;background:#fff;display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s;"
