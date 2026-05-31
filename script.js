@@ -1177,45 +1177,20 @@ function openContactUsPage() {
         <p class="sp-count">총 <strong>9</strong>건</p>
         <button onclick="openContactPage()" class="sp-btn-write">문의하기</button>
       </div>
-      <div class="cu-hc-grid">
-        <button class="cu-hc-box" onclick="cuShowSection('notice')"><span class="cu-hc-box-icon">📢</span><span class="cu-hc-box-label">공지사항</span></button>
-        <button class="cu-hc-box" onclick="cuShowSection('faq')"><span class="cu-hc-box-icon">❓</span><span class="cu-hc-box-label">자주 묻는 질문</span></button>
-        <button class="cu-hc-box" onclick="cuShowSection('qna')"><span class="cu-hc-box-icon">💬</span><span class="cu-hc-box-label">묻고 답하기</span></button>
-        <button class="cu-hc-box" onclick="cuShowSection('voice')"><span class="cu-hc-box-icon">⭐</span><span class="cu-hc-box-label">고객의 소리</span></button>
-        <button class="cu-hc-box" onclick="cuShowSection('tomorrow')"><span class="cu-hc-box-icon">🌞</span><span class="cu-hc-box-label">친절한 햇살씨</span></button>
-        <button class="cu-hc-box" onclick="cuShowSection('delivery')"><span class="cu-hc-box-icon">📦</span><span class="cu-hc-box-label">우편배송조회</span></button>
-        <button class="cu-hc-box" onclick="cuShowSection('receipt')"><span class="cu-hc-box-icon">🧾</span><span class="cu-hc-box-label">현금영수증 발급 방법</span></button>
-        <button class="cu-hc-box" onclick="cuShowSection('vip')"><span class="cu-hc-box-icon">👑</span><span class="cu-hc-box-label">우수고객 등급혜택 안내</span></button>
-        <button class="cu-hc-box" onclick="cuShowSection('events')"><span class="cu-hc-box-icon">🎉</span><span class="cu-hc-box-label">이벤트 당첨자 발표</span></button>
-      </div>
-      <div class="cu-divider"></div>
-
-      <div class="cu-grid">
-
-        <div class="cu-card">
-          <div class="cu-icon">📍</div>
-          <h3 class="cu-card-title">모이는 장소</h3>
-          <p class="cu-card-body">부산광역시 부산진구<br/>서면 쥬디스태화 백화점 앞</p>
-        </div>
-
-        <div class="cu-card">
-          <div class="cu-icon">📞</div>
-          <h3 class="cu-card-title">전화 문의</h3>
-          <p class="cu-card-body">010-5759-5485<br/><span style="font-size:12px;color:#999;">평일 09:00 – 18:00</span></p>
-        </div>
-
-        <div class="cu-card">
-          <div class="cu-icon">✉️</div>
-          <h3 class="cu-card-title">이메일</h3>
-          <p class="cu-card-body"><a href="mailto:healthylee7@gmail.com" style="color:#1a2e2a;text-decoration:none;">healthylee7@gmail.com</a></p>
-        </div>
-
-        <div class="cu-card">
-          <div class="cu-icon">🕐</div>
-          <h3 class="cu-card-title">운영 시간</h3>
-          <p class="cu-card-body">평일 09:00 – 18:00<br/>점심 12:00 – 13:00<br/><span style="font-size:12px;color:#999;">주말 · 공휴일 휴무</span></p>
-        </div>
-
+      <div class="cu-unified-grid">
+        <button class="cu-ucard cu-ucard-btn" onclick="cuShowSection('notice')"><div class="cu-ucard-icon">📢</div><h3 class="cu-ucard-title">공지사항</h3></button>
+        <button class="cu-ucard cu-ucard-btn" onclick="cuShowSection('faq')"><div class="cu-ucard-icon">❓</div><h3 class="cu-ucard-title">자주 묻는 질문</h3></button>
+        <button class="cu-ucard cu-ucard-btn" onclick="cuShowSection('qna')"><div class="cu-ucard-icon">💬</div><h3 class="cu-ucard-title">묻고 답하기</h3></button>
+        <button class="cu-ucard cu-ucard-btn" onclick="cuShowSection('voice')"><div class="cu-ucard-icon">⭐</div><h3 class="cu-ucard-title">고객의 소리</h3></button>
+        <button class="cu-ucard cu-ucard-btn" onclick="cuShowSection('tomorrow')"><div class="cu-ucard-icon">🌞</div><h3 class="cu-ucard-title">친절한 햇살씨</h3></button>
+        <button class="cu-ucard cu-ucard-btn" onclick="cuShowSection('delivery')"><div class="cu-ucard-icon">📦</div><h3 class="cu-ucard-title">우편배송조회</h3></button>
+        <button class="cu-ucard cu-ucard-btn" onclick="cuShowSection('receipt')"><div class="cu-ucard-icon">🧾</div><h3 class="cu-ucard-title">현금영수증 발급 방법</h3></button>
+        <button class="cu-ucard cu-ucard-btn" onclick="cuShowSection('vip')"><div class="cu-ucard-icon">👑</div><h3 class="cu-ucard-title">우수고객 등급혜택 안내</h3></button>
+        <button class="cu-ucard cu-ucard-btn" onclick="cuShowSection('events')"><div class="cu-ucard-icon">🎉</div><h3 class="cu-ucard-title">이벤트 당첨자 발표</h3></button>
+        <div class="cu-ucard"><div class="cu-ucard-icon">📍</div><h3 class="cu-ucard-title">모이는 장소</h3><p class="cu-ucard-body">부산광역시 부산진구<br/>서면 쥬디스태화 백화점 앞</p></div>
+        <div class="cu-ucard"><div class="cu-ucard-icon">📞</div><h3 class="cu-ucard-title">전화 문의</h3><p class="cu-ucard-body">010-5759-5485<br/><span style="font-size:12px;color:#999;">평일 09:00 – 18:00</span></p></div>
+        <div class="cu-ucard"><div class="cu-ucard-icon">✉️</div><h3 class="cu-ucard-title">이메일</h3><p class="cu-ucard-body"><a href="mailto:healthylee7@gmail.com" style="color:#1a2e2a;text-decoration:none;">healthylee7@gmail.com</a></p></div>
+        <div class="cu-ucard"><div class="cu-ucard-icon">🕐</div><h3 class="cu-ucard-title">운영 시간</h3><p class="cu-ucard-body">평일 09:00 – 18:00<br/>점심 12:00 – 13:00<br/><span style="font-size:12px;color:#999;">주말 · 공휴일 휴무</span></p></div>
       </div>
 
       <div class="cu-divider"></div>
@@ -1285,9 +1260,6 @@ function openArtConciergePage() {
           <p>Partner Agency</p>
           <h1>아트 컨시어지<span class="co-page-subtitle">Art Concierge — Destination Art Travel</span></h1>
         </div>
-        <div class="ac-banner-tags">
-          ${['#음악','#건축','#미술관','#VIP','#서유럽','#Destination Art'].map(t=>`<span class="ac-banner-tag">${t}</span>`).join('')}
-        </div>
       </div>
 
       <!-- ① Partnership 헤더만 — Where to Next?와 동일 구조 -->
@@ -1302,7 +1274,14 @@ function openArtConciergePage() {
 
       <!-- ② 이상훈 대표 프로필 + 2023 하이라이트 -->
       <div class="sp-wrap" style="padding-top:48px;padding-bottom:0;">
-        <p class="co-section-title">Who · 이상훈 대표</p>
+        <div class="ac-who-frame">
+          <svg class="ac-corner tl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+          <svg class="ac-corner tr" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+          <svg class="ac-corner bl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+          <svg class="ac-corner br" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+          <span class="ac-who-label">WHO</span>
+          <span class="ac-who-name">이상훈 대표</span>
+        </div>
         <div style="display:flex;align-items:center;gap:20px;margin-bottom:24px;padding:20px 28px 20px 0;background:#f7f6f3;border-radius:14px;">
           <div style="width:64px;height:64px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid #e0ddd8;margin-left:0;">
             <img src="images/LSH2.jpeg" alt="이상훈 대표" style="width:100%;height:100%;object-fit:cover;display:block;" />
@@ -1311,33 +1290,36 @@ function openArtConciergePage() {
             <p style="font-size:16px;font-weight:800;color:#1a2e2a;margin-bottom:2px;">이상훈 대표</p>
             <p style="font-size:12px;color:#999;letter-spacing:.04em;">Art Concierge · Destination Art Specialist</p>
           </div>
-          <div style="display:flex;gap:24px;flex-shrink:0;">
-            ${[['1,400+','도시'],['400+','도록'],['64+','공연']].map(([n,l])=>`
-            <div style="text-align:center;">
-              <span style="display:block;font-size:17px;font-weight:800;color:#3B6259;">${n}</span>
-              <span style="font-size:11px;color:#aaa;">${l}</span>
+        </div>
+        ${[
+          {title:'누적 아트 여정', items:[['1,400+','방문 도시'],['400+','도록'],['64+','공연']]},
+          {title:'2023 Highlights', items:[['170','방문 도시'],['64','관람 공연'],['126','방문 미술관']]}
+        ].map(card=>`
+        <div style="background:#fff;border:1px solid #e8e8e4;border-radius:14px;padding:24px 28px;margin-bottom:16px;">
+          <p style="font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3B6259;margin-bottom:20px;">${card.title}</p>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center;">
+            ${card.items.map(([n,l])=>`
+            <div style="padding:8px 4px;">
+              <span style="display:block;font-size:28px;font-weight:800;color:#e8a04a;line-height:1.1;">${n}</span>
+              <span style="display:block;font-size:11.5px;color:#666;margin-top:6px;">${l}</span>
             </div>`).join('')}
           </div>
-        </div>
-        <div style="background:#1a2e2a;border-radius:14px;padding:28px 32px;">
-          <p style="font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:20px;">2023 하이라이트</p>
-          <div style="display:flex;justify-content:space-around;text-align:center;">
-            ${[['170','방문 도시'],['64','관람 공연'],['126','방문 미술관']].map(([n,l])=>`
-            <div>
-              <span style="display:block;font-size:36px;font-weight:800;color:#e8a04a;line-height:1;">${n}</span>
-              <span style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:6px;display:block;">${l}</span>
-            </div>`).join('')}
-          </div>
-        </div>
+        </div>`).join('')}
         <div class="ac-tags">
-          ${['#이상훈대표','#1400도시','#아트트래블'].map(t=>`<span class="ac-tag">${t}</span>`).join('')}
+          ${['#이상훈대표','#1400도시','#아트트래블','#음악','#건축','#미술관','#VIP','#서유럽','#Destination Art'].map(t=>`<span class="ac-tag">${t}</span>`).join('')}
         </div>
       </div>
 
       <!-- ③ About -->
       <div class="sp-wrap" style="padding-top:48px;padding-bottom:0;">
-        <p class="co-section-title">Why · About</p>
-        <h2 class="co-heading">예술 그 자체가<br/>목적인 여행</h2>
+        <div class="ac-who-frame" style="margin-bottom:36px;">
+          <svg class="ac-corner tl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+          <svg class="ac-corner tr" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+          <svg class="ac-corner bl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+          <svg class="ac-corner br" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+          <span class="ac-who-label">WHY</span>
+          <span class="ac-who-name" style="font-size:17px;">예술 그 자체가 목적인 여행</span>
+        </div>
         <p style="font-size:15px;color:#555;line-height:1.9;margin-bottom:14px;">아트 컨시어지는 단순히 여행 중 공연이나 미술관을 방문하는 것이 아닌, <strong style="color:#1a2e2a;">특정 공연·전시·건축 공간을 주목적으로 기획하는 1인 전문 여행사</strong>입니다.</p>
         <p style="font-size:15px;color:#555;line-height:1.9;">"그곳에 가야만 볼 수 있는 예술"이라는 <em>데스티네이션 아트(Destination Art)</em> 철학 아래, 서유럽 음악·콘서트·건축 공간 VIP 투어를 전문으로 합니다.</p>
       </div>
@@ -1371,8 +1353,14 @@ function openArtConciergePage() {
       <!-- ⑤ Specialty 전문 서비스 -->
       <div style="background:#f5f5f3;padding:0;margin-top:48px;">
         <div class="sp-wrap" style="padding-bottom:40px;">
-          <p class="co-section-title">What · Specialty</p>
-          <h2 class="co-heading" style="margin-bottom:32px;">전문 서비스</h2>
+          <div class="ac-who-frame" style="margin-bottom:36px;">
+          <svg class="ac-corner tl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+          <svg class="ac-corner tr" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+          <svg class="ac-corner bl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+          <svg class="ac-corner br" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+          <span class="ac-who-label">WHAT</span>
+          <span class="ac-who-name">전문 서비스</span>
+        </div>
           <div class="ac-service-wide">
             ${[
               ['🎼','음악 · 콘서트','빈 필하모닉, 잘츠부르크 페스티벌 등 서유럽 정상급 음악 공연 VIP 관람 기획','#3B6259'],
@@ -1393,8 +1381,14 @@ function openArtConciergePage() {
         </div>
         <!-- 링크 카드 — 3행 1열 (sp-wrap 기준) -->
         <div class="sp-wrap" style="padding-top:48px;padding-bottom:48px;">
-          <p class="co-section-title">Proof · Press</p>
-          <h2 class="co-heading">언론 보도</h2>
+          <div class="ac-who-frame" style="margin-bottom:36px;">
+          <svg class="ac-corner tl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+          <svg class="ac-corner tr" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+          <svg class="ac-corner bl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+          <svg class="ac-corner br" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+          <span class="ac-who-label">PROOF</span>
+          <span class="ac-who-name">언론 보도</span>
+        </div>
         <div style="display:grid;grid-template-columns:1fr;gap:12px;">
           ${[
             ['📰','부산일보 기사','"예술 그 자체가 목적인 여행"','https://www.busan.com/view/busan/view.php?code=2024010814490253602'],
@@ -1422,8 +1416,14 @@ function openArtConciergePage() {
       <!-- ⑥ 4 Partnership 투어 카드 -->
       <div style="background:#f5f5f3;">
         <div class="sp-wrap" style="padding-top:48px;padding-bottom:40px;">
-          <p class="co-section-title">Experience · Signature Tours</p>
-          <h2 class="co-heading">시그너처 투어</h2>
+          <div class="ac-who-frame" style="margin-bottom:36px;">
+          <svg class="ac-corner tl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+          <svg class="ac-corner tr" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+          <svg class="ac-corner bl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+          <svg class="ac-corner br" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+          <span class="ac-who-label">EXPERIENCE</span>
+          <span class="ac-who-name">시그너처 투어</span>
+        </div>
           <div class="ac-tour-grid">
             ${[
               ['🎼','Exclusive','잘츠부르크 음악 페스티벌 VIP','오스트리아 · 8박 10일','매년 여름 개최되는 세계 최고의 클래식 음악 축제. VIP 좌석과 리허설 관람, 아티스트 백스테이지 투어 포함.','#e8a04a'],
@@ -1452,8 +1452,14 @@ function openArtConciergePage() {
       <!-- ⑦ Signature Cultural Spaces 칼럼 섹션 -->
       <div style="background:#fff;padding:56px 0;border-top:1px solid #e8e8e4;">
         <div class="sp-wrap">
-          <p class="co-section-title">Cultural Insight · Column</p>
-          <h2 class="co-heading">Signature Cultural Spaces</h2>
+          <div class="ac-who-frame" style="margin-bottom:36px;">
+          <svg class="ac-corner tl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+          <svg class="ac-corner tr" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+          <svg class="ac-corner bl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+          <svg class="ac-corner br" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+          <span class="ac-who-label">CULTURAL INSIGHT</span>
+          <span class="ac-who-name">Signature Cultural Spaces</span>
+        </div>
           <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:36px;max-width:540px;">이상훈 대표가 직접 다녀온 세계의 문화공간 — 건축, 음악, 미술이 하나로 만나는 여행의 장면들.</p>
           <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:28px;">
             ${[
@@ -1516,10 +1522,16 @@ function openArtConciergePage() {
       </div>
 
       <!-- ⑨ Cultural Archive 1뎁스 + 2뎁스 -->
-      <div style="background:#fff;padding:56px 0;border-top:1px solid #e8e8e4;">
+      <div style="background:#fff;padding:56px 0;">
         <div class="sp-wrap">
-          <p class="co-section-title">Cultural Archive · 문화공간 아카이브</p>
-          <h2 class="co-heading">세계의 도시가 기억되는 방식</h2>
+          <div class="ac-who-frame" style="margin-bottom:36px;">
+          <svg class="ac-corner tl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+          <svg class="ac-corner tr" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+          <svg class="ac-corner bl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+          <svg class="ac-corner br" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+          <span class="ac-who-label">CULTURAL ARCHIVE</span>
+          <span class="ac-who-name">세계의 도시가 기억되는 방식</span>
+        </div>
           <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;max-width:560px;">이상훈 대표가 직접 다녀온 세계의 문화공간 — 음악, 건축, 축제, 재생, 재단이 도시 정체성을 만들어가는 50가지 장면.</p>
           <div style="display:flex;align-items:flex-end;gap:32px;margin-bottom:44px;flex-wrap:wrap;">
             ${[['50','Cases'],['6','Types'],['12+','Countries']].map(([n,l])=>`
@@ -1530,29 +1542,29 @@ function openArtConciergePage() {
           </div>
           <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;">
             ${[
-              {type:'T1',label:'음악도시와 공연장',en:'Music City & Hall',desc:'클래식 공연장과 음악 전통이 도시 정체성을 만들어온 사례들.',tags:['#카탈루냐음악당','#무지크페어라인','#콘세르트헤바우']},
-              {type:'T2',label:'축제와 예술가의 도시',en:'Festival & Artist City',desc:'예술가의 삶과 페스티벌이 도시를 목적지로 만든 사례들.',tags:['#바이로이트','#달리극장미술관','#베로나아레나']},
-              {type:'T3',label:'산업유산과 도시재생',en:'Heritage & Regeneration',desc:'산업 유산이 문화공간으로 전환된 도시재생 사례들.',tags:['#엘프필하모니','#배터시발전소','#루마재단']},
-              {type:'T4',label:'재단·기업·컬렉션 기반',en:'Foundation & Collection',desc:'기업·재단·개인 컬렉션이 공공 문화자산이 된 사례들.',tags:['#킴벨미술관','#루이비통재단','#비트라캠퍼스']},
-              {type:'T5',label:'건축 실험과 감각 경험',en:'Architecture & Senses',desc:'건축 자체가 목적지가 된 공간 실험 사례들.',tags:['#라무랄라로하','#발스온천','#마르케스데리스칼']},
-              {type:'T6',label:'기술·시장·플랫폼',en:'Tech · Market · Platform',desc:'기술, 시장, 글로벌 네트워크가 문화를 확장한 사례들.',tags:['#스피어','#TEFAF','#MASP상파울루']},
-            ].map(({type,label,en,desc,tags})=>`
-              <div style="border:1px solid #e0ddd8;border-radius:14px;padding:22px 20px;background:#fafaf8;display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s;"
+              {type:'T1',label:'음악도시와 공연장',en:'Music City & Hall',desc:'클래식 공연장과 음악 전통이 도시 정체성을 만들어온 사례들.',tags:['#카탈루냐음악당','#무지크페어라인','#콘세르트헤바우'],c:{badge:'#2e3e72',bg:'#f0f1f7',border:'#c8ccdf',tagBg:'#e2e5f4',tagTxt:'#2e3e72'}},
+              {type:'T2',label:'축제와 예술가의 도시',en:'Festival & Artist City',desc:'예술가의 삶과 페스티벌이 도시를 목적지로 만든 사례들.',tags:['#바이로이트','#달리극장미술관','#베로나아레나'],c:{badge:'#9a4f28',bg:'#fdf3ee',border:'#e8cfc2',tagBg:'#fde0d0',tagTxt:'#9a4f28'}},
+              {type:'T3',label:'산업유산과 도시재생',en:'Heritage & Regeneration',desc:'산업 유산이 문화공간으로 전환된 도시재생 사례들.',tags:['#엘프필하모니','#배터시발전소','#루마재단'],c:{badge:'#3b5847',bg:'#eff4f1',border:'#c4d8cc',tagBg:'#daeae1',tagTxt:'#3b5847'}},
+              {type:'T4',label:'재단·기업·컬렉션 기반',en:'Foundation & Collection',desc:'기업·재단·개인 컬렉션이 공공 문화자산이 된 사례들.',tags:['#킴벨미술관','#루이비통재단','#비트라캠퍼스'],c:{badge:'#6b3a5a',bg:'#f5f0f4',border:'#d8c8d4',tagBg:'#ecdde8',tagTxt:'#6b3a5a'}},
+              {type:'T5',label:'건축 실험과 감각 경험',en:'Architecture & Senses',desc:'건축 자체가 목적지가 된 공간 실험 사례들.',tags:['#라무랄라로하','#발스온천','#마르케스데리스칼'],c:{badge:'#7a6428',bg:'#faf6ea',border:'#ddd4b4',tagBg:'#f2ead4',tagTxt:'#7a6428'}},
+              {type:'T6',label:'기술·시장·플랫폼',en:'Tech · Market · Platform',desc:'기술, 시장, 글로벌 네트워크가 문화를 확장한 사례들.',tags:['#스피어','#TEFAF','#MASP상파울루'],c:{badge:'#1e6868',bg:'#ecf4f4',border:'#b8d8d8',tagBg:'#d5eaea',tagTxt:'#1e6868'}},
+            ].map(({type,label,en,desc,tags,c})=>`
+              <div style="border:1px solid ${c.border};border-radius:14px;padding:22px 20px;background:${c.bg};display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s;"
                    onmouseover="this.style.boxShadow='0 8px 28px rgba(0,0,0,0.09)';this.style.transform='translateY(-3px)'"
                    onmouseout="this.style.boxShadow='none';this.style.transform='none'">
                 <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
-                  <span style="font-size:10px;font-weight:800;letter-spacing:.1em;color:#fff;background:#1a2e2a;padding:3px 10px;border-radius:20px;">${type}</span>
+                  <span style="font-size:10px;font-weight:800;letter-spacing:.1em;color:#fff;background:${c.badge};padding:3px 10px;border-radius:20px;">${type}</span>
                   <span style="font-size:10px;color:#bbb;font-style:italic;">${en}</span>
                 </div>
                 <h3 style="font-size:14px;font-weight:700;color:#1a2e2a;margin-bottom:8px;line-height:1.4;">${label}</h3>
                 <p style="font-size:12.5px;color:#777;line-height:1.75;flex:1;margin-bottom:12px;">${desc}</p>
                 <div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px;">
-                  ${tags.map(t=>`<span style="font-size:10px;font-weight:600;color:#3B6259;background:#eef5f2;padding:3px 9px;border-radius:20px;">${t}</span>`).join('')}
+                  ${tags.map(t=>`<span style="font-size:10px;font-weight:600;color:${c.tagTxt};background:${c.tagBg};padding:3px 9px;border-radius:20px;">${t}</span>`).join('')}
                 </div>
                 <button onclick="openCulturalCasePage('${type}')"
-                        style="display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;color:#1a2e2a;background:transparent;border:1.5px solid #1a2e2a;border-radius:8px;padding:6px 14px;width:fit-content;cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:background .2s,color .2s;"
-                        onmouseover="this.style.background='#1a2e2a';this.style.color='#fff'"
-                        onmouseout="this.style.background='transparent';this.style.color='#1a2e2a'">
+                        style="display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;color:${c.badge};background:transparent;border:1.5px solid ${c.badge};border-radius:8px;padding:6px 14px;width:fit-content;cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:background .2s,color .2s;"
+                        onmouseover="this.style.background='${c.badge}';this.style.color='#fff'"
+                        onmouseout="this.style.background='transparent';this.style.color='${c.badge}'">
                   사례 보기 →
                 </button>
               </div>`).join('')}
