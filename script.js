@@ -1500,7 +1500,7 @@ function openArtConciergePage() {
                style="display:flex;align-items:center;gap:20px;background:#fff;border:1px solid #e0ddd8;border-radius:16px;padding:24px 26px;text-decoration:none;transition:box-shadow .2s,transform .2s;"
                onmouseover="this.style.boxShadow='0 6px 20px rgba(0,0,0,0.09)';this.style.transform='translateY(-2px)'"
                onmouseout="this.style.boxShadow='none';this.style.transform='none'">
-              <span style="font-size:36px;flex-shrink:0;">${icon}</span>
+              <span style="font-size:24px;flex-shrink:0;">${icon}</span>
               <div style="flex:1;min-width:0;">
                 <p style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3B6259;margin-bottom:6px;">${label}</p>
                 <p style="font-size:18px;font-weight:600;color:#1a2e2a;line-height:1.45;">${desc}</p>
@@ -1515,7 +1515,7 @@ function openArtConciergePage() {
       </div><!-- /PROOF (PART 01) -->
       </div><!-- /PART 01 -->
 
-      <div style="background:#EBF0E8;padding:28px 0 0;">
+      <div style="background:#F5F5F3;padding:28px 0 0;">
         <div class="sp-wrap" style="padding-top:0;padding-bottom:0;">
           <div style="display:flex;align-items:center;gap:14px;">
             <div style="flex:1;height:1px;background:#c8c2b8;"></div>
