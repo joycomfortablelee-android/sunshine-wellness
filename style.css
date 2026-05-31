@@ -453,7 +453,8 @@ ul { list-style: none; }
 .cu-ucard-btn:hover { border-color:var(--accent); background:#eef5f3; transform:translateY(-2px); }
 .cu-ucard-icon { font-size:28px; margin-bottom:10px; line-height:1; }
 .ca-case-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
-@media (max-width:600px) { .ca-case-grid { grid-template-columns:1fr; } }
+.ca-preview-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-bottom:12px; }
+@media (max-width:600px) { .ca-case-grid { grid-template-columns:1fr; } .ca-preview-grid { grid-template-columns:1fr; } }
 .cu-ucard-title { font-size:13px; font-weight:700; color:#1a2e2a; letter-spacing:.02em; word-break:keep-all; line-height:1.45; }
 .cu-ucard-body { font-size:12.5px; color:#666; line-height:1.85; margin-top:8px; }
 .cu-back-btn { display:inline-flex; align-items:center; gap:6px; padding:9px 18px; background:#f0f5f4; border:1.5px solid var(--border); border-radius:8px; font-size:13.5px; font-weight:600; color:#1a2e2a; cursor:pointer; font-family:var(--font); margin-bottom:28px; transition:background .2s, border-color .2s; }
@@ -1542,7 +1543,7 @@ section { padding: 100px 0; }
   font-size: 0.85rem; flex-shrink: 0;
 }
 
-.contact-form { display: flex; flex-direction: column; gap: 0; padding-top: 32px; }
+.contact-form { display: flex; flex-direction: column; gap: 0; padding-top: 64px; }
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1652,10 +1653,13 @@ section { padding: 100px 0; }
 .fhc-card-title { font-size: 13px; font-weight: 700; color: #1a2e2a; margin-bottom: 5px; line-height: 1.4; }
 .fhc-card-body { font-size: 11.5px; color: #888; line-height: 1.75; }
 
-@media (max-width: 600px) {
-  .footer-hc { padding: 48px 0 40px; }
-  .fhc-grid { grid-template-columns: 1fr; grid-auto-rows: auto; }
-  .fhc-card { min-height: 120px; padding: 22px 20px; }
+@media (max-width: 768px) {
+  .footer-hc { padding: 40px 0 32px; }
+  .fhc-grid { grid-template-columns: 1fr; grid-auto-rows: auto; gap: 10px; }
+  .fhc-card { min-height: auto; padding: 14px 18px; border-radius: 12px; }
+  .fhc-card-icon { font-size: 22px; margin-bottom: 5px; }
+  .fhc-card-title { font-size: 12px; margin-bottom: 3px; }
+  .fhc-card-body { font-size: 11px; line-height: 1.6; }
 }
 
 /* =========================================

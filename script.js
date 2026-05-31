@@ -1321,7 +1321,7 @@ function _buildArchiveCards() {
       + '<p style="font-size:12px;color:#777;line-height:1.7;margin:0;">' + td.description + '</p>'
       + '</div>'
       + '<div style="background:#fafaf8;padding:14px 22px 16px;">'
-      + '<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:12px;">'
+      + '<div class="ca-preview-grid">'
       + previewHtml
       + '</div>'
       + '<div style="text-align:right;">'
