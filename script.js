@@ -1336,14 +1336,6 @@ function openArtConciergePage() {
         </div>
       </div>
 
-      <div style="background:#FAF7F2;padding:28px 24px 0;">
-        <div style="display:flex;align-items:center;gap:14px;">
-          <div style="flex:1;height:1px;background:#e0dcd6;"></div>
-          <span style="font-size:9px;font-weight:700;letter-spacing:.22em;color:#9a9088;text-transform:uppercase;">PART 01 · The Person</span>
-          <div style="flex:1;height:1px;background:#e0dcd6;"></div>
-        </div>
-      </div>
-
       <!-- PART 01 · The Person -->
       <div style="background:#FAF7F2;padding-bottom:48px;">
 
@@ -1354,6 +1346,14 @@ function openArtConciergePage() {
         <div class="sp-toolbar">
           <p class="sp-count">선샤인 웰니스 × 아트 컨시어지</p>
           <button onclick="openContactPage()" class="sp-btn-write">문의하기</button>
+        </div>
+      </div>
+
+      <div class="sp-wrap" style="padding-top:28px;padding-bottom:0;">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div style="flex:1;height:1px;background:#e0dcd6;"></div>
+          <span style="font-size:9px;font-weight:700;letter-spacing:.22em;color:#9a9088;text-transform:uppercase;">PART 01 · The Person</span>
+          <div style="flex:1;height:1px;background:#e0dcd6;"></div>
         </div>
       </div>
 
@@ -1438,11 +1438,13 @@ function openArtConciergePage() {
       </div>
       </div><!-- /PART 01 -->
 
-      <div style="background:#EBF0E8;padding:28px 24px 0;">
-        <div style="display:flex;align-items:center;gap:14px;">
-          <div style="flex:1;height:1px;background:#c8c2b8;"></div>
-          <span style="font-size:9px;font-weight:700;letter-spacing:.22em;color:#9a9088;text-transform:uppercase;">PART 02 · The Offering</span>
-          <div style="flex:1;height:1px;background:#c8c2b8;"></div>
+      <div style="background:#EBF0E8;padding:28px 0 0;">
+        <div class="sp-wrap" style="padding-top:0;padding-bottom:0;">
+          <div style="display:flex;align-items:center;gap:14px;">
+            <div style="flex:1;height:1px;background:#c8c2b8;"></div>
+            <span style="font-size:9px;font-weight:700;letter-spacing:.22em;color:#9a9088;text-transform:uppercase;">PART 02 · The Offering</span>
+            <div style="flex:1;height:1px;background:#c8c2b8;"></div>
+          </div>
         </div>
       </div>
 
@@ -1626,11 +1628,13 @@ function openArtConciergePage() {
         </div>
       </div>
 
-      <div style="background:#fff;padding:28px 24px 0;">
-        <div style="display:flex;align-items:center;gap:14px;">
-          <div style="flex:1;height:1px;background:#e8e4df;"></div>
-          <span style="font-size:9px;font-weight:700;letter-spacing:.22em;color:#b0aaa4;text-transform:uppercase;">PART 03 · The Knowledge</span>
-          <div style="flex:1;height:1px;background:#e8e4df;"></div>
+      <div style="background:#fff;padding:28px 0 0;">
+        <div class="sp-wrap" style="padding-top:0;padding-bottom:0;">
+          <div style="display:flex;align-items:center;gap:14px;">
+            <div style="flex:1;height:1px;background:#e8e4df;"></div>
+            <span style="font-size:9px;font-weight:700;letter-spacing:.22em;color:#b0aaa4;text-transform:uppercase;">PART 03 · The Knowledge</span>
+            <div style="flex:1;height:1px;background:#e8e4df;"></div>
+          </div>
         </div>
       </div>
 
@@ -1721,11 +1725,15 @@ function openCulturalCasePage(selectedType) {
                 </div>
                 <h3 style="font-size:15px;font-weight:700;color:#1a2e2a;line-height:1.4;margin-bottom:7px;">${d.caseName}</h3>
                 <p style="font-size:11.5px;font-weight:600;color:#3B6259;margin-bottom:10px;">${d.concept}</p>
-                <p style="font-size:13px;color:#666;line-height:1.8;flex:1;margin-bottom:14px;">${d.columnTopic}</p>
-                <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;">
+                <p style="font-size:13px;color:#666;line-height:1.8;flex:1;margin-bottom:12px;">${d.columnTopic}</p>
+                <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
                   <span style="font-size:10px;font-weight:600;color:#3B6259;background:#eef5f2;padding:3px 9px;border-radius:20px;">#${d.spatialStrategyKeyword}</span>
                   <span style="font-size:10px;font-weight:600;color:#3B6259;background:#eef5f2;padding:3px 9px;border-radius:20px;">#${d.city}</span>
                   <span style="font-size:10px;font-weight:600;color:#3B6259;background:#eef5f2;padding:3px 9px;border-radius:20px;">#${d.continent}</span>
+                </div>
+                <div style="border-top:1px solid #f0eeea;padding-top:11px;margin-bottom:12px;">
+                  <p style="font-size:11px;color:#aaa;margin-bottom:3px;">${d.columnDate}${d.sourcePublisher ? ' · ' + d.sourcePublisher : ''}</p>
+                  ${d.sourceTitle ? `<p style="font-size:11.5px;color:#888;line-height:1.6;font-style:italic;">&ldquo;${d.sourceTitle}&rdquo;</p>` : ''}
                 </div>
                 ${d.sourceUrl ? `<a href="${d.sourceUrl}" target="_blank" rel="noopener noreferrer"
                    style="display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:700;color:#1a2e2a;text-decoration:none;border:1.5px solid #1a2e2a;border-radius:8px;padding:7px 16px;width:fit-content;transition:background .2s,color .2s;"
@@ -1922,7 +1930,7 @@ function openAboutPage() {
     </section>`;
 
 
-  showSubPageFull(`<div class="co-fullbg-wrap"><div class="co-fullbg-banner banner-seagull"><div class="co-page-header"><p>About</p><h1>웰니스 소개 <span style="font-weight:300;opacity:.7;">— Sunshine Wellness</span></h1></div></div>` + sec1 + sec2 + sec3 + sec4 + sec5 + `</div>`)
+  showSubPageFull(`<div class="co-fullbg-wrap"><div class="co-fullbg-banner banner-seagull"><div class="co-page-header"><p>About</p><h1>웰니스 소개<span class="co-page-subtitle">— Sunshine Wellness</span></h1></div></div>` + sec1 + sec2 + sec3 + sec4 + sec5 + `</div>`)
 }
 
 // =========================================
