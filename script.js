@@ -1342,17 +1342,18 @@ function _buildArchiveCards() {
 // =========================================
 function openArtConciergeArchive() {
   openArtConciergePage();
-  setTimeout(function() {
+  // 100ms마다 폴링 — 오버레이 콘텐츠 레이아웃 완료 확인 후 스크롤
+  var _tries = 0;
+  var _poll = setInterval(function() {
+    _tries++;
     var sec = document.getElementById('ac-archive-section');
     var overlay = document.getElementById('subPageOverlay');
-    if (!sec || !overlay) return;
-    // scrollHeight 읽기 → 강제 동기 리플로우 후 offsetTop 유효
-    var sh = overlay.scrollHeight;
-    var st = sec.offsetTop;
-    if (sh > overlay.clientHeight && st > 0) {
-      overlay.scrollTop = st;
+    if (sec && overlay && overlay.scrollHeight > overlay.clientHeight) {
+      clearInterval(_poll);
+      overlay.scrollTop = sec.offsetTop;
     }
-  }, 300);
+    if (_tries >= 30) clearInterval(_poll); // 3초 후 포기
+  }, 100);
 }
 
 function openArtConciergePage() {

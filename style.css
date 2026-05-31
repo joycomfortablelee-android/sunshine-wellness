@@ -1660,6 +1660,9 @@ section { padding: 100px 0; }
   .fhc-card-icon { font-size: 22px; margin-bottom: 5px; }
   .fhc-card-title { font-size: 12px; margin-bottom: 3px; }
   .fhc-card-body { font-size: 11px; line-height: 1.6; }
+  /* 강의 카드 그리드 모바일 1열 */
+  .ac-lsh-grid { grid-template-columns: 1fr !important; gap: 14px !important; }
+  .ac-lsh-grid > div[style*="aspect-ratio"] { aspect-ratio: 16/9 !important; max-height: 220px; }
 }
 
 /* =========================================
