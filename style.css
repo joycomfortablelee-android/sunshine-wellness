@@ -76,7 +76,9 @@ ul { list-style: none; }
 #header:not(.scrolled) .lang-btn:hover { border-color: #ffffff; color: #ffffff; }
 #header:not(.scrolled) .hamburger span { background: #ffffff; }
 
-/* 스크롤 후 — nav 링크 딥 그린 */
+/* 스크롤 후 — 로고 + nav 링크 딥 그린 */
+#header.scrolled .logo-en { color: #3B6259; }
+#header.scrolled .logo-kr { color: #3B6259; opacity: .75; }
 #header.scrolled .gnb a { color: #3B6259; }
 #header.scrolled .gnb a::after { background: #3B6259; }
 
