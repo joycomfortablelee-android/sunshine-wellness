@@ -1639,7 +1639,7 @@ function openArtConciergePage() {
       </div>
 
       <!-- ⑨ Cultural Archive 1뎁스 + 2뎁스 -->
-      <div style="background:#fff;padding:28px 0 56px;">
+      <div id="ac-archive-section" style="background:#fff;padding:28px 0 56px;">
         <div class="sp-wrap">
           ${orn3}
           <div class="ac-who-frame" style="margin-bottom:36px;">
@@ -1677,6 +1677,15 @@ function openArtConciergePage() {
   `);
 }
 
+// 3뎁스 → Art Concierge Cultural Archive 섹션으로 복귀
+function _backToArchive() {
+  openArtConciergePage();
+  setTimeout(function() {
+    var sec = document.getElementById('ac-archive-section');
+    if (sec) sec.scrollIntoView({ behavior: 'smooth' });
+  }, 120);
+}
+
 // =========================================
 // 문화공간 아카이브 사례 상세 (3뎁스)
 // =========================================
@@ -1701,7 +1710,7 @@ function openCulturalCasePage(selectedType) {
       <!-- 3뎁스 헤더 -->
       <div style="background:#1a2e2a;padding:48px 0 36px;">
         <div class="sp-wrap">
-          <button onclick="openArtConciergePage()"
+          <button onclick="_backToArchive()"
                   style="display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:#a0bfb5;background:transparent;border:none;cursor:pointer;font-family:'Noto Sans KR',sans-serif;margin-bottom:24px;padding:0;letter-spacing:.02em;">
             ← 아트 컨시어지로 돌아가기
           </button>
@@ -1856,18 +1865,14 @@ function openAboutPage() {
   // 2. Who We Are
   const sec2 = `
     <section class="ab-section" style="background:#fff;padding:80px 40px;">
-      <div class="ab-who-grid" style="max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;">
-        <div>
-          <p class="ab-eyebrow" style="color:#3B6259;">Who We Are</p>
-          <h2 class="ab-h2">단순한 여행을 넘어,<br/>인생의 동반자가 되겠습니다</h2>
-        </div>
-        <div>
-          <p class="ab-body" style="margin-bottom:18px;">선샤인 웰니스는 여행이 단순한 휴식이 아니라 인생의 의미를 찾고 성장하는 시간이 될 수 있다고 믿습니다.</p>
-          <p class="ab-body">부산의 자연·문화·역사와 깊이 만나는 경험이 삶에 새로운 활력을 불어넣어 줍니다. 웰니스와 문화 체험을 결합한 독창적인 프로그램으로 몸과 마음의 균형을 되찾도록 돕겠습니다.</p>
-          <blockquote style="margin-top:28px;padding:18px 22px;background:#f5f5f3;border-left:3px solid #1a2e2a;border-radius:0 8px 8px 0;">
-            <p class="ab-caption" style="font-weight:600;color:#1a2e2a;font-style:italic;">"여행의 모든 순간이 의미 있고 가치 있게 완성되도록, 선샤인 웰니스는 진심 어린 동반자가 되겠습니다."</p>
-          </blockquote>
-        </div>
+      <div style="max-width:680px;margin:0 auto;text-align:center;">
+        <p class="ab-eyebrow" style="color:#3B6259;">Who We Are</p>
+        <h2 class="ab-h2" style="margin-bottom:28px;">단순한 여행을 넘어,<br/>인생의 동반자가 되겠습니다</h2>
+        <p class="ab-body" style="margin-bottom:18px;">선샤인 웰니스는 여행이 단순한 휴식이 아니라 인생의 의미를 찾고 성장하는 시간이 될 수 있다고 믿습니다.</p>
+        <p class="ab-body">부산의 자연·문화·역사와 깊이 만나는 경험이 삶에 새로운 활력을 불어넣어 줍니다. 웰니스와 문화 체험을 결합한 독창적인 프로그램으로 몸과 마음의 균형을 되찾도록 돕겠습니다.</p>
+        <blockquote style="margin-top:28px;padding:18px 24px;background:#f5f5f3;border-radius:8px;border:none;">
+          <p class="ab-caption" style="font-weight:600;color:#1a2e2a;font-style:italic;">"여행의 모든 순간이 의미 있고 가치 있게 완성되도록, 선샤인 웰니스는 진심 어린 동반자가 되겠습니다."</p>
+        </blockquote>
       </div>
     </section>`;
 
