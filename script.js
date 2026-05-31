@@ -1922,7 +1922,7 @@ function openAboutPage() {
   const sec3 = `
     <section class="ab-section" style="background:url('images/beach-landscape-sea-coast-horizon-boardwalk-796287-pxhere.com.jpg') center/cover no-repeat;padding:80px 40px;position:relative;">
       <div style="position:absolute;inset:0;background:rgba(10,30,40,0.54);"></div>
-      <div style="max-width:900px;margin:0 auto;position:relative;">
+      <div style="max-width:900px;margin:0 auto;position:relative;text-align:center;">
         <p class="ab-eyebrow" style="color:rgba(255,255,255,0.55);">For You</p>
         <h2 class="ab-h2" style="color:#fff;margin-bottom:10px;">40~60대 신중년을 위해<br/>설계된 여행</h2>
         <p class="ab-body" style="color:rgba(255,255,255,0.72);margin-bottom:44px;">시간과 여유가 생긴 지금, 진정한 나를 찾는 여정을 시작해보세요.</p>
@@ -1945,7 +1945,7 @@ function openAboutPage() {
 
   const sec4 = `
     <section class="ab-section" style="background:#f5f5f3;padding:80px 40px;">
-      <div style="max-width:900px;margin:0 auto;">
+      <div style="max-width:900px;margin:0 auto;text-align:center;">
         <p class="ab-eyebrow" style="color:#3B6259;">Our Promise</p>
         <h2 class="ab-h2">선샤인 웰니스의<br/>세 가지 약속</h2>
         <div class="ab-promise-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px;">${promiseCards}</div>
@@ -3759,4 +3759,48 @@ const observer = new IntersectionObserver(
 );
 
 document.querySelectorAll('.card, .about-content, .stat-item').forEach(el => observer.observe(el));
+
+// =========================================
+// 할인쿠폰 모달
+// =========================================
+let _couponPressTimer = null;
+let _couponLongPressInit = false;
+
+function openCouponModal() {
+  const modal = document.getElementById('couponModal');
+  modal.style.display = 'flex';
+  if (!_couponLongPressInit) {
+    _couponLongPressInit = true;
+    const card = document.getElementById('couponCard');
+    card.addEventListener('touchstart', () => {
+      _couponPressTimer = setTimeout(downloadCoupon, 700);
+    }, { passive: true });
+    ['touchend', 'touchmove', 'touchcancel'].forEach(ev =>
+      card.addEventListener(ev, () => clearTimeout(_couponPressTimer), { passive: true })
+    );
+  }
+}
+
+function closeCouponModal() {
+  document.getElementById('couponModal').style.display = 'none';
+}
+
+function downloadCoupon() {
+  if (typeof html2canvas === 'undefined') {
+    alert('잠시 후 다시 시도해 주세요.');
+    return;
+  }
+  const card = document.getElementById('couponCard');
+  html2canvas(card, {
+    scale: 3,
+    useCORS: true,
+    backgroundColor: '#FAF7F2',
+    logging: false
+  }).then(canvas => {
+    const a = document.createElement('a');
+    a.download = 'sunshine-wellness-coupon.png';
+    a.href = canvas.toDataURL('image/png');
+    a.click();
+  });
+}
 
