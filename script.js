@@ -8,6 +8,10 @@ const header = document.getElementById('header');
 window.addEventListener('scroll', () => {
   header.classList.toggle('scrolled', window.scrollY > 50);
 });
+function _overlayScrollHandler() {
+  const el = document.getElementById('subPageOverlay');
+  if (el) header.classList.toggle('scrolled', el.scrollTop > 50);
+}
 
 // =========================================
 // 다국어 번역 시스템
@@ -582,6 +586,8 @@ function showSubPage(html) {
   el.scrollTop = 0;
   document.documentElement.style.overflow = 'hidden';
   document.body.style.overflow = 'hidden';
+  header.classList.remove('scrolled');
+  el.addEventListener('scroll', _overlayScrollHandler);
 }
 
 function showSubPageFull(html) {
@@ -592,16 +598,20 @@ function showSubPageFull(html) {
   el.scrollTop = 0;
   document.documentElement.style.overflow = 'hidden';
   document.body.style.overflow = 'hidden';
+  header.classList.remove('scrolled');
+  el.addEventListener('scroll', _overlayScrollHandler);
 }
 
 function closeSubPage() {
   const el = document.getElementById('subPageOverlay');
   if (!el) return;
+  el.removeEventListener('scroll', _overlayScrollHandler);
   el.style.display = 'none';
   el.innerHTML = '';
   el.classList.remove('fullbg');
   document.documentElement.style.overflow = '';
   document.body.style.overflow = '';
+  header.classList.toggle('scrolled', window.scrollY > 50);
 }
 
 // =========================================
@@ -1493,7 +1503,7 @@ function openArtConciergePage() {
             ${['#부산일보','#부산콘서트홀','#완판'].map(t=>`<span class="ac-tag">${t}</span>`).join('')}
           </div>
         </div>
-        <!-- WHAT 전문 서비스 -->
+        <!-- WHAT + EXPERIENCE 통합 -->
         <div class="sp-wrap" style="padding-top:48px;padding-bottom:48px;">
           ${orn2}
           <div class="ac-who-frame" style="margin-bottom:36px;">
@@ -1501,64 +1511,53 @@ function openArtConciergePage() {
           <svg class="ac-corner tr" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
           <svg class="ac-corner bl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
           <svg class="ac-corner br" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
-          <span class="ac-who-label">WHAT</span>
-          <span class="ac-who-name">전문 서비스</span>
+          <span class="ac-who-label">WHAT · EXPERIENCE</span>
+          <span class="ac-who-name">전문 서비스 &amp; 시그너처 투어</span>
         </div>
-          <div class="ac-service-wide">
+          <div style="display:flex;flex-direction:column;gap:20px;">
             ${[
-              ['🎼','음악 · 콘서트','빈 필하모닉, 잘츠부르크 페스티벌 등 서유럽 정상급 음악 공연 VIP 관람 기획','#3B6259'],
-              ['🏛️','건축 공간 투어','사그라다 파밀리아, 루이 뷔통 재단 등 현대 건축 걸작을 전문 해설과 함께','#3B6259'],
-              ['🎨','미술관 컨시어지','루브르, 오르세, 테이트 등 400여 개 도록 기반의 깊이 있는 관람 설계','#3B6259'],
-            ].map(([icon,title,desc,color])=>`
-              <div style="display:flex;flex-direction:column;gap:12px;padding:24px 24px 22px;background:#fff;border:1px solid #e8e8e4;border-top:3px solid ${color};border-radius:14px;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
-                <span style="font-size:28px;">${icon}</span>
-                <div>
-                  <h3 style="font-size:15px;font-weight:700;color:#1a2e2a;margin-bottom:8px;">${title}</h3>
-                  <p style="font-size:13.5px;color:#666;line-height:1.8;">${desc}</p>
+              {icon:'🎼',title:'음악 · 콘서트',desc:'빈 필하모닉, 잘츠부르크 페스티벌 등 서유럽 정상급 음악 공연 VIP 관람 기획',bg:'#eff4f1',border:'#c4d8cc',color:'#3B6259',
+               tours:[
+                 {icon:'🎼',tag:'Exclusive',title:'잘츠부르크 음악 페스티벌 VIP',sub:'오스트리아 · 8박 10일',desc:'매년 여름 개최되는 세계 최고의 클래식 음악 축제. VIP 좌석과 리허설 관람, 아티스트 백스테이지 투어 포함.',color:'#e8a04a'},
+                 {icon:'🏛️',tag:'Curated',title:'빈 필하모닉 골든홀 콘서트',sub:'오스트리아 · 5박 7일',desc:'세계 3대 콘서트홀 무직페라인 황금홀에서의 특별 공연 관람. 비엔나 왕궁·미술사박물관 연계 투어.',color:'#3B6259'},
+               ]},
+              {icon:'🏛️',title:'건축 공간 투어',desc:'사그라다 파밀리아, 루이 뷔통 재단 등 현대 건축 걸작을 전문 해설과 함께',bg:'#fdf6ec',border:'#e8d4b0',color:'#e8a04a',
+               tours:[
+                 {icon:'🏗️',tag:'Exclusive',title:'사그라다 파밀리아 건축 기행',sub:'스페인 · 7박 9일',desc:'가우디 건축의 정수를 탑 입장권·건축 전문가 해설과 함께. 바르셀로나 현대 건축 도시 탐방 포함.',color:'#e8a04a'},
+               ]},
+              {icon:'🎨',title:'미술관 컨시어지',desc:'루브르, 오르세, 테이트 등 400여 개 도록 기반의 깊이 있는 관람 설계',bg:'#eff4f1',border:'#c4d8cc',color:'#3B6259',
+               tours:[
+                 {icon:'🎨',tag:'Curated',title:'루브르 야간 VIP 관람',sub:'프랑스 · 6박 8일',desc:'일반 관람객 없는 시간대의 루브르 전용 투어. 큐레이터 해설과 함께하는 깊이 있는 감상 경험.',color:'#3B6259'},
+               ]},
+            ].map(s=>`
+              <div style="border:1px solid ${s.border};border-radius:16px;overflow:hidden;">
+                <div style="background:${s.bg};padding:18px 22px 16px;border-bottom:1px solid ${s.border};">
+                  <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                    <span style="font-size:24px;">${s.icon}</span>
+                    <h3 style="font-size:15px;font-weight:700;color:#1a2e2a;">${s.title}</h3>
+                  </div>
+                  <p style="font-size:13px;color:#666;line-height:1.7;margin:0;">${s.desc}</p>
+                </div>
+                <div style="background:#fafaf8;padding:14px 22px 16px;">
+                  <div style="display:grid;grid-template-columns:${s.tours.length>1?'repeat(2,1fr)':'1fr'};gap:12px;">
+                    ${s.tours.map(t=>`
+                      <div style="border:1px solid #e8e8e4;border-top:3px solid ${t.color};border-radius:12px;padding:20px;background:#fff;">
+                        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+                          <span style="font-size:22px;">${t.icon}</span>
+                          <span style="font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:${t.color};">${t.tag}</span>
+                        </div>
+                        <h4 style="font-size:14.5px;font-weight:700;color:#1a2e2a;margin-bottom:4px;">${t.title}</h4>
+                        <p style="font-size:11.5px;color:#aaa;margin-bottom:10px;">${t.sub}</p>
+                        <p style="font-size:13px;color:#666;line-height:1.8;">${t.desc}</p>
+                      </div>`).join('')}
+                  </div>
                 </div>
               </div>`).join('')}
           </div>
-          <div class="ac-tags">
-            ${['#클래식음악','#건축기행','#미술관컨시어지'].map(t=>`<span class="ac-tag">${t}</span>`).join('')}
+          <div class="ac-tags" style="margin-top:24px;">
+            ${['#클래식음악','#건축기행','#미술관컨시어지','#잘츠부르크','#빈필하모닉','#루브르','#사그라다'].map(t=>`<span class="ac-tag">${t}</span>`).join('')}
           </div>
         </div><!-- /sp-wrap -->
-      </div>
-
-      <!-- ⑥ 4 Partnership 투어 카드 -->
-      <div style="background:#EBF0E8;">
-        <div class="sp-wrap" style="padding-top:48px;padding-bottom:40px;">
-          ${orn2}
-          <div class="ac-who-frame" style="margin-bottom:36px;">
-          <svg class="ac-corner tl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
-          <svg class="ac-corner tr" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
-          <svg class="ac-corner bl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
-          <svg class="ac-corner br" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
-          <span class="ac-who-label">EXPERIENCE</span>
-          <span class="ac-who-name">시그너처 투어</span>
-        </div>
-          <div class="ac-tour-grid">
-            ${[
-              ['🎼','Exclusive','잘츠부르크 음악 페스티벌 VIP','오스트리아 · 8박 10일','매년 여름 개최되는 세계 최고의 클래식 음악 축제. VIP 좌석과 리허설 관람, 아티스트 백스테이지 투어 포함.','#e8a04a'],
-              ['🏛️','Curated','빈 필하모닉 골든홀 콘서트','오스트리아 · 5박 7일','세계 3대 콘서트홀 무직페라인 황금홀에서의 특별 공연 관람. 비엔나 왕궁·미술사박물관 연계 투어.','#3B6259'],
-              ['🎨','Curated','루브르 야간 VIP 관람','프랑스 · 6박 8일','일반 관람객 없는 시간대의 루브르 전용 투어. 큐레이터 해설과 함께하는 깊이 있는 감상 경험.','#3B6259'],
-              ['🏗️','Exclusive','사그라다 파밀리아 건축 기행','스페인 · 7박 9일','가우디 건축의 정수를 탑 입장권·건축 전문가 해설과 함께. 바르셀로나 현대 건축 도시 탐방 포함.','#e8a04a'],
-            ].map(([icon,tag,title,sub,desc,color])=>`
-              <div style="display:flex;flex-direction:column;gap:12px;padding:24px 24px 22px;background:#fff;border:1px solid #e8e8e4;border-top:3px solid ${color};border-radius:14px;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
-                <div style="display:flex;align-items:center;gap:12px;">
-                  <span style="font-size:26px;">${icon}</span>
-                  <span style="font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:${color};">${tag}</span>
-                </div>
-                <div>
-                  <h3 style="font-size:15px;font-weight:700;color:#1a2e2a;margin-bottom:4px;">${title}</h3>
-                  <p style="font-size:12px;color:#aaa;margin-bottom:10px;">${sub}</p>
-                  <p style="font-size:13.5px;color:#666;line-height:1.8;">${desc}</p>
-                </div>
-              </div>`).join('')}
-          </div>
-          <div class="ac-tags">
-            ${['#잘츠부르크','#빈필하모닉','#루브르','#사그라다'].map(t=>`<span class="ac-tag">${t}</span>`).join('')}
-          </div>
-        </div>
       </div>
 
       <!-- ⑦ → ⑨ 에 통합됨 -->
