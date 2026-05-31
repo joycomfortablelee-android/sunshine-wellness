@@ -1500,7 +1500,7 @@ function openArtConciergePage() {
                style="display:flex;align-items:center;gap:20px;background:#fff;border:1px solid #e0ddd8;border-radius:16px;padding:24px 26px;text-decoration:none;transition:box-shadow .2s,transform .2s;"
                onmouseover="this.style.boxShadow='0 6px 20px rgba(0,0,0,0.09)';this.style.transform='translateY(-2px)'"
                onmouseout="this.style.boxShadow='none';this.style.transform='none'">
-              <span style="font-size:24px;flex-shrink:0;">${icon}</span>
+              <span style="font-size:18px;flex-shrink:0;">${icon}</span>
               <div style="flex:1;min-width:0;">
                 <p style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3B6259;margin-bottom:6px;">${label}</p>
                 <p style="font-size:18px;font-weight:600;color:#1a2e2a;line-height:1.45;">${desc}</p>
@@ -1543,7 +1543,7 @@ function openArtConciergePage() {
                  {icon:'🎼',tag:'Exclusive',title:'잘츠부르크 음악 페스티벌 VIP',sub:'오스트리아 · 8박 10일',desc:'매년 여름 개최되는 세계 최고의 클래식 음악 축제. VIP 좌석과 리허설 관람, 아티스트 백스테이지 투어 포함.',color:'#e8a04a'},
                  {icon:'🏛️',tag:'Curated',title:'빈 필하모닉 골든홀 콘서트',sub:'오스트리아 · 5박 7일',desc:'세계 3대 콘서트홀 무직페라인 황금홀에서의 특별 공연 관람. 비엔나 왕궁·미술사박물관 연계 투어.',color:'#3B6259'},
                ]},
-              {icon:'🏛️',title:'건축 공간 투어',desc:'사그라다 파밀리아, 루이 뷔통 재단 등 현대 건축 걸작을 전문 해설과 함께',bg:'#fdf6ec',border:'#e8d4b0',color:'#e8a04a',
+              {icon:'🏛️',title:'건축 공간 투어',desc:'사그라다 파밀리아, 루이 뷔통 재단 등 현대 건축 걸작을 전문 해설과 함께',bg:'linear-gradient(135deg,#e07820 0%,#f5aa50 100%)',border:'#d4783a',color:'#e8a04a',headerTextColor:'#1c3878',headerDescColor:'rgba(28,56,120,0.82)',
                tours:[
                  {icon:'🏗️',tag:'Exclusive',title:'사그라다 파밀리아 건축 기행',sub:'스페인 · 7박 9일',desc:'가우디 건축의 정수를 탑 입장권·건축 전문가 해설과 함께. 바르셀로나 현대 건축 도시 탐방 포함.',color:'#e8a04a'},
                ]},
@@ -1556,9 +1556,9 @@ function openArtConciergePage() {
                 <div style="background:${s.bg};padding:18px 22px 16px;border-bottom:1px solid ${s.border};">
                   <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
                     <span style="font-size:24px;">${s.icon}</span>
-                    <h3 style="font-size:15px;font-weight:700;color:${s.headerWhite?'#fff':'#1a2e2a'};">${s.title}</h3>
+                    <h3 style="font-size:15px;font-weight:700;color:${s.headerTextColor||(s.headerWhite?'#fff':'#1a2e2a')};">${s.title}</h3>
                   </div>
-                  <p style="font-size:13px;color:${s.headerWhite?'rgba(255,255,255,0.82)':'#666'};line-height:1.7;margin:0;">${s.desc}</p>
+                  <p style="font-size:13px;color:${s.headerDescColor||(s.headerWhite?'rgba(255,255,255,0.82)':'#666')};line-height:1.7;margin:0;">${s.desc}</p>
                 </div>
                 <div style="background:#fff;padding:16px 22px 20px;">
                   <div style="display:grid;grid-template-columns:1fr;gap:16px;">
