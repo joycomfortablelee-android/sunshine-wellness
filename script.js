@@ -1399,13 +1399,13 @@ function openArtConciergePage() {
           {title:'누적 아트 여정', items:[['1,400+','방문 도시'],['400+','도록'],['64+','공연']]},
           {title:'2023 Highlights', items:[['170','방문 도시'],['64','관람 공연'],['126','방문 미술관']]}
         ].map(card=>`
-        <div style="background:#fff;border:1px solid #e8e8e4;border-radius:14px;padding:24px 28px;margin-bottom:16px;min-height:200px;display:flex;flex-direction:column;justify-content:space-between;">
-          <p style="font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3B6259;margin-bottom:20px;">${card.title}</p>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center;">
+        <div style="background:#fff;border:1px solid #e8e8e4;border-radius:14px;padding:14px 20px;margin-bottom:12px;display:flex;flex-direction:column;">
+          <p style="font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3B6259;margin-bottom:10px;">${card.title}</p>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;text-align:center;">
             ${card.items.map(([n,l])=>`
-            <div style="padding:8px 4px;">
-              <span style="display:block;font-size:28px;font-weight:800;color:#e8a04a;line-height:1.1;">${n}</span>
-              <span style="display:block;font-size:11.5px;color:#666;margin-top:6px;">${l}</span>
+            <div style="padding:4px 4px;">
+              <span style="display:block;font-size:22px;font-weight:800;color:#e8a04a;line-height:1.1;">${n}</span>
+              <span style="display:block;font-size:11px;color:#666;margin-top:4px;">${l}</span>
             </div>`).join('')}
           </div>
         </div>`).join('')}
@@ -1462,12 +1462,12 @@ function openArtConciergePage() {
                onmouseover="this.style.boxShadow='0 6px 20px rgba(0,0,0,0.09)';this.style.transform='translateY(-2px)'"
                onmouseout="this.style.boxShadow='none';this.style.transform='none'">
               <div>
-                <p style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3B6259;margin-bottom:10px;">Lecture · 동서대학교</p>
-                <h3 style="font-size:15px;font-weight:800;color:#1a2e2a;line-height:1.45;margin-bottom:12px;">스토리를 찾아 떠나는<br/>유럽 그랜드 투어</h3>
-                <p style="font-size:13px;color:#666;line-height:1.75;">성당을 서점으로, 오페라 극장을 서점으로 — 유럽의 건축과 공간에 담긴 스토리를 찾아가는 아트 트래블 특강.</p>
+                <p style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3B6259;margin-bottom:10px;">Lecture · 동서대학교 큐칼리지</p>
+                <h3 style="font-size:15px;font-weight:800;color:#1a2e2a;line-height:1.45;margin-bottom:12px;">유럽음악축제 전문<br/>드림원정대와 VIP 투어</h3>
+                <p style="font-size:13px;color:#666;line-height:1.75;">대한민국 상위 0.01% VIP 프라이빗 투어 — 유럽 오페라 축제와 아트 트래블을 주제로 큐칼리지 1기 학생들에게 강연.</p>
               </div>
               <div style="margin-top:16px;display:flex;align-items:center;justify-content:space-between;">
-                <span style="font-size:11.5px;color:#aaa;">2022년 9월 16일 · 동서대학교</span>
+                <span style="font-size:11.5px;color:#aaa;">2021년 10월 15일 · 동서대학교</span>
                 <span style="font-size:13px;color:#3B6259;font-weight:700;">보기 ↗</span>
               </div>
             </a>
