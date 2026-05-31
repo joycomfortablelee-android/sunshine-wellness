@@ -1345,7 +1345,7 @@ function openArtConciergePage() {
       </div>
 
       <!-- PART 01 · The Person -->
-      <div style="background:#FAF7F2;padding-bottom:48px;">
+      <div style="background:#F5F5F3;padding-bottom:48px;">
 
       <!-- ① Partnership 헤더만 — Where to Next?와 동일 구조 -->
       <div class="sp-wrap" style="padding-bottom:20px;">
@@ -1359,9 +1359,9 @@ function openArtConciergePage() {
 
       <div class="sp-wrap" style="padding-top:28px;padding-bottom:0;">
         <div style="display:flex;align-items:center;gap:14px;">
-          <div style="flex:1;height:1px;background:#e0dcd6;"></div>
+          <div style="flex:1;height:1px;background:#dddcda;"></div>
           <span style="font-size:9px;font-weight:700;letter-spacing:.22em;color:#9a9088;text-transform:uppercase;">PART 01 · The Person</span>
-          <div style="flex:1;height:1px;background:#e0dcd6;"></div>
+          <div style="flex:1;height:1px;background:#dddcda;"></div>
         </div>
       </div>
 
