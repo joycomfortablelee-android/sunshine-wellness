@@ -57,8 +57,12 @@ ul { list-style: none; }
   transition: background 0.4s ease, box-shadow 0.4s ease;
 }
 #header.scrolled {
-  background: #ffffff;
   box-shadow: 0 1px 16px rgba(0,0,0,0.08);
+}
+@media (min-width: 901px) {
+  #header.scrolled {
+    background: #ffffff;
+  }
 }
 
 /* 투명 헤더일 때 — 히어로 이미지 위에서 텍스트 흰색 */
