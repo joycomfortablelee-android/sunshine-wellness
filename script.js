@@ -1547,7 +1547,7 @@ function openArtConciergePage() {
                tours:[
                  {icon:'🏗️',tag:'Exclusive',title:'사그라다 파밀리아 건축 기행',sub:'스페인 · 7박 9일',desc:'가우디 건축의 정수를 탑 입장권·건축 전문가 해설과 함께. 바르셀로나 현대 건축 도시 탐방 포함.',color:'#e8a04a'},
                ]},
-              {icon:'🎨',title:'미술관 컨시어지',desc:'루브르, 오르세, 테이트 등 400여 개 도록 기반의 깊이 있는 관람 설계',bg:'#eff4f1',border:'#c4d8cc',color:'#3B6259',
+              {icon:'🎨',title:'미술관 컨시어지',desc:'루브르, 오르세, 테이트 등 400여 개 도록 기반의 깊이 있는 관람 설계',bg:'linear-gradient(135deg,#3a1f5e 0%,#6a4f9a 100%)',border:'#5a3a8a',color:'#6a4f9a',headerWhite:true,
                tours:[
                  {icon:'🎨',tag:'Curated',title:'루브르 야간 VIP 관람',sub:'프랑스 · 6박 8일',desc:'일반 관람객 없는 시간대의 루브르 전용 투어. 큐레이터 해설과 함께하는 깊이 있는 감상 경험.',color:'#3B6259'},
                ]},
