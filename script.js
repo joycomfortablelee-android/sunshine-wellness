@@ -1399,7 +1399,7 @@ function openArtConciergePage() {
           {title:'누적 아트 여정', items:[['1,400+','방문 도시'],['400+','도록'],['64+','공연']]},
           {title:'2023 Highlights', items:[['170','방문 도시'],['64','관람 공연'],['126','방문 미술관']]}
         ].map(card=>`
-        <div style="background:#fff;border:1px solid #e8e8e4;border-radius:14px;padding:24px 28px;margin-bottom:16px;">
+        <div style="background:#fff;border:1px solid #e8e8e4;border-radius:14px;padding:24px 28px;margin-bottom:16px;min-height:200px;display:flex;flex-direction:column;justify-content:space-between;">
           <p style="font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3B6259;margin-bottom:20px;">${card.title}</p>
           <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center;">
             ${card.items.map(([n,l])=>`
@@ -1425,7 +1425,7 @@ function openArtConciergePage() {
           <span class="ac-who-label">WHY</span>
           <span class="ac-who-name" style="font-size:17px;">예술 그 자체가 목적인 여행</span>
         </div>
-        <div style="background:#fff;border:1px solid #e8e8e4;border-radius:16px;padding:28px 32px;border-left:1.5px solid #3B6259;">
+        <div style="background:#fff;border:1px solid #e8e8e4;border-radius:16px;padding:28px 32px;border-left:1.5px solid #3B6259;min-height:200px;display:flex;flex-direction:column;justify-content:center;">
           <p style="font-size:15px;color:#555;line-height:1.9;margin-bottom:14px;font-family:Georgia,serif;">아트 컨시어지는 단순히 여행 중 공연이나 미술관을 방문하는 것이 아닌, <strong style="color:#1a2e2a;">특정 공연·전시·건축 공간을 주목적으로 기획하는 1인 전문 여행사</strong>입니다.</p>
           <p style="font-size:15px;color:#555;line-height:1.9;margin:0;font-family:Georgia,serif;">"그곳에 가야만 볼 수 있는 예술"이라는 <em>데스티네이션 아트(Destination Art)</em> 철학 아래, 서유럽 음악·콘서트·건축 공간 VIP 투어를 전문으로 합니다.</p>
         </div>
