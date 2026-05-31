@@ -1724,7 +1724,7 @@ function openCulturalCasePage(selectedType) {
       <!-- 사례 카드 목록 -->
       <div style="background:#fafaf8;padding:44px 0 72px;">
         <div class="sp-wrap">
-          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;">
+          <div class="ca-case-grid">
             ${filtered.map(d=>`
               <div style="border:1px solid #e0ddd8;border-radius:14px;padding:24px 22px;background:#fff;display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s;"
                    onmouseover="this.style.boxShadow='0 8px 28px rgba(0,0,0,0.09)';this.style.transform='translateY(-3px)'"

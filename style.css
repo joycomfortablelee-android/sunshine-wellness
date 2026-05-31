@@ -156,7 +156,7 @@ ul { list-style: none; }
 .header-right {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 6px;
 }
 
 .auth-links {
@@ -198,14 +198,14 @@ ul { list-style: none; }
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  background: #e8a04a;
-  border-color: #e8a04a;
+  background: #3B6259;
+  border-color: #3B6259;
   color: var(--white);
   font-size: 0.75rem;
 }
 .home-btn:hover {
-  background: #d08a38;
-  border-color: #d08a38;
+  background: #2d4d46;
+  border-color: #2d4d46;
   color: var(--white);
 }
 
@@ -446,6 +446,8 @@ ul { list-style: none; }
 .cu-ucard-btn { cursor:pointer; font-family:var(--font); transition:border-color .2s, background .2s, transform .2s; }
 .cu-ucard-btn:hover { border-color:var(--accent); background:#eef5f3; transform:translateY(-2px); }
 .cu-ucard-icon { font-size:28px; margin-bottom:10px; line-height:1; }
+.ca-case-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+@media (max-width:600px) { .ca-case-grid { grid-template-columns:1fr; } }
 .cu-ucard-title { font-size:13px; font-weight:700; color:#1a2e2a; letter-spacing:.02em; word-break:keep-all; line-height:1.45; }
 .cu-ucard-body { font-size:12.5px; color:#666; line-height:1.85; margin-top:8px; }
 .cu-back-btn { display:inline-flex; align-items:center; gap:6px; padding:9px 18px; background:#f0f5f4; border:1.5px solid var(--border); border-radius:8px; font-size:13.5px; font-weight:600; color:#1a2e2a; cursor:pointer; font-family:var(--font); margin-bottom:28px; transition:background .2s, border-color .2s; }
