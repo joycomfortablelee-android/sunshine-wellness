@@ -1252,6 +1252,7 @@ function openContactUsPage() {
 // 제휴 여행사 — 아트 컨시어지
 // =========================================
 function openArtConciergePage() {
+  const orn = `<svg class="ac-ornament" viewBox="0 0 300 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M26 13 C16 13 9 11 8 8 C7 5 9 2 11 3 C13 4 12 7 10 8" stroke="#2d4a42" stroke-width="1.1" stroke-linecap="round"/><line x1="26" y1="13" x2="128" y2="13" stroke="#2d4a42" stroke-width="0.8" opacity="0.55"/><circle cx="138" cy="13" r="1.3" fill="#2d4a42" opacity="0.45"/><path d="M150 8 L154.5 13 L150 18 L145.5 13 Z" fill="#2d4a42" opacity="0.75"/><circle cx="162" cy="13" r="1.3" fill="#2d4a42" opacity="0.45"/><line x1="172" y1="13" x2="274" y2="13" stroke="#2d4a42" stroke-width="0.8" opacity="0.55"/><path d="M274 13 C284 13 291 11 292 8 C293 5 291 2 289 3 C287 4 288 7 290 8" stroke="#2d4a42" stroke-width="1.1" stroke-linecap="round"/></svg>`;
   showSubPageFull(`
     <div class="co-fullbg-wrap">
 
@@ -1274,6 +1275,7 @@ function openArtConciergePage() {
 
       <!-- ② 이상훈 대표 프로필 + 2023 하이라이트 -->
       <div class="sp-wrap" style="padding-top:48px;padding-bottom:0;">
+        ${orn}
         <div class="ac-who-frame">
           <svg class="ac-corner tl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
           <svg class="ac-corner tr" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
@@ -1312,6 +1314,7 @@ function openArtConciergePage() {
 
       <!-- ③ About -->
       <div class="sp-wrap" style="padding-top:48px;padding-bottom:0;">
+        <svg class="ac-ornament" viewBox="0 0 300 20" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="10" x2="136" y2="10" stroke="#2d4a42" stroke-width="0.8" opacity="0.5"/><line x1="164" y1="10" x2="300" y2="10" stroke="#2d4a42" stroke-width="0.8" opacity="0.5"/><line x1="18" y1="4" x2="18" y2="16" stroke="#2d4a42" stroke-width="1.2" opacity="0.6"/><line x1="282" y1="4" x2="282" y2="16" stroke="#2d4a42" stroke-width="1.2" opacity="0.6"/><path d="M150 5 L151.8 8.2 L155 10 L151.8 11.8 L150 15 L148.2 11.8 L145 10 L148.2 8.2 Z" fill="#2d4a42" opacity="0.72"/></svg>
         <div class="ac-who-frame" style="margin-bottom:36px;">
           <svg class="ac-corner tl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
           <svg class="ac-corner tr" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
@@ -1353,6 +1356,7 @@ function openArtConciergePage() {
       <!-- ⑤ Specialty 전문 서비스 -->
       <div style="background:#f5f5f3;padding:0;margin-top:48px;">
         <div class="sp-wrap" style="padding-bottom:40px;">
+          ${orn}
           <div class="ac-who-frame" style="margin-bottom:36px;">
           <svg class="ac-corner tl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
           <svg class="ac-corner tr" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
@@ -1381,6 +1385,7 @@ function openArtConciergePage() {
         </div>
         <!-- 링크 카드 — 3행 1열 (sp-wrap 기준) -->
         <div class="sp-wrap" style="padding-top:48px;padding-bottom:48px;">
+          ${orn}
           <div class="ac-who-frame" style="margin-bottom:36px;">
           <svg class="ac-corner tl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
           <svg class="ac-corner tr" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
@@ -1416,6 +1421,7 @@ function openArtConciergePage() {
       <!-- ⑥ 4 Partnership 투어 카드 -->
       <div style="background:#f5f5f3;">
         <div class="sp-wrap" style="padding-top:48px;padding-bottom:40px;">
+          ${orn}
           <div class="ac-who-frame" style="margin-bottom:36px;">
           <svg class="ac-corner tl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
           <svg class="ac-corner tr" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
@@ -1450,8 +1456,9 @@ function openArtConciergePage() {
       </div>
 
       <!-- ⑦ Signature Cultural Spaces 칼럼 섹션 -->
-      <div style="background:#fff;padding:56px 0;border-top:1px solid #e8e8e4;">
+      <div style="background:#fff;padding:56px 0 28px;border-top:1px solid #e8e8e4;">
         <div class="sp-wrap">
+          ${orn}
           <div class="ac-who-frame" style="margin-bottom:36px;">
           <svg class="ac-corner tl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
           <svg class="ac-corner tr" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
@@ -1522,8 +1529,9 @@ function openArtConciergePage() {
       </div>
 
       <!-- ⑨ Cultural Archive 1뎁스 + 2뎁스 -->
-      <div style="background:#fff;padding:56px 0;">
+      <div style="background:#fff;padding:28px 0 56px;">
         <div class="sp-wrap">
+          ${orn}
           <div class="ac-who-frame" style="margin-bottom:36px;">
           <svg class="ac-corner tl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
           <svg class="ac-corner tr" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
