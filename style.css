@@ -147,6 +147,7 @@ ul { list-style: none; }
   align-items: center;
   gap: 1px;
   padding-bottom: 2px;
+  line-height: 1;
 }
 .gnb-partner-label {
   font-size: 0.58rem;
