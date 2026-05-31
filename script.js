@@ -1342,22 +1342,17 @@ function _buildArchiveCards() {
 // =========================================
 function openArtConciergeArchive() {
   openArtConciergePage();
-  // rAF 2회 — innerHTML 주입 후 브라우저 레이아웃 완료를 보장
-  requestAnimationFrame(function() {
-    requestAnimationFrame(function() {
-      var sec = document.getElementById('ac-archive-section');
-      var overlay = document.getElementById('subPageOverlay');
-      if (!sec || !overlay) return;
-      // 오버레이 기준 절대 오프셋 계산
-      var offsetTop = 0;
-      var el = sec;
-      while (el && el !== overlay) {
-        offsetTop += el.offsetTop;
-        el = el.offsetParent;
-      }
-      overlay.scrollTo({ top: offsetTop, behavior: 'smooth' });
-    });
-  });
+  setTimeout(function() {
+    var sec = document.getElementById('ac-archive-section');
+    var overlay = document.getElementById('subPageOverlay');
+    if (!sec || !overlay) return;
+    // scrollHeight 읽기 → 강제 동기 리플로우 후 offsetTop 유효
+    var sh = overlay.scrollHeight;
+    var st = sec.offsetTop;
+    if (sh > overlay.clientHeight && st > 0) {
+      overlay.scrollTop = st;
+    }
+  }, 300);
 }
 
 function openArtConciergePage() {
@@ -1382,7 +1377,7 @@ function openArtConciergePage() {
         <p class="co-section-title">Partnership</p>
         <h2 class="co-heading">제휴 투어</h2>
         <div class="sp-toolbar">
-          <p class="sp-count">선샤인 웰니스 × 아트 컨시어지</p>
+          <p class="sp-count" style="font-weight:700;">선샤인 웰니스 × 아트 컨시어지</p>
           <button onclick="openContactPage()" class="sp-btn-write">문의하기</button>
         </div>
       </div>
