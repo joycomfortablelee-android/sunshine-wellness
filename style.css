@@ -196,7 +196,11 @@ ul { list-style: none; }
   cursor: pointer;
   transition: var(--ease);
 }
-.lang-btn.active,
+.lang-btn.active {
+  border-color: #3B6259;
+  background: #3B6259;
+  color: #fff;
+}
 .lang-btn:hover {
   border-color: var(--dark);
   color: var(--dark);
