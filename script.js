@@ -611,23 +611,26 @@ function showSubPage(html) {
 }
 
 var _subPageFooter = `
-  <footer style="background:#1a2e2a;padding:36px 0 24px;margin-top:0;">
+  <footer class="footer">
     <div class="container">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:20px;margin-bottom:20px;">
-        <div>
-          <img src="images/logo2.png" alt="선샤인 웰니스" style="height:38px;width:auto;object-fit:contain;margin-bottom:8px;display:block;opacity:.9;" />
-          <p style="font-size:12px;color:#7aaa99;margin:0;">부산에서 시작되는 특별한 웰니스 여행</p>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="images/logo2.png" alt="선샤인 웰니스 로고" style="height:44px;width:auto;object-fit:contain;margin-bottom:8px;display:block;" />
+          <span class="logo-en">Sunshine Wellness</span>
+          <span class="logo-kr">선샤인 웰니스</span>
+          <p>부산에서 시작되는 특별한 웰니스 여행</p>
         </div>
-        <div style="display:flex;gap:20px;align-items:center;padding-top:4px;">
-          <a href="javascript:void(0)" onclick="openAboutPage()" style="font-size:12.5px;color:#a0bfb5;text-decoration:none;">소개</a>
-          <a href="javascript:void(0)" onclick="openProgramsPage()" style="font-size:12.5px;color:#a0bfb5;text-decoration:none;">프로그램</a>
-          <a href="javascript:void(0)" onclick="openContactPage()" style="font-size:12.5px;color:#a0bfb5;text-decoration:none;">문의</a>
+        <div class="footer-links">
+          <a href="javascript:void(0)" onclick="openAboutPage()">소개</a>
+          <a href="javascript:void(0)" onclick="openProgramsPage()">프로그램</a>
+          <a href="javascript:void(0)" onclick="openContactPage()">문의</a>
         </div>
       </div>
-      <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:16px;">
-        <p style="font-size:11px;color:#5a8070;line-height:1.9;margin-bottom:4px;">대표 : 이유안 &nbsp;|&nbsp; 사업자등록번호 : 000-00-00000 &nbsp;|&nbsp; 관광사업자등록번호 : 제000-00호 &nbsp;|&nbsp; 개인정보관리책임자 : 이유안</p>
-        <p style="font-size:11px;color:#5a8070;line-height:1.9;margin-bottom:4px;">주소 : 부산광역시 부산진구 서면 쥬디스태화 백화점 앞 &nbsp;|&nbsp; 대표전화 : 010-5759-5485 &nbsp;|&nbsp; 이메일 : healthylee7@gmail.com</p>
-        <p style="font-size:11px;color:#4a7060;margin-top:10px;">&copy; 2026 선샤인 웰니스 (Sunshine Wellness). All rights reserved.</p>
+      <div class="footer-bottom">
+        <p class="footer-biz">대표 : 이유안 &nbsp;|&nbsp; 사업자등록번호 : 000-00-00000 &nbsp;|&nbsp; 통신판매업신고번호 : 제00000호 &nbsp;|&nbsp; 관광사업자등록번호 : 제000-00호 &nbsp;|&nbsp; 개인정보관리책임자 : 이유안</p>
+        <p class="footer-biz">주소 : 부산광역시 부산진구 서면 쥬디스태화 백화점 앞 &nbsp;|&nbsp; 대표전화 : 010-5759-5485 &nbsp;|&nbsp; 이메일 : healthylee7@gmail.com</p>
+        <p class="footer-biz footer-biz-cert">일반여행업 보증보험가입 &nbsp;&nbsp;|&nbsp;&nbsp; 기획여행업 보증보험가입</p>
+        <p class="footer-copyright">&copy; 2026 선샤인 웰니스 (Sunshine Wellness). All rights reserved.</p>
       </div>
     </div>
   </footer>`;
@@ -2250,9 +2253,9 @@ function openAboutPage() {
     ['의미 있는 인연', '같은 가치를 공유하는 동반자들과 함께 걷고 이야기하며, 서로의 경험을 나누는 소규모 그룹 여행입니다.'],
   ].map(([t, d], i) => `
     <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:24px 20px;">
-      <span class="ab-eyebrow" style="color:rgba(255,255,255,0.35);margin-bottom:12px;display:block;">0${i + 1}</span>
+      <span class="ab-eyebrow" style="color:rgba(255,255,255,0.55);margin-bottom:12px;display:block;">0${i + 1}</span>
       <h3 style="font-size:15px;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.4;">${t}</h3>
-      <p class="ab-caption" style="color:rgba(255,255,255,0.6);">${d}</p>
+      <p class="ab-caption" style="color:rgba(255,255,255,0.88);">${d}</p>
     </div>`).join('');
 
   const sec3 = `
