@@ -1468,7 +1468,7 @@ function openArtConciergePage() {
       </div>
 
       <!-- ④⑤ PROOF · CREDENTIAL 통합 -->
-      <div style="background:#F5F5F3;padding:0;margin-top:0;">
+      <div style="background:#fff;padding:0;margin-top:0;">
         <div class="sp-wrap" style="padding-top:48px;padding-bottom:40px;">
           ${orn2}
           <div class="ac-who-frame" style="margin-bottom:36px;">
@@ -1486,9 +1486,9 @@ function openArtConciergePage() {
             ['🗞️','부산일보 연재','이상훈의 시그너처 문화공간 이야기','https://www.busan.com/search/index.php?search_string=[이상훈의시그너처문화공간이야기]'],
           ].map(([icon,label,desc,url]) => `
             <a href="${url}" target="_blank" rel="noopener"
-               style="display:flex;align-items:center;gap:20px;background:#fff;border:1px solid #e0ddd8;border-radius:16px;padding:24px 26px;text-decoration:none;transition:box-shadow .2s,transform .2s;"
-               onmouseover="this.style.boxShadow='0 6px 20px rgba(0,0,0,0.09)';this.style.transform='translateY(-2px)'"
-               onmouseout="this.style.boxShadow='none';this.style.transform='none'">
+               style="display:flex;align-items:center;gap:20px;background:#fff;border:1px solid #e0ddd8;border-radius:16px;padding:24px 26px;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,0.06);transition:box-shadow .2s,transform .2s;"
+               onmouseover="this.style.boxShadow='0 6px 20px rgba(0,0,0,0.11)';this.style.transform='translateY(-2px)'"
+               onmouseout="this.style.boxShadow='0 2px 10px rgba(0,0,0,0.06)';this.style.transform='none'">
               <span style="font-size:18px;flex-shrink:0;">${icon}</span>
               <div style="flex:1;min-width:0;">
                 <p style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3B6259;margin-bottom:6px;">${label}</p>
@@ -1508,9 +1508,9 @@ function openArtConciergePage() {
               <img src="images/lsh.jpg" alt="이상훈 대표" style="width:100%;height:100%;object-fit:cover;display:block;opacity:.92;" />
             </div>
             <a href="https://uni.dongseo.ac.kr/qcollege/index.php?pCode=MN2000065&pg=2&mode=view&idx=322" target="_blank" rel="noopener"
-               style="display:flex;flex-direction:column;justify-content:space-between;background:#fff;border:1px solid #e8e8e4;border-radius:14px;padding:24px 22px;text-decoration:none;transition:box-shadow .2s,transform .2s;"
-               onmouseover="this.style.boxShadow='0 6px 20px rgba(0,0,0,0.09)';this.style.transform='translateY(-2px)'"
-               onmouseout="this.style.boxShadow='none';this.style.transform='none'">
+               style="display:flex;flex-direction:column;justify-content:space-between;background:#fff;border:1px solid #e8e8e4;border-radius:14px;padding:24px 22px;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,0.06);transition:box-shadow .2s,transform .2s;"
+               onmouseover="this.style.boxShadow='0 6px 20px rgba(0,0,0,0.11)';this.style.transform='translateY(-2px)'"
+               onmouseout="this.style.boxShadow='0 2px 10px rgba(0,0,0,0.06)';this.style.transform='none'">
               <div>
                 <p style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3B6259;margin-bottom:10px;">Lecture · 동서대학교</p>
                 <h3 style="font-size:15px;font-weight:800;color:#1a2e2a;line-height:1.45;margin-bottom:12px;">스토리를 찾아 떠나는<br/>유럽 그랜드 투어</h3>
@@ -1527,9 +1527,9 @@ function openArtConciergePage() {
               <img src="ART/lsh dsu.jpg" alt="이상훈 대표 동서대학교 강의" style="width:100%;height:100%;object-fit:cover;display:block;opacity:.92;" />
             </div>
             <a href="https://www.dongseo.ac.kr/kr/index.php?pCode=MN2000192&pg=38&mode=view&idx=86997" target="_blank" rel="noopener"
-               style="display:flex;flex-direction:column;justify-content:space-between;background:#fff;border:1px solid #e8e8e4;border-radius:14px;padding:24px 22px;text-decoration:none;transition:box-shadow .2s,transform .2s;"
-               onmouseover="this.style.boxShadow='0 6px 20px rgba(0,0,0,0.09)';this.style.transform='translateY(-2px)'"
-               onmouseout="this.style.boxShadow='none';this.style.transform='none'">
+               style="display:flex;flex-direction:column;justify-content:space-between;background:#fff;border:1px solid #e8e8e4;border-radius:14px;padding:24px 22px;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,0.06);transition:box-shadow .2s,transform .2s;"
+               onmouseover="this.style.boxShadow='0 6px 20px rgba(0,0,0,0.11)';this.style.transform='translateY(-2px)'"
+               onmouseout="this.style.boxShadow='0 2px 10px rgba(0,0,0,0.06)';this.style.transform='none'">
               <div>
                 <p style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3B6259;margin-bottom:10px;">Lecture · 동서대학교 큐칼리지</p>
                 <h3 style="font-size:15px;font-weight:800;color:#1a2e2a;line-height:1.45;margin-bottom:12px;">유럽음악축제 전문<br/>드림원정대와 VIP 투어</h3>
