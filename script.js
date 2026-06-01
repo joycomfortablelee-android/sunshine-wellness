@@ -170,6 +170,25 @@ const translations = {
     'form.success': '감사합니다! 곧 연락드리겠습니다.',
     'form.error': '오류가 발생했습니다. 다시 시도해주세요.',
 
+    // 게시판
+    'board.label': 'Community',
+    'board.title': '여행',
+    'board.titleStrong': '이야기',
+    'board.desc': '회원들의 생생한 후기와 여행 이야기를 나눠보세요.',
+    'board.num': '번호',
+    'board.boardTitle': '제목',
+    'board.author': '작성자',
+    'board.date': '날짜',
+
+    // 리뷰
+    'reviews.label': 'BEST 후기',
+    'reviews.title': '함께한 분들의',
+    'reviews.titleStrong': '이야기',
+
+    // 고객센터
+    'support.label': 'Support',
+    'support.title': '고객센터',
+
     // 푸터
     'footer.tagline': '부산에서 시작되는 특별한 웰니스 여행',
     'footer.about': '소개',
@@ -309,6 +328,25 @@ const translations = {
     'form.success': 'Thank you! We\'ll be in touch soon.',
     'form.error': 'An error occurred. Please try again.',
 
+    // Board
+    'board.label': 'Community',
+    'board.title': 'Travel',
+    'board.titleStrong': 'Stories',
+    'board.desc': 'Share your travel experiences and stories with our community members.',
+    'board.num': 'No.',
+    'board.boardTitle': 'Title',
+    'board.author': 'Author',
+    'board.date': 'Date',
+
+    // Reviews
+    'reviews.label': 'BEST Reviews',
+    'reviews.title': 'Stories from Our',
+    'reviews.titleStrong': 'Travelers',
+
+    // Support
+    'support.label': 'Support',
+    'support.title': 'Customer Center',
+
     // Footer
     'footer.tagline': 'A special wellness journey starting in Busan',
     'footer.about': 'About',
@@ -333,35 +371,35 @@ const translations = {
     // 幻灯片 1
     'slide1.title': '您宝贵人生的<br /><strong>"第三幕"</strong>',
     'slide1.desc': '为新中年量身定制的洞察之旅与健康旅游',
-    'slide1.tagline': 'Journey with Purpose, Wellness All Around',
+    'slide1.tagline': '带着目标去旅行，全身心享受健康',
 
     // 幻灯片 2
     'slide2.title': '藏在巷弄里的<br /><strong>釜山故事</strong>',
     'slide2.desc': '甘川文化村——与专业解说员共同深度探访',
-    'slide2.tagline': 'Stories Hidden in Every Alley',
+    'slide2.tagline': '每条小巷都隐藏着故事',
 
     // 幻灯片 3
     'slide3.title': '在静谧中<br /><strong>放下心灵</strong>',
     'slide3.desc': '梵鱼寺、海东龙宫寺——釜山寺院禅修之旅',
-    'slide3.tagline': 'Find Peace in Ancient Temples',
+    'slide3.tagline': '在古刹中寻找内心的平静',
 
     // 幻灯片 4
     'slide4.title': '预算有限<br /><strong>也没关系！</strong>',
     'slide4.desc': '国际市场、富平罐头市场、札嘎其市场——釜山三大市场徒步游',
-    'slide4.tagline': 'Walk the Markets, Taste the City',
+    'slide4.tagline': '在市场中品味城市的灵魂',
 
     // 幻灯片 5
     'slide5.title': '铭记伤痛<br /><strong>学习和平</strong>',
     'slide5.desc': '掠夺·避难·重建·和平——釜山黑色旅游',
-    'slide5.tagline': 'Remember the Past, Walk Toward Peace',
+    'slide5.tagline': '回顾历史，迈向和平',
 
     // 幻灯片 6
     'slide6.title': '艺术染色的<br /><strong>釜山一日</strong>',
     'slide6.desc': '釜山当代美术馆、釜山双年展——深度探访釜山艺术空间',
-    'slide6.tagline': 'Art Flows Through Every Street',
+    'slide6.tagline': '艺术流淌在釜山的每条街道',
 
     // 关于我们
-    'about.label': 'About Us',
+    'about.label': '关于我们',
     'about.title': '用全身心感受<br /><strong>釜山之美</strong>',
     'about.desc': '阳光健康旅游提供定制化健康旅行，让您深入缓慢地体验釜山的自然、文化、艺术与历史。漫步、观赏、休憩——遇见属于您的釜山。',
     'stat1.label': '专业项目',
@@ -369,7 +407,7 @@ const translations = {
     'stat3.label': '本地专业旅行社',
 
     // 项目介绍
-    'programs.label': 'Our Programs',
+    'programs.label': '我们的项目',
     'programs.title': '健康旅游<br /><strong>项目</strong>',
     'programs.desc': '身心共同休憩的<br />釜山特别旅程',
     'programs.more': '查看全部旅游产品',
@@ -424,7 +462,7 @@ const translations = {
     'card.contact': '咨询 →',
 
     // 联系我们
-    'contact.label': 'Contact',
+    'contact.label': '咨询',
     'contact.title': '开启您的<br /><strong>旅程</strong>',
     'contact.desc': '告诉我们您感兴趣的项目，我们将为您量身定制行程。',
     'contact.address': '釜山西面朱迪斯泰和百货前',
@@ -447,6 +485,25 @@ const translations = {
     'form.sending': '发送中...',
     'form.success': '感谢您！我们将尽快与您联系。',
     'form.error': '发生错误，请重试。',
+
+    // 讨论区
+    'board.label': '社区',
+    'board.title': '旅行',
+    'board.titleStrong': '故事',
+    'board.desc': '分享会员们真实的旅行评价和故事。',
+    'board.num': '编号',
+    'board.boardTitle': '标题',
+    'board.author': '作者',
+    'board.date': '日期',
+
+    // 评价
+    'reviews.label': '最佳评价',
+    'reviews.title': '同行者的',
+    'reviews.titleStrong': '故事',
+
+    // 客服
+    'support.label': '支持',
+    'support.title': '客户中心',
 
     // 页脚
     'footer.tagline': '从釜山出发的特别健康之旅',
