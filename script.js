@@ -248,6 +248,9 @@ const translations = {
     'about.for.card4.title': '의미 있는 인연',
     'about.for.card4.desc': '같은 가치를 공유하는 동반자들과 함께 걷고 이야기하며, 서로의 경험을 나누는 소규모 그룹 여행입니다.',
     'about.promise.title': '선샤인 웰니스의<br/>세 가지 약속',
+    'about.promise.card1.title': '즐길거리',
+    'about.promise.card2.title': '먹거리',
+    'about.promise.card3.title': '일거리',
     'about.promise.card1.tag': '배움과 여가가 함께하는 여행',
     'about.promise.card1.desc': '역사·문화·예술·자연을 깊이 탐방하는 웰니스 여행. 단순 관광이 아닌 진정한 체험으로 설계합니다.',
     'about.promise.card2.tag': '건강한 부산의 맛',
@@ -455,6 +458,38 @@ const translations = {
     'prog.page.intro': 'A special wellness journey in Busan where body and mind rest together.<br/>Tailored tours designed for learning and growth in your golden years.',
     'prog.btn.info': 'Travel Info',
     'prog.btn.contact': 'Inquire →',
+    'about.hero.title': 'We Accompany the Valuable<br/>Third Act of Your Life',
+    'about.hero.desc': 'A specialized travel agency for tailored wellness journeys,<br/>supporting the learning, growth, and balance<br/>of body and mind for the new middle generation.',
+    'about.hero.stat1': 'Expert Programs',
+    'about.hero.stat2': 'Custom Tours',
+    'about.hero.stat3': 'Local Expert',
+    'about.who.title': 'Beyond Simple Travel,<br/>We Become Your Life Companion',
+    'about.who.desc1': 'Sunshine Wellness believes travel can be more than rest — it can be a time to find meaning in life and grow.',
+    'about.who.desc2': 'Deep encounters with Busan\'s nature, culture, and history bring new vitality to life. Through unique programs combining wellness and cultural experiences, we help you restore the balance of body and mind.',
+    'about.who.quote': '"So that every moment of your journey is meaningful and complete, Sunshine Wellness will be your sincere companion."',
+    'about.for.title': 'A Journey Designed for<br/>the 40s–60s New Middle Generation',
+    'about.for.desc': 'Now that you have time and freedom, begin a journey to find your true self.',
+    'about.for.card1.title': 'Continuous Growth',
+    'about.for.card1.desc': 'For those who wish to keep learning after retirement and continue intellectual and emotional growth through new experiences, we propose tailored journeys.',
+    'about.for.card2.title': 'Restoring Life Balance',
+    'about.for.card2.desc': 'A journey for those who have long lived for others to reclaim time for themselves and restore the balance of body and mind.',
+    'about.for.card3.title': 'Rediscovering Meaning',
+    'about.for.card3.desc': 'With those pondering how to live their third act, we find new direction within the deep stories of Busan.',
+    'about.for.card4.title': 'Meaningful Connections',
+    'about.for.card4.desc': 'A small-group journey where companions sharing the same values walk, talk, and share their experiences together.',
+    'about.promise.title': 'Sunshine Wellness\'s<br/>Three Promises',
+    'about.promise.card1.title': 'Things to Enjoy',
+    'about.promise.card2.title': 'Things to Eat',
+    'about.promise.card3.title': 'Things to Do',
+    'about.promise.card1.tag': 'Travel with Learning & Leisure',
+    'about.promise.card1.desc': 'Wellness travel that deeply explores history, culture, art, and nature. Designed as a true experience, not mere sightseeing.',
+    'about.promise.card2.tag': 'The Healthy Taste of Busan',
+    'about.promise.card2.desc': 'Local foods and healthy snacks that keep you well during travel, helping your body stay energized throughout the journey.',
+    'about.promise.card3.tag': 'Education & Job Connection',
+    'about.promise.card3.desc': 'So life continues after travel, we support a socially connected life through education and job-linkage services.',
+    'about.cta.title': 'Start Your Journey<br/>Now',
+    'about.cta.desc': 'Sunshine Wellness will design your own tailored wellness journey together with you.',
+    'about.cta.btn': 'Inquire →',
   },
 
   zh: {
@@ -658,11 +693,14 @@ const translations = {
     'about.for.card4.title': '有意义的缘分',
     'about.for.card4.desc': '与共享相同价值观的同伴一起行走和对话，分享彼此经历的小团体旅游。',
     'about.promise.title': '阳光健康旅游的<br/>三大承诺',
-    'about.promise.card1.tag': '娱乐',
+    'about.promise.card1.title': '娱乐',
+    'about.promise.card2.title': '美食',
+    'about.promise.card3.title': '工作',
+    'about.promise.card1.tag': '娱乐活动',
     'about.promise.card1.desc': '深度探访历史、文化、艺术、自然的健康旅游。设计为真正的体验，而非单纯观光。',
     'about.promise.card2.tag': '美食',
     'about.promise.card2.desc': '旅游期间保持健康的当地食材和健康零食，帮助身体在旅程中保持活力。',
-    'about.promise.card3.tag': '工作',
+    'about.promise.card3.tag': '工作机会',
     'about.promise.card3.desc': '旅游之后生活继续，通过教育和工作机会联接服务支持与社会相连的生活。',
     'about.cta.title': '现在，开启您的<br/>旅程吧',
     'about.cta.desc': '阳光健康旅游将与您一起设计专属于您的定制健康旅游。',
@@ -2437,7 +2475,7 @@ function loginTabSwitch(idx) {
 // 웰니스 소개 새 창
 // =========================================
 function openAboutPage() {
-  const t = translations[currentLang];
+  const t = translations[currentLang] || translations.ko;
 
   // 1. Hero
   const sec1 = `
@@ -2505,19 +2543,16 @@ function openAboutPage() {
 
   // 4. Our Promise
   const promiseCards = [
-    ['01', '즐할거리', '배움과 여가가 함께하는 여행', t['about.promise.card1.desc']],
-    ['02', '吃的东西', '건강한 부산의 맛', t['about.promise.card2.desc']],
-    ['03', '做的事', '교육 및 일자리 연계', t['about.promise.card3.desc']],
-  ].map(([n, tag, tagEN, desc], i) => {
-    const cardKeys = ['about.promise.card1.tag', 'about.promise.card2.tag', 'about.promise.card3.tag'];
-    return `
+    ['01', t['about.promise.card1.title'], t['about.promise.card1.tag'], t['about.promise.card1.desc']],
+    ['02', t['about.promise.card2.title'], t['about.promise.card2.tag'], t['about.promise.card2.desc']],
+    ['03', t['about.promise.card3.title'], t['about.promise.card3.tag'], t['about.promise.card3.desc']],
+  ].map(([n, title, tag, desc]) => `
     <div style="background:#fff;border-radius:14px;padding:28px 22px;border-top:3px solid #1a2e2a;box-shadow:0 2px 14px rgba(0,0,0,0.06);">
       <span style="display:block;font-size:28px;font-weight:800;color:#ececea;line-height:1;margin-bottom:16px;">${n}</span>
-      <h3 style="font-size:16px;font-weight:700;color:#1a2e2a;margin-bottom:4px;">${currentLang === 'zh' ? (i === 0 ? '娱乐' : i === 1 ? '美食' : '工作') : tag}</h3>
-      <span class="ab-eyebrow" style="color:#3B6259;margin-bottom:12px;display:block;">${currentLang === 'zh' ? (i === 0 ? '娱乐活动' : i === 1 ? '美食' : '工作机会') : tagEN}</span>
+      <h3 style="font-size:16px;font-weight:700;color:#1a2e2a;margin-bottom:4px;">${title}</h3>
+      <span class="ab-eyebrow" style="color:#3B6259;margin-bottom:12px;display:block;">${tag}</span>
       <p class="ab-caption" style="color:#666;">${desc}</p>
-    </div>`;
-  }).join('');
+    </div>`).join('');
 
   const sec4 = `
     <section class="ab-section" style="background:#f5f5f3;padding:80px 40px;">
