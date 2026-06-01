@@ -1614,7 +1614,6 @@ function openArtConciergePage() {
             ${['#클래식음악','#건축기행','#미술관컨시어지','#잘츠부르크','#빈필하모닉','#루브르','#사그라다'].map(t=>`<span class="ac-tag">${t}</span>`).join('')}
           </div>
         </div><!-- /sp-wrap -->
-      </div>
 
       <!-- ⑦ → ⑨ 에 통합됨 -->
       <div style="display:none">
