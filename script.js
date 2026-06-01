@@ -645,12 +645,21 @@ function setLang(lang) {
     if (v !== undefined) el.placeholder = v;
   });
 
-  document.querySelectorAll('.lang-btn').forEach(btn =>
+  document.querySelectorAll('[data-lang]').forEach(btn =>
     btn.classList.toggle('active', btn.dataset.lang === lang)
   );
 
   document.documentElement.lang = lang === 'ko' ? 'ko' : 'en';
 }
+
+// 언어 버튼 클릭 이벤트
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('[data-lang]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      setLang(btn.dataset.lang);
+    });
+  });
+});
 
 document.querySelectorAll('.lang-btn').forEach(btn =>
   btn.addEventListener('click', () => setLang(btn.dataset.lang))
