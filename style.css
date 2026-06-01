@@ -1395,6 +1395,7 @@ section { padding: 100px 0; }
 }
 
 /* Contact 섹션 하단 서비스 버튼 */
+.cs-coupon-mobile { display: none; }
 .contact-services {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1425,6 +1426,7 @@ section { padding: 100px 0; }
 .cs-label { font-size: 0.8rem; font-weight: 600; text-align: center; word-break: keep-all; }
 @media (max-width: 640px) {
   .contact-services { grid-template-columns: repeat(2, 1fr); margin-top: 32px; }
+  .cs-coupon-mobile { display: flex; }
 }
 
 /* =========================================
