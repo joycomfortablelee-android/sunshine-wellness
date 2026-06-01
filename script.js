@@ -1,7 +1,7 @@
 // =========================================
 // SUNSHINE WELLNESS — script.js
 // =========================================
-console.log('[SCRIPT] 로딩됨 v=20260601c');
+console.log('[SCRIPT] 로딩됨 v=20260601d');
 
 // 카카오 SDK 초기화
 window.addEventListener('load', function() {
@@ -1311,49 +1311,77 @@ function boardSubmit() {
 }
 
 function openWhereToNextPage() {
+  const lang = currentLang || 'ko';
+
+  const labels = lang === 'en' ? {
+    communityLabel: 'Community', whereToNext: 'Where to Next?', nextDest: '— Next Travel Destination',
+    nextDestTitle: 'Next Travel Destination', totalPosts: 'Total', posts: 'posts',
+    writeBtn: 'Write', noCol: 'No.', destCol: 'Destination', titleCol: 'Title', authorCol: 'Author', dateCol: 'Date',
+    titleContent: 'Title & Content', author: 'Author', searchPlaceholder: 'Enter search keyword', searchBtn: 'Search',
+    writeTitle: 'Write a Post', authorLabel: 'Author', authorPlaceholder: 'Nickname',
+    titleLabel: 'Title', titlePlaceholder: 'Enter title', contentLabel: 'Content', contentPlaceholder: 'Enter content',
+    cancelBtn: 'Cancel', postBtn: 'Post'
+  } : lang === 'zh' ? {
+    communityLabel: '社区', whereToNext: '下一站去哪？', nextDest: '— 下一个旅行地',
+    nextDestTitle: '下一个旅行地', totalPosts: '共', posts: '项',
+    writeBtn: '发布', noCol: '编号', destCol: '旅行地', titleCol: '标题', authorCol: '作者', dateCol: '日期',
+    titleContent: '标题和内容', author: '作者', searchPlaceholder: '输入搜索关键字', searchBtn: '搜索',
+    writeTitle: '发布帖子', authorLabel: '作者', authorPlaceholder: '昵称',
+    titleLabel: '标题', titlePlaceholder: '输入标题', contentLabel: '内容', contentPlaceholder: '输入内容',
+    cancelBtn: '取消', postBtn: '发布'
+  } : {
+    communityLabel: 'Community', whereToNext: 'Where to Next?', nextDest: '— 다음 여행지',
+    nextDestTitle: '다음 여행지', totalPosts: '총', posts: '건',
+    writeBtn: '글쓰기', noCol: '번호', destCol: '여행지', titleCol: '제목', authorCol: '작성자', dateCol: '등록일',
+    titleContent: '제목내용', author: '글쓴이', searchPlaceholder: '검색어를 입력하세요', searchBtn: '검색',
+    writeTitle: '글쓰기', authorLabel: '작성자', authorPlaceholder: '닉네임',
+    titleLabel: '제목', titlePlaceholder: '제목을 입력하세요', contentLabel: '내용', contentPlaceholder: '내용을 입력하세요',
+    cancelBtn: '취소', postBtn: '등록'
+  };
+
   showSubPageFull(`
     <div class="co-fullbg-wrap">
     <div class="co-fullbg-banner banner-beach">
       <div class="co-page-header">
-        <p>Community</p>
-        <h1>Where to Next?<span class="co-page-subtitle">— 다음 여행지</span></h1>
+        <p>${labels.communityLabel}</p>
+        <h1>${labels.whereToNext}<span class="co-page-subtitle">${labels.nextDest}</span></h1>
       </div>
     </div>
     <div class="sp-wrap">
-      <p class="co-section-title">Community</p>
-      <h2 class="co-heading">다음 여행지</h2>
+      <p class="co-section-title">${labels.communityLabel}</p>
+      <h2 class="co-heading">${labels.nextDestTitle}</h2>
       <div class="sp-toolbar">
-        <p class="sp-count">총 <strong id="boardTotal">0</strong>건</p>
-        <button class="sp-btn-write" onclick="boardOpenWrite()">글쓰기</button>
+        <p class="sp-count">${labels.totalPosts} <strong id="boardTotal">0</strong>${labels.posts}</p>
+        <button class="sp-btn-write" onclick="boardOpenWrite()">${labels.writeBtn}</button>
       </div>
       <table class="sp-table">
         <thead>
           <tr>
-            <th class="sp-col-no"  style="width:60px;">번호</th>
-            <th class="sp-col-dest" style="width:80px;white-space:nowrap;">여행지</th>
-            <th class="sp-col-title">제목</th>
-            <th class="sp-col-author" style="white-space:nowrap;">작성자</th>
-            <th class="sp-col-date"  style="white-space:nowrap;">등록일</th>
+            <th class="sp-col-no"  style="width:60px;">${labels.noCol}</th>
+            <th class="sp-col-dest" style="width:80px;white-space:nowrap;">${labels.destCol}</th>
+            <th class="sp-col-title">${labels.titleCol}</th>
+            <th class="sp-col-author" style="white-space:nowrap;">${labels.authorCol}</th>
+            <th class="sp-col-date"  style="white-space:nowrap;">${labels.dateCol}</th>
           </tr>
         </thead>
         <tbody id="boardList"></tbody>
       </table>
       <div class="sp-paging" id="boardPaging"></div>
       <div class="sp-search">
-        <select id="boardSearchType"><option value="title">제목내용</option><option value="author">글쓴이</option></select>
-        <input type="text" id="boardSearchInput" placeholder="검색어를 입력하세요" onkeydown="if(event.key==='Enter')boardSearch()"/>
-        <button onclick="boardSearch()">검색</button>
+        <select id="boardSearchType"><option value="title">${labels.titleContent}</option><option value="author">${labels.author}</option></select>
+        <input type="text" id="boardSearchInput" placeholder="${labels.searchPlaceholder}" onkeydown="if(event.key==='Enter')boardSearch()"/>
+        <button onclick="boardSearch()">${labels.searchBtn}</button>
       </div>
     </div>
     <div class="sp-write-dim" id="boardWriteDim" onclick="if(event.target===this)boardCloseWrite()">
       <div class="sp-write-box">
-        <h2>글쓰기</h2>
-        <div class="sp-write-field"><label>작성자</label><input type="text" id="boardWriteAuthor" placeholder="닉네임"/></div>
-        <div class="sp-write-field"><label>제목</label><input type="text" id="boardWriteTitle" placeholder="제목을 입력하세요"/></div>
-        <div class="sp-write-field"><label>내용</label><textarea id="boardWriteContent" placeholder="내용을 입력하세요"></textarea></div>
+        <h2>${labels.writeTitle}</h2>
+        <div class="sp-write-field"><label>${labels.authorLabel}</label><input type="text" id="boardWriteAuthor" placeholder="${labels.authorPlaceholder}"/></div>
+        <div class="sp-write-field"><label>${labels.titleLabel}</label><input type="text" id="boardWriteTitle" placeholder="${labels.titlePlaceholder}"/></div>
+        <div class="sp-write-field"><label>${labels.contentLabel}</label><textarea id="boardWriteContent" placeholder="${labels.contentPlaceholder}"></textarea></div>
         <div class="sp-write-actions">
-          <button class="sp-btn-cancel" onclick="boardCloseWrite()">취소</button>
-          <button class="sp-btn-post" onclick="boardSubmit()">등록</button>
+          <button class="sp-btn-cancel" onclick="boardCloseWrite()">${labels.cancelBtn}</button>
+          <button class="sp-btn-post" onclick="boardSubmit()">${labels.postBtn}</button>
         </div>
       </div>
     </div>
