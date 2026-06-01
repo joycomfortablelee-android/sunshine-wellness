@@ -15,23 +15,8 @@ function kakaoLogin() {
     alert('카카오 SDK가 로드되지 않았습니다. 잠시 후 다시 시도해주세요.');
     return;
   }
-  Kakao.Auth.login({
-    success: function(authObj) {
-      Kakao.API.request({
-        url: '/v2/user/me',
-        success: function(res) {
-          var nickname = res.kakao_account?.profile?.nickname || '카카오 사용자';
-          alert(nickname + '님, 환영합니다! 🎉');
-          closeSubPage();
-        },
-        fail: function() {
-          alert('사용자 정보를 가져오지 못했습니다.');
-        }
-      });
-    },
-    fail: function(err) {
-      console.error('카카오 로그인 실패', err);
-    }
+  Kakao.Auth.authorize({
+    redirectUri: 'https://sunshine-wellness.vercel.app'
   });
 }
 
