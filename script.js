@@ -1937,63 +1937,217 @@ function openProgramsPage() {
 // =========================================
 function openLoginPage() {
   showSubPageFull(`
-    <div style="min-height:100vh;background:#f5f5f3;display:flex;align-items:center;justify-content:center;padding:40px 20px;">
-      <div style="background:#fff;border-radius:20px;box-shadow:0 4px 32px rgba(0,0,0,0.10);padding:48px 40px;width:100%;max-width:420px;">
+    <div style="min-height:100vh;background:#f5f5f3;padding:48px 20px 60px;">
+      <div style="max-width:960px;margin:0 auto;">
 
-        <!-- 로고 -->
+        <!-- 헤더 -->
+        <div style="text-align:center;margin-bottom:36px;">
+          <p style="font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#3B6259;margin-bottom:8px;">LOGIN</p>
+          <h2 style="font-size:22px;font-weight:800;color:#1a2e2a;margin-bottom:8px;">선샤인 웰니스와 함께 즐겁고 행복한 여행 되세요.</h2>
+          <p style="font-size:13px;color:#888;">로그인을 하시면 더욱 다양한 선샤인 웰니스 서비스를 이용하실 수 있습니다.</p>
+        </div>
+
+        <!-- 1단 레이아웃 -->
+        <div style="display:flex;flex-direction:column;gap:24px;max-width:480px;margin:0 auto;">
+
+          <!-- 로그인 -->
+          <div style="background:#fff;border-radius:16px;padding:36px 32px;box-shadow:0 2px 16px rgba(0,0,0,0.07);border:1px solid #e8e8e4;">
+
+            <!-- 간편 로그인 -->
+            <p style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3B6259;margin-bottom:14px;">간편 로그인</p>
+            <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
+              <button style="width:100%;background:#FAE100;color:#1a2e2a;border:none;border-radius:10px;padding:13px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Noto Sans KR',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px;">
+                💛 카카오톡 로그인
+              </button>
+              <button style="width:100%;background:#03C75A;color:#fff;border:none;border-radius:10px;padding:13px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Noto Sans KR',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px;">
+                <span style="font-weight:900;font-size:16px;">N</span> 네이버 로그인
+              </button>
+            </div>
+
+            <!-- 구분선 -->
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+              <div style="flex:1;height:1px;background:#e8e8e4;"></div>
+              <span style="font-size:11px;color:#bbb;white-space:nowrap;">아이디 로그인</span>
+              <div style="flex:1;height:1px;background:#e8e8e4;"></div>
+            </div>
+
+            <!-- 아이디/비밀번호 -->
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <div style="display:flex;align-items:center;border:1.5px solid #e0ddd8;border-radius:10px;overflow:hidden;">
+                <input type="text" placeholder="아이디(이메일)를 입력하세요"
+                  style="flex:1;border:none;padding:13px 14px;font-size:13.5px;font-family:'Noto Sans KR',sans-serif;outline:none;" />
+                <span style="color:#bbb;padding:0 8px;font-size:14px;">@</span>
+                <input type="text" placeholder="이메일을 입력하세요"
+                  style="flex:1;border:none;border-left:1px solid #e8e8e4;padding:13px 10px;font-size:13.5px;font-family:'Noto Sans KR',sans-serif;outline:none;" />
+                <select style="border:none;border-left:1px solid #e8e8e4;padding:13px 8px;font-size:13px;font-family:'Noto Sans KR',sans-serif;outline:none;background:#fafaf8;color:#555;">
+                  <option>직접입력</option>
+                  <option>gmail.com</option>
+                  <option>naver.com</option>
+                  <option>kakao.com</option>
+                  <option>daum.net</option>
+                  <option>nate.com</option>
+                </select>
+              </div>
+              <input type="password" placeholder="비밀번호를 입력하세요"
+                style="width:100%;border:1.5px solid #e0ddd8;border-radius:10px;padding:13px 16px;font-size:13.5px;font-family:'Noto Sans KR',sans-serif;outline:none;box-sizing:border-box;"
+                onfocus="this.style.borderColor='#3B6259'" onblur="this.style.borderColor='#e0ddd8'" />
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <label style="display:flex;align-items:center;gap:7px;font-size:12.5px;color:#777;cursor:pointer;">
+                  <input type="checkbox" style="accent-color:#3B6259;" /> 아이디 저장
+                </label>
+              </div>
+              <button style="width:100%;background:#1a2e2a;color:#fff;border:none;border-radius:10px;padding:14px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:background .2s;"
+                onmouseover="this.style.background='#3B6259'" onmouseout="this.style.background='#1a2e2a'">
+                로그인
+              </button>
+            </div>
+
+            <!-- 회원가입 / 비밀번호 찾기 -->
+            <div style="display:flex;justify-content:center;gap:20px;margin-top:18px;">
+              <a href="javascript:void(0)" onclick="openSignupPage()" style="font-size:13px;color:#555;text-decoration:none;">아직 회원이 아니신가요? <strong style="color:#3B6259;">회원가입</strong></a>
+              <span style="color:#e0ddd8;">|</span>
+              <a href="javascript:void(0)" style="font-size:13px;color:#555;text-decoration:none;">비밀번호 찾기</a>
+            </div>
+          </div>
+
+          <!-- 비회원 예약조회 -->
+          <div style="background:#fff;border-radius:16px;padding:36px 32px;box-shadow:0 2px 16px rgba(0,0,0,0.07);border:1px solid #e8e8e4;">
+            <p style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3B6259;margin-bottom:16px;">비회원 예약조회</p>
+
+            <!-- 탭 -->
+            <div style="display:flex;border-bottom:2px solid #e8e8e4;margin-bottom:24px;" id="loginTabWrap">
+              ${['여행상품','항공예약','호텔예약'].map((t,i)=>`
+              <button onclick="loginTabSwitch(${i})" id="loginTab${i}"
+                style="flex:1;padding:10px 0;font-size:13px;font-weight:700;border:none;background:transparent;cursor:pointer;font-family:'Noto Sans KR',sans-serif;color:${i===0?'#1a2e2a':'#aaa'};border-bottom:${i===0?'2px solid #1a2e2a':'2px solid transparent'};margin-bottom:-2px;transition:color .2s;">
+                ${t}
+              </button>`).join('')}
+            </div>
+
+            <!-- 폼 -->
+            <div style="display:flex;flex-direction:column;gap:12px;">
+              <div>
+                <label style="font-size:12px;font-weight:700;color:#555;display:block;margin-bottom:6px;">예약번호</label>
+                <input type="text" placeholder="예약번호를 입력하세요"
+                  style="width:100%;border:1.5px solid #e0ddd8;border-radius:10px;padding:13px 16px;font-size:13.5px;font-family:'Noto Sans KR',sans-serif;outline:none;box-sizing:border-box;"
+                  onfocus="this.style.borderColor='#3B6259'" onblur="this.style.borderColor='#e0ddd8'" />
+              </div>
+              <div>
+                <label style="font-size:12px;font-weight:700;color:#555;display:block;margin-bottom:6px;">예약자명</label>
+                <input type="text" placeholder="예약자명을 입력하세요"
+                  style="width:100%;border:1.5px solid #e0ddd8;border-radius:10px;padding:13px 16px;font-size:13.5px;font-family:'Noto Sans KR',sans-serif;outline:none;box-sizing:border-box;"
+                  onfocus="this.style.borderColor='#3B6259'" onblur="this.style.borderColor='#e0ddd8'" />
+              </div>
+              <div>
+                <label style="font-size:12px;font-weight:700;color:#555;display:block;margin-bottom:6px;">휴대전화</label>
+                <div style="display:flex;gap:6px;align-items:center;width:100%;">
+                  <input type="text" placeholder="010" maxlength="3"
+                    style="width:64px;flex-shrink:0;box-sizing:border-box;border:1.5px solid #e0ddd8;border-radius:10px;padding:13px 8px;font-size:13px;font-family:'Noto Sans KR',sans-serif;outline:none;text-align:center;"
+                    onfocus="this.style.borderColor='#3B6259'" onblur="this.style.borderColor='#e0ddd8'" />
+                  <span style="color:#bbb;flex-shrink:0;">-</span>
+                  <input type="text" placeholder="0000" maxlength="4"
+                    style="flex:1;min-width:0;box-sizing:border-box;border:1.5px solid #e0ddd8;border-radius:10px;padding:13px 8px;font-size:13px;font-family:'Noto Sans KR',sans-serif;outline:none;text-align:center;"
+                    onfocus="this.style.borderColor='#3B6259'" onblur="this.style.borderColor='#e0ddd8'" />
+                  <span style="color:#bbb;flex-shrink:0;">-</span>
+                  <input type="text" placeholder="0000" maxlength="4"
+                    style="flex:1;min-width:0;box-sizing:border-box;border:1.5px solid #e0ddd8;border-radius:10px;padding:13px 8px;font-size:13px;font-family:'Noto Sans KR',sans-serif;outline:none;text-align:center;"
+                    onfocus="this.style.borderColor='#3B6259'" onblur="this.style.borderColor='#e0ddd8'" />
+                </div>
+              </div>
+              <button style="width:100%;background:#1a2e2a;color:#fff;border:none;border-radius:10px;padding:14px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Noto Sans KR',sans-serif;margin-top:4px;transition:background .2s;"
+                onmouseover="this.style.background='#3B6259'" onmouseout="this.style.background='#1a2e2a'">
+                예약확인
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  `);
+}
+
+function openSignupPage() {
+  showSubPageFull(`
+    <div style="min-height:100vh;background:#f5f5f3;padding:48px 20px 60px;">
+      <div style="max-width:480px;margin:0 auto;">
+
+        <!-- 헤더 -->
         <div style="text-align:center;margin-bottom:32px;">
-          <p style="font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#3B6259;margin-bottom:6px;">Sunshine Wellness</p>
-          <h2 style="font-size:22px;font-weight:800;color:#1a2e2a;margin-bottom:4px;">로그인</h2>
-          <p style="font-size:13px;color:#aaa;">회원 서비스를 이용하려면 로그인해 주세요.</p>
+          <p style="font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#3B6259;margin-bottom:8px;">Sunshine Wellness</p>
+          <h2 style="font-size:22px;font-weight:800;color:#1a2e2a;margin-bottom:6px;">회원가입</h2>
+          <p style="font-size:13px;color:#888;">가입 즉시 다양한 혜택을 누려보세요.</p>
         </div>
 
-        <!-- 폼 -->
-        <div style="display:flex;flex-direction:column;gap:14px;">
-          <div>
-            <label style="font-size:12px;font-weight:700;color:#555;display:block;margin-bottom:6px;">아이디</label>
-            <input type="text" placeholder="아이디를 입력하세요"
-              style="width:100%;border:1.5px solid #e0ddd8;border-radius:10px;padding:13px 16px;font-size:14px;font-family:'Noto Sans KR',sans-serif;outline:none;box-sizing:border-box;"
-              onfocus="this.style.borderColor='#3B6259'" onblur="this.style.borderColor='#e0ddd8'" />
+        <!-- 혜택 배너 -->
+        <div style="background:linear-gradient(135deg,#1a2e2a 0%,#3B6259 100%);border-radius:14px;padding:20px 24px;margin-bottom:24px;display:flex;gap:16px;flex-wrap:wrap;justify-content:center;">
+          ${[['🎟️','가입 즉시 할인쿠폰'],['⭐','포인트 적립'],['📋','예약 내역 관리'],['💌','특가 알림']].map(([icon,text])=>`
+          <div style="text-align:center;color:#fff;">
+            <div style="font-size:22px;margin-bottom:4px;">${icon}</div>
+            <div style="font-size:11px;font-weight:600;">${text}</div>
+          </div>`).join('')}
+        </div>
+
+        <!-- 간편 회원가입 카드 -->
+        <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 2px 16px rgba(0,0,0,0.07);border:1px solid #e8e8e4;margin-bottom:16px;">
+          <p style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3B6259;margin-bottom:16px;">간편 로그인 회원가입</p>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+
+            <!-- 카카오 -->
+            <div style="border:1px solid #FAE100;border-radius:12px;overflow:hidden;">
+              <div style="background:#FAE100;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;">
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <span style="font-size:20px;">💛</span>
+                  <div>
+                    <p style="font-size:14px;font-weight:700;color:#1a2e2a;margin-bottom:2px;">카카오톡 로그인 회원가입</p>
+                    <p style="font-size:11px;color:#7a6200;">가입시 쿠폰 <strong>1만원 할인쿠폰</strong> 즉시발급</p>
+                  </div>
+                </div>
+              </div>
+              <button style="width:100%;background:#fff9c4;border:none;padding:13px;font-size:14px;font-weight:700;color:#1a2e2a;cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:background .2s;"
+                onmouseover="this.style.background='#FAE100'" onmouseout="this.style.background='#fff9c4'">
+                💛 카카오톡으로 회원가입
+              </button>
+            </div>
+
+            <!-- 네이버 -->
+            <div style="border:1px solid #03C75A;border-radius:12px;overflow:hidden;">
+              <div style="background:#03C75A;padding:14px 20px;display:flex;align-items:center;gap:10px;">
+                <span style="font-size:18px;font-weight:900;color:#fff;">N</span>
+                <p style="font-size:14px;font-weight:700;color:#fff;">네이버 로그인 회원가입</p>
+              </div>
+              <button style="width:100%;background:#e8fdf0;border:none;padding:13px;font-size:14px;font-weight:700;color:#03C75A;cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:background .2s;"
+                onmouseover="this.style.background='#03C75A';this.style.color='#fff'" onmouseout="this.style.background='#e8fdf0';this.style.color='#03C75A'">
+                네이버로 회원가입
+              </button>
+            </div>
+
           </div>
-          <div>
-            <label style="font-size:12px;font-weight:700;color:#555;display:block;margin-bottom:6px;">비밀번호</label>
-            <input type="password" placeholder="비밀번호를 입력하세요"
-              style="width:100%;border:1.5px solid #e0ddd8;border-radius:10px;padding:13px 16px;font-size:14px;font-family:'Noto Sans KR',sans-serif;outline:none;box-sizing:border-box;"
-              onfocus="this.style.borderColor='#3B6259'" onblur="this.style.borderColor='#e0ddd8'" />
-          </div>
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:2px;">
-            <label style="display:flex;align-items:center;gap:7px;font-size:12.5px;color:#777;cursor:pointer;">
-              <input type="checkbox" style="accent-color:#3B6259;" /> 아이디 저장
-            </label>
-            <a href="javascript:void(0)" style="font-size:12.5px;color:#3B6259;text-decoration:none;">비밀번호 찾기</a>
-          </div>
-          <button style="width:100%;background:#1a2e2a;color:#fff;border:none;border-radius:10px;padding:15px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Noto Sans KR',sans-serif;margin-top:4px;transition:background .2s;"
+        </div>
+
+        <!-- 일반 회원가입 -->
+        <div style="background:#fff;border-radius:16px;padding:24px 32px;box-shadow:0 2px 16px rgba(0,0,0,0.07);border:1px solid #e8e8e4;">
+          <button style="width:100%;background:#1a2e2a;color:#fff;border:none;border-radius:10px;padding:15px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:background .2s;"
             onmouseover="this.style.background='#3B6259'" onmouseout="this.style.background='#1a2e2a'">
-            로그인
+            ✏️ 일반 회원가입
           </button>
+          <p style="text-align:center;margin-top:14px;font-size:12.5px;color:#aaa;">
+            이미 회원이신가요?
+            <a href="javascript:void(0)" onclick="openLoginPage()" style="color:#3B6259;font-weight:700;text-decoration:none;">로그인</a>
+          </p>
         </div>
-
-        <!-- 구분선 -->
-        <div style="display:flex;align-items:center;gap:12px;margin:24px 0;">
-          <div style="flex:1;height:1px;background:#e8e8e4;"></div>
-          <span style="font-size:11px;color:#bbb;">또는</span>
-          <div style="flex:1;height:1px;background:#e8e8e4;"></div>
-        </div>
-
-        <!-- 카카오 로그인 -->
-        <button style="width:100%;background:#FAE100;color:#1a2e2a;border:none;border-radius:10px;padding:14px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Noto Sans KR',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px;">
-          💛 카카오로 시작하기
-        </button>
-
-        <!-- 회원가입 -->
-        <p style="text-align:center;margin-top:24px;font-size:13px;color:#aaa;">
-          아직 회원이 아니신가요?
-          <a href="javascript:void(0)" onclick="openSignupPage()" style="color:#3B6259;font-weight:700;text-decoration:none;">회원가입</a>
-        </p>
 
       </div>
     </div>
   `);
+}
+
+function loginTabSwitch(idx) {
+  for (var i = 0; i < 3; i++) {
+    var t = document.getElementById('loginTab' + i);
+    if (!t) continue;
+    t.style.color = i === idx ? '#1a2e2a' : '#aaa';
+    t.style.borderBottom = i === idx ? '2px solid #1a2e2a' : '2px solid transparent';
+  }
 }
 
 // 웰니스 소개 새 창
