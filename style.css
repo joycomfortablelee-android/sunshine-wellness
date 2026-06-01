@@ -246,7 +246,7 @@ ul { list-style: none; }
 /* 모바일 메뉴 */
 .mobile-lang { display: flex; gap: 8px; padding: 4px 0; }
 .mobile-nav .lang-btn { border-color: var(--border) !important; color: var(--dark) !important; }
-.mobile-nav .lang-btn.active,
+.mobile-nav .lang-btn.active { border-color: #3B6259 !important; background: #3B6259 !important; color: #fff !important; }
 .mobile-nav .lang-btn:hover { border-color: var(--dark) !important; color: var(--dark) !important; }
 .mobile-partner > a { display: flex; flex-direction: column; gap: 2px; }
 .mobile-partner-label {
