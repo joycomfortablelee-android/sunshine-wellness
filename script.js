@@ -1,7 +1,7 @@
 // =========================================
 // SUNSHINE WELLNESS — script.js
 // =========================================
-console.log('[SCRIPT] 로딩됨 v=20260601h');
+console.log('[SCRIPT] 로딩됨 v=20260601i');
 
 // 카카오 SDK 초기화
 window.addEventListener('load', function() {
@@ -781,6 +781,13 @@ function setLang(lang) {
     if (authorEl) authorEl.textContent = data.author;
     if (destEl) destEl.textContent = data.dest;
     if (programEl) programEl.textContent = data.program;
+  });
+
+  // 홈 Community 테이블 제목 업데이트
+  document.querySelectorAll('.board-post-button').forEach(btn => {
+    const id = btn.dataset.id;
+    if (!id || !_boardListI18n[id] || !_boardListI18n[id][lang]) return;
+    btn.textContent = _boardListI18n[id][lang].title || btn.textContent;
   });
 
   // 서브페이지 오버레이가 열려 있으면 현재 언어로 다시 렌더
