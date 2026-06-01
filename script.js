@@ -2237,7 +2237,7 @@ function openProgramsPage() {
     <div class="co-fullbg-wrap">
     <div class="co-fullbg-banner banner-colorful">
       <div class="co-page-header">
-        <p>Our Programs</p>
+        <p>${t['programs.label'] || 'Our Programs'}</p>
         <h1>${t['prog.page.title'] || '웰니스 여행 프로그램'}<span class="co-page-subtitle">${t['prog.page.subtitle'] || '— 몸과 마음이 함께 쉬어가는 시간'}</span></h1>
       </div>
     </div>
