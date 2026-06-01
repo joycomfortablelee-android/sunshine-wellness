@@ -1489,12 +1489,12 @@ function openArtConciergePage() {
                style="display:flex;align-items:center;gap:20px;background:#fff;border:1px solid #e0ddd8;border-radius:16px;padding:24px 26px;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,0.06);transition:box-shadow .2s,transform .2s;"
                onmouseover="this.style.boxShadow='0 6px 20px rgba(0,0,0,0.11)';this.style.transform='translateY(-2px)'"
                onmouseout="this.style.boxShadow='0 2px 10px rgba(0,0,0,0.06)';this.style.transform='none'">
-              <span style="font-size:18px;flex-shrink:0;">${icon}</span>
+              <span style="font-size:14px;flex-shrink:0;">${icon}</span>
               <div style="flex:1;min-width:0;">
                 <p style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3B6259;margin-bottom:6px;">${label}</p>
-                <p style="font-size:16px;font-weight:700;color:#1a2e2a;line-height:1.5;font-family:'Merriweather',Georgia,serif;">${desc}</p>
+                <p class="proof-desc" style="font-size:16px;font-weight:700;color:#1a2e2a;line-height:1.5;font-family:'Merriweather',Georgia,serif;">${desc}</p>
               </div>
-              <span style="font-size:20px;color:#bbb;flex-shrink:0;">↗</span>
+              <span style="font-size:16px;color:#bbb;flex-shrink:0;">↗</span>
             </a>`).join('')}
         </div>
         <div style="display:flex;align-items:center;gap:12px;margin:28px 0 20px;">
