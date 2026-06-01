@@ -205,7 +205,7 @@ const translations = {
     'nav.programs': 'Programs',
     'nav.contact': 'Inquire',
     'nav.wheretonext': 'Where to Next?',
-    'nav.contactus': '고객센터',
+    'nav.contactus': 'Customer Service',
     'nav.artconcierge': 'Art Concierge',
     'auth.login': 'Log In',
     'auth.signup': 'Sign Up',
@@ -347,11 +347,43 @@ const translations = {
     'support.label': 'Support',
     'support.title': 'Customer Center',
 
+    // Community board
+    'board.title': 'Travel',
+    'board.titleStrong': 'Stories',
+    'board.desc': 'Share your travel stories and reviews with fellow travelers.',
+
+    // Contact service buttons
+    'cs.reservation': 'Reservation / Payment',
+    'cs.diy': 'DIY Custom Quote',
+    'cs.app': 'App Download',
+    'cs.coupon': 'Discount Coupon',
+
+    // Support / footer-hc
+    'fhc.title': 'Customer Service',
+    'fhc.phone': 'Phone',
+    'fhc.email': 'Email',
+    'fhc.kakao': 'KakaoTalk',
+    'fhc.location': 'Meeting Point',
+    'fhc.hours': 'Business Hours',
+    'fhc.notice': 'Announcements',
+    'fhc.faq': 'FAQ',
+    'fhc.qna': 'Q&A',
+    'fhc.voice': 'Customer Reviews',
+    'fhc.delivery': 'Delivery Tracking',
+    'fhc.events': 'Event Winners',
+    'fhc.coupon': 'Discount Coupon',
+    'fhc.instagram': 'Instagram',
+    'fhc.youtube': 'YouTube',
+    'fhc.blog': 'Blog',
+
     // Footer
     'footer.tagline': 'A special wellness journey starting in Busan',
     'footer.about': 'About',
     'footer.programs': 'Programs',
     'footer.contact': 'Contact',
+    'footer.biz1': 'CEO : Lee Yu-an &nbsp;|&nbsp; Business Reg. No. : 000-00-00000 &nbsp;|&nbsp; Mail-Order No. : 00000 &nbsp;|&nbsp; Tourism Reg. No. : 000-00 &nbsp;|&nbsp; Privacy Officer : Lee Yu-an',
+    'footer.biz2': 'Address : Dongrae-gu, Busan ooo &nbsp;|&nbsp; Tel : 010-5759-5485 &nbsp;|&nbsp; Email : healthylee7@gmail.com',
+    'footer.biz3': 'Travel Insurance (General) &nbsp;&nbsp;|&nbsp;&nbsp; Travel Insurance (Package)',
     'footer.copyright': '© 2026 Sunshine Wellness. All rights reserved.',
   },
 
