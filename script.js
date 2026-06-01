@@ -1703,7 +1703,7 @@ function openArtConciergePage() {
       </div>
 
       <!-- ⑨ Cultural Archive 1뎁스 + 2뎁스 -->
-      <div id="ac-archive-section" style="background:#fff;padding:28px 0 56px;">
+      <div id="ac-archive-section" style="background:#fff;padding:20px 0 56px;">
         <div class="sp-wrap">
           ${orn3}
           <div class="ac-who-frame" style="margin-bottom:36px;">
