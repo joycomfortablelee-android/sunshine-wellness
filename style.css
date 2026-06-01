@@ -460,7 +460,7 @@ ul { list-style: none; }
 .cu-ucard-body { font-size:12.5px; color:#666; line-height:1.85; margin-top:8px; }
 .cu-back-btn { display:inline-flex; align-items:center; gap:6px; padding:9px 18px; background:#f0f5f4; border:1.5px solid var(--border); border-radius:8px; font-size:13.5px; font-weight:600; color:#1a2e2a; cursor:pointer; font-family:var(--font); margin-bottom:28px; transition:background .2s, border-color .2s; }
 .cu-back-btn:hover { background:#dde8e5; border-color:var(--accent); }
-@media (max-width:600px) { .cu-wrap { padding:32px 20px 60px; } .cu-grid { grid-template-columns:1fr; } .cu-hc-grid { grid-template-columns:repeat(2,1fr); } .cu-unified-grid { grid-template-columns:repeat(2,1fr); grid-auto-rows:200px; } }
+@media (max-width:600px) { .cu-wrap { padding:32px 20px 60px; } .cu-grid { grid-template-columns:1fr; } .cu-hc-grid { grid-template-columns:repeat(2,1fr); } .cu-unified-grid { grid-template-columns:1fr; grid-auto-rows:auto; } }
 
 /* =========================================
    HERO — 100vh 풀스크린
