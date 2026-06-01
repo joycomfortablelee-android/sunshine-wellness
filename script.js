@@ -1365,130 +1365,254 @@ function openWhereToNextPage() {
 // 견적의뢰 및 문의 — K-Wellness 스타일 오버레이
 // =========================================
 function openContactPage() {
-  showSubPageFull(`
-    <div class="co-fullbg-wrap">
-    <div class="co-fullbg-banner banner-night">
-      <div class="co-page-header">
-        <p>Inquiry</p>
-        <h1>견적의뢰 및 문의<span class="co-page-subtitle">— Contact Us</span></h1>
-      </div>
-    </div>
-    <div class="co-wrap">
+  const lang = currentLang || 'ko';
 
-      <p class="co-section-title">FAQ</p>
-      <h2 class="co-heading">자주 묻는 질문</h2>
-      <div class="sp-toolbar" style="margin-bottom:10px;">
-        <p class="sp-count">총 <strong>6</strong>건</p>
-        <button class="sp-btn-write" onclick="document.getElementById('coFormBox').scrollIntoView({behavior:'smooth'})">문의하기</button>
-      </div>
-      <table class="sp-table co-faq" id="coFaq">
-        <thead>
-          <tr>
-            <th style="width:60px;">NO.</th>
-            <th class="sp-col-title">제목</th>
-            <th style="width:60px;">열기</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="co-faq-item" onclick="coFaqToggle(this)">
-            <td class="sp-col-no">01</td>
-            <td class="sp-col-title">투어 인원은 몇 명부터 가능한가요?</td>
-
-            <td class="sp-col-toggle"><span class="co-faq-icon">클릭</span></td>
-          </tr>
-          <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">기본 2인부터 소규모 단체까지 맞춤 운영합니다. 10인 이상의 단체는 별도 견적을 통해 더욱 합리적인 요금으로 안내해 드립니다.</td></tr>
-          <tr class="co-faq-item" onclick="coFaqToggle(this)">
-            <td class="sp-col-no">02</td>
-            <td class="sp-col-title">여행 일정은 어떻게 정해지나요?</td>
-
-            <td class="sp-col-toggle"><span class="co-faq-icon">클릭</span></td>
-          </tr>
-          <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">견적 문의 후 담당자가 연락드려 희망 날짜, 관심 프로그램, 인원 등을 확인하고 최적의 일정을 제안해 드립니다.</td></tr>
-          <tr class="co-faq-item" onclick="coFaqToggle(this)">
-            <td class="sp-col-no">03</td>
-            <td class="sp-col-title">예약금과 취소 정책이 어떻게 되나요?</td>
-
-            <td class="sp-col-toggle"><span class="co-faq-icon">클릭</span></td>
-          </tr>
-          <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">투어 확정 시 총 금액의 30%를 예약금으로 납부하며, 출발 7일 전까지는 전액 환불 가능합니다. 이후 취소 시 환불 규정이 적용됩니다.</td></tr>
-          <tr class="co-faq-item" onclick="coFaqToggle(this)">
-            <td class="sp-col-no">04</td>
-            <td class="sp-col-title">외국어 가이드 서비스도 가능한가요?</td>
-
-            <td class="sp-col-toggle"><span class="co-faq-icon">클릭</span></td>
-          </tr>
-          <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">영어, 중국어 가이드 동행 서비스를 제공합니다. 사전 요청 시 추가 비용 없이 안내해 드립니다.</td></tr>
-          <tr class="co-faq-item" onclick="coFaqToggle(this)">
-            <td class="sp-col-no">05</td>
-            <td class="sp-col-title">숙박 연계 패키지도 있나요?</td>
-
-            <td class="sp-col-toggle"><span class="co-faq-icon">클릭</span></td>
-          </tr>
-          <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">네, 부산 내 웰니스 특화 숙박시설과 연계한 패키지 상품을 운영합니다. 문의 시 숙박 포함 여부를 함께 알려주세요.</td></tr>
-          <tr class="co-faq-item" onclick="coFaqToggle(this)">
-            <td class="sp-col-no">06</td>
-            <td class="sp-col-title">비용 결제는 어떻게 하나요?</td>
-
-            <td class="sp-col-toggle"><span class="co-faq-icon">클릭</span></td>
-          </tr>
-          <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">계좌이체, 신용카드(온라인 결제링크) 방식을 지원합니다. 세금계산서 및 현금영수증 발행도 가능합니다.</td></tr>
-        </tbody>
-      </table>
-
-      <p class="co-section-title">Contact</p>
-      <h2 class="co-heading">문의하기</h2>
-      <div class="co-form-box" id="coFormBox">
-        <div class="co-form-row">
-          <div>
-            <label class="co-label">문의 유형</label>
-            <select class="co-select" id="coType">
-              <option value="">선택해주세요</option>
-              <option value="estimate">견적 요청</option>
-              <option value="general">일반 문의</option>
-              <option value="payment">결제 문의</option>
-              <option value="other">기타</option>
-            </select>
-          </div>
-          <div>
-            <label class="co-label">이메일 <span>*</span></label>
-            <input type="email" class="co-input" id="coEmail" placeholder="example@email.com" />
-          </div>
-        </div>
-        <div class="co-form-row">
-          <div>
-            <label class="co-label">이름 <span>*</span></label>
-            <input type="text" class="co-input" id="coName" placeholder="홍길동" />
-          </div>
-          <div>
-            <label class="co-label">연락처 <span>*</span></label>
-            <input type="tel" class="co-input" id="coPhone" placeholder="010-0000-0000" />
-          </div>
-        </div>
-        <div class="co-form-row full">
-          <div>
-            <label class="co-label">문의 내용 <span>*</span></label>
-            <textarea class="co-textarea" id="coMessage" placeholder="희망 날짜, 인원, 관심 프로그램 등을 자유롭게 적어주세요."></textarea>
-          </div>
-        </div>
-        <div class="co-privacy">
-          <strong>개인정보 수집 및 이용 동의</strong><br/>
-          수집 항목: 이름, 이메일, 연락처 | 수집 목적: 문의 답변 및 서비스 안내 | 보유 기간: 문의 처리 완료 후 1년
-        </div>
-        <div class="co-check-row">
-          <input type="checkbox" id="coPrivacy" />
-          <label for="coPrivacy">개인정보 수집 및 이용에 동의합니다. (필수)</label>
-        </div>
-        <div style="margin-top:24px;">
-          <button class="co-submit" id="coSubmitBtn" onclick="coSubmit()">문의 보내기</button>
+  if (lang === 'zh') {
+    showSubPageFull(`
+      <div class="co-fullbg-wrap">
+      <div class="co-fullbg-banner banner-night">
+        <div class="co-page-header">
+          <p>咨询预约</p>
+          <h1>咨询预约<span class="co-page-subtitle">— 联系我们</span></h1>
         </div>
       </div>
+      <div class="co-wrap">
 
-    </div>
-    </div>
-  `);
+        <p class="co-section-title">常见问题</p>
+        <h2 class="co-heading">常见问题</h2>
+        <div class="sp-toolbar" style="margin-bottom:10px;">
+          <p class="sp-count">共 <strong>6</strong>项</p>
+          <button class="sp-btn-write" onclick="document.getElementById('coFormBox').scrollIntoView({behavior:'smooth'})">提交咨询</button>
+        </div>
+        <table class="sp-table co-faq" id="coFaq">
+          <thead>
+            <tr>
+              <th style="width:60px;">编号</th>
+              <th class="sp-col-title">标题</th>
+              <th style="width:60px;">打开</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="co-faq-item" onclick="coFaqToggle(this)">
+              <td class="sp-col-no">01</td>
+              <td class="sp-col-title">团队最少需要多少人？</td>
+              <td class="sp-col-toggle"><span class="co-faq-icon">点击</span></td>
+            </tr>
+            <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">我们从2人起接待，直到小型团队。10人以上的团体可通过单独报价获得更合理的费用。</td></tr>
+            <tr class="co-faq-item" onclick="coFaqToggle(this)">
+              <td class="sp-col-no">02</td>
+              <td class="sp-col-title">如何确定旅行日程？</td>
+              <td class="sp-col-toggle"><span class="co-faq-icon">点击</span></td>
+            </tr>
+            <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">提交报价咨询后，工作人员会联系您，确认希望日期、感兴趣的项目和人数，为您提出最佳方案。</td></tr>
+            <tr class="co-faq-item" onclick="coFaqToggle(this)">
+              <td class="sp-col-no">03</td>
+              <td class="sp-col-title">订金和取消政策是什么？</td>
+              <td class="sp-col-toggle"><span class="co-faq-icon">点击</span></td>
+            </tr>
+            <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">确认旅游后，需支付总额的30%作为订金，出发前7天内可全额退款。之后取消将按照退款规定处理。</td></tr>
+            <tr class="co-faq-item" onclick="coFaqToggle(this)">
+              <td class="sp-col-no">04</td>
+              <td class="sp-col-title">是否提供外语导游服务？</td>
+              <td class="sp-col-toggle"><span class="co-faq-icon">点击</span></td>
+            </tr>
+            <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">我们提供英文和中文导游陪同服务。提前要求可免费提供。</td></tr>
+            <tr class="co-faq-item" onclick="coFaqToggle(this)">
+              <td class="sp-col-no">05</td>
+              <td class="sp-col-title">是否有住宿套餐？</td>
+              <td class="sp-col-toggle"><span class="co-faq-icon">点击</span></td>
+            </tr>
+            <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">是的，我们提供与釜山健康特色住宿设施合作的套餐产品。咨询时请告诉我们是否需要包含住宿。</td></tr>
+            <tr class="co-faq-item" onclick="coFaqToggle(this)">
+              <td class="sp-col-no">06</td>
+              <td class="sp-col-title">如何支付费用？</td>
+              <td class="sp-col-toggle"><span class="co-faq-icon">点击</span></td>
+            </tr>
+            <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">我们支持银行转账和信用卡(在线支付链接)。也可开具税票和现金收据。</td></tr>
+          </tbody>
+        </table>
+
+        <p class="co-section-title">联系</p>
+        <h2 class="co-heading">提交咨询</h2>
+        <div class="co-form-box" id="coFormBox">
+          <div class="co-form-row">
+            <div>
+              <label class="co-label">咨询类型</label>
+              <select class="co-select" id="coType">
+                <option value="">请选择</option>
+                <option value="estimate">报价请求</option>
+                <option value="general">一般咨询</option>
+                <option value="payment">付款咨询</option>
+                <option value="other">其他</option>
+              </select>
+            </div>
+            <div>
+              <label class="co-label">电子邮件 <span>*</span></label>
+              <input type="email" class="co-input" id="coEmail" placeholder="example@email.com" />
+            </div>
+          </div>
+          <div class="co-form-row">
+            <div>
+              <label class="co-label">名字 <span>*</span></label>
+              <input type="text" class="co-input" id="coName" placeholder="李四" />
+            </div>
+            <div>
+              <label class="co-label">联系电话 <span>*</span></label>
+              <input type="tel" class="co-input" id="coPhone" placeholder="010-0000-0000" />
+            </div>
+          </div>
+          <div class="co-form-row full">
+            <div>
+              <label class="co-label">咨询内容 <span>*</span></label>
+              <textarea class="co-textarea" id="coMessage" placeholder="请自由填写希望日期、人数、感兴趣的项目等。"></textarea>
+            </div>
+          </div>
+          <div class="co-privacy">
+            <strong>个人信息收集和使用同意</strong><br/>
+            收集项目：姓名、电子邮件、联系电话 | 收集目的：咨询回复和服务指引 | 保留期限：咨询处理完成后1年
+          </div>
+          <div class="co-check-row">
+            <input type="checkbox" id="coPrivacy" />
+            <label for="coPrivacy">我同意收集和使用个人信息。(必填)</label>
+          </div>
+          <div style="margin-top:24px;">
+            <button class="co-submit" id="coSubmitBtn" onclick="coSubmit()">提交咨询</button>
+          </div>
+        </div>
+
+      </div>
+      </div>
+    `);
+  } else {
+    showSubPageFull(`
+      <div class="co-fullbg-wrap">
+      <div class="co-fullbg-banner banner-night">
+        <div class="co-page-header">
+          <p>Inquiry</p>
+          <h1>견적의뢰 및 문의<span class="co-page-subtitle">— Contact Us</span></h1>
+        </div>
+      </div>
+      <div class="co-wrap">
+
+        <p class="co-section-title">FAQ</p>
+        <h2 class="co-heading">자주 묻는 질문</h2>
+        <div class="sp-toolbar" style="margin-bottom:10px;">
+          <p class="sp-count">총 <strong>6</strong>건</p>
+          <button class="sp-btn-write" onclick="document.getElementById('coFormBox').scrollIntoView({behavior:'smooth'})">문의하기</button>
+        </div>
+        <table class="sp-table co-faq" id="coFaq">
+          <thead>
+            <tr>
+              <th style="width:60px;">NO.</th>
+              <th class="sp-col-title">제목</th>
+              <th style="width:60px;">열기</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="co-faq-item" onclick="coFaqToggle(this)">
+              <td class="sp-col-no">01</td>
+              <td class="sp-col-title">투어 인원은 몇 명부터 가능한가요?</td>
+
+              <td class="sp-col-toggle"><span class="co-faq-icon">클릭</span></td>
+            </tr>
+            <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">기본 2인부터 소규모 단체까지 맞춤 운영합니다. 10인 이상의 단체는 별도 견적을 통해 더욱 합리적인 요금으로 안내해 드립니다.</td></tr>
+            <tr class="co-faq-item" onclick="coFaqToggle(this)">
+              <td class="sp-col-no">02</td>
+              <td class="sp-col-title">여행 일정은 어떻게 정해지나요?</td>
+
+              <td class="sp-col-toggle"><span class="co-faq-icon">클릭</span></td>
+            </tr>
+            <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">견적 문의 후 담당자가 연락드려 희망 날짜, 관심 프로그램, 인원 등을 확인하고 최적의 일정을 제안해 드립니다.</td></tr>
+            <tr class="co-faq-item" onclick="coFaqToggle(this)">
+              <td class="sp-col-no">03</td>
+              <td class="sp-col-title">예약금과 취소 정책이 어떻게 되나요?</td>
+
+              <td class="sp-col-toggle"><span class="co-faq-icon">클릭</span></td>
+            </tr>
+            <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">투어 확정 시 총 금액의 30%를 예약금으로 납부하며, 출발 7일 전까지는 전액 환불 가능합니다. 이후 취소 시 환불 규정이 적용됩니다.</td></tr>
+            <tr class="co-faq-item" onclick="coFaqToggle(this)">
+              <td class="sp-col-no">04</td>
+              <td class="sp-col-title">외국어 가이드 서비스도 가능한가요?</td>
+
+              <td class="sp-col-toggle"><span class="co-faq-icon">클릭</span></td>
+            </tr>
+            <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">영어, 중국어 가이드 동행 서비스를 제공합니다. 사전 요청 시 추가 비용 없이 안내해 드립니다.</td></tr>
+            <tr class="co-faq-item" onclick="coFaqToggle(this)">
+              <td class="sp-col-no">05</td>
+              <td class="sp-col-title">숙박 연계 패키지도 있나요?</td>
+
+              <td class="sp-col-toggle"><span class="co-faq-icon">클릭</span></td>
+            </tr>
+            <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">네, 부산 내 웰니스 특화 숙박시설과 연계한 패키지 상품을 운영합니다. 문의 시 숙박 포함 여부를 함께 알려주세요.</td></tr>
+            <tr class="co-faq-item" onclick="coFaqToggle(this)">
+              <td class="sp-col-no">06</td>
+              <td class="sp-col-title">비용 결제는 어떻게 하나요?</td>
+
+              <td class="sp-col-toggle"><span class="co-faq-icon">클릭</span></td>
+            </tr>
+            <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">계좌이체, 신용카드(온라인 결제링크) 방식을 지원합니다. 세금계산서 및 현금영수증 발행도 가능합니다.</td></tr>
+          </tbody>
+        </table>
+
+        <p class="co-section-title">Contact</p>
+        <h2 class="co-heading">문의하기</h2>
+        <div class="co-form-box" id="coFormBox">
+          <div class="co-form-row">
+            <div>
+              <label class="co-label">문의 유형</label>
+              <select class="co-select" id="coType">
+                <option value="">선택해주세요</option>
+                <option value="estimate">견적 요청</option>
+                <option value="general">일반 문의</option>
+                <option value="payment">결제 문의</option>
+                <option value="other">기타</option>
+              </select>
+            </div>
+            <div>
+              <label class="co-label">이메일 <span>*</span></label>
+              <input type="email" class="co-input" id="coEmail" placeholder="example@email.com" />
+            </div>
+          </div>
+          <div class="co-form-row">
+            <div>
+              <label class="co-label">이름 <span>*</span></label>
+              <input type="text" class="co-input" id="coName" placeholder="홍길동" />
+            </div>
+            <div>
+              <label class="co-label">연락처 <span>*</span></label>
+              <input type="tel" class="co-input" id="coPhone" placeholder="010-0000-0000" />
+            </div>
+          </div>
+          <div class="co-form-row full">
+            <div>
+              <label class="co-label">문의 내용 <span>*</span></label>
+              <textarea class="co-textarea" id="coMessage" placeholder="희망 날짜, 인원, 관심 프로그램 등을 자유롭게 적어주세요."></textarea>
+            </div>
+          </div>
+          <div class="co-privacy">
+            <strong>개인정보 수집 및 이용 동의</strong><br/>
+            수집 항목: 이름, 이메일, 연락처 | 수집 목적: 문의 답변 및 서비스 안내 | 보유 기간: 문의 처리 완료 후 1년
+          </div>
+          <div class="co-check-row">
+            <input type="checkbox" id="coPrivacy" />
+            <label for="coPrivacy">개인정보 수집 및 이용에 동의합니다. (필수)</label>
+          </div>
+          <div style="margin-top:24px;">
+            <button class="co-submit" id="coSubmitBtn" onclick="coSubmit()">문의 보내기</button>
+          </div>
+        </div>
+
+      </div>
+      </div>
+    `);
+  }
 }
 
 function coFaqToggle(tr) {
+  const lang = currentLang || 'ko';
+  const openText = lang === 'zh' ? '点击' : '클릭';
+  const closeText = lang === 'zh' ? '关闭' : '닫기';
+
   const answerRow = tr.nextElementSibling;
   const icon = tr.querySelector('.co-faq-icon');
   const isOpen = answerRow.classList.contains('open');
@@ -1496,31 +1620,37 @@ function coFaqToggle(tr) {
     el.classList.remove('open');
     const itemRow = el.previousElementSibling;
     itemRow.classList.remove('open');
-    itemRow.querySelector('.co-faq-icon').textContent = '클릭';
+    itemRow.querySelector('.co-faq-icon').textContent = openText;
   });
   if (!isOpen) {
     answerRow.classList.add('open');
     tr.classList.add('open');
-    icon.textContent = '닫기';
+    icon.textContent = closeText;
   }
 }
 
 function coSubmit() {
+  const lang = currentLang || 'ko';
+  const requiredMsg = lang === 'zh' ? '姓名、电子邮件、联系电话和咨询内容为必填项。' : '이름, 이메일, 연락처, 문의 내용은 필수 입력 항목입니다.';
+  const privacyMsg = lang === 'zh' ? '请同意个人信息收集和使用。' : '개인정보 수집 및 이용에 동의해 주세요.';
+  const sendingText = lang === 'zh' ? '发送中...' : '전송 중...';
+  const successText = lang === 'zh' ? '咨询已提交 ✓' : '문의가 접수되었습니다 ✓';
+
   const name    = (document.getElementById('coName').value    || '').trim();
   const email   = (document.getElementById('coEmail').value   || '').trim();
   const phone   = (document.getElementById('coPhone').value   || '').trim();
   const message = (document.getElementById('coMessage').value || '').trim();
   const privacy = document.getElementById('coPrivacy').checked;
   if (!name || !email || !phone || !message) {
-    alert('이름, 이메일, 연락처, 문의 내용은 필수 입력 항목입니다.');
+    alert(requiredMsg);
     return;
   }
-  if (!privacy) { alert('개인정보 수집 및 이용에 동의해 주세요.'); return; }
+  if (!privacy) { alert(privacyMsg); return; }
   const btn = document.getElementById('coSubmitBtn');
   btn.disabled = true;
-  btn.textContent = '전송 중...';
+  btn.textContent = sendingText;
   setTimeout(function() {
-    btn.textContent = '문의가 접수되었습니다 ✓';
+    btn.textContent = successText;
     btn.style.background = '#3b7a55';
   }, 800);
 }
