@@ -1459,7 +1459,7 @@ function openArtConciergePage() {
         </div>`).join('')}
         <div style="background:#fff;border:1.5px solid #3B6259;border-radius:16px;padding:24px 28px;margin-top:20px;">
           <p style="font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3B6259;margin-bottom:16px;">예술 그 자체가 목적인 여행</p>
-          <p style="font-size:13px;color:#555;line-height:1.85;margin:0;font-family:'Merriweather',Georgia,serif;">아트 컨시어지는 단순히 여행 중 공연이나 미술관을 방문하는 것이 아닌, <strong style="color:#1a2e2a;">특정 공연·전시·건축 공간을 주목적으로 기획하는 전문 여행사</strong>입니다. "그곳에 가야만 볼 수 있는 예술"이라는 <em>데스티네이션 아트(Destination Art)</em> 철학 아래, 서유럽 음악·콘서트·건축 공간 VIP 투어를 전문으로 합니다.</p>
+          <p style="font-size:13px;color:#555;line-height:1.85;margin:0;font-family:'Merriweather',Georgia,serif;">아트 컨시어지는 <strong style="color:#1a2e2a;">예술 공간 자체를 목적지로 삼는, 특정 공연·전시·건축 공간을 주목적으로 기획하는 전문 여행사</strong>입니다. "그곳에 가야만 볼 수 있는 예술"이라는 <em>데스티네이션 아트(Destination Art)</em> 철학 아래, 서유럽 음악·콘서트·건축 공간 VIP 투어를 전문으로 합니다.</p>
         </div>
         <div class="ac-tags" style="margin-top:24px;margin-bottom:32px;">
           ${['#이상훈대표','#1400도시','#아트트래블','#음악','#건축','#미술관','#VIP','#서유럽','#Destination Art'].map(t=>`<span class="ac-tag">${t}</span>`).join('')}
