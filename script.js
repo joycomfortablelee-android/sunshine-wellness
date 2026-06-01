@@ -1,7 +1,7 @@
 // =========================================
 // SUNSHINE WELLNESS — script.js
 // =========================================
-console.log('[SCRIPT] 로딩됨 v=20260530b');
+console.log('[SCRIPT] 로딩됨 v=20260601c');
 
 // 카카오 SDK 초기화
 window.addEventListener('load', function() {
@@ -882,34 +882,38 @@ function showSubPage(html) {
   el.addEventListener('scroll', _overlayScrollHandler);
 }
 
-var _subPageFooter = `
+function getSubPageFooter() {
+  const t = translations[currentLang] || translations.ko;
+  const brandKr = currentLang === 'zh' ? '阳光健康旅游' : '선샤인 웰니스';
+  return `
   <footer class="footer">
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <img src="images/logo2.png" alt="선샤인 웰니스 로고" style="height:44px;width:auto;object-fit:contain;margin-bottom:8px;display:block;" />
+          <img src="images/logo2.png" alt="Sunshine Wellness" style="height:44px;width:auto;object-fit:contain;margin-bottom:8px;display:block;" />
           <span class="logo-en">Sunshine Wellness</span>
-          <span class="logo-kr">선샤인 웰니스</span>
-          <p>부산에서 시작되는 특별한 웰니스 여행</p>
+          <span class="logo-kr">${brandKr}</span>
+          <p>${t['footer.tagline']}</p>
         </div>
         <div class="footer-links">
-          <a href="javascript:void(0)" onclick="openAboutPage()">소개</a>
-          <a href="javascript:void(0)" onclick="openProgramsPage()">프로그램</a>
-          <a href="javascript:void(0)" onclick="openContactPage()">문의</a>
+          <a href="javascript:void(0)" onclick="openAboutPage()">${t['footer.about']}</a>
+          <a href="javascript:void(0)" onclick="openProgramsPage()">${t['footer.programs']}</a>
+          <a href="javascript:void(0)" onclick="openContactPage()">${t['footer.contact']}</a>
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-biz">대표 : 이유안 &nbsp;|&nbsp; 사업자등록번호 : 000-00-00000 &nbsp;|&nbsp; 통신판매업신고번호 : 제00000호 &nbsp;|&nbsp; 관광사업자등록번호 : 제000-00호 &nbsp;|&nbsp; 개인정보관리책임자 : 이유안</p>
-        <p class="footer-biz">주소 : 부산광역시 동래구 ooo &nbsp;|&nbsp; 대표전화 : 010-5759-5485 &nbsp;|&nbsp; 이메일 : healthylee7@gmail.com</p>
-        <p class="footer-biz footer-biz-cert">일반여행업 보증보험가입 &nbsp;&nbsp;|&nbsp;&nbsp; 기획여행업 보증보험가입</p>
-        <p class="footer-copyright">&copy; 2026 선샤인 웰니스 (Sunshine Wellness). All rights reserved.</p>
+        <p class="footer-biz">${t['footer.biz1']}</p>
+        <p class="footer-biz">${t['footer.biz2']}</p>
+        <p class="footer-biz footer-biz-cert">${t['footer.biz3']}</p>
+        <p class="footer-copyright">${t['footer.copyright']}</p>
       </div>
     </div>
   </footer>`;
+}
 
 function showSubPageFull(html) {
   const el = document.getElementById('subPageOverlay');
-  el.innerHTML = html + _subPageFooter;
+  el.innerHTML = html + getSubPageFooter();
   el.classList.add('fullbg');
   el.style.display = 'block';
   el.scrollTop = 0;
