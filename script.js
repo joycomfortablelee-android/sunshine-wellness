@@ -628,7 +628,7 @@ var _subPageFooter = `
       </div>
       <div class="footer-bottom">
         <p class="footer-biz">대표 : 이유안 &nbsp;|&nbsp; 사업자등록번호 : 000-00-00000 &nbsp;|&nbsp; 통신판매업신고번호 : 제00000호 &nbsp;|&nbsp; 관광사업자등록번호 : 제000-00호 &nbsp;|&nbsp; 개인정보관리책임자 : 이유안</p>
-        <p class="footer-biz">주소 : 부산광역시 부산진구 서면 쥬디스태화 백화점 앞 &nbsp;|&nbsp; 대표전화 : 010-5759-5485 &nbsp;|&nbsp; 이메일 : healthylee7@gmail.com</p>
+        <p class="footer-biz">주소 : 부산광역시 동래구 ooo &nbsp;|&nbsp; 대표전화 : 010-5759-5485 &nbsp;|&nbsp; 이메일 : healthylee7@gmail.com</p>
         <p class="footer-biz footer-biz-cert">일반여행업 보증보험가입 &nbsp;&nbsp;|&nbsp;&nbsp; 기획여행업 보증보험가입</p>
         <p class="footer-copyright">&copy; 2026 선샤인 웰니스 (Sunshine Wellness). All rights reserved.</p>
       </div>
