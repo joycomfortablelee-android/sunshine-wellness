@@ -1526,10 +1526,11 @@ section { padding: 100px 0; }
 .contact { background: var(--light); }
 
 .contact-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 560px;
+  margin: 0 auto;
 }
 
 .contact-left { text-align: center; }
