@@ -261,14 +261,16 @@ ul { list-style: none; }
   display: none;
   position: fixed;
   top: 80px;
-  left: 0;
-  width: 100%;
+  right: 0;
+  left: auto;
+  width: 280px;
   max-height: calc(100vh - 80px);
   overflow-y: auto;
   background: var(--white);
   border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
   z-index: 1050;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  box-shadow: -4px 4px 16px rgba(0,0,0,0.08);
 }
 .mobile-nav ul { padding: 20px var(--side-pad); display: flex; flex-direction: column; gap: 18px; }
 .mobile-nav a { font-size: 0.95rem; font-weight: 500; color: var(--dark); }
