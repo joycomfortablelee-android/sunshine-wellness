@@ -1549,7 +1549,7 @@ function openArtConciergePage() {
       </div><!-- /PROOF·CREDENTIAL (PART 01) -->
       </div><!-- /PART 01 -->
 
-      <div style="background:#F5F5F3;padding:16px 0 0;">
+      <div style="background:#F5F5F3;padding:6px 0 0;">
         <div class="sp-wrap" style="padding-top:0;padding-bottom:0;">
           <div style="display:flex;align-items:center;gap:14px;">
             <div style="flex:1;height:1px;background:#c8c2b8;"></div>
