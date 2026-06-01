@@ -631,6 +631,36 @@ function quickNavTo(hash) {
 // =========================================
 function openHelpCenterPage() { openContactUsPage(); }
 
+function cuContactPopup(type) {
+  var info = {
+    phone: {
+      icon: '📞', title: '전화 문의',
+      body: '<p style="font-size:20px;font-weight:800;color:#1a2e2a;margin-bottom:8px;">010-5759-5485</p><p style="font-size:13px;color:#666;line-height:1.9;">평일 09:00 – 18:00<br>점심 12:00 – 13:00<br>주말 · 공휴일 휴무</p>',
+      btn: '<a href="tel:01057595485" style="display:inline-block;margin-top:20px;padding:12px 32px;background:#1a2e2a;color:#fff;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;">전화 걸기</a>'
+    },
+    email: {
+      icon: '✉️', title: '이메일 문의',
+      body: '<p style="font-size:16px;font-weight:700;color:#1a2e2a;margin-bottom:8px;">healthylee7@gmail.com</p><p style="font-size:13px;color:#666;line-height:1.9;">접수 후 1영업일 이내<br>답변 드립니다.</p>',
+      btn: '<a href="mailto:healthylee7@gmail.com" style="display:inline-block;margin-top:20px;padding:12px 32px;background:#1a2e2a;color:#fff;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;">이메일 보내기</a>'
+    },
+    kakao: {
+      icon: '💛', title: '카카오 채널',
+      body: '<p style="font-size:14px;color:#666;line-height:1.9;">실시간 채팅 상담<br>빠른 답변을 도와드립니다.</p>',
+      btn: '<a href="https://open.kakao.com/o/sl2k01wi" target="_blank" rel="noopener" style="display:inline-block;margin-top:20px;padding:12px 32px;background:#FAE100;color:#1a2e2a;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;">카카오 채널 바로가기 →</a>'
+    }
+  };
+  var d = info[type];
+  var overlay = document.createElement('div');
+  overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:9999;display:flex;align-items:center;justify-content:center;';
+  overlay.innerHTML = '<div style="background:#fff;border-radius:20px;padding:36px 32px;max-width:360px;width:90%;text-align:center;position:relative;">'
+    + '<button onclick="this.closest(\'div[style]\').remove()" style="position:absolute;top:14px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:#aaa;">✕</button>'
+    + '<div style="font-size:36px;margin-bottom:12px;">' + d.icon + '</div>'
+    + '<h3 style="font-size:16px;font-weight:800;color:#1a2e2a;margin-bottom:16px;">' + d.title + '</h3>'
+    + d.body + d.btn + '</div>';
+  document.body.appendChild(overlay);
+  overlay.addEventListener('click', function(e){ if(e.target===overlay) overlay.remove(); });
+}
+
 function cuShowSection(id) {
   var meta = {
     notice:   { label: 'Notice',         title: '공지사항' },
@@ -1189,9 +1219,9 @@ function openContactUsPage() {
       </div>
       <!-- Grid 1: 연락 수단 3종 -->
       <div class="cu-unified-grid" style="margin-bottom:16px;">
-        <div class="cu-ucard"><div class="cu-ucard-icon">📞</div><h3 class="cu-ucard-title">전화 문의</h3><p class="cu-ucard-body">010-5759-5485<br/>평일 09:00 – 18:00<br/>점심 12:00 – 13:00<br/><span style="font-size:11.5px;color:#999;">주말 · 공휴일 휴무</span></p></div>
-        <div class="cu-ucard"><div class="cu-ucard-icon">✉️</div><h3 class="cu-ucard-title">이메일 문의</h3><p class="cu-ucard-body"><a href="mailto:healthylee7@gmail.com" style="color:#1a2e2a;text-decoration:none;">healthylee7@gmail.com</a><br/>접수 후 1영업일 이내<br/>답변 드립니다.</p></div>
-        <div class="cu-ucard"><div class="cu-ucard-icon">💛</div><h3 class="cu-ucard-title">카카오 채널</h3><p class="cu-ucard-body">실시간 채팅 상담<br/>빠른 답변을 도와드립니다.<br/><a href="https://pf.kakao.com" target="_blank" rel="noopener noreferrer" style="color:#3B6259;font-weight:700;text-decoration:none;">바로가기 →</a></p></div>
+        <button class="cu-ucard cu-ucard-btn" onclick="cuContactPopup('phone')"><div class="cu-ucard-icon">📞</div><h3 class="cu-ucard-title">전화 문의</h3></button>
+        <button class="cu-ucard cu-ucard-btn" onclick="cuContactPopup('email')"><div class="cu-ucard-icon">✉️</div><h3 class="cu-ucard-title">이메일 문의</h3></button>
+        <button class="cu-ucard cu-ucard-btn" onclick="cuContactPopup('kakao')"><div class="cu-ucard-icon">💛</div><h3 class="cu-ucard-title">카카오 채널</h3></button>
       </div>
 
       <!-- Grid 2: 서비스 버튼 6개 (3열 2행) -->
@@ -1340,6 +1370,7 @@ function _buildArchiveCards() {
 // 제휴 여행사 — 아트 컨시어지
 // =========================================
 function openArtConciergeArchive() {
+  const orn2star = `<svg class="ac-ornament" viewBox="0 0 300 26" xmlns="http://www.w3.org/2000/svg"><line x1="20" y1="13" x2="95" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/><text x="150" y="19" text-anchor="middle" font-size="15" fill="#2d4a42" opacity="0.72" font-family="Georgia,serif">∗ · · ✦ · · ∗</text><line x1="205" y1="13" x2="280" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/></svg>`;
   const orn3 = `<svg class="ac-ornament" viewBox="0 0 300 26" xmlns="http://www.w3.org/2000/svg"><line x1="20" y1="13" x2="128" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/><text x="150" y="19" text-anchor="middle" font-size="16" fill="#2d4a42" opacity="0.72" font-family="Georgia,serif">⚜</text><line x1="172" y1="13" x2="280" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/></svg>`;
   showSubPageFull(`
     <div class="co-fullbg-wrap">
@@ -1468,7 +1499,7 @@ function openArtConciergePage() {
       <!-- ④⑤ PROOF · CREDENTIAL 통합 -->
       <div style="background:#fff;padding:0;margin-top:0;">
         <div class="sp-wrap" style="padding-top:48px;padding-bottom:30px;">
-          ${orn2}
+          ${orn2star}
           <div class="ac-who-frame" style="margin-bottom:36px;">
           <svg class="ac-corner tl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
           <svg class="ac-corner tr" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
