@@ -116,6 +116,8 @@ ul { list-style: none; }
 }
 
 /* 가운데 GNB */
+.gnb { margin-left: 60px; }
+.header-right { margin-left: auto; }
 .gnb ul {
   display: flex;
   gap: 32px;
@@ -381,7 +383,7 @@ ul { list-style: none; }
 .ac-tag { display:inline-block; font-size:11.5px; font-weight:600; color:#3B6259; background:rgba(59,98,89,0.09); border-radius:20px; padding:5px 14px; letter-spacing:.03em; }
 .ac-banner-tags { display:flex; flex-wrap:wrap; gap:8px; padding:0 var(--side-pad) 32px; }
 .ac-banner-tag { display:inline-block; font-size:11px; font-weight:600; color:rgba(255,255,255,0.7); background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.25); border-radius:20px; padding:4px 14px; letter-spacing:.03em; }
-.co-section-title { font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#e8a04a; margin-bottom:10px; }
+.co-section-title { display:none; }
 .ac-who-frame { position:relative; display:block; padding:20px 48px; margin-bottom:28px; text-align:center; border:1px solid rgba(26,46,42,0.22); background:#fffde7; }
 .ac-who-frame svg.ac-corner { position:absolute; width:18px; height:18px; }
 .ac-who-frame svg.ac-corner.tl { top:-1px; left:-1px; }
@@ -463,7 +465,8 @@ ul { list-style: none; }
 .cu-ucard-body { font-size:12.5px; color:#666; line-height:1.85; margin-top:8px; }
 .cu-back-btn { display:inline-flex; align-items:center; gap:6px; padding:9px 18px; background:#f0f5f4; border:1.5px solid var(--border); border-radius:8px; font-size:13.5px; font-weight:600; color:#1a2e2a; cursor:pointer; font-family:var(--font); margin-bottom:28px; transition:background .2s, border-color .2s; }
 .cu-back-btn:hover { background:#dde8e5; border-color:var(--accent); }
-@media (max-width:600px) { .cu-wrap { padding:32px 20px 60px; } .cu-grid { grid-template-columns:1fr; } .cu-hc-grid { grid-template-columns:repeat(2,1fr); } .cu-unified-grid { grid-template-columns:1fr; grid-auto-rows:auto; } }
+@media (max-width:600px) { .cu-wrap { padding:32px 20px 60px; } .cu-grid { grid-template-columns:1fr; } .cu-hc-grid { grid-template-columns:repeat(2,1fr); } }
+@media (max-width:768px) { .cu-unified-grid { grid-template-columns:1fr !important; grid-auto-rows:auto !important; } }
 
 /* =========================================
    HERO — 100vh 풀스크린
@@ -1394,7 +1397,7 @@ section { padding: 100px 0; }
 /* Contact 섹션 하단 서비스 버튼 */
 .contact-services {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
   margin-top: 48px;
   padding-top: 36px;
@@ -1549,7 +1552,7 @@ section { padding: 100px 0; }
   font-size: 0.85rem; flex-shrink: 0;
 }
 
-.contact-form { display: flex; flex-direction: column; gap: 0; padding-top: 64px; }
+.contact-form { display: flex; flex-direction: column; gap: 0; padding-top: 94px; }
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1657,6 +1660,7 @@ section { padding: 100px 0; }
   border-color: var(--accent);
 }
 .fhc-card-kakao { border-color: #FAE100; background: #fffde7; }
+.fhc-coupon-mobile { display: none; }
 .fhc-card-icon { font-size: 28px; margin-bottom: 8px; flex-shrink: 0; }
 .fhc-card-title { font-size: 13px; font-weight: 700; color: #1a2e2a; margin-bottom: 5px; line-height: 1.4; }
 .fhc-card-body { font-size: 11.5px; color: #888; line-height: 1.75; }
@@ -1669,6 +1673,7 @@ section { padding: 100px 0; }
   .fhc-card-title { font-size: 12px; margin-bottom: 3px; }
   .fhc-card-body { font-size: 11px; line-height: 1.6; }
   .fhc-grid .fhc-card:not(.fhc-info) { display: none; }
+  .fhc-coupon-mobile { display: flex !important; }
   /* 강의 카드 그리드 모바일 1열 */
   .ac-lsh-grid { grid-template-columns: 1fr !important; gap: 14px !important; }
   .ac-lsh-grid > div[style*="aspect-ratio"] { aspect-ratio: 16/9 !important; max-height: 220px; }

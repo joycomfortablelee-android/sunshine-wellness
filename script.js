@@ -647,6 +647,16 @@ function cuContactPopup(type) {
       icon: '💛', title: '카카오 채널',
       body: '<p style="font-size:14px;color:#666;line-height:1.9;">실시간 채팅 상담<br>빠른 답변을 도와드립니다.</p>',
       btn: '<a href="https://open.kakao.com/o/sl2k01wi" target="_blank" rel="noopener" style="display:inline-block;margin-top:20px;padding:12px 32px;background:#FAE100;color:#1a2e2a;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;">카카오 채널 바로가기 →</a>'
+    },
+    location: {
+      icon: '📍', title: '모이는 장소',
+      body: '<p style="font-size:15px;font-weight:700;color:#1a2e2a;margin-bottom:6px;">부산광역시 부산진구</p><p style="font-size:14px;color:#666;line-height:1.9;">서면 쥬디스태화 백화점 앞</p>',
+      btn: '<a href="https://map.kakao.com/link/search/부산진구+쥬디스태화" target="_blank" rel="noopener" style="display:inline-block;margin-top:20px;padding:12px 32px;background:#1a2e2a;color:#fff;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;">지도 보기</a>'
+    },
+    hours: {
+      icon: '🕐', title: '운영 시간',
+      body: '<p style="font-size:14px;color:#666;line-height:2;">평일 09:00 – 18:00<br>점심 12:00 – 13:00<br>주말 · 공휴일 휴무</p>',
+      btn: ''
     }
   };
   var d = info[type];
@@ -1224,20 +1234,21 @@ function openContactUsPage() {
         <button class="cu-ucard cu-ucard-btn" onclick="cuContactPopup('kakao')"><div class="cu-ucard-icon">💛</div><h3 class="cu-ucard-title">카카오 채널</h3></button>
       </div>
 
-      <!-- Grid 2: 서비스 버튼 6개 (3열 2행) -->
+      <!-- Grid 3: 기본 정보 3종 -->
       <div class="cu-unified-grid" style="margin-bottom:16px;">
+        <button class="cu-ucard cu-ucard-btn" onclick="cuContactPopup('location')"><div class="cu-ucard-icon">📍</div><h3 class="cu-ucard-title">모이는 장소</h3></button>
+        <button class="cu-ucard cu-ucard-btn" onclick="cuContactPopup('hours')"><div class="cu-ucard-icon">🕐</div><h3 class="cu-ucard-title">운영 시간</h3></button>
+        <button class="cu-ucard cu-ucard-btn" onclick="openCouponModal()"><div class="cu-ucard-icon">🎟️</div><h3 class="cu-ucard-title">할인쿠폰 다운로드</h3></button>
+      </div>
+
+      <!-- Grid 2: 서비스 버튼 6개 (3열 2행) -->
+      <div class="cu-unified-grid">
         <button class="cu-ucard cu-ucard-btn" onclick="cuShowSection('notice')"><div class="cu-ucard-icon">📢</div><h3 class="cu-ucard-title">공지사항</h3></button>
         <button class="cu-ucard cu-ucard-btn" onclick="cuShowSection('faq')"><div class="cu-ucard-icon">❓</div><h3 class="cu-ucard-title">자주 묻는 질문</h3></button>
         <button class="cu-ucard cu-ucard-btn" onclick="cuShowSection('qna')"><div class="cu-ucard-icon">💬</div><h3 class="cu-ucard-title">묻고 답하기</h3></button>
         <button class="cu-ucard cu-ucard-btn" onclick="cuShowSection('voice')"><div class="cu-ucard-icon">⭐</div><h3 class="cu-ucard-title">고객의 소리</h3></button>
         <button class="cu-ucard cu-ucard-btn" onclick="cuShowSection('delivery')"><div class="cu-ucard-icon">📦</div><h3 class="cu-ucard-title">우편배송조회</h3></button>
         <button class="cu-ucard cu-ucard-btn" onclick="cuShowSection('events')"><div class="cu-ucard-icon">🎉</div><h3 class="cu-ucard-title">이벤트 당첨자 발표</h3></button>
-      </div>
-
-      <!-- Grid 3: 기본 정보 3종 (이메일 제외) -->
-      <div class="cu-unified-grid">
-        <div class="cu-ucard"><div class="cu-ucard-icon">📍</div><h3 class="cu-ucard-title">모이는 장소</h3><p class="cu-ucard-body">부산광역시 부산진구<br/>서면 쥬디스태화 백화점 앞</p></div>
-        <div class="cu-ucard"><div class="cu-ucard-icon">🕐</div><h3 class="cu-ucard-title">운영 시간</h3><p class="cu-ucard-body">평일 09:00 – 18:00<br/>점심 12:00 – 13:00<br/><span style="font-size:11.5px;color:#999;">주말 · 공휴일 휴무</span></p></div>
       </div>
 
       <div class="cu-divider"></div>
@@ -1421,6 +1432,7 @@ function openArtConciergeArchive() {
 function openArtConciergePage() {
   const orn = `<svg class="ac-ornament" viewBox="0 0 300 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M26 13 C16 13 9 11 8 8 C7 5 9 2 11 3 C13 4 12 7 10 8" stroke="#2d4a42" stroke-width="1.1" stroke-linecap="round"/><line x1="26" y1="13" x2="128" y2="13" stroke="#2d4a42" stroke-width="0.8" opacity="0.55"/><circle cx="138" cy="13" r="1.3" fill="#2d4a42" opacity="0.45"/><path d="M150 8 L154.5 13 L150 18 L145.5 13 Z" fill="#2d4a42" opacity="0.75"/><circle cx="162" cy="13" r="1.3" fill="#2d4a42" opacity="0.45"/><line x1="172" y1="13" x2="274" y2="13" stroke="#2d4a42" stroke-width="0.8" opacity="0.55"/><path d="M274 13 C284 13 291 11 292 8 C293 5 291 2 289 3 C287 4 288 7 290 8" stroke="#2d4a42" stroke-width="1.1" stroke-linecap="round"/></svg>`;
   const orn2 = `<svg class="ac-ornament" viewBox="0 0 300 26" xmlns="http://www.w3.org/2000/svg"><line x1="20" y1="13" x2="128" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/><text x="150" y="19" text-anchor="middle" font-size="16" fill="#2d4a42" opacity="0.72" font-family="Georgia,serif">⚜</text><line x1="172" y1="13" x2="280" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/></svg>`;
+  const orn2star = `<svg class="ac-ornament" viewBox="0 0 300 26" xmlns="http://www.w3.org/2000/svg"><line x1="20" y1="13" x2="95" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/><text x="150" y="19" text-anchor="middle" font-size="15" fill="#2d4a42" opacity="0.72" font-family="Georgia,serif">∗ · · ✦ · · ∗</text><line x1="205" y1="13" x2="280" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/></svg>`;
   const orn3 = `<svg class="ac-ornament" viewBox="0 0 300 26" xmlns="http://www.w3.org/2000/svg"><line x1="20" y1="13" x2="128" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/><text x="150" y="19" text-anchor="middle" font-size="16" fill="#2d4a42" opacity="0.72" font-family="Georgia,serif">⚜</text><line x1="172" y1="13" x2="280" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/></svg>`;
   showSubPageFull(`
     <div class="co-fullbg-wrap">
@@ -1810,7 +1822,7 @@ function openCulturalCasePage(selectedType) {
       <div style="background:#fafaf8;padding:44px 0 72px;">
         <div class="sp-wrap">
           <button onclick="_backToArchive()"
-                  style="display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:#3B6259;background:transparent;border:none;cursor:pointer;font-family:'Noto Sans KR',sans-serif;margin-bottom:20px;padding:0;letter-spacing:.02em;">
+                  style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:#3B6259;background:transparent;border:none;cursor:pointer;font-family:'Noto Sans KR',sans-serif;margin-bottom:20px;padding:0;letter-spacing:.02em;">
             ← 아트 컨시어지로 돌아가기
           </button>
           <div class="ca-case-grid">
