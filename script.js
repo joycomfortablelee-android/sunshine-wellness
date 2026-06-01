@@ -1692,7 +1692,7 @@ function openArtConciergePage() {
         </div>
       </div>
 
-      <div style="background:#fff;padding:28px 0 0;">
+      <div style="background:#fff;padding:50px 0 0;">
         <div class="sp-wrap" style="padding-top:0;padding-bottom:0;">
           <div style="display:flex;align-items:center;gap:14px;">
             <div style="flex:1;height:1px;background:#e8e4df;"></div>
