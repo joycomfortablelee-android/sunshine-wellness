@@ -223,6 +223,11 @@ const translations = {
     'footer.biz2': '주소 : 부산광역시 동래구 ooo &nbsp;|&nbsp; 대표전화 : 010-5759-5485 &nbsp;|&nbsp; 이메일 : healthylee7@gmail.com',
     'footer.biz3': '일반여행업 보증보험가입 &nbsp;&nbsp;|&nbsp;&nbsp; 기획여행업 보증보험가입',
     'footer.copyright': '© 2026 선샤인 웰니스 (Sunshine Wellness). All rights reserved.',
+    'prog.page.title': '웰니스 여행 프로그램',
+    'prog.page.subtitle': '— 몸과 마음이 함께 쉬어가는 시간',
+    'prog.page.intro': '몸과 마음이 함께 쉬어가는 부산의 특별한 여정.<br/>신중년의 배움과 성장을 위한 맞춤형 웰니스 투어입니다.',
+    'prog.btn.info': '여행 정보',
+    'prog.btn.contact': '문의하기 →',
   },
 
   en: {
@@ -414,6 +419,13 @@ const translations = {
     'footer.biz2': 'Address : Dongrae-gu, Busan ooo &nbsp;|&nbsp; Tel : 010-5759-5485 &nbsp;|&nbsp; Email : healthylee7@gmail.com',
     'footer.biz3': 'Travel Insurance (General) &nbsp;&nbsp;|&nbsp;&nbsp; Travel Insurance (Package)',
     'footer.copyright': '© 2026 Sunshine Wellness. All rights reserved.',
+
+    // Programs page
+    'prog.page.title': 'Wellness Travel Programs',
+    'prog.page.subtitle': '— A special journey for body and mind',
+    'prog.page.intro': 'A special wellness journey in Busan where body and mind rest together.<br/>Tailored tours designed for learning and growth in your golden years.',
+    'prog.btn.info': 'Travel Info',
+    'prog.btn.contact': 'Inquire →',
   },
 
   zh: {
@@ -2110,8 +2122,8 @@ function openProgramsPage() {
           <span>👥 ${c.people}</span>
         </div>
         <div class="prog-btns">
-          <button class="btn-outline" onclick="openModal('${c.key}')">여행 정보</button>
-          <button class="btn-solid" onclick="openContactPage()">문의하기 →</button>
+          <button class="btn-outline" onclick="openModal('${c.key}')">${t['prog.btn.info'] || '여행 정보'}</button>
+          <button class="btn-solid" onclick="openContactPage()">${t['prog.btn.contact'] || '문의하기 →'}</button>
         </div>
       </div>
     </div>`).join('');
@@ -2121,12 +2133,12 @@ function openProgramsPage() {
     <div class="co-fullbg-banner banner-colorful">
       <div class="co-page-header">
         <p>Our Programs</p>
-        <h1>웰니스 여행 프로그램<span class="co-page-subtitle">— 몸과 마음이 함께 쉬어가는 시간</span></h1>
+        <h1>${t['prog.page.title'] || '웰니스 여행 프로그램'}<span class="co-page-subtitle">${t['prog.page.subtitle'] || '— 몸과 마음이 함께 쉬어가는 시간'}</span></h1>
       </div>
     </div>
     <div style="background:#f5f5f3;min-height:100%;">
       <div style="max-width:1160px;margin:0 auto;padding:56px 40px 80px;">
-        <p style="font-size:15px;color:#666;margin-bottom:48px;line-height:1.8;">몸과 마음이 함께 쉬어가는 부산의 특별한 여정.<br/>신중년의 배움과 성장을 위한 맞춤형 웰니스 투어입니다.</p>
+        <p style="font-size:15px;color:#666;margin-bottom:48px;line-height:1.8;">${t['prog.page.intro'] || '몸과 마음이 함께 쉬어가는 부산의 특별한 여정.<br/>신중년의 배움과 성장을 위한 맞춤형 웰니스 투어입니다.'}</p>
         <div class="prog-grid">${cardHtml}</div>
       </div>
     </div>
