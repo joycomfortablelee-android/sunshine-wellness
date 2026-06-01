@@ -1,7 +1,7 @@
 // =========================================
 // SUNSHINE WELLNESS — script.js
 // =========================================
-console.log('[SCRIPT] 로딩됨 v=20260601d');
+console.log('[SCRIPT] 로딩됨 v=20260601e');
 
 // 카카오 SDK 초기화
 window.addEventListener('load', function() {
@@ -1210,14 +1210,14 @@ let _boardPage = 1;
 const _BOARD_PER_PAGE = 15;
 
 const _boardListI18n = {
-  8: { en: { title: 'Jeju Wellness Trip Review — The temple stay was the best', dest: 'Jeju' },        zh: { title: '济州岛健康旅行游记 — 寺庙住宿最棒了', dest: '济州岛' } },
-  7: { en: { title: 'Solo Busan trip in my 60s — unforgettable thanks to Sunshine Wellness', dest: 'Busan' }, zh: { title: '60多岁独自釜山旅行，多亏阳光健康旅游留下难忘回忆', dest: '釜山' } },
-  6: { en: { title: 'Deciding my next destination — Kyoto vs Busan, which is better?', dest: 'TBD' },     zh: { title: '正在纠结下一个目的地 — 京都还是釜山，哪个更好？', dest: '未定' } },
-  5: { en: { title: 'Visited the Gamcheon Culture Village tour! The guide was wonderful', dest: 'Busan' }, zh: { title: '参加了甘川文化村导览！讲解老师非常棒', dest: '釜山' } },
-  4: { en: { title: 'Busan market tour review — I still think about the sashimi at Jagalchi', dest: 'Busan' }, zh: { title: '釜山市场游记 — 还在回味在札嘎其吃的活鱼生鱼片', dest: '釜山' } },
-  3: { en: { title: 'Dawn prayer at Haedong Yonggungsa — it felt life-changing', dest: 'Busan' },        zh: { title: '海东龙宫寺凌晨礼佛体验，感觉人生都改变了', dest: '釜山' } },
-  2: { en: { title: 'Looking for travel companions — anyone for a June Busan-area tour?', dest: 'Busan' }, zh: { title: '寻找中老年旅行同伴 — 6月一起去釜山近郊游的朋友？', dest: '釜山' } },
-  1: { en: { title: 'Sunshine Wellness first review — beyond my expectations :)', dest: 'Busan' },        zh: { title: '阳光健康旅游第一篇游记 — 超出预期 :)', dest: '釜山' } },
+  8: { en: { title: 'Jeju Wellness Trip Review — The temple stay was the best', dest: 'Jeju', author: 'Lee Hwa-jin' },        zh: { title: '济州岛健康旅行游记 — 寺庙住宿最棒了', dest: '济州岛', author: '李化进' } },
+  7: { en: { title: 'Solo Busan trip in my 60s — unforgettable thanks to Sunshine Wellness', dest: 'Busan', author: 'Park Yong-su' }, zh: { title: '60多岁独自釜山旅行，多亏阳光健康旅游留下难忘回忆', dest: '釜山', author: '朴勇树' } },
+  6: { en: { title: 'Deciding my next destination — Kyoto vs Busan, which is better?', dest: 'TBD', author: 'Choi Mi-seon' },     zh: { title: '正在纠结下一个目的地 — 京都还是釜山，哪个更好？', dest: '未定', author: '崔美善' } },
+  5: { en: { title: 'Visited the Gamcheon Culture Village tour! The guide was wonderful', dest: 'Busan', author: 'Jung Soon-ja' }, zh: { title: '参加了甘川文化村导览！讲解老师非常棒', dest: '釜山', author: '郑顺子' } },
+  4: { en: { title: 'Busan market tour review — I still think about the sashimi at Jagalchi', dest: 'Busan', author: 'Kim Tae-sung' }, zh: { title: '釜山市场游记 — 还在回味在札嘎其吃的活鱼生鱼片', dest: '釜山', author: '金泰成' } },
+  3: { en: { title: 'Dawn prayer at Haedong Yonggungsa — it felt life-changing', dest: 'Busan', author: 'Son Myung-hee' },        zh: { title: '海东龙宫寺凌晨礼佛体验，感觉人生都改变了', dest: '釜山', author: '孙明姬' } },
+  2: { en: { title: 'Looking for travel companions — anyone for a June Busan-area tour?', dest: 'Busan', author: 'Lee Jung-ran' }, zh: { title: '寻找中老年旅行同伴 — 6月一起去釜山近郊游的朋友？', dest: '釜山', author: '李正兰' } },
+  1: { en: { title: 'Sunshine Wellness first review — beyond my expectations :)', dest: 'Busan', author: 'Hwang Mi-kyung' },        zh: { title: '阳光健康旅游第一篇游记 — 超出预期 :)', dest: '釜山', author: '黄美京' } },
 };
 
 function _boardRender() {
@@ -1237,7 +1237,7 @@ function _boardRender() {
       const loc  = (lang !== 'ko' && _boardListI18n[p.id]) ? _boardListI18n[p.id][lang] : null;
       const dest   = (loc && loc.dest) || full.destination || '부산';
       const title  = (loc && loc.title) || p.title;
-      const author = full.author || '';
+      const author = (loc && loc.author) || full.author || '';
       const date   = full.date ? full.date.substring(5) : p.date;
       return `<tr onclick="_openBoardDetailInOverlay(${p.id})" style="cursor:pointer">
         <td class="sp-col-no">${_boardFiltered.length - start - i}</td>
