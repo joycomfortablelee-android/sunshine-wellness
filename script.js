@@ -2043,7 +2043,17 @@ function openContactUsPage() {
 // =========================================
 // Cultural Archive 2뎁스 카드 생성 (데이터 파일 기반)
 // =========================================
-function _buildArchiveCards() {
+function _buildArchiveCards(lang) {
+  lang = lang || currentLang || 'ko';
+  const isZh = lang === 'zh';
+  const TZH = {
+    T1:{name:'音乐都市与演出厅', desc:'融合古典音乐、演出厅、声学传统与城市认同的文化空间'},
+    T2:{name:'节庆与艺术家之城', desc:'以节庆、歌剧、驻地与常设内容创造城市到访动机的文化空间'},
+    T3:{name:'工业遗产与城市再生', desc:'港口、电厂、火车站、军事遗产、滨水区转型为文化空间的案例'},
+    T4:{name:'基金会·企业·收藏型文化空间', desc:'基金会、企业、收藏、教育机构、设计集群扩展为城市文化资产的案例'},
+    T5:{name:'建筑实验与感官体验', desc:'强调建筑师理念、色彩、光线、材料与感官体验的文化空间'},
+    T6:{name:'技术·市场·平台', desc:'结合媒体技术、艺术市场、全球分馆与大型活动平台的文化空间'},
+  };
   const TC = {
     T1:{badge:'#2e3e72',bg:'#f0f1f7',border:'#c8ccdf',tagBg:'#e2e5f4',tagTxt:'#2e3e72',hbg:'linear-gradient(135deg,#1e2d5a 0%,#3a5090 100%)'},
     T2:{badge:'#9a4f28',bg:'#fdf3ee',border:'#e8cfc2',tagBg:'#fde0d0',tagTxt:'#9a4f28',hbg:'linear-gradient(135deg,#7a3a1a 0%,#b05a30 100%)'},
@@ -2062,10 +2072,10 @@ function _buildArchiveCards() {
     var preview = culturalArchiveData.filter(function(d){ return d.type === td.type; }).slice(0,2);
     var previewHtml = preview.map(function(p) {
       var linkHtml = p.sourceUrl
-        ? '<a href="' + p.sourceUrl + '" target="_blank" rel="noopener noreferrer" style="font-size:11.5px;font-weight:700;color:' + c.badge + ';text-decoration:none;">원문 보기 ↗</a>'
+        ? '<a href="' + p.sourceUrl + '" target="_blank" rel="noopener noreferrer" style="font-size:11.5px;font-weight:700;color:' + c.badge + ';text-decoration:none;">' + (isZh ? '查看原文 ↗' : '원문 보기 ↗') + '</a>'
         : '';
       var calumnBadge = p.sourceUrl
-        ? '<span style="font-size:9px;font-weight:700;color:' + c.badge + ';background:' + c.tagBg + ';padding:2px 7px;border-radius:10px;">칼럼</span>'
+        ? '<span style="font-size:9px;font-weight:700;color:' + c.badge + ';background:' + c.tagBg + ';padding:2px 7px;border-radius:10px;">' + (isZh ? '专栏' : '칼럼') + '</span>'
         : '';
       var tagMargin = p.sourceUrl ? 'margin-bottom:9px;' : '';
       return '<div style="border:1px solid ' + c.border + ';border-radius:10px;padding:13px 15px;background:#fff;">'
@@ -2091,8 +2101,8 @@ function _buildArchiveCards() {
       + '</div>'
       + '<span style="font-size:10px;color:' + (c.white===false ? '#aaa' : 'rgba(255,255,255,0.6)') + ';">' + td.count + ' Cases</span>'
       + '</div>'
-      + '<h3 style="font-size:14.5px;font-weight:700;color:' + (c.white===false ? '#1a2e2a' : '#fff') + ';margin-bottom:5px;">' + td.typeName + '</h3>'
-      + '<p style="font-size:12px;color:' + (c.white===false ? '#777' : 'rgba(255,255,255,0.78)') + ';line-height:1.7;margin:0;">' + td.description + '</p>'
+      + '<h3 style="font-size:14.5px;font-weight:700;color:' + (c.white===false ? '#1a2e2a' : '#fff') + ';margin-bottom:5px;">' + (isZh ? TZH[td.type].name : td.typeName) + '</h3>'
+      + '<p style="font-size:12px;color:' + (c.white===false ? '#777' : 'rgba(255,255,255,0.78)') + ';line-height:1.7;margin:0;">' + (isZh ? TZH[td.type].desc : td.description) + '</p>'
       + '</div>'
       + '<div style="background:#fafaf8;padding:14px 22px 16px;">'
       + '<div class="ca-preview-grid">'
@@ -2103,7 +2113,7 @@ function _buildArchiveCards() {
       + ' style="font-size:11.5px;font-weight:700;color:' + c.badge + ';background:transparent;border:1.5px solid ' + c.badge + ';border-radius:8px;padding:5px 14px;cursor:pointer;font-family:\'Noto Sans KR\',sans-serif;transition:background .2s,color .2s;"'
       + ' onmouseover="this.style.background=\'' + c.badge + '\';this.style.color=\'#fff\'"'
       + ' onmouseout="this.style.background=\'transparent\';this.style.color=\'' + c.badge + '\'">'
-      + '전체 사례 보기 (' + td.count + '개) →'
+      + (isZh ? '查看全部案例 (' + td.count + ') →' : '전체 사례 보기 (' + td.count + '개) →')
       + '</button>'
       + '</div>'
       + '</div>'
@@ -2166,6 +2176,112 @@ function openArtConciergeArchive() {
 
 function openArtConciergePage() {
   _activeSubPageRender = openArtConciergePage;
+  const _acLang = currentLang || 'ko';
+  const L = _acLang === 'zh' ? {
+    title: '艺术礼宾',
+    partnerTour: '合作旅行',
+    brandLine: '阳光健康旅游 × 艺术礼宾',
+    inquire: '咨询',
+    whoName: '李相勋 代表 · 目的地艺术',
+    lshName: '李相勋 代表',
+    statCards: [
+      {title:'累计艺术旅程', items:[['1,400+','到访城市'],['400+','画册'],['64+','演出']]},
+      {title:'2023 Highlights', items:[['170','到访城市'],['64','观赏演出'],['126','到访美术馆']]}
+    ],
+    philoLabel: '以艺术本身为目的的旅行',
+    philoBody: `艺术礼宾是<strong style="color:#1a2e2a;">以艺术空间本身为目的地，专门策划特定演出·展览·建筑空间的专业旅行社</strong>。在<strong style="color:#1a2e2a;">"只有亲临现场才能看到的艺术"</strong>这一<em>目的地艺术（Destination Art）</em>理念之下，专注于西欧音乐·音乐会·建筑空间 VIP 旅行。`,
+    tags1: ['#李相勋代表','#1400城市','#艺术旅行','#音乐','#建筑','#美术馆','#VIP','#西欧','#Destination Art'],
+    proofName: '媒体 · 讲座',
+    pressCards: [
+      ['釜山日报报道','"以艺术本身为目的的旅行"','https://www.busan.com/view/busan/view.php?code=2024010814490253602'],
+      ['釜山音乐厅 VIP 旅行售罄','3天2夜 242万韩元 · 2025.06.20<br>釜山观光公社 × 艺术礼宾','https://www.mice.or.kr/bbs/board.php?bo_table=news&wr_id=1479'],
+      ['釜山日报连载','李相勋的标志性文化空间故事','https://www.busan.com/search/index.php?search_string=[이상훈의시그너처문화공간이야기]'],
+    ],
+    lec1Label: '讲座 · 东西大学',
+    lec1Title: '寻找故事的<br/>欧洲大旅行',
+    lec1Desc: '将教堂、歌剧院化作叙事的舞台 — 探寻欧洲建筑与空间中蕴含故事的艺术旅行特别讲座。',
+    lec1Date: '2022年9月16日 · 东西大学',
+    lec2Label: '讲座 · 东西大学 Q-College',
+    lec2Title: '欧洲音乐节专家<br/>梦想远征队与 VIP 旅行',
+    lec2Desc: '韩国顶尖 0.01% VIP 私人旅行 — 以欧洲歌剧节与艺术旅行为主题，为 Q-College 一期学员授课。',
+    lec2Date: '2021年10月15日 · 东西大学',
+    viewBtn: '查看 ↗',
+    tags2: ['#釜山日报','#釜山音乐厅','#售罄','#目的地艺术','#艺术旅行哲学','#西欧'],
+    whatName: '专业服务 &amp; 标志性旅行',
+    specialties: [
+      {icon:'🎼',title:'音乐 · 音乐会',desc:'维也纳爱乐、萨尔茨堡音乐节等西欧顶级音乐演出 VIP 观赏企划',bg:'linear-gradient(135deg,#1a3d30 0%,#3B6259 100%)',border:'#2d5a48',color:'#3B6259',headerWhite:true,
+       tours:[
+         {icon:'🎼',tag:'Exclusive',title:'萨尔茨堡音乐节 VIP',sub:'奥地利 · 10天8夜',desc:'每年夏季举办的世界顶级古典音乐节。含 VIP 座位、彩排观摩及艺术家后台之旅。',color:'#e8a04a'},
+         {icon:'🏛️',tag:'Curated',title:'维也纳爱乐金色大厅音乐会',sub:'奥地利 · 7天5夜',desc:'在世界三大音乐厅之一的金色大厅（Musikverein）观赏特别演出。串联维也纳王宫·艺术史博物馆之旅。',color:'#3B6259'},
+       ]},
+      {icon:'🏛️',title:'建筑空间之旅',desc:'圣家堂、路易威登基金会等现代建筑杰作，由专业讲解陪同',bg:'linear-gradient(135deg,#e07820 0%,#f5aa50 100%)',border:'#d4783a',color:'#e8a04a',headerTextColor:'#1c3878',headerDescColor:'rgba(28,56,120,0.82)',
+       tours:[
+         {icon:'🏗️',tag:'Exclusive',title:'圣家堂建筑纪行',sub:'西班牙 · 9天7夜',desc:'在塔楼门票与建筑专家讲解的陪同下领略高迪建筑的精髓。含巴塞罗那现代建筑都市探访。',color:'#e8a04a'},
+       ]},
+      {icon:'🎨',title:'美术馆礼宾',desc:'基于卢浮宫、奥赛、泰特等400余册画册的深度观赏设计',bg:'linear-gradient(135deg,#3a1f5e 0%,#6a4f9a 100%)',border:'#5a3a8a',color:'#6a4f9a',headerWhite:true,
+       tours:[
+         {icon:'🎨',tag:'Curated',title:'卢浮宫夜间 VIP 观赏',sub:'法国 · 8天6夜',desc:'在没有普通游客的时段进行的卢浮宫专属之旅。与策展人讲解相伴的深度鉴赏体验。',color:'#3B6259'},
+       ]},
+    ],
+    tags3: ['#古典音乐','#建筑纪行','#美术馆礼宾','#萨尔茨堡','#维也纳爱乐','#卢浮宫','#圣家堂'],
+    archIntroTitle: '世界城市被铭记的方式',
+    archIntroBody: '李相勋代表亲身走访的世界文化空间 — 音乐、建筑、节庆、再生、基金会塑造城市认同的50个场景。',
+    sourceLine: 'Source · 基于釜山日报「李相勋的标志性文化空间故事」专栏',
+    ctaText: '阳光健康旅游与艺术礼宾共同设计的特别旅程',
+    ctaBtn: '咨询 →',
+  } : {
+    title: '아트 컨시어지',
+    partnerTour: '제휴 투어',
+    brandLine: '선샤인 웰니스 × 아트 컨시어지',
+    inquire: '문의하기',
+    whoName: '이상훈 대표 · 데스티네이션 아트',
+    lshName: '이상훈 대표',
+    statCards: [
+      {title:'누적 아트 여정', items:[['1,400+','방문 도시'],['400+','도록'],['64+','공연']]},
+      {title:'2023 Highlights', items:[['170','방문 도시'],['64','관람 공연'],['126','방문 미술관']]}
+    ],
+    philoLabel: '예술 그 자체가 목적인 여행',
+    philoBody: `아트 컨시어지는 <strong style="color:#1a2e2a;">예술 공간 자체를 목적지로 삼는, 특정 공연·전시·건축 공간을 주목적으로 기획하는 전문 여행사</strong>입니다. <strong style="color:#1a2e2a;">"그곳에 가야만 볼 수 있는 예술"</strong>이라는 <em>데스티네이션 아트(Destination Art)</em> 철학 아래, 서유럽 음악·콘서트·건축 공간 VIP 투어를 전문으로 합니다.`,
+    tags1: ['#이상훈대표','#1400도시','#아트트래블','#음악','#건축','#미술관','#VIP','#서유럽','#Destination Art'],
+    proofName: '언론 · 강의',
+    pressCards: [
+      ['부산일보 기사','"예술 그 자체가 목적인 여행"','https://www.busan.com/view/busan/view.php?code=2024010814490253602'],
+      ['부산콘서트홀 VIP 투어 완판','2박 3일 242만 원 · 2025.06.20<br>부산관광공사 × 아트컨시어지','https://www.mice.or.kr/bbs/board.php?bo_table=news&wr_id=1479'],
+      ['부산일보 연재','이상훈의 시그너처 문화공간 이야기','https://www.busan.com/search/index.php?search_string=[이상훈의시그너처문화공간이야기]'],
+    ],
+    lec1Label: 'Lecture · 동서대학교',
+    lec1Title: '스토리를 찾아 떠나는<br/>유럽 그랜드 투어',
+    lec1Desc: '성당을 서점으로, 오페라 극장을 서점으로 — 유럽의 건축과 공간에 담긴 스토리를 찾아가는 아트 트래블 특강.',
+    lec1Date: '2022년 9월 16일 · 동서대학교',
+    lec2Label: 'Lecture · 동서대학교 큐칼리지',
+    lec2Title: '유럽음악축제 전문<br/>드림원정대와 VIP 투어',
+    lec2Desc: '대한민국 상위 0.01% VIP 프라이빗 투어 — 유럽 오페라 축제와 아트 트래블을 주제로 큐칼리지 1기 학생들에게 강연.',
+    lec2Date: '2021년 10월 15일 · 동서대학교',
+    viewBtn: '보기 ↗',
+    tags2: ['#부산일보','#부산콘서트홀','#완판','#데스티네이션아트','#예술여행철학','#서유럽'],
+    whatName: '전문 서비스 &amp; 시그너처 투어',
+    specialties: [
+      {icon:'🎼',title:'음악 · 콘서트',desc:'빈 필하모닉, 잘츠부르크 페스티벌 등 서유럽 정상급 음악 공연 VIP 관람 기획',bg:'linear-gradient(135deg,#1a3d30 0%,#3B6259 100%)',border:'#2d5a48',color:'#3B6259',headerWhite:true,
+       tours:[
+         {icon:'🎼',tag:'Exclusive',title:'잘츠부르크 음악 페스티벌 VIP',sub:'오스트리아 · 8박 10일',desc:'매년 여름 개최되는 세계 최고의 클래식 음악 축제. VIP 좌석과 리허설 관람, 아티스트 백스테이지 투어 포함.',color:'#e8a04a'},
+         {icon:'🏛️',tag:'Curated',title:'빈 필하모닉 골든홀 콘서트',sub:'오스트리아 · 5박 7일',desc:'세계 3대 콘서트홀 무직페라인 황금홀에서의 특별 공연 관람. 비엔나 왕궁·미술사박물관 연계 투어.',color:'#3B6259'},
+       ]},
+      {icon:'🏛️',title:'건축 공간 투어',desc:'사그라다 파밀리아, 루이 뷔통 재단 등 현대 건축 걸작을 전문 해설과 함께',bg:'linear-gradient(135deg,#e07820 0%,#f5aa50 100%)',border:'#d4783a',color:'#e8a04a',headerTextColor:'#1c3878',headerDescColor:'rgba(28,56,120,0.82)',
+       tours:[
+         {icon:'🏗️',tag:'Exclusive',title:'사그라다 파밀리아 건축 기행',sub:'스페인 · 7박 9일',desc:'가우디 건축의 정수를 탑 입장권·건축 전문가 해설과 함께. 바르셀로나 현대 건축 도시 탐방 포함.',color:'#e8a04a'},
+       ]},
+      {icon:'🎨',title:'미술관 컨시어지',desc:'루브르, 오르세, 테이트 등 400여 개 도록 기반의 깊이 있는 관람 설계',bg:'linear-gradient(135deg,#3a1f5e 0%,#6a4f9a 100%)',border:'#5a3a8a',color:'#6a4f9a',headerWhite:true,
+       tours:[
+         {icon:'🎨',tag:'Curated',title:'루브르 야간 VIP 관람',sub:'프랑스 · 6박 8일',desc:'일반 관람객 없는 시간대의 루브르 전용 투어. 큐레이터 해설과 함께하는 깊이 있는 감상 경험.',color:'#3B6259'},
+       ]},
+    ],
+    tags3: ['#클래식음악','#건축기행','#미술관컨시어지','#잘츠부르크','#빈필하모닉','#루브르','#사그라다'],
+    archIntroTitle: '세계의 도시가 기억되는 방식',
+    archIntroBody: '이상훈 대표가 직접 다녀온 세계의 문화공간 — 음악, 건축, 축제, 재생, 재단이 도시 정체성을 만들어가는 50가지 장면.',
+    sourceLine: 'Source · 부산일보 「이상훈의 시그니처 문화공간 이야기」 칼럼 기반',
+    ctaText: '선샤인 웰니스와 아트 컨시어지가 함께 설계하는 특별한 여행',
+    ctaBtn: '문의하기 →',
+  };
   const orn = `<svg class="ac-ornament" viewBox="0 0 300 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M26 13 C16 13 9 11 8 8 C7 5 9 2 11 3 C13 4 12 7 10 8" stroke="#2d4a42" stroke-width="1.1" stroke-linecap="round"/><line x1="26" y1="13" x2="128" y2="13" stroke="#2d4a42" stroke-width="0.8" opacity="0.55"/><circle cx="138" cy="13" r="1.3" fill="#2d4a42" opacity="0.45"/><path d="M150 8 L154.5 13 L150 18 L145.5 13 Z" fill="#2d4a42" opacity="0.75"/><circle cx="162" cy="13" r="1.3" fill="#2d4a42" opacity="0.45"/><line x1="172" y1="13" x2="274" y2="13" stroke="#2d4a42" stroke-width="0.8" opacity="0.55"/><path d="M274 13 C284 13 291 11 292 8 C293 5 291 2 289 3 C287 4 288 7 290 8" stroke="#2d4a42" stroke-width="1.1" stroke-linecap="round"/></svg>`;
   const orn2 = `<svg class="ac-ornament" viewBox="0 0 300 26" xmlns="http://www.w3.org/2000/svg"><line x1="20" y1="13" x2="128" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/><text x="150" y="19" text-anchor="middle" font-size="16" fill="#2d4a42" opacity="0.72" font-family="Georgia,serif">⚜</text><line x1="172" y1="13" x2="280" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/></svg>`;
   const orn2star = `<svg class="ac-ornament" viewBox="0 0 300 26" xmlns="http://www.w3.org/2000/svg"><line x1="20" y1="13" x2="95" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/><text x="150" y="19" text-anchor="middle" font-size="15" fill="#2d4a42" opacity="0.72" font-family="Georgia,serif">∗ · · ✦ · · ∗</text><line x1="205" y1="13" x2="280" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/></svg>`;
@@ -2176,7 +2292,7 @@ function openArtConciergePage() {
       <div class="co-fullbg-banner" style="background:linear-gradient(rgba(10,10,20,0.60),rgba(10,10,20,0.55)),url('images/51315836390_c2d8b2c7e2_o.jpg') center/cover no-repeat;padding-top:80px;">
         <div class="co-page-header">
           <p>Partner Agency</p>
-          <h1>아트 컨시어지<span class="co-page-subtitle">Art Concierge — Destination Art Travel</span></h1>
+          <h1>${L.title}<span class="co-page-subtitle">Art Concierge — Destination Art Travel</span></h1>
         </div>
       </div>
 
@@ -2186,10 +2302,10 @@ function openArtConciergePage() {
       <!-- ① Partnership 헤더만 — Where to Next?와 동일 구조 -->
       <div class="sp-wrap" style="padding-bottom:20px;">
         <p class="co-section-title">Partnership</p>
-        <h2 class="co-heading">제휴 투어</h2>
+        <h2 class="co-heading">${L.partnerTour}</h2>
         <div class="sp-toolbar">
-          <p class="sp-count" style="font-weight:700;color:#3B6259;">선샤인 웰니스 × 아트 컨시어지</p>
-          <button onclick="openContactPage()" class="sp-btn-write">문의하기</button>
+          <p class="sp-count" style="font-weight:700;color:#3B6259;">${L.brandLine}</p>
+          <button onclick="openContactPage()" class="sp-btn-write">${L.inquire}</button>
         </div>
       </div>
 
@@ -2210,21 +2326,18 @@ function openArtConciergePage() {
           <svg class="ac-corner bl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
           <svg class="ac-corner br" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
           <span class="ac-who-label">WHO · WHY</span>
-          <span class="ac-who-name">이상훈 대표 · 데스티네이션 아트</span>
+          <span class="ac-who-name">${L.whoName}</span>
         </div>
         <div style="display:flex;align-items:center;gap:20px;margin-bottom:20px;padding:20px 28px 20px 0;background:#f7f6f3;border-radius:14px;">
           <div style="width:64px;height:64px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid #e0ddd8;margin-left:0;">
             <img src="images/LSH2.jpeg" alt="이상훈 대표" style="width:100%;height:100%;object-fit:cover;display:block;" />
           </div>
           <div style="flex:1;">
-            <p style="font-size:16px;font-weight:800;color:#1a2e2a;margin-bottom:2px;">이상훈 대표</p>
+            <p style="font-size:16px;font-weight:800;color:#1a2e2a;margin-bottom:2px;">${L.lshName}</p>
             <p style="font-size:12px;color:#999;letter-spacing:.04em;">Art Concierge · Destination Art Specialist</p>
           </div>
         </div>
-        ${[
-          {title:'누적 아트 여정', items:[['1,400+','방문 도시'],['400+','도록'],['64+','공연']]},
-          {title:'2023 Highlights', items:[['170','방문 도시'],['64','관람 공연'],['126','방문 미술관']]}
-        ].map(card=>`
+        ${L.statCards.map(card=>`
         <div style="background:#fff;border:1px solid #e8e8e4;border-radius:14px;padding:14px 20px;margin-bottom:12px;display:flex;flex-direction:column;">
           <p style="font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3B6259;margin-bottom:10px;">${card.title}</p>
           <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;text-align:center;">
@@ -2236,11 +2349,11 @@ function openArtConciergePage() {
           </div>
         </div>`).join('')}
         <div style="background:#fff;border:1.5px solid #3B6259;border-radius:16px;padding:24px 28px;margin-top:20px;">
-          <p style="font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3B6259;margin-bottom:16px;">예술 그 자체가 목적인 여행</p>
-          <p style="font-size:13px;color:#555;line-height:1.85;margin:0;font-family:'Merriweather',Georgia,serif;">아트 컨시어지는 <strong style="color:#1a2e2a;">예술 공간 자체를 목적지로 삼는, 특정 공연·전시·건축 공간을 주목적으로 기획하는 전문 여행사</strong>입니다. <strong style="color:#1a2e2a;">"그곳에 가야만 볼 수 있는 예술"</strong>이라는 <em>데스티네이션 아트(Destination Art)</em> 철학 아래, 서유럽 음악·콘서트·건축 공간 VIP 투어를 전문으로 합니다.</p>
+          <p style="font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3B6259;margin-bottom:16px;">${L.philoLabel}</p>
+          <p style="font-size:13px;color:#555;line-height:1.85;margin:0;font-family:'Merriweather',Georgia,serif;">${L.philoBody}</p>
         </div>
         <div class="ac-tags" style="margin-top:24px;margin-bottom:32px;">
-          ${['#이상훈대표','#1400도시','#아트트래블','#음악','#건축','#미술관','#VIP','#서유럽','#Destination Art'].map(t=>`<span class="ac-tag">${t}</span>`).join('')}
+          ${L.tags1.map(t=>`<span class="ac-tag">${t}</span>`).join('')}
         </div>
       </div>
 
@@ -2254,14 +2367,10 @@ function openArtConciergePage() {
           <svg class="ac-corner bl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
           <svg class="ac-corner br" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
           <span class="ac-who-label">PROOF · CREDENTIAL</span>
-          <span class="ac-who-name">언론 · 강의</span>
+          <span class="ac-who-name">${L.proofName}</span>
         </div>
         <div class="ac-proof-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;">
-          ${[
-            ['부산일보 기사','"예술 그 자체가 목적인 여행"','https://www.busan.com/view/busan/view.php?code=2024010814490253602'],
-            ['부산콘서트홀 VIP 투어 완판','2박 3일 242만 원 · 2025.06.20<br>부산관광공사 × 아트컨시어지','https://www.mice.or.kr/bbs/board.php?bo_table=news&wr_id=1479'],
-            ['부산일보 연재','이상훈의 시그너처 문화공간 이야기','https://www.busan.com/search/index.php?search_string=[이상훈의시그너처문화공간이야기]'],
-          ].map(([label,desc,url]) => `
+          ${L.pressCards.map(([label,desc,url]) => `
             <a href="${url}" target="_blank" rel="noopener"
                style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;background:#fff;border:1px solid #e0ddd8;border-radius:16px;padding:16px 14px;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,0.06);transition:box-shadow .2s,transform .2s;"
                onmouseover="this.style.boxShadow='0 6px 20px rgba(0,0,0,0.11)';this.style.transform='translateY(-2px)'"
@@ -2286,13 +2395,13 @@ function openArtConciergePage() {
                onmouseover="this.style.boxShadow='0 6px 20px rgba(0,0,0,0.11)';this.style.transform='translateY(-2px)'"
                onmouseout="this.style.boxShadow='0 2px 10px rgba(0,0,0,0.06)';this.style.transform='none'">
               <div>
-                <p style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3B6259;margin-bottom:10px;">Lecture · 동서대학교</p>
-                <h3 style="font-size:15px;font-weight:800;color:#1a2e2a;line-height:1.45;margin-bottom:12px;">스토리를 찾아 떠나는<br/>유럽 그랜드 투어</h3>
-                <p style="font-size:13px;color:#666;line-height:1.75;">성당을 서점으로, 오페라 극장을 서점으로 — 유럽의 건축과 공간에 담긴 스토리를 찾아가는 아트 트래블 특강.</p>
+                <p style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3B6259;margin-bottom:10px;">${L.lec1Label}</p>
+                <h3 style="font-size:15px;font-weight:800;color:#1a2e2a;line-height:1.45;margin-bottom:12px;">${L.lec1Title}</h3>
+                <p style="font-size:13px;color:#666;line-height:1.75;">${L.lec1Desc}</p>
               </div>
               <div style="margin-top:16px;display:flex;align-items:center;justify-content:space-between;">
-                <span style="font-size:11.5px;color:#aaa;">2022년 9월 16일 · 동서대학교</span>
-                <span style="font-size:13px;color:#3B6259;font-weight:700;">보기 ↗</span>
+                <span style="font-size:11.5px;color:#aaa;">${L.lec1Date}</span>
+                <span style="font-size:13px;color:#3B6259;font-weight:700;">${L.viewBtn}</span>
               </div>
             </a>
           </div>
@@ -2305,19 +2414,19 @@ function openArtConciergePage() {
                onmouseover="this.style.boxShadow='0 6px 20px rgba(0,0,0,0.11)';this.style.transform='translateY(-2px)'"
                onmouseout="this.style.boxShadow='0 2px 10px rgba(0,0,0,0.06)';this.style.transform='none'">
               <div>
-                <p style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3B6259;margin-bottom:10px;">Lecture · 동서대학교 큐칼리지</p>
-                <h3 style="font-size:15px;font-weight:800;color:#1a2e2a;line-height:1.45;margin-bottom:12px;">유럽음악축제 전문<br/>드림원정대와 VIP 투어</h3>
-                <p style="font-size:13px;color:#666;line-height:1.75;">대한민국 상위 0.01% VIP 프라이빗 투어 — 유럽 오페라 축제와 아트 트래블을 주제로 큐칼리지 1기 학생들에게 강연.</p>
+                <p style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3B6259;margin-bottom:10px;">${L.lec2Label}</p>
+                <h3 style="font-size:15px;font-weight:800;color:#1a2e2a;line-height:1.45;margin-bottom:12px;">${L.lec2Title}</h3>
+                <p style="font-size:13px;color:#666;line-height:1.75;">${L.lec2Desc}</p>
               </div>
               <div style="margin-top:16px;display:flex;align-items:center;justify-content:space-between;">
-                <span style="font-size:11.5px;color:#aaa;">2021년 10월 15일 · 동서대학교</span>
-                <span style="font-size:13px;color:#3B6259;font-weight:700;">보기 ↗</span>
+                <span style="font-size:11.5px;color:#aaa;">${L.lec2Date}</span>
+                <span style="font-size:13px;color:#3B6259;font-weight:700;">${L.viewBtn}</span>
               </div>
             </a>
           </div>
         </div>
           <div class="ac-tags" style="margin-top:24px;">
-            ${['#부산일보','#부산콘서트홀','#완판','#데스티네이션아트','#예술여행철학','#서유럽'].map(t=>`<span class="ac-tag">${t}</span>`).join('')}
+            ${L.tags2.map(t=>`<span class="ac-tag">${t}</span>`).join('')}
           </div>
         </div>
       </div><!-- /PROOF·CREDENTIAL (PART 01) -->
@@ -2342,24 +2451,10 @@ function openArtConciergePage() {
           <svg class="ac-corner bl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
           <svg class="ac-corner br" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
           <span class="ac-who-label">WHAT · EXPERIENCE</span>
-          <span class="ac-who-name">전문 서비스 &amp; 시그너처 투어</span>
+          <span class="ac-who-name">${L.whatName}</span>
         </div>
           <div style="display:flex;flex-direction:column;gap:20px;">
-            ${[
-              {icon:'🎼',title:'음악 · 콘서트',desc:'빈 필하모닉, 잘츠부르크 페스티벌 등 서유럽 정상급 음악 공연 VIP 관람 기획',bg:'linear-gradient(135deg,#1a3d30 0%,#3B6259 100%)',border:'#2d5a48',color:'#3B6259',headerWhite:true,
-               tours:[
-                 {icon:'🎼',tag:'Exclusive',title:'잘츠부르크 음악 페스티벌 VIP',sub:'오스트리아 · 8박 10일',desc:'매년 여름 개최되는 세계 최고의 클래식 음악 축제. VIP 좌석과 리허설 관람, 아티스트 백스테이지 투어 포함.',color:'#e8a04a'},
-                 {icon:'🏛️',tag:'Curated',title:'빈 필하모닉 골든홀 콘서트',sub:'오스트리아 · 5박 7일',desc:'세계 3대 콘서트홀 무직페라인 황금홀에서의 특별 공연 관람. 비엔나 왕궁·미술사박물관 연계 투어.',color:'#3B6259'},
-               ]},
-              {icon:'🏛️',title:'건축 공간 투어',desc:'사그라다 파밀리아, 루이 뷔통 재단 등 현대 건축 걸작을 전문 해설과 함께',bg:'linear-gradient(135deg,#e07820 0%,#f5aa50 100%)',border:'#d4783a',color:'#e8a04a',headerTextColor:'#1c3878',headerDescColor:'rgba(28,56,120,0.82)',
-               tours:[
-                 {icon:'🏗️',tag:'Exclusive',title:'사그라다 파밀리아 건축 기행',sub:'스페인 · 7박 9일',desc:'가우디 건축의 정수를 탑 입장권·건축 전문가 해설과 함께. 바르셀로나 현대 건축 도시 탐방 포함.',color:'#e8a04a'},
-               ]},
-              {icon:'🎨',title:'미술관 컨시어지',desc:'루브르, 오르세, 테이트 등 400여 개 도록 기반의 깊이 있는 관람 설계',bg:'linear-gradient(135deg,#3a1f5e 0%,#6a4f9a 100%)',border:'#5a3a8a',color:'#6a4f9a',headerWhite:true,
-               tours:[
-                 {icon:'🎨',tag:'Curated',title:'루브르 야간 VIP 관람',sub:'프랑스 · 6박 8일',desc:'일반 관람객 없는 시간대의 루브르 전용 투어. 큐레이터 해설과 함께하는 깊이 있는 감상 경험.',color:'#3B6259'},
-               ]},
-            ].map(s=>`
+            ${L.specialties.map(s=>`
               <div style="border:1px solid ${s.border};border-radius:16px;overflow:hidden;">
                 <div style="background:${s.bg};padding:18px 22px 16px;border-bottom:1px solid ${s.border};">
                   <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
@@ -2385,7 +2480,7 @@ function openArtConciergePage() {
               </div>`).join('')}
           </div>
           <div class="ac-tags" style="margin-top:24px;">
-            ${['#클래식음악','#건축기행','#미술관컨시어지','#잘츠부르크','#빈필하모닉','#루브르','#사그라다'].map(t=>`<span class="ac-tag">${t}</span>`).join('')}
+            ${L.tags3.map(t=>`<span class="ac-tag">${t}</span>`).join('')}
           </div>
         </div><!-- /sp-wrap -->
 
@@ -2488,7 +2583,7 @@ function openArtConciergePage() {
           <span class="ac-who-label">CULTURAL ARCHIVE</span>
           <span class="ac-who-name">Signature Cultural Spaces</span>
         </div>
-          <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;text-align:center;"><span style="display:block;font-size:16px;font-weight:700;color:#1a2e2a;margin-bottom:6px;">세계의 도시가 기억되는 방식</span>이상훈 대표가 직접 다녀온 세계의 문화공간 — 음악, 건축, 축제, 재생, 재단이 도시 정체성을 만들어가는 50가지 장면.</p>
+          <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;text-align:center;"><span style="display:block;font-size:16px;font-weight:700;color:#1a2e2a;margin-bottom:6px;">${L.archIntroTitle}</span>${L.archIntroBody}</p>
           <div style="display:flex;align-items:flex-end;justify-content:center;gap:32px;margin-bottom:44px;flex-wrap:wrap;">
             ${[['50','Cases'],['6','Types'],['12+','Countries']].map(([n,l])=>`
               <div style="display:flex;flex-direction:column;gap:3px;">
@@ -2497,17 +2592,17 @@ function openArtConciergePage() {
               </div>`).join('<div style="width:1px;height:38px;background:#e0ddd8;margin:0 4px;align-self:center;"></div>')}
           </div>
           <div style="display:flex;flex-direction:column;gap:20px;">
-            ${_buildArchiveCards()}
+            ${_buildArchiveCards(_acLang)}
           </div>
-          <p style="font-size:11.5px;color:#bbb;text-align:right;padding-top:14px;">Source · 부산일보 「이상훈의 시그니처 문화공간 이야기」 칼럼 기반</p>
+          <p style="font-size:11.5px;color:#bbb;text-align:right;padding-top:14px;">${L.sourceLine}</p>
         </div>
       </div>
 
       <!-- CTA -->
       <div style="max-width:900px;margin:0 auto;padding:40px 40px 64px;">
         <div style="text-align:center;">
-          <p style="font-size:13px;color:#999;margin-bottom:20px;">선샤인 웰니스와 아트 컨시어지가 함께 설계하는 특별한 여행</p>
-          <button onclick="openContactPage()" style="display:inline-flex;align-items:center;gap:10px;background:#1a2e2a;color:#fff;font-size:14px;font-weight:700;padding:15px 44px;border-radius:32px;border:none;cursor:pointer;font-family:'Noto Sans KR',sans-serif;letter-spacing:.04em;">문의하기 →</button>
+          <p style="font-size:13px;color:#999;margin-bottom:20px;">${L.ctaText}</p>
+          <button onclick="openContactPage()" style="display:inline-flex;align-items:center;gap:10px;background:#1a2e2a;color:#fff;font-size:14px;font-weight:700;padding:15px 44px;border-radius:32px;border:none;cursor:pointer;font-family:'Noto Sans KR',sans-serif;letter-spacing:.04em;">${L.ctaBtn}</button>
         </div>
       </div>
 
@@ -2529,11 +2624,22 @@ function _backToArchive() {
 // =========================================
 function openCulturalCasePage(selectedType) {
   _activeSubPageRender = () => openCulturalCasePage(selectedType);
+  const _ccLang = currentLang || 'ko';
+  const _ccZh = _ccLang === 'zh';
   const TYPE_EN = {
     T1:'Music City & Hall', T2:'Festival & Artist City',
     T3:'Heritage & Regeneration', T4:'Foundation & Collection',
     T5:'Architecture & Senses', T6:'Tech · Market · Platform',
   };
+  const TYPE_ZH = {
+    T1:'音乐都市与演出厅', T2:'节庆与艺术家之城',
+    T3:'工业遗产与城市再生', T4:'基金会·企业·收藏型文化空间',
+    T5:'建筑实验与感官体验', T6:'技术·市场·平台',
+  };
+  const _ccBack = _ccZh ? '← 返回艺术礼宾' : '← 아트 컨시어지로 돌아가기';
+  const _ccView = _ccZh ? '查看原文 ↗' : '원문 보기 ↗';
+  const _ccPrep = _ccZh ? '专栏准备中' : '칼럼 준비 중';
+  const _ccSource = _ccZh ? 'Source · 基于釜山日报「李相勋的标志性文化空间故事」专栏' : 'Source · 부산일보 「이상훈의 시그니처 문화공간 이야기」 칼럼 기반';
   const TC = {
     T1:{badge:'#2e3e72'}, T2:{badge:'#9a4f28'}, T3:{badge:'#3b5847'},
     T4:{badge:'#6b3a5a'}, T5:{badge:'#7a6428'}, T6:{badge:'#1e6868'},
@@ -2550,7 +2656,7 @@ function openCulturalCasePage(selectedType) {
       <div style="background:#1a2e2a;padding:100px 0 36px;">
         <div class="sp-wrap">
           <p style="font-size:11px;font-weight:700;letter-spacing:.15em;color:#7aaa99;text-transform:uppercase;margin-bottom:10px;">Cultural Space Case</p>
-          <h1 style="font-size:26px;font-weight:800;color:#fff;line-height:1.25;margin-bottom:8px;">${typeDef.typeName}</h1>
+          <h1 style="font-size:26px;font-weight:800;color:#fff;line-height:1.25;margin-bottom:8px;">${_ccZh ? TYPE_ZH[selectedType] : typeDef.typeName}</h1>
           <p style="font-size:13px;color:#a0bfb5;">${TYPE_EN[selectedType]} · ${filtered.length} Cases</p>
         </div>
       </div>
@@ -2560,7 +2666,7 @@ function openCulturalCasePage(selectedType) {
         <div class="sp-wrap">
           <button onclick="_backToArchive()"
                   style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:#3B6259;background:transparent;border:none;cursor:pointer;font-family:'Noto Sans KR',sans-serif;margin-bottom:20px;padding:0;letter-spacing:.02em;">
-            ← 아트 컨시어지로 돌아가기
+            ${_ccBack}
           </button>
           <div class="ca-case-grid">
             ${filtered.map(d=>`
@@ -2587,11 +2693,11 @@ function openCulturalCasePage(selectedType) {
                    style="display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:700;color:#1a2e2a;text-decoration:none;border:1.5px solid #1a2e2a;border-radius:8px;padding:7px 16px;width:fit-content;transition:background .2s,color .2s;"
                    onmouseover="this.style.background='#1a2e2a';this.style.color='#fff'"
                    onmouseout="this.style.background='transparent';this.style.color='#1a2e2a'">
-                  원문 보기 ↗
-                </a>` : `<span style="font-size:11px;color:#ccc;font-style:italic;">칼럼 준비 중</span>`}
+                  ${_ccView}
+                </a>` : `<span style="font-size:11px;color:#ccc;font-style:italic;">${_ccPrep}</span>`}
               </div>`).join('')}
           </div>
-          <p style="font-size:11.5px;color:#bbb;text-align:right;padding-top:20px;">Source · 부산일보 「이상훈의 시그니처 문화공간 이야기」 칼럼 기반</p>
+          <p style="font-size:11.5px;color:#bbb;text-align:right;padding-top:20px;">${_ccSource}</p>
         </div>
       </div>
 
