@@ -1,7 +1,7 @@
 // =========================================
 // SUNSHINE WELLNESS — script.js
 // =========================================
-console.log('[SCRIPT] 로딩됨 v=20260601e');
+console.log('[SCRIPT] 로딩됨 v=20260601f');
 
 // 카카오 SDK 초기화
 window.addEventListener('load', function() {
@@ -1210,14 +1210,14 @@ let _boardPage = 1;
 const _BOARD_PER_PAGE = 15;
 
 const _boardListI18n = {
-  8: { en: { title: 'Jeju Wellness Trip Review — The temple stay was the best', dest: 'Jeju', author: 'Lee Hwa-jin' },        zh: { title: '济州岛健康旅行游记 — 寺庙住宿最棒了', dest: '济州岛', author: '李化进' } },
-  7: { en: { title: 'Solo Busan trip in my 60s — unforgettable thanks to Sunshine Wellness', dest: 'Busan', author: 'Park Yong-su' }, zh: { title: '60多岁独自釜山旅行，多亏阳光健康旅游留下难忘回忆', dest: '釜山', author: '朴勇树' } },
-  6: { en: { title: 'Deciding my next destination — Kyoto vs Busan, which is better?', dest: 'TBD', author: 'Choi Mi-seon' },     zh: { title: '正在纠结下一个目的地 — 京都还是釜山，哪个更好？', dest: '未定', author: '崔美善' } },
-  5: { en: { title: 'Visited the Gamcheon Culture Village tour! The guide was wonderful', dest: 'Busan', author: 'Jung Soon-ja' }, zh: { title: '参加了甘川文化村导览！讲解老师非常棒', dest: '釜山', author: '郑顺子' } },
-  4: { en: { title: 'Busan market tour review — I still think about the sashimi at Jagalchi', dest: 'Busan', author: 'Kim Tae-sung' }, zh: { title: '釜山市场游记 — 还在回味在札嘎其吃的活鱼生鱼片', dest: '釜山', author: '金泰成' } },
-  3: { en: { title: 'Dawn prayer at Haedong Yonggungsa — it felt life-changing', dest: 'Busan', author: 'Son Myung-hee' },        zh: { title: '海东龙宫寺凌晨礼佛体验，感觉人生都改变了', dest: '釜山', author: '孙明姬' } },
-  2: { en: { title: 'Looking for travel companions — anyone for a June Busan-area tour?', dest: 'Busan', author: 'Lee Jung-ran' }, zh: { title: '寻找中老年旅行同伴 — 6月一起去釜山近郊游的朋友？', dest: '釜山', author: '李正兰' } },
-  1: { en: { title: 'Sunshine Wellness first review — beyond my expectations :)', dest: 'Busan', author: 'Hwang Mi-kyung' },        zh: { title: '阳光健康旅游第一篇游记 — 超出预期 :)', dest: '釜山', author: '黄美京' } },
+  8: { en: { title: 'Jeju Wellness Trip Review — The temple stay was the best', dest: 'Jeju', author: 'Lee Hwa-jin', content: `<p>The most memorable part of my Jeju wellness trip was undoubtedly the temple stay. Spending a day at a quiet mountain temple, I was able to escape my busy daily life for a moment. The dawn prayer and meditation sessions were very helpful in organizing my thoughts.</p><p>I especially enjoyed the peaceful walks around the temple. The sounds of nature, fresh air, and a warm cup of tea gave me a sense of leisure that will stay with me for a long time. The trip made me realize that travel isn't just about visiting tourist attractions, but about caring for both body and mind.</p><p>The Sunshine Wellness schedule is designed without pressure, so it was comfortable for middle-aged people to participate. I would like to experience this kind of quiet and profound travel again next time.</p>` },        zh: { title: '济州岛健康旅行游记 — 寺庙住宿最棒了', dest: '济州岛', author: '李化进' } },
+  7: { en: { title: 'Solo Busan trip in my 60s — unforgettable thanks to Sunshine Wellness', dest: 'Busan', author: 'Park Yong-su', content: `<p>I was worried about taking my first solo trip. However, as I traveled through Busan through the Sunshine Wellness program, that worry quickly disappeared.</p><p>The schedule was not too tight, and the guide shared stories at each location so well that even though I was alone, I didn't feel lonely. The time walking while looking at the sea, tasting food at traditional markets, and the conversations with fellow travelers all remain as warm memories.</p><p>I especially gained confidence that I can have meaningful new experiences even in my 60s and beyond. I highly recommend this program to anyone who is thinking about traveling solo.</p>` }, zh: { title: '60多岁独自釜山旅行，多亏阳光健康旅游留下难忘回忆', dest: '釜山', author: '朴勇树' } },
+  6: { en: { title: 'Deciding my next destination — Kyoto vs Busan, which is better?', dest: 'TBD', author: 'Choi Mi-seon', content: `<p>I'm pondering my next travel destination. I haven't decided yet whether to choose Kyoto or Busan.</p><p>Kyoto with its traditional atmosphere, temples, gardens, and old alleyways seems to be a good fit for those who enjoy quiet travel. On the other hand, Busan is appealing because you can enjoy a variety of activities including beaches, temples, markets, cultural villages, hot springs, and wellness programs.</p><p>Especially in Busan, the travel distance is relatively short, and there are many distinctive places like Haedong Yonggungsa, Gamcheon Culture Village, and Jagalchi Market, so the travel satisfaction seems high. If anyone has visited both areas, I would appreciate your opinions on which destination was better.</p>` },     zh: { title: '正在纠结下一个目的地 — 京都还是釜山，哪个更好？', dest: '未定', author: '崔美善' } },
+  5: { en: { title: 'Visited the Gamcheon Culture Village tour! The guide was wonderful', dest: 'Busan', author: 'Jung Soon-ja', content: `<p>I visited the Gamcheon Culture Village tour. The colorful village that I had only seen in photos was much more impressive when I walked through it in person.</p><p>Most importantly, the guide's explanations were really good. Rather than just looking at pretty alleyways, I was able to learn about how Gamcheon Culture Village was formed and what stories it holds, which deepened the experience of the trip.</p><p>The murals hidden in each alley and the scenic viewpoints were great, and I was satisfied walking slowly through the village and feeling its atmosphere. I want to recommend it not only to those visiting Busan for the first time, but also to those who live in Busan but haven't experienced Gamcheon Culture Village properly.</p>` }, zh: { title: '参加了甘川文化村导览！讲解老师非常棒', dest: '釜山', author: '郑顺子' } },
+  4: { en: { title: 'Busan market tour review — I still think about the sashimi at Jagalchi', dest: 'Busan', author: 'Kim Tae-sung', content: `<p>The most vivid memory from my Busan trip was the market tour. I especially still think about the fresh sashimi I ate at Jagalchi Market.</p><p>The lively atmosphere unique to the market and the warm appearance of the vendors left an impression on me. The seafood was fresh, and the ability to look at it directly and enjoy the food right away was one of the great charms of the Busan market tour.</p><p>Not only Jagalchi Market but also the surrounding markets and alleys, I was able to feel the daily life and local culture of the people of Busan more closely. While sightseeing-focused travel is nice, I think traveling like a market tour, where you experience local life, is also very meaningful.</p>` }, zh: { title: '釜山市场游记 — 还在回味在札嘎其吃的活鱼生鱼片', dest: '釜山', author: '金泰成' } },
+  3: { en: { title: 'Dawn prayer at Haedong Yonggungsa — it felt life-changing', dest: 'Busan', author: 'Son Myung-hee', content: `<p>The dawn prayer experience at Haedong Yonggungsa was the most special time of this trip. The quiet atmosphere as I arrived at the temple overlooking the sea in the early dawn is still vivid.</p><p>At the moment when the sound of waves and the sound of the wooden fish block rang together, my complex thoughts began to be organized little by little. It was a time when I could look back at myself and take a quiet breath, aside from any religious meaning.</p><p>Haedong Yonggungsa is beautiful even when visited during the day, but the dawn prayer time has a completely different emotion. It's an experience I really want to recommend to those who need a moment to pause in their busy daily life.</p>` },        zh: { title: '海东龙宫寺凌晨礼佛体验，感觉人生都改变了', dest: '釜山', author: '孙明姬' } },
+  2: { en: { title: 'Looking for travel companions — anyone for a June Busan-area tour?', dest: 'Busan', author: 'Lee Jung-ran', content: `<p>I'm looking for mature travel companions to join me for a Busan area trip in June. Solo travel is nice, but I thought it would be fun to walk and share stories with people who have similar interests.</p><p>The courses I'm interested in include Haedong Yonggungsa, Beomeosa Temple, Gijang seaside walks, Busan traditional market tours, and Gamcheon Culture Village. I'm thinking of a relaxed pace where we walk slowly, enjoy good food, and rest comfortably, not a tight schedule.</p><p>If you're interested in wellness travel, cultural commentary tours, temple visits, and market exploration, I think we can have a great time together. If interested, please feel free to leave a comment.</p>` }, zh: { title: '寻找中老年旅行同伴 — 6月一起去釜山近郊游的朋友？', dest: '釜山', author: '李正兰' } },
+  1: { en: { title: 'Sunshine Wellness first review — beyond my expectations :)', dest: 'Busan', author: 'Hwang Mi-kyung', content: `<p>I applied without great expectations, but when I actually participated, it was a much more satisfying trip than I thought. The Sunshine Wellness program isn't just a sightseeing itinerary, but rather a trip that helps both body and mind recover comfortably.</p><p>The schedule was relaxed so there was no pressure, and the commentary and experiences were well balanced, so I didn't get bored. Especially with the time to rest during the trip, I felt it was a program that suited middle-aged people well.</p><p>Even though I participated alone, it didn't feel awkward, and it was nice to naturally have conversations with others. If I get the chance, I'd like to participate in the next program again.</p>` },        zh: { title: '阳光健康旅游第一篇游记 — 超出预期 :)', dest: '釜山', author: '黄美京' } },
 };
 
 function _boardRender() {
@@ -4534,6 +4534,27 @@ function openBoardPost(id) {
     return;
   }
 
+  const lang = currentLang || 'ko';
+  const loc = (lang !== 'ko' && _boardListI18n[post.id]) ? _boardListI18n[post.id][lang] : null;
+
+  const labels = lang === 'en' ? {
+    backBtn: '← Back to List',
+    author: 'Author',
+    views: 'Views'
+  } : lang === 'zh' ? {
+    backBtn: '← 返回列表',
+    author: '作者',
+    views: '浏览'
+  } : {
+    backBtn: '← 목록으로',
+    author: '작성자',
+    views: '조회'
+  };
+
+  const title = (loc && loc.title) || post.title;
+  const author = (loc && loc.author) || post.author;
+  const content = (loc && loc.content) || post.content;
+
   boardTable.style.display = 'none';
   boardPostView.style.display = 'block';
   console.log('[BOARD] display 전환 완료. boardPostView display:', boardPostView.style.display);
@@ -4541,17 +4562,17 @@ function openBoardPost(id) {
 
   boardPostView.innerHTML =
     '<div class="board-post-detail">' +
-      '<button type="button" class="board-back-btn" id="boardBackTop">← 목록으로</button>' +
+      '<button type="button" class="board-back-btn" id="boardBackTop">' + labels.backBtn + '</button>' +
       '<div class="board-post-meta">No. ' + post.id + '</div>' +
-      '<h2 class="board-post-title">' + post.title + '</h2>' +
+      '<h2 class="board-post-title">' + title + '</h2>' +
       '<div class="board-post-info">' +
-        '<span>작성자 ' + (post.author || '선샤인 웰니스') + '</span>' +
+        '<span>' + labels.author + ' ' + (author || 'Sunshine Wellness') + '</span>' +
         '<span>' + (post.date || '') + '</span>' +
-        '<span>조회 ' + (post.views || 0) + '</span>' +
+        '<span>' + labels.views + ' ' + (post.views || 0) + '</span>' +
       '</div>' +
-      '<div class="board-post-content">' + post.content + '</div>' +
+      '<div class="board-post-content">' + content + '</div>' +
       '<div class="board-post-bottom">' +
-        '<button type="button" class="board-back-btn" id="boardBackBottom">목록으로</button>' +
+        '<button type="button" class="board-back-btn" id="boardBackBottom">' + labels.backBtn + '</button>' +
       '</div>' +
     '</div>';
   console.log('[BOARD] innerHTML 삽입 완료');
