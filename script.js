@@ -1224,7 +1224,7 @@ function openContactUsPage() {
       <p class="co-section-title">Support</p>
       <h2 class="co-heading">고객센터</h2>
       <div class="sp-toolbar" style="margin-bottom:24px;">
-        <p class="sp-count">총 <strong>9</strong>건</p>
+        <p class="sp-count">총 <strong>12</strong>건</p>
         <button onclick="openContactPage()" class="sp-btn-write">문의하기</button>
       </div>
       <!-- Grid 1: 연락 수단 3종 -->
@@ -3773,14 +3773,13 @@ document.querySelectorAll('.card-info-btn').forEach(btn => {
 // =========================================
 // 상담 신청 폼 (Formspree)
 // =========================================
-const contactForm = document.getElementById('contact-form');
+const contactForm = document.getElementById('contactForm');
 if (contactForm) {
   contactForm.addEventListener('submit', async e => {
     e.preventDefault();
     const btn = contactForm.querySelector('button[type="submit"]');
-    const t = translations[currentLang] || translations.ko;
 
-    btn.textContent = t['form.sending'];
+    btn.textContent = '전송 중...';
     btn.disabled = true;
 
     try {
@@ -3791,14 +3790,15 @@ if (contactForm) {
       });
 
       if (res.ok) {
-        btn.textContent = t['form.success'];
+        btn.textContent = '문의가 접수되었습니다 ✓';
+        btn.style.background = '#3b7a55';
         contactForm.reset();
       } else {
-        btn.textContent = t['form.error'];
+        btn.textContent = '전송 실패 — 다시 시도해 주세요';
         btn.disabled = false;
       }
     } catch {
-      btn.textContent = t['form.error'];
+      btn.textContent = '전송 실패 — 다시 시도해 주세요';
       btn.disabled = false;
     }
   });
