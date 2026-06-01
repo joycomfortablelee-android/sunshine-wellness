@@ -1457,12 +1457,8 @@ function openArtConciergePage() {
             </div>`).join('')}
           </div>
         </div>`).join('')}
-        <div style="display:flex;align-items:center;gap:12px;margin:20px 0 16px;">
-          <div style="flex:1;height:1px;background:#e8e8e4;"></div>
-          <span style="font-size:13px;font-weight:700;color:#1a2e2a;white-space:nowrap;">예술 그 자체가 목적인 여행</span>
-          <div style="flex:1;height:1px;background:#e8e8e4;"></div>
-        </div>
-        <div style="background:#fff;border:1.5px solid #3B6259;border-radius:16px;padding:20px 24px;">
+        <div style="background:#fff;border:1.5px solid #3B6259;border-radius:16px;padding:24px 28px;margin-top:20px;">
+          <p style="font-size:13px;font-weight:700;color:#3B6259;letter-spacing:.04em;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid #e8e8e4;">예술 그 자체가 목적인 여행</p>
           <p style="font-size:15px;color:#555;line-height:1.9;margin-bottom:14px;font-family:Georgia,serif;">아트 컨시어지는 단순히 여행 중 공연이나 미술관을 방문하는 것이 아닌, <strong style="color:#1a2e2a;">특정 공연·전시·건축 공간을 주목적으로 기획하는 1인 전문 여행사</strong>입니다.</p>
           <p style="font-size:15px;color:#555;line-height:1.9;margin:0;font-family:Georgia,serif;">"그곳에 가야만 볼 수 있는 예술"이라는 <em>데스티네이션 아트(Destination Art)</em> 철학 아래, 서유럽 음악·콘서트·건축 공간 VIP 투어를 전문으로 합니다.</p>
         </div>
