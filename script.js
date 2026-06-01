@@ -1207,7 +1207,6 @@ function openContactUsPage() {
       <!-- Grid 3: 기본 정보 3종 (이메일 제외) -->
       <div class="cu-unified-grid">
         <div class="cu-ucard"><div class="cu-ucard-icon">📍</div><h3 class="cu-ucard-title">모이는 장소</h3><p class="cu-ucard-body">부산광역시 부산진구<br/>서면 쥬디스태화 백화점 앞</p></div>
-        <div class="cu-ucard"><div class="cu-ucard-icon">📞</div><h3 class="cu-ucard-title">전화 문의</h3><p class="cu-ucard-body">010-5759-5485<br/>평일 09:00 – 18:00</p></div>
         <div class="cu-ucard"><div class="cu-ucard-icon">🕐</div><h3 class="cu-ucard-title">운영 시간</h3><p class="cu-ucard-body">평일 09:00 – 18:00<br/>점심 12:00 – 13:00<br/><span style="font-size:11.5px;color:#999;">주말 · 공휴일 휴무</span></p></div>
       </div>
 
@@ -1390,7 +1389,7 @@ function openArtConciergeArchive() {
 
 function openArtConciergePage() {
   const orn = `<svg class="ac-ornament" viewBox="0 0 300 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M26 13 C16 13 9 11 8 8 C7 5 9 2 11 3 C13 4 12 7 10 8" stroke="#2d4a42" stroke-width="1.1" stroke-linecap="round"/><line x1="26" y1="13" x2="128" y2="13" stroke="#2d4a42" stroke-width="0.8" opacity="0.55"/><circle cx="138" cy="13" r="1.3" fill="#2d4a42" opacity="0.45"/><path d="M150 8 L154.5 13 L150 18 L145.5 13 Z" fill="#2d4a42" opacity="0.75"/><circle cx="162" cy="13" r="1.3" fill="#2d4a42" opacity="0.45"/><line x1="172" y1="13" x2="274" y2="13" stroke="#2d4a42" stroke-width="0.8" opacity="0.55"/><path d="M274 13 C284 13 291 11 292 8 C293 5 291 2 289 3 C287 4 288 7 290 8" stroke="#2d4a42" stroke-width="1.1" stroke-linecap="round"/></svg>`;
-  const orn2 = `<svg class="ac-ornament" viewBox="0 0 300 26" xmlns="http://www.w3.org/2000/svg"><line x1="20" y1="13" x2="95" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/><text x="150" y="19" text-anchor="middle" font-size="15" fill="#2d4a42" opacity="0.72" font-family="Georgia,serif">∗ · · ✦ · · ∗</text><line x1="205" y1="13" x2="280" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/></svg>`;
+  const orn2 = `<svg class="ac-ornament" viewBox="0 0 300 26" xmlns="http://www.w3.org/2000/svg"><line x1="20" y1="13" x2="128" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/><text x="150" y="19" text-anchor="middle" font-size="16" fill="#2d4a42" opacity="0.72" font-family="Georgia,serif">⚜</text><line x1="172" y1="13" x2="280" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/></svg>`;
   const orn3 = `<svg class="ac-ornament" viewBox="0 0 300 26" xmlns="http://www.w3.org/2000/svg"><line x1="20" y1="13" x2="128" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/><text x="150" y="19" text-anchor="middle" font-size="16" fill="#2d4a42" opacity="0.72" font-family="Georgia,serif">⚜</text><line x1="172" y1="13" x2="280" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/></svg>`;
   showSubPageFull(`
     <div class="co-fullbg-wrap">
