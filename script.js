@@ -1341,19 +1341,51 @@ function _buildArchiveCards() {
 // 제휴 여행사 — 아트 컨시어지
 // =========================================
 function openArtConciergeArchive() {
-  openArtConciergePage();
-  // 100ms마다 폴링 — 오버레이 콘텐츠 레이아웃 완료 확인 후 스크롤
-  var _tries = 0;
-  var _poll = setInterval(function() {
-    _tries++;
-    var sec = document.getElementById('ac-archive-section');
-    var overlay = document.getElementById('subPageOverlay');
-    if (sec && overlay && overlay.scrollHeight > overlay.clientHeight) {
-      clearInterval(_poll);
-      overlay.scrollTop = sec.offsetTop;
-    }
-    if (_tries >= 30) clearInterval(_poll); // 3초 후 포기
-  }, 100);
+  const orn3 = `<svg class="ac-ornament" viewBox="0 0 300 26" xmlns="http://www.w3.org/2000/svg"><line x1="20" y1="13" x2="128" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/><text x="150" y="19" text-anchor="middle" font-size="16" fill="#2d4a42" opacity="0.72" font-family="Georgia,serif">⚜</text><line x1="172" y1="13" x2="280" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/></svg>`;
+  showSubPageFull(`
+    <div class="co-fullbg-wrap">
+      <div class="co-fullbg-banner" style="background:linear-gradient(rgba(10,10,20,0.60),rgba(10,10,20,0.55)),url('images/51315836390_c2d8b2c7e2_o.jpg') center/cover no-repeat;padding-top:80px;">
+        <div class="co-page-header">
+          <p>Art Concierge · PART 03</p>
+          <h1>시그너처 문화공간<span class="co-page-subtitle">Cultural Archive — The Knowledge</span></h1>
+        </div>
+      </div>
+      <div style="background:#fff;padding:8px 0 0;">
+        <div class="sp-wrap" style="padding-top:12px;padding-bottom:0;">
+          <button onclick="openArtConciergePage()" style="background:none;border:none;font-size:13px;color:#3B6259;font-weight:700;cursor:pointer;font-family:'Noto Sans KR',sans-serif;padding:0;letter-spacing:.02em;">← 아트 컨시어지 전체 보기</button>
+        </div>
+      </div>
+      <div style="background:#fff;padding:28px 0 56px;">
+        <div class="sp-wrap">
+          ${orn3}
+          <div class="ac-who-frame" style="margin-bottom:36px;">
+            <svg class="ac-corner tl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+            <svg class="ac-corner tr" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+            <svg class="ac-corner bl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+            <svg class="ac-corner br" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+            <span class="ac-who-label">CULTURAL ARCHIVE</span>
+            <span class="ac-who-name">Signature Cultural Spaces</span>
+          </div>
+          <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;text-align:center;"><span style="display:block;font-size:16px;font-weight:700;color:#1a2e2a;margin-bottom:6px;">세계의 도시가 기억되는 방식</span>이상훈 대표가 직접 다녀온 세계의 문화공간 — 음악, 건축, 축제, 재생, 재단이 도시 정체성을 만들어가는 50가지 장면.</p>
+          <div style="display:flex;align-items:flex-end;justify-content:center;gap:32px;margin-bottom:44px;flex-wrap:wrap;">
+            ${[['50','Cases'],['6','Types'],['12+','Countries']].map(([n,l])=>`
+              <div style="display:flex;flex-direction:column;gap:3px;">
+                <span style="font-size:30px;font-weight:800;color:#1a2e2a;line-height:1;">${n}</span>
+                <span style="font-size:10px;color:#aaa;letter-spacing:.1em;text-transform:uppercase;">${l}</span>
+              </div>`).join('<div style="width:1px;height:38px;background:#e0ddd8;margin:0 4px;align-self:center;"></div>')}
+          </div>
+          <div style="display:flex;flex-direction:column;gap:20px;">
+            ${_buildArchiveCards()}
+          </div>
+          <p style="font-size:11.5px;color:#bbb;text-align:right;padding-top:14px;">Source · 부산일보 「이상훈의 시그니처 문화공간 이야기」 칼럼 기반</p>
+        </div>
+      </div>
+      <div style="max-width:900px;margin:0 auto;padding:40px 40px 64px;text-align:center;">
+        <p style="font-size:13px;color:#999;margin-bottom:20px;">선샤인 웰니스와 아트 컨시어지가 함께 설계하는 특별한 여행</p>
+        <button onclick="openContactPage()" style="display:inline-flex;align-items:center;gap:10px;background:#1a2e2a;color:#fff;font-size:14px;font-weight:700;padding:15px 44px;border-radius:32px;border:none;cursor:pointer;font-family:'Noto Sans KR',sans-serif;letter-spacing:.04em;">문의하기 →</button>
+      </div>
+    </div>
+  `);
 }
 
 function openArtConciergePage() {
@@ -1391,18 +1423,18 @@ function openArtConciergePage() {
         </div>
       </div>
 
-      <!-- ② 이상훈 대표 프로필 + 2023 하이라이트 -->
+      <!-- ② WHO · WHY 통합 -->
       <div class="sp-wrap" style="padding-top:48px;padding-bottom:0;">
         ${orn}
-        <div class="ac-who-frame">
+        <div class="ac-who-frame" style="margin-bottom:28px;">
           <svg class="ac-corner tl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
           <svg class="ac-corner tr" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
           <svg class="ac-corner bl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
           <svg class="ac-corner br" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
-          <span class="ac-who-label">WHO</span>
-          <span class="ac-who-name">이상훈 대표</span>
+          <span class="ac-who-label">WHO · WHY</span>
+          <span class="ac-who-name">이상훈 대표 &amp; 데스티네이션 아트</span>
         </div>
-        <div style="display:flex;align-items:center;gap:20px;margin-bottom:24px;padding:20px 28px 20px 0;background:#f7f6f3;border-radius:14px;">
+        <div style="display:flex;align-items:center;gap:20px;margin-bottom:20px;padding:20px 28px 20px 0;background:#f7f6f3;border-radius:14px;">
           <div style="width:64px;height:64px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid #e0ddd8;margin-left:0;">
             <img src="images/LSH2.jpeg" alt="이상훈 대표" style="width:100%;height:100%;object-fit:cover;display:block;" />
           </div>
@@ -1425,28 +1457,21 @@ function openArtConciergePage() {
             </div>`).join('')}
           </div>
         </div>`).join('')}
+        <div style="display:flex;align-items:center;gap:12px;margin:20px 0 16px;">
+          <div style="flex:1;height:1px;background:#e8e8e4;"></div>
+          <span style="font-size:13px;font-weight:700;color:#1a2e2a;white-space:nowrap;">예술 그 자체가 목적인 여행</span>
+          <div style="flex:1;height:1px;background:#e8e8e4;"></div>
+        </div>
+        <div style="background:#fff;border:1.5px solid #3B6259;border-radius:16px;padding:20px 24px;">
+          <p style="font-size:15px;color:#555;line-height:1.9;margin-bottom:14px;font-family:Georgia,serif;">아트 컨시어지는 단순히 여행 중 공연이나 미술관을 방문하는 것이 아닌, <strong style="color:#1a2e2a;">특정 공연·전시·건축 공간을 주목적으로 기획하는 1인 전문 여행사</strong>입니다.</p>
+          <p style="font-size:15px;color:#555;line-height:1.9;margin:0;font-family:Georgia,serif;">"그곳에 가야만 볼 수 있는 예술"이라는 <em>데스티네이션 아트(Destination Art)</em> 철학 아래, 서유럽 음악·콘서트·건축 공간 VIP 투어를 전문으로 합니다.</p>
+        </div>
         <div class="ac-tags">
           ${['#이상훈대표','#1400도시','#아트트래블','#음악','#건축','#미술관','#VIP','#서유럽','#Destination Art'].map(t=>`<span class="ac-tag">${t}</span>`).join('')}
         </div>
       </div>
 
-      <!-- ③ About -->
-      <div class="sp-wrap" style="padding-top:48px;padding-bottom:0;">
-        ${orn}
-        <div class="ac-who-frame" style="margin-bottom:36px;">
-          <svg class="ac-corner tl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
-          <svg class="ac-corner tr" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
-          <svg class="ac-corner bl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
-          <svg class="ac-corner br" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
-          <span class="ac-who-label">WHY</span>
-          <span class="ac-who-name" style="font-size:17px;">예술 그 자체가 목적인 여행</span>
-        </div>
-        <div style="background:#fff;border:1.5px solid #3B6259;border-radius:16px;padding:20px 24px;display:flex;flex-direction:column;justify-content:center;">
-          <p style="font-size:15px;color:#555;line-height:1.9;margin-bottom:14px;font-family:Georgia,serif;">아트 컨시어지는 단순히 여행 중 공연이나 미술관을 방문하는 것이 아닌, <strong style="color:#1a2e2a;">특정 공연·전시·건축 공간을 주목적으로 기획하는 1인 전문 여행사</strong>입니다.</p>
-          <p style="font-size:15px;color:#555;line-height:1.9;margin:0;font-family:Georgia,serif;">"그곳에 가야만 볼 수 있는 예술"이라는 <em>데스티네이션 아트(Destination Art)</em> 철학 아래, 서유럽 음악·콘서트·건축 공간 VIP 투어를 전문으로 합니다.</p>
-        </div>
-      </div>
-
+      <!-- ④ 이상훈 사진 + 동서대 강의 카드 -->
       <!-- ④ 이상훈 사진 + 동서대 강의 카드 -->
       <div class="sp-wrap" style="padding-top:48px;padding-bottom:0;">
         <div style="display:flex;flex-direction:column;gap:16px;">
