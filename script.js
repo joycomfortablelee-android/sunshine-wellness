@@ -1469,7 +1469,7 @@ function openArtConciergePage() {
 
       <!-- ④⑤ PROOF · CREDENTIAL 통합 -->
       <div style="background:#fff;padding:0;margin-top:0;">
-        <div class="sp-wrap" style="padding-top:48px;padding-bottom:40px;">
+        <div class="sp-wrap" style="padding-top:48px;padding-bottom:24px;">
           ${orn2}
           <div class="ac-who-frame" style="margin-bottom:36px;">
           <svg class="ac-corner tl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
@@ -1549,7 +1549,7 @@ function openArtConciergePage() {
       </div><!-- /PROOF·CREDENTIAL (PART 01) -->
       </div><!-- /PART 01 -->
 
-      <div style="background:#F5F5F3;padding:28px 0 0;">
+      <div style="background:#F5F5F3;padding:16px 0 0;">
         <div class="sp-wrap" style="padding-top:0;padding-bottom:0;">
           <div style="display:flex;align-items:center;gap:14px;">
             <div style="flex:1;height:1px;background:#c8c2b8;"></div>
