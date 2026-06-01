@@ -608,6 +608,37 @@ const translations = {
     'footer.about': '关于',
     'footer.programs': '项目',
     'footer.contact': '联系',
+    // About 页面
+    'about.hero.title': '您宝贵人生的<br/>第三幕与我们同行',
+    'about.hero.desc': '为新中年提供学习和成长、身心平衡的<br/>定制健康旅游专业旅行社',
+    'about.hero.stat1': '专业项目',
+    'about.hero.stat2': '定制旅游',
+    'about.hero.stat3': '本地专业',
+    'about.who.title': '超越简单旅游<br/>成为人生的同伴',
+    'about.who.desc1': '阳光健康旅游相信旅游不仅是简单的休息，而是寻找人生意义、促进成长的时刻。',
+    'about.who.desc2': '与釜山的自然、文化和历史的深度邂逅为生活注入新的活力。我们通过将健康和文化体验相结合的独创项目，帮助恢复身心平衡。',
+    'about.who.quote': '"为使旅游的每一刻都有意义和价值，阳光健康旅游将成为您真诚的同伴。"',
+    'about.for.title': '为40~60岁新中年<br/>精心设计的旅游',
+    'about.for.desc': '现在有了时间和余裕，开启寻找真正自我的旅程吧。',
+    'about.for.card1.title': '持续成长',
+    'about.for.card1.desc': '退休后继续不懈学习，通过新体验实现知识和情感成长的人士，我们提供量身定制的旅程。',
+    'about.for.card2.title': '恢复生活平衡',
+    'about.for.card2.desc': '为长期为他人而活的人们提供重新找到自我时间、恢复身心平衡的旅游。',
+    'about.for.card3.title': '重新发现意义',
+    'about.for.card3.desc': '与思考如何度过人生第三幕的人士一起，在釜山的深厚故事中找到新的方向。',
+    'about.for.card4.title': '有意义的缘分',
+    'about.for.card4.desc': '与共享相同价值观的同伴一起行走和对话，分享彼此经历的小团体旅游。',
+    'about.promise.title': '阳光健康旅游的<br/>三大承诺',
+    'about.promise.card1.tag': '娱乐',
+    'about.promise.card1.desc': '深度探访历史、文化、艺术、自然的健康旅游。设计为真正的体验，而非单纯观光。',
+    'about.promise.card2.tag': '美食',
+    'about.promise.card2.desc': '旅游期间保持健康的当地食材和健康零食，帮助身体在旅程中保持活力。',
+    'about.promise.card3.tag': '工作',
+    'about.promise.card3.desc': '旅游之后生活继续，通过教育和工作机会联接服务支持与社会相连的生活。',
+    'about.cta.title': '现在，开启您的<br/>旅程吧',
+    'about.cta.desc': '阳光健康旅游将与您一起设计专属于您的定制健康旅游。',
+    'about.cta.btn': '咨询 →',
+
     'footer.biz1': '首席执行官 : 李宥安 &nbsp;|&nbsp; 商业登记号 : 000-00-00000 &nbsp;|&nbsp; 邮购号 : 00000号 &nbsp;|&nbsp; 旅游登记号 : 000-00号 &nbsp;|&nbsp; 隐私官 : 李宥安',
     'footer.biz2': '地址 : 釜山东来区 ooo &nbsp;|&nbsp; 电话 : 010-5759-5485 &nbsp;|&nbsp; 电邮 : healthylee7@gmail.com',
     'footer.biz3': '旅游保险（一般） &nbsp;&nbsp;|&nbsp;&nbsp; 旅游保险（套装）',
@@ -2370,29 +2401,29 @@ function loginTabSwitch(idx) {
 // 웰니스 소개 새 창
 // =========================================
 function openAboutPage() {
-
+  const t = translations[currentLang];
 
   // 1. Hero
   const sec1 = `
     <section class="ab-section" style="background:#fff;padding:72px 40px 64px;text-align:center;">
       <div style="max-width:640px;margin:0 auto;">
         <p class="ab-eyebrow" style="color:#3B6259;">Sunshine Wellness</p>
-        <h1 class="ab-h1">가치있는 당신의 인생<br/>제 3막을 함께합니다</h1>
-        <p class="ab-body" style="color:#777;max-width:460px;margin:0 auto;">신중년의 배움과 성장,<br/>몸과 마음의 균형을 지원하는<br/>맞춤형 웰니스 여행 전문 여행사입니다.</p>
+        <h1 class="ab-h1">${t['about.hero.title']}</h1>
+        <p class="ab-body" style="color:#777;max-width:460px;margin:0 auto;">${t['about.hero.desc']}</p>
         <div class="ab-stats" style="margin-top:52px;display:flex;justify-content:center;align-items:center;">
           <div class="ab-stats-item" style="text-align:center;padding:0 36px;">
             <span style="display:block;font-size:30px;font-weight:800;color:#1a2e2a;line-height:1;">9</span>
-            <span class="ab-eyebrow" style="color:#999;margin-top:8px;margin-bottom:0;">전문 프로그램</span>
+            <span class="ab-eyebrow" style="color:#999;margin-top:8px;margin-bottom:0;">${t['about.hero.stat1']}</span>
           </div>
           <div class="ab-stats-sep" style="width:1px;height:32px;background:#e0e0e0;"></div>
           <div class="ab-stats-item" style="text-align:center;padding:0 36px;">
             <span style="display:block;font-size:30px;font-weight:800;color:#1a2e2a;line-height:1;">100%</span>
-            <span class="ab-eyebrow" style="color:#999;margin-top:8px;margin-bottom:0;">맞춤형 투어</span>
+            <span class="ab-eyebrow" style="color:#999;margin-top:8px;margin-bottom:0;">${t['about.hero.stat2']}</span>
           </div>
           <div class="ab-stats-sep" style="width:1px;height:32px;background:#e0e0e0;"></div>
           <div class="ab-stats-item" style="text-align:center;padding:0 36px;">
             <span style="display:block;font-size:30px;font-weight:800;color:#1a2e2a;line-height:1;">부산</span>
-            <span class="ab-eyebrow" style="color:#999;margin-top:8px;margin-bottom:0;">로컬 전문</span>
+            <span class="ab-eyebrow" style="color:#999;margin-top:8px;margin-bottom:0;">${t['about.hero.stat3']}</span>
           </div>
         </div>
       </div>
@@ -2403,26 +2434,26 @@ function openAboutPage() {
     <section class="ab-section" style="background:#fff;padding:80px 40px;">
       <div style="max-width:680px;margin:0 auto;text-align:center;">
         <p class="ab-eyebrow" style="color:#3B6259;">Who We Are</p>
-        <h2 class="ab-h2" style="margin-bottom:28px;">단순한 여행을 넘어,<br/>인생의 동반자가 되겠습니다</h2>
-        <p class="ab-body" style="margin-bottom:18px;">선샤인 웰니스는 여행이 단순한 휴식이 아니라 인생의 의미를 찾고 성장하는 시간이 될 수 있다고 믿습니다.</p>
-        <p class="ab-body">부산의 자연·문화·역사와 깊이 만나는 경험이 삶에 새로운 활력을 불어넣어 줍니다. 웰니스와 문화 체험을 결합한 독창적인 프로그램으로 몸과 마음의 균형을 되찾도록 돕겠습니다.</p>
+        <h2 class="ab-h2" style="margin-bottom:28px;">${t['about.who.title']}</h2>
+        <p class="ab-body" style="margin-bottom:18px;">${t['about.who.desc1']}</p>
+        <p class="ab-body">${t['about.who.desc2']}</p>
         <blockquote style="margin-top:28px;padding:18px 24px;background:#f5f5f3;border-radius:8px;border:none;">
-          <p class="ab-caption" style="font-weight:600;color:#1a2e2a;font-style:italic;font-family:Georgia,serif;">"여행의 모든 순간이 의미 있고 가치 있게 완성되도록, 선샤인 웰니스는 진심 어린 동반자가 되겠습니다."</p>
+          <p class="ab-caption" style="font-weight:600;color:#1a2e2a;font-style:italic;font-family:Georgia,serif;">${t['about.who.quote']}</p>
         </blockquote>
       </div>
     </section>`;
 
   // 3. For You
   const forYouCards = [
-    ['지속적인 성장', '은퇴 후에도 배움을 멈추지 않고, 새로운 경험으로 지적·정서적 성장을 이어가고 싶은 분께 맞춤 여정을 제안합니다.'],
-    ['삶의 균형 회복', '오랜 시간 타인을 위해 살아온 분들이 자신을 위한 시간을 되찾고, 몸과 마음의 균형을 회복하는 여행입니다.'],
-    ['의미의 재발견', '인생 3막을 어떻게 살아갈지 고민하는 분들과 부산의 깊은 이야기 속에서 새로운 방향을 찾아갑니다.'],
-    ['의미 있는 인연', '같은 가치를 공유하는 동반자들과 함께 걷고 이야기하며, 서로의 경험을 나누는 소규모 그룹 여행입니다.'],
-  ].map(([t, d], i) => `
+    [t['about.for.card1.title'], t['about.for.card1.desc']],
+    [t['about.for.card2.title'], t['about.for.card2.desc']],
+    [t['about.for.card3.title'], t['about.for.card3.desc']],
+    [t['about.for.card4.title'], t['about.for.card4.desc']],
+  ].map(([cardT, cardD], i) => `
     <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:24px 20px;">
       <span class="ab-eyebrow" style="color:rgba(255,255,255,0.55);margin-bottom:12px;display:block;">0${i + 1}</span>
-      <h3 style="font-size:15px;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.4;">${t}</h3>
-      <p class="ab-caption" style="color:rgba(255,255,255,0.88);">${d}</p>
+      <h3 style="font-size:15px;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.4;">${cardT}</h3>
+      <p class="ab-caption" style="color:rgba(255,255,255,0.88);">${cardD}</p>
     </div>`).join('');
 
   const sec3 = `
@@ -2430,30 +2461,33 @@ function openAboutPage() {
       <div style="position:absolute;inset:0;background:rgba(10,30,40,0.54);"></div>
       <div style="max-width:900px;margin:0 auto;position:relative;text-align:center;">
         <p class="ab-eyebrow" style="color:rgba(255,255,255,0.55);">For You</p>
-        <h2 class="ab-h2" style="color:#fff;margin-bottom:10px;">40~60대 신중년을 위해<br/>설계된 여행</h2>
-        <p class="ab-body" style="color:rgba(255,255,255,0.72);margin-bottom:44px;">시간과 여유가 생긴 지금, 진정한 나를 찾는 여정을 시작해보세요.</p>
+        <h2 class="ab-h2" style="color:#fff;margin-bottom:10px;">${t['about.for.title']}</h2>
+        <p class="ab-body" style="color:rgba(255,255,255,0.72);margin-bottom:44px;">${t['about.for.desc']}</p>
         <div class="ab-for-you-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">${forYouCards}</div>
       </div>
     </section>`;
 
   // 4. Our Promise
   const promiseCards = [
-    ['01', '즐길거리', '배움과 여가가 함께하는 여행', '역사·문화·예술·자연을 깊이 탐방하는 웰니스 여행. 단순 관광이 아닌 진정한 체험으로 설계합니다.'],
-    ['02', '먹거리', '건강한 부산의 맛', '여행 중 건강을 지키는 로컬 음식과 건강 간식으로 몸이 활기차게 여정을 이어갈 수 있도록 돕습니다.'],
-    ['03', '일거리', '교육 및 일자리 연계', '여행 이후에도 삶이 이어지도록, 교육과 일자리 연계 서비스로 사회와 연결된 삶을 지원합니다.'],
-  ].map(([n, t, tag, d]) => `
+    ['01', '즐할거리', '배움과 여가가 함께하는 여행', t['about.promise.card1.desc']],
+    ['02', '吃的东西', '건강한 부산의 맛', t['about.promise.card2.desc']],
+    ['03', '做的事', '교육 및 일자리 연계', t['about.promise.card3.desc']],
+  ].map(([n, tag, tagEN, desc], i) => {
+    const cardKeys = ['about.promise.card1.tag', 'about.promise.card2.tag', 'about.promise.card3.tag'];
+    return `
     <div style="background:#fff;border-radius:14px;padding:28px 22px;border-top:3px solid #1a2e2a;box-shadow:0 2px 14px rgba(0,0,0,0.06);">
       <span style="display:block;font-size:28px;font-weight:800;color:#ececea;line-height:1;margin-bottom:16px;">${n}</span>
-      <h3 style="font-size:16px;font-weight:700;color:#1a2e2a;margin-bottom:4px;">${t}</h3>
-      <span class="ab-eyebrow" style="color:#3B6259;margin-bottom:12px;display:block;">${tag}</span>
-      <p class="ab-caption" style="color:#666;">${d}</p>
-    </div>`).join('');
+      <h3 style="font-size:16px;font-weight:700;color:#1a2e2a;margin-bottom:4px;">${currentLang === 'zh' ? (i === 0 ? '娱乐' : i === 1 ? '美食' : '工作') : tag}</h3>
+      <span class="ab-eyebrow" style="color:#3B6259;margin-bottom:12px;display:block;">${currentLang === 'zh' ? (i === 0 ? '娱乐活动' : i === 1 ? '美食' : '工作机会') : tagEN}</span>
+      <p class="ab-caption" style="color:#666;">${desc}</p>
+    </div>`;
+  }).join('');
 
   const sec4 = `
     <section class="ab-section" style="background:#f5f5f3;padding:80px 40px;">
       <div style="max-width:900px;margin:0 auto;text-align:center;">
         <p class="ab-eyebrow" style="color:#3B6259;">Our Promise</p>
-        <h2 class="ab-h2">선샤인 웰니스의<br/>세 가지 약속</h2>
+        <h2 class="ab-h2">${t['about.promise.title']}</h2>
         <div class="ab-promise-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px;">${promiseCards}</div>
       </div>
     </section>`;
@@ -2464,14 +2498,17 @@ function openAboutPage() {
       <div style="position:absolute;inset:0;background:rgba(10,25,35,0.56);"></div>
       <div style="max-width:520px;margin:0 auto;position:relative;">
         <p class="ab-eyebrow" style="color:rgba(255,255,255,0.55);">Get Started</p>
-        <h2 class="ab-h2" style="color:#fff;margin-bottom:14px;">지금, 당신의 여정을<br/>시작하세요</h2>
-        <p class="ab-body" style="color:rgba(255,255,255,0.78);margin-bottom:36px;">선샤인 웰니스가 당신만의 맞춤 웰니스 여행을 함께 설계합니다.</p>
-        <button onclick="openContactPage()" style="display:inline-block;background:#fff;color:#1a2e2a;font-size:14px;font-weight:700;padding:14px 40px;border-radius:30px;border:none;cursor:pointer;letter-spacing:.04em;font-family:'Noto Sans KR',sans-serif;">문의하기 →</button>
+        <h2 class="ab-h2" style="color:#fff;margin-bottom:14px;">${t['about.cta.title']}</h2>
+        <p class="ab-body" style="color:rgba(255,255,255,0.78);margin-bottom:36px;">${t['about.cta.desc']}</p>
+        <button onclick="openContactPage()" style="display:inline-block;background:#fff;color:#1a2e2a;font-size:14px;font-weight:700;padding:14px 40px;border-radius:30px;border:none;cursor:pointer;letter-spacing:.04em;font-family:'Noto Sans KR',sans-serif;">${t['about.cta.btn']}</button>
       </div>
     </section>`;
 
 
-  showSubPageFull(`<div class="co-fullbg-wrap"><div class="co-fullbg-banner banner-seagull"><div class="co-page-header"><p>About</p><h1>웰니스 소개<span class="co-page-subtitle">— Sunshine Wellness</span></h1></div></div>` + sec1 + sec2 + sec3 + sec4 + sec5 + `</div>`)
+  const pageTitle = currentLang === 'zh' ? '关于我们' : currentLang === 'en' ? 'Wellness Introduction' : '웰니스 소개';
+  const pageSubtitle = currentLang === 'zh' ? '阳光健康旅游' : 'Sunshine Wellness';
+
+  showSubPageFull(`<div class="co-fullbg-wrap"><div class="co-fullbg-banner banner-seagull"><div class="co-page-header"><p>About</p><h1>${pageTitle}<span class="co-page-subtitle">— ${pageSubtitle}</span></h1></div></div>` + sec1 + sec2 + sec3 + sec4 + sec5 + `</div>`)
 }
 
 // =========================================
