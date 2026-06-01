@@ -1,7 +1,7 @@
 // =========================================
 // SUNSHINE WELLNESS — script.js
 // =========================================
-console.log('[SCRIPT] 로딩됨 v=20260601f');
+console.log('[SCRIPT] 로딩됨 v=20260601h');
 
 // 카카오 SDK 초기화
 window.addEventListener('load', function() {
@@ -768,6 +768,21 @@ function setLang(lang) {
 
   document.documentElement.lang = lang === 'ko' ? 'ko' : 'en';
 
+  // 리뷰 카드 업데이트
+  document.querySelectorAll('.review-card').forEach((card, idx) => {
+    const review = _reviewData[idx];
+    if (!review) return;
+    const data = review[lang] || review.ko;
+    const textEl = card.querySelector('.review-text');
+    const authorEl = card.querySelector('.review-author');
+    const destEl = card.querySelector('.review-dest');
+    const programEl = card.querySelector('.review-program');
+    if (textEl) textEl.textContent = data.text;
+    if (authorEl) authorEl.textContent = data.author;
+    if (destEl) destEl.textContent = data.dest;
+    if (programEl) programEl.textContent = data.program;
+  });
+
   // 서브페이지 오버레이가 열려 있으면 현재 언어로 다시 렌더
   const _ov = document.getElementById('subPageOverlay');
   if (_activeSubPageRender && _ov && _ov.style.display === 'block') {
@@ -1202,6 +1217,29 @@ function hcDeliverySearch() {
 }
 
 // =========================================
+// Reviews 데이터
+// =========================================
+const _reviewData = [
+  {
+    id: 1,
+    en: { text: 'I applied without great expectations, but when I actually participated, it was a much more satisfying trip than I thought. If I get the chance, I\'d like to participate in the next program again.', author: 'Hwang Mi-kyung', dest: 'Busan', program: 'Busan Area Tour' },
+    zh: { text: '最初没有很大的期望就报名了，但参加后发现比想象中满意得多。如果有机会，我一定会再次参加下一个项目。', author: '黄美京', dest: '釜山', program: '釜山近郊之旅' },
+    ko: { text: '처음에는 큰 기대 없이 신청했는데, 막상 참여해보니 생각보다 훨씬 만족스러운 여행이었습니다. 다음 프로그램도 기회가 된다면 꼭 다시 참여하고 싶습니다.', author: '황미경', dest: '부산', program: '부산 근교 투어' }
+  },
+  {
+    id: 2,
+    en: { text: 'The moment the sound of waves and the wooden fish block rang together, my complex thoughts began to be organized little by little. I highly recommend it to those who need a moment to pause in their busy daily life.', author: 'Son Myung-hee', dest: 'Busan', program: 'Temple Tour' },
+    zh: { text: '当海浪声和木鱼声一起响起的瞬间，心中复杂的想法开始逐渐理清。我强烈推荐给那些在忙碌的日常生活中需要片刻停顿的人。', author: '孙明姬', dest: '釜山', program: '寺庙之旅' },
+    ko: { text: '파도 소리와 목탁 소리가 함께 들리는 순간, 마음속 복잡한 생각들이 조금씩 정리되는 느낌이었습니다. 바쁜 일상 속에서 잠시 멈춤이 필요한 분들에게 꼭 추천합니다.', author: '손명희', dest: '부산', program: '사찰 투어' }
+  },
+  {
+    id: 3,
+    en: { text: 'Rather than just looking at pretty alleyways, I was able to learn about how Gamcheon Culture Village was formed and what stories it holds. Everyone should experience it at least once, whether you\'re visiting Busan for the first time or live there.', author: 'Jung Soon-ja', dest: 'Busan', program: 'Gamcheon Culture Village Tour' },
+    zh: { text: '与其只是看漂亮的小巷，我有机会了解甘川文化村如何形成和它蕴含的故事。无论是第一次来釜山还是住在釜山，每个人都应该至少体验一次。', author: '郑顺子', dest: '釜山', program: '甘川文化村讲解' },
+    ko: { text: '단순히 예쁜 골목을 둘러보는 것이 아니라, 마을이 품고 있는 이야기를 들을 수 있어 여행의 깊이가 달라졌습니다. 부산에 살아도 꼭 한 번은 경험해보셔야 합니다.', author: '정순자', dest: '부산', program: '감천문화마을 해설' }
+  }
+];
+
 // Where to Next? 게시판 (오버레이)
 // =========================================
 const _boardInitPosts = [
