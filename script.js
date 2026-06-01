@@ -767,6 +767,12 @@ function setLang(lang) {
   );
 
   document.documentElement.lang = lang === 'ko' ? 'ko' : 'en';
+
+  // 서브페이지 오버레이가 열려 있으면 현재 언어로 다시 렌더
+  const _ov = document.getElementById('subPageOverlay');
+  if (_activeSubPageRender && _ov && _ov.style.display === 'block') {
+    _activeSubPageRender();
+  }
 }
 
 // 언어 버튼 클릭 이벤트
@@ -871,6 +877,9 @@ startAutoPlay();
 // =========================================
 // 서브페이지 오버레이 (홈 헤더 유지)
 // =========================================
+// 현재 열려 있는 서브페이지를 현재 언어로 다시 그리기 위한 렌더 함수 참조
+let _activeSubPageRender = null;
+
 function showSubPage(html) {
   const el = document.getElementById('subPageOverlay');
   el.innerHTML = html;
@@ -925,6 +934,7 @@ function showSubPageFull(html) {
 
 function closeSubPage() {
   _overlayAlwaysScrolled = false;
+  _activeSubPageRender = null;
   const el = document.getElementById('subPageOverlay');
   if (!el) return;
   el.removeEventListener('scroll', _overlayScrollHandler);
@@ -1271,6 +1281,7 @@ function boardGoPage(p) { _boardPage = p; _boardRender(); document.getElementByI
 function _openBoardDetailInOverlay(id) {
   const post = boardData.find(p => String(p.id) === String(id));
   if (!post) return;
+  _activeSubPageRender = () => _openBoardDetailInOverlay(id);
   const lang = currentLang || 'ko';
   const loc = (lang !== 'ko' && _boardListI18n[id]) ? _boardListI18n[id][lang] : null;
 
@@ -1349,6 +1360,7 @@ function boardSubmit() {
 }
 
 function openWhereToNextPage() {
+  _activeSubPageRender = openWhereToNextPage;
   const lang = currentLang || 'ko';
 
   const labels = lang === 'en' ? {
@@ -1435,6 +1447,7 @@ function openWhereToNextPage() {
 // 견적의뢰 및 문의 — K-Wellness 스타일 오버레이
 // =========================================
 function openContactPage() {
+  _activeSubPageRender = openContactPage;
   const lang = currentLang || 'ko';
 
   if (lang === 'zh') {
@@ -1845,6 +1858,7 @@ function coSubmit() {
 // Contact Us — 회사 정보 오버레이
 // =========================================
 function openContactUsPage() {
+  _activeSubPageRender = openContactUsPage;
   const lang = currentLang || 'ko';
 
   const labels = lang === 'en' ? {
@@ -2056,6 +2070,7 @@ function _buildArchiveCards() {
 // 제휴 여행사 — 아트 컨시어지
 // =========================================
 function openArtConciergeArchive() {
+  _activeSubPageRender = openArtConciergeArchive;
   const orn2star = `<svg class="ac-ornament" viewBox="0 0 300 26" xmlns="http://www.w3.org/2000/svg"><line x1="20" y1="13" x2="95" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/><text x="150" y="19" text-anchor="middle" font-size="15" fill="#2d4a42" opacity="0.72" font-family="Georgia,serif">∗ · · ✦ · · ∗</text><line x1="205" y1="13" x2="280" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/></svg>`;
   const orn3 = `<svg class="ac-ornament" viewBox="0 0 300 26" xmlns="http://www.w3.org/2000/svg"><line x1="20" y1="13" x2="128" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/><text x="150" y="19" text-anchor="middle" font-size="16" fill="#2d4a42" opacity="0.72" font-family="Georgia,serif">⚜</text><line x1="172" y1="13" x2="280" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/></svg>`;
   showSubPageFull(`
@@ -2105,6 +2120,7 @@ function openArtConciergeArchive() {
 }
 
 function openArtConciergePage() {
+  _activeSubPageRender = openArtConciergePage;
   const orn = `<svg class="ac-ornament" viewBox="0 0 300 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M26 13 C16 13 9 11 8 8 C7 5 9 2 11 3 C13 4 12 7 10 8" stroke="#2d4a42" stroke-width="1.1" stroke-linecap="round"/><line x1="26" y1="13" x2="128" y2="13" stroke="#2d4a42" stroke-width="0.8" opacity="0.55"/><circle cx="138" cy="13" r="1.3" fill="#2d4a42" opacity="0.45"/><path d="M150 8 L154.5 13 L150 18 L145.5 13 Z" fill="#2d4a42" opacity="0.75"/><circle cx="162" cy="13" r="1.3" fill="#2d4a42" opacity="0.45"/><line x1="172" y1="13" x2="274" y2="13" stroke="#2d4a42" stroke-width="0.8" opacity="0.55"/><path d="M274 13 C284 13 291 11 292 8 C293 5 291 2 289 3 C287 4 288 7 290 8" stroke="#2d4a42" stroke-width="1.1" stroke-linecap="round"/></svg>`;
   const orn2 = `<svg class="ac-ornament" viewBox="0 0 300 26" xmlns="http://www.w3.org/2000/svg"><line x1="20" y1="13" x2="128" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/><text x="150" y="19" text-anchor="middle" font-size="16" fill="#2d4a42" opacity="0.72" font-family="Georgia,serif">⚜</text><line x1="172" y1="13" x2="280" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/></svg>`;
   const orn2star = `<svg class="ac-ornament" viewBox="0 0 300 26" xmlns="http://www.w3.org/2000/svg"><line x1="20" y1="13" x2="95" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/><text x="150" y="19" text-anchor="middle" font-size="15" fill="#2d4a42" opacity="0.72" font-family="Georgia,serif">∗ · · ✦ · · ∗</text><line x1="205" y1="13" x2="280" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/></svg>`;
@@ -2467,6 +2483,7 @@ function _backToArchive() {
 // 문화공간 아카이브 사례 상세 (3뎁스)
 // =========================================
 function openCulturalCasePage(selectedType) {
+  _activeSubPageRender = () => openCulturalCasePage(selectedType);
   const TYPE_EN = {
     T1:'Music City & Hall', T2:'Festival & Artist City',
     T3:'Heritage & Regeneration', T4:'Foundation & Collection',
@@ -2541,6 +2558,7 @@ function openCulturalCasePage(selectedType) {
 // 프로그램 소개 새 창
 // =========================================
 function openProgramsPage() {
+  _activeSubPageRender = openProgramsPage;
   const lang = currentLang || 'ko';
   const t = translations[lang] || translations.ko;
 
@@ -2611,6 +2629,7 @@ function openProgramsPage() {
 // 로그인 페이지
 // =========================================
 function openLoginPage() {
+  _activeSubPageRender = openLoginPage;
   showSubPageFull(`
     <div style="min-height:100vh;background:#f5f5f3;padding:100px 20px 60px;">
       <div style="max-width:960px;margin:0 auto;">
@@ -2744,6 +2763,7 @@ function openLoginPage() {
 }
 
 function openSignupPage() {
+  _activeSubPageRender = openSignupPage;
   showSubPageFull(`
     <div style="min-height:100vh;background:#f5f5f3;padding:100px 20px 60px;">
       <div style="max-width:480px;margin:0 auto;">
@@ -2832,6 +2852,7 @@ function loginTabSwitch(idx) {
 // 웰니스 소개 새 창
 // =========================================
 function openAboutPage() {
+  _activeSubPageRender = openAboutPage;
   const t = translations[currentLang] || translations.ko;
 
   // 1. Hero
