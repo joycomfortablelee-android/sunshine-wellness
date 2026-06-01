@@ -2071,6 +2071,12 @@ function _buildArchiveCards(lang) {
     var c = TC[td.type];
     var preview = culturalArchiveData.filter(function(d){ return d.type === td.type; }).slice(0,2);
     var previewHtml = preview.map(function(p) {
+      var z = (isZh && typeof _archiveZh !== 'undefined') ? _archiveZh[p.no] : null;
+      var pCity = z ? z.city : p.city;
+      var pCountry = z ? z.country : p.country;
+      var pCase = z ? z.caseName : p.caseName;
+      var pConcept = z ? z.concept : p.concept;
+      var pKw = z ? z.kw : p.spatialStrategyKeyword;
       var linkHtml = p.sourceUrl
         ? '<a href="' + p.sourceUrl + '" target="_blank" rel="noopener noreferrer" style="font-size:11.5px;font-weight:700;color:' + c.badge + ';text-decoration:none;">' + (isZh ? '查看原文 ↗' : '원문 보기 ↗') + '</a>'
         : '';
@@ -2080,14 +2086,14 @@ function _buildArchiveCards(lang) {
       var tagMargin = p.sourceUrl ? 'margin-bottom:9px;' : '';
       return '<div style="border:1px solid ' + c.border + ';border-radius:10px;padding:13px 15px;background:#fff;">'
         + '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;">'
-        + '<span style="font-size:9.5px;font-weight:700;color:' + c.badge + ';letter-spacing:.04em;">' + p.city + ' · ' + p.country + '</span>'
+        + '<span style="font-size:9.5px;font-weight:700;color:' + c.badge + ';letter-spacing:.04em;">' + pCity + ' · ' + pCountry + '</span>'
         + calumnBadge
         + '</div>'
-        + '<p style="font-size:13px;font-weight:700;color:#1a2e2a;margin-bottom:3px;line-height:1.4;">' + p.caseName + '</p>'
-        + '<p style="font-size:11px;color:#999;margin-bottom:9px;">' + p.concept + '</p>'
+        + '<p style="font-size:13px;font-weight:700;color:#1a2e2a;margin-bottom:3px;line-height:1.4;">' + pCase + '</p>'
+        + '<p style="font-size:11px;color:#999;margin-bottom:9px;">' + pConcept + '</p>'
         + '<div style="display:flex;flex-wrap:wrap;gap:4px;' + tagMargin + '">'
-        + '<span style="font-size:9.5px;color:' + c.tagTxt + ';background:' + c.tagBg + ';padding:2px 8px;border-radius:20px;">#' + p.spatialStrategyKeyword + '</span>'
-        + '<span style="font-size:9.5px;color:' + c.tagTxt + ';background:' + c.tagBg + ';padding:2px 8px;border-radius:20px;">#' + p.city + '</span>'
+        + '<span style="font-size:9.5px;color:' + c.tagTxt + ';background:' + c.tagBg + ';padding:2px 8px;border-radius:20px;">#' + pKw + '</span>'
+        + '<span style="font-size:9.5px;color:' + c.tagTxt + ';background:' + c.tagBg + ';padding:2px 8px;border-radius:20px;">#' + pCity + '</span>'
         + '</div>'
         + linkHtml
         + '</div>';
@@ -2669,24 +2675,34 @@ function openCulturalCasePage(selectedType) {
             ${_ccBack}
           </button>
           <div class="ca-case-grid">
-            ${filtered.map(d=>`
+            ${filtered.map(d=>{
+              const z = (_ccZh && typeof _archiveZh !== 'undefined') ? _archiveZh[d.no] : null;
+              const dCity = z ? z.city : d.city;
+              const dCountry = z ? z.country : d.country;
+              const dCase = z ? z.caseName : d.caseName;
+              const dConcept = z ? z.concept : d.concept;
+              const dTopic = z ? z.topic : d.columnTopic;
+              const dKw = z ? z.kw : d.spatialStrategyKeyword;
+              const dCont = z ? z.continent : d.continent;
+              const dPub = d.sourcePublisher ? (_ccZh ? '釜山日报' : d.sourcePublisher) : '';
+              return `
               <div style="border:1px solid #e0ddd8;border-radius:14px;padding:24px 22px;background:#fff;display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s;"
                    onmouseover="this.style.boxShadow='0 8px 28px rgba(0,0,0,0.09)';this.style.transform='translateY(-3px)'"
                    onmouseout="this.style.boxShadow='none';this.style.transform='none'">
                 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-                  <span style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#3B6259;">${d.city} · ${d.country}</span>
+                  <span style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#3B6259;">${dCity} · ${dCountry}</span>
                   <span style="font-size:10px;font-weight:800;color:#fff;background:${badgeColor};padding:2px 9px;border-radius:20px;">${d.type}</span>
                 </div>
-                <h3 style="font-size:15px;font-weight:700;color:#1a2e2a;line-height:1.4;margin-bottom:7px;">${d.caseName}</h3>
-                <p style="font-size:11.5px;font-weight:600;color:#3B6259;margin-bottom:10px;">${d.concept}</p>
-                <p style="font-size:13px;color:#666;line-height:1.8;flex:1;margin-bottom:12px;">${d.columnTopic}</p>
+                <h3 style="font-size:15px;font-weight:700;color:#1a2e2a;line-height:1.4;margin-bottom:7px;">${dCase}</h3>
+                <p style="font-size:11.5px;font-weight:600;color:#3B6259;margin-bottom:10px;">${dConcept}</p>
+                <p style="font-size:13px;color:#666;line-height:1.8;flex:1;margin-bottom:12px;">${dTopic}</p>
                 <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
-                  <span style="font-size:10px;font-weight:600;color:#3B6259;background:#eef5f2;padding:3px 9px;border-radius:20px;">#${d.spatialStrategyKeyword}</span>
-                  <span style="font-size:10px;font-weight:600;color:#3B6259;background:#eef5f2;padding:3px 9px;border-radius:20px;">#${d.city}</span>
-                  <span style="font-size:10px;font-weight:600;color:#3B6259;background:#eef5f2;padding:3px 9px;border-radius:20px;">#${d.continent}</span>
+                  <span style="font-size:10px;font-weight:600;color:#3B6259;background:#eef5f2;padding:3px 9px;border-radius:20px;">#${dKw}</span>
+                  <span style="font-size:10px;font-weight:600;color:#3B6259;background:#eef5f2;padding:3px 9px;border-radius:20px;">#${dCity}</span>
+                  <span style="font-size:10px;font-weight:600;color:#3B6259;background:#eef5f2;padding:3px 9px;border-radius:20px;">#${dCont}</span>
                 </div>
                 <div style="border-top:1px solid #f0eeea;padding-top:11px;margin-bottom:12px;">
-                  <p style="font-size:11px;color:#aaa;margin-bottom:3px;">${d.columnDate}${d.sourcePublisher ? ' · ' + d.sourcePublisher : ''}</p>
+                  <p style="font-size:11px;color:#aaa;margin-bottom:3px;">${d.columnDate}${dPub ? ' · ' + dPub : ''}</p>
                   ${d.sourceTitle ? `<p style="font-size:11.5px;color:#888;line-height:1.6;font-style:italic;">&ldquo;${d.sourceTitle}&rdquo;</p>` : ''}
                 </div>
                 ${d.sourceUrl ? `<a href="${d.sourceUrl}" target="_blank" rel="noopener noreferrer"
@@ -2695,7 +2711,7 @@ function openCulturalCasePage(selectedType) {
                    onmouseout="this.style.background='transparent';this.style.color='#1a2e2a'">
                   ${_ccView}
                 </a>` : `<span style="font-size:11px;color:#ccc;font-style:italic;">${_ccPrep}</span>`}
-              </div>`).join('')}
+              </div>`;}).join('')}
           </div>
           <p style="font-size:11.5px;color:#bbb;text-align:right;padding-top:20px;">${_ccSource}</p>
         </div>
