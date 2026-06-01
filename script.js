@@ -1469,7 +1469,7 @@ function openArtConciergePage() {
 
       <!-- ④⑤ PROOF · CREDENTIAL 통합 -->
       <div style="background:#fff;padding:0;margin-top:0;">
-        <div class="sp-wrap" style="padding-top:48px;padding-bottom:0;">
+        <div class="sp-wrap" style="padding-top:48px;padding-bottom:30px;">
           ${orn2}
           <div class="ac-who-frame" style="margin-bottom:36px;">
           <svg class="ac-corner tl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
@@ -1773,7 +1773,7 @@ function openCulturalCasePage(selectedType) {
     <div class="co-fullbg-wrap">
 
       <!-- 3뎁스 헤더 -->
-      <div style="background:#1a2e2a;padding:48px 0 36px;">
+      <div style="background:#1a2e2a;padding:72px 0 36px;">
         <div class="sp-wrap">
           <p style="font-size:11px;font-weight:700;letter-spacing:.15em;color:#7aaa99;text-transform:uppercase;margin-bottom:10px;">Cultural Space Case</p>
           <h1 style="font-size:26px;font-weight:800;color:#fff;line-height:1.25;margin-bottom:8px;">${typeDef.typeName}</h1>
