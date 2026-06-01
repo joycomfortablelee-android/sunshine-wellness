@@ -1271,8 +1271,8 @@ function openContactUsPage() {
 // =========================================
 function _buildArchiveCards() {
   const TC = {
-    T1:{badge:'#2e3e72',bg:'#f0f1f7',border:'#c8ccdf',tagBg:'#e2e5f4',tagTxt:'#2e3e72',hbg:'#f0f1f7',white:false},
-    T2:{badge:'#9a4f28',bg:'#fdf3ee',border:'#e8cfc2',tagBg:'#fde0d0',tagTxt:'#9a4f28',hbg:'#fdf3ee',white:false},
+    T1:{badge:'#2e3e72',bg:'#f0f1f7',border:'#c8ccdf',tagBg:'#e2e5f4',tagTxt:'#2e3e72',hbg:'linear-gradient(135deg,#1e2d5a 0%,#3a5090 100%)'},
+    T2:{badge:'#9a4f28',bg:'#fdf3ee',border:'#e8cfc2',tagBg:'#fde0d0',tagTxt:'#9a4f28',hbg:'linear-gradient(135deg,#7a3a1a 0%,#b05a30 100%)'},
     T3:{badge:'#3b5847',bg:'#eff4f1',border:'#c4d8cc',tagBg:'#daeae1',tagTxt:'#3b5847',hbg:'linear-gradient(135deg,#263d30 0%,#3b5847 100%)'},
     T4:{badge:'#6b3a5a',bg:'#f5f0f4',border:'#d8c8d4',tagBg:'#ecdde8',tagTxt:'#6b3a5a',hbg:'linear-gradient(135deg,#4d2440 0%,#6b3a5a 100%)'},
     T5:{badge:'#7a6428',bg:'#faf6ea',border:'#ddd4b4',tagBg:'#f2ead4',tagTxt:'#7a6428',hbg:'linear-gradient(135deg,#5a4818 0%,#7a6428 100%)'},
