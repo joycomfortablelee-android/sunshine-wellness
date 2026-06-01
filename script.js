@@ -1775,61 +1775,102 @@ function coSubmit() {
 // Contact Us — 회사 정보 오버레이
 // =========================================
 function openContactUsPage() {
+  const lang = currentLang || 'ko';
+
+  const labels = lang === 'en' ? {
+    contactUs: 'Contact Us', companyName: 'Sunshine Wellness',
+    support: 'Support', customerService: 'Customer Service', count12: '12 items', inquireBtn: 'Inquire',
+    phone: 'Phone Inquiry', email: 'Email Inquiry', kakao: 'KakaoTalk Channel',
+    location: 'Meeting Point', hours: 'Business Hours', coupon: 'Download Discount Coupon',
+    notice: 'Announcements', faq: 'FAQ', qna: 'Q&A', voice: 'Customer Reviews', delivery: 'Delivery Tracking', events: 'Event Winners',
+    howToBook: 'How to Book', bookingGuide: 'Booking Guide', fromBooking: 'From Booking to Departure',
+    step01: ['01', 'Inquiry', 'Tell us your desired program and dates via phone, email, or KakaoTalk.'],
+    step02: ['02', 'Schedule Confirmation', 'Our team will provide you with a customized itinerary and quote. (within 1-2 business days)'],
+    step03: ['03', 'Payment Confirmation', 'Your reservation is confirmed after payment is made to the provided account.'],
+    step04: ['04', 'Departure', 'We depart from the meeting point on your confirmed date. Have a wonderful trip!'],
+    sns: 'SNS', ceoName: 'CEO: Lee ○○', bizNo: 'Business Reg. No.: 000-00-00000',
+    address: 'Address: In front of Judist Tae Hwa Dept. Store, Seomyeon, Busanjin-gu, Busan',
+    copyright: '© 2026 Sunshine Wellness. All rights reserved.'
+  } : lang === 'zh' ? {
+    contactUs: '联系我们', companyName: '阳光健康旅游',
+    support: '支持', customerService: '客户中心', count12: '共12项', inquireBtn: '咨询',
+    phone: '电话咨询', email: '电子邮件咨询', kakao: '卡卡奥频道',
+    location: '集合地点', hours: '营业时间', coupon: '下载折扣券',
+    notice: '公告', faq: '常见问题', qna: '问答', voice: '客户评价', delivery: '快递追踪', events: '活动获奖者',
+    howToBook: '预订步骤', bookingGuide: '预订指南', fromBooking: '从预订到出发',
+    step01: ['01', '咨询', '通过电话、电子邮件或卡卡奥告诉我们您想要的项目和日期。'],
+    step02: ['02', '日程确认', '我们的工作人员将为您提供定制的行程和报价。(1~2个工作日内)'],
+    step03: ['03', '付款确认', '支付到指定账户后，您的预订即可确认。'],
+    step04: ['04', '出发', '我们从集合地点按照确认的日期出发。祝您旅途愉快！'],
+    sns: '社交媒体', ceoName: '首席执行官: 李○○', bizNo: '商业登记号: 000-00-00000',
+    address: '地址: 釜山市釜山镇西面朱迪斯泰和百货前',
+    copyright: '© 2026 阳光健康旅游. 版权所有。'
+  } : {
+    contactUs: 'Contact Us', companyName: '선샤인 웰니스',
+    support: 'Support', customerService: '고객센터', count12: '총 12건', inquireBtn: '문의하기',
+    phone: '전화 문의', email: '이메일 문의', kakao: '카카오 채널',
+    location: '모이는 장소', hours: '운영 시간', coupon: '할인쿠폰 다운로드',
+    notice: '공지사항', faq: '자주 묻는 질문', qna: '묻고 답하기', voice: '고객의 소리', delivery: '우편배송조회', events: '이벤트 당첨자 발표',
+    howToBook: 'How to Book', bookingGuide: '이용 안내', fromBooking: '예약부터 출발까지',
+    step01: ['01', '문의', '전화·이메일·카카오톡으로 원하는 프로그램과 일정을 알려주세요.'],
+    step02: ['02', '일정 확인', '담당자가 맞춤 일정과 견적을 안내해 드립니다. (1~2 영업일 내)'],
+    step03: ['03', '입금 확인', '안내받은 계좌로 입금 후 예약이 확정됩니다.'],
+    step04: ['04', '출발', '확정된 일정에 맞춰 모이는 장소에서 출발합니다. 즐거운 여행 되세요!'],
+    sns: 'SNS', ceoName: '대표: 이 〇〇', bizNo: '사업자등록번호: 000-00-00000',
+    address: '주소: 부산광역시 부산진구 서면 쥬디스태화 백화점 앞',
+    copyright: '© 2026 선샤인 웰니스. All rights reserved.'
+  };
+
   showSubPageFull(`
     <div class="co-fullbg-wrap">
     <div class="co-fullbg-banner banner-songdo">
       <div class="co-page-header">
-        <p>Contact Us</p>
-        <h1>선샤인 웰니스<span class="co-page-subtitle">— Sunshine Wellness</span></h1>
+        <p>${labels.contactUs}</p>
+        <h1>${labels.companyName}<span class="co-page-subtitle">— Sunshine Wellness</span></h1>
       </div>
     </div>
     <div class="cu-wrap">
 
-      <p class="co-section-title">Support</p>
-      <h2 class="co-heading">고객센터</h2>
+      <p class="co-section-title">${labels.support}</p>
+      <h2 class="co-heading">${labels.customerService}</h2>
       <div class="sp-toolbar" style="margin-bottom:24px;">
-        <p class="sp-count">총 <strong>12</strong>건</p>
-        <button onclick="openContactPage()" class="sp-btn-write">문의하기</button>
+        <p class="sp-count">${labels.count12}</p>
+        <button onclick="openContactPage()" class="sp-btn-write">${labels.inquireBtn}</button>
       </div>
       <!-- Grid 1: 연락 수단 3종 -->
       <div class="cu-unified-grid" style="margin-bottom:16px;">
-        <button class="cu-ucard cu-ucard-btn" onclick="cuContactPopup('phone')"><div class="cu-ucard-icon">📞</div><h3 class="cu-ucard-title">전화 문의</h3></button>
-        <button class="cu-ucard cu-ucard-btn" onclick="cuContactPopup('email')"><div class="cu-ucard-icon">✉️</div><h3 class="cu-ucard-title">이메일 문의</h3></button>
-        <button class="cu-ucard cu-ucard-btn" onclick="cuContactPopup('kakao')"><div class="cu-ucard-icon">💛</div><h3 class="cu-ucard-title">카카오 채널</h3></button>
+        <button class="cu-ucard cu-ucard-btn" onclick="cuContactPopup('phone')"><div class="cu-ucard-icon">📞</div><h3 class="cu-ucard-title">${labels.phone}</h3></button>
+        <button class="cu-ucard cu-ucard-btn" onclick="cuContactPopup('email')"><div class="cu-ucard-icon">✉️</div><h3 class="cu-ucard-title">${labels.email}</h3></button>
+        <button class="cu-ucard cu-ucard-btn" onclick="cuContactPopup('kakao')"><div class="cu-ucard-icon">💛</div><h3 class="cu-ucard-title">${labels.kakao}</h3></button>
       </div>
 
       <!-- Grid 3: 기본 정보 3종 -->
       <div class="cu-unified-grid" style="margin-bottom:16px;">
-        <button class="cu-ucard cu-ucard-btn" onclick="cuContactPopup('location')"><div class="cu-ucard-icon">📍</div><h3 class="cu-ucard-title">모이는 장소</h3></button>
-        <button class="cu-ucard cu-ucard-btn" onclick="cuContactPopup('hours')"><div class="cu-ucard-icon">🕐</div><h3 class="cu-ucard-title">운영 시간</h3></button>
-        <button class="cu-ucard cu-ucard-btn" onclick="openCouponModal()"><div class="cu-ucard-icon">🎟️</div><h3 class="cu-ucard-title">할인쿠폰 다운로드</h3></button>
+        <button class="cu-ucard cu-ucard-btn" onclick="cuContactPopup('location')"><div class="cu-ucard-icon">📍</div><h3 class="cu-ucard-title">${labels.location}</h3></button>
+        <button class="cu-ucard cu-ucard-btn" onclick="cuContactPopup('hours')"><div class="cu-ucard-icon">🕐</div><h3 class="cu-ucard-title">${labels.hours}</h3></button>
+        <button class="cu-ucard cu-ucard-btn" onclick="openCouponModal()"><div class="cu-ucard-icon">🎟️</div><h3 class="cu-ucard-title">${labels.coupon}</h3></button>
       </div>
 
       <!-- Grid 2: 서비스 버튼 6개 (3열 2행) -->
       <div class="cu-unified-grid">
-        <button class="cu-ucard cu-ucard-btn" onclick="cuShowSection('notice')"><div class="cu-ucard-icon">📢</div><h3 class="cu-ucard-title">공지사항</h3></button>
-        <button class="cu-ucard cu-ucard-btn" onclick="cuShowSection('faq')"><div class="cu-ucard-icon">❓</div><h3 class="cu-ucard-title">자주 묻는 질문</h3></button>
-        <button class="cu-ucard cu-ucard-btn" onclick="cuShowSection('qna')"><div class="cu-ucard-icon">💬</div><h3 class="cu-ucard-title">묻고 답하기</h3></button>
-        <button class="cu-ucard cu-ucard-btn" onclick="cuShowSection('voice')"><div class="cu-ucard-icon">⭐</div><h3 class="cu-ucard-title">고객의 소리</h3></button>
-        <button class="cu-ucard cu-ucard-btn" onclick="cuShowSection('delivery')"><div class="cu-ucard-icon">📦</div><h3 class="cu-ucard-title">우편배송조회</h3></button>
-        <button class="cu-ucard cu-ucard-btn" onclick="cuShowSection('events')"><div class="cu-ucard-icon">🎉</div><h3 class="cu-ucard-title">이벤트 당첨자 발표</h3></button>
+        <button class="cu-ucard cu-ucard-btn" onclick="cuShowSection('notice')"><div class="cu-ucard-icon">📢</div><h3 class="cu-ucard-title">${labels.notice}</h3></button>
+        <button class="cu-ucard cu-ucard-btn" onclick="cuShowSection('faq')"><div class="cu-ucard-icon">❓</div><h3 class="cu-ucard-title">${labels.faq}</h3></button>
+        <button class="cu-ucard cu-ucard-btn" onclick="cuShowSection('qna')"><div class="cu-ucard-icon">💬</div><h3 class="cu-ucard-title">${labels.qna}</h3></button>
+        <button class="cu-ucard cu-ucard-btn" onclick="cuShowSection('voice')"><div class="cu-ucard-icon">⭐</div><h3 class="cu-ucard-title">${labels.voice}</h3></button>
+        <button class="cu-ucard cu-ucard-btn" onclick="cuShowSection('delivery')"><div class="cu-ucard-icon">📦</div><h3 class="cu-ucard-title">${labels.delivery}</h3></button>
+        <button class="cu-ucard cu-ucard-btn" onclick="cuShowSection('events')"><div class="cu-ucard-icon">🎉</div><h3 class="cu-ucard-title">${labels.events}</h3></button>
       </div>
 
       <div class="cu-divider"></div>
 
       <!-- 이용 안내 — How to Book -->
-      <p class="co-section-title">How to Book</p>
-      <h2 class="co-heading">이용 안내</h2>
+      <p class="co-section-title">${labels.howToBook}</p>
+      <h2 class="co-heading">${labels.bookingGuide}</h2>
       <div class="sp-toolbar" style="margin-bottom:28px;">
-        <p class="sp-count">예약부터 출발까지</p>
+        <p class="sp-count">${labels.fromBooking}</p>
       </div>
       <div style="display:flex;flex-direction:column;gap:0;background:#fff;border:1px solid #e8e8e4;border-radius:14px;padding:8px 20px;">
-        ${[
-          ['01','문의','전화·이메일·카카오톡으로 원하는 프로그램과 일정을 알려주세요.'],
-          ['02','일정 확인','담당자가 맞춤 일정과 견적을 안내해 드립니다. (1~2 영업일 내)'],
-          ['03','입금 확인','안내받은 계좌로 입금 후 예약이 확정됩니다.'],
-          ['04','출발','확정된 일정에 맞춰 모이는 장소에서 출발합니다. 즐거운 여행 되세요!'],
-        ].map(([step, title, desc], i, arr) => `
+        ${[labels.step01, labels.step02, labels.step03, labels.step04].map(([step, title, desc], i, arr) => `
           <div style="display:flex;gap:20px;padding:22px 0;${i < arr.length-1 ? 'border-bottom:1px solid #ece9e4;' : ''}">
             <div style="flex-shrink:0;width:36px;height:36px;border-radius:50%;background:#1a2e2a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;letter-spacing:.04em;">${step}</div>
             <div>
@@ -1842,7 +1883,7 @@ function openContactUsPage() {
       <div class="cu-divider"></div>
 
       <div class="cu-sns-section">
-        <p class="cu-sns-label">SNS</p>
+        <p class="cu-sns-label">${labels.sns}</p>
         <div class="cu-sns-row">
           <a class="cu-sns-btn" href="https://www.instagram.com/" target="_blank" rel="noopener" title="Instagram">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
@@ -1859,9 +1900,9 @@ function openContactUsPage() {
       <div class="cu-divider"></div>
 
       <div class="cu-biz">
-        <p>대표: 이 〇〇 &nbsp;|&nbsp; 사업자등록번호: 000-00-00000</p>
-        <p>주소: 부산광역시 부산진구 서면 쥬디스태화 백화점 앞</p>
-        <p style="margin-top:8px;color:#aaa;">© 2026 선샤인 웰니스. All rights reserved.</p>
+        <p>${labels.ceoName} &nbsp;|&nbsp; ${labels.bizNo}</p>
+        <p>${labels.address}</p>
+        <p style="margin-top:8px;color:#aaa;">${labels.copyright}</p>
       </div>
 
 
