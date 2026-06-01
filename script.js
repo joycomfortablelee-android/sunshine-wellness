@@ -49,6 +49,7 @@ const translations = {
     'nav.wheretonext': 'Where to Next?',
     'nav.contactus': '고객센터',
     'nav.artconcierge': '아트 컨시어지',
+    'nav.signatureSpace': '시그너처 문화공간',
     'auth.login': '로그인',
     'auth.signup': '회원가입',
 
@@ -207,6 +208,7 @@ const translations = {
     'nav.wheretonext': 'Where to Next?',
     'nav.contactus': 'Customer Service',
     'nav.artconcierge': 'Art Concierge',
+    'nav.signatureSpace': 'Signature Cultural Space',
     'auth.login': 'Log In',
     'auth.signup': 'Sign Up',
 
@@ -397,6 +399,7 @@ const translations = {
     'nav.wheretonext': '下一站去哪？',
     'nav.contactus': '联系我们',
     'nav.artconcierge': '艺术礼宾',
+    'nav.signatureSpace': '签名文化空间',
     'auth.login': '登录',
     'auth.signup': '注册',
 
