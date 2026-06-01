@@ -1483,6 +1483,122 @@ function openContactPage() {
       </div>
       </div>
     `);
+  } else if (lang === 'en') {
+    showSubPageFull(`
+      <div class="co-fullbg-wrap">
+      <div class="co-fullbg-banner banner-night">
+        <div class="co-page-header">
+          <p>Inquiry</p>
+          <h1>Inquiry &amp; Quote Request<span class="co-page-subtitle">— Contact Us</span></h1>
+        </div>
+      </div>
+      <div class="co-wrap">
+
+        <p class="co-section-title">FAQ</p>
+        <h2 class="co-heading">Frequently Asked Questions</h2>
+        <div class="sp-toolbar" style="margin-bottom:10px;">
+          <p class="sp-count">Total <strong>6</strong></p>
+          <button class="sp-btn-write" onclick="document.getElementById('coFormBox').scrollIntoView({behavior:'smooth'})">Inquire</button>
+        </div>
+        <table class="sp-table co-faq" id="coFaq">
+          <thead>
+            <tr>
+              <th style="width:60px;">NO.</th>
+              <th class="sp-col-title">Question</th>
+              <th style="width:60px;">Open</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="co-faq-item" onclick="coFaqToggle(this)">
+              <td class="sp-col-no">01</td>
+              <td class="sp-col-title">What is the minimum number of people for a tour?</td>
+              <td class="sp-col-toggle"><span class="co-faq-icon">Click</span></td>
+            </tr>
+            <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">We offer tailored tours from 2 people up to small groups. For groups of 10 or more, we provide a separate quote at more reasonable rates.</td></tr>
+            <tr class="co-faq-item" onclick="coFaqToggle(this)">
+              <td class="sp-col-no">02</td>
+              <td class="sp-col-title">How is the travel itinerary decided?</td>
+              <td class="sp-col-toggle"><span class="co-faq-icon">Click</span></td>
+            </tr>
+            <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">After your quote inquiry, our staff will contact you to confirm your preferred dates, programs of interest, and group size, then propose the best itinerary.</td></tr>
+            <tr class="co-faq-item" onclick="coFaqToggle(this)">
+              <td class="sp-col-no">03</td>
+              <td class="sp-col-title">What are the deposit and cancellation policies?</td>
+              <td class="sp-col-toggle"><span class="co-faq-icon">Click</span></td>
+            </tr>
+            <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">A 30% deposit of the total amount is required upon confirmation. Full refunds are available up to 7 days before departure. Cancellations after that follow our refund policy.</td></tr>
+            <tr class="co-faq-item" onclick="coFaqToggle(this)">
+              <td class="sp-col-no">04</td>
+              <td class="sp-col-title">Do you offer foreign-language guide services?</td>
+              <td class="sp-col-toggle"><span class="co-faq-icon">Click</span></td>
+            </tr>
+            <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">We provide English and Chinese guide accompaniment. With advance request, it is offered at no additional cost.</td></tr>
+            <tr class="co-faq-item" onclick="coFaqToggle(this)">
+              <td class="sp-col-no">05</td>
+              <td class="sp-col-title">Are there accommodation packages?</td>
+              <td class="sp-col-toggle"><span class="co-faq-icon">Click</span></td>
+            </tr>
+            <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">Yes, we offer packages partnered with wellness-focused accommodations in Busan. Please let us know if you'd like accommodation included when you inquire.</td></tr>
+            <tr class="co-faq-item" onclick="coFaqToggle(this)">
+              <td class="sp-col-no">06</td>
+              <td class="sp-col-title">How is payment made?</td>
+              <td class="sp-col-toggle"><span class="co-faq-icon">Click</span></td>
+            </tr>
+            <tr class="co-faq-answer"><td colspan="3" class="co-faq-a">We support bank transfer and credit card (online payment link). Tax invoices and cash receipts are also available.</td></tr>
+          </tbody>
+        </table>
+
+        <p class="co-section-title">Contact</p>
+        <h2 class="co-heading">Send an Inquiry</h2>
+        <div class="co-form-box" id="coFormBox">
+          <div class="co-form-row">
+            <div>
+              <label class="co-label">Inquiry Type</label>
+              <select class="co-select" id="coType">
+                <option value="">Please select</option>
+                <option value="estimate">Quote Request</option>
+                <option value="general">General Inquiry</option>
+                <option value="payment">Payment Inquiry</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div>
+              <label class="co-label">Email <span>*</span></label>
+              <input type="email" class="co-input" id="coEmail" placeholder="example@email.com" />
+            </div>
+          </div>
+          <div class="co-form-row">
+            <div>
+              <label class="co-label">Name <span>*</span></label>
+              <input type="text" class="co-input" id="coName" placeholder="John Doe" />
+            </div>
+            <div>
+              <label class="co-label">Phone <span>*</span></label>
+              <input type="tel" class="co-input" id="coPhone" placeholder="+82-10-0000-0000" />
+            </div>
+          </div>
+          <div class="co-form-row full">
+            <div>
+              <label class="co-label">Message <span>*</span></label>
+              <textarea class="co-textarea" id="coMessage" placeholder="Feel free to include preferred dates, group size, programs of interest, etc."></textarea>
+            </div>
+          </div>
+          <div class="co-privacy">
+            <strong>Consent to Collection &amp; Use of Personal Information</strong><br/>
+            Items collected: name, email, phone | Purpose: inquiry response &amp; service guidance | Retention: 1 year after inquiry completion
+          </div>
+          <div class="co-check-row">
+            <input type="checkbox" id="coPrivacy" />
+            <label for="coPrivacy">I agree to the collection and use of my personal information. (Required)</label>
+          </div>
+          <div style="margin-top:24px;">
+            <button class="co-submit" id="coSubmitBtn" onclick="coSubmit()">Send Inquiry</button>
+          </div>
+        </div>
+
+      </div>
+      </div>
+    `);
   } else {
     showSubPageFull(`
       <div class="co-fullbg-wrap">
@@ -1610,8 +1726,8 @@ function openContactPage() {
 
 function coFaqToggle(tr) {
   const lang = currentLang || 'ko';
-  const openText = lang === 'zh' ? '点击' : '클릭';
-  const closeText = lang === 'zh' ? '关闭' : '닫기';
+  const openText = lang === 'zh' ? '点击' : lang === 'en' ? 'Click' : '클릭';
+  const closeText = lang === 'zh' ? '关闭' : lang === 'en' ? 'Close' : '닫기';
 
   const answerRow = tr.nextElementSibling;
   const icon = tr.querySelector('.co-faq-icon');
@@ -1631,10 +1747,10 @@ function coFaqToggle(tr) {
 
 function coSubmit() {
   const lang = currentLang || 'ko';
-  const requiredMsg = lang === 'zh' ? '姓名、电子邮件、联系电话和咨询内容为必填项。' : '이름, 이메일, 연락처, 문의 내용은 필수 입력 항목입니다.';
-  const privacyMsg = lang === 'zh' ? '请同意个人信息收集和使用。' : '개인정보 수집 및 이용에 동의해 주세요.';
-  const sendingText = lang === 'zh' ? '发送中...' : '전송 중...';
-  const successText = lang === 'zh' ? '咨询已提交 ✓' : '문의가 접수되었습니다 ✓';
+  const requiredMsg = lang === 'zh' ? '姓名、电子邮件、联系电话和咨询内容为必填项。' : lang === 'en' ? 'Name, email, phone, and message are required.' : '이름, 이메일, 연락처, 문의 내용은 필수 입력 항목입니다.';
+  const privacyMsg = lang === 'zh' ? '请同意个人信息收集和使用。' : lang === 'en' ? 'Please agree to the collection and use of personal information.' : '개인정보 수집 및 이용에 동의해 주세요.';
+  const sendingText = lang === 'zh' ? '发送中...' : lang === 'en' ? 'Sending...' : '전송 중...';
+  const successText = lang === 'zh' ? '咨询已提交 ✓' : lang === 'en' ? 'Your inquiry has been received ✓' : '문의가 접수되었습니다 ✓';
 
   const name    = (document.getElementById('coName').value    || '').trim();
   const email   = (document.getElementById('coEmail').value   || '').trim();
