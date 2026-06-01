@@ -171,6 +171,30 @@ const translations = {
     'form.success': '감사합니다! 곧 연락드리겠습니다.',
     'form.error': '오류가 발생했습니다. 다시 시도해주세요.',
 
+    // 연락처 서비스
+    'cs.reservation': '예약확인 / 결제',
+    'cs.diy': 'DIY 맞춤견적',
+    'cs.app': '앱 다운로드',
+    'cs.coupon': '할인쿠폰',
+
+    // 고객센터
+    'fhc.title': '고객센터',
+    'fhc.phone': '전화 문의',
+    'fhc.email': '이메일 문의',
+    'fhc.kakao': '카카오 채널',
+    'fhc.location': '모이는 장소',
+    'fhc.hours': '운영 시간',
+    'fhc.notice': '공지사항',
+    'fhc.faq': '자주 묻는 질문',
+    'fhc.qna': '묻고 답하기',
+    'fhc.voice': '고객의 소리',
+    'fhc.delivery': '우편배송조회',
+    'fhc.events': '이벤트 당첨자',
+    'fhc.coupon': '할인쿠폰',
+    'fhc.instagram': '인스타그램',
+    'fhc.youtube': '유튜브',
+    'fhc.blog': '블로그',
+
     // 게시판
     'board.label': 'Community',
     'board.title': '여행',
@@ -195,7 +219,10 @@ const translations = {
     'footer.about': '소개',
     'footer.programs': '프로그램',
     'footer.contact': '문의',
-    'footer.copyright': '© 2026 선샤인 웰니스. All rights reserved.',
+    'footer.biz1': '대표 : 이유안 &nbsp;|&nbsp; 사업자등록번호 : 000-00-00000 &nbsp;|&nbsp; 통신판매업신고번호 : 제00000호 &nbsp;|&nbsp; 관광사업자등록번호 : 제000-00호 &nbsp;|&nbsp; 개인정보관리책임자 : 이유안',
+    'footer.biz2': '주소 : 부산광역시 동래구 ooo &nbsp;|&nbsp; 대표전화 : 010-5759-5485 &nbsp;|&nbsp; 이메일 : healthylee7@gmail.com',
+    'footer.biz3': '일반여행업 보증보험가입 &nbsp;&nbsp;|&nbsp;&nbsp; 기획여행업 보증보험가입',
+    'footer.copyright': '© 2026 선샤인 웰니스 (Sunshine Wellness). All rights reserved.',
   },
 
   en: {
@@ -521,6 +548,30 @@ const translations = {
     'form.success': '感谢您！我们将尽快与您联系。',
     'form.error': '发生错误，请重试。',
 
+    // 联系方式服务
+    'cs.reservation': '预订确认 / 付款',
+    'cs.diy': 'DIY 定制报价',
+    'cs.app': '应用下载',
+    'cs.coupon': '折扣券',
+
+    // 客服中心
+    'fhc.title': '客户中心',
+    'fhc.phone': '电话咨询',
+    'fhc.email': '电子邮件咨询',
+    'fhc.kakao': '卡卡奥频道',
+    'fhc.location': '集合地点',
+    'fhc.hours': '营业时间',
+    'fhc.notice': '公告',
+    'fhc.faq': '常见问题',
+    'fhc.qna': '问答',
+    'fhc.voice': '客户评价',
+    'fhc.delivery': '快递追踪',
+    'fhc.events': '活动获奖者',
+    'fhc.coupon': '折扣券',
+    'fhc.instagram': '英斯塔格拉姆',
+    'fhc.youtube': '优兔',
+    'fhc.blog': '博客',
+
     // 讨论区
     'board.label': '社区',
     'board.title': '旅行',
@@ -545,6 +596,9 @@ const translations = {
     'footer.about': '关于',
     'footer.programs': '项目',
     'footer.contact': '联系',
+    'footer.biz1': '首席执行官 : 李宥安 &nbsp;|&nbsp; 商业登记号 : 000-00-00000 &nbsp;|&nbsp; 邮购号 : 00000号 &nbsp;|&nbsp; 旅游登记号 : 000-00号 &nbsp;|&nbsp; 隐私官 : 李宥安',
+    'footer.biz2': '地址 : 釜山东来区 ooo &nbsp;|&nbsp; 电话 : 010-5759-5485 &nbsp;|&nbsp; 电邮 : healthylee7@gmail.com',
+    'footer.biz3': '旅游保险（一般） &nbsp;&nbsp;|&nbsp;&nbsp; 旅游保险（套装）',
     'footer.copyright': '© 2026 阳光健康旅游. All rights reserved.',
   },
 };
