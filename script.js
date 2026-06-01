@@ -1467,9 +1467,41 @@ function openArtConciergePage() {
         </div>
       </div>
 
-      <!-- ④ 이상훈 사진 + 동서대 강의 카드 -->
-      <!-- ④ 이상훈 사진 + 동서대 강의 카드 -->
-      <div class="sp-wrap" style="padding-top:48px;padding-bottom:0;">
+      <!-- ④⑤ PROOF · CREDENTIAL 통합 -->
+      <div style="background:#F5F5F3;padding:0;margin-top:0;">
+        <div class="sp-wrap" style="padding-top:48px;padding-bottom:40px;">
+          ${orn2}
+          <div class="ac-who-frame" style="margin-bottom:36px;">
+          <svg class="ac-corner tl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+          <svg class="ac-corner tr" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+          <svg class="ac-corner bl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+          <svg class="ac-corner br" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
+          <span class="ac-who-label">PROOF · CREDENTIAL</span>
+          <span class="ac-who-name">언론 · 강의</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr;gap:16px;">
+          ${[
+            ['📰','부산일보 기사','"예술 그 자체가 목적인 여행"','https://www.busan.com/view/busan/view.php?code=2024010814490253602'],
+            ['🎫','부산콘서트홀 VIP 투어 완판','2박 3일 242만 원 · 2025.06.20 · 부산관광공사 × 아트컨시어지','https://www.mice.or.kr/bbs/board.php?bo_table=news&wr_id=1479'],
+            ['🗞️','부산일보 연재','이상훈의 시그너처 문화공간 이야기','https://www.busan.com/search/index.php?search_string=[이상훈의시그너처문화공간이야기]'],
+          ].map(([icon,label,desc,url]) => `
+            <a href="${url}" target="_blank" rel="noopener"
+               style="display:flex;align-items:center;gap:20px;background:#fff;border:1px solid #e0ddd8;border-radius:16px;padding:24px 26px;text-decoration:none;transition:box-shadow .2s,transform .2s;"
+               onmouseover="this.style.boxShadow='0 6px 20px rgba(0,0,0,0.09)';this.style.transform='translateY(-2px)'"
+               onmouseout="this.style.boxShadow='none';this.style.transform='none'">
+              <span style="font-size:18px;flex-shrink:0;">${icon}</span>
+              <div style="flex:1;min-width:0;">
+                <p style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3B6259;margin-bottom:6px;">${label}</p>
+                <p style="font-size:16px;font-weight:700;color:#1a2e2a;line-height:1.5;font-family:'Merriweather',Georgia,serif;">${desc}</p>
+              </div>
+              <span style="font-size:20px;color:#bbb;flex-shrink:0;">↗</span>
+            </a>`).join('')}
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;margin:28px 0 20px;">
+          <div style="flex:1;height:1px;background:#dddcda;"></div>
+          <span style="font-size:10px;font-weight:700;letter-spacing:.18em;color:#aaa;text-transform:uppercase;">Lecture</span>
+          <div style="flex:1;height:1px;background:#dddcda;"></div>
+        </div>
         <div style="display:flex;flex-direction:column;gap:16px;">
           <div class="ac-lsh-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch;">
             <div style="border-radius:14px;overflow:hidden;background:#111;aspect-ratio:4/3;">
@@ -1510,46 +1542,11 @@ function openArtConciergePage() {
             </a>
           </div>
         </div>
-        <div class="ac-tags">
-          ${['#데스티네이션아트','#예술여행철학','#서유럽'].map(t=>`<span class="ac-tag">${t}</span>`).join('')}
-        </div>
-      </div>
-      <!-- ⑤ PROOF — PART 01 에 포함 -->
-      <div style="background:#F5F5F3;padding:0;margin-top:0;">
-        <!-- 링크 카드 — PROOF -->
-        <div class="sp-wrap" style="padding-bottom:40px;">
-          ${orn2}
-          <div class="ac-who-frame" style="margin-bottom:36px;">
-          <svg class="ac-corner tl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
-          <svg class="ac-corner tr" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
-          <svg class="ac-corner bl" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
-          <svg class="ac-corner br" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2 L2 2 L2 18" stroke="#1a2e2a" stroke-width="1.3"/><circle cx="2" cy="2" r="2" fill="#1a2e2a"/><line x1="0" y1="18" x2="5" y2="18" stroke="#1a2e2a" stroke-width="1.3"/><line x1="18" y1="0" x2="18" y2="5" stroke="#1a2e2a" stroke-width="1.3"/></svg>
-          <span class="ac-who-label">PROOF</span>
-          <span class="ac-who-name">언론 보도</span>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr;gap:16px;">
-          ${[
-            ['📰','부산일보 기사','"예술 그 자체가 목적인 여행"','https://www.busan.com/view/busan/view.php?code=2024010814490253602'],
-            ['🎫','부산콘서트홀 VIP 투어 완판','2박 3일 242만 원 · 2025.06.20 · 부산관광공사 × 아트컨시어지','https://www.mice.or.kr/bbs/board.php?bo_table=news&wr_id=1479'],
-            ['🗞️','부산일보 연재','이상훈의 시그너처 문화공간 이야기','https://www.busan.com/search/index.php?search_string=[이상훈의시그너처문화공간이야기]'],
-          ].map(([icon,label,desc,url]) => `
-            <a href="${url}" target="_blank" rel="noopener"
-               style="display:flex;align-items:center;gap:20px;background:#fff;border:1px solid #e0ddd8;border-radius:16px;padding:24px 26px;text-decoration:none;transition:box-shadow .2s,transform .2s;"
-               onmouseover="this.style.boxShadow='0 6px 20px rgba(0,0,0,0.09)';this.style.transform='translateY(-2px)'"
-               onmouseout="this.style.boxShadow='none';this.style.transform='none'">
-              <span style="font-size:18px;flex-shrink:0;">${icon}</span>
-              <div style="flex:1;min-width:0;">
-                <p style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3B6259;margin-bottom:6px;">${label}</p>
-                <p style="font-size:16px;font-weight:700;color:#1a2e2a;line-height:1.5;font-family:'Merriweather',Georgia,serif;">${desc}</p>
-              </div>
-              <span style="font-size:20px;color:#bbb;flex-shrink:0;">↗</span>
-            </a>`).join('')}
-        </div>
-          <div class="ac-tags">
-            ${['#부산일보','#부산콘서트홀','#완판'].map(t=>`<span class="ac-tag">${t}</span>`).join('')}
+          <div class="ac-tags" style="margin-top:24px;">
+            ${['#부산일보','#부산콘서트홀','#완판','#데스티네이션아트','#예술여행철학','#서유럽'].map(t=>`<span class="ac-tag">${t}</span>`).join('')}
           </div>
         </div>
-      </div><!-- /PROOF (PART 01) -->
+      </div><!-- /PROOF·CREDENTIAL (PART 01) -->
       </div><!-- /PART 01 -->
 
       <div style="background:#F5F5F3;padding:28px 0 0;">
