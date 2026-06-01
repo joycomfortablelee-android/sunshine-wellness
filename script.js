@@ -1410,7 +1410,7 @@ function openArtConciergePage() {
         <p class="co-section-title">Partnership</p>
         <h2 class="co-heading">제휴 투어</h2>
         <div class="sp-toolbar">
-          <p class="sp-count" style="font-weight:700;">선샤인 웰니스 × 아트 컨시어지</p>
+          <p class="sp-count" style="font-weight:700;color:#3B6259;">선샤인 웰니스 × 아트 컨시어지</p>
           <button onclick="openContactPage()" class="sp-btn-write">문의하기</button>
         </div>
       </div>
@@ -1418,7 +1418,7 @@ function openArtConciergePage() {
       <div class="sp-wrap" style="padding-top:28px;padding-bottom:0;">
         <div style="display:flex;align-items:center;gap:14px;">
           <div style="flex:1;height:1px;background:#dddcda;"></div>
-          <span style="font-size:9px;font-weight:700;letter-spacing:.22em;color:#9a9088;text-transform:uppercase;border:1px solid #dddcda;padding:3px 10px;">PART 01 · The Person</span>
+          <span style="font-size:9px;font-weight:700;letter-spacing:.22em;color:#fff;text-transform:uppercase;background:#3B6259;padding:4px 12px;border-radius:2px;">PART 01 · The Person</span>
           <div style="flex:1;height:1px;background:#dddcda;"></div>
         </div>
       </div>
@@ -1459,8 +1459,7 @@ function openArtConciergePage() {
         </div>`).join('')}
         <div style="background:#fff;border:1.5px solid #3B6259;border-radius:16px;padding:24px 28px;margin-top:20px;">
           <p style="font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3B6259;margin-bottom:16px;">예술 그 자체가 목적인 여행</p>
-          <p style="font-size:14px;color:#555;line-height:1.6;margin-bottom:12px;font-family:Georgia,serif;">아트 컨시어지는 단순히 여행 중 공연이나 미술관을 방문하는 것이 아닌, <strong style="color:#1a2e2a;">특정 공연·전시·건축 공간을 주목적으로 기획하는 1인 전문 여행사</strong>입니다.</p>
-          <p style="font-size:14px;color:#555;line-height:1.6;margin:0;font-family:Georgia,serif;">"그곳에 가야만 볼 수 있는 예술"이라는 <em>데스티네이션 아트(Destination Art)</em> 철학 아래, 서유럽 음악·콘서트·건축 공간 VIP 투어를 전문으로 합니다.</p>
+          <p style="font-size:13px;color:#555;line-height:1.85;margin:0;font-family:'Merriweather',Georgia,serif;">아트 컨시어지는 단순히 여행 중 공연이나 미술관을 방문하는 것이 아닌, <strong style="color:#1a2e2a;">특정 공연·전시·건축 공간을 주목적으로 기획하는 전문 여행사</strong>입니다. "그곳에 가야만 볼 수 있는 예술"이라는 <em>데스티네이션 아트(Destination Art)</em> 철학 아래, 서유럽 음악·콘서트·건축 공간 VIP 투어를 전문으로 합니다.</p>
         </div>
         <div class="ac-tags" style="margin-top:24px;margin-bottom:32px;">
           ${['#이상훈대표','#1400도시','#아트트래블','#음악','#건축','#미술관','#VIP','#서유럽','#Destination Art'].map(t=>`<span class="ac-tag">${t}</span>`).join('')}
@@ -1479,22 +1478,19 @@ function openArtConciergePage() {
           <span class="ac-who-label">PROOF · CREDENTIAL</span>
           <span class="ac-who-name">언론 · 강의</span>
         </div>
-        <div style="display:grid;grid-template-columns:1fr;gap:16px;">
+        <div class="ac-proof-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;">
           ${[
-            ['📰','부산일보 기사','"예술 그 자체가 목적인 여행"','https://www.busan.com/view/busan/view.php?code=2024010814490253602'],
-            ['🎫','부산콘서트홀 VIP 투어 완판','2박 3일 242만 원 · 2025.06.20 · 부산관광공사 × 아트컨시어지','https://www.mice.or.kr/bbs/board.php?bo_table=news&wr_id=1479'],
-            ['🗞️','부산일보 연재','이상훈의 시그너처 문화공간 이야기','https://www.busan.com/search/index.php?search_string=[이상훈의시그너처문화공간이야기]'],
-          ].map(([icon,label,desc,url]) => `
+            ['부산일보 기사','"예술 그 자체가 목적인 여행"','https://www.busan.com/view/busan/view.php?code=2024010814490253602'],
+            ['부산콘서트홀 VIP 투어 완판','2박 3일 242만 원 · 2025.06.20<br>부산관광공사 × 아트컨시어지','https://www.mice.or.kr/bbs/board.php?bo_table=news&wr_id=1479'],
+            ['부산일보 연재','이상훈의 시그너처 문화공간 이야기','https://www.busan.com/search/index.php?search_string=[이상훈의시그너처문화공간이야기]'],
+          ].map(([label,desc,url]) => `
             <a href="${url}" target="_blank" rel="noopener"
-               style="display:flex;align-items:center;gap:20px;background:#fff;border:1px solid #e0ddd8;border-radius:16px;padding:24px 26px;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,0.06);transition:box-shadow .2s,transform .2s;"
+               style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;background:#fff;border:1px solid #e0ddd8;border-radius:16px;padding:16px 14px;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,0.06);transition:box-shadow .2s,transform .2s;"
                onmouseover="this.style.boxShadow='0 6px 20px rgba(0,0,0,0.11)';this.style.transform='translateY(-2px)'"
                onmouseout="this.style.boxShadow='0 2px 10px rgba(0,0,0,0.06)';this.style.transform='none'">
-              <span style="font-size:14px;flex-shrink:0;">${icon}</span>
-              <div style="flex:1;min-width:0;">
-                <p style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3B6259;margin-bottom:6px;">${label}</p>
-                <p class="proof-desc" style="font-size:16px;font-weight:700;color:#1a2e2a;line-height:1.5;font-family:'Merriweather',Georgia,serif;">${desc}</p>
-              </div>
-              <span style="font-size:16px;color:#bbb;flex-shrink:0;">↗</span>
+              <p style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3B6259;margin:0;">${label}</p>
+              <p class="proof-desc" style="font-size:13px;font-weight:400;color:#1a2e2a;line-height:1.5;font-family:'Merriweather',Georgia,serif;margin:0;">${desc}</p>
+              <span style="font-size:12px;color:#bbb;margin-top:2px;">↗</span>
             </a>`).join('')}
         </div>
         <div style="display:flex;align-items:center;gap:12px;margin:28px 0 20px;">
@@ -1553,7 +1549,7 @@ function openArtConciergePage() {
         <div class="sp-wrap" style="padding-top:0;padding-bottom:0;">
           <div style="display:flex;align-items:center;gap:14px;">
             <div style="flex:1;height:1px;background:#c8c2b8;"></div>
-            <span style="font-size:9px;font-weight:700;letter-spacing:.22em;color:#9a9088;text-transform:uppercase;border:1px solid #c8c2b8;padding:3px 10px;">PART 02 · Signature Offering</span>
+            <span style="font-size:9px;font-weight:700;letter-spacing:.22em;color:#fff;text-transform:uppercase;background:#3B6259;padding:4px 12px;border-radius:2px;">PART 02 · Signature Offering</span>
             <div style="flex:1;height:1px;background:#c8c2b8;"></div>
           </div>
         </div>
@@ -1696,7 +1692,7 @@ function openArtConciergePage() {
         <div class="sp-wrap" style="padding-top:0;padding-bottom:0;">
           <div style="display:flex;align-items:center;gap:14px;">
             <div style="flex:1;height:1px;background:#e8e4df;"></div>
-            <span style="font-size:9px;font-weight:700;letter-spacing:.22em;color:#b0aaa4;text-transform:uppercase;border:1px solid #e8e4df;padding:3px 10px;">PART 03 · The Knowledge</span>
+            <span style="font-size:9px;font-weight:700;letter-spacing:.22em;color:#fff;text-transform:uppercase;background:#3B6259;padding:4px 12px;border-radius:2px;">PART 03 · The Knowledge</span>
             <div style="flex:1;height:1px;background:#e8e4df;"></div>
           </div>
         </div>
