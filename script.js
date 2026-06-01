@@ -3,14 +3,49 @@
 // =========================================
 console.log('[SCRIPT] 로딩됨 v=20260530b');
 
+// 카카오 SDK 초기화
+window.addEventListener('load', function() {
+  if (window.Kakao && !Kakao.isInitialized()) {
+    Kakao.init('f3a30a743eabd2bb2b3867cca1eea840');
+  }
+});
+
+function kakaoLogin() {
+  if (!window.Kakao || !Kakao.isInitialized()) {
+    alert('카카오 SDK가 로드되지 않았습니다. 잠시 후 다시 시도해주세요.');
+    return;
+  }
+  Kakao.Auth.login({
+    success: function(authObj) {
+      Kakao.API.request({
+        url: '/v2/user/me',
+        success: function(res) {
+          var nickname = res.kakao_account?.profile?.nickname || '카카오 사용자';
+          alert(nickname + '님, 환영합니다! 🎉');
+          closeSubPage();
+        },
+        fail: function() {
+          alert('사용자 정보를 가져오지 못했습니다.');
+        }
+      });
+    },
+    fail: function(err) {
+      console.error('카카오 로그인 실패', err);
+    }
+  });
+}
+
 // --- 헤더: 스크롤 시 투명 → 흰색 ---
 const header = document.getElementById('header');
 window.addEventListener('scroll', () => {
   header.classList.toggle('scrolled', window.scrollY > 50);
 });
+var _overlayAlwaysScrolled = false;
 function _overlayScrollHandler() {
   const el = document.getElementById('subPageOverlay');
-  if (el) header.classList.toggle('scrolled', el.scrollTop > 50);
+  if (!el) return;
+  if (_overlayAlwaysScrolled) { header.classList.add('scrolled'); return; }
+  header.classList.toggle('scrolled', el.scrollTop > 50);
 }
 
 // =========================================
@@ -603,6 +638,7 @@ function showSubPageFull(html) {
 }
 
 function closeSubPage() {
+  _overlayAlwaysScrolled = false;
   const el = document.getElementById('subPageOverlay');
   if (!el) return;
   el.removeEventListener('scroll', _overlayScrollHandler);
@@ -1937,7 +1973,7 @@ function openProgramsPage() {
 // =========================================
 function openLoginPage() {
   showSubPageFull(`
-    <div style="min-height:100vh;background:#f5f5f3;padding:48px 20px 60px;">
+    <div style="min-height:100vh;background:#f5f5f3;padding:100px 20px 60px;">
       <div style="max-width:960px;margin:0 auto;">
 
         <!-- 헤더 -->
@@ -1956,7 +1992,7 @@ function openLoginPage() {
             <!-- 간편 로그인 -->
             <p style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3B6259;margin-bottom:14px;">간편 로그인</p>
             <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
-              <button style="width:100%;background:#FAE100;color:#1a2e2a;border:none;border-radius:10px;padding:13px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Noto Sans KR',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px;">
+              <button onclick="kakaoLogin()" style="width:100%;background:#FAE100;color:#1a2e2a;border:none;border-radius:10px;padding:13px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Noto Sans KR',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px;">
                 💛 카카오톡 로그인
               </button>
               <button style="width:100%;background:#03C75A;color:#fff;border:none;border-radius:10px;padding:13px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Noto Sans KR',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px;">
@@ -2064,11 +2100,13 @@ function openLoginPage() {
       </div>
     </div>
   `);
+  _overlayAlwaysScrolled = true;
+  setTimeout(function(){ header.classList.add('scrolled'); }, 50);
 }
 
 function openSignupPage() {
   showSubPageFull(`
-    <div style="min-height:100vh;background:#f5f5f3;padding:48px 20px 60px;">
+    <div style="min-height:100vh;background:#f5f5f3;padding:100px 20px 60px;">
       <div style="max-width:480px;margin:0 auto;">
 
         <!-- 헤더 -->
@@ -2103,7 +2141,7 @@ function openSignupPage() {
                   </div>
                 </div>
               </div>
-              <button style="width:100%;background:#fff9c4;border:none;padding:13px;font-size:14px;font-weight:700;color:#1a2e2a;cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:background .2s;"
+              <button onclick="kakaoLogin()" style="width:100%;background:#fff9c4;border:none;padding:13px;font-size:14px;font-weight:700;color:#1a2e2a;cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:background .2s;"
                 onmouseover="this.style.background='#FAE100'" onmouseout="this.style.background='#fff9c4'">
                 💛 카카오톡으로 회원가입
               </button>
@@ -2139,6 +2177,8 @@ function openSignupPage() {
       </div>
     </div>
   `);
+  _overlayAlwaysScrolled = true;
+  setTimeout(function(){ header.classList.add('scrolled'); }, 50);
 }
 
 function loginTabSwitch(idx) {
