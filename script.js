@@ -1418,7 +1418,7 @@ function openArtConciergePage() {
       <div class="sp-wrap" style="padding-top:28px;padding-bottom:0;">
         <div style="display:flex;align-items:center;gap:14px;">
           <div style="flex:1;height:1px;background:#dddcda;"></div>
-          <span style="font-size:9px;font-weight:700;letter-spacing:.22em;color:#9a9088;text-transform:uppercase;">PART 01 · The Person</span>
+          <span style="font-size:9px;font-weight:700;letter-spacing:.22em;color:#9a9088;text-transform:uppercase;border:1px solid #dddcda;padding:3px 10px;">PART 01 · The Person</span>
           <div style="flex:1;height:1px;background:#dddcda;"></div>
         </div>
       </div>
@@ -1553,7 +1553,7 @@ function openArtConciergePage() {
         <div class="sp-wrap" style="padding-top:0;padding-bottom:0;">
           <div style="display:flex;align-items:center;gap:14px;">
             <div style="flex:1;height:1px;background:#c8c2b8;"></div>
-            <span style="font-size:9px;font-weight:700;letter-spacing:.22em;color:#9a9088;text-transform:uppercase;">PART 02 · 시그너처</span>
+            <span style="font-size:9px;font-weight:700;letter-spacing:.22em;color:#9a9088;text-transform:uppercase;border:1px solid #c8c2b8;padding:3px 10px;">PART 02 · 시그너처</span>
             <div style="flex:1;height:1px;background:#c8c2b8;"></div>
           </div>
         </div>
@@ -1697,7 +1697,7 @@ function openArtConciergePage() {
         <div class="sp-wrap" style="padding-top:0;padding-bottom:0;">
           <div style="display:flex;align-items:center;gap:14px;">
             <div style="flex:1;height:1px;background:#e8e4df;"></div>
-            <span style="font-size:9px;font-weight:700;letter-spacing:.22em;color:#b0aaa4;text-transform:uppercase;">PART 03 · The Knowledge</span>
+            <span style="font-size:9px;font-weight:700;letter-spacing:.22em;color:#b0aaa4;text-transform:uppercase;border:1px solid #e8e4df;padding:3px 10px;">PART 03 · The Knowledge</span>
             <div style="flex:1;height:1px;background:#e8e4df;"></div>
           </div>
         </div>
