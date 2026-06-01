@@ -1553,7 +1553,7 @@ function openArtConciergePage() {
         <div class="sp-wrap" style="padding-top:0;padding-bottom:0;">
           <div style="display:flex;align-items:center;gap:14px;">
             <div style="flex:1;height:1px;background:#c8c2b8;"></div>
-            <span style="font-size:9px;font-weight:700;letter-spacing:.22em;color:#9a9088;text-transform:uppercase;border:1px solid #c8c2b8;padding:3px 10px;">PART 02 · 시그너처</span>
+            <span style="font-size:9px;font-weight:700;letter-spacing:.22em;color:#9a9088;text-transform:uppercase;border:1px solid #c8c2b8;padding:3px 10px;">PART 02 · Signature Offering</span>
             <div style="flex:1;height:1px;background:#c8c2b8;"></div>
           </div>
         </div>
@@ -1773,7 +1773,7 @@ function openCulturalCasePage(selectedType) {
     <div class="co-fullbg-wrap">
 
       <!-- 3뎁스 헤더 -->
-      <div style="background:#1a2e2a;padding:72px 0 36px;">
+      <div style="background:#1a2e2a;padding:100px 0 36px;">
         <div class="sp-wrap">
           <p style="font-size:11px;font-weight:700;letter-spacing:.15em;color:#7aaa99;text-transform:uppercase;margin-bottom:10px;">Cultural Space Case</p>
           <h1 style="font-size:26px;font-weight:800;color:#fff;line-height:1.25;margin-bottom:8px;">${typeDef.typeName}</h1>
