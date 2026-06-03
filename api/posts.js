@@ -56,6 +56,12 @@ function esc(s) {
 }
 
 module.exports = async (req, res) => {
+  // GitHub Pages(정적 도메인)에서 이 Vercel 함수를 cross-origin 호출하므로 CORS 허용
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  if (req.method === 'OPTIONS') return res.status(204).end();
+
   try {
     // ---- 목록 조회 ----
     if (req.method === 'GET') {

@@ -977,6 +977,15 @@ function closeSubPage() {
 }
 
 // =========================================
+// 로고 클릭 → 홈으로 이동 (서브페이지 닫고 최상단으로)
+// 언어(KO/ENG/CH)와 무관하게 동일하게 동작
+// =========================================
+function goHome() {
+  closeSubPage();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// =========================================
 // 퀵 사이드바 네비게이션 (오버레이 닫고 이동)
 // =========================================
 function quickNavTo(hash) {
@@ -1272,6 +1281,12 @@ let _boardFiltered = [..._boardInitPosts];
 let _boardPage = 1;
 const _BOARD_PER_PAGE = 15;
 
+// 게시판 API 주소.
+// 이 사이트의 사용자 도메인(sunshinewellness.co.kr)은 GitHub Pages로 서빙되어
+// 서버 함수를 실행할 수 없으므로, 게시판 저장/조회는 Vercel 배포의 함수를
+// cross-origin으로 직접 호출한다. (정적 호스팅 유지하면서 게시판만 동작)
+const BOARD_API = 'https://sunshine-wellness.vercel.app/api/posts';
+
 // 서버(API)에서 불러온 사용자 작성 글
 let _boardUserList = [];   // 목록 표시용 (id, title, date)
 let _boardUserFull = [];   // 상세 표시용 (전체 필드)
@@ -1286,7 +1301,7 @@ function _boardFindFull(id) {
 // API가 아직 연결되지 않았으면 조용히 샘플글만 표시.
 async function _boardLoadUserPosts() {
   try {
-    const res = await fetch('/api/posts', { cache: 'no-store' });
+    const res = await fetch(BOARD_API, { cache: 'no-store' });
     if (!res.ok) return;
     const data = await res.json();
     const posts = Array.isArray(data.posts) ? data.posts : [];
@@ -1435,7 +1450,7 @@ async function boardSubmit() {
   // 서버에 저장 시도
   let saved = false;
   try {
-    const res = await fetch('/api/posts', {
+    const res = await fetch(BOARD_API, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ title, author, content }),
