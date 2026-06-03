@@ -2046,6 +2046,7 @@ function openContactUsPage() {
 function _buildArchiveCards(lang) {
   lang = lang || currentLang || 'ko';
   const isZh = lang === 'zh';
+  const isEn = lang === 'en';
   const TZH = {
     T1:{name:'音乐都市与演出厅', desc:'融合古典音乐、演出厅、声学传统与城市认同的文化空间'},
     T2:{name:'节庆与艺术家之城', desc:'以节庆、歌剧、驻地与常设内容创造城市到访动机的文化空间'},
@@ -2053,6 +2054,14 @@ function _buildArchiveCards(lang) {
     T4:{name:'基金会·企业·收藏型文化空间', desc:'基金会、企业、收藏、教育机构、设计集群扩展为城市文化资产的案例'},
     T5:{name:'建筑实验与感官体验', desc:'强调建筑师理念、色彩、光线、材料与感官体验的文化空间'},
     T6:{name:'技术·市场·平台', desc:'结合媒体技术、艺术市场、全球分馆与大型活动平台的文化空间'},
+  };
+  const TEN = {
+    T1:{name:'Music Cities & Concert Halls', desc:'Cultural spaces where classical music, concert halls, acoustic tradition, and urban identity converge'},
+    T2:{name:'Festival & Artist Cities', desc:'Cultural spaces where festivals, opera, residencies, and permanent content drive city visits'},
+    T3:{name:'Industrial Heritage & Urban Regeneration', desc:'Ports, power plants, rail stations, military heritage, and waterfronts turned into cultural spaces'},
+    T4:{name:'Foundation·Corporate·Collection-based Spaces', desc:'Foundations, corporations, collections, schools, and design clusters expanded into urban cultural assets'},
+    T5:{name:'Architectural Experiment & Sensory Experience', desc:'Cultural spaces emphasizing architects\' concepts, color, light, material, and sensory experience'},
+    T6:{name:'Tech · Market · Platform', desc:'Cultural spaces combining media tech, art markets, global branches, and large event platforms'},
   };
   const TC = {
     T1:{badge:'#2e3e72',bg:'#f0f1f7',border:'#c8ccdf',tagBg:'#e2e5f4',tagTxt:'#2e3e72',hbg:'linear-gradient(135deg,#1e2d5a 0%,#3a5090 100%)'},
@@ -2071,17 +2080,18 @@ function _buildArchiveCards(lang) {
     var c = TC[td.type];
     var preview = culturalArchiveData.filter(function(d){ return d.type === td.type; }).slice(0,2);
     var previewHtml = preview.map(function(p) {
-      var z = (isZh && typeof _archiveZh !== 'undefined') ? _archiveZh[p.no] : null;
+      var z = (isZh && typeof _archiveZh !== 'undefined') ? _archiveZh[p.no]
+            : (isEn && typeof _archiveEn !== 'undefined') ? _archiveEn[p.no] : null;
       var pCity = z ? z.city : p.city;
       var pCountry = z ? z.country : p.country;
       var pCase = z ? z.caseName : p.caseName;
       var pConcept = z ? z.concept : p.concept;
       var pKw = z ? z.kw : p.spatialStrategyKeyword;
       var linkHtml = p.sourceUrl
-        ? '<a href="' + p.sourceUrl + '" target="_blank" rel="noopener noreferrer" style="font-size:11.5px;font-weight:700;color:' + c.badge + ';text-decoration:none;">' + (isZh ? '查看原文 ↗' : '원문 보기 ↗') + '</a>'
+        ? '<a href="' + p.sourceUrl + '" target="_blank" rel="noopener noreferrer" style="font-size:11.5px;font-weight:700;color:' + c.badge + ';text-decoration:none;">' + (isZh ? '查看原文 ↗' : isEn ? 'View Source ↗' : '원문 보기 ↗') + '</a>'
         : '';
       var calumnBadge = p.sourceUrl
-        ? '<span style="font-size:9px;font-weight:700;color:' + c.badge + ';background:' + c.tagBg + ';padding:2px 7px;border-radius:10px;">' + (isZh ? '专栏' : '칼럼') + '</span>'
+        ? '<span style="font-size:9px;font-weight:700;color:' + c.badge + ';background:' + c.tagBg + ';padding:2px 7px;border-radius:10px;">' + (isZh ? '专栏' : isEn ? 'Column' : '칼럼') + '</span>'
         : '';
       var tagMargin = p.sourceUrl ? 'margin-bottom:9px;' : '';
       return '<div style="border:1px solid ' + c.border + ';border-radius:10px;padding:13px 15px;background:#fff;">'
@@ -2107,8 +2117,8 @@ function _buildArchiveCards(lang) {
       + '</div>'
       + '<span style="font-size:10px;color:' + (c.white===false ? '#aaa' : 'rgba(255,255,255,0.6)') + ';">' + td.count + ' Cases</span>'
       + '</div>'
-      + '<h3 style="font-size:14.5px;font-weight:700;color:' + (c.white===false ? '#1a2e2a' : '#fff') + ';margin-bottom:5px;">' + (isZh ? TZH[td.type].name : td.typeName) + '</h3>'
-      + '<p style="font-size:12px;color:' + (c.white===false ? '#777' : 'rgba(255,255,255,0.78)') + ';line-height:1.7;margin:0;">' + (isZh ? TZH[td.type].desc : td.description) + '</p>'
+      + '<h3 style="font-size:14.5px;font-weight:700;color:' + (c.white===false ? '#1a2e2a' : '#fff') + ';margin-bottom:5px;">' + (isZh ? TZH[td.type].name : isEn ? TEN[td.type].name : td.typeName) + '</h3>'
+      + '<p style="font-size:12px;color:' + (c.white===false ? '#777' : 'rgba(255,255,255,0.78)') + ';line-height:1.7;margin:0;">' + (isZh ? TZH[td.type].desc : isEn ? TEN[td.type].desc : td.description) + '</p>'
       + '</div>'
       + '<div style="background:#fafaf8;padding:14px 22px 16px;">'
       + '<div class="ca-preview-grid">'
@@ -2119,7 +2129,7 @@ function _buildArchiveCards(lang) {
       + ' style="font-size:11.5px;font-weight:700;color:' + c.badge + ';background:transparent;border:1.5px solid ' + c.badge + ';border-radius:8px;padding:5px 14px;cursor:pointer;font-family:\'Noto Sans KR\',sans-serif;transition:background .2s,color .2s;"'
       + ' onmouseover="this.style.background=\'' + c.badge + '\';this.style.color=\'#fff\'"'
       + ' onmouseout="this.style.background=\'transparent\';this.style.color=\'' + c.badge + '\'">'
-      + (isZh ? '查看全部案例 (' + td.count + ') →' : '전체 사례 보기 (' + td.count + '개) →')
+      + (isZh ? '查看全部案例 (' + td.count + ') →' : isEn ? 'View all ' + td.count + ' cases →' : '전체 사례 보기 (' + td.count + '개) →')
       + '</button>'
       + '</div>'
       + '</div>'
@@ -2235,6 +2245,58 @@ function openArtConciergePage() {
     sourceLine: 'Source · 基于釜山日报「李相勋的标志性文化空间故事」专栏',
     ctaText: '阳光健康旅游与艺术礼宾共同设计的特别旅程',
     ctaBtn: '咨询 →',
+  } : _acLang === 'en' ? {
+    title: 'Art Concierge',
+    partnerTour: 'Partner Tour',
+    brandLine: 'Sunshine Wellness × Art Concierge',
+    inquire: 'Inquire',
+    whoName: 'CEO Lee Sang-hoon · Destination Art',
+    lshName: 'CEO Lee Sang-hoon',
+    statCards: [
+      {title:'Cumulative Art Journeys', items:[['1,400+','Cities Visited'],['400+','Catalogues'],['64+','Performances']]},
+      {title:'2023 Highlights', items:[['170','Cities Visited'],['64','Performances Seen'],['126','Museums Visited']]}
+    ],
+    philoLabel: 'Travel where art itself is the purpose',
+    philoBody: `Art Concierge is <strong style="color:#1a2e2a;">a specialized travel agency that treats art spaces themselves as destinations, planning trips around specific performances, exhibitions, and architectural spaces</strong>. Under the <em>Destination Art</em> philosophy of <strong style="color:#1a2e2a;">&ldquo;art you can only see by going there&rdquo;</strong>, it specializes in VIP tours of Western European music, concert, and architectural spaces.`,
+    tags1: ['#LeeSangHoon','#1400Cities','#ArtTravel','#Music','#Architecture','#Museums','#VIP','#WesternEurope','#DestinationArt'],
+    proofName: 'Press · Lectures',
+    pressCards: [
+      ['Busan Ilbo Article','&ldquo;Travel where art itself is the purpose&rdquo;','https://www.busan.com/view/busan/view.php?code=2024010814490253602'],
+      ['Busan Concert Hall VIP Tour Sold Out','3D2N · KRW 2.42M · 2025.06.20<br>Busan Tourism Org. × Art Concierge','https://www.mice.or.kr/bbs/board.php?bo_table=news&wr_id=1479'],
+      ['Busan Ilbo Series','Lee Sang-hoon&rsquo;s Signature Cultural Space Stories','https://www.busan.com/search/index.php?search_string=[이상훈의시그너처문화공간이야기]'],
+    ],
+    lec1Label: 'Lecture · Dongseo University',
+    lec1Title: 'A European Grand Tour<br/>in Search of Stories',
+    lec1Desc: 'Turning cathedrals and opera houses into stages of storytelling — a special lecture on art travel that seeks the stories within Europe&rsquo;s architecture and spaces.',
+    lec1Date: 'Sep 16, 2022 · Dongseo University',
+    lec2Label: 'Lecture · Dongseo Univ. Q-College',
+    lec2Title: 'European Music Festival Experts<br/>Dream Expedition & VIP Tours',
+    lec2Desc: 'Korea&rsquo;s top 0.01% VIP private tours — a lecture to Q-College&rsquo;s first cohort on European opera festivals and art travel.',
+    lec2Date: 'Oct 15, 2021 · Dongseo University',
+    viewBtn: 'View ↗',
+    tags2: ['#BusanIlbo','#BusanConcertHall','#SoldOut','#DestinationArt','#ArtTravelPhilosophy','#WesternEurope'],
+    whatName: 'Professional Services &amp; Signature Tours',
+    specialties: [
+      {icon:'🎼',title:'Music · Concerts',desc:'VIP viewing of top Western European performances — Vienna Philharmonic, Salzburg Festival, and more',bg:'linear-gradient(135deg,#1a3d30 0%,#3B6259 100%)',border:'#2d5a48',color:'#3B6259',headerWhite:true,
+       tours:[
+         {icon:'🎼',tag:'Exclusive',title:'Salzburg Festival VIP',sub:'Austria · 10D8N',desc:'The world\'s finest classical music festival, held every summer. Includes VIP seats, rehearsal viewing, and an artist backstage tour.',color:'#e8a04a'},
+         {icon:'🏛️',tag:'Curated',title:'Vienna Philharmonic Golden Hall Concert',sub:'Austria · 7D5N',desc:'A special performance at the Musikverein Golden Hall, one of the world\'s top three concert halls. A linked tour of Vienna\'s Imperial Palace & Kunsthistorisches Museum.',color:'#3B6259'},
+       ]},
+      {icon:'🏛️',title:'Architectural Space Tour',desc:'Modern architectural masterpieces — Sagrada Família, Fondation Louis Vuitton — with expert commentary',bg:'linear-gradient(135deg,#e07820 0%,#f5aa50 100%)',border:'#d4783a',color:'#e8a04a',headerTextColor:'#1c3878',headerDescColor:'rgba(28,56,120,0.82)',
+       tours:[
+         {icon:'🏗️',tag:'Exclusive',title:'Sagrada Família Architecture Trip',sub:'Spain · 9D7N',desc:'Experience the essence of Gaudí\'s architecture with tower tickets and an expert\'s commentary. Includes a tour of Barcelona\'s modern architecture.',color:'#e8a04a'},
+       ]},
+      {icon:'🎨',title:'Museum Concierge',desc:'Deep viewing designed around 400+ catalogues — Louvre, Orsay, Tate, and more',bg:'linear-gradient(135deg,#3a1f5e 0%,#6a4f9a 100%)',border:'#5a3a8a',color:'#6a4f9a',headerWhite:true,
+       tours:[
+         {icon:'🎨',tag:'Curated',title:'Louvre Night VIP Viewing',sub:'France · 8D6N',desc:'A Louvre-exclusive tour during hours without general visitors. A deep appreciation experience with a curator\'s commentary.',color:'#3B6259'},
+       ]},
+    ],
+    tags3: ['#ClassicalMusic','#ArchitectureTrip','#MuseumConcierge','#Salzburg','#ViennaPhilharmonic','#Louvre','#SagradaFamilia'],
+    archIntroTitle: 'How the world\'s cities are remembered',
+    archIntroBody: 'Cultural spaces around the world visited in person by CEO Lee Sang-hoon — 50 scenes where music, architecture, festivals, regeneration, and foundations shape urban identity.',
+    sourceLine: 'Source · Based on Busan Ilbo&rsquo;s &ldquo;Lee Sang-hoon&rsquo;s Signature Cultural Space Stories&rdquo; column',
+    ctaText: 'A special journey designed together by Sunshine Wellness and Art Concierge',
+    ctaBtn: 'Inquire →',
   } : {
     title: '아트 컨시어지',
     partnerTour: '제휴 투어',
@@ -2632,6 +2694,7 @@ function openCulturalCasePage(selectedType) {
   _activeSubPageRender = () => openCulturalCasePage(selectedType);
   const _ccLang = currentLang || 'ko';
   const _ccZh = _ccLang === 'zh';
+  const _ccEn = _ccLang === 'en';
   const TYPE_EN = {
     T1:'Music City & Hall', T2:'Festival & Artist City',
     T3:'Heritage & Regeneration', T4:'Foundation & Collection',
@@ -2642,10 +2705,15 @@ function openCulturalCasePage(selectedType) {
     T3:'工业遗产与城市再生', T4:'基金会·企业·收藏型文化空间',
     T5:'建筑实验与感官体验', T6:'技术·市场·平台',
   };
-  const _ccBack = _ccZh ? '← 返回艺术礼宾' : '← 아트 컨시어지로 돌아가기';
-  const _ccView = _ccZh ? '查看原文 ↗' : '원문 보기 ↗';
-  const _ccPrep = _ccZh ? '专栏准备中' : '칼럼 준비 중';
-  const _ccSource = _ccZh ? 'Source · 基于釜山日报「李相勋的标志性文化空间故事」专栏' : 'Source · 부산일보 「이상훈의 시그니처 문화공간 이야기」 칼럼 기반';
+  const TYPE_ENF = {
+    T1:'Music Cities & Concert Halls', T2:'Festival & Artist Cities',
+    T3:'Industrial Heritage & Urban Regeneration', T4:'Foundation·Corporate·Collection-based Spaces',
+    T5:'Architectural Experiment & Sensory Experience', T6:'Tech · Market · Platform',
+  };
+  const _ccBack = _ccZh ? '← 返回艺术礼宾' : _ccEn ? '← Back to Art Concierge' : '← 아트 컨시어지로 돌아가기';
+  const _ccView = _ccZh ? '查看原文 ↗' : _ccEn ? 'View Source ↗' : '원문 보기 ↗';
+  const _ccPrep = _ccZh ? '专栏准备中' : _ccEn ? 'Column coming soon' : '칼럼 준비 중';
+  const _ccSource = _ccZh ? 'Source · 基于釜山日报「李相勋的标志性文化空间故事」专栏' : _ccEn ? 'Source · Based on Busan Ilbo\'s “Lee Sang-hoon\'s Signature Cultural Space Stories” column' : 'Source · 부산일보 「이상훈의 시그니처 문화공간 이야기」 칼럼 기반';
   const TC = {
     T1:{badge:'#2e3e72'}, T2:{badge:'#9a4f28'}, T3:{badge:'#3b5847'},
     T4:{badge:'#6b3a5a'}, T5:{badge:'#7a6428'}, T6:{badge:'#1e6868'},
@@ -2662,7 +2730,7 @@ function openCulturalCasePage(selectedType) {
       <div style="background:#1a2e2a;padding:100px 0 36px;">
         <div class="sp-wrap">
           <p style="font-size:11px;font-weight:700;letter-spacing:.15em;color:#7aaa99;text-transform:uppercase;margin-bottom:10px;">Cultural Space Case</p>
-          <h1 style="font-size:26px;font-weight:800;color:#fff;line-height:1.25;margin-bottom:8px;">${_ccZh ? TYPE_ZH[selectedType] : typeDef.typeName}</h1>
+          <h1 style="font-size:26px;font-weight:800;color:#fff;line-height:1.25;margin-bottom:8px;">${_ccZh ? TYPE_ZH[selectedType] : _ccEn ? TYPE_ENF[selectedType] : typeDef.typeName}</h1>
           <p style="font-size:13px;color:#a0bfb5;">${TYPE_EN[selectedType]} · ${filtered.length} Cases</p>
         </div>
       </div>
@@ -2676,7 +2744,8 @@ function openCulturalCasePage(selectedType) {
           </button>
           <div class="ca-case-grid">
             ${filtered.map(d=>{
-              const z = (_ccZh && typeof _archiveZh !== 'undefined') ? _archiveZh[d.no] : null;
+              const z = (_ccZh && typeof _archiveZh !== 'undefined') ? _archiveZh[d.no]
+                      : (_ccEn && typeof _archiveEn !== 'undefined') ? _archiveEn[d.no] : null;
               const dCity = z ? z.city : d.city;
               const dCountry = z ? z.country : d.country;
               const dCase = z ? z.caseName : d.caseName;
@@ -2684,7 +2753,7 @@ function openCulturalCasePage(selectedType) {
               const dTopic = z ? z.topic : d.columnTopic;
               const dKw = z ? z.kw : d.spatialStrategyKeyword;
               const dCont = z ? z.continent : d.continent;
-              const dPub = d.sourcePublisher ? (_ccZh ? '釜山日报' : d.sourcePublisher) : '';
+              const dPub = d.sourcePublisher ? (_ccZh ? '釜山日报' : _ccEn ? 'Busan Ilbo' : d.sourcePublisher) : '';
               return `
               <div style="border:1px solid #e0ddd8;border-radius:14px;padding:24px 22px;background:#fff;display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s;"
                    onmouseover="this.style.boxShadow='0 8px 28px rgba(0,0,0,0.09)';this.style.transform='translateY(-3px)'"
