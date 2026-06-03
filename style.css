@@ -263,7 +263,11 @@ ul { list-style: none; }
   top: 80px;
   right: 0;
   left: auto;
+  /* 폭을 콘텐츠 길이와 무관하게 완전 고정 (CH 등 짧은 글자에서도 동일 폭 보장) */
   width: 280px;
+  min-width: 280px;
+  max-width: 280px;
+  box-sizing: border-box;
   max-height: calc(100vh - 80px);
   overflow-y: auto;
   background: var(--white);
