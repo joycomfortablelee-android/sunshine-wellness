@@ -58,8 +58,8 @@ function esc(s) {
 module.exports = async (req, res) => {
   // GitHub Pages(정적 도메인)에서 이 Vercel 함수를 cross-origin 호출하므로 CORS 허용
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, x-admin-key');
   if (req.method === 'OPTIONS') return res.status(204).end();
 
   try {
@@ -119,7 +119,47 @@ module.exports = async (req, res) => {
       return res.status(200).json({ post });
     }
 
-    res.setHeader('Allow', 'GET, POST');
+    // ---- 글 삭제 (관리자 전용) ----
+    if (req.method === 'DELETE') {
+      const adminKey = process.env.BOARD_ADMIN_KEY;
+      // 관리자 키가 서버에 설정돼 있지 않으면 삭제 기능 자체를 비활성화
+      if (!adminKey) {
+        return res.status(403).json({ error: '삭제 기능이 아직 설정되지 않았습니다.' });
+      }
+      const provided = req.headers['x-admin-key'];
+      if (!provided || provided !== adminKey) {
+        return res.status(401).json({ error: '관리자 비밀번호가 올바르지 않습니다.' });
+      }
+
+      // 쿼리 파싱 (?id=... 또는 ?all=1)
+      const q = new URL(req.url, 'http://x').searchParams;
+      const id = q.get('id');
+      const all = q.get('all');
+
+      try {
+        if (all === '1') {
+          await redis(['DEL', KEY]);
+          return res.status(200).json({ ok: true, cleared: 'all' });
+        }
+        if (!id) return res.status(400).json({ error: 'id가 필요합니다.' });
+
+        // 리스트를 읽어 해당 id만 제외하고 순서 유지하며 재구성
+        const allRows = (await redis(['LRANGE', KEY, '0', '-1'])) || [];
+        const remaining = allRows.filter((s) => {
+          try { return String(JSON.parse(s).id) !== String(id); } catch { return true; }
+        });
+        if (remaining.length === allRows.length) {
+          return res.status(404).json({ error: '해당 글을 찾을 수 없습니다.' });
+        }
+        await redis(['DEL', KEY]);
+        if (remaining.length) await redis(['RPUSH', KEY, ...remaining]);
+        return res.status(200).json({ ok: true, deleted: id });
+      } catch (e) {
+        return res.status(503).json({ error: '저장소 처리 중 오류가 발생했습니다.' });
+      }
+    }
+
+    res.setHeader('Allow', 'GET, POST, DELETE');
     return res.status(405).json({ error: 'Method Not Allowed' });
   } catch (e) {
     return res.status(500).json({ error: 'Server error' });

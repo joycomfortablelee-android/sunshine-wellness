@@ -321,6 +321,10 @@ ul { list-style: none; }
 .sp-count strong { color:#1a2e2a; }
 .sp-btn-write { background:#3B6259; color:#fff; border:none; padding:9px 20px; font-size:13px; font-weight:600; border-radius:6px; cursor:pointer; font-family:var(--font); }
 .sp-btn-write:hover { background:#2d4e47; }
+.sp-btn-admin { background:transparent; border:1px solid #d8d4ce; padding:7px 11px; font-size:13px; line-height:1; border-radius:6px; cursor:pointer; opacity:0.55; }
+.sp-btn-admin:hover { opacity:1; background:#f0eeea; }
+.board-del-btn { margin-left:10px; background:#fff; color:#c0392b; border:1px solid #e3b3ad; padding:2px 9px; font-size:12px; font-weight:600; border-radius:5px; cursor:pointer; font-family:var(--font); vertical-align:middle; }
+.board-del-btn:hover { background:#c0392b; color:#fff; border-color:#c0392b; }
 .sp-table { width:100%; border-collapse:collapse; background:#fff; border-radius:10px; overflow:hidden; box-shadow:0 1px 8px rgba(0,0,0,0.06); }
 .sp-table thead tr { background:#f0eeea; border-bottom:2px solid #e0ddd8; }
 .sp-table th { padding:13px 16px; font-size:13px; font-weight:700; color:#555; text-align:center; }

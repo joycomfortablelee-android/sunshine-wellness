@@ -1311,6 +1311,51 @@ async function _boardLoadUserPosts() {
   } catch (e) { /* 네트워크/미연결 시 샘플글 유지 */ }
 }
 
+// ----- 관리자(글 삭제) -----
+// 비밀번호는 서버(BOARD_ADMIN_KEY 환경변수)에서 검증. 브라우저에는
+// 입력한 비밀번호만 localStorage에 보관(이 기기에서만 관리자 모드 유지).
+const _BOARD_ADMIN_LS = 'swBoardAdminKey';
+function _boardAdminKey() { try { return localStorage.getItem(_BOARD_ADMIN_LS) || ''; } catch (e) { return ''; } }
+function _boardIsAdmin() { return !!_boardAdminKey(); }
+
+function boardToggleAdmin() {
+  if (_boardIsAdmin()) {
+    if (confirm('관리자 모드를 끌까요?')) {
+      try { localStorage.removeItem(_BOARD_ADMIN_LS); } catch (e) {}
+      _boardRender();
+    }
+    return;
+  }
+  const key = prompt('관리자 비밀번호를 입력하세요.');
+  if (key == null) return;
+  const k = key.trim();
+  if (!k) return;
+  try { localStorage.setItem(_BOARD_ADMIN_LS, k); } catch (e) {}
+  _boardRender();
+}
+
+async function boardDeletePost(id) {
+  if (!_boardIsAdmin()) return;
+  if (!confirm('이 글을 삭제할까요? 되돌릴 수 없습니다.')) return;
+  try {
+    const res = await fetch(BOARD_API + '?id=' + encodeURIComponent(id), {
+      method: 'DELETE',
+      headers: { 'x-admin-key': _boardAdminKey() },
+    });
+    if (res.status === 401) {
+      alert('관리자 비밀번호가 올바르지 않습니다. 다시 입력해주세요.');
+      try { localStorage.removeItem(_BOARD_ADMIN_LS); } catch (e) {}
+      _boardRender();
+      return;
+    }
+    if (!res.ok) { alert('삭제에 실패했습니다.'); return; }
+    await _boardLoadUserPosts();
+    _boardFiltered = [..._boardAllPosts];
+    _boardPage = 1;
+    _boardRender();
+  } catch (e) { alert('삭제 중 오류가 발생했습니다.'); }
+}
+
 const _boardListI18n = {
   8: { en: { title: 'Jeju Wellness Trip Review — The temple stay was the best', dest: 'Jeju', author: 'Lee Hwa-jin', content: `<p>The most memorable part of my Jeju wellness trip was undoubtedly the temple stay. Spending a day at a quiet mountain temple, I was able to escape my busy daily life for a moment. The dawn prayer and meditation sessions were very helpful in organizing my thoughts.</p><p>I especially enjoyed the peaceful walks around the temple. The sounds of nature, fresh air, and a warm cup of tea gave me a sense of leisure that will stay with me for a long time. The trip made me realize that travel isn't just about visiting tourist attractions, but about caring for both body and mind.</p><p>The Sunshine Wellness schedule is designed without pressure, so it was comfortable for middle-aged people to participate. I would like to experience this kind of quiet and profound travel again next time.</p>` },        zh: { title: '济州岛健康旅行游记 — 寺庙住宿最棒了', dest: '济州岛', author: '李化进', content: `<p>这次济州岛健康之旅中最令我难忘的行程，无疑是寺庙住宿。在宁静的山寺中度过一天，让我得以暂时摆脱忙碌的日常，而清晨的礼佛和冥想时间，对于让心境平静地整理思绪有很大的帮助。</p><p>尤其是在寺庙周围慢慢散步的时光特别美好。大自然的声音、清新的空气，还有一杯温茶带来的那份悠闲，久久留存在记忆里。我感受到，旅行不只是游览景点，也可以是照料身心的时光。</p><p>阳光健康旅游的行程安排得不会让人感到吃力，中老年人也能轻松参与。下次我还想再次体验这样宁静而有深度的旅行。</p>` } },
   7: { en: { title: 'Solo Busan trip in my 60s — unforgettable thanks to Sunshine Wellness', dest: 'Busan', author: 'Park Yong-su', content: `<p>I was worried about taking my first solo trip. However, as I traveled through Busan through the Sunshine Wellness program, that worry quickly disappeared.</p><p>The schedule was not too tight, and the guide shared stories at each location so well that even though I was alone, I didn't feel lonely. The time walking while looking at the sea, tasting food at traditional markets, and the conversations with fellow travelers all remain as warm memories.</p><p>I especially gained confidence that I can have meaningful new experiences even in my 60s and beyond. I highly recommend this program to anyone who is thinking about traveling solo.</p>` }, zh: { title: '60多岁独自釜山旅行，多亏阳光健康旅游留下难忘回忆', dest: '釜山', author: '朴勇树', content: `<p>这是我第一次独自出行，所以心里有很多担忧。但通过阳光健康旅游的项目游览釜山时，那些担忧很快就烟消云散了。</p><p>行程安排得并不紧凑，讲解老师在每个地方都把故事讲解得很到位，所以虽然是一个人，却并不感到孤单。眺望大海漫步的时光、在传统市场品尝美食的时光，还有与同行旅伴交谈的点滴，都成了温暖的回忆。</p><p>尤其是，我获得了即使过了60岁也完全能够拥有全新体验的自信。我非常想把这个项目推荐给正在犹豫是否独自旅行的人。</p>` } },
@@ -1334,6 +1379,7 @@ function _boardRender() {
   if (!page.length) {
     list.innerHTML = '<tr><td colspan="5" class="sp-empty">' + emptyMsg + '</td></tr>';
   } else {
+    const admin = _boardIsAdmin();
     list.innerHTML = page.map((p, i) => {
       const full = _boardFindFull(p.id) || {};
       const loc  = (lang !== 'ko' && _boardListI18n[p.id]) ? _boardListI18n[p.id][lang] : null;
@@ -1341,10 +1387,15 @@ function _boardRender() {
       const title  = (loc && loc.title) || p.title;
       const author = (loc && loc.author) || full.author || '';
       const date   = full.date ? full.date.substring(5) : p.date;
+      // 사용자 작성 글(서버 저장분)만 삭제 가능. 샘플글(1~8)은 코드 고정이라 제외.
+      const isUser = _boardUserFull.some(u => String(u.id) === String(p.id));
+      const delBtn = (admin && isUser)
+        ? `<button class="board-del-btn" onclick="event.stopPropagation();boardDeletePost(${p.id})">삭제</button>`
+        : '';
       return `<tr onclick="_openBoardDetailInOverlay(${p.id})" style="cursor:pointer">
         <td class="sp-col-no">${_boardFiltered.length - start - i}</td>
         <td class="sp-col-dest">${dest}</td>
-        <td class="sp-col-title"><a href="javascript:void(0)">${title}</a></td>
+        <td class="sp-col-title"><a href="javascript:void(0)">${title}</a>${delBtn}</td>
         <td class="sp-col-author">${author}</td>
         <td class="sp-col-date">${date}</td>
       </tr>`;
@@ -1519,7 +1570,10 @@ function openWhereToNextPage() {
       <h2 class="co-heading">${labels.nextDestTitle}</h2>
       <div class="sp-toolbar">
         <p class="sp-count">${labels.totalPosts} <strong id="boardTotal">0</strong>${labels.posts}</p>
-        <button class="sp-btn-write" onclick="boardOpenWrite()">${labels.writeBtn}</button>
+        <span style="display:inline-flex;gap:8px;align-items:center;">
+          <button class="sp-btn-admin" onclick="boardToggleAdmin()" title="관리자">🔧</button>
+          <button class="sp-btn-write" onclick="boardOpenWrite()">${labels.writeBtn}</button>
+        </span>
       </div>
       <table class="sp-table">
         <thead>
