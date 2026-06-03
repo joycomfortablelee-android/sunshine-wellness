@@ -48,6 +48,7 @@ const translations = {
     'nav.contact': '견적의뢰 및 문의',
     'nav.wheretonext': 'Where to Next?',
     'nav.contactus': '고객센터',
+    'nav.learn': '교육자료',
     'nav.artconcierge': '아트 컨시어지',
     'nav.signatureSpace': '시그너처 문화공간',
     'auth.login': '로그인',
@@ -271,6 +272,7 @@ const translations = {
     'nav.contact': 'Inquire',
     'nav.wheretonext': 'Where to Next?',
     'nav.contactus': 'Customer Service',
+    'nav.learn': 'Learn',
     'nav.artconcierge': 'Art Concierge',
     'nav.signatureSpace': 'Signature Cultural Space',
     'auth.login': 'Log In',
@@ -501,6 +503,7 @@ const translations = {
     'nav.contact': '咨询预约',
     'nav.wheretonext': '下一站去哪？',
     'nav.contactus': '联系我们',
+    'nav.learn': '学习',
     'nav.artconcierge': '艺术礼宾',
     'nav.signatureSpace': '签名文化空间',
     'auth.login': '登录',
@@ -1264,6 +1267,30 @@ let _boardFiltered = [..._boardInitPosts];
 let _boardPage = 1;
 const _BOARD_PER_PAGE = 15;
 
+// 서버(API)에서 불러온 사용자 작성 글
+let _boardUserList = [];   // 목록 표시용 (id, title, date)
+let _boardUserFull = [];   // 상세 표시용 (전체 필드)
+
+// 상세/목록에서 글 1건을 찾을 때 사용자 글 → 샘플글(boardData) 순으로 조회
+function _boardFindFull(id) {
+  return _boardUserFull.find(b => String(b.id) === String(id))
+      || boardData.find(b => String(b.id) === String(id));
+}
+
+// 서버에서 사용자 글 목록을 가져와 샘플글 위에 합친다.
+// API가 아직 연결되지 않았으면 조용히 샘플글만 표시.
+async function _boardLoadUserPosts() {
+  try {
+    const res = await fetch('/api/posts', { cache: 'no-store' });
+    if (!res.ok) return;
+    const data = await res.json();
+    const posts = Array.isArray(data.posts) ? data.posts : [];
+    _boardUserFull = posts;
+    _boardUserList = posts.map(p => ({ id: p.id, title: p.title, date: p.date }));
+    _boardAllPosts = [..._boardUserList, ..._boardInitPosts];
+  } catch (e) { /* 네트워크/미연결 시 샘플글 유지 */ }
+}
+
 const _boardListI18n = {
   8: { en: { title: 'Jeju Wellness Trip Review — The temple stay was the best', dest: 'Jeju', author: 'Lee Hwa-jin', content: `<p>The most memorable part of my Jeju wellness trip was undoubtedly the temple stay. Spending a day at a quiet mountain temple, I was able to escape my busy daily life for a moment. The dawn prayer and meditation sessions were very helpful in organizing my thoughts.</p><p>I especially enjoyed the peaceful walks around the temple. The sounds of nature, fresh air, and a warm cup of tea gave me a sense of leisure that will stay with me for a long time. The trip made me realize that travel isn't just about visiting tourist attractions, but about caring for both body and mind.</p><p>The Sunshine Wellness schedule is designed without pressure, so it was comfortable for middle-aged people to participate. I would like to experience this kind of quiet and profound travel again next time.</p>` },        zh: { title: '济州岛健康旅行游记 — 寺庙住宿最棒了', dest: '济州岛', author: '李化进', content: `<p>这次济州岛健康之旅中最令我难忘的行程，无疑是寺庙住宿。在宁静的山寺中度过一天，让我得以暂时摆脱忙碌的日常，而清晨的礼佛和冥想时间，对于让心境平静地整理思绪有很大的帮助。</p><p>尤其是在寺庙周围慢慢散步的时光特别美好。大自然的声音、清新的空气，还有一杯温茶带来的那份悠闲，久久留存在记忆里。我感受到，旅行不只是游览景点，也可以是照料身心的时光。</p><p>阳光健康旅游的行程安排得不会让人感到吃力，中老年人也能轻松参与。下次我还想再次体验这样宁静而有深度的旅行。</p>` } },
   7: { en: { title: 'Solo Busan trip in my 60s — unforgettable thanks to Sunshine Wellness', dest: 'Busan', author: 'Park Yong-su', content: `<p>I was worried about taking my first solo trip. However, as I traveled through Busan through the Sunshine Wellness program, that worry quickly disappeared.</p><p>The schedule was not too tight, and the guide shared stories at each location so well that even though I was alone, I didn't feel lonely. The time walking while looking at the sea, tasting food at traditional markets, and the conversations with fellow travelers all remain as warm memories.</p><p>I especially gained confidence that I can have meaningful new experiences even in my 60s and beyond. I highly recommend this program to anyone who is thinking about traveling solo.</p>` }, zh: { title: '60多岁独自釜山旅行，多亏阳光健康旅游留下难忘回忆', dest: '釜山', author: '朴勇树', content: `<p>这是我第一次独自出行，所以心里有很多担忧。但通过阳光健康旅游的项目游览釜山时，那些担忧很快就烟消云散了。</p><p>行程安排得并不紧凑，讲解老师在每个地方都把故事讲解得很到位，所以虽然是一个人，却并不感到孤单。眺望大海漫步的时光、在传统市场品尝美食的时光，还有与同行旅伴交谈的点滴，都成了温暖的回忆。</p><p>尤其是，我获得了即使过了60岁也完全能够拥有全新体验的自信。我非常想把这个项目推荐给正在犹豫是否独自旅行的人。</p>` } },
@@ -1288,7 +1315,7 @@ function _boardRender() {
     list.innerHTML = '<tr><td colspan="5" class="sp-empty">' + emptyMsg + '</td></tr>';
   } else {
     list.innerHTML = page.map((p, i) => {
-      const full = boardData.find(b => String(b.id) === String(p.id)) || {};
+      const full = _boardFindFull(p.id) || {};
       const loc  = (lang !== 'ko' && _boardListI18n[p.id]) ? _boardListI18n[p.id][lang] : null;
       const dest   = (loc && loc.dest) || full.destination || '부산';
       const title  = (loc && loc.title) || p.title;
@@ -1324,7 +1351,7 @@ function _boardRenderPaging() {
 function boardGoPage(p) { _boardPage = p; _boardRender(); document.getElementById('subPageOverlay').scrollTop = 0; }
 
 function _openBoardDetailInOverlay(id) {
-  const post = boardData.find(p => String(p.id) === String(id));
+  const post = _boardFindFull(id);
   if (!post) return;
   _activeSubPageRender = () => _openBoardDetailInOverlay(id);
   const lang = currentLang || 'ko';
@@ -1388,20 +1415,45 @@ function boardSearch() {
 function boardOpenWrite() { document.getElementById('boardWriteDim').classList.add('open'); }
 function boardCloseWrite() { document.getElementById('boardWriteDim').classList.remove('open'); }
 
-function boardSubmit() {
-  const title = (document.getElementById('boardWriteTitle').value || '').trim();
+async function boardSubmit() {
+  const titleEl   = document.getElementById('boardWriteTitle');
+  const authorEl  = document.getElementById('boardWriteAuthor');
+  const contentEl = document.getElementById('boardWriteContent');
+  const title = (titleEl.value || '').trim();
   if (!title) { alert('제목을 입력해주세요.'); return; }
-  const today = new Date();
-  const mm = String(today.getMonth() + 1).padStart(2, '0');
-  const dd = String(today.getDate()).padStart(2, '0');
-  _boardAllPosts.unshift({ id: _boardAllPosts.length + 1, title, date: `${mm}-${dd}` });
+  const author  = (authorEl.value || '').trim();
+  const content = (contentEl.value || '').trim();
+
+  const postBtn = document.querySelector('#boardWriteDim .sp-btn-post');
+  if (postBtn) postBtn.disabled = true;
+
+  // 서버에 저장 시도
+  let saved = false;
+  try {
+    const res = await fetch('/api/posts', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title, author, content }),
+    });
+    saved = res.ok;
+  } catch (e) { saved = false; }
+
+  if (saved) {
+    await _boardLoadUserPosts();          // 서버에서 최신 목록 다시 로드
+  } else {
+    // 저장소 미연결 시: 화면에만 임시로 추가 (새로고침하면 사라짐)
+    const today = new Date();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    _boardAllPosts.unshift({ id: Date.now(), title, date: `${mm}-${dd}` });
+  }
+
   _boardFiltered = [..._boardAllPosts];
   _boardPage = 1;
   _boardRender();
   boardCloseWrite();
-  document.getElementById('boardWriteTitle').value = '';
-  document.getElementById('boardWriteAuthor').value = '';
-  document.getElementById('boardWriteContent').value = '';
+  titleEl.value = ''; authorEl.value = ''; contentEl.value = '';
+  if (postBtn) postBtn.disabled = false;
 }
 
 function openWhereToNextPage() {
@@ -1485,6 +1537,11 @@ function openWhereToNextPage() {
   _boardFiltered = [..._boardAllPosts];
   _boardPage = 1;
   _boardRender();
+  // 서버에 저장된 사용자 글을 불러와 다시 렌더
+  _boardLoadUserPosts().then(() => {
+    _boardFiltered = [..._boardAllPosts];
+    _boardRender();
+  });
 }
 
 
