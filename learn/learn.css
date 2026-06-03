@@ -1,0 +1,124 @@
+/* Sunshine Wellness — 교육자료(Learn) 섹션 전용 스타일 (자체 완결, 메인 style.css와 독립) */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --green: #3B6259;
+  --deep: #1a2e2a;
+  --gold: #e8a04a;
+  --ivory: #FAF7F2;
+  --gray: #F5F5F3;
+  --line: #e8e8e4;
+  --text: #333;
+  --muted: #777;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  color: var(--text);
+  background: #fff;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.lw {                         /* 공통 가로폭 래퍼 */
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ===== Header ===== */
+.learn-header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+.learn-header .lw {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.learn-logo { display: flex; flex-direction: column; line-height: 1.1; }
+.learn-logo .en { font-size: 15px; font-weight: 800; letter-spacing: .02em; color: var(--deep); }
+.learn-logo .kr { font-size: 11px; color: var(--muted); }
+.learn-back {
+  font-size: 13px; font-weight: 700; color: var(--green);
+  padding: 7px 14px; border: 1px solid var(--line); border-radius: 8px;
+  transition: background .2s, color .2s;
+}
+.learn-back:hover { background: var(--green); color: #fff; }
+
+/* ===== Hero ===== */
+.learn-hero {
+  background: var(--ivory);
+  border-bottom: 1px solid var(--line);
+  padding: 72px 0 64px;
+  text-align: center;
+}
+.learn-hero .label {
+  font-size: 11px; font-weight: 700; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--green); margin-bottom: 16px;
+}
+.learn-hero h1 {
+  font-size: 34px; font-weight: 800; color: var(--deep);
+  line-height: 1.3; margin-bottom: 16px;
+}
+.learn-hero .sub {
+  font-family: 'Merriweather', Georgia, serif;
+  font-size: 16px; color: var(--muted); max-width: 640px;
+  margin: 0 auto; line-height: 1.9;
+}
+
+/* ===== Module grid ===== */
+.learn-section { padding: 64px 0 80px; }
+.learn-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px;
+}
+.learn-card {
+  display: flex; flex-direction: column;
+  background: #fff; border: 1px solid var(--line); border-radius: 16px;
+  padding: 30px 28px; transition: box-shadow .2s, transform .2s;
+}
+.learn-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,.08); transform: translateY(-3px); }
+.learn-card .ico { font-size: 30px; margin-bottom: 14px; }
+.learn-card .mod { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--green); margin-bottom: 8px; }
+.learn-card h3 { font-size: 19px; font-weight: 800; color: var(--deep); margin-bottom: 10px; }
+.learn-card p { font-size: 14px; color: var(--muted); line-height: 1.8; flex: 1; margin-bottom: 18px; }
+.learn-card .go {
+  align-self: flex-start; font-size: 13px; font-weight: 700; color: var(--green);
+  border: 1.5px solid var(--green); border-radius: 8px; padding: 8px 16px;
+  transition: background .2s, color .2s;
+}
+.learn-card .go:hover { background: var(--green); color: #fff; }
+.learn-card .badge {
+  align-self: flex-start; font-size: 11px; font-weight: 700; color: var(--muted);
+  background: var(--gray); border-radius: 20px; padding: 6px 14px;
+}
+
+/* ===== Footer ===== */
+.learn-footer {
+  background: var(--deep); color: rgba(255,255,255,.8);
+  padding: 40px 0; text-align: center; font-size: 13px;
+}
+.learn-footer a { color: #fff; font-weight: 700; }
+.learn-footer .copy { margin-top: 10px; font-size: 12px; color: rgba(255,255,255,.5); }
+
+/* ===== Article (모듈 본문 페이지 공용) ===== */
+.learn-article { padding: 56px 0 80px; }
+.learn-article h2 { font-size: 24px; font-weight: 800; color: var(--deep); margin: 36px 0 14px; }
+.learn-article h3 { font-size: 18px; font-weight: 700; color: var(--green); margin: 26px 0 10px; }
+.learn-article p { font-size: 15px; color: var(--text); line-height: 1.95; margin-bottom: 14px; }
+.learn-article ul { margin: 0 0 16px 20px; }
+.learn-article li { font-size: 15px; line-height: 1.9; margin-bottom: 6px; }
+.learn-article .lead { font-family: 'Merriweather', Georgia, serif; font-size: 17px; color: var(--muted); line-height: 1.95; margin-bottom: 28px; }
+
+/* ===== Responsive ===== */
+@media (max-width: 720px) {
+  .learn-hero { padding: 56px 0 48px; }
+  .learn-hero h1 { font-size: 26px; }
+  .learn-grid { grid-template-columns: 1fr; }
+}

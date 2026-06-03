@@ -807,6 +807,11 @@ document.addEventListener('DOMContentLoaded', () => {
       setLang(btn.dataset.lang);
     });
   });
+
+  // /learn 등 외부 페이지에서 #cultural-archive 로 진입 시 아카이브 자동 오픈
+  if (location.hash === '#cultural-archive' && typeof openArtConciergeArchive === 'function') {
+    setTimeout(openArtConciergeArchive, 60);
+  }
 });
 
 document.querySelectorAll('.lang-btn').forEach(btn =>
