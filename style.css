@@ -724,10 +724,12 @@ section { padding: 100px 0; }
   align-items: center;
 }
 
-.about-text .section-desc { margin-bottom: 0; }
+.about-text { text-align: center; }
+.about-text .section-desc { margin-bottom: 0; margin-left: auto; margin-right: auto; }
 .about-more-btn {
-  display: inline-block;
-  margin-top: 24px;
+  display: block;
+  margin: 24px auto 0;
+  width: fit-content;
   padding: 10px 24px;
   background: transparent;
   border: 1.5px solid var(--primary);
