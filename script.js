@@ -789,6 +789,10 @@ function setLang(lang) {
   // 홈 Community 테이블 제목 업데이트
   document.querySelectorAll('.board-post-button').forEach(btn => {
     const id = btn.dataset.id;
+    // 최초 1회: HTML에 하드코딩된 한국어 원본 제목 보존 (ko는 _boardListI18n에 없음)
+    if (btn.dataset.koTitle === undefined) btn.dataset.koTitle = btn.textContent;
+    // 한국어로 되돌릴 때 원본 복원 (이게 없으면 EN/ZH 텍스트가 그대로 남음)
+    if (lang === 'ko') { btn.textContent = btn.dataset.koTitle; return; }
     if (!id || !_boardListI18n[id] || !_boardListI18n[id][lang]) return;
     btn.textContent = _boardListI18n[id][lang].title || btn.textContent;
   });
