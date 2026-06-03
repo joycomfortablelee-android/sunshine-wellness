@@ -109,7 +109,7 @@ a { color: inherit; text-decoration: none; }
 
 /* ===== Article (모듈 본문 페이지 공용) ===== */
 .learn-article { padding: 56px 0 80px; }
-.learn-article h2 { font-size: 24px; font-weight: 800; color: var(--deep); margin: 36px 0 14px; }
+.learn-article h2 { font-size: 24px; font-weight: 800; color: var(--deep); margin: 36px 0 14px; scroll-margin-top: 84px; }
 .learn-article h3 { font-size: 18px; font-weight: 700; color: var(--green); margin: 26px 0 10px; }
 .learn-article p { font-size: 15px; color: var(--text); line-height: 1.95; margin-bottom: 14px; }
 .learn-article ul { margin: 0 0 16px 20px; }
@@ -139,7 +139,10 @@ a { color: inherit; text-decoration: none; }
 .mm-branch { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding-bottom: 12px; overflow: hidden; text-align: left; }
 .mm-part { color: #fff; font-size: 12px; font-weight: 800; padding: 12px 14px; line-height: 1.35; }
 .mm-branch ul { list-style: none; margin: 10px 0 0; padding: 0 14px; }
-.mm-branch li { font-size: 12.5px; color: var(--text); line-height: 1.45; padding: 6px 0 6px 12px; border-left: 2px solid var(--line); margin-bottom: 3px; }
+.mm-branch li { font-size: 12.5px; line-height: 1.45; border-left: 2px solid var(--line); margin-bottom: 3px; transition: background .15s; }
+.mm-branch li a { display: block; color: var(--text); text-decoration: none; padding: 6px 0 6px 12px; }
+.mm-branch li:hover { background: var(--gray); }
+.mm-branch li:hover a { color: var(--deep); }
 .mm-branch.b1 .mm-part { background: #3B6259; } .mm-branch.b1 li { border-left-color: #3B6259; }
 .mm-branch.b2 .mm-part { background: #b06a30; } .mm-branch.b2 li { border-left-color: #b06a30; }
 .mm-branch.b3 .mm-part { background: #6a4f9a; } .mm-branch.b3 li { border-left-color: #6a4f9a; }
