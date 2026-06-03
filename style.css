@@ -1464,6 +1464,7 @@ section { padding: 100px 0; }
   display: flex;
   flex-direction: column;
   transition: box-shadow 0.25s ease, transform 0.25s ease;
+  min-width: 0; /* grid 항목이 내부 콘텐츠 최소너비에 끌려가 칸을 넘치지 않도록 */
 }
 .review-card:hover {
   box-shadow: 0 8px 32px rgba(59, 98, 89, 0.12);
@@ -1474,10 +1475,15 @@ section { padding: 100px 0; }
   font-size: 72px;
   line-height: 0.6;
   color: var(--accent);
-  font-family: Georgia, serif;
+  /* Merriweather(웹폰트 로드됨)로 고정 — Georgia 폴백 시 CH에서 따옴표가 전각 글리프로
+     커져 카드가 가로로 넘치던 문제 방지 (언어 무관 동일한 좁은 따옴표 렌더) */
+  font-family: 'Merriweather', Georgia, 'Times New Roman', serif;
   margin-bottom: 20px;
   opacity: 0.35;
   user-select: none;
+  display: block;
+  max-width: 100%;
+  overflow: hidden; /* 혹시 다른 폰트로 폴백돼도 카드 폭을 넘지 않도록 안전망 */
 }
 
 .review-text {
@@ -1487,6 +1493,9 @@ section { padding: 100px 0; }
   flex: 1;
   margin-bottom: 22px;
   word-break: keep-all;
+  /* 중국어는 띄어쓰기가 없어 keep-all이면 문장 전체가 한 덩어리가 되어 가로로 넘침.
+     overflow-wrap: anywhere로 넘칠 때 줄바꿈 허용 (한국어 keep-all 이점은 유지) */
+  overflow-wrap: anywhere;
 }
 
 .review-stars {
