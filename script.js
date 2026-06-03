@@ -2142,6 +2142,29 @@ function _buildArchiveCards(lang) {
 // =========================================
 function openArtConciergeArchive() {
   _activeSubPageRender = openArtConciergeArchive;
+  const _aaLang = currentLang || 'ko';
+  const AL = _aaLang === 'zh' ? {
+    title: '签名文化空间', back: '← 查看艺术礼宾全部',
+    introTitle: '世界城市被铭记的方式',
+    introBody: '李相勋代表亲身走访的世界文化空间 — 音乐、建筑、节庆、再生、基金会塑造城市认同的50个场景。',
+    source: 'Source · 基于釜山日报「李相勋的标志性文化空间故事」专栏',
+    ctaText: '阳光健康旅游与艺术礼宾共同设计的特别旅程',
+    ctaBtn: '咨询 →',
+  } : _aaLang === 'en' ? {
+    title: 'Signature Cultural Space', back: '← View full Art Concierge',
+    introTitle: 'How the world\'s cities are remembered',
+    introBody: 'Cultural spaces around the world visited in person by CEO Lee Sang-hoon — 50 scenes where music, architecture, festivals, regeneration, and foundations shape urban identity.',
+    source: 'Source · Based on Busan Ilbo&rsquo;s &ldquo;Lee Sang-hoon&rsquo;s Signature Cultural Space Stories&rdquo; column',
+    ctaText: 'A special journey designed together by Sunshine Wellness and Art Concierge',
+    ctaBtn: 'Inquire →',
+  } : {
+    title: '시그너처 문화공간', back: '← 아트 컨시어지 전체 보기',
+    introTitle: '세계의 도시가 기억되는 방식',
+    introBody: '이상훈 대표가 직접 다녀온 세계의 문화공간 — 음악, 건축, 축제, 재생, 재단이 도시 정체성을 만들어가는 50가지 장면.',
+    source: 'Source · 부산일보 「이상훈의 시그니처 문화공간 이야기」 칼럼 기반',
+    ctaText: '선샤인 웰니스와 아트 컨시어지가 함께 설계하는 특별한 여행',
+    ctaBtn: '문의하기 →',
+  };
   const orn2star = `<svg class="ac-ornament" viewBox="0 0 300 26" xmlns="http://www.w3.org/2000/svg"><line x1="20" y1="13" x2="95" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/><text x="150" y="19" text-anchor="middle" font-size="15" fill="#2d4a42" opacity="0.72" font-family="Georgia,serif">∗ · · ✦ · · ∗</text><line x1="205" y1="13" x2="280" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/></svg>`;
   const orn3 = `<svg class="ac-ornament" viewBox="0 0 300 26" xmlns="http://www.w3.org/2000/svg"><line x1="20" y1="13" x2="128" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/><text x="150" y="19" text-anchor="middle" font-size="16" fill="#2d4a42" opacity="0.72" font-family="Georgia,serif">⚜</text><line x1="172" y1="13" x2="280" y2="13" stroke="#2d4a42" stroke-width="0.7" opacity="0.35"/></svg>`;
   showSubPageFull(`
@@ -2149,12 +2172,12 @@ function openArtConciergeArchive() {
       <div class="co-fullbg-banner" style="background:linear-gradient(rgba(10,10,20,0.60),rgba(10,10,20,0.55)),url('images/51315836390_c2d8b2c7e2_o.jpg') center/cover no-repeat;padding-top:80px;">
         <div class="co-page-header">
           <p>Art Concierge · PART 03</p>
-          <h1>시그너처 문화공간<span class="co-page-subtitle">Cultural Archive — The Knowledge</span></h1>
+          <h1>${AL.title}<span class="co-page-subtitle">Cultural Archive — The Knowledge</span></h1>
         </div>
       </div>
       <div style="background:#fff;padding:8px 0 0;">
         <div class="sp-wrap" style="padding-top:12px;padding-bottom:0;">
-          <button onclick="openArtConciergePage()" style="background:none;border:none;font-size:13px;color:#3B6259;font-weight:700;cursor:pointer;font-family:'Noto Sans KR',sans-serif;padding:0;letter-spacing:.02em;">← 아트 컨시어지 전체 보기</button>
+          <button onclick="openArtConciergePage()" style="background:none;border:none;font-size:13px;color:#3B6259;font-weight:700;cursor:pointer;font-family:'Noto Sans KR',sans-serif;padding:0;letter-spacing:.02em;">${AL.back}</button>
         </div>
       </div>
       <div style="background:#fff;padding:28px 0 56px;">
@@ -2168,7 +2191,7 @@ function openArtConciergeArchive() {
             <span class="ac-who-label">CULTURAL ARCHIVE</span>
             <span class="ac-who-name">Signature Cultural Spaces</span>
           </div>
-          <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;text-align:center;"><span style="display:block;font-size:16px;font-weight:700;color:#1a2e2a;margin-bottom:6px;">세계의 도시가 기억되는 방식</span>이상훈 대표가 직접 다녀온 세계의 문화공간 — 음악, 건축, 축제, 재생, 재단이 도시 정체성을 만들어가는 50가지 장면.</p>
+          <p style="font-size:15px;color:#666;line-height:1.8;margin-bottom:28px;text-align:center;"><span style="display:block;font-size:16px;font-weight:700;color:#1a2e2a;margin-bottom:6px;">${AL.introTitle}</span>${AL.introBody}</p>
           <div style="display:flex;align-items:flex-end;justify-content:center;gap:32px;margin-bottom:44px;flex-wrap:wrap;">
             ${[['50','Cases'],['6','Types'],['12+','Countries']].map(([n,l])=>`
               <div style="display:flex;flex-direction:column;gap:3px;">
@@ -2177,14 +2200,14 @@ function openArtConciergeArchive() {
               </div>`).join('<div style="width:1px;height:38px;background:#e0ddd8;margin:0 4px;align-self:center;"></div>')}
           </div>
           <div style="display:flex;flex-direction:column;gap:20px;">
-            ${_buildArchiveCards()}
+            ${_buildArchiveCards(_aaLang)}
           </div>
-          <p style="font-size:11.5px;color:#bbb;text-align:right;padding-top:14px;">Source · 부산일보 「이상훈의 시그니처 문화공간 이야기」 칼럼 기반</p>
+          <p style="font-size:11.5px;color:#bbb;text-align:right;padding-top:14px;">${AL.source}</p>
         </div>
       </div>
       <div style="max-width:900px;margin:0 auto;padding:40px 40px 64px;text-align:center;">
-        <p style="font-size:13px;color:#999;margin-bottom:20px;">선샤인 웰니스와 아트 컨시어지가 함께 설계하는 특별한 여행</p>
-        <button onclick="openContactPage()" style="display:inline-flex;align-items:center;gap:10px;background:#1a2e2a;color:#fff;font-size:14px;font-weight:700;padding:15px 44px;border-radius:32px;border:none;cursor:pointer;font-family:'Noto Sans KR',sans-serif;letter-spacing:.04em;">문의하기 →</button>
+        <p style="font-size:13px;color:#999;margin-bottom:20px;">${AL.ctaText}</p>
+        <button onclick="openContactPage()" style="display:inline-flex;align-items:center;gap:10px;background:#1a2e2a;color:#fff;font-size:14px;font-weight:700;padding:15px 44px;border-radius:32px;border:none;cursor:pointer;font-family:'Noto Sans KR',sans-serif;letter-spacing:.04em;">${AL.ctaBtn}</button>
       </div>
     </div>
   `);
