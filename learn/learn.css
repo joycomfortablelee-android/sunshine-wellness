@@ -124,6 +124,31 @@ a { color: inherit; text-decoration: none; }
 }
 .learn-article .learn-part:first-of-type { margin-top: 8px; }
 
+/* ===== 구조 마인드맵 ===== */
+.mindmap { text-align: center; margin: 24px 0 8px; }
+.mm-center {
+  display: inline-block; background: var(--deep); color: #fff;
+  font-size: 16px; font-weight: 800; line-height: 1.35;
+  padding: 16px 30px; border-radius: 14px;
+}
+.mm-stem { width: 2px; height: 26px; background: #cfd6d2; margin: 0 auto; }
+.mm-branches {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+  border-top: 2px solid #cfd6d2; padding-top: 26px;
+}
+.mm-branch { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding-bottom: 12px; overflow: hidden; text-align: left; }
+.mm-part { color: #fff; font-size: 12px; font-weight: 800; padding: 12px 14px; line-height: 1.35; }
+.mm-branch ul { list-style: none; margin: 10px 0 0; padding: 0 14px; }
+.mm-branch li { font-size: 12.5px; color: var(--text); line-height: 1.45; padding: 6px 0 6px 12px; border-left: 2px solid var(--line); margin-bottom: 3px; }
+.mm-branch.b1 .mm-part { background: #3B6259; } .mm-branch.b1 li { border-left-color: #3B6259; }
+.mm-branch.b2 .mm-part { background: #b06a30; } .mm-branch.b2 li { border-left-color: #b06a30; }
+.mm-branch.b3 .mm-part { background: #6a4f9a; } .mm-branch.b3 li { border-left-color: #6a4f9a; }
+.mm-branch.b4 .mm-part { background: #1e6868; } .mm-branch.b4 li { border-left-color: #1e6868; }
+@media (max-width: 720px) {
+  .mm-branches { grid-template-columns: 1fr; gap: 12px; padding-top: 20px; }
+  .mm-center { font-size: 15px; }
+}
+
 /* 카드 내 링크 2개 나란히 */
 .learn-card .go-row { display: flex; gap: 10px; flex-wrap: wrap; }
 .learn-card .go.alt { color: var(--muted); border-color: var(--line); }
