@@ -13,8 +13,22 @@ const KEY = 'board:posts';   // 사용자 글을 담는 Redis 리스트 키
 const MAX = 1000;            // 최근 글 최대 보관 개수
 
 function getRedisEnv() {
-  const url = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
-  const token = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
+  const e = process.env;
+  // 1) 잘 알려진 표준 이름 우선
+  let url = e.KV_REST_API_URL || e.UPSTASH_REDIS_REST_URL;
+  let token = e.KV_REST_API_TOKEN || e.UPSTASH_REDIS_REST_TOKEN;
+  // 2) Custom Prefix가 붙은 경우(예: SUNSHINE_KV_REST_API_URL)도 자동 탐지.
+  //    REST 엔드포인트(https)만 사용하고, redis:// 연결문자열·읽기전용 토큰은 제외.
+  if (!url) {
+    const k = Object.keys(e).find((n) => /REST_API_URL$|REDIS_REST_URL$/.test(n));
+    if (k) url = e[k];
+  }
+  if (!token) {
+    const k = Object.keys(e).find(
+      (n) => (/REST_API_TOKEN$|REDIS_REST_TOKEN$/.test(n)) && !/READ_ONLY/.test(n)
+    );
+    if (k) token = e[k];
+  }
   return { url, token };
 }
 
