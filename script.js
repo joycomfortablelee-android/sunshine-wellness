@@ -933,9 +933,9 @@ function getSubPageFooter() {
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <img src="images/logo2.png" alt="Sunshine Wellness" style="height:44px;width:auto;object-fit:contain;margin-bottom:8px;display:block;" />
-          <span class="logo-en">Sunshine Wellness</span>
-          <span class="logo-kr">${brandKr}</span>
+          <img src="images/logo2.png" alt="Sunshine Wellness" onclick="goHome()" style="height:44px;width:auto;object-fit:contain;margin-bottom:8px;display:block;cursor:pointer;" />
+          <span class="logo-en" onclick="goHome()" style="cursor:pointer;">Sunshine Wellness</span>
+          <span class="logo-kr" onclick="goHome()" style="cursor:pointer;">${brandKr}</span>
           <p>${t['footer.tagline']}</p>
         </div>
         <div class="footer-links">
