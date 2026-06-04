@@ -103,6 +103,7 @@ module.exports = async (req, res) => {
 };
 
 function detectLang(text) {
+  if (/[\uac00-\ud7a3]/.test(text)) return 'ko';   // \ud55c\uae00\uc774 \uc788\uc73c\uba74 \ud55c\uad6d\uc5b4 \uc6b0\uc120 (\uc601\ubb38 \uc57d\uc5b4 \ud63c\uc6a9 \ub300\uc751)
   if (/[\u4e00-\u9fff]/.test(text)) return 'zh';
   if (/[a-zA-Z]{3,}/.test(text)) return 'en';
   return 'ko';
