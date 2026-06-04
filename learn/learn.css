@@ -84,8 +84,9 @@ a { color: inherit; text-decoration: none; }
   padding: 30px 28px; transition: box-shadow .2s, transform .2s;
 }
 .learn-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,.08); transform: translateY(-3px); }
-.learn-card .ico { font-size: 30px; margin-bottom: 14px; }
-.learn-card .mod { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--green); margin-bottom: 8px; }
+.learn-card .ico-row { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+.learn-card .ico { font-size: 20px; line-height: 1; }
+.learn-card .mod { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--green); }
 .learn-card h3 { font-size: 19px; font-weight: 800; color: var(--deep); margin-bottom: 10px; }
 .learn-card p { font-size: 14px; color: var(--muted); line-height: 1.6; flex: 1; margin-bottom: 18px; }
 .learn-card .go {
