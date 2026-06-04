@@ -16,7 +16,7 @@
   <meta name="twitter:description" content="부산의 아름다움을 온몸으로 느끼는 맞춤형 웰니스 여행" />
   <meta name="twitter:image" content="https://www.sunshinewellness.co.kr/images/gwangan-bridge-haeundae-busan-korea.jpg" />
   <link rel="preload" href="images/gwangan-bridge-haeundae-busan-korea.jpg" as="image" />
-  <link rel="stylesheet" href="style.css?v=20260603b" />
+  <link rel="stylesheet" href="style.css?v=20260604c" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&family=Noto+Sans+SC:wght@300;400;500;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
   <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js" integrity="sha384-TiCUE00h649CAMonG018J2ujOgDKW/kVWlChEuu4jK2vxfAAD0eZxzCKakxg55G4" crossorigin="anonymous"></script>
 </head>
@@ -571,7 +571,7 @@
   <script src="ART/culturalArchiveZh.js"></script>
   <script src="ART/culturalArchiveEn.js"></script>
   <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js" defer></script>
-  <script src="script.js?v=20260604a"></script>
+  <script src="script.js?v=20260604c"></script>
   <!-- QUICK SIDEBAR -->
   <aside class="quick-sidebar" id="quickSidebar">
     <a href="javascript:void(0)" onclick="quickNavTo('#programs')" class="quick-item">
@@ -690,6 +690,42 @@
         <button class="cpn-dl-btn" onclick="downloadCoupon()">📥 이미지 저장</button>
         <button class="cpn-close-btn" onclick="closeCouponModal()">✕ 닫기</button>
       </div>
+    </div>
+  </div>
+
+  <!-- AI 채팅봇 -->
+  <div id="chatbotToggle" onclick="toggleChatbot()">
+    <span class="chatbot-icon">💬</span>
+    <span class="chatbot-label">상담</span>
+  </div>
+
+  <div id="chatbotWindow" class="chatbot-hidden">
+    <div class="chatbot-header">
+      <div class="chatbot-header-info">
+        <span class="chatbot-avatar">☀️</span>
+        <div>
+          <div class="chatbot-title">선샤인 웰니스 상담</div>
+          <div class="chatbot-status">자주 묻는 질문 자동 응답</div>
+        </div>
+      </div>
+      <button class="chatbot-close" onclick="toggleChatbot()">✕</button>
+    </div>
+    <div id="chatbotMessages">
+      <div class="chat-msg bot">
+        <div class="chat-bubble">
+          안녕하세요! 선샤인 웰니스 상담입니다 ☀️
+          프로그램, 예약, 요금 등 무엇이든 물어보세요!
+        </div>
+      </div>
+    </div>
+    <div class="chatbot-input-area">
+      <input
+        id="chatbotInput"
+        type="text"
+        placeholder="여행에 대해 물어보세요..."
+        onkeydown="if(event.key==='Enter')sendChat()"
+      />
+      <button id="chatbotSend" onclick="sendChat()">전송</button>
     </div>
   </div>
 

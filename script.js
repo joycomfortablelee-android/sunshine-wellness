@@ -5211,3 +5211,76 @@ function downloadCoupon() {
   });
 }
 
+// =========================================
+// FAQ 챗봇 (무료, API 비용 $0)
+// =========================================
+let _chatOpen = false;
+let _chatSending = false;
+
+function toggleChatbot() {
+  _chatOpen = !_chatOpen;
+  document.getElementById('chatbotWindow').classList.toggle('chatbot-hidden', !_chatOpen);
+  if (_chatOpen) {
+    setTimeout(() => document.getElementById('chatbotInput').focus(), 300);
+  }
+}
+
+function appendChat(role, text) {
+  const container = document.getElementById('chatbotMessages');
+  const div = document.createElement('div');
+  div.className = 'chat-msg ' + role;
+  const bubble = document.createElement('div');
+  bubble.className = 'chat-bubble';
+  bubble.textContent = text;
+  div.appendChild(bubble);
+  container.appendChild(div);
+  container.scrollTop = container.scrollHeight;
+}
+
+async function sendChat() {
+  if (_chatSending) return;
+  const input = document.getElementById('chatbotInput');
+  const sendBtn = document.getElementById('chatbotSend');
+  const text = input.value.trim();
+  if (!text) return;
+
+  input.value = '';
+  appendChat('user', text);
+  _chatSending = true;
+  sendBtn.disabled = true;
+
+  // typing 표시
+  const typing = document.createElement('div');
+  typing.className = 'chat-msg bot';
+  const typingBubble = document.createElement('div');
+  typingBubble.className = 'chat-bubble typing';
+  typingBubble.textContent = '답변을 찾는 중...';
+  typing.appendChild(typingBubble);
+  document.getElementById('chatbotMessages').appendChild(typing);
+  document.getElementById('chatbotMessages').scrollTop = document.getElementById('chatbotMessages').scrollHeight;
+
+  try {
+    const res = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages: [{ role: 'user', content: text }] }),
+    });
+
+    typing.remove();
+
+    if (!res.ok) {
+      appendChat('bot', '죄송합니다. 잠시 후 다시 시도해주세요.');
+      return;
+    }
+
+    const data = await res.json();
+    appendChat('bot', data.reply);
+  } catch {
+    typing.remove();
+    appendChat('bot', '네트워크 오류입니다. 잠시 후 다시 시도해주세요.');
+  } finally {
+    _chatSending = false;
+    sendBtn.disabled = false;
+  }
+}
+
