@@ -5260,7 +5260,7 @@ async function sendChat() {
   document.getElementById('chatbotMessages').scrollTop = document.getElementById('chatbotMessages').scrollHeight;
 
   try {
-    const res = await fetch('/api/chat', {
+    const res = await fetch('https://sunshine-wellness.vercel.app/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ messages: [{ role: 'user', content: text }] }),
