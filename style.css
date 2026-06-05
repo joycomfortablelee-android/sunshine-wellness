@@ -1046,6 +1046,34 @@ section { padding: 100px 0; }
 }
 .modal-overlay.open .modal-box { transform: translateY(0); }
 
+/* 여행 정보 — iframe 격리 모달 (window.open 대체) */
+.modal-box.modal-box-frame {
+  width: 94%;
+  max-width: 860px;
+  height: 90vh;
+  max-height: 90vh;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 14px;
+}
+.modal-box.modal-box-frame .modal-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+.modal-box.modal-box-frame .modal-close {
+  z-index: 3;
+  background: rgba(255,255,255,0.92);
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
 .modal-close {
   position: absolute;
   top: 20px; right: 24px;

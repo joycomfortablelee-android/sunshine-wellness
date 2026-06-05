@@ -4862,9 +4862,48 @@ function openModal(programKey) {
 </body>
 </html>`;
 
-  const blob = new Blob([html], { type: 'text/html' });
-  const url = URL.createObjectURL(blob);
-  window.open(url, '_blank');
+  const overlay = document.getElementById('modalOverlay');
+  const box = document.getElementById('modalBox');
+  const content = document.getElementById('modalContent');
+
+  // 오버레이가 없으면(구형 대비) 기존 새 탭 방식으로 폴백
+  if (!overlay || !content) {
+    const blob = new Blob([html], { type: 'text/html' });
+    window.open(URL.createObjectURL(blob), '_blank');
+    return;
+  }
+
+  // 생성된 완전한 HTML 문서를 iframe(srcdoc)으로 격리해 인페이지 오버레이에 표시
+  content.innerHTML = '';
+  const iframe = document.createElement('iframe');
+  iframe.className = 'modal-frame';
+  iframe.setAttribute('title', d.title || '여행 정보');
+  iframe.srcdoc = html;
+  content.appendChild(iframe);
+  if (box) box.classList.add('modal-box-frame');
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  const onEsc = (e) => { if (e.key === 'Escape') closeProgramModal(); };
+  window._closeProgramModalEsc = onEsc;
+  const closeBtn = document.getElementById('modalClose');
+  if (closeBtn) closeBtn.onclick = closeProgramModal;
+  overlay.onclick = (e) => { if (e.target === overlay) closeProgramModal(); };
+  document.addEventListener('keydown', onEsc);
+}
+
+function closeProgramModal() {
+  const overlay = document.getElementById('modalOverlay');
+  const box = document.getElementById('modalBox');
+  const content = document.getElementById('modalContent');
+  if (overlay) overlay.classList.remove('open');
+  if (box) box.classList.remove('modal-box-frame');
+  if (content) content.innerHTML = '';
+  document.body.style.overflow = '';
+  if (window._closeProgramModalEsc) {
+    document.removeEventListener('keydown', window._closeProgramModalEsc);
+    window._closeProgramModalEsc = null;
+  }
 }
 
 // =========================================
