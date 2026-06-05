@@ -4064,10 +4064,15 @@ const programData = {
       spotDetails: [
         {
           name: '부산근현대역사관',
-          address: '부산광역시 중구 대청로 104',
+          address: '부산광역시 중구 대청로 104 (부산근현대역사관 별관)',
           description: '일제강점기 부산세관 건물을 활용한 역사관으로, 개항기부터 현대까지 부산의 변화를 한눈에 볼 수 있습니다. 일제강점기 수탈의 역사와 부산의 성장 과정을 연계하여 이해할 수 있는 대표적인 근대 역사 공간입니다.',
           commentPoint: '건물 자체가 역사적 증거입니다. 개항기 부산이 어떻게 변해왔는지, 건물의 공간 변화와 함께 해설하면 깊이가 생깁니다.',
+          hours: '화~일 09:00–18:00',
+          closed: '매주 월요일 (월요일 포함 연휴는 마지막 휴일 다음날 휴관)',
+          phone: '051-607-8000',
+          transit: '지하철 1호선 중앙역 5번 출구에서 약 457m · 남포역 인근',
           mapUrl: 'https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EC%A4%91%EA%B5%AC%20%EB%8C%80%EC%B2%AD%EB%A1%9C%20104',
+          officialUrl: 'https://www.busan.go.kr/mmch/index',
         },
         {
           name: '임시수도기념관',
@@ -4749,7 +4754,13 @@ function openModal(programKey) {
     const mapLink = sp.mapUrl ? '<a href="' + sp.mapUrl + '" target="_blank" rel="noopener">\uC9C0\uB3C4 \uBCF4\uAE30</a>' : '';
     const offLink = sp.officialUrl ? ' <a href="' + sp.officialUrl + '" target="_blank" rel="noopener">\uACF5\uC2DD \uC0AC\uC774\uD2B8</a>' : '';
     const pt = sp.commentPoint ? '<div class="spot-point">\uD83D\uDCA1 ' + sp.commentPoint + '</div>' : '';
-    return '<div class="spot-card"><h4>' + sp.name + '</h4><span class="spot-addr">\uD83D\uDCCD ' + sp.address + '</span><div class="spot-link-row">' + mapLink + offLink + '</div><p class="spot-desc">' + sp.description + '</p>' + pt + '</div>';
+    const infoRows = [];
+    if (sp.hours) infoRows.push('\uD83D\uDD52 \uC6B4\uC601 ' + sp.hours);
+    if (sp.closed) infoRows.push('\u26D4 \uD734\uAD00 ' + sp.closed);
+    if (sp.phone) infoRows.push('\u260E ' + sp.phone);
+    if (sp.transit) infoRows.push('\uD83D\uDE87 ' + sp.transit);
+    const infoBlock = infoRows.length ? '<div class="spot-info">' + infoRows.map(r => '<div>' + r + '</div>').join('') + '</div>' : '';
+    return '<div class="spot-card"><h4>' + sp.name + '</h4><span class="spot-addr">\uD83D\uDCCD ' + sp.address + '</span><div class="spot-link-row">' + mapLink + offLink + '</div><p class="spot-desc">' + sp.description + '</p>' + infoBlock + pt + '</div>';
   }).join('') : null;
 
   const courseDetailsHTML = d.courseDetails ? d.courseDetails.map((cd, idx) => {
@@ -4808,6 +4819,7 @@ function openModal(programKey) {
     .spot-link-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
     .spot-link-row a { font-size: 0.78rem; background: #e8f5e9; padding: 2px 10px; border-radius: 99px; text-decoration: none; color: #2c5f2e; }
     .spot-desc { font-size: 0.86rem; color: #555; line-height: 1.65; margin-bottom: 7px; }
+    .spot-info { font-size: 0.8rem; color: #666; line-height: 1.6; margin-bottom: 7px; display: flex; flex-direction: column; gap: 2px; }
     .spot-point { font-size: 0.84rem; color: #2c5f2e; background: #f0f8f0; padding: 7px 11px; border-radius: 6px; line-height: 1.55; }
     .guide-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
     .guide-table th { background: #2c5f2e; color: #fff; padding: 7px 10px; text-align: left; font-weight: 600; }
