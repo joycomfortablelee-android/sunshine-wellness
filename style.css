@@ -688,8 +688,8 @@ ul { list-style: none; }
   z-index: 5;
 }
 .carousel-btn:hover { background: rgba(255,255,255,0.12); }
-.prev { right: 112px; }
-.next { right: 56px; }
+.prev { right: 152px; }
+.next { right: 96px; }
 
 /* =========================================
    SECTION COMMONS
@@ -1826,8 +1826,8 @@ section { padding: 100px 0; }
   .form-row { grid-template-columns: 1fr; }
   .slide-title { font-size: 2.2rem; }
   .hero-dots { bottom: 64px; left: 20px; }
-  .prev { right: 80px; bottom: 54px; }
-  .next { right: 24px; bottom: 54px; }
+  .prev { right: 144px; bottom: 54px; }
+  .next { right: 88px; bottom: 54px; }
   .footer-top { flex-direction: column; }
 }
 
