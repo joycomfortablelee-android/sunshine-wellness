@@ -30,6 +30,8 @@ a { color: inherit; text-decoration: none; }
   margin: 0 auto;
   padding: 0 24px;
 }
+/* 허브(index)만 1160px로 — 프로그램 페이지와 폭 통일. 본문 모듈 페이지는 960px 유지 */
+body.hub .lw { max-width: 1160px; }
 
 /* ===== Header ===== */
 .learn-header {
