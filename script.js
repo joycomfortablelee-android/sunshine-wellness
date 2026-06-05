@@ -2997,7 +2997,7 @@ function openProgramsPage() {
         </div>
         <div class="prog-btns">
           <button class="btn-outline" onclick="openModal('${c.key}')">${t['prog.btn.info'] || '여행 정보'}</button>
-          <button class="btn-solid" onclick="openContactPage()">${t['prog.btn.contact'] || '문의하기 →'}</button>
+          <button class="btn-solid" onclick="openConsult('${c.key}')">${t['prog.btn.contact'] || '문의하기 →'}</button>
         </div>
       </div>
     </div>`).join('');
@@ -5273,6 +5273,18 @@ function toggleChatbot() {
   document.getElementById('chatbotWindow').classList.toggle('chatbot-hidden', !_chatOpen);
   if (_chatOpen) {
     setTimeout(() => document.getElementById('chatbotInput').focus(), 300);
+  }
+}
+
+// 문의하기 → AI 상담 팝업 (프로그램 맥락 자동 안내). 실제 견적은 상단 빠른버튼(전화/카카오/폼)으로 연결.
+function openConsult(programKey) {
+  if (!_chatOpen) toggleChatbot();
+  if (programKey && typeof programData !== 'undefined' && programData[programKey]) {
+    const pd = programData[programKey][currentLang] || programData[programKey].ko || {};
+    const title = pd.title ? pd.title.split('—')[0].trim() : '';
+    if (title) {
+      appendChat('bot', '「' + title + '」 문의 주셔서 감사합니다! 일정·요금·인원 등 궁금한 점을 입력해 주세요 😊 바로 상담을 원하시면 위의 📞전화 · 💛카카오 · 📝견적문의 버튼을 눌러주세요.');
+    }
   }
 }
 

@@ -16,7 +16,7 @@
   <meta name="twitter:description" content="부산의 아름다움을 온몸으로 느끼는 맞춤형 웰니스 여행" />
   <meta name="twitter:image" content="https://www.sunshinewellness.co.kr/images/gwangan-bridge-haeundae-busan-korea.jpg" />
   <link rel="preload" href="images/gwangan-bridge-haeundae-busan-korea.jpg" as="image" />
-  <link rel="stylesheet" href="style.css?v=20260605b" />
+  <link rel="stylesheet" href="style.css?v=20260605c" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&family=Noto+Sans+SC:wght@300;400;500;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
   <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js" integrity="sha384-TiCUE00h649CAMonG018J2ujOgDKW/kVWlChEuu4jK2vxfAAD0eZxzCKakxg55G4" crossorigin="anonymous"></script>
 </head>
@@ -226,7 +226,7 @@
             <p class="card-desc"     data-i18n="card1.desc">기장, 해운대, 영도 등 부산 근교의 숨겨진 보석 같은 장소를 탐방합니다.</p>
             <div class="card-actions">
               <button class="card-info-btn" data-program="tour"    data-i18n="card.info">여행 정보</button>
-              <a href="#" onclick="openProgramsPage(); return false;" class="card-btn" data-i18n="card.contact">문의하기 →</a>
+              <a href="#" onclick="openConsult('tour'); return false;" class="card-btn" data-i18n="card.contact">문의하기 →</a>
             </div>
           </div>
         </div>
@@ -239,7 +239,7 @@
             <p class="card-desc"     data-i18n="card2.desc">전문 해설사와 함께 감천문화마을의 역사와 예술, 골목 이야기를 들어보세요.</p>
             <div class="card-actions">
               <button class="card-info-btn" data-program="culture" data-i18n="card.info">여행 정보</button>
-              <a href="#" onclick="openProgramsPage(); return false;" class="card-btn" data-i18n="card.contact">문의하기 →</a>
+              <a href="#" onclick="openConsult('culture'); return false;" class="card-btn" data-i18n="card.contact">문의하기 →</a>
             </div>
           </div>
         </div>
@@ -252,7 +252,7 @@
             <p class="card-desc"     data-i18n="card3.desc">범어사, 해동용궁사 등 부산의 고즈넉한 사찰에서 명상과 사찰 문화를 경험합니다.</p>
             <div class="card-actions">
               <button class="card-info-btn" data-program="temple"  data-i18n="card.info">여행 정보</button>
-              <a href="#" onclick="openProgramsPage(); return false;" class="card-btn" data-i18n="card.contact">문의하기 →</a>
+              <a href="#" onclick="openConsult('temple'); return false;" class="card-btn" data-i18n="card.contact">문의하기 →</a>
             </div>
           </div>
         </div>
@@ -265,7 +265,7 @@
             <p class="card-desc"     data-i18n="card4.desc">깡깡이예술마을, F1963, 부산현대미술관 등 부산의 예술 공간을 깊이 탐방합니다.</p>
             <div class="card-actions">
               <button class="card-info-btn" data-program="art"     data-i18n="card.info">여행 정보</button>
-              <a href="#" onclick="openProgramsPage(); return false;" class="card-btn" data-i18n="card.contact">문의하기 →</a>
+              <a href="#" onclick="openConsult('art'); return false;" class="card-btn" data-i18n="card.contact">문의하기 →</a>
             </div>
           </div>
         </div>
@@ -278,7 +278,7 @@
             <p class="card-desc"     data-i18n="card5.desc">부전시장 → 이가네 → 다리집 → 도날드 — 부산 시장·해변·골목을 따라 지역별 떡볶이의 맛과 이야기를 탐방합니다.</p>
             <div class="card-actions">
               <button class="card-info-btn" data-program="market"  data-i18n="card.info">여행 정보</button>
-              <a href="#" onclick="openProgramsPage(); return false;" class="card-btn" data-i18n="card.contact">문의하기 →</a>
+              <a href="#" onclick="openConsult('market'); return false;" class="card-btn" data-i18n="card.contact">문의하기 →</a>
             </div>
           </div>
         </div>
@@ -291,7 +291,7 @@
             <p class="card-desc"     data-i18n="card6.desc">수탈·피란·재건·평화 — 부산이 견디고 회복해 온 근현대사를 현장에서 걷고 배웁니다.</p>
             <div class="card-actions">
               <button class="card-info-btn" data-program="history" data-i18n="card.info">여행 정보</button>
-              <a href="#" onclick="openProgramsPage(); return false;" class="card-btn" data-i18n="card.contact">문의하기 →</a>
+              <a href="#" onclick="openConsult('history'); return false;" class="card-btn" data-i18n="card.contact">문의하기 →</a>
             </div>
           </div>
         </div>
@@ -571,7 +571,7 @@
   <script src="ART/culturalArchiveZh.js"></script>
   <script src="ART/culturalArchiveEn.js"></script>
   <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js" defer></script>
-  <script src="script.js?v=20260605b"></script>
+  <script src="script.js?v=20260605c"></script>
   <!-- QUICK SIDEBAR -->
   <aside class="quick-sidebar" id="quickSidebar">
     <a href="javascript:void(0)" onclick="quickNavTo('#programs')" class="quick-item">
@@ -702,13 +702,18 @@
   <div id="chatbotWindow" class="chatbot-hidden">
     <div class="chatbot-header">
       <div class="chatbot-header-info">
-        <span class="chatbot-avatar">☀️</span>
+        <span class="chatbot-avatar">💁‍♀️</span>
         <div>
-          <div class="chatbot-title">선샤인 웰니스 상담</div>
-          <div class="chatbot-status">자주 묻는 질문 자동 응답</div>
+          <div class="chatbot-title">선샤인 AI 상담사</div>
+          <div class="chatbot-status">실시간 자동 응답 · 빠른 연결</div>
         </div>
       </div>
       <button class="chatbot-close" onclick="toggleChatbot()">✕</button>
+    </div>
+    <div class="chatbot-quick">
+      <a href="tel:01057595485" class="cbq-btn">📞 전화</a>
+      <a href="https://open.kakao.com/o/sl2k01wi" target="_blank" rel="noopener" class="cbq-btn">💛 카카오</a>
+      <button type="button" class="cbq-btn" onclick="toggleChatbot(); openContactPage();">📝 견적문의</button>
     </div>
     <div id="chatbotMessages">
       <div class="chat-msg bot">

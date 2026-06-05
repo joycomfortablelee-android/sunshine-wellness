@@ -2493,6 +2493,31 @@ section { padding: 100px 0; }
 }
 .chatbot-close:hover { opacity: 1; }
 
+.chatbot-quick {
+  display: flex;
+  gap: 6px;
+  padding: 10px 12px;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+.cbq-btn {
+  flex: 1;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+  background: #f0f5f4;
+  border: 1px solid #e0eae8;
+  border-radius: 8px;
+  padding: 7px 4px;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .2s;
+  font-family: var(--font);
+}
+.cbq-btn:hover { background: #e3eeeb; }
+
 #chatbotMessages {
   flex: 1;
   overflow-y: auto;
