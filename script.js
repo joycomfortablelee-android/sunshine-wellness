@@ -1579,14 +1579,6 @@ function openWhereToNextPage() {
       </div>
     </div>
     <div class="sp-wrap">
-      <a class="vb-aic" href="https://www.visitbusan.net/index.do?menuCd=DOM_000000203018000000" target="_blank" rel="noopener">
-        <span class="vb-aic-ico">🧭</span>
-        <span class="vb-aic-txt">
-          <strong>${labels.aicTitle}</strong>
-          <span>${labels.aicDesc}</span>
-        </span>
-        <span class="vb-aic-go">${labels.aicBtn} →</span>
-      </a>
       <p class="co-section-title">${labels.communityLabel}</p>
       <h2 class="co-heading">${labels.nextDestTitle}</h2>
       <div class="sp-toolbar">
@@ -1614,6 +1606,14 @@ function openWhereToNextPage() {
         <input type="text" id="boardSearchInput" placeholder="${labels.searchPlaceholder}" onkeydown="if(event.key==='Enter')boardSearch()"/>
         <button onclick="boardSearch()">${labels.searchBtn}</button>
       </div>
+      <a class="vb-aic" href="https://www.visitbusan.net/index.do?menuCd=DOM_000000203018000000" target="_blank" rel="noopener">
+        <span class="vb-aic-ico">🧭</span>
+        <span class="vb-aic-txt">
+          <strong>${labels.aicTitle}</strong>
+          <span>${labels.aicDesc}</span>
+        </span>
+        <span class="vb-aic-go">${labels.aicBtn} →</span>
+      </a>
     </div>
     <div class="sp-write-dim" id="boardWriteDim" onclick="if(event.target===this)boardCloseWrite()">
       <div class="sp-write-box">
