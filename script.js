@@ -1542,7 +1542,10 @@ function openWhereToNextPage() {
     titleContent: 'Title & Content', author: 'Author', searchPlaceholder: 'Enter search keyword', searchBtn: 'Search',
     writeTitle: 'Write a Post', authorLabel: 'Author', authorPlaceholder: 'Nickname',
     titleLabel: 'Title', titlePlaceholder: 'Enter title', contentLabel: 'Content', contentPlaceholder: 'Enter content',
-    cancelBtn: 'Cancel', postBtn: 'Post'
+    cancelBtn: 'Cancel', postBtn: 'Post',
+    aicTitle: 'Planning your Busan trip? — Official Busan AI Travel Recommendations',
+    aicDesc: "Get themed course ideas from Visit Busan's AI service, then ask Sunshine Wellness for a tailored itinerary. (Tourism info 1330)",
+    aicBtn: 'Visit Busan AI'
   } : lang === 'zh' ? {
     communityLabel: '社区', whereToNext: '下一站去哪？', nextDest: '— 下一个旅行地',
     nextDestTitle: '下一个旅行地', totalPosts: '共', posts: '项',
@@ -1550,7 +1553,10 @@ function openWhereToNextPage() {
     titleContent: '标题和内容', author: '作者', searchPlaceholder: '输入搜索关键字', searchBtn: '搜索',
     writeTitle: '发布帖子', authorLabel: '作者', authorPlaceholder: '昵称',
     titleLabel: '标题', titlePlaceholder: '输入标题', contentLabel: '内容', contentPlaceholder: '输入内容',
-    cancelBtn: '取消', postBtn: '发布'
+    cancelBtn: '取消', postBtn: '发布',
+    aicTitle: '在为釜山行程烦恼吗？— 釜山市官方AI旅行推荐',
+    aicDesc: '在Visit Busan AI旅行推荐服务获取主题路线，定制行程请咨询Sunshine Wellness。（旅游咨询1330）',
+    aicBtn: 'Visit Busan AI'
   } : {
     communityLabel: 'Community', whereToNext: 'Where to Next?', nextDest: '— 다음 여행지',
     nextDestTitle: '다음 여행지', totalPosts: '총', posts: '건',
@@ -1558,7 +1564,10 @@ function openWhereToNextPage() {
     titleContent: '제목내용', author: '글쓴이', searchPlaceholder: '검색어를 입력하세요', searchBtn: '검색',
     writeTitle: '글쓰기', authorLabel: '작성자', authorPlaceholder: '닉네임',
     titleLabel: '제목', titlePlaceholder: '제목을 입력하세요', contentLabel: '내용', contentPlaceholder: '내용을 입력하세요',
-    cancelBtn: '취소', postBtn: '등록'
+    cancelBtn: '취소', postBtn: '등록',
+    aicTitle: '부산 일정이 고민되세요? — 부산시 공식 AI 여행 추천',
+    aicDesc: 'Visit Busan AI 여행 추천 서비스에서 테마별 코스를 받아보고, 맞춤 일정은 선샤인 웰니스로 문의하세요. (관광문의 1330)',
+    aicBtn: 'Visit Busan AI'
   };
 
   showSubPageFull(`
@@ -1570,6 +1579,14 @@ function openWhereToNextPage() {
       </div>
     </div>
     <div class="sp-wrap">
+      <a class="vb-aic" href="https://www.visitbusan.net/index.do?menuCd=DOM_000000203018000000" target="_blank" rel="noopener">
+        <span class="vb-aic-ico">🧭</span>
+        <span class="vb-aic-txt">
+          <strong>${labels.aicTitle}</strong>
+          <span>${labels.aicDesc}</span>
+        </span>
+        <span class="vb-aic-go">${labels.aicBtn} →</span>
+      </a>
       <p class="co-section-title">${labels.communityLabel}</p>
       <h2 class="co-heading">${labels.nextDestTitle}</h2>
       <div class="sp-toolbar">

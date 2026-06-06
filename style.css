@@ -2518,6 +2518,41 @@ section { padding: 100px 0; }
 }
 .cbq-btn:hover { background: #e3eeeb; }
 
+/* Where to Next? — Visit Busan AI 여행 추천 안내 카드 */
+.vb-aic {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #f0f5f4;
+  border: 1px solid #e0eae8;
+  border-left: 4px solid var(--accent);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  text-decoration: none;
+  color: inherit;
+  transition: background .2s, box-shadow .2s;
+}
+.vb-aic:hover { background: #e7efed; box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+.vb-aic-ico { font-size: 28px; flex-shrink: 0; }
+.vb-aic-txt { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.vb-aic-txt strong { font-size: 15px; font-weight: 700; color: #1a2e2a; line-height: 1.4; }
+.vb-aic-txt span { font-size: 13px; color: #555; line-height: 1.6; }
+.vb-aic-go {
+  flex-shrink: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--accent);
+  border-radius: 20px;
+  padding: 8px 16px;
+  white-space: nowrap;
+}
+@media (max-width: 600px) {
+  .vb-aic { flex-wrap: wrap; gap: 10px; }
+  .vb-aic-go { width: 100%; text-align: center; }
+}
+
 #chatbotMessages {
   flex: 1;
   overflow-y: auto;
