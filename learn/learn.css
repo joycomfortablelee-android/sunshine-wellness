@@ -94,6 +94,13 @@ body.hub .lw { max-width: 1160px; }
 .learn-grid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
 }
+/* 허브 레벨(단계) 그룹 헤더 — 그리드 전체 폭 차지 */
+.learn-group { grid-column: 1 / -1; display: flex; align-items: center; gap: 14px; margin: 10px 0 0; }
+.learn-grid > .learn-group:first-child { margin-top: 0; }
+.learn-group .gh-title { font-size: 17px; font-weight: 800; color: var(--deep); white-space: nowrap; }
+.learn-group .gh-line { flex: 1; height: 1px; background: var(--line); }
+.learn-group .gh-badge { font-size: 11px; font-weight: 800; letter-spacing: .06em; color: #fff; background: var(--green); padding: 4px 11px; border-radius: 999px; white-space: nowrap; }
+.learn-group.is-key .gh-title { color: var(--green); }
 .learn-card {
   display: flex; flex-direction: column;
   background: #fff; border: 1px solid var(--line); border-radius: 16px;
