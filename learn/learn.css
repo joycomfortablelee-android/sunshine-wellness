@@ -75,6 +75,20 @@ body.hub .lw { max-width: 1160px; }
   margin: 0 auto; line-height: 1.9;
 }
 
+/* ===== 더 읽어보기 · References (허브 하단) ===== */
+.learn-refs {
+  margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--line);
+}
+.learn-refs .label {
+  font-size: 11px; font-weight: 700; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--green); margin-bottom: 14px;
+}
+.learn-refs ul { list-style: none; padding: 0; margin: 0; }
+.learn-refs li { margin-bottom: 12px; }
+.learn-refs a { font-size: 15px; font-weight: 700; color: var(--deep); text-decoration: none; }
+.learn-refs a:hover { color: var(--green); text-decoration: underline; }
+.learn-refs li span { display: block; font-size: 13px; color: var(--muted); line-height: 1.7; margin-top: 4px; }
+
 /* ===== Module grid ===== */
 .learn-section { padding: 64px 0 80px; }
 .learn-grid {
