@@ -89,6 +89,14 @@ body.hub .lw { max-width: 1160px; }
 .learn-refs a:hover { color: var(--green); text-decoration: underline; }
 .learn-refs li span { display: block; font-size: 13px; color: var(--muted); line-height: 1.7; margin-top: 4px; }
 
+/* ===== Resource library list (자료실) ===== */
+.learn-article .reslist { list-style: none; padding: 0; margin: 6px 0 10px; }
+.learn-article .reslist li { margin-bottom: 18px; padding-left: 16px; border-left: 2px solid var(--line); }
+.learn-article .reslist a { font-size: 16px; font-weight: 800; color: var(--deep); text-decoration: none; }
+.learn-article .reslist a:hover { color: var(--green); text-decoration: underline; }
+.learn-article .reslist .desc { display: block; font-size: 13.5px; color: var(--muted); line-height: 1.75; margin-top: 5px; }
+.learn-article .reslist .meta { display: inline-block; font-size: 12px; color: var(--green); font-weight: 700; margin-top: 6px; }
+
 /* ===== Module grid ===== */
 .learn-section { padding: 64px 0 80px; }
 .learn-grid {
