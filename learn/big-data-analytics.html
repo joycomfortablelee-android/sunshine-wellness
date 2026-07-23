@@ -12,6 +12,14 @@
   <link rel="icon" href="data:," />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="learn.css?v=14" />
+  <style>
+    .kmooc-wrap { overflow-x: auto; margin: 6px 0 14px; }
+    .kmooc-map { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .kmooc-map th, .kmooc-map td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .kmooc-map th { color: var(--deep); font-weight: 800; background: rgba(0,0,0,0.03); }
+    .kmooc-map td:first-child { font-weight: 700; color: var(--green); white-space: nowrap; }
+    .kmooc-map .desc-col { color: var(--muted); line-height: 1.7; }
+  </style>
 </head>
 <body>
 
@@ -113,6 +121,34 @@
         <li><strong>사회조사분석사</strong> — 설문·통계 조사의 설계와 해석. <strong>관광 수요조사</strong>와 곧바로 이어진다.</li>
       </ul>
       <p>독학이 막막하다면 아래 <strong>K-MOOC</strong>의 무료 빅데이터 강좌로 시작해 보세요. 대학·공공기관의 데이터 분석 교육도 꾸준히 열립니다.</p>
+
+      <h3>K-MOOC 빅데이터 강좌 지도</h3>
+      <p>K-MOOC의 빅데이터 관련 강좌는 크게 아홉 갈래로 나눠 보면 자신에게 필요한 것을 고르기 쉽습니다.</p>
+      <div class="kmooc-wrap">
+      <table class="kmooc-map">
+        <thead><tr><th>유형</th><th>배우는 내용</th></tr></thead>
+        <tbody>
+          <tr><td>데이터 분석 입문</td><td class="desc-col">빅데이터 개념, 분석 절차, 기초 도구</td></tr>
+          <tr><td>Python·R 프로그래밍</td><td class="desc-col">데이터 수집·정제·분석·자동화</td></tr>
+          <tr><td>데이터 시각화·EDA</td><td class="desc-col">탐색적 분석, 차트, 대시보드</td></tr>
+          <tr><td>AI·머신러닝</td><td class="desc-col">예측·분류, 지도·비지도학습</td></tr>
+          <tr><td>NLP·생성형 AI</td><td class="desc-col">텍스트 분석과 생성모델</td></tr>
+          <tr><td>마케팅·비즈니스</td><td class="desc-col">고객·시장·브랜드 데이터 분석</td></tr>
+          <tr><td>공공·지역·부동산</td><td class="desc-col">공공데이터를 활용한 지역문제 분석</td></tr>
+          <tr><td>SQL·클라우드·DB</td><td class="desc-col">데이터 저장·조회, 클라우드 분석</td></tr>
+          <tr><td>수학·통계</td><td class="desc-col">확률·통계, 선형대수, 연구 분석</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>유형별 대표 강좌·학습 형태·마이크로러닝까지 한 화면에 정리한 <a href="kmooc-bigdata.html"><strong>K-MOOC 빅데이터 강좌 안내</strong></a> 페이지도 참고하세요. 구체적인 강좌명·개설 학기는 시기마다 바뀌므로, 아래 <strong>K-MOOC 빅데이터 강좌 검색</strong> 링크에서 최신 목록을 확인하는 것이 정확합니다.</p>
+
+      <h3>수준·목표별 추천 학습 경로</h3>
+      <ul>
+        <li><strong>입문 학생</strong> — 데이터 분석 기초 → EDA·시각화 → 공공데이터 활용</li>
+        <li><strong>논문·연구 중심</strong> — 확률·통계 → R·Python → 고급 데이터 분석</li>
+        <li><strong>관광·마케팅 전공</strong> — AI 마케팅 → 브랜드 데이터 분석 → SQL 마케팅 분석</li>
+        <li><strong>AI 실무 중심</strong> — Python·Pandas → 머신러닝 → NLP·생성모델</li>
+      </ul>
 
       <p class="learn-part">관련 링크 · 더 배우기</p>
       <p>이론을 넘어 <strong>실제 데이터를 직접 분석</strong>해 보려면 공공 빅데이터 플랫폼을 활용하는 것이 가장 좋습니다. 서울시가 운영하는 빅데이터 캠퍼스는 관광·유동인구·상권 등 방대한 서울시 데이터를 분석 환경 안에서 다뤄볼 수 있는 대표적인 곳입니다. 아래에는 목적·분석 분야별로 자주 쓰는 국내외 플랫폼을 함께 정리했습니다.</p>

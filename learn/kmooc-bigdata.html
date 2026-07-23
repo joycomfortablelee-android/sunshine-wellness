@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="학생을 위한 K-MOOC 빅데이터 분석 강좌 유형과 추천 학습경로" />
+  <title>K-MOOC 빅데이터 분석 강좌 안내</title>
+  <style>
+    :root {
+      --navy: #14213d;
+      --blue: #2563eb;
+      --sky: #eaf2ff;
+      --ink: #1f2937;
+      --muted: #64748b;
+      --line: #e5e7eb;
+      --soft: #f8fafc;
+      --white: #ffffff;
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Pretendard", "Noto Sans KR", "Malgun Gothic", sans-serif;
+      color: var(--ink);
+      background: var(--soft);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; }
+
+    .container {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 74px 0 56px;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 85% 20%, rgba(255,255,255,.18), transparent 27%),
+        linear-gradient(135deg, #172554 0%, #1d4ed8 58%, #60a5fa 100%);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      margin-bottom: 18px;
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      font-size: .9rem;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      max-width: 850px;
+      font-size: clamp(2rem, 5vw, 3.65rem);
+      line-height: 1.16;
+      letter-spacing: -.045em;
+    }
+
+    .hero p {
+      max-width: 770px;
+      margin: 0;
+      color: rgba(255,255,255,.9);
+      font-size: 1.08rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 800;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      color: var(--blue);
+      background: var(--white);
+      box-shadow: 0 10px 25px rgba(0,0,0,.14);
+    }
+
+    .btn-ghost {
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,.45);
+      background: rgba(255,255,255,.08);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+      margin-top: -28px;
+    }
+
+    .stat {
+      padding: 20px 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--navy);
+      font-size: 1.65rem;
+      line-height: 1.1;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    section { padding: 68px 0 0; }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(1.55rem, 3vw, 2.15rem);
+      letter-spacing: -.03em;
+    }
+
+    .section-head p {
+      max-width: 620px;
+      margin: 8px 0 0;
+      color: var(--muted);
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-bottom: 24px;
+    }
+
+    .filter-btn {
+      padding: 9px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--ink);
+      background: var(--white);
+      cursor: pointer;
+      font: inherit;
+      font-weight: 750;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      color: var(--white);
+      border-color: var(--blue);
+      background: var(--blue);
+    }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .course-card {
+      display: flex;
+      flex-direction: column;
+      padding: 24px;
+      min-height: 100%;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .course-card[hidden] { display: none; }
+
+    .icon {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      margin-bottom: 16px;
+      border-radius: 14px;
+      background: var(--sky);
+      font-size: 1.45rem;
+    }
+
+    .course-card h3 {
+      margin: 0 0 8px;
+      color: var(--navy);
+      font-size: 1.23rem;
+    }
+
+    .course-card > p {
+      margin: 0 0 15px;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .tag {
+      align-self: flex-start;
+      padding: 5px 9px;
+      margin-bottom: 14px;
+      border-radius: 999px;
+      color: #1d4ed8;
+      background: #eff6ff;
+      font-size: .78rem;
+      font-weight: 800;
+    }
+
+    .course-card ul {
+      padding-left: 19px;
+      margin: 0;
+    }
+
+    .course-card li { margin: 6px 0; }
+
+    .target {
+      margin-top: auto;
+      padding-top: 18px;
+      color: #334155;
+      font-size: .88rem;
+      font-weight: 700;
+    }
+
+    .paths {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .path {
+      padding: 25px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+    }
+
+    .path h3 {
+      margin: 0 0 12px;
+      color: var(--navy);
+    }
+
+    .steps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .step {
+      padding: 7px 10px;
+      border-radius: 10px;
+      background: #f1f5f9;
+      font-size: .88rem;
+      font-weight: 700;
+    }
+
+    .arrow { color: #94a3b8; font-weight: 900; }
+
+    .format-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .format {
+      padding: 24px;
+      border-radius: var(--radius);
+      background: #0f172a;
+      color: var(--white);
+    }
+
+    .format h3 { margin-top: 0; }
+    .format p { margin-bottom: 0; color: #cbd5e1; }
+
+    .micro-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .micro-item {
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .micro-item strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--navy);
+    }
+
+    .micro-item span {
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .notice {
+      margin: 68px 0 0;
+      padding: 22px 24px;
+      border-left: 5px solid var(--blue);
+      border-radius: 12px;
+      background: #eef4ff;
+      color: #334155;
+    }
+
+    footer {
+      margin-top: 68px;
+      padding: 30px 0;
+      color: #94a3b8;
+      background: #0f172a;
+      font-size: .9rem;
+    }
+
+    footer a { color: #cbd5e1; text-decoration: none; font-weight: 700; }
+    footer a:hover { color: var(--white); }
+
+    @media (max-width: 920px) {
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .course-grid { grid-template-columns: repeat(2, 1fr); }
+      .format-grid { grid-template-columns: 1fr; }
+      .micro-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding-top: 54px; }
+      .stats, .course-grid, .paths, .micro-grid { grid-template-columns: 1fr; }
+      .section-head { display: block; }
+      .stat:last-child { grid-column: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <div class="eyebrow">K-MOOC 학습 가이드 · 빅데이터</div>
+      <h1>빅데이터 분석 강좌,<br />무엇을 배울 수 있을까요?</h1>
+      <p>
+        K-MOOC에는 데이터 분석 입문부터 Python·R·SQL, 시각화, 머신러닝,
+        마케팅과 공공데이터 활용까지 다양한 수준의 강좌가 마련되어 있습니다.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://www.kmooc.kr/" target="_blank" rel="noopener">
+          K-MOOC에서 강좌 찾기
+        </a>
+        <a class="btn btn-ghost" href="#course-types">강좌 유형 살펴보기</a>
+        <a class="btn btn-ghost" href="./big-data-analytics.html">← 빅데이터 분석 모듈</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="stats" aria-label="검색결과 개요">
+      <div class="stat"><strong>6,947</strong><span>통합 검색결과</span></div>
+      <div class="stat"><strong>88</strong><span>K-MOOC 강좌</span></div>
+      <div class="stat"><strong>12</strong><span>매치업 강좌</span></div>
+      <div class="stat"><strong>48</strong><span>방송 연계 강좌</span></div>
+      <div class="stat"><strong>6,285</strong><span>VOD 콘텐츠</span></div>
+      <div class="stat"><strong>12</strong><span>마이크로러닝</span></div>
+    </div>
+
+    <section id="course-types">
+      <div class="section-head">
+        <div>
+          <h2>빅데이터 강좌의 주요 유형</h2>
+          <p>학생의 전공, 학습 수준, 활용 목적에 따라 필요한 강좌를 선택할 수 있습니다.</p>
+        </div>
+      </div>
+
+      <div class="filters" aria-label="강좌 유형 필터">
+        <button class="filter-btn active" data-filter="all">전체</button>
+        <button class="filter-btn" data-filter="basic">입문</button>
+        <button class="filter-btn" data-filter="coding">프로그래밍</button>
+        <button class="filter-btn" data-filter="visual">시각화</button>
+        <button class="filter-btn" data-filter="ai">AI·머신러닝</button>
+        <button class="filter-btn" data-filter="business">마케팅·비즈니스</button>
+        <button class="filter-btn" data-filter="public">공공·지역</button>
+        <button class="filter-btn" data-filter="infra">데이터 인프라</button>
+        <button class="filter-btn" data-filter="stats">수학·통계</button>
+      </div>
+
+      <div class="course-grid">
+        <article class="course-card" data-category="basic">
+          <div class="icon">🌱</div>
+          <span class="tag">기초 이해</span>
+          <h3>데이터 분석 입문</h3>
+          <p>빅데이터의 개념, 분석 절차, 기본 도구를 익히는 출발 단계입니다.</p>
+          <ul>
+            <li>데이터 분석 기초</li>
+            <li>빅데이터 프레임워크</li>
+            <li>사회문제 해결을 위한 공공데이터의 이해</li>
+          </ul>
+          <div class="target">추천: 비전공자·처음 배우는 학생</div>
+        </article>
+
+        <article class="course-card" data-category="coding">
+          <div class="icon">💻</div>
+          <span class="tag">실습 중심</span>
+          <h3>Python·R 프로그래밍</h3>
+          <p>데이터 불러오기, 정제, 분석, 자동화를 코딩으로 수행합니다.</p>
+          <ul>
+            <li>Python 및 Pandas 활용 데이터 분석</li>
+            <li>고급 파이썬과 데이터 분석</li>
+            <li>R과 Python을 이용한 데이터사이언스</li>
+            <li>파이썬과 데이터마이닝</li>
+          </ul>
+          <div class="target">추천: 실습 능력을 키우고 싶은 학생</div>
+        </article>
+
+        <article class="course-card" data-category="visual">
+          <div class="icon">📊</div>
+          <span class="tag">표현·해석</span>
+          <h3>데이터 시각화·EDA</h3>
+          <p>데이터의 패턴을 탐색하고 차트와 대시보드로 전달하는 방법을 배웁니다.</p>
+          <ul>
+            <li>과학적 데이터 시각화</li>
+            <li>그래픽 데이터 시각화</li>
+            <li>비즈니스 데이터 시각화</li>
+            <li>데이터 과학의 EDA와 시각화</li>
+          </ul>
+          <div class="target">추천: 보고서·발표·논문 시각화가 필요한 학생</div>
+        </article>
+
+        <article class="course-card" data-category="ai">
+          <div class="icon">🤖</div>
+          <span class="tag">AI 응용</span>
+          <h3>머신러닝·NLP·생성모델</h3>
+          <p>빅데이터를 기반으로 예측, 분류, 텍스트 분석, 생성형 AI를 학습합니다.</p>
+          <ul>
+            <li>머신러닝 빅데이터 분석</li>
+            <li>Python을 사용한 NLP 기초과정</li>
+            <li>Python을 활용한 생성 모델 기초 과정</li>
+            <li>빅데이터와 인공지능 마케팅 ② 오렌지 실습</li>
+          </ul>
+          <div class="target">추천: AI 분석·예측모형에 관심 있는 학생</div>
+        </article>
+
+        <article class="course-card" data-category="business">
+          <div class="icon">🛍️</div>
+          <span class="tag">산업 활용</span>
+          <h3>마케팅·브랜드 분석</h3>
+          <p>고객과 시장 데이터를 활용해 마케팅 의사결정과 브랜드 전략을 수립합니다.</p>
+          <ul>
+            <li>빅데이터와 인공지능 마케팅 ①</li>
+            <li>데이터 분석 기반의 브랜드 전략 수립</li>
+            <li>SQL을 활용한 마케팅 데이터 분석</li>
+          </ul>
+          <div class="target">추천: 관광·호텔·경영·마케팅 전공 학생</div>
+        </article>
+
+        <article class="course-card" data-category="public">
+          <div class="icon">🏙️</div>
+          <span class="tag">지역·사회</span>
+          <h3>공공·지역·부동산 데이터</h3>
+          <p>지역 현안과 사회문제를 공공데이터로 진단하고 해결안을 탐색합니다.</p>
+          <ul>
+            <li>AI 기반 빅데이터 분석을 통한 지역 재생 정보 활용</li>
+            <li>부동산 데이터의 활용</li>
+            <li>부동산 데이터 도메인 지식의 이해</li>
+            <li>사회문제 해결을 위한 공공데이터의 이해</li>
+          </ul>
+          <div class="target">추천: 지역정책·관광개발·도시연구 관심 학생</div>
+        </article>
+
+        <article class="course-card" data-category="infra">
+          <div class="icon">🗄️</div>
+          <span class="tag">데이터 기반</span>
+          <h3>SQL·클라우드·DB</h3>
+          <p>데이터를 저장하고 조회하며 클라우드 환경에서 분석하는 기반 기술입니다.</p>
+          <ul>
+            <li>SQL 정형 데이터 분석</li>
+            <li>멀티클라우드 기반 데이터 분석 기초</li>
+            <li>클라우드 DB 솔루션아키텍트 양성과정</li>
+            <li>클라우드 인프라 아키텍처 심화과정</li>
+          </ul>
+          <div class="target">추천: 데이터 엔지니어링·정보시스템 관심 학생</div>
+        </article>
+
+        <article class="course-card" data-category="stats">
+          <div class="icon">🧮</div>
+          <span class="tag">분석 원리</span>
+          <h3>수학·통계 기반</h3>
+          <p>빅데이터 분석의 원리를 이해하기 위한 확률, 통계, 선형대수를 학습합니다.</p>
+          <ul>
+            <li>선형대수로 배우는 빅데이터</li>
+            <li>빅데이터를 위한 확률과 통계</li>
+            <li>문항반응이론과 R을 활용한 교육데이터 분석</li>
+          </ul>
+          <div class="target">추천: 연구방법론·고급분석을 준비하는 학생</div>
+        </article>
+
+        <article class="course-card" data-category="business">
+          <div class="icon">🩺</div>
+          <span class="tag">전공 특화</span>
+          <h3>산업·전공 특화 분석</h3>
+          <p>한방, 의료, 부동산 등 특정 분야의 지식과 데이터 분석을 결합합니다.</p>
+          <ul>
+            <li>한의학 특화 데이터 분석 및 임상 의사결정</li>
+            <li>Python을 활용한 한방 산업 데이터 분석</li>
+            <li>부동산 공공데이터 활용 강좌</li>
+          </ul>
+          <div class="target">추천: 자신의 전공에 데이터를 적용하려는 학생</div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>학생 수준별 추천 학습경로</h2>
+          <p>강좌를 한 과목씩 따로 듣기보다 목적에 맞게 연결하면 학습 효과가 높아집니다.</p>
+        </div>
+      </div>
+
+      <div class="paths">
+        <div class="path">
+          <h3>① 완전 입문형</h3>
+          <div class="steps">
+            <span class="step">데이터 분석 기초</span><span class="arrow">→</span>
+            <span class="step">EDA·시각화</span><span class="arrow">→</span>
+            <span class="step">공공데이터 활용</span>
+          </div>
+        </div>
+
+        <div class="path">
+          <h3>② 연구·논문 분석형</h3>
+          <div class="steps">
+            <span class="step">확률·통계</span><span class="arrow">→</span>
+            <span class="step">R·Python</span><span class="arrow">→</span>
+            <span class="step">고급 데이터 분석</span>
+          </div>
+        </div>
+
+        <div class="path">
+          <h3>③ 관광·마케팅 활용형</h3>
+          <div class="steps">
+            <span class="step">AI 마케팅 개념</span><span class="arrow">→</span>
+            <span class="step">브랜드 데이터 분석</span><span class="arrow">→</span>
+            <span class="step">SQL 마케팅 분석</span>
+          </div>
+        </div>
+
+        <div class="path">
+          <h3>④ AI 실무형</h3>
+          <div class="steps">
+            <span class="step">Python·Pandas</span><span class="arrow">→</span>
+            <span class="step">머신러닝</span><span class="arrow">→</span>
+            <span class="step">NLP·생성모델</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>K-MOOC에서 제공되는 학습 형태</h2>
+          <p>같은 ‘빅데이터’ 주제라도 운영 방식과 학습 목적이 다릅니다.</p>
+        </div>
+      </div>
+
+      <div class="format-grid">
+        <div class="format">
+          <h3>일반 K-MOOC 강좌</h3>
+          <p>대학 교수진 중심의 체계적인 온라인 강좌입니다. 일부 강좌는 이수증을 제공합니다.</p>
+        </div>
+        <div class="format">
+          <h3>매치업 강좌</h3>
+          <p>산업 수요와 직무역량을 반영한 실무형 과정으로, Python·SQL·클라우드·AI 학습에 적합합니다.</p>
+        </div>
+        <div class="format">
+          <h3>방송·VOD 콘텐츠</h3>
+          <p>데이터 마이닝, 암호, 디지털 헬스케어 등 빅데이터 관련 주제를 짧고 쉽게 이해할 수 있습니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>마이크로러닝 12개 콘텐츠</h2>
+          <p>짧은 단위로 핵심 개념을 학습할 수 있어 강의 도입, 복습, 보충학습에 적합합니다.</p>
+        </div>
+      </div>
+
+      <div class="micro-grid">
+        <div class="micro-item"><strong>빅데이터의 세계, 원리와 응용</strong><span>빅데이터 개념·원리·활용</span></div>
+        <div class="micro-item"><strong>빅데이터와 인공지능의 응용</strong><span>AI·센서·스마트 환경</span></div>
+        <div class="micro-item"><strong>빅데이터와 머신러닝 소프트웨어</strong><span>머신러닝 도구와 응용</span></div>
+        <div class="micro-item"><strong>데이터 마이닝</strong><span>연관규칙·확률·고객분석</span></div>
+        <div class="micro-item"><strong>[집콕] 빅데이터 첫걸음</strong><span>빅데이터 입문과 분석기술</span></div>
+        <div class="micro-item"><strong>[집콕] R 데이터 분석 입문</strong><span>R 기반 비즈니스 데이터 분석</span></div>
+        <div class="micro-item"><strong>데이터로 배우는 통계학</strong><span>데이터 중심 통계 기초</span></div>
+        <div class="micro-item"><strong>데이터엔지니어링</strong><span>데이터 처리·서비스·효율</span></div>
+        <div class="micro-item"><strong>데이터언어의 이해와 활용</strong><span>컴퓨터·서버·데이터 환경</span></div>
+        <div class="micro-item"><strong>데이터과학을 위한 R 프로그래밍</strong><span>설치·실행·스크립트 기초</span></div>
+        <div class="micro-item"><strong>예측 및 분류를 위한 데이터 애널리틱스 기법</strong><span>모형·분산·추정·분류</span></div>
+        <div class="micro-item"><strong>크리에이터를 위한 글쓰기</strong><span>콘텐츠 기획과 데이터 기반 표현</span></div>
+      </div>
+    </section>
+
+    <div class="notice">
+      <strong>수강 전 확인</strong><br />
+      강좌 운영기간, 이수증 발급 여부, 평가 방식은 강좌별로 다릅니다.
+      K-MOOC에서 ‘빅데이터’를 검색한 뒤 현재 수강 가능한 강좌인지 확인하세요.
+      이 페이지의 강좌 예시와 통계 수치는 2026년 7월 검색결과를 기준으로 정리한 것으로, 실제와 다를 수 있습니다.
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      학생 안내용 K-MOOC 빅데이터 분석 강좌 가이드 ·
+      <a href="./big-data-analytics.html">빅데이터 분석 모듈</a> ·
+      <a href="./">교육자료 목차</a>
+    </div>
+  </footer>
+
+  <script>
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const courseCards = document.querySelectorAll(".course-card");
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        filterButtons.forEach((btn) => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        const filter = button.dataset.filter;
+
+        courseCards.forEach((card) => {
+          const show = filter === "all" || card.dataset.category === filter;
+          card.hidden = !show;
+        });
+      });
+    });
+  </script>
+</body>
+</html>
