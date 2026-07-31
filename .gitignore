@@ -1,2 +1,10 @@
 .vercel
 .claude/
+
+# 작업용 원본 소재 — 배포물이 아니라 로컬에만 보관 (최적화 사본은 images/에 있음)
+logo/
+reference/
+
+# 스크린샷 촬영용 임시 파일
+_shot.mjs
+_shot_modal.png
