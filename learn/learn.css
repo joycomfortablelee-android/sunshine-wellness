@@ -53,6 +53,12 @@ body.hub .lw { max-width: 1160px; }
   transition: background .2s, color .2s;
 }
 .learn-back:hover { background: var(--green); color: #fff; }
+/* 상단 이동 버튼 2개 (홈 GNB로 직접 진입하는 페이지용) */
+.learn-navs { display: flex; align-items: center; gap: 8px; flex: none; }
+@media (max-width: 560px) {
+  .learn-navs { gap: 6px; }
+  .learn-navs .learn-back { padding: 6px 10px; font-size: 12px; white-space: nowrap; }
+}
 
 /* ===== Hero ===== */
 .learn-hero {
