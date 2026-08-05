@@ -102,6 +102,18 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .reslist a:hover { color: var(--green); text-decoration: underline; }
 .learn-article .reslist .desc { display: block; font-size: 13.5px; color: var(--muted); line-height: 1.75; margin-top: 5px; }
 .learn-article .reslist .meta { display: inline-block; font-size: 12px; color: var(--green); font-weight: 700; margin-top: 6px; }
+/* 눈에 띄게 강조할 항목 */
+.learn-article .reslist li.hi {
+  border-left: 4px solid #2563a8;
+  background: #f1f7fd;
+  border-radius: 0 12px 12px 0;
+  padding: 15px 16px 14px 18px;
+}
+.learn-article .reslist li.hi a { color: #17539b; }
+.learn-article .reslist li.hi a:hover { color: #0f3d76; }
+.learn-article .reslist li.hi .desc { color: #4d5f74; }
+.learn-article .reslist li.hi .desc strong { color: #17539b; }
+.learn-article .reslist li.hi .meta { color: #2563a8; }
 
 /* ===== Figure (본문 이미지) ===== */
 .learn-article .learn-fig { margin: 30px 0; text-align: center; }
