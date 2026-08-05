@@ -357,7 +357,7 @@ body.hub .lw { max-width: 1160px; }
   border: 1px solid var(--line);
   border-radius: 14px;
   padding: 20px 22px;
-  margin: 44px 0 0;
+  margin: 18px 0 10px;
 }
 .learn-article .intro-card p { font-size: 13.5px; line-height: 1.85; color: var(--muted); margin: 0; }
 .learn-article .intro-card strong { color: var(--deep); }
