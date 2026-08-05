@@ -116,15 +116,15 @@ ul { list-style: none; }
 }
 
 /* 가운데 GNB */
-.gnb { margin-left: 60px; }
+.gnb { margin-left: 40px; }
 .header-right { margin-left: auto; }
 .gnb ul {
   display: flex;
-  gap: 32px;
+  gap: 26px;
   align-items: center;
 }
 .gnb a {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 500;
   letter-spacing: 0.04em;
   color: var(--dark);
@@ -1807,18 +1807,29 @@ section { padding: 100px 0; }
 /* =========================================
    RESPONSIVE
    ========================================= */
+/* GNB 항목이 7개라 중간 폭에서 '아트 컨시어지'와 로그인이 겹침 → 단계적으로 압축 */
+@media (max-width: 1500px) {
+  .header-inner { padding: 0 24px; }
+  .gnb { margin-left: 24px; }
+  .gnb ul { gap: 18px; }
+  .gnb a { font-size: 0.86rem; }
+}
+
 @media (max-width: 1100px) {
-  .header-inner { padding: 0 32px; }
-  .gnb ul { gap: 20px; }
   .slide-content { left: 48px; }
 }
 
-@media (max-width: 900px) {
+/* 1280px 미만은 7개 메뉴가 물리적으로 안 들어감 → 헤더만 햄버거로 전환
+   (본문 레이아웃은 아래 900px 블록에서 기존대로 유지) */
+@media (max-width: 1279px) {
   .gnb { display: none; }
   .auth-links { display: none; }
   .lang-wrap { display: none; }
   .hamburger { display: flex; }
   .header-inner { padding: 0 var(--side-pad); }
+}
+
+@media (max-width: 900px) {
   .slide-content { left: 32px; max-width: 90%; }
   .cards-grid { grid-template-columns: repeat(2, 1fr); }
   .about-inner { grid-template-columns: 1fr; gap: 40px; }
@@ -1910,6 +1921,65 @@ section { padding: 100px 0; }
 }
 
 /* ── 게시판 ───────────────────────────────────── */
+/* =========================================
+   CAREER (취업·진로 / 관광창업 / 수업자료)
+   ========================================= */
+.career-section { padding: 96px 0; background: var(--white); }
+.career-hd { text-align: center; margin-bottom: 48px; }
+.career-hd .section-desc { margin-left: auto; margin-right: auto; max-width: 620px; }
+.career-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.career-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: var(--light);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 38px 26px 32px;
+  text-decoration: none;
+  transition: box-shadow var(--ease), transform var(--ease), border-color var(--ease);
+}
+.career-card:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.09);
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+.career-card .cc-ico { font-size: 30px; line-height: 1; margin-bottom: 16px; }
+.career-card h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--black);
+  margin-bottom: 10px;
+}
+.career-card p {
+  font-size: 0.86rem;
+  color: var(--gray);
+  line-height: 1.75;
+  margin-bottom: 22px;
+  flex: 1;
+}
+.career-card .cc-go {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  border: 1.5px solid var(--accent);
+  border-radius: 8px;
+  padding: 9px 18px;
+  transition: background var(--ease), color var(--ease);
+}
+.career-card:hover .cc-go { background: var(--accent); color: var(--white); }
+
+@media (max-width: 900px) {
+  .career-section { padding: 72px 0; }
+  .career-grid { grid-template-columns: 1fr; gap: 16px; }
+  .career-card { padding: 30px 22px 26px; }
+}
+
 .board-section { padding: 96px 0; background: #f8f9fa; }
 .board-hd { text-align: center; margin-bottom: 52px; }
 .board-hd .section-desc { margin-left: auto; margin-right: auto; }
