@@ -259,6 +259,128 @@ body.hub .lw { max-width: 1160px; }
   .pe-say { width: 40px; height: 40px; font-size: 17px; }
 }
 
+/* ===== 취업 분야 지도 (careers.html 전용) ===== */
+/* 앵커 목차 바 */
+.learn-article .learn-part { scroll-margin-top: 124px; }
+.cmap-toc {
+  position: sticky; top: 64px; z-index: 30;
+  display: flex; flex-wrap: wrap; gap: 6px;
+  background: rgba(255,255,255,.96); backdrop-filter: blur(6px);
+  border: 1px solid var(--line); border-radius: 12px;
+  padding: 10px 12px; margin: 0 0 32px;
+}
+.cmap-toc a {
+  font-size: 12.5px; font-weight: 700; color: var(--muted);
+  padding: 6px 12px; border-radius: 8px; transition: background .15s, color .15s;
+}
+.cmap-toc a:hover { background: var(--gray); color: var(--deep); }
+
+/* 검색·필터 */
+.cmap-filter {
+  display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center;
+  background: var(--gray); border: 1px solid var(--line); border-radius: 12px;
+  padding: 14px 16px; margin: 18px 0 22px;
+}
+.cmap-search {
+  width: 100%; font-family: inherit; font-size: 14px; color: var(--text);
+  background: #fff; border: 1px solid var(--line); border-radius: 9px;
+  padding: 11px 14px; outline: none; transition: border-color .15s, box-shadow .15s;
+}
+.cmap-search:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(59,98,89,.12); }
+.cmap-tabs { display: flex; flex-wrap: wrap; gap: 6px; }
+.cmap-tab {
+  font-family: inherit; font-size: 12.5px; font-weight: 700; color: var(--muted);
+  background: #fff; border: 1px solid var(--line); border-radius: 999px;
+  padding: 8px 15px; cursor: pointer; transition: background .15s, color .15s, border-color .15s;
+}
+.cmap-tab:hover { color: var(--deep); }
+.cmap-tab.is-active { background: var(--green); border-color: var(--green); color: #fff; }
+
+/* 산업군 카드 그리드 */
+.cmap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.cmap-card {
+  display: flex; flex-direction: column;
+  background: var(--c-bg, #fff); border: 1px solid var(--c-line, var(--line));
+  border-radius: 16px; padding: 22px 20px;
+  transition: box-shadow .2s, transform .2s;
+}
+.cmap-card:hover { box-shadow: 0 10px 26px rgba(0,0,0,.07); transform: translateY(-3px); }
+.cmap-card[hidden] { display: none; }
+.cmap-ico {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 42px; height: 42px; font-size: 21px; line-height: 1;
+  background: var(--c-ico, var(--gray)); border-radius: 12px;
+}
+.learn-article .cmap-card h3 { font-size: 17px; font-weight: 800; color: var(--deep); margin: 14px 0 7px; }
+.learn-article .cmap-card p { font-size: 13.5px; color: var(--muted); line-height: 1.7; margin-bottom: 12px; }
+.cmap-label { display: block; font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--green); }
+.cmap-chips { display: flex; flex-wrap: wrap; gap: 5px; margin: 8px 0 14px; }
+.cmap-chips .chip {
+  font-size: 11.5px; color: #55605c; background: rgba(255,255,255,.72);
+  border: 1px solid rgba(0,0,0,.05); border-radius: 999px; padding: 4px 9px;
+}
+.cmap-kw {
+  margin-top: auto; padding: 9px 11px; border-left: 3px solid var(--gold);
+  background: rgba(255,255,255,.66); border-radius: 0 7px 7px 0;
+  font-size: 11.5px; font-weight: 700; color: #7a5a2c; line-height: 1.6;
+}
+
+/* 산업군별 카드 색 — 채도 낮춘 파스텔 14색 */
+.cmap-card:nth-child(1)  { --c-bg:#eff3f7; --c-line:#d4dee6; --c-ico:#e0e9f1; }
+.cmap-card:nth-child(2)  { --c-bg:#f8f3ec; --c-line:#e6dbcb; --c-ico:#f0e6d8; }
+.cmap-card:nth-child(3)  { --c-bg:#f8f6ea; --c-line:#e4dfc8; --c-ico:#f0ebd7; }
+.cmap-card:nth-child(4)  { --c-bg:#eef4f7; --c-line:#d2e0e7; --c-ico:#e1ebf1; }
+.cmap-card:nth-child(5)  { --c-bg:#f3f1f7; --c-line:#ddd7e6; --c-ico:#e9e5f1; }
+.cmap-card:nth-child(6)  { --c-bg:#eef5f3; --c-line:#d3e2dd; --c-ico:#e1edea; }
+.cmap-card:nth-child(7)  { --c-bg:#edf4f6; --c-line:#d1e1e5; --c-ico:#e0edf0; }
+.cmap-card:nth-child(8)  { --c-bg:#f1f5ee; --c-line:#d9e3d3; --c-ico:#e6ede1; }
+.cmap-card:nth-child(9)  { --c-bg:#f8f2ed; --c-line:#e8d9cd; --c-ico:#f1e5da; }
+.cmap-card:nth-child(10) { --c-bg:#f1f3f6; --c-line:#dae0e7; --c-ico:#e6eaf0; }
+.cmap-card:nth-child(11) { --c-bg:#f8f0f3; --c-line:#e8d5dd; --c-ico:#f1e2e8; }
+.cmap-card:nth-child(12) { --c-bg:#eff5f2; --c-line:#d5e3db; --c-ico:#e3ede8; }
+.cmap-card:nth-child(13) { --c-bg:#f2f2f7; --c-line:#dcdae7; --c-ico:#e8e7f1; }
+.cmap-card:nth-child(14) { --c-bg:#f7f4ed; --c-line:#e2d9c8; --c-ico:#ede7d9; }
+
+/* 검색 결과 없음 */
+.learn-article .cmap-empty { display: none; text-align: center; font-size: 14px; color: var(--muted); padding: 34px 0 10px; margin: 0; }
+.learn-article .cmap-empty.is-on { display: block; }
+
+/* 강조 박스 */
+.cmap-note {
+  background: var(--ivory); border: 1px solid var(--line); border-left: 4px solid var(--gold);
+  border-radius: 0 12px 12px 0; padding: 18px 20px; margin: 26px 0 6px;
+}
+.learn-article .cmap-note p { font-size: 14.5px; line-height: 1.85; margin: 0; color: var(--deep); }
+
+/* 직무 이해 2열 카드 */
+.cmap-jobs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 18px 0 6px; }
+.cmap-job { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; }
+.learn-article .cmap-job h3 { font-size: 16px; font-weight: 800; color: var(--deep); margin: 0 0 10px; }
+.learn-article .cmap-job ul { margin: 0 0 0 18px; }
+.learn-article .cmap-job li { font-size: 13.5px; line-height: 1.75; color: var(--muted); margin-bottom: 4px; }
+.learn-article .cmap-job li strong { color: var(--deep); }
+
+/* 성향별 진로 표 */
+.cmap-table-wrap { overflow-x: auto; margin: 18px 0 6px; }
+.cmap-table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 520px; }
+.cmap-table th, .cmap-table td { text-align: left; padding: 13px 16px; border-bottom: 1px solid var(--line); }
+.cmap-table thead th { background: var(--green); color: #fff; font-weight: 700; font-size: 13px; letter-spacing: .02em; }
+.cmap-table thead th:first-child { border-radius: 10px 0 0 0; }
+.cmap-table thead th:last-child { border-radius: 0 10px 0 0; }
+.cmap-table tbody tr:nth-child(even) { background: var(--gray); }
+.cmap-table td:first-child { font-weight: 700; color: var(--deep); }
+.cmap-table td:last-child { color: var(--muted); }
+
+@media (max-width: 1000px) {
+  .cmap-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 720px) {
+  .cmap-toc { position: static; margin-bottom: 24px; }
+  .cmap-filter { grid-template-columns: 1fr; }
+  .cmap-grid, .cmap-jobs { grid-template-columns: 1fr; }
+  .learn-article .learn-part { scroll-margin-top: 76px; }
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 1000px) {
   .learn-grid { grid-template-columns: repeat(2, 1fr); }
