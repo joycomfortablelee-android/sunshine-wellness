@@ -358,6 +358,7 @@ body.hub .lw { max-width: 1160px; }
 .cmap-card:nth-child(12) { --c-bg:#eff5f2; --c-line:#d5e3db; --c-ico:#e3ede8; }
 .cmap-card:nth-child(13) { --c-bg:#f2f2f7; --c-line:#dcdae7; --c-ico:#e8e7f1; }
 .cmap-card:nth-child(14) { --c-bg:#f7f4ed; --c-line:#e2d9c8; --c-ico:#ede7d9; }
+.cmap-card:nth-child(15) { --c-bg:#f4f2f8; --c-line:#ded9e8; --c-ico:#e9e4f2; }
 
 /* 검색 결과 없음 */
 .learn-article .cmap-empty { display: none; text-align: center; font-size: 14px; color: var(--muted); padding: 34px 0 10px; margin: 0; }
