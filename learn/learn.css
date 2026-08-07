@@ -102,6 +102,17 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .reslist a:hover { color: var(--green); text-decoration: underline; }
 .learn-article .reslist .desc { display: block; font-size: 13.5px; color: var(--muted); line-height: 1.75; margin-top: 5px; }
 .learn-article .reslist .meta { display: inline-block; font-size: 12px; color: var(--green); font-weight: 700; margin-top: 6px; }
+/* 여러 링크를 한 항목으로 묶을 때 — 제목 + 링크 줄 */
+.learn-article .reslist .grouptitle { display: block; font-size: 16px; font-weight: 800; color: var(--deep); }
+.learn-article .reslist .linkrow { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 4px; }
+.learn-article .reslist .linkrow a {
+  font-size: 12.5px; font-weight: 700; color: var(--green);
+  background: #fff; border: 1px solid var(--line); border-radius: 999px;
+  padding: 6px 12px; transition: background .2s, color .2s, border-color .2s;
+}
+.learn-article .reslist .linkrow a:hover { background: var(--green); border-color: var(--green); color: #fff; text-decoration: none; }
+.learn-article .reslist .desc a { color: var(--green); font-weight: 700; font-size: inherit; border-bottom: 1px solid currentColor; }
+
 /* 눈에 띄게 강조할 항목 */
 .learn-article .reslist li.hi {
   border-left: 4px solid #2563a8;
