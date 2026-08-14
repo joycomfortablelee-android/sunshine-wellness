@@ -112,6 +112,8 @@ body.hub .lw { max-width: 1160px; }
 }
 .learn-article .reslist .linkrow a:hover { background: var(--green); border-color: var(--green); color: #fff; text-decoration: none; }
 .learn-article .reslist .desc a { color: var(--green); font-weight: 700; font-size: inherit; border-bottom: 1px solid currentColor; }
+.learn-article .reslist .meta a { font-size: inherit; font-weight: 700; color: inherit; border-bottom: 1px solid currentColor; }
+.learn-article .reslist .meta a:hover { text-decoration: none; opacity: .78; }
 
 /* 눈에 띄게 강조할 항목 */
 .learn-article .reslist li.hi {
