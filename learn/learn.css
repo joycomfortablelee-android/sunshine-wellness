@@ -192,6 +192,36 @@ body.hub .lw { max-width: 1160px; }
 }
 .learn-article .learn-part:first-of-type { margin-top: 8px; }
 
+/* 구간 색 구분 — 긴 페이지에서 절의 성격을 색으로 나눈다(연한 밴드).
+   lp-* 클래스가 붙은 learn-part에만 적용되므로 다른 페이지는 영향 없음. */
+.learn-article .learn-part[class*="lp-"] {
+  border-top: 0;
+  border-left: 4px solid;
+  border-radius: 0 8px 8px 0;
+  padding: 11px 16px 10px 14px;
+  margin: 48px 0 14px;
+}
+.learn-article .learn-part.lp-core { background: #eef4f1; color: #2f5148; border-left-color: #3B6259; }
+.learn-article .learn-part.lp-case { background: #fbf3e6; color: #8a5a17; border-left-color: #e8a04a; }
+.learn-article .learn-part.lp-call { background: #edf3fb; color: #1c4e8a; border-left-color: #2563a8; }
+.learn-article .learn-part.lp-side { background: #f4f1f8; color: #56487a; border-left-color: #8272ad; }
+.learn-article .learn-part.lp-link { background: #eef1f0; color: #3c4d48; border-left-color: #6b7d76; }
+.learn-article .learn-part[class*="lp-"]:first-of-type { margin-top: 22px; }
+
+/* 색 범례 */
+.learn-article .lp-legend {
+  display: flex; flex-wrap: wrap; gap: 8px 14px;
+  margin: 0 0 6px; padding: 0; list-style: none;
+  font-size: 12px; color: var(--muted);
+}
+.learn-article .lp-legend li { display: flex; align-items: center; gap: 6px; margin: 0; font-size: 12px; line-height: 1.6; }
+.learn-article .lp-legend i { width: 22px; height: 10px; border-radius: 3px; border-left: 3px solid; display: inline-block; flex: none; }
+.lp-legend .k-core { background: #eef4f1; border-left-color: #3B6259; }
+.lp-legend .k-case { background: #fbf3e6; border-left-color: #e8a04a; }
+.lp-legend .k-call { background: #edf3fb; border-left-color: #2563a8; }
+.lp-legend .k-side { background: #f4f1f8; border-left-color: #8272ad; }
+.lp-legend .k-link { background: #eef1f0; border-left-color: #6b7d76; }
+
 /* ===== 구조 마인드맵 ===== */
 .mindmap { text-align: center; margin: 24px 0 8px; }
 .mm-center {
