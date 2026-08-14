@@ -135,6 +135,27 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .learn-fig img { display: block; width: 100%; max-width: 720px; height: auto; margin: 0 auto; border-radius: 14px; border: 1px solid var(--line); box-shadow: 0 6px 24px rgba(0,0,0,.06); }
 .learn-article .learn-fig figcaption { margin-top: 12px; font-size: 13px; color: var(--muted); line-height: 1.7; }
 
+/* 그림 옆에 붙는 아주 작은 곁주석(자료 링크) */
+.learn-article .fig-side {
+  display: grid; grid-template-columns: minmax(0, 1fr) 196px;
+  gap: 20px; align-items: start; margin: 30px 0;
+}
+.learn-article .fig-side .learn-fig { margin: 0; }
+.learn-article .fig-note {
+  background: #f1f7fd; border-left: 3px solid #2563a8; border-radius: 0 8px 8px 0;
+  padding: 12px 13px 11px; text-align: left;
+}
+.learn-article .fig-note a {
+  display: inline-block; font-size: 11.5px; font-weight: 800; line-height: 1.55;
+  color: #17539b; border-bottom: 1px solid currentColor; margin-bottom: 6px;
+}
+.learn-article .fig-note a:hover { opacity: .78; }
+.learn-article .fig-note p { font-size: 11px; line-height: 1.72; color: #5b6b7d; margin: 0 0 5px; }
+.learn-article .fig-note p.src { font-size: 10.5px; color: #8895a3; margin: 0; }
+@media (max-width: 760px) {
+  .learn-article .fig-side { grid-template-columns: 1fr; gap: 14px; }
+}
+
 /* ===== Module grid ===== */
 .learn-section { padding: 64px 0 80px; }
 .learn-grid {
