@@ -224,6 +224,53 @@ body.hub .lw { max-width: 1160px; }
 .lp-legend .k-side { background: #f4f1f8; border-left-color: #8272ad; }
 .lp-legend .k-link { background: #eef1f0; border-left-color: #6b7d76; }
 
+/* ===== 슬라이드 덱 — 본문 여러 절을 한 화면에서 좌우로 넘겨 보기 =====
+   JS가 .deck--on 을 붙였을 때만 슬라이드가 된다(무JS·인쇄 시에는 전부 펼쳐진 글). */
+.deck { margin: 30px 0 34px; }
+.deck-bar, .deck-nav { display: none; }
+.deck--on .deck-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 10px 16px; flex-wrap: wrap; margin-bottom: 16px;
+}
+.deck-dots { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; }
+.deck-dots button {
+  font: inherit; font-size: 12px; font-weight: 700; letter-spacing: .02em;
+  border: 1px solid var(--line); background: #fff; color: var(--muted);
+  padding: 6px 12px; border-radius: 999px; cursor: pointer; transition: .18s;
+}
+.deck-dots button:hover { border-color: var(--green); color: var(--green); }
+.deck-dots button[aria-current="true"] { background: var(--green); border-color: var(--green); color: #fff; }
+.deck-toggle {
+  font: inherit; font-size: 12px; font-weight: 700; color: var(--muted);
+  background: none; border: 0; border-bottom: 1px solid currentColor;
+  padding: 0 0 2px; cursor: pointer; transition: .18s;
+}
+.deck-toggle:hover { color: var(--green); }
+
+.deck--on .deck-view { min-height: 330px; }
+.deck--on .slide { animation: deck-in .26s ease both; }
+.deck--on.back .slide { animation-name: deck-in-back; }
+.deck--on:not(.is-open) .slide > .learn-part:first-child { margin-top: 0; }
+.deck--on.is-open .deck-nav, .deck--on.is-open .deck-dots { display: none; }
+.deck--on.is-open .slide { animation: none; }
+@keyframes deck-in { from { opacity: 0; transform: translateX(16px); } to { opacity: 1; transform: none; } }
+@keyframes deck-in-back { from { opacity: 0; transform: translateX(-16px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .deck--on .slide { animation: none; } }
+
+.deck--on .deck-nav {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  margin-top: 20px; padding-top: 15px; border-top: 1px solid var(--line);
+}
+.deck-nav button {
+  font: inherit; font-size: 13px; font-weight: 700; color: var(--deep);
+  background: #fff; border: 1px solid var(--line); border-radius: 9px;
+  padding: 9px 17px; cursor: pointer; transition: .18s;
+}
+.deck-nav button:hover:not(:disabled) { border-color: var(--green); color: var(--green); }
+.deck-nav button:disabled { opacity: .32; cursor: default; }
+.deck-count { font-size: 12px; font-weight: 700; letter-spacing: .12em; color: var(--muted); }
+@media print { .deck-bar, .deck-nav { display: none !important; } .deck .slide { display: block !important; } }
+
 /* ===== 구조 마인드맵 ===== */
 .mindmap { text-align: center; margin: 24px 0 8px; }
 .mm-center {

@@ -11,7 +11,7 @@
   <meta property="og:description" content="IoT·빅데이터·AI가 여행을 어떻게 바꾸는가, 부산과 이 사이트를 사례로" />
   <link rel="icon" href="data:," />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="learn.css?v=26" />
+  <link rel="stylesheet" href="learn.css?v=27" />
 </head>
 <body>
 
@@ -51,45 +51,71 @@
         <figcaption>스마트관광 한눈에 보기 — 이해·개념·기술부터 도시·거버넌스·공유경제까지 이어지는 12개 주제.</figcaption>
       </figure>
 
-      <p class="learn-part">01 · 스마트 관광이란</p>
-      <p>스마트 관광(Smart Tourism)이란 <strong>정보통신기술(ICT)을 통해 관광 자원·서비스·경험을 데이터로 연결하고, 그 데이터로 더 나은 여행을 설계하는 관광</strong>을 말합니다. 종이 지도가 앱이 되고, 안내소가 검색이 되고, 후기가 별점이 되는 변화의 총합입니다.</p>
-      <p>전자관광(e-Tourism)이 "온라인에서 예약하기"였다면, 스마트 관광은 한발 더 나아가 <strong>센서·모바일·인공지능이 실시간으로 상황을 읽고 반응</strong>합니다. 지금 붐비는 해변을 피해 다른 곳을 추천하고, 언어가 다른 여행자에게 즉시 번역을 건네는 식입니다.</p>
+      <div class="deck" id="deck">
+        <div class="deck-bar">
+          <div class="deck-dots">
+            <button type="button" data-go="0" aria-current="true">01 정의</button>
+            <button type="button" data-go="1">02 네 기둥</button>
+            <button type="button" data-go="2">03 기술</button>
+            <button type="button" data-go="3">04 여정</button>
+            <button type="button" data-go="4">05 부산</button>
+          </div>
+          <button type="button" class="deck-toggle">전체 펼쳐 보기</button>
+        </div>
+        <div class="deck-view">
+          <section class="slide" aria-label="01 정의">
+        <p class="learn-part">01 · 스마트 관광이란</p>
+        <p>스마트 관광(Smart Tourism)이란 <strong>정보통신기술(ICT)을 통해 관광 자원·서비스·경험을 데이터로 연결하고, 그 데이터로 더 나은 여행을 설계하는 관광</strong>을 말합니다. 종이 지도가 앱이 되고, 안내소가 검색이 되고, 후기가 별점이 되는 변화의 총합입니다.</p>
+        <p>전자관광(e-Tourism)이 "온라인에서 예약하기"였다면, 스마트 관광은 한발 더 나아가 <strong>센서·모바일·인공지능이 실시간으로 상황을 읽고 반응</strong>합니다. 지금 붐비는 해변을 피해 다른 곳을 추천하고, 언어가 다른 여행자에게 즉시 번역을 건네는 식입니다.</p>
+          </section>
+          <section class="slide" aria-label="02 네 기둥">
+        <p class="learn-part">02 · 스마트 관광의 네 기둥</p>
+        <p>스마트 관광은 흔히 네 개의 층위로 설명됩니다.</p>
+        <h3>① 스마트 목적지 (Smart Destination)</h3>
+        <p>도시가 스스로 데이터를 모으고 관리하는 층. 스마트시티 인프라·공공 와이파이·실시간 교통/혼잡 정보가 여기에 속합니다.</p>
+        <h3>② 스마트 경험 (Smart Experience)</h3>
+        <p>여행자가 직접 만나는 층. 개인화 추천, 위치 기반 안내, AR 해설, 모바일 티켓처럼 "나에게 맞춰진" 경험입니다.</p>
+        <h3>③ 스마트 비즈니스 (Smart Business)</h3>
+        <p>여행사·숙박·플랫폼이 데이터로 상품을 만들고 파는 층. 동적 가격 책정, 수요 예측, 온라인 여행 플랫폼(OTA)이 이 층입니다.</p>
+        <h3>④ 스마트 거버넌스 (Smart Governance)</h3>
+        <p>공공이 데이터로 정책을 짜는 층. 관광 수요 분산, 오버투어리즘 관리, 재난·안전 대응이 여기서 이뤄집니다.</p>
+          </section>
+          <section class="slide" aria-label="03 기술">
+        <p class="learn-part">03 · 스마트 관광을 떠받치는 기술</p>
+        <ul>
+          <li><strong>모바일·앱</strong> — 여행의 리모컨. 지도·예약·결제·번역이 손안에서 끝난다.</li>
+          <li><strong>위치기반서비스(LBS)·GPS</strong> — "지금 여기"를 아는 순간, 안내와 추천이 가능해진다.</li>
+          <li><strong>사물인터넷(IoT)</strong> — 비콘·센서가 혼잡도·대기·환경을 실시간으로 읽는다.</li>
+          <li><strong>빅데이터</strong> — 통신·카드·검색·후기 데이터가 관광 흐름을 그려낸다(다음 모듈 「빅데이터 분석」).</li>
+          <li><strong>인공지능(AI)</strong> — 챗봇 상담, 개인화 추천, 자동 번역·요약.</li>
+          <li><strong>AR/VR</strong> — 사라진 유적을 현장에 겹쳐 보여주고, 가 보기 전 미리 걷게 한다.</li>
+          <li><strong>QR·모바일 결제</strong> — 종이 없는 티켓·간편결제로 마찰을 없앤다.</li>
+        </ul>
+          </section>
+          <section class="slide" aria-label="04 여정">
+        <p class="learn-part">04 · 여행자 여정으로 보는 스마트 관광</p>
+        <p>같은 기술도 여정의 어느 단계에 놓이느냐에 따라 다르게 쓰입니다.</p>
+        <ul>
+          <li><strong>여행 전</strong> — 검색·후기·가격 비교로 계획을 세우고, AI가 일정을 추천한다.</li>
+          <li><strong>이동 중</strong> — 실시간 교통·내비게이션·모바일 티켓으로 마찰 없이 이동한다.</li>
+          <li><strong>여행 중</strong> — 위치기반 안내, AR 해설, 즉석 번역으로 현장을 깊게 경험한다.</li>
+          <li><strong>여행 후</strong> — 후기·사진·평점을 남기고, 그 데이터가 다음 여행자의 계획이 된다.</li>
+        </ul>
+        <p>여행 후의 데이터가 다시 여행 전으로 순환한다는 점이 핵심입니다. 스마트 관광은 <strong>끝이 아니라 고리(loop)</strong>입니다.</p>
+          </section>
+          <section class="slide" aria-label="05 부산">
+        <p class="learn-part">05 · 부산, 그리고 이 사이트에서</p>
+        <p><em>부산</em>은 스마트관광도시 사업 대상지로, 통합 관광 플랫폼·실시간 혼잡 정보·모바일 기반 안내를 확장해 왔습니다. 해운대·감천문화마을처럼 몰림이 심한 곳일수록 데이터 기반 분산이 중요해집니다.</p>
+        <p>이 웹사이트 역시 작은 스마트 관광의 실습입니다 — <strong>다국어 자동 전환</strong>(도달), <strong>여행 이야기·후기 게시판</strong>(UGC 데이터), <strong>카카오 채널 상담</strong>(연결), 그리고 <strong>아트 컨시어지 아카이브</strong>(콘텐츠). 다음 모듈에서는 이 흐름의 연료인 <strong>데이터</strong> 자체를 다룹니다.</p>
+          </section>
+        </div>
+        <div class="deck-nav">
+          <button type="button" class="deck-prev" disabled>← 이전</button>
+          <span class="deck-count">01 / 05</span>
+          <button type="button" class="deck-next">다음 →</button>
+        </div>
+      </div>
 
-      <p class="learn-part">02 · 스마트 관광의 네 기둥</p>
-      <p>스마트 관광은 흔히 네 개의 층위로 설명됩니다.</p>
-      <h3>① 스마트 목적지 (Smart Destination)</h3>
-      <p>도시가 스스로 데이터를 모으고 관리하는 층. 스마트시티 인프라·공공 와이파이·실시간 교통/혼잡 정보가 여기에 속합니다.</p>
-      <h3>② 스마트 경험 (Smart Experience)</h3>
-      <p>여행자가 직접 만나는 층. 개인화 추천, 위치 기반 안내, AR 해설, 모바일 티켓처럼 "나에게 맞춰진" 경험입니다.</p>
-      <h3>③ 스마트 비즈니스 (Smart Business)</h3>
-      <p>여행사·숙박·플랫폼이 데이터로 상품을 만들고 파는 층. 동적 가격 책정, 수요 예측, 온라인 여행 플랫폼(OTA)이 이 층입니다.</p>
-      <h3>④ 스마트 거버넌스 (Smart Governance)</h3>
-      <p>공공이 데이터로 정책을 짜는 층. 관광 수요 분산, 오버투어리즘 관리, 재난·안전 대응이 여기서 이뤄집니다.</p>
-
-      <p class="learn-part">03 · 스마트 관광을 떠받치는 기술</p>
-      <ul>
-        <li><strong>모바일·앱</strong> — 여행의 리모컨. 지도·예약·결제·번역이 손안에서 끝난다.</li>
-        <li><strong>위치기반서비스(LBS)·GPS</strong> — "지금 여기"를 아는 순간, 안내와 추천이 가능해진다.</li>
-        <li><strong>사물인터넷(IoT)</strong> — 비콘·센서가 혼잡도·대기·환경을 실시간으로 읽는다.</li>
-        <li><strong>빅데이터</strong> — 통신·카드·검색·후기 데이터가 관광 흐름을 그려낸다(다음 모듈 「빅데이터 분석」).</li>
-        <li><strong>인공지능(AI)</strong> — 챗봇 상담, 개인화 추천, 자동 번역·요약.</li>
-        <li><strong>AR/VR</strong> — 사라진 유적을 현장에 겹쳐 보여주고, 가 보기 전 미리 걷게 한다.</li>
-        <li><strong>QR·모바일 결제</strong> — 종이 없는 티켓·간편결제로 마찰을 없앤다.</li>
-      </ul>
-
-      <p class="learn-part">04 · 여행자 여정으로 보는 스마트 관광</p>
-      <p>같은 기술도 여정의 어느 단계에 놓이느냐에 따라 다르게 쓰입니다.</p>
-      <ul>
-        <li><strong>여행 전</strong> — 검색·후기·가격 비교로 계획을 세우고, AI가 일정을 추천한다.</li>
-        <li><strong>이동 중</strong> — 실시간 교통·내비게이션·모바일 티켓으로 마찰 없이 이동한다.</li>
-        <li><strong>여행 중</strong> — 위치기반 안내, AR 해설, 즉석 번역으로 현장을 깊게 경험한다.</li>
-        <li><strong>여행 후</strong> — 후기·사진·평점을 남기고, 그 데이터가 다음 여행자의 계획이 된다.</li>
-      </ul>
-      <p>여행 후의 데이터가 다시 여행 전으로 순환한다는 점이 핵심입니다. 스마트 관광은 <strong>끝이 아니라 고리(loop)</strong>입니다.</p>
-
-      <p class="learn-part">05 · 부산, 그리고 이 사이트에서</p>
-      <p><em>부산</em>은 스마트관광도시 사업 대상지로, 통합 관광 플랫폼·실시간 혼잡 정보·모바일 기반 안내를 확장해 왔습니다. 해운대·감천문화마을처럼 몰림이 심한 곳일수록 데이터 기반 분산이 중요해집니다.</p>
-      <p>이 웹사이트 역시 작은 스마트 관광의 실습입니다 — <strong>다국어 자동 전환</strong>(도달), <strong>여행 이야기·후기 게시판</strong>(UGC 데이터), <strong>카카오 채널 상담</strong>(연결), 그리고 <strong>아트 컨시어지 아카이브</strong>(콘텐츠). 다음 모듈에서는 이 흐름의 연료인 <strong>데이터</strong> 자체를 다룹니다.</p>
 
       <p class="learn-part">관련 링크 · 더 배우기</p>
       <p>아래 <strong>앞의 네 건은 유럽의 스마트관광</strong>입니다 — 한국어 요약 보고서에서 출발해 그 원문 게시글, 유럽연합의 공식 공모, 그리고 89쪽짜리 사례 모음 원본으로 이어집니다. 05장에서 본 <strong>한국의 스마트관광도시 사업과 나란히 놓고</strong> 읽어 보세요. 같은 이름 아래 유럽이 무엇을 먼저 보는지가 드러납니다. 이어지는 <strong>다섯 번째</strong>는 그 배경이 되는 <strong>국제 관광 동향</strong>입니다.</p>
@@ -150,6 +176,77 @@
       <p class="copy">© 2026 Sunshine Wellness. 부산에서 시작하는 특별한 웰니스 여행.</p>
     </div>
   </footer>
+
+  <script>
+  (function () {
+    var deck = document.getElementById('deck');
+    if (!deck) return;
+    var slides = [].slice.call(deck.querySelectorAll('.slide'));
+    var dots = [].slice.call(deck.querySelectorAll('.deck-dots button'));
+    var prev = deck.querySelector('.deck-prev');
+    var next = deck.querySelector('.deck-next');
+    var count = deck.querySelector('.deck-count');
+    var toggle = deck.querySelector('.deck-toggle');
+    var at = 0, open = false;
+
+    deck.classList.add('deck--on');
+
+    function pad(n) { return (n < 10 ? '0' : '') + n; }
+
+    function show(i, back) {
+      at = Math.max(0, Math.min(slides.length - 1, i));
+      deck.classList.toggle('back', !!back);
+      slides.forEach(function (s, n) { s.hidden = (n !== at); });
+      dots.forEach(function (d, n) {
+        if (n === at) { d.setAttribute('aria-current', 'true'); }
+        else { d.removeAttribute('aria-current'); }
+      });
+      prev.disabled = (at === 0);
+      next.disabled = (at === slides.length - 1);
+      count.textContent = pad(at + 1) + ' / ' + pad(slides.length);
+    }
+
+    function setOpen(v) {
+      open = v;
+      deck.classList.toggle('is-open', open);
+      toggle.textContent = open ? '슬라이드로 보기' : '전체 펼쳐 보기';
+      if (open) { slides.forEach(function (s) { s.hidden = false; }); }
+      else { show(at); }
+    }
+
+    dots.forEach(function (d) {
+      d.addEventListener('click', function () {
+        var i = +d.getAttribute('data-go');
+        if (open) setOpen(false);
+        show(i, i < at);
+      });
+    });
+    prev.addEventListener('click', function () { show(at - 1, true); });
+    next.addEventListener('click', function () { show(at + 1, false); });
+    toggle.addEventListener('click', function () { setOpen(!open); });
+
+    document.addEventListener('keydown', function (e) {
+      if (open) return;
+      var t = e.target.tagName;
+      if (t === 'INPUT' || t === 'TEXTAREA') return;
+      var r = deck.getBoundingClientRect();          // 덱이 화면에 보일 때만 좌우키를 가로챈다
+      if (r.bottom < 60 || r.top > (window.innerHeight || 0) - 60) return;
+      if (e.key === 'ArrowRight') { show(at + 1, false); }
+      else if (e.key === 'ArrowLeft') { show(at - 1, true); }
+    });
+
+    var x0 = null;
+    deck.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+    deck.addEventListener('touchend', function (e) {
+      if (x0 === null || open) return;
+      var dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 55) { dx < 0 ? show(at + 1, false) : show(at - 1, true); }
+      x0 = null;
+    }, { passive: true });
+
+    show(0);
+  })();
+  </script>
 
 </body>
 </html>
