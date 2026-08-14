@@ -252,6 +252,7 @@ body.hub .lw { max-width: 1160px; }
 .deck--on.back .slide { animation-name: deck-in-back; }
 .deck--on:not(.is-open) .slide > .learn-part:first-child { margin-top: 0; }
 .deck--on.is-open .deck-nav, .deck--on.is-open .deck-dots { display: none; }
+.deck--on.is-open .slide + .slide .learn-part { margin-top: 46px; }  /* 펼쳤을 때 절 사이 간격 회복 */
 .deck--on.is-open .slide { animation: none; }
 @keyframes deck-in { from { opacity: 0; transform: translateX(16px); } to { opacity: 1; transform: none; } }
 @keyframes deck-in-back { from { opacity: 0; transform: translateX(-16px); } to { opacity: 1; transform: none; } }
