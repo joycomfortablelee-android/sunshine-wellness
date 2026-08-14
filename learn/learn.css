@@ -277,8 +277,8 @@ body.hub .lw { max-width: 1160px; }
 
 /* 바탕색을 입힌 슬라이드 — 연한 노랑(사이트 골드 계열) */
 .deck .slide.tint-sun {
-  background: #fdf8ec;
-  border: 1px solid #f0e2c6;
+  background: #fcf4dc;
+  border: 1px solid #ebd9ad;
   border-radius: 10px;
   padding: 20px 22px 4px;
 }
