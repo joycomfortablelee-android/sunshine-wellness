@@ -117,6 +117,10 @@ body.hub .lw { max-width: 1160px; }
 /* 주소를 눈에 띄게 — 카드 색을 물려받지 않고 붉게 */
 .learn-article .reslist .meta a.hot, .learn-article .reslist .desc a.hot { color: #c0392b; }
 
+/* 본문 안에서 붉게 강조할 구절 */
+.learn-article .hot-t, .learn-article .reslist .hot-t,
+.learn-article .reslist .numlist .hot-t, .learn-article .reslist li.hi .desc .hot-t { color: #c0392b; }
+
 /* 두 항목을 좌우 1행 2열로 */
 .learn-article .reslist.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 26px; }
 .learn-article .reslist.grid2 li { margin-bottom: 0; }
