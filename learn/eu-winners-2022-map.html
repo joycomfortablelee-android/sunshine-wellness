@@ -29,6 +29,16 @@ html,body{
 }
 body{display:flex;flex-direction:column}
 
+header .hd{display:flex;gap:20px;align-items:flex-start}
+header .hd-main{flex:1 1 auto;min-width:0}
+header .hd-side{flex:0 0 330px;padding-left:20px;border-left:1px solid var(--line)}
+header .hd-side .kpis{margin-bottom:8px}
+header .hd-side .legend,header .hd-side .axes{margin-bottom:7px}
+header .hd-side .note{margin:0}
+@media(max-width:900px){
+  header .hd{display:block}
+  header .hd-side{padding-left:0;border-left:0;border-top:1px solid var(--line);margin-top:12px;padding-top:12px}
+}
 header{
   padding:16px 22px 13px;
   background:#fff;
@@ -270,6 +280,8 @@ footer{
 
 <body>
 <header>
+  <div class="hd">
+    <div class="hd-main">
   <h1>2022년 유럽 스마트관광 수도 — 보르도(프랑스) · 발렌시아(스페인)</h1>
   <div class="sub">
     수상 도시는 <b style="color:#d89b12">별표</b>, 기타 최종후보는 <b style="color:#169873">조금 더 큰 초록 동그라미</b>로 표시했습니다.
@@ -287,13 +299,8 @@ footer{
     <button class="filter" data-status="winner">수상 도시 2곳</button>
     <button class="filter" data-status="finalist">기타 최종후보 5곳</button>
   </div>
-</header>
-
-<div class="layout">
-  <div id="map"></div>
-
-  <aside class="panel">
-    <div class="panel-head">
+    </div>
+    <aside class="hd-side">
       <div class="kpis">
         <div class="kpi"><b id="kpiCities">7</b><span>최종후보</span></div>
         <div class="kpi"><b id="kpiWinners">2</b><span>수상 도시</span></div>
@@ -315,7 +322,14 @@ footer{
       <div class="note">
         보고서의 주요 시사점: 질적 접근성 강화 · 지역경제와 관광의 연결 · 맞춤형 스마트관광 서비스 · ICT와 관광의 융합
       </div>
-    </div>
+    </aside>
+  </div>
+</header>
+
+<div class="layout">
+  <div id="map"></div>
+
+  <aside class="panel">
 
     <div id="cityList"></div>
   </aside>
