@@ -231,6 +231,13 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .reslist .linkrow details.fold.pill > summary:hover { background: var(--t-ac, var(--green)); border-color: var(--t-ac, var(--green)); color: #fff; }
 .learn-article .reslist .linkrow details.fold.pill[open] > summary { margin-bottom: 8px; }
 
+/* 접이식 안의 창구 목록 — 항목마다 흰 카드로 구분 */
+.learn-article details.fold.gold .reslist.tight li {
+  background: #fff; border: 1px solid #eee7dc; border-left: 2px solid #d19b3d;
+  border-radius: 0 8px 8px 0; padding: 10px 13px 9px; margin-bottom: 9px;
+}
+.learn-article details.fold.gold .reslist.tight li:last-child { margin-bottom: 2px; }
+
 /* 금색(공모전) 접이식 */
 .learn-article details.fold.gold { border-color: #ecdcb9; background: #fdf8ec; }
 .learn-article details.fold.gold[open] { background: #fefbf4; }
