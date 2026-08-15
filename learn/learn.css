@@ -362,7 +362,7 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .fig-side .learn-fig.vid > div { max-width: 100%; margin: 0; }
 .learn-article .fig-side .learn-fig figcaption { font-size: 12px; margin-top: 9px; }
 .learn-article .fig-note {
-  background: #f1f7fd; border-left: 3px solid #2563a8; border-radius: 0 8px 8px 0;
+  background: #f1f7fd; border-left: 2px solid #2563a8; border-radius: 0 8px 8px 0;
   padding: 12px 13px 11px; text-align: left;
 }
 .learn-article .fig-note > a {
