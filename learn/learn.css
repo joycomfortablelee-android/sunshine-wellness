@@ -216,6 +216,7 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .reslist li.hi.tone details.fold > summary::after { border-color: var(--t-ln); }
 
 .learn-article .reslist li.teal   { --t-bg: #f0faf8; --t-ac: #2a9d8f; --t-dk: #17635a; --t-ln: #c6e6e1; }
+.learn-article .reslist li.indigo { --t-bg: #eef2fc; --t-ac: #4257b2; --t-dk: #2c3a80; --t-ln: #ccd6f5; }
 .learn-article .reslist li.violet { --t-bg: #f7f4fd; --t-ac: #7c3aed; --t-dk: #5b21b6; --t-ln: #ded1f8; }
 .learn-article .reslist li.gold   { --t-bg: #fdf8ec; --t-ac: #d19b3d; --t-dk: #8a5a17; --t-ln: #ecdcb9; }
 .learn-article .reslist li.green  { --t-bg: #f0f8f3; --t-ac: #169873; --t-dk: #0f6b52; --t-ln: #c7e6d9; }
@@ -322,7 +323,8 @@ body.hub .lw { max-width: 1160px; }
   font-size: 10.5px; font-weight: 700; line-height: 1.5; vertical-align: 1px;
 }
 .learn-article .reslist .numlist a strong { font-weight: 700; color: inherit; }
-.learn-article .reslist .numlist a:hover { background: var(--t-ac, var(--green)); border-color: var(--t-ac, var(--green)); color: #fff; }
+.learn-article .reslist .numlist a:hover { background: #fff; border-color: var(--t-ac, var(--green));
+  color: var(--t-ac, var(--green)); box-shadow: 0 1px 5px rgba(16,42,67,.13); }
 
 .learn-article p.mini-note { font-size: 12.5px; line-height: 1.72; color: var(--muted); margin-bottom: 10px; }
 .learn-article p.mini-note strong { color: var(--deep); }
