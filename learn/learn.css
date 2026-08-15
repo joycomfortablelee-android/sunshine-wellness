@@ -579,6 +579,22 @@ body.hub .lw { max-width: 1160px; }
 
 .learn-article table.ref .ko { display: block; margin-top: 3px; font-size: 12px; font-weight: 700; color: var(--green); }
 .learn-article table.ref .jr { display: block; margin-top: 3px; font-size: 11.5px; font-weight: 400; color: var(--muted); }
+/* 연구 표(파트 06) — 아주 연한 보라 */
+.learn-article table.ref:not(.contest) th { background: #f4effb; color: #5b21b6; border-color: #e3d8f7; }
+.learn-article table.ref:not(.contest) td { background: #fff; border-color: #ece5f7; }
+.learn-article table.ref:not(.contest) tbody tr:nth-child(even) td { background: #faf7fe; }
+.learn-article table.ref:not(.contest) tbody tr:hover td { background: #f6f1fd; }
+
+/* 보라(연구) 접이식 */
+.learn-article details.fold.violet { border-color: #e3d8f7; background: #faf7fe; }
+.learn-article details.fold.violet[open] { background: #fdfbff; }
+.learn-article details.fold.violet > summary { color: #5b21b6; }
+.learn-article details.fold.violet > summary::before,
+.learn-article details.fold.violet > summary::after { color: #7c3aed; }
+.learn-article details.fold.violet > summary::after { border-color: #e3d8f7; }
+.learn-article details.fold.violet > summary:hover { color: #43179c; }
+.learn-article details.fold.violet > summary:hover::after { background: #f1e9fd; }
+
 /* 공모전 현황표 — 흰 바탕 + 행마다 번갈아 옅은 금색 */
 .learn-article table.ref.contest th { background: #f7efdd; color: #7a4f14; border-color: #ecdcb9; }
 .learn-article table.ref.contest td { background: #fff; border-color: #eee7dc; }
