@@ -461,6 +461,25 @@ body.hub .lw { max-width: 1160px; }
 .learn-article table.ref .jr { display: block; margin-top: 3px; font-size: 11.5px; font-weight: 400; color: var(--muted); }
 .learn-article .tbl-hint { font-size: 12px; line-height: 1.75; color: var(--muted); margin: 0 0 18px; }
 
+/* 개념을 바로잡는 대비 블록 (아니다 / 이다 → 논리 → 한 줄 공식) */
+.learn-article .logic { margin: 14px 0 4px; }
+.learn-article .logic p { margin: 0 0 7px; font-size: 13.5px; line-height: 1.7; }
+.learn-article .logic .neg, .learn-article .logic .pos {
+  padding: 9px 13px; border-radius: 8px; border-left: 4px solid;
+}
+.learn-article .logic .neg { background: #fbeeec; border-left-color: #c0392b; color: #8c3b30; text-decoration: line-through; text-decoration-color: rgba(192,57,43,.45); }
+.learn-article .logic .neg strong { color: #8c3b30; }
+.learn-article .logic .pos { background: #eef4f1; border-left-color: #3B6259; color: #2f5148; }
+.learn-article .logic .pos strong { color: #234b41; }
+.learn-article .logic .chain { font-size: 12.5px; color: var(--muted); line-height: 1.95; padding: 2px 2px 0; }
+.learn-article .logic .chain b { color: #8272ad; font-weight: 800; padding: 0 1px; }
+.learn-article .logic .formula {
+  text-align: center; font-size: 13px; font-weight: 800; letter-spacing: .01em;
+  color: #fff; background: var(--green); border-radius: 8px; padding: 10px 12px; margin-top: 4px;
+}
+.learn-article .logic .aim { font-size: 12.5px; color: var(--muted); }
+@media (max-width: 620px) { .learn-article .logic .formula { font-size: 11.5px; } }
+
 /* 노랑 바탕 요약 상자 — 덱 밖에서 독립으로 쓰는 블록 */
 .learn-article .sun-box {
   background: #fcf4dc; border: 1px solid #ebd9ad; border-radius: 10px;
