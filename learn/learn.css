@@ -295,6 +295,9 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .fig-side.vidside .fig-note > a { font-size: 12.5px; }
 @media (max-width: 760px) { .learn-article .fig-side.vidside { grid-template-columns: 1fr; } }
 
+.learn-article .fig-side .learn-fig.figleft { text-align: left; margin: 0; }
+.learn-article .fig-side .learn-fig.figleft img { margin: 0; max-width: 100%; }
+
 /* 영상 임베드 — 가운데가 아니라 왼쪽에 붙인다 */
 .learn-article .fig-side .learn-fig.vid { text-align: left; }
 .learn-article .fig-side .learn-fig.vid > div { max-width: 100%; margin: 0; }
