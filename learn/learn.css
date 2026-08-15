@@ -300,6 +300,23 @@ body.hub .lw { max-width: 1160px; }
 }
 .learn-article .learn-part:first-of-type { margin-top: 8px; }
 
+/* 파트 번호 태그 — 섹션마다 색을 달리해 구분한다 */
+.learn-article .learn-part .pt {
+  display: inline-block; margin-right: 10px; padding: 4px 10px;
+  border-radius: 6px; font-size: 11px; letter-spacing: .08em;
+  color: #fff; background: var(--green); vertical-align: 1px;
+}
+.learn-article .learn-part.pt-case { color: #1c4e8a; border-top-color: #2563a8; }
+.learn-article .learn-part.pt-case .pt { background: #2563a8; }
+.learn-article .learn-part.pt-do { color: #8a5a17; border-top-color: #e8a04a; }
+.learn-article .learn-part.pt-do .pt { background: #c98b2e; }
+.learn-article .learn-part.pt-learn { color: #2f5148; border-top-color: #3B6259; }
+.learn-article .learn-part.pt-learn .pt { background: #3B6259; }
+.learn-article .learn-part.pt-res { color: #56487a; border-top-color: #8272ad; }
+.learn-article .learn-part.pt-res .pt { background: #7a67a8; }
+.learn-article .learn-part.pt-lib { color: #3c4d48; border-top-color: #6b7d76; }
+.learn-article .learn-part.pt-lib .pt { background: #6b7d76; }
+
 /* 구간 색 구분 — 긴 페이지에서 절의 성격을 색으로 나눈다(연한 밴드).
    lp-* 클래스가 붙은 learn-part에만 적용되므로 다른 페이지는 영향 없음. */
 .learn-article .learn-part[class*="lp-"] {
