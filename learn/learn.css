@@ -117,6 +117,26 @@ body.hub .lw { max-width: 1160px; }
 /* 주소를 눈에 띄게 — 카드 색을 물려받지 않고 붉게 */
 .learn-article .reslist .meta a.hot, .learn-article .reslist .desc a.hot { color: #c0392b; }
 
+/* 두 항목을 좌우 1행 2열로 */
+.learn-article .reslist.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 26px; }
+.learn-article .reslist.grid2 li { margin-bottom: 0; }
+@media (max-width: 760px) { .learn-article .reslist.grid2 { grid-template-columns: 1fr; gap: 16px; } }
+
+/* 접이식 블록 — 길어진 절을 접어 자리를 아낀다 */
+.learn-article details.fold {
+  border: 1px solid var(--line); border-radius: 10px; background: #fcfcfb;
+  padding: 0 16px; margin: 14px 0 20px;
+}
+.learn-article details.fold > summary {
+  cursor: pointer; list-style: none; padding: 12px 2px;
+  font-size: 13px; font-weight: 800; color: var(--green);
+}
+.learn-article details.fold > summary::-webkit-details-marker { display: none; }
+.learn-article details.fold > summary::before { content: "▸  "; }
+.learn-article details.fold[open] > summary::before { content: "▾  "; }
+.learn-article details.fold > summary:hover { color: var(--deep); }
+.learn-article details.fold[open] { padding-bottom: 6px; }
+
 /* 촘촘한 자료 목록 — 정보는 그대로, 자리만 줄인다 */
 .learn-article .reslist.tight li { margin-bottom: 13px; padding-left: 13px; }
 .learn-article .reslist.tight a { font-size: 14.5px; }
