@@ -670,6 +670,16 @@ body.hub .lw { max-width: 1160px; }
 }
 .learn-article .logic .formula .src { display: block; margin-top: 4px; font-size: 10.5px; font-weight: 700; letter-spacing: .06em; color: rgba(255,255,255,.72); }
 .learn-article .logic .aim { font-size: 12.5px; color: var(--muted); }
+/* 01 정의 슬라이드 — 본문·논리 블록 글자 크기를 12.5px 하나로 통일 */
+.learn-article .slide.def p,
+.learn-article .slide.def .logic p,
+.learn-article .slide.def .logic .neg,
+.learn-article .slide.def .logic .pos,
+.learn-article .slide.def .logic .chain,
+.learn-article .slide.def .logic .formula,
+.learn-article .slide.def .logic .aim { font-size: 12.5px; }
+.learn-article .slide.def p { line-height: 1.78; }
+
 @media (max-width: 620px) { .learn-article .logic .formula { font-size: 11.5px; } }
 
 /* 노랑 바탕 요약 상자 — 덱 밖에서 독립으로 쓰는 블록 */
