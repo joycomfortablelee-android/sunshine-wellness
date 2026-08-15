@@ -426,7 +426,7 @@ body.hub .lw { max-width: 1160px; }
 }
 .learn-article .fig-note .embed-head span { display: block; font-weight: 700; color: #5b7285; margin-top: 1px; }
 .learn-article .fig-note .embed-box iframe {
-  display: block; width: 100%; height: 340px; border: 0; background: #fff;
+  display: block; width: 100%; height: 300px; border: 0; background: #fff;
 }
 @media (max-width: 860px) { .learn-article .fig-note .embed-box iframe { height: 300px; } }
 
