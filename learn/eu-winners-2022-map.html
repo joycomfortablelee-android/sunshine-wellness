@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2022 유럽 스마트관광 수도 지도</title>
+
+<link rel="preconnect" href="https://unpkg.com">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+<style>
+:root {
+  --navy:#102a43;
+  --ink:#243b53;
+  --muted:#627d98;
+  --line:#d9e2ec;
+  --paper:#f5f8fb;
+  --winner:#2563eb;
+  --finalist:#169873;
+  --star:#d89b12;
+}
+*{box-sizing:border-box}
+html,body{
+  height:100%;
+  margin:0;
+  font-family:"Pretendard","Noto Sans KR","Malgun Gothic",Arial,sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+}
+body{display:flex;flex-direction:column}
+
+header{
+  padding:16px 22px 13px;
+  background:#fff;
+  border-bottom:1px solid var(--line);
+}
+h1{
+  margin:0;
+  color:var(--navy);
+  font-size:22px;
+  letter-spacing:-.4px;
+}
+.sub{
+  margin-top:6px;
+  font-size:12.5px;
+  line-height:1.55;
+  color:var(--muted);
+}
+.links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:10px;
+}
+.links a{
+  color:#285f9e;
+  text-decoration:none;
+  font-size:11px;
+  font-weight:800;
+  background:#f7fafc;
+  border:1px solid #dfe7ef;
+  border-radius:999px;
+  padding:6px 9px;
+}
+.toolbar{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  flex-wrap:wrap;
+  margin-top:11px;
+}
+.filter{
+  border:1px solid var(--line);
+  background:#fff;
+  color:var(--ink);
+  border-radius:999px;
+  padding:8px 12px;
+  font-size:12px;
+  font-weight:800;
+  cursor:pointer;
+}
+.filter.active{
+  background:var(--navy);
+  color:#fff;
+  border-color:var(--navy);
+}
+.filter:not(.active)[data-status="winner"]::before,
+.filter:not(.active)[data-status="finalist"]::before{
+  display:inline-block;
+  margin-right:6px;
+  vertical-align:1px;
+}
+.filter:not(.active)[data-status="winner"]::before{
+  content:"★";
+  color:var(--star);
+  font-size:11px;
+}
+.filter:not(.active)[data-status="finalist"]::before{
+  content:"";
+  width:9px;height:9px;
+  border-radius:50%;
+  background:var(--finalist);
+}
+
+.layout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 330px;
+  flex:1;
+  min-height:0;
+}
+#map{height:100%;min-height:620px}
+.panel{
+  background:#fff;
+  border-left:1px solid var(--line);
+  overflow:auto;
+}
+.panel-head{
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:rgba(255,255,255,.97);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+  padding:13px;
+}
+.kpis{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:6px;
+}
+.kpi{
+  padding:8px;
+  border:1px solid #e6edf3;
+  border-radius:9px;
+  text-align:center;
+  background:#f7fafc;
+}
+.kpi b{display:block;font-size:16px;color:var(--navy)}
+.kpi span{font-size:10px;color:var(--muted)}
+.legend{
+  margin-top:9px;
+  font-size:10.5px;
+  color:var(--muted);
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.legend .winner i,
+.legend .finalist i{
+  display:inline-block;
+  margin-right:4px;
+}
+.legend .winner i{
+  font-style:normal;
+  color:var(--star);
+  font-size:12px;
+  line-height:1;
+}
+.legend .finalist i{
+  width:10px;height:10px;
+  border-radius:50%;
+  background:var(--finalist);
+}
+
+#cityList{padding:8px}
+.city-card{
+  border:1px solid #e6edf3;
+  border-radius:10px;
+  padding:10px 11px;
+  margin:7px 0;
+  background:#fff;
+  cursor:pointer;
+}
+.city-name{font-size:13px;font-weight:900;color:var(--navy)}
+.city-en{margin-left:4px;font-size:10.5px;color:var(--muted)}
+.country{margin-top:2px;font-size:10.5px;color:var(--muted)}
+.badge{
+  display:inline-block;
+  margin-top:7px;
+  padding:3px 7px;
+  border-radius:999px;
+  color:#fff;
+  font-size:9.5px;
+  font-weight:800;
+}
+.badge.winner{background:var(--winner)}
+.badge.finalist{background:var(--finalist)}
+
+.note{
+  margin-top:9px;
+  border-top:1px solid #edf2f7;
+  padding-top:9px;
+  color:#52697f;
+  font-size:10.5px;
+  line-height:1.5;
+}
+.axes{
+  margin-top:8px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:5px;
+}
+.axes span{
+  font-size:9.5px;
+  background:#edf2f7;
+  border-radius:999px;
+  padding:4px 6px;
+  color:#52697f;
+}
+
+.map-pin-wrap{background:transparent;border:none}
+.label-wrap{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  transform:translateY(-18px);
+}
+.label-ko{
+  font-size:11px;
+  font-weight:800;
+  color:var(--navy);
+  background:rgba(255,255,255,.92);
+  border:1px solid #d9e2ec;
+  border-radius:999px;
+  padding:2px 7px;
+  margin-bottom:4px;
+  white-space:nowrap;
+  box-shadow:0 1px 4px rgba(0,0,0,.08);
+}
+.pin-finalist{
+  width:14px;height:14px;
+  border-radius:50%;
+  background:var(--finalist);
+  box-shadow:0 0 0 2px #fff,0 1px 4px rgba(0,0,0,.24);
+}
+.pin-star{
+  color:var(--star);
+  font-size:18px;
+  line-height:1;
+  text-shadow:0 0 1px #fff,0 1px 4px rgba(0,0,0,.24);
+}
+
+.popup-title{font-size:14px;font-weight:900;color:var(--navy)}
+.popup-meta{margin-top:2px;font-size:10.5px;color:var(--muted);line-height:1.4}
+.popup-status{margin-top:7px;padding-top:7px;border-top:1px solid #edf2f7;font-size:11px;font-weight:800}
+
+footer{
+  padding:8px 14px;
+  background:#fff;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-size:10px;
+  line-height:1.45;
+}
+
+@media(max-width:850px){
+  .layout{grid-template-columns:1fr;grid-template-rows:60vh auto}
+  #map{min-height:420px}
+  .panel{border-left:0;border-top:1px solid var(--line)}
+}
+</style>
+</head>
+
+<body>
+<header>
+  <h1>2022년 유럽 스마트관광 수도 — 보르도 · 발렌시아</h1>
+  <div class="sub">
+    수상 도시는 <b style="color:#d89b12">별표</b>, 기타 최종후보는 <b style="color:#169873">조금 더 큰 초록 동그라미</b>로 표시했습니다.
+    각 마커 위에는 도시 이름을 <b>한국어</b>로 표시했습니다.
+  </div>
+
+  <div class="links">
+    <a href="https://sunshinewellness.co.kr/learn/assets/europe-smart-tourism-2022-report.pdf" target="_blank">심화보고서 PDF · 한국어 8쪽 ↗</a>
+    <a href="https://smart-tourism-capital.ec.europa.eu/winners-and-finalists/cities-2022_en" target="_blank">EU 공식 · 2022 수상 도시 ↗</a>
+    <a href="https://smart-tourism-capital.ec.europa.eu/" target="_blank">European Commission ↗</a>
+  </div>
+
+  <div class="toolbar">
+    <button class="filter active" data-status="all">전체 7곳</button>
+    <button class="filter" data-status="winner">수상 도시 2곳</button>
+    <button class="filter" data-status="finalist">기타 최종후보 5곳</button>
+  </div>
+</header>
+
+<div class="layout">
+  <div id="map"></div>
+
+  <aside class="panel">
+    <div class="panel-head">
+      <div class="kpis">
+        <div class="kpi"><b id="kpiCities">7</b><span>최종후보</span></div>
+        <div class="kpi"><b id="kpiWinners">2</b><span>수상 도시</span></div>
+        <div class="kpi"><b>4</b><span>평가 축</span></div>
+      </div>
+
+      <div class="legend">
+        <span class="winner"><i>★</i>수상 도시</span>
+        <span class="finalist"><i></i>기타 최종후보</span>
+      </div>
+
+      <div class="axes">
+        <span>접근성 Accessibility</span>
+        <span>지속가능성 Sustainability</span>
+        <span>디지털화 Digitalisation</span>
+        <span>문화유산·창의성 Cultural heritage & creativity</span>
+      </div>
+
+      <div class="note">
+        보고서의 주요 시사점: 질적 접근성 강화 · 지역경제와 관광의 연결 · 맞춤형 스마트관광 서비스 · ICT와 관광의 융합
+      </div>
+    </div>
+
+    <div id="cityList"></div>
+  </aside>
+</div>
+
+<footer>
+  2022 최종후보 7개 도시: 보르도 · 발렌시아 · 더블린 · 류블랴나 · 베네치아 · 팔마 · 피렌체.
+  지도: OpenStreetMap / Leaflet.
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const cities = [{"en": "Bordeaux", "ko": "보르도", "country": "프랑스", "lat": 44.8378, "lon": -0.5792, "status": "winner"}, {"en": "Valencia", "ko": "발렌시아", "country": "스페인", "lat": 39.4699, "lon": -0.3763, "status": "winner"}, {"en": "Dublin", "ko": "더블린", "country": "아일랜드", "lat": 53.3498, "lon": -6.2603, "status": "finalist"}, {"en": "Ljubljana", "ko": "류블랴나", "country": "슬로베니아", "lat": 46.0569, "lon": 14.5058, "status": "finalist"}, {"en": "Venice", "ko": "베네치아", "country": "이탈리아", "lat": 45.4408, "lon": 12.3155, "status": "finalist"}, {"en": "Palma", "ko": "팔마", "country": "스페인", "lat": 39.5696, "lon": 2.6502, "status": "finalist"}, {"en": "Florence", "ko": "피렌체", "country": "이탈리아", "lat": 43.7696, "lon": 11.2558, "status": "finalist"}];
+
+const map = L.map("map", {
+  zoomControl:true,
+  minZoom:2,
+  worldCopyJump:true
+}).setView([46.5, 6.5], 4);
+
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  maxZoom:19,
+  attribution:"&copy; OpenStreetMap contributors"
+}).addTo(map);
+
+let activeStatus = "all";
+let markers = {};
+
+function makeIcon(city) {
+  const markerInner = city.status === "winner"
+    ? `<div class="pin-star">★</div>`
+    : `<div class="pin-finalist"></div>`;
+
+  return L.divIcon({
+    className:"map-pin-wrap",
+    html: `
+      <div class="label-wrap">
+        <div class="label-ko">${city.ko}</div>
+        ${markerInner}
+      </div>
+    `,
+    iconSize:[72,34],
+    iconAnchor:[36,30],
+    popupAnchor:[0,-26]
+  });
+}
+
+function popupHtml(city) {
+  const statusKo = city.status === "winner" ? "2022 수상 도시" : "2022 최종 후보";
+  const color = city.status === "winner" ? "#d89b12" : "#169873";
+  return `
+    <div style="min-width:210px">
+      <div class="popup-title">${city.ko} <span style="font-size:11px;color:#627d98">${city.en}</span></div>
+      <div class="popup-meta">${city.country}</div>
+      <div class="popup-status" style="color:${color}">${statusKo}</div>
+    </div>
+  `;
+}
+
+function visibleCities() {
+  return cities.filter(c => activeStatus === "all" || c.status === activeStatus);
+}
+
+function render() {
+  Object.values(markers).forEach(m => map.removeLayer(m));
+  markers = {};
+
+  const visible = visibleCities();
+
+  visible.forEach(city => {
+    const marker = L.marker([city.lat, city.lon], {icon:makeIcon(city)}).addTo(map);
+    marker.bindPopup(popupHtml(city));
+    marker.bindTooltip(`${city.status === "winner" ? "★ " : ""}${city.ko} · ${city.en}`, {direction:"top", offset:[0,-18]});
+    markers[city.en] = marker;
+  });
+
+  const sorted = [...visible].sort((a,b) => {
+    if(a.status !== b.status) return a.status === "winner" ? -1 : 1;
+    return a.ko.localeCompare(b.ko,"ko");
+  });
+
+  document.getElementById("cityList").innerHTML = sorted.map(city => `
+    <div class="city-card" data-city="${city.en}">
+      <span class="city-name">${city.status === "winner" ? "★ " : ""}${city.ko}</span>
+      <span class="city-en">${city.en}</span>
+      <div class="country">${city.country}</div>
+      <span class="badge ${city.status}">${city.status === "winner" ? "2022 수상" : "최종 후보"}</span>
+    </div>
+  `).join("");
+
+  document.querySelectorAll(".city-card").forEach(el => {
+    el.addEventListener("click", () => {
+      const city = cities.find(c => c.en === el.dataset.city);
+      map.setView([city.lat, city.lon], 6, {animate:true});
+      markers[city.en].openPopup();
+    });
+  });
+
+  document.getElementById("kpiCities").textContent = visible.length;
+  document.getElementById("kpiWinners").textContent = visible.filter(c => c.status === "winner").length;
+}
+
+document.querySelectorAll(".filter").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".filter").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    activeStatus = btn.dataset.status;
+    render();
+  });
+});
+
+render();
+</script>
+</body>
+</html>
