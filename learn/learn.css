@@ -571,9 +571,11 @@ body.hub .lw { max-width: 1160px; }
   transition: box-shadow .18s, transform .18s;
 }
 .learn-article .roadmap li:hover { transform: translateY(-2px); box-shadow: 0 6px 16px var(--r-sh, rgba(16,42,67,.1)); }
-.learn-article .roadmap .rm-t { display: block; font-size: 10.5px; font-weight: 800; letter-spacing: .04em; margin-bottom: 4px; }
-.learn-article .roadmap strong { display: block; font-size: 13px; color: var(--deep); margin-bottom: 3px; }
-.learn-article .roadmap em { display: block; font-style: normal; font-size: 11px; color: var(--muted); }
+/* 세 줄(파트 번호 · 제목 · 설명)을 한 크기로 두고, 구분은 굵기와 색으로만 한다.
+   10.5 · 13 · 11px 세 크기가 섞여 있어 한 칸 안에서 들쑥날쑥했다. */
+.learn-article .roadmap .rm-t { display: block; font-size: 12px; font-weight: 800; letter-spacing: .04em; margin-bottom: 4px; }
+.learn-article .roadmap strong { display: block; font-size: 12px; font-weight: 800; color: var(--deep); margin-bottom: 3px; }
+.learn-article .roadmap em { display: block; font-style: normal; font-size: 12px; font-weight: 400; color: var(--muted); }
 /* 걸음마다 다른 그라데이션 — 위쪽 색선에서 시작해 아래로 흰색으로 풀린다 */
 .learn-article .roadmap .rm-case  { --r-a:#dceefb; --r-b:#eff7fd; --r-ac:#2563a8; --r-ln:#c8ddf0; --r-sh:rgba(37,99,168,.16); }
 .learn-article .roadmap .rm-do    { --r-a:#fceedb; --r-b:#fdf7ec; --r-ac:#e8a04a; --r-ln:#efdcbc; --r-sh:rgba(184,121,29,.16); }
@@ -1132,8 +1134,7 @@ body.hub .lw { max-width: 1160px; }
   .learn-article .slide.compact h3,
   .learn-article .sun-box li,
   .learn-article .slide.compact .sun-box li,
-  .learn-article .slide.compact .sun-box p,
-  .learn-article .roadmap strong { font-size: var(--m-sub); line-height: 1.75; }
+  .learn-article .slide.compact .sun-box p { font-size: var(--m-sub); line-height: 1.75; }
 
   /* ③ 캡션 · 메타 12.5px */
   .learn-article .reslist .meta,
@@ -1164,6 +1165,8 @@ body.hub .lw { max-width: 1160px; }
   .learn-article .slide.def .logic .chain,
   .learn-article .slide.def .logic .aim,
   .learn-article .roadmap li,
+  .learn-article .roadmap .rm-t,
+  .learn-article .roadmap strong,
   .learn-article .roadmap em,
   .learn-article .cmap-empty,
   .deck-dots button,
@@ -1195,7 +1198,6 @@ body.hub .lw { max-width: 1160px; }
   .learn-article .side,
   .learn-article a.ptag,
   .learn-article .learn-part .pt,
-  .learn-article .roadmap .rm-t,
   .learn-article .fig-note .nh,
   .learn-article .fig-note .embed-head,
   .learn-article .fig-note p.ntop a,
