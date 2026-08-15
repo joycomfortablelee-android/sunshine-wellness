@@ -174,7 +174,9 @@ body.hub .lw { max-width: 1160px; }
 
 .learn-article .fig-side .learn-fig { margin: 0; }
 .learn-article .fig-side .learn-fig img { max-width: 500px; }
-.learn-article .fig-side .learn-fig > div { max-width: 420px; margin: 0 auto; }  /* 영상 임베드 */
+/* 영상 임베드 — 가운데가 아니라 왼쪽에 붙인다 */
+.learn-article .fig-side .learn-fig.vid { text-align: left; }
+.learn-article .fig-side .learn-fig.vid > div { max-width: 420px; margin: 0; }
 .learn-article .fig-side .learn-fig figcaption { font-size: 12px; margin-top: 9px; }
 .learn-article .fig-note {
   background: #f1f7fd; border-left: 3px solid #2563a8; border-radius: 0 8px 8px 0;
