@@ -161,21 +161,25 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .reslist details.fold .desc { margin-top: 0; padding-bottom: 8px; }
 
 /* 더 연한 블루 강조 카드 */
-/* 2026 카드 — 2022(파랑)와 구분되는 청록 계열 */
-.learn-article .reslist li.hi.soft { background: #f0faf8; border-left-color: #2a9d8f; }
-.learn-article .reslist li.hi.soft a { color: #1d7d71; }
-.learn-article .reslist li.hi.soft a:hover { color: #145c53; }
-.learn-article .reslist li.hi.soft .grouptitle { color: #17635a; }
-.learn-article .reslist li.hi.soft .numlist li::before { background: #2a9d8f; }
-.learn-article .reslist li.hi.soft .numlist strong { color: #17635a; }
-.learn-article .reslist li.hi.soft .linkrow a { color: #1d7d71; border-color: #bfe3dd; }
-.learn-article .reslist li.hi.soft .linkrow a:hover { background: #2a9d8f; border-color: #2a9d8f; color: #fff; }
-.learn-article .reslist li.hi.soft .meta { color: #1d7d71; }
-.learn-article .reslist li.hi.soft details.fold { background: rgba(255,255,255,.92); border-color: #c6e6e1; }
-.learn-article .reslist li.hi.soft details.fold > summary { color: #17635a; }
-.learn-article .reslist li.hi.soft details.fold > summary::before,
-.learn-article .reslist li.hi.soft details.fold > summary::after { color: #2a9d8f; }
-.learn-article .reslist li.hi.soft details.fold > summary::after { border-color: #bfe3dd; }
+/* 색 변형 카드 — 변수만 갈아 끼워 쓴다 */
+.learn-article .reslist li.hi.tone { background: var(--t-bg); border-left-color: var(--t-ac); }
+.learn-article .reslist li.hi.tone a,
+.learn-article .reslist li.hi.tone .grouptitle,
+.learn-article .reslist li.hi.tone .numlist strong,
+.learn-article .reslist li.hi.tone .meta { color: var(--t-dk); }
+.learn-article .reslist li.hi.tone a:hover { color: var(--t-ac); }
+.learn-article .reslist li.hi.tone .numlist li::before { background: var(--t-ac); }
+.learn-article .reslist li.hi.tone .linkrow a { color: var(--t-dk); border-color: var(--t-ln); }
+.learn-article .reslist li.hi.tone .linkrow a:hover { background: var(--t-ac); border-color: var(--t-ac); color: #fff; }
+.learn-article .reslist li.hi.tone details.fold { background: rgba(255,255,255,.92); border-color: var(--t-ln); }
+.learn-article .reslist li.hi.tone details.fold > summary { color: var(--t-dk); }
+.learn-article .reslist li.hi.tone details.fold > summary::before,
+.learn-article .reslist li.hi.tone details.fold > summary::after { color: var(--t-ac); }
+.learn-article .reslist li.hi.tone details.fold > summary::after { border-color: var(--t-ln); }
+
+.learn-article .reslist li.teal   { --t-bg: #f0faf8; --t-ac: #2a9d8f; --t-dk: #17635a; --t-ln: #c6e6e1; }
+.learn-article .reslist li.violet { --t-bg: #f7f4fd; --t-ac: #7c3aed; --t-dk: #5b21b6; --t-ln: #ded1f8; }
+.learn-article .reslist li.green  { --t-bg: #f0f8f3; --t-ac: #169873; --t-dk: #0f6b52; --t-ln: #c7e6d9; }
 
 /* 촘촘한 자료 목록 — 정보는 그대로, 자리만 줄인다 */
 .learn-article .reslist.tight li { margin-bottom: 13px; padding-left: 13px; }
