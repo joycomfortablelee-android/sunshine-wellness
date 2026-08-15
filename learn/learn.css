@@ -428,6 +428,22 @@ body.hub .lw { max-width: 1160px; }
   padding: 30px 28px; transition: box-shadow .2s, transform .2s;
 }
 .learn-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,.08); transform: translateY(-3px); }
+
+/* 핵심 3개 모듈 — 과목마다 다른 그라데이션 (좌상단에서 흰색으로 풀린다) */
+.learn-card.grad {
+  background: linear-gradient(140deg, var(--c-a) 0%, var(--c-b) 46%, #fff 82%);
+  border-color: var(--c-ln);
+}
+.learn-card.grad .mod { color: var(--c-ac); }
+.learn-card.grad h3 { color: var(--c-dk); }
+.learn-card.grad .go { border-color: var(--c-ln); color: var(--c-ac); background: rgba(255,255,255,.75); }
+.learn-card.grad .go:hover { background: var(--c-ac); border-color: var(--c-ac); color: #fff; }
+.learn-card.grad .term { background: rgba(255,255,255,.8); border-color: var(--c-ln); color: var(--c-dk); }
+.learn-card.grad:hover { box-shadow: 0 12px 30px var(--c-sh); }
+
+.learn-card.g1 { --c-a: #dceefb; --c-b: #eef7fd; --c-ln: #c3ddf2; --c-ac: #2563a8; --c-dk: #16436f; --c-sh: rgba(37,99,168,.16); }
+.learn-card.g2 { --c-a: #e9e2fa; --c-b: #f4f0fd; --c-ln: #d6c9f2; --c-ac: #6d4bb0; --c-dk: #442b78; --c-sh: rgba(109,75,176,.16); }
+.learn-card.g3 { --c-a: #fceedb; --c-b: #fdf7ec; --c-ln: #efdcbc; --c-ac: #b8791d; --c-dk: #7a4f14; --c-sh: rgba(184,121,29,.16); }
 .learn-card .ico-row { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
 .learn-card .ico { font-size: 20px; line-height: 1; }
 .learn-card .mod { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--green); }
