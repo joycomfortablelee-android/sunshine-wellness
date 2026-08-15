@@ -531,6 +531,12 @@ body.hub .lw { max-width: 1160px; }
 .learn-article { padding: 40px 0 80px; }
 .learn-article h2 { font-size: 24px; font-weight: 800; color: var(--deep); margin: 36px 0 14px; scroll-margin-top: 84px; }
 .learn-article h3 { font-size: 18px; font-weight: 700; color: var(--green); margin: 26px 0 10px; }
+/* 파트 도입문 끝의 원본 사이트 태그 */
+.learn-article a.ptag { display: inline-block; margin-left: 2px; padding: 3px 10px; border-radius: 999px;
+  background: #fff; border: 1px solid var(--line); color: #17539b;
+  font-size: 11px; font-weight: 800; vertical-align: 2px; text-decoration: none; }
+.learn-article a.ptag:hover { background: #2563a8; border-color: #2563a8; color: #fff; }
+
 /* 소제목을 태그 형태로 — 파트 색 계열을 따른다 */
 .learn-article .h3tag { margin: 22px 0 10px; }
 .learn-article .h3tag span {

@@ -38,6 +38,7 @@ header .metarow .kpi span{font-size:9.5px}
 header .metarow .legend{margin:0;gap:12px;font-size:10px}
 header .metarow .axes{margin:0;gap:4px}
 header .metarow .axes span{font-size:9px;padding:3px 6px}
+header .metarow .axes .axlab{font-size:10px;font-weight:800;color:#17457f;margin-right:2px;align-self:center}
 header .note{margin:7px 0 0;border-top:1px solid #edf2f7;padding-top:6px;font-size:9.5px;line-height:1.5}
 header{
   padding:16px 22px 13px;
@@ -299,16 +300,12 @@ footer{
   </div>
 
   <div class="metarow">
-    <div class="kpis">
-      <div class="kpi"><b id="kpiCities">7</b><span>최종후보</span></div>
-      <div class="kpi"><b id="kpiWinners">2</b><span>수상 도시</span></div>
-      <div class="kpi"><b>4</b><span>평가 축</span></div>
-    </div>
     <div class="legend">
       <span class="winner"><i>★</i>수상 도시</span>
       <span class="finalist"><i></i>기타 최종후보</span>
     </div>
     <div class="axes">
+      <b class="axlab">4대 평가 축</b>
       <span>접근성 Accessibility</span>
       <span>지속가능성 Sustainability</span>
       <span>디지털화 Digitalisation</span>
@@ -427,8 +424,6 @@ function render() {
     });
   });
 
-  document.getElementById("kpiCities").textContent = visible.length;
-  document.getElementById("kpiWinners").textContent = visible.filter(c => c.status === "winner").length;
 }
 
 document.querySelectorAll(".filter").forEach(btn => {
