@@ -160,6 +160,10 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .reslist details.fold > summary { font-size: 13.5px; padding: 11px 2px; }
 .learn-article .reslist details.fold .desc { margin-top: 0; padding-bottom: 8px; }
 
+/* 더 연한 블루 강조 카드 */
+.learn-article .reslist li.hi.soft { background: #f8fbff; border-left-color: #7ba9d9; }
+.learn-article .reslist li.hi.soft details.fold { background: rgba(255,255,255,.9); border-color: #d3e4f5; }
+
 /* 촘촘한 자료 목록 — 정보는 그대로, 자리만 줄인다 */
 .learn-article .reslist.tight li { margin-bottom: 13px; padding-left: 13px; }
 .learn-article .reslist.tight a { font-size: 14.5px; }
