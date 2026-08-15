@@ -179,6 +179,13 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .fig-pair figcaption { margin-top: 7px; font-size: 11.5px; }
 @media (max-width: 760px) { .learn-article .fig-pair { grid-template-columns: 1fr; } }
 
+/* 슬라이드 캡처를 세로로 쌓아 보여줄 때 */
+.learn-article .slide-shots { display: grid; gap: 16px; margin: 10px 0 4px; }
+.learn-article .slide-shots .learn-fig { margin: 0; }
+.learn-article .slide-shots .learn-fig img { max-width: 100%; border-radius: 8px; box-shadow: 0 3px 12px rgba(0,0,0,.08); }
+.learn-article .slide-shots .learn-fig img:hover { box-shadow: 0 5px 18px rgba(0,0,0,.15); }
+.learn-article .slide-shots figcaption { margin-top: 7px; font-size: 12px; }
+
 /* ===== Figure (본문 이미지) ===== */
 .learn-article .learn-fig { margin: 30px 0; text-align: center; }
 .learn-article .learn-fig img { display: block; width: 100%; max-width: 720px; height: auto; margin: 0 auto; border-radius: 14px; border: 1px solid var(--line); box-shadow: 0 6px 24px rgba(0,0,0,.06); }
