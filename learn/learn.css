@@ -128,6 +128,14 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .reslist.grid2 li { margin-bottom: 0; }
 @media (max-width: 760px) { .learn-article .reslist.grid2 { grid-template-columns: 1fr; gap: 16px; } }
 
+/* 강조 카드를 좌우 2열로 놓을 때 — 높이를 맞추고 안쪽 글자를 조금 줄인다 */
+.learn-article .reslist.grid2.cards { align-items: stretch; gap: 14px; margin-bottom: 18px; }
+.learn-article .reslist.grid2.cards > li { margin-bottom: 0; }
+.learn-article .reslist.grid2.cards .grouptitle { font-size: 14.5px; line-height: 1.5; }
+.learn-article .reslist.grid2.cards .numlist li { font-size: 12.5px; line-height: 1.7; }
+.learn-article .reslist.grid2.cards .linkrow a { font-size: 10.5px; padding: 3px 9px; }
+.learn-article .reslist.grid2.cards .meta { font-size: 11px; }
+
 /* 접이식 블록 — 길어진 절을 접어 자리를 아낀다 */
 .learn-article details.fold {
   border: 1px solid #cfe0f2; border-radius: 10px; background: #f4f9ff;
