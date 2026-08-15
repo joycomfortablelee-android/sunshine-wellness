@@ -426,9 +426,9 @@ body.hub .lw { max-width: 1160px; }
 }
 .learn-article .fig-note .embed-head span { display: block; font-weight: 700; color: #5b7285; margin-top: 1px; }
 .learn-article .fig-note .embed-box iframe {
-  display: block; width: 100%; height: 300px; border: 0; background: #fff;
+  display: block; width: 100%; height: 232px; border: 0; background: #fff;
 }
-@media (max-width: 860px) { .learn-article .fig-note .embed-box iframe { height: 300px; } }
+@media (max-width: 860px) { .learn-article .fig-note .embed-box iframe { height: 260px; } }
 
 .learn-article .fig-note p.ftag { margin: 7px 0 0; }
 .learn-article .fig-note p.ftag a { display: inline-block; padding: 4px 10px; border-radius: 999px;

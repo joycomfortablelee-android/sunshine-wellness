@@ -3,220 +3,47 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>스마트관광 핵심 구조 - 노란색 스티커형 표</title>
+<title>스마트관광 핵심 구조</title>
 <style>
   *{box-sizing:border-box}
   body{
-    margin:0;
-    background:#f6f4ee;
-    font-family:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
-    color:#2d2d2d;
+    margin:0; background:#fff; color:#2d2d2d;
+    font-family:"Pretendard","Noto Sans KR","Malgun Gothic",Arial,sans-serif;
   }
-  .wrap{
-    width:min(1180px,100%);
-    margin:0 auto;
-    padding:10px 10px 12px;
-  }
-  h1{
-    margin:0 0 7px;
-    text-align:center;
-    font-size:21px;
-    color:#173b6c;
-    letter-spacing:-.7px;
-  }
-  .sub{
-    text-align:center;
-    color:#687385;
-    font-size:11px;
-    margin-bottom:9px;
-  }
+  .wrap{padding:9px 10px 11px}
+  h1{margin:0 0 6px; font-size:13px; color:#173b6c; letter-spacing:-.3px}
 
-  table{
-    width:100%;
-    border-collapse:separate;
-    border-spacing:4px 2px;
-    table-layout:fixed;
-  }
-  th{
-    background:#173b6c;
-    color:white;
-    padding:11px 8px;
-    border-radius:10px;
-    font-size:11.5px;
-    line-height:1.25;
-  }
-  td{
-    vertical-align:top;
-    padding:0;
-  }
+  table{width:100%; border-collapse:collapse; table-layout:fixed}
+  col.c1{width:23%} col.c2{width:20%} col.c3{width:57%}
 
-  .stage{
-    width:18%;
-  }
-  .area{
-    width:20%;
-  }
-  .content{
-    width:62%;
-  }
+  th,td{border:1px solid #dbe3ec; padding:3px 6px; vertical-align:middle; line-height:1.4}
+  th{background:#eef3f9; color:#173b6c; font-size:10.5px; font-weight:800; text-align:left}
+  td{font-size:10.5px}
 
-  .sticker{
-    background:#ffd966;
-    border:1px solid #caa62f;
-    border-radius:10px;
-    padding:7px 9px;
-    min-height:42px;
-    box-shadow:0 3px 7px rgba(89,74,24,.12);
-    font-size:11px;
-    line-height:1.28;
-    font-weight:800;
-    color:#3b3000;
-  }
-  .sticker strong{
-    color:#6c5500;
-    font-size:11.5px;
-  }
-  .sticker .en{
-    color:#514300;
-    font-size:9.5px;
-    font-weight:600;
-  }
+  td.stage{font-weight:800; text-align:center; line-height:1.35}
+  td.area{font-weight:700; color:#2f3d4d; background:#fafcfe}
+  td.items{color:#3f4b58; word-break:keep-all}
+  td.items b{font-weight:700; color:#2d3a47}
 
-  .stagebox{
-    background:#fffbea;
-    border-color:#eadf9b;
-    font-weight:800;
-    color:#332900;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-  }
-
-  .areabox{
-    background:#fff1b8;
-    border-color:#ddc96f;
-    font-weight:900;
-    color:#3a3000;
-  }
-
-  .items{
-    display:flex;
-    flex-wrap:wrap;
-    gap:5px;
-  }
-  .chip{
-    display:inline-block;
-    background:#ffe99a;
-    border:1px solid #c9ab36;
-    border-radius:999px;
-    padding:4px 7px;
-    font-size:10.5px;
-    line-height:1.2;
-    font-weight:800;
-    color:#3a3000;
-    white-space:nowrap;
-  }
-  .chip .en{
-    font-size:9px;
-    color:#514300;
-  }
-
-
-
-  .stagebox{
-    white-space:normal !important;
-    font-size:11px;
-    padding:5px 6px;
-    line-height:1.12;
-    min-height:36px;
-  }
-  .stagebox .ko{
-    display:block;
-    white-space:nowrap;
-    font-size:11px;
-    font-weight:800;
-    line-height:1.12;
-  }
-  .stagebox .en{
-    display:block;
-    white-space:normal;
-    font-size:8.6px;
-    margin-top:2px;
-    line-height:1.05;
-    font-weight:600;
-  }
+  tr.s1 td.stage{background:#fff3cd; color:#7a5a00}
+  tr.s1 td.area{background:#fffcf2}
+  tr.s2 td.stage{background:#e3eefb; color:#17457f}
+  tr.s2 td.area{background:#f7fafe}
+  tr.s3 td.stage{background:#e2f2ec; color:#125e4a}
+  tr.s3 td.area{background:#f6fcfa}
 
   .flow{
-    margin-top:8px;
-    text-align:center;
-    background:#fff8d5;
-    border:1px solid #e6cf74;
-    border-radius:10px;
-    padding:7px 9px;
-    font-size:11.5px;
-    font-weight:800;
-    color:#5b4a00;
+    margin-top:7px; padding:4px 8px; text-align:center;
+    background:#f5f7fa; border:1px solid #dbe3ec; border-radius:6px;
+    font-size:10px; font-weight:800; color:#3f4b58;
   }
+  .flow b{color:#173b6c}
 
-  @media(max-width:800px){
-    table{font-size:10.5px;border-spacing:4px}
-    th{font-size:10px}
-    .sticker{padding:8px;font-size:10px}
-    .chip{font-size:9.5px}
+  @media(max-width:560px){
+    col.c1{width:26%} col.c2{width:24%} col.c3{width:50%}
+    th,td{font-size:9.5px; padding:3px 4px}
   }
-
-  @media print{
-    body{background:white}
-    .wrap{width:100%;margin:0;padding:0}
-  }
-
-  /* 단계 셀: 한글 1행 + 영어 2행 */
-  .stagebox{
-    display:flex !important;
-    flex-direction:column !important;
-    align-items:center !important;
-    justify-content:center !important;
-    text-align:center !important;
-  }
-  .stagebox .ko,
-  .stagebox .en{
-    width:100%;
-    display:block !important;
-    text-align:center !important;
-  }
-
-
-  .stagebox .en{
-    font-size:8.6px !important;
-    line-height:1.05 !important;
-  }
-
-
-  /* 색상 위계: 단계 < 영역 < 핵심 구성 */
-  td:nth-child(3) > .sticker{
-    background:#ffd45a !important;
-    border-color:#c39d25 !important;
-    color:#2f2700 !important;
-    font-weight:900 !important;
-  }
-  td:nth-child(3) .chip{
-    background:#ffe995 !important;
-    border-color:#c9aa31 !important;
-    color:#2f2700 !important;
-    font-weight:900 !important;
-  }
-  .stagebox{
-    background:#fffbea !important;
-    color:#302800 !important;
-    font-weight:900 !important;
-  }
-  .areabox{
-    background:#fff0b3 !important;
-    color:#302800 !important;
-    font-weight:900 !important;
-  }
-
+  @media print{ .wrap{padding:0} }
 </style>
 </head>
 <body>
@@ -224,131 +51,48 @@
   <h1>스마트관광 핵심 구조</h1>
 
   <table>
-    <colgroup>
-      <col class="stage">
-      <col class="area">
-      <col class="content">
-    </colgroup>
+    <colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup>
     <thead>
-      <tr>
-        <th>단계</th>
-        <th>영역</th>
-        <th>핵심 구성</th>
-      </tr>
+      <tr><th>단계</th><th>영역</th><th>핵심 구성</th></tr>
     </thead>
     <tbody>
-      <tr>
-        <td><div class="sticker stagebox"><span class="ko">① 성공 촉진 요인</span></div></td>
-        <td><div class="sticker areabox">기반 조건<br></div></td>
-        <td>
-          <div class="sticker">
-            <div class="items">
-              <span class="chip">실행 의지·헌신</span>
-              <span class="chip">발전된 인프라</span>
-              <span class="chip">개방형 혁신·체계적 협업</span>
-              <span class="chip">지식 공유</span>
-              <span class="chip">문화·경험 공유</span>
-            </div>
-          </div>
-        </td>
+      <tr class="s1">
+        <td class="stage">① 성공 촉진 요인</td>
+        <td class="area">기반 조건</td>
+        <td class="items">실행 의지·헌신 · 발전된 인프라 · 개방형 혁신·체계적 협업 · 지식 공유 · 문화·경험 공유</td>
       </tr>
 
-      <tr>
-        <td rowspan="4"><div class="sticker stagebox" style="height:100%;min-height:150px;"><span class="ko">② 스마트 관광 영역</span></div></td>
-        <td><div class="sticker areabox">접근성<br></div></td>
-        <td>
-          <div class="sticker">
-            <div class="items">
-              <span class="chip">경제적</span>
-              <span class="chip">물리적</span>
-              <span class="chip">인지적</span>
-              <span class="chip">디지털</span>
-            </div>
-          </div>
-        </td>
+      <tr class="s2">
+        <td class="stage" rowspan="4">② 스마트 관광 영역</td>
+        <td class="area">접근성</td>
+        <td class="items">경제적 · 물리적 · 인지적 · 디지털</td>
+      </tr>
+      <tr class="s2">
+        <td class="area">지속가능성</td>
+        <td class="items">환경 · 사회 · 경제 · 문화</td>
+      </tr>
+      <tr class="s2">
+        <td class="area">디지털화</td>
+        <td class="items">모바일·웨어러블 · 소셜미디어 · 5G·NB-IoT·Wi-Fi · 사이버보안 · 빅데이터·클라우드 · AI·머신러닝·로봇 · 블록체인 · AR·VR·ER · 분석 플랫폼 · 사물인터넷</td>
+      </tr>
+      <tr class="s2">
+        <td class="area">문화유산과 창의성</td>
+        <td class="items">디지털 스토리텔링 · 박물관 · 문화유산 · 사회적 기억 · 유산·창의·문화자원</td>
       </tr>
 
-      <tr>
-        <td><div class="sticker areabox">지속가능성<br></div></td>
-        <td>
-          <div class="sticker">
-            <div class="items">
-              <span class="chip">환경</span>
-              <span class="chip">사회</span>
-              <span class="chip">경제</span>
-              <span class="chip">문화</span>
-            </div>
-          </div>
-        </td>
+      <tr class="s3">
+        <td class="stage" rowspan="2">③ 스마트 관광지 성과</td>
+        <td class="area">관광객 차원</td>
+        <td class="items">행동의도 · 고객만족 · 관광객 경험</td>
       </tr>
-
-      <tr>
-        <td><div class="sticker areabox">디지털화<br></div></td>
-        <td>
-          <div class="sticker">
-            <div class="items">
-              <span class="chip">모바일·웨어러블</span>
-              <span class="chip">소셜미디어</span>
-              <span class="chip">5G·NB-IoT·Wi-Fi</span>
-              <span class="chip">사이버보안</span>
-              <span class="chip">빅데이터·클라우드</span>
-              <span class="chip">AI·머신러닝·로봇</span>
-              <span class="chip">블록체인</span>
-              <span class="chip">AR·VR·ER</span>
-              <span class="chip">분석 플랫폼</span>
-              <span class="chip">사물인터넷</span>
-            </div>
-          </div>
-        </td>
-      </tr>
-
-      <tr>
-        <td><div class="sticker areabox">문화유산과 창의성<br></div></td>
-        <td>
-          <div class="sticker">
-            <div class="items">
-              <span class="chip">디지털 스토리텔링</span>
-              <span class="chip">박물관</span>
-              <span class="chip">문화유산</span>
-              <span class="chip">사회적 기억</span>
-              <span class="chip">유산·창의·문화자원</span>
-            </div>
-          </div>
-        </td>
-      </tr>
-
-      <tr>
-        <td rowspan="2"><div class="sticker stagebox" style="height:100%;min-height:70px;"><span class="ko">③ 스마트 관광지 성과</span></div></td>
-        <td><div class="sticker areabox">관광객 차원<br></div></td>
-        <td>
-          <div class="sticker">
-            <div class="items">
-              <span class="chip">행동의도</span>
-              <span class="chip">고객만족</span>
-              <span class="chip">관광객 경험</span>
-            </div>
-          </div>
-        </td>
-      </tr>
-
-      <tr>
-        <td><div class="sticker areabox">목적지 차원<br></div></td>
-        <td>
-          <div class="sticker">
-            <div class="items">
-              <span class="chip">목적지 경쟁력</span>
-              <span class="chip">진정성 있는 브랜드</span>
-              <span class="chip">목적지 이미지</span>
-            </div>
-          </div>
-        </td>
+      <tr class="s3">
+        <td class="area">목적지 차원</td>
+        <td class="items">목적지 경쟁력 · 진정성 있는 브랜드 · 목적지 이미지</td>
       </tr>
     </tbody>
   </table>
 
-  <div class="flow">
-    성공 촉진 요인 → 스마트관광 4대 영역 → 스마트 관광지 성과
-  </div>
+  <div class="flow"><b>성공 촉진 요인</b> → <b>스마트관광 4대 영역</b> → <b>스마트 관광지 성과</b></div>
 </div>
 </body>
 </html>
