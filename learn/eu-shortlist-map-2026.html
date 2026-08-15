@@ -243,6 +243,9 @@ h1 span {
   box-shadow:0 0 0 2px var(--gold);
   background:rgba(216,155,18,.10);
 }
+.popup-link{display:inline-block;margin-top:7px;padding:4px 9px;border-radius:999px;
+  background:#fff;border:1px solid #e4d3a8;color:#8a5a17;font-size:10.5px;font-weight:800;text-decoration:none}
+.popup-link:hover{background:#d89b12;border-color:#d89b12;color:#fff}
 .pin-shell.winner { position:relative; }
 .pin-star {
   position:absolute; left:50%; bottom:9px; transform:translateX(-50%);
@@ -370,6 +373,8 @@ function makeIcon(city) {
   });
 }
 
+const shortUrl = {"Braga":"https://smart-tourism-capital.ec.europa.eu/winners-and-finalists/cities-2026/braga-shortlisted-2026-european-capital-smart-tourism-competition_en", "Bruges":"https://smart-tourism-capital.ec.europa.eu/winners-and-finalists/cities-2026/bruges-shortlisted-2026-european-capital-smart-tourism-competition_en", "Brussels":"https://smart-tourism-capital.ec.europa.eu/winners-and-finalists/cities-2026/brussels-shortlisted-2026-european-capital-smart-tourism-competition_en", "Genoa":"https://smart-tourism-capital.ec.europa.eu/winners-and-finalists/cities-2026/genoa-shortlisted-2026-european-capital-smart-tourism-competition_en", "Leipzig":"https://smart-tourism-capital.ec.europa.eu/winners-and-finalists/cities-2026/leipzig-shortlisted-2026-european-capital-smart-tourism-competition_en", "Regensburg":"https://smart-tourism-capital.ec.europa.eu/winners-and-finalists/cities-2026/regensburg-shortlisted-2026-european-capital-smart-tourism-competition_en"};
+
 function popupHtml(city) {
   const award = city.winner
     ? `<div class="popup-award" style="color:#b77900">2026 수상 도시</div>`
@@ -380,6 +385,7 @@ function popupHtml(city) {
       <div class="popup-title">${city.ko} <span style="font-size:11px;color:#627d98">${city.en}</span></div>
       <div class="popup-meta">${city.country}<br>${catInfo[city.cat].ko} · ${catInfo[city.cat].en}</div>
       ${award}
+      ${shortUrl[city.en] ? `<a class="popup-link" href="${shortUrl[city.en]}" target="_blank" rel="noopener">EU 공식 · 최종 후보 소개 ↗</a>` : ''}
     </div>
   `;
 }
