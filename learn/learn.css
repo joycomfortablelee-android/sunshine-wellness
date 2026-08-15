@@ -1296,4 +1296,9 @@ body.hub .lw { max-width: 1160px; }
   body.mod-smart *,
   body.mod-smart *::before,
   body.mod-smart *::after { font-size: var(--one) !important; }
+
+  /* 접이식 배지 문구를 짧게 — 좁은 화면에서 요약줄이 두 줄로 접히지 않게.
+     알약형(.fold.pill)은 원래 「＋」 한 글자라 더 구체적인 규칙이 그대로 이긴다. */
+  body.mod-smart .learn-article details.fold > summary::after { content: "＋펼침"; }
+  body.mod-smart .learn-article details.fold[open] > summary::after { content: "－접힘"; }
 }
