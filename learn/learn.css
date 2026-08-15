@@ -452,8 +452,8 @@ body.hub .lw { max-width: 1160px; }
 .deck .slide.tint-sun .sun-box { background: #fff; border-color: #e3cf9a; }
 
 /* 짧은 항목이 반복되는 절 — 소제목과 본문의 글자 크기를 맞추고 간격을 좁힌다 */
-.learn-article .slide.compact h3 { font-size: 15px; font-weight: 800; margin: 15px 0 2px; }
-.learn-article .slide.compact p { font-size: 15px; line-height: 1.8; margin-bottom: 4px; }
+.learn-article .slide.compact h3 { font-size: 13.5px; font-weight: 800; margin: 13px 0 2px; }
+.learn-article .slide.compact p { font-size: 13.5px; line-height: 1.75; margin-bottom: 3px; }
 .learn-article .slide.compact h3 + p { margin-bottom: 0; }
 .deck--on.is-open .slide { animation: none; }
 @keyframes deck-in { from { opacity: 0; transform: translateX(16px); } to { opacity: 1; transform: none; } }
