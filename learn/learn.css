@@ -219,6 +219,16 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .reslist .linkrow details.fold.pill > summary:hover { background: var(--t-ac, var(--green)); border-color: var(--t-ac, var(--green)); color: #fff; }
 .learn-article .reslist .linkrow details.fold.pill[open] > summary { margin-bottom: 8px; }
 
+/* 금색(공모전) 접이식 */
+.learn-article details.fold.gold { border-color: #ecdcb9; background: #fdf8ec; }
+.learn-article details.fold.gold[open] { background: #fefbf4; }
+.learn-article details.fold.gold > summary { color: #8a5a17; }
+.learn-article details.fold.gold > summary::before,
+.learn-article details.fold.gold > summary::after { color: #b8862b; }
+.learn-article details.fold.gold > summary::after { border-color: #ecdcb9; }
+.learn-article details.fold.gold > summary:hover { color: #6b4512; }
+.learn-article details.fold.gold > summary:hover::after { background: #f8eed9; }
+
 /* 촘촘한 자료 목록 — 정보는 그대로, 자리만 줄인다 */
 .learn-article .reslist.tight li { margin-bottom: 13px; padding-left: 13px; }
 .learn-article .reslist.tight a { font-size: 14.5px; }
