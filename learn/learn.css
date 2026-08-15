@@ -1360,7 +1360,18 @@ body.mod-smart .learn-article .slide.def .logic .pos,
 body.mod-smart .learn-article .slide.compact p,
 body.mod-smart .learn-article .sun-box li,
 body.mod-smart .learn-article .slide.compact .sun-box li,
-body.mod-smart .learn-article .slide.compact .sun-box p { font-size: var(--fs-body); }
+body.mod-smart .learn-article .slide.compact .sun-box p,
+body.mod-smart .learn-article .roadmap li,
+body.mod-smart .learn-article .roadmap .rm-t,
+body.mod-smart .learn-article .roadmap strong,
+body.mod-smart .learn-article .roadmap em { font-size: var(--fs-body); }
+
+/* 글꼴을 한 벌로 — Merriweather에는 한글 글자가 없어서 히어로 소제목과 리드의
+   한글이 OS 기본 명조체로 대체됐다(윈도우 바탕 · 맥 애플명조 · 안드로이드 고딕).
+   같은 글로 보이지 않던 진짜 원인이라, 본문과 같은 Noto Sans KR로 되돌린다. */
+body.mod-smart .learn-hero .sub,
+body.mod-smart .learn-article .lead,
+body.mod-smart .learn-article .lead.sm { font-family: 'Noto Sans KR', sans-serif; }
 
 /* ④ 보조 */
 body.mod-smart .learn-logo .kr,
@@ -1371,10 +1382,6 @@ body.mod-smart .learn-article .learn-part,
 body.mod-smart .learn-article .learn-part .pt,
 body.mod-smart .learn-article .h3tag span,
 body.mod-smart .learn-article a.ptag,
-body.mod-smart .learn-article .roadmap li,
-body.mod-smart .learn-article .roadmap .rm-t,
-body.mod-smart .learn-article .roadmap strong,
-body.mod-smart .learn-article .roadmap em,
 body.mod-smart .learn-article .reslist .meta,
 body.mod-smart .learn-article .reslist.tight .meta,
 body.mod-smart .learn-article .reslist.grid2.cards .meta,
@@ -1438,6 +1445,19 @@ body.mod-smart .learn-article .fig-note p.wlist b,
 body.mod-smart .learn-article .fig-note p.wlist a,
 body.mod-smart .learn-article .fig-note p.src,
 body.mod-smart .learn-footer .copy { font-size: var(--fs-mini); }
+
+/* 파트 06 연구표 — 세 표의 열 경계를 같은 자리에 세운다.
+   기본 table-layout이 auto라 열 너비를 「내용」이 정한다. 그래서 한 줄짜리 SSCI 표와
+   네 줄짜리 KCI 표, 열 줄짜리 접이식 표의 3열이 저마다 다른 자리에서 갈렸다.
+   fixed로 바꾸고 비율을 못 박으면 행 수와 무관하게 같은 표로 읽힌다. */
+body.mod-smart .learn-article table.ref:not(.contest) { table-layout: fixed; }
+body.mod-smart .learn-article table.ref:not(.contest) th:nth-child(1),
+body.mod-smart .learn-article table.ref:not(.contest) td:nth-child(1) { width: 40%; }
+body.mod-smart .learn-article table.ref:not(.contest) th:nth-child(2),
+body.mod-smart .learn-article table.ref:not(.contest) td:nth-child(2) { width: 32%; }
+body.mod-smart .learn-article table.ref:not(.contest) th:nth-child(3),
+body.mod-smart .learn-article table.ref:not(.contest) td:nth-child(3) { width: 28%; }
+body.mod-smart .learn-article table.ref:not(.contest) td { word-break: keep-all; }
 
 /* 2열 카드용으로 눌러 둔 여백도 기본값으로 — 글자가 같아졌으니 칸도 같게 */
 body.mod-smart .learn-article .reslist.grid2.cards .numlist li { padding-left: 27px; }
