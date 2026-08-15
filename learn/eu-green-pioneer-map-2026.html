@@ -25,6 +25,12 @@ select,input{width:100%;border:1px solid #cdd9e2;background:#fff;border-radius:8
 svg{display:block;width:100%;height:auto;max-height:74vh;background:var(--water)}
 .country{fill:var(--land);stroke:var(--border);stroke-width:1.15;vector-effect:non-scaling-stroke}
 .place{cursor:pointer}
+.cnames text{fill:#5b7285;font-weight:700;letter-spacing:.02em;pointer-events:none;
+  paint-order:stroke;stroke:rgba(255,255,255,.85);stroke-width:2.6;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.cnames .big{font-size:15px}
+.cnames .mid{font-size:12px}
+.cnames .sm{font-size:10px}
+.cnames .out{fill:#9fb0bd;stroke-width:2}
 .place-dot{fill:var(--navy);stroke:#fff;stroke-width:2.8;vector-effect:non-scaling-stroke}
 .place-dot.hot{fill:var(--red)}
 .place-num{fill:#fff;font-size:9px;font-weight:700;pointer-events:none;user-select:none}
@@ -39,7 +45,9 @@ svg{display:block;width:100%;height:auto;max-height:74vh;background:var(--water)
 .legend{display:flex;gap:14px;align-items:center;margin-top:8px;font-size:10px;color:var(--muted);flex-wrap:wrap}
 .legend i{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--navy);margin-right:4px;vertical-align:-1px}
 .legend i.red{background:var(--red)}
-.bottom{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.bottom{display:block;margin-top:10px}
+.bottom .panel{padding:11px 14px}
+.bottom .note{font-size:10px;line-height:1.7}
 .panel{background:#fff;border:1px solid #d8e1e8;border-radius:10px;padding:10px}
 .panel h2{font-size:12px;margin:0 0 6px;color:var(--navy)}
 .list{display:grid;grid-template-columns:repeat(3,1fr);gap:4px 10px;font-size:9.5px;line-height:1.45}
@@ -55,7 +63,7 @@ svg{display:block;width:100%;height:auto;max-height:74vh;background:var(--water)
   .bottom{grid-template-columns:1fr}
   .list{grid-template-columns:repeat(2,1fr)}
 }
-.dest-overlay{position:absolute;left:10px;bottom:10px;width:min(300px,30%);
+.dest-overlay{position:absolute;left:10px;top:10px;width:min(300px,30%);
   background:rgba(255,255,255,.93);border:1px solid #cfdbe4;border-radius:10px;padding:8px 10px 6px}
 .dest-overlay .doh{display:block;margin-bottom:4px;font-size:10px;font-weight:800;color:#243b53;letter-spacing:.02em}
 .dest-overlay .dlist{column-count:2;column-gap:10px;font-size:9px;line-height:1.55;color:#334e68}
@@ -150,6 +158,47 @@ svg{display:block;width:100%;height:auto;max-height:74vh;background:var(--water)
 <path class="country" d="M 729.2,590.8 L 746.1,586.7 L 760.0,587.4 L 772.0,593.5 L 774.5,598.4 L 788.0,602.0 L 789.7,608.3 L 802.6,612.7 L 809.6,609.3 L 815.0,611.2 L 809.9,613.7 L 814.0,616.4 L 808.5,619.8 L 810.5,625.2 L 821.3,631.6 L 812.8,636.3 L 809.1,640.9 L 811.5,642.7 L 807.8,644.7 L 797.6,645.0 L 790.0,645.8 L 789.3,644.7 L 791.9,643.0 L 794.4,639.4 L 791.3,639.5 L 787.0,636.8 L 783.3,636.1 L 780.4,633.7 L 776.3,632.8 L 773.1,630.7 L 769.2,631.6 L 766.1,636.5 L 760.8,637.5 L 762.6,636.3 L 754.2,633.2 L 746.9,631.6 L 743.7,629.6 L 737.8,627.0 L 743.0,626.3 L 746.2,619.3 L 735.5,613.5 L 741.1,606.9 L 733.1,606.9 L 733.1,606.9 L 741.6,601.2 L 734.6,596.8 L 729.2,590.8 L 729.2,590.8 Z" data-country="Serbia"/>
 <path class="country" d="M 750.7,642.1 L 749.3,639.3 L 739.7,646.5 L 741.2,651.2 L 736.5,650.0 L 730.3,645.3 L 720.8,642.4 L 723.2,639.9 L 726.4,631.8 L 733.6,628.4 L 737.8,627.0 L 743.7,629.6 L 746.9,631.6 L 754.2,633.2 L 762.6,636.3 L 760.8,637.5 L 756.7,640.8 L 750.7,642.1 Z" data-country="Montenegro"/>
 <path class="country" d="M 766.7,646.2 L 761.4,644.7 L 756.7,640.8 L 760.8,637.5 L 766.1,636.5 L 769.2,631.6 L 773.1,630.7 L 776.3,632.8 L 780.4,633.7 L 783.3,636.1 L 787.0,636.8 L 791.3,639.5 L 794.4,639.4 L 791.9,643.0 L 789.3,644.7 L 790.0,645.8 L 785.1,646.4 L 772.0,648.6 L 771.0,651.6 L 768.2,651.5 L 766.7,646.2 Z" data-country="Kosovo"/>
+      <g class="cnames" aria-hidden="true">
+        <text class="cname big" x="1062.5" y="302.8" text-anchor="middle">러시아</text>
+        <text class="cname big" x="689.3" y="277.2" text-anchor="middle">스웨덴</text>
+        <text class="cname big" x="893.4" y="220.6" text-anchor="middle">핀란드</text>
+        <text class="cname big" x="637.3" y="265.9" text-anchor="middle">노르웨이</text>
+        <text class="cname big" x="996.3" y="537.7" text-anchor="middle">우크라이나</text>
+        <text class="cname big" x="363.7" y="578.0" text-anchor="middle">프랑스</text>
+        <text class="cname big" x="540.1" y="503.7" text-anchor="middle">독일</text>
+        <text class="cname big" x="1040.4" y="692.1" text-anchor="middle">튀르키예</text>
+        <text class="cname big" x="231.9" y="671.8" text-anchor="middle">스페인</text>
+        <text class="cname big" x="739.5" y="486.9" text-anchor="middle">폴란드</text>
+        <text class="cname big" x="252.0" y="453.3" text-anchor="middle">영국</text>
+        <text class="cname big" x="932.1" y="462.9" text-anchor="middle">벨라루스</text>
+        <text class="cname big out" x="389.1" y="747.5" text-anchor="middle">알제리</text>
+        <text class="cname mid" x="581.1" y="626.1" text-anchor="middle">이탈리아</text>
+        <text class="cname mid" x="864.5" y="591.1" text-anchor="middle">루마니아</text>
+        <text class="cname mid" x="862.1" y="401.2" text-anchor="middle">라트비아</text>
+        <text class="cname mid" x="796.1" y="676.7" text-anchor="middle">그리스</text>
+        <text class="cname mid" x="870.3" y="638.2" text-anchor="middle">불가리아</text>
+        <text class="cname mid" x="741.0" y="570.4" text-anchor="middle">헝가리</text>
+        <text class="cname mid" x="841.0" y="430.6" text-anchor="middle">리투아니아</text>
+        <text class="cname mid out" x="209.9" y="757.8" text-anchor="middle">모로코</text>
+        <text class="cname mid" x="651.6" y="528.5" text-anchor="middle">체코</text>
+        <text class="cname mid" x="624.0" y="563.8" text-anchor="middle">오스트리아</text>
+        <text class="cname mid out" x="520.3" y="746.4" text-anchor="middle">튀니지</text>
+        <text class="cname mid" x="884.1" y="364.1" text-anchor="middle">에스토니아</text>
+        <text class="cname mid" x="134.5" y="469.2" text-anchor="middle">아일랜드</text>
+        <text class="cname mid" x="129.5" y="682.5" text-anchor="middle">포르투갈</text>
+        <text class="cname sm" x="773.1" y="616.1" text-anchor="middle">세르비아</text>
+        <text class="cname sm" x="669.0" y="598.2" text-anchor="middle">크로아티아</text>
+        <text class="cname sm" x="744.3" y="545.9" text-anchor="middle">슬로바키아</text>
+        <text class="cname sm" x="514.4" y="404.6" text-anchor="middle">덴마크</text>
+        <text class="cname sm" x="426.2" y="481.1" text-anchor="middle">네덜란드</text>
+        <text class="cname sm" x="710.6" y="613.0" text-anchor="middle">보스니아</text>
+        <text class="cname sm" x="491.8" y="576.9" text-anchor="middle">스위스</text>
+        <text class="cname sm" x="407.4" y="515.7" text-anchor="middle">벨기에</text>
+        <text class="cname sm" x="941.3" y="570.3" text-anchor="middle">몰도바</text>
+        <text class="cname sm" x="751.8" y="661.6" text-anchor="middle">알바니아</text>
+        <text class="cname sm" x="798.7" y="661.0" text-anchor="middle">북마케도니아</text>
+        <text class="cname sm" x="637.0" y="591.4" text-anchor="middle">슬로베니아</text>
+      </g>
       <g class="place" data-id="1" data-city="Acipayam" data-country="Türkiye"
              data-cats="3.1" transform="translate(0,0)">
           <circle class="place-dot" cx="962.3" cy="713.6" r="11"/>
