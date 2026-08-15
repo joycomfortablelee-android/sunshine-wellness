@@ -241,6 +241,17 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .reslist .linkrow details.fold.pill > summary:hover { background: var(--t-ac, var(--green)); border-color: var(--t-ac, var(--green)); color: #fff; }
 .learn-article .reslist .linkrow details.fold.pill[open] > summary { margin-bottom: 8px; }
 
+/* 지도로 가는 태그 — 노란 알약으로 갈라 놓는다 */
+.learn-article .reslist .numlist a.mapl,
+.learn-article .reslist li.hi.tone .numlist a.mapl {
+  background: #fff8e6; border-color: #e8d49a; color: #8a5a17;
+}
+.learn-article .reslist .numlist a.mapl:hover,
+.learn-article .reslist li.hi.tone .numlist a.mapl:hover {
+  background: #f2b705; border-color: #f2b705; color: #fff; box-shadow: 0 1px 5px rgba(138,90,23,.22);
+}
+.learn-article .reslist .numlist a.mapl strong { color: inherit; }
+
 /* 번호 항목 안의 접이식 — 곁에 선 태그와 같은 알약 치수 */
 .learn-article .reslist .numlist details.fold.pill {
   display: inline-block; border: 0; background: none; padding: 0; margin: 1px 0; vertical-align: 1px;
