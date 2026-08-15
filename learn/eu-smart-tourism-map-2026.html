@@ -60,6 +60,11 @@ footer a{color:#285f9e;text-decoration:none}
  .panel{border-left:0;border-top:1px solid var(--line);max-height:none}
  .search{margin-left:0;flex:1 1 100%;min-width:0}
 }
+.map-pin.pin-win{background:#c0392b;font-size:15px}
+.pf-h{margin:9px 0 4px;font-size:11px;font-weight:800;letter-spacing:.04em;color:#243b53}
+.pf-list{margin:0;padding-left:16px}
+.pf-list li{font-size:12px;line-height:1.65;color:#334e68;margin-bottom:2px}
+.pf-key{margin-top:9px;padding:7px 9px;border-radius:6px;background:#102a43;color:#fff;font-size:11.5px;font-weight:700;text-align:center}
 </style>
 </head>
 <body>
@@ -103,7 +108,28 @@ footer a{color:#285f9e;text-decoration:none}
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-const cityMeta = {"Bruges": {"ko": "브뤼헤", "country": "벨기에", "lat": 51.2093, "lon": 3.2247}, "Livorno": {"ko": "리보르노", "country": "이탈리아", "lat": 43.5485, "lon": 10.3106}, "Kütahya": {"ko": "퀴타히아", "country": "튀르키예", "lat": 39.4167, "lon": 29.9833}, "Regensburg": {"ko": "레겐스부르크", "country": "독일", "lat": 49.0134, "lon": 12.1016}, "Bergamo": {"ko": "베르가모", "country": "이탈리아", "lat": 45.6983, "lon": 9.6773}, "Kraków": {"ko": "크라쿠프", "country": "폴란드", "lat": 50.0647, "lon": 19.945}, "Muğla": {"ko": "무을라", "country": "튀르키예", "lat": 37.2153, "lon": 28.3636}, "Tampere": {"ko": "탐페레", "country": "핀란드", "lat": 61.4978, "lon": 23.761}, "Karlsruhe": {"ko": "카를스루에", "country": "독일", "lat": 49.0069, "lon": 8.4037}, "Leipzig": {"ko": "라이프치히", "country": "독일", "lat": 51.3397, "lon": 12.3731}, "Szczecin": {"ko": "슈체친", "country": "폴란드", "lat": 53.4285, "lon": 14.5528}, "Brussels": {"ko": "브뤼셀", "country": "벨기에", "lat": 50.8503, "lon": 4.3517}, "Genoa": {"ko": "제노바", "country": "이탈리아", "lat": 44.4056, "lon": 8.9463}, "Stuttgart": {"ko": "슈투트가르트", "country": "독일", "lat": 48.7758, "lon": 9.1829}, "Braga": {"ko": "브라가", "country": "포르투갈", "lat": 41.5454, "lon": -8.4265}, "Kaunas": {"ko": "카우나스", "country": "리투아니아", "lat": 54.8985, "lon": 23.9036}, "Pécs": {"ko": "페치", "country": "헝가리", "lat": 46.0727, "lon": 18.2323}, "Katowice": {"ko": "카토비체", "country": "폴란드", "lat": 50.2649, "lon": 19.0238}, "Klaipėda": {"ko": "클라이페다", "country": "리투아니아", "lat": 55.7033, "lon": 21.1443}, "Matosinhos": {"ko": "마토지뉴스", "country": "포르투갈", "lat": 41.1821, "lon": -8.6891}, "Sibiu": {"ko": "시비우", "country": "루마니아", "lat": 45.7983, "lon": 24.1256}, "Coimbra": {"ko": "코임브라", "country": "포르투갈", "lat": 40.2033, "lon": -8.4103}, "Balikesir": {"ko": "발리케시르", "country": "튀르키예", "lat": 39.6484, "lon": 27.8826}, "Tirana": {"ko": "티라나", "country": "알바니아", "lat": 41.3275, "lon": 19.8187}, "Ternopil": {"ko": "테르노필", "country": "우크라이나", "lat": 49.5535, "lon": 25.5948}, "Bodrum": {"ko": "보드룸", "country": "튀르키예", "lat": 37.0344, "lon": 27.4305}, "Gaziantep": {"ko": "가지안테프", "country": "튀르키예", "lat": 37.0662, "lon": 37.3833}, "Lublin": {"ko": "루블린", "country": "폴란드", "lat": 51.2465, "lon": 22.5684}, "Funchal": {"ko": "푼샬", "country": "포르투갈", "lat": 32.6669, "lon": -16.9241}};
+const cityMeta = {"Bruges": {"ko": "브뤼헤", "country": "벨기에", "lat": 51.2093, "lon": 3.2247}, "Livorno": {"ko": "리보르노", "country": "이탈리아", "lat": 43.5485, "lon": 10.3106}, "Kütahya": {"ko": "퀴타히아", "country": "튀르키예", "lat": 39.4167, "lon": 29.9833}, "Regensburg": {"ko": "레겐스부르크", "country": "독일", "lat": 49.0134, "lon": 12.1016}, "Bergamo": {"ko": "베르가모", "country": "이탈리아", "lat": 45.6983, "lon": 9.6773}, "Kraków": {"ko": "크라쿠프", "country": "폴란드", "lat": 50.0647, "lon": 19.945}, "Muğla": {"ko": "무을라", "country": "튀르키예", "lat": 37.2153, "lon": 28.3636}, "Tampere": {"ko": "탐페레", "country": "핀란드", "lat": 61.4978, "lon": 23.761}, "Karlsruhe": {"ko": "카를스루에", "country": "독일", "lat": 49.0069, "lon": 8.4037}, "Leipzig": {"ko": "라이프치히", "country": "독일", "lat": 51.3397, "lon": 12.3731}, "Szczecin": {"ko": "슈체친", "country": "폴란드", "lat": 53.4285, "lon": 14.5528}, "Brussels": {"ko": "브뤼셀", "country": "벨기에", "lat": 50.8503, "lon": 4.3517}, "Genoa": {"ko": "제노바", "country": "이탈리아", "lat": 44.4056, "lon": 8.9463}, "Stuttgart": {"ko": "슈투트가르트", "country": "독일", "lat": 48.7758, "lon": 9.1829}, "Braga": {"ko": "브라가", "country": "포르투갈", "lat": 41.5454, "lon": -8.4265}, "Kaunas": {"ko": "카우나스", "country": "리투아니아", "lat": 54.8985, "lon": 23.9036}, "Pécs": {"ko": "페치", "country": "헝가리", "lat": 46.0727, "lon": 18.2323}, "Katowice": {"ko": "카토비체", "country": "폴란드", "lat": 50.2649, "lon": 19.0238}, "Klaipėda": {"ko": "클라이페다", "country": "리투아니아", "lat": 55.7033, "lon": 21.1443}, "Matosinhos": {"ko": "마토지뉴스", "country": "포르투갈", "lat": 41.1821, "lon": -8.6891}, "Sibiu": {"ko": "시비우", "country": "루마니아", "lat": 45.7983, "lon": 24.1256}, "Coimbra": {"ko": "코임브라", "country": "포르투갈", "lat": 40.2033, "lon": -8.4103}, "Balikesir": {"ko": "발리케시르", "country": "튀르키예", "lat": 39.6484, "lon": 27.8826}, "Tirana": {"ko": "티라나", "country": "알바니아", "lat": 41.3275, "lon": 19.8187}, "Ternopil": {"ko": "테르노필", "country": "우크라이나", "lat": 49.5535, "lon": 25.5948}, "Bodrum": {"ko": "보드룸", "country": "튀르키예", "lat": 37.0344, "lon": 27.4305}, "Gaziantep": {"ko": "가지안테프", "country": "튀르키예", "lat": 37.0662, "lon": 37.3833}, "Lublin": {"ko": "루블린", "country": "폴란드", "lat": 51.2465, "lon": 22.5684}, "Funchal": {"ko": "푼샬", "country": "포르투갈", "lat": 32.6669, "lon": -16.9241}, "Bordeaux": {"ko": "보르도", "country": "프랑스", "lat": 44.8378, "lon": -0.5792, "win": "2022"}, "Valencia": {"ko": "발렌시아", "country": "스페인", "lat": 39.4699, "lon": -0.3763, "win": "2022"}};
+cityMeta["Tampere"].win = "2026";
+
+// 2022 수상 도시 — 2026 사례 목록에는 없고 도시 프로필로만 표시한다
+const cityProfile = {
+  "Bordeaux": {
+    flag: "🇫🇷",
+    facts: ["인구 약 25만 7천 명", "18세기 도시 경관을 보존", "유네스코 세계유산과 역사도시 경관 보유", "도시재생의 대표 사례로 평가"],
+    points: ["역사적인 도시를 보존하면서 관광객의 이용 편의성을 높임",
+             "문화유산을 보호에 그치지 않고 관광경험과 도시재생에 연결",
+             "관광객뿐 아니라 다양한 계층이 이용할 수 있도록 접근성 개선"],
+    keywords: "문화유산 × 도시재생 × 접근성 × 스마트관광"
+  },
+  "Valencia": {
+    flag: "🇪🇸",
+    facts: ["인구 약 79만 명 · 스페인에서 세 번째로 큰 도시", "연간 약 220만 명의 관광객", "유네스코 세계유산 보유",
+            "대표적인 현대 건축물 — 예술과학도시(City of Arts and Sciences)", "관광산업 종사자 3만 명 이상"],
+    points: ["도시 관광서비스의 디지털화", "ICT와 관광서비스의 결합", "관광객 맞춤형 정보와 앱 서비스",
+             "문화·건축·지역산업을 관광과 연결", "지속가능한 도시관광 관리 강조"],
+    keywords: "디지털화 × ICT × 지속가능성 × 도시관광 관리"
+  }
+};
 const cases = [{"id": "4.1.1.1", "cat": "access", "group": "모두를 위한 접근성", "ko": "포용적 도시 관리", "en": "Inclusive City Management", "cities": ["Bruges", "Livorno"]}, {"id": "4.1.1.2", "cat": "access", "group": "모두를 위한 접근성", "ko": "접근성 높은 관광을 위한 교육 프로그램", "en": "Educational programmes for accessible tourism", "cities": ["Kütahya", "Regensburg"]}, {"id": "4.1.1.3", "cat": "access", "group": "모두를 위한 접근성", "ko": "접근 가능한 기반 시설", "en": "Accessible infrastructure", "cities": ["Bergamo", "Kraków"]}, {"id": "4.1.1.4", "cat": "access", "group": "모두를 위한 접근성", "ko": "접근 가능한 해변", "en": "Accessible beaches", "cities": ["Muğla", "Tampere"]}, {"id": "4.1.1.5", "cat": "access", "group": "모두를 위한 접근성", "ko": "문화 활동에 대한 접근성 확대", "en": "Wider access to cultural activities", "cities": ["Karlsruhe"]}, {"id": "4.1.1.6", "cat": "access", "group": "모두를 위한 접근성", "ko": "다양한 사회 집단에 대한 포용성", "en": "Inclusivity to different social groups", "cities": ["Leipzig", "Szczecin"]}, {"id": "4.1.2.1", "cat": "access", "group": "정보 접근성", "ko": "디지털 혁신을 통한 접근성", "en": "Accessibility through digital innovation", "cities": ["Brussels", "Genoa"]}, {"id": "4.1.2.2", "cat": "access", "group": "정보 접근성", "ko": "접근성 좋은 도시 가이드", "en": "Accessible city guides", "cities": ["Leipzig", "Stuttgart"]}, {"id": "4.1.3.1", "cat": "access", "group": "이동성의 접근성", "ko": "자전거 도로 활성화", "en": "Promotion of cycling paths", "cities": ["Braga", "Bruges"]}, {"id": "4.1.3.2", "cat": "access", "group": "이동성의 접근성", "ko": "이용 가능한 대중교통", "en": "Accessible public transport", "cities": ["Tampere"]}, {"id": "4.2.1.1", "cat": "sustain", "group": "기후 변화 대응·적응", "ko": "지속가능성 실천 계획", "en": "Sustainable Action Plans", "cities": ["Kaunas", "Leipzig", "Pécs", "Tampere"]}, {"id": "4.2.1.2", "cat": "sustain", "group": "기후 변화 대응·적응", "ko": "대안적인 도시 관리 솔루션", "en": "Alternative City Management Solutions", "cities": ["Katowice"]}, {"id": "4.2.2.1", "cat": "sustain", "group": "자연환경 보존·개선", "ko": "자연 보존", "en": "Nature conservation", "cities": ["Klaipėda", "Matosinhos"]}, {"id": "4.2.2.2", "cat": "sustain", "group": "자연환경 보존·개선", "ko": "지속가능한 도시 계획", "en": "Sustainable Urban Planning", "cities": ["Kütahya", "Regensburg", "Sibiu"]}, {"id": "4.2.3.1", "cat": "sustain", "group": "지속가능한 관광 관리", "ko": "관광 개발", "en": "Tourism development", "cities": ["Kraków", "Stuttgart"]}, {"id": "4.2.3.2", "cat": "sustain", "group": "지속가능한 관광 관리", "ko": "기업을 위한 지속가능성 도구 및 인센티브", "en": "Sustainability tools and incentives for businesses", "cities": ["Brussels", "Karlsruhe", "Tampere"]}, {"id": "4.2.3.3", "cat": "sustain", "group": "지속가능한 관광 관리", "ko": "관광 계절성 완화 조치", "en": "Actions mitigating tourism seasonality", "cities": ["Karlsruhe", "Regensburg"]}, {"id": "4.2.3.4", "cat": "sustain", "group": "지속가능한 관광 관리", "ko": "관광객 흐름의 스마트 관리", "en": "Smart Management of Tourist Flows", "cities": ["Bruges", "Brussels", "Kaunas"]}, {"id": "4.2.3.5", "cat": "sustain", "group": "지속가능한 관광 관리", "ko": "지속가능한 식품 부문 육성", "en": "Promotion of a Sustainable Food Sector", "cities": ["Bruges", "Pécs"]}, {"id": "4.2.4.1", "cat": "sustain", "group": "지속 가능한 이동성", "ko": "지속 가능한 도시 이동성 계획", "en": "Sustainable Urban Mobility Planning", "cities": ["Braga", "Bruges", "Genoa", "Karlsruhe"]}, {"id": "4.2.4.2", "cat": "sustain", "group": "지속 가능한 이동성", "ko": "지속 가능한 야외 관광", "en": "Sustainable outdoor tourism", "cities": ["Tampere"]}, {"id": "4.2.5.1", "cat": "sustain", "group": "지역 사회의 지속 가능한 참여", "ko": "관광 계획을 위한 지역 이해관계자와의 협력", "en": "Collaboration with Local Stakeholders for Tourism Planning", "cities": ["Brussels", "Leipzig"]}, {"id": "4.2.5.2", "cat": "sustain", "group": "지역 사회의 지속 가능한 참여", "ko": "관광 사업에 지역 사회 참여시키기", "en": "Involving Local Communities in Tourism Initiatives", "cities": ["Bergamo", "Sibiu"]}, {"id": "4.2.5.3", "cat": "sustain", "group": "지역 사회의 지속 가능한 참여", "ko": "지역 사회를 위한 지속가능성 교육", "en": "Sustainability education for local communities", "cities": ["Braga"]}, {"id": "4.3.1.1", "cat": "digital", "group": "특정 대상 그룹 정보 제공", "ko": "디지털 방문객 플랫폼", "en": "Digital Visitor Platforms", "cities": ["Bergamo", "Braga", "Karlsruhe"]}, {"id": "4.3.1.2", "cat": "digital", "group": "특정 대상 그룹 정보 제공", "ko": "통신 분야에서의 인공지능 활용", "en": "Use of Artificial Intelligence in Communication", "cities": ["Leipzig", "Regensburg"]}, {"id": "4.3.1.3", "cat": "digital", "group": "특정 대상 그룹 정보 제공", "ko": "방문객 경험을 향상시키는 디지털 애플리케이션", "en": "Digital Applications Enhancing the Visitor Experience", "cities": ["Braga"]}, {"id": "4.3.1.4", "cat": "digital", "group": "특정 대상 그룹 정보 제공", "ko": "디지털화된 도시 탐험", "en": "Digitalised City Exploration", "cities": ["Kaunas", "Stuttgart", "Tampere"]}, {"id": "4.3.2.1", "cat": "digital", "group": "스마트 관리를 위한 정보 수집", "ko": "관광 경영을 위한 오픈 데이터", "en": "Open Data for Tourism Management", "cities": ["Brussels", "Kraków"]}, {"id": "4.3.2.2", "cat": "digital", "group": "스마트 관리를 위한 정보 수집", "ko": "스마트 관광 관리 솔루션", "en": "Smart Tourism Management Solutions", "cities": ["Bruges", "Coimbra", "Kütahya", "Tampere"]}, {"id": "4.3.2.3", "cat": "digital", "group": "스마트 관리를 위한 정보 수집", "ko": "비즈니스를 위한 디지털 솔루션", "en": "Digital Solutions for Business", "cities": ["Bergamo", "Brussels", "Karlsruhe", "Tampere"]}, {"id": "4.3.3.1", "cat": "digital", "group": "디지털 지식 공유로의 전환", "ko": "디지털 기술 향상", "en": "Enhancement of Digital Skills", "cities": ["Balikesir", "Coimbra", "Livorno", "Matosinhos", "Tirana"]}, {"id": "4.3.4.1", "cat": "digital", "group": "디지털화를 통한 혁신적 모빌리티", "ko": "디지털 모빌리티 솔루션", "en": "Digital Mobility Solutions", "cities": ["Pécs"]}, {"id": "4.4.1.1", "cat": "culture", "group": "문화유산의 부활", "ko": "문화 행사 및 축제", "en": "Cultural events & Festivities", "cities": ["Leipzig", "Pécs"]}, {"id": "4.4.1.2", "cat": "culture", "group": "문화유산의 부활", "ko": "문화유산 복원", "en": "Restoration of Cultural Heritage Sites", "cities": ["Bruges", "Sibiu", "Tirana"]}, {"id": "4.4.1.3", "cat": "culture", "group": "문화유산의 부활", "ko": "문화유산지 및 도시 공간의 변혁", "en": "Transformation of Cultural Heritage Sites and Urban Spaces", "cities": ["Braga", "Katowice", "Livorno"]}, {"id": "4.4.1.4", "cat": "culture", "group": "문화유산의 부활", "ko": "전통 보존", "en": "Preserving Traditions", "cities": ["Kütahya", "Tampere", "Ternopil"]}, {"id": "4.4.1.5", "cat": "culture", "group": "문화유산의 부활", "ko": "대안 문화유산 투어 기획", "en": "Creating alternative heritage tours", "cities": ["Bodrum", "Coimbra", "Kraków", "Stuttgart"]}, {"id": "4.4.1.6", "cat": "culture", "group": "문화유산의 부활", "ko": "요리 유산 보존", "en": "Preserving Culinary Heritage", "cities": ["Gaziantep", "Kraków", "Lublin", "Muğla", "Stuttgart"]}, {"id": "4.4.2.1", "cat": "culture", "group": "새로운 창의성을 위한 문화유산 활용", "ko": "신기술의 사용", "en": "Use of new technologies", "cities": ["Balikesir", "Bergamo", "Karlsruhe", "Katowice"]}, {"id": "4.4.2.2", "cat": "culture", "group": "새로운 창의성을 위한 문화유산 활용", "ko": "새로운 문화 공간 창조", "en": "Creating New Cultural Spaces", "cities": ["Bruges", "Funchal", "Matosinhos"]}, {"id": "4.4.3.1", "cat": "culture", "group": "문화유산 보존", "ko": "문화유산 관리", "en": "Cultural Heritage Management", "cities": ["Regensburg", "Szczecin"]}, {"id": "4.4.4.1", "cat": "culture", "group": "문화 체험의 접근성 및 포용성", "ko": "문화의 공동 창조", "en": "Co-creation of culture", "cities": ["Leipzig"]}, {"id": "4.4.4.2", "cat": "culture", "group": "문화 체험의 접근성 및 포용성", "ko": "접근 가능한 문화", "en": "Accessible culture", "cities": ["Karlsruhe", "Lublin"]}];
 const cats = {"access": {"ko": "접근성", "en": "Accessibility", "color": "#2563eb"}, "sustain": {"ko": "지속가능성", "en": "Sustainability", "color": "#169873"}, "digital": {"ko": "디지털화", "en": "Digitalisation", "color": "#7c3aed"}, "culture": {"ko": "문화유산·창의성", "en": "Cultural Heritage & Creativity", "color": "#d97706"}};
 
@@ -137,6 +163,11 @@ function pinGradient(catArr) {
 }
 
 function makeIcon(city) {
+  if(cityProfile[city]) {
+    return L.divIcon({className:'map-pin-wrap',
+      html:`<div class="map-pin pin-win">★</div>`,
+      iconSize:[30,30], iconAnchor:[15,15], popupAnchor:[0,-13]});
+  }
   const arr = cityCases[city].filter(x => activeCat==='all' || x.cat===activeCat);
   const cset = [...new Set(arr.map(x=>x.cat))];
   const count = arr.length;
@@ -150,7 +181,19 @@ function makeIcon(city) {
 function popupHtml(city) {
   const meta=cityMeta[city];
   const arr=cityCases[city].filter(x => activeCat==='all' || x.cat===activeCat);
-  const titleStar = city==='Tampere' ? ' <span class="star">★ 2026 수상</span>' : '';
+  const titleStar = meta.win ? ` <span class="star">★ ${meta.win} 수상</span>` : '';
+  const pf = cityProfile[city];
+  if(pf) {
+    return `<div style="min-width:250px">
+      <div class="popup-title">${meta.ko} <span style="font-size:11px;color:#627d98">${city}</span>${titleStar}</div>
+      <div class="popup-meta">${pf.flag} ${meta.country} · 2022 European Capital of Smart Tourism</div>
+      <div class="pf-h">도시 특징</div>
+      <ul class="pf-list">${pf.facts.map(f=>`<li>${f}</li>`).join('')}</ul>
+      <div class="pf-h">스마트관광에서 주목할 부분</div>
+      <ul class="pf-list">${pf.points.map(f=>`<li>${f}</li>`).join('')}</ul>
+      <div class="pf-key">${pf.keywords}</div>
+    </div>`;
+  }
   return `<div style="min-width:235px">
     <div class="popup-title">${meta.ko} <span style="font-size:11px;color:#627d98">${city}</span>${titleStar}</div>
     <div class="popup-meta">${meta.country} · 사례 ${arr.length}건</div>
@@ -165,7 +208,9 @@ function popupHtml(city) {
 function matchSearch(city) {
   if(!searchText) return true;
   const m=cityMeta[city];
-  const hay=[city,m.ko,m.country,...cityCases[city].map(x=>x.ko),...cityCases[city].map(x=>x.en)].join(' ').toLowerCase();
+  const pf=cityProfile[city];
+  const hay=[city,m.ko,m.country,...cityCases[city].map(x=>x.ko),...cityCases[city].map(x=>x.en),
+    ...(pf?[pf.keywords,...pf.facts,...pf.points]:[])].join(' ').toLowerCase();
   return hay.includes(searchText.toLowerCase());
 }
 
@@ -200,11 +245,11 @@ function render() {
     const m=cityMeta[city];
     const arr=cityCases[city].filter(x=>activeCat==='all'||x.cat===activeCat);
     const cset=[...new Set(arr.map(x=>x.cat))];
-    const top=arr.slice(0,3).map(x=>`${x.id} ${x.ko}`).join(' · ');
+    const top=cityProfile[city] ? cityProfile[city].keywords : arr.slice(0,3).map(x=>`${x.id} ${x.ko}`).join(' · ');
     return `<div class="city-card" data-city="${city}">
       <div class="city-top">
-        <div><span class="city-name">${m.ko}</span><span class="city-en">${city}</span><div class="country">${m.country}${city==='Tampere'?' · ★ 2026 수상':''}</div></div>
-        <span class="count">${arr.length}건</span>
+        <div><span class="city-name">${m.ko}</span><span class="city-en">${city}</span><div class="country">${m.country}${m.win?` · ★ ${m.win} 수상`:''}</div></div>
+        <span class="count">${cityProfile[city]?'프로필':arr.length+'건'}</span>
       </div>
       <div class="badges">${cset.map(c=>`<span class="badge" style="background:${cats[c].color}">${cats[c].ko}</span>`).join('')}</div>
       <div class="case-mini">${top}${arr.length>3?' …':''}</div>
