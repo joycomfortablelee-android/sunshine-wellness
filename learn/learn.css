@@ -572,6 +572,12 @@ body.hub .lw { max-width: 1160px; }
 
 .learn-article table.ref .ko { display: block; margin-top: 3px; font-size: 12px; font-weight: 700; color: var(--green); }
 .learn-article table.ref .jr { display: block; margin-top: 3px; font-size: 11.5px; font-weight: 400; color: var(--muted); }
+/* 공모전 현황표 — 흰 바탕 + 행마다 번갈아 옅은 금색 */
+.learn-article table.ref.contest th { background: #f7efdd; color: #7a4f14; border-color: #ecdcb9; }
+.learn-article table.ref.contest td { background: #fff; border-color: #eee7dc; }
+.learn-article table.ref.contest tbody tr:nth-child(even) td { background: #fdf9f0; }
+.learn-article table.ref.contest tbody tr:hover td { background: #fbf3e2; }
+
 /* 공모전 현황표 — 열 폭을 고정해 행마다 어긋나지 않게 */
 .learn-article table.ref.contest { table-layout: fixed; min-width: 880px; }
 .learn-article table.ref.contest td { word-break: keep-all; }
