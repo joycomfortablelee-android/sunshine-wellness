@@ -244,12 +244,14 @@ body.hub .lw { max-width: 1160px; }
 /* 지도로 가는 태그 — 노란 알약으로 갈라 놓는다 */
 .learn-article .reslist .numlist a.mapl,
 .learn-article .reslist li.hi.tone .numlist a.mapl {
-  background: #fff8e6; border-color: #e8d49a; color: #8a5a17;
+  background: #173b6c; border-color: #173b6c; color: #fff;
 }
 .learn-article .reslist .numlist a.mapl:hover,
 .learn-article .reslist li.hi.tone .numlist a.mapl:hover {
-  background: #f2b705; border-color: #f2b705; color: #fff; box-shadow: 0 1px 5px rgba(138,90,23,.22);
+  background: #0f2a4f; border-color: #0f2a4f; color: #fff; box-shadow: 0 2px 7px rgba(16,42,67,.3);
 }
+.learn-article .reslist .numlist a.mapl strong,
+.learn-article .reslist li.hi.tone .numlist a.mapl strong { color: #fff; }
 .learn-article .reslist .numlist a.mapl strong { color: inherit; }
 
 /* 번호 항목 안의 접이식 — 곁에 선 태그와 같은 알약 치수 */
@@ -437,9 +439,9 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .fig-note p.ntop a:hover { background: #2563a8; border-color: #2563a8; color: #fff; opacity: 1; }
 .learn-article .fig-note p.ftag { margin: 7px 0 0; }
 .learn-article .fig-note p.ftag a { display: inline-block; padding: 4px 10px; border-radius: 999px;
-  background: #fff8e6; border: 1px solid #e8d49a; color: #8a5a17;
+  background: #173b6c; border: 1px solid #173b6c; color: #fff;
   font-size: 10.5px; font-weight: 800; border-bottom-width: 1px; }
-.learn-article .fig-note p.ftag a:hover { background: #f2b705; border-color: #f2b705; color: #fff; opacity: 1; }
+.learn-article .fig-note p.ftag a:hover { background: #0f2a4f; border-color: #0f2a4f; color: #fff; opacity: 1; }
 .learn-article .fig-note p.src { font-size: 10.5px; color: #8895a3; margin: 0; }
 @media (max-width: 760px) {
   .learn-article .fig-side { grid-template-columns: 1fr; gap: 14px; }
