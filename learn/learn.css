@@ -110,6 +110,8 @@ body.hub .lw { max-width: 1160px; }
   background: #fff; border: 1px solid var(--line); border-radius: 999px;
   padding: 6px 12px; transition: background .2s, color .2s, border-color .2s;
 }
+.learn-article .reslist .linkrow.tiny { margin: 7px 0 2px; gap: 5px; }
+.learn-article .reslist .linkrow.tiny a { font-size: 11px; padding: 4px 10px; font-weight: 700; }
 .learn-article .reslist .linkrow a:hover { background: var(--green); border-color: var(--green); color: #fff; text-decoration: none; }
 .learn-article .reslist .desc a { color: var(--green); font-weight: 700; font-size: inherit; border-bottom: 1px solid currentColor; }
 .learn-article .reslist .meta a { font-size: inherit; font-weight: 700; color: inherit; border-bottom: 1px solid currentColor; }
