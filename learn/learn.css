@@ -416,6 +416,11 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .fig-note p a { font-size: inherit; font-weight: 800; color: #17539b; border-bottom: 1px solid currentColor; }
 .learn-article .fig-note a:hover { opacity: .78; }
 .learn-article .fig-note p { font-size: 11px; line-height: 1.72; color: #5b6b7d; margin: 0 0 5px; }
+.learn-article .fig-note p.ftag { margin: 7px 0 0; }
+.learn-article .fig-note p.ftag a { display: inline-block; padding: 4px 10px; border-radius: 999px;
+  background: #fff8e6; border: 1px solid #e8d49a; color: #8a5a17;
+  font-size: 10.5px; font-weight: 800; border-bottom-width: 1px; }
+.learn-article .fig-note p.ftag a:hover { background: #f2b705; border-color: #f2b705; color: #fff; opacity: 1; }
 .learn-article .fig-note p.src { font-size: 10.5px; color: #8895a3; margin: 0; }
 @media (max-width: 760px) {
   .learn-article .fig-side { grid-template-columns: 1fr; gap: 14px; }
