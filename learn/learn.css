@@ -166,6 +166,12 @@ body.hub .lw { max-width: 1160px; }
   display: grid; grid-template-columns: minmax(0, 1fr) 196px;
   gap: 20px; align-items: start; margin: 30px 0;
 }
+/* 오른쪽 칸을 넓게 쓰는 변형 — 그림 옆에 자료 카드를 놓을 때 */
+.learn-article .fig-side.wide { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 24px; }
+.learn-article .fig-side.wide .learn-fig img { max-width: 100%; }
+.learn-article .reslist.books li { border-left-color: #e0d3b4; }
+@media (max-width: 760px) { .learn-article .fig-side.wide { grid-template-columns: 1fr; } }
+
 .learn-article .fig-side .learn-fig { margin: 0; }
 .learn-article .fig-side .learn-fig img { max-width: 500px; }
 .learn-article .fig-side .learn-fig > div { max-width: 420px; margin: 0 auto; }  /* 영상 임베드 */
