@@ -1073,3 +1073,209 @@ body.hub .lw { max-width: 1160px; }
   .learn-article { padding: 30px 0 64px; }
   .learn-grid { grid-template-columns: 1fr; }
 }
+
+/* ===== 모바일 작은 글씨 기준선 (≤760px) =====
+   좁은 화면에서 9 · 9.5 · 10 · 10.5 · 11 · 11.5 · 12 · 12.5 · 13 · 13.5 · 14.5 · 15px이
+   뒤섞이던 것을 여섯 단으로 줄이고, 전체를 한 단 낮춰 촘촘하게 잡는다.
+
+     본문 14   → 일반 문단 · 목록
+     제목 14.5 → 자료 항목 제목 · 묶음 제목 · 접이식 머리글 (굵기 800이라 본문보다 커 보인다)
+     보조 12.5 → 설명문 · 번호 목록 · 표 본문 · 슬라이드 본문
+     캡션 11.5 → 그림 설명 · 출처 · 메타 · 곁주석 본문 · 표 머리 · 힌트
+     태그 10.5 → 알약 링크 · 배지 · 라벨 · 덱 버튼
+     최소 9.5  → 원형 번호 · 연도 배지 · 공식 출처
+
+   760px은 2열 카드(.grid2.cards)와 그림 곁주석(.fig-side)이 1열로 풀리는 폭이다.
+   1열이 되면 2열용으로 줄여 둔 치수를 유지할 이유가 없으므로 이 기준선으로 되돌린다. */
+@media (max-width: 760px) {
+  :root {
+    --m-body:  14px;
+    --m-title: 14.5px;
+    --m-sub:   12.5px;
+    --m-cap:   11.5px;
+    --m-tag:   10.5px;
+    --m-mini:  9.5px;
+  }
+
+  /* ⓪ 본문 14px — 작은 글씨를 낮춘 만큼 본문도 같이 내린다 */
+  .learn-article p,
+  .learn-article li,
+  .learn-article .cmap-note p { font-size: var(--m-body); }
+  .learn-article .lead { font-size: 15px; line-height: 1.9; }
+  .learn-article .lead.sm { font-size: var(--m-body); line-height: 1.85; }
+  .learn-article code { font-size: 12px; }
+
+  /* ① 제목 15px */
+  .learn-article .reslist a,
+  .learn-article .reslist.tight a,
+  .learn-article .reslist .grouptitle,
+  .learn-article .reslist.grid2.cards .grouptitle,
+  .learn-article details.fold > summary { font-size: var(--m-title); line-height: 1.5; }
+
+  /* ② 보조 본문 13.5px */
+  .learn-article .reslist .desc,
+  .learn-article .reslist.tight .desc,
+  .learn-article .reslist.grid2.cards .desc,
+  .learn-article .reslist .desc.mini,
+  .learn-article .reslist .numlist li,
+  .learn-article .reslist.grid2.cards .numlist li,
+  .learn-article .reslist details.fold > summary,
+  .learn-article table.ref td,
+  .learn-article table.ref td.st,
+  .learn-article table.ref td.pri,
+  .learn-article .logic p,
+  .learn-article .slide.def p,
+  .learn-article .slide.def .logic p,
+  .learn-article .slide.def .logic .neg,
+  .learn-article .slide.def .logic .pos,
+  .learn-article .slide.compact p,
+  .learn-article .slide.compact h3,
+  .learn-article .sun-box li,
+  .learn-article .slide.compact .sun-box li,
+  .learn-article .slide.compact .sun-box p,
+  .learn-article .roadmap strong { font-size: var(--m-sub); line-height: 1.75; }
+
+  /* ③ 캡션 · 메타 12.5px */
+  .learn-article .reslist .meta,
+  .learn-article .reslist.tight .meta,
+  .learn-article .reslist.grid2.cards .meta,
+  .learn-article .learn-fig figcaption,
+  .learn-article .learn-fig.sm figcaption,
+  .learn-article .fig-pair figcaption,
+  .learn-article .slide-shots figcaption,
+  .learn-article .fig-side .learn-fig figcaption,
+  .learn-article .fig-note p,
+  .learn-article .fig-side.vidside .fig-note p,
+  .learn-article .fig-note > a,
+  .learn-article .fig-side.vidside .fig-note > a,
+  .learn-article .fig-note .pf-key,
+  .learn-article .fig-note p.wlist,
+  .learn-article .fig-note p.src,
+  .learn-article table.ref th,
+  .learn-article table.ref .ko,
+  .learn-article table.ref .jr,
+  .learn-article p.mini-note,
+  .learn-article .src-inline,
+  .learn-article .tbl-hint,
+  .learn-article .learn-part,
+  .learn-article .h3tag span,
+  .learn-article .logic .chain,
+  .learn-article .logic .aim,
+  .learn-article .slide.def .logic .chain,
+  .learn-article .slide.def .logic .aim,
+  .learn-article .roadmap li,
+  .learn-article .roadmap em,
+  .learn-article .cmap-empty,
+  .deck-dots button,
+  .deck-toggle,
+  .deck-count,
+  .mod-home a,
+  .learn-footer { font-size: var(--m-cap); line-height: 1.7; }
+  .learn-article .fig-note p.wlist { line-height: 1.9; }
+  .learn-article .learn-part { line-height: 1.5; }
+  /* 짧은 문구가 든 칸은 줄간격을 좁게 유지 */
+  .learn-article .roadmap li,
+  .learn-article .roadmap strong,
+  .learn-article .roadmap em,
+  .learn-article .slide.compact h3 { line-height: 1.5; }
+
+  /* ④ 태그 · 배지 11.5px */
+  .learn-article .reslist .linkrow a,
+  .learn-article .reslist .linkrow.tiny a,
+  .learn-article .reslist.grid2.cards .linkrow a,
+  .learn-article .reslist .numlist a,
+  .learn-article .reslist .linkrow details.fold.pill > summary,
+  .learn-article .reslist.grid2.cards .linkrow details.fold.pill > summary,
+  .learn-article .reslist .numlist details.fold.pill > summary,
+  .learn-article details.fold > summary::after,
+  .learn-article .badge,
+  .learn-article .reslist a .badge.now,
+  .learn-article .secl,
+  .learn-article .reslist .nsub,
+  .learn-article .side,
+  .learn-article a.ptag,
+  .learn-article .learn-part .pt,
+  .learn-article .roadmap .rm-t,
+  .learn-article .fig-note .nh,
+  .learn-article .fig-note .embed-head,
+  .learn-article .fig-note p.ntop a,
+  .learn-article .fig-note p.ftag a,
+  .learn-article .fig-note p.wlist a,
+  .learn-hero .label,
+  .learn-card .term, .learn-hero .label .term,
+  .mod-nav .nav-label,
+  .learn-footer .copy { font-size: var(--m-tag); }
+
+  /* ⑤ 최소 표기 10.5px — 원 안의 숫자, 연도 배지 */
+  .learn-article .cities b,
+  .learn-article .fig-note p.wlist b,
+  .learn-article .reslist .numlist li::before,
+  .learn-article .reslist.grid2.cards .numlist li::before,
+  .learn-article .reslist .linkrow details.fold.pill > summary::after,
+  .learn-article .reslist .numlist details.fold.pill > summary::after,
+  .learn-article .logic .formula .src { font-size: var(--m-mini); }
+
+  /* 2열용으로 눌러 둔 치수 되돌리기 — 1열이 된 카드는 기본 카드와 같아진다 */
+  .learn-article .reslist.grid2.cards .numlist li { padding-left: 27px; margin-bottom: 8px; }
+  .learn-article .reslist.grid2.cards .numlist li::before { width: 19px; height: 19px; top: 3px; }
+  .learn-article .reslist.grid2.cards .linkrow a,
+  .learn-article .reslist.grid2.cards .linkrow details.fold.pill > summary { padding: 4px 10px; }
+  .learn-article .reslist .numlist a,
+  .learn-article .reslist .numlist details.fold.pill > summary { padding: 4px 10px; }
+  .learn-article .cities b { min-width: 17px; height: 17px; line-height: 15px; }
+
+  /* ⑥ 큰 글씨도 같은 비율로 — 제목·머리글·화면 요소까지 전체를 한 단 낮춘다 */
+  .learn-header .lw { height: 56px; }
+  .learn-logo .en { font-size: 14px; }
+  .learn-logo .kr { font-size: 10px; }
+  .learn-back { font-size: 12px; padding: 6px 12px; }
+  .learn-hero h1 { font-size: 20px; }
+  .learn-hero .sub { font-size: 13px; line-height: 1.8; }
+  .learn-article h2 { font-size: 19px; }
+  .learn-article h3 { font-size: 15px; }
+  .learn-group .gh-title { font-size: 15px; }
+  .learn-group .gh-badge { font-size: var(--m-tag); }
+  .learn-card { padding: 24px 22px; }
+  .learn-card h3 { font-size: 16px; }
+  .learn-card p { font-size: var(--m-sub); }
+  .learn-card .ico { font-size: 18px; }
+  .learn-card .mod { font-size: var(--m-tag); }
+  .learn-card .go, .learn-card .badge { font-size: var(--m-cap); }
+  .mod-nav a { font-size: var(--m-sub); padding: 12px 16px; }
+  .deck--on .deck-stage > .deck-prev,
+  .deck--on .deck-stage > .deck-next { font-size: 14px; }
+  .mm-center { font-size: 14px; padding: 13px 24px; }
+  .mm-part { font-size: var(--m-cap); }
+  .mm-branch li { font-size: var(--m-cap); }
+  .term-name { font-size: var(--m-body); }
+  .term-name span { font-size: var(--m-cap); }
+  .term-def { font-size: var(--m-sub); }
+  .term-site { font-size: var(--m-cap); }
+  .pe-en { font-size: var(--m-body); }
+  .pe-ko { font-size: var(--m-sub); }
+  .pe-tool-label, .pe-speed-btn, .pe-note { font-size: var(--m-cap); }
+  .cmap-toc a, .cmap-tab { font-size: var(--m-cap); }
+  .cmap-search { font-size: var(--m-sub); padding: 9px 12px; }
+  .learn-article .cmap-card h3 { font-size: 15px; }
+  .learn-article .cmap-card p { font-size: var(--m-sub); }
+  .cmap-ico { width: 36px; height: 36px; font-size: 18px; }
+  .cmap-label { font-size: var(--m-tag); }
+  .cmap-chips .chip, .cmap-kw { font-size: var(--m-tag); }
+  .learn-article .cmap-job h3 { font-size: var(--m-body); }
+  .learn-article .cmap-job li { font-size: var(--m-sub); }
+  .learn-article .intro-card p { font-size: var(--m-sub); }
+  .learn-article .intro-card em { font-size: var(--m-cap); }
+  .cmap-table { font-size: var(--m-sub); }
+  .cmap-table thead th { font-size: var(--m-cap); }
+  .cmap-table th, .cmap-table td { padding: 10px 12px; }
+  .lp-legend, .learn-article .lp-legend li { font-size: var(--m-cap); }
+  .learn-refs .label { font-size: var(--m-tag); }
+  .learn-refs a { font-size: var(--m-title); }
+  .learn-refs li span { font-size: var(--m-cap); }
+
+  /* 공식 한 줄은 좁은 폭에서 넘치지 않게 한 단 아래로 */
+  .learn-article .logic .formula { font-size: var(--m-cap); }
+}
+@media (max-width: 620px) {
+  .learn-article .logic .formula { font-size: var(--m-tag); }
+}
