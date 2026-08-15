@@ -124,18 +124,29 @@ body.hub .lw { max-width: 1160px; }
 
 /* 접이식 블록 — 길어진 절을 접어 자리를 아낀다 */
 .learn-article details.fold {
-  border: 1px solid var(--line); border-radius: 10px; background: #fcfcfb;
+  border: 1px solid #cfe0f2; border-radius: 10px; background: #f4f9ff;
   padding: 0 16px; margin: 14px 0 20px;
 }
 .learn-article details.fold > summary {
-  cursor: pointer; list-style: none; padding: 12px 2px;
-  font-size: 13px; font-weight: 800; color: var(--green);
+  cursor: pointer; list-style: none; padding: 15px 2px;
+  display: flex; align-items: center; gap: 9px;
+  font-size: 15px; font-weight: 800; color: #17539b;
 }
 .learn-article details.fold > summary::-webkit-details-marker { display: none; }
-.learn-article details.fold > summary::before { content: "▸  "; }
-.learn-article details.fold[open] > summary::before { content: "▾  "; }
-.learn-article details.fold > summary:hover { color: var(--deep); }
-.learn-article details.fold[open] { padding-bottom: 6px; }
+.learn-article details.fold > summary::before {
+  content: "▸"; display: inline-block; font-size: 13px; color: #2563a8;
+  transition: transform .18s ease;
+}
+.learn-article details.fold[open] > summary::before { transform: rotate(90deg); }
+.learn-article details.fold > summary::after {
+  content: "＋ 펼치기"; margin-left: auto;
+  font-size: 12px; font-weight: 700; color: #2563a8;
+  border: 1px solid #bcd4ee; background: #fff; border-radius: 999px; padding: 4px 11px;
+}
+.learn-article details.fold[open] > summary::after { content: "－ 접기"; }
+.learn-article details.fold > summary:hover { color: #0f3d76; }
+.learn-article details.fold > summary:hover::after { background: #eaf2fc; }
+.learn-article details.fold[open] { padding-bottom: 6px; background: #fbfdff; }
 
 /* 촘촘한 자료 목록 — 정보는 그대로, 자리만 줄인다 */
 .learn-article .reslist.tight li { margin-bottom: 13px; padding-left: 13px; }
