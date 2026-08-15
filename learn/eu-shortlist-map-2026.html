@@ -246,6 +246,9 @@ h1 span {
 .popup-link{display:inline-block;margin-top:7px;padding:4px 9px;border-radius:999px;
   background:#fff;border:1px solid #e4d3a8;color:#8a5a17;font-size:10.5px;font-weight:800;text-decoration:none}
 .popup-link:hover{background:#d89b12;border-color:#d89b12;color:#fff}
+.card-link{display:inline-block;margin-left:5px;padding:3px 8px;border-radius:999px;
+  background:#fff;border:1px solid #e4d3a8;color:#8a5a17;font-size:9.5px;font-weight:800;text-decoration:none}
+.card-link:hover{background:#d89b12;border-color:#d89b12;color:#fff}
 .pin-shell.winner { position:relative; }
 .pin-star {
   position:absolute; left:50%; bottom:9px; transform:translateX(-50%);
@@ -431,11 +434,13 @@ function render() {
           </div>
         </div>
         <span class="badge ${city.cat}">${catInfo[city.cat].ko}</span>
+        ${shortUrl[city.en] ? `<a class="card-link" href="${shortUrl[city.en]}" target="_blank" rel="noopener">EU 공식 소개 ↗</a>` : ''}
       </div>
     `).join("") || `<div style="padding:20px;color:#627d98;font-size:12px">검색 결과가 없습니다.</div>`;
 
   document.querySelectorAll(".city-card").forEach(el => {
-    el.addEventListener("click", () => {
+    el.addEventListener("click", (ev) => {
+      if (ev.target.closest("a")) return;
       const city = cities.find(c => c.en === el.dataset.city);
       map.setView([city.lat, city.lon], 6, { animate:true });
       markers[city.en].openPopup();
