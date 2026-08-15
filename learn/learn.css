@@ -1279,3 +1279,21 @@ body.hub .lw { max-width: 1160px; }
 @media (max-width: 620px) {
   .learn-article .logic .formula { font-size: var(--m-tag); }
 }
+
+/* ===== smart-tourism.html 전용 — 모바일에서 모든 글자를 한 크기로 =====
+   `<body class="mod-smart">`가 붙은 페이지에만 걸린다. 다른 13개 페이지는 위의 6단 기준선을 그대로 쓴다.
+
+   위계를 크기로 만들지 않고 굵기 · 색 · 배경으로만 만드는 방식이라,
+   제목 · 본문 · 캡션 · 태그 · 원형 번호가 전부 같은 크기가 된다.
+   크기를 바꾸려면 아래 --one 한 줄만 고치면 된다.
+
+   ⚠️ 9px은 모바일 본문 통상값(15~16px)의 60% 수준이다.
+      브라우저에 최소 글꼴 크기가 켜져 있으면(안드로이드 크롬 「글꼴 크기 조정」 등)
+      그 값 아래로는 내려가지 않아 기기마다 다르게 보일 수 있다. */
+@media (max-width: 760px) {
+  body.mod-smart { --one: 9px; }
+  body.mod-smart,
+  body.mod-smart *,
+  body.mod-smart *::before,
+  body.mod-smart *::after { font-size: var(--one) !important; }
+}
