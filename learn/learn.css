@@ -148,6 +148,9 @@ body.hub .lw { max-width: 1160px; }
 /* 본문 안에서 붉게 강조할 구절 */
 .learn-article .hot-t, .learn-article .reslist .hot-t,
 .learn-article .reslist .numlist .hot-t, .learn-article .reslist li.hi .desc .hot-t { color: #c0392b; }
+/* 색 변형 카드 안에서도 빨강이 카드 색에 지지 않게 */
+.learn-article .reslist li.hi.tone .numlist strong.hot-t,
+.learn-article .reslist li.hi.tone .numlist .hot-t { color: #c0392b; }
 
 /* 두 항목을 좌우 1행 2열로 */
 .learn-article .reslist.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 26px; }
