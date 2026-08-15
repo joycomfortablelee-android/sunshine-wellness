@@ -1317,6 +1317,11 @@ body.mod-smart {
   --fs-body:  12.5px;
   --fs-sub:   10.5px;
   --fs-mini:  9px;
+  /* 줄간격도 셋으로 — 크기를 맞춰도 줄간격이 다르면 다른 글로 보인다.
+     기존에는 1.35 · 1.4 · 1.45 · 1.5 · 1.55 · 1.6 · 1.7 · 1.72 · 1.75 · 1.78 · 1.85 · 1.9 · 1.95 열세 종이었다. */
+  --lh-read:  1.8;    /* 읽는 글 — 본문 · 설명문 · 표 본문 */
+  --lh-sub:   1.65;   /* 보조 — 캡션 · 메타 · 곁주석 */
+  --lh-tight: 1.45;   /* 제목 · 태그 · 배지 — 한 줄로 끝나는 것 */
 }
 
 /* ① 표제 */
@@ -1334,7 +1339,7 @@ body.mod-smart .learn-article details.fold > summary,
 body.mod-smart .learn-article .reslist details.fold > summary,
 body.mod-smart .learn-article .slide.compact h3,
 body.mod-smart .deck--on .deck-stage > .deck-prev,
-body.mod-smart .deck--on .deck-stage > .deck-next { font-size: var(--fs-title); }
+body.mod-smart .deck--on .deck-stage > .deck-next { font-size: var(--fs-title); line-height: var(--lh-tight); }
 
 /* ③ 본문 */
 body.mod-smart .learn-hero .sub,
@@ -1364,7 +1369,7 @@ body.mod-smart .learn-article .slide.compact .sun-box p,
 body.mod-smart .learn-article .roadmap li,
 body.mod-smart .learn-article .roadmap .rm-t,
 body.mod-smart .learn-article .roadmap strong,
-body.mod-smart .learn-article .roadmap em { font-size: var(--fs-body); }
+body.mod-smart .learn-article .roadmap em { font-size: var(--fs-body); line-height: var(--lh-read); }
 
 /* 글꼴을 한 벌로 — Merriweather에는 한글 글자가 없어서 히어로 소제목과 리드의
    한글이 OS 기본 명조체로 대체됐다(윈도우 바탕 · 맥 애플명조 · 안드로이드 고딕).
@@ -1430,7 +1435,77 @@ body.mod-smart .deck-count,
 body.mod-smart .mod-home a,
 body.mod-smart .mod-nav a,
 body.mod-smart .mod-nav .nav-label,
-body.mod-smart .learn-footer { font-size: var(--fs-sub); }
+body.mod-smart .learn-footer { font-size: var(--fs-sub); line-height: var(--lh-sub); }
+
+/* 한 줄로 끝나는 것들은 좁게 — 알약 · 배지 · 라벨이 세로로 부풀지 않게 */
+body.mod-smart .learn-article .reslist .linkrow a,
+body.mod-smart .learn-article .reslist .linkrow.tiny a,
+body.mod-smart .learn-article .reslist.grid2.cards .linkrow a,
+body.mod-smart .learn-article .reslist .numlist a,
+body.mod-smart .learn-article .reslist .linkrow details.fold.pill > summary,
+body.mod-smart .learn-article .reslist.grid2.cards .linkrow details.fold.pill > summary,
+body.mod-smart .learn-article .reslist .numlist details.fold.pill > summary,
+body.mod-smart .learn-article .badge,
+body.mod-smart .learn-article .secl,
+body.mod-smart .learn-article .side,
+body.mod-smart .learn-article .reslist .nsub,
+body.mod-smart .learn-article .learn-part,
+body.mod-smart .learn-article .learn-part .pt,
+body.mod-smart .learn-article .h3tag span,
+body.mod-smart .learn-article a.ptag,
+body.mod-smart .learn-article .fig-note .nh,
+body.mod-smart .learn-article .fig-note p.ntop a,
+body.mod-smart .learn-article .fig-note p.ftag a,
+body.mod-smart .learn-hero .label,
+body.mod-smart .learn-hero .label .term,
+body.mod-smart .learn-back,
+body.mod-smart .deck-dots button,
+body.mod-smart .deck-toggle,
+body.mod-smart .deck-count { line-height: var(--lh-tight); }
+
+/* 흐름 지도는 다섯 칸이 나란히 서므로 읽기 줄간격보다 좁게 */
+body.mod-smart .learn-article .roadmap li,
+body.mod-smart .learn-article .roadmap .rm-t,
+body.mod-smart .learn-article .roadmap strong,
+body.mod-smart .learn-article .roadmap em { line-height: var(--lh-tight); }
+
+/* 읽는 글 — 본문 · 설명문 · 번호목록 · 표 본문 · 슬라이드 */
+body.mod-smart .learn-hero .sub,
+body.mod-smart .learn-article p,
+body.mod-smart .learn-article li,
+body.mod-smart .learn-article .lead,
+body.mod-smart .learn-article .lead.sm,
+body.mod-smart .learn-article .reslist .desc,
+body.mod-smart .learn-article .reslist.tight .desc,
+body.mod-smart .learn-article .reslist.grid2.cards .desc,
+body.mod-smart .learn-article .reslist .desc.mini,
+body.mod-smart .learn-article .reslist .numlist li,
+body.mod-smart .learn-article .reslist.grid2.cards .numlist li,
+body.mod-smart .learn-article table.ref td,
+body.mod-smart .learn-article .logic p,
+body.mod-smart .learn-article .slide.def p,
+body.mod-smart .learn-article .slide.compact p,
+body.mod-smart .learn-article .sun-box li,
+body.mod-smart .learn-article .slide.compact .sun-box li,
+body.mod-smart .learn-article .slide.compact .sun-box p,
+body.mod-smart .learn-article .cities { line-height: var(--lh-read); }
+
+/* 보조 — 캡션 · 메타 · 곁주석 · 힌트 */
+body.mod-smart .learn-article .reslist .meta,
+body.mod-smart .learn-article .learn-fig figcaption,
+body.mod-smart .learn-article .fig-pair figcaption,
+body.mod-smart .learn-article .slide-shots figcaption,
+body.mod-smart .learn-article .fig-side .learn-fig figcaption,
+body.mod-smart .learn-article p.mini-note,
+body.mod-smart .learn-article .tbl-hint,
+body.mod-smart .learn-article table.ref th,
+body.mod-smart .learn-article .logic .chain,
+body.mod-smart .learn-article .logic .aim,
+body.mod-smart .learn-article .fig-note p,
+body.mod-smart .learn-article .fig-side.vidside .fig-note p,
+body.mod-smart .learn-article .fig-note > a,
+body.mod-smart .learn-article .fig-note .pf-key,
+body.mod-smart .learn-article .fig-note p.wlist { line-height: var(--lh-sub); }
 
 /* ⑤ 표시 */
 body.mod-smart .learn-article .cities b,
