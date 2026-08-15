@@ -510,6 +510,13 @@ body.hub .lw { max-width: 1160px; }
 .learn-article { padding: 40px 0 80px; }
 .learn-article h2 { font-size: 24px; font-weight: 800; color: var(--deep); margin: 36px 0 14px; scroll-margin-top: 84px; }
 .learn-article h3 { font-size: 18px; font-weight: 700; color: var(--green); margin: 26px 0 10px; }
+/* 소제목을 태그 형태로 — 파트 색 계열을 따른다 */
+.learn-article .h3tag { margin: 22px 0 10px; }
+.learn-article .h3tag span {
+  display: inline-block; padding: 5px 13px; border-radius: 999px;
+  background: #f4effb; border: 1px solid #ded1f8; color: #5b21b6;
+  font-size: 13px; font-weight: 800; letter-spacing: .01em;
+}
 .learn-article p { font-size: 15px; color: var(--text); line-height: 1.95; margin-bottom: 14px; }
 .learn-article ul { margin: 0 0 16px 20px; }
 .learn-article li { font-size: 15px; line-height: 1.9; margin-bottom: 6px; }
