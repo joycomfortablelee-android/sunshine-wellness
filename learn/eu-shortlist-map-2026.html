@@ -224,23 +224,23 @@ h1 span {
   border:none;
 }
 .pin-shell {
-  width:12px;
-  height:12px;
+  width:22px;
+  height:22px;
   display:flex;
   align-items:center;
   justify-content:center;
 }
 .pin-core {
-  width:8px;
-  height:8px;
+  width:15px;
+  height:15px;
   border-radius:50%;
-  box-shadow:0 0 0 1.5px #fff;
+  box-shadow:0 0 0 2px #fff,0 1px 3px rgba(16,42,67,.3);
 }
 .pin-core.capital { background:var(--capital); }
 .pin-core.green { background:var(--green); }
 .pin-shell.winner {
   border-radius:50%;
-  box-shadow:0 0 0 2px var(--gold);
+  box-shadow:0 0 0 3px var(--gold);
   background:rgba(216,155,18,.10);
 }
 .popup-link{display:inline-block;margin-top:7px;padding:4px 9px;border-radius:999px;
@@ -251,8 +251,8 @@ h1 span {
 .card-link:hover{background:#d89b12;border-color:#d89b12;color:#fff}
 .pin-shell.winner { position:relative; }
 .pin-star {
-  position:absolute; left:50%; bottom:9px; transform:translateX(-50%);
-  font-size:14px; line-height:1; color:var(--gold); pointer-events:none;
+  position:absolute; left:50%; bottom:15px; transform:translateX(-50%);
+  font-size:16px; line-height:1; color:var(--gold); pointer-events:none;
   text-shadow:0 0 2px #fff,0 0 2px #fff,0 0 3px #fff,0 1px 2px rgba(0,0,0,.35);
 }
 
@@ -370,9 +370,9 @@ function makeIcon(city) {
         ${city.winner ? '<span class="pin-star">★</span>' : ''}
       </div>
     `,
-    iconSize:[12,12],
-    iconAnchor:[6,6],
-    popupAnchor:[0,-8]
+    iconSize:[22,22],
+    iconAnchor:[11,11],
+    popupAnchor:[0,-13]
   });
 }
 
@@ -412,7 +412,7 @@ function render() {
     marker.bindPopup(popupHtml(city), { maxWidth:320 });
     marker.bindTooltip(
       `${city.winner ? "★ " : ""}${city.ko} · ${catInfo[city.cat].ko}`,
-      { direction:"top", offset:[0,-8] }
+      { direction:"top", offset:[0,-13] }
     );
     markers[city.en] = marker;
   });
