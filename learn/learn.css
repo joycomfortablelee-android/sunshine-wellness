@@ -1299,3 +1299,151 @@ body.hub .lw { max-width: 1160px; }
   body.mod-smart *::before,
   body.mod-smart *::after { font-size: var(--one) !important; }
 }
+
+/* ===== smart-tourism.html 전용 — 데스크톱 5단 기준선 =====
+   이 페이지에만 걸린다(body.mod-smart). 다른 13개 페이지는 기존 치수 그대로.
+   모바일(≤760px)은 위의 9px !important 블록이 이 값들을 덮으므로 영향 없다.
+
+     ① 표제 28   페이지 제목
+     ② 제목 14.5 자료 항목 제목 · 묶음 제목 · 접이식 머리글 · 소제목
+     ③ 본문 12.5 본문 · 리드 · 설명문 · 번호목록 · 표 본문 · 슬라이드 본문 · 요약상자
+     ④ 보조 10.5 캡션 · 메타 · 출처 · 곁주석 · 표 머리 · 힌트 · 파트 머리글 · 알약 태그
+     ⑤ 표시 9    원 안의 숫자 · 연도 배지 · 공식 출처
+
+   16종이던 크기를 5종으로 줄인다. 위계는 크기가 아니라 굵기 · 색 · 배경이 함께 만든다. */
+body.mod-smart {
+  --fs-hero:  28px;
+  --fs-title: 14.5px;
+  --fs-body:  12.5px;
+  --fs-sub:   10.5px;
+  --fs-mini:  9px;
+}
+
+/* ① 표제 */
+body.mod-smart .learn-hero h1 { font-size: var(--fs-hero); }
+
+/* ② 제목 */
+body.mod-smart .learn-logo .en,
+body.mod-smart .learn-article h2,
+body.mod-smart .learn-article h3,
+body.mod-smart .learn-article .reslist a,
+body.mod-smart .learn-article .reslist .grouptitle,
+body.mod-smart .learn-article .reslist.grid2.cards .grouptitle,
+body.mod-smart .learn-article .reslist.tight a,
+body.mod-smart .learn-article details.fold > summary,
+body.mod-smart .learn-article .reslist details.fold > summary,
+body.mod-smart .learn-article .slide.compact h3,
+body.mod-smart .deck--on .deck-stage > .deck-prev,
+body.mod-smart .deck--on .deck-stage > .deck-next { font-size: var(--fs-title); }
+
+/* ③ 본문 */
+body.mod-smart .learn-hero .sub,
+body.mod-smart .learn-article p,
+body.mod-smart .learn-article li,
+body.mod-smart .learn-article code,
+body.mod-smart .learn-article .lead,
+body.mod-smart .learn-article .lead.sm,
+body.mod-smart .learn-article .reslist .desc,
+body.mod-smart .learn-article .reslist.tight .desc,
+body.mod-smart .learn-article .reslist.grid2.cards .desc,
+body.mod-smart .learn-article .reslist .desc.mini,
+body.mod-smart .learn-article .reslist .numlist li,
+body.mod-smart .learn-article .reslist.grid2.cards .numlist li,
+body.mod-smart .learn-article table.ref td,
+body.mod-smart .learn-article table.ref td.st,
+body.mod-smart .learn-article table.ref td.pri,
+body.mod-smart .learn-article .logic p,
+body.mod-smart .learn-article .slide.def p,
+body.mod-smart .learn-article .slide.def .logic p,
+body.mod-smart .learn-article .slide.def .logic .neg,
+body.mod-smart .learn-article .slide.def .logic .pos,
+body.mod-smart .learn-article .slide.compact p,
+body.mod-smart .learn-article .sun-box li,
+body.mod-smart .learn-article .slide.compact .sun-box li,
+body.mod-smart .learn-article .slide.compact .sun-box p { font-size: var(--fs-body); }
+
+/* ④ 보조 */
+body.mod-smart .learn-logo .kr,
+body.mod-smart .learn-back,
+body.mod-smart .learn-hero .label,
+body.mod-smart .learn-hero .label .term,
+body.mod-smart .learn-article .learn-part,
+body.mod-smart .learn-article .learn-part .pt,
+body.mod-smart .learn-article .h3tag span,
+body.mod-smart .learn-article a.ptag,
+body.mod-smart .learn-article .roadmap li,
+body.mod-smart .learn-article .roadmap .rm-t,
+body.mod-smart .learn-article .roadmap strong,
+body.mod-smart .learn-article .roadmap em,
+body.mod-smart .learn-article .reslist .meta,
+body.mod-smart .learn-article .reslist.tight .meta,
+body.mod-smart .learn-article .reslist.grid2.cards .meta,
+body.mod-smart .learn-article .reslist .linkrow a,
+body.mod-smart .learn-article .reslist .linkrow.tiny a,
+body.mod-smart .learn-article .reslist.grid2.cards .linkrow a,
+body.mod-smart .learn-article .reslist .numlist a,
+body.mod-smart .learn-article .reslist .linkrow details.fold.pill > summary,
+body.mod-smart .learn-article .reslist.grid2.cards .linkrow details.fold.pill > summary,
+body.mod-smart .learn-article .reslist .numlist details.fold.pill > summary,
+body.mod-smart .learn-article details.fold > summary::before,
+body.mod-smart .learn-article details.fold > summary::after,
+body.mod-smart .learn-article .secl,
+body.mod-smart .learn-article .reslist .nsub,
+body.mod-smart .learn-article .side,
+body.mod-smart .learn-article .badge,
+body.mod-smart .learn-article .reslist a .badge.now,
+body.mod-smart .learn-article .learn-fig figcaption,
+body.mod-smart .learn-article .learn-fig.sm figcaption,
+body.mod-smart .learn-article .fig-pair figcaption,
+body.mod-smart .learn-article .slide-shots figcaption,
+body.mod-smart .learn-article .fig-side .learn-fig figcaption,
+body.mod-smart .learn-article p.mini-note,
+body.mod-smart .learn-article .src-inline,
+body.mod-smart .learn-article .tbl-hint,
+body.mod-smart .learn-article table.ref th,
+body.mod-smart .learn-article table.ref .ko,
+body.mod-smart .learn-article table.ref .jr,
+body.mod-smart .learn-article .logic .chain,
+body.mod-smart .learn-article .logic .aim,
+body.mod-smart .learn-article .logic .formula,
+body.mod-smart .learn-article .slide.def .logic .chain,
+body.mod-smart .learn-article .slide.def .logic .aim,
+body.mod-smart .learn-article .slide.def .logic .formula,
+body.mod-smart .learn-article .fig-note p,
+body.mod-smart .learn-article .fig-side.vidside .fig-note p,
+body.mod-smart .learn-article .fig-note > a,
+body.mod-smart .learn-article .fig-side.vidside .fig-note > a,
+body.mod-smart .learn-article .fig-note .pf-key,
+body.mod-smart .learn-article .fig-note p.ntop a,
+body.mod-smart .learn-article .fig-note p.wlist,
+body.mod-smart .learn-article .fig-note p.ftag a,
+body.mod-smart .deck-dots button,
+body.mod-smart .deck-toggle,
+body.mod-smart .deck-count,
+body.mod-smart .mod-home a,
+body.mod-smart .mod-nav a,
+body.mod-smart .mod-nav .nav-label,
+body.mod-smart .learn-footer { font-size: var(--fs-sub); }
+
+/* ⑤ 표시 */
+body.mod-smart .learn-article .cities b,
+body.mod-smart .learn-article .reslist .numlist li::before,
+body.mod-smart .learn-article .reslist.grid2.cards .numlist li::before,
+body.mod-smart .learn-article .reslist .linkrow details.fold.pill > summary::after,
+body.mod-smart .learn-article .reslist .numlist details.fold.pill > summary::after,
+body.mod-smart .learn-article .logic .formula .src,
+body.mod-smart .learn-article .fig-note .nh,
+body.mod-smart .learn-article .fig-note .embed-head,
+body.mod-smart .learn-article .fig-note p.wlist b,
+body.mod-smart .learn-article .fig-note p.wlist a,
+body.mod-smart .learn-article .fig-note p.src,
+body.mod-smart .learn-footer .copy { font-size: var(--fs-mini); }
+
+/* 2열 카드용으로 눌러 둔 여백도 기본값으로 — 글자가 같아졌으니 칸도 같게 */
+body.mod-smart .learn-article .reslist.grid2.cards .numlist li { padding-left: 27px; }
+body.mod-smart .learn-article .reslist.grid2.cards .numlist li::before { width: 19px; height: 19px; top: 3px; }
+body.mod-smart .learn-article .reslist.grid2.cards .linkrow a,
+body.mod-smart .learn-article .reslist.grid2.cards .linkrow details.fold.pill > summary { padding: 4px 10px; }
+/* 태그가 커진 만큼 알약 안쪽 여백을 한 칸 줄여 태그줄이 더 접히지 않게 */
+body.mod-smart .learn-article .reslist .linkrow a,
+body.mod-smart .learn-article .reslist .linkrow details.fold.pill > summary { padding: 5px 11px; }
