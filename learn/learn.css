@@ -130,6 +130,15 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .cities { display: inline-block; font-size: inherit; line-height: 1.95; }
 .learn-article .cities strong { font-weight: 700; }
 
+/* 부문 라벨 — 수도(청록) / 녹색(초록) 구분 */
+.learn-article .secl {
+  display: inline-block; margin: 4px 0 2px; padding: 2px 9px; border-radius: 999px;
+  font-size: 10.5px; font-weight: 800; letter-spacing: .02em;
+}
+.learn-article .secl.cap { background: #e6f5f2; color: #17635a; border: 1px solid #c6e6e1; }
+.learn-article .secl.grn { background: #e8f5ee; color: #0f6b52; border: 1px solid #c7e6d9; }
+.learn-article .cities.grn b { color: #0f6b52; border-color: #c7e6d9; }
+
 /* 본문 안에서 붉게 강조할 구절 */
 .learn-article .hot-t, .learn-article .reslist .hot-t,
 .learn-article .reslist .numlist .hot-t, .learn-article .reslist li.hi .desc .hot-t { color: #c0392b; }
