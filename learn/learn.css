@@ -186,11 +186,11 @@ body.hub .lw { max-width: 1160px; }
 }
 .learn-article details.fold[open] > summary::before { transform: rotate(90deg); }
 .learn-article details.fold > summary::after {
-  content: "＋ 펼치기"; margin-left: auto;
+  content: "＋펼침"; margin-left: auto;
   font-size: 12px; font-weight: 700; color: #2563a8;
   border: 1px solid #bcd4ee; background: #fff; border-radius: 999px; padding: 4px 11px;
 }
-.learn-article details.fold[open] > summary::after { content: "－ 접기"; }
+.learn-article details.fold[open] > summary::after { content: "－접힘"; }
 .learn-article details.fold > summary:hover { color: #0f3d76; }
 .learn-article details.fold > summary:hover::after { background: #eaf2fc; }
 .learn-article details.fold[open] { padding-bottom: 6px; background: #fbfdff; }
@@ -1298,9 +1298,4 @@ body.hub .lw { max-width: 1160px; }
   body.mod-smart *,
   body.mod-smart *::before,
   body.mod-smart *::after { font-size: var(--one) !important; }
-
-  /* 접이식 배지 문구를 짧게 — 좁은 화면에서 요약줄이 두 줄로 접히지 않게.
-     알약형(.fold.pill)은 원래 「＋」 한 글자라 더 구체적인 규칙이 그대로 이긴다. */
-  body.mod-smart .learn-article details.fold > summary::after { content: "＋펼침"; }
-  body.mod-smart .learn-article details.fold[open] > summary::after { content: "－접힘"; }
 }
