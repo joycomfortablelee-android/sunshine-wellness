@@ -240,6 +240,10 @@ h1{
   text-shadow:0 0 1px #fff,0 1px 4px rgba(0,0,0,.24);
 }
 
+.popup-link{display:inline-block;margin-top:7px;padding:4px 9px;border-radius:999px;background:#fff;border:1px solid #e4d3a8;color:#8a5a17;font-size:10.5px;font-weight:800;text-decoration:none}
+.popup-link:hover{background:#d89b12;border-color:#d89b12;color:#fff}
+.card-link{display:inline-block;margin-left:5px;padding:3px 8px;border-radius:999px;background:#fff;border:1px solid #e4d3a8;color:#8a5a17;font-size:9.5px;font-weight:800;text-decoration:none}
+.card-link:hover{background:#d89b12;border-color:#d89b12;color:#fff}
 .popup-title{font-size:14px;font-weight:900;color:var(--navy)}
 .popup-meta{margin-top:2px;font-size:10.5px;color:var(--muted);line-height:1.4}
 .popup-status{margin-top:7px;padding-top:7px;border-top:1px solid #edf2f7;font-size:11px;font-weight:800}
@@ -356,6 +360,8 @@ function makeIcon(city) {
   });
 }
 
+const euUrl = {"Bordeaux":"https://smart-tourism-capital.ec.europa.eu/bordeaux-european-capital-smart-tourism-2022_en", "Dublin":"https://smart-tourism-capital.ec.europa.eu/dublin-shortlisted-2022-competition_en", "Florence":"https://smart-tourism-capital.ec.europa.eu/florence-italy-shortlisted-2022-competition_en", "Ljubljana":"https://smart-tourism-capital.ec.europa.eu/ljubljana-shortlisted-2022-competition_en", "Palma":"https://smart-tourism-capital.ec.europa.eu/palma-shortlisted-2022-competition_en", "Valencia":"https://smart-tourism-capital.ec.europa.eu/valencia-european-capital-smart-tourism-2022_en", "Venice":"https://smart-tourism-capital.ec.europa.eu/venice-shortlisted-2022-competition_en"};
+
 function popupHtml(city) {
   const statusKo = city.status === "winner" ? "2022 수상 도시" : "2022 최종 후보";
   const color = city.status === "winner" ? "#d89b12" : "#169873";
@@ -364,6 +370,7 @@ function popupHtml(city) {
       <div class="popup-title">${city.ko} <span style="font-size:11px;color:#627d98">${city.en}</span></div>
       <div class="popup-meta">${city.country}</div>
       <div class="popup-status" style="color:${color}">${statusKo}</div>
+      ${euUrl[city.en] ? `<a class="popup-link" href="${euUrl[city.en]}" target="_blank" rel="noopener">EU 공식 · ${city.status === "winner" ? "수상 도시" : "최종 후보"} 소개 ↗</a>` : ""}
     </div>
   `;
 }
@@ -396,11 +403,13 @@ function render() {
       <span class="city-en">${city.en}</span>
       <div class="country">${city.country}</div>
       <span class="badge ${city.status}">${city.status === "winner" ? "2022 수상" : "최종 후보"}</span>
+      ${euUrl[city.en] ? `<a class="card-link" href="${euUrl[city.en]}" target="_blank" rel="noopener">EU 공식 소개 ↗</a>` : ""}
     </div>
   `).join("");
 
   document.querySelectorAll(".city-card").forEach(el => {
-    el.addEventListener("click", () => {
+    el.addEventListener("click", (ev) => {
+      if (ev.target.closest("a")) return;
       const city = cities.find(c => c.en === el.dataset.city);
       map.setView([city.lat, city.lon], 6, {animate:true});
       markers[city.en].openPopup();
