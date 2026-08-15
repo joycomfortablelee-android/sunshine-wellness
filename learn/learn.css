@@ -517,17 +517,26 @@ body.hub .lw { max-width: 1160px; }
 }
 .learn-article .roadmap li {
   margin: 0; padding: 10px 11px 11px; border-radius: 9px;
-  border: 1px solid var(--line); border-top: 3px solid var(--green);
-  background: #fcfcfb; font-size: 12px; line-height: 1.5;
+  border: 1px solid var(--r-ln, var(--line)); border-top: 3px solid var(--r-ac, var(--green));
+  background: linear-gradient(160deg, var(--r-a, #f6f7f8) 0%, var(--r-b, #fbfbfb) 52%, #fff 88%);
+  font-size: 12px; line-height: 1.5;
+  transition: box-shadow .18s, transform .18s;
 }
+.learn-article .roadmap li:hover { transform: translateY(-2px); box-shadow: 0 6px 16px var(--r-sh, rgba(16,42,67,.1)); }
 .learn-article .roadmap .rm-t { display: block; font-size: 10.5px; font-weight: 800; letter-spacing: .04em; margin-bottom: 4px; }
 .learn-article .roadmap strong { display: block; font-size: 13px; color: var(--deep); margin-bottom: 3px; }
 .learn-article .roadmap em { display: block; font-style: normal; font-size: 11px; color: var(--muted); }
-.learn-article .roadmap .rm-case { border-top-color: #2563a8; } .roadmap .rm-case .rm-t { color: #1c4e8a; }
-.learn-article .roadmap .rm-do { border-top-color: #e8a04a; } .roadmap .rm-do .rm-t { color: #8a5a17; }
-.learn-article .roadmap .rm-learn { border-top-color: #3B6259; } .roadmap .rm-learn .rm-t { color: #2f5148; }
-.learn-article .roadmap .rm-res { border-top-color: #8272ad; } .roadmap .rm-res .rm-t { color: #56487a; }
-.learn-article .roadmap .rm-lib { border-top-color: #6b7d76; } .roadmap .rm-lib .rm-t { color: #3c4d48; }
+/* 걸음마다 다른 그라데이션 — 위쪽 색선에서 시작해 아래로 흰색으로 풀린다 */
+.learn-article .roadmap .rm-case  { --r-a:#dceefb; --r-b:#eff7fd; --r-ac:#2563a8; --r-ln:#c8ddf0; --r-sh:rgba(37,99,168,.16); }
+.learn-article .roadmap .rm-do    { --r-a:#fceedb; --r-b:#fdf7ec; --r-ac:#e8a04a; --r-ln:#efdcbc; --r-sh:rgba(184,121,29,.16); }
+.learn-article .roadmap .rm-learn { --r-a:#dff0ea; --r-b:#eff7f4; --r-ac:#3B6259; --r-ln:#c9e2da; --r-sh:rgba(59,98,89,.16); }
+.learn-article .roadmap .rm-res   { --r-a:#e9e2fa; --r-b:#f4f0fd; --r-ac:#8272ad; --r-ln:#d9cef0; --r-sh:rgba(130,114,173,.16); }
+.learn-article .roadmap .rm-lib   { --r-a:#e4eae7; --r-b:#f1f4f3; --r-ac:#6b7d76; --r-ln:#d2dbd7; --r-sh:rgba(107,125,118,.16); }
+.learn-article .roadmap .rm-case .rm-t  { color: #1c4e8a; }
+.learn-article .roadmap .rm-do .rm-t    { color: #8a5a17; }
+.learn-article .roadmap .rm-learn .rm-t { color: #2f5148; }
+.learn-article .roadmap .rm-res .rm-t   { color: #56487a; }
+.learn-article .roadmap .rm-lib .rm-t   { color: #3c4d48; }
 @media (max-width: 860px) { .learn-article .roadmap { grid-template-columns: repeat(2, 1fr); } }
 
 /* 파트 번호 태그 — 섹션마다 색을 달리해 구분한다 */
