@@ -300,6 +300,17 @@ body.hub .lw { max-width: 1160px; }
 }
 .learn-article .reslist .numlist strong { color: #17539b; }
 
+/* 번호 항목 안의 링크도 태그와 같은 흰 바탕 알약으로 */
+.learn-article .reslist .numlist a {
+  display: inline-block; padding: 3px 9px; margin: 1px 0;
+  border-radius: 999px; background: #fff;
+  border: 1px solid var(--t-ln, var(--line));
+  color: var(--t-dk, var(--green));
+  font-size: 10.5px; font-weight: 700; line-height: 1.5; vertical-align: 1px;
+}
+.learn-article .reslist .numlist a strong { font-weight: 700; color: inherit; }
+.learn-article .reslist .numlist a:hover { background: var(--t-ac, var(--green)); border-color: var(--t-ac, var(--green)); color: #fff; }
+
 /* 본문 문단 안에 놓는 자료 링크 (목록의 세로 막대 없이) */
 .learn-article a.dl-link { font-weight: 800; color: var(--deep); border-bottom: 1px solid currentColor; }
 .learn-article a.dl-link:hover { color: var(--green); }
