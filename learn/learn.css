@@ -152,6 +152,12 @@ body.hub .lw { max-width: 1160px; }
 .learn-article details.fold > summary:hover::after { background: #eaf2fc; }
 .learn-article details.fold[open] { padding-bottom: 6px; background: #fbfdff; }
 
+/* 강조 카드(li.hi) 안에 들어간 접이식 — 카드 색과 부딪히지 않게 */
+.learn-article .reslist li.hi details.fold { background: rgba(255,255,255,.75); border-color: #bcd4ee; margin: 10px 0 4px; }
+.learn-article .reslist li.hi details.fold[open] { background: rgba(255,255,255,.9); }
+.learn-article .reslist details.fold > summary { font-size: 13.5px; padding: 11px 2px; }
+.learn-article .reslist details.fold .desc { margin-top: 0; padding-bottom: 8px; }
+
 /* 촘촘한 자료 목록 — 정보는 그대로, 자리만 줄인다 */
 .learn-article .reslist.tight li { margin-bottom: 13px; padding-left: 13px; }
 .learn-article .reslist.tight a { font-size: 14.5px; }
