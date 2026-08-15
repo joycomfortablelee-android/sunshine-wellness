@@ -301,6 +301,7 @@ body.hub .lw { max-width: 1160px; }
 .learn-article table.ref td.st { font-size: 12.5px; color: #5b6b7d; }
 .learn-article table.ref a { font-weight: 800; color: var(--deep); border-bottom: 1px solid currentColor; }
 .learn-article table.ref a:hover { color: var(--green); }
+.learn-article table.ref .ko { display: block; margin-top: 3px; font-size: 12px; font-weight: 700; color: var(--green); }
 .learn-article table.ref .jr { display: block; margin-top: 3px; font-size: 11.5px; font-weight: 400; color: var(--muted); }
 .learn-article .tbl-hint { font-size: 12px; line-height: 1.75; color: var(--muted); margin: 0 0 18px; }
 
