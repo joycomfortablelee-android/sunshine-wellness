@@ -31,10 +31,17 @@ body{display:flex;flex-direction:column}
 
 header .hd{display:flex;gap:20px;align-items:flex-start}
 header .hd-main{flex:1 1 auto;min-width:0}
-header .hd-side{flex:0 0 330px;padding-left:20px;border-left:1px solid var(--line)}
-header .hd-side .kpis{margin-bottom:8px}
-header .hd-side .legend,header .hd-side .axes{margin-bottom:7px}
-header .hd-side .note{margin:0}
+header .hd-side{flex:0 0 320px;padding-left:16px;border-left:1px solid var(--line)}
+/* 우측 블록 — 각 줄을 한 행으로 눕혀 공간을 아낀다 */
+header .hd-side .kpis{display:flex;gap:5px;margin:0 0 6px}
+header .hd-side .kpi{flex:1;display:flex;align-items:baseline;justify-content:center;gap:4px;
+  padding:4px 5px;border-radius:6px}
+header .hd-side .kpi b{display:inline;font-size:13px;line-height:1}
+header .hd-side .kpi span{font-size:9.5px}
+header .hd-side .legend{margin:0 0 6px;gap:10px;font-size:10px}
+header .hd-side .axes{margin:0 0 6px;gap:4px}
+header .hd-side .axes span{font-size:9px;padding:3px 6px}
+header .hd-side .note{margin:0;border-top:1px solid #edf2f7;padding-top:6px;font-size:9.5px;line-height:1.5}
 @media(max-width:900px){
   header .hd{display:block}
   header .hd-side{padding-left:0;border-left:0;border-top:1px solid var(--line);margin-top:12px;padding-top:12px}
