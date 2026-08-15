@@ -430,6 +430,11 @@ body.hub .lw { max-width: 1160px; }
 }
 @media (max-width: 860px) { .learn-article .fig-note .embed-box iframe { height: 260px; } }
 
+/* 곁주석 첫 줄 — 두 링크를 나란히 */
+.learn-article .fig-note p.ntop { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 7px; }
+.learn-article .fig-note p.ntop a { font-size: 11px; font-weight: 800; border-bottom: 0;
+  padding: 4px 9px; border-radius: 999px; background: #fff; border: 1px solid #cfdcea; color: #17539b; }
+.learn-article .fig-note p.ntop a:hover { background: #2563a8; border-color: #2563a8; color: #fff; opacity: 1; }
 .learn-article .fig-note p.ftag { margin: 7px 0 0; }
 .learn-article .fig-note p.ftag a { display: inline-block; padding: 4px 10px; border-radius: 999px;
   background: #fff8e6; border: 1px solid #e8d49a; color: #8a5a17;
