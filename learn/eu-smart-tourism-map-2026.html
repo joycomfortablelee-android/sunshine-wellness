@@ -43,6 +43,9 @@ h1{margin:0;font-size:23px;line-height:1.25;color:var(--navy);letter-spacing:-.4
 .badge{font-size:9.5px;color:#fff;padding:3px 6px;border-radius:999px;font-weight:700}
 .case-mini{font-size:10.5px;color:#52697f;margin-top:5px;line-height:1.35}
 .map-pin-wrap{background:transparent;border:none}
+.map-pin{position:relative}
+.pin-star{position:absolute;top:-9px;right:-8px;font-size:15px;line-height:1;color:#f2b705;
+  text-shadow:0 0 2px #fff,0 0 2px #fff,0 1px 3px rgba(0,0,0,.4)}
 .map-pin{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:11px;border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.28)}
 .popup-title{font-size:14px;font-weight:900;color:var(--navy);margin-bottom:2px}
 .popup-meta{font-size:10.5px;color:var(--muted);margin-bottom:8px}
@@ -52,6 +55,7 @@ h1{margin:0;font-size:23px;line-height:1.25;color:var(--navy);letter-spacing:-.4
 .popup-ko{font-size:11.5px;font-weight:800;color:var(--ink)}
 .popup-en{font-size:9.5px;color:var(--muted)}
 .star{color:#d97706;font-weight:900}
+.short{color:#c99700;font-weight:800}
 footer{font-size:10.5px;color:var(--muted);background:#fff;border-top:1px solid var(--line);padding:9px 16px;line-height:1.4}
 footer a{color:#285f9e;text-decoration:none}
 @media(max-width:900px){
@@ -70,7 +74,7 @@ footer a{color:#285f9e;text-decoration:none}
 <body>
 <header>
   <h1>2026 유럽 스마트 관광 우수사례 지도 <span style="font-size:15px;font-weight:600;color:#627d98">EU Smart Tourism Best Practices</span></h1>
-  <div class="sub">도시를 클릭하면 4개 평가부문과 세부 사례가 함께 표시됩니다. 필터를 눌러 특정 부문만 비교할 수 있습니다. <span class="star">★ Tampere</span>는 2026 European Capital of Smart Tourism 수상 도시입니다.</div>
+  <div class="sub">도시를 클릭하면 4개 평가부문과 세부 사례가 함께 표시됩니다. 필터를 눌러 특정 부문만 비교할 수 있습니다. <span class="star">★ Tampere</span>는 2026 European Capital of Smart Tourism 수상 도시이고, <span class="short">노란 별 ★</span>이 붙은 7곳(브라가 · 브뤼헤 · 브뤼셀 · 제노바 · 라이프치히 · 레겐스부르크 · 탐페레)은 수도 부문 <b>2026 최종 후보</b>입니다.</div>
   <div class="toolbar">
     <button class="filter active" data-cat="all">전체 보기</button>
     <button class="filter" data-cat="access">접근성</button>
@@ -110,6 +114,9 @@ footer a{color:#285f9e;text-decoration:none}
 <script>
 const cityMeta = {"Bruges": {"ko": "브뤼헤", "country": "벨기에", "lat": 51.2093, "lon": 3.2247}, "Livorno": {"ko": "리보르노", "country": "이탈리아", "lat": 43.5485, "lon": 10.3106}, "Kütahya": {"ko": "퀴타히아", "country": "튀르키예", "lat": 39.4167, "lon": 29.9833}, "Regensburg": {"ko": "레겐스부르크", "country": "독일", "lat": 49.0134, "lon": 12.1016}, "Bergamo": {"ko": "베르가모", "country": "이탈리아", "lat": 45.6983, "lon": 9.6773}, "Kraków": {"ko": "크라쿠프", "country": "폴란드", "lat": 50.0647, "lon": 19.945}, "Muğla": {"ko": "무을라", "country": "튀르키예", "lat": 37.2153, "lon": 28.3636}, "Tampere": {"ko": "탐페레", "country": "핀란드", "lat": 61.4978, "lon": 23.761}, "Karlsruhe": {"ko": "카를스루에", "country": "독일", "lat": 49.0069, "lon": 8.4037}, "Leipzig": {"ko": "라이프치히", "country": "독일", "lat": 51.3397, "lon": 12.3731}, "Szczecin": {"ko": "슈체친", "country": "폴란드", "lat": 53.4285, "lon": 14.5528}, "Brussels": {"ko": "브뤼셀", "country": "벨기에", "lat": 50.8503, "lon": 4.3517}, "Genoa": {"ko": "제노바", "country": "이탈리아", "lat": 44.4056, "lon": 8.9463}, "Stuttgart": {"ko": "슈투트가르트", "country": "독일", "lat": 48.7758, "lon": 9.1829}, "Braga": {"ko": "브라가", "country": "포르투갈", "lat": 41.5454, "lon": -8.4265}, "Kaunas": {"ko": "카우나스", "country": "리투아니아", "lat": 54.8985, "lon": 23.9036}, "Pécs": {"ko": "페치", "country": "헝가리", "lat": 46.0727, "lon": 18.2323}, "Katowice": {"ko": "카토비체", "country": "폴란드", "lat": 50.2649, "lon": 19.0238}, "Klaipėda": {"ko": "클라이페다", "country": "리투아니아", "lat": 55.7033, "lon": 21.1443}, "Matosinhos": {"ko": "마토지뉴스", "country": "포르투갈", "lat": 41.1821, "lon": -8.6891}, "Sibiu": {"ko": "시비우", "country": "루마니아", "lat": 45.7983, "lon": 24.1256}, "Coimbra": {"ko": "코임브라", "country": "포르투갈", "lat": 40.2033, "lon": -8.4103}, "Balikesir": {"ko": "발리케시르", "country": "튀르키예", "lat": 39.6484, "lon": 27.8826}, "Tirana": {"ko": "티라나", "country": "알바니아", "lat": 41.3275, "lon": 19.8187}, "Ternopil": {"ko": "테르노필", "country": "우크라이나", "lat": 49.5535, "lon": 25.5948}, "Bodrum": {"ko": "보드룸", "country": "튀르키예", "lat": 37.0344, "lon": 27.4305}, "Gaziantep": {"ko": "가지안테프", "country": "튀르키예", "lat": 37.0662, "lon": 37.3833}, "Lublin": {"ko": "루블린", "country": "폴란드", "lat": 51.2465, "lon": 22.5684}, "Funchal": {"ko": "푼샬", "country": "포르투갈", "lat": 32.6669, "lon": -16.9241}, "Bordeaux": {"ko": "보르도", "country": "프랑스", "lat": 44.8378, "lon": -0.5792, "win": "2022"}, "Valencia": {"ko": "발렌시아", "country": "스페인", "lat": 39.4699, "lon": -0.3763, "win": "2022"}};
 cityMeta["Tampere"].win = "2026";
+// 2026 수도 부문 최종 후보 7곳 — 노란 별로 표시한다
+["Braga","Bruges","Brussels","Genoa","Leipzig","Regensburg","Tampere"]
+  .forEach(c => { if(cityMeta[c]) cityMeta[c].shortlist = true; });
 
 // 2022 수상 도시 — 2026 사례 목록에는 없고 도시 프로필로만 표시한다
 const cityProfile = {
@@ -171,9 +178,10 @@ function makeIcon(city) {
   const arr = cityCases[city].filter(x => activeCat==='all' || x.cat===activeCat);
   const cset = [...new Set(arr.map(x=>x.cat))];
   const count = arr.length;
+  const star = cityMeta[city].shortlist ? '<span class="pin-star">★</span>' : '';
   return L.divIcon({
     className:'map-pin-wrap',
-    html:`<div class="map-pin" style="background:${pinGradient(cset)}">${count}</div>`,
+    html:`<div class="map-pin" style="background:${pinGradient(cset)}">${count}${star}</div>`,
     iconSize:[30,30], iconAnchor:[15,15], popupAnchor:[0,-13]
   });
 }
@@ -181,7 +189,8 @@ function makeIcon(city) {
 function popupHtml(city) {
   const meta=cityMeta[city];
   const arr=cityCases[city].filter(x => activeCat==='all' || x.cat===activeCat);
-  const titleStar = meta.win ? ` <span class="star">★ ${meta.win} 수상</span>` : '';
+  const titleStar = meta.win ? ` <span class="star">★ ${meta.win} 수상</span>`
+    : (meta.shortlist ? ' <span class="short">★ 2026 최종 후보</span>' : '');
   const pf = cityProfile[city];
   if(pf) {
     return `<div style="min-width:250px">
@@ -248,7 +257,7 @@ function render() {
     const top=cityProfile[city] ? cityProfile[city].keywords : arr.slice(0,3).map(x=>`${x.id} ${x.ko}`).join(' · ');
     return `<div class="city-card" data-city="${city}">
       <div class="city-top">
-        <div><span class="city-name">${m.ko}</span><span class="city-en">${city}</span><div class="country">${m.country}${m.win?` · ★ ${m.win} 수상`:''}</div></div>
+        <div><span class="city-name">${m.ko}</span><span class="city-en">${city}</span><div class="country">${m.country}${m.win?` · ★ ${m.win} 수상`:(m.shortlist?' · <span class="short">★ 2026 최종 후보</span>':'')}</div></div>
         <span class="count">${cityProfile[city]?'프로필':arr.length+'건'}</span>
       </div>
       <div class="badges">${cset.map(c=>`<span class="badge" style="background:${cats[c].color}">${cats[c].ko}</span>`).join('')}</div>
