@@ -177,6 +177,11 @@ body.hub .lw { max-width: 1160px; }
   display: grid; grid-template-columns: minmax(0, 1fr) 196px;
   gap: 20px; align-items: start; margin: 30px 0;
 }
+/* 본문 문단 안에 놓는 자료 링크 (목록의 세로 막대 없이) */
+.learn-article a.dl-link { font-weight: 800; color: var(--deep); border-bottom: 1px solid currentColor; }
+.learn-article a.dl-link:hover { color: var(--green); }
+.learn-article .src-inline { font-size: 12px; color: var(--muted); }
+
 /* 오른쪽 칸을 넓게 쓰는 변형 — 그림 옆에 자료 카드를 놓을 때 */
 .learn-article .fig-side.wide { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 24px; }
 .learn-article .fig-side.wide .learn-fig img { max-width: 100%; }
