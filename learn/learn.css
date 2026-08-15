@@ -153,10 +153,11 @@ body.hub .lw { max-width: 1160px; }
   background: #f1f7fd; border-left: 3px solid #2563a8; border-radius: 0 8px 8px 0;
   padding: 12px 13px 11px; text-align: left;
 }
-.learn-article .fig-note a {
+.learn-article .fig-note > a {
   display: inline-block; font-size: 11.5px; font-weight: 800; line-height: 1.55;
   color: #17539b; border-bottom: 1px solid currentColor; margin-bottom: 6px;
 }
+.learn-article .fig-note p a { font-size: inherit; font-weight: 800; color: #17539b; border-bottom: 1px solid currentColor; }
 .learn-article .fig-note a:hover { opacity: .78; }
 .learn-article .fig-note p { font-size: 11px; line-height: 1.72; color: #5b6b7d; margin: 0 0 5px; }
 .learn-article .fig-note p.src { font-size: 10.5px; color: #8895a3; margin: 0; }
