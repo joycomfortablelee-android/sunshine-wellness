@@ -119,6 +119,14 @@ body.hub .lw { max-width: 1160px; }
 /* 주소를 눈에 띄게 — 카드 색을 물려받지 않고 붉게 */
 .learn-article .reslist .meta a.hot, .learn-article .reslist .desc a.hot { color: #c0392b; }
 
+/* 도시 목록 — 번호를 앞에 단 작은 표시 */
+.learn-article .cities b {
+  display: inline-block; min-width: 15px; height: 15px; margin-right: 2px;
+  border-radius: 50%; background: #c0392b; color: #fff;
+  font-size: 9.5px; font-weight: 800; text-align: center; line-height: 15px; vertical-align: 1px;
+}
+.learn-article .cities { line-height: 2; }
+
 /* 본문 안에서 붉게 강조할 구절 */
 .learn-article .hot-t, .learn-article .reslist .hot-t,
 .learn-article .reslist .numlist .hot-t, .learn-article .reslist li.hi .desc .hot-t { color: #c0392b; }
