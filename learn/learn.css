@@ -130,6 +130,10 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .cities { display: inline-block; font-size: inherit; line-height: 1.95; }
 .learn-article .cities strong { font-weight: 700; }
 
+/* 도시 이름 — 카드 색을 물려받지 않고 먹색으로(색이 셋 이상 겹치지 않게) */
+.learn-article .reslist li.hi.tone .numlist .cities strong,
+.learn-article .reslist .numlist .cities strong { color: #243b53; font-weight: 700; }
+
 /* 부문 라벨 — 수도(청록) / 녹색(초록) 구분 */
 .learn-article .secl {
   display: inline-block; margin: 4px 0 2px; padding: 2px 9px; border-radius: 999px;
