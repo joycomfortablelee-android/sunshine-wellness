@@ -199,6 +199,20 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .reslist li.violet { --t-bg: #f7f4fd; --t-ac: #7c3aed; --t-dk: #5b21b6; --t-ln: #ded1f8; }
 .learn-article .reslist li.green  { --t-bg: #f0f8f3; --t-ac: #169873; --t-dk: #0f6b52; --t-ln: #c7e6d9; }
 
+/* 태그 줄 안에 놓는 알약형 접이식 */
+.learn-article .reslist .linkrow details.fold.pill {
+  border: 0; background: none; padding: 0; margin: 0; flex: 0 0 auto;
+}
+.learn-article .reslist .linkrow details.fold.pill > summary {
+  display: inline-flex; gap: 5px; padding: 4px 10px; font-size: 10.5px; font-weight: 700;
+  border: 1px solid var(--t-ln, var(--line)); border-radius: 999px; background: #fff; color: var(--t-dk, var(--green));
+}
+.learn-article .reslist .linkrow details.fold.pill > summary::after { content: "＋"; margin: 0; padding: 0; border: 0; background: none; font-size: 11px; }
+.learn-article .reslist .linkrow details.fold.pill[open] > summary::after { content: "－"; }
+.learn-article .reslist .linkrow details.fold.pill[open] { flex: 1 0 100%; }
+.learn-article .reslist .linkrow details.fold.pill > summary:hover { background: var(--t-ac, var(--green)); border-color: var(--t-ac, var(--green)); color: #fff; }
+.learn-article .reslist .linkrow details.fold.pill[open] > summary { margin-bottom: 8px; }
+
 /* 촘촘한 자료 목록 — 정보는 그대로, 자리만 줄인다 */
 .learn-article .reslist.tight li { margin-bottom: 13px; padding-left: 13px; }
 .learn-article .reslist.tight a { font-size: 14.5px; }
