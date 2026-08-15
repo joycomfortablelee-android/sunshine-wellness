@@ -237,7 +237,7 @@ body.hub .lw { max-width: 1160px; }
 
 /* 눈에 띄게 강조할 항목 */
 .learn-article .reslist li.hi {
-  border-left: 4px solid #2563a8;
+  border-left: 2px solid #2563a8;
   background: #f1f7fd;
   border-radius: 0 12px 12px 0;
   padding: 15px 16px 14px 18px;
