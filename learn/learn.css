@@ -399,8 +399,8 @@ body.hub .lw { max-width: 1160px; }
   font-size: 10px; font-weight: 800; letter-spacing: .04em; vertical-align: 1px;
 }
 .learn-article .fig-note .pf-key {
-  margin-top: 6px; padding: 7px 10px; border-radius: 7px;
-  background: var(--green); color: #fff; font-size: 11px; font-weight: 700; line-height: 1.55; text-align: center;
+  margin-top: 7px; padding: 0; border-radius: 0; background: none;
+  color: var(--green); font-size: 11px; font-weight: 800; line-height: 1.6; text-align: left;
 }
 
 /* 영상 임베드 — 가운데가 아니라 왼쪽에 붙인다 */
