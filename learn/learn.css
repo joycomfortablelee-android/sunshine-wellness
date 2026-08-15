@@ -199,6 +199,7 @@ body.hub .lw { max-width: 1160px; }
 
 .learn-article .reslist li.teal   { --t-bg: #f0faf8; --t-ac: #2a9d8f; --t-dk: #17635a; --t-ln: #c6e6e1; }
 .learn-article .reslist li.violet { --t-bg: #f7f4fd; --t-ac: #7c3aed; --t-dk: #5b21b6; --t-ln: #ded1f8; }
+.learn-article .reslist li.gold   { --t-bg: #fdf8ec; --t-ac: #d19b3d; --t-dk: #8a5a17; --t-ln: #ecdcb9; }
 .learn-article .reslist li.green  { --t-bg: #f0f8f3; --t-ac: #169873; --t-dk: #0f6b52; --t-ln: #c7e6d9; }
 
 /* 태그 줄 안에 놓는 알약형 접이식 */
