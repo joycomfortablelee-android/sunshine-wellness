@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026 EU Smart Tourism Tiny Circle Map</title>
+
+<link rel="preconnect" href="https://unpkg.com">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+<style>
+:root {
+  --navy:#102a43;
+  --ink:#243b53;
+  --muted:#627d98;
+  --line:#d9e2ec;
+  --paper:#f5f8fb;
+  --capital:#2563eb;
+  --green:#169873;
+  --gold:#d89b12;
+}
+* { box-sizing:border-box; }
+html,body {
+  height:100%;
+  margin:0;
+  font-family:"Pretendard","Noto Sans KR","Malgun Gothic",Arial,sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+}
+body { display:flex; flex-direction:column; }
+
+header {
+  padding:16px 22px 13px;
+  background:#fff;
+  border-bottom:1px solid var(--line);
+}
+h1 {
+  margin:0;
+  color:var(--navy);
+  font-size:22px;
+  letter-spacing:-.4px;
+  line-height:1.25;
+}
+h1 span {
+  margin-left:7px;
+  color:var(--muted);
+  font-size:14px;
+  font-weight:600;
+}
+.sub {
+  margin-top:6px;
+  font-size:12.5px;
+  color:var(--muted);
+  line-height:1.5;
+}
+.toolbar {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+.filter {
+  border:1px solid var(--line);
+  background:#fff;
+  color:var(--ink);
+  border-radius:999px;
+  padding:8px 12px;
+  font-size:12.5px;
+  font-weight:800;
+  cursor:pointer;
+}
+.filter.active {
+  background:var(--navy);
+  color:#fff;
+  border-color:var(--navy);
+}
+.filter:not(.active)[data-cat="capital"]::before,
+.filter:not(.active)[data-cat="green"]::before {
+  content:"";
+  display:inline-block;
+  width:7px;
+  height:7px;
+  margin-right:6px;
+  border-radius:50%;
+  vertical-align:1px;
+}
+.filter:not(.active)[data-cat="capital"]::before { background:var(--capital); }
+.filter:not(.active)[data-cat="green"]::before { background:var(--green); }
+
+.search {
+  margin-left:auto;
+  min-width:220px;
+  flex:0 1 320px;
+  border:1px solid var(--line);
+  border-radius:9px;
+  padding:9px 11px;
+  font-size:12.5px;
+}
+
+.layout {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 350px;
+  flex:1;
+  min-height:0;
+}
+#map {
+  height:100%;
+  min-height:640px;
+}
+.panel {
+  background:#fff;
+  border-left:1px solid var(--line);
+  overflow:auto;
+  min-height:0;
+}
+.panel-head {
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:rgba(255,255,255,.97);
+  backdrop-filter:blur(8px);
+  padding:14px;
+  border-bottom:1px solid var(--line);
+}
+.kpis {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:6px;
+  margin-bottom:10px;
+}
+.kpi {
+  background:#f7fafc;
+  border:1px solid #e6edf3;
+  border-radius:9px;
+  padding:8px;
+  text-align:center;
+}
+.kpi b {
+  display:block;
+  color:var(--navy);
+  font-size:16px;
+}
+.kpi span {
+  font-size:10.5px;
+  color:var(--muted);
+}
+.legend {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 12px;
+  font-size:10.5px;
+  color:var(--muted);
+}
+.legend i {
+  display:inline-block;
+  width:8px;
+  height:8px;
+  margin-right:4px;
+  border-radius:50%;
+}
+.legend .capital i { background:var(--capital); }
+.legend .green i { background:var(--green); }
+.legend .winner i {
+  background:#fff;
+  border:2px solid var(--gold);
+  width:10px;
+  height:10px;
+}
+
+#cityList { padding:8px; }
+.city-card {
+  border:1px solid #e6edf3;
+  border-radius:10px;
+  padding:10px 11px;
+  margin:7px 0;
+  background:#fff;
+  cursor:pointer;
+  transition:.15s;
+}
+.city-card:hover {
+  transform:translateY(-1px);
+  box-shadow:0 4px 14px rgba(16,42,67,.08);
+}
+.city-top {
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  align-items:flex-start;
+}
+.city-name {
+  font-size:13px;
+  font-weight:900;
+  color:var(--navy);
+}
+.city-en {
+  margin-left:4px;
+  font-size:10.5px;
+  color:var(--muted);
+}
+.country {
+  margin-top:2px;
+  font-size:10.5px;
+  color:var(--muted);
+}
+.badge {
+  display:inline-block;
+  margin-top:7px;
+  border-radius:999px;
+  padding:3px 7px;
+  font-size:9.5px;
+  color:#fff;
+  font-weight:800;
+}
+.badge.capital { background:var(--capital); }
+.badge.green { background:var(--green); }
+.winner-tag {
+  color:var(--gold);
+  font-weight:900;
+}
+
+.map-pin-wrap {
+  background:transparent;
+  border:none;
+}
+.pin-shell {
+  width:12px;
+  height:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.pin-core {
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  box-shadow:0 0 0 1.5px #fff;
+}
+.pin-core.capital { background:var(--capital); }
+.pin-core.green { background:var(--green); }
+.pin-shell.winner {
+  border-radius:50%;
+  box-shadow:0 0 0 2px var(--gold);
+  background:rgba(216,155,18,.10);
+}
+
+.popup-title {
+  font-size:14px;
+  font-weight:900;
+  color:var(--navy);
+  margin-bottom:2px;
+}
+.popup-meta {
+  font-size:10.5px;
+  color:var(--muted);
+  line-height:1.45;
+}
+.popup-award {
+  margin-top:7px;
+  padding-top:7px;
+  border-top:1px solid #edf2f7;
+  font-size:11px;
+  font-weight:800;
+}
+
+footer {
+  padding:9px 16px;
+  font-size:10.5px;
+  line-height:1.45;
+  color:var(--muted);
+  background:#fff;
+  border-top:1px solid var(--line);
+}
+
+@media(max-width:900px) {
+  .layout {
+    grid-template-columns:1fr;
+    grid-template-rows:60vh auto;
+  }
+  #map { min-height:430px; }
+  .panel {
+    border-left:0;
+    border-top:1px solid var(--line);
+  }
+  .search {
+    margin-left:0;
+    flex:1 1 100%;
+    min-width:0;
+  }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <h1>2026 유럽 스마트 관광 수도 & 녹색 선구자 지도 <span>tiny marker version</span></h1>
+  <div class="sub">
+    파란색은 스마트 관광 수도, 초록색은 녹색 선구자입니다.
+    수상 도시는 같은 작은 동그라미에 <span class="winner-tag">금색 테두리</span>만 추가했습니다.
+  </div>
+  <div class="toolbar">
+    <button class="filter active" data-cat="all">전체 15곳</button>
+    <button class="filter" data-cat="capital">스마트 관광 수도 7곳</button>
+    <button class="filter" data-cat="green">녹색 선구자 8곳</button>
+    <input id="search" class="search" placeholder="도시 검색: 탐페레 / Tampere / 독일…">
+  </div>
+</header>
+
+<div class="layout">
+  <div id="map"></div>
+  <aside class="panel">
+    <div class="panel-head">
+      <div class="kpis">
+        <div class="kpi"><b id="kpiCities">15</b><span>표시 목적지</span></div>
+        <div class="kpi"><b id="kpiWinners">2</b><span>2026 수상</span></div>
+        <div class="kpi"><b id="kpiCats">2</b><span>선정 부문</span></div>
+      </div>
+      <div class="legend">
+        <span class="capital"><i></i>파란 동그라미</span>
+        <span class="green"><i></i>초록 동그라미</span>
+        <span class="winner"><i></i>금색 테두리 = 수상</span>
+      </div>
+    </div>
+    <div id="cityList"></div>
+  </aside>
+</div>
+
+<footer>
+  지도: OpenStreetMap / Leaflet. 아주 작은 원형 마커 버전입니다.
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const cities = [{"en": "Tampere", "ko": "탐페레", "country": "핀란드", "lat": 61.4982, "lon": 23.7608, "cat": "capital", "winner": true}, {"en": "Braga", "ko": "브라가", "country": "포르투갈", "lat": 41.5454, "lon": -8.4265, "cat": "capital", "winner": false}, {"en": "Bruges", "ko": "브뤼헤", "country": "벨기에", "lat": 51.2093, "lon": 3.2247, "cat": "capital", "winner": false}, {"en": "Brussels", "ko": "브뤼셀", "country": "벨기에", "lat": 50.8503, "lon": 4.3517, "cat": "capital", "winner": false}, {"en": "Genoa", "ko": "제노바", "country": "이탈리아", "lat": 44.4056, "lon": 8.9463, "cat": "capital", "winner": false}, {"en": "Leipzig", "ko": "라이프치히", "country": "독일", "lat": 51.3397, "lon": 12.3731, "cat": "capital", "winner": false}, {"en": "Regensburg", "ko": "레겐스부르크", "country": "독일", "lat": 49.0134, "lon": 12.1016, "cat": "capital", "winner": false}, {"en": "Dubrovnik", "ko": "두브로브니크", "country": "크로아티아", "lat": 42.6507, "lon": 18.0944, "cat": "green", "winner": true}, {"en": "Geestland", "ko": "게스트란트", "country": "독일", "lat": 53.65, "lon": 8.6, "cat": "green", "winner": false}, {"en": "Ibiza", "ko": "이비자", "country": "스페인", "lat": 38.9067, "lon": 1.4206, "cat": "green", "winner": false}, {"en": "Laois", "ko": "라오이스", "country": "아일랜드", "lat": 53.03, "lon": -7.3, "cat": "green", "winner": false}, {"en": "Mariagerfjord", "ko": "마리아게르피오르드", "country": "덴마크", "lat": 56.65, "lon": 9.98, "cat": "green", "winner": false}, {"en": "Marmaris", "ko": "마르마리스", "country": "튀르키예", "lat": 36.855, "lon": 28.274, "cat": "green", "winner": false}, {"en": "Rebild", "ko": "레빌드", "country": "덴마크", "lat": 56.83, "lon": 9.85, "cat": "green", "winner": false}, {"en": "Tartu", "ko": "타르투", "country": "에스토니아", "lat": 58.3776, "lon": 26.729, "cat": "green", "winner": false}];
+
+const catInfo = {
+  capital: { ko:"스마트 관광 수도", en:"European Capital of Smart Tourism", color:"#2563eb" },
+  green: { ko:"녹색 선구자", en:"European Green Pioneer of Smart Tourism", color:"#169873" }
+};
+
+const map = L.map("map", { zoomControl:true, minZoom:2, worldCopyJump:true }).setView([50.0, 12.0], 4);
+
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  maxZoom:19,
+  attribution:"&copy; OpenStreetMap contributors"
+}).addTo(map);
+
+let markers = {};
+let activeCat = "all";
+let searchText = "";
+
+function makeIcon(city) {
+  return L.divIcon({
+    className:"map-pin-wrap",
+    html: `
+      <div class="pin-shell ${city.winner ? 'winner' : ''}">
+        <div class="pin-core ${city.cat}"></div>
+      </div>
+    `,
+    iconSize:[12,12],
+    iconAnchor:[6,6],
+    popupAnchor:[0,-8]
+  });
+}
+
+function popupHtml(city) {
+  const award = city.winner
+    ? `<div class="popup-award" style="color:#b77900">2026 수상 도시</div>`
+    : `<div class="popup-award" style="color:${catInfo[city.cat].color}">2026 최종 후보</div>`;
+
+  return `
+    <div style="min-width:225px">
+      <div class="popup-title">${city.ko} <span style="font-size:11px;color:#627d98">${city.en}</span></div>
+      <div class="popup-meta">${city.country}<br>${catInfo[city.cat].ko} · ${catInfo[city.cat].en}</div>
+      ${award}
+    </div>
+  `;
+}
+
+function match(city) {
+  const hasCat = activeCat === "all" || city.cat === activeCat;
+  if (!hasCat) return false;
+  if (!searchText) return true;
+  const hay = `${city.ko} ${city.en} ${city.country} ${catInfo[city.cat].ko} ${catInfo[city.cat].en}`.toLowerCase();
+  return hay.includes(searchText.toLowerCase());
+}
+
+function render() {
+  Object.values(markers).forEach(m => map.removeLayer(m));
+  markers = {};
+
+  const visible = cities.filter(match);
+
+  visible.forEach(city => {
+    const marker = L.marker([city.lat, city.lon], { icon: makeIcon(city) }).addTo(map);
+    marker.bindPopup(popupHtml(city), { maxWidth:320 });
+    marker.bindTooltip(
+      `${city.winner ? "★ " : ""}${city.ko} · ${catInfo[city.cat].ko}`,
+      { direction:"top", offset:[0,-8] }
+    );
+    markers[city.en] = marker;
+  });
+
+  const sorted = [...visible].sort((a,b) => {
+    if (a.winner !== b.winner) return a.winner ? -1 : 1;
+    if (a.cat !== b.cat) return a.cat.localeCompare(b.cat);
+    return a.ko.localeCompare(b.ko, "ko");
+  });
+
+  document.getElementById("cityList").innerHTML =
+    sorted.map(city => `
+      <div class="city-card" data-city="${city.en}">
+        <div class="city-top">
+          <div>
+            <span class="city-name">${city.winner ? '<span class="winner-tag">★</span> ' : ''}${city.ko}</span>
+            <span class="city-en">${city.en}</span>
+            <div class="country">${city.country}${city.winner ? ' · 2026 수상' : ' · 최종 후보'}</div>
+          </div>
+        </div>
+        <span class="badge ${city.cat}">${catInfo[city.cat].ko}</span>
+      </div>
+    `).join("") || `<div style="padding:20px;color:#627d98;font-size:12px">검색 결과가 없습니다.</div>`;
+
+  document.querySelectorAll(".city-card").forEach(el => {
+    el.addEventListener("click", () => {
+      const city = cities.find(c => c.en === el.dataset.city);
+      map.setView([city.lat, city.lon], 6, { animate:true });
+      markers[city.en].openPopup();
+    });
+  });
+
+  document.getElementById("kpiCities").textContent = visible.length;
+  document.getElementById("kpiWinners").textContent = visible.filter(c => c.winner).length;
+  document.getElementById("kpiCats").textContent =
+    activeCat === "all" ? new Set(visible.map(c => c.cat)).size : (visible.length ? 1 : 0);
+}
+
+document.querySelectorAll(".filter").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".filter").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    activeCat = btn.dataset.cat;
+    render();
+  });
+});
+
+document.getElementById("search").addEventListener("input", e => {
+  searchText = e.target.value.trim();
+  render();
+});
+
+render();
+</script>
+</body>
+</html>
