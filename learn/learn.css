@@ -177,6 +177,20 @@ body.hub .lw { max-width: 1160px; }
   display: grid; grid-template-columns: minmax(0, 1fr) 196px;
   gap: 20px; align-items: start; margin: 30px 0;
 }
+/* 카드 안의 번호 목록 — 여러 메시지를 갈라 놓을 때 */
+.learn-article .reslist .numlist { list-style: none; margin: 7px 0 2px; padding: 0; counter-reset: nl; }
+.learn-article .reslist .numlist li {
+  position: relative; margin: 0 0 8px; padding: 0 0 0 27px; border-left: 0;
+  font-size: 13.5px; line-height: 1.78; color: var(--muted);
+}
+.learn-article .reslist .numlist li::before {
+  counter-increment: nl; content: counter(nl);
+  position: absolute; left: 0; top: 3px; width: 19px; height: 19px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%; background: #2563a8; color: #fff; font-size: 11px; font-weight: 800;
+}
+.learn-article .reslist .numlist strong { color: #17539b; }
+
 /* 본문 문단 안에 놓는 자료 링크 (목록의 세로 막대 없이) */
 .learn-article a.dl-link { font-weight: 800; color: var(--deep); border-bottom: 1px solid currentColor; }
 .learn-article a.dl-link:hover { color: var(--green); }
