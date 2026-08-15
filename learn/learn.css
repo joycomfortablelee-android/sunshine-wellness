@@ -121,11 +121,14 @@ body.hub .lw { max-width: 1160px; }
 
 /* 도시 목록 — 번호를 앞에 단 작은 표시 */
 .learn-article .cities b {
-  display: inline-block; min-width: 15px; height: 15px; margin-right: 2px;
-  border-radius: 50%; background: #c0392b; color: #fff;
-  font-size: 9.5px; font-weight: 800; text-align: center; line-height: 15px; vertical-align: 1px;
+  display: inline-block; min-width: 15px; height: 15px; margin-right: 3px;
+  border-radius: 50%; background: #fff; color: var(--t-dk, var(--muted));
+  border: 1px solid var(--t-ln, var(--line));
+  font-size: 9.5px; font-weight: 800; text-align: center; line-height: 13px; vertical-align: 1px;
 }
-.learn-article .cities { line-height: 2; }
+/* 도시 목록도 항목 본문과 같은 크기로 */
+.learn-article .cities { display: inline-block; font-size: inherit; line-height: 1.95; }
+.learn-article .cities strong { font-weight: 700; }
 
 /* 본문 안에서 붉게 강조할 구절 */
 .learn-article .hot-t, .learn-article .reslist .hot-t,
