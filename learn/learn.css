@@ -488,6 +488,11 @@ body.hub .lw { max-width: 1160px; }
 
 .learn-article table.ref .ko { display: block; margin-top: 3px; font-size: 12px; font-weight: 700; color: var(--green); }
 .learn-article table.ref .jr { display: block; margin-top: 3px; font-size: 11.5px; font-weight: 400; color: var(--muted); }
+/* 공모전 현황표 — 열 폭을 고정해 행마다 어긋나지 않게 */
+.learn-article table.ref.contest { table-layout: fixed; min-width: 880px; }
+.learn-article table.ref.contest td { word-break: keep-all; }
+.learn-article table.ref.contest td:nth-child(4) { white-space: nowrap; }
+.learn-article table.ref.contest td.stat { text-align: center; }
 .learn-article .tbl-hint { font-size: 12px; line-height: 1.75; color: var(--muted); margin: 0 0 18px; }
 
 /* 개념을 바로잡는 대비 블록 (아니다 / 이다 → 논리 → 한 줄 공식) */
