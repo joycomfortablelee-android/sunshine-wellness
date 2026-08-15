@@ -170,6 +170,8 @@ body.hub .lw { max-width: 1160px; }
 /* ===== Figure (본문 이미지) ===== */
 .learn-article .learn-fig { margin: 30px 0; text-align: center; }
 .learn-article .learn-fig img { display: block; width: 100%; max-width: 720px; height: auto; margin: 0 auto; border-radius: 14px; border: 1px solid var(--line); box-shadow: 0 6px 24px rgba(0,0,0,.06); }
+.learn-article .learn-fig.sm img { max-width: 440px; }
+.learn-article .learn-fig.sm figcaption { max-width: 620px; margin-left: auto; margin-right: auto; font-size: 12px; }
 .learn-article .learn-fig figcaption { margin-top: 12px; font-size: 13px; color: var(--muted); line-height: 1.7; }
 
 /* 그림 옆에 붙는 아주 작은 곁주석(자료 링크) */
