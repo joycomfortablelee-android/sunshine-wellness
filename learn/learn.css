@@ -550,6 +550,41 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .lead { font-family: 'Merriweather', Georgia, serif; font-size: 17px; color: var(--muted); line-height: 1.95; margin-bottom: 28px; }
 .learn-article .lead.sm { font-size: 14.5px; line-height: 1.85; margin-bottom: 22px; }  /* 히어로 소제목과 크기를 맞춘 리드 */
 .learn-article code { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; font-size: 13px; background: var(--gray); color: var(--deep); padding: 2px 6px; border-radius: 5px; overflow-wrap: anywhere; }
+/* ===== 사례 상자 — 바깥은 연한 파랑 테두리, 안은 흰 바탕 =====
+   지도나 그림 아래에 「이 도시를 더 보려면」 식의 참고 링크를 모아 둘 때 쓴다.
+   카드(.reslist li.hi)와 달리 바탕색이 없어, 본문 흐름을 끊지 않고 곁들여진다. */
+.learn-article .case-box {
+  border: 1px solid #cfe0f2; background: #fff; border-radius: 12px;
+  padding: 15px 17px 13px; margin: 14px 0 26px;
+}
+.learn-article .case-box .cb-title {
+  font-size: 15px; font-weight: 800; color: #17539b; line-height: 1.5; margin: 0 0 3px;
+}
+.learn-article .case-box .cb-title span {
+  font-size: 11px; font-weight: 700; color: #6b8bb0; margin-left: 6px; vertical-align: 1px;
+}
+.learn-article .case-box .cb-lead { font-size: 12.5px; color: var(--muted); line-height: 1.7; margin: 0 0 11px; }
+.learn-article .case-box .cb-lead strong { color: var(--deep); }
+.learn-article .case-box .cb-group {
+  display: block; font-size: 10.5px; font-weight: 800; letter-spacing: .03em;
+  color: #2563a8; background: #eef4fb; border: 1px solid #d9e6f4; border-radius: 999px;
+  padding: 2px 10px; margin: 11px 0 6px; width: fit-content;
+}
+.learn-article .case-box .cb-group:first-of-type { margin-top: 2px; }
+.learn-article .case-box ul { list-style: none; margin: 0; padding: 0; }
+.learn-article .case-box li {
+  margin: 0 0 7px; padding: 0 0 0 13px; position: relative;
+  font-size: 12.5px; line-height: 1.65; border-left: 0;
+}
+.learn-article .case-box li::before {
+  content: ""; position: absolute; left: 0; top: 8px;
+  width: 5px; height: 5px; border-radius: 50%; background: #9fc0e2;
+}
+.learn-article .case-box li a { font-weight: 800; color: #17539b; border-bottom: 1px solid currentColor; }
+.learn-article .case-box li a:hover { color: #0f3d76; }
+.learn-article .case-box .cb-src { display: block; font-size: 11.5px; color: var(--muted); margin-top: 2px; }
+.learn-article .case-box .cb-src b { color: #52697f; font-weight: 700; }
+
 /* 좁은 칸에 들어가는 작은 비교표 — 가로 스크롤 없이 그대로 접히게 */
 .learn-article table.ref.mini { min-width: 0; }
 .learn-article table.ref.mini th, .learn-article table.ref.mini td { padding: 7px 9px; }
@@ -1346,6 +1381,7 @@ body.mod-smart .learn-article .reslist.tight a,
 body.mod-smart .learn-article details.fold > summary,
 body.mod-smart .learn-article .reslist details.fold > summary,
 body.mod-smart .learn-article .slide.compact h3,
+body.mod-smart .learn-article .case-box .cb-title,
 body.mod-smart .deck--on .deck-stage > .deck-prev,
 body.mod-smart .deck--on .deck-stage > .deck-next { font-size: var(--fs-title); line-height: var(--lh-tight); }
 
@@ -1417,6 +1453,11 @@ body.mod-smart .learn-article .fig-side .learn-fig figcaption,
 body.mod-smart .learn-article p.mini-note,
 body.mod-smart .learn-article .src-inline,
 body.mod-smart .learn-article .tbl-hint,
+body.mod-smart .learn-article .case-box .cb-title span,
+body.mod-smart .learn-article .case-box .cb-lead,
+body.mod-smart .learn-article .case-box .cb-group,
+body.mod-smart .learn-article .case-box li,
+body.mod-smart .learn-article .case-box .cb-src,
 body.mod-smart .learn-article table.ref th,
 body.mod-smart .learn-article table.ref td,
 body.mod-smart .learn-article table.ref td.st,
