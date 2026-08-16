@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>역대 유럽 스마트관광 수상 도시 지도 2019–2026</title>
+
+<link rel="preconnect" href="https://unpkg.com">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+<style>
+:root {
+  --navy:#102a43;
+  --ink:#243b53;
+  --muted:#627d98;
+  --line:#d9e2ec;
+  --paper:#f5f8fb;
+  --winner:#2563eb;
+  --finalist:#169873;
+  --star:#d89b12;
+}
+*{box-sizing:border-box}
+html,body{
+  height:100%;
+  margin:0;
+  font-family:"Pretendard","Noto Sans KR","Malgun Gothic",Arial,sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+}
+body{display:flex;flex-direction:column}
+
+header{
+  padding:16px 22px 13px;
+  background:#fff;
+  border-bottom:1px solid var(--line);
+}
+h1{
+  margin:0;
+  color:var(--navy);
+  font-size:22px;
+  letter-spacing:-.4px;
+}
+.sub{
+  margin-top:6px;
+  font-size:12.5px;
+  line-height:1.55;
+  color:var(--muted);
+}
+.links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:10px;
+}
+.links a{
+  color:#285f9e;
+  text-decoration:none;
+  font-size:11px;
+  font-weight:800;
+  background:#f7fafc;
+  border:1px solid #dfe7ef;
+  border-radius:999px;
+  padding:6px 9px;
+}
+.links a:hover{background:#285f9e;border-color:#285f9e;color:#fff}
+
+.toolbar{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  flex-wrap:wrap;
+  margin-top:11px;
+}
+.tlabel{font-size:10px;font-weight:800;color:#17457f;margin-right:2px}
+.filter{
+  border:1px solid var(--line);
+  background:#fff;
+  color:var(--ink);
+  border-radius:999px;
+  padding:8px 12px;
+  font-size:12px;
+  font-weight:800;
+  cursor:pointer;
+}
+.filter.yr{padding:6px 10px;font-size:11px}
+.filter.active{
+  background:var(--navy);
+  color:#fff;
+  border-color:var(--navy);
+}
+.filter:not(.active)[data-status="cap"]::before,
+.filter:not(.active)[data-status="grn"]::before{
+  display:inline-block;
+  margin-right:6px;
+  vertical-align:1px;
+}
+.filter:not(.active)[data-status="cap"]::before{
+  content:"★";
+  color:var(--star);
+  font-size:11px;
+}
+.filter:not(.active)[data-status="grn"]::before{
+  content:"";
+  width:9px;height:9px;
+  border-radius:50%;
+  background:var(--finalist);
+}
+
+header .metarow{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin-top:8px}
+header .metarow .legend{margin:0;gap:12px;font-size:10px}
+header .metarow .axes{margin:0;gap:4px}
+header .metarow .axes span{font-size:9px;padding:3px 6px}
+header .metarow .axes .axlab{font-size:10px;font-weight:800;color:#17457f;margin-right:2px;align-self:center}
+header .note{margin:7px 0 0;border-top:1px solid #edf2f7;padding-top:6px;font-size:9.5px;line-height:1.5}
+
+.layout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 330px;
+  flex:1;
+  min-height:0;
+}
+#map{height:100%;min-height:460px}
+.panel{
+  background:#fff;
+  border-left:1px solid var(--line);
+  overflow-y:auto;
+  min-height:0;
+  max-height:100%;
+}
+.panel-head{
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:rgba(255,255,255,.97);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+  padding:13px;
+}
+.kpis{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:6px;
+}
+.kpi{
+  padding:8px;
+  border:1px solid #e6edf3;
+  border-radius:9px;
+  text-align:center;
+  background:#f7fafc;
+}
+.kpi b{display:block;font-size:16px;color:var(--navy)}
+.kpi span{font-size:10px;color:var(--muted)}
+.legend{
+  margin-top:9px;
+  font-size:10.5px;
+  color:var(--muted);
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.legend .winner i,
+.legend .finalist i{display:inline-block;margin-right:4px}
+.legend .winner i{font-style:normal;color:var(--star);font-size:12px;line-height:1}
+.legend .finalist i{width:10px;height:10px;border-radius:50%;background:var(--finalist)}
+
+#cityList{padding:8px;padding-bottom:18px}
+.yr-head{
+  margin:10px 3px 3px;
+  font-size:11px;
+  font-weight:900;
+  color:var(--navy);
+  background:#edf2f7;
+  border-radius:6px;
+  padding:3px 9px;
+  display:inline-block;
+}
+.city-card{
+  border:1px solid #e6edf3;
+  border-radius:10px;
+  padding:10px 11px;
+  margin:7px 0;
+  background:#fff;
+  cursor:pointer;
+}
+.city-card:hover{box-shadow:0 3px 10px rgba(0,0,0,.07)}
+.city-name{font-size:13px;font-weight:900;color:var(--navy)}
+.city-en{margin-left:4px;font-size:10.5px;color:var(--muted)}
+.country{margin-top:2px;font-size:10.5px;color:var(--muted)}
+.gps{margin-top:3px;font-family:Consolas,"Courier New",monospace;font-size:9.5px;color:#7b8ea3}
+.badge{
+  display:inline-block;
+  margin-top:7px;
+  padding:3px 7px;
+  border-radius:999px;
+  color:#fff;
+  font-size:9.5px;
+  font-weight:800;
+}
+.badge.winner{background:var(--winner)}
+.badge.finalist{background:var(--finalist)}
+[hidden]{display:none !important}
+
+.note{
+  margin-top:9px;
+  border-top:1px solid #edf2f7;
+  padding-top:9px;
+  color:#52697f;
+  font-size:10.5px;
+  line-height:1.5;
+}
+.note a{color:#285f9e;font-weight:800;text-decoration:none;border-bottom:1px solid currentColor}
+.axes{margin-top:8px;display:flex;flex-wrap:wrap;gap:5px}
+.axes span{font-size:9.5px;background:#edf2f7;border-radius:999px;padding:4px 6px;color:#52697f}
+
+.map-pin-wrap{background:transparent;border:none}
+.label-wrap{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  transform:translateY(-18px);
+}
+.label-ko{
+  font-size:11px;
+  font-weight:800;
+  color:var(--navy);
+  background:rgba(255,255,255,.92);
+  border:1px solid #d9e2ec;
+  border-radius:999px;
+  padding:2px 7px;
+  margin-bottom:4px;
+  white-space:nowrap;
+  box-shadow:0 1px 4px rgba(0,0,0,.08);
+}
+.label-ko em{font-style:normal;color:var(--muted);font-weight:700;margin-left:3px}
+.pin-finalist{
+  width:14px;height:14px;
+  border-radius:50%;
+  background:var(--finalist);
+  box-shadow:0 0 0 2px #fff,0 1px 4px rgba(0,0,0,.24);
+}
+.pin-star{
+  color:var(--star);
+  font-size:18px;
+  line-height:1;
+  text-shadow:0 0 1px #fff,0 1px 4px rgba(0,0,0,.24);
+}
+
+.popup-title{font-size:14px;font-weight:900;color:var(--navy)}
+.popup-meta{margin-top:2px;font-size:10.5px;color:var(--muted);line-height:1.4}
+.popup-gps{margin-top:4px;font-family:Consolas,"Courier New",monospace;font-size:10px;color:#7b8ea3}
+.popup-status{margin-top:7px;padding-top:7px;border-top:1px solid #edf2f7;font-size:11px;font-weight:800}
+.popup-link{display:inline-block;margin-top:7px;padding:4px 9px;border-radius:999px;background:#fff;border:1px solid #e4d3a8;color:#8a5a17;font-size:10.5px;font-weight:800;text-decoration:none}
+.popup-link:hover{background:#d89b12;border-color:#d89b12;color:#fff}
+
+footer{
+  padding:8px 14px;
+  background:#fff;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-size:10px;
+  line-height:1.45;
+}
+footer a{color:#285f9e;font-weight:800;text-decoration:none}
+
+@media(max-width:850px){
+  .layout{grid-template-columns:1fr;grid-template-rows:60vh auto}
+  #map{min-height:420px}
+  .panel{border-left:0;border-top:1px solid var(--line);max-height:none;overflow:visible}
+  header{padding:13px 14px 11px}
+  h1{font-size:18px}
+}
+</style>
+</head>
+
+<body>
+<header>
+  <h1>역대 유럽 스마트관광 수상 도시 — 2019–2026</h1>
+  <div class="sub">
+    유럽연합이 해마다 뽑은 <b style="color:#d89b12">스마트관광 수도</b>(별표)와
+    <b style="color:#169873">녹색 선도 도시</b>(초록 동그라미) <b>열네 곳</b>입니다.
+    각 마커 위에 도시 이름을 <b>한국어</b>와 <b>수상 연도</b>로 표시했습니다.
+    <b>2021년은 대회가 열리지 않았습니다.</b>
+  </div>
+
+  <div class="links">
+    <a href="eu-winners-2019-2026.html">← 역대 수상 도시 표</a>
+    <a href="eu-winners-2022-map.html">2022 최종 후보 지도</a>
+    <a href="eu-winners-2026.html">2026 수상 도시</a>
+    <a href="smart-tourism.html">01 · 스마트 투어리즘</a>
+    <a href="https://smart-tourism-capital.ec.europa.eu/winners-and-finalists_en" target="_blank" rel="noopener">EU 공식 · 역대 수상·최종 후보 ↗</a>
+  </div>
+
+  <div class="toolbar">
+    <span class="tlabel">부문</span>
+    <button class="filter active" data-status="all">전체 14곳</button>
+    <button class="filter" data-status="cap">스마트관광 수도 11곳</button>
+    <button class="filter" data-status="grn">녹색 선도 도시 3곳</button>
+  </div>
+  <div class="toolbar">
+    <span class="tlabel">연도</span>
+    <button class="filter yr active" data-year="all">전체</button>
+    <button class="filter yr" data-year="2019">2019</button>
+    <button class="filter yr" data-year="2020">2020</button>
+    <button class="filter yr" data-year="2022">2022</button>
+    <button class="filter yr" data-year="2023">2023</button>
+    <button class="filter yr" data-year="2024">2024</button>
+    <button class="filter yr" data-year="2025">2025</button>
+    <button class="filter yr" data-year="2026">2026</button>
+  </div>
+
+  <div class="metarow">
+    <div class="legend">
+      <span class="winner"><i>★</i>스마트관광 수도 (Capital)</span>
+      <span class="finalist"><i></i>녹색 선도 도시 (Green Pioneer)</span>
+    </div>
+    <div class="axes">
+      <b class="axlab">4대 평가 축</b>
+      <span>접근성</span><span>지속가능성</span><span>디지털화</span><span>문화유산과 창의성</span>
+    </div>
+  </div>
+
+  <div class="note">
+    <b>녹색 선도 도시는 2024년부터</b> 시상되기 시작해 셋뿐입니다 — 그로세토·베니도름·두브로브니크.
+    작은 도시를 대상으로 하는 상이라, 수도 부문과 <b>도시 규모가 다르다</b>는 점을 함께 보십시오.
+  </div>
+</header>
+
+<div class="layout">
+  <div id="map"></div>
+  <aside class="panel">
+    <div class="panel-head">
+      <div class="kpis">
+        <div class="kpi"><b id="kTotal">14</b><span>표시된 도시</span></div>
+        <div class="kpi"><b id="kCap">11</b><span>수도 부문</span></div>
+        <div class="kpi"><b id="kGrn">3</b><span>녹색 부문</span></div>
+      </div>
+      <div class="legend">
+        <span class="winner"><i>★</i>수도</span>
+        <span class="finalist"><i></i>녹색 선도</span>
+      </div>
+    </div>
+    <div id="cityList"></div>
+    <div class="note" style="margin:0 13px 18px">
+      <b>좌표 출처</b> — OpenStreetMap <b>Nominatim</b>으로 조회한 각 도시의 대표 지점입니다(2026-08-16 확인).
+      도시 중심점이라 시청·구시가지와 수백 m 차이가 날 수 있습니다.
+      <a href="https://nominatim.openstreetmap.org/" target="_blank" rel="noopener">nominatim.openstreetmap.org ↗</a><br>
+      <b>수상 내역</b> — European Commission,
+      <a href="https://smart-tourism-capital.ec.europa.eu/winners-and-finalists_en" target="_blank" rel="noopener">Winners and finalists ↗</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  배경 지도 &copy; OpenStreetMap 기여자 ·
+  <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">openstreetmap.org/copyright</a> ·
+  선샤인 웰니스 교육자료
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+/* 좌표는 Nominatim으로 조회해 확인한 값(2026-08-16). 지어낸 것이 없습니다.
+   status: cap = 스마트관광 수도 / grn = 녹색 선도 도시 */
+var cities = [
+  { y:"2019", s:"cap", ko:"헬싱키",       en:"Helsinki",   c:"핀란드",     lat:60.16662, lon:24.94354 },
+  { y:"2019", s:"cap", ko:"리옹",         en:"Lyon",       c:"프랑스",     lat:45.75781, lon:4.83201 },
+  { y:"2020", s:"cap", ko:"예테보리",     en:"Gothenburg", c:"스웨덴",     lat:57.70723, lon:11.96702 },
+  { y:"2020", s:"cap", ko:"말라가",       en:"Málaga",     c:"스페인",     lat:36.76479, lon:-4.44220 },
+  { y:"2022", s:"cap", ko:"보르도",       en:"Bordeaux",   c:"프랑스",     lat:44.84123, lon:-0.58004 },
+  { y:"2022", s:"cap", ko:"발렌시아",     en:"València",   c:"스페인",     lat:39.46971, lon:-0.37634 },
+  { y:"2023", s:"cap", ko:"파포스",       en:"Pafos",      c:"키프로스",   lat:34.77440, lon:32.42316 },
+  { y:"2023", s:"cap", ko:"세비야",       en:"Seville",    c:"스페인",     lat:37.38863, lon:-5.99534 },
+  { y:"2024", s:"cap", ko:"더블린",       en:"Dublin",     c:"아일랜드",   lat:53.34938, lon:-6.26056 },
+  { y:"2024", s:"grn", ko:"그로세토",     en:"Grosseto",   c:"이탈리아",   lat:42.77511, lon:11.28780 },
+  { y:"2025", s:"cap", ko:"토리노",       en:"Torino",     c:"이탈리아",   lat:45.06776, lon:7.68249 },
+  { y:"2025", s:"grn", ko:"베니도름",     en:"Benidorm",   c:"스페인",     lat:38.54063, lon:-0.12909 },
+  { y:"2026", s:"cap", ko:"탐페레",       en:"Tampere",    c:"핀란드",     lat:61.49780, lon:23.76163 },
+  { y:"2026", s:"grn", ko:"두브로브니크", en:"Dubrovnik",  c:"크로아티아", lat:42.64910, lon:18.09395 }
+];
+
+var euUrl = {
+  "2019":"https://smart-tourism-capital.ec.europa.eu/winners-and-finalists/cities-2019_en",
+  "2020":"https://smart-tourism-capital.ec.europa.eu/winners-and-finalists/cities-2020_en",
+  "2022":"https://smart-tourism-capital.ec.europa.eu/winners-and-finalists/cities-2022_en",
+  "2023":"https://smart-tourism-capital.ec.europa.eu/winners-and-finalists/cities-2023_en",
+  "2024":"https://smart-tourism-capital.ec.europa.eu/winners-and-finalists/cities-2024_en",
+  "2025":"https://smart-tourism-capital.ec.europa.eu/winners-and-finalists/cities-2025_en",
+  "2026":"https://smart-tourism-capital.ec.europa.eu/winners-and-finalists/cities-2026_en"
+};
+
+var map = L.map("map", {
+  scrollWheelZoom: true,
+  zoomControl: true
+}).setView([50.5, 10], 4);
+
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  maxZoom: 18,
+  attribution: "&copy; OpenStreetMap contributors"
+}).addTo(map);
+
+var markers = [];
+
+cities.forEach(function (city, i) {
+  var mark = city.s === "cap"
+    ? '<div class="pin-star">★</div>'
+    : '<div class="pin-finalist"></div>';
+
+  var icon = L.divIcon({
+    className: "map-pin-wrap",
+    iconSize: [0, 0],
+    html: '<div class="label-wrap">'
+        + '<div class="label-ko">' + city.ko + '<em>' + city.y + '</em></div>'
+        + mark + "</div>"
+  });
+
+  var m = L.marker([city.lat, city.lon], { icon: icon }).addTo(map);
+  var statusKo = city.s === "cap" ? "스마트관광 수도" : "녹색 선도 도시";
+  var color = city.s === "cap" ? "#2563eb" : "#169873";
+
+  m.bindPopup(
+    '<div class="popup-title">' + city.ko + ' <span style="font-size:11px;color:#627d98">' + city.en + "</span></div>"
+    + '<div class="popup-meta">' + city.c + " · " + city.y + "년</div>"
+    + '<div class="popup-gps">' + city.lat.toFixed(5) + ", " + city.lon.toFixed(5) + "</div>"
+    + '<div class="popup-status" style="color:' + color + '">' + statusKo + "</div>"
+    + (euUrl[city.y]
+        ? '<a class="popup-link" href="' + euUrl[city.y] + '" target="_blank" rel="noopener">EU 공식 · ' + city.y + "년 수상 도시 ↗</a>"
+        : "")
+  );
+  markers.push(m);
+});
+
+/* ── 목록 — 연도별로 묶는다 ───────────────────── */
+var list = document.getElementById("cityList");
+var years = [];
+cities.forEach(function (c) { if (years.indexOf(c.y) < 0) years.push(c.y); });
+
+years.forEach(function (y) {
+  var h = document.createElement("div");
+  h.className = "yr-head";
+  h.setAttribute("data-yr", y);
+  h.textContent = y + "년";
+  list.appendChild(h);
+
+  cities.forEach(function (city, i) {
+    if (city.y !== y) return;
+    var el = document.createElement("div");
+    el.className = "city-card";
+    el.setAttribute("data-status", city.s);
+    el.setAttribute("data-year", city.y);
+    el.innerHTML =
+      '<div class="city-name">' + (city.s === "cap" ? "★ " : "") + city.ko
+      + '<span class="city-en">' + city.en + "</span></div>"
+      + '<div class="country">' + city.c + "</div>"
+      + '<div class="gps">' + city.lat.toFixed(5) + ", " + city.lon.toFixed(5) + "</div>"
+      + '<span class="badge ' + (city.s === "cap" ? "winner" : "finalist") + '">'
+      + (city.s === "cap" ? "스마트관광 수도" : "녹색 선도 도시") + "</span>";
+    el.addEventListener("click", function () {
+      map.setView([city.lat, city.lon], 8, { animate: true });
+      markers[i].openPopup();
+    });
+    list.appendChild(el);
+  });
+});
+
+/* ── 거르기 ──────────────────────────────────── */
+var 부문 = "all", 연도 = "all";
+
+function 적용() {
+  var 총 = 0, 수도 = 0, 녹색 = 0;
+  cities.forEach(function (c, i) {
+    var on = (부문 === "all" || c.s === 부문) && (연도 === "all" || c.y === 연도);
+    if (on) {
+      if (!map.hasLayer(markers[i])) markers[i].addTo(map);
+      총++; if (c.s === "cap") 수도++; else 녹색++;
+    } else if (map.hasLayer(markers[i])) {
+      map.removeLayer(markers[i]);
+    }
+  });
+  document.querySelectorAll(".city-card").forEach(function (el) {
+    el.hidden = !((부문 === "all" || el.dataset.status === 부문)
+               && (연도 === "all" || el.dataset.year === 연도));
+  });
+  document.querySelectorAll(".yr-head").forEach(function (el) {
+    var y = el.getAttribute("data-yr");
+    var 남음 = false;
+    document.querySelectorAll('.city-card[data-year="' + y + '"]').forEach(function (c) {
+      if (!c.hidden) 남음 = true;
+    });
+    el.hidden = !남음;
+  });
+  document.getElementById("kTotal").textContent = 총;
+  document.getElementById("kCap").textContent = 수도;
+  document.getElementById("kGrn").textContent = 녹색;
+}
+
+document.querySelectorAll("[data-status]").forEach(function (b) {
+  if (b.tagName !== "BUTTON") return;
+  b.addEventListener("click", function () {
+    부문 = b.dataset.status;
+    document.querySelectorAll(".filter:not(.yr)").forEach(function (x) { x.classList.remove("active"); });
+    b.classList.add("active");
+    적용();
+  });
+});
+document.querySelectorAll("[data-year]").forEach(function (b) {
+  if (b.tagName !== "BUTTON") return;
+  b.addEventListener("click", function () {
+    연도 = b.dataset.year;
+    document.querySelectorAll(".filter.yr").forEach(function (x) { x.classList.remove("active"); });
+    b.classList.add("active");
+    적용();
+    if (연도 === "all") map.setView([50.5, 10], 4, { animate: true });
+  });
+});
+
+적용();
+</script>
+</body>
+</html>
