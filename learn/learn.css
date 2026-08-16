@@ -227,8 +227,8 @@ body.hub .lw { max-width: 1160px; }
    실습처럼 「읽는 카드」가 아니라 「하러 가는 카드」에 쓴다. */
 .learn-article .reslist li.paper  { --t-bg: #fff;     --t-ac: #2563a8; --t-dk: #17539b; --t-ln: #cfdcea; }
 .learn-article .reslist li.hi.tone.paper {
-  border: 1px solid #2563a8; border-left: 3px solid #2563a8;
-  border-radius: 10px; box-shadow: 0 2px 10px rgba(37,99,168,.07);
+  border: 2px solid #2563a8; border-radius: 12px;   /* 파트 01 안동 상자(.case-box.deep)와 같은 두께 */
+  padding: 15px 17px 13px;
 }
 
 /* 태그 줄 안에 놓는 알약형 접이식 */
