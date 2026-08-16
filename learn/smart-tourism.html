@@ -194,21 +194,22 @@
               <a class="mapl" href="https://yonginsi.dadora.kr/" target="_blank" rel="noopener">용인시 전자지도 ↗</a> <a class="mapl" href="https://yonginedu.dadora.kr/" target="_blank" rel="noopener">용인교육청 전자지도 ↗</a> <a href="https://www.noblad.com/" target="_blank" rel="noopener">㈜노블전자지도 노블애드 ↗</a></li>
             <li><strong>장소를 이름으로 찾기</strong> — 지도를 눈으로 뒤지는 대신 <strong>“안동 하회마을”처럼 이름을 넣어 좌표를 얻는</strong> 방법이 있습니다. 이를 <strong>지오코딩</strong>이라 합니다. 실제로 넣어 본 결과입니다 — 하회마을 <code>36.53903, 128.51809</code> · 도산서원 <code>36.72722, 128.84353</code> · 월영교 <code>36.57663, 128.76089</code>. 다만 <strong class="hot-t">검색해서 안 나오는 곳은 아직 아무도 지도에 올리지 않은 곳</strong>입니다 — 그 빈자리를 찾아내는 것이 오히려 이 수업의 목표에 가깝습니다.
             <details class="fold pill">
-              <summary>지오코딩 서비스 넷 비교</summary>
+              <summary>지오코딩 서비스 넷 비교 — 무엇을 어떻게 확인했나</summary>
+              <p class="tbl-hint" style="margin:0 0 6px"><strong>이 표는 「좋다·나쁘다」가 아니라 「확인한 것·못 한 것」으로 적었습니다.</strong> 자료를 인용할 때 지켜야 할 태도를 표 자체로 보여주기 위해서입니다 — 확인하지 않은 것은 확인하지 않았다고 씁니다.</p>
               <div class="tbl-wrap">
                 <table class="ref mini">
                   <thead>
-                    <tr><th>서비스</th><th>키</th><th>한국 지명</th><th>비고</th></tr>
+                    <tr><th>서비스</th><th>키</th><th>한국 지명</th><th>확인 방법과 결과</th></tr>
                   </thead>
                   <tbody>
-                    <tr><td><strong>Nominatim</strong> (OSM)</td><td class="st">불필요</td><td class="st"><strong>확인함 · 좋음</strong></td><td class="st">오픈소스 <code>osm-search/Nominatim</code>. <strong>초당 1회 · User-Agent 표기</strong> 규약 있음</td></tr>
-                    <tr><td><strong>Photon</strong> (komoot)</td><td class="st">불필요</td><td class="st">보통</td><td class="st">자동완성에 유리. 오픈소스 <code>komoot/photon</code></td></tr>
-                    <tr><td><strong>카카오 로컬 API</strong></td><td class="st">필요</td><td class="st">최고</td><td class="st">도메인 등록 필요, 무료 쿼터 있음</td></tr>
-                    <tr><td><strong>VWorld 지오코더</strong></td><td class="st">필요</td><td class="st">좋음(공식)</td><td class="st">국토교통부. 도메인 등록 필요</td></tr>
+                    <tr><td><strong>Nominatim</strong> (OSM)</td><td class="st"><strong>불필요</strong></td><td class="st"><strong class="hot-t">안동 5건 전부 정확</strong></td><td class="st">키 없이 직접 호출. 하회마을·시청·도산서원·월영교·안동역 모두 좌표와 도로명주소 반환. 오픈소스 <code>osm-search/Nominatim</code>(GPL-3.0, ★4,420)</td></tr>
+                    <tr><td><strong>Photon</strong> (komoot)</td><td class="st"><strong>불필요</strong></td><td class="st"><strong class="hot-t">안동 4건 전부 정확</strong></td><td class="st">키 없이 직접 호출. Nominatim과 <strong>같은 좌표</strong>가 나왔습니다 — 둘 다 OpenStreetMap 자료를 쓰기 때문입니다. 오픈소스 <code>komoot/photon</code>(Apache-2.0, ★2,990)</td></tr>
+                    <tr><td><strong>카카오 로컬 API</strong></td><td class="st"><strong>필요</strong></td><td class="st">확인 못 함</td><td class="st">키 없이 호출하니 <code>HTTP 401</code> · <em>“cannot find Authorization : KakaoAK header”</em>. 키가 없어 <strong>정확도는 재 보지 못했습니다</strong></td></tr>
+                    <tr><td><strong>VWorld 지오코더</strong></td><td class="st"><strong>필요</strong></td><td class="st">확인 못 함</td><td class="st">키 없이 호출하니 <code>PARAM_REQUIRED</code> · <em>“필수 파라미터인 key가 없어서 요청을 처리할 수 없습니다”</em>. 국토교통부 운영. <strong>정확도 미측정</strong></td></tr>
                   </tbody>
                 </table>
               </div>
-              <p class="tbl-hint" style="margin:8px 0 4px">수업에는 <strong>Nominatim</strong>이 맞습니다 — 학생마다 키를 발급받게 하는 순간 실습이 무너집니다. 대신 규약을 지켜야 하니 <strong>글자마다 자동완성이 아니라 버튼을 눌렀을 때만</strong> 검색해야 합니다.</p>
+              <p class="tbl-hint" style="margin:8px 0 4px"><strong>수업에는 키가 필요 없는 두 가지</strong>가 맞습니다 — 학생마다 키를 발급받게 하는 순간 실습이 무너집니다. 다만 공짜에는 규약이 붙습니다. Nominatim은 규정을 문서로 밝혀 두었습니다(원문) — <em>“No heavy uses (an absolute maximum of <strong>1 request per second</strong>). Provide a valid HTTP Referer or <strong>User-Agent</strong> identifying the application”</em>, 그리고 <em>앱이 주기적으로 보내는 요청은 대량 지오코딩으로 간주해 강하게 권장하지 않는다</em>고 덧붙입니다. 그래서 넣는다면 <strong class="hot-t">글자마다 자동완성이 아니라 버튼을 눌렀을 때만</strong> 검색해야 합니다. <a class="dl-link" href="https://operations.osmfoundation.org/policies/nominatim/" target="_blank" rel="noopener">Nominatim 사용 규약 원문 ↗</a></p>
             </details>
             </li>
           </ol>
