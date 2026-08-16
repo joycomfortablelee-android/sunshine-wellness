@@ -480,6 +480,11 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .fig-note p.ftag { margin: 7px 0 0; display: flex; flex-direction: column;
   align-items: flex-start; gap: 4px; }
 .learn-article .fig-note p.ftag a.mapl { background: #fff; border-color: #cfdcea; color: #17539b; }
+/* 채운 태그 — 이 묶음에서 가장 먼저 눌렀으면 하는 하나만 짙은 남색으로 세운다 */
+.learn-article .fig-note p.ftag a.fill,
+.learn-article .fig-note p.ftag a.mapl.fill { background: #173b6c; border-color: #173b6c; color: #fff; }
+.learn-article .fig-note p.ftag a.fill:hover,
+.learn-article .fig-note p.ftag a.mapl.fill:hover { background: #0f2a4f; border-color: #0f2a4f; color: #fff; }
 .learn-article .fig-note p.ftag a.mapl:hover { background: #0f2a4f; border-color: #0f2a4f; }
 .learn-article .fig-note p.ftag a { display: inline-block; padding: 4px 10px; border-radius: 999px;
   background: #fff; border: 1px solid #cfdcea; color: #17539b;
