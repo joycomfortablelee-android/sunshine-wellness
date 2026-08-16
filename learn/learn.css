@@ -251,7 +251,8 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .reslist li.hi.tone .desc a.mapl {
   display: inline-block; padding: 3px 9px; margin: 1px 2px 1px 0;
   border-radius: 999px; background: #173b6c; border: 1px solid #173b6c;
-  color: #fff; font-weight: 800; line-height: 1.5; border-bottom: 0; vertical-align: 1px;
+  color: #fff; font-size: inherit; font-weight: 700; line-height: 1.5;
+  border-bottom: 0; vertical-align: 1px;
 }
 .learn-article .reslist .meta a.mapl:hover,
 .learn-article .reslist .desc a.mapl:hover,
