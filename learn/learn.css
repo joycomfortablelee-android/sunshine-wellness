@@ -585,6 +585,13 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .case-box .cb-src { display: block; font-size: 11.5px; color: var(--muted); margin-top: 2px; }
 .learn-article .case-box .cb-src b { color: #52697f; font-weight: 700; }
 
+/* 진한 파랑 변형 — 사례가 둘 이상 이어질 때 뒤엣것을 갈라 놓는다.
+   테두리만 진해지고 안은 그대로 흰 바탕이다. */
+.learn-article .case-box.deep { border: 2px solid #2563a8; }
+.learn-article .case-box.deep .cb-title { color: #17539b; }
+.learn-article .case-box.deep .cb-group { background: #2563a8; border-color: #2563a8; color: #fff; }
+.learn-article .case-box.deep li::before { background: #2563a8; }
+
 /* 좁은 칸에 들어가는 작은 비교표 — 가로 스크롤 없이 그대로 접히게 */
 .learn-article table.ref.mini { min-width: 0; }
 .learn-article table.ref.mini th, .learn-article table.ref.mini td { padding: 7px 9px; }
