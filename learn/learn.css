@@ -475,11 +475,14 @@ body.hub .lw { max-width: 1160px; }
   border-radius: 999px; background: #fff; border: 1px solid #cfdcea; color: #17539b;
   font-size: 9.5px; font-weight: 800; border-bottom: 0; vertical-align: 1px; }
 .learn-article .fig-note p.wlist a:hover { background: #2563a8; border-color: #2563a8; color: #fff; opacity: 1; }
-.learn-article .fig-note p.ftag { margin: 7px 0 0; }
-.learn-article .fig-note p.ftag a.mapl { background: #173b6c; border-color: #173b6c; color: #fff; }
+/* 곁주석 아래 태그 묶음 — 세로로 쌓고 바탕은 흰색.
+   줄줄이 이어 붙이면 어디서 끊기는지 안 보여서 한 줄에 하나씩 세운다. */
+.learn-article .fig-note p.ftag { margin: 7px 0 0; display: flex; flex-direction: column;
+  align-items: flex-start; gap: 4px; }
+.learn-article .fig-note p.ftag a.mapl { background: #fff; border-color: #cfdcea; color: #17539b; }
 .learn-article .fig-note p.ftag a.mapl:hover { background: #0f2a4f; border-color: #0f2a4f; }
 .learn-article .fig-note p.ftag a { display: inline-block; padding: 4px 10px; border-radius: 999px;
-  background: #173b6c; border: 1px solid #173b6c; color: #fff;
+  background: #fff; border: 1px solid #cfdcea; color: #17539b;
   font-size: 10.5px; font-weight: 800; border-bottom-width: 1px; }
 .learn-article .fig-note p.ftag a:hover { background: #0f2a4f; border-color: #0f2a4f; color: #fff; opacity: 1; }
 .learn-article .fig-note p.src { font-size: 10.5px; color: #8895a3; margin: 0; }
