@@ -241,6 +241,31 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .reslist .linkrow details.fold.pill > summary:hover { background: var(--t-ac, var(--green)); border-color: var(--t-ac, var(--green)); color: #fff; }
 .learn-article .reslist .linkrow details.fold.pill[open] > summary { margin-bottom: 8px; }
 
+/* 화살표 링크를 작은 태그로 — 곁주석의 「표만 크게 보기 · 영문 병기 ↗」와 같은 모양.
+   설명문·메타 줄 안에서도 알약이 되도록 .mapl 의 적용 범위를 넓힌다.
+   붉은 알약(.hot)은 「원문을 먼저 보라」는 표시, 남색은 부속 자료. */
+.learn-article .reslist .meta a.mapl,
+.learn-article .reslist .desc a.mapl,
+.learn-article .tbl-hint a.mapl,
+.learn-article .reslist li.hi.tone .meta a.mapl,
+.learn-article .reslist li.hi.tone .desc a.mapl {
+  display: inline-block; padding: 3px 9px; margin: 1px 2px 1px 0;
+  border-radius: 999px; background: #173b6c; border: 1px solid #173b6c;
+  color: #fff; font-weight: 800; line-height: 1.5; border-bottom: 0; vertical-align: 1px;
+}
+.learn-article .reslist .meta a.mapl:hover,
+.learn-article .reslist .desc a.mapl:hover,
+.learn-article .reslist li.hi.tone .meta a.mapl:hover,
+.learn-article .reslist li.hi.tone .desc a.mapl:hover {
+  background: #0f2a4f; border-color: #0f2a4f; color: #fff; opacity: 1;
+}
+.learn-article .reslist .meta a.mapl.hot,
+.learn-article .reslist .desc a.mapl.hot,
+.learn-article .reslist li.hi.tone .meta a.mapl.hot { background: #c0392b; border-color: #c0392b; color: #fff; }
+.learn-article .reslist .meta a.mapl.hot:hover,
+.learn-article .reslist .desc a.mapl.hot:hover,
+.learn-article .reslist li.hi.tone .meta a.mapl.hot:hover { background: #98291d; border-color: #98291d; color: #fff; }
+
 /* 지도로 가는 태그 — 노란 알약으로 갈라 놓는다 */
 .learn-article .reslist .numlist a.mapl,
 .learn-article .reslist li.hi.tone .numlist a.mapl {
