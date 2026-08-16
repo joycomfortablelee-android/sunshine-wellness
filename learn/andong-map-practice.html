@@ -125,6 +125,21 @@ header .sub b{color:var(--deep)}
 .srcrow span b{display:inline;font-size:inherit;color:var(--deep)}
 .srcrow a{color:var(--blue);font-weight:700;border-bottom:1px solid currentColor}
 
+/* 카드 안 작은 그림 — 자원에 사진이 있을 때만 */
+.card .thumb{float:right;width:44px;height:auto;margin:0 0 4px 9px}
+
+/* 정사각형 정보 팝업 */
+.pop-sq{width:224px;height:224px;display:flex;flex-direction:column;overflow:hidden}
+.pop-sq .pq-top{display:flex;align-items:center;gap:9px;padding-bottom:6px}
+.pop-sq img{width:52px;height:auto;flex:none}
+.pop-sq .pq-nm{font-size:13.5px;font-weight:800;color:var(--deep);line-height:1.35}
+.pop-sq .pq-co{font-family:Consolas,monospace;font-size:9.5px;color:#93a09b;margin-top:3px}
+.pop-sq .pq-tag{display:inline-block;font-size:9px;font-weight:800;color:#fff;background:var(--green);
+  border-radius:999px;padding:1px 7px;margin-top:4px}
+.pop-sq .pq-ds{flex:1;overflow-y:auto;font-size:10.5px;line-height:1.65;color:var(--muted);
+  white-space:pre-wrap;border-top:1px solid var(--line);padding-top:6px}
+.leaflet-popup-content-wrapper{border-radius:10px}
+
 .card.seed{border-left-color:var(--green);background:#f4faf7}
 .card .seedtag{display:inline-block;font-size:9.5px;font-weight:800;color:#fff;background:var(--green);
   border-radius:999px;padding:1px 7px;margin-left:5px;vertical-align:1px}
@@ -331,6 +346,10 @@ var 저장키 = "andong-map-practice-v1";
 var 견본 = [{
   이름: "하회마을",
   좌표: [36.53903, 128.51809],
+  그림: "images/hahoe-mask.png",
+  그림설명: "하회탈(양반탈)",
+  링크: "http://www.hahoe.or.kr/coding/main.asp",
+  링크이름: "안동하회마을 공식 ↗",
   설명: "① 왜 여기인가 — 「유명해서」가 아니라, 낙동강이 마을을 감아 돌아 생긴 지형 자체가 자원이기 때문입니다. "
       + "배경을 「산 음영」으로 바꾸면 산과 물이 마을을 어떻게 둘러쌌는지 눈으로 보입니다.\n"
       + "② 여정의 어느 단계 — 「여행 중」. 걸으며 보는 곳이라 도착 전에는 대체되지 않습니다.\n"
@@ -453,16 +472,43 @@ function 그리기() {
 
   자원.forEach(function (r, i) {
     var m = L.marker(r.좌표, { icon: 아이콘(String(i + 1), r.seed ? "seed" : "") }).addTo(map);
-    m.bindPopup('<div class="pop-nm">' + esc(r.이름) + "</div>"
-      + '<div class="pop-ds">' + esc(r.설명 || "") + "</div>"
-      + '<div class="pop-co">' + r.좌표[0].toFixed(5) + ", " + r.좌표[1].toFixed(5) + "</div>");
+    var 좌표글 = r.좌표[0].toFixed(5) + ", " + r.좌표[1].toFixed(5);
+    var 바깥 = r.링크
+      ? '<br><a href="' + r.링크 + '" target="_blank" rel="noopener" '
+        + 'style="color:#2563a8;font-weight:700;border-bottom:1px solid currentColor">'
+        + esc(r.링크이름 || "공식 홈페이지 ↗") + "</a>"
+      : "";
+
+    if (r.그림) {
+      /* 그림이 있으면 정사각형 정보 카드로 — 그림·이름·좌표가 한 덩어리, 설명은 아래에서 스크롤 */
+      m.bindPopup(
+        '<div class="pop-sq">'
+        + '<div class="pq-top">'
+        + '<img src="' + r.그림 + '" alt="' + esc(r.그림설명 || r.이름) + '">'
+        + "<div>"
+        + '<div class="pq-nm">' + esc(r.이름) + "</div>"
+        + '<div class="pq-co">' + 좌표글 + "</div>"
+        + (r.seed ? '<span class="pq-tag">견본</span>' : "")
+        + "</div></div>"
+        + '<div class="pq-ds">' + esc(r.설명 || "") + 바깥 + "</div>"
+        + "</div>",
+        { minWidth: 224, maxWidth: 224 });
+    } else {
+      m.bindPopup('<div class="pop-nm">' + esc(r.이름) + "</div>"
+        + '<div class="pop-ds">' + esc(r.설명 || "") + 바깥 + "</div>"
+        + '<div class="pop-co">' + 좌표글 + "</div>");
+    }
     pins.push(m);
 
     var el = document.createElement("div");
     el.className = "card" + (수정중 === i ? " editing" : "") + (r.seed ? " seed" : "");
     el.innerHTML =
-      '<div class="nm">' + (i + 1) + ". " + esc(r.이름) + (r.seed ? '<span class="seedtag">견본</span>' : "") + "</div>"
+      (r.그림 ? '<img class="thumb" src="' + r.그림 + '" alt="' + esc(r.그림설명 || r.이름) + '">' : "")
+      + '<div class="nm">' + (i + 1) + ". " + esc(r.이름) + (r.seed ? '<span class="seedtag">견본</span>' : "") + "</div>"
       + '<div class="ds">' + esc(r.설명 || "(이유를 아직 적지 않았습니다)") + "</div>"
+      + (r.링크 ? '<div class="ds"><a href="' + r.링크 + '" target="_blank" rel="noopener" '
+          + 'style="color:#2563a8;font-weight:700;border-bottom:1px solid currentColor">'
+          + esc(r.링크이름 || "공식 홈페이지 ↗") + "</a></div>" : "")
       + '<div class="co">' + r.좌표[0].toFixed(5) + ", " + r.좌표[1].toFixed(5) + "</div>"
       + '<div class="acts">'
       + '<button class="btn ghost sm" data-edit="' + i + '">수정</button>'
