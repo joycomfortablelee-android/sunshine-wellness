@@ -549,7 +549,10 @@ body.hub .lw { max-width: 1160px; }
 .learn-article li { font-size: 15px; line-height: 1.9; margin-bottom: 6px; }
 .learn-article .lead { font-family: 'Merriweather', Georgia, serif; font-size: 17px; color: var(--muted); line-height: 1.95; margin-bottom: 28px; }
 .learn-article .lead.sm { font-size: 14.5px; line-height: 1.85; margin-bottom: 22px; }  /* 히어로 소제목과 크기를 맞춘 리드 */
-.learn-article code { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; font-size: 13px; background: var(--gray); color: var(--deep); padding: 2px 6px; border-radius: 5px; }
+.learn-article code { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; font-size: 13px; background: var(--gray); color: var(--deep); padding: 2px 6px; border-radius: 5px; overflow-wrap: anywhere; }
+/* 좁은 칸에 들어가는 작은 비교표 — 가로 스크롤 없이 그대로 접히게 */
+.learn-article table.ref.mini { min-width: 0; }
+.learn-article table.ref.mini th, .learn-article table.ref.mini td { padding: 7px 9px; }
 .learn-article strong { color: var(--deep); }
 .learn-article .learn-part {
   font-size: 12px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;

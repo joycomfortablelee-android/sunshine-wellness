@@ -11,7 +11,7 @@
   <meta property="og:description" content="IoT·빅데이터·AI가 여행을 어떻게 바꾸는가, 부산과 이 사이트를 사례로" />
   <link rel="icon" href="data:," />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="learn.css?v=119" />
+  <link rel="stylesheet" href="learn.css?v=120" />
 </head>
 <body class="mod-smart">
 
@@ -186,10 +186,31 @@
           </div>
           <ol class="numlist">
             <li><strong>무엇을 하나</strong> — 배경 지도를 <strong>고르고</strong>, 관광자원을 <strong>찍고</strong>, 도구의 <strong>한계를 잽니다</strong>. <strong class="hot-t">편집기도 코딩도 필요 없습니다</strong> — 지도를 클릭해 위치를 찍고 오른쪽에 <strong>이름과 고른 이유</strong>를 적으면 끝입니다. 적은 내용은 <strong>브라우저에 저장</strong>돼 창을 닫았다 열어도 남아 있고, 다 되면 <strong>「제출용 글 복사」</strong> 한 번으로 과제 형식이 만들어집니다.</li>
-            <li><strong>산은 우리가 그리지 않았다</strong> — 배경의 산 음영은 <strong>실측 고도자료를 음영 처리해 둔 것</strong>을 불러온 것입니다. 그린 것도, AI가 만든 것도 아닙니다. 파트 01의 열두 도시가 한 일과 <strong>구조가 같습니다</strong> — 인천도 수원도 지도를 만들지 않았고, 가져다 쓰고 그 위에 콘텐츠를 얹었습니다. <strong class="hot-t">학생이 만드는 것은 지도가 아니라 그 위에 얹는 이야기</strong>입니다.</li>
+            <li><strong>산은 우리가 그리지 않았다</strong> — 배경의 산 음영은 <strong>실측 고도자료를 음영 처리해 둔 것</strong>을 불러온 것입니다. 그린 것도, AI가 만든 것도 아닙니다. 주소는 이것입니다 — <code>server.arcgisonline.com/ArcGIS/rest/services/Elevation/World_Hillshade/MapServer/tile/{z}/{y}/{x}</code> <strong>끝의 세 숫자가 곧 좌표</strong>여서, 안동을 보려면 <code>13/3200/7026</code>을 넣습니다. 제공처가 밝힌 출처는 <em>Esri · Vantor · Airbus DS · USGS · NGA · NASA · CGIAR</em> 등이고, 같은 문서에 <strong class="hot-t">“global coverage down to a scale of ~1:72k”</strong>라는 확대 한계도 적혀 있습니다(아래 ③의 근거). 지형도는 <em>OpenStreetMap 기여자 · SRTM</em>의 자료를 <em>OpenTopoMap</em>(CC-BY-SA)이 그린 것입니다. <a class="dl-link" href="https://goto.arcgisonline.com/maps/Elevation/World_Hillshade" target="_blank" rel="noopener">World Hillshade 원본 설명 · 이용조건 ↗</a> <a class="dl-link" href="https://opentopomap.org/about" target="_blank" rel="noopener">OpenTopoMap 표기 규정 ↗</a><br />파트 01의 열두 도시가 한 일과 <strong>구조가 같습니다</strong> — 인천도 수원도 지도를 만들지 않았고, 가져다 쓰고 그 위에 콘텐츠를 얹었습니다. <strong class="hot-t">학생이 만드는 것은 지도가 아니라 그 위에 얹는 이야기</strong>입니다.</li>
             <li><strong>한계가 스스로 말한다</strong> — 산 음영을 켠 채 <strong>줌 15 이상</strong>으로 확대하면 경고가 뜹니다. 한국 지역은 <strong>3~4km 범위가 상한</strong>이고 그 아래로는 원본 해상도가 없어 뭉개집니다. 도구를 쓰는 법보다 <em>도구의 한계를 아는 법</em>이 오래 갑니다.</li>
             <li><strong>무엇으로 평가하나</strong> — 지도가 예쁜지, 코드를 짰는지는 보지 않습니다. <strong>관광자원 세 곳을 「왜」 골랐는가 · 출처를 밝혔는가 · "왜 더 확대하지 않았나"에 답할 수 있는가</strong>를 봅니다. 바로 아래 데이터랩 경진대회가 요구하는 것과 같습니다 — <em>개발 실력이 아니라 데이터를 읽고 해석한 이야기.</em></li>
             <li><strong>지역 고르기</strong> — 실습 페이지 오른쪽 아래에 <strong>안동시 24개 읍면동</strong>이 있습니다. 통계청 SGIS 경계 자료에 수록된 그대로여서, 각자 하나씩 맡아 나눠 갖기 좋습니다.</li>
+            <li><strong>상업판은 이렇게 만든다</strong> — 여러분이 만드는 것의 <strong>어른 버전</strong>입니다. <strong>㈜노블전자지도(노블애드)</strong>가 <em>다도라</em>라는 플랫폼으로 지자체 전자지도를 만듭니다. 눈여겨볼 것은 <strong class="hot-t">같은 엔진에 콘텐츠만 갈아 끼운다</strong>는 점입니다 — 용인시판과 용인교육청판이 <strong>주소만 다르고 구조는 같습니다</strong>. 배경 지도는 Mapbox를 가져다 쓰고, <strong>자산은 그 위에 얹은 콘텐츠</strong>입니다. 실습에서 우리가 한 것과 완전히 같은 구조이며, 규모만 다릅니다. 열어서 <em>“이 회사가 판 것은 지도인가, 콘텐츠인가”</em>를 물어보십시오.
+              <a class="mapl" href="https://yonginsi.dadora.kr/" target="_blank" rel="noopener">용인시 전자지도 ↗</a> <a class="mapl" href="https://yonginedu.dadora.kr/" target="_blank" rel="noopener">용인교육청 전자지도 ↗</a> <a href="https://www.noblad.com/" target="_blank" rel="noopener">㈜노블전자지도 노블애드 ↗</a></li>
+            <li><strong>장소를 이름으로 찾기</strong> — 지도를 눈으로 뒤지는 대신 <strong>“안동 하회마을”처럼 이름을 넣어 좌표를 얻는</strong> 방법이 있습니다. 이를 <strong>지오코딩</strong>이라 합니다. 실제로 넣어 본 결과입니다 — 하회마을 <code>36.53903, 128.51809</code> · 도산서원 <code>36.72722, 128.84353</code> · 월영교 <code>36.57663, 128.76089</code>. 다만 <strong class="hot-t">검색해서 안 나오는 곳은 아직 아무도 지도에 올리지 않은 곳</strong>입니다 — 그 빈자리를 찾아내는 것이 오히려 이 수업의 목표에 가깝습니다.
+            <details class="fold pill">
+              <summary>지오코딩 서비스 넷 비교</summary>
+              <div class="tbl-wrap">
+                <table class="ref mini">
+                  <thead>
+                    <tr><th>서비스</th><th>키</th><th>한국 지명</th><th>비고</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><strong>Nominatim</strong> (OSM)</td><td class="st">불필요</td><td class="st"><strong>확인함 · 좋음</strong></td><td class="st">오픈소스 <code>osm-search/Nominatim</code>. <strong>초당 1회 · User-Agent 표기</strong> 규약 있음</td></tr>
+                    <tr><td><strong>Photon</strong> (komoot)</td><td class="st">불필요</td><td class="st">보통</td><td class="st">자동완성에 유리. 오픈소스 <code>komoot/photon</code></td></tr>
+                    <tr><td><strong>카카오 로컬 API</strong></td><td class="st">필요</td><td class="st">최고</td><td class="st">도메인 등록 필요, 무료 쿼터 있음</td></tr>
+                    <tr><td><strong>VWorld 지오코더</strong></td><td class="st">필요</td><td class="st">좋음(공식)</td><td class="st">국토교통부. 도메인 등록 필요</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="tbl-hint" style="margin:8px 0 4px">수업에는 <strong>Nominatim</strong>이 맞습니다 — 학생마다 키를 발급받게 하는 순간 실습이 무너집니다. 대신 규약을 지켜야 하니 <strong>글자마다 자동완성이 아니라 버튼을 눌렀을 때만</strong> 검색해야 합니다.</p>
+            </details>
+            </li>
           </ol>
           <span class="meta">선샤인 웰니스 자체 제작 · 배경 지도 Esri World Hillshade · OpenTopoMap · OpenStreetMap · 읍면동 목록 통계청 SGIS</span>
         </li>
