@@ -223,6 +223,13 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .reslist li.violet { --t-bg: #f7f4fd; --t-ac: #7c3aed; --t-dk: #5b21b6; --t-ln: #ded1f8; }
 .learn-article .reslist li.gold   { --t-bg: #fdf8ec; --t-ac: #d19b3d; --t-dk: #8a5a17; --t-ln: #ecdcb9; }
 .learn-article .reslist li.green  { --t-bg: #f0f8f3; --t-ac: #169873; --t-dk: #0f6b52; --t-ln: #c7e6d9; }
+/* 흰 바탕 + 파란 테두리 — 바탕색으로 구역을 나누지 않고 테두리로만 세우는 변형.
+   실습처럼 「읽는 카드」가 아니라 「하러 가는 카드」에 쓴다. */
+.learn-article .reslist li.paper  { --t-bg: #fff;     --t-ac: #2563a8; --t-dk: #17539b; --t-ln: #cfdcea; }
+.learn-article .reslist li.hi.tone.paper {
+  border: 1px solid #2563a8; border-left: 3px solid #2563a8;
+  border-radius: 10px; box-shadow: 0 2px 10px rgba(37,99,168,.07);
+}
 
 /* 태그 줄 안에 놓는 알약형 접이식 */
 .learn-article .reslist .linkrow details.fold.pill {
