@@ -1309,9 +1309,14 @@ body.hub .lw { max-width: 1160px; }
 
      ① 표제 28   페이지 제목
      ② 제목 14.5 자료 항목 제목 · 묶음 제목 · 접이식 머리글 · 소제목
-     ③ 본문 12.5 본문 · 리드 · 설명문 · 번호목록 · 표 본문 · 슬라이드 본문 · 요약상자
-     ④ 보조 10.5 캡션 · 메타 · 출처 · 곁주석 · 표 머리 · 힌트 · 파트 머리글 · 알약 태그
+     ③ 본문 12.5 본문 문단 · 리드 · 슬라이드 본문 · 요약상자  (카드 밖의 글)
+     ④ 보조 10.5 ★ 카드와 표 안의 글 전부 — 설명문 · 번호목록 · 메타 · 표 머리·본문 ·
+                 캡션 · 출처 · 곁주석 · 힌트 · 파트 머리글 · 알약 태그 · 배지
      ⑤ 표시 9    원 안의 숫자 · 연도 배지 · 공식 출처
+
+   ★ 카드 안에서는 크기로 위계를 만들지 않는다. 제목(②)을 뺀 모든 글이 한 크기다.
+     설명문이 메타보다 크고 번호목록이 또 다른 크기이던 것을 ④ 하나로 모았다.
+     구분은 굵기(제목 800 · 강조 700)와 색(--t-dk · hot-t 붉은색)이 맡는다.
 
    16종이던 크기를 5종으로 줄인다. 위계는 크기가 아니라 굵기 · 색 · 배경이 함께 만든다. */
 body.mod-smart {
@@ -1351,15 +1356,6 @@ body.mod-smart .learn-article li,
 body.mod-smart .learn-article code,
 body.mod-smart .learn-article .lead,
 body.mod-smart .learn-article .lead.sm,
-body.mod-smart .learn-article .reslist .desc,
-body.mod-smart .learn-article .reslist.tight .desc,
-body.mod-smart .learn-article .reslist.grid2.cards .desc,
-body.mod-smart .learn-article .reslist .desc.mini,
-body.mod-smart .learn-article .reslist .numlist li,
-body.mod-smart .learn-article .reslist.grid2.cards .numlist li,
-body.mod-smart .learn-article table.ref td,
-body.mod-smart .learn-article table.ref td.st,
-body.mod-smart .learn-article table.ref td.pri,
 body.mod-smart .learn-article .logic p,
 body.mod-smart .learn-article .slide.def p,
 body.mod-smart .learn-article .slide.def .logic p,
@@ -1393,6 +1389,12 @@ body.mod-smart .learn-article a.ptag,
 body.mod-smart .learn-article .reslist .meta,
 body.mod-smart .learn-article .reslist.tight .meta,
 body.mod-smart .learn-article .reslist.grid2.cards .meta,
+body.mod-smart .learn-article .reslist .desc,
+body.mod-smart .learn-article .reslist.tight .desc,
+body.mod-smart .learn-article .reslist.grid2.cards .desc,
+body.mod-smart .learn-article .reslist .desc.mini,
+body.mod-smart .learn-article .reslist .numlist li,
+body.mod-smart .learn-article .reslist.grid2.cards .numlist li,
 body.mod-smart .learn-article .reslist .linkrow a,
 body.mod-smart .learn-article .reslist .linkrow.tiny a,
 body.mod-smart .learn-article .reslist.grid2.cards .linkrow a,
@@ -1416,6 +1418,9 @@ body.mod-smart .learn-article p.mini-note,
 body.mod-smart .learn-article .src-inline,
 body.mod-smart .learn-article .tbl-hint,
 body.mod-smart .learn-article table.ref th,
+body.mod-smart .learn-article table.ref td,
+body.mod-smart .learn-article table.ref td.st,
+body.mod-smart .learn-article table.ref td.pri,
 body.mod-smart .learn-article table.ref .ko,
 body.mod-smart .learn-article table.ref .jr,
 body.mod-smart .learn-article .logic .chain,
@@ -1478,13 +1483,6 @@ body.mod-smart .learn-article p,
 body.mod-smart .learn-article li,
 body.mod-smart .learn-article .lead,
 body.mod-smart .learn-article .lead.sm,
-body.mod-smart .learn-article .reslist .desc,
-body.mod-smart .learn-article .reslist.tight .desc,
-body.mod-smart .learn-article .reslist.grid2.cards .desc,
-body.mod-smart .learn-article .reslist .desc.mini,
-body.mod-smart .learn-article .reslist .numlist li,
-body.mod-smart .learn-article .reslist.grid2.cards .numlist li,
-body.mod-smart .learn-article table.ref td,
 body.mod-smart .learn-article .logic p,
 body.mod-smart .learn-article .slide.def p,
 body.mod-smart .learn-article .slide.compact p,
@@ -1493,7 +1491,16 @@ body.mod-smart .learn-article .slide.compact .sun-box li,
 body.mod-smart .learn-article .slide.compact .sun-box p,
 body.mod-smart .learn-article .cities { line-height: var(--lh-read); }
 
-/* 보조 — 캡션 · 메타 · 곁주석 · 힌트 */
+/* 보조 — 카드 본문 · 캡션 · 메타 · 표 · 곁주석 · 힌트
+   카드 안의 「글」은 설명문·번호목록·메타가 전부 한 크기(--fs-sub)로 모였다.
+   위계는 크기가 아니라 굵기(제목 800)와 색으로만 만든다. */
+body.mod-smart .learn-article .reslist .desc,
+body.mod-smart .learn-article .reslist.tight .desc,
+body.mod-smart .learn-article .reslist.grid2.cards .desc,
+body.mod-smart .learn-article .reslist .desc.mini,
+body.mod-smart .learn-article .reslist .numlist li,
+body.mod-smart .learn-article .reslist.grid2.cards .numlist li,
+body.mod-smart .learn-article table.ref td,
 body.mod-smart .learn-article .reslist .meta,
 body.mod-smart .learn-article .learn-fig figcaption,
 body.mod-smart .learn-article .fig-pair figcaption,
