@@ -105,6 +105,31 @@ header .sub b{color:var(--deep)}
 .card .acts{display:flex;gap:5px;margin-top:7px}
 .card.editing{border-left-color:var(--blue);background:#f4f9ff}
 
+/* 지금 보고 있는 타일의 실제 주소 */
+.live{background:#f4f9ff;border:1px solid #cfdcea;border-radius:9px;padding:9px 11px;margin-bottom:10px}
+.live .lv-lab{font-size:10.5px;font-weight:800;color:var(--blue);letter-spacing:.02em}
+.live .lv-url{font-family:Consolas,monospace;font-size:10.5px;line-height:1.55;color:var(--deep);
+  overflow-wrap:anywhere;margin:5px 0 8px}
+
+.srcfold{border:1px solid var(--line);border-radius:9px;background:#fff;padding:0 11px;margin-top:2px}
+.srcfold>summary{cursor:pointer;list-style:none;padding:9px 0;font-size:11.5px;font-weight:800;color:var(--green)}
+.srcfold>summary::-webkit-details-marker{display:none}
+.srcfold>summary::before{content:"▸ ";color:var(--green)}
+.srcfold[open]>summary::before{content:"▾ "}
+.srcfold[open]{padding-bottom:10px}
+.srcrow{padding:8px 0;border-top:1px solid var(--line)}
+.srcrow b{display:block;font-size:11.5px;font-weight:800;color:var(--deep);margin-bottom:4px}
+.srcrow code{display:block;font-family:Consolas,monospace;font-size:10px;line-height:1.5;
+  color:#17539b;background:#f3f6f5;border-radius:6px;padding:6px 8px;overflow-wrap:anywhere}
+.srcrow span{display:block;font-size:10.5px;line-height:1.65;color:var(--muted);margin-top:5px}
+.srcrow span b{display:inline;font-size:inherit;color:var(--deep)}
+.srcrow a{color:var(--blue);font-weight:700;border-bottom:1px solid currentColor}
+
+.card.seed{border-left-color:var(--green);background:#f4faf7}
+.card .seedtag{display:inline-block;font-size:9.5px;font-weight:800;color:#fff;background:var(--green);
+  border-radius:999px;padding:1px 7px;margin-left:5px;vertical-align:1px}
+.pin.seed{background:var(--green)}
+
 .dongs{display:flex;flex-wrap:wrap;gap:4px;margin-top:7px}
 .dongs span{font-size:10px;color:var(--muted);background:#fff;
   border:1px solid var(--line);border-radius:999px;padding:2px 8px}
@@ -232,6 +257,52 @@ header .sub b{color:var(--deep)}
       <div class="dongs" id="dongs"></div>
     </div>
 
+    <div class="step">
+      <h2>배경 지도는 어디서 오나</h2>
+      <p class="hint">산 음영은 우리가 그린 것이 아닙니다. <b>이미 계산돼 서버에 구워져 있는 그림</b>을 주소로 불러올 뿐입니다. 아래가 그 주소입니다.</p>
+
+      <div class="live">
+        <div class="lv-lab">지금 화면 한가운데 타일의 실제 주소</div>
+        <div class="lv-url" id="liveUrl">—</div>
+        <div class="row">
+          <a class="btn sm" id="btnOpenTile" href="#" target="_blank" rel="noopener">이 타일 그림 열기 ↗</a>
+          <button class="btn ghost sm" id="btnCopyTile">주소 복사</button>
+        </div>
+      </div>
+
+      <details class="srcfold">
+        <summary>세 배경의 주소와 조건</summary>
+
+        <div class="srcrow">
+          <b>① 산 음영 — Esri World Hillshade</b>
+          <code>https://server.arcgisonline.com/ArcGIS/rest/services/Elevation/World_Hillshade/MapServer/tile/{z}/{y}/{x}</code>
+          <span>최대 줌 17 · 실효 한계 13~14 · ⚠️ 좌표 순서가 <b>{z}/{y}/{x}</b>로 x와 y가 뒤바뀝니다<br>
+            표기 — Sources: Esri, USGS, NASA, CGIAR 외 ·
+            <a href="https://goto.arcgisonline.com/maps/Elevation/World_Hillshade" target="_blank" rel="noopener">이용조건 원문 ↗</a></span>
+        </div>
+
+        <div class="srcrow">
+          <b>② 지형도 — OpenTopoMap</b>
+          <code>https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png</code>
+          <span>최대 줌 17 · 등고선과 수계까지 그려집니다<br>
+            표기 — 지도 데이터 © OpenStreetMap 기여자, SRTM ／ 표현 © OpenTopoMap (CC-BY-SA) ·
+            <a href="https://opentopomap.org/about" target="_blank" rel="noopener">표기 규정 원문 ↗</a></span>
+        </div>
+
+        <div class="srcrow">
+          <b>③ 도로지도 — OpenStreetMap 표준 타일</b>
+          <code>https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png</code>
+          <span>최대 줌 <b>19</b> — 셋 중 가장 깊게 확대됩니다. 도로·건물은 사람이 직접 그린 자료라 산 음영보다 훨씬 자세합니다<br>
+            표기 — © OpenStreetMap 기여자</span>
+        </div>
+
+        <p class="hint" style="margin:10px 0 0">
+          <b>{s}는 서버 분산용</b>입니다. Leaflet이 <b>a · b · c</b>로 바꿔 넣어 <b>a.tile.opentopomap.org</b>처럼 만듭니다. Esri에는 {s}가 없습니다.<br>
+          <b>셋 다 API 키가 필요 없습니다</b> — 출처만 밝히면 됩니다. 그래서 학생마다 키를 발급받는 절차 없이 바로 씁니다.
+        </p>
+      </details>
+    </div>
+
     <div class="step" style="border-bottom:0">
       <p class="src">
         <b>출처 표기 (그대로 옮겨 쓰십시오)</b><br>
@@ -255,11 +326,24 @@ var 안동중심 = [36.5680, 128.7350];
 var 안동범위 = [[36.42, 128.45], [36.78, 129.05]];
 var 저장키 = "andong-map-practice-v1";
 
+/* 첫 방문에만 넣는 견본 하나 — 지어낸 자리가 아니라 실제로 조회해 확인한 좌표입니다.
+   무엇을 어떻게 쓰라는 말보다, 제대로 쓴 것 한 줄을 보여주는 편이 빠릅니다. */
+var 견본 = [{
+  이름: "하회마을",
+  좌표: [36.53903, 128.51809],
+  설명: "① 왜 여기인가 — 「유명해서」가 아니라, 낙동강이 마을을 감아 돌아 생긴 지형 자체가 자원이기 때문입니다. "
+      + "배경을 「산 음영」으로 바꾸면 산과 물이 마을을 어떻게 둘러쌌는지 눈으로 보입니다.\n"
+      + "② 여정의 어느 단계 — 「여행 중」. 걸으며 보는 곳이라 도착 전에는 대체되지 않습니다.\n"
+      + "③ 동선 — 강을 따라 월영교·안동역 쪽과 이어집니다.",
+  seed: true
+}];
+
 var 자원 = [];
 try {
   var raw = localStorage.getItem(저장키);
-  if (raw) 자원 = JSON.parse(raw) || [];
-} catch (e) { 자원 = []; }
+  if (raw === null) { 자원 = 견본.slice(); }      // 처음 열었을 때만
+  else { 자원 = JSON.parse(raw) || []; }
+} catch (e) { 자원 = 견본.slice(); }
 
 function 저장() {
   try { localStorage.setItem(저장키, JSON.stringify(자원)); } catch (e) {}
@@ -274,6 +358,14 @@ var bases = {
     { maxZoom: 17, attribution: "지도 데이터 &copy; OpenStreetMap 기여자, SRTM ／ 표현 &copy; OpenTopoMap (CC-BY-SA)" }),
   road: L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
     { maxZoom: 19, attribution: "&copy; OpenStreetMap 기여자" })
+};
+
+/* 화면에 보이는 그 타일의 실제 주소를 만들기 위한 틀.
+   {s}는 서버 분산용이라 표시할 때는 a 로 고정한다. */
+var 주소틀 = {
+  hill: "https://server.arcgisonline.com/ArcGIS/rest/services/Elevation/World_Hillshade/MapServer/tile/{z}/{y}/{x}",
+  topo: "https://a.tile.opentopomap.org/{z}/{x}/{y}.png",
+  road: "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"
 };
 
 var map = L.map("map", { zoomControl: true }).setView(안동중심, 12);
@@ -307,15 +399,19 @@ function 갱신() {
   document.getElementById("roZ").textContent = z;
   document.getElementById("roT").textContent = t.z + "/" + t.x + "/" + t.y;
   document.getElementById("warn").classList.toggle("on", 현재배경 === "hill" && z >= 15);
+  var u = 주소틀[현재배경].replace("{z}", t.z).replace("{x}", t.x).replace("{y}", t.y);
+  document.getElementById("liveUrl").textContent = u;
+  document.getElementById("btnOpenTile").href = u;
 }
 map.on("moveend zoomend", 갱신);
 
 /* ── 지도 클릭 → 좌표 ──────────────────────────── */
 var 찍은좌표 = null, 임시핀 = null;
 
-function 아이콘(txt, tmp) {
+function 아이콘(txt, kind) {
+  var c = kind ? " " + kind : "";
   return L.divIcon({ className: "", iconSize: [26, 26], iconAnchor: [13, 13],
-    html: '<div class="pin' + (tmp ? " tmp" : "") + '">' + txt + "</div>" });
+    html: '<div class="pin' + c + '">' + txt + "</div>" });
 }
 function 좌표표시() {
   var box = document.getElementById("cbox"), v = document.getElementById("cval");
@@ -330,7 +426,7 @@ function 좌표표시() {
 map.on("click", function (e) {
   찍은좌표 = [ +e.latlng.lat.toFixed(5), +e.latlng.lng.toFixed(5) ];
   if (임시핀) map.removeLayer(임시핀);
-  임시핀 = L.marker(찍은좌표, { icon: 아이콘("+", true) }).addTo(map);
+  임시핀 = L.marker(찍은좌표, { icon: 아이콘("+", "tmp") }).addTo(map);
   좌표표시();
 });
 document.getElementById("btnClearCoord").addEventListener("click", function () {
@@ -356,16 +452,16 @@ function 그리기() {
   }
 
   자원.forEach(function (r, i) {
-    var m = L.marker(r.좌표, { icon: 아이콘(String(i + 1), false) }).addTo(map);
+    var m = L.marker(r.좌표, { icon: 아이콘(String(i + 1), r.seed ? "seed" : "") }).addTo(map);
     m.bindPopup('<div class="pop-nm">' + esc(r.이름) + "</div>"
       + '<div class="pop-ds">' + esc(r.설명 || "") + "</div>"
       + '<div class="pop-co">' + r.좌표[0].toFixed(5) + ", " + r.좌표[1].toFixed(5) + "</div>");
     pins.push(m);
 
     var el = document.createElement("div");
-    el.className = "card" + (수정중 === i ? " editing" : "");
+    el.className = "card" + (수정중 === i ? " editing" : "") + (r.seed ? " seed" : "");
     el.innerHTML =
-      '<div class="nm">' + (i + 1) + ". " + esc(r.이름) + "</div>"
+      '<div class="nm">' + (i + 1) + ". " + esc(r.이름) + (r.seed ? '<span class="seedtag">견본</span>' : "") + "</div>"
       + '<div class="ds">' + esc(r.설명 || "(이유를 아직 적지 않았습니다)") + "</div>"
       + '<div class="co">' + r.좌표[0].toFixed(5) + ", " + r.좌표[1].toFixed(5) + "</div>"
       + '<div class="acts">'
@@ -427,7 +523,7 @@ document.getElementById("btnSave").addEventListener("click", function () {
   var ds = document.getElementById("fDesc").value.trim();
   if (!찍은좌표) { alert("먼저 지도를 클릭해 위치를 찍으십시오."); return; }
   if (!nm) { alert("이름을 적으십시오."); document.getElementById("fName").focus(); return; }
-  if (수정중 >= 0) 자원[수정중] = { 이름: nm, 설명: ds, 좌표: 찍은좌표.slice() };
+  if (수정중 >= 0) 자원[수정중] = { 이름: nm, 설명: ds, 좌표: 찍은좌표.slice() };   // 손대면 견본 딱지가 떨어진다
   else 자원.push({ 이름: nm, 설명: ds, 좌표: 찍은좌표.slice() });
   저장(); 입력초기화(); 그리기();
 });
@@ -464,6 +560,9 @@ document.getElementById("btnCode").addEventListener("click", function () {
       + (r.설명 || "").replace(/"/g, "'").replace(/\n/g, " ") + '" },';
   }).join("\n") + "\n];";
   복사(t, this, "복사했습니다");
+});
+document.getElementById("btnCopyTile").addEventListener("click", function () {
+  복사(document.getElementById("liveUrl").textContent, this, "복사했습니다");
 });
 document.getElementById("btnWipe").addEventListener("click", function () {
   if (!자원.length) return;
