@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>안동시 스마트 관광지도 만들기 — 실습</title>
-<meta name="description" content="안동시를 대상으로 배경 지도를 고르고, 관광자원을 찍고, 도구의 한계를 재 보는 스마트 관광지도 제작 실습.">
+<meta name="description" content="안동시를 대상으로 배경 지도를 고르고, 관광자원을 찍고, 도구의 한계를 재 보는 스마트 관광지도 제작 실습. 편집기 없이 화면에서 바로 만듭니다.">
 <link rel="preconnect" href="https://unpkg.com">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="icon" href="data:,">
@@ -18,19 +18,18 @@
 body{font-family:'Noto Sans KR',sans-serif;color:#2c3733;background:#fff;line-height:1.6}
 a{color:inherit;text-decoration:none}
 
-header{padding:16px 20px 12px;border-bottom:1px solid var(--line);background:var(--ivory)}
+header{padding:14px 20px 11px;border-bottom:1px solid var(--line);background:var(--ivory)}
 header .kicker{font-size:10.5px;font-weight:800;letter-spacing:.06em;color:var(--green);margin-bottom:4px}
 header h1{font-size:18px;font-weight:800;color:var(--deep);line-height:1.35}
-header .sub{margin-top:5px;font-size:12px;color:var(--muted);line-height:1.65;max-width:760px}
+header .sub{margin-top:5px;font-size:12px;color:var(--muted);line-height:1.65;max-width:780px}
 header .sub b{color:var(--deep)}
 .links{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
 .links a{font-size:11px;font-weight:700;color:var(--green);background:#fff;
   border:1px solid var(--line);border-radius:999px;padding:4px 11px}
 .links a:hover{background:var(--green);border-color:var(--green);color:#fff}
 
-/* ── 도구줄 ───────────────────────────── */
 .toolbar{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;
-  padding:10px 20px;border-bottom:1px solid var(--line);background:#fff}
+  padding:9px 20px;border-bottom:1px solid var(--line);background:#fff}
 .tgroup{display:flex;align-items:center;gap:6px}
 .tlabel{font-size:10.5px;font-weight:800;letter-spacing:.03em;color:var(--muted);white-space:nowrap}
 .tbtn{font-family:inherit;font-size:11.5px;font-weight:700;color:var(--muted);
@@ -42,66 +41,91 @@ header .sub b{color:var(--deep)}
   background:#f3f6f5;border:1px solid var(--line);border-radius:6px;padding:4px 9px;white-space:nowrap}
 .readout b{color:var(--blue)}
 
-/* ── 본체 ─────────────────────────────── */
-.layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;height:calc(100vh - 178px);min-height:460px}
-#map{width:100%;height:100%;background:#eef1f0}
-.panel{border-left:1px solid var(--line);overflow-y:auto;background:#fbfcfb;padding:14px 15px 30px}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 344px;height:calc(100vh - 176px);min-height:470px}
+#map{width:100%;height:100%;background:#eef1f0;cursor:crosshair}
+.panel{border-left:1px solid var(--line);overflow-y:auto;background:#fbfcfb;padding:0 0 30px}
 
-.warn{display:none;margin:0 0 12px;padding:9px 11px;border-radius:8px;
+.step{padding:13px 15px;border-bottom:1px solid var(--line)}
+.step h2{font-size:12.5px;font-weight:800;color:var(--deep);margin-bottom:6px}
+.step h2 .n{display:inline-flex;align-items:center;justify-content:center;
+  width:18px;height:18px;border-radius:50%;background:var(--green);color:#fff;
+  font-size:10.5px;font-weight:800;margin-right:6px;vertical-align:1px}
+.step .hint{font-size:11px;line-height:1.7;color:var(--muted);margin-bottom:9px}
+.step .hint b{color:var(--deep)}
+
+.warn{display:none;margin:10px 15px 0;padding:9px 11px;border-radius:8px;
   background:#fdeeec;border:1px solid #f3cec8;border-left:3px solid var(--red);
   font-size:11.5px;line-height:1.65;color:#8c3b30}
 .warn.on{display:block}
 .warn b{color:var(--red)}
 
-.ptitle{font-size:12px;font-weight:800;color:var(--deep);margin:0 0 7px;
-  padding-bottom:5px;border-bottom:1px solid var(--line)}
-.hint{font-size:11px;line-height:1.7;color:var(--muted);margin-bottom:11px}
-.hint b{color:var(--deep)}
-.hint code{font-family:Consolas,monospace;font-size:10.5px;background:#eef2f0;
-  padding:1px 5px;border-radius:4px;color:var(--deep)}
+/* ── 입력 폼 ─────────────────────────── */
+.field{margin-bottom:7px}
+.field label{display:block;font-size:10.5px;font-weight:800;color:var(--green);margin-bottom:3px}
+.field input,.field textarea{width:100%;font-family:inherit;font-size:12px;color:var(--deep);
+  background:#fff;border:1px solid var(--line);border-radius:7px;padding:7px 9px;outline:none;
+  transition:border-color .15s,box-shadow .15s}
+.field textarea{resize:vertical;min-height:52px;line-height:1.6}
+.field input:focus,.field textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(59,98,89,.11)}
+.field input::placeholder,.field textarea::placeholder{color:#b3bcb8}
 
-.pick{background:#fff;border:1px solid var(--line);border-radius:9px;padding:10px 11px;margin-bottom:14px}
-.pick .lab{font-size:10.5px;font-weight:800;color:var(--green);letter-spacing:.03em}
-.pick .val{font-family:Consolas,monospace;font-size:12px;color:var(--deep);margin:5px 0 7px;word-break:break-all}
-.pick button{font-family:inherit;font-size:11px;font-weight:700;cursor:pointer;
-  background:var(--blue);border:1px solid var(--blue);color:#fff;border-radius:999px;padding:4px 11px}
-.pick button:hover{background:#17539b;border-color:#17539b}
-.pick button.ghost{background:#fff;color:var(--blue)}
-.pick button.ghost:hover{background:#eef4fb;color:#17539b}
+.coordbox{display:flex;align-items:center;gap:7px;background:#fff;border:1px dashed #c3ccc8;
+  border-radius:7px;padding:7px 9px;margin-bottom:9px}
+.coordbox.set{border-style:solid;border-color:var(--blue);background:#f4f9ff}
+.coordbox .cv{flex:1;font-family:Consolas,monospace;font-size:11.5px;color:#9aa5a1}
+.coordbox.set .cv{color:var(--blue);font-weight:700}
 
+.row{display:flex;gap:6px;flex-wrap:wrap}
+.btn{font-family:inherit;font-size:11.5px;font-weight:700;cursor:pointer;border-radius:999px;
+  padding:6px 14px;border:1px solid var(--green);background:var(--green);color:#fff;transition:.15s}
+.btn:hover{background:#2f5148;border-color:#2f5148}
+.btn.ghost{background:#fff;color:var(--green)}
+.btn.ghost:hover{background:#eef4f1;color:#2f5148}
+.btn.sm{font-size:10.5px;padding:3px 10px}
+.btn.warnb{border-color:#d8b4ae;background:#fff;color:var(--red)}
+.btn.warnb:hover{background:#fdeeec;border-color:var(--red)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+
+.ask{background:#fff;border:1px solid var(--line);border-radius:8px;padding:9px 11px;margin-bottom:10px}
+.ask p{font-size:10.5px;line-height:1.75;color:var(--muted);margin:0}
+.ask p+p{margin-top:4px}
+.ask b{color:var(--deep)}
+
+/* ── 목록 ────────────────────────────── */
+.count{font-size:10.5px;font-weight:800;color:var(--muted);margin-left:4px}
+.empty{font-size:11px;color:#9aa5a1;background:#fff;border:1px dashed #ccd4d0;
+  border-radius:8px;padding:14px 12px;text-align:center;line-height:1.7}
 .card{background:#fff;border:1px solid var(--line);border-left:3px solid var(--gold);
-  border-radius:0 8px 8px 0;padding:9px 11px;margin-bottom:8px;cursor:pointer;transition:.15s}
-.card:hover{box-shadow:0 3px 10px rgba(0,0,0,.07);border-left-color:var(--green)}
-.card .nm{font-size:12.5px;font-weight:800;color:var(--deep)}
-.card .ds{font-size:11px;color:var(--muted);line-height:1.6;margin-top:3px}
+  border-radius:0 8px 8px 0;padding:9px 11px;margin-bottom:7px;transition:.15s}
+.card:hover{box-shadow:0 3px 10px rgba(0,0,0,.07)}
+.card .nm{font-size:12.5px;font-weight:800;color:var(--deep);cursor:pointer}
+.card .nm:hover{color:var(--green)}
+.card .ds{font-size:11px;color:var(--muted);line-height:1.6;margin-top:3px;white-space:pre-wrap}
 .card .co{font-family:Consolas,monospace;font-size:10px;color:#93a09b;margin-top:4px}
-.card.sample{border-left-color:var(--red);background:#fffaf9}
-.card.sample .nm{color:var(--red)}
+.card .acts{display:flex;gap:5px;margin-top:7px}
+.card.editing{border-left-color:var(--blue);background:#f4f9ff}
 
-.dongbox{margin-top:16px;border-top:1px solid var(--line);padding-top:12px}
 .dongs{display:flex;flex-wrap:wrap;gap:4px;margin-top:7px}
 .dongs span{font-size:10px;color:var(--muted);background:#fff;
   border:1px solid var(--line);border-radius:999px;padding:2px 8px}
-.src{margin-top:14px;padding-top:10px;border-top:1px solid var(--line);
-  font-size:9.5px;line-height:1.75;color:#93a09b}
+.src{font-size:9.5px;line-height:1.75;color:#93a09b}
 .src b{color:var(--muted)}
 
 .leaflet-popup-content{margin:11px 13px;font-family:'Noto Sans KR',sans-serif}
 .pop-nm{font-size:13px;font-weight:800;color:var(--deep)}
-.pop-ds{font-size:11.5px;color:var(--muted);line-height:1.65;margin-top:4px}
+.pop-ds{font-size:11.5px;color:var(--muted);line-height:1.65;margin-top:4px;white-space:pre-wrap}
 .pop-co{font-family:Consolas,monospace;font-size:10px;color:#93a09b;margin-top:5px}
 .pin{display:flex;align-items:center;justify-content:center;
   width:26px;height:26px;border-radius:50%;background:var(--gold);
-  border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.3);
-  font-size:13px;line-height:1}
-.pin.s{background:var(--red)}
+  border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.3);font-size:12px;line-height:1;color:#fff;font-weight:800}
+.pin.tmp{background:var(--blue)}
 
 @media(max-width:820px){
   .layout{grid-template-columns:1fr;height:auto}
-  #map{height:56vh;min-height:340px}
-  .panel{border-left:0;border-top:1px solid var(--line);max-height:none}
-  .toolbar{gap:7px 10px;padding:9px 14px}
-  header{padding:13px 14px 10px}
+  #map{height:52vh;min-height:320px}
+  .panel{border-left:0;border-top:1px solid var(--line)}
+  .toolbar{gap:7px 10px;padding:8px 14px}
+  header{padding:12px 14px 9px}
 }
 </style>
 </head>
@@ -112,7 +136,8 @@ header .sub b{color:var(--deep)}
   <h1>안동시 스마트 관광지도 만들기</h1>
   <div class="sub">
     배경을 <b>고르고</b>, 관광자원을 <b>찍고</b>, 도구의 <b>한계를 재는</b> 실습입니다.
-    산 음영은 우리가 그린 것이 아니라 <b>이미 계산돼 있는 것을 켠 것</b>입니다 —
+    <b>편집기도 코딩도 필요 없습니다</b> — 지도를 눌러 좌표를 찍고 오른쪽에 이름과 이유를 적으면 됩니다.
+    산 음영은 우리가 그린 것이 아니라 <b>이미 계산돼 있는 것을 켠 것</b>입니다.
     학생이 만드는 것은 지도가 아니라 <b>그 위에 얹는 이야기</b>입니다.
   </div>
   <div class="links">
@@ -131,7 +156,7 @@ header .sub b{color:var(--deep)}
   </div>
   <div class="tgroup">
     <span class="tlabel">현재 위치</span>
-    <span class="readout" id="ro">줌 <b id="roZ">–</b> · 타일 <b id="roT">–</b></span>
+    <span class="readout">줌 <b id="roZ">–</b> · 타일 <b id="roT">–</b></span>
   </div>
   <div class="tgroup">
     <button class="tbtn" id="btnFit">안동시 전체</button>
@@ -148,84 +173,116 @@ header .sub b{color:var(--deep)}
       더 확대해야 한다면 배경을 <b>지형도</b>나 <b>도로지도</b>로 바꾸십시오.
     </div>
 
-    <p class="ptitle">① 좌표 찍기</p>
-    <p class="hint">지도를 <b>클릭</b>하면 그 지점의 좌표가 아래에 나옵니다. 복사해서 아래 ②의 배열에 붙여 넣으십시오.</p>
-    <div class="pick">
-      <div class="lab">클릭한 지점</div>
-      <div class="val" id="pv">지도를 클릭해 보세요</div>
-      <button id="btnCopy">좌표 복사</button>
-      <button class="ghost" id="btnAdd">임시 핀 찍기</button>
+    <!-- ① 추가 -->
+    <div class="step">
+      <h2><span class="n">1</span>관광자원 추가하기</h2>
+      <p class="hint"><b>지도를 클릭</b>해 위치를 찍고, 이름과 이유를 적은 뒤 <b>추가</b>를 누르십시오.</p>
+
+      <div class="ask">
+        <p><b>이유를 쓸 때 세 가지를 생각하십시오.</b></p>
+        <p>① 왜 이곳인가 — <b>「유명해서」는 이유가 아닙니다.</b></p>
+        <p>② 여정의 어느 단계에 닿는가 — 여행 전 · 이동 중 · 여행 중 · 여행 후</p>
+        <p>③ 앞에 고른 곳과 어떻게 이어지는가 — 동선</p>
+      </div>
+
+      <div class="coordbox" id="cbox">
+        <span class="cv" id="cval">지도를 클릭해 위치를 찍으세요</span>
+        <button class="btn ghost sm" id="btnClearCoord">지우기</button>
+      </div>
+
+      <div class="field">
+        <label for="fName">이름</label>
+        <input id="fName" type="text" maxlength="40" placeholder="관광자원 이름을 적으세요">
+      </div>
+      <div class="field">
+        <label for="fDesc">고른 이유</label>
+        <textarea id="fDesc" maxlength="300" placeholder="왜 이곳을 골랐는지 한두 줄로 적으세요"></textarea>
+      </div>
+      <div class="row">
+        <button class="btn" id="btnSave">추가하기</button>
+        <button class="btn ghost" id="btnReset">입력 지우기</button>
+      </div>
     </div>
 
-    <p class="ptitle">② 관광자원</p>
-    <p class="hint">
-      아래 목록은 이 파일 <b>맨 위의 배열 하나</b>에서 나옵니다.
-      편집기로 열어 <code>const 관광자원</code> 부분만 고치면 됩니다.
-      항목을 누르면 그 위치로 이동합니다.
-    </p>
-    <div id="list"></div>
+    <!-- ② 목록 -->
+    <div class="step">
+      <h2><span class="n">2</span>내가 고른 곳<span class="count" id="cnt">0곳</span></h2>
+      <p class="hint">이름을 누르면 그 위치로 이동합니다. 적어 둔 내용은 <b>이 브라우저에 저장</b>돼 다시 열어도 남아 있습니다.</p>
+      <div id="list"></div>
+    </div>
 
-    <div class="dongbox">
-      <p class="ptitle">안동시 24개 읍면동</p>
+    <!-- ③ 제출 -->
+    <div class="step">
+      <h2><span class="n">3</span>제출하기</h2>
+      <p class="hint">완성했으면 아래 단추로 <b>글자로 옮겨</b> 과제로 내십시오.</p>
+      <div class="row">
+        <button class="btn" id="btnExport">제출용 글 복사</button>
+        <button class="btn ghost" id="btnCode">코드로 복사</button>
+        <button class="btn warnb" id="btnWipe">전체 지우기</button>
+      </div>
+      <p class="hint" style="margin:9px 0 0">
+        <b>제출용 글</b>은 이름 · 좌표 · 이유를 정리한 글입니다. 그대로 붙여 내면 됩니다.<br>
+        <b>코드로 복사</b>는 이 파일에 영구히 넣고 싶을 때만 쓰십시오(선택).
+      </p>
+    </div>
+
+    <div class="step">
+      <h2>안동시 24개 읍면동</h2>
       <p class="hint">각자 맡을 지역을 고를 때 쓰십시오. <b>통계청 SGIS 2025년 2분기</b> 경계 자료에 수록된 그대로입니다.</p>
       <div class="dongs" id="dongs"></div>
     </div>
 
-    <div class="src">
-      <b>출처 표기 (그대로 옮겨 쓰십시오)</b><br>
-      산 음영 — Sources: Esri, Vantor, Airbus DS, USGS, NGA, NASA, CGIAR, N Robinson, NCEAS, NLS, OS, NMA, Geodatastyrelsen, Rijkswaterstaat, GSA, Geoland, FEMA, Intermap, and the GIS user community<br>
-      지형도 — 지도 데이터: © OpenStreetMap 기여자, SRTM ／ 지도 표현: © OpenTopoMap (CC-BY-SA)<br>
-      도로지도 — © OpenStreetMap 기여자<br>
-      읍면동 목록 — 통계청 SGIS 센서스용 행정구역 경계 (bnd_dong_37040_2025_2Q)
+    <div class="step" style="border-bottom:0">
+      <p class="src">
+        <b>출처 표기 (그대로 옮겨 쓰십시오)</b><br>
+        산 음영 — Sources: Esri, Vantor, Airbus DS, USGS, NGA, NASA, CGIAR, N Robinson, NCEAS, NLS, OS, NMA, Geodatastyrelsen, Rijkswaterstaat, GSA, Geoland, FEMA, Intermap, and the GIS user community<br>
+        지형도 — 지도 데이터: © OpenStreetMap 기여자, SRTM ／ 지도 표현: © OpenTopoMap (CC-BY-SA)<br>
+        도로지도 — © OpenStreetMap 기여자<br>
+        읍면동 목록 — 통계청 SGIS 센서스용 행정구역 경계 (bnd_dong_37040_2025_2Q)
+      </p>
     </div>
   </aside>
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-/* ══════════════════════════════════════════════════════════════
-   ▼▼▼  학생이 고치는 곳은 여기 하나입니다  ▼▼▼
+/* ─────────────────────────────────────────────────────────────
+   학생은 이 파일을 열지 않습니다. 화면에서 직접 추가·수정·삭제합니다.
+   적은 내용은 브라우저(localStorage)에 저장돼 다시 열어도 남습니다.
+   ───────────────────────────────────────────────────────────── */
 
-   좌표는 왼쪽 지도를 클릭하면 나옵니다. 「좌표 복사」를 눌러 붙여 넣으십시오.
-   sample: true 는 「아직 안 채운 예시」라는 표시입니다. 내용을 채운 뒤 지우십시오.
-   ══════════════════════════════════════════════════════════════ */
+var 안동중심 = [36.5680, 128.7350];
+var 안동범위 = [[36.42, 128.45], [36.78, 129.05]];
+var 저장키 = "andong-map-practice-v1";
 
-const 관광자원 = [
-  { 이름: "예시 ① — 이름을 바꾸세요", 좌표: [36.5690, 128.7300],
-    설명: "왜 이곳을 골랐는지 한 줄로 적으십시오. 「유명해서」는 이유가 아닙니다.", sample: true },
+var 자원 = [];
+try {
+  var raw = localStorage.getItem(저장키);
+  if (raw) 자원 = JSON.parse(raw) || [];
+} catch (e) { 자원 = []; }
 
-  { 이름: "예시 ② — 이름을 바꾸세요", 좌표: [36.5760, 128.7480],
-    설명: "여행자의 어느 단계(여행 전·이동 중·여행 중·여행 후)에 닿는 자원인지 밝히십시오.", sample: true },
-
-  { 이름: "예시 ③ — 이름을 바꾸세요", 좌표: [36.5620, 128.7180],
-    설명: "앞의 두 곳과 어떻게 이어지는지(동선) 적으십시오.", sample: true },
-];
-
-/* ══════════ 아래는 고치지 않아도 됩니다 ══════════ */
-
-const 안동중심 = [36.5680, 128.7350];
-const 안동범위 = [[36.42, 128.45], [36.78, 129.05]];
+function 저장() {
+  try { localStorage.setItem(저장키, JSON.stringify(자원)); } catch (e) {}
+}
 
 /* ── 배경 지도 세 벌 ───────────────────────────── */
-const bases = {
+var bases = {
   hill: L.tileLayer(
     "https://server.arcgisonline.com/ArcGIS/rest/services/Elevation/World_Hillshade/MapServer/tile/{z}/{y}/{x}",
     { maxZoom: 17, attribution: "Sources: Esri, USGS, NASA, CGIAR 외" }),
   topo: L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
     { maxZoom: 17, attribution: "지도 데이터 &copy; OpenStreetMap 기여자, SRTM ／ 표현 &copy; OpenTopoMap (CC-BY-SA)" }),
   road: L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-    { maxZoom: 19, attribution: "&copy; OpenStreetMap 기여자" }),
+    { maxZoom: 19, attribution: "&copy; OpenStreetMap 기여자" })
 };
 
-const map = L.map("map", { zoomControl: true, scrollWheelZoom: true })
-  .setView(안동중심, 12);
-let 현재배경 = "hill";
+var map = L.map("map", { zoomControl: true }).setView(안동중심, 12);
+var 현재배경 = "hill";
 bases.hill.addTo(map);
 
-/* ── 배경 전환 ─────────────────────────────────── */
 document.querySelectorAll("[data-base]").forEach(function (b) {
   b.addEventListener("click", function () {
-    const key = b.dataset.base;
+    var key = b.dataset.base;
     if (key === 현재배경) return;
     map.removeLayer(bases[현재배경]);
     bases[key].addTo(map).bringToBack();
@@ -236,91 +293,196 @@ document.querySelectorAll("[data-base]").forEach(function (b) {
   });
 });
 
-/* ── 타일 번호 표시 + 한계 경고 ────────────────────
-   주소 끝의 세 숫자가 곧 좌표라는 것을 눈으로 보게 한다. */
+/* ── 타일 번호 + 한계 경고 ─────────────────────── */
 function 타일번호(lat, lon, z) {
-  const n = Math.pow(2, z);
-  const x = Math.floor((lon + 180) / 360 * n);
-  const la = lat * Math.PI / 180;
-  const y = Math.floor((1 - Math.log(Math.tan(la) + 1 / Math.cos(la)) / Math.PI) / 2 * n);
+  var n = Math.pow(2, z);
+  var x = Math.floor((lon + 180) / 360 * n);
+  var la = lat * Math.PI / 180;
+  var y = Math.floor((1 - Math.log(Math.tan(la) + 1 / Math.cos(la)) / Math.PI) / 2 * n);
   return { z: z, x: x, y: y };
 }
 function 갱신() {
-  const c = map.getCenter(), z = map.getZoom();
-  const t = 타일번호(c.lat, c.lng, z);
+  var c = map.getCenter(), z = map.getZoom();
+  var t = 타일번호(c.lat, c.lng, z);
   document.getElementById("roZ").textContent = z;
   document.getElementById("roT").textContent = t.z + "/" + t.x + "/" + t.y;
   document.getElementById("warn").classList.toggle("on", 현재배경 === "hill" && z >= 15);
 }
 map.on("moveend zoomend", 갱신);
 
-/* ── 관광자원 핀과 목록 ────────────────────────── */
-const pins = [];
-function 아이콘(s) {
+/* ── 지도 클릭 → 좌표 ──────────────────────────── */
+var 찍은좌표 = null, 임시핀 = null;
+
+function 아이콘(txt, tmp) {
   return L.divIcon({ className: "", iconSize: [26, 26], iconAnchor: [13, 13],
-    html: '<div class="pin' + (s ? " s" : "") + '">' + (s ? "?" : "★") + "</div>" });
+    html: '<div class="pin' + (tmp ? " tmp" : "") + '">' + txt + "</div>" });
 }
+function 좌표표시() {
+  var box = document.getElementById("cbox"), v = document.getElementById("cval");
+  if (찍은좌표) {
+    box.classList.add("set");
+    v.textContent = 찍은좌표[0].toFixed(5) + ", " + 찍은좌표[1].toFixed(5);
+  } else {
+    box.classList.remove("set");
+    v.textContent = "지도를 클릭해 위치를 찍으세요";
+  }
+}
+map.on("click", function (e) {
+  찍은좌표 = [ +e.latlng.lat.toFixed(5), +e.latlng.lng.toFixed(5) ];
+  if (임시핀) map.removeLayer(임시핀);
+  임시핀 = L.marker(찍은좌표, { icon: 아이콘("+", true) }).addTo(map);
+  좌표표시();
+});
+document.getElementById("btnClearCoord").addEventListener("click", function () {
+  찍은좌표 = null;
+  if (임시핀) { map.removeLayer(임시핀); 임시핀 = null; }
+  좌표표시();
+});
+
+/* ── 목록 그리기 ───────────────────────────────── */
+var pins = [];
+var 수정중 = -1;
+
 function 그리기() {
   pins.forEach(function (p) { map.removeLayer(p); });
-  pins.length = 0;
-  const list = document.getElementById("list");
+  pins = [];
+  var list = document.getElementById("list");
   list.innerHTML = "";
-  관광자원.forEach(function (r, i) {
-    const m = L.marker(r.좌표, { icon: 아이콘(r.sample) }).addTo(map);
-    m.bindPopup('<div class="pop-nm">' + r.이름 + '</div>'
-      + '<div class="pop-ds">' + r.설명 + '</div>'
+  document.getElementById("cnt").textContent = 자원.length + "곳";
+
+  if (!자원.length) {
+    list.innerHTML = '<div class="empty">아직 고른 곳이 없습니다.<br>지도를 클릭해 첫 번째 자원을 찍어 보세요.</div>';
+    return;
+  }
+
+  자원.forEach(function (r, i) {
+    var m = L.marker(r.좌표, { icon: 아이콘(String(i + 1), false) }).addTo(map);
+    m.bindPopup('<div class="pop-nm">' + esc(r.이름) + "</div>"
+      + '<div class="pop-ds">' + esc(r.설명 || "") + "</div>"
       + '<div class="pop-co">' + r.좌표[0].toFixed(5) + ", " + r.좌표[1].toFixed(5) + "</div>");
     pins.push(m);
 
-    const el = document.createElement("div");
-    el.className = "card" + (r.sample ? " sample" : "");
-    el.innerHTML = '<div class="nm">' + r.이름 + '</div>'
-      + '<div class="ds">' + r.설명 + '</div>'
-      + '<div class="co">' + r.좌표[0].toFixed(5) + ", " + r.좌표[1].toFixed(5) + "</div>";
-    el.addEventListener("click", function () {
+    var el = document.createElement("div");
+    el.className = "card" + (수정중 === i ? " editing" : "");
+    el.innerHTML =
+      '<div class="nm">' + (i + 1) + ". " + esc(r.이름) + "</div>"
+      + '<div class="ds">' + esc(r.설명 || "(이유를 아직 적지 않았습니다)") + "</div>"
+      + '<div class="co">' + r.좌표[0].toFixed(5) + ", " + r.좌표[1].toFixed(5) + "</div>"
+      + '<div class="acts">'
+      + '<button class="btn ghost sm" data-edit="' + i + '">수정</button>'
+      + '<button class="btn warnb sm" data-del="' + i + '">삭제</button>'
+      + "</div>";
+    el.querySelector(".nm").addEventListener("click", function () {
       map.setView(r.좌표, Math.max(map.getZoom(), 14), { animate: true });
       pins[i].openPopup();
     });
     list.appendChild(el);
   });
+
+  list.querySelectorAll("[data-edit]").forEach(function (b) {
+    b.addEventListener("click", function () { 수정시작(+b.dataset.edit); });
+  });
+  list.querySelectorAll("[data-del]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var i = +b.dataset.del;
+      if (!confirm("「" + 자원[i].이름 + "」을(를) 지울까요?")) return;
+      자원.splice(i, 1);
+      if (수정중 === i) 입력초기화();
+      저장(); 그리기();
+    });
+  });
 }
-그리기();
+function esc(s) {
+  return String(s).replace(/[&<>"]/g, function (c) {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+  });
+}
 
-/* ── 좌표 찍기 ─────────────────────────────────── */
-let 마지막 = null, 임시 = null;
-map.on("click", function (e) {
-  마지막 = [ +e.latlng.lat.toFixed(5), +e.latlng.lng.toFixed(5) ];
-  document.getElementById("pv").textContent = "[" + 마지막[0] + ", " + 마지막[1] + "]";
+/* ── 추가 · 수정 ───────────────────────────────── */
+function 입력초기화() {
+  수정중 = -1;
+  찍은좌표 = null;
+  if (임시핀) { map.removeLayer(임시핀); 임시핀 = null; }
+  document.getElementById("fName").value = "";
+  document.getElementById("fDesc").value = "";
+  document.getElementById("btnSave").textContent = "추가하기";
+  좌표표시();
+}
+function 수정시작(i) {
+  수정중 = i;
+  var r = 자원[i];
+  찍은좌표 = r.좌표.slice();
+  if (임시핀) map.removeLayer(임시핀);
+  임시핀 = L.marker(찍은좌표, { icon: 아이콘("+", true) }).addTo(map);
+  document.getElementById("fName").value = r.이름;
+  document.getElementById("fDesc").value = r.설명 || "";
+  document.getElementById("btnSave").textContent = "수정 저장";
+  좌표표시();
+  map.setView(r.좌표, Math.max(map.getZoom(), 14), { animate: true });
+  document.getElementById("fName").focus();
+  그리기();
+}
+document.getElementById("btnSave").addEventListener("click", function () {
+  var nm = document.getElementById("fName").value.trim();
+  var ds = document.getElementById("fDesc").value.trim();
+  if (!찍은좌표) { alert("먼저 지도를 클릭해 위치를 찍으십시오."); return; }
+  if (!nm) { alert("이름을 적으십시오."); document.getElementById("fName").focus(); return; }
+  if (수정중 >= 0) 자원[수정중] = { 이름: nm, 설명: ds, 좌표: 찍은좌표.slice() };
+  else 자원.push({ 이름: nm, 설명: ds, 좌표: 찍은좌표.slice() });
+  저장(); 입력초기화(); 그리기();
 });
-document.getElementById("btnCopy").addEventListener("click", function () {
-  if (!마지막) { alert("먼저 지도를 클릭하십시오."); return; }
-  const t = "{ 이름: \"\", 좌표: [" + 마지막[0] + ", " + 마지막[1] + "], 설명: \"\" },";
-  const b = this;
-  navigator.clipboard.writeText(t).then(function () {
-    b.textContent = "복사했습니다";
-    setTimeout(function () { b.textContent = "좌표 복사"; }, 1400);
-  }).catch(function () { prompt("아래를 복사하십시오", t); });
+document.getElementById("btnReset").addEventListener("click", 입력초기화);
+
+/* ── 제출 ──────────────────────────────────────── */
+function 복사(txt, btn, done) {
+  var 원래 = btn.textContent;
+  function 끝() { btn.textContent = done; setTimeout(function () { btn.textContent = 원래; }, 1500); }
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(txt).then(끝).catch(function () { prompt("아래를 복사하십시오", txt); });
+  } else { prompt("아래를 복사하십시오", txt); }
+}
+document.getElementById("btnExport").addEventListener("click", function () {
+  if (!자원.length) { alert("아직 고른 곳이 없습니다."); return; }
+  var t = "안동시 스마트 관광지도 — 내가 고른 관광자원\n";
+  t += "작성일: " + new Date().toLocaleDateString("ko-KR") + "\n\n";
+  자원.forEach(function (r, i) {
+    t += (i + 1) + ". " + r.이름 + "\n";
+    t += "   위치: " + r.좌표[0].toFixed(5) + ", " + r.좌표[1].toFixed(5) + "\n";
+    t += "   고른 이유: " + (r.설명 || "(미작성)") + "\n\n";
+  });
+  t += "배경 지도 출처\n";
+  t += "  산 음영: Esri, USGS, NASA, CGIAR 외\n";
+  t += "  지형도: 지도 데이터 (C) OpenStreetMap 기여자, SRTM / 표현 (C) OpenTopoMap (CC-BY-SA)\n";
+  t += "  도로지도: (C) OpenStreetMap 기여자\n";
+  복사(t, this, "복사했습니다");
 });
-document.getElementById("btnAdd").addEventListener("click", function () {
-  if (!마지막) { alert("먼저 지도를 클릭하십시오."); return; }
-  if (임시) map.removeLayer(임시);
-  임시 = L.marker(마지막, { icon: 아이콘(true) }).addTo(map)
-    .bindPopup('<div class="pop-nm">임시 핀</div><div class="pop-ds">화면에서만 보입니다. 파일에 남기려면 좌표를 복사해 배열에 넣으십시오.</div>')
-    .openPopup();
+document.getElementById("btnCode").addEventListener("click", function () {
+  if (!자원.length) { alert("아직 고른 곳이 없습니다."); return; }
+  var t = "const 관광자원 = [\n" + 자원.map(function (r) {
+    return '  { 이름: "' + r.이름.replace(/"/g, "'") + '", 좌표: ['
+      + r.좌표[0] + ", " + r.좌표[1] + '], 설명: "'
+      + (r.설명 || "").replace(/"/g, "'").replace(/\n/g, " ") + '" },';
+  }).join("\n") + "\n];";
+  복사(t, this, "복사했습니다");
+});
+document.getElementById("btnWipe").addEventListener("click", function () {
+  if (!자원.length) return;
+  if (!confirm("고른 곳 " + 자원.length + "곳을 모두 지울까요? 되돌릴 수 없습니다.")) return;
+  자원 = []; 저장(); 입력초기화(); 그리기();
 });
 
-/* ── 안동시 전체 보기 ──────────────────────────── */
-document.getElementById("btnFit").addEventListener("click", function () {
-  map.fitBounds(안동범위);
-});
+/* ── 안동시 전체 ───────────────────────────────── */
+document.getElementById("btnFit").addEventListener("click", function () { map.fitBounds(안동범위); });
 
 /* ── 24개 읍면동 (SGIS bnd_dong_37040_2025_2Q 수록 순서) ── */
-const 읍면동 = ["풍산읍","와룡면","북후면","서후면","풍천면","일직면","남후면","남선면",
+var 읍면동 = ["풍산읍","와룡면","북후면","서후면","풍천면","일직면","남후면","남선면",
   "임하면","길안면","임동면","예안면","도산면","녹전면","중구동","명륜동","용상동",
   "태화동","평화동","안기동","옥동","송하동","서구동","강남동"];
 document.getElementById("dongs").innerHTML =
   읍면동.map(function (d) { return "<span>" + d + "</span>"; }).join("");
 
+좌표표시();
+그리기();
 갱신();
 </script>
 </body>
