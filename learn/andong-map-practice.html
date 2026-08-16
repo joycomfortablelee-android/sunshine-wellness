@@ -128,6 +128,15 @@ header .sub b{color:var(--deep)}
 /* 카드 안 작은 그림 — 자원에 사진이 있을 때만 */
 .card .thumb{float:right;width:44px;height:auto;margin:0 0 4px 9px}
 
+/* 그림 핀 — 자원에 사진이 있으면 지도 위에 그 그림이 선다.
+   번호는 오른쪽 아래 작은 배지로 남겨 동선 표시를 잃지 않는다. */
+.pin-img{position:relative;width:26px;height:42px}
+.pin-img img{height:42px;width:auto;display:block;margin:0 auto;
+  filter:drop-shadow(0 2px 5px rgba(0,0,0,.4))}
+.pin-img b{position:absolute;right:-5px;bottom:0;width:16px;height:16px;border-radius:50%;
+  background:var(--green);color:#fff;font-size:9.5px;font-weight:800;line-height:1;
+  display:flex;align-items:center;justify-content:center;border:1.5px solid #fff}
+
 /* 정사각형 정보 팝업 */
 .pop-sq{width:224px;height:224px;display:flex;flex-direction:column;overflow:hidden}
 .pop-sq .pq-top{display:flex;align-items:center;gap:9px;padding-bottom:6px}
@@ -432,7 +441,11 @@ map.on("moveend zoomend", 갱신);
 /* ── 지도 클릭 → 좌표 ──────────────────────────── */
 var 찍은좌표 = null, 임시핀 = null;
 
-function 아이콘(txt, kind) {
+function 아이콘(txt, kind, 그림) {
+  if (그림) {                                   /* 그림이 있으면 그림이 핀이 된다 */
+    return L.divIcon({ className: "", iconSize: [26, 42], iconAnchor: [13, 41],
+      html: '<div class="pin-img"><img src="' + 그림 + '" alt=""><b>' + txt + "</b></div>" });
+  }
   var c = kind ? " " + kind : "";
   return L.divIcon({ className: "", iconSize: [26, 26], iconAnchor: [13, 13],
     html: '<div class="pin' + c + '">' + txt + "</div>" });
@@ -476,7 +489,7 @@ function 그리기() {
   }
 
   자원.forEach(function (r, i) {
-    var m = L.marker(r.좌표, { icon: 아이콘(String(i + 1), r.seed ? "seed" : "") }).addTo(map);
+    var m = L.marker(r.좌표, { icon: 아이콘(String(i + 1), r.seed ? "seed" : "", r.그림) }).addTo(map);
     var 좌표글 = r.좌표[0].toFixed(5) + ", " + r.좌표[1].toFixed(5);
     var 바깥 = r.링크
       ? '<br><a href="' + r.링크 + '" target="_blank" rel="noopener" '
