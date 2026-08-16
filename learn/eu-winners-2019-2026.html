@@ -61,7 +61,24 @@
     border-left:5px solid #17365D;
     font-size:14px;
   }
-</style>
+
+  .gpsbox{margin:22px 0 6px;border:1px solid #cfe0f2;border-radius:12px;background:#fff;padding:15px 17px 13px}
+  .gpsbox h2{font-size:15px;font-weight:800;color:#17539b;margin:0 0 3px}
+  .gpsbox p.lead{font-size:12px;color:#6b7873;line-height:1.7;margin:0 0 10px}
+  .gpsbox p.lead b{color:#1a2e2a}
+  table.gps{width:100%;border-collapse:collapse}
+  table.gps th,table.gps td{border-bottom:1px solid #edf0ef;padding:6px 8px;text-align:left;font-size:11.5px;line-height:1.5}
+  table.gps th{background:#eef4fb;color:#17539b;font-weight:800;font-size:10.5px;border-bottom-color:#d9e6f4}
+  table.gps td.year{font-weight:800;color:#1a2e2a;white-space:nowrap}
+  table.gps td.mk{text-align:center;width:26px}
+  table.gps td.ko{font-weight:700;color:#1a2e2a}
+  table.gps td.ko .en{font-weight:400;color:#93a09b;margin-left:4px}
+  table.gps td.country{white-space:nowrap}
+  table.gps td.gps{font-family:Consolas,monospace;font-size:10.5px;color:#2563a8;white-space:nowrap}
+  table.gps tr:last-child td{border-bottom:0}
+  .gpsbox .src{margin:9px 0 0;font-size:10px;color:#93a09b;line-height:1.7}
+  .gpsbox .src a{color:#2563a8;font-weight:700;border-bottom:1px solid currentColor}
+  </style>
 </head>
 <body>
 <div class="wrap">
@@ -156,6 +173,35 @@
       </tr>
     </tbody>
   </table>
+
+  <div class="gpsbox">
+    <h2>수상 도시 좌표 (GPS)</h2>
+    <p class="lead">위 표의 열네 도시를 <b>위도, 경도</b>로 적었습니다. 지도 도구나 리포트에 그대로 넣어 쓰십시오.
+      🏆는 <b>스마트관광 수도</b>, 🌿는 <b>녹색 선도 도시</b>입니다.</p>
+    <table class="gps">
+      <thead><tr><th>연도</th><th></th><th>도시</th><th>국가</th><th>위도, 경도</th></tr></thead>
+      <tbody>
+      <tr><td class="year">2019</td><td class="mk cap">🏆</td><td class="ko">헬싱키 <span class="en">Helsinki</span></td><td class="country">🇫🇮</td><td class="gps">60.16662, 24.94354</td></tr>
+      <tr><td class="year">2019</td><td class="mk cap">🏆</td><td class="ko">리옹 <span class="en">Lyon</span></td><td class="country">🇫🇷</td><td class="gps">45.75781, 4.83201</td></tr>
+      <tr><td class="year">2020</td><td class="mk cap">🏆</td><td class="ko">예테보리 <span class="en">Gothenburg</span></td><td class="country">🇸🇪</td><td class="gps">57.70723, 11.96702</td></tr>
+      <tr><td class="year">2020</td><td class="mk cap">🏆</td><td class="ko">말라가 <span class="en">Málaga</span></td><td class="country">🇪🇸</td><td class="gps">36.76479, -4.44220</td></tr>
+      <tr><td class="year">2022</td><td class="mk cap">🏆</td><td class="ko">보르도 <span class="en">Bordeaux</span></td><td class="country">🇫🇷</td><td class="gps">44.84123, -0.58004</td></tr>
+      <tr><td class="year">2022</td><td class="mk cap">🏆</td><td class="ko">발렌시아 <span class="en">València</span></td><td class="country">🇪🇸</td><td class="gps">39.46971, -0.37634</td></tr>
+      <tr><td class="year">2023</td><td class="mk cap">🏆</td><td class="ko">파포스 <span class="en">Pafos</span></td><td class="country">🇨🇾</td><td class="gps">34.77440, 32.42316</td></tr>
+      <tr><td class="year">2023</td><td class="mk cap">🏆</td><td class="ko">세비야 <span class="en">Seville</span></td><td class="country">🇪🇸</td><td class="gps">37.38863, -5.99534</td></tr>
+      <tr><td class="year">2024</td><td class="mk cap">🏆</td><td class="ko">더블린 <span class="en">Dublin</span></td><td class="country">🇮🇪</td><td class="gps">53.34938, -6.26056</td></tr>
+      <tr><td class="year">2024</td><td class="mk grn">🌿</td><td class="ko">그로세토 <span class="en">Grosseto</span></td><td class="country">🇮🇹</td><td class="gps">42.77511, 11.28780</td></tr>
+      <tr><td class="year">2025</td><td class="mk cap">🏆</td><td class="ko">토리노 <span class="en">Torino</span></td><td class="country">🇮🇹</td><td class="gps">45.06776, 7.68249</td></tr>
+      <tr><td class="year">2025</td><td class="mk grn">🌿</td><td class="ko">베니도름 <span class="en">Benidorm</span></td><td class="country">🇪🇸</td><td class="gps">38.54063, -0.12909</td></tr>
+      <tr><td class="year">2026</td><td class="mk cap">🏆</td><td class="ko">탐페레 <span class="en">Tampere</span></td><td class="country">🇫🇮</td><td class="gps">61.49780, 23.76163</td></tr>
+      <tr><td class="year">2026</td><td class="mk grn">🌿</td><td class="ko">두브로브니크 <span class="en">Dubrovnik</span></td><td class="country">🇭🇷</td><td class="gps">42.64910, 18.09395</td></tr>
+      </tbody>
+    </table>
+    <p class="src">좌표 출처 — OpenStreetMap <b>Nominatim</b>으로 조회한 각 도시의 대표 지점입니다(2026-08-16 확인).
+      도시 중심점이라 시청·구시가지와는 수백 m 차이가 날 수 있습니다.
+      <a href="https://nominatim.openstreetmap.org/" target="_blank" rel="noopener">nominatim.openstreetmap.org ↗</a>
+      · 지도 데이터 © OpenStreetMap 기여자</p>
+  </div>
 
   <div class="note">
     <strong>🏆 Capital</strong>: European Capital of Smart Tourism &nbsp;·&nbsp;
