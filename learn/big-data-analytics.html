@@ -19,6 +19,108 @@
     .kmooc-map th { color: var(--deep); font-weight: 800; background: rgba(0,0,0,0.03); }
     .kmooc-map td:first-child { font-weight: 700; color: var(--green); white-space: nowrap; }
     .kmooc-map .desc-col { color: var(--muted); line-height: 1.7; }
+
+    /* ── 그라데이션 카드 — learn.css 의 roadmap 색 체계를 그대로 잇는다 ── */
+    .learn-article .vcards {
+      list-style: none; padding: 0; margin: 14px 0 24px;
+      display: grid; gap: 10px;
+    }
+    .learn-article .vcards.c2 { grid-template-columns: repeat(2, 1fr); }
+    .learn-article .vcards.c3 { grid-template-columns: repeat(3, 1fr); }
+    .learn-article .vcards.c4 { grid-template-columns: repeat(4, 1fr); }
+    .learn-article .vcards.c5 { grid-template-columns: repeat(5, 1fr); }
+    .learn-article .vcards > li {
+      margin: 0; padding: 13px 14px 14px; border-radius: 11px;
+      border: 1px solid var(--v-ln, var(--line));
+      border-top: 3px solid var(--v-ac, var(--green));
+      background: linear-gradient(158deg, var(--v-a, #f6f7f8) 0%, var(--v-b, #fbfbfb) 54%, #fff 88%);
+      transition: box-shadow .18s, transform .18s;
+    }
+    .learn-article .vcards > li:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 18px var(--v-sh, rgba(16,42,67,.12));
+    }
+    .learn-article .vcards .vt {
+      display: block; font-size: 11px; font-weight: 800;
+      letter-spacing: .045em; color: var(--v-tc, var(--deep)); margin-bottom: 4px;
+    }
+    .learn-article .vcards .vh {
+      display: block; font-size: 14.5px; font-weight: 800;
+      color: var(--deep); line-height: 1.42; margin-bottom: 5px;
+    }
+    .learn-article .vcards .vd {
+      display: block; font-size: 12.5px; color: var(--muted); line-height: 1.72;
+    }
+    .learn-article .vcards .vd strong { color: var(--deep); font-weight: 700; }
+    .learn-article .vcards .vd em { font-style: normal; color: var(--v-tc, var(--green)); font-weight: 700; }
+
+    /* 색 변형 */
+    .learn-article .t-blue   { --v-a:#dceefb; --v-b:#eff7fd; --v-ac:#2563a8; --v-ln:#c8ddf0; --v-sh:rgba(37,99,168,.16);  --v-tc:#1c4e8a; }
+    .learn-article .t-gold   { --v-a:#fceedb; --v-b:#fdf7ec; --v-ac:#e8a04a; --v-ln:#efdcbc; --v-sh:rgba(184,121,29,.16); --v-tc:#8a5a17; }
+    .learn-article .t-green  { --v-a:#dff0ea; --v-b:#eff7f4; --v-ac:#3B6259; --v-ln:#c9e2da; --v-sh:rgba(59,98,89,.16);   --v-tc:#2f5148; }
+    .learn-article .t-violet { --v-a:#e9e2fa; --v-b:#f4f0fd; --v-ac:#8272ad; --v-ln:#d9cef0; --v-sh:rgba(130,114,173,.16);--v-tc:#56487a; }
+    .learn-article .t-rose   { --v-a:#fbe4e4; --v-b:#fdf0f0; --v-ac:#b5555a; --v-ln:#f0cfd0; --v-sh:rgba(181,85,90,.16);  --v-tc:#8c3b40; }
+    .learn-article .t-teal   { --v-a:#d9eef0; --v-b:#eef7f8; --v-ac:#2e7d86; --v-ln:#c2e0e3; --v-sh:rgba(46,125,134,.16); --v-tc:#1f5b62; }
+    .learn-article .t-gray   { --v-a:#e4eae7; --v-b:#f1f4f3; --v-ac:#6b7d76; --v-ln:#d2dbd7; --v-sh:rgba(107,125,118,.16);--v-tc:#3c4d48; }
+
+    /* ── 단계 흐름 — 번호가 붙는 순서형 ── */
+    .learn-article .steps { counter-reset: stp; }
+    .learn-article .steps > li { position: relative; padding-top: 30px; }
+    .learn-article .steps > li::before {
+      counter-increment: stp; content: counter(stp);
+      position: absolute; top: 11px; left: 14px;
+      width: 21px; height: 21px; border-radius: 50%;
+      background: var(--v-ac, var(--green)); color: #fff;
+      font-size: 11.5px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* ── 본문 안 강조 흐름 바 ── */
+    .learn-article .flowbar {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 7px;
+      margin: 12px 0 20px; padding: 13px 15px; border-radius: 11px;
+      border: 1px solid #dbe6e2;
+      background: linear-gradient(120deg, #eef4f2 0%, #f7faf9 55%, #fff 100%);
+    }
+    .learn-article .flowbar b {
+      padding: 6px 13px; border-radius: 999px; background: #fff;
+      border: 1px solid #cfe0da; color: var(--deep);
+      font-size: 12.5px; font-weight: 800;
+    }
+    .learn-article .flowbar i {
+      font-style: normal; color: var(--gold); font-weight: 900; font-size: 14px;
+    }
+    .learn-article .flowbar .fb-note {
+      width: 100%; margin: 4px 0 0; font-size: 12.5px; color: var(--muted); line-height: 1.7;
+    }
+
+    /* ── 표 ── */
+    .learn-article .gtable-wrap { overflow-x: auto; margin: 12px 0 22px; }
+    .learn-article .gtable { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+    .learn-article .gtable th, .learn-article .gtable td {
+      text-align: left; padding: 11px 13px; border-bottom: 1px solid var(--line); vertical-align: top;
+    }
+    .learn-article .gtable thead th {
+      color: #fff; font-weight: 800; font-size: 12.5px; letter-spacing: .02em;
+      background: linear-gradient(120deg, #3B6259 0%, #55806f 100%);
+      border-bottom: none;
+    }
+    .learn-article .gtable thead th:first-child { border-radius: 9px 0 0 0; }
+    .learn-article .gtable thead th:last-child { border-radius: 0 9px 0 0; }
+    .learn-article .gtable tbody tr:nth-child(odd) { background: rgba(59,98,89,.035); }
+    .learn-article .gtable td:first-child { font-weight: 800; color: var(--deep); white-space: nowrap; }
+    .learn-article .gtable .g-sub { color: var(--muted); line-height: 1.7; }
+
+    @media (max-width: 900px) {
+      .learn-article .vcards.c5 { grid-template-columns: repeat(3, 1fr); }
+      .learn-article .vcards.c4 { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 620px) {
+      .learn-article .vcards.c5,
+      .learn-article .vcards.c4,
+      .learn-article .vcards.c3,
+      .learn-article .vcards.c2 { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -47,44 +149,43 @@
       <p class="lead">빅데이터는 "많은 데이터"가 아니라 <strong>사람이 손으로 다 훑을 수 없어 기계와 통계에 맡겨야 하는 데이터</strong>입니다. 관광에서 그 데이터는 대부분 여행자가 무심코 남긴 디지털 발자국입니다.</p>
 
       <p class="learn-part">01 · 빅데이터란</p>
-      <p>빅데이터는 흔히 세 개의 V로 설명됩니다.</p>
-      <ul>
-        <li><strong>Volume(양)</strong> — 규모가 방대하다.</li>
-        <li><strong>Velocity(속도)</strong> — 실시간으로 빠르게 쌓인다.</li>
-        <li><strong>Variety(다양성)</strong> — 숫자뿐 아니라 텍스트·사진·위치 등 형태가 제각각이다.</li>
+      <p>빅데이터는 흔히 <strong>세 개의 V</strong>로 설명됩니다. 여기에 둘을 더해 <strong>5V</strong>라 부르기도 합니다.</p>
+      <ul class="vcards c5">
+        <li class="t-blue"><span class="vt">3V</span><span class="vh">Volume · 양</span><span class="vd">규모가 방대하다.</span></li>
+        <li class="t-blue"><span class="vt">3V</span><span class="vh">Velocity · 속도</span><span class="vd">실시간으로 빠르게 쌓인다.</span></li>
+        <li class="t-blue"><span class="vt">3V</span><span class="vh">Variety · 다양성</span><span class="vd">숫자뿐 아니라 텍스트·사진·위치 등 형태가 제각각이다.</span></li>
+        <li class="t-gold"><span class="vt">＋2V</span><span class="vh">Veracity · 정확성</span><span class="vd">3V에 더해 5V로 셀 때 함께 꼽습니다.</span></li>
+        <li class="t-green"><span class="vt">＋2V · 마지막 관문</span><span class="vh">Value · 가치</span><span class="vd">관광에서는 "데이터가 많다"가 아니라 <em>"그래서 어떤 결정을 바꾸는가"</em>가 마지막 관문입니다.</span></li>
       </ul>
-      <p>여기에 <strong>Veracity(정확성)</strong>와 <strong>Value(가치)</strong>를 더해 5V라 부르기도 합니다. 특히 관광에서는 "데이터가 많다"가 아니라 <strong>"그래서 어떤 결정을 바꾸는가"(Value)</strong>가 마지막 관문입니다.</p>
 
       <p class="learn-part">02 · 관광 데이터는 어디서 오는가</p>
       <p>관광 빅데이터의 힘은, 여행자가 설문에 답하지 않아도 행동이 저절로 기록된다는 데 있습니다.</p>
-      <ul>
-        <li><strong>통신 데이터</strong> — 기지국 신호로 본 유동인구·체류시간·방문지 이동 경로.</li>
-        <li><strong>카드·결제 데이터</strong> — 어디서 얼마를, 어떤 업종에 썼는가(소비 지도).</li>
-        <li><strong>검색·트렌드</strong> — 여행 전 관심의 신호(무엇을 검색하는가).</li>
-        <li><strong>SNS·리뷰</strong> — 사진·해시태그·후기에 담긴 감정과 장소.</li>
-        <li><strong>내비게이션·위치</strong> — 실제 이동과 정체, 인기 경로.</li>
-        <li><strong>공공 데이터</strong> — 관광 통계, 방문객 수, 개방 데이터(data.go.kr, 한국관광 데이터랩 등).</li>
+      <ul class="vcards c3">
+        <li class="t-blue"><span class="vt">이동</span><span class="vh">통신 데이터</span><span class="vd">기지국 신호로 본 유동인구·체류시간·방문지 이동 경로.</span></li>
+        <li class="t-gold"><span class="vt">소비</span><span class="vh">카드·결제 데이터</span><span class="vd">어디서 얼마를, 어떤 업종에 썼는가(소비 지도).</span></li>
+        <li class="t-violet"><span class="vt">관심</span><span class="vh">검색·트렌드</span><span class="vd">여행 전 관심의 신호(무엇을 검색하는가).</span></li>
+        <li class="t-rose"><span class="vt">감정</span><span class="vh">SNS·리뷰</span><span class="vd">사진·해시태그·후기에 담긴 감정과 장소.</span></li>
+        <li class="t-teal"><span class="vt">경로</span><span class="vh">내비게이션·위치</span><span class="vd">실제 이동과 정체, 인기 경로.</span></li>
+        <li class="t-green"><span class="vt">공식</span><span class="vh">공공 데이터</span><span class="vd">관광 통계, 방문객 수, 개방 데이터(data.go.kr, 한국관광 데이터랩 등).</span></li>
       </ul>
 
       <p class="learn-part">03 · 분석은 다섯 걸음으로</p>
       <p>데이터는 저절로 답을 주지 않습니다. 대개 다음 순서를 거칩니다.</p>
-      <ul>
-        <li><strong>① 문제 정의</strong> — 무엇을 알고 싶은가. (예: 비수기 방문객은 왜 줄어드는가)</li>
-        <li><strong>② 수집</strong> — 필요한 데이터를 모은다(공공 API·크롤링·제휴 데이터).</li>
-        <li><strong>③ 정제(전처리)</strong> — 결측·중복·오류를 걸러낸다. 실무 시간의 대부분이 여기 든다.</li>
-        <li><strong>④ 분석</strong> — 통계·기계학습으로 패턴을 찾는다.</li>
-        <li><strong>⑤ 시각화·해석</strong> — 그래프와 지도로 보여주고, 결정으로 잇는다.</li>
-      </ul>
+      <ol class="vcards c5 steps">
+        <li class="t-blue"><span class="vh">문제 정의</span><span class="vd">무엇을 알고 싶은가. (예: 비수기 방문객은 왜 줄어드는가)</span></li>
+        <li class="t-teal"><span class="vh">수집</span><span class="vd">필요한 데이터를 모은다(공공 API·크롤링·제휴 데이터).</span></li>
+        <li class="t-gold"><span class="vh">정제(전처리)</span><span class="vd">결측·중복·오류를 걸러낸다. <em>실무 시간의 대부분이 여기 든다.</em></span></li>
+        <li class="t-violet"><span class="vh">분석</span><span class="vd">통계·기계학습으로 패턴을 찾는다.</span></li>
+        <li class="t-green"><span class="vh">시각화·해석</span><span class="vd">그래프와 지도로 보여주고, 결정으로 잇는다.</span></li>
+      </ol>
 
       <p class="learn-part">04 · 대표 분석 기법</p>
-      <h3>① 기술 통계·시각화</h3>
-      <p>평균·분포·추세를 요약하고 지도·그래프로 보여주기. 가장 먼저, 가장 자주 쓰인다.</p>
-      <h3>② 텍스트 마이닝·감성 분석</h3>
-      <p>후기와 SNS의 단어를 세고(워드클라우드), 긍정/부정을 판정해 "무엇이 만족을 만드는가"를 읽는다.</p>
-      <h3>③ 군집 분석 (Clustering)</h3>
-      <p>비슷한 여행자를 묶어 유형을 만든다(예: 미식형·휴양형·액티비티형) → 맞춤 상품의 근거.</p>
-      <h3>④ 예측 분석 (Prediction)</h3>
-      <p>과거 패턴으로 미래 수요를 내다본다 → 성수기 대비, 인력·재고·가격 조정.</p>
+      <ol class="vcards c4 steps">
+        <li class="t-blue"><span class="vh">기술 통계·시각화</span><span class="vd">평균·분포·추세를 요약하고 지도·그래프로 보여주기. <em>가장 먼저, 가장 자주 쓰인다.</em></span></li>
+        <li class="t-rose"><span class="vh">텍스트 마이닝·감성 분석</span><span class="vd">후기와 SNS의 단어를 세고(워드클라우드), 긍정/부정을 판정해 "무엇이 만족을 만드는가"를 읽는다.</span></li>
+        <li class="t-violet"><span class="vt">비지도학습</span><span class="vh">군집 분석 (Clustering)</span><span class="vd">비슷한 여행자를 묶어 유형을 만든다(예: 미식형·휴양형·액티비티형) → 맞춤 상품의 근거.</span></li>
+        <li class="t-gold"><span class="vt">지도학습</span><span class="vh">예측 분석 (Prediction)</span><span class="vd">과거 패턴으로 미래 수요를 내다본다 → 성수기 대비, 인력·재고·가격 조정.</span></li>
+      </ol>
 
       <h3>머신러닝 — 지도학습과 비지도학습</h3>
       <p>앞의 두 기법은 사실 <strong>머신러닝</strong>의 서로 다른 갈래에 놓입니다. 정답(레이블)을 미리 알려주고 학습시키는 것이 <strong>지도학습</strong> — <em>분류</em>와 <em>회귀</em>가 여기 속하고, <strong>④ 예측 분석</strong>이 그 예입니다. 정답 없이 데이터의 특징만 보고 비슷한 것끼리 스스로 묶게 하는 것이 <strong>비지도학습</strong> — <em>군집분석</em>과 <em>차원축소</em>가 여기 속하고, <strong>③ 군집 분석</strong>이 그 예입니다. 아래 영상에서 두 방식의 차이를 그림으로 짚습니다.</p>
@@ -98,25 +199,35 @@
 
       <p class="learn-part">05 · 분석에 쓰는 도구·프로그램</p>
       <p>앞의 기법들은 결국 <strong>도구</strong>로 실행됩니다. 관광 데이터 분석에서 자주 쓰는 프로그램을, 친숙한 것부터 소개합니다.</p>
-      <ul>
-        <li><strong>엑셀(Excel)</strong> — 가장 친숙한 출발점. 피벗테이블·기초 통계·간단한 그래프까지, 이것만으로 충분한 경우도 많다.</li>
-        <li><strong>SQL</strong> — 데이터베이스에서 원하는 자료만 뽑아내는 질의 언어. 공공 데이터·PMS 같은 대형 데이터에선 필수.</li>
-        <li><strong>파이썬(Python)</strong> — 사실상의 표준. <em>pandas</em>로 정제, <em>scikit-learn</em>으로 기계학습, <em>matplotlib</em>로 시각화까지 한 언어로.</li>
-        <li><strong>R</strong> — 통계와 텍스트마이닝(감성 분석)에 강한 언어. 학계·조사 분야에서 널리 쓰인다.</li>
-        <li><strong>시각화 BI 도구</strong> — 태블로(Tableau)·파워BI(Power BI): 코딩 없이 끌어다 놓아 대시보드를 만든다.</li>
-        <li><strong>텍스트마이닝 도구</strong> — 텍스톰(TEXTOM)·워드클라우드: 후기·SNS 텍스트를 정제하고 의미연결망을 그린다.</li>
-      </ul>
-      <p>처음부터 파이썬을 배울 필요는 없습니다. <strong>엑셀 → SQL → 파이썬/R</strong> 순으로, 다루는 데이터가 커질 때마다 한 칸씩 올라가면 됩니다.</p>
+      <div class="gtable-wrap">
+        <table class="gtable">
+          <thead><tr><th>도구</th><th>무엇을 하는가</th></tr></thead>
+          <tbody>
+            <tr><td>엑셀(Excel)</td><td class="g-sub">가장 친숙한 출발점. 피벗테이블·기초 통계·간단한 그래프까지, 이것만으로 충분한 경우도 많다.</td></tr>
+            <tr><td>SQL</td><td class="g-sub">데이터베이스에서 원하는 자료만 뽑아내는 질의 언어. 공공 데이터·PMS 같은 대형 데이터에선 필수.</td></tr>
+            <tr><td>파이썬(Python)</td><td class="g-sub">사실상의 표준. <em>pandas</em>로 정제, <em>scikit-learn</em>으로 기계학습, <em>matplotlib</em>로 시각화까지 한 언어로.</td></tr>
+            <tr><td>R</td><td class="g-sub">통계와 텍스트마이닝(감성 분석)에 강한 언어. 학계·조사 분야에서 널리 쓰인다.</td></tr>
+            <tr><td>시각화 BI 도구</td><td class="g-sub">태블로(Tableau)·파워BI(Power BI): 코딩 없이 끌어다 놓아 대시보드를 만든다.</td></tr>
+            <tr><td>텍스트마이닝 도구</td><td class="g-sub">텍스톰(TEXTOM)·워드클라우드: 후기·SNS 텍스트를 정제하고 의미연결망을 그린다.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="flowbar">
+        <b>엑셀</b><i>→</i><b>SQL</b><i>→</i><b>파이썬 / R</b>
+        <p class="fb-note">처음부터 파이썬을 배울 필요는 없습니다. 다루는 데이터가 커질 때마다 한 칸씩 올라가면 됩니다.</p>
+      </div>
 
       <p class="learn-part">06 · 현장 적용 — 호텔의 PMS와 빅데이터 RM</p>
       <p>앞의 <strong>예측 분석</strong>이 산업에서 가장 또렷하게 작동하는 곳이 호텔의 <strong>객실 가격 결정</strong>입니다. 여기엔 두 시스템이 맞물립니다.</p>
-      <h3>① PMS — 자산관리시스템 (Property Management System)</h3>
-      <p>호텔 운영의 중추. 예약·체크인/아웃·객실 배정·요금 청구·고객 관리를 한 곳에서 처리합니다. 최근에는 사내 서버형에서 <strong>클라우드 기반</strong>으로 옮겨가며 실시간 조회와 타 시스템 연동이 쉬워졌고, 무엇보다 <strong>거래·이용 데이터가 쌓이는 저수지</strong> 역할을 합니다.</p>
-      <h3>② RM — 수익경영 (Revenue Management)</h3>
-      <p>쌓인 데이터에 경쟁사 가격·상권·SNS 트렌드·공공 데이터를 결합해 <strong>미래 수요를 예측</strong>하고, "적절한 방을 · 적절한 고객에게 · 적절한 시간에 · 적절한 가격으로" 파는 <strong>다이내믹 프라이싱</strong>을 구현합니다.</p>
-      <h3>③ PMS × RM의 시너지</h3>
-      <p>RM은 홀로 서지 않고 <strong>PMS와 연동</strong>됩니다. PMS에 축적된 고객의 과거 거래와 이용 패턴을 RM이 학습해 가격을 산출하는 구조입니다(예: PMS 데이터를 분석해 수익을 최적화하는 루넷 RMS 같은 솔루션). 목적은 하나 — <strong>객실 이용률과 매출을 함께 끌어올리는 것</strong>입니다.</p>
-      <p>즉 "데이터를 모으는 곳(PMS) → 데이터로 결정하는 곳(RM)"이라는 이 모듈 전체의 흐름이, 호텔 한 곳에서 실시간으로 돌아가는 셈입니다. 아래 야놀자리서치 브리프에서 더 깊이 살펴볼 수 있습니다.</p>
+      <ol class="vcards c3 steps">
+        <li class="t-blue"><span class="vt">데이터를 모으는 곳</span><span class="vh">PMS — 자산관리시스템</span><span class="vd">Property Management System. 호텔 운영의 중추. 예약·체크인/아웃·객실 배정·요금 청구·고객 관리를 한 곳에서 처리합니다. 최근에는 사내 서버형에서 <strong>클라우드 기반</strong>으로 옮겨가며 실시간 조회와 타 시스템 연동이 쉬워졌고, 무엇보다 <em>거래·이용 데이터가 쌓이는 저수지</em> 역할을 합니다.</span></li>
+        <li class="t-gold"><span class="vt">데이터로 결정하는 곳</span><span class="vh">RM — 수익경영</span><span class="vd">Revenue Management. 쌓인 데이터에 경쟁사 가격·상권·SNS 트렌드·공공 데이터를 결합해 <strong>미래 수요를 예측</strong>하고, "적절한 방을 · 적절한 고객에게 · 적절한 시간에 · 적절한 가격으로" 파는 <em>다이내믹 프라이싱</em>을 구현합니다.</span></li>
+        <li class="t-green"><span class="vt">둘이 맞물릴 때</span><span class="vh">PMS × RM의 시너지</span><span class="vd">RM은 홀로 서지 않고 <strong>PMS와 연동</strong>됩니다. PMS에 축적된 고객의 과거 거래와 이용 패턴을 RM이 학습해 가격을 산출하는 구조입니다(예: PMS 데이터를 분석해 수익을 최적화하는 루넷 RMS 같은 솔루션). 목적은 하나 — <em>객실 이용률과 매출을 함께 끌어올리는 것</em>입니다.</span></li>
+      </ol>
+      <div class="flowbar">
+        <b>PMS · 데이터를 모으는 곳</b><i>→</i><b>RM · 데이터로 결정하는 곳</b>
+        <p class="fb-note">이 모듈 전체의 흐름이 호텔 한 곳에서 실시간으로 돌아가는 셈입니다. 아래 야놀자리서치 브리프에서 더 깊이 살펴볼 수 있습니다.</p>
+      </div>
 
       <p class="learn-part">07 · 부산, 그리고 이 사이트에서</p>
       <p><em>부산</em>은 통신·카드 데이터로 해운대·광안리의 시간대별 혼잡을 읽고, 축제 기간 유동인구를 분석해 안전과 분산에 활용합니다. 감성 분석으로 외국인 관광객의 불편(언어·교통)을 짚어내는 것도 같은 맥락입니다.</p>
@@ -124,11 +235,11 @@
 
       <p class="learn-part">08 · 자격증과 학습 경로</p>
       <p>역량을 <strong>증명</strong>하고 체계적으로 배우고 싶다면 자격증과 공개 강의를 활용할 수 있습니다.</p>
-      <ul>
-        <li><strong>빅데이터분석기사</strong> — 과학기술정보통신부·한국데이터산업진흥원(K-DATA)이 시행하는 <strong>국가기술자격</strong>. 필기·실기로 나뉘며, 이 분야 취업의 대표적인 관문.</li>
-        <li><strong>ADsP · ADP</strong> — 데이터분석 준전문가/전문가(한국데이터산업진흥원). 통계·분석 기초부터 심화까지 단계별로 검증한다.</li>
-        <li><strong>SQLD</strong> — SQL 개발자 자격. 데이터를 뽑아내는 실무 기본기를 인증한다.</li>
-        <li><strong>사회조사분석사</strong> — 설문·통계 조사의 설계와 해석. <strong>관광 수요조사</strong>와 곧바로 이어진다.</li>
+      <ul class="vcards c4">
+        <li class="t-gold"><span class="vt">국가기술자격</span><span class="vh">빅데이터분석기사</span><span class="vd">과학기술정보통신부·한국데이터산업진흥원(K-DATA)이 시행. 필기·실기로 나뉘며, <em>이 분야 취업의 대표적인 관문</em>.</span></li>
+        <li class="t-blue"><span class="vt">단계별 검증</span><span class="vh">ADsP · ADP</span><span class="vd">데이터분석 준전문가/전문가(한국데이터산업진흥원). 통계·분석 기초부터 심화까지 단계별로 검증한다.</span></li>
+        <li class="t-teal"><span class="vt">실무 기본기</span><span class="vh">SQLD</span><span class="vd">SQL 개발자 자격. 데이터를 뽑아내는 실무 기본기를 인증한다.</span></li>
+        <li class="t-violet"><span class="vt">조사·통계</span><span class="vh">사회조사분석사</span><span class="vd">설문·통계 조사의 설계와 해석. <em>관광 수요조사</em>와 곧바로 이어진다.</span></li>
       </ul>
       <p>어느 자격증부터 손대야 할지 막막하다면, 아래 두 안내 페이지에서 시험 구성·공부기간·연구 활용성을 비교해 보세요.</p>
       <ul class="reslist">
