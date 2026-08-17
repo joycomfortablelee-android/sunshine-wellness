@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="빅데이터분석기사를 중심으로 ADsP·PCED·PCAD·사회조사분석사 2급까지, 시험 구성·실기 여부·Python 연계성·공부기간·연구 활용성을 한 번에 비교한 데이터 분석 자격증 가이드." />
+<title>데이터 분석 자격증 비교 가이드</title>
+<style>
+:root{
+  --navy:#17324d;
+  --blue:#2d5f8b;
+  --sky:#eef6fb;
+  --gold:#c49335;
+  --yellow:#fff6cf;
+  --green:#2f7d5b;
+  --red:#b63a3a;
+  --line:#d8e1e8;
+  --text:#1f2933;
+  --muted:#64707c;
+  --white:#fff;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:"NanumBarunGothic","Noto Sans KR","Malgun Gothic",sans-serif;
+  color:var(--text);
+  background:#f5f8fa;
+  line-height:1.72;
+}
+.wrap{width:min(1120px,94%);margin:26px auto 60px;}
+.hero{
+  background:linear-gradient(135deg,var(--navy),var(--blue));
+  color:#fff;
+  padding:34px 36px;
+  border-radius:22px;
+  box-shadow:0 12px 30px rgba(23,50,77,.15);
+}
+.hero small{opacity:.82;letter-spacing:.04em;}
+.hero h1{margin:6px 0 10px;font-size:32px;line-height:1.28;}
+.hero p{margin:0;opacity:.94;}
+.hero .path{
+  margin-top:18px;
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.22);
+  padding:14px 16px;
+  border-radius:13px;
+  font-weight:700;
+}
+.section{
+  margin-top:20px;
+  background:#fff;
+  padding:28px 30px;
+  border-radius:18px;
+  box-shadow:0 6px 20px rgba(30,55,80,.06);
+}
+h2{
+  margin:0 0 16px;
+  color:var(--navy);
+  font-size:24px;
+  border-left:6px solid var(--gold);
+  padding-left:12px;
+}
+h3{margin:24px 0 10px;color:var(--blue);font-size:19px;}
+.lead{
+  background:var(--yellow);
+  border:1px solid #eadb96;
+  padding:14px 16px;
+  border-radius:12px;
+  font-size:17px;
+  font-weight:700;
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:14px 0;
+  font-size:14.5px;
+}
+th,td{border:1px solid var(--line);padding:10px 11px;vertical-align:top;}
+th{background:#edf3f8;color:var(--navy);text-align:left;}
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:14px;
+  margin-top:14px;
+}
+.card{
+  border:1px solid var(--line);
+  background:#fbfdff;
+  padding:16px;
+  border-radius:14px;
+}
+.card strong{color:var(--navy);}
+.flow{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:8px;
+  margin:14px 0 6px;
+}
+.step{
+  background:#f2f7fb;
+  border:1px solid #cbd9e6;
+  padding:9px 12px;
+  border-radius:10px;
+  font-weight:700;
+  color:var(--navy);
+}
+.arrow{color:var(--gold);font-weight:900;}
+.quote{
+  margin:14px 0;
+  padding:13px 16px;
+  background:var(--sky);
+  border-left:4px solid var(--blue);
+  border-radius:0 10px 10px 0;
+}
+.good{color:var(--green);font-weight:700;}
+.warn{color:var(--red);font-weight:700;}
+.badge{
+  display:inline-block;
+  padding:4px 8px;
+  border-radius:20px;
+  background:#e8f1f8;
+  color:var(--blue);
+  font-size:12px;
+  font-weight:700;
+  margin-right:5px;
+}
+.code{
+  background:#16212d;
+  color:#edf5fb;
+  border-radius:12px;
+  padding:16px;
+  overflow:auto;
+  font-family:Consolas,Monaco,monospace;
+  font-size:13.5px;
+}
+.recommend{
+  border:2px solid var(--red);
+  background:#fffafa;
+  padding:18px;
+  border-radius:14px;
+  margin-top:16px;
+}
+.recommend strong{color:var(--red);}
+.note{font-size:13px;color:var(--muted);}
+.links a{color:#155ea8;text-decoration:none;font-weight:700;}
+.links a:hover{text-decoration:underline;}
+ul{padding-left:22px;}
+.footer{text-align:center;color:#7b8792;font-size:12.5px;margin-top:20px;}
+.backlink{
+  display:inline-block;
+  margin-bottom:12px;
+  padding:6px 13px;
+  border:1px solid rgba(255,255,255,.42);
+  border-radius:999px;
+  background:rgba(255,255,255,.1);
+  color:#fff;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:700;
+}
+.backlink:hover{background:rgba(255,255,255,.2);}
+.footer a{color:#7b8792;font-weight:700;text-decoration:none;}
+.footer a:hover{text-decoration:underline;}
+@media(max-width:720px){
+  .hero,.section{padding:22px 18px;}
+  .hero h1{font-size:26px;}
+  table{font-size:13px;}
+  th,td{padding:8px;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<section class="hero">
+  <a class="backlink" href="./big-data-analytics.html">← 빅데이터 분석 모듈</a>
+  <small>데이터·통계·Python 자격증 통합 가이드</small>
+  <h1>ADsP · 빅데이터분석기사 · PCED · PCAD · 사회조사분석사 2급</h1>
+  <p>시험 성격, 실기 여부, Python 연계성, 공부기간, 연구 활용성까지 한 번에 비교</p>
+  <div class="path">
+    추천 학습 경로: ADsP → Python 데이터분석 → 빅데이터분석기사 → 필요 시 사회조사분석사 2급
+  </div>
+</section>
+
+<section class="section">
+  <h2>1. 빅데이터분석기사란?</h2>
+  <p class="lead">
+    ADsP보다 한 단계 더 <span class="warn">실무형이고 난도가 높은 국가기술자격</span>으로,
+    실제 데이터를 가지고 전처리 → 분석모형 구축 → 평가 → 해석까지 수행하는 능력을 봅니다.
+  </p>
+
+  <table>
+    <thead>
+      <tr><th>구분</th><th>ADsP</th><th>빅데이터분석기사</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>성격</td><td>데이터분석 입문</td><td><b>데이터분석 실무</b></td></tr>
+      <tr><td>자격</td><td>데이터 전문자격</td><td><b>국가기술자격</b></td></tr>
+      <tr><td>응시자격</td><td>제한 없음</td><td><b>기사 응시자격 필요</b></td></tr>
+      <tr><td>필기</td><td>있음</td><td><b>있음</b></td></tr>
+      <tr><td>실기</td><td>없음</td><td><b>있음</b></td></tr>
+      <tr><td>Python/R</td><td>직접 코딩시험 없음</td><td><b>실기에서 사용</b></td></tr>
+      <tr><td>통계</td><td>기초~중급</td><td>중급</td></tr>
+      <tr><td>머신러닝</td><td>개념 중심</td><td><b>실제 모델링</b></td></tr>
+      <tr><td>데이터 전처리</td><td>개념 중심</td><td><b>실제 수행</b></td></tr>
+      <tr><td>난이도</td><td>★★~★★★</td><td><b>★★★★</b></td></tr>
+    </tbody>
+  </table>
+
+  <h3>필기 구성</h3>
+  <ul>
+    <li>① 빅데이터 분석기획</li>
+    <li>② 빅데이터 탐색</li>
+    <li>③ 빅데이터 모델링</li>
+    <li>④ 빅데이터 결과해석</li>
+  </ul>
+  <p><b>총 80문항, 120분</b>이며, 각 과목 40점 이상이면서 전체 평균 60점 이상이 합격 기준입니다.</p>
+
+  <h3>실제 분석 흐름</h3>
+  <div class="flow">
+    <span class="step">데이터 수집</span><span class="arrow">→</span>
+    <span class="step">결측치·이상치 처리</span><span class="arrow">→</span>
+    <span class="step">EDA</span><span class="arrow">→</span>
+    <span class="step">통계분석</span><span class="arrow">→</span>
+    <span class="step">회귀·분류·군집</span><span class="arrow">→</span>
+    <span class="step">머신러닝</span><span class="arrow">→</span>
+    <span class="step">모델 평가</span><span class="arrow">→</span>
+    <span class="step">해석·시각화</span>
+  </div>
+
+  <h3>Python 예시</h3>
+  <pre class="code">import pandas as pd
+
+df = pd.read_csv("tourism.csv")
+df.isnull().sum()
+df.groupby("region")["visitor"].mean()</pre>
+
+  <pre class="code">from sklearn.ensemble import RandomForestClassifier
+
+model = RandomForestClassifier()
+model.fit(X_train, y_train)
+pred = model.predict(X_test)</pre>
+
+  <div class="quote">
+    <b>ADsP:</b> “회귀분석이 무엇인가?”, “K-means는 어떤 분석인가?”<br>
+    <b>빅데이터분석기사:</b> “주어진 데이터를 전처리하고, 분류모형을 만들고, 모델 성능을 평가하라.”
+  </div>
+</section>
+
+<section class="section">
+  <h2>2. Python 데이터분석 관련 자격증</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>자격증</th>
+        <th>정식 명칭</th>
+        <th>수준</th>
+        <th>Python 데이터분석 연관성</th>
+        <th>자격 성격</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>PCED</b></td>
+        <td>Certified Entry-Level Data Analyst with Python</td>
+        <td>입문</td>
+        <td>★★★★★</td>
+        <td>국제 민간자격</td>
+      </tr>
+      <tr>
+        <td><b>PCAD</b></td>
+        <td>Certified Associate Data Analyst with Python</td>
+        <td>중급</td>
+        <td>★★★★★</td>
+        <td>국제 민간자격</td>
+      </tr>
+      <tr>
+        <td>PCEP</td>
+        <td>Certified Entry-Level Python Programmer</td>
+        <td>입문</td>
+        <td>★★★</td>
+        <td>국제 민간자격</td>
+      </tr>
+      <tr>
+        <td>ADsP</td>
+        <td>데이터분석 준전문가</td>
+        <td>입문~중급</td>
+        <td>★★★</td>
+        <td>국내 데이터 자격</td>
+      </tr>
+      <tr>
+        <td><b>빅데이터분석기사</b></td>
+        <td>Big Data Analysis Engineer</td>
+        <td>중급 이상</td>
+        <td>★★★★★</td>
+        <td><b>국가기술자격</b></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>PCED</h3>
+  <p><b>Certified Entry-Level Data Analyst with Python</b>으로, Python을 활용한 입문 데이터분석 자격에 가장 가깝습니다.</p>
+  <div class="flow">
+    <span class="step">데이터 이해</span><span class="arrow">→</span>
+    <span class="step">Python 기초</span><span class="arrow">→</span>
+    <span class="step">데이터 불러오기</span><span class="arrow">→</span>
+    <span class="step">정리·전처리</span><span class="arrow">→</span>
+    <span class="step">기초 분석</span><span class="arrow">→</span>
+    <span class="step">결과 설명·보고</span>
+  </div>
+
+  <div class="quote">
+    <b>ADsP:</b> “데이터 분석 방법을 알고 있는가?”<br>
+    <b>PCED:</b> “Python을 이용해 데이터를 다루는 기본 능력이 있는가?”
+  </div>
+
+  <h3>PCAD</h3>
+  <p>PCED 다음 단계로, Python 기반 데이터분석을 좀 더 본격적으로 다룹니다.</p>
+  <div class="flow">
+    <span class="step">데이터 수집</span><span class="arrow">→</span>
+    <span class="step">전처리</span><span class="arrow">→</span>
+    <span class="step">Python</span><span class="arrow">→</span>
+    <span class="step">SQL</span><span class="arrow">→</span>
+    <span class="step">통계분석</span><span class="arrow">→</span>
+    <span class="step">모델링</span><span class="arrow">→</span>
+    <span class="step">시각화</span>
+  </div>
+
+  <p>
+    주요 범위에는 <b>pandas, NumPy, 통계, SQL, 선형회귀·로지스틱회귀, 훈련/테스트 데이터 분할, 과적합, Matplotlib</b> 등이 포함됩니다.
+  </p>
+
+  <h3>PCEP</h3>
+  <p>
+    Python 프로그래밍 기초 자격으로, 변수·자료형·리스트·딕셔너리·조건문·반복문·함수·예외처리 등을 평가합니다.
+    <b>데이터분석 자격증은 아니므로 데이터분석 목적이라면 PCEP보다 PCED가 더 직접적</b>입니다.
+  </p>
+</section>
+
+<section class="section">
+  <h2>3. ADsP 시험 성격</h2>
+
+  <p class="lead">
+    ADsP는 <span class="good">데이터 분석의 이론·개념·통계적 사고</span>를 보는 입문형 자격입니다.
+  </p>
+
+  <table>
+    <thead>
+      <tr><th>과목</th><th>문항 수</th><th>문항 비중</th><th>성격</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>데이터 이해</td><td>10</td><td>20%</td><td>개념·암기</td></tr>
+      <tr><td>데이터분석 기획</td><td>10</td><td>20%</td><td>개념·방법론</td></tr>
+      <tr><td><b>데이터분석</b></td><td><b>30</b></td><td><b>60%</b></td><td><b>통계·분석 핵심</b></td></tr>
+    </tbody>
+  </table>
+
+  <p><b>총 50문항, 90분, 실기 없음.</b> 2024년부터 단답형이 폐지되어 현재는 전 문항 객관식입니다.</p>
+
+  <h3>현실적인 준비기간</h3>
+  <table>
+    <thead>
+      <tr><th>대상</th><th>예상 공부기간</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>통계·연구 경험 있음</td><td><b>1~2주</b></td></tr>
+      <tr><td>비전공자·노베이스</td><td><b>3~4주</b></td></tr>
+    </tbody>
+  </table>
+
+  <p class="note">
+    위 준비기간은 공식 기준이 아니라 시험 범위와 일반적인 학습량을 고려한 현실적 추정치입니다.
+  </p>
+</section>
+
+<section class="section">
+  <h2>4. 사회조사분석사 2급</h2>
+
+  <p class="lead">
+    사회조사분석사 2급은 <span class="warn">설문조사 · 조사방법론 · 통계분석 · SPSS · 사회과학 연구</span>에 강한 국가기술자격입니다.
+  </p>
+
+  <h3>필기</h3>
+  <table>
+    <thead>
+      <tr><th>과목</th><th>문항 수</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>조사방법과 설계</td><td>30</td></tr>
+      <tr><td>조사관리와 자료처리</td><td>30</td></tr>
+      <tr><td>통계분석과 활용</td><td>40</td></tr>
+    </tbody>
+  </table>
+  <p><b>총 100문항, 150분</b></p>
+
+  <h3>실기</h3>
+  <table>
+    <thead>
+      <tr><th>구분</th><th>내용</th><th>배점/시간</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>필답형</td><td>설문작성, 조사방법론, 서술형</td><td>60점 / 2시간</td></tr>
+      <tr><td>작업형</td><td>통계 프로그램을 활용한 자료처리 및 분석</td><td>40점 / 약 2시간</td></tr>
+    </tbody>
+  </table>
+
+  <div class="quote">
+    <b>ADsP:</b> 공부 → 필기 한 번 → 합격<br>
+    <b>사회조사분석사 2급:</b> 필기 공부 → 필기 합격 → 실기 공부 → 필답형 + 작업형 → 최종합격
+  </div>
+
+  <h3>현실적인 공부기간</h3>
+  <table>
+    <thead>
+      <tr><th>구분</th><th>통계·연구 경험 있음</th><th>처음 공부</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>필기</td><td>1~2주</td><td>3~4주</td></tr>
+      <tr><td>실기</td><td>2~3주</td><td>3~5주</td></tr>
+      <tr><td><b>전체 공부량</b></td><td><b>3~5주</b></td><td><b>6~9주</b></td></tr>
+    </tbody>
+  </table>
+
+  <p class="note">
+    공부시간과 실제 자격 취득까지의 달력상 기간은 다릅니다. 필기와 실기 시험일정 사이 간격 때문에 최종합격 발표까지는 수개월이 걸릴 수 있습니다.
+  </p>
+</section>
+
+<section class="section">
+  <h2>5. 자격증별 핵심 역할 비교</h2>
+
+  <table>
+    <thead>
+      <tr><th>자격증</th><th>핵심 역할</th><th>한 줄 설명</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>사회조사분석사 2급</b></td>
+        <td>설문조사 + 조사방법론 + SPSS + 사회과학 통계</td>
+        <td>사회과학 연구와 가장 밀접</td>
+      </tr>
+      <tr>
+        <td><b>ADsP</b></td>
+        <td>데이터 분석의 이론·개념</td>
+        <td>데이터분석 입문 및 개념 정리</td>
+      </tr>
+      <tr>
+        <td><b>PCED</b></td>
+        <td>Python 기반 기초 데이터분석</td>
+        <td>Python 데이터분석 입문 자격</td>
+      </tr>
+      <tr>
+        <td><b>PCAD</b></td>
+        <td>Python + SQL + 통계 + 모델링 + 시각화</td>
+        <td>보다 본격적인 Python 데이터분석</td>
+      </tr>
+      <tr>
+        <td><b>빅데이터분석기사</b></td>
+        <td>실제 데이터분석 + Python/R + 머신러닝</td>
+        <td>국내 국가기술자격, 실무형</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section">
+  <h2>6. 시간 대비 효율 비교</h2>
+
+  <div class="cards">
+    <div class="card">
+      <span class="badge">방법 ①</span>
+      <strong>가장 빨리 자격 하나 추가</strong>
+      <p><b>ADsP</b>가 유리합니다.</p>
+      <p>1~4주 공부 → 시험 한 번</p>
+    </div>
+
+    <div class="card">
+      <span class="badge">방법 ②</span>
+      <strong>기존 연구역량과 가장 밀접</strong>
+      <p><b>사회조사분석사 2급</b>이 유리합니다.</p>
+      <p>설문조사 → 조사설계 → 표본 → 통계 → SPSS</p>
+    </div>
+
+    <div class="card">
+      <span class="badge">방법 ③</span>
+      <strong>데이터·AI 역량 확장</strong>
+      <p><b>ADsP → Python → 빅데이터분석기사</b></p>
+      <p>데이터마이닝·머신러닝·실제 분석으로 확장</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>7. 추천 학습 경로</h2>
+
+  <div class="recommend">
+    <strong>국내 CV와 데이터분석 실무를 함께 본다면</strong>
+    <div class="flow">
+      <span class="step">① ADsP</span><span class="arrow">→</span>
+      <span class="step">② Python 데이터분석</span><span class="arrow">→</span>
+      <span class="step">③ 빅데이터분석기사</span><span class="arrow">→</span>
+      <span class="step">④ 필요 시 사회조사분석사 2급</span>
+    </div>
+  </div>
+
+  <div class="recommend" style="border-color:#2f7d5b;background:#f8fffb;">
+    <strong style="color:#2f7d5b;">Python 데이터분석 자격 자체를 강조하고 싶다면</strong>
+    <div class="flow">
+      <span class="step">① ADsP</span><span class="arrow">→</span>
+      <span class="step">② PCED</span><span class="arrow">→</span>
+      <span class="step">③ PCAD</span>
+    </div>
+  </div>
+
+  <div class="quote">
+    <b>핵심 결론</b><br>
+    ADsP = 1~4주짜리 단기 자격 → Python으로 연결하기 좋음<br>
+    사회조사분석사 2급 = 1~2개월 이상 공부 + 필기·실기 → 연구방법·SPSS에 강함<br>
+    빅데이터분석기사 = 실제 데이터분석 + Python/R + 머신러닝 → 실무형 국가기술자격
+  </div>
+</section>
+
+<section class="section">
+  <h2>8. 참고 링크</h2>
+  <div class="links">
+    <ul>
+      <li><a href="https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=9521" target="_blank" rel="noopener noreferrer">Q-Net 사회조사분석사 2급</a></li>
+      <li><a href="https://www.dataq.or.kr/www/main.do" target="_blank" rel="noopener noreferrer">K-DATA 데이터자격시험</a></li>
+      <li><a href="https://pythoninstitute.org/" target="_blank" rel="noopener noreferrer">Python Institute 공식 사이트</a></li>
+    </ul>
+  </div>
+</section>
+
+
+<section class="section">
+  <h2>9. ChatGPT 공유 출처</h2>
+  <p>본 통합 정리 자료의 관련 대화 원문은 아래 공유 링크에서 확인할 수 있습니다.</p>
+  <div class="links">
+    <a href="https://chatgpt.com/share/6a828320-acf8-83ee-a785-966441b39efc" target="_blank" rel="noopener noreferrer">
+      ChatGPT 공유 대화 원문 보기
+    </a>
+  </div>
+</section>
+
+<div class="footer">
+  데이터 분석 자격증 비교 학습자료<br />
+  <a href="./big-data-analytics.html">빅데이터 분석 모듈</a> ·
+  <a href="./adsp-guide.html">ADsP · 사회조사분석사 비교</a> ·
+  <a href="./">교육자료 목차</a>
+</div>
+
+</div>
+</body>
+</html>
