@@ -86,9 +86,25 @@
 
     /* 테라코타 — 도시재생(오래된 것을 다시 세우는 일)에 쓴다 */
     .learn-article .t-terra  { --v-a:#f7dcc8; --v-b:#fdf1e8; --v-ac:#b5713f; --v-ln:#eed3bd; --v-sh:rgba(150,85,40,.18); --v-tc:#8a4f26; }
-    .learn-article .learn-part.lp-side.regen {
-      background: #fbeee4; color: #8a4f26; border-left-color: #b5713f;
+    /* 곁들여 보기 두 절 — 이론 장과 같은 라운딩 상자 + 동그라미 번호 */
+    .learn-article .learn-part.lp-side {
+      display: flex; align-items: center; gap: 12px;
+      border: 2px solid #8272ad; border-radius: 12px;
+      background: linear-gradient(120deg, #f1ecfa 0%, #f8f5fd 55%, #fff 100%);
+      padding: 13px 18px; margin: 34px 0 14px;
+      color: #4c3f70; font-size: 17px; letter-spacing: -.2px;
     }
+    .learn-article .learn-part.lp-side .num {
+      flex: none; width: 32px; height: 32px; border-radius: 50%;
+      background: #8272ad; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13.5px; font-weight: 800;
+    }
+    .learn-article .learn-part.lp-side.regen {
+      border-color: #b5713f; color: #8a4f26;
+      background: linear-gradient(120deg, #fbeadd 0%, #fdf6f0 55%, #fff 100%);
+    }
+    .learn-article .learn-part.lp-side.regen .num { background: #b5713f; }
     .learn-article .learn-part.lp-side.regen .ptag { background: #b5713f; }
 
     /* 골드보다 한 단계 진한 노랑 — 같은 계열에서 무게를 줄 때 */
@@ -672,7 +688,7 @@
         </li>
       </ul>
 
-      <p class="learn-part lp-side regen">곁들여 보기 · Ⓡ 재생이 만든 관광 수요 「구미·포항」</p>
+      <p class="learn-part lp-side regen"><span class="num">2</span>곁들여 보기 · Ⓡ 재생이 만든 관광 수요 「구미·포항」</p>
       <p>공모 요강만 읽으면 "지원금을 받는 일"처럼 보입니다. 하지만 지자체가 관광 창업에 돈을 쓰는 <em>이유</em>를 알아야 사업계획서가 설득력을 얻습니다. 도시가 어떻게 바뀌고 있는지 — <strong>구미</strong>와 <strong>포항</strong>의 최근 몇 년을 보면 그 이유가 보입니다.</p>
       <ul class="reslist grid3 two">
         <li class="t-terra">
