@@ -110,6 +110,13 @@
     .learn-article .reslist.grid3 a:hover { color: var(--v-ac, var(--green)); }
     .learn-article .reslist.grid3 .desc { font-size: 11.8px; line-height: 1.68; margin-top: 6px; }
     .learn-article .reslist.grid3 .meta { font-size: 10.5px; margin-top: 6px; color: var(--v-tc, var(--green)); }
+    .learn-article .reslist.grid3.two { grid-template-columns: repeat(2, 1fr); }
+    .learn-article .reslist.grid3.two a { font-size: 14.5px; }
+    .learn-article .reslist.grid3.two .desc { font-size: 12.5px; }
+    /* 한 장만 놓을 때 — 가로로 넓게 펴서 본문 폭을 채운다 */
+    .learn-article .reslist.grid3.one { grid-template-columns: 1fr; }
+    .learn-article .reslist.grid3.one a { font-size: 15px; }
+    .learn-article .reslist.grid3.one .desc { font-size: 13px; }
     @media (max-width: 760px) { .learn-article .reslist.grid3 { grid-template-columns: 1fr; } }
 
     /* 흐름 바 */
@@ -165,15 +172,23 @@
 
       <p class="lead">창업은 "좋은 아이템을 파는 일"이 아니라 <strong>"누군가의 불편을 반복 가능한 방식으로 푸는 일"</strong>입니다. 관광벤처는 그 불편이 여행의 여정 어딘가에 있는 사업입니다.</p>
 
-      <ul class="reslist">
-        <li class="hi">
-          <a href="assets/tourism-venture-reading-guide.docx" download="관광벤처창업론_이_페이지를_읽는_법.docx">「이 페이지를 읽는 법」 안내서 내려받기 (Word · A4 4쪽) ⤓</a>
-          <span class="desc">이 페이지는 <strong>이론 6장 · 사례 10편 · 관련 링크 28건</strong>이라, 처음부터 끝까지 읽는 글이 아닙니다. 안내서에는 <strong>지금 자기 상태에 따른 세 갈래 진입점</strong>(과제 20분 / 낼 곳 찾기 15분 / 아이템 없음 25분), <strong>공모 6개를 나이·지역·업력·규모로 나란히 비교한 표</strong>, Ⓛ 문서 여섯 층위를 읽는 순서, 그리고 <strong>오늘 할 세 가지</strong>가 정리돼 있습니다. 인쇄해 옆에 두고 이 페이지를 여십시오.</span>
+      <ul class="reslist grid3 two">
+        <li class="t-blue">
+          <a href="assets/tourism-venture-reading-guide.docx" download="관광벤처창업론_이_페이지를_읽는_법.docx">「이 페이지를 읽는 법」 안내서 ⤓</a>
+          <span class="desc"><strong>혼자 읽는 순서.</strong> 세 갈래 진입점 · 공모 6개 비교표 · Ⓛ 여섯 층위 읽는 순서 · 오늘 할 세 가지. 인쇄해 옆에 두고 여십시오.</span>
+          <details class="fold">
+            <summary>자세히</summary>
+            <span class="desc">이 페이지는 <strong>이론 6장 · 사례 10편 · 관련 링크 28건</strong>이라, 처음부터 끝까지 읽는 글이 아닙니다. 안내서에는 <strong>지금 자기 상태에 따른 세 갈래 진입점</strong>(과제 20분 / 낼 곳 찾기 15분 / 아이템 없음 25분), <strong>공모 6개를 나이·지역·업력·규모로 나란히 비교한 표</strong>, Ⓛ 문서 여섯 층위를 읽는 순서, 그리고 <strong>오늘 할 세 가지</strong>가 정리돼 있습니다. 인쇄해 옆에 두고 이 페이지를 여십시오.</span>
+          </details>
           <span class="meta">Word(.docx) · A4 4쪽 · 2026-08-14</span>
         </li>
-        <li>
-          <a href="assets/tourism-venture-class-intro-tree.docx" download="관광벤처창업론_홈페이지소개_가지치기트리_전체답변.docx">수업 소개 자료 — 「가지치기 트리」로 보는 이 페이지 (Word) ⤓</a>
-          <span class="desc">위 안내서가 <em>혼자 읽는 순서</em>라면, 이쪽은 <strong>수업에서 이 페이지를 소개할 때 쓰는 자료</strong>입니다. ① <strong>관광벤처 아이디어 형성 트리</strong> — 「관광에서 어떤 문제를 발견했는가」에서 출발해 <em>여행자 문제 / 지역의 문제 / 산업의 문제</em>로 갈라지고, 해결 방식과 활용 자원을 거쳐 <strong>"누구의 어떤 문제를 어떤 방식으로 해결한다"</strong>는 한 문장까지 내려가는 가지치기 도해 ② <strong>홈페이지를 스크롤하며 소개하는 흐름</strong>(01~06장과 그 뒤 사례·공모) ③ 전체 섹션 안내. 학생에게 <em>"무엇을 만들래?"</em>보다 <strong>"여행하며 불편했던 것, 지역에서 아깝다고 느낀 것은 무엇인가?"</strong>를 먼저 묻자는 것이 이 자료의 요지입니다.</span>
+        <li class="t-violet">
+          <a href="assets/tourism-venture-class-intro-tree.docx" download="관광벤처창업론_홈페이지소개_가지치기트리_전체답변.docx">수업 소개 자료 — 「가지치기 트리」 ⤓</a>
+          <span class="desc"><strong>수업에서 소개하는 순서.</strong> 아이디어 형성 가지치기 도해 · 스크롤 소개 흐름 · 전체 섹션 안내. <em>"무엇을 만들래?"</em>보다 <em>"여행하며 불편했던 것은?"</em>을 먼저 묻자는 자료.</span>
+          <details class="fold">
+            <summary>자세히</summary>
+            <span class="desc">위 안내서가 <em>혼자 읽는 순서</em>라면, 이쪽은 <strong>수업에서 이 페이지를 소개할 때 쓰는 자료</strong>입니다. ① <strong>관광벤처 아이디어 형성 트리</strong> — 「관광에서 어떤 문제를 발견했는가」에서 출발해 <em>여행자 문제 / 지역의 문제 / 산업의 문제</em>로 갈라지고, 해결 방식과 활용 자원을 거쳐 <strong>"누구의 어떤 문제를 어떤 방식으로 해결한다"</strong>는 한 문장까지 내려가는 가지치기 도해 ② <strong>홈페이지를 스크롤하며 소개하는 흐름</strong>(01~06장과 그 뒤 사례·공모) ③ 전체 섹션 안내. 학생에게 <em>"무엇을 만들래?"</em>보다 <strong>"여행하며 불편했던 것, 지역에서 아깝다고 느낀 것은 무엇인가?"</strong>를 먼저 묻자는 것이 이 자료의 요지입니다.</span>
+          </details>
           <span class="meta">Word(.docx) · 가지치기 트리 3종 · 수업 소개용</span>
         </li>
       </ul>
@@ -247,12 +262,12 @@
 
       <p class="learn-part lp-case">해커톤 사례 · 비건부산(Busan Vegan Discovery)</p>
       <p>이론을 실제로 옮기면 어떤 모습일까요. <strong>부산 해커톤</strong>에 <strong>장근석·박현철·은경</strong> 팀이 제출한 관광·웰니스 창업 사례 <strong>「비건부산」</strong>을 소개합니다. 짧은 해커톤 기간 동안 기획·설계·개발을 빠르게 진행해, 아이디어를 <strong>실제 작동하는 서비스(MVP)</strong>까지 밀어붙인 결과물입니다.</p>
-      <ul>
-        <li><strong>문제 정의(02)</strong> — "채식·비건 여행자가 부산에서 믿을 만한 식당 정보를 찾기 어렵다." 후기·블로그에 흩어진 정보는 오래됐거나 추정이 섞여 신뢰하기 어렵습니다.</li>
-        <li><strong>해결 아이디어</strong> — <em>추천</em>이 아니라 <strong>근거</strong>를 판다. 공개된 공식 자료만으로 각 매장을 조사해 <strong>출처·최신성·확실성</strong>을 '근거 카드'로 투명하게 보여줍니다.</li>
-        <li><strong>핵심 자산 — 등급 체계</strong> — 비건 전문(O-V1)부터 확인 필요(O-V0)까지 5단계 온라인 조사 등급과 100점 신뢰도 점수표를 설계해, "누가 조사해도 같은 결론"이 나오게 표준화했습니다. 이 <strong>판정 기준 자체가 서비스의 해자</strong>입니다.</li>
-        <li><strong>시장 검증(04)</strong> — 라이브 서비스로 배포해 실제 사용자가 근거 기반 탐색을 경험하도록 했습니다.</li>
-      </ul>
+      <ol class="vcards c4 steps">
+        <li class="t-rose"><span class="vt">02장</span><span class="vh">문제 정의</span><span class="vd">"채식·비건 여행자가 부산에서 믿을 만한 식당 정보를 찾기 어렵다." 후기·블로그에 흩어진 정보는 오래됐거나 추정이 섞여 신뢰하기 어렵습니다.</span></li>
+        <li class="t-gold"><span class="vt">뒤집기</span><span class="vh">해결 아이디어</span><span class="vd"><em>추천</em>이 아니라 <strong>근거</strong>를 판다. 공개된 공식 자료만으로 각 매장을 조사해 <strong>출처·최신성·확실성</strong>을 '근거 카드'로 투명하게 보여줍니다.</span></li>
+        <li class="t-violet"><span class="vt">해자</span><span class="vh">핵심 자산 — 등급 체계</span><span class="vd">비건 전문(O-V1)부터 확인 필요(O-V0)까지 5단계 온라인 조사 등급과 100점 신뢰도 점수표를 설계해, "누가 조사해도 같은 결론"이 나오게 표준화했습니다. 이 <em>판정 기준 자체가 서비스의 해자</em>입니다.</span></li>
+        <li class="t-green"><span class="vt">04장</span><span class="vh">시장 검증</span><span class="vd">라이브 서비스로 배포해 실제 사용자가 근거 기반 탐색을 경험하도록 했습니다.</span></li>
+      </ol>
 
       <figure class="learn-fig">
         <video controls preload="metadata" playsinline style="width:100%;border-radius:10px;background:#000;">
@@ -341,6 +356,14 @@
         <li><strong>접수처</strong> — 콘진원 누리집(kocca.kr)과 <strong>범부처통합연구지원시스템(IRIS, iris.go.kr)</strong>. 정부 R&amp;D는 부처를 막론하고 이 IRIS 한곳으로 모입니다.</li>
       </ul>
       <p>학생 입장에서 이 공고를 활용하는 법은 이렇습니다. <strong>①</strong> 과제명 목록만 훑어도 <strong>2~3년 뒤의 관광 트렌드</strong>가 보입니다. <strong>②</strong> 사업계획서의 '왜 지금인가'(02장) 문항에 <strong>"정부가 이 방향에 얼마를 편성했다"</strong>는 근거로 인용할 수 있습니다. <strong>③</strong> 대학원 진학이나 연구소·기업 취업을 생각한다면, 이 과제를 수행하는 기관이 곧 <strong>일자리가 생기는 곳</strong>입니다. 앞서 본 PRISM(정책연구용역)이 <em>이미 한 일</em>을 보여준다면, R&amp;D 공고는 <strong>앞으로 할 일</strong>을 보여줍니다.</p>
+
+      <ul class="reslist grid3 one">
+        <li class="t-gold">
+          <a href="https://blog.naver.com/sonsoore2/224181341896" target="_blank" rel="noopener">2026 관광벤처사업 공모 — 예비·성장 최대 1.2억 지원 (합격 가이드·꿀팁 총정리) ↗</a>
+          <span class="desc">여기까지가 <strong>공고를 읽는 이야기</strong>였다면, 이 글은 <strong>실제로 내는 이야기</strong>입니다. 관광벤처사업(예비·성장)의 지원 규모와 신청 전략을 정리한 실전 가이드로, 공고문만으로는 알기 어려운 <strong>사업계획서 작성·평가 대비 팁</strong>을 담았습니다.</span>
+          <span class="meta">네이버 블로그 '정부지원 정보방'</span>
+        </li>
+      </ul>
 
       <p class="learn-part lp-call">사례로 보는 · 지역 공모 「경주 황오동 원도심」</p>
       <p>창업 공모는 전국 단위 대형 사업만 있는 것이 아닙니다. 오히려 학생이 처음 문을 두드리기 좋은 곳은 <strong>지자체가 도시재생사업과 함께 여는 지역 창업 공모</strong>입니다. 경쟁률이 낮고, 심사 기준이 "화려한 기술"이 아니라 <strong>"이 동네에서 실제로 될 사업인가"</strong>이기 때문입니다. 경주시 <strong>황오동 원도심 도시재생사업</strong>이 그 전형입니다.</p>
@@ -510,11 +533,6 @@
           <a href="https://touraz.kr/announcementList/pssrpView?pssrpSeqEnc=v6*lXoQmgp28gkBr*mzsjw==&curPage=1" target="_blank" rel="noopener">2026 부산관광스타트업 모집 [초기] ↗</a>
           <span class="desc">부산의 관광 창업가를 키우는 지역 밀착형 지원사업. 예비창업자·3년 미만 사업자 등을 대상으로 사업화 자금(1천만~3천만원)과 함께 센터 시설·교육·컨설팅을 제공합니다. 전국 단위 공모와 달리, 지역 기반 창업의 대표 진입로를 보여주는 사례.</span>
           <span class="meta">부산관광공사·부산광역시(주관) · 문체부·한국관광공사(주최)</span>
-        </li>
-        <li>
-          <a href="https://blog.naver.com/sonsoore2/224181341896" target="_blank" rel="noopener">2026 관광벤처사업 공모 — 예비·성장 최대 1.2억 지원 (합격 가이드·꿀팁 총정리) ↗</a>
-          <span class="desc">관광벤처사업(예비·성장)의 지원 규모와 신청 전략을 정리한 실전 가이드. 공고문만으로는 알기 어려운 사업계획서 작성·평가 대비 팁을 담아, 실제 지원을 준비하는 예비창업자에게 도움이 되는 글입니다.</span>
-          <span class="meta">네이버 블로그 '정부지원 정보방'</span>
         </li>
         <li class="hi tone gold">
           <span class="grouptitle">사업계획서·IR 피칭 배우기 — 사람에게</span>
