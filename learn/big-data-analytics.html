@@ -93,6 +93,11 @@
     .learn-article .reslist.gcard a { color: var(--v-tc, var(--deep)); }
     .learn-article .reslist.gcard a:hover { color: var(--v-ac, var(--green)); }
     .learn-article .reslist.gcard .meta { color: var(--v-tc, var(--green)); }
+    .learn-article .reslist.gcard.two { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .learn-article .reslist.gcard.two > li { margin-bottom: 0; }
+    .learn-article .reslist.gcard.two a { font-size: 14.5px; line-height: 1.45; }
+    .learn-article .reslist.gcard.two .desc { font-size: 12.5px; }
+    @media (max-width: 760px) { .learn-article .reslist.gcard.two { grid-template-columns: 1fr; } }
 
     /* ── 본문 안 강조 흐름 바 ── */
     .learn-article .flowbar {
@@ -266,13 +271,13 @@
         <li class="t-violet"><span class="vt">조사·통계</span><span class="vh">사회조사분석사</span><span class="vd">설문·통계 조사의 설계와 해석. <em>관광 수요조사</em>와 곧바로 이어진다.</span></li>
       </ul>
       <p>어느 자격증부터 손대야 할지 막막하다면, 아래 두 안내 페이지에서 시험 구성·공부기간·연구 활용성을 비교해 보세요.</p>
-      <ul class="reslist">
-        <li>
+      <ul class="reslist gcard two">
+        <li class="t-green">
           <a href="bigdata-certifications.html">데이터 분석 자격증 통합 비교 — 빅데이터분석기사 중심 →</a>
           <span class="desc">국가기술자격인 <strong>빅데이터분석기사</strong>를 중심에 두고 ADsP·PCED·PCAD·사회조사분석사 2급까지 한 표에 놓고 비교합니다. 필기 구성과 실기 유무, 전처리부터 모델 평가까지의 실제 분석 흐름, Python 예시 코드, 자격증별 현실적인 공부기간과 시간 대비 효율, 그리고 목적별 추천 학습 경로를 담았습니다.</span>
           <span class="meta">학습 가이드 · ChatGPT 대화 정리</span>
         </li>
-        <li>
+        <li class="t-green">
           <a href="adsp-guide.html">ADsP 데이터분석 준전문가 안내 — 사회조사분석사 2급과 비교 →</a>
           <span class="desc"><strong>ADsP</strong>의 시험 성격과 온라인 학습처(국비지원 과정 포함)를 정리하고, <strong>사회조사분석사 2급</strong>과 항목별로 견줍니다. 설문·표본추출·SPSS 중심의 <em>조사방법론 연구</em>와 전처리·회귀·군집 중심의 <em>데이터 분석 연구</em> 중 어느 쪽을 지향하는지에 따라 자격을 고르는 기준을 제시합니다.</span>
           <span class="meta">학습 가이드 · ChatGPT 대화 정리</span>
