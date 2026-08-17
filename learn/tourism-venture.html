@@ -132,6 +132,22 @@
     .learn-article .learn-part.lp-side .ptag { background: #8272ad; }
     .learn-article .learn-part.lp-link .ptag { background: #6b7d76; }
 
+    /* ── 두 절을 좌우로 나란히 놓아 비교하게 한다 ── */
+    .learn-article .two-col {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 14px 26px;
+      margin: 14px 0 18px; align-items: start;
+    }
+    .learn-article .two-col > div { min-width: 0; }
+    .learn-article .two-col h3 {
+      margin: 0 0 10px; padding-bottom: 8px;
+      border-bottom: 2px solid #cfdcea; color: #17539b; font-size: 17px;
+    }
+    .learn-article .two-col p { font-size: 13.5px; line-height: 1.8; }
+    .learn-article .two-col details.spec-fold { padding: 2px 14px; margin: 12px 0 14px; }
+    .learn-article .two-col details.spec-fold > summary { font-size: 13px; gap: 8px; }
+    .learn-article .two-col details.spec-fold li { font-size: 13px; }
+    @media (max-width: 820px) { .learn-article .two-col { grid-template-columns: 1fr; gap: 6px; } }
+
     /* ── 사례 상자 — 흰 바탕에 노란 테두리. 사례(lp-case) 색을 따른다 ── */
     .learn-article .note-box {
       border: 2px solid #e8a04a; border-radius: 12px; background: #fff;
@@ -434,11 +450,16 @@
       </details>
       <p>주목할 점은, 이 강의에서 배운 <strong>문제 정의(02) → 비즈니스 모델(03) → 시장 검증(04)</strong>의 흐름이 그대로 <strong>사업계획서</strong>가 되고, 그것이 지원 사업의 평가 대상이 된다는 것입니다. 강의가 곧 실전 지원의 준비 과정인 셈입니다. 접수·심사·발표는 아래 관광벤처 통합 플랫폼(투어라즈)에서 이뤄지며, 매년 회차를 이어 진행됩니다.</p>
 
-      <ul class="reslist grid3 one">
+      <ul class="reslist grid3 two">
         <li class="t-blue">
           <a href="https://blog.naver.com/sonsoore2/224181341896" target="_blank" rel="noopener">2026 관광벤처사업 공모 — 예비·성장 최대 1.2억 지원 (합격 가이드·꿀팁 총정리) ↗</a>
           <span class="desc">위 요강이 <strong>공고를 읽는 이야기</strong>였다면, 이 글은 <strong>실제로 내는 이야기</strong>입니다. 관광벤처사업(예비·성장)의 지원 규모와 신청 전략을 정리한 실전 가이드로, 공고문만으로는 알기 어려운 <strong>사업계획서 작성·평가 대비 팁</strong>을 담았습니다.</span>
           <span class="meta">네이버 블로그 '정부지원 정보방'</span>
+        </li>
+        <li class="t-teal">
+          <a href="https://thevc.kr/collections/658cc3f1d24fe033f079e788" target="_blank" rel="noopener">관광·여행 스타트업 모음 ↗</a>
+          <span class="desc">관광·여행 분야 스타트업을 한데 모아 볼 수 있는 큐레이션. 실제 기업들의 사업 아이템과 비즈니스 모델, 투자 현황을 훑어보며 "관광벤처가 시장에서 어떤 모습으로 존재하는지" 감을 잡기 좋은 자료입니다.</span>
+          <span class="meta">THE VC · 스타트업·투자 정보 플랫폼(thevc.kr)</span>
         </li>
       </ul>
 
@@ -456,33 +477,40 @@
       </details>
       <p>이 공모전이 이 강의와 맞물리는 지점은 분명합니다. 02장 「빅데이터 분석」에서 배운 <strong>데이터 읽기</strong>, 04 모듈 「웹 포트폴리오 제작」에서 배운 <strong>만들기</strong>, 그리고 이 모듈의 <strong>문제 정의</strong> — 셋을 합치면 그대로 출품작이 됩니다. 그리고 <strong>지금 보고 계신 이 웹사이트</strong>가 바로 그 증거입니다. 큰 예산 없이도 정적 웹사이트 하나로 가치 제안을 세상에 내걸 수 있다면, 거기에 공공 관광 데이터를 얹는 일은 그다음 한 걸음일 뿐입니다. 수상 실적은 이후 예비관광벤처·경북 관광 스타트업 공모의 <strong>사업계획서에 그대로 쓰이는 이력</strong>이 되기도 합니다.</p>
 
-      <p class="learn-part lp-call"><span class="ptag">공모</span>경북 관광 스타트업 공모전</p>
-      <p>앞의 두 공모가 <em>전국 단위</em>였다면, 이번에는 <strong>관광 전공자를 정면으로 겨냥한</strong> 광역 공모입니다. 경상북도가 운영하는 <strong>경북관광기업지원센터</strong>의 「경북 관광 스타트업 공모전」 — 관광 아이템 하나만 있으면 예비창업자도 지원할 수 있습니다. <strong>매년 봄에 반복되는 정기 공모</strong>로, 2025년에는 3월 17일~4월 2일, 2026년에는 <strong>4월 1일~4월 20일</strong>에 접수했습니다. 요강을 함께 읽어봅니다.</p>
-      <details class="spec-fold">
-      <summary>요강 — 모집 규모 · 신청 자격 · 사업화 자금 · 지원 내용 · 심사 절차 · 접수처 · 운영 기관</summary>
-      <ul>
-        <li><strong>모집 규모</strong> — 2개 부문 <strong>총 10개사 내외</strong>. ① <strong>예비 관광스타트업</strong> 5개사 ② <strong>지역혁신 관광스타트업</strong> 5개사. (2025·2026년 동일)</li>
-        <li><strong>신청 자격</strong> — <em>예비 부문</em>은 관광 관련 창업아이템으로 <strong>경상북도에 신규 사업자 등록을 계획 중인 예비창업자</strong> 또는 창업 후 1년 이내 사업체. <em>지역혁신 부문</em>은 창업 7년 이내 관광 관련 사업체.</li>
-        <li><strong>사업화 자금</strong> — 예비 <strong>1,000만~1,500만원</strong>, 지역혁신 <strong>1,000만~3,000만원</strong>. 재료 구매·시제품 제작비·교육훈련비 등에 사용.</li>
-        <li><strong>돈보다 큰 지원</strong> — 센터 내 <strong>입주 공간</strong>, 창업 역량 강화 교육·컨설팅, 상품기획·마케팅 프로그램. 혼자였다면 몇 년 걸릴 것을 <strong>사무실과 멘토를 얻고 시작</strong>합니다.</li>
-        <li><strong>심사 절차</strong> — 지원자격 검토 → <strong>1차 서류심사(정성평가)</strong>로 모집대상별 2배수 내외 선발 → <strong>발표심사</strong>. 접수 마감 뒤 한 달 안에 결론이 납니다(2026년 회차 기준).</li>
-        <li><strong>접수처</strong> — 한국관광산업포털 <strong>투어라즈(TOURAZ)</strong>. 위 예비관광벤처 공모와 <strong>같은 창구</strong>입니다. 사업자등록증 보유자는 한국평가데이터(KoDATA)에 기업정보를 먼저 등록해야 합니다.</li>
-        <li><strong>운영 기관</strong> — 경북관광기업지원센터는 2022년 <strong>문화체육관광부 공모사업</strong>으로 구축된 지역관광기업 성장거점으로, 2022년 11월 <strong>경주시 계림로 107</strong>에 문을 열었습니다. 창업 발굴뿐 아니라 관광전문인력 양성·관광 일자리 연계 사업도 함께 수행합니다.</li>
-      </ul>
-      </details>
-      <p>여기서 눈여겨볼 구조가 있습니다. <strong>문체부가 공모로 센터를 세우고 → 그 센터가 다시 창업자를 공모로 뽑는</strong> 이중 구조입니다. 즉 공모는 일회성 대회가 아니라 <strong>관광산업을 굴리는 상시 제도</strong>이고, 「관광기업」이라는 이름 아래 여러분이 들어갈 자리가 매년 열려 있다는 뜻입니다. 학생 시기에 할 일은 단순합니다 — <strong>투어라즈에 계정을 만들어 공고를 읽는 습관</strong>을 들이고, 02~04장의 문제 정의·비즈니스 모델·시장 검증을 <strong>사업계획서 한 부</strong>로 미리 써 두는 것. 공고가 뜬 뒤에 준비를 시작하면 대개 늦습니다.</p>
-
-      <p class="learn-part lp-call"><span class="ptag">공모</span>안동시 청년 스타트업 관광기업</p>
-      <p>광역(경북도)에 이어, <strong>시 단위</strong>에서 관광만 콕 집어 뽑는 공모도 있습니다. 안동시와 (재)한국정신문화재단의 「청년 스타트업 관광기업」 — <strong>'청년'과 '관광'을 동시에 요건으로 거는</strong> 형태입니다.</p>
-      <details class="spec-fold">
-      <summary>요강 — 신청 자격 · 모집 분야 · 지원 내용 · 접수</summary>
-      <ul>
-        <li><strong>신청 자격</strong> — <strong>만 39세 이하</strong>, 문화·관광 관련 <strong>창업 7년 이하 사업자 및 예비창업자</strong>. 공고일 기준 안동시 주소지를 갖거나 지원 기간 동안 유지해야 하며, <strong>타 지역 사업자도 본사 이전·지사 설립을 조건으로</strong> 지원할 수 있습니다.</li>
-        <li><strong>모집 분야(4개)</strong> — ① 스마트 기술 융합형 관광 콘텐츠 ② 관광 인프라 혁신형 ③ <strong>지역 특화 콘텐츠 제안형</strong> ④ 친환경 관광 콘텐츠 제안형. 01장에서 나눈 관광벤처의 세 유형이 그대로 심사 항목이 되어 있습니다.</li>
-        <li><strong>지원 내용</strong> — 최대 8개 기업 선정, 사업화 자금 <strong>1,000만~3,000만원</strong> 차등 지원 + 창업 교육·사업 고도화 교육·홍보 마케팅 컨설팅.</li>
-        <li><strong>접수</strong> — 2026년 회차 기준 3월 10일~3월 23일, 방문·우편·전자우편 접수. (재)한국정신문화재단 관광사업팀.</li>
-      </ul>
-      </details>
+      <p class="learn-part lp-call"><span class="ptag">공모</span>광역과 시 — 경북 · 안동</p>
+      <div class="two-col">
+        <div>
+          <h3>경북 관광 스타트업 공모전</h3>
+        <p>앞의 두 공모가 <em>전국 단위</em>였다면, 이번에는 <strong>관광 전공자를 정면으로 겨냥한</strong> 광역 공모입니다. 경상북도가 운영하는 <strong>경북관광기업지원센터</strong>의 「경북 관광 스타트업 공모전」 — 관광 아이템 하나만 있으면 예비창업자도 지원할 수 있습니다. <strong>매년 봄에 반복되는 정기 공모</strong>로, 2025년에는 3월 17일~4월 2일, 2026년에는 <strong>4월 1일~4월 20일</strong>에 접수했습니다. 요강을 함께 읽어봅니다.</p>
+        <details class="spec-fold">
+        <summary>요강 — 모집 규모 · 신청 자격 · 사업화 자금 · 지원 내용 · 심사 절차 · 접수처 · 운영 기관</summary>
+        <ul>
+          <li><strong>모집 규모</strong> — 2개 부문 <strong>총 10개사 내외</strong>. ① <strong>예비 관광스타트업</strong> 5개사 ② <strong>지역혁신 관광스타트업</strong> 5개사. (2025·2026년 동일)</li>
+          <li><strong>신청 자격</strong> — <em>예비 부문</em>은 관광 관련 창업아이템으로 <strong>경상북도에 신규 사업자 등록을 계획 중인 예비창업자</strong> 또는 창업 후 1년 이내 사업체. <em>지역혁신 부문</em>은 창업 7년 이내 관광 관련 사업체.</li>
+          <li><strong>사업화 자금</strong> — 예비 <strong>1,000만~1,500만원</strong>, 지역혁신 <strong>1,000만~3,000만원</strong>. 재료 구매·시제품 제작비·교육훈련비 등에 사용.</li>
+          <li><strong>돈보다 큰 지원</strong> — 센터 내 <strong>입주 공간</strong>, 창업 역량 강화 교육·컨설팅, 상품기획·마케팅 프로그램. 혼자였다면 몇 년 걸릴 것을 <strong>사무실과 멘토를 얻고 시작</strong>합니다.</li>
+          <li><strong>심사 절차</strong> — 지원자격 검토 → <strong>1차 서류심사(정성평가)</strong>로 모집대상별 2배수 내외 선발 → <strong>발표심사</strong>. 접수 마감 뒤 한 달 안에 결론이 납니다(2026년 회차 기준).</li>
+          <li><strong>접수처</strong> — 한국관광산업포털 <strong>투어라즈(TOURAZ)</strong>. 위 예비관광벤처 공모와 <strong>같은 창구</strong>입니다. 사업자등록증 보유자는 한국평가데이터(KoDATA)에 기업정보를 먼저 등록해야 합니다.</li>
+          <li><strong>운영 기관</strong> — 경북관광기업지원센터는 2022년 <strong>문화체육관광부 공모사업</strong>으로 구축된 지역관광기업 성장거점으로, 2022년 11월 <strong>경주시 계림로 107</strong>에 문을 열었습니다. 창업 발굴뿐 아니라 관광전문인력 양성·관광 일자리 연계 사업도 함께 수행합니다.</li>
+        </ul>
+        </details>
+        <p>여기서 눈여겨볼 구조가 있습니다. <strong>문체부가 공모로 센터를 세우고 → 그 센터가 다시 창업자를 공모로 뽑는</strong> 이중 구조입니다. 즉 공모는 일회성 대회가 아니라 <strong>관광산업을 굴리는 상시 제도</strong>이고, 「관광기업」이라는 이름 아래 여러분이 들어갈 자리가 매년 열려 있다는 뜻입니다. 학생 시기에 할 일은 단순합니다 — <strong>투어라즈에 계정을 만들어 공고를 읽는 습관</strong>을 들이고, 02~04장의 문제 정의·비즈니스 모델·시장 검증을 <strong>사업계획서 한 부</strong>로 미리 써 두는 것. 공고가 뜬 뒤에 준비를 시작하면 대개 늦습니다.</p>
+  
+        </div>
+        <div>
+          <h3>안동시 청년 스타트업 관광기업</h3>
+        <p>광역(경북도)에 이어, <strong>시 단위</strong>에서 관광만 콕 집어 뽑는 공모도 있습니다. 안동시와 (재)한국정신문화재단의 「청년 스타트업 관광기업」 — <strong>'청년'과 '관광'을 동시에 요건으로 거는</strong> 형태입니다.</p>
+        <details class="spec-fold">
+        <summary>요강 — 신청 자격 · 모집 분야 · 지원 내용 · 접수</summary>
+        <ul>
+          <li><strong>신청 자격</strong> — <strong>만 39세 이하</strong>, 문화·관광 관련 <strong>창업 7년 이하 사업자 및 예비창업자</strong>. 공고일 기준 안동시 주소지를 갖거나 지원 기간 동안 유지해야 하며, <strong>타 지역 사업자도 본사 이전·지사 설립을 조건으로</strong> 지원할 수 있습니다.</li>
+          <li><strong>모집 분야(4개)</strong> — ① 스마트 기술 융합형 관광 콘텐츠 ② 관광 인프라 혁신형 ③ <strong>지역 특화 콘텐츠 제안형</strong> ④ 친환경 관광 콘텐츠 제안형. 01장에서 나눈 관광벤처의 세 유형이 그대로 심사 항목이 되어 있습니다.</li>
+          <li><strong>지원 내용</strong> — 최대 8개 기업 선정, 사업화 자금 <strong>1,000만~3,000만원</strong> 차등 지원 + 창업 교육·사업 고도화 교육·홍보 마케팅 컨설팅.</li>
+          <li><strong>접수</strong> — 2026년 회차 기준 3월 10일~3월 23일, 방문·우편·전자우편 접수. (재)한국정신문화재단 관광사업팀.</li>
+        </ul>
+        </details>
+        </div>
+      </div>
       <p>여기까지 살펴본 네 공모를 겹쳐 보면 <strong>지원 자격의 공통 문법</strong>이 보입니다 — <strong>나이(청년) · 지역(주소지) · 분야(관광) · 업력(예비~7년)</strong>. 자본금이나 학벌은 어디에도 없습니다. 다시 말해 <strong>지금 관광을 공부하는 학생은 이미 자격의 대부분을 갖추고 있고</strong>, 남은 하나는 <em>낼 것을 만들어 두었는가</em>뿐입니다. 특히 '지역 특화 콘텐츠'는 모든 지자체 공모에 빠짐없이 들어가는 항목이니, 자기 지역의 자원을 정리해 둔 노트 한 권이 곧 지원서의 초안이 됩니다(「관광 자원」 모듈 참고).</p>
 
       <p class="learn-part lp-call"><span class="ptag">공모</span>지역 단위 · 「경주 황오동 원도심」</p>
@@ -516,25 +544,8 @@
       <p>학생 입장에서 이 공고를 활용하는 법은 이렇습니다. <strong>①</strong> 과제명 목록만 훑어도 <strong>2~3년 뒤의 관광 트렌드</strong>가 보입니다. <strong>②</strong> 사업계획서의 '왜 지금인가'(02장) 문항에 <strong>"정부가 이 방향에 얼마를 편성했다"</strong>는 근거로 인용할 수 있습니다. <strong>③</strong> 대학원 진학이나 연구소·기업 취업을 생각한다면, 이 과제를 수행하는 기관이 곧 <strong>일자리가 생기는 곳</strong>입니다. 앞서 본 PRISM(정책연구용역)이 <em>이미 한 일</em>을 보여준다면, R&amp;D 공고는 <strong>앞으로 할 일</strong>을 보여줍니다.</p>
 
 
-      <p class="learn-part lp-side">곁들여 보기 · 재생이 만든 관광 수요 「구미·포항」</p>
-      <p>공모 요강만 읽으면 "지원금을 받는 일"처럼 보입니다. 하지만 지자체가 관광 창업에 돈을 쓰는 <em>이유</em>를 알아야 사업계획서가 설득력을 얻습니다. 도시가 어떻게 바뀌고 있는지 — <strong>구미</strong>와 <strong>포항</strong>의 최근 몇 년을 보면 그 이유가 보입니다.</p>
-      <ul class="reslist grid3 two">
-        <li class="t-gold">
-          <span class="grouptitle">구미 — 산업도시에서 '낭만도시'로</span>
-          <span class="desc"><strong>축제로 만든 유입</strong> — 구미라면축제 <strong>35만명</strong>(농심 구미공장의 '갓튀긴라면'이 핵심 콘텐츠. 축제장을 구미역 인근으로 옮긴 뒤 1회 1만5천명에서 <strong>23배</strong> 증가), 구미푸드페스티벌 20만명, 낭만야시장 20만명.<br />
-          <strong>조직까지 바꿈</strong> — "문화와 예술이 흐르는 낭만 도시"를 걸고 <strong>낭만축제과·관광인프라과를 신설</strong>. 지자체가 과(課)를 새로 만든다는 건 예산과 공모가 그쪽으로 흐른다는 신호입니다.<br />
-          <strong>도시재생과 맞물림</strong> — 선주원남동 <strong>금리단길</strong>(보행환경 개선 60억원), <strong>금리단 상생팩토리</strong>(96억원, 마을카페·공유회의실·복합문화공간으로 <strong>로컬 크리에이터 활동 지원</strong>), 빈집을 고친 체류형 숙소 <strong>이음스테이</strong>(숙박+로컬 체험 프로그램 연계).</span>
-        </li>
-        <li class="t-teal">
-          <span class="grouptitle">포항 — 체험이 체류를 만든다</span>
-          <span class="desc">포항문화재단·포항시가 구룡포에서 연 <strong>'구룡 For You'</strong>(6일간) — 만들기 체험·공연·텐트영화관(전회차 사전예약 매진)·드라마 촬영지 즉석인화.<br />
-          <strong>스탬프 투어와 영수증 이벤트</strong>로 체류시간과 상권 매출을 함께 끌어올렸고, 선린대·포항과학기술고 등 <strong>지역 학교와 협업</strong>했습니다. 학생이 지역 관광에 참여하는 통로가 실제로 존재한다는 뜻입니다.</span>
-        </li>
-      </ul>
-      <p>두 도시의 공통 구조는 이렇습니다 — <strong>재생·축제가 사람을 부르면 → 먹고·자고·체험할 것이 모자라고 → 그 빈칸이 곧 창업 아이템이 된다.</strong> 구미의 '이음스테이'와 '상생팩토리'가 <strong>로컬 크리에이터</strong>를 명시적으로 찾는 것도, 경주 신골든 특구에서 독립서점·전통주 바·공방이 문을 연 것도 같은 이유입니다. 공모에 낼 아이디어를 상상 속에서 짜내지 말고, <strong>이미 사람이 모이는데 아직 비어 있는 자리</strong>를 찾으십시오. 그것이 02장 <em>문제 정의</em>를 지역에서 실행하는 방법입니다.</p>
-
       <p class="learn-part lp-side" id="local-creator">곁들여 보기 · 「로컬크리에이터」 — 지역을 아이템으로 삼는 창업 트랙</p>
-      <p>바로 앞에서 <strong>로컬 크리에이터</strong>라는 말이 두 번 나왔습니다. 분위기 있는 수식어가 아니라 <strong>정부 지원사업의 공식 용어</strong>입니다. 중소벤처기업부는 2020년부터 「로컬크리에이터 육성사업」을 운영하며 <em>지역의 문화·자연 자산을 창의적으로 사업화하는 창업자</em>를 이 이름으로 묶어 왔고, 지자체들도 같은 이름을 받아 지역판 공모를 엽니다. 정부 문서의 공식 표기는 <strong>「지역가치 창업가(로컬크리에이터)」</strong>입니다 — 공고를 검색할 때 두 단어를 모두 써 보십시오. 관광 전공자에게 중요한 이유는 <strong>지원 분야 자체가 관광과 겹치기 때문</strong>입니다.</p>
+      <p>앞의 공모들에서 <strong>로컬 크리에이터</strong>라는 말이 여러 번 스쳤습니다. 분위기 있는 수식어가 아니라 <strong>정부 지원사업의 공식 용어</strong>입니다. 중소벤처기업부는 2020년부터 「로컬크리에이터 육성사업」을 운영하며 <em>지역의 문화·자연 자산을 창의적으로 사업화하는 창업자</em>를 이 이름으로 묶어 왔고, 지자체들도 같은 이름을 받아 지역판 공모를 엽니다. 정부 문서의 공식 표기는 <strong>「지역가치 창업가(로컬크리에이터)」</strong>입니다 — 공고를 검색할 때 두 단어를 모두 써 보십시오. 관광 전공자에게 중요한 이유는 <strong>지원 분야 자체가 관광과 겹치기 때문</strong>입니다.</p>
       <details class="spec-fold violet">
       <summary>요강 — 7대 유형 · 두 층위 · 개인형과 협업형 · 계단처럼 이어진다 · 자격 · 이름은 바뀐다</summary>
       <ul>
@@ -594,6 +605,23 @@
           <span class="meta">중기부·소상공인시장진흥공단 · 지자체 테크노파크</span>
         </li>
       </ul>
+
+      <p class="learn-part lp-side">곁들여 보기 · 재생이 만든 관광 수요 「구미·포항」</p>
+      <p>공모 요강만 읽으면 "지원금을 받는 일"처럼 보입니다. 하지만 지자체가 관광 창업에 돈을 쓰는 <em>이유</em>를 알아야 사업계획서가 설득력을 얻습니다. 도시가 어떻게 바뀌고 있는지 — <strong>구미</strong>와 <strong>포항</strong>의 최근 몇 년을 보면 그 이유가 보입니다.</p>
+      <ul class="reslist grid3 two">
+        <li class="t-violet">
+          <span class="grouptitle">구미 — 산업도시에서 '낭만도시'로</span>
+          <span class="desc"><strong>축제로 만든 유입</strong> — 구미라면축제 <strong>35만명</strong>(농심 구미공장의 '갓튀긴라면'이 핵심 콘텐츠. 축제장을 구미역 인근으로 옮긴 뒤 1회 1만5천명에서 <strong>23배</strong> 증가), 구미푸드페스티벌 20만명, 낭만야시장 20만명.<br />
+          <strong>조직까지 바꿈</strong> — "문화와 예술이 흐르는 낭만 도시"를 걸고 <strong>낭만축제과·관광인프라과를 신설</strong>. 지자체가 과(課)를 새로 만든다는 건 예산과 공모가 그쪽으로 흐른다는 신호입니다.<br />
+          <strong>도시재생과 맞물림</strong> — 선주원남동 <strong>금리단길</strong>(보행환경 개선 60억원), <strong>금리단 상생팩토리</strong>(96억원, 마을카페·공유회의실·복합문화공간으로 <strong>로컬 크리에이터 활동 지원</strong>), 빈집을 고친 체류형 숙소 <strong>이음스테이</strong>(숙박+로컬 체험 프로그램 연계).</span>
+        </li>
+        <li class="t-violet">
+          <span class="grouptitle">포항 — 체험이 체류를 만든다</span>
+          <span class="desc">포항문화재단·포항시가 구룡포에서 연 <strong>'구룡 For You'</strong>(6일간) — 만들기 체험·공연·텐트영화관(전회차 사전예약 매진)·드라마 촬영지 즉석인화.<br />
+          <strong>스탬프 투어와 영수증 이벤트</strong>로 체류시간과 상권 매출을 함께 끌어올렸고, 선린대·포항과학기술고 등 <strong>지역 학교와 협업</strong>했습니다. 학생이 지역 관광에 참여하는 통로가 실제로 존재한다는 뜻입니다.</span>
+        </li>
+      </ul>
+      <p>두 도시의 공통 구조는 이렇습니다 — <strong>재생·축제가 사람을 부르면 → 먹고·자고·체험할 것이 모자라고 → 그 빈칸이 곧 창업 아이템이 된다.</strong> 구미의 '이음스테이'와 '상생팩토리'가 <strong>로컬 크리에이터</strong>를 명시적으로 찾는 것도, 경주 신골든 특구에서 독립서점·전통주 바·공방이 문을 연 것도 같은 이유입니다. 공모에 낼 아이디어를 상상 속에서 짜내지 말고, <strong>이미 사람이 모이는데 아직 비어 있는 자리</strong>를 찾으십시오. 그것이 02장 <em>문제 정의</em>를 지역에서 실행하는 방법입니다.</p>
 
       <p class="learn-part lp-link"><span class="ptag">링크</span>공모 정보 · 지역 사례 · 창업 지원</p>
       <p>공모는 "찾는 사람에게만" 보입니다. 아래는 위 사례들의 원문과, 관광 창업의 재료가 되는 현장 자료들입니다. 자기 지역의 시청·문화재단·관광공사 게시판을 이렇게 한 번씩 훑어보는 것부터가 시작입니다.</p>
@@ -667,11 +695,6 @@
           <a href="https://www.busanstartup.kr/biz_sup/2181?mcode=biz02&pageNo=1&deadline=N&deleteYn=N&s_orderby=regi&s_desc=desc" target="_blank" rel="noopener">2026 콘텐츠, 창작을 넘어 독점적 비즈니스로! ↗</a>
           <span class="desc">콘텐츠 창업·투자에 관심 있는 대표·팀을 위한 비즈니스 전략 교육 — 사업화·수익모델 설계, 시장검증, 투자 관점을 다루는 강의(부산 CENTAP). 창작을 '수익 나는 사업'으로 잇는 관점을 보여주는 지역 창업 프로그램 사례.</span>
           <span class="meta">부산창업기업지원센터(busanstartup.kr) · 주관 (주)비스퀘어</span>
-        </li>
-        <li class="t-gold">
-          <a href="https://thevc.kr/collections/658cc3f1d24fe033f079e788" target="_blank" rel="noopener">관광·여행 스타트업 모음 ↗</a>
-          <span class="desc">관광·여행 분야 스타트업을 한데 모아 볼 수 있는 큐레이션. 실제 기업들의 사업 아이템과 비즈니스 모델, 투자 현황을 훑어보며 "관광벤처가 시장에서 어떤 모습으로 존재하는지" 감을 잡기 좋은 자료입니다.</span>
-          <span class="meta">THE VC · 스타트업·투자 정보 플랫폼(thevc.kr)</span>
         </li>
         <li class="t-green">
           <a href="https://genai-tourism-decision.healthylee7.chatgpt.site/#journey" target="_blank" rel="noopener">생성형 AI로 보는 관광 의사결정 — 여정(Journey) 편 ↗</a>
