@@ -35,6 +35,109 @@
     .learn-article .reslist details.fold .desc .meta {
       display: block; margin-top: 3px; font-size: 11.5px;
     }
+
+    /* ── 이론 장(01~06)의 그라데이션 카드 ── */
+    .learn-article .vcards {
+      list-style: none; padding: 0; margin: 14px 0 24px;
+      display: grid; gap: 10px;
+    }
+    .learn-article .vcards.c3 { grid-template-columns: repeat(3, 1fr); }
+    .learn-article .vcards.c4 { grid-template-columns: repeat(4, 1fr); }
+    .learn-article .vcards.c5 { grid-template-columns: repeat(5, 1fr); }
+    .learn-article .vcards > li {
+      margin: 0; padding: 13px 14px 14px; border-radius: 11px;
+      border: 1px solid var(--v-ln, var(--line));
+      border-top: 3px solid var(--v-ac, var(--green));
+      background: linear-gradient(158deg, var(--v-a, #f6f7f8) 0%, var(--v-b, #fbfbfb) 54%, #fff 88%);
+      transition: box-shadow .18s, transform .18s;
+    }
+    .learn-article .vcards > li:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 18px var(--v-sh, rgba(16,42,67,.12));
+    }
+    .learn-article .vcards .vt {
+      display: block; font-size: 11px; font-weight: 800;
+      letter-spacing: .045em; color: var(--v-tc, var(--deep)); margin-bottom: 4px;
+    }
+    .learn-article .vcards .vh {
+      display: block; font-size: 14.5px; font-weight: 800;
+      color: var(--deep); line-height: 1.42; margin-bottom: 5px;
+    }
+    .learn-article .vcards .vd {
+      display: block; font-size: 12.5px; color: var(--muted); line-height: 1.72;
+    }
+    .learn-article .vcards .vd strong { color: var(--deep); font-weight: 700; }
+    .learn-article .vcards .vd em { font-style: normal; color: var(--v-tc, var(--green)); font-weight: 700; }
+
+    .learn-article .t-blue   { --v-a:#dceefb; --v-b:#eff7fd; --v-ac:#2563a8; --v-ln:#c8ddf0; --v-sh:rgba(37,99,168,.16);  --v-tc:#1c4e8a; }
+    .learn-article .t-gold   { --v-a:#fceedb; --v-b:#fdf7ec; --v-ac:#e8a04a; --v-ln:#efdcbc; --v-sh:rgba(184,121,29,.16); --v-tc:#8a5a17; }
+    .learn-article .t-green  { --v-a:#dff0ea; --v-b:#eff7f4; --v-ac:#3B6259; --v-ln:#c9e2da; --v-sh:rgba(59,98,89,.16);   --v-tc:#2f5148; }
+    .learn-article .t-violet { --v-a:#e9e2fa; --v-b:#f4f0fd; --v-ac:#8272ad; --v-ln:#d9cef0; --v-sh:rgba(130,114,173,.16);--v-tc:#56487a; }
+    .learn-article .t-rose   { --v-a:#fbe4e4; --v-b:#fdf0f0; --v-ac:#b5555a; --v-ln:#f0cfd0; --v-sh:rgba(181,85,90,.16);  --v-tc:#8c3b40; }
+    .learn-article .t-teal   { --v-a:#d9eef0; --v-b:#eef7f8; --v-ac:#2e7d86; --v-ln:#c2e0e3; --v-sh:rgba(46,125,134,.16); --v-tc:#1f5b62; }
+
+    /* 번호가 붙는 순서형 */
+    .learn-article .steps { counter-reset: stp; }
+    .learn-article .steps > li { position: relative; padding-top: 30px; }
+    .learn-article .steps > li::before {
+      counter-increment: stp; content: counter(stp);
+      position: absolute; top: 11px; left: 14px;
+      width: 21px; height: 21px; border-radius: 50%;
+      background: var(--v-ac, var(--green)); color: #fff;
+      font-size: 11.5px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* ── 링크 카드를 1행 3열 그라데이션 그리드로 ── */
+    .learn-article .reslist.grid3 {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 12px; margin: 12px 0 22px;
+    }
+    .learn-article .reslist.grid3 > li {
+      margin: 0; padding: 13px 14px 12px;
+      border: 1px solid var(--v-ln, var(--line));
+      border-left: 1px solid var(--v-ln, var(--line));
+      border-top: 3px solid var(--v-ac, var(--green));
+      border-radius: 11px;
+      background: linear-gradient(158deg, var(--v-a, #f6f7f8) 0%, var(--v-b, #fbfbfb) 54%, #fff 88%);
+      transition: box-shadow .18s, transform .18s;
+    }
+    .learn-article .reslist.grid3 > li:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 18px var(--v-sh, rgba(16,42,67,.12));
+    }
+    .learn-article .reslist.grid3 a { font-size: 13.5px; line-height: 1.45; color: var(--v-tc, var(--deep)); }
+    .learn-article .reslist.grid3 a:hover { color: var(--v-ac, var(--green)); }
+    .learn-article .reslist.grid3 .desc { font-size: 11.8px; line-height: 1.68; margin-top: 6px; }
+    .learn-article .reslist.grid3 .meta { font-size: 10.5px; margin-top: 6px; color: var(--v-tc, var(--green)); }
+    @media (max-width: 760px) { .learn-article .reslist.grid3 { grid-template-columns: 1fr; } }
+
+    /* 흐름 바 */
+    .learn-article .flowbar {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 7px;
+      margin: 12px 0 20px; padding: 13px 15px; border-radius: 11px;
+      border: 1px solid #dbe6e2;
+      background: linear-gradient(120deg, #eef4f2 0%, #f7faf9 55%, #fff 100%);
+    }
+    .learn-article .flowbar b {
+      padding: 6px 13px; border-radius: 999px; background: #fff;
+      border: 1px solid #cfe0da; color: var(--deep);
+      font-size: 12.5px; font-weight: 800;
+    }
+    .learn-article .flowbar i { font-style: normal; color: var(--gold); font-weight: 900; font-size: 14px; }
+    .learn-article .flowbar .fb-note {
+      width: 100%; margin: 4px 0 0; font-size: 12.5px; color: var(--muted); line-height: 1.7;
+    }
+
+    @media (max-width: 900px) {
+      .learn-article .vcards.c5 { grid-template-columns: repeat(3, 1fr); }
+      .learn-article .vcards.c4 { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 620px) {
+      .learn-article .vcards.c5,
+      .learn-article .vcards.c4,
+      .learn-article .vcards.c3 { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -85,53 +188,61 @@
 
       <p class="learn-part lp-core">01 · 관광벤처란</p>
       <p>관광벤처란 <strong>ICT·콘텐츠·새로운 서비스 방식으로 관광의 문제를 푸는 혁신형 창업</strong>을 말합니다. 전통적인 여행사·숙박업과 달리, 기술과 아이디어로 기존 방식을 바꾸려 한다는 점이 다릅니다.</p>
-      <p>유형은 대개 셋으로 나뉩니다 — <strong>① 시설·공간형</strong>(체험·숙박·복합공간), <strong>② 플랫폼·중개형</strong>(예약·매칭·큐레이션), <strong>③ 콘텐츠·데이터형</strong>(가이드·미디어·분석 서비스). 앞선 모듈의 스마트 관광·빅데이터가 곧 관광벤처의 도구가 됩니다.</p>
+      <p>유형은 대개 셋으로 나뉩니다.</p>
+      <ol class="vcards c3 steps">
+        <li class="t-teal"><span class="vh">시설·공간형</span><span class="vd">체험 · 숙박 · 복합공간</span></li>
+        <li class="t-blue"><span class="vh">플랫폼·중개형</span><span class="vd">예약 · 매칭 · 큐레이션</span></li>
+        <li class="t-violet"><span class="vh">콘텐츠·데이터형</span><span class="vd">가이드 · 미디어 · 분석 서비스</span></li>
+      </ol>
+      <p>앞선 모듈의 <strong>스마트 관광·빅데이터</strong>가 곧 관광벤처의 도구가 됩니다.</p>
 
       <p class="learn-part lp-core">02 · 아이디어는 문제에서 나온다</p>
       <p>초보 창업이 가장 자주 넘어지는 지점은 "내가 만들고 싶은 것"에서 시작한다는 것입니다. 순서를 뒤집어야 합니다.</p>
-      <ul>
-        <li><strong>누구의</strong> 문제인가 — 고객을 구체적으로(예: 부산을 처음 찾는 외국인 개별 여행자).</li>
-        <li><strong>어떤</strong> 문제인가 — 진짜 불편을 한 문장으로(예: 언어 장벽으로 로컬 경험에 닿지 못한다).</li>
-        <li><strong>왜</strong> 지금인가 — 시장·기술·규제의 변화가 그 문제를 풀 때가 됐는가.</li>
-      </ul>
+      <ol class="vcards c3 steps">
+        <li class="t-blue"><span class="vt">WHO</span><span class="vh">누구의 문제인가</span><span class="vd">고객을 구체적으로. <em>예: 부산을 처음 찾는 외국인 개별 여행자.</em></span></li>
+        <li class="t-rose"><span class="vt">WHAT</span><span class="vh">어떤 문제인가</span><span class="vd">진짜 불편을 한 문장으로. <em>예: 언어 장벽으로 로컬 경험에 닿지 못한다.</em></span></li>
+        <li class="t-gold"><span class="vt">WHY NOW</span><span class="vh">왜 지금인가</span><span class="vd">시장·기술·규제의 변화가 그 문제를 풀 때가 됐는가.</span></li>
+      </ol>
       <p>좋은 문제 정의는 이미 절반의 해답입니다. 이 사이트의 출발점도 "친절한 로컬 가이드와 여행자를 잇는다"는 한 문장이었습니다.</p>
 
       <p class="learn-part lp-core">03 · 비즈니스 모델 — 어떻게 돈이 도는가</p>
       <p>사업이 되려면 가치가 <strong>돈의 흐름</strong>으로 이어져야 합니다. 비즈니스 모델 캔버스는 이를 아홉 칸으로 정리하는 도구지만, 핵심은 세 가지입니다.</p>
-      <h3>① 가치 제안 (무엇을 주는가)</h3>
-      <p>고객이 기꺼이 돈을 낼 만한 분명한 이득. "부산의 웰니스를 로컬 가이드와 느리게 경험한다"처럼.</p>
-      <h3>② 고객·채널 (누구에게, 어떻게 닿는가)</h3>
-      <p>타깃 고객과 그들을 만나는 경로(검색·SNS·제휴·재방문).</p>
-      <h3>③ 수익 모델 (어떻게 버는가)</h3>
-      <p>상품 판매·중개 수수료·구독·광고·B2B 제휴 등. 하나에 기대지 말고 <strong>여러 축</strong>을 설계한다.</p>
+      <ol class="vcards c3 steps">
+        <li class="t-violet"><span class="vt">무엇을 주는가</span><span class="vh">가치 제안</span><span class="vd">고객이 기꺼이 돈을 낼 만한 분명한 이득. <em>"부산의 웰니스를 로컬 가이드와 느리게 경험한다"</em>처럼.</span></li>
+        <li class="t-teal"><span class="vt">누구에게, 어떻게 닿는가</span><span class="vh">고객·채널</span><span class="vd">타깃 고객과 그들을 만나는 경로(검색·SNS·제휴·재방문).</span></li>
+        <li class="t-gold"><span class="vt">어떻게 버는가</span><span class="vh">수익 모델</span><span class="vd">상품 판매·중개 수수료·구독·광고·B2B 제휴 등. 하나에 기대지 말고 <em>여러 축</em>을 설계한다.</span></li>
+      </ol>
 
       <p class="learn-part lp-core">04 · 만들기 전에 검증하라 — 린 스타트업</p>
-      <p>가장 비싼 실수는 아무도 원하지 않는 것을 완벽하게 만드는 것입니다. 그래서 <strong>작게 만들고 → 시장에 내고 → 배워서 고치는</strong> 순환이 필요합니다.</p>
-      <ul>
-        <li><strong>MVP(최소기능제품)</strong> — 핵심 가치만 담은 최소 버전으로 빠르게 시장에 묻는다.</li>
-        <li><strong>고객 검증</strong> — 인터뷰·사전예약·랜딩페이지로 "정말 돈을 낼까"를 확인한다.</li>
-        <li><strong>측정·학습</strong> — 반응을 데이터로 읽고(02 「빅데이터 분석」), 방향을 유지하거나 바꾼다(피벗).</li>
-      </ul>
+      <p>가장 비싼 실수는 아무도 원하지 않는 것을 완벽하게 만드는 것입니다. 그래서 순환이 필요합니다.</p>
+      <div class="flowbar">
+        <b>작게 만들고</b><i>→</i><b>시장에 내고</b><i>→</i><b>배워서 고치기</b>
+      </div>
+      <ol class="vcards c3 steps">
+        <li class="t-blue"><span class="vt">만든다</span><span class="vh">MVP · 최소기능제품</span><span class="vd">핵심 가치만 담은 최소 버전으로 빠르게 시장에 묻는다.</span></li>
+        <li class="t-rose"><span class="vt">묻는다</span><span class="vh">고객 검증</span><span class="vd">인터뷰·사전예약·랜딩페이지로 <em>"정말 돈을 낼까"</em>를 확인한다.</span></li>
+        <li class="t-green"><span class="vt">배운다</span><span class="vh">측정·학습</span><span class="vd">반응을 데이터로 읽고(02 「빅데이터 분석」), 방향을 유지하거나 바꾼다(피벗).</span></li>
+      </ol>
       <p>이 웹사이트 자체가 하나의 MVP입니다 — 큰 예산 없이 정적 사이트로 가치 제안을 세상에 먼저 내걸고, 후기와 문의로 반응을 확인하는 방식입니다.</p>
 
       <p class="learn-part lp-core">05 · 혼자 하지 않는다 — 창업 생태계와 지원</p>
       <p>관광벤처는 공공 지원이 비교적 두터운 분야입니다. 아이디어 단계부터 활용할 수 있습니다.</p>
-      <ul>
-        <li><strong>관광벤처사업 공모전·관광기업 지원</strong> — 한국관광공사 중심의 발굴·육성 프로그램.</li>
-        <li><strong>예비·초기 창업 지원</strong> — 예비창업패키지, 초기창업패키지 등 정부 지원 사업.</li>
-        <li><strong>보육·투자</strong> — 창업보육센터, 액셀러레이터, TIPS·엔젤·벤처투자.</li>
-        <li><strong>지역 연계</strong> — 부산 지역 창업 지원 기관·관광기업지원센터와의 협업.</li>
+      <ul class="vcards c4">
+        <li class="t-gold"><span class="vt">관광 전용</span><span class="vh">관광벤처사업 공모전·관광기업 지원</span><span class="vd">한국관광공사 중심의 발굴·육성 프로그램.</span></li>
+        <li class="t-blue"><span class="vt">범부처</span><span class="vh">예비·초기 창업 지원</span><span class="vd">예비창업패키지, 초기창업패키지 등 정부 지원 사업.</span></li>
+        <li class="t-violet"><span class="vt">키우고 투자</span><span class="vh">보육·투자</span><span class="vd">창업보육센터, 액셀러레이터, TIPS·엔젤·벤처투자.</span></li>
+        <li class="t-green"><span class="vt">가까운 곳</span><span class="vh">지역 연계</span><span class="vd">부산 지역 창업 지원 기관·관광기업지원센터와의 협업.</span></li>
       </ul>
 
       <p class="learn-part lp-core">06 · 이 사이트를 창업 사례로 읽기</p>
       <p>이 강의의 모든 모듈이 결국 하나의 질문으로 모입니다 — <strong>"어떻게 지속되는 사업으로 만들 것인가."</strong> 창업의 관점에서 다시 보면 각 모듈은 이렇게 이어집니다.</p>
-      <ul>
-        <li><strong>문제 정의</strong> — 로컬 가이드와 여행자를 잇는다(04·05).</li>
-        <li><strong>가치와 콘텐츠</strong> — 관광 자원·해설·웰니스로 차별화(모듈 07~12).</li>
-        <li><strong>도달과 홍보</strong> — 다국어·SEO·후기·아카이브(모듈 09).</li>
-        <li><strong>기술과 데이터</strong> — 스마트 관광·빅데이터로 경험과 의사결정을 고도화(모듈 01·02).</li>
-        <li><strong>지속 가능성</strong> — 이 모든 것을 수익과 재방문으로 잇는 비즈니스 모델.</li>
-      </ul>
+      <ol class="vcards c5 steps">
+        <li class="t-blue"><span class="vh">문제 정의</span><span class="vd">로컬 가이드와 여행자를 잇는다<br /><em>04·05</em></span></li>
+        <li class="t-teal"><span class="vh">가치와 콘텐츠</span><span class="vd">관광 자원·해설·웰니스로 차별화<br /><em>모듈 07~12</em></span></li>
+        <li class="t-rose"><span class="vh">도달과 홍보</span><span class="vd">다국어·SEO·후기·아카이브<br /><em>모듈 09</em></span></li>
+        <li class="t-violet"><span class="vh">기술과 데이터</span><span class="vd">스마트 관광·빅데이터로 경험과 의사결정을 고도화<br /><em>모듈 01·02</em></span></li>
+        <li class="t-green"><span class="vh">지속 가능성</span><span class="vd">이 모든 것을 수익과 재방문으로 잇는 비즈니스 모델.</span></li>
+      </ol>
       <p>여행을 사랑하는 마음은 출발점일 뿐입니다. 그 마음을 <strong>누군가의 문제를 반복해서 푸는 구조</strong>로 바꿀 때, 비로소 관광은 벤처가 됩니다.</p>
 
       <p class="learn-part lp-case">해커톤 사례 · 비건부산(Busan Vegan Discovery)</p>
@@ -152,18 +263,18 @@
       </figure>
 
       <p>이 사례의 핵심은 "채식을 좋아한다"는 마음이 아니라, <strong>정보 신뢰라는 반복되는 문제를 표준화된 판정 기준으로 푸는 구조</strong>를 만들었다는 점입니다 — 앞의 02·03·04장이 그대로 하나의 서비스가 된 셈입니다.</p>
-      <ul class="reslist">
-        <li>
+      <ul class="reslist grid3">
+        <li class="t-green">
           <a href="https://warm-piroshki-24720b.netlify.app/" target="_blank" rel="noopener">비건부산 — 라이브 서비스 열기 ↗</a>
           <span class="desc">해커톤 결과물의 실제 배포본. 근거 카드 기반으로 부산 채식·비건 음식점을 탐색해 볼 수 있습니다.</span>
           <span class="meta">부산 해커톤 제출작 · 장근석·박현철·은경 (Busan Vegan Discovery)</span>
         </li>
-        <li>
+        <li class="t-teal">
           <a href="assets/busan-vegan-platform-proposal.pdf" target="_blank" rel="noopener">비건부산 플랫폼 제안서 (PDF) ↗</a>
           <span class="desc">문제 정의부터 서비스 구조·비즈니스 모델까지 담은 창업 제안서. 사업계획서가 어떤 얼개로 짜이는지 실물로 확인할 수 있는 자료입니다.</span>
           <span class="meta">부산 해커톤 제출작 · 장근석·박현철·은경</span>
         </li>
-        <li>
+        <li class="t-blue">
           <a href="assets/busan-vegan-restaurant-rating-criteria.md" target="_blank" rel="noopener">부산 비건 맛집 등급 기준 (전문) ↗</a>
           <span class="desc">서비스의 핵심 자산인 온라인 조사 등급 체계(O-V0~O-V1)·100점 신뢰도 점수표·판정 규칙 전문. "근거로 판다"는 아이디어가 어떻게 규칙으로 구현되는지 보여줍니다.</span>
           <span class="meta">부산 해커톤 제출작 · 장근석·박현철·은경</span>
