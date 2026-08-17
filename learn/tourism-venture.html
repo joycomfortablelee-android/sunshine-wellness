@@ -166,6 +166,15 @@
     .learn-article details.spec-fold li::marker { color: #2563a8; }
     .learn-article details.spec-fold li > strong:first-child { color: #17539b; }
 
+    /* 곁들여 보기(lp-side) 절의 요강은 그 절의 보라와 맞춘다 */
+    .learn-article details.spec-fold.violet { border-color: #8272ad; }
+    .learn-article details.spec-fold.violet > summary { color: #56487a; }
+    .learn-article details.spec-fold.violet > summary::after { color: #8272ad; border-color: #ded1f8; }
+    .learn-article details.spec-fold.violet > summary:hover::after { background: #f3eefc; }
+    .learn-article details.spec-fold.violet[open] > summary { border-bottom-color: #ece5f8; }
+    .learn-article details.spec-fold.violet li::marker { color: #8272ad; }
+    .learn-article details.spec-fold.violet li > strong:first-child { color: #56487a; }
+
     /* 2열 그리드 안의 묶음 카드 — 제목과 태그가 카드 색을 따르게 */
     .learn-article .reslist.grid3 .grouptitle { font-size: 14.5px; color: var(--v-tc, var(--deep)); }
     .learn-article .reslist.grid3 .linkrow.tiny { margin: 9px 0 7px; }
@@ -526,7 +535,7 @@
 
       <p class="learn-part lp-side" id="local-creator">곁들여 보기 · 「로컬크리에이터」 — 지역을 아이템으로 삼는 창업 트랙</p>
       <p>바로 앞에서 <strong>로컬 크리에이터</strong>라는 말이 두 번 나왔습니다. 분위기 있는 수식어가 아니라 <strong>정부 지원사업의 공식 용어</strong>입니다. 중소벤처기업부는 2020년부터 「로컬크리에이터 육성사업」을 운영하며 <em>지역의 문화·자연 자산을 창의적으로 사업화하는 창업자</em>를 이 이름으로 묶어 왔고, 지자체들도 같은 이름을 받아 지역판 공모를 엽니다. 정부 문서의 공식 표기는 <strong>「지역가치 창업가(로컬크리에이터)」</strong>입니다 — 공고를 검색할 때 두 단어를 모두 써 보십시오. 관광 전공자에게 중요한 이유는 <strong>지원 분야 자체가 관광과 겹치기 때문</strong>입니다.</p>
-      <details class="spec-fold">
+      <details class="spec-fold violet">
       <summary>요강 — 7대 유형 · 두 층위 · 개인형과 협업형 · 계단처럼 이어진다 · 자격 · 이름은 바뀐다</summary>
       <ul>
         <li><strong>7대 유형</strong> — 지역가치 · 로컬푸드 · 지역기반제조 · <strong>지역특화관광</strong> · 거점브랜드 · <strong>디지털 문화체험</strong> · 자연친화활동. 일곱 중 셋이 관광·문화 영역이고, 나머지도 결국 관광 상품으로 이어집니다.</li>
