@@ -82,9 +82,21 @@
     .learn-article .t-green3  { --v-a:#aed2c0; --v-b:#d3e8dd; --v-ac:#24443c; --v-ln:#9cc6b2; --v-sh:rgba(36,68,60,.22); --v-tc:#1b352f; }
     .learn-article .t-violet { --v-a:#e9e2fa; --v-b:#f4f0fd; --v-ac:#8272ad; --v-ln:#d9cef0; --v-sh:rgba(130,114,173,.16);--v-tc:#56487a; }
     /* 주황 3단계 — 02장 세 질문에 쓴다 */
-    .learn-article .t-orange  { --v-a:#ffe2cc; --v-b:#fff3ea; --v-ac:#ff9f5a; --v-ln:#ffd0ae; --v-sh:rgba(243,112,33,.18); --v-tc:#c9520a; }
-    .learn-article .t-orange2 { --v-a:#ffc79b; --v-b:#ffe4cd; --v-ac:#f8853a; --v-ln:#ffb27a; --v-sh:rgba(243,112,33,.24); --v-tc:#b4470a; }
-    .learn-article .t-orange3 { --v-a:#ffab6b; --v-b:#ffd3ae; --v-ac:#F37021; --v-ln:#ff9550; --v-sh:rgba(243,112,33,.32); --v-tc:#9c3c06; }
+    .learn-article .t-orange  { --v-a:#f9a25a; --v-b:#f28c3a; --v-ac:#e07a24; --v-ln:#ef8c39; --v-sh:rgba(224,122,36,.28); --v-tc:#fff; }
+    .learn-article .t-orange2 { --v-a:#f4862f; --v-b:#ea7118; --v-ac:#d2600d; --v-ln:#e5711a; --v-sh:rgba(210,96,13,.3);  --v-tc:#fff; }
+    .learn-article .t-orange3 { --v-a:#e86c14; --v-b:#d2560a; --v-ac:#b34706; --v-ln:#d15a0b; --v-sh:rgba(179,71,6,.34);  --v-tc:#fff; }
+
+    /* 진한 바탕 카드 — 글자를 흰색으로 뒤집는다 */
+    .learn-article .vcards > li.on-dark {
+      background: linear-gradient(158deg, var(--v-a) 0%, var(--v-b) 100%);
+      border-color: var(--v-ln); border-top-color: rgba(255,255,255,.55);
+    }
+    .learn-article .vcards > li.on-dark .vt { color: rgba(255,255,255,.88); }
+    .learn-article .vcards > li.on-dark .vh { color: #fff; }
+    .learn-article .vcards > li.on-dark .vd,
+    .learn-article .vcards > li.on-dark .vd strong,
+    .learn-article .vcards > li.on-dark .vd em { color: #fff; }
+    .learn-article .vcards.steps > li.on-dark::before { background: #fff; color: var(--v-ac); }
     .learn-article .t-violet2 { --v-a:#ddd0f6; --v-b:#eee7fb; --v-ac:#6a58a0; --v-ln:#cdbdf0; --v-sh:rgba(106,88,160,.18); --v-tc:#4a3c73; }
     .learn-article .t-violet3 { --v-a:#cbb9f0; --v-b:#e3d9f8; --v-ac:#4e3f78; --v-ln:#baa4e8; --v-sh:rgba(78,63,120,.22); --v-tc:#3b2f5e; }
     /* 청록 3단계 — 03장 비즈니스 모델 세 요소에 쓴다 */
@@ -395,9 +407,9 @@
       <p class="learn-part lp-core"><span class="num">02</span>아이디어는 문제에서 나온다</p>
       <p>초보 창업이 가장 자주 넘어지는 지점은 "내가 만들고 싶은 것"에서 시작한다는 것입니다. 순서를 뒤집어야 합니다.</p>
       <ol class="vcards c3 steps">
-        <li class="t-orange"><span class="vt">WHO</span><span class="vh">누구의 문제인가</span><span class="vd">고객을 구체적으로. <em>예: 부산을 처음 찾는 외국인 개별 여행자.</em></span></li>
-        <li class="t-orange2"><span class="vt">WHAT</span><span class="vh">어떤 문제인가</span><span class="vd">진짜 불편을 한 문장으로. <em>예: 언어 장벽으로 로컬 경험에 닿지 못한다.</em></span></li>
-        <li class="t-orange3"><span class="vt">WHY NOW</span><span class="vh">왜 지금인가</span><span class="vd">시장·기술·규제의 변화가 그 문제를 풀 때가 됐는가.</span></li>
+        <li class="t-orange on-dark"><span class="vt">WHO</span><span class="vh">누구의 문제인가</span><span class="vd">고객을 구체적으로. <em>예: 부산을 처음 찾는 외국인 개별 여행자.</em></span></li>
+        <li class="t-orange2 on-dark"><span class="vt">WHAT</span><span class="vh">어떤 문제인가</span><span class="vd">진짜 불편을 한 문장으로. <em>예: 언어 장벽으로 로컬 경험에 닿지 못한다.</em></span></li>
+        <li class="t-orange3 on-dark"><span class="vt">WHY NOW</span><span class="vh">왜 지금인가</span><span class="vd">시장·기술·규제의 변화가 그 문제를 풀 때가 됐는가.</span></li>
       </ol>
       <p>좋은 문제 정의는 이미 절반의 해답입니다. 이 사이트의 출발점도 "친절한 로컬 가이드와 여행자를 잇는다"는 한 문장이었습니다.</p>
 
