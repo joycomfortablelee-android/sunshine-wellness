@@ -274,6 +274,20 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .reslist .desc a.mapl.hot:hover,
 .learn-article .reslist li.hi.tone .meta a.mapl.hot:hover { background: #98291d; border-color: #98291d; color: #fff; }
 
+/* 제출 양식 내려받기 — 읽을 것(남색)과 「작성해서 낼 것」을 색으로 가른다 */
+.learn-article .reslist .meta a.mapl.form,
+.learn-article .reslist .desc a.mapl.form,
+.learn-article .reslist li.hi.tone .meta a.mapl.form,
+.learn-article .reslist li.hi.tone .desc a.mapl.form {
+  background: #fff; border: 1px dashed #b8862c; color: #8a5a17;
+}
+.learn-article .reslist .meta a.mapl.form:hover,
+.learn-article .reslist .desc a.mapl.form:hover,
+.learn-article .reslist li.hi.tone .meta a.mapl.form:hover,
+.learn-article .reslist li.hi.tone .desc a.mapl.form:hover {
+  background: #8a5a17; border-color: #8a5a17; color: #fff;
+}
+
 /* 지도로 가는 태그 — 노란 알약으로 갈라 놓는다 */
 .learn-article .reslist .numlist a.mapl,
 .learn-article .reslist li.hi.tone .numlist a.mapl {
@@ -493,6 +507,14 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .fig-note p.ftag a.fill:hover,
 .learn-article .fig-note p.ftag a.mapl.fill:hover { background: #0f2a4f; border-color: #0f2a4f; color: #fff; }
 .learn-article .fig-note p.ftag a.mapl:hover { background: #0f2a4f; border-color: #0f2a4f; }
+/* ★ 표시 — 가장 완전한 자료 하나만. 노란 스티키메모 원본의 색을 알약으로 옮긴다 */
+.learn-article .fig-note p.ftag a.mapl.star {
+  background: #fdf3c4; border-color: #d8bf5a; color: #6b5410;
+  box-shadow: 0 1px 3px rgba(120,100,20,.18);
+}
+.learn-article .fig-note p.ftag a.mapl.star:hover {
+  background: #f7e79a; border-color: #b99f36; color: #4d3c08;
+}
 .learn-article .fig-note p.ftag a { display: inline-block; padding: 4px 10px; border-radius: 999px;
   background: #fff; border: 1px solid #cfdcea; color: #17539b;
   font-size: 10.5px; font-weight: 800; border-bottom-width: 1px; }
