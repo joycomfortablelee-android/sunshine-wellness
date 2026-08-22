@@ -1714,16 +1714,3 @@ body.mod-smart .learn-article .reslist .linkrow details.fold.pill > summary { pa
 .learn-article .case-box ol.steps3 .s-d b { color: #52697f; font-weight: 700; }
 .learn-article .case-box ol.steps3 a { font-weight: 800; color: #8a5a17; border-bottom: 1px solid currentColor; }
 .learn-article .case-box ol.steps3 a:hover { color: #5c3c0b; }
-/* 파트 03에서 위로 되돌려 보내는 안내줄 */
-.learn-article .jump-note {
-  font-size: 12.5px; color: var(--muted); line-height: 1.7;
-  background: #fdf8ec; border: 1px dashed #d8bf5a; border-radius: 10px;
-  padding: 10px 13px; margin: 14px 0 26px;
-}
-.learn-article .jump-note strong { color: #6b4610; }
-.learn-article .jump-note a.mapl {
-  display: inline-block; padding: 3px 9px; border-radius: 999px;
-  background: #8a5a17; border: 1px solid #8a5a17; color: #fff;
-  font-size: 11.5px; font-weight: 700; border-bottom: 0; margin-left: 3px;
-}
-.learn-article .jump-note a.mapl:hover { background: #6b4610; border-color: #6b4610; color: #fff; }
