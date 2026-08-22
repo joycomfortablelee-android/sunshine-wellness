@@ -1663,3 +1663,46 @@ body.mod-smart .learn-article .reslist.grid2.cards .linkrow details.fold.pill > 
 /* 태그가 커진 만큼 알약 안쪽 여백을 한 칸 줄여 태그줄이 더 접히지 않게 */
 body.mod-smart .learn-article .reslist .linkrow a,
 body.mod-smart .learn-article .reslist .linkrow details.fold.pill > summary { padding: 5px 11px; }
+
+/* ===== 세 단계 상자 — 파트 01의 사례 둘을 공모전으로 잇는다 =====
+   용인(벤치마킹) · 안동(고르기)은 파랑 상자, 이것은 「내는 자리」라 금색으로 갈라 놓는다. */
+.learn-article .case-box.gold { border: 2px solid #b8862c; }
+.learn-article .case-box.gold .cb-title { color: #8a5a17; }
+.learn-article .case-box.gold .cb-title span { color: #a98a4e; }
+.learn-article .case-box.gold .cb-lead strong { color: #6b4610; }
+.learn-article .case-box ol.steps3 {
+  list-style: none; margin: 4px 0 2px; padding: 0; counter-reset: st3;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px;
+}
+.learn-article .case-box ol.steps3 li {
+  margin: 0; padding: 11px 13px 11px 37px; position: relative;
+  background: #fffaf0; border: 1px solid #ecdcb9; border-radius: 10px;
+  font-size: 12.5px; line-height: 1.65;
+}
+.learn-article .case-box ol.steps3 li::before {
+  counter-increment: st3; content: counter(st3);
+  position: absolute; left: 11px; top: 11px;
+  width: 19px; height: 19px; border-radius: 50%;
+  background: #b8862c; color: #fff;
+  font-size: 11px; font-weight: 800; line-height: 19px; text-align: center;
+}
+.learn-article .case-box ol.steps3 .s-t {
+  display: block; font-size: 13px; font-weight: 800; color: #6b4610; margin-bottom: 2px;
+}
+.learn-article .case-box ol.steps3 .s-d { color: var(--muted); }
+.learn-article .case-box ol.steps3 .s-d b { color: #52697f; font-weight: 700; }
+.learn-article .case-box ol.steps3 a { font-weight: 800; color: #8a5a17; border-bottom: 1px solid currentColor; }
+.learn-article .case-box ol.steps3 a:hover { color: #5c3c0b; }
+/* 파트 03에서 위로 되돌려 보내는 안내줄 */
+.learn-article .jump-note {
+  font-size: 12.5px; color: var(--muted); line-height: 1.7;
+  background: #fdf8ec; border: 1px dashed #d8bf5a; border-radius: 10px;
+  padding: 10px 13px; margin: 14px 0 26px;
+}
+.learn-article .jump-note strong { color: #6b4610; }
+.learn-article .jump-note a.mapl {
+  display: inline-block; padding: 3px 9px; border-radius: 999px;
+  background: #8a5a17; border: 1px solid #8a5a17; color: #fff;
+  font-size: 11.5px; font-weight: 700; border-bottom: 0; margin-left: 3px;
+}
+.learn-article .jump-note a.mapl:hover { background: #6b4610; border-color: #6b4610; color: #fff; }
