@@ -1693,16 +1693,19 @@ body.mod-smart .learn-article .reslist .linkrow details.fold.pill > summary { pa
   display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px;
 }
 .learn-article .case-box ol.steps3 li {
-  margin: 0; padding: 11px 13px 11px 37px; position: relative;
+  margin: 0; padding: 11px 13px 12px; position: relative;
   background: #fffaf0; border: 1px solid #ecdcb9; border-radius: 10px;
   font-size: 12.5px; line-height: 1.65;
 }
+/* 배지는 본문의 걸음 태그(.learn-part.pt-step .pt)와 같은 모양으로 둔다 —
+   동그라미 숫자보다 「단계 1」이 아래 태그와 짝이 지어져 읽힌다. */
 .learn-article .case-box ol.steps3 li::before {
-  counter-increment: st3; content: counter(st3);
-  position: absolute; left: 11px; top: 11px;
-  width: 19px; height: 19px; border-radius: 50%;
-  background: #b8862c; color: #fff;
-  font-size: 11px; font-weight: 800; line-height: 19px; text-align: center;
+  counter-increment: st3; content: "단계 " counter(st3);
+  display: inline-block; position: static;
+  width: auto; height: auto; margin: 0 0 6px; padding: 4px 10px;
+  border-radius: 6px; background: #b8862c; color: #fff;
+  font-size: 11px; font-weight: 700; letter-spacing: .08em; line-height: 1.4;
+  text-align: left; vertical-align: 1px;
 }
 .learn-article .case-box ol.steps3 .s-t {
   display: block; font-size: 13px; font-weight: 800; color: #6b4610; margin-bottom: 2px;
