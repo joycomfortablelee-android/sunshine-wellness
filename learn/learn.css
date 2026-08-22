@@ -721,6 +721,17 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .learn-part.pt-lib { color: #3c4d48; border-top-color: #6b7d76; }
 .learn-article .learn-part.pt-lib .pt { background: #6b7d76; }
 
+/* 파트 안의 걸음 태그 — 파트 구분선보다 가볍게 둔다.
+   실선 두께와 위쪽 여백을 줄이고 점선으로 바꿔, 진짜 파트 머리글과 섞이지 않게. */
+.learn-article .learn-part.pt-step {
+  color: #8a5a17; border-top: 1px dashed #d8bf5a;
+  padding-top: 13px; margin: 26px 0 6px; letter-spacing: .12em;
+}
+.learn-article .learn-part.pt-step .pt { background: #b8862c; }
+.learn-article .learn-part.pt-step + .case-box,
+.learn-article .learn-part.pt-step + * > .reslist,
+.learn-article .learn-part.pt-step + .reslist { margin-top: 0; }
+
 /* 구간 색 구분 — 긴 페이지에서 절의 성격을 색으로 나눈다(연한 밴드).
    lp-* 클래스가 붙은 learn-part에만 적용되므로 다른 페이지는 영향 없음. */
 .learn-article .learn-part[class*="lp-"] {
