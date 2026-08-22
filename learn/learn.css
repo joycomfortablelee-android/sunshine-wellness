@@ -227,6 +227,14 @@ body.hub .lw { max-width: 1160px; }
    실습처럼 「읽는 카드」가 아니라 「하러 가는 카드」에 쓴다. */
 .learn-article .reslist li.paper  { --t-bg: #fff;     --t-ac: #2563a8; --t-dk: #17539b; --t-ln: #cfdcea; }
 .learn-article .reslist li.navy   { --t-bg: #eef2f7; --t-ac: #123556; --t-dk: #0e2a45; --t-ln: #c3d2e2; }
+/* 단계 3 카드 — 단계 1·2의 사례 상자와 같은 사각 라운딩으로 맞춘다.
+   왼쪽 띠 하나로 서 있으면 앞의 두 상자와 모양이 어긋나 한 줄로 읽히지 않는다. */
+.learn-article .reslist li.hi.tone.navy.box {
+  border: 1px solid #9fb6cc; border-radius: 12px;
+  background: #fff; padding: 15px 17px 13px;
+}
+.learn-article .reslist li.hi.tone.navy.box > a:first-child { color: #0e2a45; }
+
 .learn-article .reslist li.hi.tone.paper {
   border: 2px solid #2563a8; border-radius: 12px;   /* 파트 03 실습 카드 — 본문에서 가장 두꺼운 테두리 */
   padding: 15px 17px 13px;
