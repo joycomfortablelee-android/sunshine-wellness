@@ -672,29 +672,36 @@ body.hub .lw { max-width: 1160px; }
   display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;
 }
 .learn-article .roadmap li {
-  margin: 0; padding: 10px 11px 11px; border-radius: 9px;
-  border: 1px solid var(--r-ln, var(--line)); border-top: 3px solid var(--r-ac, var(--green));
-  background: linear-gradient(160deg, var(--r-a, #f6f7f8) 0%, var(--r-b, #fbfbfb) 52%, #fff 88%);
+  margin: 0; padding: 11px 12px 12px; border-radius: 9px;
+  border: 1px solid var(--r-ac, var(--green));
+  background: var(--r-ac, var(--green));
+  color: #fff;
   font-size: 12px; line-height: 1.5;
-  transition: box-shadow .18s, transform .18s;
+  transition: box-shadow .18s, transform .18s, background .18s;
 }
-.learn-article .roadmap li:hover { transform: translateY(-2px); box-shadow: 0 6px 16px var(--r-sh, rgba(16,42,67,.1)); }
-/* 세 줄(파트 번호 · 제목 · 설명)을 한 크기로 두고, 구분은 굵기와 색으로만 한다.
-   10.5 · 13 · 11px 세 크기가 섞여 있어 한 칸 안에서 들쑥날쑥했다. */
-.learn-article .roadmap .rm-t { display: block; font-size: 12px; font-weight: 800; letter-spacing: .04em; margin-bottom: 4px; }
-.learn-article .roadmap strong { display: block; font-size: 12px; font-weight: 800; color: var(--deep); margin-bottom: 3px; }
-.learn-article .roadmap em { display: block; font-style: normal; font-size: 12px; font-weight: 400; color: var(--muted); }
-/* 걸음마다 다른 그라데이션 — 위쪽 색선에서 시작해 아래로 흰색으로 풀린다 */
-.learn-article .roadmap .rm-case  { --r-a:#dceefb; --r-b:#eff7fd; --r-ac:#2563a8; --r-ln:#c8ddf0; --r-sh:rgba(37,99,168,.16); }
-.learn-article .roadmap .rm-do    { --r-a:#fceedb; --r-b:#fdf7ec; --r-ac:#e8a04a; --r-ln:#efdcbc; --r-sh:rgba(184,121,29,.16); }
-.learn-article .roadmap .rm-learn { --r-a:#dff0ea; --r-b:#eff7f4; --r-ac:#3B6259; --r-ln:#c9e2da; --r-sh:rgba(59,98,89,.16); }
-.learn-article .roadmap .rm-res   { --r-a:#e9e2fa; --r-b:#f4f0fd; --r-ac:#8272ad; --r-ln:#d9cef0; --r-sh:rgba(130,114,173,.16); }
-.learn-article .roadmap .rm-lib   { --r-a:#e4eae7; --r-b:#f1f4f3; --r-ac:#6b7d76; --r-ln:#d2dbd7; --r-sh:rgba(107,125,118,.16); }
-.learn-article .roadmap .rm-case .rm-t  { color: #1c4e8a; }
-.learn-article .roadmap .rm-do .rm-t    { color: #8a5a17; }
-.learn-article .roadmap .rm-learn .rm-t { color: #2f5148; }
-.learn-article .roadmap .rm-res .rm-t   { color: #56487a; }
-.learn-article .roadmap .rm-lib .rm-t   { color: #3c4d48; }
+.learn-article .roadmap li:hover {
+  transform: translateY(-2px);
+  background: var(--r-hv, var(--deep));
+  box-shadow: 0 6px 16px var(--r-sh, rgba(16,42,67,.28));
+}
+/* 세 줄(파트 번호 · 제목 · 설명)을 한 크기로 두고, 구분은 굵기와 흰색의 농도로만 한다. */
+.learn-article .roadmap .rm-t {
+  display: block; font-size: 12px; font-weight: 800; letter-spacing: .04em;
+  margin-bottom: 4px; color: rgba(255,255,255,.72);
+}
+.learn-article .roadmap strong {
+  display: block; font-size: 12px; font-weight: 800; color: #fff; margin-bottom: 3px;
+}
+.learn-article .roadmap em {
+  display: block; font-style: normal; font-size: 12px; font-weight: 400;
+  color: rgba(255,255,255,.78);
+}
+/* 걸음마다 다른 진한 바탕 — 각 파트가 본문에서 쓰는 색을 어둡게 낮춰 맞춘다 */
+.learn-article .roadmap .rm-case  { --r-ac:#1b4a7e; --r-hv:#123556; --r-sh:rgba(27,74,126,.34); }
+.learn-article .roadmap .rm-do    { --r-ac:#8a4f14; --r-hv:#63380c; --r-sh:rgba(138,79,20,.34); }
+.learn-article .roadmap .rm-learn { --r-ac:#2f5148; --r-hv:#1f382f; --r-sh:rgba(47,81,72,.34); }
+.learn-article .roadmap .rm-res   { --r-ac:#4d3f6e; --r-hv:#372c50; --r-sh:rgba(77,63,110,.34); }
+.learn-article .roadmap .rm-lib   { --r-ac:#3a4a45; --r-hv:#26332f; --r-sh:rgba(58,74,69,.34); }
 @media (max-width: 860px) { .learn-article .roadmap { grid-template-columns: repeat(2, 1fr); } }
 
 /* 파트 번호 태그 — 섹션마다 색을 달리해 구분한다 */
