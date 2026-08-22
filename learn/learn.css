@@ -230,8 +230,9 @@ body.hub .lw { max-width: 1160px; }
 /* 단계 3 카드 — 단계 1·2의 사례 상자와 같은 사각 라운딩으로 맞춘다.
    왼쪽 띠 하나로 서 있으면 앞의 두 상자와 모양이 어긋나 한 줄로 읽히지 않는다. */
 .learn-article .reslist li.hi.tone.navy.box {
-  border: 1px solid #9fb6cc; border-radius: 12px;
-  background: #fff; padding: 15px 17px 13px;
+  --s-ac: #123556; --s-dk: #0e2a45; --s-ln: #9fb6cc; --s-bg: #eaeff5;
+  border: 1px solid var(--s-ln); border-radius: 12px;
+  background: var(--s-bg); padding: 15px 17px 13px;   /* 예고 상자 셋째 칸과 같은 바탕 */
 }
 .learn-article .reslist li.hi.tone.navy.box > a:first-child { color: #0e2a45; }
 
