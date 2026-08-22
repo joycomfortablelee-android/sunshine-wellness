@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>유럽 스마트 관광 수도 및 녹색 선구자 2019–2026</title>
+<title>유럽 스마트관광 수상도시와 발표 배정안</title>
 <style>
   :root{
     --paper:#fffdf3;
@@ -195,6 +195,74 @@
     font-size:12px;
     color:#77705a;
   }
+
+  /* ===== 두 절을 오가는 안내 ===== */
+  .secnav{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin:0 0 22px}
+  .secnav a{
+    padding:7px 14px;border-radius:999px;font-size:13px;font-weight:700;
+    background:#fff;border:1px solid #d8cfa8;color:var(--navy);text-decoration:none;
+  }
+  .secnav a:hover{background:var(--navy);border-color:var(--navy);color:#fff}
+  .sec-h{
+    margin:26px 0 6px;font-size:clamp(17px,2.2vw,21px);color:var(--navy);
+    letter-spacing:-.02em;border-bottom:2px solid #e0d5ac;padding-bottom:7px;
+  }
+  .sec-h:first-of-type{margin-top:8px}
+  .sec-h span{font-size:13px;font-weight:400;color:#7d7455;margin-left:7px}
+  .plan-sec{margin-top:22px}
+  .plan-sec h2{
+    margin:26px 0 8px;font-size:16px;color:var(--navy);letter-spacing:-.01em;
+    border-left:4px solid #cbb45e;padding-left:10px;
+  }
+  .plan-sec h3{margin:0 0 6px;font-size:14.5px;color:var(--navy)}
+  /* 흐름 띠 */
+  .flow{
+    display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:7px;
+    margin:0 0 20px;padding:12px;background:#fff;border-radius:9px;
+    box-shadow:0 1px 3px rgba(90,78,20,.10);
+  }
+  .flow span{
+    padding:6px 11px;border-radius:7px;font-size:12.5px;font-weight:700;
+    background:#eef1f6;color:var(--navy);border:1px solid #d6def0;
+  }
+  .flow span.green{background:#e9f4e1;color:var(--green);border-color:#c6ddb6}
+  .flow .arrow{color:#b4a973;font-size:14px}
+  /* 배정표 — 위 표와 같은 흰 격자 */
+  .week{width:78px;text-align:center;font-weight:800;font-size:15px;color:var(--navy);white-space:nowrap}
+  tbody td.week{background:#eef1f6}
+  tbody tr.green-row td.week{background:#dfeed4}
+  .badge{
+    display:inline-block;margin-left:5px;padding:1px 7px;border-radius:999px;
+    font-size:10px;font-weight:800;letter-spacing:.04em;vertical-align:1px;
+  }
+  .badge.win{background:#17365d;color:#fff}
+  .badge.green{background:#2f6b4f;color:#fff}
+  .badge.cand{background:#fff;color:#7a6a2a;border:1px dashed #c3b06a}
+  /* 선정 이유 카드 */
+  .reason-grid,.deep-dive{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin:4px 0 6px;
+  }
+  .card,.deep{
+    background:#fff;border:1px solid #e2dcc4;border-top:3px solid #17365d;
+    border-radius:9px;padding:14px 15px;
+  }
+  .card.green-card,.plan-sec .green-card{border-top-color:#2f6b4f}
+  .deep.star{border-top-color:#b8862c;box-shadow:0 1px 3px rgba(120,100,20,.16)}
+  .label{
+    display:block;font-size:10.5px;font-weight:800;letter-spacing:.05em;
+    color:#8a7f55;margin:8px 0 2px;
+  }
+  .card p,.deep p{margin:0;font-size:13px;line-height:1.6;color:#3f4a49}
+  .key{font-weight:800;color:var(--green)!important}
+  .deep ul{margin:2px 0 0;padding-left:17px;font-size:13px;line-height:1.65;color:#3f4a49}
+  .deep li{margin-bottom:2px}
+  .question{
+    margin-top:9px;padding:9px 11px;border-radius:7px;
+    background:#f5f3ea;border-left:3px solid #cbb45e;
+    font-size:12.5px;line-height:1.6;color:#5b5540;
+  }
+  .final-row td{background:#f7f5ec}
+
   @media(max-width:720px){
     body{padding:22px 10px 40px}
     .sticky{padding:28px 14px 20px}
@@ -213,7 +281,9 @@
     <div class="corner"></div>
 
     <h1>유럽 스마트 관광 수도 및 녹색 선구자</h1>
-    <p class="subtitle">2019–2026 수상도시 · 최종후보</p>
+    <p class="subtitle">2019–2026 수상도시 · 최종후보 · 학생 발표 배정안</p>
+    <nav class="secnav"><a href="#winners">Ⅰ. 수상 · 최종후보 표</a><a href="#plan">Ⅱ. 학생 발표 배정안 9–15주차</a></nav>
+    <h2 class="sec-h" id="winners">Ⅰ. 수상 · 최종후보 표 <span>2019–2026</span></h2>
 
     <div class="legend">
       <span class="pill">🏆 European Capital of Smart Tourism</span>
@@ -307,6 +377,171 @@
 
     <div class="footer">European Commission · Smart Tourism</div>
   </section>
+
+<section class="sticky plan-sec">
+<h2 class="sec-h" id="plan">Ⅱ. 학생 발표 배정안 <span>9–14주차 도시 사례 · 15주차 종합발표</span></h2>
+<p class="subtitle">위 표의 도시를 주차별로 나눠 맡깁니다 — 수상도시를 먼저, 최종후보를 뒤에 두어 <b>같은 부문 안에서 전략을 견주도록</b> 짰습니다.</p>
+
+<div class="flow">
+  <span>9–11주차 🏆 Smart Tourism Capital 수상도시</span><b class="arrow">→</b>
+  <span class="green">12주차 🌿 Green Pioneer 수상도시</span><b class="arrow">→</b>
+  <span>13주차 Smart Tourism Capital 후보</span><b class="arrow">→</b>
+  <span class="green">14주차 Green Pioneer 후보</span><b class="arrow">→</b>
+  <span>15주차 ⭐ 전체 종합발표</span>
+</div>
+
+<h2>① 주차별 학생 발표 배정</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>주차</th><th>성격</th><th>1팀</th><th>2팀</th><th>3팀</th></tr></thead>
+<tbody>
+<tr>
+<td class="week">9주차</td>
+<td class="type">🏆 Smart Tourism Capital 수상도시</td>
+<td class="winner">탐페레 (핀란드) — 2026 수상 <span class="badge win">WINNER</span></td>
+<td class="winner">토리노 (이탈리아) — 2025 수상 <span class="badge win">WINNER</span></td>
+<td class="winner">더블린 (아일랜드) — 2024 수상 <span class="badge win">WINNER</span></td>
+</tr>
+<tr>
+<td class="week">10주차</td>
+<td class="type">🏆 Smart Tourism Capital 수상도시</td>
+<td class="winner">파포스 (키프로스) — 2023 수상 <span class="badge win">WINNER</span></td>
+<td class="winner">세비야 (스페인) — 2023 수상 <span class="badge win">WINNER</span></td>
+<td class="winner">보르도 (프랑스) — 2022 수상 <span class="badge win">WINNER</span></td>
+</tr>
+<tr>
+<td class="week">11주차</td>
+<td class="type">🏆 Smart Tourism Capital 수상도시</td>
+<td class="winner">발렌시아 (스페인) — 2022 수상 <span class="badge win">WINNER</span></td>
+<td class="winner">예테보리 (스웨덴) — 2020 수상 <span class="badge win">WINNER</span></td>
+<td class="winner">말라가 (스페인) — 2020 수상 <span class="badge win">WINNER</span></td>
+</tr>
+<tr class="green-row">
+<td class="week">12주차</td>
+<td class="type">🌿 Green Pioneer 수상도시</td>
+<td class="winner">두브로브니크 (크로아티아) — 2026 수상 <span class="badge green">WINNER</span></td>
+<td class="winner">베니돔 (스페인) — 2025 수상 <span class="badge green">WINNER</span></td>
+<td class="winner">그로세토 (이탈리아) — 2024 수상 <span class="badge green">WINNER</span></td>
+</tr>
+<tr>
+<td class="week">13주차</td>
+<td class="type">Smart Tourism Capital 최종후보 비교</td>
+<td>브뤼헤 (벨기에) — 2026 후보 <span class="badge cand">FINALIST</span></td>
+<td>산세바스티안 (스페인) — 2024 후보 <span class="badge cand">FINALIST</span></td>
+<td>라흐티 (핀란드) — 2025 후보 <span class="badge cand">FINALIST</span></td>
+</tr>
+<tr class="green-row">
+<td class="week">14주차</td>
+<td class="type">🌿 Green Pioneer 최종후보 비교</td>
+<td>이비자 (스페인) — 2026 후보 <span class="badge green">FINALIST</span></td>
+<td>타르투 (에스토니아) — 2026 후보 <span class="badge green">FINALIST</span></td>
+<td>아베이루 (포르투갈) — 2025 후보 <span class="badge green">FINALIST</span></td>
+</tr>
+<tr class="final-row">
+<td class="week">15주차</td>
+<td class="type">⭐ 전체 종합발표</td>
+<td>수상도시 비교</td><td>후보도시 비교</td><td>경북·안동 적용 아이디어</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2>② 후보도시 선정 이유와 학생들이 볼 핵심</h2>
+<div class="reason-grid">
+<article class="card">
+<h3>브뤼헤 (벨기에)</h3>
+<span class="label">선정 이유</span>
+<p>UNESCO 문화유산도시이면서 관광객 집중과 주민 생활환경을 함께 관리하는 사례가 뚜렷하다.</p>
+<span class="label">학생들이 볼 핵심</span>
+<p class="key">문화유산 + 혼잡관리 + Digital Twin + 접근성</p>
+</article>
+
+<article class="card">
+<h3>산세바스티안 (스페인)</h3>
+<span class="label">선정 이유</span>
+<p>주민·중소기업 등 이해관계자가 관광정책에 참여하고 Tourism Observatory에서 Big Data·Open Data를 활용한다.</p>
+<span class="label">학생들이 볼 핵심</span>
+<p class="key">주민 중심 거버넌스 + 관광 빅데이터 + 미식관광</p>
+</article>
+
+<article class="card">
+<h3>라흐티 (핀란드)</h3>
+<span class="label">선정 이유</span>
+<p>관광뿐 아니라 도시의 탄소중립·순환경제 정책과 자연관광이 연결된 사례다.</p>
+<span class="label">학생들이 볼 핵심</span>
+<p class="key">지속가능성 + 순환경제 + 스마트 모빌리티</p>
+</article>
+
+<article class="card green-card">
+<h3>이비자 (스페인)</h3>
+<span class="label">선정 이유</span>
+<p>전형적인 해변·대량관광 목적지가 관광압력과 해양환경 문제에 지속가능성 정책으로 대응하는 사례다.</p>
+<span class="label">학생들이 볼 핵심</span>
+<p class="key">오버투어리즘 + 해양환경 + 데이터 기반 관광관리</p>
+</article>
+
+<article class="card green-card">
+<h3>타르투 (에스토니아)</h3>
+<span class="label">선정 이유</span>
+<p>바이오메탄 버스, 스마트 자전거, 재생에너지와 문화·창조관광을 결합한다.</p>
+<span class="label">학생들이 볼 핵심</span>
+<p class="key">친환경 모빌리티 + 스마트시티 + 문화관광</p>
+</article>
+
+<article class="card green-card">
+<h3>아베이루 (포르투갈)</h3>
+<span class="label">선정 이유</span>
+<p>공유자전거 GPS, 전기 페리·버스, 폐기물 인센티브처럼 구체적이고 이해하기 쉬운 정책이 많다.</p>
+<span class="label">학생들이 볼 핵심</span>
+<p class="key">전기교통 + 데이터 + 순환경제 + 주민참여</p>
+</article>
+</div>
+
+<h2>③ 후보도시 심화 설명 — 왜 이 도시를 발표시키는가?</h2>
+<div class="deep-dive">
+<article class="deep star">
+<h3>★ 브뤼헤 (벨기에)</h3>
+<ul>
+<li>접근성 계획</li>
+<li>실시간 도시데이터 플랫폼 <strong>Urban Sense</strong></li>
+<li><strong>Urban Digital Twin</strong></li>
+<li>군중관리 시스템</li>
+<li>크루즈 입항 제한</li>
+</ul>
+<div class="question">수업 질문: “문화유산 관광도시는 관광객을 많이 받는 것이 좋은가, 잘 관리하는 것이 좋은가?”</div>
+</article>
+
+<article class="deep">
+<h3>산세바스티안 (스페인)</h3>
+<ul>
+<li>300개 이상의 지역 중소기업·시민·공공·민간 이해관계자 참여</li>
+<li>Tourism Observatory 활용</li>
+<li>Big Data와 Open Data를 관광정책에 적용</li>
+<li>미식관광과 도시 거버넌스 연결</li>
+</ul>
+<div class="question">수업 질문: “스마트관광에서 기술보다 이해관계자 참여가 더 중요할 수 있는가?”</div>
+</article>
+
+<article class="deep">
+<h3>라흐티 (핀란드)</h3>
+<ul>
+<li>탄소중립 정책</li>
+<li>순환경제</li>
+<li>친환경 이동수단</li>
+<li>자연관광과 도시 지속가능성 연결</li>
+</ul>
+<div class="question">수업 질문: “관광정책이 아니라 도시정책 자체가 스마트관광 경쟁력이 될 수 있는가?”</div>
+</article>
+</div>
+
+<div class="note">
+<strong>발표 운영 원칙</strong><br>
+수상도시는 먼저 배치하고, 최종후보는 단순히 유명한 도시가 아니라 서로 다른 스마트관광 전략을 비교할 수 있는 사례를 선택한다.
+모든 팀은 가능하면 <strong>문제 → 기술·서비스 → 관광객/도시 효과 → 4대 영역(Accessibility · Sustainability · Digitalisation · Cultural Heritage &amp; Creativity) → 한국 적용 가능성</strong>의 동일한 틀로 발표한다.
+</div>
+
+
+</section>
 </div>
 </body>
 </html>
