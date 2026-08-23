@@ -451,6 +451,25 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .fig-side.vidside .fig-note > a { font-size: 12.5px; }
 @media (max-width: 760px) { .learn-article .fig-side.vidside { grid-template-columns: 1fr; } }
 
+/* 영상은 가운데, 곁주석은 그 위 한 줄짜리 상자로 —
+   좌우로 갈라 두면 주석이 세로로 길어져 영상이 작아진다. 위아래로 쌓으면 둘 다 넓게 쓴다. */
+.learn-article .fig-side.vidstack { display: block; margin: 30px 0; }
+.learn-article .fig-side.vidstack .fig-note {
+  border: 1px solid #c8ddf0; border-left: 1px solid #c8ddf0; border-radius: 12px;
+  background: #f7fafd; padding: 14px 17px 12px; margin: 0 0 18px;
+}
+.learn-article .fig-side.vidstack .fig-note p { margin-bottom: 7px; }
+.learn-article .fig-side.vidstack .fig-note p:last-child { margin-bottom: 0; }
+/* 넓어진 만큼 알약 줄은 세로로 쌓지 말고 가로로 흘린다 */
+.learn-article .fig-side.vidstack .fig-note p.ftag {
+  flex-direction: row; flex-wrap: wrap; align-items: center; gap: 6px;
+  margin: 9px 0 7px; padding-top: 9px; border-top: 1px dashed #cfdcea;
+}
+.learn-article .fig-side.vidstack .fig-note p.ftag a { margin: 0; }
+/* 영상 — 가운데 두고 폭만 제한한다 */
+.learn-article .fig-side.vidstack .learn-fig { margin: 0 auto; max-width: 720px; }
+.learn-article .fig-side.vidstack .learn-fig figcaption { text-align: center; }
+
 .learn-article .fig-side .learn-fig.figleft { text-align: left; margin: 0; }
 .learn-article .fig-side .learn-fig.figleft img { margin: 0; max-width: 100%; }
 
