@@ -233,8 +233,8 @@ body.hub .lw { max-width: 1160px; }
    파트 01처럼 사례 상자(.case-box)와 카드가 번갈아 서는 자리에서 모양을 맞춘다.
    색은 --s-ln(테두리) · --s-bg(바탕)로 받고, 없으면 파트 01 기본 파랑을 쓴다. */
 .learn-article .reslist li.hi.box {
-  border: 1px solid var(--s-ln, #c8ddf0); border-radius: 12px;
-  background: var(--s-bg, #f7fafd); padding: 15px 17px 13px;
+  border: 1px solid var(--s-ln, var(--t-ln, #c8ddf0)); border-radius: 12px;
+  background: var(--s-bg, var(--t-bg, #f7fafd)); padding: 15px 17px 13px;
 }
 .learn-article .reslist li.hi.tone.navy.box {
   --s-ac: #123556; --s-dk: #0e2a45; --s-ln: #9fb6cc; --s-bg: #eaeff5;   /* 예고 상자 셋째 칸과 같은 바탕 */
