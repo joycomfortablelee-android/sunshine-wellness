@@ -972,14 +972,20 @@ body.mod-smart .learn-article .citylist { font-size: var(--fs-sub); }
   border: 1px solid var(--line); background: #fff; color: var(--muted);
   padding: 6px 12px; border-radius: 999px; cursor: pointer; transition: .18s;
 }
-.deck-dots button:hover { border-color: var(--green); color: var(--green); }
-.deck-dots button[aria-current="true"] { background: var(--green); border-color: var(--green); color: #fff; }
+/* 파트 05 이론 슬라이드 — 탭도 이 파트의 색(연노랑 계열의 다크 골드)으로.
+   슬라이드 바탕이 #fcf4dc 라 초록 탭이 그 위에서 겉돌았다. */
+.deck-dots button:hover { border-color: #a8862c; color: #7a6417; }
+.deck-dots button[aria-current="true"] { background: #7a6417; border-color: #7a6417; color: #fff; }
 .deck-toggle {
   font: inherit; font-size: 12px; font-weight: 700; color: var(--muted);
   background: none; border: 0; border-bottom: 1px solid currentColor;
   padding: 0 0 2px; cursor: pointer; transition: .18s;
 }
-.deck-toggle:hover { color: var(--green); }
+.deck-toggle:hover { color: #7a6417; }
+/* 좌우 이동 단추와 쪽수도 같은 계열로 */
+.deck-prev:hover, .deck-next:hover { border-color: #a8862c; color: #7a6417; }
+.deck-count { color: #8a7a4e; }
+
 
 .deck--on .deck-view { min-height: 330px; }
 .deck--on .slide { animation: deck-in .26s ease both; }
