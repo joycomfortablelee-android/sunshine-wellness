@@ -533,6 +533,12 @@ body.mod-smart .learn-article .citylist { font-size: var(--fs-sub); }
 }
 @media (max-width: 860px) { .learn-article .fig-note .embed-box iframe { height: 260px; } }
 
+/* 파트 06 연구 — 곁주석 바탕만 아주 연한 보라로 둔다.
+   안쪽 표·작은 창·링크는 원래 색을 지킨다 — 바탕만 바꿔도 구간은 충분히 갈린다. */
+.learn-article .fig-side.res .fig-note {
+  background: #f8f6fd; border-left-color: #a595cf; border-color: #e4dcf5;
+}
+
 /* 곁주석 첫 줄 — 두 링크를 나란히 */
 .learn-article .fig-note p.ntop { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 7px; }
 .learn-article .fig-note p.ntop a { font-size: 11px; font-weight: 800; border-bottom: 0;
