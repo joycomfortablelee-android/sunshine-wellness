@@ -891,6 +891,10 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .badge.open { background: #fcf4dc; color: #8a6100; border: 1px solid #e3c369; }
 .learn-article .badge.watch { background: #eef3fb; color: #1c4e8a; border: 1px solid #bcd4ee; }
 .learn-article .badge.closed { background: #f2f3f1; color: #7b8783; border: 1px solid #dfe2df; }
+/* 갓 나온 자료 — 목록에서 최신판을 먼저 집게 한다 */
+.learn-article .badge.new { background: #fdf0e8; color: #a8431b; border: 1px solid #e6b49b; }
+.learn-article .reslist a .badge.new { margin-right: 7px; vertical-align: 2px; }
+.learn-article .reslist.books li.fresh { border-left-color: #d8a887; }
 .learn-article .reslist a .badge.now { margin-right: 7px; vertical-align: 2px; font-size: 11px; }
 .learn-article table.ref td.stat { white-space: nowrap; }
 .learn-article table.ref td.pri .jr { white-space: normal; letter-spacing: 0; text-align: center; }
