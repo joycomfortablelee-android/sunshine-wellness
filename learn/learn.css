@@ -778,6 +778,21 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .learn-part.pt-step.r2 { --s-ac:#2a9d8f; --s-dk:#1f7a70; --s-ln:#a9d7cf; }
 .learn-article .learn-part.pt-step.r3 { --s-ac:#1f7a70; --s-dk:#17635a; --s-ln:#96cbc2; }
 .learn-article .learn-part.pt-step.r4 { --s-ac:#14554e; --s-dk:#0f4740; --s-ln:#84bcb2; }
+
+/* 파트 02 카드 — 읽기 순서대로 청록이 짙어진다.
+   태그(.pt-step.r1~r4)와 같은 계열이라 태그 색이 곧 그 구간의 색이 된다.
+   --t-ac/--t-dk 는 카드 안 글자·링크가 쓰므로 함께 정한다. */
+.learn-article .reslist li.hi.tone.rd2 { --t-bg:#eaf6f3; --t-ln:#bfe0da; --t-ac:#2a9d8f; --t-dk:#1f7a70; }
+.learn-article .reslist li.hi.tone.rd3 { --t-bg:#e1f1ed; --t-ln:#a9d7cf; --t-ac:#22887c; --t-dk:#17635a; }
+.learn-article .reslist li.hi.tone.rd4 { --t-bg:#d8ece7; --t-ln:#96cbc2; --t-ac:#1a6f66; --t-dk:#0f4740; }
+/* 읽기 4의 짝 — 「녹색 선도 도시」는 상 이름이 곧 색이라 초록을 지킨다.
+   대신 램프의 마지막 칸과 같은 무게가 되도록 한 단계 낮춘다. */
+.learn-article .reslist li.hi.tone.green.rd4g { --t-bg:#e2f1ea; --t-ln:#b6d9c8; --t-ac:#169873; --t-dk:#0f6b52; }
+
+/* 읽기 1 — 램프의 첫 칸은 카드가 아니라 영상 곁주석 상자다 */
+.learn-article .fig-side.vidstack .fig-note {
+  border-color: #cfe9e4; border-left-color: #cfe9e4; background: #f2faf8;
+}
 .learn-article .learn-part.pt-step + .case-box,
 .learn-article .learn-part.pt-step + * > .reslist,
 .learn-article .learn-part.pt-step + .reslist { margin-top: 0; }
