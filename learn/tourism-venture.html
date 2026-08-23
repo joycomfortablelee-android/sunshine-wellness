@@ -11,7 +11,7 @@
   <meta property="og:description" content="문제 정의부터 비즈니스 모델·시장 검증·지원 제도까지, 이 사이트를 사례로" />
   <link rel="icon" href="data:," />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="learn.css?v=149" />
+  <link rel="stylesheet" href="learn.css?v=151" />
   <style>
     /* 강조 카드에 그라데이션 — 왼쪽 액센트 색에서 흰색으로 풀린다.
        파란 카드(li.hi)는 중요 표시이므로 파랑을 그대로 살린다. */
@@ -237,6 +237,52 @@
     .learn-article .learn-part.lp-book .ptag { background: #7a6417; }
     .learn-article .book-fig .learn-fig { max-width: 900px; }
     .learn-article .bk-map { display: block; font-size: 15px; font-weight: 800; color: #7a6417; margin-bottom: 4px; }
+    /* 사업계획서 P·S·S·T — 수렴도와 같은 방식으로 네 칸을 나란히 */
+    .learn-article .psst { margin: 0 0 26px; }
+    .learn-article .psst-h { font-size: 15.5px; font-weight: 800; color: #1f382f; margin: 0 0 4px; }
+    .learn-article .psst-h span {
+      font-size: 11px; font-weight: 800; letter-spacing: .12em; margin-left: 8px;
+      padding: 2px 9px; border-radius: 999px; background: #2f5148; color: #fff; vertical-align: 2px;
+    }
+    .learn-article .psst-lead { font-size: 12.5px; line-height: 1.75; color: var(--muted); margin: 0 0 10px; }
+    .learn-article .psst-lead strong { color: #1f382f; }
+    .learn-article .psst-grid {
+      list-style: none; margin: 0; padding: 0;
+      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px;
+    }
+    @media (max-width: 900px) { .learn-article .psst-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 560px) { .learn-article .psst-grid { grid-template-columns: 1fr; } }
+    .learn-article .psst-grid li {
+      position: relative; margin: 0; padding: 12px 13px 13px; border-radius: 10px;
+      border: 1px solid var(--pc); background: var(--pb); border-left-width: 4px;
+    }
+    .learn-article .psst-grid .ps1 { --pc: #2563a8; --pb: #f2f7fb; --pt: #1c4e8a; }
+    .learn-article .psst-grid .ps2 { --pc: #2a9d8f; --pb: #eff7f5; --pt: #1f7a70; }
+    .learn-article .psst-grid .ps3 { --pc: #c9871f; --pb: #fdf6ec; --pt: #8a5a17; }
+    .learn-article .psst-grid .ps4 { --pc: #7a67a8; --pb: #f6f4fc; --pt: #56487a; }
+    .learn-article .psst-grid .n {
+      display: inline-block; width: 22px; height: 22px; line-height: 22px; text-align: center;
+      border-radius: 6px; background: var(--pc); color: #fff; font-size: 12px; font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .learn-article .psst-grid strong { display: block; font-size: 14px; font-weight: 800; color: var(--pt); }
+    .learn-article .psst-grid em {
+      display: block; font-style: normal; font-size: 10.5px; font-weight: 700;
+      letter-spacing: .08em; color: var(--pc); margin-bottom: 6px;
+    }
+    .learn-article .psst-grid .d { display: block; font-size: 12px; line-height: 1.7; color: #4b5a55; }
+    .learn-article .psst-grid .d b { color: var(--pt); font-weight: 700; }
+    .learn-article .psst-grid .lk {
+      display: block; margin-top: 7px; padding-top: 7px; border-top: 1px dashed var(--pc);
+      font-size: 11px; line-height: 1.6; color: var(--muted);
+    }
+    .learn-article .psst-grid .lk b { color: var(--pt); }
+    .learn-article .psst-tip {
+      margin: 10px 0 0; padding: 10px 13px; border-radius: 9px;
+      background: #fdf0e8; border: 1px dashed #e6b49b;
+      font-size: 12px; line-height: 1.75; color: #7a4a35;
+    }
+    .learn-article .psst-tip b, .learn-article .psst-tip strong { color: #a8431b; }
     /* 교재 두 권을 나란히 — 클릭하면 원본 크기로 열린다 */
     .learn-article .book-pair {
       display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 14px 0 20px;
@@ -418,6 +464,26 @@
         <p class="tb-d"><strong>이 강의가 그대로 각 칸이 됩니다</strong> — <strong>02장 문제 정의</strong>(누구의·어떤 문제인가·왜 지금인가)가 창업 아이템의 필요성 칸으로, <strong>03장 비즈니스 모델</strong>(가치 제안·고객·수익 구조)이 사업화 전략 칸으로, <strong>04장 시장 검증</strong>(MVP·고객 인터뷰·사전예약)이 실현 가능성 칸으로 들어갑니다. 아래 06장까지 읽고 나면 빈칸이 대부분 채워져 있을 것입니다.</p>
         <p class="tb-d"><strong>학생이 자주 비우는 칸이 둘입니다</strong> — <strong>시장 규모와 근거</strong>는 상상하지 말고 <em>PRISM 정책연구용역</em>과 <em>한국관광 데이터랩</em>에서 숫자를 가져오십시오. <strong>차별성</strong>은 "저희는 다릅니다"가 아니라 <em>비건부산의 등급 체계</em>처럼 <strong>남이 따라 하기 어려운 규칙 하나</strong>를 적어야 합니다.</p>
         <p class="tb-tags"><a class="mapl form hot" href="assets/tourism-venture-18th-business-plan-form.hwp" download="[붙임] 제18회 예비관광벤처부문 사업계획서 양식.hwp">사업계획서 양식 ⤓ HWP</a><a class="mapl form" href="https://www.touraz.kr/" target="_blank" rel="noopener">투어라즈 공고 원문 ↗</a><a class="mapl form" href="https://viewer.knto.or.kr:1265/v/pNgUzf4SZFx" target="_blank" rel="noopener">공고문 원문 뷰어 ↗</a><a class="mapl form ex" href="assets/busan-vegan-platform-proposal.pdf" target="_blank" rel="noopener">참고 · 비건부산 제안서 ↗</a><span class="tb-src">공고 회차는 해마다 바뀌지만 <b>칸 구성은 거의 그대로</b>입니다 — 지금 써 두면 다음 회차에 그대로 냅니다.</span></p>
+      </div>
+
+      <div class="psst">
+        <p class="psst-h">사업계획서는 네 칸으로 되어 있습니다 <span>P · S · S · T</span></p>
+        <p class="psst-lead">공고마다 서식이 조금씩 다르지만 <strong>묻는 것은 거의 같습니다</strong>. 이 네 칸의 순서가 곧 심사자가 읽는 순서이고, <strong class="hot-t">앞 칸이 흔들리면 뒤 칸은 읽히지 않습니다</strong> — 문제가 분명하지 않으면 아무리 좋은 솔루션도 「그래서 왜?」로 되돌아옵니다.</p>
+        <ol class="psst-grid">
+          <li class="ps1"><span class="n">P</span><strong>문제 인식</strong><em>Problem</em>
+            <span class="d">창업 아이템의 <b>개발 동기</b>, 기존 시장의 <b>문제점</b>과 그것을 해결해야 하는 이유.</span>
+            <span class="lk">↔ 이 페이지 <b>02장</b> 아이디어는 문제에서 나온다 · WHO · WHAT · WHY NOW</span></li>
+          <li class="ps2"><span class="n">S</span><strong>실현 가능한 솔루션</strong><em>Solution</em>
+            <span class="d"><b>비즈니스 모델(BM)</b>, 서비스·제품을 어떻게 구현할 것인가, 개발 전략.</span>
+            <span class="lk">↔ <b>03장</b> 비즈니스 모델 · <b>04장</b> 린 스타트업(MVP로 먼저 검증)</span></li>
+          <li class="ps3"><span class="n">S</span><strong>성장 전략</strong><em>Scale-up</em>
+            <span class="d"><b>자금 유치</b>와 규모를 키우는 계획, <b>홍보·마케팅</b> 등 시장에서의 활동.</span>
+            <span class="lk">↔ <b>05장</b> 창업 생태계와 지원 · 교재 6장 투자와 펀딩 · 8장 창업마케팅</span></li>
+          <li class="ps4"><span class="n">T</span><strong>팀 구성</strong><em>Team</em>
+            <span class="d">대표자의 <b>역량</b>, 추가로 채울 자리와 <b>협력 네트워크</b>, 인력 채용 계획.</span>
+            <span class="lk">↔ 학생이 가장 얕게 쓰는 칸 — <b>과제 2</b>에서 회사를 뜯어본 눈이 여기 쓰입니다</span></li>
+        </ol>
+        <p class="psst-tip"><b>학생 원고에서 자주 무너지는 곳</b> — <strong>P에 통계가 없고</strong>(PRISM·데이터랩에서 숫자를 가져오십시오), <strong>S(솔루션)에 검증이 없고</strong>(만들기 전에 물어본 흔적이 있어야 합니다), <strong>T에 「열심히 하겠습니다」만 있습니다</strong>(없는 역량은 협력 네트워크로 메운다고 쓰는 편이 정직하고 강합니다).</p>
       </div>
 
       <div class="syl-box cal">

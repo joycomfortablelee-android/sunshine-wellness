@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>스마트 관광도시 시범사업 원형 맵 · 압축판</title>
+<style>
+
+:root{
+  --navy:#17365D;
+  --ink:#1F2D3D;
+  --muted:#6B7A8E;
+  --bg:#F6F8FB;
+  --white:#FFFFFF;
+
+  --safety:#7256BC;
+  --content:#2D6FC2;
+  --parking:#2C9661;
+  --map:#2387A9;
+  --payment:#E27A2E;
+  --esg:#2C9A8D;
+}
+*{box-sizing:border-box}
+html,body{
+  margin:0;padding:0;background:var(--bg);
+  font-family:"Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",Arial,sans-serif;
+  color:var(--ink)
+}
+
+/* 내용은 그대로 두고 빈 여백만 압축 */
+.page{padding:8px 8px 14px}
+.header{text-align:center;margin-bottom:4px}
+.header h1{margin:0;color:var(--navy);font-size:28px;font-weight:900;letter-spacing:-1px;line-height:1.1}
+.header p{margin:2px 0 0;color:var(--muted);font-size:12px;font-weight:700;line-height:1.2}
+
+.stage{
+  position:relative;
+  width:min(1260px,98.5vw);
+  height:650px;
+  margin:0 auto;
+  background:#fff;
+  border:1px solid #E0E7EF;
+  border-radius:20px;
+  box-shadow:0 8px 24px rgba(23,54,93,.07);
+  overflow:hidden;
+}
+.ring{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:560px;height:560px;border:2px dashed #DCE5EF;border-radius:50%;pointer-events:none
+}
+svg.links{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+
+.center{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:205px;height:205px;border-radius:50%;
+  border:5px solid var(--navy);
+  background:linear-gradient(180deg,#fff,#F4F8FD);
+  box-shadow:0 8px 22px rgba(23,54,93,.13);
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  z-index:5;padding:14px
+}
+.center .k{font-size:31px;line-height:1.16;font-weight:900;color:var(--navy);letter-spacing:-1px}
+.center .e{margin-top:5px;font-size:12px;font-weight:800;color:#63758B}
+.center .core{margin-top:5px;font-size:10.5px;line-height:1.3;color:#6B7A8E;font-weight:700}
+
+.node{
+  position:absolute;
+  width:340px;
+  min-height:0;
+  background:#fff;
+  border:3px solid currentColor;
+  border-radius:22px;
+  box-shadow:0 6px 16px rgba(31,45,61,.08);
+  z-index:4;
+  padding:10px 12px 9px;
+  transition:.18s ease;
+  cursor:pointer;
+}
+.node:hover,.node.active{transform:scale(1.015);box-shadow:0 9px 22px rgba(31,45,61,.12)}
+.head{display:flex;align-items:center;gap:8px;margin-bottom:5px}
+.icon{
+  width:40px;height:40px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;background:color-mix(in srgb, currentColor 10%, white)
+}
+.title-wrap{min-width:0}
+.title{font-size:22px;line-height:1.02;font-weight:900;letter-spacing:-.7px}
+.eng{font-size:10.5px;color:#77869A;font-weight:800;margin-top:1px}
+.keyword{
+  display:inline-block;
+  margin-bottom:5px;
+  padding:3px 7px;
+  border-radius:999px;
+  background:#F5F8FB;
+  color:#55667A;
+  font-size:10.5px;
+  font-weight:800;
+  line-height:1.2;
+}
+.projects{display:grid;gap:4px}
+.project{
+  border:1px solid #E4EAF0;
+  border-radius:9px;
+  padding:5px 7px;
+  background:#fff;
+}
+.project b{
+  display:block;
+  color:currentColor;
+  font-size:12px;
+  line-height:1.18;
+  margin-bottom:1px;
+}
+.project .desc{
+  font-size:11px;
+  line-height:1.26;
+  color:#4E5E70;
+  word-break:keep-all;
+}
+.project .tag{
+  display:inline-block;
+  margin-top:2px;
+  padding:1px 5px;
+  border-radius:999px;
+  background:#EFF4F8;
+  color:#64748B;
+  font-size:9.5px;
+  line-height:1.35;
+  font-weight:800;
+}
+
+/* 위치만 안쪽으로 당겨 흰 여백 축소 */
+.safety{color:var(--safety);left:12px;top:28px}
+.content{
+  color:var(--content);
+  left:50%;top:12px;transform:translateX(-50%);
+  width:400px;
+}
+.content:hover,.content.active{transform:translateX(-50%) scale(1.015)}
+.parking{color:var(--parking);right:12px;top:28px}
+.map{color:var(--map);right:16px;bottom:18px}
+.payment{
+  color:var(--payment);
+  left:50%;bottom:8px;transform:translateX(-50%);
+  width:350px;
+}
+.payment:hover,.payment.active{transform:translateX(-50%) scale(1.015)}
+.esg{color:var(--esg);left:16px;bottom:18px}
+
+.footer-note{
+  width:min(1260px,98.5vw);
+  margin:4px auto 0;
+  display:flex;gap:5px;flex-wrap:wrap;justify-content:center;
+  color:#607186;font-size:10.5px
+}
+.footer-note span{
+  background:#fff;border:1px solid #E0E7EF;border-radius:999px;padding:3px 7px;
+}
+
+@media (max-width:980px){
+  .stage{
+    height:auto;padding:12px;
+    display:grid;grid-template-columns:1fr;gap:8px;
+  }
+  .ring,svg.links{display:none}
+  .center,.node{
+    position:relative !important;
+    inset:auto !important;
+    left:auto !important; right:auto !important; top:auto !important; bottom:auto !important;
+    transform:none !important;
+    margin:0 auto;
+    width:min(460px,98%);
+  }
+  .center{width:195px;height:195px}
+  .content:hover,.content.active,.payment:hover,.payment.active{transform:scale(1.01)!important}
+}
+
+
+.source{
+  width:min(1260px,98.5vw);
+  margin:5px auto 0;
+  text-align:right;
+  font-size:10.5px;
+  color:#6B7A8E;
+}
+.source a{
+  color:#4F6480;
+  text-decoration:none;
+}
+.source a:hover{
+  text-decoration:underline;
+}
+
+
+.source-detail{
+  width:min(1260px,98.5vw);
+  margin:2px auto 0;
+  text-align:right;
+  font-size:9.5px;
+  line-height:1.35;
+  color:#8793A3;
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="header">
+    <h1>스마트 관광도시</h1>
+    <p>실제 시범사업 기능 연결</p>
+  </header>
+
+  <main class="stage">
+    <div class="ring"></div>
+
+    <svg class="links" viewBox="0 0 1320 720" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M660 360 C500 285 350 215 190 160" fill="none" stroke="#7256BC" stroke-width="10" stroke-linecap="round"/>
+      <path d="M660 360 C660 245 660 175 660 132" fill="none" stroke="#2D6FC2" stroke-width="10" stroke-linecap="round"/>
+      <path d="M660 360 C820 285 970 215 1130 160" fill="none" stroke="#2C9661" stroke-width="10" stroke-linecap="round"/>
+      <path d="M660 360 C820 435 965 520 1110 572" fill="none" stroke="#2387A9" stroke-width="10" stroke-linecap="round"/>
+      <path d="M660 360 C660 480 660 565 660 620" fill="none" stroke="#E27A2E" stroke-width="10" stroke-linecap="round"/>
+      <path d="M660 360 C500 435 355 520 210 572" fill="none" stroke="#2C9A8D" stroke-width="10" stroke-linecap="round"/>
+    </svg>
+
+    <div class="center">
+      <div>
+        <div class="k">스마트<br>관광도시</div>
+        <div class="e">SMART TOURISM CITY</div>
+        <div class="core">관광 문제 × 기술 × 서비스</div>
+      </div>
+    </div>
+
+    <section class="node safety" tabindex="0">
+      <div class="head">
+        <div class="icon">🛡️</div>
+        <div class="title-wrap">
+          <div class="title">안전</div>
+          <div class="eng">Smart Safety</div>
+        </div>
+      </div>
+      <div class="keyword">혼잡 · 이상 탐지 · 응급 대응</div>
+      <div class="projects">
+        <div class="project">
+          <b>아이티비(주)</b>
+          <div class="desc">Project Go AI · 안전 이상 탐지</div>
+          <span class="tag">AI 이상 탐지</span>
+        </div>
+        <div class="project">
+          <b>피치에이아이</b>
+          <div class="desc">유동인구 분석 · 혼잡도 예측</div>
+          <span class="tag">혼잡도</span>
+        </div>
+        <div class="project">
+          <b>(주)시정</b>
+          <div class="desc">야외 이동식 AED 키오스크</div>
+          <span class="tag">응급 대응</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="node content" tabindex="0">
+      <div class="head">
+        <div class="icon">🤖</div>
+        <div class="title-wrap">
+          <div class="title">콘텐츠</div>
+          <div class="eng">Smart Content</div>
+        </div>
+      </div>
+      <div class="keyword">AI 안내 · 관광정보</div>
+      <div class="projects">
+        <div class="project">
+          <b>(주)애프터워크</b>
+          <div class="desc">AI 챗봇 + 말하는 캐릭터 축제안내</div>
+          <span class="tag">AI 관광가이드</span>
+        </div>
+        <div class="project">
+          <b>관광약자 맞춤 안내</b>
+          <div class="desc">장애인 · 노인 · 외국인 지능형 가이드</div>
+          <span class="tag">포용형 콘텐츠</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="node parking" tabindex="0">
+      <div class="head">
+        <div class="icon">🅿️</div>
+        <div class="title-wrap">
+          <div class="title">스마트 주차</div>
+          <div class="eng">Smart Parking</div>
+        </div>
+      </div>
+      <div class="keyword">축제 주차 혼잡 해결</div>
+      <div class="projects">
+        <div class="project">
+          <b>(주)베스텔라랩</b>
+          <div class="desc">영상기반 주차정보 통합시스템</div>
+          <span class="tag">주차정보</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="node map" tabindex="0">
+      <div class="head">
+        <div class="icon">🗺️</div>
+        <div class="title-wrap">
+          <div class="title">스마트 지도</div>
+          <div class="eng">Smart Map</div>
+        </div>
+      </div>
+      <div class="keyword">디지털 지도 · XR · 접근성</div>
+      <div class="projects">
+        <div class="project">
+          <b>(주)다비오</b>
+          <div class="desc">API 연동 지역축제 디지털 지도</div>
+          <span class="tag">지도</span>
+        </div>
+        <div class="project">
+          <b>딥파인</b>
+          <div class="desc">XR 공간정보 · DSC</div>
+          <span class="tag">XR</span>
+        </div>
+        <div class="project">
+          <b>교통약자 경로 안내</b>
+          <div class="desc">웹 기반 경로 안내 서비스</div>
+          <span class="tag">접근성</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="node payment" tabindex="0">
+      <div class="head">
+        <div class="icon">📱</div>
+        <div class="title-wrap">
+          <div class="title">스마트 결제</div>
+          <div class="eng">Smart Payment</div>
+        </div>
+      </div>
+      <div class="keyword">QR · 모바일 · 대기관리</div>
+      <div class="projects">
+        <div class="project">
+          <b>(주)유디아이디</b>
+          <div class="desc">페이앱 · 모바일·QR 결제</div>
+          <span class="tag">결제</span>
+        </div>
+        <div class="project">
+          <b>테이블매니저</b>
+          <div class="desc">대기 및 결제 솔루션</div>
+          <span class="tag">대기·결제</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="node esg" tabindex="0">
+      <div class="head">
+        <div class="icon">♿</div>
+        <div class="title-wrap">
+          <div class="title">ESG · 접근성</div>
+          <div class="eng">ESG & Accessibility</div>
+        </div>
+      </div>
+      <div class="keyword">관광약자 · 포용관광</div>
+      <div class="projects">
+        <div class="project">
+          <b>(주)애프터워크</b>
+          <div class="desc">관광약자 대상 AI 안내</div>
+          <span class="tag">포용관광</span>
+        </div>
+        <div class="project">
+          <b>(주)다비오</b>
+          <div class="desc">교통약자 경로 안내</div>
+          <span class="tag">이동 접근성</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="footer-note">
+    <span>원자료의 시범사업을 기능 중심으로 압축 정리</span>
+    <span>콘텐츠 박스는 넓게 조정해 겹침 최소화</span>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('.node').forEach(el=>{
+  el.addEventListener('click',()=>{
+    document.querySelectorAll('.node').forEach(x=>x.classList.remove('active'));
+    el.classList.add('active');
+  });
+  el.addEventListener('keydown',e=>{
+    if(e.key==='Enter' || e.key===' '){e.preventDefault();el.click();}
+  });
+});
+</script>
+
+<div class="source">
+  출처: 온오프믹스 ·
+  <a href="https://www.onoffmix.com/event/304269" target="_blank" rel="noopener noreferrer">
+    https://www.onoffmix.com/event/304269
+  </a>
+</div>
+
+<div class="source-detail">
+  스마트한 지역관광 문제해결 해커톤 · 스마트기술을 접목한 지역관광 현안 해결을 위한 아이디어 발굴 및 시범사업 참가기업 모집 · 이벤트기간: 2024.8.2 (금) 13:00 ~ 17:30
+</div>
+
+</body>
+</html>

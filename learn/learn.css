@@ -1120,6 +1120,35 @@ body.mod-smart .lw { max-width: 1160px; }
 /* 관광벤처창업론 과제 상자 */
 .learn-article .task-box.vt { --s-ac:#2f5148; --s-dk:#1f382f; --s-ln:#c4dbd2; --s-bg:#eff5f2; }
 .learn-article .task-box.vt2 { --s-ac:#2563a8; --s-dk:#1c4e8a; --s-ln:#b2cae2; --s-bg:#eff5fa; }
+
+/* ===== 미리보기 카드 — 그림을 먼저 보여 눌러보게 만든다 =====
+   링크 한 줄로 두면 학생이 지나친다. 안에 무엇이 있는지 그려 두면 손이 간다. */
+.learn-article .pv-card {
+  display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 18px; align-items: center;
+  border: 1px solid #c3d2e2; border-radius: 12px; background: #f7fafd;
+  padding: 16px 18px; margin: 18px 0 26px; border-bottom: 1px solid #c3d2e2;
+  transition: box-shadow .18s, transform .18s, background .18s;
+}
+.learn-article .pv-card:hover {
+  background: #fff; border-color: #17395f; transform: translateY(-2px);
+  box-shadow: 0 8px 24px -12px rgba(23,57,95,.45);
+}
+@media (max-width: 760px) { .learn-article .pv-card { grid-template-columns: 1fr; } }
+.learn-article .pv-fig { display: block; background: #fff; border: 1px solid #dbe6f2; border-radius: 10px; padding: 6px; }
+.learn-article .pv-fig svg { display: block; width: 100%; height: auto; }
+.learn-article .pv-body { display: block; }
+.learn-article .pv-t {
+  display: block; font-size: 15.5px; font-weight: 800; color: #17395f; line-height: 1.5; margin-bottom: 6px;
+}
+.learn-article .pv-t b {
+  font-size: 11.5px; font-weight: 800; margin-left: 6px; padding: 2px 9px; border-radius: 999px;
+  background: #17395f; color: #fff; vertical-align: 2px;
+}
+.learn-article .pv-card:hover .pv-t b { background: #0e2a45; }
+.learn-article .pv-d { display: block; font-size: 12.5px; line-height: 1.75; color: var(--muted); margin-bottom: 5px; }
+.learn-article .pv-d strong { color: #17395f; }
+.learn-article .pv-d em { font-style: normal; color: #52697f; font-weight: 600; }
+.learn-article .pv-src { display: block; font-size: 11.5px; color: #8a938f; margin-top: 4px; }
 .learn-article .task-box .tb-tags a.mapl.form.hot {
   background: var(--s-dk, #1c4e8a); border-style: solid; color: #fff;
 }
