@@ -817,8 +817,18 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .roadmap .rm-case  { --r-ac:#1b4a7e; --r-hv:#123556; --r-sh:rgba(27,74,126,.34); }
 .learn-article .roadmap .rm-do    { --r-ac:#8a4f14; --r-hv:#63380c; --r-sh:rgba(138,79,20,.34); }
 .learn-article .roadmap .rm-learn { --r-ac:#2f5148; --r-hv:#1f382f; --r-sh:rgba(47,81,72,.34); }
-.learn-article .roadmap .rm-res   { --r-ac:#4d3f6e; --r-hv:#372c50; --r-sh:rgba(77,63,110,.34); }
-.learn-article .roadmap .rm-lib   { --r-ac:#3a4a45; --r-hv:#26332f; --r-sh:rgba(58,74,69,.34); }
+/* 파트 06·07도 한 칸에 두 파트다 — 06의 보라에서 07의 회록으로 건너간다.
+   둘 다 「인용할 근거를 찾는 곳」이라 하나로 묶었고, 색은 각자 것을 잇는다. */
+.learn-article .roadmap .rm-cite,
+.learn-article .roadmap3 .rm-cell.rm-cite {
+  background: linear-gradient(100deg, #4d3f6e 0%, #4a4560 46%, #414f49 78%, #3a4a45 100%);
+  border-color: #4a4560; --r-sh: rgba(74,69,96,.34);
+}
+.learn-article .roadmap .rm-cite:hover,
+.learn-article .roadmap3 .rm-cell.rm-cite:hover {
+  background: linear-gradient(100deg, #372c50 0%, #353046 46%, #2c3833 78%, #26332f 100%);
+  border-color: #353046;
+}
 /* 파트 01·02는 한 칸에 두 파트가 들어 있다 — 01의 남색에서 02의 청록으로 건너간다.
    본문에서 파트 01은 남색 램프, 파트 02는 청록 램프를 쓰므로 그 둘을 한 칸에 잇는 것이다. */
 .learn-article .roadmap .rm-case,
