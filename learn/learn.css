@@ -442,7 +442,7 @@ body.hub .lw { max-width: 1160px; }
 /* 책 넉 권 — 2행 2열. 마인드맵은 한 폭으로 세우고 책은 그 아래 네 칸으로 놓는다.
    칸마다 상자를 둘러야 설명 길이가 달라도 줄이 맞는다. */
 .learn-article .fig-solo { margin: 14px 0 22px; }
-.learn-article .fig-solo .learn-fig { margin: 0 auto; max-width: 760px; }
+.learn-article .fig-solo .learn-fig { margin: 0 auto; max-width: 520px; }
 .learn-article .fig-solo .learn-fig img { max-width: 100%; }
 .learn-article .fig-solo .learn-fig figcaption { text-align: center; }
 .learn-article .reslist.books.grid2 { gap: 14px; margin: 0 0 26px; align-items: stretch; }
@@ -793,6 +793,13 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .learn-part.pt-step.r2 { --s-ac:#2a9d8f; --s-dk:#1f7a70; --s-ln:#a9d7cf; }
 .learn-article .learn-part.pt-step.r3 { --s-ac:#1f7a70; --s-dk:#17635a; --s-ln:#96cbc2; }
 .learn-article .learn-part.pt-step.r4 { --s-ac:#14554e; --s-dk:#0f4740; --s-ln:#84bcb2; }
+
+/* 파트 03 카드 — 흐름 지도의 파트 03 색(번트오렌지)을 두 칸으로 잇는다.
+   위(공모 = 과녁)가 옅고 아래(실습 = 직접 만드는 자리)가 짙다. */
+.learn-article .reslist li.hi.tone.pd1 { --t-bg:#fdf6ec; --t-ln:#e8d4b2; --t-ac:#a8681f; --t-dk:#8a5a17; }
+.learn-article .reslist li.hi.tone.pd2 { --t-bg:#f8e9d6; --t-ln:#d9b782; --t-ac:#8a4f14; --t-dk:#6b3c0d; }
+/* 실습 카드는 본문에서 가장 무거운 자리라 테두리만 두껍게 남긴다 */
+.learn-article .reslist li.hi.tone.pd2.box { border-width: 2px; }
 
 /* 파트 02 카드 — 읽기 순서대로 청록이 짙어진다.
    태그(.pt-step.r1~r4)와 같은 계열이라 태그 색이 곧 그 구간의 색이 된다.
