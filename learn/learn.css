@@ -801,6 +801,13 @@ body.hub .lw { max-width: 1160px; }
 /* 실습 카드는 본문에서 가장 무거운 자리라 테두리만 두껍게 남긴다 */
 .learn-article .reslist li.hi.tone.pd2.box { border-width: 2px; }
 
+/* 파트 05 이론 슬라이드 — 흐름 지도의 딥그린을 카드로 잇는다 */
+.learn-article .reslist li.hi.tone.lc1 { --t-bg:#eff5f2; --t-ln:#c4dbd2; --t-ac:#3b6259; --t-dk:#2f5148; }
+/* 파트 07 국내 자료실 — 회록 3단계. 게시판 → 정기 보고서 → 자체 제작 순으로 짙어진다 */
+.learn-article .reslist li.hi.tone.lb1 { --t-bg:#f2f4f3; --t-ln:#d5ddda; --t-ac:#64756e; --t-dk:#48584f; }
+.learn-article .reslist li.hi.tone.lb2 { --t-bg:#eaeeed; --t-ln:#c9d3d0; --t-ac:#55665f; --t-dk:#3c4d48; }
+.learn-article .reslist li.hi.tone.lb3 { --t-bg:#e2e8e6; --t-ln:#bcc8c4; --t-ac:#46564f; --t-dk:#31423d; }
+
 /* 파트 02 카드 — 읽기 순서대로 청록이 짙어진다.
    태그(.pt-step.r1~r4)와 같은 계열이라 태그 색이 곧 그 구간의 색이 된다.
    --t-ac/--t-dk 는 카드 안 글자·링크가 쓰므로 함께 정한다. */
