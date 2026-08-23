@@ -945,6 +945,38 @@ body.hub .lw { max-width: 1160px; }
 /* 학사일정 달력 — 세 과목이 함께 쓰는 상자라 운영 안내보다 한 단계 가볍게 */
 .learn-article .syl-box.cal { border-width: 1px; background: #f7fafc; margin: 18px 0 26px; }
 .learn-article .syl-box.cal .syl-t { font-size: 14.5px; }
+
+/* ===== 과제 상자 — 「읽는 자료」와 「내가 채울 종이」를 갈라 놓는다 =====
+   사례 상자(.case-box)가 남의 도시라면 이쪽은 내 도시. 점선으로 성격을 나눈다. */
+.learn-article .task-box {
+  border: 1px dashed var(--s-ac, #2563a8); border-radius: 12px;
+  background: var(--s-bg, #f4f9fc); padding: 14px 17px 12px; margin: 0 0 8px;
+}
+.learn-article .task-box .tb-t {
+  margin: 0 0 6px; font-size: 14.5px; font-weight: 800; color: var(--s-dk, #1c4e8a); line-height: 1.5;
+}
+.learn-article .task-box .tb-t span {
+  font-size: 10.5px; font-weight: 700; letter-spacing: .04em; margin-left: 7px;
+  padding: 2px 8px; border-radius: 999px; background: var(--s-ac, #2563a8); color: #fff; vertical-align: 2px;
+}
+.learn-article .task-box .tb-d { margin: 0; font-size: 12.5px; line-height: 1.75; color: var(--muted); }
+.learn-article .task-box .tb-d strong { color: var(--s-dk, #1c4e8a); }
+.learn-article .task-box .tb-tags {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+  margin: 10px 0 0; padding-top: 9px; border-top: 1px dashed var(--s-ln, #c3d8ea);
+}
+.learn-article .task-box .tb-tags a.mapl.form {
+  display: inline-block; padding: 4px 10px; border-radius: 999px;
+  background: #fff; border: 1px dashed var(--s-dk, #1c4e8a); color: var(--s-dk, #1c4e8a);
+  font-size: 11.5px; font-weight: 700; border-bottom-width: 1px;
+}
+.learn-article .task-box .tb-tags a.mapl.form:hover {
+  background: var(--s-dk, #1c4e8a); border-color: var(--s-dk, #1c4e8a); color: #fff;
+}
+/* 예시 답안은 학생 양식과 성격이 달라 색을 뺀다 */
+.learn-article .task-box .tb-tags a.mapl.form.ex { border-style: solid; border-color: #b8862c; color: #8a5a17; }
+.learn-article .task-box .tb-tags a.mapl.form.ex:hover { background: #8a5a17; border-color: #8a5a17; color: #fff; }
+.learn-article .task-box .tb-src { font-size: 11.5px; color: #8a938f; }
 .learn-article .reslist a .badge.now { margin-right: 7px; vertical-align: 2px; font-size: 11px; }
 .learn-article table.ref td.stat { white-space: nowrap; }
 .learn-article table.ref td.pri .jr { white-space: normal; letter-spacing: 0; text-align: center; }
