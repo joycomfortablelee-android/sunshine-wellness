@@ -661,7 +661,7 @@ body.hub .lw { max-width: 1160px; }
 /* 진한 파랑 변형 — 사례가 둘 이상 이어질 때 뒤엣것을 갈라 놓는다.
    테두리만 진해지고 안은 그대로 흰 바탕이다. */
 .learn-article .case-box.s1, .learn-article .case-box.s2, .learn-article .case-box.s3 {
-  border: 1px solid var(--s-ln);
+  border: 1px solid var(--s-ln); background: var(--s-bg);   /* 예고 상자의 같은 번호 칸과 같은 바탕 */
 }
 .learn-article .case-box.s1 .cb-title, .learn-article .case-box.s2 .cb-title,
 .learn-article .case-box.s3 .cb-title { color: var(--s-dk); }
@@ -746,8 +746,8 @@ body.hub .lw { max-width: 1160px; }
 }
 .learn-article .learn-part.pt-step .pt { background: var(--s-ac, #2563a8); }
 /* 한 색을 세 단계 밝기로 — 보기(연) → 고르기(중) → 내기(진) */
-.learn-article .learn-part.pt-step.s1, .learn-article .case-box.s1 { --s-ac:#4a7bb0; --s-dk:#316094; --s-ln:#c3d8ea; --s-bg:#f2f7fb; }
-.learn-article .learn-part.pt-step.s2, .learn-article .case-box.s2 { --s-ac:#2563a8; --s-dk:#1c4e8a; --s-ln:#b2cae2; --s-bg:#eef4fa; }
+.learn-article .learn-part.pt-step.s1, .learn-article .case-box.s1 { --s-ac:#4a7bb0; --s-dk:#316094; --s-ln:#c3d8ea; --s-bg:#f4f9fc; }
+.learn-article .learn-part.pt-step.s2, .learn-article .case-box.s2 { --s-ac:#2563a8; --s-dk:#1c4e8a; --s-ln:#b2cae2; --s-bg:#eff5fa; }
 .learn-article .learn-part.pt-step.s3, .learn-article .case-box.s3 { --s-ac:#123556; --s-dk:#0e2a45; --s-ln:#9fb6cc; --s-bg:#eaeff5; }
 .learn-article .learn-part.pt-step + .case-box,
 .learn-article .learn-part.pt-step + * > .reslist,
