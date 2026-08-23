@@ -11,7 +11,7 @@
   <meta property="og:description" content="문제 정의부터 비즈니스 모델·시장 검증·지원 제도까지, 이 사이트를 사례로" />
   <link rel="icon" href="data:," />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="learn.css?v=147" />
+  <link rel="stylesheet" href="learn.css?v=148" />
   <style>
     /* 강조 카드에 그라데이션 — 왼쪽 액센트 색에서 흰색으로 풀린다.
        파란 카드(li.hi)는 중요 표시이므로 파랑을 그대로 살린다. */
@@ -234,6 +234,10 @@
     .learn-article .learn-part.lp-case .ptag { background: #c9871f; }
     .learn-article .learn-part.lp-call .ptag { background: #2563a8; }
     .learn-article .learn-part.lp-link .ptag { background: #6b7d76; }
+    .learn-article .learn-part.lp-book .ptag { background: #7a6417; }
+    .learn-article .book-fig .learn-fig { max-width: 900px; }
+    .learn-article .bk-map { display: block; font-size: 15px; font-weight: 800; color: #7a6417; margin-bottom: 4px; }
+    .lp-legend .k-book { background: #fdf8e8; border-left-color: #7a6417; }
 
     /* ── 두 절을 좌우로 나란히 놓아 비교하게 한다 ── */
     .learn-article .two-col {
@@ -410,8 +414,32 @@
         <li><i class="k-core"></i>이론(01~06장)</li>
         <li><i class="k-case"></i>창업 사례</li>
         <li><i class="k-call"></i>공모·지원사업</li>
+        <li><i class="k-book"></i>책 · 교재</li>
         <li><i class="k-side"></i>곁들여 보기</li>
         <li><i class="k-link"></i>관련 링크</li>
+      </ul>
+
+      <p class="learn-part lp-book"><span class="ptag">책</span>교재로 먼저 지형을 본다</p>
+      <p class="mini-note">이 페이지의 01~06장은 <strong>창업의 흐름</strong>을 따라가지만, 교재는 <strong>이론과 실무를 갈라</strong> 19개 장으로 폅니다. 아래 한 장을 먼저 보고 내려가면 <strong>지금 읽는 대목이 전체의 어디쯤인지</strong>가 잡힙니다.</p>
+
+      <div class="fig-solo book-fig">
+      <figure class="learn-fig">
+        <img src="images/tourism-venture-textbook-19chapters.png" alt="「관광벤처창업론」(안덕수·이난희, 백산출판사 2021) 19개 장 구성 — PART Ⅰ 이론: 1장 관광벤처, 2장 창업, 3장 디자인 씽킹, 4장 비즈니스 모델, 5장 사업계획서, 6장 투자와 펀딩, 7장 기업가정신, 8장 창업마케팅. PART Ⅱ 실무와 정보: 9장 문체부·한국관광공사 관광벤처사업, 10장 지역관광벤처창업 지원사업, 11장 정부 벤처·창업 지원사업, 12장 창업·벤처 관련 법률, 13장 관광두레(한국형 CBT), 14장 벤처 기관 및 협회, 15장 창업·벤처 교육 및 자격증, 16장 벤처 용어집, 17장 창업 성공을 위한 말말말, 18장 창업·벤처 통계, 19장 관광벤처기업" />
+        <figcaption>「관광벤처창업론」 19개 장 — 왼쪽 여덟 장이 <strong>이론</strong>, 오른쪽 열한 장이 <strong>실무와 정보</strong>입니다.</figcaption>
+      </figure>
+      </div>
+
+      <ul class="reslist tight books grid2">
+        <li class="fresh">
+          <a href="https://www.aladin.co.kr/search/wsearchresult.aspx?SearchTarget=Book&amp;SearchWord=%EA%B4%80%EA%B4%91%EB%B2%A4%EC%B2%98%EC%B0%BD%EC%97%85%EB%A1%A0" target="_blank" rel="noopener">「관광벤처창업론」 — 안덕수 · 이난희 지음 · 백산출판사 ↗</a>
+          <span class="desc">이 수업의 <strong>기준 교재</strong>입니다. 구성이 둘로 갈립니다 — <strong>PART Ⅰ 이론</strong> 여덟 장(관광벤처 · 창업 · 디자인 씽킹 · 비즈니스 모델 · <strong class="hot-t">사업계획서</strong> · 투자와 펀딩 · 기업가정신 · 창업마케팅)과 <strong>PART Ⅱ 실무와 정보</strong> 열한 장(관광벤처사업 · 지역 지원사업 · 정부 지원사업 · <strong>법률</strong> · 관광두레 · 기관과 협회 · 교육과 자격증 · 용어집 · 통계 · 관광벤처기업).</span>
+          <span class="meta">안덕수 · 이난희 · 백산출판사 · 2021</span>
+        </li>
+        <li>
+          <span class="bk-map">이 페이지와 이렇게 맞물립니다</span>
+          <span class="desc"><strong>02장 아이디어는 문제에서 나온다</strong> ↔ 교재 <strong>3장 디자인 씽킹</strong> · <strong>03장 비즈니스 모델</strong> ↔ 교재 <strong>4장</strong> · <strong>05장 창업 생태계와 지원</strong> ↔ 교재 <strong>9~11장</strong>(관광벤처사업 · 지역 · 정부 지원사업). 그리고 이 페이지 맨 위의 <strong class="hot-t">과제(사업계획서 쓰기)</strong>가 교재 <strong>5장</strong>입니다.<br /><strong>이 페이지에 없는 것도 보입니다</strong> — 교재 <strong>12장 법률</strong>과 <strong>13장 관광두레</strong>는 여기서 거의 다루지 않습니다. 사업계획서의 「예상되는 어려움」 칸을 채울 때 12장이, 지역 기반 아이템을 짤 때 13장이 필요합니다.</span>
+          <span class="meta">교재 19개 장 ↔ 이 페이지 01~06장</span>
+        </li>
       </ul>
 
       <p class="learn-part lp-core"><span class="num">01</span>관광벤처란</p>

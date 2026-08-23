@@ -751,7 +751,13 @@ body.mod-smart .lw { max-width: 1160px; }
 /* 어느 과제가 이 파트에 붙는지 — 칸 왼쪽 위에 붉은 표로 얹는다.
    본문의 과제 배지(.tb-n)와 같은 빨강이라 페이지를 훑을 때 짝이 지어진다. */
 .learn-article .roadmap3 .rm-task {
-  float: left; margin: 0 4px 2px 0; padding: 1px 7px; border-radius: 4px;
+  display: block; margin: 6px 0 0; padding-top: 6px;
+  border-top: 1px dashed rgba(255,255,255,.28);
+  font-size: 10.5px; line-height: 1.5; color: rgba(255,255,255,.82);
+}
+.learn-article .roadmap3 .rm-task + .rm-task { margin-top: 3px; padding-top: 0; border-top: 0; }
+.learn-article .roadmap3 .rm-task b {
+  display: inline-block; margin-right: 6px; padding: 1px 7px; border-radius: 4px;
   background: #c0392b; color: #fff; font-size: 10px; font-weight: 800; letter-spacing: .03em;
 }
 .learn-article .roadmap3 .rm-cap {
