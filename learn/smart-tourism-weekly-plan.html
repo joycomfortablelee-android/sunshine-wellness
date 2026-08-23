@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>스마트관광의 이해 — 주간 수업 운영 및 학생 발표 배정</title>
+<style>
+:root{
+  --navy:#17365d;
+  --navy2:#244d7a;
+  --gold:#d7b64a;
+  --gold-soft:#fff7d8;
+  --green:#3e7256;
+  --green-soft:#eef7f1;
+  --blue-soft:#eef4fb;
+  --red:#b33f38;
+  --red-soft:#fff2f0;
+  --ink:#25313b;
+  --muted:#66717b;
+  --line:#d9dee4;
+  --paper:#ffffff;
+  --bg:#f5f7f9;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:"NanumBarunGothic","Malgun Gothic","Apple SD Gothic Neo",Arial,sans-serif;
+  line-height:1.58;
+}
+.wrap{max-width:1180px;margin:0 auto;padding:30px 18px 62px}
+.hero{
+  background:linear-gradient(135deg,#fffdf4 0%,#ffffff 58%,#f1f6fb 100%);
+  border:1px solid var(--line);border-top:6px solid var(--navy);
+  padding:28px 30px 24px;border-radius:14px;
+  box-shadow:0 10px 28px rgba(23,54,93,.08);
+}
+.eyebrow{display:inline-block;color:var(--navy2);font-size:11.5px;font-weight:900;letter-spacing:.12em;margin-bottom:5px}
+h1{margin:0;color:var(--navy);font-size:clamp(27px,4vw,41px);letter-spacing:-.04em;line-height:1.2}
+.subtitle{margin:8px 0 0;color:var(--muted);font-size:15px;font-weight:700}
+.flow{margin:22px 0 0;display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch;gap:9px}
+.flow-card{min-height:120px;border-radius:11px;padding:15px 16px 14px;border:1px solid var(--line);background:#fff}
+.flow-card.paper{border-top:5px solid var(--navy)}
+.flow-card.team{border-top:5px solid var(--gold);background:#fffdf5}
+.flow-card.finish{border-top:5px solid var(--green);background:#f8fcf9}
+.flow .arrow{align-self:center;font-size:25px;color:#8c98a5;font-weight:900}
+.tag{font-size:11.5px;font-weight:900;letter-spacing:.07em}
+.paper .tag{color:var(--navy)} .team .tag{color:#8a6a00} .finish .tag{color:var(--green)}
+.flow-card h2{margin:3px 0 4px;font-size:19px;color:var(--ink)}
+.flow-card p{margin:0;font-size:12.8px;color:var(--muted)}
+.key{
+  margin-top:18px;
+  padding:0;
+  border:0;
+  background:transparent;
+  border-radius:0;
+  font-size:13.5px;
+  font-weight:800;
+  color:var(--navy);
+}
+section{margin-top:28px}
+.section-title{display:flex;align-items:center;gap:8px;margin-bottom:12px;color:var(--navy);font-size:21px;font-weight:900}
+.section-title .n{width:27px;height:27px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:var(--navy);color:#fff;font-size:12px}
+.schedule{display:grid;grid-template-columns:1fr;gap:14px}
+.day{background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 5px 16px rgba(31,48,65,.05)}
+.day-head{padding:14px 18px;color:#fff;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.day.wed .day-head{background:var(--navy)} .day.thu .day-head{background:var(--navy)}
+.day-head strong{font-size:18px} .day-head span{font-size:11.5px;font-weight:800;opacity:.93}
+.period{padding:15px 18px;border-top:1px solid var(--line)} .period:first-of-type{border-top:0}
+.period-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:7px}
+.period-name{font-size:16.5px;font-weight:900;color:var(--navy)} .thu .period-name{color:var(--green)}
+.thu .period-name.thu-instructor-title{color:var(--navy)}
+.time-badge{display:inline-block;padding:3px 8px;border-radius:999px;background:#f0f3f7;color:#52606d;font-size:10.5px;font-weight:900}
+.paper-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.paper-box{border:1px solid #cbd6e2;background:var(--blue-soft);border-radius:9px;padding:10px 11px}
+.paper-box h3{margin:0 0 4px;color:var(--navy);font-size:14px}
+.paper-box p{margin:0;font-size:11.8px;color:#506070;line-height:1.55}
+.team-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.team-box{background:var(--gold-soft);border:1px solid #e4cf80;border-radius:9px;padding:10px 12px;text-align:center;font-weight:900;color:#725700;font-size:13px}
+.one-team{grid-template-columns:1fr}
+.thu-stack{display:grid;gap:8px}
+.thu-two-col{grid-template-columns:1fr 1fr;align-items:stretch}
+.thu-box{border-radius:9px;padding:10px 12px;border:1px solid var(--line);font-size:12.8px}
+.thu-box.team3{background:var(--gold-soft);border-color:#e4cf80;color:#725700;font-weight:900}
+.thu-box.paper4{background:var(--blue-soft);border-color:#cbd6e2}
+.thu-box.eval{background:var(--green-soft);border-color:#bcd3c5}
+.thu-box b{display:block;margin-bottom:2px}
+.small-note{margin-top:8px;color:var(--muted);font-size:11.8px}
+.table-wrap{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:11px}
+table{width:100%;border-collapse:collapse;min-width:820px}
+th{background:#edf2f7;color:var(--navy);font-size:12.5px;text-align:left;padding:10px;border-bottom:1px solid var(--line)}
+td{padding:10px;border-bottom:1px solid var(--line);font-size:12.8px;vertical-align:top} tr:last-child td{border-bottom:0}
+.set-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.set-card{background:#fff;border:1px solid var(--line);border-radius:9px;padding:10px;text-align:center;font-size:12px}
+.set-card b{display:block;color:var(--navy);font-size:13px;margin-bottom:2px}
+.set-card .m{color:var(--red);font-weight:900}
+.eval-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.eval-card{background:var(--green-soft);border:1px solid #bcd3c5;border-radius:9px;padding:12px 13px;font-size:12.8px}
+.eval-card b{display:block;color:var(--green);margin-bottom:3px}
+.one-line{background:#fff;border:1px solid var(--line);border-left:5px solid var(--navy);border-radius:9px;padding:12px 14px;font-size:13px;overflow-x:auto;white-space:nowrap}
+.footer-note{margin-top:28px;padding:13px 15px;border-left:5px solid var(--navy);background:#fff;color:#4d5862;font-size:12.8px}
+@media(max-width:900px){.thu-two-col{grid-template-columns:1fr}.flow{grid-template-columns:1fr}.flow .arrow{transform:rotate(90deg);text-align:center}.paper-row,.eval-grid,.set-strip{grid-template-columns:1fr}.team-row{grid-template-columns:1fr}.one-line{white-space:normal}}
+@media print{body{background:#fff}.wrap{max-width:none;padding:14px}.hero,.day{box-shadow:none}}
+
+/* ---------- 학생 발표 주차 및 팀별 배정 ---------- */
+.assign-card{
+  background:#fffdf4;
+  border:1px solid #e3d79a;
+  border-radius:12px;
+  padding:14px;
+  box-shadow:0 5px 16px rgba(80,65,20,.05);
+}
+.assign-legend{
+  display:flex;gap:7px;flex-wrap:wrap;margin:0 0 12px;
+}
+.assign-legend span{
+  padding:6px 9px;border-radius:999px;font-size:11.5px;font-weight:800;
+  border:1px solid rgba(0,0,0,.08);
+}
+.assign-legend .kr{background:#eef4ff}
+.assign-legend .eu{background:#f3efff}
+.assign-legend .green{background:#edf7e8}
+.assign-legend .sum{background:#fff0ee}
+.assign-legend .exam{background:#fff0ee;color:var(--red)}
+.assign-table-wrap{overflow-x:visible;border-radius:9px;width:100%}
+.assign-table{
+  width:100%;min-width:0;border-collapse:collapse;background:#fff;table-layout:fixed;
+}
+.assign-table th{
+  background:#e4c84f;color:#2d3540;border:1px solid #c4a93d;
+  padding:8px 7px;text-align:left;font-size:11.5px;line-height:1.25;
+}
+.assign-table td{
+  border:1px solid #d7c66f;padding:7px 7px;vertical-align:middle;
+  line-height:1.32;font-size:11.3px;word-break:keep-all;overflow-wrap:anywhere;
+}
+.assign-week{
+  width:7%;font-weight:900;color:var(--navy);text-align:center;white-space:nowrap;font-size:13px;
+}
+.assign-type{width:27%;font-weight:800}
+.assign-city{width:22%;font-weight:800}
+.assign-badge{
+  display:inline-block;padding:2px 6px;border-radius:999px;background:#fff;
+  border:1px solid rgba(0,0,0,.1);font-size:8.5px;font-weight:900;margin-left:3px;padding:1px 4px;
+}
+.assign-krrow td{background:#eef4ff}
+.assign-eurow td{background:#f3efff}
+.assign-greenrow td{background:#edf7e8}
+.assign-sumrow td{background:#fff3cf;font-weight:800}
+
+.assign-examrow td{
+  background:#fff0ee;
+  border-color:#d9aaa5;
+  font-weight:900;
+}
+.assign-examrow .assign-week{color:var(--red)}
+.assign-examrow .assign-type{color:var(--red)}
+
+.assign-note{
+  margin-top:12px;padding:11px 13px;background:#fff;
+  border:1px dashed #b8a44a;border-radius:8px;font-size:12.5px;line-height:1.6;
+}
+
+
+@media(max-width:1100px){
+  .assign-table th{font-size:10.8px;padding:6px 5px}
+  .assign-table td{font-size:10.6px;padding:6px 5px;line-height:1.28}
+  .assign-week{font-size:12px}
+  .assign-badge{font-size:8px}
+}
+@media(max-width:760px){
+  .assign-card{padding:8px}
+  .assign-table th{font-size:9.3px;padding:4px 3px}
+  .assign-table td{font-size:9.1px;padding:4px 3px;line-height:1.2}
+  .assign-week{font-size:10px}
+  .assign-badge{font-size:7px;margin-left:1px}
+}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="eyebrow">SMART TOURISM · WEEKLY 150-MINUTE RHYTHM</div>
+  <h1>주간 수업 운영 · 학생 발표 배정</h1>
+  <p class="subtitle">수요일 100분 + 목요일 50분 · 핵심 논문 4편 + 학생 발표 3팀 + 전체 보기</p>
+
+  <div class="key">매주는 핵심 논문 4편을 중심으로 운영한다. 수요일에는 논문 ①~③을 각 20분 단위로 학습한 뒤 1·2팀이 도시 사례를 발표하고, 목요일에는 3팀 발표와 책 읽기를 진행한 후 1주의 학습을 종합 정리한다.</div>
+</header>
+
+<section id="week-table">
+  <div class="section-title"><span class="n">1</span>주간 운영표</div>
+  <div class="schedule">
+    <article class="day wed">
+      <div class="day-head"><strong>수요일 · 100분</strong><span>교수자 60 + 학습자 40</span></div>
+      <div class="period">
+        <div class="period-top"><div class="period-name">교수자 · 핵심 논문 3편</div><span class="time-badge">60분</span></div>
+        <div class="paper-row">
+          <div class="paper-box"><h3>논문 ① · 20분</h3><p>연구질문·HOOK 3 → 논문/영상 4 → 연구설계·결과 8 → CONCEPT 3 → LENS 2</p></div>
+          <div class="paper-box"><h3>논문 ② · 20분</h3><p>연구질문·HOOK 3 → 논문/영상 4 → 연구설계·결과 8 → CONCEPT 3 → LENS 2</p></div>
+          <div class="paper-box"><h3>논문 ③ · 20분</h3><p>연구질문·HOOK 3 → 논문/영상 4 → 연구설계·결과 8 → CONCEPT 3 → LENS 2</p></div>
+        </div>
+      </div>
+      <div class="period">
+        <div class="period-top"><div class="period-name">학습자 · 도시 사례 발표</div><span class="time-badge">40분</span></div>
+        <div class="team-row">
+          <div class="team-box">1팀 발표 · 20분</div>
+          <div class="team-box">2팀 발표 · 20분</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="day thu">
+      <div class="day-head">
+        <strong>목요일 · 50분</strong>
+        <span>교수자 30 + 학습자 20</span>
+      </div>
+
+      <div class="period">
+        <div class="period-top">
+          <div class="period-name thu-instructor-title">교수자 · 책 + 종합</div>
+          <span class="time-badge">30분</span>
+        </div>
+        <div class="thu-stack thu-two-col">
+          <div class="thu-box paper4">
+            <b>책 · 20분</b>
+            핵심 내용 읽기 → 주요 개념 정리 → 사례 연결 → LENS
+          </div>
+          <div class="thu-box eval">
+            <b>전체 보기 · 10분</b>
+            4편 논문과 3팀 사례의 공통점·차이·연결성·이번 주 최종 LENS 정리
+          </div>
+        </div>
+      </div>
+
+      <div class="period">
+        <div class="period-top">
+          <div class="period-name">학습자 · 도시 사례 발표</div>
+          <span class="time-badge">20분</span>
+        </div>
+        <div class="team-row one-team">
+          <div class="team-box">3팀 발표 · 20분</div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="paper-set">
+  <div class="section-title"><span class="n">2</span>논문 1편 = 20분 표준 세트</div>
+  <div class="set-strip">
+    <div class="set-card"><b>① 연구질문·HOOK</b><span class="m">3분</span><br>왜 이 연구인가?</div>
+    <div class="set-card"><b>② 논문·사례영상</b><span class="m">4분</span><br>현상·맥락 보기</div>
+    <div class="set-card"><b>③ 설계·핵심결과</b><span class="m">8분</span><br>대상·변수·방법·결과</div>
+    <div class="set-card"><b>④ CONCEPT</b><span class="m">3분</span><br>핵심 개념 정리</div>
+    <div class="set-card"><b>⑤ LENS</b><span class="m">2분</span><br>사례를 볼 관점</div>
+  </div>
+</section>
+
+<section id="day-units">
+  <div class="section-title"><span class="n">3</span>요일별 수업 단위표</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>구분</th><th>수요일 100분</th><th>목요일 50분</th></tr></thead>
+      <tbody>
+        <tr><td><b>교수자</b></td><td><b>논문① 20 → 논문② 20 → 논문③ 20</b></td><td><b>책 20 → 전체 보기 10</b></td></tr>
+        <tr><td><b>학습자</b></td><td><b>1팀 20 → 2팀 20</b></td><td><b>3팀 20</b></td></tr>
+        <tr><td><b>합계</b></td><td><b>100분</b> · 교수자 60 + 학습자 40</td><td><b>50분</b> · 학습자 20 + 교수자 30</td></tr>
+        <tr><td><b>주간</b></td><td colspan="2"><b>150분(3시수) = 교수자 90분 + 학생발표 60분</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="overview">
+  <div class="section-title"><span class="n">4</span>전체 보기 10분</div>
+  <div class="eval-grid">
+    <div class="eval-card"><b>① PAPER</b>논문 4편의 공통점·차이는 무엇인가?</div>
+    <div class="eval-card"><b>② CASE</b>3팀 사례와 어떤 논문이 가장 잘 연결되는가?</div>
+    <div class="eval-card"><b>③ FINAL LENS</b>이번 주에 남길 분석 렌즈를 한 문장으로 정리한다.</div>
+  </div>
+</section>
+
+<section id="team-assign">
+  <div class="section-title"><span class="n">5</span>학생 발표 주차 및 팀별 발표 배정</div>
+  <div class="assign-card">
+    <div class="assign-legend">
+      <span class="kr">🇰🇷 국내 스마트관광도시</span>
+      <span class="eu">🇪🇺 Smart Tourism Capital</span>
+      <span class="green">🌿 Green Pioneer</span>
+      <span class="sum">⭐ 종합발표</span>
+      <span class="exam">★ 중간고사</span>
+    </div>
+    <div class="assign-table-wrap">
+<table class="assign-table">
+      <colgroup>
+        <col style="width:7%">
+        <col style="width:27%">
+        <col style="width:22%">
+        <col style="width:22%">
+        <col style="width:22%">
+      </colgroup>
+<thead>
+<tr><th>주차</th><th>발표 성격</th><th>1팀</th><th>2팀</th><th>3팀</th></tr>
+</thead>
+<tbody>
+<tr class="assign-krrow"><td class="assign-week">3주차</td><td class="assign-type">🇰🇷 국내 스마트관광도시 · 2023 선정</td><td class="assign-city">통영</td><td class="assign-city">용인</td><td class="assign-city">인제</td></tr>
+<tr class="assign-krrow"><td class="assign-week">4주차</td><td class="assign-type">🇰🇷 국내 스마트관광도시 · 2022 선정</td><td class="assign-city">울산</td><td class="assign-city">양양</td><td class="assign-city">경주</td></tr>
+<tr class="assign-krrow"><td class="assign-week">5주차</td><td class="assign-type">🇰🇷 국내 스마트관광도시 · 2022·2021 선정</td><td class="assign-city">청주</td><td class="assign-city">남원</td><td class="assign-city">수원</td></tr>
+<tr class="assign-krrow"><td class="assign-week">6주차</td><td class="assign-type">🇰🇷 국내 스마트관광도시 · 2021·2020 선정</td><td class="assign-city">여수</td><td class="assign-city">대구</td><td class="assign-city">인천</td></tr>
+<tr class="assign-sumrow"><td class="assign-week">7주차</td><td class="assign-type">⭐ 국내 종합발표</td><td>12개 도시 비교</td><td>스마트관광 서비스 유형 비교</td><td>경북 적용 아이디어</td></tr>
+<tr class="assign-examrow"><td class="assign-week">8주차</td><td class="assign-type">★ 중간고사</td><td colspan="3">경북 스마트관광·AX 아이디어 발표 · 전 팀 발표 및 상호평가</td></tr>
+
+<tr class="assign-eurow"><td class="assign-week">9주차</td><td class="assign-type">🇪🇺 🏆 Smart Tourism Capital 수상도시</td><td class="assign-city">탐페레 (핀란드) — 2026 <span class="assign-badge">WINNER</span></td><td class="assign-city">토리노 (이탈리아) — 2025 <span class="assign-badge">WINNER</span></td><td class="assign-city">더블린 (아일랜드) — 2024 <span class="assign-badge">WINNER</span></td></tr>
+<tr class="assign-eurow"><td class="assign-week">10주차</td><td class="assign-type">🇪🇺 🏆 Smart Tourism Capital 수상도시</td><td class="assign-city">파포스 (키프로스) — 2023 <span class="assign-badge">WINNER</span></td><td class="assign-city">세비야 (스페인) — 2023 <span class="assign-badge">WINNER</span></td><td class="assign-city">보르도 (프랑스) — 2022 <span class="assign-badge">WINNER</span></td></tr>
+<tr class="assign-eurow"><td class="assign-week">11주차</td><td class="assign-type">🇪🇺 🏆 Smart Tourism Capital 수상도시</td><td class="assign-city">발렌시아 (스페인) — 2022 <span class="assign-badge">WINNER</span></td><td class="assign-city">예테보리 (스웨덴) — 2020 <span class="assign-badge">WINNER</span></td><td class="assign-city">말라가 (스페인) — 2020 <span class="assign-badge">WINNER</span></td></tr>
+
+<tr class="assign-greenrow"><td class="assign-week">12주차</td><td class="assign-type">🌿 Green Pioneer 수상도시</td><td class="assign-city">두브로브니크 (크로아티아) — 2026 <span class="assign-badge">WINNER</span></td><td class="assign-city">베니돔 (스페인) — 2025 <span class="assign-badge">WINNER</span></td><td class="assign-city">그로세토 (이탈리아) — 2024 <span class="assign-badge">WINNER</span></td></tr>
+
+<tr class="assign-eurow"><td class="assign-week">13주차</td><td class="assign-type">🇪🇺 Smart Tourism Capital 최종후보</td><td class="assign-city">브뤼헤 (벨기에) — 2026 후보 <span class="assign-badge">FINALIST</span></td><td class="assign-city">산세바스티안 (스페인) — 2024 후보 <span class="assign-badge">FINALIST</span></td><td class="assign-city">라흐티 (핀란드) — 2025 후보 <span class="assign-badge">FINALIST</span></td></tr>
+
+<tr class="assign-greenrow"><td class="assign-week">14주차</td><td class="assign-type">🌿 Green Pioneer 최종후보</td><td class="assign-city">이비자 (스페인) — 2026 후보 <span class="assign-badge">FINALIST</span></td><td class="assign-city">타르투 (에스토니아) — 2026 후보 <span class="assign-badge">FINALIST</span></td><td class="assign-city">아베이루 (포르투갈) — 2025 후보 <span class="assign-badge">FINALIST</span></td></tr>
+
+<tr class="assign-sumrow"><td class="assign-week">15주차</td><td class="assign-type">⭐ 전체 종합발표</td><td>수상도시 종합 비교</td><td>후보도시 종합 비교</td><td>경북·안동 적용 아이디어</td></tr>
+</tbody>
+</table>
+</div>
+    <div class="assign-note"><strong>안내:</strong> 1·2주차는 개념 수업, 8주차는 중간시험이므로 제외했습니다. 발표는 도시 소개보다 <strong>관광문제 → 기술·서비스 → 관광객·도시 효과 → 적용 가능성</strong>의 순서로 정리하도록 합니다.</div>
+  </div>
+</section>
+
+</div>
+</body>
+</html>
