@@ -103,6 +103,11 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .reslist .desc { display: block; font-size: 13.5px; color: var(--muted); line-height: 1.75; margin-top: 5px; }
 .learn-article .reslist .meta { display: inline-block; font-size: 12px; color: var(--green); font-weight: 700; margin-top: 6px; }
 /* 여러 링크를 한 항목으로 묶을 때 — 제목 + 링크 줄 */
+/* 열두 도시 이름 — 아래 메타 줄(출처)과 같은 크기로 맞춘다.
+   목록이 길어 본문 크기로 두면 한 줄이 두 줄로 접히면서 문단을 밀어낸다. */
+.learn-article .citylist { font-size: 12px; letter-spacing: -.01em; }
+body.mod-smart .learn-article .citylist { font-size: var(--fs-sub); }
+
 .learn-article .reslist .grouptitle { display: block; font-size: 16px; font-weight: 800; color: var(--deep); }
 .learn-article .reslist .linkrow { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 10px 0 4px; }
 .learn-article .reslist .linkrow a {
