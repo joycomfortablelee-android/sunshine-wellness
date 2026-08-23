@@ -1069,6 +1069,13 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .task-box .tb-t {
   margin: 0 0 6px; font-size: 14.5px; font-weight: 800; color: var(--s-dk, #1c4e8a); line-height: 1.5;
 }
+/* 과제 번호 — 읽을 자료와 「내가 낼 것」을 한눈에 가른다.
+   상자마다 단계 색이 다르므로 번호만 빨강으로 고정해 셋이 한 묶음으로 읽히게 한다. */
+.learn-article .task-box .tb-n {
+  display: inline-block; margin-right: 8px; padding: 3px 10px;
+  border-radius: 6px; background: #c0392b; color: #fff;
+  font-size: 11.5px; font-weight: 800; letter-spacing: .04em; vertical-align: 2px;
+}
 .learn-article .task-box .tb-t span {
   font-size: 10.5px; font-weight: 700; letter-spacing: .04em; margin-left: 7px;
   padding: 2px 8px; border-radius: 999px; background: var(--s-ac, #2563a8); color: #fff; vertical-align: 2px;
