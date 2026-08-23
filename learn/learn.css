@@ -1098,6 +1098,8 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .task-box .tb-tags a.mapl.form.ex { border-style: solid; border-color: #b8862c; color: #8a5a17; }
 .learn-article .task-box .tb-tags a.mapl.form.ex:hover { background: #8a5a17; border-color: #8a5a17; color: #fff; }
 .learn-article .task-box .tb-src { font-size: 11.5px; color: #8a938f; }
+/* 파트 02 과제 상자 — 읽기 4와 같은 청록 계열로 */
+.learn-article .task-box.r4 { --s-ac:#1f7a70; --s-dk:#14554e; --s-ln:#96cbc2; --s-bg:#e8f3f0; }
 /* 파트 03 과제 상자 — 실습 카드와 같은 번트오렌지 계열로 */
 .learn-article .task-box.pd3 { --s-ac:#a8681f; --s-dk:#8a4f14; --s-ln:#d9b782; --s-bg:#fdf6ec; }
 .learn-article .task-box .tb-tags a.mapl.form.hot {
