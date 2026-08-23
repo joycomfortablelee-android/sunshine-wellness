@@ -773,6 +773,11 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .learn-part.pt-step.s1, .learn-article .case-box.s1 { --s-ac:#4a7bb0; --s-dk:#316094; --s-ln:#c3d8ea; --s-bg:#f4f9fc; }
 .learn-article .learn-part.pt-step.s2, .learn-article .case-box.s2 { --s-ac:#2563a8; --s-dk:#1c4e8a; --s-ln:#b2cae2; --s-bg:#eff5fa; }
 .learn-article .learn-part.pt-step.s3, .learn-article .case-box.s3 { --s-ac:#123556; --s-dk:#0e2a45; --s-ln:#9fb6cc; --s-bg:#eaeff5; }
+/* 파트 02는 만드는 순서가 아니라 읽는 순서다 — 청록 농도로 갈라 파트 01 남색과 구분한다 */
+.learn-article .learn-part.pt-step.r1 { --s-ac:#5fa9a0; --s-dk:#3d8078; --s-ln:#bfe0da; }
+.learn-article .learn-part.pt-step.r2 { --s-ac:#2a9d8f; --s-dk:#1f7a70; --s-ln:#a9d7cf; }
+.learn-article .learn-part.pt-step.r3 { --s-ac:#1f7a70; --s-dk:#17635a; --s-ln:#96cbc2; }
+.learn-article .learn-part.pt-step.r4 { --s-ac:#14554e; --s-dk:#0f4740; --s-ln:#84bcb2; }
 .learn-article .learn-part.pt-step + .case-box,
 .learn-article .learn-part.pt-step + * > .reslist,
 .learn-article .learn-part.pt-step + .reslist { margin-top: 0; }
