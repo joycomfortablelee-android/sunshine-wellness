@@ -942,6 +942,9 @@ body.hub .lw { max-width: 1160px; }
 }
 .learn-article .syl-box .syl-tags a.mapl:hover { background: #0e2a45; border-color: #0e2a45; color: #fff; }
 .learn-article .syl-box .syl-src { font-size: 11.5px; color: #7c8a99; margin-left: 2px; }
+/* 학사일정 달력 — 세 과목이 함께 쓰는 상자라 운영 안내보다 한 단계 가볍게 */
+.learn-article .syl-box.cal { border-width: 1px; background: #f7fafc; margin: 18px 0 26px; }
+.learn-article .syl-box.cal .syl-t { font-size: 14.5px; }
 .learn-article .reslist a .badge.now { margin-right: 7px; vertical-align: 2px; font-size: 11px; }
 .learn-article table.ref td.stat { white-space: nowrap; }
 .learn-article table.ref td.pri .jr { white-space: normal; letter-spacing: 0; text-align: center; }
