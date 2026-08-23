@@ -438,6 +438,21 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .fig-side.wide { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 24px; }
 .learn-article .fig-side.wide .learn-fig img { max-width: 100%; }
 .learn-article .reslist.books li { border-left-color: #e0d3b4; }
+
+/* 책 넉 권 — 2행 2열. 마인드맵은 한 폭으로 세우고 책은 그 아래 네 칸으로 놓는다.
+   칸마다 상자를 둘러야 설명 길이가 달라도 줄이 맞는다. */
+.learn-article .fig-solo { margin: 14px 0 22px; }
+.learn-article .fig-solo .learn-fig { margin: 0 auto; max-width: 760px; }
+.learn-article .fig-solo .learn-fig img { max-width: 100%; }
+.learn-article .fig-solo .learn-fig figcaption { text-align: center; }
+.learn-article .reslist.books.grid2 { gap: 14px; margin: 0 0 26px; align-items: stretch; }
+.learn-article .reslist.books.grid2 li {
+  border: 1px solid #e6dcc4; border-left: 1px solid #e6dcc4; border-radius: 12px;
+  background: #fffdf8; padding: 14px 16px 12px; margin: 0;
+}
+.learn-article .reslist.books.grid2 li.fresh { border-color: #d8a887; background: #fffaf4; }
+.learn-article .reslist.books.grid2 .meta { margin-top: 6px; }
+@media (max-width: 760px) { .learn-article .reslist.books.grid2 { grid-template-columns: 1fr; } }
 @media (max-width: 760px) { .learn-article .fig-side.wide { grid-template-columns: 1fr; } }
 
 .learn-article .fig-side .learn-fig { margin: 0; }
