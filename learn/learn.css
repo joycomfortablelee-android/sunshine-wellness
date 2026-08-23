@@ -32,6 +32,9 @@ a { color: inherit; text-decoration: none; }
 }
 /* 허브(index)만 1160px로 — 프로그램 페이지와 폭 통일. 본문 모듈 페이지는 960px 유지 */
 body.hub .lw { max-width: 1160px; }
+/* 자료가 많고 표·카드·수렴도가 넓게 서는 모듈 페이지 — 목차(/learn/)와 같은 폭을 쓴다 */
+body.mod-venture .lw,
+body.mod-smart .lw { max-width: 1160px; }
 
 /* ===== Header ===== */
 .learn-header {
@@ -1102,6 +1105,8 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .task-box.r4 { --s-ac:#1f7a70; --s-dk:#14554e; --s-ln:#96cbc2; --s-bg:#e8f3f0; }
 /* 파트 03 과제 상자 — 실습 카드와 같은 번트오렌지 계열로 */
 .learn-article .task-box.pd3 { --s-ac:#a8681f; --s-dk:#8a4f14; --s-ln:#d9b782; --s-bg:#fdf6ec; }
+/* 관광벤처창업론 과제 상자 */
+.learn-article .task-box.vt { --s-ac:#2f5148; --s-dk:#1f382f; --s-ln:#c4dbd2; --s-bg:#eff5f2; }
 .learn-article .task-box .tb-tags a.mapl.form.hot {
   background: var(--s-dk, #1c4e8a); border-style: solid; color: #fff;
 }
