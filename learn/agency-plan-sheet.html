@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>기관 기여 업무 수행계획 — A4 1장 작성</title>
+<meta name="description" content="지역 문화재단·관광공사 지원 때 내는 기관 기여 업무 수행계획을 A4 한 장으로 쓰는 작성 페이지. 스마트관광 관점과 수업 산출물을 근거로 잇는다.">
+<link rel="icon" href="data:,">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --green:#3B6259; --deep:#1a2e2a; --gold:#8a5a17; --ivory:#FAF7F2;
+  --line:#e4e6e5; --muted:#6b7873; --blue:#2563a8; --navy:#17365d; --red:#c0392b;
+  --paper:#fbfcfd;
+}
+body{font-family:'Noto Sans KR',sans-serif;color:#2c3733;background:#fff;line-height:1.6}
+a{color:inherit}
+
+header{padding:14px 20px 12px;border-bottom:1px solid var(--line);background:var(--ivory)}
+header .kicker{font-size:10.5px;font-weight:800;letter-spacing:.06em;color:var(--green);margin-bottom:4px}
+header h1{font-size:18px;font-weight:800;color:var(--deep);line-height:1.35}
+header .sub{margin-top:6px;font-size:12px;color:var(--muted);line-height:1.7;max-width:860px}
+header .sub b{color:var(--deep)}
+header .sub em{font-style:normal;color:var(--gold);font-weight:700}
+.links{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.links a,.links button{font-size:11px;font-weight:700;color:var(--green);background:#fff;
+  border:1px solid var(--line);border-radius:999px;padding:4px 11px;cursor:pointer;font-family:inherit}
+.links a:hover,.links button:hover{background:var(--green);border-color:var(--green);color:#fff}
+.links .on{background:var(--navy);border-color:var(--navy);color:#fff}
+
+.wrap{max-width:1180px;margin:0 auto;padding:18px 20px 60px;display:grid;
+  grid-template-columns:minmax(0,1fr) 290px;gap:22px;align-items:start}
+@media(max-width:900px){.wrap{grid-template-columns:1fr}}
+
+/* ---------- 시트 ---------- */
+.sheet{border:1px solid var(--line);border-radius:12px;background:#fff;overflow:hidden}
+.sheet-head{background:var(--navy);color:#fff;padding:11px 15px}
+.sheet-head .t{font-size:14px;font-weight:800;letter-spacing:-.01em}
+.sheet-head .d{font-size:11px;opacity:.82;margin-top:2px}
+
+.meta-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}
+@media(max-width:640px){.meta-row{grid-template-columns:1fr}}
+.meta-row .cell{background:#fff;padding:9px 12px}
+.meta-row label{display:block;font-size:10px;font-weight:800;letter-spacing:.05em;color:var(--muted);margin-bottom:3px}
+.meta-row input{width:100%;border:0;border-bottom:1px dashed #cfd6d3;padding:3px 0;font-size:13px;
+  font-family:inherit;color:var(--deep);background:transparent}
+.meta-row input:focus{outline:0;border-bottom-color:var(--navy)}
+
+.box{border-top:1px solid var(--line);padding:12px 15px 13px}
+.box.star{background:#fdf8ec}
+.box.ev{background:#f2f7fb}
+.box-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin-bottom:5px}
+.box-h .n{font-size:11px;font-weight:800;color:#fff;background:var(--green);
+  border-radius:5px;padding:2px 8px;letter-spacing:.03em}
+.box.star .box-h .n{background:var(--gold)}
+.box.ev .box-h .n{background:var(--navy)}
+.box-h .q{font-size:13.5px;font-weight:800;color:var(--deep)}
+.box-h .hint{font-size:11px;color:var(--muted)}
+.box textarea{width:100%;border:1px solid var(--line);border-radius:8px;padding:8px 10px;
+  font-family:inherit;font-size:13px;line-height:1.7;color:#2c3733;background:var(--paper);resize:vertical}
+.box textarea:focus{outline:0;border-color:var(--navy);background:#fff}
+.box .ex{margin-top:5px;font-size:11.5px;line-height:1.7;color:#8a938f;background:#f7f8f8;
+  border-left:2px solid #d8ddda;padding:6px 10px;border-radius:0 6px 6px 0}
+.box .ex b{color:var(--green)}
+.src{margin-top:6px;display:flex;align-items:center;gap:7px}
+.src label{font-size:10.5px;font-weight:800;color:var(--muted);white-space:nowrap}
+.src input{flex:1;border:0;border-bottom:1px dashed #cfd6d3;padding:3px 0;font-size:12px;
+  font-family:inherit;color:var(--blue);background:transparent}
+.src input:focus{outline:0;border-bottom-color:var(--navy)}
+
+/* 네 부문 체크 */
+.pillars{display:flex;flex-wrap:wrap;gap:7px;margin:2px 0 8px}
+.pillars label{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;
+  border:1px solid var(--line);border-radius:999px;padding:4px 11px;cursor:pointer;background:#fff;color:#4b5a55}
+.pillars input{accent-color:var(--green);margin:0}
+.pillars label:has(input:checked){background:#eff5f2;border-color:#8fb0a6;color:var(--green)}
+
+/* 3단계 계획 */
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+@media(max-width:640px){.phases{grid-template-columns:1fr}}
+.phases .ph label{display:block;font-size:10.5px;font-weight:800;color:var(--gold);margin-bottom:3px}
+.phases textarea{min-height:64px}
+
+.count{font-size:10.5px;color:#9aa39f;text-align:right;margin-top:3px}
+.count.over{color:var(--red);font-weight:700}
+
+.foot{display:flex;flex-wrap:wrap;gap:8px;padding:13px 15px;border-top:1px solid var(--line);background:var(--ivory)}
+.btn{font-size:12.5px;font-weight:800;border-radius:999px;padding:7px 16px;cursor:pointer;
+  font-family:inherit;border:1px solid var(--navy);background:var(--navy);color:#fff}
+.btn:hover{background:#0e2a45;border-color:#0e2a45}
+.btn.ghost{background:#fff;color:var(--navy)}
+.btn.ghost:hover{background:var(--navy);color:#fff}
+.btn.warn{background:#fff;color:var(--red);border-color:#e3b6b0}
+.btn.warn:hover{background:var(--red);border-color:var(--red);color:#fff}
+.saved{align-self:center;font-size:11.5px;color:var(--muted)}
+
+/* ---------- 곁 안내 ---------- */
+.aside{position:sticky;top:14px;display:flex;flex-direction:column;gap:12px}
+@media(max-width:900px){.aside{position:static}}
+.note{border:1px solid var(--line);border-radius:11px;background:#fff;padding:12px 14px}
+.note h2{font-size:12.5px;font-weight:800;color:var(--deep);margin-bottom:6px}
+.note p,.note li{font-size:11.5px;line-height:1.75;color:var(--muted)}
+.note p+p{margin-top:6px}
+.note b{color:var(--deep)}
+.note ul{margin:4px 0 0;padding-left:16px}
+.note li{margin-bottom:3px}
+.note.hot{border-color:#e3c9a4;background:#fdf8ec}
+.note.hot h2{color:var(--gold)}
+.note.ev{border-color:#c3d2e2;background:#f2f7fb}
+.note.ev h2{color:var(--navy)}
+
+/* ---------- 미리보기 ---------- */
+.dlg{position:fixed;inset:0;background:rgba(20,28,25,.5);display:none;align-items:center;
+  justify-content:center;padding:20px;z-index:50}
+.dlg.on{display:flex}
+.dlg .inner{background:#fff;border-radius:12px;max-width:760px;width:100%;max-height:86vh;
+  display:flex;flex-direction:column;overflow:hidden}
+.dlg .hd{padding:12px 16px;border-bottom:1px solid var(--line);font-size:13.5px;font-weight:800;color:var(--deep)}
+.dlg pre{flex:1;overflow:auto;padding:14px 16px;font-size:12.5px;line-height:1.8;white-space:pre-wrap;
+  font-family:inherit;color:#2c3733}
+.dlg .ft{padding:11px 16px;border-top:1px solid var(--line);display:flex;gap:8px;justify-content:flex-end;background:var(--ivory)}
+
+@media print{
+  header .links,.aside,.foot,.dlg,.ex,.count{display:none!important}
+  .wrap{display:block;padding:0;max-width:none}
+  .sheet{border:0;border-radius:0}
+  .box textarea{border:0;background:transparent;resize:none}
+  body{font-size:11px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <p class="kicker">SMART TOURISM · 취업 서류로 바꾸기</p>
+  <h1>기관 기여 업무 수행계획 — A4 1장</h1>
+  <p class="sub">지역 문화재단·관광공사에 지원할 때 내는 <b>직무수행계획</b>을 한 장으로 씁니다. 이 양식이 다른 자기소개서와 갈리는 칸은 <em>5번 「내 산출물」</em>입니다 — “하겠습니다”가 아니라 <b>“이미 해봤고 여기 있습니다”</b>를 적는 자리이고, 이 수업에서 만든 도시 카드·안동 지도·공모전 출품작이 그대로 들어갑니다.</p>
+  <div class="links">
+    <a href="smart-tourism.html">← 스마트 투어리즘으로</a>
+    <a href="andong-map-practice.html" target="_blank" rel="noopener">안동 지도 실습 ↗</a>
+    <button type="button" id="btnEx" class="on">예시 답안 채우기 · 안동</button>
+    <button type="button" id="btnPrint">인쇄 · PDF로 저장</button>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="sheet">
+    <div class="sheet-head">
+      <div class="t">기관 기여 업무 수행계획서</div>
+      <div class="d">A4 1장 · 모든 사실 진술에는 공식 출처를 적습니다</div>
+    </div>
+
+    <div class="meta-row">
+      <div class="cell"><label>지원 기관</label><input id="f_org" placeholder="예) 안동축제관광재단"></div>
+      <div class="cell"><label>지원 직무</label><input id="f_job" placeholder="예) 관광콘텐츠 기획"></div>
+      <div class="cell"><label>작성자 · 학과 · 날짜</label><input id="f_who" placeholder="예) 홍길동 · 관광학과 · 2026.11."></div>
+    </div>
+
+    <div class="box star">
+      <div class="box-h"><span class="n">★</span><span class="q">한 문장</span><span class="hint">이 계획 전체를 한 줄로. 심사자가 처음 읽는 문장입니다</span></div>
+      <textarea id="f_one" rows="2" data-max="120" placeholder="저는 ○○재단의 □□ 문제를 △△로 풀겠습니다."></textarea>
+      <div class="count" data-for="f_one"></div>
+      <p class="ex"><b>쓰는 법</b> — 기관 이름 · 구체적 문제 · 내가 쓸 방법, 셋이 다 들어가야 합니다. “스마트관광으로 지역을 활성화하겠습니다”는 누구나 쓰는 문장이라 아무 말도 하지 않은 것과 같습니다.</p>
+    </div>
+
+    <div class="box">
+      <div class="box-h"><span class="n">1</span><span class="q">기관 진단 — 지금 무엇을 하고 있나</span></div>
+      <textarea id="f_now" rows="3" data-max="300" placeholder="이 기관이 최근 무엇을 만들었고, 무엇을 앞세우고 있는지. 사업명·연도·규모를 그대로."></textarea>
+      <div class="count" data-for="f_now"></div>
+      <div class="src"><label>공식 출처 URL</label><input id="s_now" placeholder="기관 보도자료 · 사업공고 · 연차보고서"></div>
+      <p class="ex"><b>도시 카드에서 한 것과 같습니다</b> — 플랫폼 · 연구 · 홍보 세 갈래로 갈라 보면 기관이 무엇에 힘을 주는지 드러납니다. 뉴스 한 줄로 때우지 말고 <b>기관이 스스로 낸 문서</b>를 찾으십시오.</p>
+    </div>
+
+    <div class="box">
+      <div class="box-h"><span class="n">2</span><span class="q">빈자리 — 무엇이 비어 있나</span></div>
+      <textarea id="f_gap" rows="3" data-max="300" placeholder="관광객 관점에서 불편한 것 / 도시 관점에서 관리되지 않는 것. 둘 중 어느 쪽인지 밝히고."></textarea>
+      <div class="count" data-for="f_gap"></div>
+      <div class="src"><label>근거 URL · 통계</label><input id="s_gap" placeholder="한국관광 데이터랩 · 지자체 통계 · 현장 확인"></div>
+      <p class="ex"><b>수요자냐 공급자냐를 밝히십시오</b> — 파트 06 논문마다 붙은 그 표시입니다. 관광객이 겪는 불편인지, 도시가 관리하지 못하는 문제인지 섞이면 해법도 흐려집니다.</p>
+    </div>
+
+    <div class="box">
+      <div class="box-h"><span class="n">3</span><span class="q">스마트관광 관점 — 어느 부문을 건드리나</span></div>
+      <div class="pillars">
+        <label><input type="checkbox" id="p1"> 접근성</label>
+        <label><input type="checkbox" id="p2"> 지속가능성</label>
+        <label><input type="checkbox" id="p3"> 디지털화</label>
+        <label><input type="checkbox" id="p4"> 문화유산과 창의성</label>
+      </div>
+      <textarea id="f_lens" rows="2" data-max="220" placeholder="고른 부문에서 무엇을 하겠다는 것인지 한두 문장."></textarea>
+      <div class="count" data-for="f_lens"></div>
+      <p class="ex"><b>디지털화만 고르면 좁습니다</b> — EU 심사 부문 넷 중 하나일 뿐이고, 첫 부문은 접근성입니다. 앱을 만들겠다는 계획보다 <b>무장애 · 계절성 · 주민 참여</b>를 건드리는 계획이 기관에는 더 절실합니다.</p>
+    </div>
+
+    <div class="box">
+      <div class="box-h"><span class="n">4</span><span class="q">수행 계획 — 언제 무엇을</span></div>
+      <div class="phases">
+        <div class="ph"><label>3개월 · 파악</label><textarea id="f_p1" rows="3" data-max="140" placeholder="자료·현황 파악, 관계자 확인"></textarea></div>
+        <div class="ph"><label>1년 · 실행</label><textarea id="f_p2" rows="3" data-max="140" placeholder="시범 사업 · 콘텐츠 제작"></textarea></div>
+        <div class="ph"><label>3년 · 정착</label><textarea id="f_p3" rows="3" data-max="140" placeholder="확대 · 매뉴얼화 · 이관"></textarea></div>
+      </div>
+      <p class="ex"><b>신입에게 3년 계획을 묻는 이유</b>는 실현 가능성이 아니라 <b>일의 크기를 가늠하는지</b>를 보기 위해서입니다. 3개월 칸에 “열심히 배우겠습니다”를 쓰지 말고 <b>무슨 자료를 어디서 찾겠다</b>를 쓰십시오.</p>
+    </div>
+
+    <div class="box ev">
+      <div class="box-h"><span class="n">5 ★</span><span class="q">내 산출물 — 해봤다는 증거</span><span class="hint">이 양식의 핵심 칸</span></div>
+      <textarea id="f_ev" rows="4" data-max="360" placeholder="이 수업에서 만든 것 중 이 계획을 뒷받침하는 산출물. 무엇을·왜·어떻게 했는지 한 줄씩."></textarea>
+      <div class="count" data-for="f_ev"></div>
+      <div class="src"><label>산출물 링크 · 파일명</label><input id="s_ev" placeholder="지도 좌표 · 도시 카드 PDF · 공모전 응모번호"></div>
+      <p class="ex"><b>쓸 수 있는 것</b> — 도시 카드(기관 하나를 세 갈래로 분석), 안동 관광지도(자원 선정과 그 이유, 도구 한계 확인), 공모전 응모작(심사를 통과하려고 쓴 문서), EU 44개 사례 인용(해외 벤치마킹). <b>남들 자기소개서에는 없는 칸입니다.</b></p>
+    </div>
+
+    <div class="box">
+      <div class="box-h"><span class="n">6</span><span class="q">성과 지표 — 무엇으로 됐다고 말하나</span></div>
+      <textarea id="f_kpi" rows="2" data-max="220" placeholder="숫자로 말할 수 있는 것 하나 이상. 방문객 수만이 답은 아닙니다."></textarea>
+      <div class="count" data-for="f_kpi"></div>
+      <p class="ex"><b>방문객 수는 약한 지표입니다</b> — 늘어도 내 일 덕분인지 알 수 없습니다. <b>재방문율 · 체류시간 · 비수기 비중 · 무장애 코스 수 · 지역업체 참여 수</b>처럼 <b>내가 한 일과 이어지는 숫자</b>를 고르십시오.</p>
+    </div>
+
+    <div class="foot">
+      <button type="button" class="btn" id="btnCopy">제출용 글 복사</button>
+      <button type="button" class="btn ghost" id="btnPreview">미리 보기</button>
+      <button type="button" class="btn warn" id="btnClear">모두 지우기</button>
+      <span class="saved" id="saved">자동 저장 대기 중</span>
+    </div>
+  </div>
+
+  <div class="aside">
+    <div class="note hot">
+      <h2>왜 이 양식인가</h2>
+      <p>공공기관 직무수행계획서가 무너지는 지점은 늘 같습니다 — <b>해봤다는 증거가 없다</b>는 것입니다. “활성화하겠습니다”는 지원자 전원이 씁니다.</p>
+      <p>이 수업 학생은 남들에게 없는 것을 갖고 있습니다. <b>도시 하나를 끝까지 분석한 카드</b>, <b>자원을 고르고 이유를 댄 지도</b>, <b>도구의 한계까지 답할 수 있는 경험</b>, <b>심사용으로 쓴 응모 문서</b>. 5번 칸은 그걸 적는 자리입니다.</p>
+    </div>
+    <div class="note ev">
+      <h2>어디서 가져오나</h2>
+      <ul>
+        <li><b>1번 기관 진단</b> ← 도시 카드의 플랫폼·연구·홍보 세 갈래</li>
+        <li><b>2번 빈자리</b> ← 데이터랩 통계 · 파트 06 공급자/수요자 구분</li>
+        <li><b>3번 관점</b> ← EU 네 부문(접근성·지속가능성·디지털화·문화유산과 창의성)</li>
+        <li><b>5번 증거</b> ← 안동 지도 · 도시 카드 · 공모전 출품작</li>
+        <li><b>6번 지표</b> ← EU 사례집의 계절성 완화 · 흐름 분산 지표</li>
+      </ul>
+    </div>
+    <div class="note">
+      <h2>내는 법</h2>
+      <p>다 쓰면 <b>「제출용 글 복사」</b>를 누르고 워드 양식에 붙여 넣으십시오. 서식을 갖춰 PDF로 저장하면 제출본이 됩니다. 이 페이지에서 바로 <b>인쇄 · PDF로 저장</b>해도 됩니다.</p>
+      <p>적은 내용은 <b>브라우저에 자동 저장</b>돼 창을 닫았다 열어도 남습니다. 다른 컴퓨터에서는 남지 않으니 제출본은 따로 보관하십시오.</p>
+    </div>
+  </div>
+</div>
+
+<div class="dlg" id="dlg">
+  <div class="inner">
+    <div class="hd">제출용 글 미리 보기</div>
+    <pre id="pv"></pre>
+    <div class="ft">
+      <button type="button" class="btn ghost" id="btnClose">닫기</button>
+      <button type="button" class="btn" id="btnCopy2">복사</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var 저장키 = 'agency-plan-sheet-v1';
+  var 글칸 = ['f_org','f_job','f_who','f_one','f_now','s_now','f_gap','s_gap','f_lens',
+              'f_p1','f_p2','f_p3','f_ev','s_ev','f_kpi'];
+  var 체크 = ['p1','p2','p3','p4'];
+  var 부문 = { p1:'접근성', p2:'지속가능성', p3:'디지털화', p4:'문화유산과 창의성' };
+  var el = function (id) { return document.getElementById(id); };
+  var 타이머 = null;
+
+  function 담기() {
+    var d = {};
+    글칸.forEach(function (k) { d[k] = el(k).value; });
+    체크.forEach(function (k) { d[k] = el(k).checked; });
+    return d;
+  }
+
+  function 저장() {
+    try { localStorage.setItem(저장키, JSON.stringify(담기())); } catch (e) {}
+    el('saved').textContent = '저장됨 · ' + new Date().toLocaleTimeString('ko-KR');
+  }
+
+  function 불러오기() {
+    var raw = null;
+    try { raw = localStorage.getItem(저장키); } catch (e) {}
+    if (!raw) return;
+    var d;
+    try { d = JSON.parse(raw); } catch (e) { return; }
+    글칸.forEach(function (k) { if (typeof d[k] === 'string') el(k).value = d[k]; });
+    체크.forEach(function (k) { el(k).checked = !!d[k]; });
+    세기();
+  }
+
+  function 세기() {
+    document.querySelectorAll('.count').forEach(function (c) {
+      var t = el(c.dataset.for);
+      if (!t) return;
+      var max = parseInt(t.dataset.max || '0', 10);
+      var n = t.value.length;
+      c.textContent = n + (max ? ' / 권장 ' + max + '자' : '자');
+      c.classList.toggle('over', max > 0 && n > max);
+    });
+  }
+
+  function 예약저장() {
+    clearTimeout(타이머);
+    타이머 = setTimeout(저장, 400);
+    세기();
+  }
+
+  글칸.forEach(function (k) { el(k).addEventListener('input', 예약저장); });
+  체크.forEach(function (k) { el(k).addEventListener('change', 예약저장); });
+
+  function 줄(제목, 값) {
+    var v = (값 || '').trim();
+    return '■ ' + 제목 + '\n' + (v || '(작성 필요)') + '\n\n';
+  }
+
+  function 만들기() {
+    var 고른부문 = 체크.filter(function (k) { return el(k).checked; })
+                     .map(function (k) { return 부문[k]; });
+    var s = '';
+    s += '기관 기여 업무 수행계획서\n';
+    s += '지원 기관: ' + (el('f_org').value || '(미기재)') + '  |  ';
+    s += '지원 직무: ' + (el('f_job').value || '(미기재)') + '\n';
+    s += '작성: ' + (el('f_who').value || '(미기재)') + '\n';
+    s += '────────────────────────────\n\n';
+    s += 줄('한 문장', el('f_one').value);
+    s += 줄('1. 기관 진단 — 지금 무엇을 하고 있나', el('f_now').value);
+    s += '   출처: ' + (el('s_now').value || '(출처 미기재)') + '\n\n';
+    s += 줄('2. 빈자리 — 무엇이 비어 있나', el('f_gap').value);
+    s += '   근거: ' + (el('s_gap').value || '(근거 미기재)') + '\n\n';
+    s += '■ 3. 스마트관광 관점\n';
+    s += '해당 부문: ' + (고른부문.length ? 고른부문.join(' · ') : '(선택 필요)') + '\n';
+    s += (el('f_lens').value.trim() || '(작성 필요)') + '\n\n';
+    s += '■ 4. 수행 계획\n';
+    s += '· 3개월 · 파악: ' + (el('f_p1').value.trim() || '(작성 필요)') + '\n';
+    s += '· 1년 · 실행: ' + (el('f_p2').value.trim() || '(작성 필요)') + '\n';
+    s += '· 3년 · 정착: ' + (el('f_p3').value.trim() || '(작성 필요)') + '\n\n';
+    s += 줄('5. 내 산출물 — 해봤다는 증거', el('f_ev').value);
+    s += '   링크·파일: ' + (el('s_ev').value || '(미기재)') + '\n\n';
+    s += 줄('6. 성과 지표', el('f_kpi').value);
+    return s;
+  }
+
+  function 복사(t) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(t).then(function () {
+        el('saved').textContent = '복사했습니다 — 워드에 붙여 넣으십시오';
+      }, 대체복사.bind(null, t));
+    } else { 대체복사(t); }
+  }
+
+  function 대체복사(t) {
+    var ta = document.createElement('textarea');
+    ta.value = t;
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); el('saved').textContent = '복사했습니다'; } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  el('btnCopy').addEventListener('click', function () { 복사(만들기()); });
+  el('btnCopy2').addEventListener('click', function () { 복사(만들기()); });
+  el('btnPreview').addEventListener('click', function () {
+    el('pv').textContent = 만들기();
+    el('dlg').classList.add('on');
+  });
+  el('btnClose').addEventListener('click', function () { el('dlg').classList.remove('on'); });
+  el('dlg').addEventListener('click', function (e) { if (e.target === el('dlg')) el('dlg').classList.remove('on'); });
+  el('btnPrint').addEventListener('click', function () { window.print(); });
+
+  el('btnClear').addEventListener('click', function () {
+    if (!confirm('적은 내용을 모두 지웁니다. 계속할까요?')) return;
+    글칸.forEach(function (k) { el(k).value = ''; });
+    체크.forEach(function (k) { el(k).checked = false; });
+    저장(); 세기();
+  });
+
+  /* 안동 예시 답안 — 실제 기관과 공개 자료를 근거로 한 견본 */
+  var 예시 = {
+    f_org: '안동축제관광재단',
+    f_job: '관광콘텐츠 기획',
+    f_who: '(이름) · 관광학과 · 2026.11.',
+    f_one: '저는 안동축제관광재단의 「축제 기간에만 몰리는 방문」 문제를, 비수기 읍면동 관광자원을 지도 콘텐츠로 엮어 상시 코스로 바꾸는 일로 풀겠습니다.',
+    f_now: '재단은 안동국제탈춤페스티벌을 중심으로 축제 운영과 관광 홍보를 함께 맡고 있습니다. 안동관광 공식 포털과 시 공식블로그를 통해 하회마을·도산서원·월영교 등 대표 자원을 앞세우고 있습니다. 반면 24개 읍면동 단위의 자원은 공식 창구에서 개별로 다뤄지지 않습니다.',
+    s_now: 'tourandong.com · 안동시 공식블로그 · 재단 사업공고',
+    f_gap: '공급자 관점의 문제입니다. 대표 자원 몇 곳에 방문이 집중되고 축제 기간에 몰리는데, 나머지 읍면동에는 소개할 콘텐츠 자체가 없어 분산할 수단이 없습니다. 관광객이 검색해도 나오지 않는 자원은 존재하지 않는 자원과 같습니다.',
+    s_gap: '한국관광 데이터랩 지역별 방문자 추이 · 실습에서 확인한 지오코딩 미등록 지점',
+    f_lens: '지속가능성(계절성 완화)과 문화유산·창의성을 함께 건드립니다. 새 시설을 짓지 않고 이미 있는 자원을 찾아 이야기로 엮는 방식이라, 예산보다 조사와 편집에 무게가 실립니다.',
+    f_p1: '24개 읍면동별 자원 목록화. SGIS 행정구역 경계와 기존 포털·블로그 자료를 대조해 공식 창구에 없는 자원을 가려낸다.',
+    f_p2: '읍면동 3~4곳을 묶은 비수기 코스 2개 시범 운영. 자원마다 선정 이유와 출처를 붙인 지도 콘텐츠로 공개.',
+    f_p3: '전 읍면동으로 확대하고 갱신 규칙을 매뉴얼로 남긴다. 재단 담당자가 바뀌어도 이어지도록 서식과 출처 표기를 고정.',
+    f_ev: '이 수업에서 안동시를 대상으로 같은 일을 축소해 해봤습니다. ① 배경 지도(Esri World Hillshade·OpenTopoMap)를 가져다 쓰고 그 위에 관광자원 세 곳을 찍어 선정 이유와 출처를 적었습니다. ② 지오코딩으로 좌표를 얻으면서 검색에 나오지 않는 지점이 있음을 확인했고, 그 빈자리가 곧 위 2번의 근거입니다. ③ 줌 15 이상에서 원본 해상도가 없어 뭉개지는 한계를 확인해, 도구를 쓰는 것과 도구의 한계를 아는 것이 다르다는 것을 문서로 남겼습니다. ④ 용인시를 플랫폼·연구·홍보 세 갈래로 분석한 도시 카드를 별도로 작성했습니다.',
+    s_ev: '안동 관광지도 실습 산출물 · 도시 카드 A4 3장 · 지오코딩 확인 좌표(하회마을 36.53903, 128.51809 등)',
+    f_kpi: '비수기(11~2월) 방문 비중, 대표 3개 자원 외 지점의 방문 발생 수, 공식 창구에 새로 등재된 자원 수. 방문객 총수보다 분산 정도를 봅니다.',
+    p2: true, p4: true
+  };
+
+  el('btnEx').addEventListener('click', function () {
+    var 찬 = 글칸.some(function (k) { return el(k).value.trim(); });
+    if (찬 && !confirm('적은 내용을 예시 답안으로 덮어씁니다. 계속할까요?')) return;
+    글칸.forEach(function (k) { el(k).value = 예시[k] || ''; });
+    체크.forEach(function (k) { el(k).checked = !!예시[k]; });
+    저장(); 세기();
+    el('saved').textContent = '안동 예시 답안을 채웠습니다 — 내 기관으로 바꿔 쓰십시오';
+  });
+
+  불러오기();
+  세기();
+})();
+</script>
+</body>
+</html>

@@ -722,6 +722,67 @@ body.hub .lw { max-width: 1160px; }
 }
 .learn-article .learn-part:first-of-type { margin-top: 8px; }
 
+/* ===== 흐름 지도 3열 — 사례(왼쪽)와 이론(오른쪽)이 가운데 파트 03으로 모인다 =====
+   다섯 칸을 한 줄로 늘어놓으면 파트가 순서로만 보인다. 실제 구조는 순서가 아니라
+   수렴이다 — 무엇을 보든 무엇을 읽든 결국 「내가 낼 것」으로 들어간다. */
+.learn-article .rm3-lead {
+  font-size: 12.5px; line-height: 1.75; color: var(--muted);
+  margin: 22px 0 10px; padding-top: 16px; border-top: 1px dashed #e0d5b8;
+}
+.learn-article .rm3-lead strong { color: var(--deep); }
+.learn-article .roadmap3 {
+  display: grid; grid-template-columns: 1fr 34px 1.12fr 34px 1fr;
+  gap: 0 6px; align-items: center; margin: 0 0 28px;
+}
+.learn-article .roadmap3 .rm-col { display: flex; flex-direction: column; gap: 7px; align-self: stretch; justify-content: center; }
+.learn-article .roadmap3 .rm-cap {
+  font-size: 10.5px; font-weight: 800; letter-spacing: .1em; color: var(--muted);
+  margin: 0 0 1px; text-transform: none;
+}
+.learn-article .roadmap3 .mid .rm-cap { color: #8a4f14; }
+.learn-article .roadmap3 .rm-cell {
+  padding: 11px 12px 12px; border-radius: 9px;
+  border: 1px solid var(--r-ac, var(--green)); background: var(--r-ac, var(--green));
+  color: #fff; font-size: 12px; line-height: 1.5;
+  transition: box-shadow .18s, transform .18s, background .18s;
+}
+.learn-article .roadmap3 .rm-cell:hover {
+  transform: translateY(-2px); background: var(--r-hv, var(--deep));
+  box-shadow: 0 6px 16px var(--r-sh, rgba(16,42,67,.28));
+}
+.learn-article .roadmap3 .rm-t {
+  display: block; font-size: 12px; font-weight: 800; letter-spacing: .04em;
+  margin-bottom: 4px; color: rgba(255,255,255,.72);
+}
+.learn-article .roadmap3 strong { display: block; font-size: 12px; font-weight: 800; color: #fff; margin-bottom: 3px; }
+.learn-article .roadmap3 em { display: block; font-style: normal; font-size: 12px; font-weight: 400; color: rgba(255,255,255,.78); }
+/* 가운데 칸은 도착지라 한 단계 키운다 */
+.learn-article .roadmap3 .mid .rm-cell { padding: 15px 14px 16px; box-shadow: 0 3px 14px -6px rgba(138,79,20,.5); }
+.learn-article .roadmap3 .mid strong { font-size: 13.5px; }
+/* 화살표 — 양쪽에서 가운데를 향한다 */
+.learn-article .roadmap3 .rm-arrow { display: flex; align-items: center; justify-content: center; }
+.learn-article .roadmap3 .rm-arrow span {
+  display: block; width: 100%; height: 2px; background: #d9b782; position: relative;
+}
+.learn-article .roadmap3 .rm-arrow span::after {
+  content: ""; position: absolute; right: -1px; top: 50%; transform: translateY(-50%);
+  border-left: 8px solid #b8862c; border-top: 5px solid transparent; border-bottom: 5px solid transparent;
+}
+.learn-article .roadmap3 .rm-arrow.flip span::after {
+  right: auto; left: -1px; border-left: 0; border-right: 8px solid #b8862c;
+}
+@media (max-width: 900px) {
+  .learn-article .roadmap3 { grid-template-columns: 1fr; gap: 8px; }
+  .learn-article .roadmap3 .rm-arrow { height: 22px; }
+  .learn-article .roadmap3 .rm-arrow span { width: 2px; height: 100%; }
+  .learn-article .roadmap3 .rm-arrow span::after,
+  .learn-article .roadmap3 .rm-arrow.flip span::after {
+    right: auto; left: 50%; top: auto; bottom: -1px; transform: translateX(-50%);
+    border: 0; border-top: 8px solid #b8862c; border-left: 5px solid transparent; border-right: 5px solid transparent;
+  }
+  .learn-article .roadmap3 .rm-arrow.flip { display: none; }
+}
+
 /* 페이지 흐름 지도 — 파트 색과 같은 색으로 다섯 걸음을 보여준다 */
 .learn-article .roadmap {
   list-style: none; margin: 0 0 28px; padding: 0;
@@ -984,6 +1045,12 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .task-box .tb-tags a.mapl.form.ex { border-style: solid; border-color: #b8862c; color: #8a5a17; }
 .learn-article .task-box .tb-tags a.mapl.form.ex:hover { background: #8a5a17; border-color: #8a5a17; color: #fff; }
 .learn-article .task-box .tb-src { font-size: 11.5px; color: #8a938f; }
+/* 파트 03 과제 상자 — 실습 카드와 같은 번트오렌지 계열로 */
+.learn-article .task-box.pd3 { --s-ac:#a8681f; --s-dk:#8a4f14; --s-ln:#d9b782; --s-bg:#fdf6ec; }
+.learn-article .task-box .tb-tags a.mapl.form.hot {
+  background: var(--s-dk, #1c4e8a); border-style: solid; color: #fff;
+}
+.learn-article .task-box .tb-tags a.mapl.form.hot:hover { background: #6b3c0d; border-color: #6b3c0d; }
 .learn-article .reslist a .badge.now { margin-right: 7px; vertical-align: 2px; font-size: 11px; }
 .learn-article table.ref td.stat { white-space: nowrap; }
 .learn-article table.ref td.pri .jr { white-space: normal; letter-spacing: 0; text-align: center; }
