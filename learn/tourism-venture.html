@@ -11,7 +11,7 @@
   <meta property="og:description" content="문제 정의부터 비즈니스 모델·시장 검증·지원 제도까지, 이 사이트를 사례로" />
   <link rel="icon" href="data:," />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="learn.css?v=148" />
+  <link rel="stylesheet" href="learn.css?v=149" />
   <style>
     /* 강조 카드에 그라데이션 — 왼쪽 액센트 색에서 흰색으로 풀린다.
        파란 카드(li.hi)는 중요 표시이므로 파랑을 그대로 살린다. */
@@ -237,6 +237,38 @@
     .learn-article .learn-part.lp-book .ptag { background: #7a6417; }
     .learn-article .book-fig .learn-fig { max-width: 900px; }
     .learn-article .bk-map { display: block; font-size: 15px; font-weight: 800; color: #7a6417; margin-bottom: 4px; }
+    /* 교재 두 권을 나란히 — 클릭하면 원본 크기로 열린다 */
+    .learn-article .book-pair {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 14px 0 20px;
+    }
+    @media (max-width: 760px) { .learn-article .book-pair { grid-template-columns: 1fr; } }
+    .learn-article .book-pair .learn-fig { margin: 0; }
+    .learn-article .book-pair .learn-fig img {
+      width: 100%; max-width: 100%; border: 1px solid #e6dcc4; border-radius: 10px;
+      cursor: zoom-in; transition: box-shadow .18s, transform .18s;
+    }
+    .learn-article .book-pair .learn-fig img:hover {
+      box-shadow: 0 6px 20px -8px rgba(122,100,23,.5); transform: translateY(-2px);
+    }
+    .learn-article .book-pair figcaption { font-size: 12px; line-height: 1.65; margin-top: 6px; }
+    .learn-article .book-pair figcaption b { color: #7a6417; margin-right: 4px; }
+    .learn-article .zoom-hint {
+      display: inline-block; margin-left: 4px; padding: 1px 7px; border-radius: 999px;
+      background: #fdf8e8; border: 1px solid #ebd9ad; color: #7a6417;
+      font-size: 10.5px; font-weight: 700;
+    }
+    .learn-article .reslist.books.grid2 li.bk-wide { grid-column: 1 / -1; }
+    /* 원본 보기 — 그림을 누르면 전체 화면으로 */
+    .imgzoom {
+      position: fixed; inset: 0; background: rgba(20,24,22,.86); display: none;
+      align-items: center; justify-content: center; padding: 24px; z-index: 90; cursor: zoom-out;
+    }
+    .imgzoom.on { display: flex; }
+    .imgzoom img { max-width: 100%; max-height: 92vh; border-radius: 8px; background: #fff; }
+    .imgzoom .x {
+      position: absolute; top: 14px; right: 18px; color: #fff; font-size: 26px;
+      font-weight: 700; line-height: 1; background: none; border: 0; cursor: pointer;
+    }
     .lp-legend .k-book { background: #fdf8e8; border-left-color: #7a6417; }
 
     /* ── 두 절을 좌우로 나란히 놓아 비교하게 한다 ── */
@@ -381,7 +413,7 @@
       <p class="lead">창업은 "좋은 아이템을 파는 일"이 아니라 <strong>"누군가의 불편을 반복 가능한 방식으로 푸는 일"</strong>입니다. 관광벤처는 그 불편이 여행의 여정 어딘가에 있는 사업입니다.</p>
 
       <div class="task-box vt">
-        <p class="tb-t"><b class="tb-n">과제</b>예비관광벤처 사업계획서 쓰기 — 실제 공모 양식 그대로 <span>제18회 양식</span></p>
+        <p class="tb-t"><b class="tb-n">과제 1</b>예비관광벤처 사업계획서 쓰기 — 실제 공모 양식 그대로 <span>제18회 양식</span></p>
         <p class="tb-d">이 수업의 산출물은 리포트가 아니라 <strong>실제로 낼 수 있는 사업계획서 한 부</strong>입니다. 한국관광공사 <strong>제18회 예비관광벤처 사업공모</strong>의 공식 양식을 그대로 씁니다 — 연습용으로 만든 서식이 아니라 <strong class="hot-t">심사가 실제로 이 칸들을 보고 매기는 판</strong>입니다.</p>
         <p class="tb-d"><strong>이 강의가 그대로 각 칸이 됩니다</strong> — <strong>02장 문제 정의</strong>(누구의·어떤 문제인가·왜 지금인가)가 창업 아이템의 필요성 칸으로, <strong>03장 비즈니스 모델</strong>(가치 제안·고객·수익 구조)이 사업화 전략 칸으로, <strong>04장 시장 검증</strong>(MVP·고객 인터뷰·사전예약)이 실현 가능성 칸으로 들어갑니다. 아래 06장까지 읽고 나면 빈칸이 대부분 채워져 있을 것입니다.</p>
         <p class="tb-d"><strong>학생이 자주 비우는 칸이 둘입니다</strong> — <strong>시장 규모와 근거</strong>는 상상하지 말고 <em>PRISM 정책연구용역</em>과 <em>한국관광 데이터랩</em>에서 숫자를 가져오십시오. <strong>차별성</strong>은 "저희는 다릅니다"가 아니라 <em>비건부산의 등급 체계</em>처럼 <strong>남이 따라 하기 어려운 규칙 하나</strong>를 적어야 합니다.</p>
@@ -420,25 +452,34 @@
       </ul>
 
       <p class="learn-part lp-book"><span class="ptag">책</span>교재로 먼저 지형을 본다</p>
-      <p class="mini-note">이 페이지의 01~06장은 <strong>창업의 흐름</strong>을 따라가지만, 교재는 <strong>이론과 실무를 갈라</strong> 19개 장으로 폅니다. 아래 한 장을 먼저 보고 내려가면 <strong>지금 읽는 대목이 전체의 어디쯤인지</strong>가 잡힙니다.</p>
+      <p class="mini-note">교재 두 권을 나란히 놓았습니다. <strong>가르는 축이 서로 다릅니다</strong> — <strong>그림 1</strong>은 <em>이론과 실무</em>로, <strong>그림 2</strong>는 <em>업종</em>(여행 · 외식 · 숙박 · 스마트관광 · 지역상생)으로 폅니다. 이 페이지의 01~06장은 <strong>창업의 흐름</strong>을 따라가므로 셋 다 축이 다릅니다 — 그래서 <strong>지금 읽는 대목이 전체의 어디쯤인지</strong>를 두 그림에 대 보면 잡힙니다.</p>
 
-      <div class="fig-solo book-fig">
-      <figure class="learn-fig">
-        <img src="images/tourism-venture-textbook-19chapters.png" alt="「관광벤처창업론」(안덕수·이난희, 백산출판사 2021) 19개 장 구성 — PART Ⅰ 이론: 1장 관광벤처, 2장 창업, 3장 디자인 씽킹, 4장 비즈니스 모델, 5장 사업계획서, 6장 투자와 펀딩, 7장 기업가정신, 8장 창업마케팅. PART Ⅱ 실무와 정보: 9장 문체부·한국관광공사 관광벤처사업, 10장 지역관광벤처창업 지원사업, 11장 정부 벤처·창업 지원사업, 12장 창업·벤처 관련 법률, 13장 관광두레(한국형 CBT), 14장 벤처 기관 및 협회, 15장 창업·벤처 교육 및 자격증, 16장 벤처 용어집, 17장 창업 성공을 위한 말말말, 18장 창업·벤처 통계, 19장 관광벤처기업" />
-        <figcaption>「관광벤처창업론」 19개 장 — 왼쪽 여덟 장이 <strong>이론</strong>, 오른쪽 열한 장이 <strong>실무와 정보</strong>입니다.</figcaption>
-      </figure>
+      <div class="book-pair">
+        <figure class="learn-fig zoomable">
+          <img src="images/tourism-venture-textbook-19chapters.png" alt="「관광벤처창업론」(안덕수·이난희, 백산출판사 2021) 19개 장 구성 — PART Ⅰ 이론 8장(관광벤처·창업·디자인 씽킹·비즈니스 모델·사업계획서·투자와 펀딩·기업가정신·창업마케팅), PART Ⅱ 실무와 정보 11장(관광벤처사업·지역 지원사업·정부 지원사업·법률·관광두레·기관과 협회·교육과 자격증·용어집·말말말·통계·관광벤처기업)" />
+          <figcaption><b>그림 1</b> 「관광벤처창업론」 19개 장 — 왼쪽 여덟 장이 <strong>이론</strong>, 오른쪽 열한 장이 <strong>실무와 정보</strong>. <span class="zoom-hint">누르면 크게 보입니다</span></figcaption>
+        </figure>
+        <figure class="learn-fig zoomable">
+          <img src="images/tourism-venture-textbook2-15chapters.png" alt="「관광창업론 — 도서+워크북」(허진·지명원·정남호·이영진·박주영, 한국방송통신대학교출판문화원 2022) 15개 장 구성 — 1장 창업, 2장 관광사업, 3장 여행사 창업의 기초, 4장 여행사 설립과 주요 업무, 5장 여행상품의 이해, 6장 외식창업과 콘셉트 개발, 7장 메뉴경영 및 위생·안전관리, 8장 외식 접객서비스와 외식매뉴얼 시스템, 9장 프랜차이즈 시스템, 10장 스마트관광과 관광정보, 11장 스마트관광기술의 동향, 12장 펜션의 개념과 창업 사례, 13장 펜션 창업과정과 운영, 14장 관광두레의 개념과 이해, 15장 관광두레 창업 사례" />
+          <figcaption><b>그림 2</b> 「관광창업론」 15개 장 — 여행 · 외식 · 숙박 · 스마트관광 · 지역상생 <strong>업종별</strong>로 갈라 놓았습니다. <span class="zoom-hint">누르면 크게 보입니다</span></figcaption>
+        </figure>
       </div>
 
       <ul class="reslist tight books grid2">
         <li class="fresh">
-          <a href="https://www.aladin.co.kr/search/wsearchresult.aspx?SearchTarget=Book&amp;SearchWord=%EA%B4%80%EA%B4%91%EB%B2%A4%EC%B2%98%EC%B0%BD%EC%97%85%EB%A1%A0" target="_blank" rel="noopener">「관광벤처창업론」 — 안덕수 · 이난희 지음 · 백산출판사 ↗</a>
-          <span class="desc">이 수업의 <strong>기준 교재</strong>입니다. 구성이 둘로 갈립니다 — <strong>PART Ⅰ 이론</strong> 여덟 장(관광벤처 · 창업 · 디자인 씽킹 · 비즈니스 모델 · <strong class="hot-t">사업계획서</strong> · 투자와 펀딩 · 기업가정신 · 창업마케팅)과 <strong>PART Ⅱ 실무와 정보</strong> 열한 장(관광벤처사업 · 지역 지원사업 · 정부 지원사업 · <strong>법률</strong> · 관광두레 · 기관과 협회 · 교육과 자격증 · 용어집 · 통계 · 관광벤처기업).</span>
-          <span class="meta">안덕수 · 이난희 · 백산출판사 · 2021</span>
+          <a href="https://www.yes24.com/product/goods/179603559" target="_blank" rel="noopener">그림 1 · 「관광벤처창업론」 — 안덕수 · 이난희 지음 ↗</a>
+          <span class="desc"><strong>이 수업의 기준 교재</strong>. 구성이 둘로 갈립니다 — <strong>PART Ⅰ 이론</strong>(관광벤처 · 창업 · 디자인 씽킹 · 비즈니스 모델 · <strong class="hot-t">사업계획서</strong> · 투자와 펀딩 · 기업가정신 · 창업마케팅)과 <strong>PART Ⅱ 실무와 정보</strong>(관광벤처사업 · 지역 · 정부 지원사업 · <strong>법률</strong> · 관광두레 · 기관과 협회 · 교육과 자격증 · 용어집 · 통계 · 관광벤처기업). 시장 환경부터 <strong>AI 기술 활용</strong>까지 다룹니다.</span>
+          <span class="meta">안덕수 · 이난희 · 백산출판사 · 2026. 2. 10. · 288쪽 · 24,000원</span>
         </li>
         <li>
+          <a href="https://www.yes24.com/product/goods/111359516" target="_blank" rel="noopener">그림 2 · 「관광창업론 — 도서+워크북」 — 허진 외 4인 ↗</a>
+          <span class="desc">같은 주제를 <strong>업종별로</strong> 가릅니다 — 여행사(3~5장) · 외식(6~8장) · 프랜차이즈(9장) · <strong>스마트관광(10~11장)</strong> · 펜션(12~13장) · <strong>관광두레(14~15장)</strong>. 앞 교재가 <em>창업의 단계</em>를 따라간다면 이쪽은 <em>업이 무엇인가</em>로 나뉘어, <strong>아이템이 정해진 뒤</strong> 그 업종의 실무를 찾아볼 때 펴게 됩니다. 워크북이 붙어 있어 칸을 채우며 읽습니다.</span>
+          <span class="meta">허진 · 지명원 · 정남호 · 이영진 · 박주영 · 한국방송통신대학교출판문화원 · 2022. 7. 25. · 388쪽 · 18,400원</span>
+        </li>
+        <li class="bk-wide">
           <span class="bk-map">이 페이지와 이렇게 맞물립니다</span>
-          <span class="desc"><strong>02장 아이디어는 문제에서 나온다</strong> ↔ 교재 <strong>3장 디자인 씽킹</strong> · <strong>03장 비즈니스 모델</strong> ↔ 교재 <strong>4장</strong> · <strong>05장 창업 생태계와 지원</strong> ↔ 교재 <strong>9~11장</strong>(관광벤처사업 · 지역 · 정부 지원사업). 그리고 이 페이지 맨 위의 <strong class="hot-t">과제(사업계획서 쓰기)</strong>가 교재 <strong>5장</strong>입니다.<br /><strong>이 페이지에 없는 것도 보입니다</strong> — 교재 <strong>12장 법률</strong>과 <strong>13장 관광두레</strong>는 여기서 거의 다루지 않습니다. 사업계획서의 「예상되는 어려움」 칸을 채울 때 12장이, 지역 기반 아이템을 짤 때 13장이 필요합니다.</span>
-          <span class="meta">교재 19개 장 ↔ 이 페이지 01~06장</span>
+          <span class="desc"><strong>02장 아이디어는 문제에서 나온다</strong> ↔ 그림 1의 <strong>3장 디자인 씽킹</strong> · <strong>03장 비즈니스 모델</strong> ↔ 그림 1의 <strong>4장</strong> · <strong>05장 창업 생태계와 지원</strong> ↔ 그림 1의 <strong>9~11장</strong>. 그리고 위 <strong class="hot-t">과제 1(사업계획서 쓰기)</strong>이 그림 1의 <strong>5장</strong>입니다.<br /><strong>이 페이지에 없는 것도 보입니다</strong> — 그림 1의 <strong>법률</strong> 장은 사업계획서의 「예상되는 어려움」 칸을 채울 때, 그림 2의 <strong>10~11장 스마트관광</strong>은 <em>스마트 투어리즘 모듈</em>과, <strong>14~15장 관광두레</strong>는 아래 <em>로컬크리에이터</em> 절과 바로 이어집니다.</span>
+          <span class="meta">교재 두 권 ↔ 이 페이지 01~06장</span>
         </li>
       </ul>
 
@@ -723,6 +764,15 @@
         </li>
       </ul>
 
+      <div class="task-box vt2">
+        <p class="tb-t"><b class="tb-n">과제 2</b>관광기업 입사 제안서 — 창업하지 않아도 이 수업은 쓰입니다 <span>A4 1장 · 모의 면접</span></p>
+        <p class="tb-d">모두가 창업하지는 않습니다. 그런데 <strong class="hot-t">관광기업이 사람을 뽑을 때 보는 것과 공모가 사업계획서에서 보는 것이 거의 같습니다</strong> — 문제를 정확히 짚는가, 근거를 대는가, 그래서 무엇을 할 것인가. 과제 1에서 쓴 사업계획서의 뼈대를 <strong>회사 하나</strong>에 대고 다시 씁니다.</p>
+        <p class="tb-d"><strong>회사는 이 페이지에서 고릅니다</strong> — <em>THE VC</em>의 관광·여행 스타트업 목록, <em>어반리즘 하우스</em>(관광 컨설팅·연구, 채용 공고가 자사 게시판에 올라옵니다), 로컬크리에이터 기업들(리플레이스 · 더웨이브컴퍼니 · 어반플레이 · 로컬스티치), 또는 투어라즈에 등록된 관광벤처기업. <strong>이름을 아는 대기업 말고, 사람이 스무 명 안쪽인 곳</strong>을 고르십시오 — 신입이 무엇을 맡게 되는지가 보이는 규모라야 쓸 말이 생깁니다.</p>
+        <p class="tb-d"><strong>칸은 다섯입니다</strong> — ① <strong>이 회사는 지금 무엇을 하고 있나</strong>(공식 출처 URL. 홈페이지 소개문이 아니라 <em>수행한 용역·출시한 서비스·투자 이력</em>) · ② <strong>내가 본 빈자리</strong>(고객 관점인가 운영 관점인가) · ③ <strong>내가 맡을 직무와 첫 3개월</strong>(「열심히 배우겠습니다」 금지 — 무슨 자료를 어디서 찾아 무엇을 만들지) · ④ <strong>근거가 되는 내 산출물</strong>(과제 1 사업계획서 · 데이터 분석 · 공모 출품작) · ⑤ <strong>왜 이 회사인가</strong>(다른 회사에 그대로 내도 말이 되면 다시 쓰십시오).</p>
+        <p class="tb-d"><strong>쓰고 나서 모의 면접을 합니다</strong> — 3분 발표 뒤 서로 묻습니다. 질문은 하나면 충분합니다. <em>“그 빈자리, 회사도 이미 알고 있는 것 아닌가요?”</em> 여기에 답하지 못하면 ②가 진단이 아니라 짐작입니다.</p>
+        <p class="tb-tags"><a class="mapl form hot" href="https://thevc.kr/" target="_blank" rel="noopener">THE VC · 관광 스타트업 찾기 ↗</a><a class="mapl form" href="https://urh.re.kr/" target="_blank" rel="noopener">어반리즘 하우스 · 채용 게시판 ↗</a><a class="mapl form" href="https://www.prism.go.kr/homepage" target="_blank" rel="noopener">PRISM · 회사가 수주한 용역 찾기 ↗</a><a class="mapl form ex" href="smart-tourism.html#part03" target="_blank" rel="noopener">참고 · 공공기관용 수행계획서 양식 ↗</a><span class="tb-src">공공기관을 겨냥한다면 스마트 투어리즘 모듈의 <b>업무 수행계획서</b> 양식이 그대로 쓰입니다 — 칸 구성이 같고 대상만 기관과 기업으로 갈립니다.</span></p>
+      </div>
+
       <p class="learn-part lp-side" id="local-creator"><span class="ptag">곁들여 보기 1</span>Ⓛ 「로컬크리에이터」 — 지역을 아이템으로 삼는 창업 트랙</p>
       <div class="lilac-box">
       <p>앞의 공모들에서 <strong>로컬 크리에이터</strong>라는 말이 여러 번 스쳤습니다. 분위기 있는 수식어가 아니라 <strong>정부 지원사업의 공식 용어</strong>입니다. 중소벤처기업부는 2020년부터 「로컬크리에이터 육성사업」을 운영하며 <em>지역의 문화·자연 자산을 창의적으로 사업화하는 창업자</em>를 이 이름으로 묶어 왔고, 지자체들도 같은 이름을 받아 지역판 공모를 엽니다. 정부 문서의 공식 표기는 <strong>「지역가치 창업가(로컬크리에이터)」</strong>입니다 — 공고를 검색할 때 두 단어를 모두 써 보십시오. 관광 전공자에게 중요한 이유는 <strong>지원 분야 자체가 관광과 겹치기 때문</strong>입니다.</p>
@@ -907,5 +957,24 @@
     </div>
   </footer>
 
+<div class="imgzoom" id="imgzoom" role="dialog" aria-label="그림 크게 보기">
+  <button type="button" class="x" aria-label="닫기">&times;</button>
+  <img src="" alt="" />
+</div>
+<script>
+(function () {
+  var box = document.getElementById('imgzoom');
+  if (!box) return;
+  var big = box.querySelector('img');
+  document.querySelectorAll('.book-pair .learn-fig img').forEach(function (im) {
+    im.addEventListener('click', function () {
+      big.src = im.src; big.alt = im.alt; box.classList.add('on');
+    });
+  });
+  function close() { box.classList.remove('on'); big.src = ''; }
+  box.addEventListener('click', close);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+})();
+</script>
 </body>
 </html>

@@ -1119,6 +1119,7 @@ body.mod-smart .lw { max-width: 1160px; }
 .learn-article .task-box.pd3 { --s-ac:#a8681f; --s-dk:#8a4f14; --s-ln:#d9b782; --s-bg:#fdf6ec; }
 /* 관광벤처창업론 과제 상자 */
 .learn-article .task-box.vt { --s-ac:#2f5148; --s-dk:#1f382f; --s-ln:#c4dbd2; --s-bg:#eff5f2; }
+.learn-article .task-box.vt2 { --s-ac:#2563a8; --s-dk:#1c4e8a; --s-ln:#b2cae2; --s-bg:#eff5fa; }
 .learn-article .task-box .tb-tags a.mapl.form.hot {
   background: var(--s-dk, #1c4e8a); border-style: solid; color: #fff;
 }
