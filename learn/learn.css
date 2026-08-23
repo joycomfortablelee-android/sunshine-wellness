@@ -826,6 +826,11 @@ body.hub .lw { max-width: 1160px; }
   background: linear-gradient(100deg, #17395f 0%, #1b4a7e 40%, #23695f 78%, #1f7a70 100%);
   border-color: #1b4a7e;
 }
+/* 수렴도의 왼쪽만 둘로 나눈다 — 본문에서 파트 01은 남색, 파트 02는 청록 램프를 쓰므로
+   한 칸에 묶어 두면 그 구분이 지워진다. 1열 지도는 요약이라 한 칸 그대로 둔다. */
+.learn-article .roadmap3 .rm-cell.rm-kr { --r-ac:#1b4a7e; --r-hv:#123556; --r-sh:rgba(27,74,126,.34); }
+.learn-article .roadmap3 .rm-cell.rm-eu { --r-ac:#1f7a70; --r-hv:#14554e; --r-sh:rgba(31,122,112,.34); }
+
 .learn-article .roadmap .rm-case:hover,
 .learn-article .roadmap3 .rm-cell.rm-case:hover {
   background: linear-gradient(100deg, #0f2a46 0%, #123556 40%, #184c45 78%, #14554e 100%);
