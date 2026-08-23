@@ -1163,7 +1163,7 @@ body.hub .lw { max-width: 1160px; }
 .learn-article .logic .chain b { color: #8272ad; font-weight: 800; padding: 0 1px; }
 .learn-article .logic .formula {
   text-align: center; font-size: 13px; font-weight: 800; letter-spacing: .01em;
-  color: #fff; background: var(--green); border-radius: 8px; padding: 10px 12px; margin-top: 4px;
+  color: #fff; background: #5c4610; border-radius: 8px; padding: 10px 12px; margin-top: 4px;   /* 파트 05 골드 계열의 가장 진한 끝 */
 }
 .learn-article .logic .formula .src { display: block; margin-top: 4px; font-size: 10.5px; font-weight: 700; letter-spacing: .06em; color: rgba(255,255,255,.72); }
 .learn-article .logic .aim { font-size: 12.5px; color: var(--muted); }
