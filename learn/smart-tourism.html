@@ -12,6 +12,60 @@
   <link rel="icon" href="data:," />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="learn.css?v=152" />
+  <style>
+    /* ===== 여섯 갈래 만화 캐러셀 — 이 페이지에서만 쓰는 부품이라 여기 둔다 =====
+       원형 맵이 「무엇이 어느 갈래인가」를 보여주고, 이 만화가 「그 갈래 안에서
+       문제가 어떻게 서비스로 이어지는가」를 보여준다. 좌우로 넘기며 여섯 장을 잇는다. */
+    .learn-article .stcomic { margin: 6px 0 30px; }
+    .learn-article .stc-viewer {
+      position: relative; overflow: hidden;
+      border: 1px solid #cfdcea; border-radius: 14px; background: #fff;
+      box-shadow: 0 8px 22px rgba(23,54,93,.07);
+    }
+    .learn-article .stc-viewer:focus-visible { outline: 2px solid #17395f; outline-offset: 2px; }
+    .learn-article .stc-track { display: flex; transition: transform .36s ease; will-change: transform; }
+    .learn-article .stc-slide { flex: 0 0 100%; min-width: 100%; padding: 8px 10px 10px; }
+    .learn-article .stc-head {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      margin: 0 0 6px; padding: 0 34px;
+    }
+    .learn-article .stc-title { font-size: 14px; font-weight: 800; color: #17395f; letter-spacing: -.2px; }
+    .learn-article .stc-count { font-size: 11.5px; font-weight: 800; color: #7c8a99; }
+    .learn-article .stc-slide img {
+      display: block; width: 100%; height: auto; border-radius: 10px;
+      background: #fff; -webkit-user-drag: none; user-select: none;
+    }
+    .learn-article .stc-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 38px; height: 58px; border: 0; border-radius: 12px;
+      background: rgba(23,57,95,.86); color: #fff;
+      font-size: 27px; font-weight: 900; line-height: 1; cursor: pointer; z-index: 3;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 13px rgba(23,57,95,.2);
+    }
+    .learn-article .stc-nav:hover { background: #17395f; }
+    .learn-article .stc-nav:disabled { opacity: .26; cursor: default; }
+    .learn-article .stc-prev { left: 7px; }
+    .learn-article .stc-next { right: 7px; }
+    .learn-article .stc-dots {
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+      margin: 9px 0 0; padding: 0;
+    }
+    .learn-article .stc-dot {
+      width: 9px; height: 9px; padding: 0; border: 0; border-radius: 50%;
+      background: #cbd5e0; cursor: pointer; transition: width .18s, background .18s;
+    }
+    .learn-article .stc-dot.is-on { width: 22px; border-radius: 999px; background: #17395f; }
+    .learn-article .stc-hint { margin: 7px 0 0; font-size: 11.5px; color: #7a8797; text-align: center; }
+    .learn-article .stc-hint b { color: #17395f; }
+    .learn-article .stc-src { margin: 3px 0 0; font-size: 11px; color: #8a938f; text-align: center; }
+    @media (max-width: 760px) {
+      .learn-article .stc-slide { padding: 6px 5px 8px; }
+      .learn-article .stc-head { padding: 0 26px; }
+      .learn-article .stc-title { font-size: 12.5px; }
+      .learn-article .stc-nav { width: 28px; height: 48px; font-size: 22px; border-radius: 9px; }
+    }
+  </style>
 </head>
 <body class="mod-smart">
 
@@ -506,6 +560,46 @@
         </span>
       </a>
 
+      <p class="mini-note"><strong>여섯 갈래를 그림으로</strong> — 위 원형 맵이 <em>무엇이 어느 갈래인지</em>를 보여준다면, 아래 만화는 갈래마다 <strong>문제 → 기술 → 서비스</strong>가 어떻게 이어지는지와 <strong>대표 사례 기업</strong>까지 한 장에 담았습니다. 좌·우로 넘겨 보십시오.</p>
+
+      <div class="stcomic" id="stcomic">
+        <div class="stc-viewer" id="stc-viewer" tabindex="0" aria-roledescription="캐러셀" aria-label="스마트 관광도시 여섯 갈래 만화">
+          <div class="stc-track" id="stc-track">
+            <section class="stc-slide" aria-label="1. 안전 · Smart Safety">
+              <p class="stc-head"><span class="stc-title">1. 안전 · Smart Safety</span><span class="stc-count">1 / 6</span></p>
+              <img src="images/smart-tourism-comic-1-안전.webp" alt="1. 안전 — 문제(군중 밀집·위험 상황·응급 대응) → 기술(실시간 영상분석·AI 이상 탐지·유동인구 데이터 분석·이동형 AED 키오스크) → 서비스. 대표 사례 아이티비(주) Project Go AI · 피치에이아이 · (주)시정" width="1448" height="1086" />
+            </section>
+            <section class="stc-slide" aria-label="2. 콘텐츠 · Smart Content">
+              <p class="stc-head"><span class="stc-title">2. 콘텐츠 · Smart Content</span><span class="stc-count">2 / 6</span></p>
+              <img src="images/smart-tourism-comic-2-콘텐츠.webp" alt="2. 콘텐츠 — 문제 → 기술 → 서비스 흐름과 대표 사례" width="1448" height="1086" loading="lazy" />
+            </section>
+            <section class="stc-slide" aria-label="3. 스마트 주차 · Smart Parking">
+              <p class="stc-head"><span class="stc-title">3. 스마트 주차 · Smart Parking</span><span class="stc-count">3 / 6</span></p>
+              <img src="images/smart-tourism-comic-3-주차.webp" alt="3. 스마트 주차 — 문제 → 기술 → 서비스 흐름과 대표 사례" width="1448" height="1086" loading="lazy" />
+            </section>
+            <section class="stc-slide" aria-label="4. 스마트 지도 · Smart Map">
+              <p class="stc-head"><span class="stc-title">4. 스마트 지도 · Smart Map</span><span class="stc-count">4 / 6</span></p>
+              <img src="images/smart-tourism-comic-4-지도.webp" alt="4. 스마트 지도 — 문제 → 기술 → 서비스 흐름과 대표 사례" width="1448" height="1086" loading="lazy" />
+            </section>
+            <section class="stc-slide" aria-label="5. 스마트 결제 · Smart Payment">
+              <p class="stc-head"><span class="stc-title">5. 스마트 결제 · Smart Payment</span><span class="stc-count">5 / 6</span></p>
+              <img src="images/smart-tourism-comic-5-결제.webp" alt="5. 스마트 결제 — 문제 → 기술 → 서비스 흐름과 대표 사례" width="1448" height="1086" loading="lazy" />
+            </section>
+            <section class="stc-slide" aria-label="6. ESG · 접근성">
+              <p class="stc-head"><span class="stc-title">6. ESG · 접근성 · ESG &amp; Accessibility</span><span class="stc-count">6 / 6</span></p>
+              <img src="images/smart-tourism-comic-6-esg.webp" alt="6. ESG와 접근성 — 문제 → 기술 → 서비스 흐름과 대표 사례" width="1448" height="1086" loading="lazy" />
+            </section>
+          </div>
+          <button class="stc-nav stc-prev" id="stc-prev" type="button" aria-label="이전 그림">‹</button>
+          <button class="stc-nav stc-next" id="stc-next" type="button" aria-label="다음 그림">›</button>
+        </div>
+        <p class="stc-dots" id="stc-dots">
+          <button class="stc-dot is-on" type="button" data-i="0" aria-label="1. 안전 보기"></button><button class="stc-dot" type="button" data-i="1" aria-label="2. 콘텐츠 보기"></button><button class="stc-dot" type="button" data-i="2" aria-label="3. 주차 보기"></button><button class="stc-dot" type="button" data-i="3" aria-label="4. 지도 보기"></button><button class="stc-dot" type="button" data-i="4" aria-label="5. 결제 보기"></button><button class="stc-dot" type="button" data-i="5" aria-label="6. ESG·접근성 보기"></button>
+        </p>
+        <p class="stc-hint">좌 · 우 버튼이나 아래 점을 누르고, 휴대폰에서는 화면을 옆으로 밉니다. 그림을 한 번 누른 뒤에는 <b>← →</b> 키로도 넘어갑니다.</p>
+        <p class="stc-src">선샤인 웰니스 자체 제작 · 원자료 2024년 「스마트한 지역관광 문제해결 해커톤」 시범사업 12건</p>
+      </div>
+
       <p class="learn-part pt-learn"><span class="pt">파트 04</span>책</p>
       <p class="mini-note"><a class="dl-link" href="https://strc.khu.ac.kr/bbs/board.php?bo_table=06_01&amp;wr_id=21" target="_blank" rel="noopener">이 그림의 12개 장 · 강의 슬라이드 내려받기 ↗</a> — 아래 마인드맵과 <strong>같은 순서로 짜인 12개 장</strong>의 강의 슬라이드 견본(PDF). <span class="src-inline">경희대학교 스마트관광연구소</span></p>
 
@@ -857,6 +951,51 @@
       if (x0 === null || open) return;
       var dx = e.changedTouches[0].clientX - x0;
       if (Math.abs(dx) > 55) { dx < 0 ? show(at + 1, false) : show(at - 1, true); }
+      x0 = null;
+    }, { passive: true });
+
+    show(0);
+  })();
+  </script>
+
+  <script>
+  /* 여섯 갈래 만화 캐러셀.
+     이 페이지의 슬라이드 덱이 이미 document 에 ← → 를 물고 있으므로,
+     여기서는 뷰어 자신에게만 키를 걸고 stopPropagation 으로 덱과 겹치지 않게 한다. */
+  (function () {
+    var viewer = document.getElementById('stc-viewer');
+    if (!viewer) return;
+    var track = document.getElementById('stc-track');
+    var prev  = document.getElementById('stc-prev');
+    var next  = document.getElementById('stc-next');
+    var dots  = [].slice.call(document.querySelectorAll('#stc-dots .stc-dot'));
+    var total = document.querySelectorAll('#stc-track .stc-slide').length;
+    var at = 0, x0 = null;
+
+    function show(i) {
+      at = Math.max(0, Math.min(total - 1, i));
+      track.style.transform = 'translateX(' + (-at * 100) + '%)';
+      dots.forEach(function (d, n) { d.classList.toggle('is-on', n === at); });
+      prev.disabled = at === 0;
+      next.disabled = at === total - 1;
+    }
+
+    prev.addEventListener('click', function () { show(at - 1); });
+    next.addEventListener('click', function () { show(at + 1); });
+    dots.forEach(function (d) {
+      d.addEventListener('click', function () { show(Number(d.dataset.i)); });
+    });
+
+    viewer.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft')  { show(at - 1); e.stopPropagation(); e.preventDefault(); }
+      if (e.key === 'ArrowRight') { show(at + 1); e.stopPropagation(); e.preventDefault(); }
+    });
+
+    viewer.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+    viewer.addEventListener('touchend', function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 50) { show(dx < 0 ? at + 1 : at - 1); }
       x0 = null;
     }, { passive: true });
 
