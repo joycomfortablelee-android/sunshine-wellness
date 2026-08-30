@@ -2044,3 +2044,43 @@ body.mod-smart .learn-article .reslist .linkrow details.fold.pill > summary { pa
 .learn-article .case-box ol.steps3 .s-d b { color: #52697f; font-weight: 700; }
 .learn-article .case-box ol.steps3 a { font-weight: 800; color: var(--s-dk, #1c4e8a); border-bottom: 1px solid currentColor; }
 .learn-article .case-box ol.steps3 a:hover { color: #0e2a45; }
+
+/* ===== 강의실 바 — 과목 페이지 맨 위 =====
+   같은 과목이라도 교시마다 방이 다를 수 있다. 방이 바뀌는 칸(.mv)만 색을 달리해
+   학생이 「여기서 이동한다」를 한눈에 본다. 여러 과목 페이지가 함께 쓴다. */
+.learn-hero .room-bar {
+  max-width: 720px; margin: 22px auto 0; padding: 13px 16px 12px;
+  border: 1px solid #cfdcea; border-radius: 12px; background: #fff; text-align: left;
+}
+.learn-hero .room-bar .rb-t {
+  margin: 0 0 9px; font-size: 12px; font-weight: 800; letter-spacing: .06em; color: #17395f;
+}
+.learn-hero .room-bar .rb-t span {
+  margin-left: 8px; padding: 2px 9px; border-radius: 999px; background: #17395f; color: #fff;
+  font-size: 10.5px; font-weight: 800; letter-spacing: .02em; vertical-align: 1px;
+}
+.learn-hero .room-bar .rb-list {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 0; padding: 0; list-style: none;
+}
+@media (max-width: 700px) { .learn-hero .room-bar .rb-list { grid-template-columns: 1fr; } }
+.learn-hero .room-bar .rb-list li {
+  display: flex; flex-direction: column; gap: 2px; margin: 0;
+  padding: 9px 11px; border-radius: 9px; border: 1px solid #dbe6f2; background: #f7fafd;
+}
+.learn-hero .room-bar .rb-list li.mv { border-color: #e0c79c; background: #fffdf8; }
+.learn-hero .room-bar .rb-list li b { font-size: 12.5px; font-weight: 800; color: #17395f; }
+.learn-hero .room-bar .rb-list li.mv b { color: #8a4f14; }
+.learn-hero .room-bar .rb-list li .tm { font-size: 11.5px; color: #6b7d8f; }
+.learn-hero .room-bar .rb-list li .rm { font-size: 12.5px; color: #33475b; }
+.learn-hero .room-bar .rb-list li .rm strong { color: #17395f; font-weight: 800; }
+.learn-hero .room-bar .rb-list li.mv .rm strong { color: #8a4f14; }
+.learn-hero .room-bar .rb-list li .rm em {
+  font-style: normal; margin-left: 5px; padding: 1px 6px 2px; border-radius: 4px;
+  background: #17395f; color: #fff; font-size: 10px; font-weight: 800; vertical-align: 1px;
+}
+.learn-hero .room-bar .rb-n {
+  margin: 10px 0 0; padding-top: 9px; border-top: 1px dashed #cfdcea;
+  font-size: 11.5px; line-height: 1.75; color: #52697f;
+}
+.learn-hero .room-bar .rb-n b { color: #8a4f14; }
+.learn-hero .room-bar .rb-n strong { color: #17395f; }
