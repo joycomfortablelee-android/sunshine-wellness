@@ -264,6 +264,40 @@
       letter-spacing: .04em; vertical-align: 2px;
     }
     .learn-article .syl-box.plan .syl-src b { color: #5a6b5e; font-weight: 700; }
+    /* ── 두 안을 나란히 — 안이 셋이 되면 grid-template-columns만 늘리면 된다 ── */
+    .learn-article .syl-box.plan .plan2 {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0 2px;
+    }
+    @media (max-width: 760px) { .learn-article .syl-box.plan .plan2 { grid-template-columns: 1fr; } }
+    .learn-article .syl-box.plan .pcol {
+      border: 1px solid #cdd9cf; border-radius: 10px; background: #fff; padding: 11px 13px 12px;
+    }
+    .learn-article .syl-box.plan .pcol.p2 { border-color: #e0c79c; background: #fffdf9; }
+    .learn-article .syl-box.plan .pc-t {
+      margin: 0 0 5px; font-size: 13.5px; font-weight: 800; color: #2f5148; line-height: 1.5;
+    }
+    .learn-article .syl-box.plan .pc-t b {
+      display: inline-block; margin-right: 7px; padding: 2px 9px; border-radius: 999px;
+      background: #2f5148; color: #fff; font-size: 10.5px; font-weight: 800; vertical-align: 2px;
+    }
+    .learn-article .syl-box.plan .pcol.p2 .pc-t { color: #8a4f14; }
+    .learn-article .syl-box.plan .pcol.p2 .pc-t b { background: #a8681f; }
+    .learn-article .syl-box.plan .pc-d { margin: 0 0 7px; font-size: 12.5px; line-height: 1.7; color: #4d5f74; }
+    .learn-article .syl-box.plan .pc-d strong { color: #2f5148; }
+    .learn-article .syl-box.plan .pcol.p2 .pc-d strong { color: #8a4f14; }
+    .learn-article .syl-box.plan .pc-k {
+      margin: 0 0 9px; padding: 6px 9px; border-radius: 6px; background: #f2f6f2;
+      font-size: 11.5px; line-height: 1.65; color: #4a5b4e;
+    }
+    .learn-article .syl-box.plan .pcol.p2 .pc-k { background: #fdf5eb; color: #7a5a2e; }
+    .learn-article .syl-box.plan .pcol a.mapl {
+      display: inline-block; padding: 4px 10px; border-radius: 999px;
+      background: #2f5148; border: 1px solid #2f5148; color: #fff;
+      font-size: 11.5px; font-weight: 700; border-bottom: 0;
+    }
+    .learn-article .syl-box.plan .pcol a.mapl:hover { background: #1f382f; border-color: #1f382f; color: #fff; }
+    .learn-article .syl-box.plan .pcol.p2 a.mapl { background: #a8681f; border-color: #a8681f; }
+    .learn-article .syl-box.plan .pcol.p2 a.mapl:hover { background: #8a4f14; border-color: #8a4f14; }
     .learn-article .book-fig .learn-fig { max-width: 900px; }
     .learn-article .bk-map { display: block; font-size: 15px; font-weight: 800; color: #7a6417; margin-bottom: 4px; }
     /* 사업계획서 P·S·S·T — 수렴도와 같은 방식으로 네 칸을 나란히 */
@@ -524,10 +558,23 @@
       </div>
 
       <div class="syl-box plan">
-        <p class="syl-t">강의계획서 — 위 달력을 학사 서식으로 옮기면 이렇게 됩니다<b class="syl-badge">안 1</b></p>
-        <p class="syl-d">이 페이지의 여섯 장과 과제 둘이 <strong>주차별 강의계획</strong> 어디에 놓이는지를 학교 제출 서식으로 정리한 것입니다. <strong>15주 + 기말시험 주</strong>로 짰고, <strong>8주차(10/20) 중간시험</strong>과 <strong>16주차(12/15) 기말시험</strong>이 표에 들어 있습니다. 평가 배점은 공모의 <strong>서류·발표 평가항목 가중치</strong>를 그대로 옮겼습니다 — 중간 25 · 기말 30 · 주차별 워크북 15 · 모의 PT 10 · 과제 2 10 · 출석·참여 10.</p>
-        <p class="syl-d"><strong>결강이 없는 학기입니다</strong> — 대동체육대회(9/16~18) · 추석연휴(9/24~25) · 개천절 대체휴일(10/5) · 한글날(10/9)이 모두 화요일을 비켜 가, <strong>실제 강의는 13회</strong>가 온전히 확보됩니다. <strong class="hot-t">생성형 AI 활용 지침</strong>을 별도 장으로 세워, 공고문의 대필·허위 기재 금지 조항을 그대로 수업 규정으로 삼았습니다.</p>
-        <p class="syl-tags"><a class="mapl" href="assets/tourism-venture-syllabus-2026-2.docx" download="2026-2학기_관광벤처창업론_강의계획서(안1).docx">2026-2학기 강의계획서 · 안 1 ⤓ DOCX</a><a class="mapl gh" href="assets/tourism-venture-weekly-workbook.docx" download="관광벤처창업론_예비관광벤처_사업계획서_주차별_작업워크북.docx">함께 쓰는 주차별 워크북 ⤓</a><span class="syl-src">A4 4~5쪽 · 기본정보 · 개요 · 학습목표 · 교재 · 운영방법 · 평가배점 · 주차별 계획 · AI 지침 · 수업규정. <b>여러 안을 만드는 중이라 번호를 붙였습니다.</b></span></p>
+        <p class="syl-t">강의계획서 — 위 달력을 학사 서식으로 옮기면 이렇게 됩니다<b class="syl-badge">안 1 · 안 2</b></p>
+        <p class="syl-d">같은 학사일정 위에 <strong>서로 다른 두 안</strong>을 올렸습니다. 둘 다 <strong>15주 + 기말시험 주</strong>로 짰고 <strong>8주차(10/20) 중간시험</strong>·<strong>16주차(12/15) 기말시험</strong>이 표에 들어 있으며, 평가 배점은 공모의 <strong>서류·발표 평가항목 가중치</strong>를 그대로 옮겼습니다. <strong>결강이 없는 학기</strong>입니다 — 대동체육대회(9/16~18)·추석연휴(9/24~25)·개천절 대체휴일(10/5)·한글날(10/9)이 모두 화요일을 비켜 갑니다. <strong class="hot-t">생성형 AI 활용 지침</strong>은 두 안 모두 별도 장으로 세워, 공고문의 대필·허위 기재 금지 조항을 수업 규정으로 삼았습니다.</p>
+        <div class="plan2">
+          <div class="pcol p1">
+            <p class="pc-t"><b>안 1</b>서식 축 — 양식을 한 칸씩 채운다</p>
+            <p class="pc-d">공식 사업계획서 <strong>6절을 한 주에 한 칸씩</strong> 채웁니다. 이 페이지의 이론 여섯 장과 과제 둘이 그대로 주차가 되고, 군더더기 없이 <strong>「낼 서류 한 부」</strong>에 집중합니다. 실제 강의 13회가 온전히 사업계획서로 갑니다.</p>
+            <p class="pc-k">중간 25 · 기말 30 · 워크북 15 · 모의 PT 10 · 과제 2 10 · 출석·참여 10</p>
+            <a class="mapl" href="assets/tourism-venture-syllabus-2026-2.docx" download="2026-2학기_관광벤처창업론_강의계획서(안1).docx">안 1 ⤓ DOCX · A4 4~5쪽</a>
+          </div>
+          <div class="pcol p2">
+            <p class="pc-t"><b>안 2</b>업종 · 연구용역 · 진로까지 넓힌다</p>
+            <p class="pc-d">안 1에 셋을 더했습니다 — ① <strong>업종별 창업 실무</strong>(5주 여행·외식 / 6주 농어촌 자원·<strong>스마트팜 융복합</strong> / 7주 지역 세 갈래) ② <strong>연구용역 창업과 분석 보고서</strong>(10주) ③ <strong>진로·취업 지도</strong>(11주). 기말 발표가 <strong>창업 IR과 취업 모의면접 두 갈래</strong>로 갈려, 창업하지 않는 학생도 자기 트랙을 고릅니다.</p>
+            <p class="pc-k">최종 사업계획서 30 · 중간 15 · Demo Day 15 · 워크북 12 · 과제 2(취업) 8 · 과제 3(분석보고서) 7 · AI기록 5 · 출석 8</p>
+            <a class="mapl" href="assets/tourism-venture-syllabus-2026-2-plan2.docx" download="2026-2학기_관광벤처창업론_강의계획서(안2).docx">안 2 ⤓ DOCX · A4 5~6쪽</a>
+          </div>
+        </div>
+        <p class="syl-tags"><a class="mapl gh" href="assets/tourism-venture-weekly-workbook.docx" download="관광벤처창업론_예비관광벤처_사업계획서_주차별_작업워크북.docx">두 안이 함께 쓰는 주차별 워크북 ⤓</a><span class="syl-src">두 안 모두 기본정보 · 개요 · 학습목표 · 교재 · 운영방법 · 평가배점 · 주차별 계획 · AI 지침 · 수업규정을 담았습니다. <b>15주차(12/8)는 보강 지정 기간이라 Demo Day 개설 가능 여부를 학과에 확인해야 합니다.</b></span></p>
       </div>
 
 
