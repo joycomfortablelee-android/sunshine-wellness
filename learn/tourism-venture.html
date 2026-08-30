@@ -235,6 +235,15 @@
     .learn-article .learn-part.lp-call .ptag { background: #2563a8; }
     .learn-article .learn-part.lp-link .ptag { background: #6b7d76; }
     .learn-article .learn-part.lp-book .ptag { background: #7a6417; }
+    /* ── 제목 뒤 꼬리표 — 여기서부터는 수업 안이 아니라 「밖에서 실제로 열리는」 자리다.
+       앞의 .ptag가 채운 알약이라, 이건 점선 테두리로 두어 성격이 다름을 표시한다. ── */
+    .learn-article .learn-part .ptag-out {
+      display: inline-block; margin-left: 10px; padding: 2px 10px 3px;
+      border-radius: 999px; border: 1px dashed #c0392b; background: #fff;
+      color: #c0392b; font-size: 10.5px; font-weight: 800; letter-spacing: .04em;
+      vertical-align: 2px; line-height: 1.5; white-space: nowrap;
+    }
+    .learn-article .learn-part .ptag-out b { margin-right: 4px; font-weight: 800; }
     .learn-article .book-fig .learn-fig { max-width: 900px; }
     .learn-article .bk-map { display: block; font-size: 15px; font-weight: 800; color: #7a6417; margin-bottom: 4px; }
     /* 사업계획서 P·S·S·T — 수렴도와 같은 방식으로 네 칸을 나란히 */
@@ -631,7 +640,7 @@
       </ul>
 
 
-      <p class="learn-part lp-call"><span class="ptag">공모</span>예비관광벤처 사업공모</p>
+      <p class="learn-part lp-call"><span class="ptag">공모</span>예비관광벤처 사업공모<span class="ptag-out"><b>★</b>외부의 기회들</span></p>
       <p>'공공 지원'이 실제로 어떻게 작동하는지, 한국관광공사의 대표 사업인 <strong>예비관광벤처 사업공모</strong>를 예로 살펴봅니다. 아직 사업자등록을 하지 않은 <em>예비창업자</em>가 아이디어를 실제 사업으로 세울 수 있도록 자금과 프로그램을 지원하는, 관광 창업의 대표적 진입로입니다.</p>
       <details class="spec-fold">
       <summary>요강 — 신청 대상 · 지원 분야 · 지원 내용 · 평가 절차 · 핵심 제출물</summary>
