@@ -346,6 +346,18 @@
       font-size: 12px; line-height: 1.75; color: #7a4a35;
     }
     .learn-article .psst-tip b, .learn-article .psst-tip strong { color: #a8431b; }
+    /* ── P·S·S·T 바로 아래 영상 — 네 칸을 설명한 직후에 「그 첫 칸의 실물」을 보여준다 ── */
+    .learn-article .psst-vid { margin: 0 0 26px; }
+    .learn-article .psst-vid .pvid-lead {
+      max-width: 720px; margin: 0 auto 10px; font-size: 12.5px; line-height: 1.8; color: var(--muted);
+    }
+    .learn-article .psst-vid .pvid-lead b:first-child {
+      display: inline-block; margin-right: 8px; padding: 2px 9px; border-radius: 999px;
+      background: #2f5148; color: #fff; font-size: 11px; font-weight: 800; letter-spacing: .02em;
+      vertical-align: 1px;
+    }
+    .learn-article .psst-vid .pvid-lead strong { color: #1f382f; }
+    .learn-article .psst-vid figcaption { max-width: 720px; margin-left: auto; margin-right: auto; }
     /* 교재 두 권을 나란히 — 클릭하면 원본 크기로 열린다 */
     .learn-article .book-pair {
       display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 14px 0 20px;
@@ -550,6 +562,14 @@
         </ol>
         <p class="psst-tip"><b>학생 원고에서 자주 무너지는 곳</b> — <strong>P에 통계가 없고</strong>(PRISM·데이터랩에서 숫자를 가져오십시오), <strong>S(솔루션)에 검증이 없고</strong>(만들기 전에 물어본 흔적이 있어야 합니다), <strong>T에 「열심히 하겠습니다」만 있습니다</strong>(없는 역량은 협력 네트워크로 메운다고 쓰는 편이 정직하고 강합니다).</p>
       </div>
+
+      <figure class="learn-fig psst-vid">
+        <p class="pvid-lead"><b>영상으로 · P 칸 하나만 뜯어보기</b>네 칸 중 <strong>첫 칸(문제 인식)</strong>만 놓고 <em>예비창업패키지</em> 실제 사업계획서를 문단 단위로 뜯는 영상입니다. 「그냥 무조건 따라하기」라는 제목대로 <strong>그 칸을 어떤 순서로, 어떤 문장으로 채우는지</strong>를 보여줍니다. 부처와 사업은 다르지만 <strong class="hot-t">묻는 것은 관광벤처 양식의 「1-1 문제 인식」과 같습니다</strong> — 위 과제 1의 첫 칸을 쓰기 전에 한 번 보십시오. 보면서 확인할 것 둘 — <strong>① 문제를 몇 번째 문장에서 특정하는가</strong>, <strong>② 근거로 무엇을 들고 왔는가</strong>(위 「P에 통계가 없다」와 겹칩니다).</p>
+        <div style="position:relative;width:100%;max-width:720px;margin:0 auto;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;">
+          <iframe src="https://www.youtube-nocookie.com/embed/iNbX2YSjcgw" title="예비창업패키지 실제 사례 완벽 분석 1편 — 문제인식(Problem), 그냥 무조건 따라하기" style="position:absolute;inset:0;width:100%;height:100%;border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <figcaption>「예비창업패키지 실제 사례 완벽 분석 <b>1편 — 문제인식(Problem)</b>, 그냥 무조건 따라하기」 — 채널 <a href="https://www.youtube.com/@%EC%A0%95%EC%84%9DBiz" target="_blank" rel="noopener">사업계획서의 정석, 비즈니스 성공방정식 ↗</a>. <b>1편이 P를 다룹니다</b> — 나머지 칸(S · S · T)은 같은 채널에서 이어 찾아보십시오.</figcaption>
+      </figure>
 
       <div class="syl-box cal">
         <p class="syl-t"><a href="academic-calendar-2026-2.html" target="_blank" rel="noopener">2026학년도 2학기 학사일정 — 월별 달력에 내 수업 표시 ↗</a></p>
