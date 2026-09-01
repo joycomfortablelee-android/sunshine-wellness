@@ -30,6 +30,17 @@ html,body{
 /* 내용은 그대로 두고 빈 여백만 압축 */
 .page{padding:8px 8px 14px}
 .header{text-align:center;margin-bottom:4px}
+/* 이 페이지는 새 탭으로 열리므로 history.back() 이 아니라 모듈 페이지로 되돌린다 */
+.backbar{margin:0 0 10px}
+.backbar a{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:6px 14px;border-radius:999px;
+  background:#fff;border:1px solid #CFDCEA;color:var(--navy);
+  font-size:12.5px;font-weight:800;text-decoration:none;
+  box-shadow:0 2px 8px rgba(23,54,93,.06);transition:.18s;
+}
+.backbar a:hover{background:var(--navy);border-color:var(--navy);color:#fff}
+@media (max-width:700px){ .backbar a{font-size:12px;padding:5px 12px} }
 .header h1{margin:0;color:var(--navy);font-size:28px;font-weight:900;letter-spacing:-1px;line-height:1.1}
 .header p{margin:2px 0 0;color:var(--muted);font-size:12px;font-weight:700;line-height:1.2}
 
@@ -205,6 +216,7 @@ svg.links{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-eve
 </head>
 <body>
 <div class="page">
+  <p class="backbar"><a href="smart-tourism.html">← 스마트 투어리즘 자료로 돌아가기</a></p>
   <header class="header">
     <h1>스마트 관광도시</h1>
     <p>실제 시범사업 기능 연결</p>
