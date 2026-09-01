@@ -21,8 +21,18 @@ h1{margin:0;font-size:22px;line-height:1.25;color:var(--navy);letter-spacing:-.3
 footer{font-size:10px;color:var(--muted);background:#fff;border-top:1px solid var(--line);padding:8px 15px;line-height:1.4}footer a{color:#285f9e;text-decoration:none}
 @media(max-width:960px){.layout{grid-template-columns:1fr;grid-template-rows:60vh auto}#map{min-height:430px}.panel{border-left:0;border-top:1px solid var(--line)}.search{margin-left:0;flex:1 1 100%;min-width:0}}
 </style>
+<style>
+/* 돌아가기 — 이 페이지는 새 탭으로 열리므로 모듈 페이지로 되돌린다. 페이지마다 CSS가 달라 값은 직접 적는다. */
+.backbar{margin:0;padding:10px 14px 0;font-family:"Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",sans-serif}
+.backbar a{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;
+  background:#fff;border:1px solid #CFDCEA;color:#17365d;font-size:12.5px;font-weight:800;
+  text-decoration:none;box-shadow:0 2px 8px rgba(23,54,93,.06);transition:.18s}
+.backbar a:hover{background:#17365d;border-color:#17365d;color:#fff}
+@media (max-width:700px){.backbar a{font-size:12px;padding:5px 12px}}
+</style>
 </head>
 <body>
+<p class="backbar"><a href="smart-tourism.html">← 스마트 투어리즘 자료로 돌아가기</a></p>
 <header>
 <h1>2026 유럽 스마트 관광 녹색 선구자 우수사례 GPS 지도 <span style="font-size:14px;font-weight:600;color:#627d98">European Green Pioneer of Smart Tourism</span></h1>
 <div class="sub">2026 공모 신청서에서 선별된 <b>지속가능 관광 우수사례 59건</b>을 13개 분야별로 표시했습니다. 지도 핀은 도시·지역 중심 좌표이며, 핀/도시카드를 누르면 사례와 GPS가 함께 열립니다. <span class="star">★ Dubrovnik</span>은 2026 Green Pioneer 수상지입니다.</div>

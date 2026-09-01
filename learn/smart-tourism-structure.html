@@ -45,8 +45,18 @@
   }
   @media print{ .wrap{padding:0} }
 </style>
+<style>
+/* 돌아가기 — 이 페이지는 새 탭으로 열리므로 모듈 페이지로 되돌린다. 페이지마다 CSS가 달라 값은 직접 적는다. */
+.backbar{margin:0;padding:10px 14px 0;font-family:"Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",sans-serif}
+.backbar a{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;
+  background:#fff;border:1px solid #CFDCEA;color:#17365d;font-size:12.5px;font-weight:800;
+  text-decoration:none;box-shadow:0 2px 8px rgba(23,54,93,.06);transition:.18s}
+.backbar a:hover{background:#17365d;border-color:#17365d;color:#fff}
+@media (max-width:700px){.backbar a{font-size:12px;padding:5px 12px}}
+</style>
 </head>
 <body>
+<p class="backbar"><a href="smart-tourism.html">← 스마트 투어리즘 자료로 돌아가기</a></p>
 <div class="wrap">
   <h1>스마트관광 핵심 구조</h1>
 
