@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>스마트관광은 기술이 아니라 문제 해결 방식이다</title>
+<style>
+:root{--navy:#12345b;--blue:#2f6fb3;--green:#4a8f5d;--orange:#d77a2b;--red:#c93434;--ink:#1f2937;--line:#d9e2ec;--soft:#f6f9fc}
+*{box-sizing:border-box} body{margin:0;font-family:"Noto Sans KR","Malgun Gothic",sans-serif;background:#eef3f8;color:var(--ink);line-height:1.65}
+.wrap{max-width:1120px;margin:auto;padding:32px 20px 56px}
+.hero{background:linear-gradient(135deg,#12345b,#2f6fb3);color:#fff;border-radius:26px;padding:32px;box-shadow:0 14px 38px rgba(18,52,91,.18)}
+.hero h1{margin:6px 0 10px;font-size:clamp(30px,4vw,48px);line-height:1.2}.hero p{margin:0;font-size:18px}
+.kicker{font-size:13px;font-weight:800;letter-spacing:.08em;opacity:.85}
+.pipeline{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:10px;align-items:center;margin-top:20px}
+.step{padding:16px 12px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.12);border-radius:16px;text-align:center;min-height:102px;display:flex;flex-direction:column;justify-content:center}
+.step b{font-size:17px}.step span{font-size:13px;opacity:.9;margin-top:4px}.arr{font-size:26px;font-weight:900}
+section{margin-top:22px;background:#fff;border-radius:22px;padding:26px;box-shadow:0 9px 26px rgba(18,52,91,.07)}
+h2{margin:0 0 15px;color:var(--navy);font-size:24px}.quote{border:2px solid var(--red);background:#fffafa;color:var(--navy);border-radius:18px;padding:20px 22px;font-size:23px;font-weight:800;position:relative}.quote:before{content:"★";position:absolute;left:-13px;top:-20px;color:var(--red);font-size:32px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{border:1px solid var(--line);border-radius:16px;padding:18px}.num{width:32px;height:32px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:9px}.card h3{margin:0 0 7px}.card p{margin:0}
+.flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:10px;align-items:center}.box{border-radius:18px;padding:18px;text-align:center;border:2px solid #cfd9e5;background:#fafcff}.box b{font-size:18px}.box small{display:block;margin-top:5px;color:#667085}.problem{background:#fff5f3;border-color:#e4b4ac}.tech{background:#f1f6ff;border-color:#b3cdef}.service{background:#f4fbf5;border-color:#b8d8be}.effect{margin-top:12px;background:#fffaf0;border-color:#e4ce96}
+.examples{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.ex{background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:16px}.chain{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:9px}.tag{padding:6px 9px;border-radius:999px;background:#fff;border:1px solid #d7e0e8;font-size:13px;font-weight:700}.to{color:var(--blue);font-weight:900}
+.compare{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center}.before,.after{border-radius:17px;padding:18px;min-height:205px}.before{background:#fff7f7;border:2px solid #e3aaaa}.after{background:#f6fff7;border:2px solid #9bcaa3}.narrow{width:70%;margin:10px auto;background:#fff;border:1px solid #e3aaaa;padding:10px;font-size:13px}.wide{width:100%;margin-top:10px;background:#fff;border:1px solid #9bcaa3;padding:14px}
+.note{background:#fff8e6;border:1px solid #ebd398;border-radius:15px;padding:16px}.final{background:#0f2f53;color:#fff;border-radius:18px;padding:20px}.final strong{font-size:21px}
+.source{margin-top:18px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:#667085}.source a{color:var(--blue);word-break:break-all}
+@media(max-width:820px){.pipeline,.flow,.cards,.examples,.compare{grid-template-columns:1fr}.arr{transform:rotate(90deg);text-align:center}}
+</style>
+<style>
+/* 돌아가기 — 이 페이지는 새 탭으로 열리므로 모듈 페이지로 되돌린다. */
+.backbar{margin:0;padding:10px 14px 0;font-family:"Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",sans-serif}
+.backbar a{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;
+  background:#fff;border:1px solid #CFDCEA;color:#17365d;font-size:12.5px;font-weight:800;
+  text-decoration:none;box-shadow:0 2px 8px rgba(23,54,93,.06);transition:.18s}
+.backbar a:hover{background:#17365d;border-color:#17365d;color:#fff}
+@media (max-width:700px){.backbar a{font-size:12px;padding:5px 12px}}
+</style>
+</head>
+<body>
+<p class="backbar"><a href="smart-tourism.html">← 스마트 투어리즘 자료로 돌아가기</a></p>
+<div class="wrap">
+
+<div class="hero">
+  <div class="kicker">SMART TOURISM CITY · 수업용 핵심 정리</div>
+  <h1>스마트관광은 기술이 아니라<br>‘문제 해결 방식’이다</h1>
+  <p>관광 현장의 문제를 찾아 → 적절한 기술을 선택하고 → 실제 서비스로 연결해 → 관광객과 도시의 경험을 개선하는 것</p>
+  <div class="pipeline">
+    <div class="step"><b>① 관광 문제</b><span>혼잡 · 길찾기 · 응급 · 결제 · 접근성</span></div><div class="arr">→</div>
+    <div class="step"><b>② 기술 선택</b><span>AI · 데이터 · XR · QR · 디지털 지도</span></div><div class="arr">→</div>
+    <div class="step"><b>③ 서비스 구현</b><span>안내 · 주차 · 결제 · 경로 · 안전 대응</span></div><div class="arr">→</div>
+    <div class="step"><b>④ 효과</b><span>안전 · 편의 · 혼잡 완화 · 접근성 · 경험 개선</span></div>
+  </div>
+</div>
+
+<section>
+<h2>1. 이 그림이 전달하는 가장 중요한 메시지</h2>
+<div class="quote">스마트 관광도시는 첨단기술을 많이 설치한 도시가 아니라,<br>관광객과 관광지의 문제를 찾아 적절한 기술을 실제 관광서비스로 연결한 도시이다.</div>
+</section>
+
+<section>
+<h2>2. 그림 안에는 세 층위의 메시지가 있다</h2>
+<div class="cards">
+  <div class="card"><div class="num">1</div><h3>기업 중심 → 기능 중심</h3><p>기업을 나열하기보다 <b>“무슨 관광 문제를 해결하는가?”</b>를 기준으로 안전·콘텐츠·주차·지도·결제·ESG/접근성으로 묶었다.</p></div>
+  <div class="card"><div class="num">2</div><h3>기술 이름 → 서비스 활용</h3><p>AI, XR, QR 자체가 목적이 아니다. <b>관광객에게 어떤 서비스로 작동하는지</b>를 보이도록 연결했다.</p></div>
+  <div class="card"><div class="num">3</div><h3>정보 나열 → 문제 해결 구조</h3><p>모든 사례를 <b>문제 → 기술 → 서비스 → 효과</b>라는 동일한 구조로 읽도록 만든 것이다.</p></div>
+</div>
+</section>
+
+<section>
+<h2>3. 스마트관광을 읽는 기본 구조</h2>
+<div class="flow">
+  <div class="box problem"><b>⚠️ 관광 현장의 문제</b><small>사람이 몰린다 · 길을 찾기 어렵다 · 결제가 불편하다</small></div><div class="arr">→</div>
+  <div class="box tech"><b>🧠 기술</b><small>AI · 유동인구 분석 · XR · QR · 디지털 지도</small></div><div class="arr">→</div>
+  <div class="box service"><b>📱 관광서비스</b><small>혼잡 안내 · 길안내 · 응급 대응 · 결제 · 맞춤 안내</small></div>
+</div>
+<div class="box effect"><b>✨ 관광객·도시의 효과</b><small>안전성 향상 · 편의 증대 · 혼잡 완화 · 접근성 향상 · 관광경험 개선</small></div>
+</section>
+
+<section>
+<h2>4. 실제 사례로 보면 더 쉽게 이해된다</h2>
+<div class="examples">
+  <div class="ex"><b>축제 혼잡</b><div class="chain"><span class="tag">사람이 너무 몰림</span><span class="to">→</span><span class="tag">유동인구 분석·혼잡도 예측</span><span class="to">→</span><span class="tag">혼잡 관리</span></div></div>
+  <div class="ex"><b>응급 대응</b><div class="chain"><span class="tag">축제장 응급상황</span><span class="to">→</span><span class="tag">이동식 AED 키오스크</span><span class="to">→</span><span class="tag">응급 대응</span></div></div>
+  <div class="ex"><b>관광안내</b><div class="chain"><span class="tag">정보 찾기 어려움</span><span class="to">→</span><span class="tag">AI 챗봇·말하는 캐릭터</span><span class="to">→</span><span class="tag">관광 안내</span></div></div>
+  <div class="ex"><b>길찾기·현장경험</b><div class="chain"><span class="tag">길찾기·현장 이해 어려움</span><span class="to">→</span><span class="tag">디지털 지도·XR</span><span class="to">→</span><span class="tag">길안내·현장경험</span></div></div>
+  <div class="ex"><b>결제 편의</b><div class="chain"><span class="tag">현장 결제 불편</span><span class="to">→</span><span class="tag">모바일·QR 결제</span><span class="to">→</span><span class="tag">결제 편의</span></div></div>
+  <div class="ex"><b>교통약자 이동</b><div class="chain"><span class="tag">이동 접근성 문제</span><span class="to">→</span><span class="tag">교통약자 경로 안내</span><span class="to">→</span><span class="tag">접근성 향상</span></div></div>
+</div>
+</section>
+
+<section>
+<h2>5. “콘텐츠 박스를 넓게 조정”했다는 뜻</h2>
+<p>이 부분은 스마트관광의 개념 변화가 아니라 <b>시각화 디자인을 더 읽기 쉽게 바꿨다는 뜻</b>이다.</p>
+<div class="compare">
+  <div class="before"><h3>Before · 좁고 겹치는 박스</h3><div class="narrow"><b>스마트 지도</b><br>디지털 지도·XR<br>길안내·현장경험<br>교통약자 경로 안내<br><span style="color:#b42318">→ 텍스트가 빽빽하고 핵심이 잘 안 보임</span></div></div>
+  <div class="arr">→</div>
+  <div class="after"><h3>After · 넓고 읽기 쉬운 박스</h3><div class="wide"><b>스마트 지도</b><br><br>• 디지털 지도·XR → 현장경험 지원<br>• 길안내 → 정확한 길찾기 지원<br>• 교통약자 경로 안내 → 이동 접근성 향상</div></div>
+</div>
+</section>
+
+<section>
+<h2>6. 정확하게 구분해야 할 한 가지</h2>
+<div class="note"><b>피치에이아이</b>는 원자료에서 <b>유동인구 분석 · 혼잡도 예측</b>과 연결된다.<br><b>AI 이상 탐지</b>는 <b>아이티비(주) Project Go AI</b>에 연결하는 것이 정확하다.</div>
+</section>
+
+<section>
+<h2>7. 수업에서 학생들에게 이렇게 설명하면 된다</h2>
+<div class="final"><strong>“스마트관광은 기술을 보여주는 것이 아니라, 관광 문제를 기술로 해결하는 방식입니다.”</strong><br><br>따라서 사례를 볼 때는 ‘어떤 기술인가?’보다 먼저 ‘어떤 관광 문제를 해결하려는가?’를 묻는 것이 중요합니다.</div>
+<div class="source"><b>Source</b><br><a href="https://sunshinewellness.co.kr/learn/smart-tourism-city-pilot-projects.html" target="_blank">https://sunshinewellness.co.kr/learn/smart-tourism-city-pilot-projects.html</a></div>
+</section>
+
+</div>
+</body>
+</html>
