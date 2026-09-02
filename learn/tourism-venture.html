@@ -223,6 +223,57 @@
       font-size: 13.5px; font-weight: 800; letter-spacing: .02em;
     }
 
+    /* ── 다음 수업 상자 — 학기 중 매주 갈아 끼우는 자리.
+       페이지에서 유일하게 「이번 주에 할 일」을 말하는 곳이라 맨 위, 붉은 테두리로 둔다. ── */
+    .learn-article .next-box {
+      border: 2px solid #c0392b; border-radius: 12px; background: #fffaf9;
+      padding: 15px 18px 14px; margin: 0 0 26px;
+    }
+    .learn-article .next-box .nx-t {
+      margin: 0 0 4px; font-size: 13px; font-weight: 700; color: #8a3a2f; line-height: 1.6;
+    }
+    .learn-article .next-box .nx-tag {
+      display: inline-block; margin-right: 9px; padding: 3px 10px; border-radius: 6px;
+      background: #c0392b; color: #fff; font-size: 11.5px; font-weight: 800;
+      letter-spacing: .04em; vertical-align: 1px;
+    }
+    .learn-article .next-box .nx-t strong { color: #a02d1f; font-weight: 800; }
+    .learn-article .next-box .nx-room {
+      display: inline-block; margin-left: 8px; padding: 2px 9px; border-radius: 999px;
+      background: #fff; border: 1px solid #e6c3bd; color: #8a3a2f;
+      font-size: 11px; font-weight: 700; vertical-align: 1px;
+    }
+    .learn-article .next-box .nx-h {
+      margin: 0 0 10px; font-size: 17px; font-weight: 800; color: #1f382f; line-height: 1.45;
+    }
+    .learn-article .next-box .nx-lb {
+      margin: 12px 0 4px; font-size: 11.5px; font-weight: 800; letter-spacing: .06em;
+      color: #c0392b; padding-top: 9px; border-top: 1px dashed #eccfc9;
+    }
+    .learn-article .next-box .nx-d { margin: 0; font-size: 12.5px; line-height: 1.8; color: #4d5f74; }
+    .learn-article .next-box .nx-d strong { color: #1f382f; }
+    .learn-article .next-box .nx-list { list-style: none; margin: 0; padding: 0; }
+    .learn-article .next-box .nx-list li {
+      display: flex; gap: 10px; margin: 0 0 8px; padding: 9px 11px;
+      border-radius: 9px; background: #fff; border: 1px solid #eccfc9;
+    }
+    .learn-article .next-box .nx-list li b {
+      flex: none; width: 20px; height: 20px; border-radius: 50%;
+      background: #c0392b; color: #fff; font-size: 11.5px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .learn-article .next-box .nx-i { display: block; font-size: 12.5px; line-height: 1.75; color: #4d5f74; }
+    .learn-article .next-box .nx-i strong { color: #1f382f; }
+    .learn-article .next-box .nx-i a {
+      font-weight: 800; color: #c0392b; border-bottom: 1px solid #e6b3ac;
+    }
+    .learn-article .next-box .nx-i a:hover { color: #8a2119; border-bottom-color: #8a2119; }
+    .learn-article .next-box .nx-n {
+      margin: 11px 0 0; padding-top: 9px; border-top: 1px dashed #eccfc9;
+      font-size: 11.5px; line-height: 1.75; color: #7c8a99;
+    }
+    .learn-article .next-box .nx-n strong { color: #4d5f74; }
+
     /* ── 섹션 제목 앞 유형 라벨 — 색만으로 구분되던 것을 글자로도 못박는다 ── */
     .learn-article .learn-part .ptag {
       display: inline-block; margin-right: 9px; padding: 3px 10px 4px;
@@ -566,6 +617,24 @@
     <div class="lw">
 
       <p class="lead">창업은 "좋은 아이템을 파는 일"이 아니라 <strong>"누군가의 불편을 반복 가능한 방식으로 푸는 일"</strong>입니다. 관광벤처는 그 불편이 여행의 여정 어딘가에 있는 사업입니다.</p>
+
+      <div class="next-box">
+        <p class="nx-t"><b class="nx-tag">다음 수업</b>2주차 · <strong>9월 8일(화)</strong> 5 · 6 · 7교시<span class="nx-room">사회대 2106호 PC실 → 7교시 3402호</span></p>
+        <p class="nx-h">관광창업의 지도 — 내 아이템은 어느 칸에 서는가</p>
+
+        <p class="nx-lb">이날의 목표</p>
+        <p class="nx-d">수업이 끝나면 <strong class="hot-t">「내 아이템이 공모의 어느 칸에 들어가는지」를 근거를 들어 말할 수 있게</strong> 됩니다. 두 가지를 합니다 — <strong>①</strong> 관광벤처 <strong>3유형</strong>(플랫폼 · 콘텐츠 · 시설공간)과 로컬크리에이터 <strong>7대 유형</strong>을 나란히 놓고 <em>내 것</em>을 고릅니다. <strong>②</strong> 남의 요약이 아니라 <strong>공고 원문</strong>을 열어 모집유형 넷의 정의와 지원자격을 직접 읽습니다. <em>유형별 쿼터가 없다</em>는 것, <em>자본금도 학벌도 요건에 없다</em>는 것을 그 자리에서 확인합니다.</p>
+
+        <p class="nx-lb">수업 전에 해올 것</p>
+        <ul class="nx-list">
+          <li><b>1</b><span class="nx-i"><a href="https://touraz.kr/index#" target="_blank" rel="noopener">투어라즈(TOURAZ) 개인회원 가입 ↗</a> — <strong>touraz.kr</strong><br />공고문이 <strong class="hot-t">「공모마감 1주일 전까지 가입을 권장」</strong>한다고 적고 있습니다. 접수 · 심사 · 결과 발표가 전부 이곳에서 이뤄지고, 마감일에는 접속이 몰립니다. <strong>지금 만들어 두십시오</strong> — 5분이면 됩니다. 가입 유형은 <strong>개인회원</strong>입니다(예비창업자는 개인으로 지원합니다).</span></li>
+          <li><b>2</b><span class="nx-i"><strong>주차별 작업 워크북을 인쇄해 지참</strong><br />7교시는 PC실이 아니라 <strong>3402호</strong>입니다. 그 시간에 손으로 채웁니다.</span></li>
+        </ul>
+
+        <p class="nx-lb">그날 낼 것</p>
+        <p class="nx-d"><strong>워크북 시트 1</strong> — 신청유형 <strong>택 1</strong> · 서비스명 <strong>20자</strong> · 한줄설명 <strong>50자</strong> · <strong>그 유형을 고른 근거 한 문장</strong>. 근거는 「공고의 정의」 문장 중 <em>어느 구절에 내 아이템이 걸리는지</em>를 인용해서 씁니다.</p>
+        <p class="nx-n">아직 아이템이 없어도 괜찮습니다 — 이날은 <strong>고르는 연습</strong>이지 확정이 아닙니다. 다음 주(3주차)에 <em>문제 정의</em>부터 다시 잡습니다.</p>
+      </div>
 
       <div class="task-box vt">
         <p class="tb-t"><b class="tb-n">과제 1</b>예비관광벤처 사업계획서 쓰기 — 실제 공모 양식 그대로 <span>제18회 양식</span></p>
