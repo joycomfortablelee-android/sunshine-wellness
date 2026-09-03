@@ -1155,8 +1155,16 @@ body.mod-smart .lw { max-width: 1160px; }
 .learn-article .task-box .tb-tags a.mapl.form.hot:hover { background: #6b3c0d; border-color: #6b3c0d; }
 /* 제출용 원본은 붉은 알약으로 — 「내가 채울 작업지」와 「그대로 내는 서식」을 색으로 가른다.
    관광벤처(공식 사업계획서 HWP) · 스마트관광(양식① 응모신청서)이 함께 쓴다. */
-.learn-article .task-box .tb-tags a.mapl.form.hot.red { background: #c0392b; border-color: #c0392b; }
-.learn-article .task-box .tb-tags a.mapl.form.hot.red:hover { background: #98291d; border-color: #98291d; }
+.learn-article .task-box .tb-tags a.mapl.form.hot.red,
+.learn-article .reslist .meta a.mapl.form.red,
+.learn-article .reslist .desc a.mapl.form.red,
+.learn-article .reslist li.hi.tone .meta a.mapl.form.red,
+.learn-article .reslist li.hi.tone .desc a.mapl.form.red { background: #c0392b; border-color: #c0392b; color: #fff; }
+.learn-article .task-box .tb-tags a.mapl.form.hot.red:hover,
+.learn-article .reslist .meta a.mapl.form.red:hover,
+.learn-article .reslist .desc a.mapl.form.red:hover,
+.learn-article .reslist li.hi.tone .meta a.mapl.form.red:hover,
+.learn-article .reslist li.hi.tone .desc a.mapl.form.red:hover { background: #98291d; border-color: #98291d; color: #fff; }
 .learn-article .reslist a .badge.now { margin-right: 7px; vertical-align: 2px; font-size: 11px; }
 .learn-article table.ref td.stat { white-space: nowrap; }
 .learn-article table.ref td.pri .jr { white-space: normal; letter-spacing: 0; text-align: center; }
