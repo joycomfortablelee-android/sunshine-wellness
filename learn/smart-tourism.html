@@ -13,6 +13,50 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="learn.css?v=154" />
   <style>
+    /* ── 세 단계 상자 안의 설명 — 카드 셋 아래에 「어떻게 이어지는가」와 「왜 이 순서인가」 ── */
+    .learn-article .case-box.flow .f3-h {
+      margin: 16px 0 7px; padding-top: 11px; border-top: 1px dashed #cfdcea;
+      font-size: 12px; font-weight: 800; letter-spacing: .04em; color: #1c4e8a;
+    }
+    .learn-article .case-box.flow .f3-chain,
+    .learn-article .case-box.flow .f3-why { list-style: none; margin: 0; padding: 0; }
+    .learn-article .case-box.flow .f3-chain li {
+      display: flex; align-items: center; gap: 9px; margin: 0 0 6px;
+      padding: 8px 11px; border-radius: 9px; background: #fff; border: 1px solid #dbe6f2;
+    }
+    .learn-article .case-box.flow .f3-chain li b {
+      flex: none; width: 19px; height: 19px; border-radius: 50%;
+      background: #2563a8; color: #fff; font-size: 11px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .learn-article .case-box.flow .f3-chain .f3-o,
+    .learn-article .case-box.flow .f3-chain .f3-i {
+      flex: 1 1 0; font-size: 12px; line-height: 1.6; color: #52697f;
+    }
+    .learn-article .case-box.flow .f3-chain .f3-o { text-align: right; }
+    .learn-article .case-box.flow .f3-chain strong { color: #17395f; }
+    .learn-article .case-box.flow .f3-chain i,
+    .learn-article .case-box.flow .f3-why i {
+      flex: none; font-style: normal; font-weight: 900; color: #c98b2e;
+    }
+    .learn-article .case-box.flow .f3-n {
+      margin: 9px 0 0; font-size: 12px; line-height: 1.75; color: #52697f;
+    }
+    .learn-article .case-box.flow .f3-n strong { color: #17395f; }
+    .learn-article .case-box.flow .f3-why li {
+      margin: 0 0 5px; padding-left: 13px; position: relative;
+      font-size: 12.5px; line-height: 1.7; color: #52697f;
+    }
+    .learn-article .case-box.flow .f3-why li::before {
+      content: ""; position: absolute; left: 0; top: 9px;
+      width: 5px; height: 5px; border-radius: 50%; background: #c98b2e;
+    }
+    .learn-article .case-box.flow .f3-why b { color: #a03030; font-weight: 800; }
+    .learn-article .case-box.flow .f3-why strong { color: #17395f; }
+    @media (max-width: 700px) {
+      .learn-article .case-box.flow .f3-chain li { flex-wrap: wrap; }
+      .learn-article .case-box.flow .f3-chain .f3-o { text-align: left; }
+    }
     /* ── 과제 시행 시점 표시 — 과제 1·2 는 중간시험과 맞물려 있어 이름 옆에 못박는다 ── */
     .learn-article .roadmap3 .rm-when {
       display: block; margin-top: 3px; font-style: normal;
@@ -170,6 +214,22 @@
           <li><b class="s-t">안동시 지역 보기</b><span class="s-d">안동관광 포털과 공식블로그에서 <b>시가 밀고 있는 것</b>을 확인하고, <a href="andong-map-practice.html" target="_blank" rel="noopener">실습 페이지 ↗</a>에서 <b>담당 읍면동</b>의 관광자원 세 곳을 찍습니다. 「왜 골랐는가」가 핵심입니다.</span></li>
           <li><b class="s-t">공모전 양식으로 결과 만들기</b><span class="s-d">찍은 지도와 선정 이유를 <b>맨 아래 공모전 카드</b>의 <b>양식① 응모신청서</b>에 옮겨 적고, <b>양식②</b>에 서명해 <b>PDF 두 장</b>으로 냅니다. 개발 완성물은 필요 없습니다.</span></li>
         </ol>
+
+        <p class="f3-h">앞 단계가 남긴 것이 다음 단계의 재료가 됩니다</p>
+        <ul class="f3-chain">
+          <li><b>1</b><span class="f3-o">용인을 가른 <strong>세 갈래</strong><br />플랫폼 · 연구 · 홍보</span><i>→</i><span class="f3-i"><strong>과제 1 도시 카드</strong>의 세 칸<br />WHAT · PLATFORM+RESEARCH · PROMOTION</span></li>
+          <li><b>2</b><span class="f3-o">찍은 지도와 <strong>「왜 골랐는가」</strong></span><i>→</i><span class="f3-i"><strong>응모 원고</strong> 본문</span></li>
+          <li><b>2</b><span class="f3-o"><strong>검색해도 안 나오는 자원</strong></span><i>→</i><span class="f3-i">신청서 <strong>[3] 「누가 겪는가」</strong></span></li>
+          <li><b>2</b><span class="f3-o">실습에서 만난 <strong>줌 15 해상도 한계</strong></span><i>→</i><span class="f3-i">신청서 <strong>[6] 「예상되는 어려움」</strong></span></li>
+        </ul>
+        <p class="f3-n">그래서 <strong>단계 3에서 새로 지어내는 칸이 거의 없습니다.</strong> 빌려 오는 것은 [6]의 「비슷한 사례」 하나뿐이고, 그것도 <strong>파트 02 유럽 사례집 44건</strong>에서 고릅니다. 눈여겨볼 것은 맨 아랫줄입니다 — <strong class="hot-t">실습에서 막힌 것이 버려지지 않고 심사 서류의 한 칸이 됩니다.</strong> 도구의 한계를 아는 사람이 쓴 글로 읽히기 때문입니다.</p>
+
+        <p class="f3-h">왜 이 순서인가</p>
+        <ul class="f3-why">
+          <li><b>먼저 만들게 하면</b> 무엇을 만들지 몰라 멈춥니다 <i>→</i> <strong>단계 1</strong>이 틀을 줍니다</li>
+          <li><b>보기만 시키면</b> 남의 도시 요약으로 끝납니다 <i>→</i> <strong>단계 2</strong>가 손을 움직이게 합니다</li>
+          <li><b>만들고 끝내면</b> 학점으로만 남습니다 <i>→</i> <strong>단계 3</strong>이 밖으로 나가는 출구를 냅니다</li>
+        </ul>
       </div>
 
       <p class="learn-part pt-step s1"><span class="pt">단계 1</span>벤치마킹</p>
