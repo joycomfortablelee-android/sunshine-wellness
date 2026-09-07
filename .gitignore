@@ -8,3 +8,7 @@ reference/
 # 스크린샷 촬영용 임시 파일
 _shot.mjs
 _shot_modal.png
+
+# 파이썬 빌드 부산물 — tools/ 스크립트 실행 시 생긴다
+__pycache__/
+*.pyc
