@@ -13,6 +13,42 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="learn.css?v=154" />
   <style>
+    /* ── 과제 넷을 한 줄로 — 흐름 지도 바로 아래, 누르면 그 과제 상자로 뛴다 ── */
+    .learn-article .tflow {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 7px;
+      margin: -14px 0 26px; padding: 10px 13px;
+      border: 1px solid #dbe6f2; border-radius: 999px; background: #f7fafd;
+    }
+    .learn-article .tflow .tf-lb {
+      font-size: 11px; font-weight: 800; letter-spacing: .06em; color: #7c8a99;
+      padding-right: 3px;
+    }
+    .learn-article .tflow .tf-i {
+      display: inline-flex; align-items: baseline; gap: 6px;
+      padding: 5px 12px; border-radius: 999px; background: #fff;
+      border: 1px solid var(--t-ln, #cfdcea); color: var(--t-dk, #17395f);
+      font-size: 12.5px; font-weight: 700; text-decoration: none; transition: .18s;
+    }
+    .learn-article .tflow .tf-i:hover { background: var(--t-dk, #17395f); border-color: var(--t-dk, #17395f); color: #fff; }
+    .learn-article .tflow .tf-i b {
+      font-size: 10.5px; font-weight: 800; letter-spacing: .04em;
+      padding: 1px 7px 2px; border-radius: 999px;
+      background: var(--t-dk, #17395f); color: #fff;
+    }
+    .learn-article .tflow .tf-i:hover b { background: #fff; color: var(--t-dk, #17395f); }
+    .learn-article .tflow .tf-i i {
+      font-style: normal; font-size: 10.5px; font-weight: 600; color: #8a938f;
+    }
+    .learn-article .tflow .tf-i:hover i { color: rgba(255,255,255,.8); }
+    .learn-article .tflow .tf-a { font-weight: 900; color: #c98b2e; font-size: 13px; }
+    .learn-article .tflow .t1 { --t-dk:#1b4a7e; --t-ln:#c3d8ea; }
+    .learn-article .tflow .t2 { --t-dk:#8a4f14; --t-ln:#e0c79c; }
+    .learn-article .tflow .t3 { --t-dk:#1f7a70; --t-ln:#bfe0da; }
+    .learn-article .tflow .t4 { --t-dk:#56487a; --t-ln:#d9cef0; }
+    @media (max-width: 760px) {
+      .learn-article .tflow { border-radius: 12px; }
+      .learn-article .tflow .tf-a { display: none; }
+    }
     /* ── 세 단계 상자 안의 설명 — 카드 셋 아래에 「어떻게 이어지는가」와 「왜 이 순서인가」 ── */
     .learn-article .case-box.flow .f3-h {
       margin: 16px 0 7px; padding-top: 11px; border-top: 1px dashed #cfdcea;
@@ -180,6 +216,17 @@
         </div>
       </div>
 
+      <p class="tflow" aria-label="과제 넷의 순서">
+        <b class="tf-lb">낼 것 넷</b>
+        <a class="tf-i t1" href="#과제1"><b>과제 1</b>도시 카드<i>내 도시를 세 갈래로</i></a>
+        <span class="tf-a">→</span>
+        <a class="tf-i t2" href="#과제2"><b>과제 2</b>응모신청서<i>중간시험 대체</i></a>
+        <span class="tf-a">→</span>
+        <a class="tf-i t3" href="#과제3"><b>과제 3</b>유럽 벤치마킹 발표<i>9~15주차</i></a>
+        <span class="tf-a">→</span>
+        <a class="tf-i t4" href="#과제4"><b>과제 4</b>업무 수행계획서<i>모의 PT · 졸업 뒤까지</i></a>
+      </p>
+
       <div class="syl-box">
         <p class="syl-t"><a href="smart-tourism-weekly-plan.html" target="_blank" rel="noopener">주간 수업 운영 · 학생 발표 배정 — 1~15주차 한 장 ↗</a></p>
         <p class="syl-d">이 페이지의 자료를 <strong>어느 주에 어떤 순서로 쓰는지</strong>가 여기 있습니다. 한 주는 <strong>150분(3시수)</strong>이고 <strong>수요일 100분 + 목요일 50분</strong>으로 나뉩니다 — 수요일은 핵심 논문 셋을 20분씩 읽고 1·2팀이 도시 사례를 발표하며, 목요일은 3팀 발표 뒤 책 20분과 「전체 보기」 10분으로 그 주를 닫습니다.</p>
@@ -264,7 +311,7 @@
       </div>
 
       <div class="task-box s1">
-        <p class="tb-t"><b class="tb-n">과제 1</b>도시 카드 — 용인을 본떠 내 도시로 <span class="when">중간시험 전 · 수업 중 실습 → 바로 발표</span></p>
+        <p class="tb-t" id="과제1"><b class="tb-n">과제 1</b>도시 카드 — 용인을 본떠 내 도시로 <span class="when">중간시험 전 · 수업 중 실습 → 바로 발표</span></p>
         <p class="tb-d">위 여섯 자료가 <strong>용인을 어떻게 갈라 봤는지</strong> 확인했으면, 같은 틀을 <strong>배정받은 도시</strong>에 그대로 적용합니다. 채우는 칸은 셋입니다 — <strong>WHAT</strong> 무엇을 만들었나 · <strong>PLATFORM + RESEARCH</strong> 무엇을 근거로 삼았나 · <strong>PROMOTION</strong> 어떻게 알렸나. 단순 소개가 아니라 <strong class="hot-t">플랫폼–근거–홍보가 이어지는 것</strong>이 보여야 하고, 칸마다 <strong>공식 출처 URL</strong>을 적습니다.</p>
         <p class="tb-tags"><a class="mapl form hot red" href="assets/city-card-a4-1p-student.docx" download="스마트관광도시_도시카드_A4_1장_학생양식.docx">양식 · A4 1장 ⤓</a><a class="mapl form hot red" href="assets/city-card-a4-3p-student.docx" download="스마트관광도시_도시카드_A4_3장_학생작성용.docx">양식 · A4 3장 ⤓</a><a class="mapl form ex" href="assets/city-card-a4-3p-yongin-example.docx" download="스마트관광도시_용인_교수자예시답안_A4_3장.docx">예시 답안 · 용인 A4 3장 ⤓</a><span class="tb-src">1장은 요약본, 3장은 칸을 나눠 채우는 판입니다 — 둘 중 하나만 내면 됩니다. <b>용인 예시 답안은 견본입니다</b> — 용인을 맡은 팀은 그대로 옮기지 말고 예시가 다루지 않은 자료를 더 찾으십시오.</span></p>
       </div>
@@ -303,7 +350,7 @@
       </ul>
 
       <div class="task-box s3">
-        <p class="tb-t"><b class="tb-n">과제 2</b>응모신청서 쓰기 — 실습 결과를 출품작으로 <span>양식① 작성</span><span class="when hot">중간시험 전주 · 중간시험 대체</span></p>
+        <p class="tb-t" id="과제2"><b class="tb-n">과제 2</b>응모신청서 쓰기 — 실습 결과를 출품작으로 <span>양식① 작성</span><span class="when hot">중간시험 전주 · 중간시험 대체</span></p>
         <p class="tb-d">위 카드에서 <strong>양식①</strong>을 내려받아 채웁니다. 여섯 묶음이고, <strong class="hot-t">이 수업에서 이미 만든 것으로 대부분 채워집니다</strong> — <strong>[2] 아이디어</strong> 작품명·50자 요약·카테고리, <strong>[3] 문제</strong> 무엇이 불편한가·누가 겪는가·지금은 어떻게 하고 있나, <strong>[4] 해결</strong> 어떤 서비스이고 어떻게 작동하나, <strong>[5] 효과</strong> 도입 전과 후가 어떻게 다른가·왜 경북에 맞나·몇 명이 혜택을 보나, <strong>[6] 실행</strong> 비슷한 사례·필요한 기술·예상되는 어려움.</p>
         <p class="tb-d"><strong>어디서 가져오나</strong> — [3]의 「누가 겪는가」는 <strong>단계 2 안동 실습</strong>에서 확인한 <em>검색해도 안 나오는 자원</em>이 그대로 근거가 됩니다. [6]의 「비슷한 사례」는 <strong>파트 02 유럽 사례집 44건</strong>에서 고르면 되고, 홍보물이 아니라 심사용 문서라 인용의 무게가 다릅니다. [6]의 「예상되는 어려움」은 <strong>솔직하게 쓰는 편이 유리합니다</strong> — 실습에서 만난 <em>줌 15 해상도 한계</em>처럼 도구의 한계를 아는 사람이 쓴 글로 읽힙니다.</p>
         <p class="tb-tags"><a class="mapl form hot red" href="assets/gyeongbuk-ax-2026-form1-application.docx" download="0714-양식1_응모신청서.docx">양식① 응모신청서 ⤓</a><a class="mapl form" href="assets/gyeongbuk-ax-2026-form2-consent.docx" download="0714-양식2_개인정보저작권동의서.docx">양식② 동의서 ⤓</a><a class="mapl form ex" href="assets/gyeongbuk-ax-2026-notice.pdf" target="_blank" rel="noopener">공고문 원문 3쪽 ↗</a><span class="tb-src">두 양식을 <b>각각 PDF로 변환해 이메일 접수</b>합니다. 대학생은 <b>일반부</b>이고, 아이디어만으로 응모할 수 있어 개발 완성물은 필요 없습니다.</span></p>
@@ -430,7 +477,7 @@
       </ul>
 
       <div class="task-box r4">
-        <p class="tb-t"><b class="tb-n">과제 3</b>유럽 도시 벤치마킹 발표 — 중간고사 이후 <span>9–15주차</span></p>
+        <p class="tb-t" id="과제3"><b class="tb-n">과제 3</b>유럽 도시 벤치마킹 발표 — 중간고사 이후 <span>9–15주차</span></p>
         <p class="tb-d">전반부가 <strong>국내 스마트관광도시</strong>를 갈라 보는 시간이었다면, 중간고사 뒤로는 <strong class="hot-t">유럽 도시를 같은 틀로 벤치마킹</strong>합니다. 팀마다 <strong>수상 도시 또는 최종후보 한 곳</strong>을 맡아 발표하고, 15주차에 전체를 종합합니다 — 9~11주 스마트관광 수도 수상도시, 12주 Green Pioneer 수상도시, 13~14주 최종후보, 15주 종합.</p>
         <p class="tb-d"><strong>발표 틀은 다섯 칸으로 고정합니다</strong> — ① <strong>관광 문제</strong> 이 도시가 무엇을 안고 있었나 · ② <strong>기술 · 서비스</strong> 무엇으로 손댔나 · ③ <strong>관광객 · 도시 효과</strong> 무엇이 달라졌나 · ④ <strong>4대 영역</strong> 접근성 · 지속가능성 · 디지털화 · 문화유산과 창의성 중 어디에 걸리나 · ⑤ <strong>한국 적용 가능성</strong> 경북·안동에 옮기면 무엇이 남고 무엇이 안 되나. <strong>도시 소개가 아니라 문제 해결의 이야기</strong>여야 하고, 이 다섯 칸은 과제 1 도시 카드의 세 갈래를 유럽용으로 늘린 것입니다.</p>
         <p class="tb-d"><strong>근거는 위에서 가져옵니다</strong> — 읽기 3의 <strong>89쪽 사례집</strong>에 도시별 원문이 있고, 읽기 4의 <strong>Green Pioneer 사례집</strong>은 작은 도시를 다룹니다. 둘 다 도시가 <em>심사를 통과하려고 제출한 신청서</em>에서 발췌한 것이라 홍보물보다 인용의 무게가 다릅니다.</p>
@@ -601,7 +648,7 @@
       </ul>
 
       <div class="task-box pd3">
-        <p class="tb-t"><b class="tb-n">과제 4</b>업무 수행계획서 쓰기 — 공공기관·재단 취업 지원의 실무를 익힌다 <span>모의 PT · 그룹 평가</span></p>
+        <p class="tb-t" id="과제4"><b class="tb-n">과제 4</b>업무 수행계획서 쓰기 — 공공기관·재단 취업 지원의 실무를 익힌다 <span>모의 PT · 그룹 평가</span></p>
         <p class="tb-d"><strong>국가기관·공공기관·지역 재단에 지원할 때 실제로 요구되는 서류</strong>입니다. 한국관광공사·지역 문화재단·시군 관광재단의 채용 전형은 대부분 자기소개서와 함께 <strong>직무수행계획서</strong>를 받으며, 면접에서도 이 문서를 놓고 묻습니다. 학기 중에 한 번 써 두면 <strong>지원 시점에 처음 마주치지 않습니다</strong> — 이 과제의 목적은 문서 한 장이 아니라 <strong class="hot-t">취업 실무를 미리 익히는 것</strong>입니다. 이 양식이 다른 자기소개서와 갈리는 칸은 <strong class="hot-t">5번 「내 산출물」</strong> 하나입니다 — <em>“하겠습니다”가 아니라 “이미 해봤고 여기 있습니다”</em>를 적는 자리이고, 위 실습에서 만든 <strong>안동 관광지도</strong>·단계 1의 <strong>도시 카드</strong>·<strong>공모전 출품작</strong>이 그대로 들어갑니다.</p>
         <p class="tb-d">칸은 여섯입니다 — <strong>★ 한 문장</strong> · <strong>1 기관 진단</strong>(공식 출처 URL) · <strong>2 빈자리</strong>(관광객 관점인가 도시 관점인가) · <strong>3 스마트관광 관점</strong>(EU 네 부문 중 선택) · <strong>4 수행 계획</strong>(3개월·1년·3년) · <strong>5 내 산출물</strong> · <strong>6 성과 지표</strong>. 3번에서 <strong>디지털화만 고르면 좁아진다</strong>는 것이 이 수업 전체의 요점이고, 6번은 <strong>방문객 총수 대신 분산을 보는</strong> 지표를 고르게 합니다.</p>
         <p class="tb-d"><strong>쓰고 끝내지 않습니다</strong> — 작성한 계획서로 <strong class="hot-t">모의 PT</strong>를 하고 <strong>그룹 평가로 피드백을 받습니다</strong>. 실제 채용에서도 이 문서를 놓고 면접이 진행되므로, 남 앞에서 한 번 말해 본 사람과 문서만 낸 사람의 차이가 그 자리에서 드러납니다. 서로 볼 것은 셋입니다 — <strong>기관 진단이 공식 출처에 닿아 있는가</strong> · <strong>수행 계획이 「배우겠습니다」로 비어 있지 않은가</strong> · <strong>5번 산출물 칸에 실제로 보여줄 것이 있는가</strong>.</p>
