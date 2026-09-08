@@ -812,6 +812,38 @@
     .learn-article .tri-wrap.tri-warm .tri-line polygon { stroke: #e0a86a; }
     .learn-article .tri-wrap.tri-warm .tri-hub { background: #8a4f14; box-shadow: 0 4px 14px rgba(138,79,20,.3); }
 
+    /* ===== 히어로 두 칸 — 강의실과 학사일정을 나란히 =====
+       둘 다 「언제 · 어디서」를 말하는 정보라 한 줄에 놓으면 세로 공간이 크게 줄어든다.
+       학사일정 상자는 본문(.learn-article) 안에 있던 것이라 히어로용 규칙을 따로 적는다. */
+    .learn-hero .hero-row {
+      display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+      gap: 14px; align-items: start; margin-top: 16px;
+    }
+    .learn-hero .hero-row .room-bar { margin: 0; }
+    .learn-hero .syl-box {
+      border: 1px solid #cfdcea; border-radius: 12px; background: #f7fafc;
+      padding: 13px 15px 11px; margin: 0;
+    }
+    .learn-hero .syl-box .syl-t { margin: 0 0 6px; font-size: 13.5px; font-weight: 800; line-height: 1.5; }
+    .learn-hero .syl-box .syl-t a { color: #17365d; border-bottom: 2px solid #c3d2e2; text-decoration: none; }
+    .learn-hero .syl-box .syl-t a:hover { color: #0e2a45; border-bottom-color: #17365d; }
+    .learn-hero .syl-box .syl-d { margin: 0 0 6px; font-size: 12px; line-height: 1.7; color: #4d5f74; }
+    .learn-hero .syl-box .syl-d strong { color: #17365d; }
+    .learn-hero .syl-box .syl-tags {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+      margin: 8px 0 0; padding-top: 8px; border-top: 1px dashed #c3d2e2;
+    }
+    .learn-hero .syl-box .syl-tags a.mapl {
+      display: inline-block; padding: 4px 10px; border-radius: 999px;
+      background: #17365d; border: 1px solid #17365d; color: #fff;
+      font-size: 11px; font-weight: 700; text-decoration: none;
+    }
+    .learn-hero .syl-box .syl-tags a.mapl:hover { background: #0e2a45; border-color: #0e2a45; }
+    .learn-hero .syl-box .syl-src { font-size: 11px; color: #7c8a99; margin-left: 2px; }
+    @media (max-width: 900px) {
+      .learn-hero .hero-row { grid-template-columns: 1fr; }
+    }
+
   </style>
 </head>
 <body class="mod-venture">
@@ -832,13 +864,20 @@
       <h1>관광벤처창업론 — 여행에서 사업을 짓다</h1>
       <p class="sub">좋은 자원, 깊은 해설, 똑똑한 데이터가 있어도 그것을 "지속되는 사업"으로 묶지 못하면 여행은 취미로 남습니다. 관광의 아이디어를 벤처로 세우는 법 — 문제 정의부터 비즈니스 모델, 시장 검증까지 살펴봅니다.</p>
 
-      <div class="room-bar">
-        <p class="rb-t">강의실<span>화요일 5 · 6 · 7교시</span><b class="rb-mv">6교시가 끝나면 강의실을 옮깁니다</b></p>
-        <ul class="rb-list">
-          <li class="pc"><b>5교시</b><span class="tm">13:00 – 13:50</span><span class="rm">사회대 <strong>2106호</strong><em>PC실</em></span></li>
-          <li class="pc"><b>6교시</b><span class="tm">14:00 – 14:50</span><span class="rm">사회대 <strong>2106호</strong><em>PC실</em></span></li>
-          <li class="mv"><b>7교시</b><span class="tm">15:00 – 15:50</span><span class="rm">사회대 <strong>3402호</strong></span></li>
-        </ul>
+      <div class="hero-row">
+        <div class="room-bar">
+          <p class="rb-t">강의실<span>화요일 5 · 6 · 7교시</span><b class="rb-mv">6교시가 끝나면 강의실을 옮깁니다</b></p>
+          <ul class="rb-list">
+            <li class="pc"><b>5교시</b><span class="tm">13:00 – 13:50</span><span class="rm">사회대 <strong>2106호</strong><em>PC실</em></span></li>
+            <li class="pc"><b>6교시</b><span class="tm">14:00 – 14:50</span><span class="rm">사회대 <strong>2106호</strong><em>PC실</em></span></li>
+            <li class="mv"><b>7교시</b><span class="tm">15:00 – 15:50</span><span class="rm">사회대 <strong>3402호</strong></span></li>
+          </ul>
+        </div>
+        <div class="syl-box cal">
+          <p class="syl-t"><a href="academic-calendar-2026-2.html" target="_blank" rel="noopener">2026학년도 2학기 학사일정 — 월별 달력에 내 수업 표시 ↗</a></p>
+          <p class="syl-d">한 학기 <strong>16주</strong>가 달력 위에 그대로 놓여 있습니다. <strong>관광벤처창업론은 화요일 5·6·7교시</strong>이고, 회차마다 번호가 찍혀 있어 <strong>오늘이 몇 번째 수업인지</strong> 바로 보입니다. 체육대회·추석연휴로 빠지는 주와 <strong>보강일</strong>까지 표시돼 있습니다.</p>
+          <p class="syl-tags"><a class="mapl" href="academic-calendar-2026-2.html" target="_blank" rel="noopener">9~12월 달력 열기 ↗</a><span class="syl-src">개강 9/1 · 중간시험 8주 · 기말시험 16주 · 보강일 포함 · 세 과목 공통</span></p>
+        </div>
       </div>
     </div>
   </section>
@@ -923,11 +962,6 @@
         </p>
       </figure>
 
-      <div class="syl-box cal">
-        <p class="syl-t"><a href="academic-calendar-2026-2.html" target="_blank" rel="noopener">2026학년도 2학기 학사일정 — 월별 달력에 내 수업 표시 ↗</a></p>
-        <p class="syl-d">한 학기 <strong>16주</strong>가 달력 위에 그대로 놓여 있습니다. <strong>관광벤처창업론은 화요일 5·6·7교시</strong>이고, 회차마다 번호가 찍혀 있어 <strong>오늘이 몇 번째 수업인지</strong> 바로 보입니다. 체육대회·추석연휴로 빠지는 주와 <strong>보강일</strong>까지 표시돼 있습니다.</p>
-        <p class="syl-tags"><a class="mapl" href="academic-calendar-2026-2.html" target="_blank" rel="noopener">9~12월 달력 열기 ↗</a><span class="syl-src">개강 9/1 · 중간시험 8주 · 기말시험 16주 · 보강일 포함 · 세 과목 공통</span></p>
-      </div>
 
       <div class="syl-box job">
         <p class="syl-t"><a class="task-badge lead" href="#과제2">과제 2</a><a href="interview-personality-20.html" target="_blank" rel="noopener">기관 인성면접 예상 질문 20문 ↗</a><a class="sticky-pill" href="interview-personality-20.html" target="_blank" rel="noopener">노란 스티키노트 한 장 ↗</a></p>
