@@ -161,6 +161,58 @@
       .learn-article .stc-title { font-size: 12.5px; }
       .learn-article .stc-nav { width: 28px; height: 48px; font-size: 22px; border-radius: 9px; }
     }
+
+    /* ===== 참여기업 아홉 곳 — 문제와 해결 =====
+       원형 맵이 「무엇이 어느 갈래인가」, 만화가 「갈래 안의 흐름」이라면,
+       이 표는 「그래서 그 회사가 무슨 문제를 어떻게 풀었나」를 회사별로 끝까지 적는다.
+       다섯 분야를 띠로 나누고, 띠마다 회사 카드를 둔다. */
+    .learn-article .pcx { margin: 10px 0 26px; }
+    .learn-article .pcx-g { margin: 0 0 14px; }
+    .learn-article .pcx-g:last-child { margin-bottom: 0; }
+    .learn-article .pcx-h {
+      display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px;
+      margin: 0 0 8px; padding: 8px 13px; border-radius: 10px;
+      background: var(--p-bg); border-left: 5px solid var(--p-ac);
+    }
+    .learn-article .pcx-h .k { font-size: 14px; font-weight: 900; color: var(--p-dk); letter-spacing: -.3px; }
+    .learn-article .pcx-h .q { font-size: 12.5px; font-weight: 700; color: var(--p-ac); }
+    .learn-article .pcx-h .c { margin-left: auto; font-size: 11.5px; font-weight: 800; color: #8d99a5; }
+    .learn-article .pcx-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 0; padding: 0; list-style: none; }
+    .learn-article .pcx-g.one .pcx-list { grid-template-columns: 1fr; }
+    .learn-article .pcx-list > li {
+      margin: 0; padding: 12px 14px 13px; border-radius: 11px;
+      border: 1px solid #dbe4ec; border-top: 3px solid var(--p-ac);
+      background: #fff; box-shadow: 0 3px 10px rgba(23,54,93,.05);
+    }
+    .learn-article .pcx-list .co { margin: 0 0 3px; font-size: 14px; font-weight: 900; letter-spacing: -.3px; }
+    .learn-article .pcx-list .co a { color: var(--p-dk); border-bottom: 1px solid var(--p-ac); }
+    .learn-article .pcx-list .co a:hover { color: #000; border-bottom-color: #000; }
+    .learn-article .pcx-list .co .nolink { color: var(--p-dk); }
+    .learn-article .pcx-list .pj {
+      margin: 0 0 9px; font-size: 11.5px; line-height: 1.6; color: #7b8794;
+      padding-bottom: 8px; border-bottom: 1px dashed #e0e7ee;
+    }
+    .learn-article .pcx-list .pr, .learn-article .pcx-list .sl {
+      margin: 0 0 6px; font-size: 12.5px; line-height: 1.72; color: #3f4b57;
+    }
+    .learn-article .pcx-list .sl { margin-bottom: 0; }
+    .learn-article .pcx-list .pr > b, .learn-article .pcx-list .sl > b {
+      display: inline-block; min-width: 30px; margin-right: 6px; padding: 1px 7px;
+      border-radius: 5px; font-size: 10.5px; font-weight: 900; vertical-align: 1px;
+    }
+    .learn-article .pcx-list .pr > b { background: #fdecea; color: #b3261e; }
+    .learn-article .pcx-list .sl > b { background: var(--p-bg); color: var(--p-dk); }
+    .learn-article .pcx-list .site { margin: 8px 0 0; font-size: 11px; color: #9aa4ae; word-break: break-all; }
+    .learn-article .pcx-list .site a { color: #6b7a88; }
+    .learn-article .pcx-list .site a:hover { color: var(--p-dk); }
+
+    .learn-article .pcx-g.k-park  { --p-bg:#fdf2e0; --p-ac:#c08a1e; --p-dk:#6d4a05; }
+    .learn-article .pcx-g.k-map   { --p-bg:#e7f0fb; --p-ac:#2f6fb5; --p-dk:#123f6e; }
+    .learn-article .pcx-g.k-pay   { --p-bg:#e6f4ec; --p-ac:#2c8256; --p-dk:#12492e; }
+    .learn-article .pcx-g.k-safe  { --p-bg:#fdeaea; --p-ac:#c0392b; --p-dk:#7a1f16; }
+    .learn-article .pcx-g.k-free  { --p-bg:#f0eafa; --p-ac:#6b4fb5; --p-dk:#3a2571; }
+
+    @media (max-width: 720px) { .learn-article .pcx-list { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body class="mod-smart">
@@ -750,6 +802,107 @@
           <span class="meta">선샤인 웰니스 자체 제작 · 수업용 핵심 정리 · 원자료 시범사업 원형 맵</span>
         </li>
       </ul>
+
+      <p class="mini-note"><strong>이제 아홉 곳을 하나씩 —</strong> 위 원형 맵이 <em>무엇이 어느 갈래인가</em>, 만화가 <em>갈래 안의 흐름</em>이었다면, 아래는 <strong class="hot-t">그 회사가 어떤 문제를 어떻게 풀었는가</strong>를 회사마다 끝까지 적은 것입니다. 다섯 분야 · 아홉 사업 — <strong>축제라는 하나의 공간에서 서로 다른 층위의 문제를 나눠 맡는 구조</strong>입니다. 회사명을 누르면 실제 사이트로 갑니다.</p>
+
+      <div class="pcx">
+
+        <div class="pcx-g k-park one">
+          <p class="pcx-h"><span class="k">스마트 주차</span><span class="q">“차량이 몰린다”</span><span class="c">1개사</span></p>
+          <ul class="pcx-list">
+            <li>
+              <p class="co"><a href="http://www.vestellalab.com/" target="_blank" rel="noopener">㈜베스텔라랩 ↗</a></p>
+              <p class="pj">대형 축제 주차문제 해결을 위한 영상기반 주차정보 통합시스템</p>
+              <p class="pr"><b>문제</b>축제 기간에 방문 차량이 한꺼번에 몰리면서, <strong>빈 자리를 찾아 도는 배회 차량</strong>이 인근 도로 정체와 보행자 안전 위험을 함께 키웁니다. 지하·임시 주차장은 <strong>GPS 신호가 닿지 않아</strong> 기존 내비게이션 안내가 도착 직전에 끊깁니다.</p>
+              <p class="sl"><b>해결</b>카메라 영상으로 <strong>주차면 점유 상태를 실시간 인식</strong>하고, 흩어져 있던 주차장 정보를 하나로 통합해 보여줍니다. GPS 음영 구간까지 커버하는 <strong>실내 측위·내비게이션</strong>으로 빈 자리까지 경로를 이어서 안내합니다.</p>
+              <p class="site">서비스 · 워치마일 <a href="https://www.watchmile.com/" target="_blank" rel="noopener">watchmile.com ↗</a></p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="pcx-g k-map">
+          <p class="pcx-h"><span class="k">스마트 지도</span><span class="q">“길을 못 찾는다”</span><span class="c">2개사</span></p>
+          <ul class="pcx-list">
+            <li>
+              <p class="co"><a href="https://www.dabeeo.com/" target="_blank" rel="noopener">㈜다비오 ↗</a></p>
+              <p class="pj">API 연동을 통한 지역축제 디지털 지도 및 경로 안내 서비스 / QR코드를 이용한 웹기반 관광 디지털 지도</p>
+              <p class="pr"><b>문제</b>축제장은 해마다 <strong>부스와 무대 배치가 바뀌는데</strong> 포털 지도는 이 변화를 따라오지 못합니다. 한 번 오고 마는 방문객에게 <strong>전용 앱 설치를 요구하면 실제로는 아무도 쓰지 않습니다.</strong> 교통약자는 계단·경사 정보를 미리 알 수 없어 동선을 짜기 어렵습니다.</p>
+              <p class="sl"><b>해결</b>API 연동으로 <strong>축제 POI를 실시간 반영</strong>하는 디지털 지도를 만들고, <strong>QR코드를 찍으면 앱 설치 없이 바로 열리는</strong> 웹 지도를 제공합니다(언어 자동 전환). <strong>교통약자를 위한 별도 경로 안내</strong>를 함께 둡니다.</p>
+            </li>
+            <li>
+              <p class="co"><a href="https://www.deepfine.com/" target="_blank" rel="noopener">주식회사 딥파인 ↗</a></p>
+              <p class="pj">XR 공간정보 구축 솔루션 (DEEP.FINE Spatial Crafter, DSC)</p>
+              <p class="pr"><b>문제</b>평면 지도만으로는 처음 온 사람이 <strong>넓은 축제 공간에서 방향 감각을 잡기 어렵습니다.</strong> 3D·AR 공간정보를 만들려면 전문 장비와 인력, 오랜 제작 기간이 필요해 <strong>단기 행사에는 쓰기 힘듭니다.</strong></p>
+              <p class="sl"><b>해결</b><strong>모바일로 공간을 촬영하는 것만으로 3D 맵을 생성</strong>하고, 노코드 편집기로 AR 콘텐츠를 배치합니다. <strong>영상 기반 측위(VPS)</strong>로 GPS가 잡히지 않는 실내외에서도 AR 길안내와 전시 해설을 제공합니다.</p>
+              <p class="site">서비스 · DSC <a href="https://dsc-web.deepfine.com/" target="_blank" rel="noopener">dsc-web.deepfine.com ↗</a></p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="pcx-g k-pay">
+          <p class="pcx-h"><span class="k">스마트 결제</span><span class="q">“줄이 길어진다”</span><span class="c">2개사</span></p>
+          <ul class="pcx-list">
+            <li>
+              <p class="co"><a href="https://udid.co.kr/" target="_blank" rel="noopener">㈜유디아이디 ↗</a></p>
+              <p class="pj">스마트폰을 활용한 신용카드거래 및 QR주문 솔루션 「페이앱」</p>
+              <p class="pr"><b>문제</b>푸드트럭과 먹거리장터 상인은 <strong>카드 단말기나 POS를 갖추기 어려워</strong> 현금 거래에 머무릅니다. 결제 수단이 제한되면 계산이 느려지고, <strong>부스 앞 대기 줄이 그대로 혼잡으로</strong> 이어집니다.</p>
+              <p class="sl"><b>해결</b>별도 단말기 없이 <strong>스마트폰만으로 카드 결제</strong>를 받게 하고, <strong>QR코드 기반 비대면 주문·결제</strong>로 방문객이 줄을 서지 않고 음식을 주문하도록 만듭니다.</p>
+              <p class="site">서비스 · 페이앱 <a href="https://www.payapp.kr/" target="_blank" rel="noopener">payapp.kr ↗</a></p>
+            </li>
+            <li>
+              <p class="co"><a href="https://www.tablemanager.io/" target="_blank" rel="noopener">테이블매니저㈜ ↗</a></p>
+              <p class="pj">테이블매니저 대기 및 결제 솔루션</p>
+              <p class="pr"><b>문제</b>인기 부스와 식당 앞의 줄서기가 <strong>축제장 혼잡과 안전 문제로 번집니다.</strong> 매장은 예약과 대기 현황을 수기로 관리해 <strong>실제 대기 인원과 시간을 알기 어렵습니다.</strong></p>
+              <p class="sl"><b>해결</b>예약·대기·주문을 <strong>한 화면에서 관리</strong>해 현장 운영 부담을 줄이고, <strong>원격 줄서기</strong>로 대기 인원을 현장 밖으로 분산시키며 대기부터 결제까지 하나로 잇습니다.</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="pcx-g k-safe">
+          <p class="pcx-h"><span class="k">스마트 안전</span><span class="q">“위험을 못 본다”</span><span class="c">2개사</span></p>
+          <ul class="pcx-list">
+            <li>
+              <p class="co"><a href="https://idb.ai/" target="_blank" rel="noopener">아이디비㈜ ↗</a></p>
+              <p class="pj">Project Go AI (스마트 도심 안전 이상 탐지 시스템)</p>
+              <p class="pr"><b>문제</b>화재, 가스 누출, 위험구역 접근 같은 상황은 <strong>관리자가 상시 눈으로 확인할 수 없습니다.</strong> 사고 피해는 발생 자체보다 <strong class="hot-t">인지와 대응이 늦어지는 구간</strong>에서 커집니다.</p>
+              <p class="sl"><b>해결</b><strong>CCTV 영상과 IoT 센서를 결합한 AI</strong>가 이상 징후를 자동 식별하고, 탐지 즉시 관리자·작업자 모바일로 경보를 보냅니다. <strong>디지털 트윈 화면</strong>으로 현장 상황을 함께 봅니다.</p>
+            </li>
+            <li>
+              <p class="co"><a href="https://p2ach.ai/" target="_blank" rel="noopener">㈜피치에이아이 ↗</a></p>
+              <p class="pj">유동인구 분석 기반 혼잡도 예측 및 디지털 사이니지 광고 성과 분석·타겟팅 콘텐츠 송출 서비스</p>
+              <p class="pr"><b>문제</b>축제장 혼잡도는 대개 <strong>상황이 끝난 뒤에야 파악되어</strong> 사전 분산 유도에 쓰기 어렵습니다. 옥외 사이니지 안내·광고는 <strong>누가 얼마나 봤는지 측정할 방법이 없어</strong> 감에 의존합니다.</p>
+              <p class="sl"><b>해결</b><strong>비전 AI로 유동인구를 익명 분석</strong>해 구역별 혼잡도를 예측하고, 그 데이터에 맞춰 사이니지에 안내·광고를 타겟 송출합니다. <strong>시선과 체류시간으로 실제 노출 성과를 측정</strong>합니다.</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="pcx-g k-free">
+          <p class="pcx-h"><span class="k">자유 주제</span><span class="q">“누군가 소외된다”</span><span class="c">2개사</span></p>
+          <ul class="pcx-list">
+            <li>
+              <p class="co"><a href="https://www.sijung.com/" target="_blank" rel="noopener">㈜시정 ↗</a></p>
+              <p class="pj">야외 이동식 AED 키오스크 (자동심장충격기 디스플레이)</p>
+              <p class="pr"><b>문제</b>급성 심정지는 <strong>4~5분 안에 처치해야 하는데</strong> 야외 축제장의 AED는 대개 <strong>인근 건물 안에</strong> 있습니다. 기기가 있어도 위치를 모르거나 사용법을 몰라 <strong>목격자가 손을 대지 못합니다.</strong></p>
+              <p class="sl"><b>해결</b><strong>이동식 키오스크 형태</strong>로 AED를 축제 현장 안까지 가져와 배치하고, 디스플레이로 기기 위치를 눈에 띄게 알리며 <strong>사용법 안내를 함께 띄워</strong> 초기 대응 문턱을 낮춥니다.</p>
+              <p class="site">※ 동명 기업이 여럿 검색되어 <strong>사업 주체 확인이 필요</strong>합니다.</p>
+            </li>
+            <li>
+              <p class="co"><span class="nolink">㈜애프터워크</span></p>
+              <p class="pj">지역관광에 특화된 AI 챗봇과 말하는 캐릭터를 결합한 축제안내정보 서비스 (관광약자 대상 지능형 관광가이드)</p>
+              <p class="pr"><b>문제</b>축제 안내는 <strong>종이 리플릿과 유인 안내소 중심</strong>이라 장애인·노인·외국인은 정보 접근에서 밀려납니다. 안내소는 운영 시간과 대응 언어에 한계가 있고, <strong>문자 중심 안내는 읽기 자체가 장벽</strong>이 됩니다.</p>
+              <p class="sl"><b>해결</b>지역관광 데이터에 특화된 <strong>AI 챗봇</strong>으로 축제 정보를 대화형으로 제공하고, <strong>말하는 캐릭터</strong>를 결합해 음성으로 주고받게 만들어 <strong>문자와 언어 장벽을 동시에</strong> 낮춥니다.</p>
+              <p class="site">※ 공식 웹사이트를 확인하지 못했습니다.</p>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="note-box">
+      <p><strong>아홉을 나란히 놓으면 보이는 것.</strong> 다섯 분야는 결국 <strong class="hot-t">축제라는 한 공간을 층으로 나눈 것</strong>입니다 — 오기 전(<em>주차</em>) · 와서 움직일 때(<em>지도</em>) · 쓸 때(<em>결제</em>) · 사고가 날 때(<em>안전</em>) · 그래도 남는 사람(<em>자유 주제</em>). 아홉 곳 중 <strong>어느 하나도 “축제를 위한 신기술”을 새로 발명하지 않았습니다.</strong> 이미 가진 기술(영상인식 · 측위 · QR · 비전 AI · 키오스크)을 <strong>축제라는 현장의 특정 불편에 붙였을 뿐</strong>입니다.<br /><strong>과제에 쓰는 법</strong> — 여러분의 아이템도 같은 자리에서 시작하십시오. <em>“무슨 기술을 쓸까”</em>가 아니라 <strong>“이 현장에서 누가 어떤 순간에 곤란한가”</strong>를 먼저 적고, 그 뒤에 기술을 고릅니다. 위 카드마다 <strong>문제가 두 줄, 해결이 두 줄</strong>인 것을 보십시오 — 벤치마킹 발표도 회사당 그 정도면 충분합니다.<br /><strong>한 가지 주의</strong> — ㈜다비오와 주식회사 딥파인은 원자료에서 <em>스마트 지도</em>와 <em>단독(스마트지도)</em> 항목에 <strong>중복 등장</strong>합니다. 사업 건수를 셀 때 겹치지 않게 보십시오.</p>
+      </div>
+
+      <p class="mini-note"><a class="dl-link" href="assets/smart-tourism-pilot-companies.pptx" download>참여기업 아홉 곳 · 문제해결 PT ⤓</a> <span class="src-inline">PPTX · 12장</span> — 위 내용을 발표용 슬라이드로 옮긴 것입니다. 표지 · 다섯 분야 한눈에 보기 · 회사별 아홉 장 · 웹사이트 모음으로 되어 있어, <strong>수업 발표나 스터디 자료로 그대로</strong> 쓸 수 있습니다.</p>
 
       <p class="learn-part pt-learn"><span class="pt">파트 04</span>책</p>
       <p class="mini-note"><a class="dl-link" href="https://strc.khu.ac.kr/bbs/board.php?bo_table=06_01&amp;wr_id=21" target="_blank" rel="noopener">이 그림의 12개 장 · 강의 슬라이드 내려받기 ↗</a> — 아래 마인드맵과 <strong>같은 순서로 짜인 12개 장</strong>의 강의 슬라이드 견본(PDF). <span class="src-inline">경희대학교 스마트관광연구소</span></p>
