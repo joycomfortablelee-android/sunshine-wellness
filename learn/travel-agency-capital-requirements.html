@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>여행업 등록기준과 자본금</title>
+<style>
+  :root{
+    --navy:#14345b;
+    --blue:#245b8f;
+    --gold:#b89245;
+    --ink:#1f2937;
+    --muted:#667085;
+    --line:#d8dee8;
+    --bg:#f6f8fb;
+    --soft:#eef4fa;
+    --warn:#fff8e8;
+    --white:#ffffff;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:"Noto Sans KR","NanumBarunGothic","Malgun Gothic",sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.65;
+  }
+  .wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:40px 24px 64px;
+  }
+  .hero{
+    background:linear-gradient(135deg,#14345b,#245b8f);
+    color:#fff;
+    border-radius:22px;
+    padding:34px 38px;
+    box-shadow:0 12px 28px rgba(20,52,91,.15);
+  }
+  .eyebrow{
+    font-size:13px;
+    letter-spacing:.08em;
+    opacity:.82;
+    margin-bottom:8px;
+  }
+  h1{
+    margin:0 0 12px;
+    font-size:34px;
+    line-height:1.25;
+  }
+  .hero p{
+    margin:0;
+    font-size:17px;
+    opacity:.94;
+  }
+  .section{
+    margin-top:28px;
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:28px;
+  }
+  h2{
+    margin:0 0 18px;
+    font-size:23px;
+    color:var(--navy);
+  }
+  .cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+  }
+  .card{
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:22px 20px;
+    background:#fff;
+  }
+  .rank{
+    display:inline-block;
+    font-size:12px;
+    font-weight:700;
+    color:var(--blue);
+    background:var(--soft);
+    border-radius:999px;
+    padding:5px 10px;
+    margin-bottom:10px;
+  }
+  .card h3{
+    margin:0 0 8px;
+    color:var(--navy);
+    font-size:21px;
+  }
+  .money{
+    font-size:24px;
+    font-weight:800;
+    color:var(--gold);
+    margin:10px 0;
+  }
+  .card p{margin:0}
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:8px;
+    font-size:15px;
+  }
+  th,td{
+    border-bottom:1px solid var(--line);
+    padding:14px 12px;
+    text-align:left;
+    vertical-align:top;
+  }
+  th{
+    background:#f2f5f9;
+    color:var(--navy);
+    font-weight:700;
+  }
+  .point{
+    background:var(--soft);
+    border-left:5px solid var(--blue);
+    padding:18px 20px;
+    border-radius:12px;
+    margin-top:16px;
+  }
+  .warning{
+    background:var(--warn);
+    border:1px solid #eed9a6;
+    padding:18px 20px;
+    border-radius:12px;
+    margin-top:16px;
+  }
+  .quote{
+    margin:16px 0 0;
+    padding:20px 22px;
+    border-radius:14px;
+    background:#152f50;
+    color:#fff;
+    font-size:18px;
+    font-weight:700;
+  }
+  .source{
+    font-size:14px;
+    color:#475467;
+  }
+  .source strong{color:var(--navy)}
+  .badgood{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+  }
+  .label{
+    font-size:13px;
+    font-weight:800;
+    margin-bottom:8px;
+  }
+  .avoid,.prefer{
+    border-radius:14px;
+    padding:18px;
+    border:1px solid var(--line);
+  }
+  .avoid{background:#fff7f7}
+  .prefer{background:#f4faf6}
+  .avoid .label{color:#9b2c2c}
+  .prefer .label{color:#276749}
+  .footer{
+    margin-top:24px;
+    text-align:right;
+    font-size:12px;
+    color:var(--muted);
+  }
+  /* 돌아가기 — 관광벤처창업론에서 새 탭으로 열린다. 페이지마다 CSS가 달라 값은 직접 적는다. */
+  .backbar{margin:0;padding:12px 16px 0}
+  .backbar a{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;
+    background:#fff;border:1px solid #cfdcea;color:#17365d;font-size:12.5px;font-weight:800;
+    text-decoration:none;box-shadow:0 2px 8px rgba(23,54,93,.06);transition:.18s}
+  .backbar a:hover{background:#17365d;border-color:#17365d;color:#fff}
+  @media (max-width:700px){.backbar a{font-size:12px;padding:5px 12px}}
+  @media(max-width:760px){
+    .cards,.badgood{grid-template-columns:1fr}
+    h1{font-size:28px}
+    .wrap{padding:20px 14px 40px}
+    .hero,.section{padding:22px}
+  }
+</style>
+</head>
+<body>
+<p class="backbar"><a href="tourism-venture.html">← 관광벤처창업론 자료로 돌아가기</a></p>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">TOURISM BUSINESS REGISTRATION · 여행업 등록기준</div>
+    <h1>여행업 등록, 무엇이 다르고 얼마가 필요한가?</h1>
+    <p>여행업은 등록 종류에 따라 할 수 있는 업무의 범위와 갖춰야 할 자본금 기준이 달라집니다.</p>
+  </header>
+
+  <section class="section">
+    <h2>1. 여행업 종류별 업무 범위</h2>
+    <div class="cards">
+      <div class="card">
+        <span class="rank">가장 넓은 범위</span>
+        <h3>종합여행업</h3>
+        <div class="money">5,000만 원 이상</div>
+        <p>국내외를 여행하는 <strong>내국인 및 외국인</strong>을 대상으로 하는 여행업</p>
+      </div>
+      <div class="card">
+        <span class="rank">중간 범위</span>
+        <h3>국내외여행업</h3>
+        <div class="money">3,000만 원 이상</div>
+        <p>국내외를 여행하는 <strong>내국인</strong>을 대상으로 하는 여행업</p>
+      </div>
+      <div class="card">
+        <span class="rank">가장 가벼운 진입</span>
+        <h3>국내여행업</h3>
+        <div class="money">1,500만 원 이상</div>
+        <p>국내를 여행하는 <strong>내국인</strong>을 대상으로 하는 여행업</p>
+      </div>
+    </div>
+
+    <div class="point">
+      <strong>핵심:</strong> 외국인을 대상으로 여행업을 하려면 <strong>종합여행업</strong>에 해당합니다.
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>2. 등록기준의 핵심 — 자본금</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>구분</th>
+          <th>대상</th>
+          <th>등록 자본금</th>
+          <th>기준의 의미</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>종합여행업</strong></td>
+          <td>내국인 + 외국인 / 국내외</td>
+          <td><strong>5,000만 원 이상</strong></td>
+          <td>업무범위가 가장 넓음</td>
+        </tr>
+        <tr>
+          <td><strong>국내외여행업</strong></td>
+          <td>내국인 / 국내외</td>
+          <td><strong>3,000만 원 이상</strong></td>
+          <td>내국인의 국내·해외여행 취급</td>
+        </tr>
+        <tr>
+          <td><strong>국내여행업</strong></td>
+          <td>내국인 / 국내</td>
+          <td><strong>1,500만 원 이상</strong></td>
+          <td>지역 기반 국내여행 상품 등에 적합</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="point">
+      <strong>법인:</strong> 납입자본금 기준 &nbsp;│&nbsp;
+      <strong>개인:</strong> 해당 사업에 제공되는 자산의 평가액 기준
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>3. “국내여행업 750만 원” 정보는 현재 기준이 아닙니다</h2>
+    <div class="warning">
+      국내여행업은 한시적으로 자본금 기준이 <strong>750만 원 이상</strong>으로 완화된 적이 있습니다.
+      해당 특례는 <strong>2024년 7월 1일 ~ 2026년 6월 30일</strong> 등록 신청자에게 적용되었습니다.
+      따라서 <strong>2026년 9월 신규 등록</strong>은 다시 <strong>1,500만 원 이상</strong> 기준으로 보는 것이 맞습니다.
+    </div>
+
+    <div class="quote">
+      한 문장으로 기억하기 — 여행사 창업은 단순 사업자등록만으로 끝나는 것이 아니라,
+      여행업 등록을 위해 업종별 자본금 기준을 갖춰야 한다.
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>4. 강의에서 표현할 때 주의할 점</h2>
+    <div class="badgood">
+      <div class="avoid">
+        <div class="label">표현을 줄이는 편이 좋은 문장</div>
+        “등록한다의 문턱은 결국 돈으로 표시된다.”<br><br>
+        “인바운드를 하려면 여기여야 한다.”
+      </div>
+      <div class="prefer">
+        <div class="label">더 정확한 표현</div>
+        “자본금은 여행업의 <strong>핵심 등록요건 중 하나</strong>이다.”<br><br>
+        “외국인을 대상으로 여행업을 하려면 <strong>종합여행업</strong>에 해당한다.”
+      </div>
+    </div>
+
+    <div class="point">
+      여행업 등록기준에는 자본금뿐 아니라 <strong>사무실의 소유권 또는 사용권</strong> 등도 포함되므로,
+      자본금만을 유일한 등록요건처럼 설명하지 않는 것이 정확합니다.
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>5. 법적 근거 및 출처</h2>
+    <div class="source">
+      <p><strong>① 여행업 종류별 업무 범위</strong><br>
+      「관광진흥법 시행령」 제2조 제1항</p>
+
+      <p><strong>② 여행업 종류별 자본금 기준</strong><br>
+      「관광진흥법 시행령」 [별표 1] 관광사업의 등록기준(제5조 관련)</p>
+
+      <p><strong>③ 국내여행업 자본금 한시 완화</strong><br>
+      같은 [별표 1]의 한시 특례: 2024. 7. 1. ~ 2026. 6. 30. 등록 신청자에 대해 국내여행업 자본금 750만 원 이상 적용</p>
+
+      <p><strong>④ 법인의 자본금 판단</strong><br>
+      법제처 법령해석 21-0818(2022. 3. 18.) — 여행업 등록 시 주식회사의 자본금은 실질자본금이 아니라 납입자본금을 기준으로 판단</p>
+
+      <p><strong>PPT 하단 표기 예시</strong><br>
+      출처: 국가법령정보센터, 「관광진흥법 시행령」 제2조 및 [별표 1] 관광사업의 등록기준(제5조 관련), 현행 2026. 8. 4.; 법제처 법령해석 21-0818(2022. 3. 18.).</p>
+    </div>
+  </section>
+
+  <div class="footer">수업용 요약 · 2026년 9월 기준</div>
+</div>
+</body>
+</html>
