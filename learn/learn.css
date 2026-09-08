@@ -1146,6 +1146,35 @@ body.mod-smart .lw { max-width: 1160px; }
 .learn-article .task-box.r4 { --s-ac:#1f7a70; --s-dk:#14554e; --s-ln:#96cbc2; --s-bg:#e8f3f0; }
 /* 파트 03 과제 상자 — 실습 카드와 같은 번트오렌지 계열로 */
 .learn-article .task-box.pd3 { --s-ac:#a8681f; --s-dk:#8a4f14; --s-ln:#d9b782; --s-bg:#fdf6ec; }
+
+/* ===== 샛노랑 과제 상자 — 「이번 학기의 본 과제」 하나만 색으로 세운다 =====
+   관광벤처 과제 1(사업계획서 한 부)과 스마트관광 과제 2(중간시험 대체)가 쓴다.
+   바탕이 밝아 본문·알약·강조색을 전부 어두운 쪽으로 다시 잡아야 한다.
+   다만 「그대로 내는 서식」의 붉은 알약은 페이지 전체 규칙이라 그대로 둔다. */
+.learn-article .task-box.y {
+  --s-ac: #c9a227; --s-dk: #14120a; --s-ln: #e6c700; --s-bg: #ffe800;
+  border-style: solid; border-width: 2px; border-color: #c9a227;
+  background: linear-gradient(158deg, #ffe800 0%, #ffe100 68%, #ffd800 100%);
+  box-shadow: 0 4px 14px rgba(160,130,20,.18);
+}
+.learn-article .task-box.y .tb-d { color: #2a2410; }
+.learn-article .task-box.y .tb-d strong { color: #14120a; }
+.learn-article .task-box.y .tb-d em { color: #6b5400; }
+.learn-article .task-box.y .hot-t { color: #b00020; }
+.learn-article .task-box.y .tb-t span { background: #14120a; color: #ffe800; }
+.learn-article .task-box.y .tb-t span.when.hot { background: #c0392b; border-color: #c0392b; color: #fff; }
+.learn-article .task-box.y .tb-tags { border-top-color: #d8bb2a; }
+.learn-article .task-box.y .tb-tags a.mapl.form {
+  background: #fff; border-style: dashed; border-color: #14120a; color: #14120a;
+}
+.learn-article .task-box.y .tb-tags a.mapl.form:hover { background: #14120a; border-color: #14120a; color: #ffe800; }
+.learn-article .task-box.y .tb-tags a.mapl.form.hot { background: #14120a; border-style: solid; border-color: #14120a; color: #ffe800; }
+.learn-article .task-box.y .tb-tags a.mapl.form.hot:hover { background: #000; border-color: #000; color: #ffe800; }
+.learn-article .task-box.y .tb-tags a.mapl.form.hot.red { background: #c0392b; border-color: #c0392b; color: #fff; }
+.learn-article .task-box.y .tb-tags a.mapl.form.hot.red:hover { background: #98291d; border-color: #98291d; color: #fff; }
+.learn-article .task-box.y .tb-tags a.mapl.form.ex { border-style: solid; border-color: #6b5400; color: #4d3c05; }
+.learn-article .task-box.y .tb-tags a.mapl.form.ex:hover { background: #4d3c05; border-color: #4d3c05; color: #fff; }
+.learn-article .task-box.y .tb-src { color: #4a3f10; }
 /* 관광벤처창업론 과제 상자 */
 .learn-article .task-box.vt { --s-ac:#2f5148; --s-dk:#1f382f; --s-ln:#c4dbd2; --s-bg:#eff5f2; }
 .learn-article .task-box.vt2 { --s-ac:#2563a8; --s-dk:#1c4e8a; --s-ln:#b2cae2; --s-bg:#eff5fa; }
