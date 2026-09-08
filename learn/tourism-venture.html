@@ -624,9 +624,11 @@
     .learn-article .wc-title { font-size: 14px; font-weight: 800; color: #17395f; letter-spacing: -.2px; }
     .learn-article .wc-count { font-size: 11.5px; font-weight: 800; color: #7c8a99; }
     .learn-article .wc-slide img {
-      display: block; width: 100%; height: auto; border-radius: 10px;
-      background: #fff; -webkit-user-drag: none; user-select: none;
+      display: block; width: 100%; max-width: 780px; height: auto; margin: 0 auto;
+      border-radius: 10px; background: #fff; -webkit-user-drag: none; user-select: none;
     }
+    /* 그림을 줄인 만큼 머리줄도 그림 폭에 맞춰 가운데로 모은다 */
+    .learn-article .wc-head { max-width: 780px; margin-left: auto; margin-right: auto; }
     .learn-article .wc-nav {
       position: absolute; top: 50%; transform: translateY(-50%);
       width: 38px; height: 58px; border: 0; border-radius: 12px;
@@ -735,6 +737,58 @@
       .room-bar .rb-t .rb-mv { display: block; margin: 6px 0 0; }
     }
 
+    /* 오늘 수업 — 지나간 회차를 지우지 않고 접어 둔다. 펴면 그날 무엇을 했는지 그대로 남는다. */
+    .learn-article .next-box .done-fold {
+      margin: 0 0 12px; padding: 0 0 12px; border-bottom: 1px dashed #e0c9c4;
+    }
+    .learn-article .next-box .done-fold > summary {
+      list-style: none; cursor: pointer; display: flex; align-items: center; gap: 8px;
+      font-size: 12.5px; font-weight: 800; color: #8a6f6a;
+    }
+    .learn-article .next-box .done-fold > summary::-webkit-details-marker { display: none; }
+    .learn-article .next-box .done-fold > summary::after {
+      content: '펼치기 ▾'; margin-left: auto; font-size: 11px; font-weight: 700; color: #a98f89;
+    }
+    .learn-article .next-box .done-fold[open] > summary::after { content: '접기 ▴'; }
+    .learn-article .next-box .done-fold > summary b.done-tag {
+      padding: 2px 9px; border-radius: 999px; background: #efe3e0; color: #7a5b55;
+      font-size: 10.5px; font-weight: 800; letter-spacing: .04em;
+    }
+    .learn-article .next-box .done-fold .df-body { margin-top: 10px; opacity: .88; }
+    .learn-article .next-box .done-fold .df-body .nx-lb { margin-top: 10px; }
+
+    /* 지나간 회차 접기 — 페이지 맨 위에 수업 진행 순서를 쌓아 둔다.
+       지우지 않는 이유: 결석한 학생과 뒤늦게 합류한 학생이 그날 무엇을 했는지 볼 수 있어야 한다. */
+    .learn-article .wk-fold {
+      margin: 0 0 12px; border: 1px solid #dfe6ee; border-radius: 12px;
+      background: #fafcfe; padding: 12px 16px;
+    }
+    .learn-article .wk-fold > summary {
+      list-style: none; cursor: pointer; display: flex; align-items: center; gap: 8px;
+      font-size: 13px; font-weight: 800; color: #52697f;
+    }
+    .learn-article .wk-fold > summary::-webkit-details-marker { display: none; }
+    .learn-article .wk-fold > summary::after {
+      content: '펼치기 ▾'; margin-left: auto; font-size: 11px; font-weight: 700; color: #8b9aab;
+    }
+    .learn-article .wk-fold[open] > summary::after { content: '접기 ▴'; }
+    .learn-article .wk-fold > summary b.wk-tag {
+      padding: 2px 9px; border-radius: 999px; background: #e6eef6; color: #3d5772;
+      font-size: 10.5px; font-weight: 800; letter-spacing: .04em;
+    }
+    .learn-article .wk-fold[open] > summary { margin-bottom: 10px; }
+    .learn-article .wk-fold .psst { margin: 0; }
+
+    /* 과제 배지가 제목 앞에 서면 왼쪽 여백만 지운다. */
+    .learn-article .syl-box .syl-t a.task-badge.lead { margin-left: 0; margin-right: 9px; }
+    /* 스티키노트 알약 — 연결되는 페이지가 노랑이라 알약도 노랑으로 둔다. */
+    .learn-article .syl-box .syl-t a.sticky-pill {
+      display: inline-block; margin-left: 8px; padding: 3px 11px; border-radius: 999px;
+      background: #ffe800; color: #14120a; border: 1px solid #d8bb2a;
+      font-size: 11px; font-weight: 800; letter-spacing: -.1px; vertical-align: 2px;
+    }
+    .learn-article .syl-box .syl-t a.sticky-pill:hover { background: #14120a; color: #ffe800; border-color: #14120a; }
+
   </style>
 </head>
 <body class="mod-venture">
@@ -771,7 +825,47 @@
 
       <p class="lead">창업은 "좋은 아이템을 파는 일"이 아니라 <strong>"누군가의 불편을 반복 가능한 방식으로 푸는 일"</strong>입니다. 관광벤처는 그 불편이 여행의 여정 어딘가에 있는 사업입니다.</p>
 
+      <details class="wk-fold">
+        <summary><b class="wk-tag">1주차</b>9월 1일(화) 수업 — 사업계획서는 네 칸으로 되어 있습니다 · P · S · S · T</summary>
+        <div class="psst">
+        <p class="psst-h">사업계획서는 네 칸으로 되어 있습니다 <span>P · S · S · T</span></p>
+        <p class="psst-lead">공고마다 서식이 조금씩 다르지만 <strong>묻는 것은 거의 같습니다</strong>. 이 네 칸의 순서가 곧 심사자가 읽는 순서이고, <strong class="hot-t">앞 칸이 흔들리면 뒤 칸은 읽히지 않습니다</strong> — 문제가 분명하지 않으면 아무리 좋은 솔루션도 「그래서 왜?」로 되돌아옵니다.</p>
+        <ol class="psst-grid">
+          <li class="ps1"><span class="n">P</span><strong>문제 인식</strong><em>Problem</em>
+            <span class="d">창업 아이템의 <b>개발 동기</b>, 기존 시장의 <b>문제점</b>과 그것을 해결해야 하는 이유.</span>
+            <span class="lk">↔ 이 페이지 <b>02장</b> 아이디어는 문제에서 나온다 · WHO · WHAT · WHY NOW</span></li>
+          <li class="ps2"><span class="n">S</span><strong>실현 가능한 솔루션</strong><em>Solution</em>
+            <span class="d"><b>비즈니스 모델(BM)</b>, 서비스·제품을 어떻게 구현할 것인가, 개발 전략.</span>
+            <span class="lk">↔ <b>03장</b> 비즈니스 모델 · <b>04장</b> 린 스타트업(MVP로 먼저 검증)</span></li>
+          <li class="ps3"><span class="n">S</span><strong>성장 전략</strong><em>Scale-up</em>
+            <span class="d"><b>자금 유치</b>와 규모를 키우는 계획, <b>홍보·마케팅</b> 등 시장에서의 활동.</span>
+            <span class="lk">↔ <b>05장</b> 창업 생태계와 지원 · 교재 6장 투자와 펀딩 · 8장 창업마케팅</span></li>
+          <li class="ps4"><span class="n">T</span><strong>팀 구성</strong><em>Team</em>
+            <span class="d">대표자의 <b>역량</b>, 추가로 채울 자리와 <b>협력 네트워크</b>, 인력 채용 계획.</span>
+            <span class="lk">↔ 학생이 가장 얕게 쓰는 칸 — <b>과제 2</b>에서 회사를 뜯어본 눈이 여기 쓰입니다</span></li>
+        </ol>
+        <p class="psst-tip"><b>학생 원고에서 자주 무너지는 곳</b> — <strong>P에 통계가 없고</strong>(PRISM·데이터랩에서 숫자를 가져오십시오), <strong>S(솔루션)에 검증이 없고</strong>(만들기 전에 물어본 흔적이 있어야 합니다), <strong>T에 「열심히 하겠습니다」만 있습니다</strong>(없는 역량은 협력 네트워크로 메운다고 쓰는 편이 정직하고 강합니다).</p>
+        </div>
+      </details>
+
       <div class="next-box">
+        <details class="done-fold">
+          <summary><b class="done-tag">오늘 수업</b>2주차 · 9월 8일(화) — 관광창업의 지도</summary>
+          <div class="df-body">
+            <p class="nx-h">관광창업의 지도 — 내 아이템은 어느 칸에 서는가</p>
+
+            <p class="nx-lb">이날의 목표</p>
+            <p class="nx-d">수업이 끝나면 <strong>「내 아이템이 공모의 어느 칸에 들어가는지」를 근거를 들어 말할 수 있게</strong> 됩니다. 두 가지를 했습니다 — <strong>①</strong> 관광벤처 <strong>3유형</strong>(플랫폼 · 콘텐츠 · 시설공간)과 로컬크리에이터 <strong>7대 유형</strong>을 나란히 놓고 <em>내 것</em>을 고릅니다. <strong>②</strong> 남의 요약이 아니라 <strong>공고 원문</strong>을 열어 모집유형 넷의 정의와 지원자격을 직접 읽습니다. <em>유형별 쿼터가 없다</em>는 것, <em>자본금도 학벌도 요건에 없다</em>는 것을 그 자리에서 확인합니다.</p>
+
+            <p class="nx-lb">해올 것이었던 것</p>
+            <p class="nx-d"><a href="https://touraz.kr/index#" target="_blank" rel="noopener">투어라즈(TOURAZ) 개인회원 가입 ↗</a> — <strong>touraz.kr</strong>. 공고문이 <strong>「공모마감 1주일 전까지 가입을 권장」</strong>한다고 적고 있습니다. 접수 · 심사 · 결과 발표가 전부 이곳에서 이뤄집니다. <strong>아직 안 했다면 지금 하십시오</strong> — 5분이면 되고, 가입 유형은 개인회원입니다.</p>
+
+            <p class="nx-lb">해본 것</p>
+            <p class="nx-d"><strong>워크북 시트 1</strong> — 신청유형 <strong>택 1</strong> · 서비스명 <strong>20자</strong> · 한줄설명 <strong>50자</strong> · <strong>그 유형을 고른 근거 한 문장</strong>. 근거는 공고의 정의 가운데 <em>어느 구절에 내 아이템이 걸리는지</em>를 인용해 씁니다.</p>
+            <p class="nx-n">아직 아이템이 없어도 괜찮습니다 — 이날은 <strong>고르는 연습</strong>이었습니다.</p>
+          </div>
+        </details>
+
         <p class="nx-t"><b class="nx-tag">다음 수업</b>3주차 · <strong>9월 15일(화)</strong></p>
         <p class="nx-h">아이디어는 문제에서 나온다 — 누구의 어떤 불편인가</p>
 
@@ -793,25 +887,6 @@
         <p class="tb-tags"><a class="mapl form hot red" href="assets/tourism-venture-18th-business-plan-form.hwp" download="[붙임] 제18회 예비관광벤처부문 사업계획서 양식.hwp">공식 사업계획서 양식 ⤓ HWP</a><a class="mapl form hot" href="assets/tourism-venture-weekly-workbook.docx" download="관광벤처창업론_예비관광벤처_사업계획서_주차별_작업워크북.docx">주차별 작업 워크북 ⤓ DOCX · 16시트</a><a class="mapl form" href="https://www.touraz.kr/" target="_blank" rel="noopener">투어라즈 공고 원문 ↗</a><a class="mapl form" href="https://viewer.knto.or.kr:1265/v/pNgUzf4SZFx" target="_blank" rel="noopener">공고문 원문 뷰어 ↗</a><a class="mapl form ex" href="assets/busan-vegan-platform-proposal.pdf" target="_blank" rel="noopener">참고 · 비건부산 제안서 ↗</a><span class="tb-src"><b>HWP가 실제로 제출하는 원본</b>이고, 워크북은 그 칸을 <b>주차별로 나눠 채우는 작업지</b>입니다. 제18회 양식으로 만들었지만 칸 구성은 회차가 바뀌어도 거의 그대로입니다 — <b>제19회는 2027년 4월 말 공고·5월 중순 마감</b>이 예상되므로, 이번 학기에 써 두면 내년에 그대로 냅니다.</span></p>
       </div>
 
-      <div class="psst">
-        <p class="psst-h">사업계획서는 네 칸으로 되어 있습니다 <span>P · S · S · T</span></p>
-        <p class="psst-lead">공고마다 서식이 조금씩 다르지만 <strong>묻는 것은 거의 같습니다</strong>. 이 네 칸의 순서가 곧 심사자가 읽는 순서이고, <strong class="hot-t">앞 칸이 흔들리면 뒤 칸은 읽히지 않습니다</strong> — 문제가 분명하지 않으면 아무리 좋은 솔루션도 「그래서 왜?」로 되돌아옵니다.</p>
-        <ol class="psst-grid">
-          <li class="ps1"><span class="n">P</span><strong>문제 인식</strong><em>Problem</em>
-            <span class="d">창업 아이템의 <b>개발 동기</b>, 기존 시장의 <b>문제점</b>과 그것을 해결해야 하는 이유.</span>
-            <span class="lk">↔ 이 페이지 <b>02장</b> 아이디어는 문제에서 나온다 · WHO · WHAT · WHY NOW</span></li>
-          <li class="ps2"><span class="n">S</span><strong>실현 가능한 솔루션</strong><em>Solution</em>
-            <span class="d"><b>비즈니스 모델(BM)</b>, 서비스·제품을 어떻게 구현할 것인가, 개발 전략.</span>
-            <span class="lk">↔ <b>03장</b> 비즈니스 모델 · <b>04장</b> 린 스타트업(MVP로 먼저 검증)</span></li>
-          <li class="ps3"><span class="n">S</span><strong>성장 전략</strong><em>Scale-up</em>
-            <span class="d"><b>자금 유치</b>와 규모를 키우는 계획, <b>홍보·마케팅</b> 등 시장에서의 활동.</span>
-            <span class="lk">↔ <b>05장</b> 창업 생태계와 지원 · 교재 6장 투자와 펀딩 · 8장 창업마케팅</span></li>
-          <li class="ps4"><span class="n">T</span><strong>팀 구성</strong><em>Team</em>
-            <span class="d">대표자의 <b>역량</b>, 추가로 채울 자리와 <b>협력 네트워크</b>, 인력 채용 계획.</span>
-            <span class="lk">↔ 학생이 가장 얕게 쓰는 칸 — <b>과제 2</b>에서 회사를 뜯어본 눈이 여기 쓰입니다</span></li>
-        </ol>
-        <p class="psst-tip"><b>학생 원고에서 자주 무너지는 곳</b> — <strong>P에 통계가 없고</strong>(PRISM·데이터랩에서 숫자를 가져오십시오), <strong>S(솔루션)에 검증이 없고</strong>(만들기 전에 물어본 흔적이 있어야 합니다), <strong>T에 「열심히 하겠습니다」만 있습니다</strong>(없는 역량은 협력 네트워크로 메운다고 쓰는 편이 정직하고 강합니다).</p>
-      </div>
 
       <figure class="learn-fig psst-vid">
         <p class="pvid-lead"><b>영상으로 · P 칸 하나만 뜯어보기</b>네 칸 중 <strong>첫 칸(문제 인식)</strong>만 놓고 <em>예비창업패키지</em> 실제 사업계획서를 문단 단위로 뜯는 영상입니다. 「그냥 무조건 따라하기」라는 제목대로 <strong>그 칸을 어떤 순서로, 어떤 문장으로 채우는지</strong>를 보여줍니다. 부처와 사업은 다르지만 <strong class="hot-t">묻는 것은 관광벤처 양식의 「1-1 문제 인식」과 같습니다</strong> — 위 과제 1의 첫 칸을 쓰기 전에 한 번 보십시오. 보면서 확인할 것 둘 — <strong>① 문제를 몇 번째 문장에서 특정하는가</strong>, <strong>② 근거로 무엇을 들고 왔는가</strong>(위 「P에 통계가 없다」와 겹칩니다).</p>
@@ -832,7 +907,7 @@
       </div>
 
       <div class="syl-box job">
-        <p class="syl-t"><a href="interview-personality-20.html" target="_blank" rel="noopener">기관 인성면접 예상 질문 20문 — 노란 스티키노트 한 장 ↗</a><a class="task-badge" href="#과제2">과제 2</a></p>
+        <p class="syl-t"><a class="task-badge lead" href="#과제2">과제 2</a><a href="interview-personality-20.html" target="_blank" rel="noopener">기관 인성면접 예상 질문 20문 ↗</a><a class="sticky-pill" href="interview-personality-20.html" target="_blank" rel="noopener">노란 스티키노트 한 장 ↗</a></p>
         <p class="syl-d"><strong>창업만 길이 아닙니다.</strong> 이 수업의 산출물인 사업계획서와 모의 PT는 <strong>창업 IR</strong>에도 쓰이지만, 그대로 <strong>취업 면접의 자기 이야기</strong>가 됩니다 — 「무엇을 문제로 봤고, 어떻게 풀었는가」를 말하는 훈련이 같기 때문입니다. 아래 스무 문항은 <strong>공공기관·공기업 인성면접</strong>에서 반복해서 나오는 질문들입니다.</p>
         <p class="syl-d"><strong>쓰는 법은 하나입니다 — 눈으로 읽지 말고 소리 내어 답하십시오.</strong> 한 문항당 <strong>40초~1분</strong>이 실제 면접의 길이입니다. 스무 장이 <em>자기소개 → 장·단점 → 극복 경험 → 협업과 갈등 → 원칙과 태도 → 마지막 한마디</em> 순으로 놓여 있어, 위에서부터 훑으면 <strong class="hot-t">면접 한 회차가 그대로 지나갑니다</strong>. 인쇄하면 A4에 4열로 떨어져 손에 들고 연습할 수 있습니다.</p>
         <p class="syl-tags"><a class="mapl" href="interview-personality-20.html" target="_blank" rel="noopener">20문 열기 ↗</a><a class="mapl" href="assets/interview-personality-20.docx" download="기관_인성면접_예상질문_20문.docx">워드로 내려받기 ⤓ DOCX</a><span class="syl-src">스티키노트 20장 · 워드는 A4 2단 인쇄용 · 세 과목 공통 취업 자료</span></p>
