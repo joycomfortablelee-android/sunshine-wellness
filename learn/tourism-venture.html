@@ -17,7 +17,7 @@
          공모 절의 「THE VC 스타트업 모음」 둘이 쓴다. 파란 카드 사이에서 먼저 걸린다 ── */
     .learn-article .t-yellow { --v-a:#ffe600; --v-b:#ffdd00; --v-ac:#d4a900; --v-ln:#e6c700; --v-sh:rgba(190,150,0,.32); --v-tc:#14120a; }
     .learn-article .reslist.grid3 > li.t-yellow {
-      background: linear-gradient(158deg, #ffe600 0%, #ffdf00 62%, #fff6b3 100%);
+      background: linear-gradient(158deg, #ffe800 0%, #ffe100 68%, #ffd800 100%);
     }
     .learn-article .reslist.grid3 > li.t-yellow a { color: #14120a; }
     .learn-article .reslist.grid3 > li.t-yellow a:hover { color: #6b5400; }
@@ -85,6 +85,14 @@
     }
     .learn-article .vcards .vd strong { color: var(--deep); font-weight: 700; }
     .learn-article .vcards .vd em { font-style: normal; color: var(--v-tc, var(--green)); font-weight: 700; }
+
+    /* 여행업 세 종류 카드의 자본금 줄 — 등록 요건의 핵심이라 제목 다음에 바로 둔다 */
+    .learn-article .vcards .vamt {
+      display: block; margin: 0 0 6px; padding: 4px 9px; border-radius: 7px;
+      background: rgba(255,255,255,.72); border: 1px solid var(--v-ln, #cfe0da);
+      font-size: 12px; font-weight: 700; color: var(--v-tc, var(--deep));
+    }
+    .learn-article .vcards .vamt b { font-size: 15px; font-weight: 900; letter-spacing: -.3px; }
 
     .learn-article .t-blue   { --v-a:#dceefb; --v-b:#eff7fd; --v-ac:#2563a8; --v-ln:#c8ddf0; --v-sh:rgba(37,99,168,.16);  --v-tc:#1c4e8a; }
     .learn-article .t-gold   { --v-a:#fceedb; --v-b:#fdf7ec; --v-ac:#e8a04a; --v-ln:#efdcbc; --v-sh:rgba(184,121,29,.16); --v-tc:#8a5a17; }
@@ -1166,10 +1174,14 @@
 
       <p><strong>여행업은 등록 종류에 따라 할 수 있는 일이 다릅니다.</strong></p>
       <ol class="vcards c3 steps">
-        <li class="t-cyan"><span class="vt">가장 넓다</span><span class="vh">종합여행업</span><span class="vd">국내외 모두, <strong>내국인·외국인 모두</strong>를 대상으로. 자본금 요건이 가장 높습니다.</span></li>
-        <li class="t-cyan2"><span class="vt">중간</span><span class="vh">국내외여행업</span><span class="vd">내국인의 <strong>국내·국외 여행</strong>. 아웃바운드를 하려면 여기부터.</span></li>
-        <li class="t-cyan3"><span class="vt">가장 가볍다</span><span class="vh">국내여행업</span><span class="vd">내국인의 <strong>국내 여행</strong>만. 지역 기반 테마여행으로 시작한다면 첫 문.</span></li>
+        <li class="t-cyan"><span class="vt">가장 넓다</span><span class="vh">종합여행업</span><span class="vamt">자본금 <b>5,000만원</b> 이상</span><span class="vd">국내외 모두, <strong>내국인·외국인 모두</strong>를 대상으로. 인바운드(외국인 유치)를 하려면 여기여야 합니다.</span></li>
+        <li class="t-cyan2"><span class="vt">중간</span><span class="vh">국내외여행업</span><span class="vamt">자본금 <b>3,000만원</b> 이상</span><span class="vd">내국인의 <strong>국내·국외 여행</strong>. 아웃바운드를 하려면 여기부터.</span></li>
+        <li class="t-cyan3"><span class="vt">가장 가볍다</span><span class="vh">국내여행업</span><span class="vamt">자본금 <b>1,500만원</b> 이상</span><span class="vd">내국인의 <strong>국내 여행</strong>만. 지역 기반 테마여행으로 시작한다면 첫 문.</span></li>
       </ol>
+      <div class="note-box">
+      <p><strong>「등록한다」의 문턱은 결국 돈으로 표시됩니다.</strong> 위 세 칸의 차이는 <em>할 수 있는 일</em>의 차이인 동시에 <strong class="hot-t">갖춰야 하는 자본금</strong>의 차이입니다 — 종합 <strong>5,000만원</strong> · 국내외 <strong>3,000만원</strong> · 국내 <strong>1,500만원</strong> 이상(2026년 9월 기준). <strong>법인은 납입자본금</strong>, <strong>개인사업자는 그 사업에 제공되는 자산의 평가액</strong>을 기준으로 봅니다.<br /><strong>한때 더 낮았습니다</strong> — 국내여행업은 <strong>750만원</strong>까지 완화된 한시 특례가 있었으나 <strong class="hot-t">2026년 6월 30일로 끝났습니다.</strong> 지금 새로 등록한다면 다시 <strong>1,500만원</strong> 기준입니다. 인터넷에 남아 있는 「750만원이면 된다」는 글은 <em>지난 기준</em>이니 그대로 옮겨 쓰지 마십시오.<br /><strong>한 문장으로 기억할 것</strong> — <strong>여행사 창업은 사업자등록만 하면 되는 일이 아니라, 여행업 등록을 위해 최소 1,500만~5,000만원 수준의 자본금 요건을 갖춰야 하는 일입니다.</strong> 앞의 <em>①·②·③ 등록 서류</em>에서 신청 화면의 <strong>자본금</strong> 칸이 비면 넘어가지 않던 이유가 이것입니다.</p>
+      </div>
+
       <p class="mini-note">등록 요건(자본금·사무실·보증보험)은 회차와 지자체에 따라 달라지므로 <strong>반드시 관할 시·군 관광부서의 최신 안내</strong>로 확인하십시오. 여기서 기억할 것은 하나입니다 — <strong>내가 팔려는 여행이 어느 칸에 들어가는지</strong>.</p>
 
       <p><strong>같은 여행상품이라도 돈이 남는 자리는 넷으로 갈립니다.</strong></p>
