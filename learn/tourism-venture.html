@@ -737,25 +737,15 @@
       .room-bar .rb-t .rb-mv { display: block; margin: 6px 0 0; }
     }
 
-    /* 오늘 수업 — 지나간 회차를 지우지 않고 접어 둔다. 펴면 그날 무엇을 했는지 그대로 남는다. */
-    .learn-article .next-box .done-fold {
-      margin: 0 0 12px; padding: 0 0 12px; border-bottom: 1px dashed #e0c9c4;
-    }
-    .learn-article .next-box .done-fold > summary {
-      list-style: none; cursor: pointer; display: flex; align-items: center; gap: 8px;
-      font-size: 12.5px; font-weight: 800; color: #8a6f6a;
-    }
-    .learn-article .next-box .done-fold > summary::-webkit-details-marker { display: none; }
-    .learn-article .next-box .done-fold > summary::after {
-      content: '펼치기 ▾'; margin-left: auto; font-size: 11px; font-weight: 700; color: #a98f89;
-    }
-    .learn-article .next-box .done-fold[open] > summary::after { content: '접기 ▴'; }
-    .learn-article .next-box .done-fold > summary b.done-tag {
-      padding: 2px 9px; border-radius: 999px; background: #efe3e0; color: #7a5b55;
-      font-size: 10.5px; font-weight: 800; letter-spacing: .04em;
-    }
-    .learn-article .next-box .done-fold .df-body { margin-top: 10px; opacity: .88; }
-    .learn-article .next-box .done-fold .df-body .nx-lb { margin-top: 10px; }
+    /* 지난 회차 — 지우지 않고 접어 둔다. 다음 수업 상자와는 따로 세운다. */
+    .learn-article .wk-fold.today { border-color: #e2c7c2; background: #fdf7f6; }
+    .learn-article .wk-fold.today > summary { color: #8a5a52; }
+    .learn-article .wk-fold.today > summary b.wk-tag { background: #a8564a; color: #fff; }
+    .learn-article .wk-fold.today > summary::after,
+    .learn-article .wk-fold.today > summary .wk-sub { color: #ab8079; }
+    .learn-article .wk-fold.today .tf-body { opacity: .92; }
+    .learn-article .wk-fold.today .tf-body .nx-h { margin: 0 0 10px; }
+    .learn-article .wk-fold.today .tf-body .nx-lb { margin-top: 12px; }
 
     /* 지나간 회차 접기 — 페이지 맨 위에 수업 진행 순서를 쌓아 둔다.
        지우지 않는 이유: 결석한 학생과 뒤늦게 합류한 학생이 그날 무엇을 했는지 볼 수 있어야 한다. */
@@ -910,23 +900,24 @@
         </div>
       </details>
 
+      <details class="wk-fold today">
+        <summary><b class="wk-tag">2주차</b>9월 8일(화) 수업 — 관광창업의 지도<span class="wk-sub">3유형과 로컬크리에이터 7대 유형 · 공고 원문 읽기 · 워크북 시트 1</span></summary>
+        <div class="tf-body">
+          <p class="nx-h">관광창업의 지도 — 내 아이템은 어느 칸에 서는가</p>
+
+          <p class="nx-lb">이날의 목표</p>
+          <p class="nx-d">수업이 끝나면 <strong>「내 아이템이 공모의 어느 칸에 들어가는지」를 근거를 들어 말할 수 있게</strong> 됩니다. 두 가지를 했습니다 — <strong>①</strong> 관광벤처 <strong>3유형</strong>(플랫폼 · 콘텐츠 · 시설공간)과 로컬크리에이터 <strong>7대 유형</strong>을 나란히 놓고 <em>내 것</em>을 고릅니다. <strong>②</strong> 남의 요약이 아니라 <strong>공고 원문</strong>을 열어 모집유형 넷의 정의와 지원자격을 직접 읽습니다. <em>유형별 쿼터가 없다</em>는 것, <em>자본금도 학벌도 요건에 없다</em>는 것을 그 자리에서 확인합니다.</p>
+
+          <p class="nx-lb">해올 것이었던 것</p>
+          <p class="nx-d"><a href="https://touraz.kr/index#" target="_blank" rel="noopener">투어라즈(TOURAZ) 개인회원 가입 ↗</a> — <strong>touraz.kr</strong>. 공고문이 <strong>「공모마감 1주일 전까지 가입을 권장」</strong>한다고 적고 있습니다. 접수 · 심사 · 결과 발표가 전부 이곳에서 이뤄집니다. <strong>아직 안 했다면 지금 하십시오</strong> — 5분이면 되고, 가입 유형은 개인회원입니다.</p>
+
+          <p class="nx-lb">해본 것</p>
+          <p class="nx-d"><strong>워크북 시트 1</strong> — 신청유형 <strong>택 1</strong> · 서비스명 <strong>20자</strong> · 한줄설명 <strong>50자</strong> · <strong>그 유형을 고른 근거 한 문장</strong>. 근거는 공고의 정의 가운데 <em>어느 구절에 내 아이템이 걸리는지</em>를 인용해 씁니다.</p>
+          <p class="nx-n">아직 아이템이 없어도 괜찮습니다 — 이날은 <strong>고르는 연습</strong>이었습니다.</p>
+        </div>
+      </details>
+
       <div class="next-box">
-        <details class="done-fold">
-          <summary><b class="done-tag">오늘 수업</b>2주차 · 9월 8일(화) — 관광창업의 지도</summary>
-          <div class="df-body">
-            <p class="nx-h">관광창업의 지도 — 내 아이템은 어느 칸에 서는가</p>
-
-            <p class="nx-lb">이날의 목표</p>
-            <p class="nx-d">수업이 끝나면 <strong>「내 아이템이 공모의 어느 칸에 들어가는지」를 근거를 들어 말할 수 있게</strong> 됩니다. 두 가지를 했습니다 — <strong>①</strong> 관광벤처 <strong>3유형</strong>(플랫폼 · 콘텐츠 · 시설공간)과 로컬크리에이터 <strong>7대 유형</strong>을 나란히 놓고 <em>내 것</em>을 고릅니다. <strong>②</strong> 남의 요약이 아니라 <strong>공고 원문</strong>을 열어 모집유형 넷의 정의와 지원자격을 직접 읽습니다. <em>유형별 쿼터가 없다</em>는 것, <em>자본금도 학벌도 요건에 없다</em>는 것을 그 자리에서 확인합니다.</p>
-
-            <p class="nx-lb">해올 것이었던 것</p>
-            <p class="nx-d"><a href="https://touraz.kr/index#" target="_blank" rel="noopener">투어라즈(TOURAZ) 개인회원 가입 ↗</a> — <strong>touraz.kr</strong>. 공고문이 <strong>「공모마감 1주일 전까지 가입을 권장」</strong>한다고 적고 있습니다. 접수 · 심사 · 결과 발표가 전부 이곳에서 이뤄집니다. <strong>아직 안 했다면 지금 하십시오</strong> — 5분이면 되고, 가입 유형은 개인회원입니다.</p>
-
-            <p class="nx-lb">해본 것</p>
-            <p class="nx-d"><strong>워크북 시트 1</strong> — 신청유형 <strong>택 1</strong> · 서비스명 <strong>20자</strong> · 한줄설명 <strong>50자</strong> · <strong>그 유형을 고른 근거 한 문장</strong>. 근거는 공고의 정의 가운데 <em>어느 구절에 내 아이템이 걸리는지</em>를 인용해 씁니다.</p>
-            <p class="nx-n">아직 아이템이 없어도 괜찮습니다 — 이날은 <strong>고르는 연습</strong>이었습니다.</p>
-          </div>
-        </details>
 
         <p class="nx-t"><b class="nx-tag">다음 수업</b>3주차 · <strong>9월 15일(화)</strong></p>
         <p class="nx-h">아이디어는 문제에서 나온다 — 누구의 어떤 불편인가</p>
