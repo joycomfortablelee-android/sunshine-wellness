@@ -1071,6 +1071,16 @@ body.mod-smart .lw { max-width: 1160px; }
 }
 .learn-article .syl-box .syl-tags a.mapl:hover { background: #0e2a45; border-color: #0e2a45; color: #fff; }
 .learn-article .syl-box .syl-src { font-size: 11.5px; color: #7c8a99; margin-left: 2px; }
+/* 인성면접 20문 — 달력처럼 세 과목이 함께 쓰는 취업 자료.
+   연결되는 노란 스티키노트 페이지와 색을 맞춘다. */
+.learn-article .syl-box.job { border-width: 1px; border-color: #e0cf86; background: #fffdf2; margin: 18px 0 26px; }
+.learn-article .syl-box.job .syl-t { font-size: 14.5px; }
+.learn-article .syl-box.job .syl-t a { color: #7a5f0b; border-bottom-color: #e6d79c; }
+.learn-article .syl-box.job .syl-t a:hover { color: #4d3c05; border-bottom-color: #7a5f0b; }
+.learn-article .syl-box.job .syl-d strong { color: #7a5f0b; }
+.learn-article .syl-box.job .syl-tags { border-top-color: #e6d79c; }
+.learn-article .syl-box.job .syl-tags a.mapl { background: #7a5f0b; border-color: #7a5f0b; }
+.learn-article .syl-box.job .syl-tags a.mapl:hover { background: #4d3c05; border-color: #4d3c05; }
 /* 학사일정 달력 — 세 과목이 함께 쓰는 상자라 운영 안내보다 한 단계 가볍게 */
 .learn-article .syl-box.cal { border-width: 1px; background: #f7fafc; margin: 18px 0 26px; }
 .learn-article .syl-box.cal .syl-t { font-size: 14.5px; }
