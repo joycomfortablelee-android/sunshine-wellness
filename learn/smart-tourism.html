@@ -213,6 +213,46 @@
     .learn-article .pcx-g.k-free  { --p-bg:#f0eafa; --p-ac:#6b4fb5; --p-dk:#3a2571; }
 
     @media (max-width: 720px) { .learn-article .pcx-list { grid-template-columns: 1fr; } }
+    /* 제작 과정 캐러셀 — 세로 그림(제작 과정)과 가로 그림(종합 맵)이 섞여 있어
+       높이가 널뛴다. 둘 다 높이를 묶고 가운데로 모은다. */
+    .learn-article .stcomic.fit .stc-slide {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+    }
+    .learn-article .stcomic.fit .stc-head { width: 100%; }
+    .learn-article .stcomic.fit .stc-slide img {
+      width: auto; max-width: 100%; max-height: 720px;
+    }
+    @media (max-width: 760px) {
+      .learn-article .stcomic.fit .stc-slide img { max-height: 460px; }
+    }
+    /* ===== 과제 2 상자 — 샛노랑 바탕에 검은 글자 =====
+       넷 가운데 이것만 「중간시험을 대체하는 과제」라 색으로 따로 세운다.
+       바탕이 밝아 본문·알약·강조색을 전부 어두운 쪽으로 다시 잡아야 한다. */
+    .learn-article .task-box.y {
+      --s-ac: #c9a227; --s-dk: #14120a; --s-ln: #e6c700; --s-bg: #ffe800;
+      border-style: solid; border-width: 2px; border-color: #c9a227;
+      background: linear-gradient(158deg, #ffe800 0%, #ffe100 68%, #ffd800 100%);
+      box-shadow: 0 4px 14px rgba(160,130,20,.18);
+    }
+    .learn-article .task-box.y .tb-d { color: #2a2410; }
+    .learn-article .task-box.y .tb-d strong { color: #14120a; }
+    .learn-article .task-box.y .tb-d em { color: #6b5400; }
+    .learn-article .task-box.y .hot-t { color: #b00020; }
+    .learn-article .task-box.y .tb-t span { background: #14120a; color: #ffe800; }
+    .learn-article .task-box.y .tb-t span.when.hot { background: #c0392b; border-color: #c0392b; color: #fff; }
+    .learn-article .task-box.y .tb-tags { border-top-color: #d8bb2a; }
+    .learn-article .task-box.y .tb-tags a.mapl.form {
+      background: #fff; border-style: dashed; border-color: #14120a; color: #14120a;
+    }
+    .learn-article .task-box.y .tb-tags a.mapl.form:hover { background: #14120a; border-color: #14120a; color: #ffe800; }
+    .learn-article .task-box.y .tb-tags a.mapl.form.hot { background: #14120a; border-style: solid; border-color: #14120a; color: #ffe800; }
+    .learn-article .task-box.y .tb-tags a.mapl.form.hot:hover { background: #000; border-color: #000; color: #ffe800; }
+    .learn-article .task-box.y .tb-tags a.mapl.form.hot.red { background: #c0392b; border-color: #c0392b; color: #fff; }
+    .learn-article .task-box.y .tb-tags a.mapl.form.hot.red:hover { background: #98291d; border-color: #98291d; color: #fff; }
+    .learn-article .task-box.y .tb-tags a.mapl.form.ex { border-style: solid; border-color: #6b5400; color: #4d3c05; }
+    .learn-article .task-box.y .tb-tags a.mapl.form.ex:hover { background: #4d3c05; border-color: #4d3c05; color: #fff; }
+    .learn-article .task-box.y .tb-src { color: #4a3f10; }
+
   </style>
 </head>
 <body class="mod-smart">
@@ -408,7 +448,7 @@
         </li>
       </ul>
 
-      <div class="task-box s3">
+      <div class="task-box s3 y">
         <p class="tb-t" id="과제2"><b class="tb-n">과제 2</b>응모신청서 쓰기 — 실습 결과를 출품작으로 <span>양식① 작성</span><span class="when hot">중간시험 전주 · 중간시험 대체</span></p>
         <p class="tb-d">위 카드에서 <strong>양식①</strong>을 내려받아 채웁니다. 여섯 묶음이고, <strong class="hot-t">이 수업에서 이미 만든 것으로 대부분 채워집니다</strong> — <strong>[2] 아이디어</strong> 작품명·50자 요약·카테고리, <strong>[3] 문제</strong> 무엇이 불편한가·누가 겪는가·지금은 어떻게 하고 있나, <strong>[4] 해결</strong> 어떤 서비스이고 어떻게 작동하나, <strong>[5] 효과</strong> 도입 전과 후가 어떻게 다른가·왜 경북에 맞나·몇 명이 혜택을 보나, <strong>[6] 실행</strong> 비슷한 사례·필요한 기술·예상되는 어려움.</p>
         <p class="tb-d"><strong>어디서 가져오나</strong> — [3]의 「누가 겪는가」는 <strong>단계 2 안동 실습</strong>에서 확인한 <em>검색해도 안 나오는 자원</em>이 그대로 근거가 됩니다. [6]의 「비슷한 사례」는 <strong>파트 02 유럽 사례집 44건</strong>에서 고르면 되고, 홍보물이 아니라 심사용 문서라 인용의 무게가 다릅니다. [6]의 「예상되는 어려움」은 <strong>솔직하게 쓰는 편이 유리합니다</strong> — 실습에서 만난 <em>줌 15 해상도 한계</em>처럼 도구의 한계를 아는 사람이 쓴 글로 읽힙니다.</p>
@@ -753,10 +793,28 @@
         </span>
       </a>
 
-      <figure class="learn-fig">
-        <img src="images/smart-tourism-pilot-map-makingof.webp" alt="스마트 관광도시 시범사업 자료를 정리한 과정 여섯 칸 — ① 원자료: 기업별·사례별로 흩어짐 ② 문제: 정보 분산·핵심 기능 파악 어려움·콘텐츠 박스 겹침 ③ 변경 1 기능 중심으로 압축 ④ 변경 2 기술을 서비스와 연결 ⑤ 변경 3 콘텐츠 박스를 넓게 ⑥ 최종 결과: 여섯 갈래와 기업명" width="1122" height="1402" loading="lazy" style="max-width:760px;" />
-        <figcaption><b>위 맵은 이렇게 만들어졌습니다</b> — <strong>원자료 → 기능 중심 압축 → 기술·서비스 연결</strong>. 처음에는 시범사업 자료가 <em>기업별·사례별로 흩어져</em> 있었고, 박스가 좁아 글자가 겹쳤습니다. 그것을 <strong>「무슨 기능을 해결하는가」</strong>로 다시 묶고, 기술 이름 대신 <strong>그 기술이 관광 서비스에서 어떻게 쓰이는지</strong>로 바꿔 적은 것이 위 맵입니다.</figcaption>
-      </figure>
+      <div class="stcomic fit" id="mkof">
+        <div class="stc-viewer" tabindex="0" aria-roledescription="캐러셀" aria-label="맵 제작 과정과 최종 종합 맵">
+          <div class="stc-track">
+            <section class="stc-slide" aria-label="1. 제작 과정 여섯 칸">
+              <p class="stc-head"><span class="stc-title">1. 이렇게 만들어졌습니다 — 제작 과정 여섯 칸</span><span class="stc-count">1 / 2</span></p>
+              <img src="images/smart-tourism-pilot-map-makingof.webp" alt="스마트 관광도시 시범사업 자료를 정리한 과정 여섯 칸 — ① 원자료: 기업별·사례별로 흩어짐 ② 문제: 정보 분산·핵심 기능 파악 어려움·콘텐츠 박스 겹침 ③ 변경 1 기능 중심으로 압축 ④ 변경 2 기술을 서비스와 연결 ⑤ 변경 3 콘텐츠 박스를 넓게 ⑥ 최종 결과: 여섯 갈래와 기업명" width="1122" height="1402" />
+            </section>
+            <section class="stc-slide" aria-label="2. 여섯 갈래 종합 맵">
+              <p class="stc-head"><span class="stc-title">2. 그래서 이렇게 됐습니다 — 여섯 갈래 종합 맵</span><span class="stc-count">2 / 2</span></p>
+              <img src="images/smart-tourism-pilot-map-sixfold.webp" alt="스마트 관광도시 분야별 문제와 활용 기술 종합 맵 — 가운데 「스마트 관광도시: 관광 문제를 디지털 기술로 해결」을 두고 여섯 갈래가 둘러싼다. ① 안전(군중 밀집·위험 상황·응급 대응 / 실시간 영상분석·AI 이상 탐지·유동인구 데이터 분석·이동형 AED 키오스크 / 아이티비 Project Go AI·피치에이아이·시정) ② 콘텐츠(관광정보 안내·축제 정보 제공 / AI 챗봇·말하는 캐릭터·맞춤형 안내·다국어 인터페이스 / 애프터워크) ③ 스마트 주차(축제 주차 혼잡 / 영상기반 주차 감지·주차정보 통합 플랫폼·실시간 안내 / 베스텔라랩) ④ 스마트 지도(길찾기·현장 동선 안내·교통약자 이동 지원 / API 연동 디지털 지도·QR 기반 웹지도·XR 공간정보·경로 안내 / 다비오·딥파인) ⑤ 스마트 결제(현장 결제 불편·대기 문제 / 모바일 카드결제·QR 주문결제·대기관리 솔루션 / 유디아이디 페이앱·테이블매니저) ⑥ ESG·접근성(관광약자 배려·포용관광 / 접근성 정보 제공·교통약자 경로 안내·AI 맞춤형 관광안내 / 애프터워크·다비오). 각 갈래는 문제 → 기술 → 서비스 순으로 이어진다. 핵심 문장 — 스마트 관광도시는 관광 현안에 맞는 데이터·AI·지도·결제·접근성 기술을 결합해 방문객 경험과 현장 운영을 함께 개선한다." width="1672" height="941" loading="lazy" />
+            </section>
+          </div>
+          <button class="stc-nav stc-prev" type="button" aria-label="이전 그림">‹</button>
+          <button class="stc-nav stc-next" type="button" aria-label="다음 그림">›</button>
+        </div>
+        <p class="stc-dots">
+          <button class="stc-dot is-on" type="button" data-i="0" aria-label="1. 제작 과정 보기"></button><button class="stc-dot" type="button" data-i="1" aria-label="2. 종합 맵 보기"></button>
+        </p>
+        <p class="stc-hint">좌 · 우 버튼으로 넘깁니다 — <b>1장은 만든 과정</b>, <b>2장은 그 결과인 종합 맵</b>입니다.</p>
+      </div>
+
+      <p class="mini-note"><b>위 맵은 이렇게 만들어졌습니다</b> — <strong>원자료 → 기능 중심 압축 → 기술·서비스 연결</strong>. 처음에는 시범사업 자료가 <em>기업별·사례별로 흩어져</em> 있었고, 박스가 좁아 글자가 겹쳤습니다. 그것을 <strong>「무슨 기능을 해결하는가」</strong>로 다시 묶고, 기술 이름 대신 <strong>그 기술이 관광 서비스에서 어떻게 쓰이는지</strong>로 바꿔 적은 것이 <strong>2장의 종합 맵</strong>입니다 — 여섯 갈래가 저마다 <strong class="hot-t">문제 → 기술 → 서비스</strong>로 이어지고, 갈래마다 대표 기업이 붙어 있습니다.</p>
 
       <div class="note-box">
       <p><strong>이 그림을 자료로 보지 말고 방법으로 보십시오.</strong> 여기서 한 일은 셋입니다 — <strong>① 개별 나열을 기능 중심 분류로</strong>(기업 이름이 아니라 푸는 문제로 묶기) <strong>② 긴 설명을 핵심 키워드로 압축</strong> <strong>③ 기술 이름 중심을 서비스 활용 중심으로</strong>(「AI 이상 탐지」 → <em>「안전」</em>, 「모바일·QR 결제」 → <em>「결제 편의」</em>). 흩어진 사례를 앞에 두고 <strong class="hot-t">무엇으로 묶을 것인가</strong>를 정하는 일 — 벤치마킹 과제도, 공모전 제안서도 결국 이 작업입니다. <strong>파트 01 단계 1</strong>에서 도시 자료를 세 갈래로 가르던 것과 같은 손놀림입니다.</p>
@@ -1272,47 +1330,50 @@
   </script>
 
   <script>
-  /* 여섯 갈래 만화 캐러셀.
+  /* 캐러셀 — 이 페이지에 둘이다(여섯 갈래 만화 · 맵 제작 과정).
+     id 대신 .stcomic 을 돌며 각자 안에서만 찾는다.
      이 페이지의 슬라이드 덱이 이미 document 에 ← → 를 물고 있으므로,
-     여기서는 뷰어 자신에게만 키를 걸고 stopPropagation 으로 덱과 겹치지 않게 한다. */
+     키는 뷰어 자신에게만 걸고 stopPropagation 으로 덱과 겹치지 않게 한다. */
   (function () {
-    var viewer = document.getElementById('stc-viewer');
-    if (!viewer) return;
-    var track = document.getElementById('stc-track');
-    var prev  = document.getElementById('stc-prev');
-    var next  = document.getElementById('stc-next');
-    var dots  = [].slice.call(document.querySelectorAll('#stc-dots .stc-dot'));
-    var total = document.querySelectorAll('#stc-track .stc-slide').length;
-    var at = 0, x0 = null;
+    document.querySelectorAll('.stcomic').forEach(function (root) {
+      var viewer = root.querySelector('.stc-viewer');
+      var track  = root.querySelector('.stc-track');
+      if (!viewer || !track) return;
+      var prev = root.querySelector('.stc-prev');
+      var next = root.querySelector('.stc-next');
+      var dots = [].slice.call(root.querySelectorAll('.stc-dot'));
+      var total = root.querySelectorAll('.stc-slide').length;
+      var at = 0, x0 = null;
 
-    function show(i) {
-      at = Math.max(0, Math.min(total - 1, i));
-      track.style.transform = 'translateX(' + (-at * 100) + '%)';
-      dots.forEach(function (d, n) { d.classList.toggle('is-on', n === at); });
-      prev.disabled = at === 0;
-      next.disabled = at === total - 1;
-    }
+      function show(i) {
+        at = Math.max(0, Math.min(total - 1, i));
+        track.style.transform = 'translateX(' + (-at * 100) + '%)';
+        dots.forEach(function (d, n) { d.classList.toggle('is-on', n === at); });
+        prev.disabled = at === 0;
+        next.disabled = at === total - 1;
+      }
 
-    prev.addEventListener('click', function () { show(at - 1); });
-    next.addEventListener('click', function () { show(at + 1); });
-    dots.forEach(function (d) {
-      d.addEventListener('click', function () { show(Number(d.dataset.i)); });
+      prev.addEventListener('click', function () { show(at - 1); });
+      next.addEventListener('click', function () { show(at + 1); });
+      dots.forEach(function (d) {
+        d.addEventListener('click', function () { show(Number(d.dataset.i)); });
+      });
+
+      viewer.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft')  { show(at - 1); e.stopPropagation(); e.preventDefault(); }
+        if (e.key === 'ArrowRight') { show(at + 1); e.stopPropagation(); e.preventDefault(); }
+      });
+
+      viewer.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+      viewer.addEventListener('touchend', function (e) {
+        if (x0 === null) return;
+        var dx = e.changedTouches[0].clientX - x0;
+        if (Math.abs(dx) > 50) { show(dx < 0 ? at + 1 : at - 1); }
+        x0 = null;
+      }, { passive: true });
+
+      show(0);
     });
-
-    viewer.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowLeft')  { show(at - 1); e.stopPropagation(); e.preventDefault(); }
-      if (e.key === 'ArrowRight') { show(at + 1); e.stopPropagation(); e.preventDefault(); }
-    });
-
-    viewer.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
-    viewer.addEventListener('touchend', function (e) {
-      if (x0 === null) return;
-      var dx = e.changedTouches[0].clientX - x0;
-      if (Math.abs(dx) > 50) { show(dx < 0 ? at + 1 : at - 1); }
-      x0 = null;
-    }, { passive: true });
-
-    show(0);
   })();
   </script>
 
