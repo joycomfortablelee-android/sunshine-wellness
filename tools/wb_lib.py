@@ -115,14 +115,75 @@ def fill(cell, text='', size=10.0, bold=False, color=None, align=None,
         run(q, '', size)
 
 
+# 표가 본문 폭(18.2cm)과 정확히 같으면 워드에서 테두리 두께만큼 오른쪽으로 밀려 나간다.
+# 폭을 조금 줄이는 대신 셀 안쪽 여백을 함께 줄여, 글자가 들어갈 자리는 그대로 두었다.
+TABLE_MAX = 17.9          # cm — 본문 폭 18.2 에서 0.3 을 여유로 남긴다
+CELL_MAR = 57             # twips(0.1cm) — 워드 기본값 108 보다 좁게
+
+
+def _set_tblpr(tbl, total_cm):
+    """tblPr 의 자식은 순서가 정해져 있다 — tblW → jc → tblInd → tblLayout → tblCellMar → tblLook.
+    python-docx 가 이미 만들어 둔 tblW 를 고쳐 쓰고, 나머지는 tblLook 앞에 순서대로 끼운다."""
+    tblPr = tbl.tblPr
+
+    tw = tblPr.find(qn('w:tblW'))                 # 있는 것을 고친다(새로 붙이면 중복된다)
+    if tw is None:
+        tw = OxmlElement('w:tblW')
+        tblPr.insert(0, tw)
+    tw.set(qn('w:type'), 'dxa')
+    tw.set(qn('w:w'), str(int(round(total_cm * 567))))
+
+    anchor = tblPr.find(qn('w:tblLook'))
+    def put(tag, attrs, children=None):
+        el = tblPr.find(qn(tag))
+        if el is not None:
+            tblPr.remove(el)
+        el = OxmlElement(tag)
+        for k, v in attrs.items():
+            el.set(qn(k), str(v))
+        for ctag, cattrs in (children or []):
+            c = OxmlElement(ctag)
+            for k, v in cattrs.items():
+                c.set(qn(k), str(v))
+            el.append(c)
+        if anchor is not None:
+            anchor.addprevious(el)
+        else:
+            tblPr.append(el)
+
+    put('w:tblInd', {'w:type': 'dxa', 'w:w': 0})          # 왼쪽으로 밀리지 않게
+    put('w:tblLayout', {'w:type': 'fixed'})
+    put('w:tblCellMar', {}, [('w:' + s, {'w:type': 'dxa', 'w:w': v})
+                             for s, v in (('left', CELL_MAR), ('right', CELL_MAR),
+                                          ('top', 0), ('bottom', 0))])
+
+
+# 표가 본문 폭(18.2cm)과 정확히 같으면 워드에서 테두리 두께만큼 오른쪽으로 밀려 나간다.
+# 폭을 조금 줄이는 대신 셀 안쪽 여백을 함께 줄여, 글자가 들어갈 자리는 그대로 두었다.
+TABLE_MAX = 17.9          # cm — 본문 폭 18.2 에서 0.3 을 여유로 남긴다
+CELL_MAR = 57             # twips(0.1cm) — 워드 기본값 108 보다 좁게
+
+
 def table(widths):
+    total = sum(w.cm for w in widths)
+    k = TABLE_MAX / total if total > TABLE_MAX else 1.0    # 비율은 그대로, 전체만 줄인다
+
+    tw = [int(round(w.cm * k * 567)) for w in widths]      # twips 로 먼저 확정하고
+    tw[-1] += int(round(min(total, TABLE_MAX) * 567)) - sum(tw)   # 반올림 오차는 끝 칸이 흡수
+    widths = [Cm(v / 567) for v in tw]                     # 그 값에서 Cm 을 만든다
+
     t = doc.add_table(rows=0, cols=len(widths))
     t.alignment = WD_TABLE_ALIGNMENT.CENTER
     t.autofit = False
-    lay = OxmlElement('w:tblLayout')
-    lay.set(qn('w:type'), 'fixed')
-    t._tbl.tblPr.append(lay)
+    _set_tblpr(t._tbl, sum(tw) / 567)
+
+    grid = t._tbl.find(qn('w:tblGrid'))         # tcW 와 tblGrid 를 같은 값으로 맞춘다
+    if grid is not None:
+        for gc, v in zip(grid.findall(qn('w:gridCol')), tw):
+            gc.set(qn('w:w'), str(v))
+
     t._widths = widths
+    t._tw = tw                                  # tcW 를 twips 그대로 쓰려고 남겨 둔다
     return t
 
 
@@ -137,6 +198,10 @@ def row(t, cells, h=None, exact=False):
     for i, spec in enumerate(cells):
         c = r.cells[i]
         c.width = t._widths[i]
+        tcW = c._tc.get_or_add_tcPr().find(qn('w:tcW'))   # Cm 왕복 반올림으로 1 twip 이 어긋난다
+        if tcW is not None:
+            tcW.set(qn('w:type'), 'dxa')
+            tcW.set(qn('w:w'), str(t._tw[i]))
         if isinstance(spec, dict):
             d = dict(spec)
             fill(c, d.pop('text', ''), **d)
