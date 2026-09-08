@@ -1086,6 +1086,13 @@ body.mod-smart .lw { max-width: 1160px; }
 .learn-article .dltags a.mapl.form.hot { background: #17395f; border-style: solid; color: #fff; }
 .learn-article .dltags a.mapl.form.hot:hover { background: #0e2a45; border-color: #0e2a45; }
 .learn-article .dltags .dl-src { font-size: 11.5px; color: #8a938f; }
+/* 붉은 알약 — 「그대로 내는 서식」과 「실제 제출물의 본」을 색으로 가르는 규칙을
+   본문 알약 띠에서도 쓴다(.task-box .tb-tags · .reslist 와 같은 색). */
+.learn-article .dltags a.mapl.form.red {
+  background: #c0392b; border-style: solid; border-color: #c0392b; color: #fff;
+}
+.learn-article .dltags a.mapl.form.red:hover { background: #98291d; border-color: #98291d; color: #fff; }
+
 /* 인성면접 20문 — 달력처럼 세 과목이 함께 쓰는 취업 자료.
    연결되는 노란 스티키노트 페이지와 색을 맞춘다. */
 .learn-article .syl-box.job {
