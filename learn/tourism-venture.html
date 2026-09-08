@@ -834,6 +834,38 @@
       .learn-hero .hero-row { grid-template-columns: 1fr; }
     }
 
+    /* 워드 알약 — 스티키 알약 옆에 나란히. 같은 자료의 다른 형태라 짝으로 둔다. */
+    .learn-article .syl-box .syl-t a.doc-pill {
+      display: inline-block; margin-left: 6px; padding: 3px 11px; border-radius: 999px;
+      background: #2b2113; color: #f3e9d2; border: 1px solid #2b2113;
+      font-size: 11px; font-weight: 800; letter-spacing: -.1px; vertical-align: 2px;
+    }
+    .learn-article .syl-box .syl-t a.doc-pill:hover { background: #000; border-color: #000; color: #fff; }
+
+    /* 교재 칸 — 인성면접 상자와 같은 베이지 계열, 한 단계 연하게.
+       「읽을 것」끼리 같은 바탕에 두면 자료 카드와 성격이 갈린다. */
+    .learn-article .reslist.books.beige > li {
+      background: #f6efe0; border: 1px solid #ddcdae; border-left-width: 4px; border-left-color: #b08d4a;
+    }
+    .learn-article .reslist.books.beige > li.fresh { border-left-color: #8a6a24; }
+    .learn-article .reslist.books.beige > li > a { color: #3a2f18; }
+    .learn-article .reslist.books.beige > li > a:hover { color: #14120a; }
+    .learn-article .reslist.books.beige .desc { color: #4a4131; }
+    .learn-article .reslist.books.beige .desc strong { color: #2e2616; }
+    .learn-article .reslist.books.beige .desc em { color: #6f5c2e; }
+    .learn-article .reslist.books.beige .hot-t { color: #a3161c; }
+    .learn-article .reslist.books.beige .meta { color: #7a6a4a; }
+    .learn-article .reslist.books.beige .bk-map { color: #6b5620; }
+
+    /* ★ 차별성 — 세 물음 가운데 WHY NOW 가 곧 차별성의 자리다.
+       과제 1 상자의 「차별성은 남이 따라 하기 어려운 규칙 하나」와 짝이 된다. */
+    .learn-article .vcards .vt .vstar {
+      display: inline-block; margin-left: 7px; padding: 2px 8px; border-radius: 999px;
+      background: #fff; color: #a8431b; border: 1px solid #f0c9a8;
+      font-size: 10px; font-weight: 900; letter-spacing: 0; vertical-align: 1px;
+    }
+    .learn-article .vcards > li.on-dark .vt .vstar { background: #fff; color: #a8431b; border-color: #fff; }
+
   </style>
 </head>
 <body class="mod-venture">
@@ -955,10 +987,10 @@
 
 
       <div class="syl-box job">
-        <p class="syl-t"><a class="task-badge lead" href="#과제2">과제 2</a><a href="interview-personality-20.html" target="_blank" rel="noopener">기관 인성면접 예상 질문 20문 ↗</a><a class="sticky-pill" href="interview-personality-20.html" target="_blank" rel="noopener">노란 스티키노트 한 장 ↗</a></p>
+        <p class="syl-t"><a class="task-badge lead" href="#과제2">과제 2</a><a href="interview-personality-20.html" target="_blank" rel="noopener">기관 인성면접 예상 질문 20문 ↗</a><a class="sticky-pill" href="interview-personality-20.html" target="_blank" rel="noopener">노란 스티키노트 한 장 ↗</a><a class="doc-pill" href="assets/interview-personality-20.docx" download="기관_인성면접_예상질문_20문.docx">워드로 내려받기 ⤓ DOCX</a></p>
         <p class="syl-d"><strong>창업만 길이 아닙니다.</strong> 이 수업의 산출물인 사업계획서와 모의 PT는 <strong>창업 IR</strong>에도 쓰이지만, 그대로 <strong>취업 면접의 자기 이야기</strong>가 됩니다 — 「무엇을 문제로 봤고, 어떻게 풀었는가」를 말하는 훈련이 같기 때문입니다. 아래 스무 문항은 <strong>공공기관·공기업 인성면접</strong>에서 반복해서 나오는 질문들입니다.</p>
         <p class="syl-d"><strong>쓰는 법은 하나입니다 — 눈으로 읽지 말고 소리 내어 답하십시오.</strong> 한 문항당 <strong>40초~1분</strong>이 실제 면접의 길이입니다. 스무 장이 <em>자기소개 → 장·단점 → 극복 경험 → 협업과 갈등 → 원칙과 태도 → 마지막 한마디</em> 순으로 놓여 있어, 위에서부터 훑으면 <strong class="hot-t">면접 한 회차가 그대로 지나갑니다</strong>. 인쇄하면 A4에 4열로 떨어져 손에 들고 연습할 수 있습니다.</p>
-        <p class="syl-tags"><a class="mapl" href="interview-personality-20.html" target="_blank" rel="noopener">20문 열기 ↗</a><a class="mapl" href="assets/interview-personality-20.docx" download="기관_인성면접_예상질문_20문.docx">워드로 내려받기 ⤓ DOCX</a><span class="syl-src">스티키노트 20장 · 워드는 A4 2단 인쇄용 · 세 과목 공통 취업 자료</span></p>
+        <p class="syl-tags"><span class="syl-src">스티키노트 20장 · 워드는 A4 2단 인쇄용 · 세 과목 공통 취업 자료</span></p>
       </div>
 
       <div class="syl-box plan">
@@ -1018,7 +1050,7 @@
         </figure>
       </div>
 
-      <ul class="reslist tight books grid2">
+      <ul class="reslist tight books grid2 beige">
         <li class="fresh">
           <a href="https://www.yes24.com/product/goods/179603559" target="_blank" rel="noopener">그림 1 · 「관광벤처창업론」 — 안덕수 · 이난희 지음 ↗</a>
           <span class="desc"><strong>이 수업의 기준 교재</strong>. 구성이 둘로 갈립니다 — <strong>PART Ⅰ 이론</strong>(관광벤처 · 창업 · 디자인 씽킹 · 비즈니스 모델 · <strong class="hot-t">사업계획서</strong> · 투자와 펀딩 · 기업가정신 · 창업마케팅)과 <strong>PART Ⅱ 실무와 정보</strong>(관광벤처사업 · 지역 · 정부 지원사업 · <strong>법률</strong> · 관광두레 · 기관과 협회 · 교육과 자격증 · 용어집 · 통계 · 관광벤처기업). 시장 환경부터 <strong>AI 기술 활용</strong>까지 다룹니다.</span>
@@ -1057,7 +1089,7 @@
         <ol class="vcards c3 steps tri3">
           <li class="t-orange on-dark"><span class="vt">WHO</span><span class="vh">누구의 문제인가</span><span class="vd">고객을 구체적으로. <em>예: 부산을 처음 찾는 외국인 개별 여행자.</em></span></li>
           <li class="t-orange2 on-dark"><span class="vt">WHAT</span><span class="vh">어떤 문제인가</span><span class="vd">진짜 불편을 한 문장으로. <em>예: 언어 장벽으로 로컬 경험에 닿지 못한다.</em></span></li>
-          <li class="t-orange3 on-dark"><span class="vt">WHY NOW</span><span class="vh">왜 지금인가</span><span class="vd">시장·기술·규제의 변화가 그 문제를 풀 때가 됐는가.</span></li>
+          <li class="t-orange3 on-dark"><span class="vt">WHY NOW<b class="vstar">★ 차별성</b></span><span class="vh">왜 지금인가</span><span class="vd">시장·기술·규제의 변화가 그 문제를 풀 때가 됐는가. <em>이 칸이 흔들리면 「그래서 왜 지금 당신이?」로 되돌아옵니다.</em></span></li>
         </ol>
         <span class="tri-hub">문제 정의</span>
       </div>
