@@ -681,6 +681,14 @@
     .learn-article .wc-steps .d { display: block; font-size: 12px; line-height: 1.65; color: #4a5a68; }
     @media (max-width: 900px) { .learn-article .wc-steps { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 560px) { .learn-article .wc-steps { grid-template-columns: 1fr; } }
+    /* 자료가 어느 과제에 걸리는지 표시하는 배지 — 과제 번호는 붉게 고정한다(.tb-n 과 같은 색).
+       누르면 그 과제 상자로 뛴다. */
+    .learn-article .syl-box .syl-t a.task-badge {
+      display: inline-block; margin-left: 8px; padding: 3px 10px; border-radius: 6px;
+      background: #c0392b; color: #fff; border: 0;
+      font-size: 10.5px; font-weight: 800; letter-spacing: .04em; vertical-align: 2px;
+    }
+    .learn-article .syl-box .syl-t a.task-badge:hover { background: #98291d; color: #fff; }
   </style>
 </head>
 <body class="mod-venture">
@@ -782,7 +790,7 @@
       </div>
 
       <div class="syl-box job">
-        <p class="syl-t"><a href="interview-personality-20.html" target="_blank" rel="noopener">기관 인성면접 예상 질문 20문 — 노란 스티키노트 한 장 ↗</a></p>
+        <p class="syl-t"><a href="interview-personality-20.html" target="_blank" rel="noopener">기관 인성면접 예상 질문 20문 — 노란 스티키노트 한 장 ↗</a><a class="task-badge" href="#과제2">과제 2</a></p>
         <p class="syl-d"><strong>창업만 길이 아닙니다.</strong> 이 수업의 산출물인 사업계획서와 모의 PT는 <strong>창업 IR</strong>에도 쓰이지만, 그대로 <strong>취업 면접의 자기 이야기</strong>가 됩니다 — 「무엇을 문제로 봤고, 어떻게 풀었는가」를 말하는 훈련이 같기 때문입니다. 아래 스무 문항은 <strong>공공기관·공기업 인성면접</strong>에서 반복해서 나오는 질문들입니다.</p>
         <p class="syl-d"><strong>쓰는 법은 하나입니다 — 눈으로 읽지 말고 소리 내어 답하십시오.</strong> 한 문항당 <strong>40초~1분</strong>이 실제 면접의 길이입니다. 스무 장이 <em>자기소개 → 장·단점 → 극복 경험 → 협업과 갈등 → 원칙과 태도 → 마지막 한마디</em> 순으로 놓여 있어, 위에서부터 훑으면 <strong class="hot-t">면접 한 회차가 그대로 지나갑니다</strong>. 인쇄하면 A4에 4열로 떨어져 손에 들고 연습할 수 있습니다.</p>
         <p class="syl-tags"><a class="mapl" href="interview-personality-20.html" target="_blank" rel="noopener">20문 열기 ↗</a><a class="mapl" href="assets/interview-personality-20.docx" download="기관_인성면접_예상질문_20문.docx">워드로 내려받기 ⤓ DOCX</a><span class="syl-src">스티키노트 20장 · 워드는 A4 2단 인쇄용 · 세 과목 공통 취업 자료</span></p>
@@ -1300,7 +1308,7 @@
       </ul>
 
       <div class="task-box vt2">
-        <p class="tb-t"><b class="tb-n">과제 2</b>관광기업 입사 제안서 — 창업하지 않아도 이 수업은 쓰입니다 <span>A4 1장 · 모의 면접</span></p>
+        <p class="tb-t" id="과제2"><b class="tb-n">과제 2</b>관광기업 입사 제안서 — 창업하지 않아도 이 수업은 쓰입니다 <span>A4 1장 · 모의 면접</span></p>
         <p class="tb-d">모두가 창업하지는 않습니다. 그런데 <strong class="hot-t">관광기업이 사람을 뽑을 때 보는 것과 공모가 사업계획서에서 보는 것이 거의 같습니다</strong> — 문제를 정확히 짚는가, 근거를 대는가, 그래서 무엇을 할 것인가. 과제 1에서 쓴 사업계획서의 뼈대를 <strong>회사 하나</strong>에 대고 다시 씁니다.</p>
         <p class="tb-d"><strong>회사는 이 페이지에서 고릅니다</strong> — <em>THE VC</em>의 관광·여행 스타트업 목록, <em>어반리즘 하우스</em>(관광 컨설팅·연구, 채용 공고가 자사 게시판에 올라옵니다), 로컬크리에이터 기업들(리플레이스 · 더웨이브컴퍼니 · 어반플레이 · 로컬스티치), 또는 투어라즈에 등록된 관광벤처기업. <strong>이름을 아는 대기업 말고, 사람이 스무 명 안쪽인 곳</strong>을 고르십시오 — 신입이 무엇을 맡게 되는지가 보이는 규모라야 쓸 말이 생깁니다.</p>
         <p class="tb-d"><strong>칸은 다섯입니다</strong> — ① <strong>이 회사는 지금 무엇을 하고 있나</strong>(공식 출처 URL. 홈페이지 소개문이 아니라 <em>수행한 용역·출시한 서비스·투자 이력</em>) · ② <strong>내가 본 빈자리</strong>(고객 관점인가 운영 관점인가) · ③ <strong>내가 맡을 직무와 첫 3개월</strong>(「열심히 배우겠습니다」 금지 — 무슨 자료를 어디서 찾아 무엇을 만들지) · ④ <strong>근거가 되는 내 산출물</strong>(과제 1 사업계획서 · 데이터 분석 · 공모 출품작) · ⑤ <strong>왜 이 회사인가</strong>(다른 회사에 그대로 내도 말이 되면 다시 쓰십시오).</p>
