@@ -664,6 +664,22 @@
     .learn-article .wc-steps .d { display: block; font-size: 12px; line-height: 1.65; color: #4a5a68; }
     @media (max-width: 900px) { .learn-article .wc-steps { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 560px) { .learn-article .wc-steps { grid-template-columns: 1fr; } }
+
+    /* 과제 상자 밖에서도 쓰는 알약 띠 — .task-box .tb-tags 와 같은 모양을
+       본문에서 쓰기 위한 것. 색만 이 페이지의 남색으로 맞춘다. */
+    .learn-article .dltags {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+      margin: 14px 0 6px; padding-top: 9px; border-top: 1px dashed #c8d6e4;
+    }
+    .learn-article .dltags a.mapl.form {
+      display: inline-block; padding: 4px 10px; border-radius: 999px;
+      background: #fff; border: 1px dashed #17395f; color: #17395f;
+      font-size: 11.5px; font-weight: 700;
+    }
+    .learn-article .dltags a.mapl.form:hover { background: #17395f; border-color: #17395f; color: #fff; }
+    .learn-article .dltags a.mapl.form.hot { background: #17395f; border-style: solid; color: #fff; }
+    .learn-article .dltags a.mapl.form.hot:hover { background: #0e2a45; border-color: #0e2a45; }
+    .learn-article .dltags .dl-src { font-size: 11.5px; color: #8a938f; }
   </style>
 </head>
 <body class="mod-venture">
@@ -1007,7 +1023,8 @@
       <p><strong>이 사례를 03장 · 04장과 붙여 읽으십시오.</strong> 캔슬마켓은 <strong>02장의 문제 정의</strong>(누가 · 어떤 불편 · 지금 왜)가 그대로 <strong>03장의 비즈니스 모델</strong>(고객 둘 · 채널 · 수익)로 넘어간 교과서적인 예입니다. 특히 <strong class="hot-t">고객이 둘</strong>이라는 점 — 못 가게 된 <em>판매자</em>와 싸게 사려는 <em>구매자</em> — 이 양면시장이고, 여러분의 아이템도 <strong>「누가 돈을 내는가」와 「누가 쓰는가」가 갈리는지</strong>를 여기에 견주어 보면 답이 빨리 나옵니다.<br /><strong>수업에서 던질 질문 셋</strong> — ① 이 회사는 <strong>어떤 불편을 돈이 되는 문제로 바꾸었나?</strong> ② 거래가 늘어나려면 <strong>판매자와 구매자 중 누구를 먼저 모아야 하나?</strong> ③ 숙박권 양도에서 <strong>신뢰를 어떻게 설계해야 하나?</strong><br /><strong>수치를 인용할 때 —</strong> 공개 기업정보 기준 매출은 2022년 2.2억 → 2023년 4.8억 → <strong>2024년 7.2억(정점)</strong> → 2025년 5.8억, 사원 8명, 투자 5회 3억입니다. <em>계속 성장한 회사</em>가 아니라 <strong>실제 매출은 있으나 변동이 있는 소규모 스타트업</strong>으로 말하는 편이 안전하고, 발표에서는 <em>“공개 기업정보 기준”</em>이라는 단서를 반드시 붙이십시오.</p>
       </div>
 
-      <p class="mini-note"><a class="dl-link" href="assets/wecan-cancelmarket-case.ppt" download>위캔 · 캔슬마켓 사례 PT 본편 ⤓</a> <span class="src-inline">PPT · 10장 · 발표자 노트 포함</span> — 위 네 장이 <em>요약본</em>이라면 이 파일이 <strong>본편</strong>입니다. 회사 개요 · 문제 · 해결방식 · 양면시장 · 신뢰 절차 · AI CRM 확장 · 매출 지표 · 수업 활용 포인트 · 참고자료까지 열 장이고, <strong>슬라이드마다 발표자 노트</strong>가 붙어 있어 그대로 읽으며 발표해도 됩니다. <strong>과제 3(벤치마킹 발표)의 견본</strong>으로 삼으십시오 — 회사 하나를 이 정도 깊이로 파면 발표 한 편이 됩니다.</p>
+      <p class="dltags"><a class="mapl form hot" href="assets/wecan-cancelmarket-case.ppt" download="위캔_캔슬마켓_사례_PT_본편.ppt">위캔 · 캔슬마켓 사례 PT 본편 ⤓ PPT · 10장</a><span class="dl-src">슬라이드마다 <b>발표자 노트</b>가 붙어 있어 그대로 읽으며 발표해도 됩니다.</span></p>
+      <p class="mini-note">위 네 장이 <em>요약본</em>이라면 이 파일이 <strong>본편</strong>입니다 — 회사 개요 · 문제 · 해결방식 · 양면시장 · 신뢰 절차 · AI CRM 확장 · 매출 지표 · 수업 활용 포인트 · 참고자료까지 열 장입니다. <strong>과제 3(벤치마킹 발표)의 견본</strong>으로 삼으십시오 — 회사 하나를 이 정도 깊이로 파면 발표 한 편이 됩니다.</p>
 
       <div class="note-box">
       <p><strong>그다음 계단도 같은 창구에 있습니다 — 「관광 오픈이노베이션」.</strong> 위 예비관광벤처가 <em>사업자등록이 없는</em> 예비창업자를 뽑는다면, 이 사업은 <strong>창업 7년 이내 기업</strong>을 뽑아 <strong class="hot-t">수요기업과 짝지어 실증</strong>하게 합니다. 학생이 지금 낼 수 있는 공모는 아니지만, <strong>졸업 뒤에 열리는 문</strong>이라 지금 구조만 봐 두면 됩니다 — 예비 → 창업 → <em>남의 판 위에서 검증</em>으로 이어지는 계단이 보입니다.</p>
