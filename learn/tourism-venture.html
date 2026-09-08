@@ -13,8 +13,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="learn.css?v=154" />
   <style>
-    /* 20선 카드의 별 — 주황 채움 카드 위라 흰 별로 두고 살짝 키운다 */
-    .learn-article .idea-star { font-size: 15px; font-weight: 400; color: #fff; letter-spacing: .02em; }
+    /* ── 20선 카드 — 샛노랑 바탕에 검은 글자. 페이지에서 이 카드만 노랑이라 눈에 먼저 걸린다 ── */
+    .learn-article .t-yellow { --v-a:#ffe600; --v-b:#ffdd00; --v-ac:#d4a900; --v-ln:#e6c700; --v-sh:rgba(190,150,0,.32); --v-tc:#14120a; }
+    .learn-article .reslist.grid3 > li.t-yellow {
+      background: linear-gradient(158deg, #ffe600 0%, #ffdf00 62%, #fff6b3 100%);
+    }
+    .learn-article .reslist.grid3 > li.t-yellow a { color: #14120a; }
+    .learn-article .reslist.grid3 > li.t-yellow a:hover { color: #6b5400; }
+    .learn-article .reslist.grid3 > li.t-yellow .desc { color: #2a2410; }
+    .learn-article .reslist.grid3 > li.t-yellow .desc strong { color: #14120a; }
+    .learn-article .reslist.grid3 > li.t-yellow .desc em { color: #6b5400; }
+    .learn-article .reslist.grid3 > li.t-yellow .meta { color: #4a3f10; }
+    .learn-article .reslist.grid3 > li.t-yellow .hot-t { color: #b00020; }
+    /* 20선 카드의 별 — 노랑 바탕이라 검은 별로 두고 살짝 키운다 */
+    .learn-article .idea-star { font-size: 15px; font-weight: 400; color: #14120a; letter-spacing: .02em; }
     /* 강조 카드에 그라데이션 — 왼쪽 액센트 색에서 흰색으로 풀린다.
        파란 카드(li.hi)는 중요 표시이므로 파랑을 그대로 살린다. */
     .learn-article .reslist li.hi {
@@ -778,9 +790,9 @@
       <p>좋은 문제 정의는 이미 절반의 해답입니다. 이 사이트의 출발점도 "친절한 로컬 가이드와 여행자를 잇는다"는 한 문장이었습니다.</p>
 
       <ul class="reslist grid3 one">
-        <li class="t-orange">
+        <li class="t-yellow">
           <a href="tourism-venture-idea-map.html" target="_blank" rel="noopener">아이템이 없을 때 여는 판 — 관광벤처 사업아이템 20선 <b class="idea-star">★</b> ↗</a>
-          <span class="desc">위 세 칸(WHO · WHAT · WHY NOW)까지 왔는데 <strong>「그래서 뭘 만들지」에서 멈추는 학생</strong>을 위한 자료입니다. 스무 개 아이템이 전부 같은 다섯 칸으로 쪼개져 있습니다 — <strong>문제 → 기술 · 콘텐츠 → 관광서비스 → 현장실증 → 수익모델</strong>. 베끼라고 둔 목록이 아니라 <em>이 다섯 칸으로 생각하는 법</em>을 보여주는 판입니다.<br /><strong>끝에 만드는 법이 있습니다</strong> — <strong>5단계</strong>로 조합합니다. <em>누구?</em>(외국인 · 고령자 · 가족 · 관광사업자 · 축제운영자) × <em>문제?</em>(혼잡 · 이동 · 언어 · 예약 · 안전 · 소비) × <em>기술?</em>(AI · 데이터 · AR/XR · QR · 센서 · IP) × <em>서비스?</em> × <em>증명?</em>(방문율 · 체류시간 · 혼잡도 · 매출). 예를 들어 <strong>고령자 × 이동불편 × AI → AI 무장애 관광코스</strong>가 이렇게 나옵니다.<br /><strong>일반형 10 · AI특화형 10으로 갈라 둔 것이 우연이 아닙니다</strong> — 아래 <strong>관광 오픈이노베이션</strong>의 모집유형이 정확히 그 둘입니다. 그 공모의 응모 후보 목록처럼 읽으면 됩니다.<br />맨 아래 <strong>★ 가장 중요한 질문</strong>이 이 페이지 전체의 요지와 같습니다 — <em>「우리는 AI를 무엇에 사용하는가」보다 <strong>「어떤 관광객이 어떤 문제를 가지고 있고, 왜 이 기술이어야 하며, 현장에서 그 효과를 어떻게 증명할 것인가」</strong></em>.<br /><strong>워크북과 이어지는 곳</strong> — 여기서 고른 조합이 <strong>시트 1</strong>의 「서비스명 20자 · 한줄설명 50자」가 되고, 다섯 칸의 첫 칸이 <strong>시트 2</strong>의 「1-1 문제 인식」이 됩니다.</span>
+          <span class="desc">위 세 칸(WHO · WHAT · WHY NOW)까지 왔는데 <strong class="hot-t">「그래서 뭘 만들지」에서 멈추는 학생</strong>을 위한 자료입니다. 스무 개 아이템이 전부 같은 다섯 칸으로 쪼개져 있습니다 — <strong>문제 → 기술 · 콘텐츠 → 관광서비스 → 현장실증 → 수익모델</strong>. 베끼라고 둔 목록이 아니라 <em>이 다섯 칸으로 생각하는 법</em>을 보여주는 판입니다.<br /><strong>끝에 만드는 법이 있습니다</strong> — <strong>5단계</strong>로 조합합니다. <em>누구?</em>(외국인 · 고령자 · 가족 · 관광사업자 · 축제운영자) × <em>문제?</em>(혼잡 · 이동 · 언어 · 예약 · 안전 · 소비) × <em>기술?</em>(AI · 데이터 · AR/XR · QR · 센서 · IP) × <em>서비스?</em> × <em>증명?</em>(방문율 · 체류시간 · 혼잡도 · 매출). 예를 들어 <strong>고령자 × 이동불편 × AI → AI 무장애 관광코스</strong>가 이렇게 나옵니다.<br /><strong>일반형 10 · AI특화형 10으로 갈라 둔 것이 우연이 아닙니다</strong> — 아래 <strong>관광 오픈이노베이션</strong>의 모집유형이 정확히 그 둘입니다. 그 공모의 응모 후보 목록처럼 읽으면 됩니다.<br />맨 아래 <strong>★ 가장 중요한 질문</strong>이 이 페이지 전체의 요지와 같습니다 — <em>「우리는 AI를 무엇에 사용하는가」보다 <strong class="hot-t">「어떤 관광객이 어떤 문제를 가지고 있고, 왜 이 기술이어야 하며, 현장에서 그 효과를 어떻게 증명할 것인가」</strong></em>.<br /><strong>워크북과 이어지는 곳</strong> — 여기서 고른 조합이 <strong>시트 1</strong>의 「서비스명 20자 · 한줄설명 50자」가 되고, 다섯 칸의 첫 칸이 <strong>시트 2</strong>의 「1-1 문제 인식」이 됩니다.</span>
           <span class="meta">선샤인 웰니스 자체 제작 · 사업아이템 20선(일반형 10 · AI특화형 10) · 문제 → 기술 → 서비스 → 실증 → 수익</span>
         </li>
       </ul>
