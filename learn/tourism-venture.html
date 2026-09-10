@@ -1299,6 +1299,31 @@
     .learn-article .psst-vid .pvid-dl.bare { padding: 10px 14px; }
     .learn-article .psst-vid .pvid-dl.bare .dl-m { display: inline-block; margin: 0 0 0 10px; vertical-align: 1px; }
 
+    /* 네 칸은 접기 밖에 늘 펴 둔다 — 페이지 전체가 이 네 칸을 가리키기 때문이다. */
+    .learn-article .psst.psst-top { margin: 0 0 16px; }
+    .learn-article .psst.psst-top .psst-h { margin-bottom: 10px; }
+
+    /* 영상 설명 — 「번호) 키워드 : 요약」 한 줄씩, 왼쪽 정렬. */
+    .learn-article .psst-vid .pvid-lead.pv-h { margin: 0 0 10px; text-align: left; }
+    .learn-article .psst-vid .kwlist.pv-kw {
+      margin: 0 0 14px; padding: 0; list-style: none; counter-reset: kw; text-align: left;
+    }
+    .learn-article .psst-vid .kwlist.pv-kw > li {
+      display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 12px;
+      margin: 0; padding: 8px 0; border-top: 1px dashed #d9e3ec;
+      font-size: 12.5px; line-height: 1.75; color: #4d5f74;
+    }
+    .learn-article .psst-vid .kwlist.pv-kw > li:first-child { border-top: 0; padding-top: 0; }
+    .learn-article .psst-vid .kwlist.pv-kw > li > b {
+      counter-increment: kw; font-weight: 800; color: #1f382f; letter-spacing: -.2px;
+    }
+    .learn-article .psst-vid .kwlist.pv-kw > li > b::before { content: counter(kw) ') '; color: #6b7a88; font-weight: 900; }
+    .learn-article .psst-vid .kwlist.pv-kw strong { color: #1f382f; }
+    .learn-article .psst-vid .kwlist.pv-kw em { font-style: normal; color: #6b7a88; font-weight: 600; }
+    @media (max-width: 620px) {
+      .learn-article .psst-vid .kwlist.pv-kw > li { grid-template-columns: 1fr; gap: 3px; }
+    }
+
   </style>
 </head>
 <body class="mod-venture">
@@ -1361,30 +1386,47 @@
           <span class="desc">관광·여행 분야 스타트업을 한데 모아 볼 수 있는 큐레이션. 실제 기업들의 사업 아이템과 비즈니스 모델, 투자 현황을 훑어보며 "관광벤처가 시장에서 어떤 모습으로 존재하는지" 감을 잡기 좋은 자료입니다.</span>
           <span class="meta">THE VC · 스타트업·투자 정보 플랫폼(thevc.kr) <a class="mapl form bm" href="assets/wecan-cancelmarket-case.ppt" download="위캔_캔슬마켓_사례_PT_본편.ppt">벤치마킹 PT ⤓ 위캔 · 캔슬마켓</a></span>
         </li>
+          <li class="t-yellow">
+            <a href="tourism-venture-idea-map.html" target="_blank" rel="noopener">아이템이 없을 때 여는 판 — 관광벤처 사업아이템 20선 <b class="idea-star">★</b> ↗</a>
+            <span class="desc">위 세 칸(WHO · WHAT · WHY NOW)까지 왔는데 <strong class="hot-t">「그래서 뭘 만들지」에서 멈추는 학생</strong>을 위한 자료입니다. 스무 개 아이템이 전부 같은 다섯 칸으로 쪼개져 있습니다 — <strong>문제 → 기술 · 콘텐츠 → 관광서비스 → 현장실증 → 수익모델</strong>. 베끼라고 둔 목록이 아니라 <em>이 다섯 칸으로 생각하는 법</em>을 보여주는 판입니다.<br /><strong>끝에 만드는 법이 있습니다</strong> — <strong>5단계</strong>로 조합합니다. <em>누구?</em>(외국인 · 고령자 · 가족 · 관광사업자 · 축제운영자) × <em>문제?</em>(혼잡 · 이동 · 언어 · 예약 · 안전 · 소비) × <em>기술?</em>(AI · 데이터 · AR/XR · QR · 센서 · IP) × <em>서비스?</em> × <em>증명?</em>(방문율 · 체류시간 · 혼잡도 · 매출). 예를 들어 <strong>고령자 × 이동불편 × AI → AI 무장애 관광코스</strong>가 이렇게 나옵니다.<br /><strong>일반형 10 · AI특화형 10으로 갈라 둔 것이 우연이 아닙니다</strong> — 아래 <strong>관광 오픈이노베이션</strong>의 모집유형이 정확히 그 둘입니다. 그 공모의 응모 후보 목록처럼 읽으면 됩니다.<br />맨 아래 <strong>★ 가장 중요한 질문</strong>이 이 페이지 전체의 요지와 같습니다 — <em>「우리는 AI를 무엇에 사용하는가」보다 <strong class="hot-t">「어떤 관광객이 어떤 문제를 가지고 있고, 왜 이 기술이어야 하며, 현장에서 그 효과를 어떻게 증명할 것인가」</strong></em>.<br /><strong>워크북과 이어지는 곳</strong> — 여기서 고른 조합이 <strong>시트 1</strong>의 「서비스명 20자 · 한줄설명 50자」가 되고, 다섯 칸의 첫 칸이 <strong>시트 2</strong>의 「1-1 문제 인식」이 됩니다.</span>
+            <span class="meta">선샤인 웰니스 자체 제작 · 사업아이템 20선(일반형 10 · AI특화형 10) · 문제 → 기술 → 서비스 → 실증 → 수익</span>
+          </li>
       </ul>
+
+      <div class="psst psst-top">
+      <p class="psst-h">사업계획서는 네 칸으로 되어 있습니다 <span>P · S · S · T</span></p>
+      <ol class="psst-grid">
+        <li class="ps1"><span class="n">P</span><strong>문제 인식</strong><em>Problem</em>
+          <span class="d">창업 아이템의 <b>개발 동기</b>, 기존 시장의 <b>문제점</b>과 그것을 해결해야 하는 이유.</span>
+          <span class="lk">↔ 이 페이지 <b>02장</b> 아이디어는 문제에서 나온다 · WHO · WHAT · WHY NOW</span></li>
+        <li class="ps2"><span class="n">S</span><strong>실현 가능한 솔루션</strong><em>Solution</em>
+          <span class="d"><b>비즈니스 모델(BM)</b>, 서비스·제품을 어떻게 구현할 것인가, 개발 전략.</span>
+          <span class="lk">↔ <b>03장</b> 비즈니스 모델 · <b>04장</b> 린 스타트업(MVP로 먼저 검증)</span></li>
+        <li class="ps3"><span class="n">S</span><strong>성장 전략</strong><em>Scale-up</em>
+          <span class="d"><b>자금 유치</b>와 규모를 키우는 계획, <b>홍보·마케팅</b> 등 시장에서의 활동.</span>
+          <span class="lk">↔ <b>05장</b> 창업 생태계와 지원 · 교재 6장 투자와 펀딩 · 8장 창업마케팅</span></li>
+        <li class="ps4"><span class="n">T</span><strong>팀 구성</strong><em>Team</em>
+          <span class="d">대표자의 <b>역량</b>, 추가로 채울 자리와 <b>협력 네트워크</b>, 인력 채용 계획.</span>
+          <span class="lk">↔ 학생이 가장 얕게 쓰는 칸 — <b>과제 2</b>에서 회사를 뜯어본 눈이 여기 쓰입니다</span></li>
+      </ol>
+      </div>
 
       <details class="wk-fold">
         <summary><b class="wk-tag">1주차</b>9월 1일(화) 수업 — 사업계획서는 네 칸으로 되어 있습니다 · P · S · S · T</summary>
         <div class="psst">
-        <p class="psst-h">사업계획서는 네 칸으로 되어 있습니다 <span>P · S · S · T</span></p>
         <p class="psst-lead">공고마다 서식이 조금씩 다르지만 <strong>묻는 것은 거의 같습니다</strong>. 이 네 칸의 순서가 곧 심사자가 읽는 순서이고, <strong class="hot-t">앞 칸이 흔들리면 뒤 칸은 읽히지 않습니다</strong> — 문제가 분명하지 않으면 아무리 좋은 솔루션도 「그래서 왜?」로 되돌아옵니다.</p>
-        <ol class="psst-grid">
-          <li class="ps1"><span class="n">P</span><strong>문제 인식</strong><em>Problem</em>
-            <span class="d">창업 아이템의 <b>개발 동기</b>, 기존 시장의 <b>문제점</b>과 그것을 해결해야 하는 이유.</span>
-            <span class="lk">↔ 이 페이지 <b>02장</b> 아이디어는 문제에서 나온다 · WHO · WHAT · WHY NOW</span></li>
-          <li class="ps2"><span class="n">S</span><strong>실현 가능한 솔루션</strong><em>Solution</em>
-            <span class="d"><b>비즈니스 모델(BM)</b>, 서비스·제품을 어떻게 구현할 것인가, 개발 전략.</span>
-            <span class="lk">↔ <b>03장</b> 비즈니스 모델 · <b>04장</b> 린 스타트업(MVP로 먼저 검증)</span></li>
-          <li class="ps3"><span class="n">S</span><strong>성장 전략</strong><em>Scale-up</em>
-            <span class="d"><b>자금 유치</b>와 규모를 키우는 계획, <b>홍보·마케팅</b> 등 시장에서의 활동.</span>
-            <span class="lk">↔ <b>05장</b> 창업 생태계와 지원 · 교재 6장 투자와 펀딩 · 8장 창업마케팅</span></li>
-          <li class="ps4"><span class="n">T</span><strong>팀 구성</strong><em>Team</em>
-            <span class="d">대표자의 <b>역량</b>, 추가로 채울 자리와 <b>협력 네트워크</b>, 인력 채용 계획.</span>
-            <span class="lk">↔ 학생이 가장 얕게 쓰는 칸 — <b>과제 2</b>에서 회사를 뜯어본 눈이 여기 쓰입니다</span></li>
-        </ol>
         </div>
         <figure class="learn-fig psst-vid">
-          <p class="pvid-lead"><b>영상으로 · P 칸 하나만 뜯어보기</b>네 칸 중 <strong>첫 칸(문제 인식)</strong>만 놓고 <em>예비창업패키지</em> 실제 사업계획서를 문단 단위로 뜯는 영상입니다. 부처와 사업은 다르지만 <strong class="hot-t">묻는 것은 관광벤처 양식의 「1-1 문제 인식」과 같습니다</strong> — 위 과제 1의 첫 칸을 쓰기 전에 한 번 보십시오. 보면서 확인할 것 둘 — <strong>① 문제를 몇 번째 문장에서 특정하는가</strong>, <strong>② 근거로 무엇을 들고 왔는가</strong>(아래 「P에 통계가 없다」와 겹칩니다).<br /><b class="lead2">영상 요약 슬라이드</b>는 이 영상을 <strong>슬라이드로 옮기고 말하듯 대본을 붙인</strong> 수업용 자료입니다 — <strong>Problem 파트에 들어가야 할 여섯 가지</strong>(창업동기 · 문제정의 · 객관적 증거 · 대체제 · Unmet Needs · 시장기회), 설문보다 <strong>인터뷰</strong>가 강한 이유, <strong>문제와 해결방안을 1:1로 맞추는 법</strong>, TAM–SAM–SOM과 <em>산출근거 쓰는 법</em>(“SOM 300억”이 아니라 <em>목표고객 30만 × 연 10만원</em>). 뒤쪽에는 <strong class="hot-t">「관광벤처 수업 적용」 슬라이드</strong> — <em>“안동에는 관광정보가 부족하다”</em>가 왜 약한 문제정의인지를 <strong>안동 사례</strong>로 고쳐 쓰고, 마지막은 <strong>학생용 6문장 공식</strong>(WHO · PROBLEM · EVIDENCE · ALTERNATIVE · UNMET NEED · OPPORTUNITY)과 <strong>8항목 최종 체크리스트</strong>입니다.</p>
+          <p class="pvid-lead pv-h"><b>영상으로 · P 칸 하나만 뜯어보기</b></p>
+          <ol class="kwlist pv-kw">
+            <li><b>무엇을 보는가</b><span>네 칸 중 <strong>첫 칸(문제 인식)</strong>만 놓고 <em>예비창업패키지</em> 실제 사업계획서를 <strong>문단 단위로 뜯는</strong> 영상입니다.</span></li>
+            <li><b>왜 우리 것인가</b><span>부처와 사업은 다르지만 <strong class="hot-t">묻는 것은 관광벤처 양식의 「1-1 문제 인식」과 같습니다</strong> — 위 과제 1의 첫 칸을 쓰기 전에 한 번 보십시오.</span></li>
+            <li><b>보면서 확인할 것</b><span><strong>① 문제를 몇 번째 문장에서 특정하는가</strong> · <strong>② 근거로 무엇을 들고 왔는가</strong>(아래 「P에 통계가 없다」와 겹칩니다).</span></li>
+            <li><b>요약 슬라이드</b><span>이 영상을 <strong>슬라이드로 옮기고 말하듯 대본을 붙인</strong> 수업용 자료입니다 — 아래에서 내려받습니다.</span></li>
+            <li><b>슬라이드에 든 것</b><span><strong>Problem 파트 여섯 가지</strong>(창업동기 · 문제정의 · 객관적 증거 · 대체제 · Unmet Needs · 시장기회), 설문보다 <strong>인터뷰</strong>가 강한 이유, <strong>문제와 해결방안을 1:1로 맞추는 법</strong>, TAM–SAM–SOM <em>산출근거 쓰는 법</em>(“SOM 300억”이 아니라 <em>목표고객 30만 × 연 10만원</em>).</span></li>
+            <li><b>관광벤처 수업 적용</b><span><em>“안동에는 관광정보가 부족하다”</em>가 왜 <strong>약한 문제정의</strong>인지, 같은 것을 어떻게 고쳐 쓰는지를 <strong>안동 사례</strong>로 보여줍니다.</span></li>
+            <li><b>마지막 두 장</b><span><strong>학생용 6문장 공식</strong>(WHO · PROBLEM · EVIDENCE · ALTERNATIVE · UNMET NEED · OPPORTUNITY)과 <strong>8항목 최종 체크리스트</strong>.</span></li>
+          </ol>
           <div style="position:relative;width:100%;max-width:720px;margin:0 auto;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;">
             <iframe src="https://www.youtube-nocookie.com/embed/iNbX2YSjcgw" title="예비창업패키지 실제 사례 완벽 분석 1편 — 문제인식(Problem), 그냥 무조건 따라하기" style="position:absolute;inset:0;width:100%;height:100%;border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
           </div>
@@ -1411,13 +1453,6 @@
           <p class="nx-lb">할 것</p>
           <p class="nx-d"><strong>워크북 시트 1</strong> — 신청유형 <strong>택 1</strong> · 서비스명 <strong>20자</strong> · 한줄설명 <strong>50자</strong> · <strong>그 유형을 고른 근거 한 문장</strong>. 근거는 공고의 정의 가운데 <em>어느 구절에 내 아이템이 걸리는지</em>를 인용해 씁니다.</p>
           <p class="nx-n">아직 아이템이 없어도 괜찮습니다 — 이날은 <strong>고르는 연습</strong>이었습니다.</p>
-          <ul class="reslist grid3 one">
-            <li class="t-yellow">
-              <a href="tourism-venture-idea-map.html" target="_blank" rel="noopener">아이템이 없을 때 여는 판 — 관광벤처 사업아이템 20선 <b class="idea-star">★</b> ↗</a>
-              <span class="desc">위 세 칸(WHO · WHAT · WHY NOW)까지 왔는데 <strong class="hot-t">「그래서 뭘 만들지」에서 멈추는 학생</strong>을 위한 자료입니다. 스무 개 아이템이 전부 같은 다섯 칸으로 쪼개져 있습니다 — <strong>문제 → 기술 · 콘텐츠 → 관광서비스 → 현장실증 → 수익모델</strong>. 베끼라고 둔 목록이 아니라 <em>이 다섯 칸으로 생각하는 법</em>을 보여주는 판입니다.<br /><strong>끝에 만드는 법이 있습니다</strong> — <strong>5단계</strong>로 조합합니다. <em>누구?</em>(외국인 · 고령자 · 가족 · 관광사업자 · 축제운영자) × <em>문제?</em>(혼잡 · 이동 · 언어 · 예약 · 안전 · 소비) × <em>기술?</em>(AI · 데이터 · AR/XR · QR · 센서 · IP) × <em>서비스?</em> × <em>증명?</em>(방문율 · 체류시간 · 혼잡도 · 매출). 예를 들어 <strong>고령자 × 이동불편 × AI → AI 무장애 관광코스</strong>가 이렇게 나옵니다.<br /><strong>일반형 10 · AI특화형 10으로 갈라 둔 것이 우연이 아닙니다</strong> — 아래 <strong>관광 오픈이노베이션</strong>의 모집유형이 정확히 그 둘입니다. 그 공모의 응모 후보 목록처럼 읽으면 됩니다.<br />맨 아래 <strong>★ 가장 중요한 질문</strong>이 이 페이지 전체의 요지와 같습니다 — <em>「우리는 AI를 무엇에 사용하는가」보다 <strong class="hot-t">「어떤 관광객이 어떤 문제를 가지고 있고, 왜 이 기술이어야 하며, 현장에서 그 효과를 어떻게 증명할 것인가」</strong></em>.<br /><strong>워크북과 이어지는 곳</strong> — 여기서 고른 조합이 <strong>시트 1</strong>의 「서비스명 20자 · 한줄설명 50자」가 되고, 다섯 칸의 첫 칸이 <strong>시트 2</strong>의 「1-1 문제 인식」이 됩니다.</span>
-              <span class="meta">선샤인 웰니스 자체 제작 · 사업아이템 20선(일반형 10 · AI특화형 10) · 문제 → 기술 → 서비스 → 실증 → 수익</span>
-            </li>
-          </ul>
 
           <p class="mini-note"><strong>목록에서 하나를 꺼내 끝까지 읽어 봅니다 — 위캔 · 캔슬마켓.</strong> 바로 위 <em>THE VC</em>가 관광·여행 스타트업을 <strong>모아 놓은 목록</strong>이라면, 아래는 그 목록 안의 회사 <strong>한 곳</strong>을 <strong class="hot-t">문제 → 플랫폼 → 시장 → 확장</strong>의 순서로 따라간 것입니다. 2018년 부산에서 시작한 <strong>㈜위캔</strong>, 서비스는 <strong>캔슬마켓</strong> — <em>“예약했는데 못 가게 됐다. 그런데 환불이 안 된다.”</em>는 한 줄에서 출발했습니다. 좌·우로 넘겨 보십시오. <a class="pill-b" href="assets/wecan-cancelmarket-case.ppt" download="위캔_캔슬마켓_사례_PT_본편.ppt">위캔 · 캔슬마켓 사례 PT 본편 ⤓ PPT · 10장</a> <span class="pill-n">아래 네 장이 <strong>요약본</strong>이라면 이 파일이 <strong>본편</strong>입니다 — 회사 개요 · 문제 · 해결방식 · 양면시장 · 신뢰 절차 · AI CRM 확장 · 매출 지표 · 수업 활용 포인트 · 참고자료까지 열 장이고, <strong>슬라이드마다 발표자 노트</strong>가 붙어 있습니다.</span></p>
 
