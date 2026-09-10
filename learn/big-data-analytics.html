@@ -189,6 +189,42 @@
     }
     .learn-article .syl-box.job .syl-tags.job-more a.mapl.blue:hover { background: #0e2a45; border-color: #0e2a45; }
 
+    /* 지금 낼 수 있는 공모 — 마감이 가까워 페이지에서 가장 먼저 눈에 걸려야 한다 */
+    .learn-article .task-box.bd-now {
+      --s-ac: #c9a227; --s-dk: #14120a; --s-ln: #e6c700; --s-bg: #ffe800;
+      border-style: solid; border-width: 2px; border-color: #c9a227;
+      background: linear-gradient(158deg, #ffe800 0%, #ffe100 68%, #ffd800 100%);
+      box-shadow: 0 4px 14px rgba(160,130,20,.18);
+      margin: 22px 0 26px;
+    }
+    .learn-article .task-box.bd-now .tb-d { color: #2a2410; }
+    .learn-article .task-box.bd-now .tb-d strong { color: #14120a; }
+    .learn-article .task-box.bd-now .hot-t { color: #b00020; }
+    .learn-article .task-box.bd-now .tb-t { color: #14120a; }
+    .learn-article .task-box.bd-now .tb-t span.when.hot { background: #c0392b; border-color: #c0392b; color: #fff; }
+    .learn-article .task-box.bd-now .tb-n { background: #14120a; color: #ffe800; }
+    .learn-article .task-box.bd-now .tb-tags { border-top-color: #d8bb2a; }
+    .learn-article .task-box.bd-now .tb-tags a.mapl.form.hot {
+      background: #14120a; border-style: solid; border-color: #14120a; color: #ffe800;
+    }
+    .learn-article .task-box.bd-now .tb-tags a.mapl.form.hot:hover { background: #000; border-color: #000; }
+    .learn-article .task-box.bd-now .tb-src { color: #4a3f10; }
+    .learn-article .task-box.bd-now .tb-src b { color: #14120a; }
+    /* 「번호) 키워드 : 설명」 — 다른 페이지와 같은 형식 */
+    .learn-article .task-box .kwlist.bd-kw { margin: 10px 0 0; padding: 0; list-style: none; counter-reset: kw; }
+    .learn-article .task-box .kwlist.bd-kw > li {
+      display: grid; grid-template-columns: 128px minmax(0, 1fr); gap: 12px;
+      margin: 0; padding: 8px 0; border-top: 1px dashed #d8bb2a;
+      font-size: 12.5px; line-height: 1.75; color: #2a2410;
+    }
+    .learn-article .task-box .kwlist.bd-kw > li > b { counter-increment: kw; font-weight: 900; color: #14120a; letter-spacing: -.2px; }
+    .learn-article .task-box .kwlist.bd-kw > li > b::before { content: counter(kw) ') '; color: #6b5400; font-weight: 900; }
+    .learn-article .task-box .kwlist.bd-kw strong { color: #14120a; }
+    .learn-article .task-box .kwlist.bd-kw em { font-style: normal; color: #6b5400; font-weight: 600; }
+    @media (max-width: 620px) {
+      .learn-article .task-box .kwlist.bd-kw > li { grid-template-columns: 1fr; gap: 3px; }
+    }
+
   </style>
 </head>
 <body>
@@ -329,6 +365,19 @@
       <p class="learn-part">07 · 부산, 그리고 이 사이트에서</p>
       <p><em>부산</em>은 통신·카드 데이터로 해운대·광안리의 시간대별 혼잡을 읽고, 축제 기간 유동인구를 분석해 안전과 분산에 활용합니다. 감성 분석으로 외국인 관광객의 불편(언어·교통)을 짚어내는 것도 같은 맥락입니다.</p>
       <p>이 웹사이트도 작은 데이터 파이프라인을 갖고 있습니다 — <strong>여행 이야기·후기 게시판</strong>은 감성 분석의 재료(UGC)이고, <strong>방문 통계·검색 유입</strong>은 어떤 콘텐츠가 닿는지를 알려줍니다. 이 데이터를 읽고 상품과 콘텐츠로 바꾸는 일 — 그 끝에 있는 것이 다음 모듈 <strong>관광벤처창업론</strong>입니다.</p>
+
+      <div class="task-box bd-now" id="빅데이터대회">
+        <p class="tb-t"><b class="tb-n">지금 낼 수 있는 것</b>2026년 Big Data 활용 대회 — 부산광역시 <span class="when hot">접수 마감 9월 18일(금) 17시</span></p>
+        <p class="tb-d"><strong>이 수업에서 배운 것을 그대로 내는 자리입니다.</strong> 부산의 <strong>공공 · 민간 데이터</strong>와 <strong>부산 빅데이터혁신센터 오픈랩 데이터</strong>로 지역 현안을 살펴보고, <strong class="hot-t">데이터에 근거한 정책 · 서비스 개선안</strong>을 내는 대회입니다. <strong>누구나</strong> 개인 또는 <strong>1~4인 팀</strong>으로 나갈 수 있고 <strong>참가비는 없습니다.</strong></p>
+        <ol class="kwlist bd-kw">
+          <li><b>두 분야</b><span>① <strong>빅데이터 분석 및 시각화</strong> ② <strong>행정 공유데이터 발굴 및 활용 방안</strong>. 앞의 <strong>03장 다섯 걸음</strong>과 <strong>04장 분석 기법</strong>이 ①에, <strong>02장 데이터는 어디서 오는가</strong>가 ②에 그대로 붙습니다.</span></li>
+          <li><b>낼 것 셋</b><span><strong>보고서</strong>(분석 요약 · 분석 결과) · <strong>시각화 결과물</strong> · <strong>분석에 쓴 데이터 파일</strong>. 보고서에는 <em>실제로 수행한 분석 과정과 도출한 결과</em>를 적습니다 — 계획이 아니라 한 것을 적는 자리입니다.</span></li>
+          <li><b>일정</b><span>접수 <strong>2026. 6. 25. ~ 9. 18.(금) 17:00</strong> · 서류평가 <strong>9. 21. ~ 9. 22.</strong> · 본선 발표평가 <strong>10. 29.(목)</strong> 부산 빅데이터혁신센터.</span></li>
+          <li><b>몇 팀이 올라가나</b><span>서류를 통과한 <strong>14팀</strong>(분석·시각화 <strong>10팀</strong> + 행정 공유데이터 <strong>4팀</strong>)이 발표자료를 만들어 본선에서 발표 · 질의응답을 합니다.</span></li>
+          <li><b>시상</b><span>총상금 <strong>650만원</strong> · 1위 <strong>300만원</strong>. 온라인 접수 · <strong>무료</strong>.</span></li>
+        </ol>
+        <p class="tb-tags"><a class="mapl form hot" href="https://www.contestkorea.com/sub/view.php?int_gbn=1&amp;Txt_bcode=030310001&amp;str_no=202609100010" target="_blank" rel="noopener">공고 원문 · 콘테스트코리아 ↗</a><span class="tb-src"><b>수상이 아니어도 남는 것이 있습니다</b> — 제출한 보고서 · 시각화 · 데이터 파일 한 벌이 그대로 <b>취업 서류의 「내 산출물」</b>이 되고, 관광벤처창업론 <b>과제 1 사업계획서의 「시장 규모와 근거」</b> 칸을 채우는 재료가 됩니다. 세부 요강은 주최 측 공고로 반드시 확인하십시오.</span></p>
+      </div>
 
       <p class="learn-part">08 · 자격증과 학습 경로</p>
       <p>역량을 <strong>증명</strong>하고 체계적으로 배우고 싶다면 자격증과 공개 강의를 활용할 수 있습니다.</p>

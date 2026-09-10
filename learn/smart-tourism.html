@@ -411,6 +411,12 @@
     /* 실습 배지 — 제출하는 과제가 아니라 수업 중에 만드는 것이라 초록으로 가른다 */
     .learn-article .task-box .tb-n.prac { background: #2f5148; }
 
+    /* 기말발표 배지 — 링크 방문 여부에 따라 색이 흔들리던 것을 못박는다. 흰 바탕에 검은 글자. */
+    .learn-article .tflow a.tf-i.y > b,
+    .learn-article .tflow a.tf-i.y:visited > b {
+      background: #fff; color: #14120a; border: 1px solid #c9a227;
+    }
+
   </style>
 </head>
 <body class="mod-smart">
@@ -444,10 +450,9 @@
           <p class="syl-t"><a href="smart-tourism-weekly-plan.html" target="_blank" rel="noopener">주간 수업 운영 · 학생 발표 배정 — 1~15주차 한 장 ↗</a></p>
           <ol class="kwlist syl-kw">
             <li><b>한 주의 크기</b><span><strong>150분(3시수)</strong> — 수요일 <strong>100분</strong> + 목요일 <strong>50분</strong>으로 나뉩니다.</span></li>
-            <li><b>수요일에 하는 것</b><span>핵심 논문 셋을 <strong>20분씩</strong> 읽고, <strong>1 · 2팀</strong>이 도시 사례를 발표합니다.</span></li>
-            <li><b>목요일에 하는 것</b><span><strong>3팀</strong> 발표 뒤 책 <strong>20분</strong>과 「전체 보기」 <strong>10분</strong>으로 그 주를 닫습니다.</span></li>
-            <li><b>논문 20분 표준</b><span>연구질문 · HOOK 3 → 논문 · 사례영상 4 → 설계 · 핵심결과 8 → CONCEPT 3 → LENS 2.</span></li>
-            <li><b>발표 배정 순서</b><span><strong>3~7주</strong> 국내 열두 도시 → <strong>8주</strong> 중간고사 → <strong>9~14주</strong> 유럽 수상 · 최종후보 → <strong>15주</strong> 종합발표. 팀별 도시까지 정해져 있습니다.</span></li>
+            <li><b>한 주의 구성</b><span>주마다 섞여 나옵니다 — <strong>이론</strong>(논문 · 책 · 개념 정리) · <strong>영상</strong> · <strong>복습</strong> · <strong>학생 발표</strong> · <strong>실습</strong>. 이론 주에는 논문과 책이 앞에 서고, 실습 주에는 손으로 만드는 것이 중심이 됩니다.</span></li>
+            <li><b>논문 읽는 표준</b><span>연구질문 · HOOK → 논문 · 사례영상 → 설계 · 핵심결과 → CONCEPT → LENS. 어느 논문이든 이 순서로 봅니다.</span></li>
+            <li><b>발표 흐름</b><span><strong>국내 도시 발표</strong> → <strong>중간고사</strong> → <strong>해외 도시 발표</strong> → <strong>종합 발표</strong>. 팀별 도시까지 정해져 있습니다.</span></li>
           </ol>
           <p class="syl-tags"><a class="mapl" href="smart-tourism-weekly-plan.html#week-table" target="_blank" rel="noopener">주간 운영표 · 요일별 단위 ↗</a><a class="mapl" href="smart-tourism-weekly-plan.html#team-assign" target="_blank" rel="noopener">팀별 발표 도시 1~15주 ↗</a><a class="mapl" href="academic-calendar-2026-2.html" target="_blank" rel="noopener">2학기 학사일정 달력 ↗</a></p>
         </div>
@@ -480,7 +485,6 @@
       </div>
 
       <p class="tflow" aria-label="과제 넷의 순서">
-        <b class="tf-lb">이 학기의 넷</b>
         <a class="tf-i t1 prac" href="#과제1"><b>실습</b>국내 도시 벤치마킹<i>내 도시를 세 갈래로</i></a>
         <span class="tf-a">→</span>
         <a class="tf-i t2 prac" href="#대비"><b>대비</b>인성면접 · 지원서<i>취업 서류를 미리 써 둔다</i></a>
@@ -528,7 +532,7 @@
 
         <p class="f3-h">앞 단계가 남긴 것이 다음 단계의 재료가 됩니다</p>
         <ul class="f3-chain">
-          <li><b>1</b><span class="f3-o">용인을 가른 <strong>세 갈래</strong><br />플랫폼 · 연구 · 홍보</span><i>→</i><span class="f3-i"><strong>과제 1 도시 카드</strong>의 세 칸<br />WHAT · PLATFORM+RESEARCH · PROMOTION</span></li>
+          <li><b>1</b><span class="f3-o">도시를 가른 <strong>세 갈래</strong><br />플랫폼 · 연구 · 홍보</span><i>→</i><span class="f3-i"><strong>도시 카드</strong>의 세 칸<br />WHAT · PLATFORM+RESEARCH · PROMOTION</span></li>
           <li class="multi"><b>2</b><span class="f3-rows">
             <span class="f3-row"><span class="f3-o">찍은 지도와 <strong>「왜 골랐는가」</strong></span><i>→</i><span class="f3-i"><strong>응모 원고</strong> 본문</span></span>
             <span class="f3-row"><span class="f3-o"><strong>검색해도 안 나오는 자원</strong></span><i>→</i><span class="f3-i">신청서 <strong>[3] 「누가 겪는가」</strong></span></span>
