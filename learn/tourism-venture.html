@@ -1194,7 +1194,7 @@
     }
 
 
-    /* 08장 두 삼각형 — 숙박 세 칸과 1·2·3차. 카드 색에 맞춰 윤곽선과 허브를 바꾼다.
+    /* 08 · 09장 두 삼각형 — 숙박 세 칸과 1·2·3차. 카드 색에 맞춰 윤곽선과 허브를 바꾼다.
        1·2·3차는 층이 쌓이는 것이지 순서가 아니라 삼각형이 맞다. */
     .learn-article .tri-wrap.tri-green .tri-line polygon { stroke: #a9d3c3; }
     .learn-article .tri-wrap.tri-green .tri-hub { background: #2f5148; box-shadow: 0 4px 14px rgba(47,81,72,.28); }
@@ -1326,6 +1326,17 @@
 
     /* 관광e배움터 — 공공이 무료로 여는 강의실이라 사분면의 「관광 전용」 칸과 같은 굵은 파랑으로 세운다. */
     .learn-article .learnq .q-cell.l3 { border-width: 2px; border-color: #2563a8; }
+
+    /* 열한 가지는 접지 않고 왼쪽 바로 세운다 — MVP 정의 상자(.mvp-note)와 같은 형식. */
+    .learn-article .note-box.reg11 {
+      border: 0; border-left: 3px solid #2e7d86; border-radius: 0 10px 10px 0;
+      background: #f2f9fa; padding: 14px 16px 12px; margin: 14px 0 20px;
+    }
+    .learn-article .note-box.reg11 .r11-h {
+      margin: 0 0 10px; font-size: 13.5px; font-weight: 800; color: #14474d; line-height: 1.6;
+    }
+    .learn-article .note-box.reg11 .r11-h b { color: #2e7d86; }
+    .learn-article .note-box.reg11 .kwlist > li { border-top-color: #cfe6e9; }
 
   </style>
 </head>
@@ -1563,7 +1574,7 @@
       </ul>
 
       <ul class="lp-legend">
-        <li><i class="k-core"></i>이론(01~08장)</li>
+        <li><i class="k-core"></i>이론(01~09장)</li>
         <li><i class="k-case"></i>창업 사례</li>
         <li><i class="k-call"></i>공모·지원사업</li>
         <li><i class="k-book"></i>책 · 교재</li>
@@ -1599,7 +1610,7 @@
         <li class="bk-wide">
           <span class="bk-map">이 페이지와 이렇게 맞물립니다</span>
           <span class="desc"><strong>02장 아이디어는 문제에서 나온다</strong> ↔ 그림 1의 <strong>3장 디자인 씽킹</strong> · <strong>03장 비즈니스 모델</strong> ↔ 그림 1의 <strong>4장</strong> · <strong>05장 창업 생태계와 지원</strong> ↔ 그림 1의 <strong>9~11장</strong>. 그리고 위 <strong class="hot-t">과제 1(사업계획서 쓰기)</strong>이 그림 1의 <strong>5장</strong>입니다.<br /><strong>이 페이지에 없는 것도 보입니다</strong> — 그림 1의 <strong>법률</strong> 장은 사업계획서의 「예상되는 어려움」 칸을 채울 때, 그림 2의 <strong>10~11장 스마트관광</strong>은 <em>스마트 투어리즘 모듈</em>과, <strong>14~15장 관광두레</strong>는 아래 <em>로컬크리에이터</em> 절과 바로 이어집니다.</span>
-          <span class="meta">교재 두 권 ↔ 이 페이지 01~08장</span>
+          <span class="meta">교재 두 권 ↔ 이 페이지 01~09장</span>
         </li>
       </ul>
 
@@ -1908,9 +1919,6 @@
 
       <p class="learn-part lp-core"><span class="num">07</span>여행 · 외식 창업 — 가장 오래된 두 업</p>
       <p>관광벤처가 새 기술로 문제를 푼다면, <strong>여행업과 외식업</strong>은 관광이 시작될 때부터 있던 업입니다. 새로 만드는 것이 아니라 <strong>이미 있는 판 위에서 자기 자리를 찾는 일</strong>이라, 규칙이 먼저입니다 — 무엇을 등록해야 하고, 돈은 어디서 남는가.</p>
-      <p class="dltags tv-travel"><a class="mapl form hot" href="assets/tourism-business-registration-travel.pdf" target="_blank" rel="noopener">① 정부24 · 여행업 등록 신청 화면 ⤓ PDF · 4쪽</a><a class="mapl form red" href="assets/travel-agency-business-plan-sample.hwp" download="여행사_사업계획서_예시_선라이즈젠_종합여행업.hwp">② 여행사 사업계획서 예시 ⤓ HWP</a><a class="mapl form" href="assets/office-lease-contract-sample.docx" download="사무실_임대차계약서_예시.docx">③ 사무실 임대차계약서 예시 ⤓ DOCX</a><span class="dl-src">셋이 한 세트입니다 — <b>①이 신청 화면</b>이고, <b>②·③은 그 화면이 요구하는 구비서류</b>입니다.</span></p>
-
-
 
       <p><strong>여행업은 등록 종류에 따라 할 수 있는 일이 다릅니다.</strong></p>
       <div class="tri-wrap tri-cyan">
@@ -1923,11 +1931,10 @@
         <span class="tri-hub">여행업 등록</span>
       </div>
       <p class="mini-note tv-travel"><strong>셋은 나란한 종류가 아니라 안에 들어 있는 관계입니다</strong> — <strong class="hot-t">종합 ⊃ 국내외 ⊃ 국내</strong>. 바깥 업종은 안쪽 업무를 그대로 할 수 있고, <strong>넓을수록 문턱이 높습니다.</strong> <strong>제주특별자치도는 기준이 따로</strong> 있습니다(제주특별법). 근거 <a href="https://www.law.go.kr/LSW/lsInfoP.do?lsId=002413&amp;ancYnChk=0" target="_blank" rel="noopener">관광진흥법 시행령 [별표 1] 관광사업의 등록기준 ↗</a> <em>[시행 2026. 8. 4.]</em></p>
-      <div class="note-box tv-travel">
-      <details class="kw-fold">
-        <summary>「등록한다」가 실제로 무슨 일인가 — <b>열한 가지로</b></summary>
+      <div class="note-box tv-travel reg11">
+        <p class="r11-h">「등록한다」가 실제로 무슨 일인가 — <b>열한 가지로</b></p>
         <ol class="kwlist">
-          <li><b>신청 화면</b><span>위 <strong>①</strong>은 정부24의 <em>관광사업 등록 — 여행업 및 관광숙박업</em> 화면 그대로입니다. <strong>신청인 · 신고내용 · 구비서류 · 수령방법</strong> 네 단이고, <strong class="hot-t">사무실 주소와 자본금이 비면 다음 장으로 넘어가지 않습니다.</strong></span></li>
+          <li><b>신청 화면</b><span>아래 <strong>①</strong>은 정부24의 <em>관광사업 등록 — 여행업 및 관광숙박업</em> 화면 그대로입니다. <strong>신청인 · 신고내용 · 구비서류 · 수령방법</strong> 네 단이고, <strong class="hot-t">사무실 주소와 자본금이 비면 다음 장으로 넘어가지 않습니다.</strong></span></li>
           <li><b>사업계획서</b><span><strong>②</strong>는 그 화면이 첫 번째로 요구하는 서류의 실제 예시입니다(가상의 <em>선라이즈젠 여행사</em> · 종합여행업). 여섯 장 — 사업 개요 · 사업내용 · 추진 조직 · 자금 조달 · 수요 예상 · 리스크 관리 — 에 부록으로 랜드사 상품 알선 예까지.</span></li>
           <li><b>두 사업계획서의 차이</b><span><strong>과제 1의 공모용</strong>이 <em>「왜 이 문제를 나에게 맡겨야 하는가」</em>를 설득하는 글이라면, <strong>②의 등록용</strong>은 <em>「이 사업이 굴러갈 수 있는가」</em>를 관청에 보이는 글입니다. <strong class="hot-t">묻는 사람이 다르면 같은 사업도 다르게 씁니다.</strong></span></li>
           <li><b>사무실 서류</b><span><strong>③</strong>은 구비서류 가운데 <strong>「부동산의 사용권을 증명하는 서류」</strong>입니다. 사무실 요건이 서류로는 이렇게 나타납니다 — <strong>내 이름으로 쓸 수 있는 공간</strong>이 있어야 합니다. 공유오피스 한 실을 월 단위로 빌린 계약서라 <strong>1인 창업의 가장 가벼운 형태</strong>가 보입니다.</span></li>
@@ -1939,11 +1946,11 @@
           <li><b>사무실의 조건</b><span>아무 공간이나 되지 않습니다 — 건축법상 <strong>업무시설 · 근린생활시설</strong> 용도의 <strong class="hot-t">독립된 공간</strong>이어야 하고 <strong>주거용은 안 됩니다.</strong> 앞의 <strong>③</strong> 계약서가 그 공간을 증명하는 서류입니다.</span></li>
           <li><b>750만원은 지난 기준</b><span>한시 특례가 있었고 <strong class="hot-t">2024. 7. 1. ~ 2026. 6. 30. 등록 신청자</strong>에게만 적용됐습니다. 지금 신규 등록은 다시 <strong>1,500만원</strong> 이상이니, 인터넷에 남아 있는 글을 그대로 옮기지 마십시오.</span></li>
         </ol>
-      </details>
-      <p class="kw-end"><b>한 문장으로 기억할 것</b>여행사 창업은 단순 사업자등록만으로 끝나는 것이 아니라, <strong>여행업 등록을 위해 업종별 자본금 기준을 갖춰야 하는 일</strong>입니다 — 위 <strong>①</strong> 신청 화면에 <strong>자본금</strong> 칸이 필수 입력인 이유가 이것입니다.</p>
+      <p class="kw-end"><b>한 문장으로 기억할 것</b>여행사 창업은 단순 사업자등록만으로 끝나는 것이 아니라, <strong>여행업 등록을 위해 업종별 자본금 기준을 갖춰야 하는 일</strong>입니다 — 아래 <strong>①</strong> 신청 화면에 <strong>자본금</strong> 칸이 필수 입력인 이유가 이것입니다.</p>
       </div>
 
-      <p class="dltags tv-travel"><a class="mapl form hot" href="travel-agency-capital-requirements.html" target="_blank" rel="noopener">여행업 등록기준 · 자본금과 법적 근거 한 장 ↗</a><a class="mapl form" href="https://www.law.go.kr/LSW/lsInfoP.do?lsId=002413&amp;ancYnChk=0" target="_blank" rel="noopener">법정자본금 근거 · 관광진흥법 시행령 [별표 1] ↗</a><span class="dl-src">업무 범위 · <b>자본금 표(일반 지역 · 제주 나란히)</b> · <b>자본금 말고 드는 돈</b>(등록 수수료 · 등록면허세 · 보증보험 · 사무실 용도) · 750만원 특례가 왜 지금 기준이 아닌지 · 강의에서 조심할 표현 · 법령 출처(<b>관광진흥법 시행령 제2조 · [별표 1]</b>, 법제처 법령해석 21-0818)까지.</span></p>
+      <p class="dltags tv-travel"><a class="mapl form hot" href="travel-agency-capital-requirements.html" target="_blank" rel="noopener">여행업 등록기준 · 자본금과 법적 근거 한 장 ↗</a><a class="mapl form" href="https://www.law.go.kr/LSW/lsInfoP.do?lsId=002413&amp;ancYnChk=0" target="_blank" rel="noopener">법정자본금 근거 · 관광진흥법 시행령 [별표 1] ↗</a><span class="dl-src">업무 범위 · <b>자본금 표(일반 지역 · 제주 나란히)</b> · <b>자본금 말고 드는 돈</b>(등록 수수료 · 등록면허세 · 보증보험 · 사무실 용도) · 750만원 특례가 왜 지금 기준이 아닌지 · 법령 출처(<b>관광진흥법 시행령 제2조 · [별표 1]</b>, 법제처 법령해석 21-0818)까지.</span></p>
+      <p class="dltags tv-travel"><a class="mapl form hot" href="assets/tourism-business-registration-travel.pdf" target="_blank" rel="noopener">① 정부24 · 여행업 등록 신청 화면 ⤓ PDF · 4쪽</a><a class="mapl form red" href="assets/travel-agency-business-plan-sample.hwp" download="여행사_사업계획서_예시_선라이즈젠_종합여행업.hwp">② 여행사 사업계획서 예시 ⤓ HWP</a><a class="mapl form" href="assets/office-lease-contract-sample.docx" download="사무실_임대차계약서_예시.docx">③ 사무실 임대차계약서 예시 ⤓ DOCX</a><span class="dl-src">셋이 한 세트입니다 — <b>①이 신청 화면</b>이고, <b>②·③은 그 화면이 요구하는 구비서류</b>입니다.</span></p>
 
 
       <p class="mini-note">등록 요건(자본금·사무실·보증보험)은 회차와 지자체에 따라 달라지므로 <strong>반드시 관할 시·군 관광부서의 최신 안내</strong>로 확인하십시오. 여기서 기억할 것은 하나입니다 — <strong>내가 팔려는 여행이 어느 칸에 들어가는지</strong>.</p>
@@ -1977,7 +1984,7 @@
       <p><strong>공고와 이어지는 지점</strong> — 예비관광벤처 공모의 모집유형 가운데 <strong>실감형 관광콘텐츠</strong>의 공식 예시에 <strong class="hot-t">테마여행 상품(한류 · 미식 · 반려동물 · 러닝 · 캠핑 · 의료관광 · MICE)</strong>이 들어 있습니다. 앱을 만들지 않아도, 개발자가 없어도 낼 수 있는 칸이 여기입니다. <strong>워크북 시트 4(차별성)</strong>를 쓸 때 위 네 수익 모델 중 <em>내가 어디서 버는지</em>를 먼저 정하면 비교표가 쉬워집니다.</p>
       </div>
 
-      <p class="learn-part lp-core"><span class="num">08</span>농어촌 자원의 사업화 — 민박 · 한옥 · 스마트팜</p>
+      <p class="learn-part lp-core"><span class="num">08</span>농어촌 자원의 사업화 — 민박 · 한옥</p>
       <p>도시에서 창업하면 <strong>손님이 있는 곳</strong>으로 갑니다. 지역에서 창업하면 반대입니다 — <strong>자원이 있는 곳으로 손님을 부릅니다.</strong> 그래서 지역 관광창업은 <em>무엇을 가졌는가</em>에서 시작하고, 가진 것이 대개 <strong>공간과 농산물</strong>입니다.</p>
 
       <p><strong>공간을 파는 일에는 먼저 등록할 칸이 있습니다.</strong></p>
@@ -1994,6 +2001,7 @@
 
       <p><strong>공간 사업의 셈은 객실 수가 아니라 가동률입니다.</strong> 방이 몇 개인지보다 <em>일 년에 며칠 차는가</em>가 매출을 정합니다. 고정비(임차·수선·인건비)는 손님이 없어도 나가므로, <strong>비수기를 무엇으로 채우는가</strong>가 사업계획서에서 실제로 읽히는 대목입니다 — 워크북 <strong>[표4] Scale-up</strong>의 계산식이 여기서 나옵니다.</p>
 
+      <p class="learn-part lp-core"><span class="num">09</span>농어촌 자원의 사업화 — 스마트팜</p>
       <p><strong>농산물은 그대로 팔면 1차입니다.</strong> <strong class="hot-t">스마트팜 융복합</strong>과 <strong>6차산업</strong>은 그 앞뒤를 붙여 값을 키우는 방식입니다.</p>
       <div class="tri-wrap tri-lime">
         <svg class="tri-line" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polygon points="50,3 97,97 3,97" /></svg>
