@@ -56,9 +56,16 @@
     }
     .learn-article .case-box.flow .f3-chain,
     .learn-article .case-box.flow .f3-why { list-style: none; margin: 0; padding: 0; }
+    /* 네 줄을 두 칸 격자로 눕혀 세로 공간을 반으로 줄인다 */
+    .learn-article .case-box.flow .f3-chain {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px;
+    }
     .learn-article .case-box.flow .f3-chain li {
-      display: flex; align-items: center; gap: 9px; margin: 0 0 6px;
-      padding: 8px 11px; border-radius: 9px; background: #fff; border: 1px solid #dbe6f2;
+      display: flex; align-items: center; gap: 8px; margin: 0;
+      padding: 7px 10px; border-radius: 9px; background: #fff; border: 1px solid #dbe6f2;
+    }
+    @media (max-width: 760px) {
+      .learn-article .case-box.flow .f3-chain { grid-template-columns: 1fr; }
     }
     .learn-article .case-box.flow .f3-chain li b {
       flex: none; width: 19px; height: 19px; border-radius: 50%;
@@ -331,6 +338,43 @@
     }
     .learn-article .syl-box.job .syl-tags.job-more a.mapl.blue:hover { background: #0e2a45; border-color: #0e2a45; }
 
+    /* ===== 히어로 두 칸 — 강의실과 주간 운영을 나란히 =====
+       둘 다 「언제 · 어디서 · 무엇을」이라 한 줄에 놓으면 세로 공간이 크게 줄어든다.
+       주간 운영 상자는 본문(.learn-article) 안에 있던 것이라 히어로용 규칙을 따로 적는다. */
+    .learn-hero .hero-row {
+      display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+      gap: 14px; align-items: start; margin-top: 16px;
+    }
+    .learn-hero .hero-row .room-bar { margin: 0; }
+    .room-bar .rb-list.oneline { grid-template-columns: 1fr; gap: 5px; }
+    .room-bar .rb-list.oneline li {
+      flex-direction: row; align-items: baseline; flex-wrap: nowrap; gap: 6px; padding: 6px 11px;
+    }
+    .room-bar .rb-list.oneline li b,
+    .room-bar .rb-list.oneline li .tm { white-space: nowrap; }
+    .room-bar .rb-list.oneline li .rm { margin-left: auto; white-space: nowrap; }
+    .learn-hero .syl-box {
+      border: 1px solid #cfdcea; border-radius: 12px; background: #f7fafc;
+      padding: 13px 15px 11px; margin: 0;
+    }
+    .learn-hero .syl-box .syl-t { margin: 0 0 6px; font-size: 13.5px; font-weight: 800; line-height: 1.5; }
+    .learn-hero .syl-box .syl-t a { color: #17365d; border-bottom: 2px solid #c3d2e2; text-decoration: none; }
+    .learn-hero .syl-box .syl-t a:hover { color: #0e2a45; border-bottom-color: #17365d; }
+    .learn-hero .syl-box .syl-d { margin: 0 0 6px; font-size: 12px; line-height: 1.7; color: #4d5f74; }
+    .learn-hero .syl-box .syl-d strong { color: #17365d; }
+    .learn-hero .syl-box .syl-tags {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+      margin: 8px 0 0; padding-top: 8px; border-top: 1px dashed #c3d2e2;
+    }
+    .learn-hero .syl-box .syl-tags a.mapl {
+      display: inline-block; padding: 4px 10px; border-radius: 999px;
+      background: #17365d; border: 1px solid #17365d; color: #fff;
+      font-size: 11px; font-weight: 700; text-decoration: none;
+    }
+    .learn-hero .syl-box .syl-tags a.mapl:hover { background: #0e2a45; border-color: #0e2a45; }
+    .learn-hero .syl-box .syl-src { font-size: 11px; color: #7c8a99; margin-left: 2px; }
+    @media (max-width: 980px) { .learn-hero .hero-row { grid-template-columns: 1fr; } }
+
   </style>
 </head>
 <body class="mod-smart">
@@ -351,13 +395,21 @@
       <h1>스마트 투어리즘 — 기술이 바꾸는 여행</h1>
       <p class="sub">지도를 펼치던 여행은 검색창을 여는 여행으로 바뀌었습니다. 데이터·연결·인공지능이 여행의 계획·이동·경험을 어떻게 다시 짜는지 — 스마트 관광의 뼈대와 스마트 도시의 현재를 살펴봅니다.</p>
 
-      <div class="room-bar">
-        <p class="rb-t">강의실<span>수요일 1 · 2교시 · 목요일 2교시</span></p>
-        <ul class="rb-list">
-          <li class="pc"><b>수 1교시</b><span class="tm">09:00 – 09:50</span><span class="rm">사회대 <strong>2106호</strong><em>PC실</em></span></li>
-          <li class="pc"><b>수 2교시</b><span class="tm">10:00 – 10:50</span><span class="rm">사회대 <strong>2106호</strong><em>PC실</em></span></li>
-          <li class="mv"><b>목 2교시</b><span class="tm">10:00 – 10:50</span><span class="rm">사회대 <strong>3402호</strong></span></li>
-        </ul>
+      <div class="hero-row">
+        <div class="room-bar">
+          <p class="rb-t">강의실<span>수요일 1 · 2교시 · 목요일 2교시</span></p>
+          <ul class="rb-list oneline">
+            <li class="pc"><b>수 1교시</b><span class="tm">(09:00 – 09:50)</span><span class="rm">사회대 <strong>2106호</strong><em>PC실</em></span></li>
+            <li class="pc"><b>수 2교시</b><span class="tm">(10:00 – 10:50)</span><span class="rm">사회대 <strong>2106호</strong><em>PC실</em></span></li>
+            <li class="mv"><b>목 2교시</b><span class="tm">(10:00 – 10:50)</span><span class="rm">사회대 <strong>3402호</strong></span></li>
+          </ul>
+        </div>
+        <div class="syl-box">
+          <p class="syl-t"><a href="smart-tourism-weekly-plan.html" target="_blank" rel="noopener">주간 수업 운영 · 학생 발표 배정 — 1~15주차 한 장 ↗</a></p>
+          <p class="syl-d">이 페이지의 자료를 <strong>어느 주에 어떤 순서로 쓰는지</strong>가 여기 있습니다. 한 주는 <strong>150분(3시수)</strong>이고 <strong>수요일 100분 + 목요일 50분</strong>으로 나뉩니다 — 수요일은 핵심 논문 셋을 20분씩 읽고 1·2팀이 도시 사례를 발표하며, 목요일은 3팀 발표 뒤 책 20분과 「전체 보기」 10분으로 그 주를 닫습니다.</p>
+          <p class="syl-d">논문 한 편은 <strong>20분 표준 세트</strong>로 고정돼 있습니다 — 연구질문·HOOK 3 → 논문·사례영상 4 → 설계·핵심결과 8 → CONCEPT 3 → LENS 2. 발표 배정은 <strong>3~7주 국내 열두 도시 → 8주 중간고사 → 9~14주 유럽 수상·최종후보 → 15주 종합발표</strong> 순으로, 팀별 도시까지 정해져 있습니다.</p>
+          <p class="syl-tags"><a class="mapl" href="smart-tourism-weekly-plan.html#week-table" target="_blank" rel="noopener">주간 운영표 · 요일별 단위 ↗</a><a class="mapl" href="smart-tourism-weekly-plan.html#team-assign" target="_blank" rel="noopener">팀별 발표 도시 1~15주 ↗</a><a class="mapl" href="academic-calendar-2026-2.html" target="_blank" rel="noopener">2학기 학사일정 달력 ↗</a><span class="syl-src">선샤인 웰니스 자체 제작 · 수요일 1·2교시 + 목요일 2교시</span></p>
+        </div>
       </div>
     </div>
   </section>
@@ -397,12 +449,6 @@
         <a class="tf-i t4" href="#과제4"><b>과제 4</b>업무 수행계획서<i>모의 PT · 졸업 뒤까지</i></a>
       </p>
 
-      <div class="syl-box">
-        <p class="syl-t"><a href="smart-tourism-weekly-plan.html" target="_blank" rel="noopener">주간 수업 운영 · 학생 발표 배정 — 1~15주차 한 장 ↗</a></p>
-        <p class="syl-d">이 페이지의 자료를 <strong>어느 주에 어떤 순서로 쓰는지</strong>가 여기 있습니다. 한 주는 <strong>150분(3시수)</strong>이고 <strong>수요일 100분 + 목요일 50분</strong>으로 나뉩니다 — 수요일은 핵심 논문 셋을 20분씩 읽고 1·2팀이 도시 사례를 발표하며, 목요일은 3팀 발표 뒤 책 20분과 「전체 보기」 10분으로 그 주를 닫습니다.</p>
-        <p class="syl-d">논문 한 편은 <strong>20분 표준 세트</strong>로 고정돼 있습니다 — 연구질문·HOOK 3 → 논문·사례영상 4 → 설계·핵심결과 8 → CONCEPT 3 → LENS 2. 발표 배정은 <strong>3~7주 국내 열두 도시 → 8주 중간고사 → 9~14주 유럽 수상·최종후보 → 15주 종합발표</strong> 순으로, 팀별 도시까지 정해져 있습니다.</p>
-        <p class="syl-tags"><a class="mapl" href="smart-tourism-weekly-plan.html#week-table" target="_blank" rel="noopener">주간 운영표 · 요일별 단위 ↗</a><a class="mapl" href="smart-tourism-weekly-plan.html#team-assign" target="_blank" rel="noopener">팀별 발표 도시 1~15주 ↗</a><a class="mapl" href="academic-calendar-2026-2.html" target="_blank" rel="noopener">2학기 학사일정 달력 ↗</a><span class="syl-src">선샤인 웰니스 자체 제작 · 수요일 1·2교시 + 목요일 2교시</span></p>
-      </div>
 
       <div class="syl-box job">
         <p class="syl-t"><a href="interview-personality-20.html" target="_blank" rel="noopener">기관 인성면접 예상 질문 20문 ↗</a><a class="sticky-pill" href="interview-personality-20.html" target="_blank" rel="noopener">노란 스티키노트 한 장 ↗</a><a class="doc-pill" href="assets/interview-personality-20.docx" download="기관_인성면접_예상질문_20문.docx">워드로 내려받기 ⤓ DOCX</a></p>
