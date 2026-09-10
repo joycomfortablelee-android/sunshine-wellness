@@ -1419,6 +1419,12 @@
     .learn-article .learn-part.lp-sub.lrn { background: #f2f7fb; color: #1c4e8a; border-left-color: #2563a8; }
     .learn-article .learn-part.lp-sub.lrn .ptag { background: #2563a8; }
 
+    /* 같은 페이지 안으로 뛰는 알약 — 바깥 링크(짙은 남색)와 구분해 파랑으로 둔다. */
+    .learn-article .quad .q-lk a.jump { background: #2563a8; border-color: #2563a8; }
+    .learn-article .quad .q-lk a.jump:hover { background: #1c4e8a; border-color: #1c4e8a; }
+    /* 뛰어온 자리를 잠깐 표시한다 */
+    .learn-article .learn-part:target { scroll-margin-top: 78px; }
+
   </style>
 </head>
 <body class="mod-venture">
@@ -1766,6 +1772,7 @@
           <span class="q-n">①</span><span class="q-k">관광 전용</span>
           <strong class="q-h">관광벤처사업 공모전 · 관광기업 지원</strong>
           <span class="q-d">한국관광공사 중심의 발굴 · 육성 프로그램. <em>이 수업의 과제 1이 바로 이 칸입니다.</em></span>
+          <span class="q-lk"><a class="jump" href="#예비관광벤처공모">예비관광벤처 사업공모 ↓</a><b>한국관광공사 · 이 페이지 아래 「공모」 절에서 요강 · 일정 · 제출물을 폅니다.</b></span>
         </div>
         <div class="q-cell c2">
           <span class="q-n">④</span><span class="q-k">가까운 곳</span>
@@ -1830,7 +1837,7 @@
       </div>
 
 
-      <p class="learn-part lp-call"><span class="ptag">공모</span>예비관광벤처 사업공모<span class="ptag-out"><b>★</b>외부의 기회들</span></p>
+      <p class="learn-part lp-call" id="예비관광벤처공모"><span class="ptag">공모</span>예비관광벤처 사업공모<span class="ptag-out"><b>★</b>외부의 기회들</span></p>
       <p>'공공 지원'이 실제로 어떻게 작동하는지, 한국관광공사의 대표 사업인 <strong>예비관광벤처 사업공모</strong>를 예로 살펴봅니다. 아직 사업자등록을 하지 않은 <em>예비창업자</em>가 아이디어를 실제 사업으로 세울 수 있도록 자금과 프로그램을 지원하는, 관광 창업의 대표적 진입로입니다.</p>
       <details class="spec-fold">
       <summary>요강 — 신청 대상 · 지원 분야 · 지원 내용 · 평가 절차 · 핵심 제출물</summary>
