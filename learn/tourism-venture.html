@@ -1194,7 +1194,7 @@
     }
 
 
-    /* 08 · 09장 두 삼각형 — 숙박 세 칸과 1·2·3차. 카드 색에 맞춰 윤곽선과 허브를 바꾼다.
+    /* 09 · 10장 두 삼각형 — 숙박 세 칸과 1·2·3차. 카드 색에 맞춰 윤곽선과 허브를 바꾼다.
        1·2·3차는 층이 쌓이는 것이지 순서가 아니라 삼각형이 맞다. */
     .learn-article .tri-wrap.tri-green .tri-line polygon { stroke: #a9d3c3; }
     .learn-article .tri-wrap.tri-green .tri-hub { background: #2f5148; box-shadow: 0 4px 14px rgba(47,81,72,.28); }
@@ -1350,6 +1350,11 @@
     }
     .learn-article .quad .q-lk a:hover { background: #0e2a45; border-color: #0e2a45; color: #fff; }
     .learn-article .quad .q-lk b { display: block; margin-top: 5px; font-weight: 600; color: #6b7a88; }
+
+    /* 연구용역 절 — 초록 바 위의 꼬리표는 바탕색과 같으면 묻히므로 흰 알약으로 뒤집는다. */
+    .learn-article .learn-part.lp-core.lp-res .ptag {
+      flex: none; background: #fff; color: #2f5148; padding: 4px 11px;
+    }
 
   </style>
 </head>
@@ -1587,7 +1592,7 @@
       </ul>
 
       <ul class="lp-legend">
-        <li><i class="k-core"></i>이론(01~09장)</li>
+        <li><i class="k-core"></i>이론(01~10장)</li>
         <li><i class="k-case"></i>창업 사례</li>
         <li><i class="k-call"></i>공모·지원사업</li>
         <li><i class="k-book"></i>책 · 교재</li>
@@ -1623,7 +1628,7 @@
         <li class="bk-wide">
           <span class="bk-map">이 페이지와 이렇게 맞물립니다</span>
           <span class="desc"><strong>02장 아이디어는 문제에서 나온다</strong> ↔ 그림 1의 <strong>3장 디자인 씽킹</strong> · <strong>03장 비즈니스 모델</strong> ↔ 그림 1의 <strong>4장</strong> · <strong>05장 창업 생태계와 지원</strong> ↔ 그림 1의 <strong>9~11장</strong>. 그리고 위 <strong class="hot-t">과제 1(사업계획서 쓰기)</strong>이 그림 1의 <strong>5장</strong>입니다.<br /><strong>이 페이지에 없는 것도 보입니다</strong> — 그림 1의 <strong>법률</strong> 장은 사업계획서의 「예상되는 어려움」 칸을 채울 때, 그림 2의 <strong>10~11장 스마트관광</strong>은 <em>스마트 투어리즘 모듈</em>과, <strong>14~15장 관광두레</strong>는 아래 <em>로컬크리에이터</em> 절과 바로 이어집니다.</span>
-          <span class="meta">교재 두 권 ↔ 이 페이지 01~09장</span>
+          <span class="meta">교재 두 권 ↔ 이 페이지 01~10장</span>
         </li>
       </ul>
 
@@ -1929,9 +1934,9 @@
       </ol>
       <p><strong>여행에 대한 관심은 출발점입니다.</strong> 이를 <strong>반복 가능한 문제 해결</strong>과 <strong>수익 구조</strong>로 연결할 때 관광 아이디어는 <strong class="hot-t">비즈니스</strong>가 됩니다.</p>
 
-      <p class="mini-note"><strong>01~06장</strong>이 <em>창업의 흐름</em>(문제 → 모델 → 검증 → 지원)을 다뤘다면, <strong>07 · 08 · 09장</strong>은 이를 <strong>구체적인 관광 업종</strong>에 적용합니다. 즉, <strong class="hot-t">아이템이 정해진 뒤 업종별 사업 구조를 살펴보는 단계</strong>입니다.</p>
+      <p class="mini-note"><strong>01~06장</strong>이 <em>창업의 흐름</em>(문제 → 모델 → 검증 → 지원)을 다뤘다면, <strong>07~10장</strong>은 이를 <strong>구체적인 관광 업종</strong>에 적용합니다. 즉, <strong class="hot-t">아이템이 정해진 뒤 업종별 사업 구조를 살펴보는 단계</strong>입니다.</p>
 
-      <p class="learn-part lp-core"><span class="num">07</span>여행 · 외식 창업 — 가장 오래된 두 업</p>
+      <p class="learn-part lp-core"><span class="num">07</span>여행업 창업 — 가장 오래된 업</p>
       <p>관광벤처가 새 기술로 문제를 푼다면, <strong>여행업과 외식업</strong>은 관광이 시작될 때부터 있던 업입니다. 새로 만드는 것이 아니라 <strong>이미 있는 판 위에서 자기 자리를 찾는 일</strong>이라, 규칙이 먼저입니다 — 무엇을 등록해야 하고, 돈은 어디서 남는가.</p>
 
       <p><strong>여행업은 등록 종류에 따라 할 수 있는 일이 다릅니다.</strong></p>
@@ -1998,7 +2003,20 @@
       <p><strong>공고와 이어지는 지점</strong> — 예비관광벤처 공모의 모집유형 가운데 <strong>실감형 관광콘텐츠</strong>의 공식 예시에 <strong class="hot-t">테마여행 상품(한류 · 미식 · 반려동물 · 러닝 · 캠핑 · 의료관광 · MICE)</strong>이 들어 있습니다. 앱을 만들지 않아도, 개발자가 없어도 낼 수 있는 칸이 여기입니다. <strong>워크북 시트 4(차별성)</strong>를 쓸 때 위 네 수익 모델 중 <em>내가 어디서 버는지</em>를 먼저 정하면 비교표가 쉬워집니다.</p>
       </div>
 
-      <p class="learn-part lp-core"><span class="num">08</span>농어촌 자원의 사업화 — 민박 · 한옥</p>
+      <p class="learn-part lp-core"><span class="num">08</span>외식 창업 — 로컬 브랜드가 목적지가 된다</p>
+      <p>외식은 관광의 곁다리가 아닙니다. <strong>여행 지출에서 먹는 데 쓰는 몫이 크고</strong>, 요즘은 <em>먹으러 가는 여행</em>이 따로 있습니다. 순서는 이렇습니다 — <strong>콘셉트 개발 → 메뉴경영 → 위생 · 안전 → 접객 매뉴얼 → (넓힐 때) 프랜차이즈.</strong> 창업 초기에 승부가 나는 곳은 <strong class="hot-t">맨 앞 콘셉트</strong>이고, 마지막 프랜차이즈는 <strong>넓히지 않기로 하는 것도 전략</strong>입니다 — 아래 성심당이 정확히 그 선택을 한 곳입니다.</p>
+
+      <div class="note-box">
+      <p>관광벤처가 반드시 앱이나 플랫폼이어야 하는 것은 아닙니다. <strong>지역 그 자체를 브랜드로 만든 사업</strong>도 훌륭한 관광 창업입니다. 1956년 대전역 앞 찐빵 장사로 시작해 지금은 "대전에 가야만 살 수 있는 빵"이 된 <strong>성심당</strong>은, 로컬 브랜드가 어떻게 사람을 불러 모으는 <em>여행의 목적지</em>가 되는지 보여주는 사례입니다. 영상에서 눈여겨볼 지점은 셋입니다 — <strong>① 넓히지 않는 전략</strong>(가맹점 없이 대전 직영점만 고집해 '여기서만'이라는 희소성을 만든 것), <strong>② 자기만의 상품</strong>(튀김소보로처럼 다른 곳엔 없는 제품으로 대체 불가능해진 것), <strong>③ 지역과 함께 가는 태도</strong>. 03장의 <em>가치 제안</em>과 06장의 <em>차별화</em>가 실제 사업에서 어떤 <strong>선택</strong>으로 나타나는지 확인해 보세요. 부산의 웰니스 관광 역시 같은 질문 위에 서 있습니다.</p>
+      </div>
+      <figure class="learn-fig">
+        <div style="position:relative;width:100%;max-width:720px;margin:0 auto;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;">
+          <iframe src="https://www.youtube-nocookie.com/embed/ccA6nunac7g" title="[스타트업 성공 사례] 대전을 대표하는 로컬 브랜드 — 성심당" style="position:absolute;inset:0;width:100%;height:100%;border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <figcaption>「[스타트업 성공 사례] 대전을 대표하는 로컬 브랜드 │ 성심당」 — IR티켓_티엔티스피치</figcaption>
+      </figure>
+
+      <p class="learn-part lp-core"><span class="num">09</span>농어촌 자원의 사업화 — 민박 · 한옥</p>
       <p>도시에서 창업하면 <strong>손님이 있는 곳</strong>으로 갑니다. 지역에서 창업하면 반대입니다 — <strong>자원이 있는 곳으로 손님을 부릅니다.</strong> 그래서 지역 관광창업은 <em>무엇을 가졌는가</em>에서 시작하고, 가진 것이 대개 <strong>공간과 농산물</strong>입니다.</p>
 
       <p><strong>공간을 파는 일에는 먼저 등록할 칸이 있습니다.</strong></p>
@@ -2015,7 +2033,7 @@
 
       <p><strong>공간 사업의 셈은 객실 수가 아니라 가동률입니다.</strong> 방이 몇 개인지보다 <em>일 년에 며칠 차는가</em>가 매출을 정합니다. 고정비(임차·수선·인건비)는 손님이 없어도 나가므로, <strong>비수기를 무엇으로 채우는가</strong>가 사업계획서에서 실제로 읽히는 대목입니다 — 워크북 <strong>[표4] Scale-up</strong>의 계산식이 여기서 나옵니다.</p>
 
-      <p class="learn-part lp-core"><span class="num">09</span>농어촌 자원의 사업화 — 스마트팜</p>
+      <p class="learn-part lp-core"><span class="num">10</span>농어촌 자원의 사업화 — 스마트팜</p>
       <p><strong>농산물은 그대로 팔면 1차입니다.</strong> <strong class="hot-t">스마트팜 융복합</strong>과 <strong>6차산업</strong>은 그 앞뒤를 붙여 값을 키우는 방식입니다.</p>
       <div class="tri-wrap tri-lime">
         <svg class="tri-line" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polygon points="50,3 97,97 3,97" /></svg>
@@ -2068,18 +2086,8 @@
         </li>
       </ul>
 
-      <p class="learn-part lp-case"><span class="ptag">사례 2</span>영상으로 보는 · 로컬 브랜드 「성심당」</p>
-      <div class="note-box">
-      <p>관광벤처가 반드시 앱이나 플랫폼이어야 하는 것은 아닙니다. <strong>지역 그 자체를 브랜드로 만든 사업</strong>도 훌륭한 관광 창업입니다. 1956년 대전역 앞 찐빵 장사로 시작해 지금은 "대전에 가야만 살 수 있는 빵"이 된 <strong>성심당</strong>은, 로컬 브랜드가 어떻게 사람을 불러 모으는 <em>여행의 목적지</em>가 되는지 보여주는 사례입니다. 영상에서 눈여겨볼 지점은 셋입니다 — <strong>① 넓히지 않는 전략</strong>(가맹점 없이 대전 직영점만 고집해 '여기서만'이라는 희소성을 만든 것), <strong>② 자기만의 상품</strong>(튀김소보로처럼 다른 곳엔 없는 제품으로 대체 불가능해진 것), <strong>③ 지역과 함께 가는 태도</strong>. 03장의 <em>가치 제안</em>과 06장의 <em>차별화</em>가 실제 사업에서 어떤 <strong>선택</strong>으로 나타나는지 확인해 보세요. 부산의 웰니스 관광 역시 같은 질문 위에 서 있습니다.</p>
-      </div>
-      <figure class="learn-fig">
-        <div style="position:relative;width:100%;max-width:720px;margin:0 auto;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;">
-          <iframe src="https://www.youtube-nocookie.com/embed/ccA6nunac7g" title="[스타트업 성공 사례] 대전을 대표하는 로컬 브랜드 — 성심당" style="position:absolute;inset:0;width:100%;height:100%;border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-        <figcaption>「[스타트업 성공 사례] 대전을 대표하는 로컬 브랜드 │ 성심당」 — IR티켓_티엔티스피치</figcaption>
-      </figure>
 
-      <p class="learn-part lp-case"><span class="ptag">사례 3</span>전공 자체를 사업으로 — 어반리즘 하우스</p>
+      <p class="learn-part lp-core lp-res"><span class="ptag">연구용역</span>시 · 공사가 발주하는 일 — 전공 자체를 사업으로</p>
       <div class="note-box">
       <p>창업이라고 하면 앱이나 플랫폼, 아니면 카페·게스트하우스 같은 것을 먼저 떠올리게 됩니다. 그런데 <strong>배운 전공 자체를 파는 창업</strong>도 있습니다. 부산의 <strong>어반리즘 하우스(URBANRISM HAUS)</strong>는 관광학 박사인 대표가 세운 관광 컨설팅·연구 회사로, 회사 이름부터 <em>URBAN(도시) + TOURISM(관광) + HAUS(전문가·집)</em>의 합성어입니다.</p>
       <p>하는 일은 <strong>연구컨설팅·교육행사·행사운영</strong> 세 갈래입니다. 예를 들어 울산문화관광재단이 발주한 「2026 울산 무장애 관광 인력양성 교육」의 기획과 운영을 맡는 식으로, <strong>지자체와 관광재단이 발주하는 용역</strong>이 곧 매출이 됩니다. 03장의 <em>고객·채널</em>을 다시 보면 이 모델의 성격이 분명해집니다 — 고객이 일반 여행자(B2C)가 아니라 <strong>공공기관(B2G)</strong>이라는 점입니다. 그래서 마케팅보다 <strong>제안서와 연구 역량</strong>이 경쟁력이 되고, 구성원도 관광학·경영학 박사와 시각디자인 전공자가 함께 있습니다.</p>
