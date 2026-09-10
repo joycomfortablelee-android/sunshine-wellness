@@ -957,6 +957,16 @@
       .learn-article .note-box .kwlist > li { grid-template-columns: 1fr; gap: 3px; }
     }
 
+    /* 강의실 목록 한 줄 — 교시(시간) 강의실을 한 행에 붙여 세로 공간을 아낀다. */
+    .room-bar .rb-list.oneline { grid-template-columns: 1fr; gap: 5px; }
+    .room-bar .rb-list.oneline li {
+      flex-direction: row; align-items: baseline; flex-wrap: nowrap; gap: 6px;
+      padding: 6px 11px;
+    }
+    .room-bar .rb-list.oneline li b { white-space: nowrap; }
+    .room-bar .rb-list.oneline li .tm { white-space: nowrap; }
+    .room-bar .rb-list.oneline li .rm { margin-left: auto; white-space: nowrap; }
+
   </style>
 </head>
 <body class="mod-venture">
@@ -979,10 +989,10 @@
       <div class="hero-row">
         <div class="room-bar">
           <p class="rb-t">강의실<span>화요일 5 · 6 · 7교시</span><b class="rb-mv">6교시가 끝나면 강의실을 옮깁니다</b></p>
-          <ul class="rb-list">
-            <li class="pc"><b>5교시</b><span class="tm">13:00 – 13:50</span><span class="rm">사회대 <strong>2106호</strong><em>PC실</em></span></li>
-            <li class="pc"><b>6교시</b><span class="tm">14:00 – 14:50</span><span class="rm">사회대 <strong>2106호</strong><em>PC실</em></span></li>
-            <li class="mv"><b>7교시</b><span class="tm">15:00 – 15:50</span><span class="rm">사회대 <strong>3402호</strong></span></li>
+          <ul class="rb-list oneline">
+            <li class="pc"><b>5교시</b><span class="tm">(13:00 – 13:50)</span><span class="rm">사회대 <strong>2106호</strong><em>PC실</em></span></li>
+            <li class="pc"><b>6교시</b><span class="tm">(14:00 – 14:50)</span><span class="rm">사회대 <strong>2106호</strong><em>PC실</em></span></li>
+            <li class="mv"><b>7교시</b><span class="tm">(15:00 – 15:50)</span><span class="rm">사회대 <strong>3402호</strong></span></li>
           </ul>
         </div>
         <div class="syl-box cal">
