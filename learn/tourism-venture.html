@@ -925,7 +925,8 @@
 
     /* 히어로 소개문을 본문으로 내렸다 — 두 문단이 같은 서식(.lead)으로 왼쪽 정렬된다. */
     .learn-article .lead { text-align: left; }
-    .learn-article .lead + .lead { margin-top: -14px; }
+    /* 두 리드는 성격이 다른 두 문단이다 — 줄 간격(33px)보다 넓게 떨어뜨린다 */
+    .learn-article .lead + .lead { margin-top: 0; }
 
     /* 키워드 목록 — 줄글로 길어지는 설명을 「키워드 : 설명」으로 끊는다.
        왼쪽 칸의 낱말만 훑어도 무슨 이야기인지 잡힌다. */
@@ -2025,7 +2026,11 @@
         </li>
         <li class="t-blue">
           <a href="https://www.contestkorea.com/sub/search.php" target="_blank" rel="noopener">콘테스트코리아 — 공모전 · 대외활동 통합 검색 ↗</a>
-          <span class="desc">왼쪽 모모365가 <strong>기관이 발주하는 공모사업·입찰</strong> 쪽이라면, 이쪽은 <strong class="hot-t">학생이 직접 출품하는 공모전</strong> 쪽입니다. <strong>대회·공모전</strong>(아이디어·네이밍·사진·영상 등)과 <strong>대외활동</strong>(서포터즈·인턴·기자단·체험단)을 함께 모아 두었고, 검색 시점에 <strong>3,600건 이상</strong>이 진행 중이었습니다. 걸러 보는 축이 넷입니다 — <strong>대상</strong>(대학생·일반) · <strong>지역</strong>(전국·시도별·온라인) · <strong>주최</strong>(정부·기업·학교·기관) · <strong>총상금</strong>. 접수 마감과 심사·발표 일정이 함께 표시됩니다.<br /><strong>이 수업에서 쓰는 법</strong> — 「관광」·「여행」·「지역」으로 검색해 <em>지금 낼 수 있는 것</em>을 찾고, <strong>대외활동</strong> 쪽에서 관광 기관·기업의 <strong>서포터즈·기자단</strong>을 잡으면 과제 2(입사 제안서)의 <em>④ 근거가 되는 내 산출물</em> 칸이 채워집니다. 수상·활동 이력은 예비관광벤처 사업계획서의 <strong>5절 팀빌딩</strong>에 그대로 쓰입니다.</span>
+          <span class="desc">왼쪽 모모365가 <strong>기관이 발주하는 공모사업·입찰</strong> 쪽이라면, 이쪽은 <strong class="hot-t">학생이 직접 출품하는 공모전</strong> 쪽입니다. <strong>대회·공모전</strong>(아이디어·네이밍·사진·영상 등)과 <strong>대외활동</strong>(서포터즈·인턴·기자단·체험단)을 함께 모아 두었고, 검색 시점에 <strong>3,600건 이상</strong>이 진행 중이었습니다. 걸러 보는 축이 넷입니다 — <strong>대상</strong>(대학생·일반) · <strong>지역</strong>(전국·시도별·온라인) · <strong>주최</strong>(정부·기업·학교·기관) · <strong>총상금</strong>. 접수 마감과 심사·발표 일정이 함께 표시됩니다.</span>
+          <details class="fold">
+            <summary>더 읽기 — 이 수업에서 쓰는 법 · 주의</summary>
+            <span class="desc"><strong>이 수업에서 쓰는 법</strong> — 「관광」·「여행」·「지역」으로 검색해 <em>지금 낼 수 있는 것</em>을 찾고, <strong>대외활동</strong> 쪽에서 관광 기관·기업의 <strong>서포터즈·기자단</strong>을 잡으면 과제 2(입사 제안서)의 <em>④ 근거가 되는 내 산출물</em> 칸이 채워집니다. 수상·활동 이력은 예비관광벤처 사업계획서의 <strong>5절 팀빌딩</strong>에 그대로 쓰입니다.</span>
+          </details>
           <span class="meta">콘테스트코리아 (contestkorea.com) · 대회·공모전 + 대외활동 통합 검색</span>
         </li>
         <li class="t-teal">
@@ -2035,7 +2040,11 @@
         </li>
         <li class="t-cyan">
           <a href="https://search.visitkorea.or.kr/ktir/search/ipsearch" target="_blank" rel="noopener">관광특화 통합검색 — 뉴스 · 학술정보를 한 번에 ↗</a>
-          <span class="desc">옆의 콘텐츠랩이 <em>만들 재료(데이터)</em>를 준다면, 이곳은 <strong class="hot-t">「그 문제가 실제로 있다」는 증거</strong>를 줍니다. 관광산업 네트워크 참여기관 자료를 한 창에서 검색합니다 — <strong>뉴스 1,001만 건 · 학술정보 122만 건 · 여행정보 4.6만 건 · MICE 1.4만 건</strong>, 그리고 <strong>지역별 관광통계</strong>. 들어가 보면 인기검색어 2위가 <em>「관광벤처」</em>입니다.<br /><strong>근거의 세 층이 이렇게 갈립니다</strong> — <strong>숫자</strong>는 한국관광 데이터랩, <strong>정책</strong>은 PRISM, 그리고 <strong>보도와 논문</strong>이 여기입니다. 워크북 <strong>시트 3</strong>의 「출처 · URL · 숫자 3건」을 채울 때 세 곳을 한 번씩 들르면 층이 겹치지 않습니다. 특히 <strong>학술정보</strong>는 사업계획서의 <em>「왜 지금인가」</em>를 받칠 때 기사보다 오래 갑니다.<br /><b>주의</b> — 통합연계 현황이 <strong>2022년 기준</strong>으로 표기돼 있으니, 인용할 자료는 <strong>원문의 발행연도를 반드시 확인</strong>하십시오.</span>
+          <span class="desc">옆의 콘텐츠랩이 <em>만들 재료(데이터)</em>를 준다면, 이곳은 <strong class="hot-t">「그 문제가 실제로 있다」는 증거</strong>를 줍니다. 관광산업 네트워크 참여기관 자료를 한 창에서 검색합니다 — <strong>뉴스 1,001만 건 · 학술정보 122만 건 · 여행정보 4.6만 건 · MICE 1.4만 건</strong>, 그리고 <strong>지역별 관광통계</strong>. 들어가 보면 인기검색어 2위가 <em>「관광벤처」</em>입니다.</span>
+          <details class="fold">
+            <summary>더 읽기 — 이 수업에서 쓰는 법 · 주의</summary>
+            <span class="desc"><strong>근거의 세 층이 이렇게 갈립니다</strong> — <strong>숫자</strong>는 한국관광 데이터랩, <strong>정책</strong>은 PRISM, 그리고 <strong>보도와 논문</strong>이 여기입니다. 워크북 <strong>시트 3</strong>의 「출처 · URL · 숫자 3건」을 채울 때 세 곳을 한 번씩 들르면 층이 겹치지 않습니다. 특히 <strong>학술정보</strong>는 사업계획서의 <em>「왜 지금인가」</em>를 받칠 때 기사보다 오래 갑니다.<br /><b>주의</b> — 통합연계 현황이 <strong>2022년 기준</strong>으로 표기돼 있으니, 인용할 자료는 <strong>원문의 발행연도를 반드시 확인</strong>하십시오.</span>
+          </details>
           <span class="meta">한국관광공사 · search.visitkorea.or.kr · 관광특화 통합검색(KTIR)</span>
         </li>
         <li class="t-teal">
@@ -2080,7 +2089,10 @@
           <li><strong>접수처</strong> — <strong>한국관광콘텐츠랩</strong>(api.visitkorea.or.kr). 데이터를 받는 곳과 공모전을 접수하는 곳이 같은 사이트입니다.</li>
           </ul>
           </details>
-          <span class="desc">이 공모전이 이 강의와 맞물리는 지점은 분명합니다. 02장 「빅데이터 분석」에서 배운 <strong>데이터 읽기</strong>, 04 모듈 「웹 포트폴리오 제작」에서 배운 <strong>만들기</strong>, 그리고 이 모듈의 <strong>문제 정의</strong> — 셋을 합치면 그대로 출품작이 됩니다. 그리고 <strong>지금 보고 계신 이 웹사이트</strong>가 바로 그 증거입니다. 큰 예산 없이도 정적 웹사이트 하나로 가치 제안을 세상에 내걸 수 있다면, 거기에 공공 관광 데이터를 얹는 일은 그다음 한 걸음일 뿐입니다. 수상 실적은 이후 예비관광벤처·경북 관광 스타트업 공모의 <strong>사업계획서에 그대로 쓰이는 이력</strong>이 되기도 합니다.</span>
+          <details class="fold">
+            <summary>더 읽기 — 이 수업과 어떻게 맞물리나</summary>
+            <span class="desc">이 공모전이 이 강의와 맞물리는 지점은 분명합니다. 02장 「빅데이터 분석」에서 배운 <strong>데이터 읽기</strong>, 04 모듈 「웹 포트폴리오 제작」에서 배운 <strong>만들기</strong>, 그리고 이 모듈의 <strong>문제 정의</strong> — 셋을 합치면 그대로 출품작이 됩니다. 그리고 <strong>지금 보고 계신 이 웹사이트</strong>가 바로 그 증거입니다. 큰 예산 없이도 정적 웹사이트 하나로 가치 제안을 세상에 내걸 수 있다면, 거기에 공공 관광 데이터를 얹는 일은 그다음 한 걸음일 뿐입니다. 수상 실적은 이후 예비관광벤처·경북 관광 스타트업 공모의 <strong>사업계획서에 그대로 쓰이는 이력</strong>이 되기도 합니다.</span>
+          </details>
           
           <span class="meta">한국관광공사 · api.visitkorea.or.kr · TourAPI</span>
         </li>
@@ -2098,7 +2110,10 @@
           <li><strong>접수처</strong> — 콘진원 누리집(kocca.kr)과 <strong>범부처통합연구지원시스템(IRIS, iris.go.kr)</strong>. 정부 R&amp;D는 부처를 막론하고 이 IRIS 한곳으로 모입니다.</li>
           </ul>
           </details>
-          <span class="desc">학생 입장에서 이 공고를 활용하는 법은 이렇습니다. <strong>①</strong> 과제명 목록만 훑어도 <strong>2~3년 뒤의 관광 트렌드</strong>가 보입니다. <strong>②</strong> 사업계획서의 '왜 지금인가'(02장) 문항에 <strong>"정부가 이 방향에 얼마를 편성했다"</strong>는 근거로 인용할 수 있습니다. <strong>③</strong> 대학원 진학이나 연구소·기업 취업을 생각한다면, 이 과제를 수행하는 기관이 곧 <strong>일자리가 생기는 곳</strong>입니다. 앞서 본 PRISM(정책연구용역)이 <em>이미 한 일</em>을 보여준다면, R&amp;D 공고는 <strong>앞으로 할 일</strong>을 보여줍니다.</span>
+          <details class="fold">
+            <summary>더 읽기 — 이 수업과 어떻게 맞물리나</summary>
+            <span class="desc">학생 입장에서 이 공고를 활용하는 법은 이렇습니다. <strong>①</strong> 과제명 목록만 훑어도 <strong>2~3년 뒤의 관광 트렌드</strong>가 보입니다. <strong>②</strong> 사업계획서의 '왜 지금인가'(02장) 문항에 <strong>"정부가 이 방향에 얼마를 편성했다"</strong>는 근거로 인용할 수 있습니다. <strong>③</strong> 대학원 진학이나 연구소·기업 취업을 생각한다면, 이 과제를 수행하는 기관이 곧 <strong>일자리가 생기는 곳</strong>입니다. 앞서 본 PRISM(정책연구용역)이 <em>이미 한 일</em>을 보여준다면, R&amp;D 공고는 <strong>앞으로 할 일</strong>을 보여줍니다.</span>
+          </details>
           
           
           <span class="meta">한국콘텐츠진흥원 · kocca.kr / iris.go.kr · 부산창업기업지원센터(busanstartup.kr) · 주관 (주)비스퀘어</span>
