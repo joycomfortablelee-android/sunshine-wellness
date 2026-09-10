@@ -394,6 +394,20 @@
     /* 실습 칸 — 제출하는 과제가 아니라 수업 중에 만드는 것이라 배지 색을 가른다 */
     .learn-article .tflow a.tf-i.prac > b { background: #2f5148; }
 
+    /* 주간 운영 상자 — 줄글 둘을 「번호) 키워드 : 설명」 다섯 칸으로. 왼쪽 정렬. */
+    .learn-hero .syl-box .kwlist.syl-kw { margin: 0; padding: 0; list-style: none; counter-reset: kw; text-align: left; }
+    .learn-hero .syl-box .kwlist.syl-kw > li {
+      display: grid; grid-template-columns: 108px minmax(0, 1fr); gap: 10px;
+      margin: 0; padding: 6px 0; border-top: 1px dashed #dbe6f2;
+      font-size: 11.5px; line-height: 1.65; color: #4d5f74;
+    }
+    .learn-hero .syl-box .kwlist.syl-kw > li:first-child { border-top: 0; padding-top: 0; }
+    .learn-hero .syl-box .kwlist.syl-kw > li > b { counter-increment: kw; font-weight: 800; color: #17365d; }
+    .learn-hero .syl-box .kwlist.syl-kw > li > b::before { content: counter(kw) ') '; color: #6d8dae; font-weight: 900; }
+    .learn-hero .syl-box .kwlist.syl-kw strong { color: #17365d; }
+    .learn-hero .syl-box .syl-t { text-align: left; }
+    @media (max-width: 620px) { .learn-hero .syl-box .kwlist.syl-kw > li { grid-template-columns: 1fr; gap: 2px; } }
+
   </style>
 </head>
 <body class="mod-smart">
@@ -425,9 +439,14 @@
         </div>
         <div class="syl-box">
           <p class="syl-t"><a href="smart-tourism-weekly-plan.html" target="_blank" rel="noopener">주간 수업 운영 · 학생 발표 배정 — 1~15주차 한 장 ↗</a></p>
-          <p class="syl-d">이 페이지의 자료를 <strong>어느 주에 어떤 순서로 쓰는지</strong>가 여기 있습니다. 한 주는 <strong>150분(3시수)</strong>이고 <strong>수요일 100분 + 목요일 50분</strong>으로 나뉩니다 — 수요일은 핵심 논문 셋을 20분씩 읽고 1·2팀이 도시 사례를 발표하며, 목요일은 3팀 발표 뒤 책 20분과 「전체 보기」 10분으로 그 주를 닫습니다.</p>
-          <p class="syl-d">논문 한 편은 <strong>20분 표준 세트</strong>로 고정돼 있습니다 — 연구질문·HOOK 3 → 논문·사례영상 4 → 설계·핵심결과 8 → CONCEPT 3 → LENS 2. 발표 배정은 <strong>3~7주 국내 열두 도시 → 8주 중간고사 → 9~14주 유럽 수상·최종후보 → 15주 종합발표</strong> 순으로, 팀별 도시까지 정해져 있습니다.</p>
-          <p class="syl-tags"><a class="mapl" href="smart-tourism-weekly-plan.html#week-table" target="_blank" rel="noopener">주간 운영표 · 요일별 단위 ↗</a><a class="mapl" href="smart-tourism-weekly-plan.html#team-assign" target="_blank" rel="noopener">팀별 발표 도시 1~15주 ↗</a><a class="mapl" href="academic-calendar-2026-2.html" target="_blank" rel="noopener">2학기 학사일정 달력 ↗</a><span class="syl-src">선샤인 웰니스 자체 제작 · 수요일 1·2교시 + 목요일 2교시</span></p>
+          <ol class="kwlist syl-kw">
+            <li><b>한 주의 크기</b><span><strong>150분(3시수)</strong> — 수요일 <strong>100분</strong> + 목요일 <strong>50분</strong>으로 나뉩니다.</span></li>
+            <li><b>수요일에 하는 것</b><span>핵심 논문 셋을 <strong>20분씩</strong> 읽고, <strong>1 · 2팀</strong>이 도시 사례를 발표합니다.</span></li>
+            <li><b>목요일에 하는 것</b><span><strong>3팀</strong> 발표 뒤 책 <strong>20분</strong>과 「전체 보기」 <strong>10분</strong>으로 그 주를 닫습니다.</span></li>
+            <li><b>논문 20분 표준</b><span>연구질문 · HOOK 3 → 논문 · 사례영상 4 → 설계 · 핵심결과 8 → CONCEPT 3 → LENS 2.</span></li>
+            <li><b>발표 배정 순서</b><span><strong>3~7주</strong> 국내 열두 도시 → <strong>8주</strong> 중간고사 → <strong>9~14주</strong> 유럽 수상 · 최종후보 → <strong>15주</strong> 종합발표. 팀별 도시까지 정해져 있습니다.</span></li>
+          </ol>
+          <p class="syl-tags"><a class="mapl" href="smart-tourism-weekly-plan.html#week-table" target="_blank" rel="noopener">주간 운영표 · 요일별 단위 ↗</a><a class="mapl" href="smart-tourism-weekly-plan.html#team-assign" target="_blank" rel="noopener">팀별 발표 도시 1~15주 ↗</a><a class="mapl" href="academic-calendar-2026-2.html" target="_blank" rel="noopener">2학기 학사일정 달력 ↗</a></p>
         </div>
       </div>
     </div>
@@ -942,26 +961,6 @@
         </span>
       </a>
 
-      <div class="stcomic fit" id="mkof">
-        <div class="stc-viewer" tabindex="0" aria-roledescription="캐러셀" aria-label="맵 제작 과정과 최종 종합 맵">
-          <div class="stc-track">
-            <section class="stc-slide" aria-label="1. 제작 과정 여섯 칸">
-              <p class="stc-head"><span class="stc-title">1. 이렇게 만들어졌습니다 — 제작 과정 여섯 칸</span><span class="stc-count">1 / 2</span></p>
-              <img src="images/smart-tourism-pilot-map-makingof.webp" alt="스마트 관광도시 시범사업 자료를 정리한 과정 여섯 칸 — ① 원자료: 기업별·사례별로 흩어짐 ② 문제: 정보 분산·핵심 기능 파악 어려움·콘텐츠 박스 겹침 ③ 변경 1 기능 중심으로 압축 ④ 변경 2 기술을 서비스와 연결 ⑤ 변경 3 콘텐츠 박스를 넓게 ⑥ 최종 결과: 여섯 갈래와 기업명" width="1122" height="1402" />
-            </section>
-            <section class="stc-slide" aria-label="2. 여섯 갈래 종합 맵">
-              <p class="stc-head"><span class="stc-title">2. 그래서 이렇게 됐습니다 — 여섯 갈래 종합 맵</span><span class="stc-count">2 / 2</span></p>
-              <img src="images/smart-tourism-pilot-map-sixfold.webp" alt="스마트 관광도시 분야별 문제와 활용 기술 종합 맵 — 가운데 「스마트 관광도시: 관광 문제를 디지털 기술로 해결」을 두고 여섯 갈래가 둘러싼다. ① 안전(군중 밀집·위험 상황·응급 대응 / 실시간 영상분석·AI 이상 탐지·유동인구 데이터 분석·이동형 AED 키오스크 / 아이티비 Project Go AI·피치에이아이·시정) ② 콘텐츠(관광정보 안내·축제 정보 제공 / AI 챗봇·말하는 캐릭터·맞춤형 안내·다국어 인터페이스 / 애프터워크) ③ 스마트 주차(축제 주차 혼잡 / 영상기반 주차 감지·주차정보 통합 플랫폼·실시간 안내 / 베스텔라랩) ④ 스마트 지도(길찾기·현장 동선 안내·교통약자 이동 지원 / API 연동 디지털 지도·QR 기반 웹지도·XR 공간정보·경로 안내 / 다비오·딥파인) ⑤ 스마트 결제(현장 결제 불편·대기 문제 / 모바일 카드결제·QR 주문결제·대기관리 솔루션 / 유디아이디 페이앱·테이블매니저) ⑥ ESG·접근성(관광약자 배려·포용관광 / 접근성 정보 제공·교통약자 경로 안내·AI 맞춤형 관광안내 / 애프터워크·다비오). 각 갈래는 문제 → 기술 → 서비스 순으로 이어진다. 핵심 문장 — 스마트 관광도시는 관광 현안에 맞는 데이터·AI·지도·결제·접근성 기술을 결합해 방문객 경험과 현장 운영을 함께 개선한다." width="1672" height="941" loading="lazy" />
-            </section>
-          </div>
-          <button class="stc-nav stc-prev" type="button" aria-label="이전 그림">‹</button>
-          <button class="stc-nav stc-next" type="button" aria-label="다음 그림">›</button>
-        </div>
-        <p class="stc-dots">
-          <button class="stc-dot is-on" type="button" data-i="0" aria-label="1. 제작 과정 보기"></button><button class="stc-dot" type="button" data-i="1" aria-label="2. 종합 맵 보기"></button>
-        </p>
-        <p class="stc-hint">좌 · 우 버튼으로 넘깁니다 — <b>1장은 만든 과정</b>, <b>2장은 그 결과인 종합 맵</b>입니다.</p>
-      </div>
 
       <p class="mini-note"><b>위 맵은 이렇게 만들어졌습니다</b> — <strong>원자료 → 기능 중심 압축 → 기술·서비스 연결</strong>. 처음에는 시범사업 자료가 <em>기업별·사례별로 흩어져</em> 있었고, 박스가 좁아 글자가 겹쳤습니다. 그것을 <strong>「무슨 기능을 해결하는가」</strong>로 다시 묶고, 기술 이름 대신 <strong>그 기술이 관광 서비스에서 어떻게 쓰이는지</strong>로 바꿔 적은 것이 <strong>2장의 종합 맵</strong>입니다 — 여섯 갈래가 저마다 <strong class="hot-t">문제 → 기술 → 서비스</strong>로 이어지고, 갈래마다 대표 기업이 붙어 있습니다.</p>
 
@@ -969,33 +968,41 @@
       <p><strong>이 그림을 자료로 보지 말고 방법으로 보십시오.</strong> 여기서 한 일은 셋입니다 — <strong>① 개별 나열을 기능 중심 분류로</strong>(기업 이름이 아니라 푸는 문제로 묶기) <strong>② 긴 설명을 핵심 키워드로 압축</strong> <strong>③ 기술 이름 중심을 서비스 활용 중심으로</strong>(「AI 이상 탐지」 → <em>「안전」</em>, 「모바일·QR 결제」 → <em>「결제 편의」</em>). 흩어진 사례를 앞에 두고 <strong class="hot-t">무엇으로 묶을 것인가</strong>를 정하는 일 — 벤치마킹 과제도, 공모전 제안서도 결국 이 작업입니다. <strong>파트 01 단계 1</strong>에서 도시 자료를 세 갈래로 가르던 것과 같은 손놀림입니다.</p>
       </div>
 
-      <p class="mini-note"><strong>여섯 갈래를 그림으로</strong> — 위 원형 맵이 <em>무엇이 어느 갈래인지</em>를 보여준다면, 아래 만화는 갈래마다 <strong>문제 → 기술 → 서비스</strong>가 어떻게 이어지는지와 <strong>대표 사례 기업</strong>까지 한 장에 담았습니다. 좌·우로 넘겨 보십시오.</p>
+      <p class="mini-note"><strong>여덟 장으로 봅니다</strong> — <strong>1~2장</strong>은 위 원형 맵이 <em>어떻게 만들어졌고 그 결과가 무엇인지</em>, <strong>3~8장</strong>은 여섯 갈래마다 <strong class="hot-t">문제 → 기술 → 서비스</strong>가 어떻게 이어지는지와 <strong>대표 사례 기업</strong>을 한 장씩 담았습니다. 좌·우로 넘겨 보십시오.</p>
 
-      <div class="stcomic" id="stcomic">
-        <div class="stc-viewer" id="stc-viewer" tabindex="0" aria-roledescription="캐러셀" aria-label="스마트 관광도시 여섯 갈래 만화">
+      <div class="stcomic fit" id="stcomic">
+        <div class="stc-viewer" id="stc-viewer" tabindex="0" aria-roledescription="캐러셀" aria-label="맵 제작 과정과 여섯 갈래 만화 — 여덟 장">
           <div class="stc-track" id="stc-track">
-            <section class="stc-slide" aria-label="1. 안전 · Smart Safety">
-              <p class="stc-head"><span class="stc-title">1. 안전 · Smart Safety</span><span class="stc-count">1 / 6</span></p>
-              <img src="images/smart-tourism-comic-1-safety.webp" alt="1. 안전 — 문제(군중 밀집·위험 상황·응급 대응) → 기술(실시간 영상분석·AI 이상 탐지·유동인구 데이터 분석·이동형 AED 키오스크) → 서비스. 대표 사례 아이티비(주) Project Go AI · 피치에이아이 · (주)시정" width="1448" height="1086" />
+            <section class="stc-slide" aria-label="1. 이렇게 만들어졌습니다 — 제작 과정 여섯 칸">
+              <p class="stc-head"><span class="stc-title">1. 이렇게 만들어졌습니다 — 제작 과정 여섯 칸</span><span class="stc-count">1 / 8</span></p>
+              <img src="images/smart-tourism-pilot-map-makingof.webp" alt="스마트 관광도시 시범사업 자료를 정리한 과정 여섯 칸 — ① 원자료: 기업별·사례별로 흩어짐 ② 문제: 정보 분산·핵심 기능 파악 어려움·콘텐츠 박스 겹침 ③ 변경 1 기능 중심으로 압축 ④ 변경 2 기술을 서비스와 연결 ⑤ 변경 3 콘텐츠 박스를 넓게 ⑥ 최종 결과: 여섯 갈래와 기업명" width="1122" height="1402" />
             </section>
-            <section class="stc-slide" aria-label="2. 콘텐츠 · Smart Content">
-              <p class="stc-head"><span class="stc-title">2. 콘텐츠 · Smart Content</span><span class="stc-count">2 / 6</span></p>
+            <section class="stc-slide" aria-label="2. 그래서 이렇게 됐습니다 — 여섯 갈래 종합 맵">
+              <p class="stc-head"><span class="stc-title">2. 그래서 이렇게 됐습니다 — 여섯 갈래 종합 맵</span><span class="stc-count">2 / 8</span></p>
+              <img src="images/smart-tourism-pilot-map-sixfold.webp" alt="스마트 관광도시 분야별 문제와 활용 기술 종합 맵 — 가운데 「스마트 관광도시: 관광 문제를 디지털 기술로 해결」을 두고 여섯 갈래가 둘러싼다. ① 안전(군중 밀집·위험 상황·응급 대응 / 실시간 영상분석·AI 이상 탐지·유동인구 데이터 분석·이동형 AED 키오스크 / 아이티비 Project Go AI·피치에이아이·시정) ② 콘텐츠(관광정보 안내·축제 정보 제공 / AI 챗봇·말하는 캐릭터·맞춤형 안내·다국어 인터페이스 / 애프터워크) ③ 스마트 주차(축제 주차 혼잡 / 영상기반 주차 감지·주차정보 통합 플랫폼·실시간 안내 / 베스텔라랩) ④ 스마트 지도(길찾기·현장 동선 안내·교통약자 이동 지원 / API 연동 디지털 지도·QR 기반 웹지도·XR 공간정보·경로 안내 / 다비오·딥파인) ⑤ 스마트 결제(현장 결제 불편·대기 문제 / 모바일 카드결제·QR 주문결제·대기관리 솔루션 / 유디아이디 페이앱·테이블매니저) ⑥ ESG·접근성(관광약자 배려·포용관광 / 접근성 정보 제공·교통약자 경로 안내·AI 맞춤형 관광안내 / 애프터워크·다비오). 각 갈래는 문제 → 기술 → 서비스 순으로 이어진다. 핵심 문장 — 스마트 관광도시는 관광 현안에 맞는 데이터·AI·지도·결제·접근성 기술을 결합해 방문객 경험과 현장 운영을 함께 개선한다." width="1672" height="941" loading="lazy" />
+            </section>
+            <section class="stc-slide" aria-label="3. 안전 · Smart Safety">
+              <p class="stc-head"><span class="stc-title">3. 안전 · Smart Safety</span><span class="stc-count">3 / 8</span></p>
+              <img loading="lazy" src="images/smart-tourism-comic-1-safety.webp" alt="1. 안전 — 문제(군중 밀집·위험 상황·응급 대응) → 기술(실시간 영상분석·AI 이상 탐지·유동인구 데이터 분석·이동형 AED 키오스크) → 서비스. 대표 사례 아이티비(주) Project Go AI · 피치에이아이 · (주)시정" width="1448" height="1086" />
+            </section>
+            <section class="stc-slide" aria-label="4. 콘텐츠 · Smart Content">
+              <p class="stc-head"><span class="stc-title">4. 콘텐츠 · Smart Content</span><span class="stc-count">4 / 8</span></p>
               <img src="images/smart-tourism-comic-2-content.webp" alt="2. 콘텐츠 — 문제 → 기술 → 서비스 흐름과 대표 사례" width="1448" height="1086" loading="lazy" />
             </section>
-            <section class="stc-slide" aria-label="3. 스마트 주차 · Smart Parking">
-              <p class="stc-head"><span class="stc-title">3. 스마트 주차 · Smart Parking</span><span class="stc-count">3 / 6</span></p>
+            <section class="stc-slide" aria-label="5. 스마트 주차 · Smart Parking">
+              <p class="stc-head"><span class="stc-title">5. 스마트 주차 · Smart Parking</span><span class="stc-count">5 / 8</span></p>
               <img src="images/smart-tourism-comic-3-parking.webp" alt="3. 스마트 주차 — 문제 → 기술 → 서비스 흐름과 대표 사례" width="1448" height="1086" loading="lazy" />
             </section>
-            <section class="stc-slide" aria-label="4. 스마트 지도 · Smart Map">
-              <p class="stc-head"><span class="stc-title">4. 스마트 지도 · Smart Map</span><span class="stc-count">4 / 6</span></p>
+            <section class="stc-slide" aria-label="6. 스마트 지도 · Smart Map">
+              <p class="stc-head"><span class="stc-title">6. 스마트 지도 · Smart Map</span><span class="stc-count">6 / 8</span></p>
               <img src="images/smart-tourism-comic-4-map.webp" alt="4. 스마트 지도 — 문제 → 기술 → 서비스 흐름과 대표 사례" width="1448" height="1086" loading="lazy" />
             </section>
-            <section class="stc-slide" aria-label="5. 스마트 결제 · Smart Payment">
-              <p class="stc-head"><span class="stc-title">5. 스마트 결제 · Smart Payment</span><span class="stc-count">5 / 6</span></p>
+            <section class="stc-slide" aria-label="7. 스마트 결제 · Smart Payment">
+              <p class="stc-head"><span class="stc-title">7. 스마트 결제 · Smart Payment</span><span class="stc-count">7 / 8</span></p>
               <img src="images/smart-tourism-comic-5-payment.webp" alt="5. 스마트 결제 — 문제 → 기술 → 서비스 흐름과 대표 사례" width="1448" height="1086" loading="lazy" />
             </section>
-            <section class="stc-slide" aria-label="6. ESG · 접근성">
-              <p class="stc-head"><span class="stc-title">6. ESG · 접근성 · ESG &amp; Accessibility</span><span class="stc-count">6 / 6</span></p>
+            <section class="stc-slide" aria-label="8. ESG · 접근성 · ESG & Accessibility">
+              <p class="stc-head"><span class="stc-title">8. ESG · 접근성 · ESG &amp; Accessibility</span><span class="stc-count">8 / 8</span></p>
               <img src="images/smart-tourism-comic-6-esg.webp" alt="6. ESG와 접근성 — 문제 → 기술 → 서비스 흐름과 대표 사례" width="1448" height="1086" loading="lazy" />
             </section>
           </div>
@@ -1003,9 +1010,9 @@
           <button class="stc-nav stc-next" id="stc-next" type="button" aria-label="다음 그림">›</button>
         </div>
         <p class="stc-dots" id="stc-dots">
-          <button class="stc-dot is-on" type="button" data-i="0" aria-label="1. 안전 보기"></button><button class="stc-dot" type="button" data-i="1" aria-label="2. 콘텐츠 보기"></button><button class="stc-dot" type="button" data-i="2" aria-label="3. 주차 보기"></button><button class="stc-dot" type="button" data-i="3" aria-label="4. 지도 보기"></button><button class="stc-dot" type="button" data-i="4" aria-label="5. 결제 보기"></button><button class="stc-dot" type="button" data-i="5" aria-label="6. ESG·접근성 보기"></button>
+          <button class="stc-dot is-on" type="button" data-i="0" aria-label="1. 이렇게 만들어졌습니다 — 제작 과정 여섯 칸 보기"></button><button class="stc-dot" type="button" data-i="1" aria-label="2. 그래서 이렇게 됐습니다 — 여섯 갈래 종합 맵 보기"></button><button class="stc-dot" type="button" data-i="2" aria-label="3. 안전 · Smart Safety 보기"></button><button class="stc-dot" type="button" data-i="3" aria-label="4. 콘텐츠 · Smart Content 보기"></button><button class="stc-dot" type="button" data-i="4" aria-label="5. 스마트 주차 · Smart Parking 보기"></button><button class="stc-dot" type="button" data-i="5" aria-label="6. 스마트 지도 · Smart Map 보기"></button><button class="stc-dot" type="button" data-i="6" aria-label="7. 스마트 결제 · Smart Payment 보기"></button><button class="stc-dot" type="button" data-i="7" aria-label="8. ESG · 접근성 · ESG & Accessibility 보기"></button>
         </p>
-        <p class="stc-hint">좌 · 우 버튼이나 아래 점을 누르고, 휴대폰에서는 화면을 옆으로 밉니다. 그림을 한 번 누른 뒤에는 <b>← →</b> 키로도 넘어갑니다.</p>
+        <p class="stc-hint">좌 · 우 버튼이나 아래 점을 누르고, 휴대폰에서는 화면을 옆으로 밉니다. 그림을 한 번 누른 뒤에는 <b>← →</b> 키로도 넘어갑니다 — <b>1~2장은 맵이 만들어진 과정과 그 결과</b>, <b>3~8장은 갈래마다의 문제 → 기술 → 서비스</b>입니다.</p>
         <p class="stc-src">선샤인 웰니스 자체 제작 · 원자료 2024년 <a href="https://www.onoffmix.com/event/304269" target="_blank" rel="noopener">「스마트한 지역관광 문제해결 해커톤」 공고 원문 ↗</a> · <a href="https://www.contestkorea.com/sub/view.php?int_gbn=1&amp;Txt_bcode=031410001&amp;str_no=202407120077" target="_blank" rel="noopener">콘테스트코리아 공고 ↗</a> 시범사업 12건</p>
       </div>
 
