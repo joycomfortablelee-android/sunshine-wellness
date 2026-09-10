@@ -1254,6 +1254,51 @@
     .learn-article .note-box .kw-fold > summary b { color: #2e7d86; }
     .learn-article .note-box .kw-fold[open] > summary { margin-bottom: 10px; }
 
+    /* 수익 모델 사분면 — 창업 지원 사분면과 같은 격자, 색만 청록으로 */
+    .learn-article .quad.rev .q-top { border-bottom-color: #bfe3e8; color: #14474d; }
+    .learn-article .quad.rev .q-top em {
+      display: block; margin-top: 2px; font-style: normal;
+      font-size: 10px; font-weight: 700; color: #6d9aa0; letter-spacing: 0;
+    }
+    .learn-article .quad.rev .q-side { border-right-color: #bfe3e8; color: #52697f; }
+    .learn-article .quad.rev .q-side b { display: block; color: #14474d; }
+    .learn-article .quad.rev .q-cell {
+      border-color: #bfe3e8;
+      background: linear-gradient(158deg, #eef8f9 0%, #f8fcfd 70%, #fff 100%);
+    }
+    .learn-article .quad.rev .q-k { font-size: 14px; font-weight: 900; color: #14474d; letter-spacing: -.3px; }
+    .learn-article .quad.rev .q-d { display: block; margin-top: 6px; font-size: 12px; line-height: 1.7; color: #4a5a68; }
+    .learn-article .quad.rev .q-d strong { color: #14474d; }
+    .learn-article .quad.rev .r1 { grid-area: 2 / 2; }
+    .learn-article .quad.rev .r2 { grid-area: 2 / 3; }
+    .learn-article .quad.rev .r3 { grid-area: 3 / 2; }
+    .learn-article .quad.rev .r4 { grid-area: 3 / 3; }
+    @media (max-width: 720px) {
+      .learn-article .quad.rev .q-top { display: none; }
+      .learn-article .quad.rev .r1, .learn-article .quad.rev .r2,
+      .learn-article .quad.rev .r3, .learn-article .quad.rev .r4 { grid-area: auto; }
+    }
+
+    /* 영상 아래로 내려온 「자주 무너지는 곳」 — 위 내려받기 줄과 같은 간격으로 */
+    .learn-article .psst-vid .psst-tip.vid { margin: 12px 0 0; }
+
+    /* 다음 수업도 접어 편다 — 붉은 테두리는 그대로 두어 「다음 회차」임이 보이게 한다. */
+    .learn-article .wk-fold.next3 {
+      border: 2px solid #c0392b; background: #fffaf9; margin: 0 0 26px; padding: 13px 17px 12px;
+    }
+    .learn-article .wk-fold.next3 > summary { color: #8a3a2f; }
+    .learn-article .wk-fold.next3 > summary b.nx-tag { margin-right: 9px; }
+    .learn-article .wk-fold.next3 > summary::after,
+    .learn-article .wk-fold.next3 > summary .wk-sub { color: #b4796e; }
+    .learn-article .wk-fold.next3[open] > summary { margin-bottom: 8px; }
+
+    /* 영상 설명 둘을 한 문단으로 합쳤다 — 내려받기 줄은 알약과 용량만 남긴다. */
+    .learn-article .psst-vid .pvid-lead b.lead2 {
+      display: inline-block; margin-right: 5px; color: #1f382f; font-weight: 800;
+    }
+    .learn-article .psst-vid .pvid-dl.bare { padding: 10px 14px; }
+    .learn-article .psst-vid .pvid-dl.bare .dl-m { display: inline-block; margin: 0 0 0 10px; vertical-align: 1px; }
+
   </style>
 </head>
 <body class="mod-venture">
@@ -1337,18 +1382,18 @@
             <span class="d">대표자의 <b>역량</b>, 추가로 채울 자리와 <b>협력 네트워크</b>, 인력 채용 계획.</span>
             <span class="lk">↔ 학생이 가장 얕게 쓰는 칸 — <b>과제 2</b>에서 회사를 뜯어본 눈이 여기 쓰입니다</span></li>
         </ol>
-        <p class="psst-tip"><b>학생 원고에서 자주 무너지는 곳</b> — <strong>P에 통계가 없고</strong>(PRISM·데이터랩에서 숫자를 가져오십시오), <strong>S(솔루션)에 검증이 없고</strong>(만들기 전에 물어본 흔적이 있어야 합니다), <strong>T에 「열심히 하겠습니다」만 있습니다</strong>(없는 역량은 협력 네트워크로 메운다고 쓰는 편이 정직하고 강합니다).</p>
         </div>
         <figure class="learn-fig psst-vid">
-          <p class="pvid-lead"><b>영상으로 · P 칸 하나만 뜯어보기</b>네 칸 중 <strong>첫 칸(문제 인식)</strong>만 놓고 <em>예비창업패키지</em> 실제 사업계획서를 문단 단위로 뜯는 영상입니다. 「그냥 무조건 따라하기」라는 제목대로 <strong>그 칸을 어떤 순서로, 어떤 문장으로 채우는지</strong>를 보여줍니다. 부처와 사업은 다르지만 <strong class="hot-t">묻는 것은 관광벤처 양식의 「1-1 문제 인식」과 같습니다</strong> — 위 과제 1의 첫 칸을 쓰기 전에 한 번 보십시오. 보면서 확인할 것 둘 — <strong>① 문제를 몇 번째 문장에서 특정하는가</strong>, <strong>② 근거로 무엇을 들고 왔는가</strong>(위 「P에 통계가 없다」와 겹칩니다).</p>
+          <p class="pvid-lead"><b>영상으로 · P 칸 하나만 뜯어보기</b>네 칸 중 <strong>첫 칸(문제 인식)</strong>만 놓고 <em>예비창업패키지</em> 실제 사업계획서를 문단 단위로 뜯는 영상입니다. 부처와 사업은 다르지만 <strong class="hot-t">묻는 것은 관광벤처 양식의 「1-1 문제 인식」과 같습니다</strong> — 위 과제 1의 첫 칸을 쓰기 전에 한 번 보십시오. 보면서 확인할 것 둘 — <strong>① 문제를 몇 번째 문장에서 특정하는가</strong>, <strong>② 근거로 무엇을 들고 왔는가</strong>(아래 「P에 통계가 없다」와 겹칩니다).<br /><b class="lead2">영상 요약 슬라이드</b>는 이 영상을 <strong>슬라이드로 옮기고 말하듯 대본을 붙인</strong> 수업용 자료입니다 — <strong>Problem 파트에 들어가야 할 여섯 가지</strong>(창업동기 · 문제정의 · 객관적 증거 · 대체제 · Unmet Needs · 시장기회), 설문보다 <strong>인터뷰</strong>가 강한 이유, <strong>문제와 해결방안을 1:1로 맞추는 법</strong>, TAM–SAM–SOM과 <em>산출근거 쓰는 법</em>(“SOM 300억”이 아니라 <em>목표고객 30만 × 연 10만원</em>). 뒤쪽에는 <strong class="hot-t">「관광벤처 수업 적용」 슬라이드</strong> — <em>“안동에는 관광정보가 부족하다”</em>가 왜 약한 문제정의인지를 <strong>안동 사례</strong>로 고쳐 쓰고, 마지막은 <strong>학생용 6문장 공식</strong>(WHO · PROBLEM · EVIDENCE · ALTERNATIVE · UNMET NEED · OPPORTUNITY)과 <strong>8항목 최종 체크리스트</strong>입니다.</p>
           <div style="position:relative;width:100%;max-width:720px;margin:0 auto;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;">
             <iframe src="https://www.youtube-nocookie.com/embed/iNbX2YSjcgw" title="예비창업패키지 실제 사례 완벽 분석 1편 — 문제인식(Problem), 그냥 무조건 따라하기" style="position:absolute;inset:0;width:100%;height:100%;border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
           </div>
           <figcaption>「예비창업패키지 실제 사례 완벽 분석 <b>1편 — 문제인식(Problem)</b>, 그냥 무조건 따라하기」 — 채널 <a href="https://www.youtube.com/@%EC%A0%95%EC%84%9DBiz" target="_blank" rel="noopener">사업계획서의 정석, 비즈니스 성공방정식 ↗</a>. <b>1편이 P를 다룹니다</b> — 나머지 칸(S · S · T)은 같은 채널에서 이어 찾아보십시오.</figcaption>
-          <p class="pvid-dl">
+          <p class="pvid-dl bare">
             <a class="mapl" href="assets/tourism-venture-psst-problem-summary.ppt" download="예비창업패키지_Problem(문제인식)_요약_대본강조.ppt">영상 요약 슬라이드 ⤓ PPT</a>
-            <span class="dl-d">위 영상을 <strong>슬라이드로 옮기고 말하듯 대본을 붙인</strong> 수업용 자료입니다. <strong>Problem 파트에 들어가야 할 여섯 가지</strong>(창업동기 · 문제정의 · 객관적 증거 · 대체제 · Unmet Needs · 시장기회), 설문보다 <strong>인터뷰</strong>가 강한 이유, <strong>문제와 해결방안을 1:1로 맞추는 법</strong>, TAM–SAM–SOM과 <em>산출근거 쓰는 법</em>(“SOM 300억”이 아니라 <em>목표고객 30만 × 연 10만원</em>)까지 들어 있습니다.<br />뒤쪽에 <strong class="hot-t">「관광벤처 수업 적용」 슬라이드</strong>가 따로 있습니다 — <em>“안동에는 관광정보가 부족하다”</em>가 왜 약한 문제정의인지, 같은 것을 어떻게 고쳐 쓰는지를 <strong>안동 사례</strong>로 보여줍니다. 마지막은 <strong>학생용 6문장 공식</strong>(WHO · PROBLEM · EVIDENCE · ALTERNATIVE · UNMET NEED · OPPORTUNITY)과 <strong>8항목 최종 체크리스트</strong>입니다. <span class="dl-m">PowerPoint 97–2003(.ppt) · 594KB</span></span>
+            <span class="dl-m">PowerPoint 97–2003(.ppt) · 594KB</span>
           </p>
+          <p class="psst-tip vid"><b>학생 원고에서 자주 무너지는 곳</b> — <strong>P에 통계가 없고</strong>(PRISM·데이터랩에서 숫자를 가져오십시오), <strong>S(솔루션)에 검증이 없고</strong>(만들기 전에 물어본 흔적이 있어야 합니다), <strong>T에 「열심히 하겠습니다」만 있습니다</strong>(없는 역량은 협력 네트워크로 메운다고 쓰는 편이 정직하고 강합니다).</p>
         </figure>
       </details>
 
@@ -1420,18 +1465,19 @@
         </div>
       </details>
 
-      <div class="next-box">
+      <details class="wk-fold today next3" open>
+        <summary><b class="nx-tag">3주차</b>9월 15일(화) 수업 — 아이디어는 문제에서 나온다<span class="wk-sub">누구의 어떤 불편인가 · WHO · WHAT · WHY NOW · 워크북 시트 2</span></summary>
+        <div class="tf-body">
+          <p class="nx-h">아이디어는 문제에서 나온다 — 누구의 어떤 불편인가</p>
 
-        <p class="nx-t"><b class="nx-tag">3주차</b>9월 15일(화) 수업</p>
-        <p class="nx-h">아이디어는 문제에서 나온다 — 누구의 어떤 불편인가</p>
+          <p class="nx-lb">이날의 목표</p>
+          <p class="nx-d">수업이 끝나면 <strong class="hot-t">「내 아이템이 누구의 어떤 불편을 푸는지」를 한 문장으로 말할 수 있게</strong> 됩니다. 순서를 뒤집는 연습입니다 — <em>내가 만들고 싶은 것</em>에서 시작하지 않고 <strong>02장의 세 칸</strong>(<strong>WHO</strong> 누구의 문제인가 · <strong>WHAT</strong> 어떤 문제인가 · <strong>WHY NOW</strong> 왜 지금인가)에서 시작합니다.</p>
 
-        <p class="nx-lb">이날의 목표</p>
-        <p class="nx-d">수업이 끝나면 <strong class="hot-t">「내 아이템이 누구의 어떤 불편을 푸는지」를 한 문장으로 말할 수 있게</strong> 됩니다. 순서를 뒤집는 연습입니다 — <em>내가 만들고 싶은 것</em>에서 시작하지 않고 <strong>02장의 세 칸</strong>(<strong>WHO</strong> 누구의 문제인가 · <strong>WHAT</strong> 어떤 문제인가 · <strong>WHY NOW</strong> 왜 지금인가)에서 시작합니다.</p>
-
-        <p class="nx-lb">할 것</p>
-        <p class="nx-d"><strong>워크북 시트 2</strong> — 문제를 <strong>여섯 문장</strong>으로 쪼갭니다. 누가(WHO) · 무엇이 불편한가(PROBLEM) · 지금은 어떻게 하고 있나(ALTERNATIVE) · 그런데도 남는 아쉬움(UNMET NEED) · 그래서 생기는 기회(OPPORTUNITY). <strong>고객을 구체적으로</strong> 적는 것이 관건입니다 — 「관광객」이 아니라 <em>「부산을 처음 찾는 외국인 개별 여행자」</em>처럼.</p>
-        <p class="nx-n">지난주에 고른 유형이 바뀌어도 괜찮습니다 — <strong>문제가 선명해지면 유형은 따라옵니다.</strong></p>
-      </div>
+          <p class="nx-lb">할 것</p>
+          <p class="nx-d"><strong>워크북 시트 2</strong> — 문제를 <strong>여섯 문장</strong>으로 쪼갭니다. 누가(WHO) · 무엇이 불편한가(PROBLEM) · 지금은 어떻게 하고 있나(ALTERNATIVE) · 그런데도 남는 아쉬움(UNMET NEED) · 그래서 생기는 기회(OPPORTUNITY). <strong>고객을 구체적으로</strong> 적는 것이 관건입니다 — 「관광객」이 아니라 <em>「부산을 처음 찾는 외국인 개별 여행자」</em>처럼.</p>
+          <p class="nx-n">지난주에 고른 유형이 바뀌어도 괜찮습니다 — <strong>문제가 선명해지면 유형은 따라옵니다.</strong></p>
+        </div>
+      </details>
 
 
 
@@ -1631,7 +1677,7 @@
             <a href="https://drive.google.com/drive/folders/1IqpcHebAGGMIWCV3nLwlYsk6uNo4__rr" target="_blank" rel="noopener">② 부록 · AI 자동화 키트 ↗</a>
             <a href="https://publy.co/topic/237" target="_blank" rel="noopener">③ PUBLY BEST ↗</a>
           </div>
-          <span class="desc">앞에서 <em>"공고는 찾는 사람에게만 보인다"</em>고 했는데, ①의 마지막 단계는 <strong>그 찾는 일 자체를 매일 아침 자동으로 돌리는</strong> 방식입니다. ②에 프롬프트와 코드가 실물로 공개돼 있습니다. 다만 <strong>AI가 만든 것은 어디까지나 초안</strong>입니다.</span>
+          <span class="desc">①은 <strong>공고 찾기부터 초안까지 AI로 돌리는 작업 순서</strong>, ②는 그 <strong>프롬프트와 코드 실물</strong>입니다. 다만 <strong>AI가 낸 것은 초안</strong> — 숫자는 공고 원문과 대조합니다.</span>
           <details class="fold">
             <summary>세 자료가 각각 무엇인가</summary>
             <span class="desc"><strong>① 정부지원사업, AI로 공고 스크리닝부터 사업계획서 초안 작성까지 끝내는 법</strong> — 아래 <strong>AI 자동화 키트의 본문</strong>에 해당하는 글입니다. 의료기기 스타트업에서 <strong>연평균 50억원 규모</strong>의 정부지원사업 서류를 써 온 실무자(필명 '신대리')가, <em>2주 걸리던 초안을 3일로 줄인</em> 작업 순서를 공개합니다. 다루는 것은 넷 — ① <strong>회사 자료를 AI에 안전하게 넣는 법</strong>(무엇을 넣고 무엇을 넣지 않는가) ② <strong>심사 항목별 초안 프롬프트</strong> ③ <strong>AI를 가상 심사위원으로 세운 사전 검증</strong> ④ <strong>맞춤 공고 자동 수집·슬랙 알림 코드</strong>. 유료 콘텐츠(무료체험 제공). <span class="meta">PUBLY · '일잘러의 업무스킬' · 신대리 · 유료(무료체험)</span></span>
@@ -1865,12 +1911,29 @@
       <p class="mini-note">등록 요건(자본금·사무실·보증보험)은 회차와 지자체에 따라 달라지므로 <strong>반드시 관할 시·군 관광부서의 최신 안내</strong>로 확인하십시오. 여기서 기억할 것은 하나입니다 — <strong>내가 팔려는 여행이 어느 칸에 들어가는지</strong>.</p>
 
       <p><strong>같은 여행상품이라도 돈이 남는 자리는 넷으로 갈립니다.</strong></p>
-      <ol class="vcards c4">
-        <li class="t-blue"><span class="vh">수수료 · 중개</span><span class="vd">남의 상품을 연결하고 일부를 받는다. 재고가 없어 시작이 가볍지만 <strong>단가가 낮다</strong>.</span></li>
-        <li class="t-teal"><span class="vh">직판</span><span class="vd">내가 만든 상품을 직접 판다. 마진이 크지만 <strong>모객을 내가 책임</strong>진다.</span></li>
-        <li class="t-gold"><span class="vh">패키지</span><span class="vd">교통·숙박·체험을 묶어 하나로. 묶는 능력이 곧 <strong>진입장벽</strong>이 된다.</span></li>
-        <li class="t-violet"><span class="vh">OTA 입점</span><span class="vd">플랫폼에 얹어 노출을 산다. 빠르지만 <strong>수수료와 순위</strong>에 매인다.</span></li>
-      </ol>
+      <div class="quad rev" role="group" aria-label="여행상품 수익 모델 넷 — 재고를 지는가 × 모객을 지는가">
+        <span class="q-top q-t1">재고를 지지 않는다<em>남의 상품을 얹는다</em></span>
+        <span class="q-top q-t2">재고를 진다<em>내 상품을 만든다</em></span>
+        <span class="q-side q-s1"><b>모객을</b>남에게 맡긴다</span>
+        <div class="q-cell r1">
+          <span class="q-k">수수료 · 중개</span>
+          <span class="q-d">남의 상품을 연결하고 일부를 받는다. 재고가 없어 <strong>시작이 가볍지만 단가가 낮다.</strong></span>
+        </div>
+        <div class="q-cell r2">
+          <span class="q-k">패키지</span>
+          <span class="q-d">교통 · 숙박 · 체험을 묶어 하나로. <strong>묶는 능력이 곧 진입장벽</strong>이 된다.</span>
+        </div>
+        <span class="q-side q-s2"><b>모객을</b>내가 진다</span>
+        <div class="q-cell r3">
+          <span class="q-k">OTA 입점</span>
+          <span class="q-d">플랫폼에 얹어 노출을 산다. 빠르지만 <strong>수수료와 순위에 매인다.</strong></span>
+        </div>
+        <div class="q-cell r4">
+          <span class="q-k">직판</span>
+          <span class="q-d">내가 만든 상품을 직접 판다. <strong>마진이 크지만 모객을 내가 책임</strong>진다.</span>
+        </div>
+      </div>
+      <p class="mini-note tv-travel"><strong>읽는 법</strong> — 가로는 <strong>재고를 지는가</strong>, 세로는 <strong>모객을 누가 지는가</strong>입니다. <strong class="hot-t">가벼울수록 단가가 낮고, 무거울수록 마진이 큽니다.</strong> 넷 중 하나만 고르는 것이 아니라 <em>어디서 먼저 벌 것인가</em>를 정하는 자리입니다 — 워크북 시트 4(차별성)를 쓸 때 이 칸을 먼저 정하면 비교표가 쉬워집니다.</p>
 
       <p><strong>외식은 관광의 곁다리가 아닙니다.</strong> 여행 지출에서 먹는 데 쓰는 몫이 크고, 요즘은 <strong>먹으러 가는 여행</strong>이 따로 있습니다. 교재 그림 2가 외식에 <strong>세 장(6~8장)</strong>과 프랜차이즈 한 장(9장)을 쓰는 이유입니다. 순서는 이렇습니다 — <strong>콘셉트 개발 → 메뉴경영 → 위생·안전 → 접객 매뉴얼 → (넓힐 때) 프랜차이즈</strong>. 이 가운데 창업 초기에 승부가 나는 곳은 맨 앞 <em>콘셉트</em>이고, 마지막 <em>프랜차이즈</em>는 <strong class="hot-t">넓히지 않기로 하는 것도 전략</strong>입니다 — 아래 <strong>사례 2 성심당</strong>이 정확히 그 선택을 한 곳입니다.</p>
 
