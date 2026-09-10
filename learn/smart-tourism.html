@@ -408,6 +408,9 @@
     .learn-hero .syl-box .syl-t { text-align: left; }
     @media (max-width: 620px) { .learn-hero .syl-box .kwlist.syl-kw > li { grid-template-columns: 1fr; gap: 2px; } }
 
+    /* 실습 배지 — 제출하는 과제가 아니라 수업 중에 만드는 것이라 초록으로 가른다 */
+    .learn-article .task-box .tb-n.prac { background: #2f5148; }
+
   </style>
 </head>
 <body class="mod-smart">
@@ -480,7 +483,7 @@
         <b class="tf-lb">이 학기의 넷</b>
         <a class="tf-i t1 prac" href="#과제1"><b>실습</b>국내 도시 벤치마킹<i>내 도시를 세 갈래로</i></a>
         <span class="tf-a">→</span>
-        <a class="tf-i t2 prac" href="#과제2"><b>대비</b>인성면접 · 지원서<i>취업 서류를 미리 써 둔다</i></a>
+        <a class="tf-i t2 prac" href="#대비"><b>대비</b>인성면접 · 지원서<i>취업 서류를 미리 써 둔다</i></a>
         <span class="tf-a">→</span>
         <a class="tf-i t3 prac" href="#과제3"><b>실습</b>유럽 벤치마킹 발표<i>9~15주차</i></a>
         <span class="tf-a">→</span>
@@ -488,7 +491,7 @@
       </p>
 
 
-      <div class="syl-box job">
+      <div class="syl-box job" id="대비">
         <p class="syl-t"><a href="interview-personality-20.html" target="_blank" rel="noopener">기관 인성면접 예상 질문 20문 ↗</a><a class="sticky-pill" href="interview-personality-20.html" target="_blank" rel="noopener">노란 스티키노트 한 장 ↗</a><a class="doc-pill" href="assets/interview-personality-20.docx" download="기관_인성면접_예상질문_20문.docx">워드로 내려받기 ⤓ DOCX</a></p>
         <p class="syl-d"><strong>파트 03이 취업 지원으로 모인다</strong>고 했습니다 — 그 마지막 칸이 면접입니다. 벤치마킹 발표와 업무 수행계획서로 <em>내가 무엇을 했는가</em>를 만들었다면, 면접은 그것을 <strong>말로 옮기는 자리</strong>입니다. 아래 스무 문항은 <strong>공공기관·공기업 인성면접</strong>에서 반복해서 나오는 질문들입니다.</p>
         <p class="syl-d"><strong>쓰는 법은 하나입니다 — 눈으로 읽지 말고 소리 내어 답하십시오.</strong> 한 문항당 <strong>40초~1분</strong>이 실제 면접의 길이입니다. 스무 장이 <em>자기소개 → 장·단점 → 극복 경험 → 협업과 갈등 → 원칙과 태도 → 마지막 한마디</em> 순으로 놓여 있어, 위에서부터 훑으면 <strong class="hot-t">면접 한 회차가 그대로 지나갑니다</strong>. 인쇄하면 A4에 4열로 떨어져 손에 들고 연습할 수 있습니다.</p>
@@ -574,7 +577,7 @@
       </div>
 
       <div class="task-box s1 y2">
-        <p class="tb-t" id="과제1"><b class="tb-n">과제 1</b>도시 카드 — 용인을 본떠 내 도시로 <span class="when">중간시험 전 · 수업 중 실습 → 바로 발표</span></p>
+        <p class="tb-t" id="과제1"><b class="tb-n prac">실습</b>국내 도시 벤치마킹 — 용인을 본떠 내 도시로 <span class="when">중간시험 전 · 수업 중 실습 → 바로 발표</span></p>
         <p class="tb-d">위 여섯 자료가 <strong>용인을 어떻게 갈라 봤는지</strong> 확인했으면, 같은 틀을 <strong>배정받은 도시</strong>에 그대로 적용합니다. 채우는 칸은 셋입니다 — <strong>WHAT</strong> 무엇을 만들었나 · <strong>PLATFORM + RESEARCH</strong> 무엇을 근거로 삼았나 · <strong>PROMOTION</strong> 어떻게 알렸나. 단순 소개가 아니라 <strong class="hot-t">플랫폼–근거–홍보가 이어지는 것</strong>이 보여야 하고, 칸마다 <strong>공식 출처 URL</strong>을 적습니다.</p>
         <p class="tb-tags"><a class="mapl form hot red" href="assets/city-card-a4-1p-student.docx" download="스마트관광도시_도시카드_A4_1장_학생양식.docx">양식 · A4 1장 ⤓</a><a class="mapl form hot red" href="assets/city-card-a4-3p-student.docx" download="스마트관광도시_도시카드_A4_3장_학생작성용.docx">양식 · A4 3장 ⤓</a><a class="mapl form ex" href="assets/city-card-a4-3p-yongin-example.docx" download="스마트관광도시_용인_교수자예시답안_A4_3장.docx">예시 답안 · 용인 A4 3장 ⤓</a><span class="tb-src">1장은 요약본, 3장은 칸을 나눠 채우는 판입니다 — 둘 중 하나만 내면 됩니다. <b>용인 예시 답안은 견본입니다</b> — 용인을 맡은 팀은 그대로 옮기지 말고 예시가 다루지 않은 자료를 더 찾으십시오.</span></p>
       </div>
@@ -613,14 +616,14 @@
       </ul>
 
       <div class="task-box s3 y">
-        <p class="tb-t" id="과제2"><b class="tb-n">과제 2</b>응모신청서 쓰기 — 실습 결과를 출품작으로 <span>양식① 작성</span><span class="when hot">중간시험 전주 · 중간시험 대체</span></p>
+        <p class="tb-t" id="과제2"><b class="tb-n">기말발표</b>응모신청서 쓰기 — 실습 결과를 출품작으로 <span>양식① 작성</span><span class="when hot">중간시험 전주 · 중간시험 대체</span></p>
         <p class="tb-d">위 카드에서 <strong>양식①</strong>을 내려받아 채웁니다. 여섯 묶음이고, <strong class="hot-t">이 수업에서 이미 만든 것으로 대부분 채워집니다</strong> — <strong>[2] 아이디어</strong> 작품명·50자 요약·카테고리, <strong>[3] 문제</strong> 무엇이 불편한가·누가 겪는가·지금은 어떻게 하고 있나, <strong>[4] 해결</strong> 어떤 서비스이고 어떻게 작동하나, <strong>[5] 효과</strong> 도입 전과 후가 어떻게 다른가·왜 경북에 맞나·몇 명이 혜택을 보나, <strong>[6] 실행</strong> 비슷한 사례·필요한 기술·예상되는 어려움.</p>
         <p class="tb-d"><strong>어디서 가져오나</strong> — [3]의 「누가 겪는가」는 <strong>단계 2 안동 실습</strong>에서 확인한 <em>검색해도 안 나오는 자원</em>이 그대로 근거가 됩니다. [6]의 「비슷한 사례」는 <strong>파트 02 유럽 사례집 44건</strong>에서 고르면 되고, 홍보물이 아니라 심사용 문서라 인용의 무게가 다릅니다. [6]의 「예상되는 어려움」은 <strong>솔직하게 쓰는 편이 유리합니다</strong> — 실습에서 만난 <em>줌 15 해상도 한계</em>처럼 도구의 한계를 아는 사람이 쓴 글로 읽힙니다.</p>
         <p class="tb-tags"><a class="mapl form hot red" href="assets/gyeongbuk-ax-2026-form1-application.docx" download="0714-양식1_응모신청서.docx">양식① 응모신청서 ⤓</a><a class="mapl form" href="assets/gyeongbuk-ax-2026-form2-consent.docx" download="0714-양식2_개인정보저작권동의서.docx">양식② 동의서 ⤓</a><a class="mapl form ex" href="assets/gyeongbuk-ax-2026-notice.pdf" target="_blank" rel="noopener">공고문 원문 3쪽 ↗</a><span class="tb-src">두 양식을 <b>각각 PDF로 변환해 이메일 접수</b>합니다. 대학생은 <b>일반부</b>이고, 아이디어만으로 응모할 수 있어 개발 완성물은 필요 없습니다.</span></p>
       </div>
 
       <div class="task-box pd3 y">
-        <p class="tb-t" id="과제4"><b class="tb-n">과제 4</b>업무 수행계획서 쓰기 — 공공기관·재단 취업 지원의 실무를 익힌다 <span>모의 PT · 그룹 평가</span></p>
+        <p class="tb-t" id="과제4"><b class="tb-n">기말발표</b>업무 수행계획서 쓰기 — 공공기관·재단 취업 지원의 실무를 익힌다 <span>모의 PT · 그룹 평가</span></p>
         <p class="tb-d"><strong>국가기관·공공기관·지역 재단에 지원할 때 실제로 요구되는 서류</strong>입니다. 한국관광공사·지역 문화재단·시군 관광재단의 채용 전형은 대부분 자기소개서와 함께 <strong>직무수행계획서</strong>를 받으며, 면접에서도 이 문서를 놓고 묻습니다. 학기 중에 한 번 써 두면 <strong>지원 시점에 처음 마주치지 않습니다</strong> — 이 과제의 목적은 문서 한 장이 아니라 <strong class="hot-t">취업 실무를 미리 익히는 것</strong>입니다. 이 양식이 다른 자기소개서와 갈리는 칸은 <strong class="hot-t">5번 「내 산출물」</strong> 하나입니다 — <em>“하겠습니다”가 아니라 “이미 해봤고 여기 있습니다”</em>를 적는 자리이고, 위 실습에서 만든 <strong>안동 관광지도</strong>·단계 1의 <strong>도시 카드</strong>·<strong>공모전 출품작</strong>이 그대로 들어갑니다.</p>
         <p class="tb-d">칸은 여섯입니다 — <strong>★ 한 문장</strong> · <strong>1 기관 진단</strong>(공식 출처 URL) · <strong>2 빈자리</strong>(관광객 관점인가 도시 관점인가) · <strong>3 스마트관광 관점</strong>(EU 네 부문 중 선택) · <strong>4 수행 계획</strong>(3개월·1년·3년) · <strong>5 내 산출물</strong> · <strong>6 성과 지표</strong>. 3번에서 <strong>디지털화만 고르면 좁아진다</strong>는 것이 이 수업 전체의 요점이고, 6번은 <strong>방문객 총수 대신 분산을 보는</strong> 지표를 고르게 합니다.</p>
         <p class="tb-d"><strong>쓰고 끝내지 않습니다</strong> — 작성한 계획서로 <strong class="hot-t">모의 PT</strong>를 하고 <strong>그룹 평가로 피드백을 받습니다</strong>. 실제 채용에서도 이 문서를 놓고 면접이 진행되므로, 남 앞에서 한 번 말해 본 사람과 문서만 낸 사람의 차이가 그 자리에서 드러납니다. 서로 볼 것은 셋입니다 — <strong>기관 진단이 공식 출처에 닿아 있는가</strong> · <strong>수행 계획이 「배우겠습니다」로 비어 있지 않은가</strong> · <strong>5번 산출물 칸에 실제로 보여줄 것이 있는가</strong>.</p>
@@ -748,7 +751,7 @@
       </ul>
 
       <div class="task-box r4">
-        <p class="tb-t" id="과제3"><b class="tb-n">과제 3</b>유럽 도시 벤치마킹 발표 — 중간고사 이후 <span>9–15주차</span></p>
+        <p class="tb-t" id="과제3"><b class="tb-n prac">실습</b>유럽 도시 벤치마킹 발표 — 중간고사 이후 <span>9–15주차</span></p>
         <p class="tb-d">전반부가 <strong>국내 스마트관광도시</strong>를 갈라 보는 시간이었다면, 중간고사 뒤로는 <strong class="hot-t">유럽 도시를 같은 틀로 벤치마킹</strong>합니다. 팀마다 <strong>수상 도시 또는 최종후보 한 곳</strong>을 맡아 발표하고, 15주차에 전체를 종합합니다 — 9~11주 스마트관광 수도 수상도시, 12주 Green Pioneer 수상도시, 13~14주 최종후보, 15주 종합.</p>
         <p class="tb-d"><strong>발표 틀은 다섯 칸으로 고정합니다</strong> — ① <strong>관광 문제</strong> 이 도시가 무엇을 안고 있었나 · ② <strong>기술 · 서비스</strong> 무엇으로 손댔나 · ③ <strong>관광객 · 도시 효과</strong> 무엇이 달라졌나 · ④ <strong>4대 영역</strong> 접근성 · 지속가능성 · 디지털화 · 문화유산과 창의성 중 어디에 걸리나 · ⑤ <strong>한국 적용 가능성</strong> 경북·안동에 옮기면 무엇이 남고 무엇이 안 되나. <strong>도시 소개가 아니라 문제 해결의 이야기</strong>여야 하고, 이 다섯 칸은 과제 1 도시 카드의 세 갈래를 유럽용으로 늘린 것입니다.</p>
         <p class="tb-d"><strong>근거는 위에서 가져옵니다</strong> — 읽기 3의 <strong>89쪽 사례집</strong>에 도시별 원문이 있고, 읽기 4의 <strong>Green Pioneer 사례집</strong>은 작은 도시를 다룹니다. 둘 다 도시가 <em>심사를 통과하려고 제출한 신청서</em>에서 발췌한 것이라 홍보물보다 인용의 무게가 다릅니다.</p>
