@@ -1031,6 +1031,49 @@
     .learn-article .q-align { margin-left: 102px; }
     @media (max-width: 720px) { .learn-article .q-align { margin-left: 0; } }
 
+    /* ===== 여행업 세 종류 — 포개진 상자 =====
+       셋은 나란한 종류가 아니라 「안에 들어 있는」 관계다.
+       종합 ⊃ 국내외 ⊃ 국내 — 바깥 업종은 안쪽 업무를 그대로 할 수 있다.
+       나란한 세 칸으로 그리면 이 포함 관계가 사라져, 상자를 실제로 중첩한다. */
+    .learn-article .nest { margin: 16px 0 14px; }
+    .learn-article .nest-l {
+      border-radius: 12px; padding: 13px 15px 14px;
+    }
+    .learn-article .nest-l .nest-l { margin-top: 11px; }
+    .learn-article .nest .n1 { border: 2px solid #1f6a73; background: #e8f5f7; }
+    .learn-article .nest .n2 { border: 2px solid #4fa3ad; background: #f1fafb; }
+    .learn-article .nest .n3 { border: 2px dashed #7cc0c8; background: #fff; }
+    .learn-article .nest .nest-t {
+      display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px;
+      margin: 0 0 5px; font-size: 15px; font-weight: 900; color: #14474d; letter-spacing: -.3px;
+    }
+    .learn-article .nest .nest-k {
+      padding: 2px 9px; border-radius: 999px; background: #1f6a73; color: #fff;
+      font-size: 10.5px; font-weight: 800; letter-spacing: .04em;
+    }
+    .learn-article .nest .n2 .nest-k { background: #3e8f99; }
+    .learn-article .nest .n3 .nest-k { background: #6cb3bc; }
+    .learn-article .nest .nest-amt {
+      margin-left: auto; padding: 3px 10px; border-radius: 8px;
+      background: #fff; border: 1px solid #bfe3e8; color: #14474d;
+      font-size: 11.5px; font-weight: 700; white-space: nowrap;
+    }
+    .learn-article .nest .nest-amt b { font-size: 14px; font-weight: 900; letter-spacing: -.3px; }
+    .learn-article .nest .n3 .nest-amt { border-color: #d6ebee; }
+    .learn-article .nest .nest-d {
+      margin: 0; font-size: 12.5px; line-height: 1.72; color: #3f4b57;
+    }
+    .learn-article .nest .nest-d strong { color: #14474d; }
+    .learn-article .nest .nest-legend {
+      margin: 9px 0 0; font-size: 11.5px; color: #6b8086; text-align: right;
+    }
+    .learn-article .nest .nest-legend b { color: #14474d; font-weight: 800; }
+    @media (max-width: 620px) {
+      .learn-article .nest-l { padding: 11px 11px 12px; }
+      .learn-article .nest .nest-amt { margin-left: 0; }
+      .learn-article .nest .nest-legend { text-align: left; }
+    }
+
   </style>
 </head>
 <body class="mod-venture">
@@ -1591,11 +1634,23 @@
 
 
       <p><strong>여행업은 등록 종류에 따라 할 수 있는 일이 다릅니다.</strong></p>
-      <ol class="vcards c3 steps">
-        <li class="t-cyan"><span class="vt">가장 넓다</span><span class="vh">종합여행업</span><span class="vamt">자본금 <b>5,000만원</b> 이상</span><span class="vd">국내외를 여행하는 <strong>내국인 및 외국인</strong>을 대상으로 하는 여행업. <strong>외국인을 대상으로 여행업을 하려면 종합여행업에 해당</strong>합니다.</span></li>
-        <li class="t-cyan2"><span class="vt">중간</span><span class="vh">국내외여행업</span><span class="vamt">자본금 <b>3,000만원</b> 이상</span><span class="vd">내국인의 <strong>국내·국외 여행</strong>. 아웃바운드를 하려면 여기부터.</span></li>
-        <li class="t-cyan3"><span class="vt">가장 가볍다</span><span class="vh">국내여행업</span><span class="vamt">자본금 <b>1,500만원</b> 이상</span><span class="vd">내국인의 <strong>국내 여행</strong>만. 지역 기반 테마여행으로 시작한다면 첫 문.</span></li>
-      </ol>
+      <div class="nest" role="group" aria-label="여행업 세 종류 — 넓은 것이 좁은 것을 포함한다">
+        <div class="nest-l n1">
+          <p class="nest-t"><b class="nest-k">가장 넓다</b>종합여행업<span class="nest-amt">자본금 <b>5,000만원</b> 이상</span></p>
+          <p class="nest-d">국내외를 여행하는 <strong>내국인 및 외국인</strong>을 대상으로 하는 여행업. <strong class="hot-t">외국인을 대상으로 여행업을 하려면 종합여행업에 해당합니다.</strong></p>
+
+          <div class="nest-l n2">
+            <p class="nest-t"><b class="nest-k">중간</b>국내외여행업<span class="nest-amt">자본금 <b>3,000만원</b> 이상</span></p>
+            <p class="nest-d">내국인의 <strong>국내 · 국외 여행</strong>. 아웃바운드를 하려면 여기부터.</p>
+
+            <div class="nest-l n3">
+              <p class="nest-t"><b class="nest-k">가장 가볍다</b>국내여행업<span class="nest-amt">자본금 <b>1,500만원</b> 이상</span></p>
+              <p class="nest-d">내국인의 <strong>국내 여행</strong>만. 지역 기반 테마여행으로 시작한다면 첫 문.</p>
+            </div>
+          </div>
+        </div>
+        <p class="nest-legend">바깥일수록 <b>할 수 있는 일이 넓고 문턱이 높다</b> — 안쪽 업무는 바깥 업종이 그대로 할 수 있습니다.</p>
+      </div>
       <div class="note-box tv-travel">
       <p class="kw-h">「등록한다」가 실제로 무슨 일인가 — 일곱 가지로</p>
       <ol class="kwlist">
