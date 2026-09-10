@@ -1025,6 +1025,12 @@
       .learn-article .quad .c3, .learn-article .quad .c4 { grid-area: auto; }
     }
 
+    /* 사분면의 세로축 이름이 왼쪽 92px 를 쓰므로 네 박스는 102px 안에서 시작한다.
+       바로 아래 설명문과 카드 묶음도 같은 만큼 밀어 왼쪽 선을 맞춘다.
+       (사분면이 끝나는 절까지만 적용 — 페이지의 다른 카드들은 건드리지 않는다.) */
+    .learn-article .q-align { margin-left: 102px; }
+    @media (max-width: 720px) { .learn-article .q-align { margin-left: 0; } }
+
   </style>
 </head>
 <body class="mod-venture">
@@ -1374,8 +1380,8 @@
           <span class="q-d">창업보육센터 · 액셀러레이터 · TIPS · 엔젤 · 벤처투자.</span>
         </div>
       </div>
-      <p class="mini-note"><strong>읽는 법</strong> — 가로는 <strong>무엇을 받는가</strong>(사업화 <em>자금</em>이냐, 사람 · 공간 · <em>투자</em>냐), 세로는 <strong>무엇으로 좁혀 뽑는가</strong>(<em>분야와 지역</em>이냐, <em>창업 단계</em>냐)입니다. <strong class="hot-t">넷은 순서가 아니라 서로 다른 창구</strong>여서, 같은 아이템으로 여러 칸에 동시에 낼 수 있습니다 — 다만 <strong>중복 수혜 제한</strong>은 공고마다 다르니 그때 확인하십시오.</p>
-      <ul class="reslist grid3 two">
+      <p class="mini-note q-align"><strong>읽는 법</strong> — 가로는 <strong>무엇을 받는가</strong>(사업화 <em>자금</em>이냐, 사람 · 공간 · <em>투자</em>냐), 세로는 <strong>무엇으로 좁혀 뽑는가</strong>(<em>분야와 지역</em>이냐, <em>창업 단계</em>냐)입니다. <strong class="hot-t">넷은 순서가 아니라 서로 다른 창구</strong>여서, 같은 아이템으로 여러 칸에 동시에 낼 수 있습니다 — 다만 <strong>중복 수혜 제한</strong>은 공고마다 다르니 그때 확인하십시오.</p>
+      <ul class="reslist grid3 two q-align">
         <li class="t-blue2">
           <span class="grouptitle">사업계획서·IR 피칭 배우기 — 사람에게</span>
           <div class="linkrow tiny">
