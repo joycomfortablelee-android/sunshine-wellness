@@ -1116,6 +1116,36 @@
     }
     .learn-article .syl-box.job .syl-tags.job-more a.mapl.blue:hover { background: #0e2a45; border-color: #0e2a45; }
 
+    /* 배우기 카드 셋 — 바로 위 사분면(.q-cell)과 같은 테두리 · 바탕 · 간격으로 맞춘다.
+       한 절 안에서 격자가 둘인데 생김새가 갈리면 따로 노는 것처럼 읽힌다. */
+    .learn-article .reslist.grid3.like-quad { gap: 8px 10px; }
+    .learn-article .reslist.grid3.like-quad > li {
+      padding: 12px 14px 13px; border-radius: 11px;
+      border: 1px solid #c8ddf0; border-left-width: 1px;
+      background: linear-gradient(158deg, #eef6fd 0%, #f8fbfe 70%, #fff 100%);
+      box-shadow: none;
+    }
+    .learn-article .reslist.grid3.like-quad > li .grouptitle {
+      display: block; margin: 0 0 7px; font-size: 13.5px; font-weight: 800;
+      color: #17395f; letter-spacing: -.2px;
+    }
+    .learn-article .reslist.grid3.like-quad > li .desc { font-size: 12px; line-height: 1.7; color: #4a5a68; }
+    .learn-article .reslist.grid3.like-quad > li .desc strong { color: #17395f; }
+    .learn-article .reslist.grid3.like-quad > li .desc em { font-style: normal; color: #1c4e8a; font-weight: 700; }
+    .learn-article .reslist.grid3.like-quad > li .meta { font-size: 11px; color: #8b9aab; }
+    .learn-article .reslist.grid3.like-quad .linkrow.tiny { margin: 0 0 8px; }
+    .learn-article .reslist.grid3.like-quad .linkrow.tiny a {
+      background: #fff; border: 1px solid #1c4e8a; color: #1c4e8a; font-size: 11px; font-weight: 700;
+      padding: 4px 10px; border-radius: 999px;
+    }
+    .learn-article .reslist.grid3.like-quad .linkrow.tiny a:hover { background: #1c4e8a; color: #fff; }
+    .learn-article .reslist.grid3.like-quad details.fold {
+      margin: 9px 0 0; padding: 8px 0 0; background: none; border: 0; border-top: 1px dashed #c8ddf0;
+    }
+    .learn-article .reslist.grid3.like-quad details.fold > summary {
+      font-size: 11.5px; font-weight: 800; color: #6d8dae;
+    }
+
   </style>
 </head>
 <body class="mod-venture">
@@ -1467,7 +1497,7 @@
         </div>
       </div>
       <p class="mini-note q-align"><strong>읽는 법</strong> — 가로는 <strong>무엇을 받는가</strong>(사업화 <em>자금</em>이냐, 사람 · 공간 · <em>투자</em>냐), 세로는 <strong>무엇으로 좁혀 뽑는가</strong>(<em>분야와 지역</em>이냐, <em>창업 단계</em>냐)입니다. <strong class="hot-t">넷은 순서가 아니라 서로 다른 창구</strong>여서, 같은 아이템으로 여러 칸에 동시에 낼 수 있습니다 — 다만 <strong>중복 수혜 제한</strong>은 공고마다 다르니 그때 확인하십시오.</p>
-      <ul class="reslist grid3 two q-align">
+      <ul class="reslist grid3 two q-align like-quad">
         <li class="t-blue2">
           <span class="grouptitle">사업계획서·IR 피칭 배우기 — 사람에게</span>
           <div class="linkrow tiny">
