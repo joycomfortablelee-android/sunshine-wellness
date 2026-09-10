@@ -1194,6 +1194,13 @@
     }
 
 
+    /* 08장 두 삼각형 — 숙박 세 칸과 1·2·3차. 카드 색에 맞춰 윤곽선과 허브를 바꾼다.
+       1·2·3차는 층이 쌓이는 것이지 순서가 아니라 삼각형이 맞다. */
+    .learn-article .tri-wrap.tri-green .tri-line polygon { stroke: #a9d3c3; }
+    .learn-article .tri-wrap.tri-green .tri-hub { background: #2f5148; box-shadow: 0 4px 14px rgba(47,81,72,.28); }
+    .learn-article .tri-wrap.tri-lime .tri-line polygon { stroke: #b7cf8a; }
+    .learn-article .tri-wrap.tri-lime .tri-hub { background: #4b6b21; box-shadow: 0 4px 14px rgba(75,107,33,.28); }
+
   </style>
 </head>
 <body class="mod-venture">
@@ -1825,21 +1832,29 @@
       <p>도시에서 창업하면 <strong>손님이 있는 곳</strong>으로 갑니다. 지역에서 창업하면 반대입니다 — <strong>자원이 있는 곳으로 손님을 부릅니다.</strong> 그래서 지역 관광창업은 <em>무엇을 가졌는가</em>에서 시작하고, 가진 것이 대개 <strong>공간과 농산물</strong>입니다.</p>
 
       <p><strong>공간을 파는 일에는 먼저 등록할 칸이 있습니다.</strong></p>
-      <ol class="vcards c3 steps">
-        <li class="t-green"><span class="vt">농어촌 지역</span><span class="vh">농어촌민박업</span><span class="vd">농어촌 주택을 활용한 숙박. <strong>거주 요건과 면적 상한</strong>이 붙는 것이 보통입니다.</span></li>
-        <li class="t-green2"><span class="vt">도시 · 외국인</span><span class="vh">외국인관광 도시민박업</span><span class="vd">도시 지역에서 <strong>외국인 관광객</strong>을 대상으로. 내국인 대상과 요건이 갈립니다.</span></li>
-        <li class="t-green3"><span class="vt">전통 건축</span><span class="vh">한옥체험업</span><span class="vd">한옥에서 숙박·체험을 함께. <strong>건축물 자체가 상품</strong>이 되는 형태.</span></li>
-      </ol>
+      <div class="tri-wrap tri-green">
+        <svg class="tri-line" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polygon points="50,3 97,97 3,97" /></svg>
+        <ol class="vcards c3 steps tri3">
+          <li class="t-green"><span class="vt">농어촌 지역</span><span class="vh">농어촌민박업</span><span class="vd">농어촌 주택을 활용한 숙박. <strong>거주 요건과 면적 상한</strong>이 붙는 것이 보통입니다.</span></li>
+          <li class="t-green2"><span class="vt">도시 · 외국인</span><span class="vh">외국인관광 도시민박업</span><span class="vd">도시 지역에서 <strong>외국인 관광객</strong>을 대상으로. 내국인 대상과 요건이 갈립니다.</span></li>
+          <li class="t-green3"><span class="vt">전통 건축</span><span class="vh">한옥체험업</span><span class="vd">한옥에서 숙박·체험을 함께. <strong>건축물 자체가 상품</strong>이 되는 형태.</span></li>
+        </ol>
+        <span class="tri-hub">공간을 판다</span>
+      </div>
       <p class="mini-note">세 칸의 요건(거주·면적·소방·신고 관청)이 서로 다르고 개정도 잦습니다. <strong>내 공간이 어느 칸인지부터 확인</strong>하고, 최신 요건은 관할 시·군에 확인하십시오. 워크북 <strong>시트 5</strong>의 「공간 · 규제 체크 1쪽」이 이 확인을 적어 두는 칸입니다.</p>
 
       <p><strong>공간 사업의 셈은 객실 수가 아니라 가동률입니다.</strong> 방이 몇 개인지보다 <em>일 년에 며칠 차는가</em>가 매출을 정합니다. 고정비(임차·수선·인건비)는 손님이 없어도 나가므로, <strong>비수기를 무엇으로 채우는가</strong>가 사업계획서에서 실제로 읽히는 대목입니다 — 워크북 <strong>[표4] Scale-up</strong>의 계산식이 여기서 나옵니다.</p>
 
       <p><strong>농산물은 그대로 팔면 1차입니다.</strong> <strong class="hot-t">스마트팜 융복합</strong>과 <strong>6차산업</strong>은 그 앞뒤를 붙여 값을 키우는 방식입니다.</p>
-      <ol class="vcards c3 steps">
-        <li class="t-lime"><span class="vt">1차</span><span class="vh">생산</span><span class="vd">기른다. <strong>스마트팜</strong>은 여기서 환경 데이터로 품질과 수율을 잡는 자리입니다.</span></li>
-        <li class="t-lime2"><span class="vt">2차</span><span class="vh">가공</span><span class="vd">저장·가공해 <strong>계절을 넘긴다</strong>. 잼 · 술 · 말린 것 · 굿즈.</span></li>
-        <li class="t-lime3"><span class="vt">3차</span><span class="vh">체험 · 관광</span><span class="vd">와서 보고 따고 먹는다. <strong>관광이 붙는 자리가 여기</strong>이고, 단가가 가장 높습니다.</span></li>
-      </ol>
+      <div class="tri-wrap tri-lime">
+        <svg class="tri-line" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polygon points="50,3 97,97 3,97" /></svg>
+        <ol class="vcards c3 steps tri3">
+          <li class="t-lime"><span class="vt">1차</span><span class="vh">생산</span><span class="vd">기른다. <strong>스마트팜</strong>은 여기서 환경 데이터로 품질과 수율을 잡는 자리입니다.</span></li>
+          <li class="t-lime2"><span class="vt">2차</span><span class="vh">가공</span><span class="vd">저장·가공해 <strong>계절을 넘긴다</strong>. 잼 · 술 · 말린 것 · 굿즈.</span></li>
+          <li class="t-lime3"><span class="vt">3차</span><span class="vh">체험 · 관광</span><span class="vd">와서 보고 따고 먹는다. <strong>관광이 붙는 자리가 여기</strong>이고, 단가가 가장 높습니다.</span></li>
+        </ol>
+        <span class="tri-hub">6차산업</span>
+      </div>
       <p>세 층을 다 갖출 필요는 없습니다. 다만 <strong>어느 층에서 돈을 벌 것인지</strong>는 정해야 하고, 관광 전공자가 강한 곳은 대개 <strong>3차</strong>입니다 — 남의 1차·2차에 <em>체험과 이야기를 붙여</em> 파는 일. 그것을 실제로 하고 있는 회사가 <strong>앞의 공모 절</strong> 「시 · 안동시 청년 스타트업 관광기업」 블록 아래에 있습니다 — <strong class="hot-t">(주)안동온사람들</strong>. 학교 안 창업보육센터에 본사를 두고, 지역 자원 하나를 <em>행사 · 체험 · 기념품 · 플랫폼</em> 네 갈래로 팝니다.</p>
 
 
@@ -1913,7 +1928,7 @@
         </li>
       </ul>
 
-      <div class="task-box vt2">
+      <div class="task-box vt2 y">
         <p class="tb-t" id="과제2"><b class="tb-n">과제 2</b>관광기업 입사 제안서 — 창업하지 않아도 이 수업은 쓰입니다 <span>A4 1장 · 모의 면접</span></p>
         <p class="tb-d">모두가 창업하지는 않습니다. 그런데 <strong class="hot-t">관광기업이 사람을 뽑을 때 보는 것과 공모가 사업계획서에서 보는 것이 거의 같습니다</strong> — 문제를 정확히 짚는가, 근거를 대는가, 그래서 무엇을 할 것인가. 과제 1에서 쓴 사업계획서의 뼈대를 <strong>회사 하나</strong>에 대고 다시 씁니다.</p>
         <p class="tb-d"><strong>회사는 이 페이지에서 고릅니다</strong> — <em>THE VC</em>의 관광·여행 스타트업 목록, <em>어반리즘 하우스</em>(관광 컨설팅·연구, 채용 공고가 자사 게시판에 올라옵니다), 로컬크리에이터 기업들(리플레이스 · 더웨이브컴퍼니 · 어반플레이 · 로컬스티치), 또는 투어라즈에 등록된 관광벤처기업. <strong>이름을 아는 대기업 말고, 사람이 스무 명 안쪽인 곳</strong>을 고르십시오 — 신입이 무엇을 맡게 되는지가 보이는 규모라야 쓸 말이 생깁니다.</p>
