@@ -1151,52 +1151,48 @@
     .learn-article .reslist.grid3 { align-items: start; }
     .learn-article .quad { gap: 12px; }
 
-    /* ===== 배우기 세 갈래 — 사분면과 같은 어법 =====
-       위 사분면이 「열 머리 + 행 이름」으로 자리를 설명하듯, 셋도 같은 문법으로 놓는다.
-       다만 축이 하나뿐이라 열은 셋, 행은 하나다. */
-    .learn-article .quad.learnq {
-      grid-template-columns: 92px repeat(3, minmax(0, 1fr));
-      grid-template-rows: auto auto;
-    }
+    /* ===== 배우기 세 갈래 — 사분면과 같은 크기 =====
+       칸 크기를 사분면과 맞추려면 열이 둘이어야 한다. 셋 가운데 앞의 둘은
+       「돈을 내고 배운다」 한 줄에 나란히 두고, 공공 무료 한 칸은 두 칸 폭으로 눕힌다. */
+    .learn-article .quad.learnq { grid-template-rows: auto auto auto; }
     .learn-article .quad.learnq .q-l1 { grid-area: 1 / 2; }
     .learn-article .quad.learnq .q-l2 { grid-area: 1 / 3; }
-    .learn-article .quad.learnq .q-l3 { grid-area: 1 / 4; }
-    .learn-article .quad.learnq .q-ls { grid-area: 2 / 1; }
+    .learn-article .quad.learnq .q-s1 { grid-area: 2 / 1; }
     .learn-article .quad.learnq .l1 { grid-area: 2 / 2; }
     .learn-article .quad.learnq .l2 { grid-area: 2 / 3; }
-    .learn-article .quad.learnq .l3 { grid-area: 2 / 4; }
+    .learn-article .quad.learnq .q-s2 { grid-area: 3 / 1; }
+    .learn-article .quad.learnq .l3 { grid-area: 3 / 2 / 3 / -1; }
     .learn-article .quad.learnq .q-top em {
       display: block; margin-top: 2px; font-style: normal;
       font-size: 10px; font-weight: 700; color: #7c93aa; letter-spacing: 0;
     }
-    .learn-article .quad.learnq .q-side b { display: block; }
     .learn-article .quad.learnq .grouptitle {
-      display: block; margin: 0 0 7px; font-size: 13px; font-weight: 800;
+      display: block; margin: 0 0 7px; font-size: 13.5px; font-weight: 800;
       color: #17395f; letter-spacing: -.2px; line-height: 1.4;
     }
-    .learn-article .quad.learnq .linkrow.tiny { display: flex; flex-wrap: wrap; gap: 5px; margin: 0 0 8px; }
+    .learn-article .quad.learnq .linkrow.tiny { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 8px; }
     .learn-article .quad.learnq .linkrow.tiny a {
-      display: inline-block; padding: 4px 9px; border-radius: 999px;
+      display: inline-block; padding: 4px 10px; border-radius: 999px;
       background: #fff; border: 1px solid #1c4e8a; color: #1c4e8a;
-      font-size: 10.5px; font-weight: 700;
+      font-size: 11px; font-weight: 700;
     }
     .learn-article .quad.learnq .linkrow.tiny a:hover { background: #1c4e8a; color: #fff; }
-    .learn-article .quad.learnq .desc { display: block; font-size: 11.5px; line-height: 1.7; color: #4a5a68; }
+    .learn-article .quad.learnq .desc { display: block; font-size: 12px; line-height: 1.7; color: #4a5a68; }
     .learn-article .quad.learnq .desc strong { color: #17395f; }
     .learn-article .quad.learnq .desc em { font-style: normal; color: #1c4e8a; font-weight: 700; }
-    .learn-article .quad.learnq .meta { display: block; margin-top: 7px; font-size: 10.5px; color: #8b9aab; }
+    .learn-article .quad.learnq .meta { display: block; margin-top: 7px; font-size: 11px; color: #8b9aab; }
     .learn-article .quad.learnq details.fold {
       margin: 9px 0 0; padding: 8px 0 0; background: none; border: 0; border-top: 1px dashed #c8ddf0;
     }
     .learn-article .quad.learnq details.fold > summary {
-      cursor: pointer; font-size: 11px; font-weight: 800; color: #6d8dae;
+      cursor: pointer; font-size: 11.5px; font-weight: 800; color: #6d8dae;
     }
-    @media (max-width: 900px) {
-      .learn-article .quad.learnq { grid-template-columns: 1fr; }
-      .learn-article .quad.learnq .q-top, .learn-article .quad.learnq .q-side { display: none; }
+    @media (max-width: 720px) {
+      .learn-article .quad.learnq .q-l1, .learn-article .quad.learnq .q-l2 { display: none; }
       .learn-article .quad.learnq .l1, .learn-article .quad.learnq .l2,
       .learn-article .quad.learnq .l3 { grid-area: auto; }
     }
+
 
   </style>
 </head>
@@ -1550,10 +1546,9 @@
       </div>
       <p class="mini-note q-align"><strong>읽는 법</strong> — 가로는 <strong>무엇을 받는가</strong>(사업화 <em>자금</em>이냐, 사람 · 공간 · <em>투자</em>냐), 세로는 <strong>무엇으로 좁혀 뽑는가</strong>(<em>분야와 지역</em>이냐, <em>창업 단계</em>냐)입니다. <strong class="hot-t">넷은 순서가 아니라 서로 다른 창구</strong>여서, 같은 아이템으로 여러 칸에 동시에 낼 수 있습니다 — 다만 <strong>중복 수혜 제한</strong>은 공고마다 다르니 그때 확인하십시오.</p>
       <div class="quad learnq q-align" role="group" aria-label="어디서 배우나 — 세 갈래">
-        <span class="q-top q-l1">사람에게<em>유료 강의 · 개인 멘토</em></span>
-        <span class="q-top q-l2">AI로 혼자<em>프롬프트 · 자동화 키트</em></span>
-        <span class="q-top q-l3">공공 · 무료<em>한국관광공사 강의실</em></span>
-        <span class="q-side q-ls"><b>어디서</b>배우나</span>
+        <span class="q-top q-l1">사람에게<em>강의를 듣거나 물어본다</em></span>
+        <span class="q-top q-l2">혼자<em>도구와 자료로 만든다</em></span>
+        <span class="q-side q-s1"><b>돈을 내고</b>배운다</span>
         <div class="q-cell l1">
           <span class="grouptitle">사업계획서 · IR 피칭 배우기</span>
           <div class="linkrow tiny">
@@ -1582,6 +1577,7 @@
             <span class="desc"><strong>③ PUBLY(퍼블리) BEST — 현직자가 쓴 일의 기록</strong> — 위 AI 글이 실려 있는 <strong>실무 콘텐츠 멤버십</strong>의 「BEST」 목록입니다. 기획·마케팅·데이터·커리어 전환 등 <strong>현직자가 직접 쓴 글</strong>이 최신순·만족도순으로 모여 있고, 「시리즈」·「템플릿」 메뉴에는 기획서·보고서 <strong>양식</strong>이 있습니다. 관광 공고가 올라오는 곳은 아니지만, 사업계획서와 IR 자료에 들어갈 <strong>시장 분석 · 고객 정의 · 실행 계획을 남들은 어떤 언어로 쓰는지</strong> 볼 수 있는 자리입니다. 유료 멤버십이라 전체 열람에는 구독이 필요합니다. <span class="meta">PUBLY · publy.co · 커리어·실무 콘텐츠 멤버십(유료)</span></span>
           </details>
         </div>
+        <span class="q-side q-s2"><b>공공이 무료로</b>연다</span>
         <div class="q-cell l3">
           <span class="grouptitle">관광e배움터</span>
           <div class="linkrow tiny">
