@@ -115,6 +115,10 @@
     color:var(--navy);
     font-weight:700;
   }
+  /* 제주는 같은 업종인데 기준이 따로다 — 칸을 눈에 띄게 갈라 둔다 */
+  .th-s { display:block; margin-top:2px; font-size:11px; font-weight:600; color:#6f6500; letter-spacing:-0.02em }
+  td.jj { background:#fff8e1 }
+  td.jj strong { color:#8a5a17 }
   .point{
     background:var(--soft);
     border-left:5px solid var(--blue);
@@ -228,7 +232,8 @@
         <tr>
           <th>구분</th>
           <th>대상</th>
-          <th>등록 자본금</th>
+          <th>등록 자본금<br /><span class="th-s">일반 지역</span></th>
+          <th>등록 자본금<br /><span class="th-s">제주특별자치도</span></th>
           <th>기준의 의미</th>
         </tr>
       </thead>
@@ -237,18 +242,21 @@
           <td><strong>종합여행업</strong></td>
           <td>내국인 + 외국인 / 국내외</td>
           <td><strong>5,000만 원 이상</strong></td>
+          <td class="jj"><strong>3억 5,000만 원 이상</strong></td>
           <td>업무범위가 가장 넓음</td>
         </tr>
         <tr>
           <td><strong>국내외여행업</strong></td>
           <td>내국인 / 국내외</td>
           <td><strong>3,000만 원 이상</strong></td>
+          <td class="jj"><strong>1억 원 이상</strong></td>
           <td>내국인의 국내·해외여행 취급</td>
         </tr>
         <tr>
           <td><strong>국내여행업</strong></td>
           <td>내국인 / 국내</td>
           <td><strong>1,500만 원 이상</strong></td>
+          <td class="jj"><strong>5,000만 원 이상</strong></td>
           <td>지역 기반 국내여행 상품 등에 적합</td>
         </tr>
       </tbody>
@@ -256,12 +264,60 @@
 
     <div class="point">
       <strong>법인:</strong> 납입자본금 기준 &nbsp;│&nbsp;
-      <strong>개인:</strong> 해당 사업에 제공되는 자산의 평가액 기준
+      <strong>개인:</strong> 해당 사업에 제공되는 자산의 평가액 기준 &nbsp;│&nbsp;
+      <strong>제주:</strong> 제주특별법에 따른 별도 기준
+    </div>
+
+    <div class="point">
+      <strong>자본금은 쓰는 돈이 아닙니다.</strong> 법인 통장 등에 예치해 두고
+      <strong>잔고증명서</strong>로 갖추고 있음을 보이는 <em>등록 기준 자본금</em>이며,
+      등록 뒤에는 사업에 씁니다.
     </div>
   </section>
 
   <section class="section">
-    <h2>3. “국내여행업 750만 원” 정보는 현재 기준이 아닙니다</h2>
+    <h2>3. 자본금 말고 드는 돈 — 창업 필수 행정 비용</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>항목</th>
+          <th>금액 · 주기</th>
+          <th>메모</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>등록 수수료</strong></td>
+          <td>약 <strong>3만 원</strong> · 등록 시 1회</td>
+          <td>관할 시·군·구청 접수</td>
+        </tr>
+        <tr>
+          <td><strong>등록면허세</strong></td>
+          <td><strong>연 67,500원</strong> · 매년</td>
+          <td>등록할 때와 <strong>해마다</strong> 부과</td>
+        </tr>
+        <tr>
+          <td><strong>보증보험</strong></td>
+          <td>가입 필수</td>
+          <td>영업보증보험 또는 인허가 보증보험</td>
+        </tr>
+        <tr>
+          <td><strong>사무실 임대료</strong></td>
+          <td>지역·평형에 따라</td>
+          <td>건축법상 <strong>업무시설·근린생활시설</strong> 용도의 독립된 공간<br />
+              <span class="missing">주거용 공간은 인정되지 않습니다</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="point">
+      <strong>등록 관청:</strong> 관광진흥법에 따라 <strong>관할 시·군·구청</strong>에 관광사업 등록을 합니다 —
+      정부24로 신청해도 처리는 이 관청에서 이뤄집니다.
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>4. “국내여행업 750만 원” 정보는 현재 기준이 아닙니다</h2>
     <div class="warning">
       국내여행업은 한시적으로 자본금 기준이 <strong>750만 원 이상</strong>으로 완화된 적이 있습니다.
       해당 특례는 <strong>2024년 7월 1일 ~ 2026년 6월 30일</strong> 등록 신청자에게 적용되었습니다.
@@ -275,7 +331,7 @@
   </section>
 
   <section class="section">
-    <h2>4. 강의에서 표현할 때 주의할 점</h2>
+    <h2>5. 강의에서 표현할 때 주의할 점</h2>
     <div class="badgood">
       <div class="avoid">
         <div class="label">표현을 줄이는 편이 좋은 문장</div>
@@ -296,7 +352,7 @@
   </section>
 
   <section class="section">
-    <h2>5. 법적 근거 및 출처</h2>
+    <h2>6. 법적 근거 및 출처</h2>
     <div class="source">
       <p><strong>① 여행업 종류별 업무 범위</strong><br>
       「관광진흥법 시행령」 제2조 제1항</p>
