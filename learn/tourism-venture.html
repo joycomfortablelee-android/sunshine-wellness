@@ -1221,6 +1221,13 @@
       .learn-article .task-box .kwlist.tb-kw > li { grid-template-columns: 1fr; gap: 3px; }
     }
 
+    /* 강의계획서 절 앞에 연한 점선 한 줄 — 위(회차·과제)와 아래(운영 문서)를 가른다 */
+    .learn-article .syl-box.plan { position: relative; margin-top: 34px; }
+    .learn-article .syl-box.plan::before {
+      content: ''; position: absolute; left: 0; right: 0; top: -18px;
+      border-top: 1px dashed #dde5e0;
+    }
+
   </style>
 </head>
 <body class="mod-venture">
