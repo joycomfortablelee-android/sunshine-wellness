@@ -124,6 +124,29 @@
   .law-open a{font-size:14px;font-weight:800;color:#6f5600}
   .law-v{display:block;margin-top:3px;font-size:11.5px;color:#8a7a3a;font-weight:600}
   .law-tip{display:block;margin-top:4px;font-size:12px;color:#5f6770;line-height:1.6}
+  /* OX 퀴즈 — 먼저 답을 정하고 눌러 확인한다 */
+  .ox-lead{margin:0 0 14px;color:#5f6770;font-size:14px}
+  .ox-lead b{color:#243447;font-weight:800}
+  .oxlist{margin:0;padding:0 0 0 0;list-style:none;counter-reset:ox}
+  .oxlist>li{margin:0 0 8px}
+  .oxlist details{border:1px solid #e0d6a8;border-radius:9px;background:#fffdf2;overflow:hidden}
+  .oxlist details[open]{background:#fff;border-color:#d8c85b}
+  .oxlist summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:12px 14px}
+  .oxlist summary::-webkit-details-marker{display:none}
+  .oxlist .ox-q{counter-increment:ox;font-size:14.5px;font-weight:700;color:#243447;line-height:1.5}
+  .oxlist .ox-q::before{content:'Q' counter(ox) '. ';color:#8a7a3a;font-weight:900}
+  .oxlist .ox-go{margin-left:auto;flex:none;padding:4px 11px;border-radius:999px;background:#243447;color:#fff;font-size:11px;font-weight:800;white-space:nowrap}
+  .oxlist details[open] .ox-go{background:#8a7a3a}
+  .oxlist .ox-a{margin:0;padding:0 14px 14px 14px;font-size:13.5px;line-height:1.7;color:#3f4b57}
+  .oxlist .ox-a b{display:inline-block;width:26px;height:26px;line-height:26px;text-align:center;border-radius:50%;margin-right:8px;font-size:14px;font-weight:900;color:#fff;vertical-align:-3px}
+  .oxlist .ox-a b.o{background:#2f7d4f}
+  .oxlist .ox-a b.x{background:#c0392b}
+  .oxlist .ox-a strong{color:#243447}
+  .oxlist .ox-a em{font-style:normal;color:#8a5a17;font-weight:600}
+  @media (max-width:640px){
+    .oxlist summary{flex-wrap:wrap}
+    .oxlist .ox-go{margin-left:0}
+  }
   .point{
     background:var(--soft);
     border-left:5px solid var(--blue);
@@ -336,23 +359,57 @@
   </section>
 
   <section class="section">
-    <h2>5. 강의에서 표현할 때 주의할 점</h2>
-    <div class="badgood">
-      <div class="avoid">
-        <div class="label">표현을 줄이는 편이 좋은 문장</div>
-        “등록한다의 문턱은 결국 돈으로 표시된다.”<br><br>
-        “인바운드를 하려면 여기여야 한다.”
-      </div>
-      <div class="prefer">
-        <div class="label">더 정확한 표현</div>
-        “자본금은 여행업의 <strong>핵심 등록요건 중 하나</strong>이다.”<br><br>
-        “외국인을 대상으로 여행업을 하려면 <strong>종합여행업</strong>에 해당한다.”
-      </div>
-    </div>
+    <h2>5. 맞는가 틀리는가 — OX 일곱 문항</h2>
+    <p class="ox-lead">한 문장씩 읽고 <b>O · X</b>를 먼저 정한 다음 눌러 확인하십시오. 일곱 개가 앞 절들의 요지를 그대로 묻습니다.</p>
+
+    <ol class="oxlist">
+      <li>
+        <details>
+          <summary><span class="ox-q">자본금만 갖추면 여행업 등록이 된다.</span><span class="ox-go">O · X 확인</span></summary>
+          <p class="ox-a"><b class="x">X</b> 등록기준에는 자본금 외에 <strong>사무실의 소유권 또는 사용권</strong> 등이 함께 들어갑니다. <em>자본금만을 유일한 등록요건처럼 설명하지 않는 것이 정확합니다.</em></p>
+        </details>
+      </li>
+      <li>
+        <details>
+          <summary><span class="ox-q">외국인을 대상으로 여행업을 하려면 종합여행업에 해당한다.</span><span class="ox-go">O · X 확인</span></summary>
+          <p class="ox-a"><b class="o">O</b> 시행령 제2조 제1항의 정의가 그렇습니다. 국내외여행업은 <strong>내국인</strong>을 대상으로 합니다.</p>
+        </details>
+      </li>
+      <li>
+        <details>
+          <summary><span class="ox-q">국내여행업은 지금도 자본금 750만 원이면 등록할 수 있다.</span><span class="ox-go">O · X 확인</span></summary>
+          <p class="ox-a"><b class="x">X</b> 한시 특례는 <strong>2024. 7. 1. ~ 2026. 6. 30. 등록 신청자</strong>에게만 적용됐습니다. 지금 신규 등록은 다시 <strong>1,500만 원</strong> 이상입니다.</p>
+        </details>
+      </li>
+      <li>
+        <details>
+          <summary><span class="ox-q">등록 자본금은 등록 과정에서 실제로 소모되는 비용이다.</span><span class="ox-go">O · X 확인</span></summary>
+          <p class="ox-a"><b class="x">X</b> <strong>쓰는 돈이 아니라 갖추고 있음을 보이는 돈</strong>입니다. 통장 등에 예치해 두고 <strong>잔고증명서</strong>로 입증하며, 등록 뒤에는 사업에 씁니다.</p>
+        </details>
+      </li>
+      <li>
+        <details>
+          <summary><span class="ox-q">제주에서 등록해도 자본금 기준은 전국과 같다.</span><span class="ox-go">O · X 확인</span></summary>
+          <p class="ox-a"><b class="x">X</b> 제주특별자치도는 <strong>제주특별법</strong>에 따른 별도 기준입니다 — 종합 <strong>3억 5,000만 원</strong> · 국내외 <strong>1억 원</strong> · 국내 <strong>5,000만 원</strong> 이상.</p>
+        </details>
+      </li>
+      <li>
+        <details>
+          <summary><span class="ox-q">법인의 자본금은 실질자본금으로 판단한다.</span><span class="ox-go">O · X 확인</span></summary>
+          <p class="ox-a"><b class="x">X</b> <strong>납입자본금</strong>을 기준으로 봅니다(법제처 법령해석 21-0818). 개인사업자는 <strong>그 사업에 제공되는 자산의 평가액</strong>입니다.</p>
+        </details>
+      </li>
+      <li>
+        <details>
+          <summary><span class="ox-q">등록면허세는 등록할 때 한 번만 내면 된다.</span><span class="ox-go">O · X 확인</span></summary>
+          <p class="ox-a"><b class="x">X</b> 등록할 때와 <strong>해마다</strong> 부과됩니다(연 67,500원). 등록 수수료 약 3만 원은 1회입니다.</p>
+        </details>
+      </li>
+    </ol>
 
     <div class="point">
-      여행업 등록기준에는 자본금뿐 아니라 <strong>사무실의 소유권 또는 사용권</strong> 등도 포함되므로,
-      자본금만을 유일한 등록요건처럼 설명하지 않는 것이 정확합니다.
+      <strong>강의에서 말할 때</strong> — <em>“등록한다의 문턱은 결국 돈으로 표시된다”</em>, <em>“인바운드를 하려면 여기여야 한다”</em>처럼 줄여 말하면 요건 하나가 사라지거나 법령 표현과 어긋납니다.
+      <strong>“자본금은 여행업의 핵심 등록요건 중 하나이다”</strong>, <strong>“외국인을 대상으로 여행업을 하려면 종합여행업에 해당한다”</strong>가 더 정확합니다.
     </div>
   </section>
 
