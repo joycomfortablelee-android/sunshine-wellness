@@ -1087,71 +1087,6 @@
     .learn-article .nest .nest-legend a:hover { color: #000; border-bottom-color: #14474d; }
     .learn-article .nest .nest-legend em { font-style: normal; color: #8a9ba0; }
 
-    /* ===== 배우기 세 갈래 — 탭 =====
-       셋은 같은 물음의 세 답이라 나란히 놓아야 하는데, 카드로 두면 글 길이가 달라
-       2+1 로 떨어지고 상자 안에 상자가 겹친다. 한 칸에서 갈아 끼우면 셋이 같은 크기로
-       보이고 세로 공간도 1/3 이 된다. */
-    .learn-article .tabs3 { margin: 10px 0 22px; }
-    .learn-article .tabs3 .tb-nav { display: flex; flex-wrap: wrap; gap: 6px; }
-    .learn-article .tabs3 .tb-btn {
-      flex: 1 1 0; min-width: 132px; text-align: left; cursor: pointer;
-      padding: 10px 14px 11px; border: 1px solid #c8ddf0; border-bottom: 0;
-      border-radius: 11px 11px 0 0; background: #eef4fa; color: #52697f;
-      font-family: inherit; transition: background .15s, color .15s;
-    }
-    .learn-article .tabs3 .tb-btn b {
-      display: block; font-size: 13.5px; font-weight: 900; color: #17395f; letter-spacing: -.3px;
-    }
-    .learn-article .tabs3 .tb-btn em {
-      display: block; margin-top: 2px; font-style: normal;
-      font-size: 10.5px; font-weight: 700; color: #7c93aa;
-    }
-    .learn-article .tabs3 .tb-btn:hover { background: #e2ecf6; }
-    .learn-article .tabs3 .tb-btn.is-on { background: #17395f; border-color: #17395f; }
-    .learn-article .tabs3 .tb-btn.is-on b { color: #fff; }
-    .learn-article .tabs3 .tb-btn.is-on em { color: #b8cde3; }
-    .learn-article .tabs3 .tb-panel {
-      display: none; padding: 16px 18px 17px;
-      border: 1px solid #c8ddf0; border-radius: 0 12px 12px 12px;
-      background: linear-gradient(160deg, #f6fafd 0%, #fff 55%);
-    }
-    .learn-article .tabs3 .tb-panel.is-on { display: block; }
-    .learn-article .tabs3 .tb-kind {
-      margin: 0 0 3px; font-size: 10.5px; font-weight: 800; letter-spacing: .06em; color: #6d8dae;
-    }
-    .learn-article .tabs3 .grouptitle {
-      display: block; margin: 0 0 9px; font-size: 15.5px; font-weight: 800;
-      color: #17395f; letter-spacing: -.3px;
-    }
-    .learn-article .tabs3 .linkrow.tiny { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 9px; }
-    .learn-article .tabs3 .linkrow.tiny a {
-      display: inline-block; padding: 5px 12px; border-radius: 999px;
-      background: #17395f; border: 1px solid #17395f; color: #fff;
-      font-size: 11.5px; font-weight: 700;
-    }
-    .learn-article .tabs3 .linkrow.tiny a:hover { background: #0e2a45; border-color: #0e2a45; }
-    .learn-article .tabs3 .desc { display: block; font-size: 12.5px; line-height: 1.75; color: #4a5a68; }
-    .learn-article .tabs3 .desc strong { color: #17395f; }
-    .learn-article .tabs3 .desc em { font-style: normal; color: #52697f; font-weight: 600; }
-    .learn-article .tabs3 .meta { display: block; margin-top: 8px; font-size: 11px; color: #8b9aab; }
-    /* 자세한 설명은 상자를 만들지 않고 글줄로만 편다 — 상자 겹침이 이 절의 문제였다 */
-    .learn-article .tabs3 details.fold {
-      margin: 10px 0 0; padding: 9px 0 0; border: 0; background: none;
-      border-top: 1px dashed #c8ddf0;
-    }
-    .learn-article .tabs3 details.fold > summary {
-      cursor: pointer; list-style: none; font-size: 11.5px; font-weight: 800; color: #6d8dae;
-    }
-    .learn-article .tabs3 details.fold > summary::-webkit-details-marker { display: none; }
-    .learn-article .tabs3 details.fold > summary::before { content: '＋ '; font-weight: 900; }
-    .learn-article .tabs3 details.fold[open] > summary::before { content: '－ '; }
-    .learn-article .tabs3 details.fold[open] > summary { margin-bottom: 8px; }
-    .learn-article .tabs3 details.fold .desc + .desc { margin-top: 8px; }
-    .learn-article .mini-note.lr-lead { margin-bottom: 6px; }
-    @media (max-width: 720px) {
-      .learn-article .tabs3 .tb-btn { flex: 1 1 100%; border-radius: 11px; border-bottom: 1px solid #c8ddf0; }
-      .learn-article .tabs3 .tb-panel { border-radius: 12px; margin-top: 6px; }
-    }
 
     /* 인성면접 상자 아래 점선 한 줄과 포털 링크 */
     .learn-article .syl-box.job .syl-tags.job-more {
@@ -1172,6 +1107,14 @@
     }
     .learn-article .syl-box.job .syl-tags.job-more a.mapl.now:hover { background: #98291d; border-color: #98291d; }
     .learn-article .syl-box.job .syl-tags.job-more .syl-src em { font-style: normal; color: #2b2113; font-weight: 700; }
+
+    /* 설명은 알약 줄 아래 가로 한 행으로 흘린다 */
+    .learn-article .syl-box.job .syl-tags.job-more .syl-src { flex: 1 1 100%; margin-top: 9px; }
+    /* 개별 공고는 파랗게 — 포털(붉은 관광in 포함)과 성격을 색으로 가른다 */
+    .learn-article .syl-box.job .syl-tags.job-more a.mapl.blue {
+      background: #17395f; border-color: #17395f; color: #fff;
+    }
+    .learn-article .syl-box.job .syl-tags.job-more a.mapl.blue:hover { background: #0e2a45; border-color: #0e2a45; }
 
   </style>
 </head>
@@ -1358,7 +1301,7 @@
         <p class="syl-t"><a class="task-badge lead" href="#과제2">과제 2</a><a href="interview-personality-20.html" target="_blank" rel="noopener">기관 인성면접 예상 질문 20문 ↗</a><a class="sticky-pill" href="interview-personality-20.html" target="_blank" rel="noopener">노란 스티키노트 한 장 ↗</a><a class="doc-pill" href="assets/interview-personality-20.docx" download="기관_인성면접_예상질문_20문.docx">워드로 내려받기 ⤓ DOCX</a></p>
         <p class="syl-d"><strong>창업만 길이 아닙니다.</strong> 이 수업의 산출물인 사업계획서와 모의 PT는 <strong>창업 IR</strong>에도 쓰이지만, 그대로 <strong>취업 면접의 자기 이야기</strong>가 됩니다 — 「무엇을 문제로 봤고, 어떻게 풀었는가」를 말하는 훈련이 같기 때문입니다. 아래 스무 문항은 <strong>공공기관·공기업 인성면접</strong>에서 반복해서 나오는 질문들입니다.</p>
         <p class="syl-d"><strong>쓰는 법은 하나입니다 — 눈으로 읽지 말고 소리 내어 답하십시오.</strong> 한 문항당 <strong>40초~1분</strong>이 실제 면접의 길이입니다. 스무 장이 <em>자기소개 → 장·단점 → 극복 경험 → 협업과 갈등 → 원칙과 태도 → 마지막 한마디</em> 순으로 놓여 있어, 위에서부터 훑으면 <strong class="hot-t">면접 한 회차가 그대로 지나갑니다</strong>. 인쇄하면 A4에 4열로 떨어져 손에 들고 연습할 수 있습니다.</p>
-        <p class="syl-tags job-more"><a class="mapl" href="https://academy.visitkorea.or.kr/mainHome.do" target="_blank" rel="noopener">관광in · 관광전문인력포털 ↗</a><a class="mapl" href="https://www.hotelinnetwork.com/intro.php" target="_blank" rel="noopener">호텔인네트워크 · 호텔·관광 채용 ↗</a><a class="mapl" href="https://linkareer.com/list/intern?filterBy_activityTypeID=5&amp;filterBy_jobTypes=INTERN&amp;filterBy_status=OPEN&amp;orderBy_direction=DESC&amp;orderBy_field=RECENT&amp;page=1" target="_blank" rel="noopener">링커리어 · 인턴 공고 ↗</a><a class="mapl now" href="https://linkareer.com/activity/264438" target="_blank" rel="noopener">지금 열림 · 두바이 한국관 해외 인턴십 ↗</a><span class="syl-src"><b>면접을 준비하기 전에 어떤 자리가 열려 있는지부터 봅니다.</b> 관광in은 한국관광공사가 여는 <b>공공 포털</b>(채용 · 교육 · 인력 정보), 호텔인네트워크는 <b>호텔 · 관광 분야 채용</b>, 링커리어는 <b>인턴 공고</b>를 최신순으로 모아 둡니다 — 재학 중에 넣을 수 있는 자리가 여기 있습니다.<br /><b>붉은 알약은 개별 공고</b>입니다 — <em>Dubai Global Village 한국관 인턴십</em>(외국계 · 활동비 · 수료증). 모집이 끝나면 닫히니, 같은 종류를 찾을 때는 위 세 포털에서 <b>「인턴 · 해외」</b>로 걸러 보십시오.</span></p>
+        <p class="syl-tags job-more"><a class="mapl now" href="https://academy.visitkorea.or.kr/mainHome.do" target="_blank" rel="noopener">관광in · 관광전문인력포털 ↗</a><a class="mapl" href="https://www.hotelinnetwork.com/intro.php" target="_blank" rel="noopener">호텔인네트워크 · 호텔·관광 채용 ↗</a><a class="mapl" href="https://linkareer.com/list/intern?filterBy_activityTypeID=5&amp;filterBy_jobTypes=INTERN&amp;filterBy_status=OPEN&amp;orderBy_direction=DESC&amp;orderBy_field=RECENT&amp;page=1" target="_blank" rel="noopener">링커리어 · 인턴 공고 ↗</a><a class="mapl blue" href="https://linkareer.com/activity/264438" target="_blank" rel="noopener">지금 열림 · 두바이 한국관 해외 인턴십 ↗</a><span class="syl-src"><b>면접을 준비하기 전에 어떤 자리가 열려 있는지부터 봅니다.</b> 관광in은 한국관광공사가 여는 <b>공공 포털</b>(채용 · 교육 · 인력 정보), 호텔인네트워크는 <b>호텔 · 관광 분야 채용</b>, 링커리어는 <b>인턴 공고</b>를 최신순으로 모아 둡니다 — 재학 중에 넣을 수 있는 자리가 여기 있습니다.<br /><b>파란 알약은 개별 공고</b>입니다 — <em>Dubai Global Village 한국관 인턴십</em>(외국계 · 활동비 · 수료증). 모집이 끝나면 닫히니, 같은 종류를 찾을 때는 위 세 포털에서 <b>「인턴 · 해외」</b>로 걸러 보십시오.</span></p>
               </div>
 
       <div class="syl-box plan">
@@ -1524,34 +1467,44 @@
         </div>
       </div>
       <p class="mini-note q-align"><strong>읽는 법</strong> — 가로는 <strong>무엇을 받는가</strong>(사업화 <em>자금</em>이냐, 사람 · 공간 · <em>투자</em>냐), 세로는 <strong>무엇으로 좁혀 뽑는가</strong>(<em>분야와 지역</em>이냐, <em>창업 단계</em>냐)입니다. <strong class="hot-t">넷은 순서가 아니라 서로 다른 창구</strong>여서, 같은 아이템으로 여러 칸에 동시에 낼 수 있습니다 — 다만 <strong>중복 수혜 제한</strong>은 공고마다 다르니 그때 확인하십시오.</p>
-      <p class="mini-note q-align lr-lead"><strong>어디서 배우는가 — 자리는 셋입니다.</strong> 위 사분면이 <em>「돈과 보육을 어디서 받나」</em>였다면, 여기는 <em>「그 서류를 쓰는 법을 어디서 배우나」</em>입니다. <strong>사람에게</strong> 물을 수도, <strong>AI로 혼자</strong> 할 수도, <strong class="hot-t">공공이 무료로 여는 강의실</strong>에 앉을 수도 있습니다 — 셋은 서로를 대신하는 관계가 아니라 <strong>같은 한 부</strong>(과제 1의 사업계획서)를 향합니다.</p>
-      <div class="tabs3 q-align">
-        <div class="tb-nav" role="tablist" aria-label="어디서 배우나 — 세 갈래">
-          <button class="tb-btn is-on" type="button" role="tab" data-i="0" aria-selected="true"><b>사람에게</b><em>유료 강의 · 개인 멘토</em></button>
-          <button class="tb-btn" type="button" role="tab" data-i="1" aria-selected="false"><b>AI로 혼자</b><em>프롬프트 · 자동화 키트</em></button>
-          <button class="tb-btn" type="button" role="tab" data-i="2" aria-selected="false"><b>공공 · 무료</b><em>한국관광공사 강의실</em></button>
-        </div>
-        <div class="tb-panel is-on" role="tabpanel">
-          <p class="tb-kind">유료 강의 · 개인 멘토</p>
-            <span class="grouptitle">사업계획서 · IR 피칭 배우기</span>
-            <div class="linkrow tiny">
-              <a href="https://blog.naver.com/772ryo" target="_blank" rel="noopener">이명신 IR피칭 멘토 ↗</a>
-              <a href="https://class101.net/ko/products/6350e49a4ba9e7000e7968ab?viewMode=svod" target="_blank" rel="noopener">CLASS101 · 예비창업패키지 ↗</a>
-        </div>
-        <div class="tb-panel" role="tabpanel">
-          <p class="tb-kind">프롬프트 · 자동화 키트</p>
-            <span class="grouptitle">AI로 공고 찾고 사업계획서 쓰기</span>
-            <div class="linkrow tiny">
-              <a href="https://publy.co/content/8151" target="_blank" rel="noopener">① 본문 · 작업 순서 ↗</a>
-              <a href="https://drive.google.com/drive/folders/1IqpcHebAGGMIWCV3nLwlYsk6uNo4__rr" target="_blank" rel="noopener">② 부록 · AI 자동화 키트 ↗</a>
-              <a href="https://publy.co/topic/237" target="_blank" rel="noopener">③ PUBLY BEST ↗</a>
-        </div>
-        <div class="tb-panel" role="tabpanel">
-          <p class="tb-kind">한국관광공사 강의실</p>
-            <span class="grouptitle">관광e배움터</span>
-            <div class="linkrow tiny">
-              <a href="https://touredu.visitkorea.or.kr/" target="_blank" rel="noopener">관광e배움터 ↗</a>
-        </div>
+      <ul class="reslist grid3 two q-align">
+        <li class="t-blue2">
+          <span class="grouptitle">사업계획서·IR 피칭 배우기 — 사람에게</span>
+          <div class="linkrow tiny">
+            <a href="https://blog.naver.com/772ryo" target="_blank" rel="noopener">이명신 IR피칭 멘토 ↗</a>
+            <a href="https://class101.net/ko/products/6350e49a4ba9e7000e7968ab?viewMode=svod" target="_blank" rel="noopener">CLASS101 · 예비창업패키지 ↗</a>
+          </div>
+          <span class="desc">02~04장의 문제 정의·비즈니스 모델·시장 검증을 실제 <strong>지원 서류</strong>로 옮기는 단계에서 곁에 둘 자료입니다.</span>
+          <details class="fold">
+            <summary>두 자료가 각각 무엇인가</summary>
+            <span class="desc"><strong>이명신 IR피칭 멘토 — 사업계획서·IR피칭 실전 블로그</strong> — IR 피칭과 사업계획서 작성을 전문으로 가르치는 멘토의 블로그. 「합격하는 사업계획서 작성법」, 예비창업패키지 등 정부지원사업 공고 정리, 투자자가 비즈니스 모델에서 먼저 확인하는 것, 실제 투자 유치 사례 분석이 꾸준히 올라옵니다. 05장의 창업 지원 사업에 실제로 지원할 때 곁에 두고 볼 만한 자료입니다. <span class="meta">네이버 블로그 '이명신 IR피칭 멘토' · IR피칭/피치덱·사업계획서·정부지원사업 교육</span></span>
+            <span class="desc"><strong>나도 합격할 수 있는 예비창업패키지 사업계획서 작성하기 (온라인 강의)</strong> — 예비창업패키지 <strong>사업계획서 작성</strong>을 주제로 한 온라인 클래스. 위 성심당 영상을 만든 <strong>티엔티스피치</strong>의 강의로, 같은 크리에이터가 사업계획서 예시·피치덱 샘플 클래스도 함께 운영합니다(유료). <span class="meta">CLASS101 · 티엔티스피치(TNT Speech) · 유료 온라인 클래스</span></span>
+          </details>
+        </li>
+        <li class="t-blue2">
+          <span class="grouptitle">AI로 공고 찾고 사업계획서 쓰기 — 본문 · 실습 키트 · 원 출처</span>
+          <div class="linkrow tiny">
+            <a href="https://publy.co/content/8151" target="_blank" rel="noopener">① 본문 · 작업 순서 ↗</a>
+            <a href="https://drive.google.com/drive/folders/1IqpcHebAGGMIWCV3nLwlYsk6uNo4__rr" target="_blank" rel="noopener">② 부록 · AI 자동화 키트 ↗</a>
+            <a href="https://publy.co/topic/237" target="_blank" rel="noopener">③ PUBLY BEST ↗</a>
+          </div>
+          <span class="desc">앞에서 <em>"공고는 찾는 사람에게만 보인다"</em>고 했는데, ①의 마지막 단계는 <strong>그 찾는 일 자체를 매일 아침 자동으로 돌리는</strong> 방식입니다. ②에 프롬프트와 코드가 실물로 공개돼 있습니다. 다만 <strong>AI가 만든 것은 어디까지나 초안</strong>입니다.</span>
+          <details class="fold">
+            <summary>세 자료가 각각 무엇인가</summary>
+            <span class="desc"><strong>① 정부지원사업, AI로 공고 스크리닝부터 사업계획서 초안 작성까지 끝내는 법</strong> — 아래 <strong>AI 자동화 키트의 본문</strong>에 해당하는 글입니다. 의료기기 스타트업에서 <strong>연평균 50억원 규모</strong>의 정부지원사업 서류를 써 온 실무자(필명 '신대리')가, <em>2주 걸리던 초안을 3일로 줄인</em> 작업 순서를 공개합니다. 다루는 것은 넷 — ① <strong>회사 자료를 AI에 안전하게 넣는 법</strong>(무엇을 넣고 무엇을 넣지 않는가) ② <strong>심사 항목별 초안 프롬프트</strong> ③ <strong>AI를 가상 심사위원으로 세운 사전 검증</strong> ④ <strong>맞춤 공고 자동 수집·슬랙 알림 코드</strong>. 유료 콘텐츠(무료체험 제공). <span class="meta">PUBLY · '일잘러의 업무스킬' · 신대리 · 유료(무료체험)</span></span>
+            <span class="desc"><strong>② [부록] 정부지원사업 AI 자동화 키트 — 프롬프트북 · 가상심사위원 자가채점</strong> — 위 글에 딸린 <strong>부록 자료</strong>로, 사업계획서를 <strong>AI와 함께 쓰는 실습 파일 묶음</strong>이 공개된 구글 드라이브 폴더입니다. 파일은 넷 — ① <strong>「0. 이 가이드부터 읽어주세요」</strong> 사용 안내 ② <strong>「1. 실행 소스코드」</strong> ③ <strong>「2. 프롬프트북 — 정부지원사업 항목별 초안」</strong>: 공고 서식의 <em>항목별</em>로 초안을 뽑아내는 프롬프트 모음 ④ <strong>「3. 가상심사위원 자가채점 프롬프트」</strong>: 다 쓴 계획서를 <strong>심사위원 역할을 맡긴 AI에게 채점받는</strong> 프롬프트. 특히 ④는 위 <strong>세부관리기준</strong>에서 본 <em>평가 기준</em>을 자기 서류에 스스로 대입해 보는 연습이 됩니다. 다만 <strong>AI가 만든 것은 어디까지나 초안</strong>입니다 — 자격 요건·지원 금액·마감일 같은 숫자는 반드시 공고 원문과 대조하십시오. <span class="meta">Google Drive 공개 폴더 · 안내문 + 소스코드 + 프롬프트 2종(.md) · 2026-08-02 공유</span></span>
+            <span class="desc"><strong>③ PUBLY(퍼블리) BEST — 현직자가 쓴 일의 기록</strong> — 위 AI 글이 실려 있는 <strong>실무 콘텐츠 멤버십</strong>의 「BEST」 목록입니다. 기획·마케팅·데이터·커리어 전환 등 <strong>현직자가 직접 쓴 글</strong>이 최신순·만족도순으로 모여 있고, 「시리즈」·「템플릿」 메뉴에는 기획서·보고서 <strong>양식</strong>이 있습니다. 관광 공고가 올라오는 곳은 아니지만, 사업계획서와 IR 자료에 들어갈 <strong>시장 분석 · 고객 정의 · 실행 계획을 남들은 어떤 언어로 쓰는지</strong> 볼 수 있는 자리입니다. 유료 멤버십이라 전체 열람에는 구독이 필요합니다. <span class="meta">PUBLY · publy.co · 커리어·실무 콘텐츠 멤버십(유료)</span></span>
+          </details>
+        </li>
+        <li class="t-blue2">
+          <span class="grouptitle">관광e배움터 — 공사가 운영하는 무료 온라인 교육</span>
+          <div class="linkrow tiny">
+            <a href="https://touredu.visitkorea.or.kr/" target="_blank" rel="noopener">관광e배움터 ↗</a>
+          </div>
+          <span class="desc">한국관광공사가 운영하는 <strong>관광산업 온라인 통합교육 플랫폼</strong>입니다. 왼쪽 두 자료가 <em>유료 강의와 개인 멘토</em>라면, 이쪽은 <strong class="hot-t">공공이 무료로 여는 강의실</strong>입니다 — 관광 마케팅 · 디지털 전환 · 고객 응대 등 실무 과정이 올라옵니다.<br /><strong>이 수업에서 쓰는 법</strong> — ① 과제 1의 <strong>03장 비즈니스 모델·마케팅 칸</strong>을 채울 때 용어와 틀을 여기서 가져오고, ② 수료 이력은 <strong>과제 2 입사 제안서의 「내 산출물」</strong>과 사업계획서 <strong>5절 팀빌딩</strong>에 그대로 적습니다 — <em>「배우겠습니다」가 아니라 「이미 들었습니다」</em>가 되는 자리입니다.</span>
+          <span class="meta">한국관광공사 · touredu.visitkorea.or.kr · 온라인 통합교육 플랫폼</span>
+        </li>
+      </ul>
       </div>
 
 
@@ -2136,24 +2089,6 @@
     x0 = null;
   }, { passive: true });
   go(0);
-})();
-</script>
-<script>
-/* 배우기 세 갈래 탭 — 버튼과 칸이 같은 순서로 놓여 있어 번호만 맞춘다. */
-(function () {
-  var box = document.querySelector('.tabs3');
-  if (!box) return;
-  var btns = [].slice.call(box.querySelectorAll('.tb-btn'));
-  var pans = [].slice.call(box.querySelectorAll('.tb-panel'));
-  btns.forEach(function (b, i) {
-    b.addEventListener('click', function () {
-      btns.forEach(function (x, n) {
-        x.classList.toggle('is-on', n === i);
-        x.setAttribute('aria-selected', n === i ? 'true' : 'false');
-      });
-      pans.forEach(function (x, n) { x.classList.toggle('is-on', n === i); });
-    });
-  });
 })();
 </script>
 </body>
