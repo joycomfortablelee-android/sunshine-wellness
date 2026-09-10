@@ -702,7 +702,9 @@
     .learn-article .syl-box .syl-t a.task-badge {
       display: inline-block; margin-left: 8px; padding: 3px 10px; border-radius: 6px;
       background: #c0392b; color: #fff; border: 0;
-      font-size: 10.5px; font-weight: 800; letter-spacing: .04em; vertical-align: 2px;
+      /* 상자 제목이 세리프라 배지도 세리프로 떨어졌다 — 옆 알약 둘과 같은 글꼴·크기로 못박는다 */
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 11px; font-weight: 800; letter-spacing: .02em; vertical-align: 2px;
     }
     .learn-article .syl-box .syl-t a.task-badge:hover { background: #98291d; color: #fff; }
     /* ===== 관광벤처 세 유형 — 삼각형 =====
