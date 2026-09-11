@@ -15,8 +15,8 @@
   <style>
     /* ── 과제 넷을 한 줄로 — 흐름 지도 바로 아래, 누르면 그 과제 상자로 뛴다 ── */
     .learn-article .tflow {
-      display: flex; flex-wrap: wrap; align-items: center; gap: 7px;
-      margin: -14px 0 26px; padding: 10px 13px;
+      display: flex; flex-wrap: nowrap; align-items: center; gap: 6px;
+      margin: -14px 0 26px; padding: 10px 12px;
       border: 1px solid #dbe6f2; border-radius: 999px; background: #f7fafd;
     }
     .learn-article .tflow .tf-lb {
@@ -46,7 +46,7 @@
     .learn-article .tflow .t3 { --t-dk:#1f7a70; --t-ln:#bfe0da; }
     .learn-article .tflow .t4 { --t-dk:#56487a; --t-ln:#d9cef0; }
     @media (max-width: 760px) {
-      .learn-article .tflow { border-radius: 12px; }
+      .learn-article .tflow { border-radius: 12px; flex-wrap: wrap; }
       .learn-article .tflow .tf-a { display: none; }
     }
     /* ── 세 단계 상자 안의 설명 — 카드 셋 아래에 「어떻게 이어지는가」와 「왜 이 순서인가」 ── */
@@ -492,13 +492,13 @@
       </div>
 
       <p class="tflow" aria-label="과제 넷의 순서">
-        <a class="tf-i t1 prac" href="#과제1"><b>실습</b>국내 도시 벤치마킹<i>내 도시를 세 갈래로</i></a>
+        <a class="tf-i t1 prac" href="#과제1"><b>실습</b>국내 도시 벤치마킹</a>
         <span class="tf-a">→</span>
-        <a class="tf-i t2 prac" href="#대비"><b>대비</b>인성면접 · 지원서<i>취업 서류를 미리 써 둔다</i></a>
+        <a class="tf-i t2 prac" href="#대비"><b>중간</b>인성면접 · 지원서<i>취업 서류를 미리 써 둔다</i></a>
         <span class="tf-a">→</span>
-        <a class="tf-i t3 prac" href="#과제3"><b>실습</b>유럽 벤치마킹 발표<i>9~15주차</i></a>
+        <a class="tf-i t3 prac" href="#과제3"><b>실습</b>유럽 벤치마킹 발표</a>
         <span class="tf-a">→</span>
-        <a class="tf-i t4 y" href="#과제2"><b>기말발표</b>응모신청서 · 업무 수행계획서<i>모의 PT · 졸업 뒤까지</i></a>
+        <a class="tf-i t4 y" href="#과제2"><b>기말</b>응모신청서 · 업무 수행계획서<i>모의 PT · 졸업 뒤까지</i></a>
       </p>
 
 
