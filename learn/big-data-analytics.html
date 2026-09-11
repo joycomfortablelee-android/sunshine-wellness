@@ -225,7 +225,16 @@
       .learn-article .task-box .kwlist.bd-kw > li { grid-template-columns: 1fr; gap: 3px; }
     }
 
-  </style>
+      /* 히어로 아래 작은 알약 한 줄 — 수업 운영 자료를 곁들이는 자리 */
+    .learn-hero .hero-pills { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 12px 0 0; }
+    .learn-hero .hero-pills a.mapl.mini {
+      display: inline-block; padding: 3px 8px; border-radius: 999px;
+      background: #fff; color: #17365d; border: 1px solid #b9cade;
+      font-size: 10px; font-weight: 700; text-decoration: none;
+    }
+    .learn-hero .hero-pills a.mapl.mini:hover { background: #17365d; border-color: #17365d; color: #fff; }
+    .learn-hero .hero-pills .hp-src { font-size: 10.5px; color: #7c8a99; }
+</style>
 </head>
 <body>
 
@@ -254,6 +263,7 @@
         </ul>
         <p class="rb-n"><b>1교시가 끝나면 2층으로 올라갑니다</b> — 1교시는 <strong>2106호(1층)</strong>, 2 · 3교시는 <strong>2210호(2층)</strong>입니다. 쉬는 시간 10분 안에 이동하고, <strong>세 교시 모두 PC실</strong>이므로 실습 파일은 개인 저장소나 이메일에 올려 두어야 이어서 작업할 수 있습니다.</p>
       </div>
+      <p class="hero-pills"><a class="mapl mini" href="big-data-student-note.html" target="_blank" rel="noopener">학생 이해 노트 ↗</a><span class="hp-src">공식 출석부 12명 · 화이트보드 사진</span></p>
     </div>
   </section>
 
