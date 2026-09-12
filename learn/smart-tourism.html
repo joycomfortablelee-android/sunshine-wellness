@@ -439,6 +439,14 @@
       background: #fff; color: #14120a; border: 1px solid #c9a227;
     }
 
+    /* ★ 표시한 공모 — 표에서 한 줄만 눈에 걸리게 한다. 왼쪽에 금색 바를 세우고
+       공모전 이름 앞에 별을 붙인다. 상태 배지(접수 중 · 주목)와는 다른 축이다. */
+    .learn-article table.ref.contest tbody tr.starred td { background: #fffaf0; }
+    .learn-article table.ref.contest tbody tr.starred:hover td { background: #fdf3e0; }
+    .learn-article table.ref.contest tbody tr.starred td:first-child { box-shadow: inset 3px 0 0 #d89b12; }
+    .learn-article table.ref.contest tbody tr.starred strong.c-nm::before {
+      content: '★'; margin-right: 5px; color: #d89b12; font-size: 12px;
+    }
   </style>
 </head>
 <body class="mod-smart">
@@ -815,9 +823,9 @@
               <td class="st">8. 3. ~ <strong>9. 30. 14:00</strong></td>
               <td class="st"><a href="https://datalab.visitkorea.or.kr/site/portal/ex/bbs/View.do?bcIdx=311064&amp;cbIdx=1135&amp;pageIndex=1" target="_blank" rel="noopener">한국관광 데이터랩 공고 ↗</a></td>
             </tr>
-            <tr>
+            <tr class="starred">
               <td class="stat"><span class="badge watch">주목</span></td>
-              <td><strong>관광AI 문제해결 아이디어 공모전</strong></td>
+              <td><strong class="c-nm">관광AI 문제해결 아이디어 공모전</strong></td>
               <td class="st"><strong>AI로 관광현장 문제 풀기</strong><br />이벤트형 관광현장 · 관광서비스형 관광현장 2개 유형(중복 가능)</td>
               <td class="st">2025년 8. 4. ~ 9. 5.<br />차기 회차 <strong>미확인</strong></td>
               <td class="st"><a href="https://www.contestkorea.com/sub/view.php?int_gbn=1&amp;Txt_bcode=031410001&amp;str_no=202508040115" target="_blank" rel="noopener">2025년 요강 · 공고문 ↗</a></td>
