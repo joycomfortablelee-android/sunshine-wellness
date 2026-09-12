@@ -598,8 +598,17 @@
       font-size: 10.5px; font-weight: 700; text-decoration: none; letter-spacing: -.2px;
     }
     .learn-hero .room-bar .rb-parts a:hover { background: #17365d; border-color: #17365d; color: #fff; }
+    /* 최종결과물 둘 — 파트 알약과 한 줄에 있되 성격이 달라 세로선으로 끊고 샛노랑으로 세운다. */
+    .learn-hero .room-bar .rb-parts .rb-sep {
+      width: 1px; height: 14px; margin: 0 4px; background: #c3d2e2;
+    }
+    .learn-hero .room-bar .rb-parts a.fin {
+      background: #ffe800; border-color: #d8bb2a; color: #14120a; font-weight: 800;
+    }
+    .learn-hero .room-bar .rb-parts a.fin:hover { background: #14120a; border-color: #14120a; color: #ffe800; }
     /* 뛰어간 자리의 제목이 헤더에 가리지 않게 */
     .learn-article .learn-part:target { scroll-margin-top: 78px; }
+    .learn-article .task-box .tb-t:target { scroll-margin-top: 78px; }
     /* 노란 작은 알약 — 아래 척도개발 상자와 같은 샛노랑이라 눌러서 닿는 곳이 보인다. */
     .learn-hero .syl-box .syl-tags a.mapl.mini.y {
       background: #ffe800; border-color: #d8bb2a; color: #14120a; font-weight: 800;
@@ -769,7 +778,7 @@
             <li class="pc"><b>수 2교시</b><span class="tm">(10:00 – 10:50)</span><span class="rm">사회대 <strong>2106호</strong><em>PC실</em></span></li>
             <li class="mv"><b>목 2교시</b><span class="tm">(10:00 – 10:50)</span><span class="rm">사회대 <strong>3402호</strong></span></li>
           </ul>
-          <p class="rb-parts"><b>이 페이지는 여덟 파트</b><a href="#part01">01 국내 사례</a><a href="#part02">02 해외 사례</a><a href="#part03">03 공모전</a><a href="#part04">04 PBL</a><a href="#part05">05 책</a><a href="#part06">06 이론</a><a href="#part07">07 연구</a><a href="#part08">08 자료실</a></p>
+          <p class="rb-parts"><b>이 페이지는 여덟 파트</b><a href="#part01">01 국내 사례</a><a href="#part02">02 해외 사례</a><a href="#part03">03 공모전</a><a href="#part04">04 PBL</a><a href="#part05">05 책</a><a href="#part06">06 이론</a><a href="#part07">07 연구</a><a href="#part08">08 자료실</a><span class="rb-sep" aria-hidden="true"></span><a class="fin" href="#과제2">최종결과물 1 · AX 응모신청서</a><a class="fin" href="#과제4">최종결과물 2 · 업무수행계획서</a></p>
         </div>
         <div class="syl-box">
           <p class="syl-t"><a href="smart-tourism-weekly-plan.html" target="_blank" rel="noopener">주간 수업 운영 · 학생 발표 배정 — 1~15주차 한 장 ↗</a></p>
