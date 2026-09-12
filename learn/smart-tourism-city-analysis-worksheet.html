@@ -19,6 +19,20 @@
     color:var(--text);
     font-family:"Malgun Gothic","Apple SD Gothic Neo",sans-serif;
   }
+  /* 다 채운 자리에서 바로 저장·PDF 할 수 있게 아래에도 같은 칸을 둔다.
+     위로 되돌아가지 않아도 되고, 인쇄 때는 위아래 모두 숨는다. */
+  .toolbar.bottom{
+    justify-content:space-between;
+    align-items:center;
+    margin:14px auto 44px;
+    padding-top:14px;
+    border-top:1px dashed var(--line);
+  }
+  .toolbar .tb-how{
+    flex:1 1 300px; margin:0; text-align:left;
+    font-size:12px; line-height:1.65; color:var(--muted);
+  }
+  .toolbar .tb-how b{color:var(--navy)}
   .toolbar{
     width:210mm;
     max-width:calc(100% - 24px);
@@ -341,6 +355,12 @@
 
   <div class="footer">스마트관광도시 발표 Peer Learning Worksheet</div>
 </main>
+
+<div class="toolbar bottom">
+  <p class="tb-how"><b>PDF로 저장하려면</b> — 「인쇄 / PDF 저장」을 누른 뒤, 인쇄 창의 <b>대상(프린터)</b>을 <b>「PDF로 저장」</b>으로 고르면 파일로 떨어집니다. 파일 이름은 <b>도시_이름</b>으로 두면 찾기 쉽습니다.<br /><b>「작성 내용 저장」은 이 브라우저에만</b> 남습니다 — 다른 기기에서는 열리지 않으니, 내야 할 것은 <b>PDF로 저장</b>하십시오.</p>
+  <span class="tb-btns"><button onclick="saveLocal()">작성 내용 저장</button>
+  <button class="primary" onclick="window.print()">인쇄 / PDF 저장</button></span>
+</div>
 
 <script>
 const fields = [...document.querySelectorAll('input[type="text"], textarea, input[type="radio"]')];
