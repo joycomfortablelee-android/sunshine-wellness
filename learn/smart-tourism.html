@@ -53,33 +53,26 @@
       margin: 16px 0 7px; padding-top: 11px; border-top: 1px dashed #cfdcea;
       font-size: 12px; font-weight: 800; letter-spacing: .04em; color: #1c4e8a;
     }
-    .learn-article .case-box.flow .f3-chain,
+    .learn-article .case-box .f3-chain,
     .learn-article .case-box.flow .f3-why { list-style: none; margin: 0; padding: 0; }
-    /* 네 줄을 두 칸 격자로 눕혀 세로 공간을 반으로 줄인다 */
-    .learn-article .case-box.flow .f3-chain {
-      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px;
-    }
-    .learn-article .case-box.flow .f3-chain li {
+    /* 한 줄만 남아 격자를 접었다 — 용인 상자의 머리글 바로 아래에 선다 */
+    .learn-article .case-box .f3-chain { display: grid; grid-template-columns: 1fr; margin: 9px 0 4px; }
+    .learn-article .case-box .f3-chain li {
       display: flex; align-items: center; gap: 8px; margin: 0;
       padding: 7px 10px; border-radius: 9px; background: #fff; border: 1px solid #dbe6f2;
     }
     @media (max-width: 760px) {
-      .learn-article .case-box.flow .f3-chain { grid-template-columns: 1fr; }
     }
-    .learn-article .case-box.flow .f3-chain .f3-o,
-    .learn-article .case-box.flow .f3-chain .f3-i {
+    .learn-article .case-box .f3-chain .f3-o,
+    .learn-article .case-box .f3-chain .f3-i {
       flex: 1 1 0; font-size: 12px; line-height: 1.6; color: #52697f;
     }
-    .learn-article .case-box.flow .f3-chain .f3-o { text-align: right; }
-    .learn-article .case-box.flow .f3-chain strong { color: #17395f; }
-    .learn-article .case-box.flow .f3-chain i,
+    .learn-article .case-box .f3-chain .f3-o { text-align: right; }
+    .learn-article .case-box .f3-chain strong { color: #17395f; }
+    .learn-article .case-box .f3-chain i,
     .learn-article .case-box.flow .f3-why i {
       flex: none; font-style: normal; font-weight: 900; color: #c98b2e;
     }
-    .learn-article .case-box.flow .f3-n {
-      margin: 9px 0 0; font-size: 12px; line-height: 1.75; color: #52697f;
-    }
-    .learn-article .case-box.flow .f3-n strong { color: #17395f; }
     .learn-article .case-box.flow .f3-why li {
       margin: 0 0 5px; padding-left: 13px; position: relative;
       font-size: 12.5px; line-height: 1.7; color: #52697f;
@@ -91,8 +84,8 @@
     .learn-article .case-box.flow .f3-why b { color: #a03030; font-weight: 800; }
     .learn-article .case-box.flow .f3-why strong { color: #17395f; }
     @media (max-width: 700px) {
-      .learn-article .case-box.flow .f3-chain li { flex-wrap: wrap; }
-      .learn-article .case-box.flow .f3-chain .f3-o { text-align: left; }
+      .learn-article .case-box .f3-chain li { flex-wrap: wrap; }
+      .learn-article .case-box .f3-chain .f3-o { text-align: left; }
     }
     /* ── 과제 시행 시점 표시 — 과제 1·2 는 중간시험과 맞물려 있어 이름 옆에 못박는다 ── */
     .learn-article .roadmap3 .rm-when {
@@ -559,13 +552,6 @@
           <li><b class="s-t">공모전 양식으로 결과 만들기</b><span class="s-d">찍은 지도와 선정 이유를 <b>맨 아래 공모전 카드</b>의 <b>양식① 응모신청서</b>에 옮겨 적고, <b>양식②</b>에 서명해 <b>PDF 두 장</b>으로 냅니다. 개발 완성물은 필요 없습니다.</span></li>
         </ol>
 
-        <p class="f3-h">앞 단계가 남긴 것이 다음 단계의 재료가 됩니다</p>
-        <ul class="f3-chain">
-          <li><span class="f3-o">도시를 가른 <strong>세 갈래</strong> — 플랫폼 · 연구 · 홍보</span><i>→</i><span class="f3-i"><strong>도시 카드</strong>의 세 칸 — WHAT · PLATFORM+RESEARCH · PROMOTION</span></li>
-          <li><span class="f3-o"><strong>검색해도 안 나오는 자원</strong></span><i>→</i><span class="f3-i">신청서의 <strong>「누가 겪는가」</strong></span></li>
-        </ul>
-        <p class="f3-n">그래서 <strong>단계 3에서 새로 지어내는 칸이 거의 없습니다.</strong> 빌려 오는 것은 [6]의 「비슷한 사례」 하나뿐이고, 그것도 <strong>파트 02 유럽 사례집 44건</strong>에서 고릅니다. 눈여겨볼 것은 <strong>검색해도 안 나오는 자원</strong> 쪽입니다 — <strong class="hot-t">실습에서 막힌 것이 버려지지 않고 심사 서류의 한 칸이 됩니다.</strong></p>
-
         <p class="f3-h">왜 이 순서인가</p>
         <ul class="f3-why">
           <li><b>먼저 만들게 하면</b> 무엇을 만들지 몰라 멈춥니다 <i>→</i> <strong>단계 1</strong>이 틀을 줍니다</li>
@@ -579,6 +565,10 @@
       <div class="case-box s1">
         <p class="cb-title">스마트관광 도시 사례 — 용인 <span>참고 웹사이트 6</span></p>
         <p class="cb-lead">열두 도시 중 <strong>한 곳만 끝까지 따라가 보면</strong> 나머지가 보입니다. 용인을 골랐습니다 — <strong>플랫폼 · 연구 · 홍보</strong> 세 갈래가 모두 공개돼 있어 <em>“도시가 무엇을 만들었고, 무엇을 근거로 삼았고, 어떻게 알렸는가”</em>를 한 번에 볼 수 있는 드문 사례입니다.</p>
+
+        <ul class="f3-chain">
+          <li><span class="f3-o">도시를 가른 <strong>세 갈래</strong> — 플랫폼 · 연구 · 홍보</span><i>→</i><span class="f3-i"><strong>도시 카드</strong>의 세 칸 — WHAT · PLATFORM+RESEARCH · PROMOTION</span></li>
+        </ul>
 
         <span class="cb-group">① 무엇을 만들었나 · 플랫폼</span>
         <ul>
