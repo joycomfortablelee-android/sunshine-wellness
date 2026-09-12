@@ -37,7 +37,9 @@
       display: grid; grid-template-columns: 138px minmax(0, 1fr); gap: 10px;
       margin: 0; padding: 7px 0; border-top: 1px dashed #d9bf00;
       font-size: 13.5px; line-height: 1.75; color: #2a2410;
+      border-left: 0; padding-left: 0;   /* learn.css 의 .reslist li 왼쪽 파란 선을 끈다 */
     }
+    .learn-article .reslist.grid3 > li.t-yellow .kwlist.idea-kw > li::before { content: none; }
     .learn-article .reslist.grid3 > li.t-yellow .kwlist.idea-kw > li:first-child { border-top: 0; padding-top: 3px; }
     .learn-article .reslist.grid3 > li.t-yellow .kwlist.idea-kw > li > b {
       counter-increment: kw; font-weight: 800; color: #14120a; letter-spacing: -.2px;
