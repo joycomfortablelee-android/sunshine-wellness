@@ -245,8 +245,16 @@
     .learn-article .task-box.y2 .tb-tags a.mapl.form.hot { background: #7a6720; border-style: solid; border-color: #7a6720; color: #fffbe0; }
     .learn-article .task-box.y2 .tb-tags a.mapl.form.hot:hover { background: #4a3f10; border-color: #4a3f10; color: #fffbe0; }
     .learn-article .task-box.y2 .tb-tags a.mapl.form.hot.red { background: #c0392b; border-color: #c0392b; color: #fff; }
-    .learn-article .task-box.y2 .tb-tags a.mapl.form.ex { border-style: solid; border-color: #8a5a17; color: #8a5a17; }
-    .learn-article .task-box.y2 .tb-tags a.mapl.form.ex:hover { background: #8a5a17; border-color: #8a5a17; color: #fff; }
+    /* 예시 알약 — 초록. 내가 채워 낼 것(빨강 · 기본)과 갈라, 「이미 채워진 견본」임을 색으로 말한다.
+       노란 상자 둘(연한 노랑 y2 · 샛노랑 y) 모두에 같은 초록으로 선다. */
+    .learn-article .task-box.y2 .tb-tags a.mapl.form.ex,
+    .learn-article .task-box.y .tb-tags a.mapl.form.ex {
+      background: #1f5d42; border-style: solid; border-color: #1f5d42; color: #fff; font-weight: 800;
+    }
+    .learn-article .task-box.y2 .tb-tags a.mapl.form.ex:hover,
+    .learn-article .task-box.y .tb-tags a.mapl.form.ex:hover {
+      background: #14472f; border-color: #14472f; color: #fff;
+    }
     /* 노란 알약 — 웹에서 바로 채우는 워크시트. 상자 바탕이 연한 노랑이라
        알약은 샛노랑으로 올리고 테두리를 진하게 둘러 뜨게 한다. */
     .learn-article .task-box.y2 .tb-tags a.mapl.form.y {
@@ -741,7 +749,7 @@
           <li><b>[6] 실행</b><span>비슷한 사례 · 필요한 기술 · 예상되는 어려움. <em>비슷한 사례는 파트 02 유럽 사례집 44건</em>에서 고릅니다 — 홍보물이 아니라 <strong>심사용 문서</strong>라 인용의 무게가 다릅니다.</span></li>
           <li><b>어려움은 솔직하게</b><span>[6]의 「예상되는 어려움」은 숨기지 않는 편이 유리합니다 — 실습에서 만난 <strong>줌 15 해상도 한계</strong>처럼 <strong class="hot-t">도구의 한계를 아는 사람이 쓴 글</strong>로 읽힙니다.</span></li>
         </ol>
-        <p class="tb-tags"><a class="mapl form hot red" href="assets/gyeongbuk-ax-2026-form1-application.docx" download="0714-양식1_응모신청서.docx">양식① 응모신청서 ⤓</a><a class="mapl form" href="assets/gyeongbuk-ax-2026-form2-consent.docx" download="0714-양식2_개인정보저작권동의서.docx">양식② 동의서 ⤓</a><a class="mapl form ex" href="assets/gyeongbuk-ax-2026-notice.pdf" target="_blank" rel="noopener">공고문 원문 3쪽 ↗</a><span class="tb-src">두 양식을 <b>각각 PDF로 변환해 이메일 접수</b>합니다. 대학생은 <b>일반부</b>이고, 아이디어만으로 응모할 수 있어 개발 완성물은 필요 없습니다.</span></p>
+        <p class="tb-tags"><a class="mapl form hot red" href="assets/gyeongbuk-ax-2026-form1-application.docx" download="0714-양식1_응모신청서.docx">양식① 응모신청서 ⤓</a><a class="mapl form" href="assets/gyeongbuk-ax-2026-form2-consent.docx" download="0714-양식2_개인정보저작권동의서.docx">양식② 동의서 ⤓</a><a class="mapl form" href="assets/gyeongbuk-ax-2026-notice.pdf" target="_blank" rel="noopener">공고문 원문 3쪽 ↗</a><span class="tb-src">두 양식을 <b>각각 PDF로 변환해 이메일 접수</b>합니다. 대학생은 <b>일반부</b>이고, 아이디어만으로 응모할 수 있어 개발 완성물은 필요 없습니다.</span></p>
       </div>
 
       <div class="task-box pd3 y">
