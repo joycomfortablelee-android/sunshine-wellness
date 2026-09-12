@@ -486,6 +486,12 @@
     @media (max-width: 620px) {
       .learn-article .task-box .kwlist.tb-kw > li { grid-template-columns: 1fr; gap: 2px; }
     }
+    /* 개설 정보 한 줄 — 영문 라벨 바로 아래, 제목 위. */
+    .learn-hero .who {
+      margin: -6px 0 11px; font-size: 12.5px; font-weight: 600;
+      color: #5b6b7d; letter-spacing: -.2px;
+    }
+    .learn-hero .who b { font-weight: 800; color: #17365d; }
     /* 강의실 바 아래 파트 알약 줄 — 긴 페이지라 위에서 바로 해당 자리로 뛴다. */
     .learn-hero .room-bar .rb-parts {
       display: flex; flex-wrap: wrap; align-items: center; gap: 5px;
@@ -659,6 +665,7 @@
   <section class="learn-hero">
     <div class="lw">
       <p class="label">Module 01 · Smart Tourism <span class="term">2학년 2학기</span></p>
+      <p class="who">국립경국대학교 <b>관광경영학과</b> 2학년 2학기 · <b>이유안</b> 교수</p>
       <h1>스마트 투어리즘 — 기술이 바꾸는 여행</h1>
       <p class="sub">지도를 펼치던 여행은 검색창을 여는 여행으로 바뀌었습니다. 데이터·연결·인공지능이 여행의 계획·이동·경험을 어떻게 다시 짜는지 — 스마트 관광의 뼈대와 스마트 도시의 현재를 살펴봅니다.</p>
 
