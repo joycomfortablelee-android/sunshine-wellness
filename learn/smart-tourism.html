@@ -297,11 +297,13 @@
     }
     .learn-article .wk-fold .reslist { margin-bottom: 0; }
     /* 실습은 이 페이지의 손으로 하는 부분이라 따뜻한 쪽으로 둔다 */
-    .learn-article .wk-fold.warm { border-color: #e0cba8; background: #fffdf8; }
-    .learn-article .wk-fold.warm > summary { color: #8a5a17; }
-    .learn-article .wk-fold.warm > summary b.wk-tag { background: #8a5a17; color: #fff; }
-    .learn-article .wk-fold.warm > summary::after,
-    .learn-article .wk-fold.warm > summary .wk-sub { color: #a98446; }
+    /* 단계 2 안에 있는 실습 접기 — 그 절의 연한 파랑(case-box.s2)과 같은 색으로 둔다.
+       --s-ln #b2cae2 · --s-bg #eff5fa · --s-ac #2563a8 · --s-dk #1c4e8a */
+    .learn-article .wk-fold.s2blue { border-color: #b2cae2; background: #eff5fa; }
+    .learn-article .wk-fold.s2blue > summary { color: #1c4e8a; }
+    .learn-article .wk-fold.s2blue > summary b.wk-tag { background: #2563a8; color: #fff; }
+    .learn-article .wk-fold.s2blue > summary::after,
+    .learn-article .wk-fold.s2blue > summary .wk-sub { color: #5b7fa6; }
     @media (max-width: 620px) {
       .learn-article .wk-fold > summary { flex-wrap: wrap; }
       .learn-article .wk-fold > summary .wk-sub { width: 100%; }
@@ -853,7 +855,7 @@
             <span class="cb-src">시가 <b>지금 무엇을 알리고 있는지</b>가 가장 빨리 올라오는 곳. 관광자원을 고를 때 <em>“시가 밀고 있는 것”과 “내가 찾아낸 것”</em>을 갈라 보면 고른 이유가 선명해집니다.</span></li>
         </ul>
       </div>
-      <details class="wk-fold warm">
+      <details class="wk-fold s2blue">
         <summary><b class="wk-tag">실습</b>스마트관광 콘텐츠 제작 — 안동시 관광지도 만들기<span class="wk-sub">배경 지도 고르기 · 관광자원 찍기 · 도구의 한계 재기</span></summary>
         <ul class="reslist">
           <li class="hi tone box pd2">
