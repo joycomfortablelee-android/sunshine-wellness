@@ -1459,52 +1459,53 @@
     /* ===== 오각형 순환 — 다섯을 계단이 아니라 고리로 보인다. =====
        정오각형 꼭짓점(-90°에서 72°씩)에 원을 놓고, 가운데 점선 원과 화살표로 시계 방향을 표시한다.
        상자를 정사각형(aspect-ratio:1)으로 두어야 오각형이 찌그러지지 않는다. */
-    .learn-article .pent-wrap {
-      position: relative; width: 100%; max-width: 720px; margin: 18px auto 14px;
-      aspect-ratio: 1 / 1;
+    /* 다섯 걸음 — 가로 사슬. 오각형은 정사각형 한 판을 통째로 써서 눕혔다.
+       카드 다섯 + 화살표 넷 + 되돌아오는 꼬리 하나. 고리라는 성격은 꼬리가 진다. */
+    .learn-article .loop5 {
+      display: flex; align-items: stretch; gap: 5px;
+      margin: 16px 0 12px; flex-wrap: wrap;
     }
-    .learn-article .pent-wrap .pt-ring {
-      position: absolute; inset: 0; width: 100%; height: 100%;
+    .learn-article .loop5 .l5 {
+      flex: 1 1 150px; min-width: 0;
+      border: 1px solid var(--pc); border-top: 3px solid var(--pc); border-radius: 10px;
+      background: var(--pb); padding: 9px 11px 10px;
+      word-break: keep-all; overflow-wrap: break-word;
     }
-    .learn-article .pent-wrap .pt-ring circle {
-      fill: none; stroke: #cfdcea; stroke-width: .5; stroke-dasharray: 2 2.4;
+    .learn-article .loop5 .l5 .n {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 18px; height: 18px; border-radius: 50%; margin-right: 5px;
+      background: var(--pc); color: #fff; font-size: 10.5px; font-weight: 800;
+      vertical-align: 1px;
     }
-    .learn-article .pent-wrap .pt-ring .pt-arw { fill: #9db4cc; }
-    .learn-article .pent-wrap .pt-node {
-      position: absolute; width: 196px; height: 196px; border-radius: 50%;
-      transform: translate(-50%, -50%);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-align: center; padding: 0 24px; word-break: keep-all; overflow-wrap: break-word;
-      border: 2px solid var(--pc); background: var(--pb);
-      box-shadow: 0 4px 14px rgba(31,56,47,.10);
+    .learn-article .loop5 .l5 .h {
+      font-size: 13px; font-weight: 800; color: var(--pt); letter-spacing: -.2px;
     }
-    .learn-article .pent-wrap .pt-n {
-      display: flex; align-items: center; justify-content: center;
-      width: 22px; height: 22px; margin-bottom: 5px; border-radius: 50%;
-      background: var(--pc); color: #fff; font-size: 11px; font-weight: 800;
+    .learn-article .loop5 .l5 .d {
+      display: block; margin-top: 4px; font-size: 11px; line-height: 1.55; color: #55636f;
     }
-    .learn-article .pent-wrap .pt-h {
-      font-size: 13.5px; font-weight: 800; color: var(--pt); letter-spacing: -.2px; line-height: 1.45;
+    .learn-article .loop5 .l5-ar {
+      flex: 0 0 auto; align-self: center; color: #9db4cc; font-size: 13px; font-weight: 700;
     }
-    .learn-article .pent-wrap .pt-d {
-      margin-top: 5px; font-size: 11px; line-height: 1.6; color: #55636f;
+    .learn-article .loop5 .l5-back {
+      flex: 0 0 auto; align-self: center; margin-left: 2px;
+      color: #2563a8; font-size: 15px; font-weight: 700;
     }
-    .learn-article .pent-wrap .n1 { --pc: #2563a8; --pb: #f2f7fb; --pt: #1c4e8a; left: 50%;   top: 16%; }
-    .learn-article .pent-wrap .n2 { --pc: #2a9d8f; --pb: #eff7f5; --pt: #1f7a70; left: 82.3%; top: 39.5%; }
-    .learn-article .pent-wrap .n3 { --pc: #c05c72; --pb: #fdf2f4; --pt: #97425a; left: 70%;   top: 77.5%; }
-    .learn-article .pent-wrap .n4 { --pc: #7a67a8; --pb: #f6f4fc; --pt: #56487a; left: 30%;   top: 77.5%; }
-    .learn-article .pent-wrap .n5 { --pc: #3B6259; --pb: #eef4f1; --pt: #2f5148; left: 17.7%; top: 39.5%; }
-    /* 좁은 화면 — 오각형을 풀어 세로 사슬로 세운다. */
+    .learn-article .loop5 .l5-end {
+      flex: 0 0 auto; align-self: center; font-size: 10.5px; line-height: 1.45; color: #7c8a99;
+      letter-spacing: -.2px;
+    }
+    .learn-article .loop5 .l5-end b { display: block; color: #1c4e8a; font-weight: 800; }
+    .learn-article .loop5 .s1 { --pc: #2563a8; --pb: #f2f7fb; --pt: #1c4e8a; }
+    .learn-article .loop5 .s2 { --pc: #2a9d8f; --pb: #eff7f5; --pt: #1f7a70; }
+    .learn-article .loop5 .s3 { --pc: #c05c72; --pb: #fdf2f4; --pt: #97425a; }
+    .learn-article .loop5 .s4 { --pc: #7a67a8; --pb: #f6f4fc; --pt: #56487a; }
+    .learn-article .loop5 .s5 { --pc: #3B6259; --pb: #eef4f1; --pt: #2f5148; }
+    /* 좁은 화면 — 화살표를 접고 세로로 쌓는다. */
     @media (max-width: 720px) {
-      .learn-article .pent-wrap { aspect-ratio: auto; max-width: none; display: grid; gap: 10px; }
-      .learn-article .pent-wrap .pt-ring { display: none; }
-      .learn-article .pent-wrap .pt-node {
-        position: static; width: auto; height: auto; transform: none;
-        border-radius: 12px; padding: 12px 14px;
-        flex-direction: row; flex-wrap: wrap; justify-content: flex-start; text-align: left; gap: 0 8px;
-      }
-      .learn-article .pent-wrap .pt-n { margin-bottom: 0; }
-      .learn-article .pent-wrap .pt-d { flex: 1 0 100%; margin-top: 4px; }
+      .learn-article .loop5 { display: grid; gap: 7px; }
+      .learn-article .loop5 .l5-ar,
+      .learn-article .loop5 .l5-back { display: none; }
+      .learn-article .loop5 .l5-end { text-align: left; }
     }
 
     /* 장 안의 작은 머리줄 — 장 제목(.lp-core)보다 한 단계 낮게, 왼쪽 바만 세운다. */
@@ -1910,40 +1911,18 @@
 
       <p class="learn-part lp-core"><span class="num">06</span>이 사이트를 창업 사례로 읽기</p>
       <p>이 강의의 모든 모듈이 결국 하나의 질문으로 모입니다 — <strong>"어떻게 지속되는 사업으로 만들 것인가."</strong> 창업의 관점에서 다시 보면 각 모듈은 이렇게 이어집니다.</p>
-      <div class="pent-wrap" role="group" aria-label="지속되는 사업으로 만드는 다섯 걸음 — 순환">
-        <svg class="pt-ring" viewBox="0 0 100 100" aria-hidden="true">
-          <circle cx="50" cy="50" r="34" />
-          <polygon class="pt-arw" points="-2.6,-2 3.2,0 -2.6,2" transform="translate(69.98 22.49) rotate(36)" />
-          <polygon class="pt-arw" points="-2.6,-2 3.2,0 -2.6,2" transform="translate(82.34 60.51) rotate(108)" />
-          <polygon class="pt-arw" points="-2.6,-2 3.2,0 -2.6,2" transform="translate(50 84) rotate(180)" />
-          <polygon class="pt-arw" points="-2.6,-2 3.2,0 -2.6,2" transform="translate(17.66 60.51) rotate(252)" />
-          <polygon class="pt-arw" points="-2.6,-2 3.2,0 -2.6,2" transform="translate(30.02 22.49) rotate(324)" />
-        </svg>
-        <div class="pt-node n1">
-          <span class="pt-n">1</span>
-          <span class="pt-h">문제 정의</span>
-          <span class="pt-d">로컬 가이드와 여행자를 잇는다</span>
-        </div>
-        <div class="pt-node n2">
-          <span class="pt-n">2</span>
-          <span class="pt-h">가치와 콘텐츠</span>
-          <span class="pt-d">관광 자원 · 해설 · 웰니스로 차별화</span>
-        </div>
-        <div class="pt-node n3">
-          <span class="pt-n">3</span>
-          <span class="pt-h">도달과 홍보</span>
-          <span class="pt-d">다국어 · SEO · 후기 · 아카이브</span>
-        </div>
-        <div class="pt-node n4">
-          <span class="pt-n">4</span>
-          <span class="pt-h">기술과 데이터</span>
-          <span class="pt-d">스마트 관광 · 빅데이터로 경험과 의사결정을 고도화</span>
-        </div>
-        <div class="pt-node n5">
-          <span class="pt-n">5</span>
-          <span class="pt-h">지속 가능성</span>
-          <span class="pt-d">이 모든 것을 수익과 재방문으로 잇는 비즈니스 모델</span>
-        </div>
+      <div class="loop5" role="group" aria-label="지속되는 사업으로 만드는 다섯 걸음 — 돌아오는 고리">
+        <div class="l5 s1"><span class="n">1</span><b class="h">문제 정의</b><span class="d">로컬 가이드와 여행자를 잇는다</span></div>
+        <span class="l5-ar" aria-hidden="true">→</span>
+        <div class="l5 s2"><span class="n">2</span><b class="h">가치와 콘텐츠</b><span class="d">관광 자원 · 해설 · 웰니스로 차별화</span></div>
+        <span class="l5-ar" aria-hidden="true">→</span>
+        <div class="l5 s3"><span class="n">3</span><b class="h">도달과 홍보</b><span class="d">다국어 · SEO · 후기 · 아카이브</span></div>
+        <span class="l5-ar" aria-hidden="true">→</span>
+        <div class="l5 s4"><span class="n">4</span><b class="h">기술과 데이터</b><span class="d">스마트 관광 · 빅데이터로 경험과 의사결정을 고도화</span></div>
+        <span class="l5-ar" aria-hidden="true">→</span>
+        <div class="l5 s5"><span class="n">5</span><b class="h">지속 가능성</b><span class="d">이 모든 것을 수익과 재방문으로 잇는 비즈니스 모델</span></div>
+        <span class="l5-back" aria-hidden="true">↺</span>
+        <span class="l5-end"><b>다시 ①로</b>수치가 다음 문제 정의를 고친다</span>
       </div>
       <p class="mini-note"><strong>읽는 법</strong> — 다섯은 한 번 지나가는 계단이 아니라 <strong class="hot-t">돌아오는 고리</strong>입니다. <strong>⑤ 지속 가능성</strong>에서 나온 숫자(수익 · 재방문)가 다시 <strong>① 문제 정의</strong>를 고쳐 쓰게 만듭니다 — <em>04장 린 스타트업의 만들기 → 재기 → 배우기</em>와 같은 모양이고, 사업계획서에서는 <strong>P → S → S → T</strong>가 한 바퀴 도는 자리입니다.</p>
       <p><strong>여행에 대한 관심은 출발점입니다.</strong> 이를 <strong>반복 가능한 문제 해결</strong>과 <strong>수익 구조</strong>로 연결할 때 관광 아이디어는 <strong class="hot-t">비즈니스</strong>가 됩니다.</p>
