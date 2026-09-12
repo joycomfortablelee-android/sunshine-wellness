@@ -325,7 +325,7 @@
     .learn-article .case-box.pbl .cb-lead { color: #3f5a4d; }
     .learn-article .case-box.pbl .cb-lead strong { color: #14472f; }
     .learn-article .case-box.pbl .cb-lead em { font-style: normal; color: #1f5d42; font-weight: 700; }
-    .learn-article .case-box.pbl .kwlist.pbl-kw { margin: 0; padding: 0; list-style: none; counter-reset: kw; }
+    .learn-article .case-box.pbl .kwlist.pbl-kw { margin: 0; padding: 0; list-style: none; }
     .learn-article .case-box.pbl .kwlist.pbl-kw > li {
       display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 11px;
       margin: 0; padding: 8px 0; border-top: 1px dashed #cfe6da;
@@ -333,9 +333,8 @@
     }
     .learn-article .case-box.pbl .kwlist.pbl-kw > li:first-child { border-top: 0; padding-top: 2px; }
     .learn-article .case-box.pbl .kwlist.pbl-kw > li > b {
-      counter-increment: kw; font-weight: 800; color: #14472f; letter-spacing: -.2px;
+      font-weight: 800; color: #14472f; letter-spacing: -.2px;
     }
-    .learn-article .case-box.pbl .kwlist.pbl-kw > li > b::before { content: counter(kw) ') '; color: #4a8a6b; font-weight: 900; }
     .learn-article .case-box.pbl .kwlist.pbl-kw strong { color: #14472f; }
     .learn-article .case-box.pbl .kwlist.pbl-kw em { font-style: normal; color: #1f5d42; font-weight: 600; }
     .learn-article .case-box.pbl .kwlist.pbl-kw .hot-t { color: #a3161c; }
@@ -624,7 +623,7 @@
         <div class="rm-arrow" aria-hidden="true"><span></span></div>
         <div class="rm-col mid">
           <p class="rm-cap">여기로 모인다</p>
-          <div class="rm-cell rm-do"><span class="rm-t">파트 03</span><strong>취업 지원의 바탕을 만든다</strong><em>모의 연습 · 공모 지원 준비 · 제작 실습</em><span class="rm-task"><b>과제 2</b>AX 응모신청서 쓰기<i class="rm-when">중간시험 전주 · 중간시험 대체</i></span><span class="rm-task"><b>과제 4</b>지역문화재단 · 관광공사 업무수행계획서<i class="rm-when">모의 PT</i></span></div>
+          <div class="rm-cell rm-do"><span class="rm-t">파트 03</span><strong>취업 지원의 바탕을 만든다</strong><em>모의 연습 · 공모 지원 준비 · 제작 실습</em><span class="rm-task"><b>과제 2</b>AX 응모신청서 쓰기<i class="rm-when">중간시험 전주 · 중간시험 대체</i></span><span class="rm-task"><b>과제 4</b>지역문화재단 · 관광공사 · 연구원 업무수행계획서<i class="rm-when">모의 PT</i></span></div>
         </div>
         <div class="rm-arrow flip" aria-hidden="true"><span></span></div>
         <div class="rm-col right">
@@ -787,7 +786,7 @@
       </div>
 
       <div class="task-box pd3 y">
-        <p class="tb-t" id="과제4"><b class="tb-n">기말발표</b>지역관광재단 연구원 업무수행계획서 쓰기 — 공공기관·재단 취업 지원의 실무를 익힌다 <span>모의 PT · 그룹 평가</span></p>
+        <p class="tb-t" id="과제4"><b class="tb-n">기말발표</b>지역문화재단 · 관광공사 · 연구원 업무수행계획서 쓰기 — 공공기관·재단 취업 지원의 실무를 익힌다 <span>모의 PT · 그룹 평가</span></p>
         <p class="tb-d"><strong>국가기관 · 공공기관 · 지역 재단에 지원할 때 실제로 요구되는 서류</strong>입니다. 한국관광공사 · 지역 문화재단 · 시군 관광재단의 채용 전형은 대부분 자기소개서와 함께 <strong>직무수행계획서</strong>를 받고, 면접에서도 이 문서를 놓고 묻습니다.</p>
         <ol class="kwlist tb-kw">
           <li><b>왜 지금 쓰나</b><span>학기 중에 한 번 써 두면 <strong>지원 시점에 처음 마주치지 않습니다.</strong> 이 과제의 목적은 문서 한 장이 아니라 <strong class="hot-t">취업 실무를 미리 익히는 것</strong>입니다.</span></li>
@@ -1297,7 +1296,7 @@
       <div class="case-box pbl" id="문제에서출발">
         <p class="cb-title">왜 이렇게 배우나 — <strong>문제에서 출발한다</strong> <span>PBL · 문제기반학습</span></p>
         <p class="cb-lead">위 아홉 곳이 전부 <strong>문제 두 줄 → 해결 두 줄</strong>로 적혀 있는 것은 우연이 아닙니다. 이 수업이 자료를 그렇게 배치한 것이고, 여러분의 과제도 같은 순서로 갑니다. 이런 방식을 <strong>PBL(Problem-Based Learning · 문제기반학습)</strong>이라 부릅니다 — 이름보다 <em>순서</em>가 중요합니다.</p>
-        <ol class="kwlist pbl-kw">
+        <ul class="kwlist pbl-kw">
           <li><b>다섯 분야는 한 공간의 층</b><span>따로 있는 다섯 주제가 아니라 <strong class="hot-t">축제라는 한 공간을 시간으로 자른 것</strong>입니다 — 오기 전(<em>주차</em>) · 와서 움직일 때(<em>지도</em>) · 쓸 때(<em>결제</em>) · 사고가 날 때(<em>안전</em>) · 그래도 남는 사람(<em>자유 주제</em>).</span></li>
           <li><b>순서가 거꾸로다</b><span>배운 기술을 <em>쓸 데를 찾는</em> 것이 아니라, <strong class="hot-t">막힌 데를 먼저 찾고 거기에 기술을 붙입니다.</strong> 아홉 곳 중 <strong>어느 하나도 새 기술을 발명하지 않았습니다</strong> — 이미 있던 영상인식 · 측위 · QR · 비전 AI · 키오스크를 <strong>축제라는 현장의 특정 불편</strong>에 붙였을 뿐입니다.</span></li>
           <li><b>답이 교과서에 없다</b><span>「안동의 무엇이 문제인가」는 <strong>찾아봐야 압니다.</strong> 무엇을 찾아야 하는지조차 정해져 있지 않고, 정답이 하나도 아닙니다. 불편해 보이지만 <strong>실제 공모전과 실무가 그렇게 생겼습니다.</strong></span></li>
@@ -1305,7 +1304,7 @@
           <li><b>기술이 없어도 시작된다</b><span>「저는 개발을 못 해서요」는 이 수업에서 쓸 수 없는 말입니다. 아홉 곳이 한 일은 <strong>문제를 정확히 본 것</strong>이고, 기술은 그다음에 골랐습니다. 공모전 <strong>Section 1도 아이디어만</strong> 받습니다.</span></li>
           <li><b>세 과제가 한 줄이다</b><span><strong>단계 1 도시 카드</strong>(남의 도시는 무엇을 문제로 봤나) → <strong>단계 2 안동 실습</strong>(내 도시에서 직접 막혀 본다) → <strong>단계 3 응모신청서</strong>(그 문제를 남에게 설명한다). 따로 내는 세 과제가 아니라 <strong class="hot-t">같은 문제를 세 번 다르게 쓰는 것</strong>입니다.</span></li>
           <li><b>과제에 쓰는 법</b><span>여러분의 아이템도 같은 자리에서 시작하십시오 — <em>“무슨 기술을 쓸까”</em>가 아니라 <strong>“이 현장에서 누가 어떤 순간에 곤란한가”</strong>를 먼저 적고, 그 뒤에 기술을 고릅니다. 위 카드마다 <strong>문제가 두 줄, 해결이 두 줄</strong>인 것을 보십시오 — <strong>벤치마킹 발표도 회사당 그 정도면 충분합니다.</strong></span></li>
-        </ol>
+        </ul>
         <p class="pbl-end"><b>한 문장으로</b>기술을 배우고 <strong>쓸 데를 찾는</strong> 것이 아니라, <strong class="hot-t">누가 어떤 순간에 곤란한지를 먼저 적고 그 뒤에 기술을 고릅니다.</strong></p>
         <p class="pbl-note"><b>세는 법 주의</b>㈜다비오와 주식회사 딥파인은 원자료에서 <b>스마트 지도</b>와 <b>단독(스마트지도)</b> 항목에 중복 등장합니다. 사업 건수를 셀 때 겹치지 않게 보십시오.</p>
       </div>
