@@ -61,6 +61,10 @@
       display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px;
       margin: 0; padding: 2px 0; min-width: 0;
     }
+    /* learn.css 의 .case-box li::before 글머리 점이 left:0 에 찍힌다.
+       이 줄은 목록이 아니라 한 줄 흐름이라, 안쪽 여백을 0 으로 두면
+       그 점이 첫 글자 「도시를」 위에 겹친다. 점 자체를 없앤다. */
+    .learn-article .case-box .f3-chain li::before { content: none; }
     /* min-width:0 이 없으면 칸이 제 글 길이 아래로 줄지 못해 상자 밖으로 삐져나가고,
        가운뎃점이 옆 글자와 겹쳐 보인다. 넘치면 줄을 바꾸게 둔다. */
     .learn-article .case-box .f3-chain .f3-o,
