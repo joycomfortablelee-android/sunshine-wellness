@@ -364,6 +364,65 @@
     @media (max-width: 620px) {
       .learn-article .case-box.pbl .kwlist.pbl-kw > li { grid-template-columns: 1fr; gap: 2px; }
     }
+    /* ===== 척도개발 덱 =====
+       파트 05 이론 슬라이드와 같은 부품(.deck)이다. 움직임은 같은 스크립트가 맡고
+       (id 대신 .deck 을 순회한다) 여기서는 슬라이드 속살만 입힌다. */
+    .learn-article .deck.sc-deck { margin: 10px 0 26px; }
+    .learn-article .deck.sc-deck .kwlist.sc-dk { margin: 12px 0 0; padding: 0; list-style: none; }
+    .learn-article .deck.sc-deck .kwlist.sc-dk > li {
+      display: grid; grid-template-columns: 156px minmax(0, 1fr); gap: 12px;
+      margin: 0; padding: 8px 0; border-top: 1px dashed #e3d9b4;
+      font-size: 13.5px; line-height: 1.75; color: #4d5f74;
+    }
+    .learn-article .deck.sc-deck .kwlist.sc-dk > li:first-child { border-top: 0; padding-top: 2px; }
+    .learn-article .deck.sc-deck .kwlist.sc-dk > li::before { content: none; }
+    .learn-article .deck.sc-deck .kwlist.sc-dk > li > b { font-weight: 800; color: #17395f; letter-spacing: -.2px; }
+    .learn-article .deck.sc-deck .kwlist.sc-dk > li > b i {
+      display: block; font-style: normal; font-size: 10.5px; font-weight: 600; color: #8a7a46; letter-spacing: .02em;
+    }
+    .learn-article .deck.sc-deck .kwlist.sc-dk strong { color: #17395f; }
+    .learn-article .deck.sc-deck .kwlist.sc-dk.terms > li { grid-template-columns: 176px minmax(0, 1fr); }
+    .learn-article .deck.sc-deck .kwlist.sc-dk.src5 > li { font-size: 12.5px; }
+    .learn-article .deck.sc-deck .learn-fig img { max-width: 620px; }
+
+    /* 산업 비교표 — 옆으로 밀지 않고 한 화면에 들어오게 접는다.
+       learn.css 의 min-width:780px 과 mod-smart 의 2·3열 고정폭을 여기서 푼다. */
+    .learn-article .deck.sc-deck .sc-tb { min-width: 0; table-layout: fixed; }
+    body.mod-smart .learn-article .deck.sc-deck .sc-tb th:nth-child(2),
+    body.mod-smart .learn-article .deck.sc-deck .sc-tb td:nth-child(2),
+    body.mod-smart .learn-article .deck.sc-deck .sc-tb th:nth-child(3),
+    body.mod-smart .learn-article .deck.sc-deck .sc-tb td:nth-child(3) { width: auto; }
+    .learn-article .deck.sc-deck .sc-tb th,
+    .learn-article .deck.sc-deck .sc-tb td { padding: 6px 6px; font-size: 11.5px; line-height: 1.55; }
+    .learn-article .deck.sc-deck .sc-tb th { font-size: 11px; white-space: normal; text-align: left; }
+    .learn-article .deck.sc-deck .sc-tb col.c1 { width: 11%; }
+    .learn-article .deck.sc-deck .sc-tb col.c2 { width: 13%; }
+    .learn-article .deck.sc-deck .sc-tb col.c3 { width: 30%; }
+    .learn-article .deck.sc-deck .sc-tb col.c4 { width: 28%; }
+    .learn-article .deck.sc-deck .sc-tb col.c5 { width: 18%; }
+    .learn-article .deck.sc-deck .sc-tb td.st { color: #5b6b7d; font-size: 11.5px; }
+    .learn-article .deck.sc-deck .sc-tb em { font-style: normal; color: #a3161c; font-weight: 700; }
+
+    /* 요인 패턴 표 — 값이 ● 하나뿐이라 더 좁게 접는다. */
+    .learn-article .deck.sc-deck .sc-tb.sc-grid th:first-child,
+    .learn-article .deck.sc-deck .sc-tb.sc-grid td:first-child { width: 38%; }
+    .learn-article .deck.sc-deck .sc-tb.sc-grid th,
+    .learn-article .deck.sc-deck .sc-tb.sc-grid td { padding: 6px 5px; }
+    .learn-article .deck.sc-deck .sc-tb.sc-grid th { text-align: center; font-size: 11.5px; }
+    .learn-article .deck.sc-deck .sc-tb.sc-grid th:first-child { text-align: left; }
+    .learn-article .deck.sc-deck .sc-tb.sc-grid td { text-align: center; font-size: 14px; color: #6b5400; }
+    .learn-article .deck.sc-deck .sc-tb.sc-grid td:first-child { text-align: left; font-size: 12px; color: #4d5f74; line-height: 1.45; }
+    .learn-article .deck.sc-deck .sc-tb.sc-grid td i { display: block; font-style: normal; font-size: 9.5px; color: #8a938f; letter-spacing: -.1px; }
+    .learn-article .deck.sc-deck .sc-tb.sc-grid tr.all td { background: #fff8d8; font-weight: 800; }
+    @media (max-width: 620px) {
+      .learn-article .deck.sc-deck .kwlist.sc-dk > li,
+      .learn-article .deck.sc-deck .kwlist.sc-dk.terms > li { grid-template-columns: 1fr; gap: 2px; }
+    }
+    @media (max-width: 560px) {
+      .learn-article .deck.sc-deck .sc-tb.sc-grid td i { display: none; }
+      .learn-article .deck.sc-deck .sc-tb.sc-grid th { font-size: 10.5px; }
+    }
+
     /* 노란 알약 — 복습 노트처럼 「수업 뒤에 다시 펴 보는 것」에 쓴다.
        이 페이지의 샛노랑(과제 상자 · 스티키노트)과 같은 색이다. */
     .learn-article .dltags a.mapl.form.y {
@@ -1440,6 +1499,8 @@
 
       <p class="learn-part pt-learn" id="척도개발"><span class="pt">보태기</span>척도개발 5편 — 스마트관광을 어떻게 재는가</p>
       <p>위 다섯 장이 <strong>스마트 관광이 무엇인가</strong>를 세웠다면, 이 열한 장은 <strong>그것을 어떻게 재는가</strong>로 넘어갑니다 — <strong>여행업 · 외식업 · 컨벤션 · 숙박업 · 항공산업</strong> 다섯 편의 척도개발 연구입니다. 좌우로 넘기며 훑거나, 오른쪽 「전체 펼쳐 보기」로 한 번에 읽으십시오.</p>
+      <p class="dltags"><a class="mapl form y" href="smart-tourism-scale-slides.html" target="_blank" rel="noopener">슬라이드 11장 — 웹에서 넘겨 보기 ↗</a><a class="mapl form y" href="assets/smart-tourism-scale-development-review.docx" download="스마트관광_척도개발_복습노트_통합판.docx">척도개발 5편 복습 노트 ⤓ DOCX</a><a class="mapl form" href="assets/smart-tourism-scale-slides.pptx" download="스마트관광_척도개발_복습노트_슬라이드.pptx">같은 슬라이드 ⤓ PPTX</a><span class="dl-src">박소영 외(2024–2025) 다섯 편을 수업용으로 묶은 것입니다. <b>파트 06 연구</b>로 넘어가기 전에 펴 보십시오.<br /><b>셋은 같은 내용입니다</b> — <b>슬라이드</b>는 수업에서 띄우는 판(<b>← →</b> 로 넘기고 <b>F</b> 로 전체화면), <b>DOCX</b>는 읽고 인쇄하는 3쪽 노트, <b>PPTX</b>는 직접 고쳐 쓸 때 씁니다.</span></p>
+
       <div class="deck sc-deck">
         <div class="deck-bar">
           <div class="deck-dots">
@@ -1645,7 +1706,6 @@
         </div>
       </div>
 
-      <p class="dltags"><a class="mapl form y" href="smart-tourism-scale-slides.html" target="_blank" rel="noopener">슬라이드 11장 — 웹에서 넘겨 보기 ↗</a><a class="mapl form y" href="assets/smart-tourism-scale-development-review.docx" download="스마트관광_척도개발_복습노트_통합판.docx">척도개발 5편 복습 노트 ⤓ DOCX</a><a class="mapl form" href="assets/smart-tourism-scale-slides.pptx" download="스마트관광_척도개발_복습노트_슬라이드.pptx">같은 슬라이드 ⤓ PPTX</a><span class="dl-src">박소영 외(2024–2025) 다섯 편을 수업용으로 묶은 것입니다. <b>파트 06 연구</b>로 넘어가기 전에 펴 보십시오.<br /><b>셋은 같은 내용입니다</b> — <b>슬라이드</b>는 수업에서 띄우는 판(<b>← →</b> 로 넘기고 <b>F</b> 로 전체화면), <b>DOCX</b>는 읽고 인쇄하는 3쪽 노트, <b>PPTX</b>는 직접 고쳐 쓸 때 씁니다.</span></p>
 
 
       <p class="learn-part pt-res"><span class="pt">파트 06</span>연구</p>
