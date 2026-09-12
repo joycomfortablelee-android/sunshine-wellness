@@ -307,6 +307,33 @@
     /* 「이 페이지 읽는 법」 알약 — 처음 여는 사람이 제일 먼저 눌러야 할 곳이다.
        남색 알약들 사이에서 금색으로 갈라 두고 ★ 와 옅은 링을 붙여 눈에 걸리게 한다.
        히어로와 본문 두 곳에 같은 모양으로 선다. */
+    /* 척도개발 상자 — 이론(파트 05)과 연구(파트 06) 사이를 잇는 자리라
+       파란 사례 상자와 달리 노란 계열로 둔다. 노란 알약과 한 몸이다. */
+    .learn-article .case-box.scale {
+      border-color: #e6d268; background: linear-gradient(158deg, #fffdf0 0%, #fffbe0 72%, #fff 100%);
+    }
+    .learn-article .case-box.scale .cb-title { color: #7a6420; }
+    .learn-article .case-box.scale .cb-title span { color: #a8912c; }
+    .learn-article .case-box.scale .cb-lead { color: #5c5430; }
+    .learn-article .case-box.scale .cb-lead strong { color: #4a3f10; }
+    .learn-article .case-box.scale .kwlist.sc-kw { margin: 0 0 4px; padding: 0; list-style: none; counter-reset: kw; }
+    .learn-article .case-box.scale .kwlist.sc-kw > li {
+      display: grid; grid-template-columns: 152px minmax(0, 1fr); gap: 11px;
+      margin: 0; padding: 7px 0; border-top: 1px dashed #e6d89a;
+      font-size: 12.5px; line-height: 1.75; color: #5c5430;
+    }
+    .learn-article .case-box.scale .kwlist.sc-kw > li:first-child { border-top: 0; padding-top: 2px; }
+    .learn-article .case-box.scale .kwlist.sc-kw > li > b {
+      counter-increment: kw; font-weight: 800; color: #4a3f10; letter-spacing: -.2px;
+    }
+    .learn-article .case-box.scale .kwlist.sc-kw > li > b::before { content: counter(kw) ') '; color: #a8862c; font-weight: 900; }
+    .learn-article .case-box.scale .kwlist.sc-kw strong { color: #4a3f10; }
+    .learn-article .case-box.scale .kwlist.sc-kw em { font-style: normal; color: #7a6420; font-weight: 700; }
+    .learn-article .case-box.scale .dltags { border-top-color: #e6d268; }
+    .learn-article .case-box.scale .dl-src { color: #8a7a46; }
+    @media (max-width: 620px) {
+      .learn-article .case-box.scale .kwlist.sc-kw > li { grid-template-columns: 1fr; gap: 2px; }
+    }
     /* 노란 알약 — 복습 노트처럼 「수업 뒤에 다시 펴 보는 것」에 쓴다.
        이 페이지의 샛노랑(과제 상자 · 스티키노트)과 같은 색이다. */
     .learn-article .dltags a.mapl.form.y {
@@ -484,7 +511,7 @@
             <li><b>논문 읽는 표준</b><span>연구질문 · HOOK → 논문 · 사례영상 → 설계 · 핵심결과 → CONCEPT → LENS. 어느 논문이든 이 순서로 봅니다.</span></li>
             <li><b>발표 흐름</b><span><strong>국내 도시 발표</strong> → <strong>중간고사</strong> → <strong>해외 도시 발표</strong> → <strong>종합 발표</strong>. 팀별 도시까지 정해져 있습니다.</span></li>
           </ol>
-          <p class="syl-tags"><a class="mapl" href="smart-tourism-weekly-plan.html#week-table" target="_blank" rel="noopener">주간 운영표 · 요일별 단위 ↗</a><a class="mapl" href="smart-tourism-weekly-plan.html#team-assign" target="_blank" rel="noopener">팀별 발표 도시 1~15주 ↗</a><a class="mapl" href="smart-tourism-presentation-status.html" target="_blank" rel="noopener">국내 발표 현황 — 9/9 마친 것 · 9/16 남은 것 ↗</a><a class="mapl mini" href="smart-tourism-student-note.html" target="_blank" rel="noopener">학생 이해 노트 ↗</a><a class="mapl" href="academic-calendar-2026-2.html" target="_blank" rel="noopener">2학기 학사일정 달력 ↗</a><a class="mapl guide" href="smart-tourism-how-to-read.html" target="_blank" rel="noopener">이 페이지 읽는 법 — 순서 · 기호 · 평가 기준 ↗</a></p>
+          <p class="syl-tags"><a class="mapl" href="smart-tourism-weekly-plan.html#week-table" target="_blank" rel="noopener">주간 운영표 · 요일별 단위 ↗</a><a class="mapl" href="smart-tourism-weekly-plan.html#team-assign" target="_blank" rel="noopener">팀별 발표 도시 1~15주 ↗</a><a class="mapl" href="smart-tourism-presentation-status.html" target="_blank" rel="noopener">국내 발표 현황 — 9/9 마친 것 · 9/16 남은 것 ↗</a><a class="mapl mini" href="smart-tourism-student-note.html" target="_blank" rel="noopener">학생 이해 노트 ↗</a><a class="mapl mini" href="#척도개발">척도개발 5편 복습 ↓</a><a class="mapl" href="academic-calendar-2026-2.html" target="_blank" rel="noopener">2학기 학사일정 달력 ↗</a><a class="mapl guide" href="smart-tourism-how-to-read.html" target="_blank" rel="noopener">이 페이지 읽는 법 — 순서 · 기호 · 평가 기준 ↗</a></p>
         </div>
       </div>
     </div>
@@ -1281,7 +1308,17 @@
         </div>
       </div>
 
-      <p class="dltags"><a class="mapl form y" href="assets/smart-tourism-scale-development-review.docx" download="스마트관광_척도개발_복습노트_통합판.docx">척도개발 5편 복습 노트 ⤓ DOCX</a><span class="dl-src">위 다섯 장이 <b>스마트 관광이 무엇인가</b>를 세웠다면, 이 노트는 <b>그것을 어떻게 재는가</b>로 넘어갑니다 — <b>여행업 · 외식업 · 컨벤션 · 숙박업 · 항공산업</b> 다섯 편의 척도개발 연구를 한 장에 겹쳐 놓았습니다. <b class="hot-t">다섯 산업 모두에 들어간 요인은 편의성과 스마트인프라 둘</b>이고, 나머지는 산업마다 갈립니다 — 같은 스마트관광이라도 <b>서비스 여정이 다르면 「스마트함」의 구성도 달라진다</b>는 것이 요지입니다. 척도가 만들어지는 순서(<b>현장자료 → FGI · 전문가 검토 → 통계검증</b>)와 <b>30초 셀프체크</b>, 요인 여덟의 <b>장면 그림</b>이 부록으로 붙어 있습니다. 파트 06 연구로 넘어가기 전에 펴 보십시오.</span></p>
+      <div class="case-box scale" id="척도개발">
+        <p class="cb-title">척도개발 5편 — 스마트관광을 어떻게 재는가 <span>복습 노트 · 3쪽</span></p>
+        <p class="cb-lead">위 다섯 장이 <strong>스마트 관광이 무엇인가</strong>를 세웠다면, 이 노트는 <strong>그것을 어떻게 재는가</strong>로 넘어갑니다. <strong>여행업 · 외식업 · 컨벤션 · 숙박업 · 항공산업</strong> 다섯 편의 척도개발 연구를 한 장에 겹쳐 놓았습니다.</p>
+        <ol class="kwlist sc-kw">
+          <li><b>다섯 산업의 공통</b><span>모든 산업의 최종 척도에 들어간 요인은 <strong>편의성</strong>과 <strong>스마트인프라</strong> 둘뿐입니다. 나머지는 산업마다 갈립니다.</span></li>
+          <li><b>그래서 하는 말</b><span>같은 스마트관광이라도 <strong class="hot-t">서비스 여정이 다르면 「스마트함」의 구성도 달라진다</strong> — 이 노트의 한 줄 결론입니다.</span></li>
+          <li><b>척도가 만들어지는 순서</b><span><strong>현장자료</strong>(문헌 · 후기 · 웹크롤링) → <strong>FGI · 전문가 검토</strong> → <strong>통계검증</strong>(EFA · CFA). 연구자가 문항을 마음대로 짓는 것이 아니라 <em>좁혀 가는</em> 과정입니다.</span></li>
+          <li><b>부록 둘</b><span>요인 여덟(편의성 · 스마트인프라 · 정보성 · 기술통합성 · 신뢰성 · 개인화 · 상호작용성 · 보안성)의 <strong>장면 그림</strong>과 <strong>30초 셀프체크</strong>.</span></li>
+        </ol>
+        <p class="dltags"><a class="mapl form y" href="assets/smart-tourism-scale-development-review.docx" download="스마트관광_척도개발_복습노트_통합판.docx">척도개발 5편 복습 노트 ⤓ DOCX</a><span class="dl-src">박소영 외(2024–2025) 다섯 편을 수업용으로 묶은 것입니다. <b>파트 06 연구</b>로 넘어가기 전에 펴 보십시오.</span></p>
+      </div>
 
 
       <p class="learn-part pt-res"><span class="pt">파트 06</span>연구</p>
@@ -1381,6 +1418,8 @@
 
       <p class="h3tag"><span>국내 연구 (KCI)</span></p>
       <p>같은 주제를 <strong>한국의 맥락</strong>에서 다룬 논문들입니다. 국내 리포트라면 위 국제 논문으로 <em>개념</em>을 잡고, 아래로 <em>현장</em>을 채우는 조합이 좋습니다.</p>
+
+      <p class="dltags"><a class="mapl form y" href="#척도개발">척도개발 5편 복습 노트로 ↑</a><span class="dl-src">아래 표를 보기 전에, <b>파트 05 끝의 척도개발 상자</b>를 한 번 펴 보십시오 — <b>박소영 외(2024–2025) 다섯 편</b>을 산업별로 겹쳐 놓은 노트입니다. 논문 하나하나를 읽기 전에 <b>다섯 편이 무엇을 같이 말하고 무엇이 갈리는지</b>가 먼저 보입니다.</span></p>
       <div class="tbl-wrap">
         <table class="ref">
           <thead>
