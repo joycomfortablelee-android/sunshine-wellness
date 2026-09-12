@@ -364,80 +364,6 @@
     @media (max-width: 620px) {
       .learn-article .case-box.pbl .kwlist.pbl-kw > li { grid-template-columns: 1fr; gap: 2px; }
     }
-    /* 척도개발 상자 — 이론(파트 05)과 연구(파트 06) 사이를 잇는 자리라
-       파란 사례 상자와 달리 노란 계열로 둔다. 노란 알약과 한 몸이다. */
-    .learn-article .case-box.scale {
-      border-color: #e6d268; background: linear-gradient(158deg, #fffdf0 0%, #fffbe0 72%, #fff 100%);
-    }
-    .learn-article .case-box.scale .cb-title { color: #7a6420; }
-    .learn-article .case-box.scale .cb-title span { color: #a8912c; }
-    .learn-article .case-box.scale .cb-lead { color: #5c5430; }
-    .learn-article .case-box.scale .cb-lead strong { color: #4a3f10; }
-    .learn-article .case-box.scale .kwlist.sc-kw { margin: 0 0 4px; padding: 0; list-style: none; counter-reset: kw; }
-    .learn-article .case-box.scale .kwlist.sc-kw > li::before { content: none; }
-    .learn-article .case-box.scale .kwlist.sc-kw > li {
-      display: grid; grid-template-columns: 152px minmax(0, 1fr); gap: 11px;
-      margin: 0; padding: 7px 0; border-top: 1px dashed #e6d89a;
-      font-size: 12.5px; line-height: 1.75; color: #5c5430;
-    }
-    .learn-article .case-box.scale .kwlist.sc-kw > li:first-child { border-top: 0; padding-top: 2px; }
-    .learn-article .case-box.scale .kwlist.sc-kw > li > b {
-      counter-increment: kw; font-weight: 800; color: #4a3f10; letter-spacing: -.2px;
-    }
-    .learn-article .case-box.scale .kwlist.sc-kw > li > b::before {
-      content: counter(kw) ') '; color: #a8862c; font-weight: 900;
-    }
-    .learn-article .case-box.scale .kwlist.sc-kw strong { color: #4a3f10; }
-    .learn-article .case-box.scale .kwlist.sc-kw em { font-style: normal; color: #7a6420; font-weight: 700; }
-    .learn-article .case-box.scale .dltags { border-top-color: #e6d268; }
-    .learn-article .case-box.scale .dl-src { color: #8a7a46; }
-    @media (max-width: 620px) {
-      .learn-article .case-box.scale .kwlist.sc-kw > li { grid-template-columns: 1fr; gap: 2px; }
-    }
-    /* AX 공모 카드 — 줄글 한 덩어리를 「키워드 : 요약」 일곱 칸으로. 파란 상자 안이라 파란 선. */
-    .learn-article .reslist .kwlist.ax-kw { margin: 8px 0 0; padding: 0; list-style: none; }
-    .learn-article .reslist .kwlist.ax-kw > li {
-      display: grid; grid-template-columns: 132px minmax(0, 1fr); gap: 11px;
-      margin: 0; padding: 7px 0; border-top: 1px dashed #c8dcf0;
-      font-size: 13px; line-height: 1.7; color: #4d6275;
-    }
-    .learn-article .reslist .kwlist.ax-kw > li:first-child { border-top: 0; padding-top: 2px; }
-    .learn-article .reslist .kwlist.ax-kw > li > b { font-weight: 800; color: #17395f; letter-spacing: -.2px; }
-    .learn-article .reslist .kwlist.ax-kw strong { color: #17395f; }
-    .learn-article .reslist .kwlist.ax-kw .hot-t { color: #a3161c; }
-    @media (max-width: 620px) {
-      .learn-article .reslist .kwlist.ax-kw > li { grid-template-columns: 1fr; gap: 2px; }
-    }
-    /* ===== 척도개발 덱 =====
-       파트 05 이론 슬라이드와 같은 부품(.deck)이다. 움직임은 같은 스크립트가 맡고
-       (id 대신 .deck 을 순회한다) 여기서는 슬라이드 속살만 입힌다. */
-    .learn-article .deck.sc-deck { margin: 10px 0 4px; }
-    .learn-article .deck.sc-deck .kwlist.sc-dk { margin: 12px 0 0; padding: 0; list-style: none; }
-    .learn-article .deck.sc-deck .kwlist.sc-dk > li {
-      display: grid; grid-template-columns: 156px minmax(0, 1fr); gap: 12px;
-      margin: 0; padding: 8px 0; border-top: 1px dashed #e3d9b4;
-      font-size: 13.5px; line-height: 1.75; color: #4d5f74;
-    }
-    .learn-article .deck.sc-deck .kwlist.sc-dk > li:first-child { border-top: 0; padding-top: 2px; }
-    .learn-article .deck.sc-deck .kwlist.sc-dk > li::before { content: none; }
-    .learn-article .deck.sc-deck .kwlist.sc-dk > li > b { font-weight: 800; color: #17395f; letter-spacing: -.2px; }
-    .learn-article .deck.sc-deck .kwlist.sc-dk > li > b i {
-      display: block; font-style: normal; font-size: 10.5px; font-weight: 600; color: #8a7a46; letter-spacing: .02em;
-    }
-    .learn-article .deck.sc-deck .kwlist.sc-dk strong { color: #17395f; }
-    .learn-article .deck.sc-deck .kwlist.sc-dk.terms > li { grid-template-columns: 176px minmax(0, 1fr); }
-    .learn-article .deck.sc-deck .kwlist.sc-dk.src5 > li { font-size: 12.5px; }
-    .learn-article .deck.sc-deck .sc-tb { font-size: 12px; }
-    .learn-article .deck.sc-deck .sc-tb em { font-style: normal; color: #a3161c; font-weight: 700; }
-    .learn-article .deck.sc-deck .sc-tb.sc-grid td { text-align: center; font-size: 14px; color: #6b5400; }
-    .learn-article .deck.sc-deck .sc-tb.sc-grid td:first-child { text-align: left; font-size: 12px; color: #4d5f74; }
-    .learn-article .deck.sc-deck .sc-tb.sc-grid td i { font-style: normal; font-size: 10px; color: #8a938f; }
-    .learn-article .deck.sc-deck .sc-tb.sc-grid tr.all td { background: #fff8d8; font-weight: 800; }
-    .learn-article .deck.sc-deck .learn-fig img { max-width: 620px; }
-    @media (max-width: 620px) {
-      .learn-article .deck.sc-deck .kwlist.sc-dk > li,
-      .learn-article .deck.sc-deck .kwlist.sc-dk.terms > li { grid-template-columns: 1fr; gap: 2px; }
-    }
     /* 노란 알약 — 복습 노트처럼 「수업 뒤에 다시 펴 보는 것」에 쓴다.
        이 페이지의 샛노랑(과제 상자 · 스티키노트)과 같은 색이다. */
     .learn-article .dltags a.mapl.form.y {
@@ -1512,221 +1438,214 @@
         </div>
       </div>
 
-      <div class="case-box scale" id="척도개발">
-        <p class="cb-title">척도개발 5편 — 스마트관광을 어떻게 재는가 <span>복습 노트 · 3쪽</span></p>
-        <p class="cb-lead">위 다섯 장이 <strong>스마트 관광이 무엇인가</strong>를 세웠다면, 이 노트는 <strong>그것을 어떻게 재는가</strong>로 넘어갑니다. <strong>여행업 · 외식업 · 컨벤션 · 숙박업 · 항공산업</strong> 다섯 편의 척도개발 연구를 한 장에 겹쳐 놓았습니다.</p>
-        <ol class="kwlist sc-kw">
-          <li><b>다섯 산업의 공통</b><span>모든 산업의 최종 척도에 들어간 요인은 <strong>편의성</strong>과 <strong>스마트인프라</strong> 둘뿐입니다. 나머지는 산업마다 갈립니다.</span></li>
-          <li><b>그래서 하는 말</b><span>같은 스마트관광이라도 <strong class="hot-t">서비스 여정이 다르면 「스마트함」의 구성도 달라진다</strong> — 이 노트의 한 줄 결론입니다.</span></li>
-          <li><b>척도가 만들어지는 순서</b><span><strong>현장자료</strong>(문헌 · 후기 · 웹크롤링) → <strong>FGI · 전문가 검토</strong> → <strong>통계검증</strong>(EFA · CFA). 연구자가 문항을 마음대로 짓는 것이 아니라 <em>좁혀 가는</em> 과정입니다.</span></li>
-          <li><b>부록 둘</b><span>요인 여덟(편의성 · 스마트인프라 · 정보성 · 기술통합성 · 신뢰성 · 개인화 · 상호작용성 · 보안성)의 <strong>장면 그림</strong>과 <strong>30초 셀프체크</strong>.</span></li>
-        </ol>
-        <div class="deck sc-deck">
-          <div class="deck-bar">
-            <div class="deck-dots">
-              <button type="button" data-go="0" aria-current="true">01 이것만은</button>
-              <button type="button" data-go="1">02 복습 목표</button>
-              <button type="button" data-go="2">03 만드는 법</button>
-              <button type="button" data-go="3">04 요인 용어</button>
-              <button type="button" data-go="4">05 산업 비교</button>
-              <button type="button" data-go="5">06 공통과 차이</button>
-              <button type="button" data-go="6">07 요인 패턴</button>
-              <button type="button" data-go="7">08 읽는 흐름</button>
-              <button type="button" data-go="8">09 장면으로</button>
-              <button type="button" data-go="9">10 기억할 3문장</button>
-              <button type="button" data-go="10">11 셀프체크 · 출처</button>
-            </div>
-            <button type="button" class="deck-toggle">전체 펼쳐 보기</button>
+      <p class="learn-part pt-learn" id="척도개발"><span class="pt">보태기</span>척도개발 5편 — 스마트관광을 어떻게 재는가</p>
+      <p>위 다섯 장이 <strong>스마트 관광이 무엇인가</strong>를 세웠다면, 이 열한 장은 <strong>그것을 어떻게 재는가</strong>로 넘어갑니다 — <strong>여행업 · 외식업 · 컨벤션 · 숙박업 · 항공산업</strong> 다섯 편의 척도개발 연구입니다. 좌우로 넘기며 훑거나, 오른쪽 「전체 펼쳐 보기」로 한 번에 읽으십시오.</p>
+      <div class="deck sc-deck">
+        <div class="deck-bar">
+          <div class="deck-dots">
+            <button type="button" data-go="0" aria-current="true">01 이것만은</button>
+            <button type="button" data-go="1">02 복습 목표</button>
+            <button type="button" data-go="2">03 만드는 법</button>
+            <button type="button" data-go="3">04 요인 용어</button>
+            <button type="button" data-go="4">05 산업 비교</button>
+            <button type="button" data-go="5">06 공통과 차이</button>
+            <button type="button" data-go="6">07 요인 패턴</button>
+            <button type="button" data-go="7">08 읽는 흐름</button>
+            <button type="button" data-go="8">09 장면으로</button>
+            <button type="button" data-go="9">10 기억할 3문장</button>
+            <button type="button" data-go="10">11 셀프체크 · 출처</button>
           </div>
-          <div class="deck-stage">
-            <button type="button" class="deck-prev" aria-label="이전 슬라이드" disabled>←</button>
-          <div class="deck-view">
-
-            <section class="slide tint-sun compact" aria-label="01 이것만은 기억하자">
-              <p class="learn-part">01 · 스마트관광 척도개발 5편 — 이것만은 기억하자</p>
-              <p><strong>여행업 · 외식업 · 컨벤션 · 숙박업 · 항공산업</strong> 다섯 편의 척도개발 연구를 한자리에 겹쳐 놓은 복습 슬라이드입니다. 기술 자체가 아니라 <strong>기술을 통해 이용자가 경험하는 「스마트함」</strong>을 이해하는 것이 목표입니다.</p>
-              <div class="logic">
-                <p class="formula">개념 · 방법 · 비교 — 이 셋만 잡으면 다섯 편이 한 줄로 읽힙니다<span class="src">복습노트 통합판</span></p>
-                <p class="aim"><strong>개념</strong>은 기술의 수가 아닌 <strong>이용자 경험 기준</strong>, <strong>방법</strong>은 <strong>자료 → 검토 → 통계검증</strong> 흐름, <strong>비교</strong>는 <strong>5개 산업의 공통요인과 강조요인 구분</strong>입니다.</p>
-              </div>
-            </section>
-
-            <section class="slide tint-sun compact" aria-label="02 복습 목표와 핵심 문장">
-              <p class="learn-part">02 · 복습 목표와 핵심 문장</p>
-              <p>스마트관광을 <em>「최신기술 보유」</em>가 아니라 <strong>「경험되는 스마트함」</strong>으로 설명하는 것이 이 노트의 목표입니다.</p>
-              <h3>① 개념</h3>
-              <p>스마트관광을 기술의 수가 아니라 <strong>이용자 경험의 기준</strong>으로 설명한다.</p>
-              <h3>② 방법</h3>
-              <p>척도개발의 흐름을 <strong>자료 → 검토 → 통계검증</strong>으로 설명한다.</p>
-              <h3>③ 비교</h3>
-              <p>5개 산업의 <strong>공통요인과 산업별 강조요인</strong>을 구분한다.</p>
-              <div class="logic">
-                <p class="neg">스마트관광 <strong>=</strong> 첨단기술의 <strong>보유 정도</strong></p>
-                <p class="pos">스마트관광 <strong>=</strong> 기술을 통해 이용자가 경험하는 <strong>「스마트함」을 측정하는 것</strong></p>
-                <p class="aim">즉, 기술이 여행과 서비스 과정에서 <strong>얼마나 편리하고 유용하며 신뢰롭게</strong> 작동하는지를 봅니다. 기준은 <strong>기술 보유</strong>가 아니라 <strong>이용자가 경험하는 가치</strong>입니다.</p>
-              </div>
-            </section>
-
-            <section class="slide tint-sun compact" aria-label="03 척도는 어떻게 만들어졌을까">
-              <p class="learn-part">03 · 척도는 어떻게 만들어졌을까 — 여섯 걸음</p>
-              <p>문헌 · 현장자료에서 시작해 <strong>전문가 검토와 통계검증</strong>을 거쳐 최종 문항이 확정됩니다.</p>
-              <ol class="kwlist sc-dk">
-                <li><b>1 현장자료</b><span>문헌 · 사례 · 후기 · 웹크롤링</span></li>
-                <li><b>2 질적분석</b><span>Nvivo · 군집분석으로 개념 묶기</span></li>
-                <li><b>3 후보문항</b><span>초기 요인과 문항 도출</span></li>
-                <li><b>4 내용검토</b><span>FGI + 전문가 — 중복 · 모호 문항 정제</span></li>
-                <li><b>5 양적분석</b><span>설문 + EFA로 요인구조 탐색</span></li>
-                <li><b>6 최종검증</b><span>CFA · 신뢰도 · 타당성 — 최종 척도 확정</span></li>
-              </ol>
-              <div class="logic">
-                <p class="chain">자료 수집 <b>→</b> 질적 정리 <b>→</b> 후보문항 <b>→</b> FGI · 전문가 <b>→</b> EFA <b>→</b> CFA</p>
-                <p class="aim"><strong>기억할 점</strong> — 척도개발은 <em>「연구자가 문항을 마음대로 만드는 과정」</em>이 아니라, 실제 자료 → 이용자 · 전문가 검토 → 통계검증을 거쳐 <strong>문항을 좁혀 가는 과정</strong>입니다.</p>
-              </div>
-            </section>
-
-            <section class="slide tint-sun compact" aria-label="04 핵심 요인 용어">
-              <p class="learn-part">04 · 스마트관광 핵심 요인 용어 — 여덟</p>
-              <p>여덟 요인의 <strong>영어 원어와 한글 의미</strong>를 함께 기억합니다. 용어를 먼저 잡으면 다음 장의 산업별 비교표가 훨씬 쉽게 읽힙니다.</p>
-              <ul class="kwlist sc-dk terms">
-                <li><b>기술통합성<i>Technology Integration</i></b><span>여러 기술이 서비스 과정에 연결 · 통합되는 정도</span></li>
-                <li><b>편의성<i>Convenience</i></b><span>쉽고 빠르며 원활하게 서비스를 이용하는 정도</span></li>
-                <li><b>정보성<i>Informativeness</i></b><span>필요한 정보를 정확하고 적시에 얻는 정도</span></li>
-                <li><b>스마트인프라<i>Smart Infrastructure</i></b><span>키오스크 · 앱 · IoT 등 시스템 기반이 구축된 정도</span></li>
-                <li><b>신뢰성<i>Reliability</i></b><span>정보 · 예약 · 서비스 시스템을 믿을 수 있는 정도</span></li>
-                <li><b>개인화<i>Personalization</i></b><span>선호 · 이력에 맞는 맞춤형 서비스를 제공하는 정도</span></li>
-                <li><b>상호작용성<i>Interactivity</i></b><span>실시간 소통과 반응 · 피드백이 가능한 정도</span></li>
-                <li><b>보안성<i>Security</i></b><span>개인정보 · 결제 · 여행정보가 안전하게 보호되는 정도</span></li>
-              </ul>
-            </section>
-
-            <section class="slide tint-sun compact" aria-label="05 산업별 핵심 비교">
-              <p class="learn-part">05 · 산업별 핵심 비교</p>
-              <p>같은 스마트관광이라도 <strong>서비스 여정이 달라지면 강조되는 경험이 달라집니다.</strong></p>
-              <div class="tbl-wrap">
-                <table class="ref sc-tb">
-                  <thead><tr><th>산업</th><th>최종 척도</th><th>구성요인 다섯</th><th>특히 기억할 경험</th><th>기억 키워드</th></tr></thead>
-                  <tbody>
-                    <tr><td><strong>여행업</strong></td><td class="st">5요인 · 19문항</td><td class="st">기술통합성 · 편의성 · 정보성 · 스마트인프라 · 신뢰성</td><td class="st">탐색 → 예약 → 이동 → 체험</td><td class="st">통합 · 정보 · 예약 · 신뢰</td></tr>
-                    <tr><td><strong>외식업</strong></td><td class="st">5요인 · 20문항</td><td class="st">기술통합성 · 편의성 · 정보성 · 스마트인프라 · 신뢰성</td><td class="st">탐색 → 예약 → 주문 → 결제 → 리뷰</td><td class="st">주문 · 결제 · 정보 · 신뢰</td></tr>
-                    <tr><td><strong>컨벤션</strong></td><td class="st">5요인 · 15문항</td><td class="st">기술통합성 · 편의성 · 정보성 · 스마트인프라 · 신뢰성</td><td class="st">등록 → 입장 → 정보탐색 → 전시 → 네트워킹</td><td class="st">입장 · 정보 · 체험 · 운영</td></tr>
-                    <tr><td><strong>숙박업</strong></td><td class="st">5요인 · 19문항</td><td class="st">정보성 · 스마트인프라 · 편의성 · <em>개인화</em> · <em>상호작용성</em></td><td class="st">예약 → 체크인 → 객실 → 추천 → 소통</td><td class="st">체류 · 맞춤 · 상호작용</td></tr>
-                    <tr><td><strong>항공산업</strong></td><td class="st">5요인 · 17문항</td><td class="st">스마트인프라 · 편의성 · <em>개인화</em> · <em>상호작용성</em> · <em>보안성</em></td><td class="st">예약 → 공항 → 체크인 → 탑승 → 이동정보</td><td class="st">편의 · 맞춤 · 소통 · 보안</td></tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="logic">
-                <p class="aim">여행 · 외식 · 컨벤션은 <strong>통합 · 정보 · 신뢰</strong>, 숙박 · 항공은 <strong>맞춤 · 소통</strong>, 항공은 <strong>보안</strong>이 핵심입니다.</p>
-              </div>
-            </section>
-
-            <section class="slide tint-sun compact" aria-label="06 공통요인과 산업별 차이">
-              <p class="learn-part">06 · 공통요인과 산업별 차이</p>
-              <p>다섯 편을 관통하는 <strong>공통 기반</strong>과 <strong>산업별 강조점</strong>을 분리해서 봅니다.</p>
-              <ul class="kwlist sc-dk">
-                <li><b>ALL 5</b><span><strong>편의성 + 스마트인프라</strong> → 5개 산업 모두에서 확인</span></li>
-                <li><b>여행 · 외식 · 컨벤션</b><span><strong>기술통합성 + 정보성 + 신뢰성</strong> → 세 산업에서 공통적으로 강조</span></li>
-                <li><b>숙박 · 항공</b><span><strong>개인화 + 상호작용성</strong> → 맞춤서비스와 실시간 소통이 핵심</span></li>
-                <li><b>항공만</b><span><strong>보안성</strong> → 개인정보 · 결제 · 여행정보 보호가 독립 요인으로 등장</span></li>
-              </ul>
-              <div class="logic">
-                <p class="chain">공통 기반(편의성 · 인프라) <b>+</b> 산업별 강조점(통합 · 정보 · 신뢰 <b>/</b> 맞춤 · 소통 <b>/</b> 보안)</p>
-              </div>
-            </section>
-
-            <section class="slide tint-sun compact" aria-label="07 5개 산업의 요인 패턴">
-              <p class="learn-part">07 · 5개 산업의 요인 패턴</p>
-              <p>요인별 포함 여부를 한눈에 확인합니다. <strong>●</strong> = 해당 산업의 최종 척도에 포함된 요인.</p>
-              <div class="tbl-wrap">
-                <table class="ref sc-tb sc-grid">
-                  <thead><tr><th>요인</th><th>여행업</th><th>외식업</th><th>컨벤션</th><th>숙박업</th><th>항공</th></tr></thead>
-                  <tbody>
-                    <tr class="all"><td><strong>편의성</strong> <i>Convenience</i></td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
-                    <tr class="all"><td><strong>스마트인프라</strong> <i>Smart Infrastructure</i></td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
-                    <tr><td><strong>정보성</strong> <i>Informativeness</i></td><td>●</td><td>●</td><td>●</td><td>●</td><td></td></tr>
-                    <tr><td><strong>기술통합성</strong> <i>Technology Integration</i></td><td>●</td><td>●</td><td>●</td><td></td><td></td></tr>
-                    <tr><td><strong>신뢰성</strong> <i>Reliability</i></td><td>●</td><td>●</td><td>●</td><td></td><td></td></tr>
-                    <tr><td><strong>개인화</strong> <i>Personalization</i></td><td></td><td></td><td></td><td>●</td><td>●</td></tr>
-                    <tr><td><strong>상호작용성</strong> <i>Interactivity</i></td><td></td><td></td><td></td><td>●</td><td>●</td></tr>
-                    <tr><td><strong>보안성</strong> <i>Security</i></td><td></td><td></td><td></td><td></td><td>●</td></tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="logic">
-                <p class="aim"><strong>패턴</strong> — 5개 공통 <strong>2개</strong> 요인, 여행 · 외식 · 컨벤션 공통 <strong>3개</strong> 요인, 숙박 · 항공의 <strong>맞춤 · 소통</strong>, 항공의 <strong>보안</strong>.</p>
-              </div>
-            </section>
-
-            <section class="slide tint-sun compact" aria-label="08 이 표에서 읽어야 할 흐름">
-              <p class="learn-part">08 · 이 표에서 읽어야 할 흐름</p>
-              <p>요인 패턴은 <strong>「공통 기반 → 산업별 변화 → 항공의 고유성」</strong> 순서로 읽습니다.</p>
-              <h3>공통 기반</h3>
-              <p>편의성과 스마트인프라는 <strong>5개 산업에 모두 존재</strong>합니다. 즉 스마트관광은 먼저 <em>「쉽게 이용할 수 있는가」</em>와 <em>「기술 기반이 갖추어져 있는가」</em>를 공통적으로 봅니다.</p>
-              <h3>산업별 변화</h3>
-              <p>여행 · 외식 · 컨벤션은 <strong>기술통합성 · 정보성 · 신뢰성</strong>이 공통적으로 나타납니다. 반면 숙박과 항공에서는 <strong>개인화 · 상호작용성</strong>이 새롭게 강조됩니다.</p>
-              <h3>항공의 고유성</h3>
-              <p>항공에서는 <strong>보안성</strong>이 독립적인 요인으로 나타납니다. 개인정보 · 결제 · 여행정보 보호가 항공 스마트서비스의 중요한 경험 기준이 됩니다.</p>
-              <div class="logic">
-                <p class="aim"><strong>한 줄 결론</strong> — 같은 스마트관광이라도 <strong>산업의 서비스 여정이 달라지면 이용자가 경험하는 「스마트함」의 구성도 달라집니다.</strong></p>
-              </div>
-            </section>
-
-            <section class="slide tint-sun compact" aria-label="09 핵심 요인별 장면으로 이해하기">
-              <p class="learn-part">09 · 핵심 요인별 장면으로 이해하기</p>
-              <p>여덟 요인을 <strong>관광객의 실제 서비스 장면</strong>과 연결해 기억합니다.</p>
-              <figure class="learn-fig">
-                <img loading="lazy" src="images/smart-tourism-scale-factors-scenes.webp" alt="스마트관광 핵심 요인 여덟을 장면 중심으로 정리한 그림 — 편의성 · 스마트인프라 · 정보성 · 기술통합성 · 신뢰성 · 개인화 · 상호작용성 · 보안성 각각이 실제 관광 장면에서 어떻게 나타나는지 그림과 한 줄 설명으로 짝지어 보여준다." width="1055" height="1491" />
-                <figcaption>① 편의성 ② 스마트인프라 ③ 정보성 ④ 기술통합성 ⑤ 신뢰성 ⑥ 개인화 ⑦ 상호작용성 ⑧ 보안성 — 원자료 p.5</figcaption>
-              </figure>
-              <div class="logic">
-                <p class="aim"><strong>핵심 메시지</strong> — 스마트관광은 기술 자체보다, <strong>기술을 통해 경험하는 가치와 서비스 품질</strong>을 측정합니다.</p>
-              </div>
-            </section>
-
-            <section class="slide tint-sun compact" aria-label="10 학생이 반드시 기억할 3문장">
-              <p class="learn-part">10 · 학생이 반드시 기억할 3문장</p>
-              <p>복습의 마지막 기준은 이 세 문장입니다.</p>
-              <ol class="kwlist sc-dk">
-                <li><b>①</b><span>모든 산업에서 <strong>편의성과 스마트인프라</strong>는 공통적으로 중요하다.</span></li>
-                <li><b>②</b><span><strong>산업의 서비스 특성이 달라지면</strong> 스마트함을 구성하는 요인도 달라진다.</span></li>
-                <li><b>③</b><span>스마트관광은 기술 자체가 아니라, <strong>기술을 통해 경험하는 가치와 서비스 품질</strong>을 측정한다.</span></li>
-              </ol>
-              <div class="logic">
-                <p class="aim"><strong>정리</strong> — 기술의 존재보다 <strong>이용자 경험</strong>, <strong>산업별 서비스 여정</strong>, <strong>검증된 척도개발 절차</strong>를 함께 기억합니다.</p>
-              </div>
-            </section>
-
-            <section class="slide tint-sun compact" aria-label="11 30초 셀프체크와 수업자료 근거">
-              <p class="learn-part">11 · 30초 셀프체크와 수업자료 근거</p>
-              <p>질문으로 확인하고, 다섯 편의 척도개발 연구를 근거로 다시 연결합니다.</p>
-              <h3>30초 셀프체크</h3>
-              <ul class="f3-why">
-                <li>왜 스마트관광을 <em>「최신기술」</em>이라고만 말하면 부족한가?</li>
-                <li>5개 산업에 <strong>모두 포함된 두 요인</strong>은 무엇인가?</li>
-                <li><strong>숙박 · 항공에서 새롭게 강조되는 요인</strong>과 <strong>항공에서만 나타나는 요인</strong>은 무엇인가?</li>
-              </ul>
-              <h3>수업자료 근거 — 박소영 외 다섯 편</h3>
-              <ol class="kwlist sc-dk src5">
-                <li><b>여행업</b><span>박소영 · 고주희(2024) 「여행업을 중심으로 스마트관광의 척도개발」</span></li>
-                <li><b>외식업</b><span>박소영 · 이보연(2024) 「스마트관광 척도 개발: 외식업」</span></li>
-                <li><b>컨벤션</b><span>박소영(2024) 「스마트관광 척도개발: 컨벤션산업을 중심으로」</span></li>
-                <li><b>숙박업</b><span>박소영 · 이보연(2025) 「스마트관광 척도개발: 숙박업을 중심으로」</span></li>
-                <li><b>항공산업</b><span>박소영 · 윤한성(2025) 「스마트관광 척도개발: 항공산업을 중심으로」</span></li>
-              </ol>
-              <div class="logic">
-                <p class="aim"><strong>최종 결론</strong> — 같은 스마트관광이라도 <strong>산업의 서비스 여정이 달라지면, 이용자가 경험하는 「스마트함」의 구성도 달라진다.</strong></p>
-              </div>
-            </section>
-
-          </div>
-            <button type="button" class="deck-next" aria-label="다음 슬라이드">→</button>
-          </div>
-          <div class="deck-nav">
-            <span class="deck-count">01 / 11</span>
-          </div>
+          <button type="button" class="deck-toggle">전체 펼쳐 보기</button>
         </div>
+        <div class="deck-stage">
+          <button type="button" class="deck-prev" aria-label="이전 슬라이드" disabled>←</button>
+        <div class="deck-view">
 
-        <p class="dltags"><a class="mapl form y" href="smart-tourism-scale-slides.html" target="_blank" rel="noopener">슬라이드 11장 — 웹에서 넘겨 보기 ↗</a><a class="mapl form y" href="assets/smart-tourism-scale-development-review.docx" download="스마트관광_척도개발_복습노트_통합판.docx">척도개발 5편 복습 노트 ⤓ DOCX</a><a class="mapl form" href="assets/smart-tourism-scale-slides.pptx" download="스마트관광_척도개발_복습노트_슬라이드.pptx">같은 슬라이드 ⤓ PPTX</a><span class="dl-src">박소영 외(2024–2025) 다섯 편을 수업용으로 묶은 것입니다. <b>파트 06 연구</b>로 넘어가기 전에 펴 보십시오.<br /><b>셋은 같은 내용입니다</b> — <b>슬라이드</b>는 수업에서 띄우는 판(<b>← →</b> 로 넘기고 <b>F</b> 로 전체화면), <b>DOCX</b>는 읽고 인쇄하는 3쪽 노트, <b>PPTX</b>는 직접 고쳐 쓸 때 씁니다.</span></p>
+          <section class="slide tint-sun compact" aria-label="01 이것만은 기억하자">
+            <p class="learn-part">01 · 스마트관광 척도개발 5편 — 이것만은 기억하자</p>
+            <p><strong>여행업 · 외식업 · 컨벤션 · 숙박업 · 항공산업</strong> 다섯 편의 척도개발 연구를 한자리에 겹쳐 놓은 복습 슬라이드입니다. 기술 자체가 아니라 <strong>기술을 통해 이용자가 경험하는 「스마트함」</strong>을 이해하는 것이 목표입니다.</p>
+            <div class="logic">
+              <p class="formula">개념 · 방법 · 비교 — 이 셋만 잡으면 다섯 편이 한 줄로 읽힙니다<span class="src">복습노트 통합판</span></p>
+              <p class="aim"><strong>개념</strong>은 기술의 수가 아닌 <strong>이용자 경험 기준</strong>, <strong>방법</strong>은 <strong>자료 → 검토 → 통계검증</strong> 흐름, <strong>비교</strong>는 <strong>5개 산업의 공통요인과 강조요인 구분</strong>입니다.</p>
+            </div>
+          </section>
+
+          <section class="slide tint-sun compact" aria-label="02 복습 목표와 핵심 문장">
+            <p class="learn-part">02 · 복습 목표와 핵심 문장</p>
+            <p>스마트관광을 <em>「최신기술 보유」</em>가 아니라 <strong>「경험되는 스마트함」</strong>으로 설명하는 것이 이 노트의 목표입니다.</p>
+            <h3>① 개념</h3>
+            <p>스마트관광을 기술의 수가 아니라 <strong>이용자 경험의 기준</strong>으로 설명한다.</p>
+            <h3>② 방법</h3>
+            <p>척도개발의 흐름을 <strong>자료 → 검토 → 통계검증</strong>으로 설명한다.</p>
+            <h3>③ 비교</h3>
+            <p>5개 산업의 <strong>공통요인과 산업별 강조요인</strong>을 구분한다.</p>
+            <div class="logic">
+              <p class="neg">스마트관광 <strong>=</strong> 첨단기술의 <strong>보유 정도</strong></p>
+              <p class="pos">스마트관광 <strong>=</strong> 기술을 통해 이용자가 경험하는 <strong>「스마트함」을 측정하는 것</strong></p>
+              <p class="aim">즉, 기술이 여행과 서비스 과정에서 <strong>얼마나 편리하고 유용하며 신뢰롭게</strong> 작동하는지를 봅니다. 기준은 <strong>기술 보유</strong>가 아니라 <strong>이용자가 경험하는 가치</strong>입니다.</p>
+            </div>
+          </section>
+
+          <section class="slide tint-sun compact" aria-label="03 척도는 어떻게 만들어졌을까">
+            <p class="learn-part">03 · 척도는 어떻게 만들어졌을까 — 여섯 걸음</p>
+            <p>문헌 · 현장자료에서 시작해 <strong>전문가 검토와 통계검증</strong>을 거쳐 최종 문항이 확정됩니다.</p>
+            <ol class="kwlist sc-dk">
+              <li><b>1 현장자료</b><span>문헌 · 사례 · 후기 · 웹크롤링</span></li>
+              <li><b>2 질적분석</b><span>Nvivo · 군집분석으로 개념 묶기</span></li>
+              <li><b>3 후보문항</b><span>초기 요인과 문항 도출</span></li>
+              <li><b>4 내용검토</b><span>FGI + 전문가 — 중복 · 모호 문항 정제</span></li>
+              <li><b>5 양적분석</b><span>설문 + EFA로 요인구조 탐색</span></li>
+              <li><b>6 최종검증</b><span>CFA · 신뢰도 · 타당성 — 최종 척도 확정</span></li>
+            </ol>
+            <div class="logic">
+              <p class="chain">자료 수집 <b>→</b> 질적 정리 <b>→</b> 후보문항 <b>→</b> FGI · 전문가 <b>→</b> EFA <b>→</b> CFA</p>
+              <p class="aim"><strong>기억할 점</strong> — 척도개발은 <em>「연구자가 문항을 마음대로 만드는 과정」</em>이 아니라, 실제 자료 → 이용자 · 전문가 검토 → 통계검증을 거쳐 <strong>문항을 좁혀 가는 과정</strong>입니다.</p>
+            </div>
+          </section>
+
+          <section class="slide tint-sun compact" aria-label="04 핵심 요인 용어">
+            <p class="learn-part">04 · 스마트관광 핵심 요인 용어 — 여덟</p>
+            <p>여덟 요인의 <strong>영어 원어와 한글 의미</strong>를 함께 기억합니다. 용어를 먼저 잡으면 다음 장의 산업별 비교표가 훨씬 쉽게 읽힙니다.</p>
+            <ul class="kwlist sc-dk terms">
+              <li><b>기술통합성<i>Technology Integration</i></b><span>여러 기술이 서비스 과정에 연결 · 통합되는 정도</span></li>
+              <li><b>편의성<i>Convenience</i></b><span>쉽고 빠르며 원활하게 서비스를 이용하는 정도</span></li>
+              <li><b>정보성<i>Informativeness</i></b><span>필요한 정보를 정확하고 적시에 얻는 정도</span></li>
+              <li><b>스마트인프라<i>Smart Infrastructure</i></b><span>키오스크 · 앱 · IoT 등 시스템 기반이 구축된 정도</span></li>
+              <li><b>신뢰성<i>Reliability</i></b><span>정보 · 예약 · 서비스 시스템을 믿을 수 있는 정도</span></li>
+              <li><b>개인화<i>Personalization</i></b><span>선호 · 이력에 맞는 맞춤형 서비스를 제공하는 정도</span></li>
+              <li><b>상호작용성<i>Interactivity</i></b><span>실시간 소통과 반응 · 피드백이 가능한 정도</span></li>
+              <li><b>보안성<i>Security</i></b><span>개인정보 · 결제 · 여행정보가 안전하게 보호되는 정도</span></li>
+            </ul>
+          </section>
+
+          <section class="slide tint-sun compact" aria-label="05 산업별 핵심 비교">
+            <p class="learn-part">05 · 산업별 핵심 비교</p>
+            <p>같은 스마트관광이라도 <strong>서비스 여정이 달라지면 강조되는 경험이 달라집니다.</strong></p>
+            <div class="tbl-wrap">
+              <table class="ref sc-tb">
+                <colgroup><col class="c1" /><col class="c2" /><col class="c3" /><col class="c4" /><col class="c5" /></colgroup>
+                <thead><tr><th>산업</th><th>최종 척도</th><th>구성요인 다섯</th><th>특히 기억할 경험</th><th>기억 키워드</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>여행업</strong></td><td class="st">5요인 · 19문항</td><td class="st">기술통합성 · 편의성 · 정보성 · 스마트인프라 · 신뢰성</td><td class="st">탐색 → 예약 → 이동 → 체험</td><td class="st">통합 · 정보 · 예약 · 신뢰</td></tr>
+                  <tr><td><strong>외식업</strong></td><td class="st">5요인 · 20문항</td><td class="st">기술통합성 · 편의성 · 정보성 · 스마트인프라 · 신뢰성</td><td class="st">탐색 → 예약 → 주문 → 결제 → 리뷰</td><td class="st">주문 · 결제 · 정보 · 신뢰</td></tr>
+                  <tr><td><strong>컨벤션</strong></td><td class="st">5요인 · 15문항</td><td class="st">기술통합성 · 편의성 · 정보성 · 스마트인프라 · 신뢰성</td><td class="st">등록 → 입장 → 정보탐색 → 전시 → 네트워킹</td><td class="st">입장 · 정보 · 체험 · 운영</td></tr>
+                  <tr><td><strong>숙박업</strong></td><td class="st">5요인 · 19문항</td><td class="st">정보성 · 스마트인프라 · 편의성 · <em>개인화</em> · <em>상호작용성</em></td><td class="st">예약 → 체크인 → 객실 → 추천 → 소통</td><td class="st">체류 · 맞춤 · 상호작용</td></tr>
+                  <tr><td><strong>항공산업</strong></td><td class="st">5요인 · 17문항</td><td class="st">스마트인프라 · 편의성 · <em>개인화</em> · <em>상호작용성</em> · <em>보안성</em></td><td class="st">예약 → 공항 → 체크인 → 탑승 → 이동정보</td><td class="st">편의 · 맞춤 · 소통 · 보안</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="logic">
+              <p class="aim">여행 · 외식 · 컨벤션은 <strong>통합 · 정보 · 신뢰</strong>, 숙박 · 항공은 <strong>맞춤 · 소통</strong>, 항공은 <strong>보안</strong>이 핵심입니다.</p>
+            </div>
+          </section>
+
+          <section class="slide tint-sun compact" aria-label="06 공통요인과 산업별 차이">
+            <p class="learn-part">06 · 공통요인과 산업별 차이</p>
+            <p>다섯 편을 관통하는 <strong>공통 기반</strong>과 <strong>산업별 강조점</strong>을 분리해서 봅니다.</p>
+            <ul class="kwlist sc-dk">
+              <li><b>ALL 5</b><span><strong>편의성 + 스마트인프라</strong> → 5개 산업 모두에서 확인</span></li>
+              <li><b>여행 · 외식 · 컨벤션</b><span><strong>기술통합성 + 정보성 + 신뢰성</strong> → 세 산업에서 공통적으로 강조</span></li>
+              <li><b>숙박 · 항공</b><span><strong>개인화 + 상호작용성</strong> → 맞춤서비스와 실시간 소통이 핵심</span></li>
+              <li><b>항공만</b><span><strong>보안성</strong> → 개인정보 · 결제 · 여행정보 보호가 독립 요인으로 등장</span></li>
+            </ul>
+            <div class="logic">
+              <p class="chain">공통 기반(편의성 · 인프라) <b>+</b> 산업별 강조점(통합 · 정보 · 신뢰 <b>/</b> 맞춤 · 소통 <b>/</b> 보안)</p>
+            </div>
+          </section>
+
+          <section class="slide tint-sun compact" aria-label="07 5개 산업의 요인 패턴">
+            <p class="learn-part">07 · 5개 산업의 요인 패턴</p>
+            <p>요인별 포함 여부를 한눈에 확인합니다. <strong>●</strong> = 해당 산업의 최종 척도에 포함된 요인.</p>
+            <div class="tbl-wrap">
+              <table class="ref sc-tb sc-grid">
+                <thead><tr><th>요인</th><th>여행업</th><th>외식업</th><th>컨벤션</th><th>숙박업</th><th>항공</th></tr></thead>
+                <tbody>
+                  <tr class="all"><td><strong>편의성</strong> <i>Convenience</i></td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+                  <tr class="all"><td><strong>스마트인프라</strong> <i>Smart Infrastructure</i></td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+                  <tr><td><strong>정보성</strong> <i>Informativeness</i></td><td>●</td><td>●</td><td>●</td><td>●</td><td></td></tr>
+                  <tr><td><strong>기술통합성</strong> <i>Technology Integration</i></td><td>●</td><td>●</td><td>●</td><td></td><td></td></tr>
+                  <tr><td><strong>신뢰성</strong> <i>Reliability</i></td><td>●</td><td>●</td><td>●</td><td></td><td></td></tr>
+                  <tr><td><strong>개인화</strong> <i>Personalization</i></td><td></td><td></td><td></td><td>●</td><td>●</td></tr>
+                  <tr><td><strong>상호작용성</strong> <i>Interactivity</i></td><td></td><td></td><td></td><td>●</td><td>●</td></tr>
+                  <tr><td><strong>보안성</strong> <i>Security</i></td><td></td><td></td><td></td><td></td><td>●</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="logic">
+              <p class="aim"><strong>패턴</strong> — 5개 공통 <strong>2개</strong> 요인, 여행 · 외식 · 컨벤션 공통 <strong>3개</strong> 요인, 숙박 · 항공의 <strong>맞춤 · 소통</strong>, 항공의 <strong>보안</strong>.</p>
+            </div>
+          </section>
+
+          <section class="slide tint-sun compact" aria-label="08 이 표에서 읽어야 할 흐름">
+            <p class="learn-part">08 · 이 표에서 읽어야 할 흐름</p>
+            <p>요인 패턴은 <strong>「공통 기반 → 산업별 변화 → 항공의 고유성」</strong> 순서로 읽습니다.</p>
+            <h3>공통 기반</h3>
+            <p>편의성과 스마트인프라는 <strong>5개 산업에 모두 존재</strong>합니다. 즉 스마트관광은 먼저 <em>「쉽게 이용할 수 있는가」</em>와 <em>「기술 기반이 갖추어져 있는가」</em>를 공통적으로 봅니다.</p>
+            <h3>산업별 변화</h3>
+            <p>여행 · 외식 · 컨벤션은 <strong>기술통합성 · 정보성 · 신뢰성</strong>이 공통적으로 나타납니다. 반면 숙박과 항공에서는 <strong>개인화 · 상호작용성</strong>이 새롭게 강조됩니다.</p>
+            <h3>항공의 고유성</h3>
+            <p>항공에서는 <strong>보안성</strong>이 독립적인 요인으로 나타납니다. 개인정보 · 결제 · 여행정보 보호가 항공 스마트서비스의 중요한 경험 기준이 됩니다.</p>
+            <div class="logic">
+              <p class="aim"><strong>한 줄 결론</strong> — 같은 스마트관광이라도 <strong>산업의 서비스 여정이 달라지면 이용자가 경험하는 「스마트함」의 구성도 달라집니다.</strong></p>
+            </div>
+          </section>
+
+          <section class="slide tint-sun compact" aria-label="09 핵심 요인별 장면으로 이해하기">
+            <p class="learn-part">09 · 핵심 요인별 장면으로 이해하기</p>
+            <p>여덟 요인을 <strong>관광객의 실제 서비스 장면</strong>과 연결해 기억합니다.</p>
+            <figure class="learn-fig">
+              <img loading="lazy" src="images/smart-tourism-scale-factors-scenes.webp" alt="스마트관광 핵심 요인 여덟을 장면 중심으로 정리한 그림 — 편의성 · 스마트인프라 · 정보성 · 기술통합성 · 신뢰성 · 개인화 · 상호작용성 · 보안성 각각이 실제 관광 장면에서 어떻게 나타나는지 그림과 한 줄 설명으로 짝지어 보여준다." width="1055" height="1491" />
+              <figcaption>① 편의성 ② 스마트인프라 ③ 정보성 ④ 기술통합성 ⑤ 신뢰성 ⑥ 개인화 ⑦ 상호작용성 ⑧ 보안성 — 원자료 p.5</figcaption>
+            </figure>
+            <div class="logic">
+              <p class="aim"><strong>핵심 메시지</strong> — 스마트관광은 기술 자체보다, <strong>기술을 통해 경험하는 가치와 서비스 품질</strong>을 측정합니다.</p>
+            </div>
+          </section>
+
+          <section class="slide tint-sun compact" aria-label="10 학생이 반드시 기억할 3문장">
+            <p class="learn-part">10 · 학생이 반드시 기억할 3문장</p>
+            <p>복습의 마지막 기준은 이 세 문장입니다.</p>
+            <ol class="kwlist sc-dk">
+              <li><b>①</b><span>모든 산업에서 <strong>편의성과 스마트인프라</strong>는 공통적으로 중요하다.</span></li>
+              <li><b>②</b><span><strong>산업의 서비스 특성이 달라지면</strong> 스마트함을 구성하는 요인도 달라진다.</span></li>
+              <li><b>③</b><span>스마트관광은 기술 자체가 아니라, <strong>기술을 통해 경험하는 가치와 서비스 품질</strong>을 측정한다.</span></li>
+            </ol>
+            <div class="logic">
+              <p class="aim"><strong>정리</strong> — 기술의 존재보다 <strong>이용자 경험</strong>, <strong>산업별 서비스 여정</strong>, <strong>검증된 척도개발 절차</strong>를 함께 기억합니다.</p>
+            </div>
+          </section>
+
+          <section class="slide tint-sun compact" aria-label="11 30초 셀프체크와 수업자료 근거">
+            <p class="learn-part">11 · 30초 셀프체크와 수업자료 근거</p>
+            <p>질문으로 확인하고, 다섯 편의 척도개발 연구를 근거로 다시 연결합니다.</p>
+            <h3>30초 셀프체크</h3>
+            <ul class="f3-why">
+              <li>왜 스마트관광을 <em>「최신기술」</em>이라고만 말하면 부족한가?</li>
+              <li>5개 산업에 <strong>모두 포함된 두 요인</strong>은 무엇인가?</li>
+              <li><strong>숙박 · 항공에서 새롭게 강조되는 요인</strong>과 <strong>항공에서만 나타나는 요인</strong>은 무엇인가?</li>
+            </ul>
+            <h3>수업자료 근거 — 박소영 외 다섯 편</h3>
+            <ol class="kwlist sc-dk src5">
+              <li><b>여행업</b><span>박소영 · 고주희(2024) 「여행업을 중심으로 스마트관광의 척도개발」</span></li>
+              <li><b>외식업</b><span>박소영 · 이보연(2024) 「스마트관광 척도 개발: 외식업」</span></li>
+              <li><b>컨벤션</b><span>박소영(2024) 「스마트관광 척도개발: 컨벤션산업을 중심으로」</span></li>
+              <li><b>숙박업</b><span>박소영 · 이보연(2025) 「스마트관광 척도개발: 숙박업을 중심으로」</span></li>
+              <li><b>항공산업</b><span>박소영 · 윤한성(2025) 「스마트관광 척도개발: 항공산업을 중심으로」</span></li>
+            </ol>
+            <div class="logic">
+              <p class="aim"><strong>최종 결론</strong> — 같은 스마트관광이라도 <strong>산업의 서비스 여정이 달라지면, 이용자가 경험하는 「스마트함」의 구성도 달라진다.</strong></p>
+            </div>
+          </section>
+
+        </div>
+          <button type="button" class="deck-next" aria-label="다음 슬라이드">→</button>
+        </div>
+        <div class="deck-nav">
+          <span class="deck-count">01 / 11</span>
+        </div>
       </div>
+
+      <p class="dltags"><a class="mapl form y" href="smart-tourism-scale-slides.html" target="_blank" rel="noopener">슬라이드 11장 — 웹에서 넘겨 보기 ↗</a><a class="mapl form y" href="assets/smart-tourism-scale-development-review.docx" download="스마트관광_척도개발_복습노트_통합판.docx">척도개발 5편 복습 노트 ⤓ DOCX</a><a class="mapl form" href="assets/smart-tourism-scale-slides.pptx" download="스마트관광_척도개발_복습노트_슬라이드.pptx">같은 슬라이드 ⤓ PPTX</a><span class="dl-src">박소영 외(2024–2025) 다섯 편을 수업용으로 묶은 것입니다. <b>파트 06 연구</b>로 넘어가기 전에 펴 보십시오.<br /><b>셋은 같은 내용입니다</b> — <b>슬라이드</b>는 수업에서 띄우는 판(<b>← →</b> 로 넘기고 <b>F</b> 로 전체화면), <b>DOCX</b>는 읽고 인쇄하는 3쪽 노트, <b>PPTX</b>는 직접 고쳐 쓸 때 씁니다.</span></p>
 
 
       <p class="learn-part pt-res"><span class="pt">파트 06</span>연구</p>
