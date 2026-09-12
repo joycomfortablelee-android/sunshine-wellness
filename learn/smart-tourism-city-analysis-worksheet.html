@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>스마트관광도시 분석 워크시트</title>
+<style>
+  :root{
+    --navy:#17324d;
+    --blue:#2f6fa3;
+    --light:#eef5fa;
+    --line:#c9d7e3;
+    --text:#1f2933;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:#f3f5f7;
+    color:var(--text);
+    font-family:"Malgun Gothic","Apple SD Gothic Neo",sans-serif;
+  }
+  .toolbar{
+    width:210mm;
+    max-width:calc(100% - 24px);
+    margin:18px auto 8px;
+    display:flex;
+    gap:8px;
+    justify-content:flex-end;
+    flex-wrap:wrap;
+  }
+  button{
+    border:1px solid var(--navy);
+    background:#fff;
+    color:var(--navy);
+    padding:8px 13px;
+    border-radius:7px;
+    font-weight:700;
+    cursor:pointer;
+  }
+  button.primary{background:var(--navy);color:#fff}
+  .sheet{
+    width:210mm;
+    min-height:297mm;
+    margin:0 auto 24px;
+    background:#fff;
+    padding:12mm 13mm 10mm;
+    box-shadow:0 3px 16px rgba(0,0,0,.12);
+  }
+  h1{
+    margin:0;
+    font-size:23px;
+    color:var(--navy);
+    letter-spacing:-.5px;
+  }
+  .eng{
+    margin-top:3px;
+    color:#60758a;
+    font-size:11px;
+    font-weight:700;
+  }
+  .topline{
+    border-top:4px solid var(--navy);
+    margin:9px 0 10px;
+  }
+  .meta{
+    display:grid;
+    grid-template-columns:1.15fr 1fr 1fr;
+    gap:7px;
+    margin-bottom:8px;
+  }
+  .field{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-size:11.5px;
+    font-weight:700;
+  }
+  input[type="text"]{
+    width:100%;
+    border:none;
+    border-bottom:1.2px solid #798a99;
+    padding:4px 4px 3px;
+    font-size:11.5px;
+    outline:none;
+    background:transparent;
+  }
+  section{margin-top:8px}
+  .sec-title{
+    background:var(--navy);
+    color:#fff;
+    padding:5px 8px;
+    font-size:12px;
+    font-weight:800;
+    border-radius:4px 4px 0 0;
+  }
+  .box{
+    border:1px solid var(--line);
+    padding:7px 8px;
+    font-size:10.8px;
+  }
+  .sentence{
+    line-height:1.9;
+  }
+  .sentence input{
+    display:inline-block;
+    width:27%;
+    min-width:110px;
+  }
+  table{
+    width:100%;
+    border-collapse:collapse;
+    table-layout:fixed;
+    font-size:9.5px;
+  }
+  th,td{
+    border:1px solid var(--line);
+    padding:5px 4px;
+    vertical-align:top;
+  }
+  th{
+    background:var(--light);
+    color:var(--navy);
+    font-weight:800;
+    text-align:center;
+  }
+  td textarea{
+    width:100%;
+    height:42px;
+    resize:none;
+    border:0;
+    outline:none;
+    font:inherit;
+    background:transparent;
+  }
+  .flow{
+    margin-top:5px;
+    text-align:center;
+    font-weight:800;
+    color:var(--blue);
+    font-size:10.5px;
+  }
+  .q{
+    margin:5px 0 2px;
+    font-size:10.5px;
+    font-weight:800;
+  }
+  textarea.line{
+    width:100%;
+    height:31px;
+    resize:none;
+    border:1px solid var(--line);
+    outline:none;
+    padding:5px;
+    font-family:inherit;
+    font-size:10.5px;
+  }
+  .rating th:first-child,.rating td:first-child{width:53%;text-align:left}
+  .rating td{text-align:center;vertical-align:middle;padding:4px 2px}
+  .rating input{transform:scale(.88)}
+  .score{
+    margin-top:5px;
+    text-align:right;
+    font-size:11px;
+    font-weight:800;
+    color:var(--navy);
+  }
+  .question-box{
+    border:1.5px solid var(--blue);
+    border-radius:6px;
+    padding:6px 8px;
+    background:#f8fbfd;
+  }
+  .question-box textarea{
+    width:100%;
+    height:34px;
+    border:none;
+    background:transparent;
+    resize:none;
+    outline:none;
+    font-family:inherit;
+    font-size:10.5px;
+  }
+  .footer{
+    margin-top:7px;
+    font-size:8.8px;
+    color:#788897;
+    text-align:right;
+  }
+  @media print{
+    body{background:#fff}
+    .toolbar{display:none}
+    .sheet{
+      width:210mm;
+      min-height:297mm;
+      margin:0;
+      box-shadow:none;
+      page-break-after:avoid;
+    }
+    input,textarea{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+  }
+  @page{size:A4;margin:0}
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <button onclick="saveLocal()">작성 내용 저장</button>
+  <button onclick="clearForm()">초기화</button>
+  <button class="primary" onclick="window.print()">인쇄 / PDF 저장</button>
+</div>
+
+<main class="sheet">
+  <h1>스마트관광도시 분석 워크시트</h1>
+  <div class="eng">Smart Tourism City Analysis Worksheet</div>
+  <div class="topline"></div>
+
+  <div class="meta">
+    <label class="field">발표 도시 <input type="text" name="city"></label>
+    <label class="field">발표자 <input type="text" name="presenter"></label>
+    <label class="field">작성자 <input type="text" name="writer"></label>
+  </div>
+
+  <section>
+    <div class="sec-title">① 이 도시를 한 문장으로 요약하기</div>
+    <div class="box sentence">
+      이 도시는 <input type="text" name="resource" placeholder="지역자원">이라는 지역자원을
+      <input type="text" name="tech" placeholder="기술·서비스">와 결합하여
+      <input type="text" name="experience" placeholder="관광경험">한 관광경험을 만드는 스마트관광도시이다.
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-title">② 발표의 핵심 구조 찾기</div>
+    <div class="box">
+      <table>
+        <thead>
+          <tr>
+            <th>지역 관광자원</th>
+            <th>스마트 기술·서비스</th>
+            <th>핵심 플랫폼/콘텐츠</th>
+            <th>관광객에게 생기는 변화</th>
+            <th>지역에 기대되는 효과</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><textarea name="s1a"></textarea></td>
+            <td><textarea name="s1b"></textarea></td>
+            <td><textarea name="s1c"></textarea></td>
+            <td><textarea name="s1d"></textarea></td>
+            <td><textarea name="s1e"></textarea></td>
+          </tr>
+          <tr>
+            <td><textarea name="s2a"></textarea></td>
+            <td><textarea name="s2b"></textarea></td>
+            <td><textarea name="s2c"></textarea></td>
+            <td><textarea name="s2d"></textarea></td>
+            <td><textarea name="s2e"></textarea></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="flow">지역자원 → 스마트기술 → 관광서비스 → 관광객 경험 → 지역효과</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-title">③ 오늘 발표에서 기억할 것 3가지</div>
+    <div class="box">
+      <div class="q">1. 가장 인상적이었던 스마트관광 서비스</div>
+      <textarea class="line" name="remember1"></textarea>
+      <div class="q">2. 이 도시만의 차별점</div>
+      <textarea class="line" name="remember2"></textarea>
+      <div class="q">3. 다른 스마트관광도시에서도 활용할 수 있는 아이디어</div>
+      <textarea class="line" name="remember3"></textarea>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-title">④ 발표를 보면서 판단하기</div>
+    <div class="box">
+      <table class="rating">
+        <thead>
+          <tr><th>평가 항목</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>도시의 관광자원과 특징을 잘 설명했다</td>
+            <td><input type="radio" name="r1" value="1"></td><td><input type="radio" name="r1" value="2"></td><td><input type="radio" name="r1" value="3"></td><td><input type="radio" name="r1" value="4"></td><td><input type="radio" name="r1" value="5"></td>
+          </tr>
+          <tr>
+            <td>스마트 기술이 관광 문제와 연결되어 있다</td>
+            <td><input type="radio" name="r2" value="1"></td><td><input type="radio" name="r2" value="2"></td><td><input type="radio" name="r2" value="3"></td><td><input type="radio" name="r2" value="4"></td><td><input type="radio" name="r2" value="5"></td>
+          </tr>
+          <tr>
+            <td>구체적인 서비스·사례가 제시되었다</td>
+            <td><input type="radio" name="r3" value="1"></td><td><input type="radio" name="r3" value="2"></td><td><input type="radio" name="r3" value="3"></td><td><input type="radio" name="r3" value="4"></td><td><input type="radio" name="r3" value="5"></td>
+          </tr>
+          <tr>
+            <td>관광객에게 어떤 변화가 생기는지 설명했다</td>
+            <td><input type="radio" name="r4" value="1"></td><td><input type="radio" name="r4" value="2"></td><td><input type="radio" name="r4" value="3"></td><td><input type="radio" name="r4" value="4"></td><td><input type="radio" name="r4" value="5"></td>
+          </tr>
+          <tr>
+            <td>발표자료가 이해하기 쉽고 논리적이었다</td>
+            <td><input type="radio" name="r5" value="1"></td><td><input type="radio" name="r5" value="2"></td><td><input type="radio" name="r5" value="3"></td><td><input type="radio" name="r5" value="4"></td><td><input type="radio" name="r5" value="5"></td>
+          </tr>
+          <tr>
+            <td><strong>발표 스타일:</strong> 청중과 자연스럽게 아이컨택트하며 발표하였다</td>
+            <td><input type="radio" name="r6" value="1"></td><td><input type="radio" name="r6" value="2"></td><td><input type="radio" name="r6" value="3"></td><td><input type="radio" name="r6" value="4"></td><td><input type="radio" name="r6" value="5"></td>
+          </tr>
+          <tr>
+            <td><strong>발표 스타일:</strong> 화면이나 원고를 읽기보다 말하듯 자연스럽게 설명하였다</td>
+            <td><input type="radio" name="r7" value="1"></td><td><input type="radio" name="r7" value="2"></td><td><input type="radio" name="r7" value="3"></td><td><input type="radio" name="r7" value="4"></td><td><input type="radio" name="r7" value="5"></td>
+          </tr>
+          <tr>
+            <td><strong>발표 스타일:</strong> 발표 내용을 충분히 이해하고 자신의 말로 설명하였다</td>
+            <td><input type="radio" name="r8" value="1"></td><td><input type="radio" name="r8" value="2"></td><td><input type="radio" name="r8" value="3"></td><td><input type="radio" name="r8" value="4"></td><td><input type="radio" name="r8" value="5"></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="score">총점 <span id="score">0</span> / 40</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-title">⑤ 발표를 듣고 한 단계 더 생각하기</div>
+    <div class="box">
+      <div class="q">이 도시의 스마트관광에서 가장 잘된 점은?</div>
+      <textarea class="line" name="good"></textarea>
+      <div class="q">반대로 보완해야 할 점은?</div>
+      <textarea class="line" name="improve"></textarea>
+      <div class="q">내가 이 도시의 스마트관광 담당자라면 추가하고 싶은 서비스는?</div>
+      <textarea class="line" name="idea"></textarea>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-title">⑥ 발표자에게 질문 하나</div>
+    <div class="question-box">
+      <textarea name="question" placeholder="발표 내용과 관련해 궁금한 점을 한 문장으로 작성하세요."></textarea>
+    </div>
+  </section>
+
+  <div class="footer">스마트관광도시 발표 Peer Learning Worksheet</div>
+</main>
+
+<script>
+const fields = [...document.querySelectorAll('input[type="text"], textarea, input[type="radio"]')];
+
+function calcScore(){
+  let total = 0;
+  for(let i=1;i<=8;i++){
+    const checked = document.querySelector(`input[name="r${i}"]:checked`);
+    if(checked) total += Number(checked.value);
+  }
+  document.getElementById('score').textContent = total;
+}
+
+function saveLocal(){
+  const data = {};
+  document.querySelectorAll('input[type="text"], textarea').forEach(el => data[el.name] = el.value);
+  for(let i=1;i<=8;i++){
+    const checked = document.querySelector(`input[name="r${i}"]:checked`);
+    data[`r${i}`] = checked ? checked.value : "";
+  }
+  localStorage.setItem('smartTourismWorksheet', JSON.stringify(data));
+  alert('이 브라우저에 작성 내용이 저장되었습니다.');
+}
+
+function loadLocal(){
+  const raw = localStorage.getItem('smartTourismWorksheet');
+  if(!raw) return;
+  const data = JSON.parse(raw);
+  document.querySelectorAll('input[type="text"], textarea').forEach(el => {
+    if(data[el.name] !== undefined) el.value = data[el.name];
+  });
+  for(let i=1;i<=8;i++){
+    if(data[`r${i}`]){
+      const radio = document.querySelector(`input[name="r${i}"][value="${data[`r${i}`]}"]`);
+      if(radio) radio.checked = true;
+    }
+  }
+  calcScore();
+}
+
+function clearForm(){
+  if(!confirm('작성한 내용을 모두 지울까요?')) return;
+  document.querySelectorAll('input[type="text"], textarea').forEach(el => el.value = '');
+  document.querySelectorAll('input[type="radio"]').forEach(el => el.checked = false);
+  localStorage.removeItem('smartTourismWorksheet');
+  calcScore();
+}
+
+document.querySelectorAll('input[type="radio"]').forEach(el => el.addEventListener('change', calcScore));
+window.addEventListener('load', loadLocal);
+</script>
+</body>
+</html>
