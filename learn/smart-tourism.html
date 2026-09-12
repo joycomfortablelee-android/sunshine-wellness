@@ -402,6 +402,94 @@
     @media (max-width: 620px) {
       .learn-article .reslist .kwlist.ax-kw > li { grid-template-columns: 1fr; gap: 2px; }
     }
+    /* ===== 척도개발 여덟 장 =====
+       기존 캐러셀(.stcomic)은 그림 여덟 장을 넘기는 것이고, 이쪽은 글과 표를 넘긴다.
+       움직임·버튼·점은 같은 스크립트가 맡고, 여기서는 슬라이드 속살만 입힌다.
+       글이라 글자가 선택되고 좁은 화면에서도 뭉개지지 않는다. */
+    .learn-article .stcomic.sc-deck { margin: 10px 0 4px; }
+    .learn-article .stcomic.sc-deck .stc-viewer { background: #fff; border-color: #e6d89a; }
+    .learn-article .stcomic.sc-deck .stc-slide { padding: 14px 16px 16px; }
+    .learn-article .stcomic.sc-deck .stc-head { border-bottom: 1px solid #efe3b8; padding-bottom: 7px; margin-bottom: 10px; }
+    .learn-article .stcomic.sc-deck .stc-title { color: #4a3f10; }
+    .learn-article .stcomic.sc-deck .stc-count { color: #a8912c; }
+    .learn-article .stcomic.sc-deck .stc-nav { background: rgba(74,63,16,.72); }
+    .learn-article .stcomic.sc-deck .stc-dot.is-on { background: #a8862c; }
+    .learn-article .stcomic.sc-deck img { border: 1px solid #e6d89a; border-radius: 10px; }
+    .learn-article .sc-body { font-size: 12.5px; line-height: 1.75; color: #5c5430; }
+    .learn-article .sc-body strong { color: #4a3f10; }
+    .learn-article .sc-body em { font-style: normal; color: #7a6420; font-weight: 700; }
+    .learn-article .sc-body .hot-t { color: #a3161c; }
+
+    /* 셋 · 넷을 나란히 놓는 칸 */
+    .learn-article .sc-goal3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+    .learn-article .sc-goal3 > div {
+      padding: 9px 11px; border-radius: 9px; background: #fffdf2; border: 1px solid #efe3b8;
+    }
+    .learn-article .sc-goal3 b { display: block; margin-bottom: 3px; color: #4a3f10; font-weight: 800; }
+    .learn-article .sc-goal3.fin > div { background: #fff9e3; }
+
+    /* 한 문장 인용 · 작은 주석 */
+    .learn-article .sc-quote {
+      margin: 11px 0 0; padding: 10px 12px; border-radius: 9px;
+      background: #fff8d8; border-left: 4px solid #d8bb2a; color: #4a3f10;
+    }
+    .learn-article .sc-quote > b {
+      display: inline-block; margin-right: 8px; padding: 2px 8px; border-radius: 6px;
+      background: #4a3f10; color: #ffe800; font-size: 10.5px; font-weight: 800; vertical-align: 1px;
+    }
+    .learn-article .sc-note { margin: 9px 0 0; font-size: 11.5px; color: #8a7a46; line-height: 1.7; }
+    .learn-article .sc-note > b { margin-right: 7px; color: #4a3f10; font-weight: 800; }
+
+    /* 여섯 걸음 */
+    .learn-article .sc-steps { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; }
+    .learn-article .sc-steps > li {
+      padding: 8px 10px; border-radius: 9px; background: #fffdf2; border: 1px solid #efe3b8;
+    }
+    .learn-article .sc-steps b { display: block; margin-bottom: 2px; color: #4a3f10; font-weight: 800; }
+
+    /* 요인 여덟 용어 */
+    .learn-article .sc-terms { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
+    .learn-article .sc-terms > div { padding: 8px 10px; border-radius: 9px; background: #fffdf2; border: 1px solid #efe3b8; }
+    .learn-article .sc-terms b { display: block; color: #4a3f10; font-weight: 800; }
+    .learn-article .sc-terms b i { display: block; font-style: normal; font-size: 10px; font-weight: 600; color: #a8912c; letter-spacing: .02em; }
+
+    /* 표 둘 */
+    .learn-article .sc-scroll { overflow-x: auto; }
+    .learn-article .sc-table { width: 100%; border-collapse: collapse; font-size: 11.5px; min-width: 520px; }
+    .learn-article .sc-table th {
+      background: #f7efd6; color: #6b5400; border: 1px solid #e6d89a;
+      padding: 7px 8px; text-align: left; font-weight: 800; white-space: nowrap;
+    }
+    .learn-article .sc-table td { border: 1px solid #eee3c4; padding: 7px 8px; color: #5c5430; vertical-align: top; }
+    .learn-article .sc-table td b { color: #4a3f10; }
+    .learn-article .sc-table td em { font-style: normal; color: #a3161c; font-weight: 700; }
+    .learn-article .sc-table.sc-grid { min-width: 460px; text-align: center; }
+    .learn-article .sc-table.sc-grid td { text-align: center; font-size: 13px; color: #6b5400; }
+    .learn-article .sc-table.sc-grid td:first-child { text-align: left; font-size: 11.5px; }
+    .learn-article .sc-table.sc-grid tr.all td { background: #fff8d8; font-weight: 800; }
+
+    /* 네 덩어리 · 셀프체크 */
+    .learn-article .sc-split { margin: 0; padding: 0; list-style: none; }
+    .learn-article .sc-split > li {
+      display: grid; grid-template-columns: 132px minmax(0, 1fr); gap: 11px;
+      padding: 8px 0; border-top: 1px dashed #e6d89a;
+    }
+    .learn-article .sc-split > li:first-child { border-top: 0; padding-top: 2px; }
+    .learn-article .sc-split > li > b { color: #4a3f10; font-weight: 800; }
+    .learn-article .sc-check { margin: 11px 0 0; padding: 10px 12px 10px 28px; border-radius: 9px; background: #fffdf2; border: 1px solid #efe3b8; }
+    .learn-article .sc-check > li { margin: 0 0 4px; color: #5c5430; }
+    .learn-article .sc-check > li:last-child { margin-bottom: 0; }
+
+    @media (max-width: 760px) {
+      .learn-article .sc-goal3,
+      .learn-article .sc-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .learn-article .sc-terms { grid-template-columns: 1fr; }
+      .learn-article .sc-split > li { grid-template-columns: 1fr; gap: 2px; }
+    }
+    @media (max-width: 520px) {
+      .learn-article .sc-goal3,
+      .learn-article .sc-steps { grid-template-columns: 1fr; }
+    }
     /* 노란 알약 — 복습 노트처럼 「수업 뒤에 다시 펴 보는 것」에 쓴다.
        이 페이지의 샛노랑(과제 상자 · 스티키노트)과 같은 색이다. */
     .learn-article .dltags a.mapl.form.y {
@@ -640,8 +728,8 @@
 
       <div class="syl-box">
         <p class="syl-t">15주 강의계획서 — 위 흐름을 학사 서식으로 옮기면 이렇게 됩니다<a class="doc-pill" href="assets/smart-tourism-syllabus-15w.docx" download="스마트투어리즘_15주_강의계획서.docx">강의계획서 ⤓ DOCX</a></p>
-        <p class="syl-d">위 <strong>파트 흐름</strong>을 <strong>15주 · 주 3시간</strong>의 주차별 계획으로 편 문서입니다. 학기를 <strong>네 단계</strong>로 쌓습니다 — <strong>Ⅰ. 현장을 본다</strong>(1~4주 · 개념과 국내 12곳, 용인을 끝까지 추적) → <strong>Ⅱ. 견준다</strong>(5~8주 · 유럽 스마트관광 수도 공모와 사례집) → <strong class="hot-t">Ⅲ. 만든다</strong>(<strong>이 과목의 중심</strong>) → <strong>Ⅳ. 근거로 쓴다</strong>(13~15주 · 논문·통계로 뒷받침해 기획서로 완성하고 발표). 주차마다 <strong>「사용 자료」</strong> 칸이 이 페이지의 <strong>파트 번호</strong>를 가리켜, 계획서와 이 페이지가 한 몸으로 움직입니다.</p>
-        <p class="syl-tags"><a class="mapl" href="smart-tourism-how-to-read.html" target="_blank" rel="noopener">이 페이지 읽는 법 ↗</a><a class="mapl" href="smart-tourism-weekly-plan.html" target="_blank" rel="noopener">주간 수업 운영 · 발표 배정 ↗</a><a class="mapl" href="academic-calendar-2026-2.html" target="_blank" rel="noopener">2학기 학사일정 달력 ↗</a><span class="syl-src"><b>기본정보 · 교과목표 셋 · 학기 구조 · 15주 주차별 계획 · 평가 · 실습 채점 기준</b>을 담았습니다. <b>실습 채점 기준</b>은 지도가 예쁜지 코드를 짰는지를 보지 않습니다 — <em>왜 이 세 곳을 골랐는가 · 출처를 밝혔는가 · 왜 더 확대하지 않았는가</em> 셋입니다. <b>한국관광 데이터랩 활용 경진대회가 요구하는 것과 같아</b>, 실습 채점 기준이 그대로 출품 준비가 됩니다. 문서 끝의 <b>「운영 노트 — 강의 전 확인할 네 가지」</b>는 교수자용입니다.</span></p>
+        <p class="syl-d">위 <strong>파트 흐름</strong>을 <strong>15주 · 주 3시간</strong>의 주차별 계획으로 편 문서입니다. 학기를 <strong>네 단계</strong>로 쌓습니다 — <strong>Ⅰ. 현장을 본다</strong>(1~4주 · 개념과 국내 12곳, 용인을 끝까지 추적) → <strong>Ⅱ. 견준다</strong>(5~8주 · 유럽 스마트관광 수도 공모와 사례집) → <strong class="hot-t">Ⅲ. 만든다</strong>(<strong>이 과목의 중심</strong>) → <strong>Ⅳ. 근거로 쓴다</strong>(13~15주 · 논문·통계로 뒷받침해 기획서로 완성하고 발표).</p>
+        <p class="syl-tags"><a class="mapl" href="smart-tourism-how-to-read.html" target="_blank" rel="noopener">이 페이지 읽는 법 ↗</a><a class="mapl" href="smart-tourism-weekly-plan.html" target="_blank" rel="noopener">주간 수업 운영 · 발표 배정 ↗</a><a class="mapl" href="academic-calendar-2026-2.html" target="_blank" rel="noopener">2학기 학사일정 달력 ↗</a></p>
       </div>
 
       <p class="tflow" aria-label="과제 넷의 순서">
@@ -1447,6 +1535,145 @@
           <li><b>척도가 만들어지는 순서</b><span><strong>현장자료</strong>(문헌 · 후기 · 웹크롤링) → <strong>FGI · 전문가 검토</strong> → <strong>통계검증</strong>(EFA · CFA). 연구자가 문항을 마음대로 짓는 것이 아니라 <em>좁혀 가는</em> 과정입니다.</span></li>
           <li><b>부록 둘</b><span>요인 여덟(편의성 · 스마트인프라 · 정보성 · 기술통합성 · 신뢰성 · 개인화 · 상호작용성 · 보안성)의 <strong>장면 그림</strong>과 <strong>30초 셀프체크</strong>.</span></li>
         </ul>
+        <div class="stcomic sc-deck" id="scale-deck">
+          <div class="stc-viewer" tabindex="0" aria-roledescription="캐러셀" aria-label="척도개발 5편 복습 — 여덟 장">
+            <div class="stc-track">
+
+              <section class="stc-slide" aria-label="1. 이 노트로 무엇을 얻나">
+                <p class="stc-head"><span class="stc-title">1. 이 노트로 무엇을 얻나</span><span class="stc-count">1 / 8</span></p>
+                <div class="sc-body">
+                  <div class="sc-goal3">
+                    <div><b>① 개념</b><span>스마트관광을 <em>“기술의 수”</em>가 아니라 <strong>이용자 경험의 기준</strong>으로 설명한다.</span></div>
+                    <div><b>② 방법</b><span>척도개발의 흐름을 <strong>자료 → 검토 → 통계검증</strong>으로 설명한다.</span></div>
+                    <div><b>③ 비교</b><span>5개 산업의 <strong>공통요인과 산업별 강조요인</strong>을 구분한다.</span></div>
+                  </div>
+                  <p class="sc-quote"><b>가장 중요한 한 문장</b>스마트관광 = 첨단기술의 보유 정도가 아니라, <strong>기술을 통해 이용자가 경험하는 「스마트함」을 측정하는 것</strong>. 즉 기술이 여행과 서비스 과정에서 <strong>얼마나 편리하고 유용하며 신뢰롭게</strong> 작동하는지를 본다.</p>
+                </div>
+              </section>
+
+              <section class="stc-slide" aria-label="2. 척도는 어떻게 만들어지나 — 여섯 걸음">
+                <p class="stc-head"><span class="stc-title">2. 척도는 어떻게 만들어지나 — 여섯 걸음</span><span class="stc-count">2 / 8</span></p>
+                <div class="sc-body">
+                  <ol class="sc-steps">
+                    <li><b>1 현장자료</b><span>문헌 · 사례 · 후기 · 웹크롤링</span></li>
+                    <li><b>2 질적분석</b><span>Nvivo · 군집분석으로 개념 묶기</span></li>
+                    <li><b>3 후보문항</b><span>초기 요인과 문항 도출</span></li>
+                    <li><b>4 내용검토</b><span>FGI + 전문가 — 중복 · 모호 문항 정제</span></li>
+                    <li><b>5 양적분석</b><span>설문 + EFA로 요인구조 탐색</span></li>
+                    <li><b>6 최종검증</b><span>CFA · 신뢰도 · 타당성 — 최종 척도 확정</span></li>
+                  </ol>
+                  <p class="sc-note"><b>기억할 점</b>척도개발은 <em>연구자가 문항을 마음대로 만드는 과정</em>이 아니라, 실제 자료 → 이용자 · 전문가 검토 → 통계검증을 거쳐 <strong>문항을 좁혀 가는 과정</strong>이다.</p>
+                </div>
+              </section>
+
+              <section class="stc-slide" aria-label="3. 핵심 요인 여덟 — 용어부터">
+                <p class="stc-head"><span class="stc-title">3. 핵심 요인 여덟 — 용어부터</span><span class="stc-count">3 / 8</span></p>
+                <div class="sc-body">
+                  <div class="sc-terms">
+                    <div><b>기술통합성<i>Technology Integration</i></b><span>여러 기술이 서비스 과정에 연결 · 통합되는 정도</span></div>
+                    <div><b>편의성<i>Convenience</i></b><span>쉽고 빠르며 원활하게 서비스를 이용하는 정도</span></div>
+                    <div><b>정보성<i>Informativeness</i></b><span>필요한 정보를 정확하고 적시에 얻는 정도</span></div>
+                    <div><b>스마트인프라<i>Smart Infrastructure</i></b><span>키오스크 · 앱 · IoT 등 시스템 기반이 구축된 정도</span></div>
+                    <div><b>신뢰성<i>Reliability</i></b><span>정보 · 예약 · 서비스 시스템을 믿을 수 있는 정도</span></div>
+                    <div><b>개인화<i>Personalization</i></b><span>선호 · 이력에 맞는 맞춤형 서비스를 제공하는 정도</span></div>
+                    <div><b>상호작용성<i>Interactivity</i></b><span>실시간 소통과 반응 · 피드백이 가능한 정도</span></div>
+                    <div><b>보안성<i>Security</i></b><span>개인정보 · 결제 · 여행정보가 안전하게 보호되는 정도</span></div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="stc-slide" aria-label="4. 5개 산업 비교 — 무엇이 같고 무엇이 다른가">
+                <p class="stc-head"><span class="stc-title">4. 5개 산업 비교 — 무엇이 같고 무엇이 다른가</span><span class="stc-count">4 / 8</span></p>
+                <div class="sc-body">
+                  <div class="sc-scroll">
+                    <table class="sc-table">
+                      <thead><tr><th>산업</th><th>최종 척도</th><th>구성요인 다섯</th><th>특히 기억할 경험</th></tr></thead>
+                      <tbody>
+                        <tr><td><b>여행업</b></td><td>5요인 · 19문항</td><td>기술통합성 · 편의성 · 정보성 · 스마트인프라 · 신뢰성</td><td>탐색 → 예약 → 이동 → 체험</td></tr>
+                        <tr><td><b>외식업</b></td><td>5요인 · 20문항</td><td>기술통합성 · 편의성 · 정보성 · 스마트인프라 · 신뢰성</td><td>탐색 → 예약 → 주문 → 결제 → 리뷰</td></tr>
+                        <tr><td><b>컨벤션</b></td><td>5요인 · 15문항</td><td>기술통합성 · 편의성 · 정보성 · 스마트인프라 · 신뢰성</td><td>등록 → 입장 → 정보탐색 → 전시 → 네트워킹</td></tr>
+                        <tr><td><b>숙박업</b></td><td>5요인 · 19문항</td><td>정보성 · 스마트인프라 · 편의성 · <em>개인화</em> · <em>상호작용성</em></td><td>예약 → 체크인 → 객실 → 추천 → 소통</td></tr>
+                        <tr><td><b>항공산업</b></td><td>5요인 · 17문항</td><td>스마트인프라 · 편의성 · <em>개인화</em> · <em>상호작용성</em> · <em>보안성</em></td><td>예약 → 공항 → 체크인 → 탑승 → 이동정보</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <p class="sc-note">요인명과 문항 수는 다섯 편의 논문 · 강의자료 표기를 기준으로 정리했다.</p>
+                </div>
+              </section>
+
+              <section class="stc-slide" aria-label="5. 요인 패턴 한눈에 — 어느 산업에 있나">
+                <p class="stc-head"><span class="stc-title">5. 요인 패턴 한눈에 — 어느 산업에 있나</span><span class="stc-count">5 / 8</span></p>
+                <div class="sc-body">
+                  <div class="sc-scroll">
+                    <table class="sc-table sc-grid">
+                      <thead><tr><th>요인</th><th>여행업</th><th>외식업</th><th>컨벤션</th><th>숙박업</th><th>항공</th></tr></thead>
+                      <tbody>
+                        <tr class="all"><td><b>편의성</b></td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+                        <tr class="all"><td><b>스마트인프라</b></td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+                        <tr><td><b>정보성</b></td><td>●</td><td>●</td><td>●</td><td>●</td><td></td></tr>
+                        <tr><td><b>기술통합성</b></td><td>●</td><td>●</td><td>●</td><td></td><td></td></tr>
+                        <tr><td><b>신뢰성</b></td><td>●</td><td>●</td><td>●</td><td></td><td></td></tr>
+                        <tr><td><b>개인화</b></td><td></td><td></td><td></td><td>●</td><td>●</td></tr>
+                        <tr><td><b>상호작용성</b></td><td></td><td></td><td></td><td>●</td><td>●</td></tr>
+                        <tr><td><b>보안성</b></td><td></td><td></td><td></td><td></td><td>●</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <p class="sc-note">● = 해당 산업의 <strong>최종 스마트관광 척도에 포함된 요인</strong>. 위 두 줄이 <strong class="hot-t">다섯 산업 모두에 든 둘</strong>이다.</p>
+                </div>
+              </section>
+
+              <section class="stc-slide" aria-label="6. 공통과 차이 — 네 덩어리로">
+                <p class="stc-head"><span class="stc-title">6. 공통과 차이 — 네 덩어리로</span><span class="stc-count">6 / 8</span></p>
+                <div class="sc-body">
+                  <ul class="sc-split">
+                    <li><b>ALL 5</b><span><strong>편의성 + 스마트인프라</strong> → 다섯 산업 모두에서 확인. 스마트관광은 먼저 <em>“쉽게 이용할 수 있는가”</em>와 <em>“기술 기반이 갖추어져 있는가”</em>를 공통으로 본다.</span></li>
+                    <li><b>여행 · 외식 · 컨벤션</b><span><strong>기술통합성 + 정보성 + 신뢰성</strong> → 세 산업에서 공통으로 강조된다.</span></li>
+                    <li><b>숙박 · 항공</b><span><strong>개인화 + 상호작용성</strong> → 맞춤 서비스와 실시간 소통이 핵심이 된다.</span></li>
+                    <li><b>항공만</b><span><strong class="hot-t">보안성</strong> → 개인정보 · 결제 · 여행정보 보호가 <strong>독립 요인</strong>으로 등장한다.</span></li>
+                  </ul>
+                </div>
+              </section>
+
+              <section class="stc-slide" aria-label="7. 기억할 셋과 30초 셀프체크">
+                <p class="stc-head"><span class="stc-title">7. 기억할 셋과 30초 셀프체크</span><span class="stc-count">7 / 8</span></p>
+                <div class="sc-body">
+                  <div class="sc-goal3 fin">
+                    <div><b>①</b><span>스마트관광은 기술 자체보다 <strong>“기술을 통해 경험하는 가치”</strong>를 측정한다.</span></div>
+                    <div><b>②</b><span>같은 스마트관광이라도 <strong>산업의 서비스 과정이 다르면</strong> 구성요인의 강조점도 달라진다.</span></div>
+                    <div><b>③</b><span>척도는 <strong>현장자료 → FGI · 전문가 → EFA · CFA</strong>의 검증 과정을 거쳐 만들어진다.</span></div>
+                  </div>
+                  <ul class="sc-check">
+                    <li>왜 <em>“스마트관광 = 최신기술”</em>이라고만 말하면 부족한가?</li>
+                    <li>5개 산업에 <strong>모두 포함된 두 요인</strong>은 무엇인가?</li>
+                    <li><strong>숙박 · 항공에서 새롭게 강조되는 요인</strong>과 <strong>항공에서만 나타나는 요인</strong>은 무엇인가?</li>
+                  </ul>
+                  <p class="sc-quote"><b>한 줄 결론</b>같은 스마트관광이라도 <strong>산업의 서비스 여정이 달라지면, 이용자가 경험하는 「스마트함」의 구성도 달라진다.</strong></p>
+                </div>
+              </section>
+
+              <section class="stc-slide" aria-label="8. 부록 — 요인 여덟의 장면 정리">
+                <p class="stc-head"><span class="stc-title">8. 부록 — 요인 여덟의 장면 정리</span><span class="stc-count">8 / 8</span></p>
+                <img loading="lazy" src="images/smart-tourism-scale-factors-scenes.webp" alt="스마트관광 핵심 요인 여덟을 장면 중심으로 정리한 그림 — 편의성 · 스마트인프라 · 정보성 · 기술통합성 · 신뢰성 · 개인화 · 상호작용성 · 보안성 각각이 실제 관광 장면에서 어떻게 나타나는지 그림과 한 줄 설명으로 짝지어 보여준다." width="1055" height="1491" />
+              </section>
+
+            </div>
+            <button class="stc-nav stc-prev" type="button" aria-label="이전 장">‹</button>
+            <button class="stc-nav stc-next" type="button" aria-label="다음 장">›</button>
+          </div>
+          <p class="stc-dots">
+            <button class="stc-dot is-on" type="button" data-i="0" aria-label="1. 이 노트로 무엇을 얻나"></button>
+            <button class="stc-dot" type="button" data-i="1" aria-label="2. 척도는 어떻게 만들어지나"></button>
+            <button class="stc-dot" type="button" data-i="2" aria-label="3. 핵심 요인 여덟"></button>
+            <button class="stc-dot" type="button" data-i="3" aria-label="4. 5개 산업 비교"></button>
+            <button class="stc-dot" type="button" data-i="4" aria-label="5. 요인 패턴 한눈에"></button>
+            <button class="stc-dot" type="button" data-i="5" aria-label="6. 공통과 차이"></button>
+            <button class="stc-dot" type="button" data-i="6" aria-label="7. 기억할 셋과 30초 셀프체크"></button>
+            <button class="stc-dot" type="button" data-i="7" aria-label="8. 부록 — 요인 여덟의 장면"></button>
+          </p>
+          <p class="stc-hint">좌 · 우 버튼이나 아래 점을 누르고, 휴대폰에서는 화면을 옆으로 밉니다. 한 번 누른 뒤에는 ← → 키로도 넘어갑니다 — <b>1~3장은 개념과 만드는 법</b>, <b>4~6장은 다섯 산업 비교</b>, <b>7~8장은 정리와 그림</b>입니다.</p>
+        </div>
+
         <p class="dltags"><a class="mapl form y" href="assets/smart-tourism-scale-development-review.docx" download="스마트관광_척도개발_복습노트_통합판.docx">척도개발 5편 복습 노트 ⤓ DOCX</a><span class="dl-src">박소영 외(2024–2025) 다섯 편을 수업용으로 묶은 것입니다. <b>파트 06 연구</b>로 넘어가기 전에 펴 보십시오.</span></p>
       </div>
 
