@@ -352,6 +352,24 @@
     .learn-article .case-box.pbl .kwlist.pbl-kw strong { color: #14472f; }
     .learn-article .case-box.pbl .kwlist.pbl-kw em { font-style: normal; color: #1f5d42; font-weight: 600; }
     .learn-article .case-box.pbl .kwlist.pbl-kw .hot-t { color: #a3161c; }
+    /* 넷째 칸부터는 접어 둔다 — 번호는 이어서 매긴다(counter-reset 을 3 에서 시작). */
+    .learn-article .case-box.pbl .kwlist.pbl-kw.more { counter-reset: kw 3; }
+    .learn-article .case-box.pbl details.pbl-fold {
+      border: 1px solid #cfe6da; border-radius: 10px; background: #f6fbf8;
+      padding: 0 13px; margin: 10px 0 0;
+    }
+    .learn-article .case-box.pbl details.pbl-fold > summary {
+      cursor: pointer; list-style: none; padding: 10px 2px;
+      display: flex; align-items: center; gap: 8px;
+      font-size: 12.5px; font-weight: 800; color: #1f5d42;
+    }
+    .learn-article .case-box.pbl details.pbl-fold > summary::-webkit-details-marker { display: none; }
+    .learn-article .case-box.pbl details.pbl-fold > summary::before {
+      content: "▸"; font-size: 12px; color: #4a8a6b; transition: transform .18s ease;
+    }
+    .learn-article .case-box.pbl details.pbl-fold[open] > summary::before { transform: rotate(90deg); }
+    .learn-article .case-box.pbl details.pbl-fold > summary:hover { color: #14472f; }
+    .learn-article .case-box.pbl details.pbl-fold .kwlist.pbl-kw { margin: 0 0 10px; }
     .learn-article .case-box.pbl .pbl-end {
       margin: 11px 0 0; padding-top: 10px; border-top: 2px solid #bfe0cd;
       font-size: 12.5px; line-height: 1.8; color: #3f5a4d;
@@ -1294,11 +1312,16 @@
           <li><b>다섯 분야는 한 공간의 층</b><span>따로 있는 다섯 주제가 아니라 <strong class="hot-t">축제라는 한 공간을 시간으로 자른 것</strong>입니다 — 오기 전(<em>주차</em>) · 와서 움직일 때(<em>지도</em>) · 쓸 때(<em>결제</em>) · 사고가 날 때(<em>안전</em>) · 그래도 남는 사람(<em>자유 주제</em>).</span></li>
           <li><b>순서가 거꾸로다</b><span>배운 기술을 <em>쓸 데를 찾는</em> 것이 아니라, <strong class="hot-t">막힌 데를 먼저 찾고 거기에 기술을 붙입니다.</strong> 아래 아홉 곳 중 <strong>어느 하나도 새 기술을 발명하지 않았습니다</strong> — 이미 있던 영상인식 · 측위 · QR · 비전 AI · 키오스크를 <strong>축제라는 현장의 특정 불편</strong>에 붙였을 뿐입니다.</span></li>
           <li><b>답이 교과서에 없다</b><span>「안동의 무엇이 문제인가」는 <strong>찾아봐야 압니다.</strong> 무엇을 찾아야 하는지조차 정해져 있지 않고, 정답이 하나도 아닙니다. 불편해 보이지만 <strong>실제 공모전과 실무가 그렇게 생겼습니다.</strong></span></li>
-          <li><b>막힌 것이 자료다</b><span>안동 실습에서 만나는 <strong>줌 15 해상도 경고</strong>와 <strong>검색해도 안 나오는 자원</strong>은 오류가 아닙니다. <strong class="hot-t">그것이 바로 여러분이 찾아낸 문제</strong>이고, 응모신청서 [3]「누가 겪는가」와 [6]「예상되는 어려움」 칸에 그대로 들어갑니다.</span></li>
-          <li><b>기술이 없어도 시작된다</b><span>「저는 개발을 못 해서요」는 이 수업에서 쓸 수 없는 말입니다. 아홉 곳이 한 일은 <strong>문제를 정확히 본 것</strong>이고, 기술은 그다음에 골랐습니다. 공모전 <strong>Section 1도 아이디어만</strong> 받습니다.</span></li>
-          <li><b>세 과제가 한 줄이다</b><span><strong>단계 1 도시 카드</strong>(남의 도시는 무엇을 문제로 봤나) → <strong>단계 2 안동 실습</strong>(내 도시에 직접 적용해 본다) → <strong>단계 3 응모신청서</strong>(그 문제를 남에게 설명한다). 따로 내는 세 과제가 아니라 <strong class="hot-t">같은 문제를 세 번 다르게 쓰는 것</strong>입니다.</span></li>
-          <li><b>과제에 쓰는 법</b><span>여러분의 아이템도 같은 자리에서 시작하십시오 — <em>“무슨 기술을 쓸까”</em>가 아니라 <strong>“이 현장에서 누가 어떤 순간에 곤란한가”</strong>를 먼저 적고, 그 뒤에 기술을 고릅니다. 아래 카드마다 <strong>문제가 두 줄, 해결이 두 줄</strong>인 것을 보십시오 — <strong>벤치마킹 발표도 회사당 그 정도면 충분합니다.</strong></span></li>
         </ol>
+        <details class="fold pbl-fold">
+          <summary>넷 더 보기 — 막힌 것이 자료다 · 기술이 없어도 시작된다 · 세 과제가 한 줄이다 · 과제에 쓰는 법</summary>
+          <ol class="kwlist pbl-kw more">
+            <li><b>막힌 것이 자료다</b><span>안동 실습에서 만나는 <strong>줌 15 해상도 경고</strong>와 <strong>검색해도 안 나오는 자원</strong>은 오류가 아닙니다. <strong class="hot-t">그것이 바로 여러분이 찾아낸 문제</strong>이고, 응모신청서 [3]「누가 겪는가」와 [6]「예상되는 어려움」 칸에 그대로 들어갑니다.</span></li>
+            <li><b>기술이 없어도 시작된다</b><span>「저는 개발을 못 해서요」는 이 수업에서 쓸 수 없는 말입니다. 아홉 곳이 한 일은 <strong>문제를 정확히 본 것</strong>이고, 기술은 그다음에 골랐습니다. 공모전 <strong>Section 1도 아이디어만</strong> 받습니다.</span></li>
+            <li><b>세 과제가 한 줄이다</b><span><strong>단계 1 도시 카드</strong>(남의 도시는 무엇을 문제로 봤나) → <strong>단계 2 안동 실습</strong>(내 도시에 직접 적용해 본다) → <strong>단계 3 응모신청서</strong>(그 문제를 남에게 설명한다). 따로 내는 세 과제가 아니라 <strong class="hot-t">같은 문제를 세 번 다르게 쓰는 것</strong>입니다.</span></li>
+            <li><b>과제에 쓰는 법</b><span>여러분의 아이템도 같은 자리에서 시작하십시오 — <em>“무슨 기술을 쓸까”</em>가 아니라 <strong>“이 현장에서 누가 어떤 순간에 곤란한가”</strong>를 먼저 적고, 그 뒤에 기술을 고릅니다. 아래 카드마다 <strong>문제가 두 줄, 해결이 두 줄</strong>인 것을 보십시오 — <strong>벤치마킹 발표도 회사당 그 정도면 충분합니다.</strong></span></li>
+          </ol>
+        </details>
         <p class="pbl-end"><b>한 문장으로</b>기술을 배우고 <strong>쓸 데를 찾는</strong> 것이 아니라, <strong class="hot-t">누가 어떤 순간에 곤란한지를 먼저 적고 그 뒤에 기술을 고릅니다.</strong></p>
       </div>
 
