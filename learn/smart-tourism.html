@@ -483,10 +483,18 @@
     /* 산업 비교표 — 옆으로 밀지 않고 한 화면에 들어오게 접는다.
        learn.css 의 min-width:780px 과 mod-smart 의 2·3열 고정폭을 여기서 푼다. */
     .learn-article .deck.sc-deck .sc-tb { min-width: 0; table-layout: fixed; }
+    /* learn.css 의 mod-smart 규칙이 2 · 3열을 32% · 28% 로 못박는다.
+       다섯 열 모두에 20% 를 직접 걸어 그 규칙을 확실히 덮는다. */
+    body.mod-smart .learn-article .deck.sc-deck .sc-tb th:nth-child(1),
+    body.mod-smart .learn-article .deck.sc-deck .sc-tb td:nth-child(1),
     body.mod-smart .learn-article .deck.sc-deck .sc-tb th:nth-child(2),
     body.mod-smart .learn-article .deck.sc-deck .sc-tb td:nth-child(2),
     body.mod-smart .learn-article .deck.sc-deck .sc-tb th:nth-child(3),
-    body.mod-smart .learn-article .deck.sc-deck .sc-tb td:nth-child(3) { width: auto; }
+    body.mod-smart .learn-article .deck.sc-deck .sc-tb td:nth-child(3),
+    body.mod-smart .learn-article .deck.sc-deck .sc-tb th:nth-child(4),
+    body.mod-smart .learn-article .deck.sc-deck .sc-tb td:nth-child(4),
+    body.mod-smart .learn-article .deck.sc-deck .sc-tb th:nth-child(5),
+    body.mod-smart .learn-article .deck.sc-deck .sc-tb td:nth-child(5) { width: 20%; }
     .learn-article .deck.sc-deck .sc-tb th,
     .learn-article .deck.sc-deck .sc-tb td { padding: 6px 6px; font-size: 11.5px; line-height: 1.55; }
     .learn-article .deck.sc-deck .sc-tb th { font-size: 11px; white-space: normal; text-align: left; }
@@ -500,8 +508,10 @@
     .learn-article .deck.sc-deck .sc-tb em { font-style: normal; color: #a3161c; font-weight: 700; }
 
     /* 요인 패턴 표 — 값이 ● 하나뿐이라 더 좁게 접는다. */
-    .learn-article .deck.sc-deck .sc-tb.sc-grid th:first-child,
-    .learn-article .deck.sc-deck .sc-tb.sc-grid td:first-child { width: 38%; }
+    body.mod-smart .learn-article .deck.sc-deck .sc-tb.sc-grid th:nth-child(1),
+    body.mod-smart .learn-article .deck.sc-deck .sc-tb.sc-grid td:nth-child(1) { width: 38%; }
+    body.mod-smart .learn-article .deck.sc-deck .sc-tb.sc-grid th:nth-child(n+2),
+    body.mod-smart .learn-article .deck.sc-deck .sc-tb.sc-grid td:nth-child(n+2) { width: 12.4%; }
     .learn-article .deck.sc-deck .sc-tb.sc-grid th,
     .learn-article .deck.sc-deck .sc-tb.sc-grid td { padding: 6px 5px; }
     .learn-article .deck.sc-deck .sc-tb.sc-grid th { text-align: center; font-size: 11.5px; }
