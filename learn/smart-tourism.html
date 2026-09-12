@@ -449,8 +449,22 @@
     .learn-article .deck.sc-deck .kwlist.sc-dk.terms > li { display: block; padding: 6px 0; }
     .learn-article .deck.sc-deck .kwlist.sc-dk.terms > li > b { display: inline; }
     .learn-article .deck.sc-deck .kwlist.sc-dk.terms > li > i {
-      font-style: normal; font-size: 11px; font-weight: 600; color: #8a7a46; letter-spacing: .02em; margin-right: 3px;
+      font-style: normal; font-size: 11px; font-weight: 600; color: var(--f-dk, #8a7a46); opacity: .82; letter-spacing: .02em; margin-right: 3px;
     }
+    /* 여덟 요인 — 행마다 색을 달리해 이름이 눈에 구분된다. 왼쪽 바 없이 바탕만. */
+    .learn-article .deck.sc-deck .kwlist.sc-dk.terms > li {
+      margin-bottom: 4px; padding: 7px 11px; border-radius: 8px;
+      border-top: 0; background: var(--f-bg);
+    }
+    .learn-article .deck.sc-deck .kwlist.sc-dk.terms > li > b { color: var(--f-dk); }
+    .learn-article .deck.sc-deck .kwlist.sc-dk.terms > li.f1 { --f-bg:#eef5fa; --f-dk:#1c4e8a; }
+    .learn-article .deck.sc-deck .kwlist.sc-dk.terms > li.f2 { --f-bg:#eef4f1; --f-dk:#234b41; }
+    .learn-article .deck.sc-deck .kwlist.sc-dk.terms > li.f3 { --f-bg:#eaf5f4; --f-dk:#1f7a70; }
+    .learn-article .deck.sc-deck .kwlist.sc-dk.terms > li.f4 { --f-bg:#eceef7; --f-dk:#3f4a8a; }
+    .learn-article .deck.sc-deck .kwlist.sc-dk.terms > li.f5 { --f-bg:#fdf6ea; --f-dk:#7a4e12; }
+    .learn-article .deck.sc-deck .kwlist.sc-dk.terms > li.f6 { --f-bg:#f4eff8; --f-dk:#5b3f7a; }
+    .learn-article .deck.sc-deck .kwlist.sc-dk.terms > li.f7 { --f-bg:#fdf2e8; --f-dk:#8a5a17; }
+    .learn-article .deck.sc-deck .kwlist.sc-dk.terms > li.f8 { --f-bg:#fbeeec; --f-dk:#8c3b30; }
     .learn-article .deck.sc-deck .kwlist.sc-dk.src5 > li { font-size: 12.5px; }
     /* 기억할 3문장 — 번호와 글을 붙여 한 줄로, 왼쪽 정렬. 칸을 나누지 않는다. */
     .learn-article .deck.sc-deck .kwlist.sc-dk.fin3 > li { display: block; padding: 7px 0; text-align: left; }
@@ -1725,14 +1739,14 @@
             <p class="learn-part">05 · 스마트관광 핵심 요인 용어 — 여덟</p>
             <p>여덟 요인의 <strong>영어 원어와 한글 의미</strong>를 함께 기억합니다. 용어를 먼저 잡으면 다음 장의 산업별 비교표가 훨씬 쉽게 읽힙니다.</p>
             <ul class="kwlist sc-dk terms">
-              <li><b>기술통합성</b> <i>(Technology Integration)</i> 여러 기술이 서비스 과정에 연결 · 통합되는 정도</li>
-              <li><b>편의성</b> <i>(Convenience)</i> 쉽고 빠르며 원활하게 서비스를 이용하는 정도</li>
-              <li><b>정보성</b> <i>(Informativeness)</i> 필요한 정보를 정확하고 적시에 얻는 정도</li>
-              <li><b>스마트인프라</b> <i>(Smart Infrastructure)</i> 키오스크 · 앱 · IoT 등 시스템 기반이 구축된 정도</li>
-              <li><b>신뢰성</b> <i>(Reliability)</i> 정보 · 예약 · 서비스 시스템을 믿을 수 있는 정도</li>
-              <li><b>개인화</b> <i>(Personalization)</i> 선호 · 이력에 맞는 맞춤형 서비스를 제공하는 정도</li>
-              <li><b>상호작용성</b> <i>(Interactivity)</i> 실시간 소통과 반응 · 피드백이 가능한 정도</li>
-              <li><b>보안성</b> <i>(Security)</i> 개인정보 · 결제 · 여행정보가 안전하게 보호되는 정도</li>
+              <li class="f1"><b>기술통합성</b> <i>(Technology Integration)</i> 여러 기술이 서비스 과정에 연결 · 통합되는 정도</li>
+              <li class="f2"><b>편의성</b> <i>(Convenience)</i> 쉽고 빠르며 원활하게 서비스를 이용하는 정도</li>
+              <li class="f3"><b>정보성</b> <i>(Informativeness)</i> 필요한 정보를 정확하고 적시에 얻는 정도</li>
+              <li class="f4"><b>스마트인프라</b> <i>(Smart Infrastructure)</i> 키오스크 · 앱 · IoT 등 시스템 기반이 구축된 정도</li>
+              <li class="f5"><b>신뢰성</b> <i>(Reliability)</i> 정보 · 예약 · 서비스 시스템을 믿을 수 있는 정도</li>
+              <li class="f6"><b>개인화</b> <i>(Personalization)</i> 선호 · 이력에 맞는 맞춤형 서비스를 제공하는 정도</li>
+              <li class="f7"><b>상호작용성</b> <i>(Interactivity)</i> 실시간 소통과 반응 · 피드백이 가능한 정도</li>
+              <li class="f8"><b>보안성</b> <i>(Security)</i> 개인정보 · 결제 · 여행정보가 안전하게 보호되는 정도</li>
             </ul>
           </section>
           <section class="slide tint-sun compact" aria-label="06 산업별 핵심 비교">
