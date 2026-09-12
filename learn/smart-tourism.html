@@ -466,6 +466,12 @@
     .learn-article .deck.sc-deck .kwlist.sc-dk.terms > li.f7 { --f-bg:#fdf2e8; --f-dk:#8a5a17; }
     .learn-article .deck.sc-deck .kwlist.sc-dk.terms > li.f8 { --f-bg:#fbeeec; --f-dk:#8c3b30; }
     .learn-article .deck.sc-deck .kwlist.sc-dk.src5 > li { font-size: 12.5px; }
+    /* 복습 목표 셋 — 「① 개념 : 설명」 한 행씩. 제목과 설명을 갈라 놓지 않는다. */
+    .learn-article .deck.sc-deck .kwlist.sc-dk.goal3 > li {
+      display: block; padding: 6px 0; text-align: left; border-top: 1px dashed #e3d9b4;
+    }
+    .learn-article .deck.sc-deck .kwlist.sc-dk.goal3 > li:first-child { border-top: 0; }
+    .learn-article .deck.sc-deck .kwlist.sc-dk.goal3 > li > b { display: inline; margin-right: 7px; }
     /* 기억할 3문장 — 번호와 글을 붙여 한 줄로, 왼쪽 정렬. 칸을 나누지 않는다. */
     .learn-article .deck.sc-deck .kwlist.sc-dk.fin3 > li { display: block; padding: 7px 0; text-align: left; }
     .learn-article .deck.sc-deck .kwlist.sc-dk.fin3 > li > b { display: inline; margin-right: 6px; }
@@ -1707,12 +1713,11 @@
             <div class="logic">
               <p class="formula">개념 · 방법 · 비교 — 이 셋만 잡으면 다섯 편이 한 줄로 읽힙니다</p>
             </div>
-            <h3>① 개념</h3>
-            <p>스마트관광을 기술의 수가 아니라 <strong>이용자 경험의 기준</strong>으로 설명한다.</p>
-            <h3>② 방법</h3>
-            <p>척도개발의 흐름을 <strong>자료 → 검토 → 통계검증</strong>으로 설명한다.</p>
-            <h3>③ 비교</h3>
-            <p>5개 산업의 <strong>공통요인과 산업별 강조요인</strong>을 구분한다.</p>
+            <ul class="kwlist sc-dk goal3">
+              <li><b>① 개념</b> 스마트관광을 기술의 수가 아니라 <strong>이용자 경험의 기준</strong>으로 설명한다.</li>
+              <li><b>② 방법</b> 척도개발의 흐름을 <strong>자료 → 검토 → 통계검증</strong>으로 설명한다.</li>
+              <li><b>③ 비교</b> 5개 산업의 <strong>공통요인과 산업별 강조요인</strong>을 구분한다.</li>
+            </ul>
             <div class="logic">
               <p class="neg">스마트관광 <strong>=</strong> 첨단기술의 <strong>보유 정도</strong></p>
               <p class="pos">스마트관광 <strong>=</strong> 기술을 통해 이용자가 경험하는 <strong>「스마트함」을 측정하는 것</strong></p>
