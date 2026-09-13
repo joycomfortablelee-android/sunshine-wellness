@@ -325,6 +325,47 @@
     }
     .learn-article .syl-box .syl-t a.doc-pill:hover { background: #000; border-color: #000; color: #fff; }
 
+    /* ── 강의계획서 두 안 — 평가 방식이 달라 나란히 견준다. 안 1 남색 · 안 2 고동색. ── */
+    .learn-article .syl-box .plan2 {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 10px 0 4px;
+    }
+    @media (max-width: 760px) { .learn-article .syl-box .plan2 { grid-template-columns: 1fr; } }
+    .learn-article .syl-box .pcol {
+      display: flex; flex-direction: column; min-width: 0;
+      border: 1px solid #c3d2e2; border-radius: 10px; background: #fff; padding: 11px 13px 12px;
+    }
+    .learn-article .syl-box .pcol.p2 { border-color: #e0c79c; background: #fffdf9; }
+    .learn-article .syl-box .pc-t { margin: 0 0 5px; font-size: 13.5px; font-weight: 800; color: #17365d; line-height: 1.5; }
+    .learn-article .syl-box .pc-t b {
+      display: inline-block; margin-right: 7px; padding: 2px 9px; border-radius: 999px;
+      background: #17365d; color: #fff; font-size: 10.5px; font-weight: 800; vertical-align: 2px;
+    }
+    .learn-article .syl-box .pcol.p2 .pc-t { color: #8a4f14; }
+    .learn-article .syl-box .pcol.p2 .pc-t b { background: #a8681f; }
+    .learn-article .syl-box .pc-d { margin: 0 0 8px; font-size: 12.5px; line-height: 1.7; color: #4d5f74; }
+    .learn-article .syl-box .pc-d strong { color: #17365d; }
+    .learn-article .syl-box .pcol.p2 .pc-d strong { color: #8a4f14; }
+    .learn-article .syl-box table.pc-ev {
+      width: 100%; border-collapse: collapse; margin: 0 0 10px; font-size: 12px; line-height: 1.5;
+    }
+    .learn-article .syl-box table.pc-ev th,
+    .learn-article .syl-box table.pc-ev td { padding: 5px 7px; border-bottom: 1px solid #e3eaf2; text-align: left; vertical-align: top; }
+    .learn-article .syl-box table.pc-ev th { background: #eef3f9; color: #17365d; font-weight: 800; }
+    .learn-article .syl-box table.pc-ev td.pct { width: 3.6em; font-weight: 800; color: #17365d; white-space: nowrap; }
+    .learn-article .syl-box table.pc-ev tr.sum td { border-bottom: 0; border-top: 2px solid #c3d2e2; font-weight: 800; }
+    .learn-article .syl-box .pcol.p2 table.pc-ev th { background: #f7eddc; color: #8a4f14; }
+    .learn-article .syl-box .pcol.p2 table.pc-ev td { border-bottom-color: #f0e4cf; }
+    .learn-article .syl-box .pcol.p2 table.pc-ev td.pct { color: #8a4f14; }
+    .learn-article .syl-box .pcol.p2 table.pc-ev tr.sum td { border-top-color: #e0c79c; }
+    .learn-article .syl-box .pcol a.mapl {
+      align-self: flex-start; margin-top: auto; display: inline-block; padding: 4px 10px; border-radius: 999px;
+      background: #17365d; border: 1px solid #17365d; color: #fff;
+      font-size: 11.5px; font-weight: 700; text-decoration: none;
+    }
+    .learn-article .syl-box .pcol a.mapl:hover { background: #0e2a45; border-color: #0e2a45; color: #fff; }
+    .learn-article .syl-box .pcol.p2 a.mapl { background: #a8681f; border-color: #a8681f; }
+    .learn-article .syl-box .pcol.p2 a.mapl:hover { background: #7a4a14; border-color: #7a4a14; }
+
     /* 「이 페이지 읽는 법」 알약 — 처음 여는 사람이 제일 먼저 눌러야 할 곳이다.
        남색 알약들 사이에서 금색으로 갈라 두고 ★ 와 옅은 링을 붙여 눈에 걸리게 한다.
        히어로와 본문 두 곳에 같은 모양으로 선다. */
@@ -612,6 +653,7 @@
     /* 뛰어간 자리의 제목이 헤더에 가리지 않게 */
     .learn-article .learn-part:target { scroll-margin-top: 78px; }
     .learn-article .task-box .tb-t:target { scroll-margin-top: 78px; }
+    .learn-article .syl-box:target { scroll-margin-top: 78px; }
     /* 노란 작은 알약 — 아래 척도개발 상자와 같은 샛노랑이라 눌러서 닿는 곳이 보인다. */
     .learn-hero .syl-box .syl-tags a.mapl.mini.y {
       background: #ffe800; border-color: #d8bb2a; color: #14120a; font-weight: 800;
@@ -791,7 +833,7 @@
             <li><b>논문 읽는 표준</b><span>연구질문 · HOOK → 논문 · 사례영상 → 설계 · 핵심결과 → CONCEPT → LENS. 어느 논문이든 이 순서로 봅니다.</span></li>
             <li><b>발표 흐름</b><span><strong>국내 도시 발표</strong> → <strong>중간고사</strong> → <strong>해외 도시 발표</strong> → <strong>종합 발표</strong>. 팀별 도시까지 정해져 있습니다.</span></li>
           </ol>
-          <p class="syl-tags"><a class="mapl" href="assets/smart-tourism-syllabus-15w-papers.docx" download="스마트투어리즘_15주_강의계획서(실라버스).docx">15주 강의계획서(실라버스) — 논문 리딩판 ⤓ DOCX</a><a class="mapl" href="smart-tourism-weekly-plan.html#week-table" target="_blank" rel="noopener">주간 운영표 · 요일별 단위 ↗</a><a class="mapl" href="smart-tourism-weekly-plan.html#team-assign" target="_blank" rel="noopener">팀별 발표 도시 1~15주 ↗</a><a class="mapl brown" href="smart-tourism-presentation-status.html" target="_blank" rel="noopener">국내 발표 현황 — 9/9 마친 것 · 9/16 남은 것 ↗</a><a class="mapl mini" href="smart-tourism-student-note.html" target="_blank" rel="noopener">학생 이해 노트 ↗</a><a class="mapl mini y" href="#척도개발">척도개발 5편 복습 ↓</a><a class="mapl" href="academic-calendar-2026-2.html" target="_blank" rel="noopener">2학기 학사일정 달력 ↗</a><a class="mapl" href="smart-tourism-how-to-read.html" target="_blank" rel="noopener">이 페이지 읽는 법 — 순서 · 기호 · 평가 기준 ↗</a></p>
+          <p class="syl-tags"><a class="mapl" href="#평가방식">15주 강의계획서 — 평가방식 1안 · 2안 ↓</a><a class="mapl" href="smart-tourism-weekly-plan.html#week-table" target="_blank" rel="noopener">주간 운영표 · 요일별 단위 ↗</a><a class="mapl" href="smart-tourism-weekly-plan.html#team-assign" target="_blank" rel="noopener">팀별 발표 도시 1~15주 ↗</a><a class="mapl brown" href="smart-tourism-presentation-status.html" target="_blank" rel="noopener">국내 발표 현황 — 9/9 마친 것 · 9/16 남은 것 ↗</a><a class="mapl mini" href="smart-tourism-student-note.html" target="_blank" rel="noopener">학생 이해 노트 ↗</a><a class="mapl mini y" href="#척도개발">척도개발 5편 복습 ↓</a><a class="mapl" href="academic-calendar-2026-2.html" target="_blank" rel="noopener">2학기 학사일정 달력 ↗</a><a class="mapl" href="smart-tourism-how-to-read.html" target="_blank" rel="noopener">이 페이지 읽는 법 — 순서 · 기호 · 평가 기준 ↗</a></p>
         </div>
       </div>
     </div>
@@ -822,9 +864,42 @@
       </div>
 
 
-      <div class="syl-box">
-        <p class="syl-t">15주 강의계획서 — 위 흐름을 학사 서식으로 옮기면 이렇게 됩니다<a class="doc-pill" href="assets/smart-tourism-syllabus-15w.docx" download="스마트투어리즘_15주_강의계획서.docx">강의계획서 ⤓ DOCX</a></p>
-        <p class="syl-d">위 <strong>파트 흐름</strong>을 <strong>15주 · 주 3시간</strong>의 주차별 계획으로 편 문서입니다. 학기를 <strong>네 단계</strong>로 쌓습니다 — <strong>Ⅰ. 현장을 본다</strong>(1~4주 · 개념과 국내 12곳, 용인을 끝까지 추적) → <strong>Ⅱ. 견준다</strong>(5~8주 · 유럽 스마트관광 수도 공모와 사례집) → <strong class="hot-t">Ⅲ. 만든다</strong>(<strong>이 과목의 중심</strong>) → <strong>Ⅳ. 근거로 쓴다</strong>(13~15주 · 논문·통계로 뒷받침해 기획서로 완성하고 발표).</p>
+      <div class="syl-box" id="평가방식">
+        <p class="syl-t">15주 강의계획서 — 평가 방식이 다른 두 안</p>
+        <div class="plan2">
+          <div class="pcol p1">
+            <p class="pc-t"><b>평가방식 1안</b>과제 · 발표형 — 만든 것으로 평가한다</p>
+            <p class="pc-d">지필시험 없이 <strong>학기 중 산출물 넷</strong>과 참여로 매깁니다. 도시 카드 → 비교 발표 → 관광지도 → 기획서가 <strong>한 줄로 이어져</strong>, 앞의 결과물이 다음 과제의 재료가 됩니다.</p>
+            <table class="pc-ev">
+              <thead><tr><th>평가 항목</th><th>비중</th><th>시기</th></tr></thead>
+              <tbody>
+                <tr><td>출석 · 참여</td><td class="pct">10%</td><td>전 주차 · 토론 기여</td></tr>
+                <tr><td>과제 1 · 도시 카드</td><td class="pct">15%</td><td>4주 제출</td></tr>
+                <tr><td>중간 · 비교 리포트와 발표</td><td class="pct">25%</td><td>8주</td></tr>
+                <tr><td>과제 2 · 관광지도 실습</td><td class="pct">25%</td><td>12주 제출</td></tr>
+                <tr><td>기말 · 기획서와 발표</td><td class="pct">25%</td><td>15주</td></tr>
+                <tr class="sum"><td>합계</td><td class="pct">100%</td><td></td></tr>
+              </tbody>
+            </table>
+            <a class="mapl" href="assets/smart-tourism-syllabus-15w.docx" download="스마트투어리즘_15주_강의계획서(1안_과제발표형).docx">1안 강의계획서 ⤓ DOCX</a>
+          </div>
+          <div class="pcol p2">
+            <p class="pc-t"><b>평가방식 2안</b>시험 · 논문형 — 읽은 것으로 평가한다</p>
+            <p class="pc-d">KCI 논문 <strong>138편</strong>을 30회차에 나눠 읽고, <strong>중간 · 기말 시험</strong>과 학기말 <strong>연구계획서</strong>로 매깁니다. 연구 공백을 골라 내 연구 주제를 세우는 데까지 갑니다.</p>
+            <table class="pc-ev">
+              <thead><tr><th>평가 항목</th><th>비중</th><th>내용</th></tr></thead>
+              <tbody>
+                <tr><td>중간고사</td><td class="pct">30%</td><td>1~7주 핵심 논문 21편 — 개념 · 이론 모형 · 정책 사례</td></tr>
+                <tr><td>기말고사</td><td class="pct">30%</td><td>9~14주 — XR · 생성형 AI · 가치평가 · 산업 적용 · 지속가능성</td></tr>
+                <tr><td>연구계획서</td><td class="pct">25%</td><td>학기말 · A4 3~5매 — 주제 · 선행연구 · 방법론 · 기대효과</td></tr>
+                <tr><td>출석 및 참여</td><td class="pct">15%</td><td>토론 참여 · 회차별 논문 사전 읽기</td></tr>
+                <tr class="sum"><td>합계</td><td class="pct">100%</td><td></td></tr>
+              </tbody>
+            </table>
+            <a class="mapl" href="assets/smart-tourism-syllabus-15w-papers.docx" download="스마트투어리즘_15주_강의계획서(2안_시험논문형).docx">2안 강의계획서 ⤓ DOCX</a>
+          </div>
+        </div>
+        <p class="syl-d"><strong>1안</strong>은 위 <strong>파트 흐름</strong>을 <strong>15주 · 주 3시간</strong>의 주차별 계획으로 편 문서입니다. 학기를 <strong>네 단계</strong>로 쌓습니다 — <strong>Ⅰ. 현장을 본다</strong>(1~4주 · 개념과 국내 12곳, 용인을 끝까지 추적) → <strong>Ⅱ. 견준다</strong>(5~8주 · 유럽 스마트관광 수도 공모와 사례집) → <strong class="hot-t">Ⅲ. 만든다</strong>(<strong>이 과목의 중심</strong>) → <strong>Ⅳ. 근거로 쓴다</strong>(13~15주 · 논문·통계로 뒷받침해 기획서로 완성하고 발표).</p>
         <p class="syl-tags"><a class="mapl" href="smart-tourism-how-to-read.html" target="_blank" rel="noopener">이 페이지 읽는 법 ↗</a><a class="mapl" href="smart-tourism-weekly-plan.html" target="_blank" rel="noopener">주간 수업 운영 · 발표 배정 ↗</a><a class="mapl" href="academic-calendar-2026-2.html" target="_blank" rel="noopener">2학기 학사일정 달력 ↗</a></p>
       </div>
 
