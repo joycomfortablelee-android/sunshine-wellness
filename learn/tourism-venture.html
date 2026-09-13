@@ -1055,6 +1055,14 @@
     .learn-article .lead { text-align: left; }
     /* 두 리드는 성격이 다른 두 문단이다 — 줄 간격(33px)보다 넓게 떨어뜨린다 */
     .learn-article .lead + .lead { margin-top: 0; }
+    /* 소개문 네 문장 — 한 문장에 한 줄, 왼쪽 정렬. 글꼴은 사이트 본문과 같은 Noto Sans KR 로 두고 한 단계 작게. */
+    .learn-article .lead-lines { margin-bottom: 26px; text-align: left; }
+    .learn-article .lead-lines p {
+      font-family: 'Noto Sans KR', sans-serif; font-size: 14.5px; line-height: 1.75;
+      color: var(--muted); margin: 0 0 4px; text-align: left;
+    }
+    .learn-article .lead-lines p strong { color: var(--text); }
+    @media (max-width: 640px) { .learn-article .lead-lines p { font-size: 13.5px; } }
 
     /* 키워드 목록 — 줄글로 길어지는 설명을 「키워드 : 설명」으로 끊는다.
        왼쪽 칸의 낱말만 훑어도 무슨 이야기인지 잡힌다. */
@@ -1617,8 +1625,12 @@
   <main class="learn-article">
     <div class="lw">
 
-      <p class="lead">창업은 "좋은 아이템을 파는 일"이 아니라 <strong>"누군가의 불편을 반복 가능한 방식으로 푸는 일"</strong>입니다. 관광벤처는 그 불편이 여행의 여정 어딘가에 있는 사업입니다.</p>
-      <p class="lead">좋은 자원, 깊은 해설, 똑똑한 데이터가 있어도 그것을 "지속되는 사업"으로 묶지 못하면 여행은 취미로 남습니다. 관광의 아이디어를 벤처로 세우는 법 — 문제 정의부터 비즈니스 모델, 시장 검증까지 살펴봅니다.</p>
+      <div class="lead-lines">
+        <p>창업은 "좋은 아이템을 파는 일"이 아니라 <strong>"누군가의 불편을 반복 가능한 방식으로 푸는 일"</strong>입니다.</p>
+        <p>관광벤처는 그 불편이 여행의 여정 어딘가에 있는 사업입니다.</p>
+        <p>좋은 자원, 깊은 해설, 똑똑한 데이터가 있어도 그것을 "지속되는 사업"으로 묶지 못하면 여행은 취미로 남습니다.</p>
+        <p>관광의 아이디어를 벤처로 세우는 법 — 문제 정의부터 비즈니스 모델, 시장 검증까지 살펴봅니다.</p>
+      </div>
 
       <p class="learn-part pt-part pp-1" id="part01"><span class="pt">파트 01</span><span class="pt-ti">낼 것을 먼저 본다</span><span class="pt-sub">이 수업의 산출물은 리포트가 아니라 <strong>실제로 낼 수 있는 사업계획서 한 부</strong>입니다. 무엇을 내는지부터 보고 시작합니다.</span></p>
 
