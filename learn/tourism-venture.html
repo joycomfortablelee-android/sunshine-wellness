@@ -23,10 +23,22 @@
     }
     .learn-hero .room-bar .rb-parts a {
       display: inline-block; padding: 3px 9px; border-radius: 999px;
-      background: #fff; border: 1px solid #b9cade; color: #17365d;
+      background: var(--rb, #fff); border: 1px solid var(--rl, #b9cade); color: var(--rd, #17365d);
       font-size: 10.5px; font-weight: 700; text-decoration: none; letter-spacing: -.2px;
     }
-    .learn-hero .room-bar .rb-parts a:hover { background: #17365d; border-color: #17365d; color: #fff; }
+    .learn-hero .room-bar .rb-parts a:hover {
+      background: var(--rc, #17365d); border-color: var(--rc, #17365d); color: #fff;
+    }
+    /* 파트 머리글(pp-1~pp-8)과 같은 색을 연한 바탕으로 옮겼다.
+       --rc 강조 · --rb 바탕 · --rl 테두리 · --rd 글자. 변수가 없으면 위 기본값으로 떨어진다. */
+    .learn-hero .room-bar .rb-parts a.p1 { --rc:#c0392b; --rb:#fbeeec; --rl:#eec9c3; --rd:#8c3b30; }
+    .learn-hero .room-bar .rb-parts a.p2 { --rc:#17365d; --rb:#eef3f9; --rl:#c3d2e2; --rd:#123054; }
+    .learn-hero .room-bar .rb-parts a.p3 { --rc:#3B6259; --rb:#eef4f1; --rl:#c6d8d1; --rd:#234b41; }
+    .learn-hero .room-bar .rb-parts a.p4 { --rc:#2563a8; --rb:#eff5fa; --rl:#c3daee; --rd:#1c4e8a; }
+    .learn-hero .room-bar .rb-parts a.p5 { --rc:#8a5a17; --rb:#fdf6ea; --rl:#e8d3ae; --rd:#7a4e12; }
+    .learn-hero .room-bar .rb-parts a.p6 { --rc:#5b3f7a; --rb:#f4eff8; --rl:#d8cbe6; --rd:#4a3363; }
+    .learn-hero .room-bar .rb-parts a.p7 { --rc:#7a6417; --rb:#fdf8e8; --rl:#e3d79a; --rd:#5c4a10; }
+    .learn-hero .room-bar .rb-parts a.p8 { --rc:#1f6a73; --rb:#eaf5f4; --rl:#b9dcd9; --rd:#175057; }
     .learn-hero .room-bar .rb-parts .rb-sep { width: 1px; height: 14px; margin: 0 4px; background: #c3d2e2; }
     .learn-hero .room-bar .rb-parts a.fin { background: #ffe800; border-color: #d8bb2a; color: #14120a; font-weight: 800; }
     .learn-hero .room-bar .rb-parts a.fin:hover { background: #14120a; border-color: #14120a; color: #ffe800; }
@@ -1589,7 +1601,7 @@
             <li class="pc"><b>6교시</b><span class="tm">(14:00 – 14:50)</span><span class="rm">사회대 <strong>2106호</strong><em>PC실</em></span></li>
             <li class="mv"><b>7교시</b><span class="tm">(15:00 – 15:50)</span><span class="rm">사회대 <strong>3402호</strong></span></li>
           </ul>
-          <p class="rb-parts"><b>이 페이지는 여덟 파트</b><a href="#part01">01 낼 것</a><a href="#part02">02 주차 실습</a><a href="#part03">03 흐름</a><a href="#part04">04 어디에</a><a href="#part05">05 업종</a><a href="#part06">06 취업</a><a href="#part07">07 책</a><a href="#part08">08 곁들여</a><span class="rb-sep" aria-hidden="true"></span><a class="fin" href="#part01">최종결과물 · 사업계획서 한 부</a></p>
+          <p class="rb-parts"><b>이 페이지는 여덟 파트</b><a class="p1" href="#part01">01 낼 것</a><a class="p2" href="#part02">02 주차 실습</a><a class="p3" href="#part03">03 흐름</a><a class="p4" href="#part04">04 어디에</a><a class="p5" href="#part05">05 업종</a><a class="p6" href="#part06">06 취업</a><a class="p7" href="#part07">07 책</a><a class="p8" href="#part08">08 곁들여</a><span class="rb-sep" aria-hidden="true"></span><a class="fin" href="#part01">최종결과물 · 사업계획서 한 부</a></p>
         </div>
         <div class="syl-box cal">
           <p class="syl-t"><a href="academic-calendar-2026-2.html" target="_blank" rel="noopener">2026학년도 2학기 학사일정 — 내 수업이 표시된 달력 ↗</a></p>
