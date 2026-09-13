@@ -1529,6 +1529,18 @@
     .learn-article .learn-part.lp-sub .ptag { flex: none; background: #3B6259; color: #fff; }
     .learn-article .learn-part.lp-sub.lrn { background: #f2f7fb; color: #1c4e8a; border-left-color: #2563a8; }
     .learn-article .learn-part.lp-sub.lrn .ptag { background: #2563a8; }
+    /* 과제 상자 맨 위 알약 줄 — 아래 tb-tags 와 거울처럼, 선을 밑에 둔다. */
+    .learn-article .task-box .tb-tags.top {
+      margin: 9px 0 12px; padding-top: 0; padding-bottom: 9px;
+      border-top: 0; border-bottom: 1px dashed var(--s-ln, #c3d8ea);
+    }
+    .learn-article .task-box.y .tb-tags.top { border-bottom-color: #d8bb2a; }
+    .learn-article .task-box .tb-tags.top .tb-note {
+      flex: 1 1 260px; min-width: 0;
+      font-size: 11.5px; line-height: 1.65; color: #55636f; letter-spacing: -.2px;
+    }
+    .learn-article .task-box.y .tb-tags.top .tb-note { color: #3f3a1e; }
+    .learn-article .task-box .tb-tags.top .tb-note b { font-weight: 800; color: #14120a; }
     /* 벤치마킹 절 안의 카드 제목 앞 알약 — 머리줄의 .ptag 와 같은 초록으로 맞춘다. */
     .learn-article .reslist .bmk-pill {
       display: inline-block; margin-right: 7px; padding: 2px 9px 3px;
@@ -1594,6 +1606,7 @@
 
       <div class="task-box vt y">
         <p class="tb-t"><b class="tb-n">과제 1</b>예비관광벤처 사업계획서 쓰기 — 실제 공모 양식 그대로 <span>제18회 양식</span></p>
+        <p class="tb-tags top"><a class="mapl form hot" href="tourism-venture-business-plan-script.html" target="_blank" rel="noopener">양식을 열두 장으로 푸는 수업 슬라이드 ↗</a><span class="tb-note"><b>양식을 열기 전에 이걸 먼저 보십시오.</b> 공식 양식이 묻는 것을 <b>문제 인식 → 시장성 → 사업모델 → 사업화 역량 → 관광연관성 → 팀 → KPI</b> 일곱 단계로 풀어 놓은 열두 장입니다. 「안동 여행 앱을 만들겠다」와 「20대 개별관광객은 야간에 갈 곳을 찾기 어렵다」를 나란히 놓아 <b>안 좋은 예와 좋은 예</b>를 보여줍니다. <b>S</b>를 누르면 각 장의 대본이, <b>P</b>로 인쇄·PDF, <b>← →</b>로 넘깁니다.</span></p>
         <ol class="kwlist tb-kw">
         <li><b>무엇을 내는가</b><span>이 수업의 산출물은 리포트가 아니라 <strong>실제로 낼 수 있는 사업계획서 한 부</strong>입니다. 한국관광공사 <strong>제18회 예비관광벤처 사업공모</strong>의 공식 양식을 그대로 씁니다 — 연습용으로 만든 서식이 아니라 <strong class="hot-t">심사가 실제로 이 칸들을 보고 매기는 판</strong>입니다.</span></li>
         <li><b>강의가 곧 각 칸</b><span><strong>02장 문제 정의</strong>(누구의·어떤 문제인가·왜 지금인가)가 창업 아이템의 필요성 칸으로, <strong>03장 비즈니스 모델</strong>(가치 제안·고객·수익 구조)이 사업화 전략 칸으로, <strong>04장 시장 검증</strong>(MVP·고객 인터뷰·사전예약)이 실현 가능성 칸으로 들어갑니다. 아래 06장까지 읽고 나면 빈칸이 대부분 채워져 있을 것입니다.</span></li>
