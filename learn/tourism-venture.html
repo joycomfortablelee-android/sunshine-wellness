@@ -46,30 +46,41 @@
     /* ===== 파트 머리글 — 일곱 파트를 가르는 큰 띠 =====
        장(lp-core) 위의 층이라 더 크고, 왼쪽에 굵은 바를 세워 한눈에 구분된다. */
     .learn-article .learn-part.pt-part {
-      display: flex; align-items: center; gap: 12px;
-      margin: 46px 0 18px; padding: 13px 18px;
-      border: 0; border-left: 6px solid var(--pp-ac); border-radius: 4px;
+      display: grid; grid-template-columns: 56px minmax(0, 1fr);
+      align-items: stretch; gap: 0;
+      margin: 46px 0 18px; padding: 0; overflow: hidden;
+      border: 1px solid var(--pp-ln, var(--pp-ac)); border-radius: 10px;
       background: var(--pp-bg); color: var(--pp-dk);
       font-size: 19px; font-weight: 800; letter-spacing: -.3px;
+      box-shadow: 0 1px 0 rgba(16,32,48,.04);
     }
     .learn-article .learn-part.pt-part:first-of-type { margin-top: 14px; }
+    /* 왼쪽 색 사각형 — 「파트」 라벨 위에 큰 숫자. 멀리서도 몇 번째인지 읽힌다. */
     .learn-article .learn-part.pt-part .pt {
-      flex: none; padding: 3px 10px; border-radius: 999px;
-      background: var(--pp-ac); color: #fff; font-size: 11px; font-weight: 800; letter-spacing: .06em;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      background: var(--pp-ac); color: #fff; line-height: 1;
     }
-    .learn-article .learn-part.pt-part.pp-1   { --pp-ac:#c0392b; --pp-bg:#fbeeec; --pp-dk:#8c3b30; }
-    .learn-article .learn-part.pt-part.pp-2 { --pp-ac:#17365d; --pp-bg:#eef3f9; --pp-dk:#123054; }
-    .learn-article .learn-part.pt-part.pp-3 { --pp-ac:#3B6259; --pp-bg:#eef4f1; --pp-dk:#234b41; }
-    .learn-article .learn-part.pt-part.pp-4 { --pp-ac:#2563a8; --pp-bg:#eff5fa; --pp-dk:#1c4e8a; }
-    .learn-article .learn-part.pt-part.pp-5  { --pp-ac:#8a5a17; --pp-bg:#fdf6ea; --pp-dk:#7a4e12; }
-    .learn-article .learn-part.pt-part.pp-6  { --pp-ac:#5b3f7a; --pp-bg:#f4eff8; --pp-dk:#4a3363; }
-    .learn-article .learn-part.pt-part.pp-7 { --pp-ac:#7a6417; --pp-bg:#fdf8e8; --pp-dk:#5c4a10; }
-    .learn-article .learn-part.pt-part.pp-8 { --pp-ac:#1f6a73; --pp-bg:#eaf5f4; --pp-dk:#175057; }
+    .learn-article .learn-part.pt-part .pt i {
+      font-style: normal; font-size: 9px; font-weight: 700; letter-spacing: .12em;
+      opacity: .78; margin-bottom: 3px;
+    }
+    .learn-article .learn-part.pt-part .pt b {
+      font-size: 26px; font-weight: 800; letter-spacing: -.02em;
+    }
+    .learn-article .learn-part.pt-part.pp-1   { --pp-ac:#c0392b; --pp-bg:#fbeeec; --pp-dk:#8c3b30; --pp-ln:#eec9c3; }
+    .learn-article .learn-part.pt-part.pp-2 { --pp-ac:#17365d; --pp-bg:#eef3f9; --pp-dk:#123054; --pp-ln:#c3d2e2; }
+    .learn-article .learn-part.pt-part.pp-3 { --pp-ac:#3B6259; --pp-bg:#eef4f1; --pp-dk:#234b41; --pp-ln:#c6d8d1; }
+    .learn-article .learn-part.pt-part.pp-4 { --pp-ac:#2563a8; --pp-bg:#eff5fa; --pp-dk:#1c4e8a; --pp-ln:#c3daee; }
+    .learn-article .learn-part.pt-part.pp-5  { --pp-ac:#8a5a17; --pp-bg:#fdf6ea; --pp-dk:#7a4e12; --pp-ln:#e8d3ae; }
+    .learn-article .learn-part.pt-part.pp-6  { --pp-ac:#5b3f7a; --pp-bg:#f4eff8; --pp-dk:#4a3363; --pp-ln:#d8cbe6; }
+    .learn-article .learn-part.pt-part.pp-7 { --pp-ac:#7a6417; --pp-bg:#fdf8e8; --pp-dk:#5c4a10; --pp-ln:#e3d79a; }
+    .learn-article .learn-part.pt-part.pp-8 { --pp-ac:#1f6a73; --pp-bg:#eaf5f4; --pp-dk:#175057; --pp-ln:#b9dcd9; }
     /* 머리말을 제목 옆 작은 글씨로 — 문단 하나를 줄이고 제목과 한 덩이로 읽힌다. */
-    .learn-article .learn-part.pt-part .pt-ti { flex: none; }
+    .learn-article .learn-part.pt-part .pt-ti {
+      display: block; padding: 11px 16px 0; line-height: 1.35;
+    }
     .learn-article .learn-part.pt-part .pt-sub {
-      flex: 1 1 260px; min-width: 0;
-      padding-left: 12px; border-left: 1px solid var(--pp-ac);
+      display: block; padding: 5px 16px 11px; min-width: 0;
       font-size: 11.5px; font-weight: 500; line-height: 1.6; letter-spacing: -.2px;
       color: var(--pp-dk); opacity: .82;
     }
@@ -77,13 +88,17 @@
     .learn-article .learn-part.pt-part .pt-sub b { font-weight: 800; opacity: 1; }
     .learn-article .learn-part.pt-part .pt-sub a { color: inherit; border-bottom: 1px solid currentColor; text-decoration: none; }
     .learn-article .learn-part:target { scroll-margin-top: 78px; }
+    /* 좁은 화면 — 사각형을 위로 올려 가로 띠로 눕힌다. */
     @media (max-width: 620px) {
-      .learn-article .learn-part.pt-part { font-size: 16px; padding: 11px 14px; gap: 9px; }
-      .learn-article .learn-part.pt-part { flex-wrap: wrap; align-items: flex-start; }
-      .learn-article .learn-part.pt-part .pt { margin-top: 2px; }
-      .learn-article .learn-part.pt-part .pt-sub {
-        flex: 1 1 100%; margin-top: 8px; padding-left: 0; border-left: 0;
+      .learn-article .learn-part.pt-part { grid-template-columns: 1fr; font-size: 16px; }
+      .learn-article .learn-part.pt-part .pt {
+        flex-direction: row; justify-content: flex-start; gap: 7px;
+        padding: 5px 14px;
       }
+      .learn-article .learn-part.pt-part .pt i { margin-bottom: 0; }
+      .learn-article .learn-part.pt-part .pt b { font-size: 15px; }
+      .learn-article .learn-part.pt-part .pt-ti { padding: 10px 14px 0; }
+      .learn-article .learn-part.pt-part .pt-sub { padding: 5px 14px 10px; }
     }
     /* ── 톤다운 노랑 카드 — 노랑 바탕에 검은 글자. 02장 「사업아이템 20선」과
          공모 절의 「THE VC 스타트업 모음」 둘이 쓴다. 샛노랑은 눈이 부셔 채도를 낮췄다 ── */
@@ -1652,7 +1667,7 @@
         <p>관광의 아이디어를 벤처로 세우는 법 — 문제 정의부터 비즈니스 모델, 시장 검증까지 살펴봅니다.</p>
       </div>
 
-      <p class="learn-part pt-part pp-1" id="part01"><span class="pt">파트 01</span><span class="pt-ti">낼 것을 먼저 본다</span><span class="pt-sub">이 수업의 산출물은 리포트가 아니라 <strong>실제로 낼 수 있는 사업계획서 한 부</strong>입니다. 무엇을 내는지부터 보고 시작합니다.</span></p>
+      <p class="learn-part pt-part pp-1" id="part01"><span class="pt"><i>파트</i><b>01</b></span><span class="pt-ti">낼 것을 먼저 본다</span><span class="pt-sub">이 수업의 산출물은 리포트가 아니라 <strong>실제로 낼 수 있는 사업계획서 한 부</strong>입니다. 무엇을 내는지부터 보고 시작합니다.</span></p>
 
       <div class="task-box vt y">
         <p class="tb-t"><b class="tb-n">과제 1</b>예비관광벤처 사업계획서 쓰기 — 실제 공모 양식 그대로 <span>제18회 양식</span></p>
@@ -1733,7 +1748,7 @@
       </div>
 
 
-      <p class="learn-part pt-part pp-2" id="part02"><span class="pt">파트 02</span><span class="pt-ti">주차별 실습 목표</span><span class="pt-sub">매주 무엇을 손에 남기고 나가는가 — 그날의 목표와 채울 워크북 시트를 한 칸씩 적었습니다. <b>이번 주 것만 펼쳐 두고</b> 나머지는 접어 두십시오.</span></p>
+      <p class="learn-part pt-part pp-2" id="part02"><span class="pt"><i>파트</i><b>02</b></span><span class="pt-ti">주차별 실습 목표</span><span class="pt-sub">매주 무엇을 손에 남기고 나가는가 — 그날의 목표와 채울 워크북 시트를 한 칸씩 적었습니다. <b>이번 주 것만 펼쳐 두고</b> 나머지는 접어 두십시오.</span></p>
 
       <details class="wk-fold">
         <summary><b class="wk-tag">1주차</b>9월 1일(화) 수업 — 사업계획서는 네 칸으로 되어 있습니다 · P · S · S · T</summary>
@@ -1847,7 +1862,7 @@
         <li><i class="k-link"></i>관련 링크</li>
       </ul>
 
-      <p class="learn-part pt-part pp-3" id="part03"><span class="pt">파트 03</span><span class="pt-ti">창업의 흐름</span><span class="pt-sub">문제 정의에서 시작해 모델 · 검증 · 지원까지 여섯 장으로 잇습니다. 이 여섯 장이 그대로 <strong>과제 1 사업계획서의 칸</strong>이 됩니다.</span></p>
+      <p class="learn-part pt-part pp-3" id="part03"><span class="pt"><i>파트</i><b>03</b></span><span class="pt-ti">창업의 흐름</span><span class="pt-sub">문제 정의에서 시작해 모델 · 검증 · 지원까지 여섯 장으로 잇습니다. 이 여섯 장이 그대로 <strong>과제 1 사업계획서의 칸</strong>이 됩니다.</span></p>
 
       <p class="learn-part lp-core"><span class="num">01</span>관광벤처란</p>
       <p>관광벤처란 <strong>ICT·콘텐츠·새로운 서비스 방식으로 관광의 문제를 푸는 혁신형 창업</strong>을 말합니다. 전통적인 여행사·숙박업과 달리, 기술과 아이디어로 기존 방식을 바꾸려 한다는 점이 다릅니다.</p>
@@ -2001,7 +2016,7 @@
 
       <p class="mini-note"><strong>01~06장</strong>이 <em>창업의 흐름</em>(문제 → 모델 → 검증 → 지원)을 다뤘다면, <strong>07~11장</strong>은 이를 <strong>구체적인 관광 업종</strong>에 적용합니다. 즉, <strong class="hot-t">아이템이 정해진 뒤 업종별 사업 구조를 살펴보는 단계</strong>입니다.</p>
 
-      <p class="learn-part pt-part pp-4" id="part04"><span class="pt">파트 04</span><span class="pt-ti">어디에 내는가</span><span class="pt-sub">낼 곳은 하나가 아닙니다 — <strong>관광벤처(문체부 · 관광공사)</strong> · <strong>지자체 관광 스타트업</strong> · <strong>로컬크리에이터(중기부)</strong> 세 갈래이고, 같은 아이템으로 셋 다 낼 수 있습니다. 로컬크리에이터는 업종으로 다루므로 <a href="#local-creator">파트 05의 12장</a>에 있습니다.</span></p>
+      <p class="learn-part pt-part pp-4" id="part04"><span class="pt"><i>파트</i><b>04</b></span><span class="pt-ti">어디에 내는가</span><span class="pt-sub">낼 곳은 하나가 아닙니다 — <strong>관광벤처(문체부 · 관광공사)</strong> · <strong>지자체 관광 스타트업</strong> · <strong>로컬크리에이터(중기부)</strong> 세 갈래이고, 같은 아이템으로 셋 다 낼 수 있습니다. 로컬크리에이터는 업종으로 다루므로 <a href="#local-creator">파트 05의 12장</a>에 있습니다.</span></p>
 
       <p class="learn-part lp-call" id="예비관광벤처공모"><span class="ptag">공모</span>예비관광벤처 사업공모<span class="ptag-out"><b>★</b>외부의 기회들</span></p>
       <p>'공공 지원'이 실제로 어떻게 작동하는지, 한국관광공사의 대표 사업인 <strong>예비관광벤처 사업공모</strong>를 예로 살펴봅니다. 아직 사업자등록을 하지 않은 <em>예비창업자</em>가 아이디어를 실제 사업으로 세울 수 있도록 자금과 프로그램을 지원하는, 관광 창업의 대표적 진입로입니다.</p>
@@ -2161,7 +2176,7 @@
       <p>여기까지 살펴본 네 공모를 겹쳐 보면 <strong>지원 자격의 공통 문법</strong>이 보입니다 — <strong>나이(청년) · 지역(주소지) · 분야(관광) · 업력(예비~7년)</strong>. 자본금이나 학벌은 어디에도 없습니다. 다시 말해 <strong>지금 관광을 공부하는 학생은 이미 자격의 대부분을 갖추고 있고</strong>, 남은 하나는 <em>낼 것을 만들어 두었는가</em>뿐입니다. 특히 '지역 특화 콘텐츠'는 모든 지자체 공모에 빠짐없이 들어가는 항목이니, 자기 지역의 자원을 정리해 둔 노트 한 권이 곧 지원서의 초안이 됩니다(「관광 자원」 모듈 참고).</p>
 
 
-      <p class="learn-part pt-part pp-5" id="part05"><span class="pt">파트 05</span><span class="pt-ti">업종별로 들어가기</span><span class="pt-sub">앞이 <strong>창업의 흐름</strong>이었다면 여기부터는 <strong>업종</strong>입니다 — 아이템이 정해진 뒤 그 업의 사업 구조와 규칙을 봅니다. 여행업 · 외식 · 농어촌 · 스마트팜 · 연구용역에 이어 <strong>지역 자체를 아이템으로 삼는 12장 로컬크리에이터</strong>로 맺습니다.</span></p>
+      <p class="learn-part pt-part pp-5" id="part05"><span class="pt"><i>파트</i><b>05</b></span><span class="pt-ti">업종별로 들어가기</span><span class="pt-sub">앞이 <strong>창업의 흐름</strong>이었다면 여기부터는 <strong>업종</strong>입니다 — 아이템이 정해진 뒤 그 업의 사업 구조와 규칙을 봅니다. 여행업 · 외식 · 농어촌 · 스마트팜 · 연구용역에 이어 <strong>지역 자체를 아이템으로 삼는 12장 로컬크리에이터</strong>로 맺습니다.</span></p>
 
       <p class="learn-part lp-core"><span class="num">07</span>여행업 창업 — 가장 오래된 업</p>
       <p>관광벤처가 새 기술로 문제를 푼다면, <strong>여행업과 외식업</strong>은 관광이 시작될 때부터 있던 업입니다. 새로 만드는 것이 아니라 <strong>이미 있는 판 위에서 자기 자리를 찾는 일</strong>이라, 규칙이 먼저입니다 — 무엇을 등록해야 하고, 돈은 어디서 남는가.</p>
@@ -2366,7 +2381,7 @@
         </li>
       </ul>
 
-      <p class="learn-part pt-part pp-6" id="part06"><span class="pt">파트 06</span><span class="pt-ti">창업하지 않아도 쓰인다</span><span class="pt-sub">모두가 창업하지는 않습니다. 그런데 <strong>관광기업이 사람을 뽑을 때 보는 것</strong>과 공모가 사업계획서에서 보는 것이 거의 같습니다.</span></p>
+      <p class="learn-part pt-part pp-6" id="part06"><span class="pt"><i>파트</i><b>06</b></span><span class="pt-ti">창업하지 않아도 쓰인다</span><span class="pt-sub">모두가 창업하지는 않습니다. 그런데 <strong>관광기업이 사람을 뽑을 때 보는 것</strong>과 공모가 사업계획서에서 보는 것이 거의 같습니다.</span></p>
 
       <div class="task-box vt2 y">
         <p class="tb-t" id="과제2"><b class="tb-n">과제 2</b>관광기업 입사 제안서 — 창업하지 않아도 이 수업은 쓰입니다 <span>A4 1장 · 모의 면접</span></p>
@@ -2382,7 +2397,7 @@
         <p class="tb-tags"><a class="mapl form hot" href="https://thevc.kr/" target="_blank" rel="noopener">THE VC · 관광 스타트업 찾기 ↗</a><a class="mapl form" href="https://urh.re.kr/" target="_blank" rel="noopener">어반리즘 하우스 · 채용 게시판 ↗</a><a class="mapl form" href="https://www.prism.go.kr/homepage" target="_blank" rel="noopener">PRISM · 회사가 수주한 용역 찾기 ↗</a><a class="mapl form ex" href="smart-tourism.html#part03" target="_blank" rel="noopener">참고 · 공공기관용 수행계획서 양식 ↗</a><span class="tb-src">공공기관을 겨냥한다면 스마트 투어리즘 모듈의 <b>업무 수행계획서</b> 양식이 그대로 쓰입니다 — 칸 구성이 같고 대상만 기관과 기업으로 갈립니다.</span></p>
       </div>
 
-      <p class="learn-part pt-part pp-7" id="part07"><span class="pt">파트 07</span><span class="pt-ti">책 — 교재 두 권</span><span class="pt-sub">교재 두 권을 나란히 놓았습니다. 가르는 축이 서로 달라, 지금 읽는 대목이 전체의 어디쯤인지 대 보기 좋습니다.</span></p>
+      <p class="learn-part pt-part pp-7" id="part07"><span class="pt"><i>파트</i><b>07</b></span><span class="pt-ti">책 — 교재 두 권</span><span class="pt-sub">교재 두 권을 나란히 놓았습니다. 가르는 축이 서로 달라, 지금 읽는 대목이 전체의 어디쯤인지 대 보기 좋습니다.</span></p>
 
       <p class="learn-part lp-book"><span class="ptag">책</span>교재로 먼저 지형을 본다</p>
       <p class="mini-note">교재 두 권을 나란히 놓았습니다. <strong>가르는 축이 서로 다릅니다</strong> — <strong>그림 1</strong>은 <em>이론과 실무</em>로, <strong>그림 2</strong>는 <em>업종</em>(여행 · 외식 · 숙박 · 스마트관광 · 지역상생)으로 폅니다. 이 페이지의 01~06장은 <strong>창업의 흐름</strong>을 따라가므로 셋 다 축이 다릅니다 — 그래서 <strong>지금 읽는 대목이 전체의 어디쯤인지</strong>를 두 그림에 대 보면 잡힙니다.</p>
@@ -2415,7 +2430,7 @@
           <span class="meta">교재 두 권 ↔ 이 페이지 01~11장</span>
         </li>
       </ul>
-      <p class="learn-part pt-part pp-8" id="part08"><span class="pt">파트 08</span><span class="pt-ti">곁들여 보기 · 링크</span><span class="pt-sub">사례 둘과 공모를 찾는 창구 모음입니다 — <strong>비건부산</strong>이 이론을 서비스로 옮긴 예라면, <strong>구미 · 포항</strong>은 도시가 왜 관광 창업에 돈을 쓰는지를 보여줍니다.</span></p>
+      <p class="learn-part pt-part pp-8" id="part08"><span class="pt"><i>파트</i><b>08</b></span><span class="pt-ti">곁들여 보기 · 링크</span><span class="pt-sub">사례 둘과 공모를 찾는 창구 모음입니다 — <strong>비건부산</strong>이 이론을 서비스로 옮긴 예라면, <strong>구미 · 포항</strong>은 도시가 왜 관광 창업에 돈을 쓰는지를 보여줍니다.</span></p>
 
 
       <p class="learn-part lp-side"><span class="ptag">곁들여 보기 1</span>Ⓑ 해커톤 · 비건부산(Busan Vegan Discovery)</p>
