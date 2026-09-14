@@ -146,6 +146,37 @@
       .learn-article .vcards.c2 { grid-template-columns: 1fr; }
     }
     /* 스티키노트 알약 — 연결되는 페이지가 노랑이라 알약도 노랑으로 둔다. */
+    /* 히어로에 강의실 바와 학사일정 상자를 나란히 — 둘 다 「언제 · 어디서」를 말한다.
+       학사일정 상자는 본문(.learn-article) 안에 있던 것이라 히어로용 규칙을 따로 적는다. */
+    .learn-hero .hero-row {
+      display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+      gap: 14px; align-items: start; margin-top: 16px;
+    }
+    .learn-hero .hero-row .room-bar { margin: 0; }
+    .learn-hero .hero-row .hero-pills { margin: 10px 0 0; }
+    .learn-hero .syl-box {
+      border: 1px solid #cfdcea; border-radius: 12px; background: #f7fafc;
+      padding: 13px 15px 11px; margin: 0;
+    }
+    .learn-hero .syl-box .syl-t { margin: 0 0 6px; font-size: 13.5px; font-weight: 800; line-height: 1.5; }
+    .learn-hero .syl-box .syl-t a { color: #17365d; border-bottom: 2px solid #c3d2e2; text-decoration: none; }
+    .learn-hero .syl-box .syl-t a:hover { color: #0e2a45; border-bottom-color: #17365d; }
+    .learn-hero .syl-box .syl-d { margin: 0 0 6px; font-size: 12px; line-height: 1.7; color: #4d5f74; }
+    .learn-hero .syl-box .syl-d strong { color: #17365d; }
+    .learn-hero .syl-box .syl-tags {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+      margin: 8px 0 0; padding-top: 8px; border-top: 1px dashed #c3d2e2;
+    }
+    .learn-hero .syl-box .syl-tags a.mapl {
+      display: inline-block; padding: 4px 10px; border-radius: 999px;
+      background: #17365d; border: 1px solid #17365d; color: #fff;
+      font-size: 11px; font-weight: 700; text-decoration: none;
+    }
+    .learn-hero .syl-box .syl-tags a.mapl:hover { background: #0e2a45; border-color: #0e2a45; }
+    .learn-hero .syl-box .syl-src { font-size: 11px; color: #7c8a99; margin-left: 2px; }
+    @media (max-width: 900px) {
+      .learn-hero .hero-row { grid-template-columns: 1fr; }
+    }
     .learn-article .syl-box .syl-t a.sticky-pill {
       display: inline-block; margin-left: 8px; padding: 3px 11px; border-radius: 999px;
       background: #ffe800; color: #14120a; border: 1px solid #d8bb2a;
@@ -254,16 +285,25 @@
       <h1>빅데이터 분석 — 여행의 흔적을 읽다</h1>
       <p class="sub">여행자는 어디에도 서명하지 않지만 어디에나 흔적을 남깁니다. 통신·카드·검색·후기에 쌓인 흔적을 모아 "언제·어디서·왜"를 읽어내는 일 — 관광 빅데이터 분석의 과정과 기법을 살펴봅니다.</p>
 
-      <div class="room-bar">
-        <p class="rb-t">강의실<span>월요일 1 · 2 · 3교시</span></p>
-        <ul class="rb-list">
-          <li class="pc"><b>1교시</b><span class="tm">09:00 – 09:50</span><span class="rm">사회대 <strong>2106호</strong> 1층<em>PC실</em></span></li>
-          <li class="mv"><b>2교시</b><span class="tm">10:00 – 10:50</span><span class="rm">사회대 <strong>2210호</strong> 2층<em>PC실</em></span></li>
-          <li class="mv"><b>3교시</b><span class="tm">11:00 – 11:50</span><span class="rm">사회대 <strong>2210호</strong> 2층<em>PC실</em></span></li>
-        </ul>
-        <p class="rb-n"><b>1교시가 끝나면 2층으로 올라갑니다</b> — 1교시는 <strong>2106호(1층)</strong>, 2 · 3교시는 <strong>2210호(2층)</strong>입니다. 쉬는 시간 10분 안에 이동하고, <strong>세 교시 모두 PC실</strong>이므로 실습 파일은 개인 저장소나 이메일에 올려 두어야 이어서 작업할 수 있습니다.</p>
+      <div class="hero-row">
+        <div>
+        <div class="room-bar">
+          <p class="rb-t">강의실<span>월요일 1 · 2 · 3교시</span></p>
+          <ul class="rb-list">
+            <li class="pc"><b>1교시</b><span class="tm">09:00 – 09:50</span><span class="rm">사회대 <strong>2106호</strong> 1층<em>PC실</em></span></li>
+            <li class="mv"><b>2교시</b><span class="tm">10:00 – 10:50</span><span class="rm">사회대 <strong>2210호</strong> 2층<em>PC실</em></span></li>
+            <li class="mv"><b>3교시</b><span class="tm">11:00 – 11:50</span><span class="rm">사회대 <strong>2210호</strong> 2층<em>PC실</em></span></li>
+          </ul>
+          <p class="rb-n"><b>1교시가 끝나면 2층으로 올라갑니다</b> — 1교시는 <strong>2106호(1층)</strong>, 2 · 3교시는 <strong>2210호(2층)</strong>입니다. 쉬는 시간 10분 안에 이동하고, <strong>세 교시 모두 PC실</strong>이므로 실습 파일은 개인 저장소나 이메일에 올려 두어야 이어서 작업할 수 있습니다.</p>
+        </div>
+        <p class="hero-pills"><a class="mapl mini" href="big-data-student-note.html" target="_blank" rel="noopener">학생 이해 노트 ↗</a><span class="hp-src">공식 출석부 12명 · 화이트보드 사진</span></p>
+        </div>
+        <div class="syl-box cal">
+          <p class="syl-t"><a href="academic-calendar-2026-2.html" target="_blank" rel="noopener">2026학년도 2학기 학사일정 — 월별 달력에 내 수업 표시 ↗</a></p>
+          <p class="syl-d">한 학기 <strong>16주</strong>가 달력 위에 그대로 놓여 있습니다. <strong>관광빅데이터분석은 월요일 1·2·3교시</strong>이고, 회차마다 번호가 찍혀 있어 <strong>오늘이 몇 번째 수업인지</strong> 바로 보입니다. 체육대회·추석연휴로 빠지는 주와 <strong>보강일</strong>까지 표시돼 있습니다.</p>
+          <p class="syl-tags"><a class="mapl" href="academic-calendar-2026-2.html" target="_blank" rel="noopener">9~12월 달력 열기 ↗</a><span class="syl-src">개강 9/1 · 중간시험 8주 · 기말시험 16주 · 보강일 포함 · 세 과목 공통</span></p>
+        </div>
       </div>
-      <p class="hero-pills"><a class="mapl mini" href="big-data-student-note.html" target="_blank" rel="noopener">학생 이해 노트 ↗</a><span class="hp-src">공식 출석부 12명 · 화이트보드 사진</span></p>
     </div>
   </section>
 
@@ -271,12 +311,6 @@
     <div class="lw">
 
       <p class="lead">빅데이터는 "많은 데이터"가 아니라 <strong>사람이 손으로 다 훑을 수 없어 기계와 통계에 맡겨야 하는 데이터</strong>입니다. 관광에서 그 데이터는 대부분 여행자가 무심코 남긴 디지털 발자국입니다.</p>
-
-      <div class="syl-box cal">
-        <p class="syl-t"><a href="academic-calendar-2026-2.html" target="_blank" rel="noopener">2026학년도 2학기 학사일정 — 월별 달력에 내 수업 표시 ↗</a></p>
-        <p class="syl-d">한 학기 <strong>16주</strong>가 달력 위에 그대로 놓여 있습니다. <strong>관광빅데이터분석은 월요일 1·2·3교시</strong>이고, 회차마다 번호가 찍혀 있어 <strong>오늘이 몇 번째 수업인지</strong> 바로 보입니다. 체육대회·추석연휴로 빠지는 주와 <strong>보강일</strong>까지 표시돼 있습니다.</p>
-        <p class="syl-tags"><a class="mapl" href="academic-calendar-2026-2.html" target="_blank" rel="noopener">9~12월 달력 열기 ↗</a><span class="syl-src">개강 9/1 · 중간시험 8주 · 기말시험 16주 · 보강일 포함 · 세 과목 공통</span></p>
-      </div>
 
       <div class="syl-box job">
         <p class="syl-t"><a href="interview-personality-20.html" target="_blank" rel="noopener">기관 인성면접 예상 질문 20문 ↗</a><a class="sticky-pill" href="interview-personality-20.html" target="_blank" rel="noopener">노란 스티키노트 한 장 ↗</a><a class="doc-pill" href="assets/interview-personality-20.docx" download="기관_인성면접_예상질문_20문.docx">워드로 내려받기 ⤓ DOCX</a></p>
