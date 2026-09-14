@@ -31,6 +31,8 @@
     .learn-article .reslist.grid2.lcard > li > a { font-size: 15px; }
     .learn-article .reslist.grid2.lcard .desc { font-size: 13px; flex: 1 1 auto; }
     .learn-article .reslist.grid2.lcard .grouptitle { font-size: 15px; }
+    /* 알약 다섯 + 설명 다섯 줄이 든 칸은 두 칸 폭으로 맨 아래에 — 홀수 칸이 혼자 서지 않게 */
+    .learn-article .reslist.grid2.lcard > li.wide { grid-column: 1 / -1; }
     .learn-article .reslist.grid2.lcard .meta { margin-top: 8px; padding-top: 7px; border-top: 1px dashed var(--line); font-size: 11.5px; }
 
     /* ── 그라데이션 카드 — learn.css 의 roadmap 색 체계를 그대로 잇는다 ── */
@@ -530,16 +532,6 @@
           <span class="meta">서울특별시 디지털도시국 데이터전략과</span>
         </li>
         <li>
-          <a href="https://some.co.kr/" target="_blank" rel="noopener">썸트렌드(Sometrend) ↗</a>
-          <span class="desc">인스타그램·블로그·뉴스 등 방대한 소셜 데이터를 기반으로 소비자 반응과 최신 트렌드를 AI로 쉽게 분석할 수 있는 소셜 빅데이터 플랫폼.</span>
-          <span class="meta">바이브컴퍼니 · 소셜/트렌드 분석</span>
-        </li>
-        <li>
-          <a href="https://blackkiwi.net/" target="_blank" rel="noopener">블랙키위(Blackkiwi) ↗</a>
-          <span class="desc">키워드 검색량 조회·연관 키워드 추출·경쟁 분석을 통해 데이터 기반 마케팅과 블로그 운영을 지원하는 키워드 분석 도구.</span>
-          <span class="meta">블랙키위 · 키워드/검색 트렌드 분석</span>
-        </li>
-        <li>
           <a href="https://www.data.go.kr/" target="_blank" rel="noopener">공공데이터포털(Data.go.kr) ↗</a>
           <span class="desc">대한민국 정부·공공기관이 보유한 공공 데이터를 한곳에 모아 파일·오픈API로 제공하는 통합 데이터 포털. 데이터 수집의 출발점.</span>
           <span class="meta">행정안전부 · 공공데이터</span>
@@ -571,6 +563,21 @@
           <span class="meta">Kaggle(Google) · 데이터 분석/ML 경진</span>
         </li>
         <li>
+          <a href="https://datalab.naver.com/" target="_blank" rel="noopener">네이버 데이터랩(DataLab) ↗</a>
+          <span class="desc">네이버 검색어·쇼핑 클릭 추이를 기간·기기·성별·연령별로 비교해 볼 수 있는 트렌드 분석 서비스. 여행지·관광 키워드의 관심도가 언제 오르내리는지 바로 확인할 수 있습니다.</span>
+          <span class="meta">네이버(NAVER) · 검색어 트렌드</span>
+        </li>
+        <li>
+          <a href="https://itemscout.io/" target="_blank" rel="noopener">아이템스카우트(ItemScout) ↗</a>
+          <span class="desc">키워드 하나를 넣으면 <strong>한 달 검색수 · 경쟁강도 · 실거래 비율 · 평균가격</strong>이 한 화면에 나옵니다. 네이버 데이터랩이 「관심이 언제 오르내리는가」를 보여준다면, 이쪽은 <strong>「그 관심이 실제 거래로 이어지는가」</strong>를 숫자로 보여줍니다. 지역 기념품·체험상품처럼 <em>관광이 상품이 되는 지점</em>을 잴 때 씁니다.</span>
+          <span class="meta">㈜문리버 · 키워드/상품 수요 분석 · 일부 무료</span>
+        </li>
+        <li>
+          <a href="https://pandarank.net/" target="_blank" rel="noopener">판다랭크(PandaRank) ↗</a>
+          <span class="desc">같은 키워드를 <strong>콘텐츠 쪽에서</strong> 봅니다 — 검색량과 <strong>일 방문자 수를 견줘</strong> 그 키워드로 글을 썼을 때 사람이 올지 가늠하고, 블로그 채널의 영향력·신뢰도 지수도 잽니다. <strong>인플루언서 검색</strong>도 있어 <em>06장 홍보</em>와 바로 이어집니다.</span>
+          <span class="meta">㈜선데이띵커 · 키워드/채널 영향력 분석 · 일부 무료</span>
+        </li>
+        <li class="wide">
           <span class="grouptitle">분야별 빅데이터 플랫폼 · 5곳</span>
           <div class="linkrow tiny">
             <a href="https://www.bigdata-culture.kr/" target="_blank" rel="noopener">문화 ↗</a>
@@ -587,19 +594,14 @@
           <span class="meta">부처·기관별 분야 특화 데이터 플랫폼 · 분류 참고 <a href="https://boardmix.com/kr/reviews/big-data-platforms/" target="_blank" rel="noopener">Boardmix ↗</a></span>
         </li>
         <li>
-          <a href="https://datalab.naver.com/" target="_blank" rel="noopener">네이버 데이터랩(DataLab) ↗</a>
-          <span class="desc">네이버 검색어·쇼핑 클릭 추이를 기간·기기·성별·연령별로 비교해 볼 수 있는 트렌드 분석 서비스. 여행지·관광 키워드의 관심도가 언제 오르내리는지 바로 확인할 수 있습니다.</span>
-          <span class="meta">네이버(NAVER) · 검색어 트렌드</span>
+          <a href="https://some.co.kr/" target="_blank" rel="noopener">썸트렌드(Sometrend) ↗</a>
+          <span class="desc">인스타그램·블로그·뉴스 등 방대한 소셜 데이터를 기반으로 소비자 반응과 최신 트렌드를 AI로 쉽게 분석할 수 있는 소셜 빅데이터 플랫폼.</span>
+          <span class="meta">바이브컴퍼니 · 소셜/트렌드 분석</span>
         </li>
         <li>
-          <a href="https://itemscout.io/" target="_blank" rel="noopener">아이템스카우트(ItemScout) ↗</a>
-          <span class="desc">키워드 하나를 넣으면 <strong>한 달 검색수 · 경쟁강도 · 실거래 비율 · 평균가격</strong>이 한 화면에 나옵니다. 네이버 데이터랩이 「관심이 언제 오르내리는가」를 보여준다면, 이쪽은 <strong>「그 관심이 실제 거래로 이어지는가」</strong>를 숫자로 보여줍니다. 지역 기념품·체험상품처럼 <em>관광이 상품이 되는 지점</em>을 잴 때 씁니다.</span>
-          <span class="meta">㈜문리버 · 키워드/상품 수요 분석 · 일부 무료</span>
-        </li>
-        <li>
-          <a href="https://pandarank.net/" target="_blank" rel="noopener">판다랭크(PandaRank) ↗</a>
-          <span class="desc">같은 키워드를 <strong>콘텐츠 쪽에서</strong> 봅니다 — 검색량과 <strong>일 방문자 수를 견줘</strong> 그 키워드로 글을 썼을 때 사람이 올지 가늠하고, 블로그 채널의 영향력·신뢰도 지수도 잽니다. <strong>인플루언서 검색</strong>도 있어 <em>06장 홍보</em>와 바로 이어집니다.</span>
-          <span class="meta">㈜선데이띵커 · 키워드/채널 영향력 분석 · 일부 무료</span>
+          <a href="https://blackkiwi.net/" target="_blank" rel="noopener">블랙키위(Blackkiwi) ↗</a>
+          <span class="desc">키워드 검색량 조회·연관 키워드 추출·경쟁 분석을 통해 데이터 기반 마케팅과 블로그 운영을 지원하는 키워드 분석 도구.</span>
+          <span class="meta">블랙키위 · 키워드/검색 트렌드 분석</span>
         </li>
       </ul>
       <p>분석에 쓸 <strong>데이터를 직접 구하고</strong>, 실전 문제로 <strong>분석 실력을 겨뤄볼 수 있는 대회</strong>도 함께 모았습니다.</p>
