@@ -31,8 +31,8 @@
   .canvas{
     position:absolute;inset:0;
     display:grid;
-    grid-template-columns:repeat(2,100vw);
-    grid-template-rows:repeat(3,calc(100vh - 74px));
+    grid-template-columns:repeat(6,100vw);
+    grid-template-rows:calc(100vh - 74px);
     transition:transform .42s cubic-bezier(.2,.7,.2,1);
     will-change:transform;
   }
@@ -96,7 +96,7 @@
   @media(max-width:780px){
     .topbar{padding:0 16px;height:68px;flex-basis:68px}
     .title-wrap h1{font-size:17px}.title-wrap .sub{display:none}.status{font-size:11px}
-    .canvas{grid-template-rows:repeat(3,calc(100vh - 68px))}
+    .canvas{grid-template-rows:calc(100vh - 68px)}
     .slide{height:calc(100vh - 68px);padding:18px 54px 72px}
     .card{padding:20px 18px;min-height:calc(100vh - 68px - 90px)}
     h2{font-size:22px}.prompt{font-size:14px;padding:20px 16px}.copy-btn{position:static;margin-bottom:10px;float:right}
@@ -117,8 +117,8 @@
   <main class="stage">
     <button class="navbtn" id="left" aria-label="왼쪽">←</button>
     <button class="navbtn" id="right" aria-label="오른쪽">→</button>
-    <button class="navbtn" id="up" aria-label="위">↑</button>
-    <button class="navbtn" id="down" aria-label="아래">↓</button>
+    <button class="navbtn" id="up" aria-label="위" hidden>↑</button>
+    <button class="navbtn" id="down" aria-label="아래" hidden>↓</button>
 
     <div class="canvas" id="canvas">
 
@@ -273,17 +273,13 @@ https://www.outsourcing.co.kr/news/articleList.html?sc_sub_section_code=S2N26&vi
 
     </div>
 
-    <div class="mini-map">← → ↑ ↓ 이동 · 키보드 방향키 · 모바일 스와이프</div>
+    <div class="mini-map">← → 이동 · 키보드 방향키 · 모바일 좌우 스와이프</div>
     <div class="dots" id="dots"></div>
   </main>
 </div>
 
 <script>
-  const positions = [
-    {x:0,y:0},{x:1,y:0},
-    {x:0,y:1},{x:1,y:1},
-    {x:0,y:2},{x:1,y:2}
-  ];
+  const positions = [{x:0,y:0},{x:1,y:0},{x:2,y:0},{x:3,y:0},{x:4,y:0},{x:5,y:0}];
   let idx = 0;
   const canvas = document.getElementById('canvas');
   const status = document.getElementById('status');
@@ -327,7 +323,7 @@ https://www.outsourcing.co.kr/news/articleList.html?sc_sub_section_code=S2N26&vi
   document.getElementById('down').onclick=()=>move('down');
 
   document.addEventListener('keydown',e=>{
-    const map={ArrowLeft:'left',ArrowRight:'right',ArrowUp:'up',ArrowDown:'down'};
+    const map={ArrowLeft:'left',ArrowRight:'right'};
     if(map[e.key]){e.preventDefault();move(map[e.key]);}
   });
 
@@ -340,7 +336,6 @@ https://www.outsourcing.co.kr/news/articleList.html?sc_sub_section_code=S2N26&vi
     const dy=e.changedTouches[0].screenY-sy;
     if(Math.max(Math.abs(dx),Math.abs(dy))<45)return;
     if(Math.abs(dx)>Math.abs(dy)) move(dx<0?'right':'left');
-    else move(dy<0?'down':'up');
   },{passive:true});
 
   function copyPrompt(id,btn){
