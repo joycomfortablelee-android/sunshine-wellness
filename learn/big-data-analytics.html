@@ -42,6 +42,17 @@
       background: #1faa59; border-color: #1faa59; color: #fff; font-weight: 800;
     }
     .learn-article .reslist .linkrow.fill-green a:hover { background: #17864a; border-color: #17864a; color: #fff; }
+    /* 강의 영상 제목을 알약으로 - 보라 바탕에 흰 글자.
+       목록의 다른 제목 링크(밑줄 글자)와 갈라, 눌러서 보는 것임을 드러낸다. */
+    .learn-article .reslist > li > a.pill-violet {
+      display: inline-block; padding: 7px 15px; border-radius: 999px;
+      background: #6b4fa0; border: 1px solid #6b4fa0; color: #fff;
+      font-size: 14px; font-weight: 800; letter-spacing: -.2px;
+      text-decoration: none; border-bottom: 0;
+    }
+    .learn-article .reslist > li > a.pill-violet:hover {
+      background: #533b80; border-color: #533b80; color: #fff; text-decoration: none;
+    }
 
     /* ── 그라데이션 카드 — learn.css 의 roadmap 색 체계를 그대로 잇는다 ── */
     .learn-article .vcards {
@@ -444,7 +455,7 @@
       <p>앞의 두 기법은 사실 <strong>머신러닝</strong>의 서로 다른 갈래에 놓입니다. 정답(레이블)을 미리 알려주고 학습시키는 것이 <strong>지도학습</strong> — <em>분류</em>와 <em>회귀</em>가 여기 속하고, <strong>④ 예측 분석</strong>이 그 예입니다. 정답 없이 데이터의 특징만 보고 비슷한 것끼리 스스로 묶게 하는 것이 <strong>비지도학습</strong> — <em>군집분석</em>과 <em>차원축소</em>가 여기 속하고, <strong>③ 군집 분석</strong>이 그 예입니다. 아래 영상에서 두 방식의 차이를 그림으로 짚습니다.</p>
       <ul class="reslist">
         <li>
-          <a href="https://video.golpoai.com/share/6798d5d2-6634-42f6-ac77-958b7f87c85a?version=0" target="_blank" rel="noopener">머신러닝 빅데이터 분석 — 지도학습·비지도학습 ↗</a>
+          <a class="pill-violet" href="https://video.golpoai.com/share/6798d5d2-6634-42f6-ac77-958b7f87c85a?version=0" target="_blank" rel="noopener">머신러닝 빅데이터 분석 — 지도학습·비지도학습 ↗</a>
           <span class="desc">인공지능·머신러닝·딥러닝의 관계에서 출발해, 사람이 규칙을 정하는 전통적 프로그램과 데이터로 규칙을 학습하는 머신러닝의 차이를 짚습니다. 이어 지도학습과 비지도학습의 장단점, 분류와 회귀의 구분(범주를 맞히면 분류, 숫자를 예측하면 회귀), 그리고 모델 학습에서 나타나는 과소적합·과대적합과 그 개선 방법까지 차례로 다룹니다.</span>
           <span class="meta">선샤인 웰니스 자체 제작 · 강의 영상</span>
         </li>
