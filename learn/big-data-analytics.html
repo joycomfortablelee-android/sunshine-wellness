@@ -42,6 +42,11 @@
       background: #1faa59; border-color: #1faa59; color: #fff; font-weight: 800;
     }
     .learn-article .reslist .linkrow.fill-green a:hover { background: #17864a; border-color: #17864a; color: #fff; }
+    /* 노란 알약 - 초록 줄 안에서도 「직접 풀어 보는 사례 · 프롬프트」 하나만 갈라 세운다. */
+    .learn-article .reslist .linkrow a.ylw,
+    .learn-article .reslist .linkrow.fill-green a.ylw { background: #ffe800; border-color: #d8bb2a; color: #14120a; font-weight: 800; }
+    .learn-article .reslist .linkrow a.ylw:hover,
+    .learn-article .reslist .linkrow.fill-green a.ylw:hover { background: #14120a; border-color: #14120a; color: #ffe800; }
     /* 강의 영상 제목을 알약으로 - 보라 바탕에 흰 글자.
        목록의 다른 제목 링크(밑줄 글자)와 갈라, 눌러서 보는 것임을 드러낸다. */
     .learn-article .reslist > li > a.pill-violet {
@@ -655,9 +660,10 @@
             <a href="https://datalab.visitkorea.or.kr/datalab/portal/loc/getTourLocalDataForm.do" target="_blank" rel="noopener">지역별 관광 현황 ↗</a>
             <a href="https://datalab.visitkorea.or.kr/site/portal/ex/bbs/View.do?cbIdx=1129&amp;bcIdx=309896" target="_blank" rel="noopener">활용 우수사례집 PDF ⤓</a>
             <a href="https://datalab.visitkorea.or.kr/html/interview4/interview01.jsp" target="_blank" rel="noopener">수상팀 인터뷰 5편 ↗</a>
+            <a class="ylw" href="datalab-pm-safety-dikw-prompts.html" target="_blank" rel="noopener">대상 사례 PM 안전 · DIKW와 프롬프트 ↗</a>
             <a href="https://datalab.visitkorea.or.kr/site/portal/ex/bbs/View.do?cbIdx=1135&amp;bcIdx=311064&amp;pageIndex=1" target="_blank" rel="noopener">활용 경진대회 · ~9/30 ↗</a>
           </div>
-          <span class="desc"><strong>이 모듈에서 가장 먼저 열 곳입니다.</strong> <strong>02장 「관광 데이터는 어디서 오는가」</strong>에서 본 통신 · 카드 · 내비게이션 · 관광지 방문객 데이터가 <strong>모두 여기 한 곳에</strong> 모여 있습니다. 공공데이터포털이 전 분야를 모은 창고라면, 이쪽은 <strong class="hot-t">관광만 골라 정리해 둔 곳</strong>입니다 — 지역별 · 월별 방문자와 소비를 바로 비교하고 그림과 표로 내려받습니다.<br /><strong>알약 넷은 이 순서로 씁니다.</strong><br /><strong>① 지역별 관광 현황</strong> — 시 · 군을 골라 <strong>방문자 수 · 체류 시간 · 소비 · 이동</strong>을 한 화면에서 봅니다. 배정받은 도시나 내 고향을 넣어 보는 것이 <em>03장 다섯 걸음</em>의 첫 걸음입니다.<br /><strong>② 활용 우수사례집 PDF</strong> — <em>「데이터로 만드는 관광 — Next Tourism Playbook」</em>(한국관광공사 관광데이터전략팀, 2025. 11.). <strong>남들이 이 데이터로 무엇을 만들었는지</strong>가 사례로 들어 있습니다. 공공누리 4유형이라 <strong>출처를 밝히고</strong> 쓰되 상업적 이용은 안 됩니다.<br /><strong>③ 수상팀 인터뷰 5편</strong> — <em>우수 활용사례(2024)</em> 코너입니다. 대상 · 최우수 2 · 우수 2, <strong>담당자가 직접 문제 상황 · 해결 방법 · 성과</strong>를 말합니다. 대상은 <em>「데이터로 잡은 전동 킥보드 사고 사각지대」</em>(한국도로교통공단 · 강원랜드) — <strong>관광 빅데이터와 교통사고 통계를 붙인</strong> 분석입니다. 사례집이 결과라면 인터뷰는 <strong class="hot-t">과정</strong>입니다.<br /><strong>④ 활용 경진대회</strong> — <strong>9월 30일 마감</strong>(총상금 2,000만원 · 문화체육관광부 장관상). ①로 보고 ②③으로 배운 것을 내는 자리입니다.</span>
+          <span class="desc"><strong>이 모듈에서 가장 먼저 열 곳입니다.</strong> <strong>02장 「관광 데이터는 어디서 오는가」</strong>에서 본 통신 · 카드 · 내비게이션 · 관광지 방문객 데이터가 <strong>모두 여기 한 곳에</strong> 모여 있습니다. 공공데이터포털이 전 분야를 모은 창고라면, 이쪽은 <strong class="hot-t">관광만 골라 정리해 둔 곳</strong>입니다 — 지역별 · 월별 방문자와 소비를 바로 비교하고 그림과 표로 내려받습니다.<br /><strong>알약 넷은 이 순서로 씁니다.</strong><br /><strong>① 지역별 관광 현황</strong> — 시 · 군을 골라 <strong>방문자 수 · 체류 시간 · 소비 · 이동</strong>을 한 화면에서 봅니다. 배정받은 도시나 내 고향을 넣어 보는 것이 <em>03장 다섯 걸음</em>의 첫 걸음입니다.<br /><strong>② 활용 우수사례집 PDF</strong> — <em>「데이터로 만드는 관광 — Next Tourism Playbook」</em>(한국관광공사 관광데이터전략팀, 2025. 11.). <strong>남들이 이 데이터로 무엇을 만들었는지</strong>가 사례로 들어 있습니다. 공공누리 4유형이라 <strong>출처를 밝히고</strong> 쓰되 상업적 이용은 안 됩니다.<br /><strong>③ 수상팀 인터뷰 5편</strong> — <em>우수 활용사례(2024)</em> 코너입니다. 대상 · 최우수 2 · 우수 2, <strong>담당자가 직접 문제 상황 · 해결 방법 · 성과</strong>를 말합니다. 대상은 <em>「데이터로 잡은 전동 킥보드 사고 사각지대」</em>(한국도로교통공단 · 강원랜드) — <strong>관광 빅데이터와 교통사고 통계를 붙인</strong> 분석입니다. 사례집이 결과라면 인터뷰는 <strong class="hot-t">과정</strong>입니다.<br /><strong>노란 알약 · 대상 사례 PM 안전</strong> — 그 대상 사례를 <strong>문제 → 데이터 셋(데이터랩 · TAAS · 공유 PM) → 분석방법 다섯 → DIKW → 정책 → 성과</strong>로 뜯어 본 판입니다. 끝에 <strong>그대로 복사해 쓰는 프롬프트</strong>와 상관 · 인과를 가르는 <em>비판적 분석 프롬프트</em>가 붙어 있습니다.<br /><strong>④ 활용 경진대회</strong> — <strong>9월 30일 마감</strong>(총상금 2,000만원 · 문화체육관광부 장관상). ①로 보고 ②③으로 배운 것을 내는 자리입니다.</span>
           <span class="meta">한국관광공사 · 관광 특화 데이터 · 지역별 방문자 · 소비 · 이동</span>
         </li>
         <li>
@@ -689,7 +695,7 @@
             <a href="kosis-gyeongbuk-foreign-residents-dikw.html" target="_blank" rel="noopener">실습 예제 · 경북 외국인등록인구 해석 ↗</a>
           </div>
           <div class="linkrow tiny">
-            <a href="kosis-visualization-interpretation-prompts.html" target="_blank" rel="noopener">KOSIS 시각화 결과 해석 프롬프트 · 학생용 ↗</a>
+            <a class="ylw" href="kosis-visualization-interpretation-prompts.html" target="_blank" rel="noopener">KOSIS 시각화 결과 해석 프롬프트 · 학생용 ↗</a>
           </div>
           <span class="desc">인구·경제·사회 등 다양한 분야의 공신력 있는 국가 공식 통계 지표를 검색·시각화·다운로드할 수 있는 통계 포털.<br />
           <strong>통계시각화콘텐츠</strong> — 인구·물가 등 주요 지표를 차트·지도·웹툰 같은 그림으로 풀어 보여 주는 시각화 모음. 표를 읽기 전에 흐름부터 눈으로 잡을 때 좋습니다. <em>보는 곳.</em><br />
