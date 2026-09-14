@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChatGPT 취업 활용 프롬프트 6가지</title>
+<style>
+  :root{
+    --navy:#0d2a52;
+    --blue:#1f5fbf;
+    --blue2:#eaf2ff;
+    --gold:#d7a93b;
+    --ink:#18202a;
+    --muted:#697386;
+    --line:#dfe6ef;
+    --bg:#f6f8fb;
+    --card:#ffffff;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;font-family:"Noto Sans KR","Malgun Gothic",Arial,sans-serif;background:var(--bg);color:var(--ink);overflow:hidden}
+  .app{height:100vh;display:flex;flex-direction:column}
+  .topbar{
+    height:74px;flex:0 0 74px;background:linear-gradient(135deg,var(--navy),#173f78);
+    color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 28px;
+    box-shadow:0 3px 14px rgba(0,0,0,.16);z-index:5
+  }
+  .title-wrap h1{margin:0;font-size:22px;letter-spacing:-.4px}
+  .title-wrap .sub{font-size:12px;opacity:.8;margin-top:4px}
+  .status{font-size:13px;background:rgba(255,255,255,.12);padding:8px 12px;border-radius:999px}
+  .stage{position:relative;flex:1;overflow:hidden}
+  .canvas{
+    position:absolute;inset:0;
+    display:grid;
+    grid-template-columns:repeat(2,100vw);
+    grid-template-rows:repeat(3,calc(100vh - 74px));
+    transition:transform .42s cubic-bezier(.2,.7,.2,1);
+    will-change:transform;
+  }
+  .slide{
+    width:100vw;height:calc(100vh - 74px);
+    padding:26px 84px 78px;
+    overflow:auto;
+  }
+  .card{
+    max-width:1100px;margin:0 auto;background:var(--card);
+    border:1px solid var(--line);border-radius:20px;
+    box-shadow:0 12px 38px rgba(17,46,81,.10);padding:28px 30px 24px;
+    min-height:calc(100vh - 74px - 104px);
+  }
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;
+    color:var(--blue);background:var(--blue2);
+    font-size:13px;font-weight:700;padding:7px 11px;border-radius:999px;margin-bottom:12px
+  }
+  h2{margin:0 0 8px;font-size:28px;color:var(--navy);letter-spacing:-.6px}
+  .lead{margin:0 0 20px;color:var(--muted);font-size:15px;line-height:1.6}
+  .prompt{
+    position:relative;background:#f9fbfe;border:1px solid #cfd9e8;border-radius:16px;
+    padding:22px 22px 20px;font-size:15px;line-height:1.78;white-space:pre-wrap;
+    color:#1d2733;box-shadow:inset 4px 0 0 var(--blue)
+  }
+  .prompt strong{color:var(--blue)}
+  .copy-btn{
+    position:absolute;top:12px;right:12px;border:0;background:var(--navy);color:#fff;
+    border-radius:10px;padding:8px 12px;cursor:pointer;font-size:12px
+  }
+  .tip{
+    margin-top:16px;border-top:1px dashed var(--line);padding-top:14px;
+    font-size:13px;color:#4d5868;line-height:1.6
+  }
+  .tip b{color:var(--gold)}
+  .navbtn{
+    position:absolute;z-index:10;width:46px;height:46px;border-radius:50%;
+    border:1px solid #d1dae6;background:rgba(255,255,255,.94);
+    box-shadow:0 6px 18px rgba(0,0,0,.12);cursor:pointer;font-size:22px;color:var(--navy);
+    display:flex;align-items:center;justify-content:center
+  }
+  .navbtn:hover{background:#fff}
+  #left{left:18px;top:50%;transform:translateY(-50%)}
+  #right{right:18px;top:50%;transform:translateY(-50%)}
+  #up{top:14px;left:50%;transform:translateX(-50%)}
+  #down{bottom:18px;left:50%;transform:translateX(-50%)}
+  .dots{
+    position:absolute;z-index:9;bottom:19px;right:26px;display:flex;gap:7px;align-items:center
+  }
+  .dot{width:9px;height:9px;border-radius:50%;background:#c9d3e0}
+  .dot.active{background:var(--blue);transform:scale(1.25)}
+  .mini-map{
+    position:absolute;z-index:9;bottom:16px;left:24px;background:rgba(255,255,255,.92);
+    border:1px solid var(--line);border-radius:12px;padding:7px 10px;font-size:11px;color:#5c6674
+  }
+  .source{
+    margin-top:14px;font-size:12px;color:#657287
+  }
+  .source a{color:var(--blue);text-decoration:none;word-break:break-all}
+  @media(max-width:780px){
+    .topbar{padding:0 16px;height:68px;flex-basis:68px}
+    .title-wrap h1{font-size:17px}.title-wrap .sub{display:none}.status{font-size:11px}
+    .canvas{grid-template-rows:repeat(3,calc(100vh - 68px))}
+    .slide{height:calc(100vh - 68px);padding:18px 54px 72px}
+    .card{padding:20px 18px;min-height:calc(100vh - 68px - 90px)}
+    h2{font-size:22px}.prompt{font-size:14px;padding:20px 16px}.copy-btn{position:static;margin-bottom:10px;float:right}
+    .mini-map{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="title-wrap">
+      <h1>학생용 ChatGPT 취업 활용 프롬프트 6가지</h1>
+      <div class="sub">웹사이트 브리핑 → 맞춤 공고 → 자기소개서 → 면접 → 탈락위험 점검 → 정기 알림</div>
+    </div>
+    <div class="status" id="status">1 / 6</div>
+  </header>
+
+  <main class="stage">
+    <button class="navbtn" id="left" aria-label="왼쪽">←</button>
+    <button class="navbtn" id="right" aria-label="오른쪽">→</button>
+    <button class="navbtn" id="up" aria-label="위">↑</button>
+    <button class="navbtn" id="down" aria-label="아래">↓</button>
+
+    <div class="canvas" id="canvas">
+
+      <section class="slide" data-index="0">
+        <div class="card">
+          <div class="badge">01 · Researcher</div>
+          <h2>최신 채용정보 웹사이트 브리핑</h2>
+          <p class="lead">사이트 전체를 훑고, 최신 채용정보를 일정한 기준으로 구조화하는 프롬프트입니다.</p>
+          <div class="prompt" id="p1"><button class="copy-btn" onclick="copyPrompt('p1',this)">복사</button>다음 웹사이트를 확인해줘.
+아웃소싱타임스 취업/채용 기사목록 페이지이다.
+
+https://www.outsourcing.co.kr/news/articleList.html?sc_sub_section_code=S2N26&view_type=sm
+
+현재 올라온 최신 채용정보를 기준으로
+<strong>① 기업·기관명
+② 모집 직무
+③ 모집 인원
+④ 지원 대상
+⑤ 접수마감일
+⑥ 주요 자격조건
+⑦ 대학생이 주목할 점</strong>
+을 표로 정리해줘.
+
+오래된 기사보다 <strong>가장 최근 채용공고를 우선</strong>해서 보여주고,
+기사 작성일과 실제 지원 마감일을 구분해줘.</div>
+          <div class="tip"><b>★ 여기가 핵심</b> : “사이트를 요약해줘”보다 <b>무엇을 추출할지</b>를 먼저 정합니다.</div>
+        </div>
+      </section>
+
+      <section class="slide" data-index="1">
+        <div class="card">
+          <div class="badge">02 · Personal Finder</div>
+          <h2>나에게 맞는 취업공고 찾기</h2>
+          <p class="lead">내 전공·관심직무를 조건으로 주어, 전체 공고 중 우선순위를 정합니다.</p>
+          <div class="prompt" id="p2"><button class="copy-btn" onclick="copyPrompt('p2',this)">복사</button>아래 취업·채용 페이지의 최신 기사를 조사해줘.
+
+https://www.outsourcing.co.kr/news/articleList.html?sc_sub_section_code=S2N26&view_type=sm
+
+나는 <strong>관광경영 전공 대학생</strong>이고
+관광·호텔·공공기관·문화재단·철도·항공·서비스기획·마케팅·데이터분석 분야에 관심이 있다.
+
+현재 지원할 가치가 높은 채용공고를 찾아서
+
+<strong>추천도 ★★★★★
+기관명
+직무
+왜 관광전공자에게 적합한지
+필요한 역량
+준비해야 할 자격증·경험
+지원 마감일</strong>
+
+순으로 정리해줘.
+
+마지막에는 <strong>가장 추천하는 공고 3개</strong>를 선정해줘.</div>
+          <div class="tip"><b>★ 여기가 핵심</b> : AI에게 “내 조건”을 주면, 일반 정보가 <b>개인화된 정보</b>로 바뀝니다.</div>
+        </div>
+      </section>
+
+      <section class="slide" data-index="2">
+        <div class="card">
+          <div class="badge">03 · Career Writer</div>
+          <h2>채용공고 → 자기소개서 준비</h2>
+          <p class="lead">지원서를 바로 쓰기 전에, 먼저 공고를 직무역량 중심으로 해석합니다.</p>
+          <div class="prompt" id="p3"><button class="copy-btn" onclick="copyPrompt('p3',this)">복사</button>위 사이트에서 내가 지원하고 싶은 채용공고 하나를 선택했어.
+
+해당 채용공고를 분석해서 먼저
+<strong>① 조직이 원하는 인재
+② 주요 직무
+③ 필요한 지식
+④ 필요한 기술
+⑤ 필요한 태도
+⑥ 자기소개서에서 강조해야 할 경험</strong>
+을 찾아줘.
+
+그 다음 내 경험을 질문해서 정보를 받은 후 자기소개서 초안을 만들어줘.
+
+<strong>내가 말하지 않은 경험은 만들어내지 마.</strong></div>
+          <div class="tip"><b>★ 여기가 핵심</b> : “바로 써줘”가 아니라 <b>공고 분석 → 경험 수집 → 작성</b>의 순서로 갑니다.</div>
+        </div>
+      </section>
+
+      <section class="slide" data-index="3">
+        <div class="card">
+          <div class="badge">04 · Interviewer</div>
+          <h2>AI 면접관 만들기</h2>
+          <p class="lead">AI에게 면접관 역할과 진행 규칙을 주면, 실제 문답형 연습이 가능합니다.</p>
+          <div class="prompt" id="p4"><button class="copy-btn" onclick="copyPrompt('p4',this)">복사</button>내가 지원하려는 채용공고를 읽고
+너는 지금부터 <strong>실제 채용면접위원</strong> 역할을 해줘.
+
+공고에 제시된 직무와 요구역량을 기준으로 질문해줘.
+
+규칙:
+- 한 번에 질문 하나
+- 내가 먼저 답할 때까지 모범답안을 말하지 않기
+- 답변 후 <strong>직무이해도·구체성·논리성·설득력</strong>을 각각 10점으로 평가
+- 부족한 부분을 알려주기
+- 더 나은 <strong>40초 답변</strong>을 만들어주기
+- 이후 다음 질문 진행
+
+질문은
+<strong>지원동기 → 직무역량 → 경험 → 문제해결 → 조직적합성 → 압박질문</strong>
+순서로 점점 어렵게 해줘.</div>
+          <div class="tip"><b>★ 여기가 핵심</b> : AI를 답변 생성기가 아니라 <b>대화형 훈련 파트너</b>로 쓰는 방법입니다.</div>
+        </div>
+      </section>
+
+      <section class="slide" data-index="4">
+        <div class="card">
+          <div class="badge">05 · Evaluator</div>
+          <h2>“나를 떨어뜨릴 이유” 점검하기</h2>
+          <p class="lead">합격용 답안만 만드는 대신, 평가자의 눈으로 취약점을 찾는 프롬프트입니다.</p>
+          <div class="prompt" id="p5"><button class="copy-btn" onclick="copyPrompt('p5',this)">복사</button>너는 나를 합격시키려고 도와주는 사람이 아니라
+<strong>채용 심사위원</strong>이라고 생각해줘.
+
+내가 작성한 자기소개서와 지원 직무를 보고
+<strong>면접위원이 나를 탈락시킬 수 있는 이유 5개</strong>를 찾아줘.
+
+각각
+
+<strong>탈락 위험 → 면접위원이 물을 질문 → 현재 답변의 문제 → 필요한 근거 → 개선된 답변</strong>
+
+순으로 정리해줘.
+
+근거가 없는 내용은 만들어내지 말고
+<strong>‘추가 준비 필요’</strong>라고 표시해줘.</div>
+          <div class="tip"><b>★ 여기가 핵심</b> : AI에게 <b>비판자·심사자 역할</b>을 주면 자기점검의 질이 크게 올라갑니다.</div>
+        </div>
+      </section>
+
+      <section class="slide" data-index="5">
+        <div class="card">
+          <div class="badge">06 · Assistant</div>
+          <h2>매주 취업정보 자동 확인·알림</h2>
+          <p class="lead">‘지금 한 번’이 아니라, 정해진 주기에 같은 일을 반복시키는 프롬프트입니다.</p>
+          <div class="prompt" id="p6"><button class="copy-btn" onclick="copyPrompt('p6',this)">복사</button><strong>매주 월요일 오전 9시</strong>에
+아웃소싱타임스 취업/채용 페이지를 확인해서
+지난 일주일 동안 새로 올라온 채용기사 중
+
+<strong>관광·호텔·문화·공공기관·철도·항공·마케팅·데이터 직무</strong>
+
+와 관련된 공고만 정리해줘.
+
+각 공고는
+<strong>기관 / 직무 / 모집인원 / 마감일 / 관광전공 관련성 / 추천도</strong>
+로 알려줘.
+
+지난번에 알려준 공고는 반복해서 알려주지 마.</div>
+          <div class="tip"><b>★ 여기가 핵심</b> : 반복 일정은 <b>언제 + 무엇을 + 어떤 기준으로 + 중복 처리</b>까지 써주는 것이 핵심입니다.</div>
+          <div class="source">출처 사이트: <a href="https://www.outsourcing.co.kr/news/articleList.html?sc_sub_section_code=S2N26&view_type=sm" target="_blank">아웃소싱타임스 취업·채용</a></div>
+        </div>
+      </section>
+
+    </div>
+
+    <div class="mini-map">← → ↑ ↓ 이동 · 키보드 방향키 · 모바일 스와이프</div>
+    <div class="dots" id="dots"></div>
+  </main>
+</div>
+
+<script>
+  const positions = [
+    {x:0,y:0},{x:1,y:0},
+    {x:0,y:1},{x:1,y:1},
+    {x:0,y:2},{x:1,y:2}
+  ];
+  let idx = 0;
+  const canvas = document.getElementById('canvas');
+  const status = document.getElementById('status');
+  const dots = document.getElementById('dots');
+
+  positions.forEach((_,i)=>{
+    const d=document.createElement('span');
+    d.className='dot'+(i===0?' active':'');
+    d.onclick=()=>go(i);
+    dots.appendChild(d);
+  });
+
+  function render(){
+    const p=positions[idx];
+    canvas.style.transform=`translate(${-p.x*100}vw, ${-p.y*(window.innerHeight-(window.innerWidth<=780?68:74))}px)`;
+    status.textContent=`${idx+1} / ${positions.length}`;
+    [...dots.children].forEach((d,i)=>d.classList.toggle('active',i===idx));
+  }
+
+  function go(n){
+    if(n<0||n>=positions.length)return;
+    idx=n;render();
+  }
+
+  function move(dir){
+    const p=positions[idx];
+    let target=-1;
+    for(let i=0;i<positions.length;i++){
+      const q=positions[i];
+      if(dir==='left' && q.y===p.y && q.x===p.x-1) target=i;
+      if(dir==='right'&& q.y===p.y && q.x===p.x+1) target=i;
+      if(dir==='up'   && q.x===p.x && q.y===p.y-1) target=i;
+      if(dir==='down' && q.x===p.x && q.y===p.y+1) target=i;
+    }
+    if(target>=0)go(target);
+  }
+
+  document.getElementById('left').onclick=()=>move('left');
+  document.getElementById('right').onclick=()=>move('right');
+  document.getElementById('up').onclick=()=>move('up');
+  document.getElementById('down').onclick=()=>move('down');
+
+  document.addEventListener('keydown',e=>{
+    const map={ArrowLeft:'left',ArrowRight:'right',ArrowUp:'up',ArrowDown:'down'};
+    if(map[e.key]){e.preventDefault();move(map[e.key]);}
+  });
+
+  let sx=0, sy=0;
+  document.addEventListener('touchstart',e=>{
+    sx=e.changedTouches[0].screenX; sy=e.changedTouches[0].screenY;
+  },{passive:true});
+  document.addEventListener('touchend',e=>{
+    const dx=e.changedTouches[0].screenX-sx;
+    const dy=e.changedTouches[0].screenY-sy;
+    if(Math.max(Math.abs(dx),Math.abs(dy))<45)return;
+    if(Math.abs(dx)>Math.abs(dy)) move(dx<0?'right':'left');
+    else move(dy<0?'down':'up');
+  },{passive:true});
+
+  function copyPrompt(id,btn){
+    const el=document.getElementById(id).cloneNode(true);
+    const b=el.querySelector('button'); if(b)b.remove();
+    const text=el.innerText.trim();
+    navigator.clipboard.writeText(text).then(()=>{
+      const old=btn.textContent;btn.textContent='복사됨 ✓';
+      setTimeout(()=>btn.textContent=old,1200);
+    });
+  }
+
+  window.addEventListener('resize',render);
+  render();
+</script>
+</body>
+</html>
