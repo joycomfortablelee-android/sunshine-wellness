@@ -160,7 +160,20 @@
     .hero h1{font-size:26px}
     .card{padding:20px}
   }
-</style>
+  /* ── 좌우 넘김 — 일곱 장을 한 줄로 놓고 한 장씩 보여준다. 스크립트가 없으면 원래처럼 세로로 모두 보인다. ── */
+  .js .deckv{overflow:hidden;transition:height .35s ease}
+  .js .deckt{display:flex;align-items:flex-start;transition:transform .45s cubic-bezier(.2,.7,.2,1);will-change:transform}
+  .js .deckt > .card{flex:0 0 100%;min-width:0;margin:0}
+  .deckbar{display:none}
+  .js .deckbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 12px}
+  .deckbar button{border:1px solid var(--line);background:#fff;color:var(--navy);border-radius:999px;padding:8px 16px;font:inherit;font-size:14px;font-weight:800;cursor:pointer}
+  .deckbar button:hover:not(:disabled){background:var(--navy);border-color:var(--navy);color:#fff}
+  .deckbar button:disabled{opacity:.38;cursor:default}
+  .deckbar .count{font-size:14px;font-weight:800;color:var(--navy)}
+  .deckbar .hint{font-size:12px;color:var(--muted);font-weight:600;margin-left:8px}
+  .js .nav a.on{background:var(--navy);border-color:var(--navy);color:#fff}
+  .deckbar.bottom{margin:14px 0 0}
+  @media(max-width:600px){.deckbar .hint{display:none}.deckbar button{padding:7px 12px;font-size:13px}}</style>
 </head>
 <body>
 <div class="wrap">
@@ -180,7 +193,9 @@
     <a href="#prompt">학생용 프롬프트</a>
     <a href="#critical">비판적 분석</a>
   </nav>
+  <div class="deckbar"><button type="button" class="dprev">← 이전</button><span class="count"><span class="dnow">1</span> / 7<span class="hint">← → 키 · 옆으로 밀기</span></span><button type="button" class="dnext">다음 →</button></div>
 
+  <div class="deckv" id="deckv"><div class="deckt" id="deckt">
   <section class="card" id="case">
     <h2>1. 한국관광 데이터랩 2024 대상 사례 분석</h2>
     <p class="lead">이 사례는 관광빅데이터 수업에서 <span class="star">“문제 → 데이터 수집 → 데이터 융합 → 분석 → DIKW → 정책 실행 → 성과”</span>의 전 과정을 보여주는 좋은 사례입니다.</p>
@@ -379,9 +394,48 @@
     </div>
   </section>
 
+  </div></div>
+  <div class="deckbar bottom"><button type="button" class="dprev">← 이전</button><span class="count"><span class="dnow">1</span> / 7<span class="hint">← → 키 · 옆으로 밀기</span></span><button type="button" class="dnext">다음 →</button></div>
+
   <div class="footer">
     관광빅데이터 분석 수업용 통합 정리 · 한국관광 데이터랩 PM 안전사례
   </div>
 </div>
-</body>
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+  var track=document.getElementById('deckt'), view=document.getElementById('deckv');
+  var slides=[].slice.call(track.children), N=slides.length, i=0;
+  var navs=[].slice.call(document.querySelectorAll('.nav a'));
+  function fit(){ view.style.height=slides[i].offsetHeight+'px'; }
+  function go(k,push){
+    i=Math.max(0,Math.min(N-1,k));
+    track.style.transform='translateX('+(-100*i)+'%)';
+    slides.forEach(function(s,j){ s.setAttribute('aria-hidden', j!==i); });
+    navs.forEach(function(a,j){ a.classList.toggle('on', j===i); });
+    document.querySelectorAll('.dnow').forEach(function(e){ e.textContent=i+1; });
+    document.querySelectorAll('.dprev').forEach(function(b){ b.disabled=(i===0); });
+    document.querySelectorAll('.dnext').forEach(function(b){ b.disabled=(i===N-1); });
+    fit();
+    if(push){ history.replaceState(null,'','#'+slides[i].id); }
+  }
+  document.querySelectorAll('.dprev').forEach(function(b){ b.onclick=function(){ go(i-1,true); if(b.closest('.bottom')) view.scrollIntoView({behavior:'smooth'}); }; });
+  document.querySelectorAll('.dnext').forEach(function(b){ b.onclick=function(){ go(i+1,true); if(b.closest('.bottom')) view.scrollIntoView({behavior:'smooth'}); }; });
+  navs.forEach(function(a,j){ a.addEventListener('click',function(e){ e.preventDefault(); go(j,true); }); });
+  document.addEventListener('keydown',function(e){
+    if(/input|textarea/i.test(e.target.tagName)) return;
+    if(e.key==='ArrowRight'){ go(i+1,true); } else if(e.key==='ArrowLeft'){ go(i-1,true); }
+  });
+  var sx=0, sy=0;
+  view.addEventListener('touchstart',function(e){ sx=e.changedTouches[0].clientX; sy=e.changedTouches[0].clientY; },{passive:true});
+  view.addEventListener('touchend',function(e){
+    var dx=e.changedTouches[0].clientX-sx, dy=e.changedTouches[0].clientY-sy;
+    if(Math.abs(dx)>50 && Math.abs(dx)>Math.abs(dy)*1.5){ go(i+(dx<0?1:-1),true); }
+  },{passive:true});
+  window.addEventListener('resize',fit);
+  window.addEventListener('load',fit);
+  var start=slides.findIndex(function(s){ return '#'+s.id===location.hash; });
+  go(start<0?0:start,false);
+})();
+</script></body>
 </html>
