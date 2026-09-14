@@ -1347,6 +1347,23 @@
 
     /* 과제 1 상자의 다섯 대목 — 07장 등록 목록과 같은 「번호) 키워드 : 설명」 형식.
        줄글 다섯 문단이면 어디까지 읽었는지 놓친다. 왼쪽 낱말만 훑어도 잡히게 끊는다. */
+    /* 사분면 아래 「번호) 키워드 : 요약」 — 칸 하나(② 범부처)를 본문에서 풀어 쓴다. */
+    .learn-article .learn-part.lp-sub.ks { background: #f2f7fb; color: #1c4e8a; border-left-color: #2563a8; margin-top: 20px; }
+    .learn-article .learn-part.lp-sub.ks .ptag { background: #2563a8; }
+    .learn-article .kwlist.ks-kw { margin: 10px 0 20px; padding: 0; list-style: none; counter-reset: kw; }
+    .learn-article .kwlist.ks-kw > li {
+      display: grid; grid-template-columns: 132px minmax(0, 1fr); gap: 12px;
+      margin: 0; padding: 8px 0; border-top: 1px dashed #d7e2ee;
+      font-size: 12.5px; line-height: 1.75; color: #38424d;
+    }
+    .learn-article .kwlist.ks-kw > li:first-child { border-top: 0; padding-top: 0; }
+    .learn-article .kwlist.ks-kw > li > b { counter-increment: kw; font-weight: 900; letter-spacing: -.2px; color: #1c4e8a; }
+    .learn-article .kwlist.ks-kw > li > b::before { content: counter(kw) ') '; font-weight: 900; color: #6d8dae; }
+    .learn-article .kwlist.ks-kw strong { color: #17395f; }
+    .learn-article .kwlist.ks-kw em { font-style: normal; color: #5b6b7d; font-weight: 700; }
+    @media (max-width: 620px) {
+      .learn-article .kwlist.ks-kw > li { grid-template-columns: 1fr; gap: 2px; }
+    }
     .learn-article .task-box .kwlist.tb-kw { margin: 0; padding: 0; list-style: none; counter-reset: kw; }
     .learn-article .task-box .kwlist.tb-kw > li {
       display: grid; grid-template-columns: 132px minmax(0, 1fr); gap: 12px;
@@ -1970,7 +1987,7 @@
           <span class="q-n">②</span><span class="q-k">범부처</span>
           <strong class="q-h">예비 · 초기 창업 지원</strong>
           <span class="q-d">예비창업패키지, 초기창업패키지 등 정부 지원 사업. <em>관광이 아니어도 낼 수 있습니다.</em></span>
-          <span class="q-lk"><a href="https://www.k-startup.go.kr/" target="_blank" rel="noopener">K-Startup 창업지원포털 ↗</a><a class="call" href="https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&amp;bcIdx=1066579&amp;parentSeq=1066579" target="_blank" rel="noopener">2026 예비창업패키지 공고 (3/24 마감) ↗</a><a class="note" href="https://blog.naver.com/772ryo/224202821244" target="_blank" rel="noopener">그 회차가 어떻게 달라졌나 · 사설 정리 ↗</a><a class="note" href="https://passhacker.com/blog/2026-pre-startup-package-business-plan-form-writing-guide" target="_blank" rel="noopener">PSST 네 칸 쓰는 법 · 사설 정리 ↗</a><a class="call" href="https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&amp;pbancSn=179203" target="_blank" rel="noopener">AI 지역관광 문제해결 프로젝트 (역사문화) AI 배리어프리 ↗</a><a href="https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&amp;bcIdx=1047339&amp;parentSeq=1047339" target="_blank" rel="noopener">창업중심대학 예비창업자 모집 공고 (2024) ↗</a><a class="dl" href="assets/preliminary-startup-package-business-plan-form-2026.docx" download="2026_예비창업패키지_사업계획서_양식.docx">2026 예비창업패키지 양식 ⤓ DOCX</a><a class="dl" href="assets/startup-univ-preliminary-business-plan-form-2024.hwpx" download="2024_창업중심대학_예비창업자_사업계획서_양식.hwpx">창업중심대학 양식 (2024) ⤓ HWPX</a><b>중소벤처기업부 · 창업진흥원 — 부처별 창업 공고가 한곳에 모입니다.<br /><em><strong>예비창업패키지</strong>는 중기부의 대표 예비창업 지원사업입니다(제2026-207호 · 신산업기술창업과 1357). <strong>2026년 회차는 3. 6. ~ 3. 24. 16:00 으로 이미 끝났습니다</strong> — 여기 건 것은 <strong>다음 회차를 미리 읽어 두라는 뜻</strong>입니다. <strong>사업자등록을 하지 않은 예비창업자</strong>면 나이 제한 없이 냅니다. 사업화자금 <strong>평균 4천만원</strong>(1단계 2천 + 2단계 2천), 분야는 <strong>일반 · 특화</strong>(여성 · 소셜벤처 · 사내벤처).<br /><strong class="hot-t">초록 알약이 그 2026년 양식입니다</strong> — 분량이 <strong>15쪽 → 10쪽</strong>(목차 제외)으로 줄었고, 그림이 많으면 별첨2 기타 증빙서류로 뺍니다. 구성은 그대로 <strong>PSST</strong>입니다 — <strong>1 문제 인식(Problem) · 2 실현 가능성(Solution) · 3 성장전략(Scale-up) · 4 팀 구성(Team)</strong>. <strong>이 수업 과제 1의 여섯 칸이 그대로 이 네 칸에 들어갑니다</strong> — 02장 문제 정의가 1번, 03장 비즈니스 모델이 3번의 「수익화 모델」 칸입니다. 옆의 창업중심대학 양식(2024)과 나란히 열어 보면 <strong>부처가 달라도 묻는 것이 같다</strong>는 것이 한눈에 보입니다.<br /><strong>「PSST 네 칸 쓰는 법」이 짚는 것</strong> — <strong>P</strong>는 느낌이 아니라 <strong>수치 · 논문 · 고객 인터뷰</strong>로 증빙하고, <strong>S(실현)</strong>는 <strong>경쟁사 비교표 · 구조도 · 프로토타입 화면</strong>을 넣고, <strong>S(성장)</strong>는 <strong>고객획득비용(CAC)과 단계별 자금 소요</strong>를 숫자로 적고, <strong>T</strong>는 <strong>직무 경험 · 학위 · 외주와 MOU</strong>로 증명하라 합니다. <em>「개발 예정」 같은 흐린 말을 쓰지 말 것</em>, <em>마감 세 시간 전에는 제출을 끝낼 것</em>도 새겨 둘 만합니다.<br /><span class="src-note">「사설 정리」 알약 둘은 <strong>창업 컨설팅 업체가 쓴 글</strong>입니다. 회차별 변경점과 작성 요령이 잘 정리돼 있어 걸었지만 <strong>끝에 유료 서비스를 파는 글</strong>이기도 합니다 — 읽되 사지 마십시오. <strong>기준은 언제나 왼쪽의 공식 공고와 양식</strong>입니다.</span></em></b></span>
+          <span class="q-lk"><a href="https://www.k-startup.go.kr/" target="_blank" rel="noopener">K-Startup 창업지원포털 ↗</a><a class="call" href="https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&amp;bcIdx=1066579&amp;parentSeq=1066579" target="_blank" rel="noopener">2026 예비창업패키지 공고 (3/24 마감) ↗</a><a class="note" href="https://blog.naver.com/772ryo/224202821244" target="_blank" rel="noopener">그 회차가 어떻게 달라졌나 · 사설 정리 ↗</a><a class="note" href="https://passhacker.com/blog/2026-pre-startup-package-business-plan-form-writing-guide" target="_blank" rel="noopener">PSST 네 칸 쓰는 법 · 사설 정리 ↗</a><a class="call" href="https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&amp;pbancSn=179203" target="_blank" rel="noopener">AI 지역관광 문제해결 프로젝트 (역사문화) AI 배리어프리 ↗</a><a href="https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&amp;bcIdx=1047339&amp;parentSeq=1047339" target="_blank" rel="noopener">창업중심대학 예비창업자 모집 공고 (2024) ↗</a><a class="dl" href="assets/preliminary-startup-package-business-plan-form-2026.docx" download="2026_예비창업패키지_사업계획서_양식.docx">2026 예비창업패키지 양식 ⤓ DOCX</a><a class="dl" href="assets/startup-univ-preliminary-business-plan-form-2024.hwpx" download="2024_창업중심대학_예비창업자_사업계획서_양식.hwpx">창업중심대학 양식 (2024) ⤓ HWPX</a><b>중소벤처기업부 · 창업진흥원 — 부처별 창업 공고가 한곳에 모입니다. <em>공고 · 양식 · 쓰는 법은 아래 「예비창업패키지, 무엇을 어떻게 내나」에서 봅니다.</em></b></span>
         </div>
         <div class="q-cell c4">
           <span class="q-n">③</span><span class="q-k">키우고 투자</span>
@@ -1979,6 +1996,19 @@
         </div>
       </div>
       <p class="mini-note q-align"><strong>읽는 법</strong> — 가로는 <strong>무엇을 받는가</strong>(사업화 <em>자금</em>이냐, 사람 · 공간 · <em>투자</em>냐), 세로는 <strong>무엇으로 좁혀 뽑는가</strong>(<em>분야와 지역</em>이냐, <em>창업 단계</em>냐)입니다. <strong class="hot-t">넷은 순서가 아니라 서로 다른 창구</strong>여서, 같은 아이템으로 여러 칸에 동시에 낼 수 있습니다 — 다만 <strong>중복 수혜 제한</strong>은 공고마다 다르니 그때 확인하십시오.</p>
+      <p class="learn-part lp-sub ks"><span class="ptag">② 범부처</span>예비창업패키지, 무엇을 어떻게 내나</p>
+      <ol class="kwlist ks-kw">
+        <li><b>어떤 사업인가</b><span>중기부의 <strong>대표 예비창업 지원사업</strong>입니다(공고 <strong>제2026-207호</strong> · 신산업기술창업과 <strong>1357</strong>). <strong>사업자등록을 하지 않은 예비창업자</strong>면 <strong>나이 제한 없이</strong> 냅니다.</span></li>
+        <li><b>이미 끝난 회차</b><span>2026년은 <strong>3. 6. ~ 3. 24. 16:00</strong>으로 마감됐습니다. 여기 걸어 둔 것은 <strong class="hot-t">다음 회차를 미리 읽어 두라는 뜻</strong>입니다 — 3월에 열려 3월에 닫히므로 <strong>그때 알면 늦습니다</strong>.</span></li>
+        <li><b>받는 것</b><span>사업화자금 <strong>평균 4천만원</strong>(<strong>1단계 2천 + 2단계 2천</strong>). 분야는 <strong>일반</strong>과 <strong>특화</strong>(여성 · 소셜벤처 · 사내벤처)로 갈립니다.</span></li>
+        <li><b>양식 — 10쪽</b><span>초록 알약이 그 <strong>2026년 양식</strong>입니다. 분량이 <strong>15쪽 → 10쪽</strong>(목차 제외)으로 줄었고, 그림이 많으면 <strong>별첨2 기타 증빙서류</strong>로 뺍니다.</span></li>
+        <li><b>구성은 PSST</b><span><strong>1 문제 인식(Problem) · 2 실현 가능성(Solution) · 3 성장전략(Scale-up) · 4 팀 구성(Team)</strong>. <strong class="hot-t">이 수업 과제 1이 그대로 이 네 칸에 들어갑니다</strong> — <strong>02장 문제 정의</strong>가 1번, <strong>03장 비즈니스 모델</strong>이 3번의 「수익화 모델」 칸입니다.</span></li>
+        <li><b>부처가 달라도</b><span>옆의 <strong>창업중심대학 양식(2024)</strong>과 나란히 열어 보십시오. <strong>묻는 것이 같다</strong>는 것이 한눈에 보입니다 — 같은 아이템으로 여러 창구에 낼 수 있는 이유입니다.</span></li>
+        <li><b>P는 증빙으로</b><span>느낌이 아니라 <strong>수치 · 논문 · 고객 인터뷰</strong>로 씁니다. <em>PRISM 정책연구용역</em>과 <em>한국관광 데이터랩</em>이 그 숫자를 주는 곳입니다.</span></li>
+        <li><b>S · S · T는 무엇으로</b><span><strong>실현</strong>은 경쟁사 비교표 · 구조도 · 프로토타입 화면으로, <strong>성장</strong>은 <strong>고객획득비용(CAC)</strong>과 단계별 자금 소요를 숫자로, <strong>팀</strong>은 직무 경험 · 학위 · 외주와 MOU로 증명합니다.</span></li>
+        <li><b>쓰지 말 말, 지킬 시각</b><span><em>「개발 예정」</em> 같은 흐린 말은 빼십시오. 그리고 <strong class="hot-t">마감 세 시간 전에는 제출을 끝내십시오</strong> — 접수 사이트는 마감 직전에 느려집니다.</span></li>
+        <li><b>사설 정리 둘</b><span>점선 알약 둘은 <strong>창업 컨설팅 업체가 쓴 글</strong>입니다. 회차 변경점과 작성 요령이 잘 정리돼 있어 걸었지만 <strong>끝에 유료 서비스를 팝니다</strong> — <strong class="hot-t">읽되 사지 마십시오.</strong> 기준은 언제나 <strong>공식 공고와 양식</strong>입니다.</span></li>
+      </ol>
       <p class="learn-part lp-sub lrn"><span class="ptag">배우기</span>어디서 배우고 누구에게 묻는가 — 자리 셋</p>
       <div class="quad learnq" role="group" aria-label="어디서 배우나 — 세 갈래">
         <span class="q-top q-l1">사람에게<em>강의를 듣거나 물어본다</em></span>
