@@ -879,6 +879,8 @@
     .learn-article .tri-wrap { position: relative; max-width: 760px; margin: 16px auto 24px; }
     .learn-article .tri-wrap .tri-line {
       position: absolute; inset: 6% 12% 8%; z-index: 0; pointer-events: none;
+      /* svg 는 대체 요소라 inset 만으로는 늘어나지 않고 기본 높이(150px)를 쓴다 — 크기를 직접 준다 */
+      width: 76%; height: 86%;
     }
     .learn-article .tri-wrap .tri-line polygon {
       fill: none; stroke: #b7cf8a; stroke-width: 1.4; stroke-dasharray: 5 5; vector-effect: non-scaling-stroke;
@@ -993,6 +995,12 @@
     /* 문제 정의 삼각형 — 세 물음은 순서가 아니라 한 문제를 세 방향에서 보는 것이다.
        카드가 어두운 주황(on-dark)이라 윤곽선과 허브를 따뜻한 쪽으로 바꾼다. */
     .learn-article .tri-wrap.tri-warm .tri-line polygon { stroke: #e0a86a; }
+    /* 02장 — WHY NOW 칸이 길어져 가운데(50%) 허브가 ③ 동그라미를 덮었다.
+       허브를 WHO 카드 안에 넣고 카드 아래 빈틈(row-gap 62px)의 한가운데에 둔다 — 카드 높이가 바뀌어도 따라온다. */
+    .learn-article .tri-wrap.hub-gap .vcards.tri3 > li:first-child .tri-hub {
+      top: calc(100% + 31px); transform: translate(-50%, -50%);
+    }
+    .learn-article .tri-wrap.hub-gap .vcards.tri3 > li:first-child:hover .tri-hub { transform: translate(-50%, calc(-50% + 2px)); }
     .learn-article .tri-wrap.tri-warm .tri-hub { background: #8a4f14; box-shadow: 0 4px 14px rgba(138,79,20,.3); }
 
     /* ===== 히어로 두 칸 — 강의실과 학사일정을 나란히 =====
@@ -1998,14 +2006,13 @@
 
       <p class="learn-part lp-core"><span class="num">02</span>아이디어는 문제에서 나온다</p>
       <p>초보 창업이 가장 자주 넘어지는 지점은 "내가 만들고 싶은 것"에서 시작한다는 것입니다. 순서를 뒤집어야 합니다.</p>
-      <div class="tri-wrap tri-warm">
+      <div class="tri-wrap tri-warm hub-gap">
         <svg class="tri-line" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polygon points="50,3 97,97 3,97" /></svg>
         <ol class="vcards c3 steps tri3">
-          <li class="t-orange on-dark"><span class="vt">WHO</span><span class="vh">누구의 문제인가</span><span class="vd">고객을 구체적으로. <em>예: 부산을 처음 찾는 외국인 개별 여행자.</em></span></li>
+          <li class="t-orange on-dark"><span class="vt">WHO</span><span class="vh">누구의 문제인가</span><span class="vd">고객을 구체적으로. <em>예: 부산을 처음 찾는 외국인 개별 여행자.</em></span><span class="tri-hub">문제 정의</span></li>
           <li class="t-orange2 on-dark"><span class="vt">WHAT</span><span class="vh">어떤 문제인가</span><span class="vd">진짜 불편을 한 문장으로. <em>예: 언어 장벽으로 로컬 경험에 닿지 못한다.</em></span></li>
           <li class="t-orange3 on-dark"><span class="vt">WHY NOW<b class="vstar">★ 차별성</b></span><span class="vh">기존 업체와 어떤 차별성이 있는가</span><span class="vd">이미 있는 서비스·대체재가 못 하는 것, 남이 쉽게 따라 하지 못하는 규칙 하나를 짚습니다. 시장·기술·규제의 변화가 지금 그 틈을 열었다면 더 단단해집니다. <em>예: 번역 앱은 말만 옮기지만, 검증된 로컬 호스트가 골목까지 함께 걷는다. 이 칸이 흔들리면 「기존 업체와 뭐가 다른데?」로 되돌아옵니다.</em></span></li>
         </ol>
-        <span class="tri-hub">문제 정의</span>
       </div>
       <p>좋은 문제 정의는 이미 절반의 해답입니다. 이 사이트의 출발점도 "친절한 로컬 가이드와 여행자를 잇는다"는 한 문장이었습니다.</p>
       <p class="dltags"><a class="mapl form hot" href="startup-marketing-targeting-slides.html" target="_blank" rel="noopener">창업 마케팅 · 타겟팅 — 누구를 고객으로 고를 것인가 · 여덟 장 좌우 넘김 ↗</a><span class="dl-src"><b>WHO 칸을 「관광객」에서 멈추지 않게 하는 판입니다.</b> STP(세분화 → <b>표적시장 선정</b> → 포지셔닝) 안에서 타겟팅의 자리를 보고, 고르는 기준 넷(<b>시장 매력도 · 구매 가능성 · 기업 적합성 · 구체성</b>)을 거쳐 <b>룰루레몬</b>이 「여성 전체」를 어디까지 좁혔는지 영상과 표로 따라갑니다. 끝에는 <b>안동 관광객 → 20~30대 → 개별여행 → 문화체험 선호 → 모바일 · 지불의사</b>로 좁히는 관광벤처 예와, <b>타겟팅 다섯 문장</b> 작성표가 있습니다 — 워크북 시트 2의 WHO를 그대로 채우는 자리입니다. <b>← →</b> 로 넘깁니다.</span></p>
