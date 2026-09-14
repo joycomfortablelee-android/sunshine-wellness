@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KOSIS 시각화 결과 해석 프롬프트 가이드</title>
+<style>
+:root{
+  --navy:#173b6c;
+  --blue:#2d6fb7;
+  --sky:#eef5fb;
+  --gold:#b98a2e;
+  --text:#1f2937;
+  --muted:#64748b;
+  --line:#d8e2ec;
+  --bg:#f7f9fc;
+  --white:#fff;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:"NanumBarunGothic","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.72;
+}
+.wrap{
+  max-width:1120px;
+  margin:0 auto;
+  padding:28px 20px 60px;
+}
+.hero{
+  background:linear-gradient(135deg,#16365f,#255d99);
+  color:#fff;
+  border-radius:24px;
+  padding:30px 34px;
+  margin-bottom:22px;
+}
+.hero .eyebrow{
+  font-size:13px;
+  opacity:.82;
+  letter-spacing:.08em;
+  margin-bottom:5px;
+}
+.hero h1{
+  font-size:30px;
+  line-height:1.3;
+  margin:0 0 8px;
+}
+.hero p{
+  margin:0;
+  opacity:.92;
+}
+.card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:24px;
+  margin-bottom:18px;
+}
+h2{
+  margin:0 0 14px;
+  color:var(--navy);
+  font-size:22px;
+}
+h3{
+  margin:18px 0 9px;
+  color:var(--navy);
+  font-size:18px;
+}
+.kicker{
+  display:inline-block;
+  font-size:13px;
+  font-weight:800;
+  color:var(--blue);
+  background:#eaf2fb;
+  padding:5px 10px;
+  border-radius:999px;
+  margin-bottom:10px;
+}
+.star{
+  color:var(--gold);
+  font-weight:900;
+}
+.important{
+  color:var(--navy);
+  font-weight:800;
+}
+.prompt{
+  background:#f4f7fb;
+  border:1px solid #d9e4ef;
+  border-left:5px solid var(--blue);
+  border-radius:14px;
+  padding:18px 20px;
+  white-space:pre-line;
+}
+.flow{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+  margin-top:14px;
+}
+.step{
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:15px;
+  background:#fff;
+  min-height:150px;
+}
+.step strong{
+  display:block;
+  color:var(--navy);
+  margin-bottom:7px;
+}
+.arrow{
+  text-align:center;
+  font-weight:900;
+  color:var(--blue);
+  margin:8px 0 0;
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:14px;
+}
+th,td{
+  padding:11px 12px;
+  border-bottom:1px solid var(--line);
+  vertical-align:top;
+}
+th{
+  background:#f3f7fb;
+  color:var(--navy);
+  text-align:left;
+}
+.quote{
+  background:#fbf8f0;
+  border:1px solid #e8dcc0;
+  color:#57461e;
+  border-radius:15px;
+  padding:18px 20px;
+  font-size:16px;
+  font-weight:700;
+}
+.mini{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+.box{
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:15px;
+  background:#fff;
+}
+ul{
+  margin:8px 0 0;
+  padding-left:20px;
+}
+li{margin:7px 0}
+.footer{
+  text-align:center;
+  color:var(--muted);
+  font-size:13px;
+  margin-top:20px;
+}
+@media(max-width:850px){
+  .flow{grid-template-columns:1fr 1fr}
+  .mini{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .wrap{padding:15px 12px 40px}
+  .hero{padding:23px 19px;border-radius:18px}
+  .hero h1{font-size:24px}
+  .card{padding:18px}
+  .flow{grid-template-columns:1fr}
+  th,td{font-size:13px;padding:9px 8px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <section class="hero">
+    <div class="eyebrow">관광빅데이터분석 · KOSIS 활용</div>
+    <h1>KOSIS 시각화 결과를 보고 말해야 하는 프롬프트</h1>
+    <p>그래프 관찰 → 해석 → 의미 → 활용 → 추가분석으로 이어지는 학생용 프롬프트 가이드</p>
+  </section>
+
+  <section class="card">
+    <span class="kicker">01 · 가장 추천하는 통합 프롬프트</span>
+    <h2><span class="star">★</span> KOSIS 그래프를 AI에 보여준 뒤 이렇게 질문하기</h2>
+    <div class="prompt"><span class="star">★</span> “다음은 KOSIS에서 조회하고 시각화한 통계 결과입니다. 그래프에 실제로 나타난 내용만 근거로 분석해줘.
+
+<span class="star">★</span> ① 자료(Data): 통계명, 지역, 기간, 단위, 주요 수치를 먼저 확인해줘.
+
+<span class="star">★</span> ② 정보(Information): 증가·감소·최고점·최저점·변곡점·급격한 변화·전체 추세를 찾아줘.
+
+<span class="star">★</span> ③ 지식(Knowledge): 이 변화가 지역사회·산업·관광 측면에서 무엇을 의미할 수 있는지 설명해줘.
+
+<span class="star">★</span> ④ 지혜(Wisdom): 이 결과를 바탕으로 정책·기업·관광서비스 측면에서 어떤 의사결정을 생각할 수 있는지 제안해줘.
+
+<span class="star">★</span> ⑤ 추가 분석: 이 그래프만으로 알 수 없는 원인이 무엇인지 밝히고, 원인을 확인하기 위해 KOSIS에서 추가로 찾아야 할 통계변수를 3~5개 추천해줘.
+
+<span class="star">★</span> 단, 그래프만으로 원인을 단정하지 말고 ‘가능성이 있다’, ‘추가 확인이 필요하다’처럼 구분해서 설명해줘.
+
+마지막에는 이 그래프의 핵심을 한 문장으로 요약해줘.”</div>
+  </section>
+
+  <section class="card">
+    <span class="kicker">02 · 왜 이 프롬프트가 좋은가</span>
+    <h2>단순한 그래프 설명을 넘어 <span class="star">★ 관찰 → 해석 → 활용 → 추가분석</span>까지 연결</h2>
+    <p>AI에게 단순히 “그래프를 설명해줘”라고 질문하면 대체로 표면적 설명에서 끝납니다. 위 프롬프트는 <span class="important">그래프를 읽는 순서 자체를 학습</span>하도록 설계되어 있습니다.</p>
+
+    <div class="flow">
+      <div class="step">
+        <strong>DATA 자료</strong>
+        수치와 단위 확인<br>
+        예: 2025년 88,013명
+      </div>
+      <div class="step">
+        <strong>INFORMATION 정보</strong>
+        증가·감소·변곡점 확인<br>
+        예: 2022년 이후 급증
+      </div>
+      <div class="step">
+        <strong>KNOWLEDGE 지식</strong>
+        변화의 의미 해석<br>
+        예: 지역 수요 변화 가능성
+      </div>
+      <div class="step">
+        <strong>WISDOM 지혜</strong>
+        정책·서비스 의사결정<br>
+        예: 다국어 서비스 강화
+      </div>
+      <div class="step">
+        <strong>NEXT DATA 추가자료</strong>
+        원인 검증용 데이터 탐색<br>
+        예: 국적·체류자격
+      </div>
+    </div>
+    <div class="arrow">★ 좋은 데이터 분석은 첫 번째 그래프가 두 번째 질문을 만들어내는 것</div>
+  </section>
+
+  <section class="card">
+    <span class="kicker">03 · 실제 적용 예시</span>
+    <h2>경북 외국인등록인구 그래프를 예로 들면</h2>
+    <table>
+      <tbody>
+        <tr>
+          <th><span class="star">★</span> DATA</th>
+          <td>2021년 51,100명, 2025년 88,013명</td>
+        </tr>
+        <tr>
+          <th><span class="star">★</span> INFORMATION</th>
+          <td>2021년까지 감소하다가 2022년 이후 빠르게 증가</td>
+        </tr>
+        <tr>
+          <th><span class="star">★</span> KNOWLEDGE</th>
+          <td>경북의 외국인 인구 규모와 지역 내 외국인 수요가 확대되고 있을 가능성</td>
+        </tr>
+        <tr>
+          <th><span class="star">★</span> WISDOM</th>
+          <td>다국어 관광·교통·생활서비스에 대한 수요 변화에 대비할 필요</td>
+        </tr>
+        <tr>
+          <th><span class="star">★</span> NEXT DATA</th>
+          <td>그렇다면 어떤 외국인이 늘었는가? → 국적, 체류자격, 시군별 분포, 외국인 근로자, 유학생</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <span class="kicker">04 · 학생용 5문장 공식</span>
+    <h2><span class="star">★</span> 긴 프롬프트가 어려우면 이 5문장만 사용</h2>
+    <div class="quote">
+      <span class="star">★</span> 1. 이 그래프에서 가장 중요한 변화 3가지를 찾아줘.<br>
+      <span class="star">★</span> 2. 증가·감소·최고점·최저점·변곡점을 수치와 함께 설명해줘.<br>
+      <span class="star">★</span> 3. 이 결과가 의미하는 바를 설명해줘.<br>
+      <span class="star">★</span> 4. 그래프만으로 알 수 없는 것은 무엇인지 말해줘.<br>
+      <span class="star">★</span> 5. 다음으로 어떤 KOSIS 데이터를 찾아야 하는지 추천해줘.
+    </div>
+    <p>이 5문장 구조를 반복해서 사용하면 <span class="important">데이터 읽기의 기본 습관</span>을 익히기 좋습니다.</p>
+  </section>
+
+  <section class="card">
+    <span class="kicker">05 · 그래프 유형별 질문</span>
+    <h2>KOSIS 시각화 유형에 따라 질문도 달라져야 함</h2>
+    <table>
+      <thead>
+        <tr><th>시각화 유형</th><th>반드시 물어볼 것</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="star">★</span> Line Chart</td>
+          <td>언제 증가·감소했는가? 변곡점은 언제인가? 증가속도는 달라졌는가?</td>
+        </tr>
+        <tr>
+          <td><span class="star">★</span> Bar Chart</td>
+          <td>가장 높은/낮은 집단은 어디인가? 집단 간 차이는 얼마나 되는가?</td>
+        </tr>
+        <tr>
+          <td><span class="star">★</span> Pie Chart</td>
+          <td>어떤 항목이 가장 큰 비중을 차지하는가? 상위 항목의 집중도는 어떠한가?</td>
+        </tr>
+        <tr>
+          <td><span class="star">★</span> 지역 비교</td>
+          <td>어느 지역이 높고 낮은가? 지역 간 격차가 존재하는가?</td>
+        </tr>
+        <tr>
+          <td><span class="star">★</span> 두 시점 비교</td>
+          <td>무엇이 얼마나 증가·감소했는가? 순위 변화가 있는가?</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <span class="kicker">06 · 학생 발표 문장 틀</span>
+    <h2><span class="star">★</span> 그래프를 보고 이렇게 말하기</h2>
+    <div class="prompt"><span class="star">★</span> “제가 찾은 자료는 ○○입니다.”
+
+<span class="star">★</span> “그래프에서 가장 먼저 보이는 정보는 ○○입니다.”
+
+<span class="star">★</span> “특히 ○○년을 전후로 변화가 나타납니다.”
+
+<span class="star">★</span> “이것은 ○○를 의미할 가능성이 있습니다.”
+
+<span class="star">★</span> “하지만 이 그래프만으로 ○○가 원인이라고 말할 수는 없습니다.”
+
+<span class="star">★</span> “따라서 다음에는 ○○ 데이터를 추가로 확인하겠습니다.”</div>
+  </section>
+
+  <section class="card">
+    <span class="kicker">07 · 기억할 핵심</span>
+    <h2>목표는 “그래프가 올라갔다”에서 끝나지 않는 것</h2>
+    <div class="mini">
+      <div class="box">
+        <h3><span class="star">★</span> 데이터 리터러시의 흐름</h3>
+        <ul>
+          <li><b>관찰</b> — 무엇이 보이는가</li>
+          <li><b>비교</b> — 얼마나 다른가</li>
+          <li><b>해석</b> — 무엇을 의미하는가</li>
+          <li><b>한계 인식</b> — 무엇은 아직 모르는가</li>
+          <li><b>추가 질문</b> — 무엇을 더 찾아야 하는가</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3><span class="star">★</span> 가장 중요한 수업 메시지</h3>
+        <p>“그래프는 <b>무슨 일이 일어났는가</b>를 보여주고, 추가 데이터 분석은 <b>왜 일어났는가</b>를 탐색하게 한다.”</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <span class="kicker">08 · AI 복사 방지용 프롬프트</span>
+    <h2><span class="star">★</span> 내가 직접 해석하게 만드는 마지막 한 문장</h2>
+    <div class="quote">
+      “내가 제출할 답을 대신 작성하지 말고, 내가 직접 해석할 수 있도록 먼저 질문 3개를 해준 뒤 내 답변을 검토해줘.”
+    </div>
+    <p>이 문장을 프롬프트 끝에 넣으면 AI의 답을 그대로 복사하는 대신, <span class="important">내가 먼저 그래프를 읽고 AI를 분석 코치로 활용</span>하게 됩니다.</p>
+  </section>
+
+
+  <section class="card" style="text-align:center;">
+    <span class="kicker">공유 링크</span>
+    <h2>관련 ChatGPT 대화</h2>
+    <p>
+      <a href="https://chatgpt.com/share/6aa7879e-fdb4-83ee-a410-2e11c92170f9"
+         target="_blank"
+         rel="noopener noreferrer"
+         style="display:inline-block;padding:12px 18px;border-radius:12px;background:#173b6c;color:#fff;text-decoration:none;font-weight:800;">
+        ChatGPT 공유 링크 열기
+      </a>
+    </p>
+    <p style="font-size:13px;color:#64748b;word-break:break-all;">
+      https://chatgpt.com/share/6aa7879e-fdb4-83ee-a410-2e11c92170f9
+    </p>
+  </section>
+
+  <div class="footer">
+    ★ 핵심 원칙: 관찰 → 비교 → 해석 → 한계 인식 → 추가 질문
+  </div>
+</div>
+</body>
+</html>
