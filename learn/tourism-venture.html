@@ -223,11 +223,13 @@
     .learn-article .vcards > li.lime-solid .vd strong,
     .learn-article .vcards > li.lime-solid .vd em { color: #fff; }
     /* 사업계획서 · IR 피칭 칸 아래 세로 쇼츠 — 9:16, 칸을 다 채우지 않게 */
-    .learn-article .q-cell .ir-short { margin-top: 12px; padding-top: 10px; border-top: 1px dashed rgba(0,0,0,.14); }
-    .learn-article .q-cell .ir-short iframe { display: block; width: 100%; max-width: 240px; aspect-ratio: 9 / 16; border: 0; border-radius: 12px; background: #000; }
-    .learn-article .q-cell .ir-short .ir-cap { margin: 7px 0 0; max-width: 360px; font-size: 11.5px; line-height: 1.65; }
-    .learn-article .q-cell .ir-short.wide iframe { max-width: 100%; aspect-ratio: 16 / 9; }
-    .learn-article .q-cell .ir-short.wide .ir-cap { max-width: none; }
+    /* IR 영상 둘 — 사분면 그리드 바깥, 그 아래 한 줄로. 좁으면 세로로 쌓는다 */
+    .learn-article .ir-row { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 18px; margin: 16px 0 8px; }
+    .learn-article .ir-row .ir-short { flex: 0 1 240px; min-width: 0; }
+    .learn-article .ir-row .ir-short.wide { flex: 1 1 360px; }
+    .learn-article .ir-row .ir-short iframe { display: block; width: 100%; max-width: 240px; aspect-ratio: 9 / 16; border: 0; border-radius: 12px; background: #000; }
+    .learn-article .ir-row .ir-short.wide iframe { max-width: 100%; aspect-ratio: 16 / 9; }
+    .learn-article .ir-row .ir-cap { margin: 7px 0 0; font-size: 12.5px; line-height: 1.65; }
     /* 진한 청록 카드 — 비즈니스 모델 삼각형에서 가장 중요한 「고객 · 채널」 하나만 */
     .learn-article .vcards > li.cy-solid { background: #17707b; border-color: #17707b; border-top-color: #0f4a52; }
     .learn-article .vcards > li.cy-solid .vt { color: #c9eef2; }
@@ -2093,8 +2095,6 @@
             <span class="desc"><strong>이명신 IR피칭 멘토 — 사업계획서·IR피칭 실전 블로그</strong> — IR 피칭과 사업계획서 작성을 전문으로 가르치는 멘토의 블로그. 「합격하는 사업계획서 작성법」, 예비창업패키지 등 정부지원사업 공고 정리, 투자자가 비즈니스 모델에서 먼저 확인하는 것, 실제 투자 유치 사례 분석이 꾸준히 올라옵니다. 05장의 창업 지원 사업에 실제로 지원할 때 곁에 두고 볼 만한 자료입니다. <span class="meta">네이버 블로그 '이명신 IR피칭 멘토' · IR피칭/피치덱·사업계획서·정부지원사업 교육</span></span>
             <span class="desc"><strong>나도 합격할 수 있는 예비창업패키지 사업계획서 작성하기 (온라인 강의)</strong> — 예비창업패키지 <strong>사업계획서 작성</strong>을 주제로 한 온라인 클래스. 위 성심당 영상을 만든 <strong>티엔티스피치</strong>의 강의로, 같은 크리에이터가 사업계획서 예시·피치덱 샘플 클래스도 함께 운영합니다(유료). <span class="meta">CLASS101 · 티엔티스피치(TNT Speech) · 유료 온라인 클래스</span></span>
           </details>
-          <div class="ir-short"><iframe src="https://www.youtube-nocookie.com/embed/RaPOMDHCU_k" title="아이디어로 창업하지 말라 — 정세주 눔 대표" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><p class="ir-cap"><b>「아이디어로 창업하지 말라」</b> — 정세주 눔(Noom) 대표 · World Knowledge Forum 쇼츠. 아이디어보다 <strong>풀 문제</strong>에서 출발하라는, 02장과 같은 말을 IR 무대의 창업자가 합니다.</p></div>
-          <div class="ir-short wide"><iframe src="https://www.youtube-nocookie.com/embed/PWY_TQYMNBY?start=12173" title="2025 정주영 창업경진대회 트랙별 피칭 모아보기" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><p class="ir-cap"><b>「2025 정주영 창업경진대회 · 트랙별 피칭 모아보기」</b> — 아산나눔재단. <strong>3시간 22분 53초부터</strong> 시작합니다. 위 쇼츠가 「무엇에서 출발하나」라면, 이쪽은 <strong>실제 무대에서 몇 분 안에 문제 · 해결 · 시장을 말하는 모습</strong>입니다.</p></div>
         </div>
         <div class="q-cell l2">
           <span class="grouptitle">AI로 공고 찾고 사업계획서 쓰기</span>
@@ -2120,6 +2120,10 @@
           <span class="desc">한국관광공사가 운영하는 <strong>관광산업 온라인 통합교육 플랫폼</strong>입니다. 왼쪽 두 자료가 <em>유료 강의와 개인 멘토</em>라면, 이쪽은 <strong class="hot-t">공공이 무료로 여는 강의실</strong>입니다 — 관광 마케팅 · 디지털 전환 · 고객 응대 등 실무 과정이 올라옵니다.<br /><strong>이 수업에서 쓰는 법</strong> — ① 과제 1의 <strong>03장 비즈니스 모델·마케팅 칸</strong>을 채울 때 용어와 틀을 여기서 가져오고, ② 수료 이력은 <strong>과제 2 입사 제안서의 「내 산출물」</strong>과 사업계획서 <strong>5절 팀빌딩</strong>에 그대로 적습니다 — <em>「배우겠습니다」가 아니라 「이미 들었습니다」</em>가 되는 자리입니다.</span>
           <span class="meta">한국관광공사 · touredu.visitkorea.or.kr · 온라인 통합교육 플랫폼</span>
         </div>
+      </div>
+      <div class="ir-row">
+        <div class="ir-short"><iframe src="https://www.youtube-nocookie.com/embed/RaPOMDHCU_k" title="아이디어로 창업하지 말라 — 정세주 눔 대표" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><p class="ir-cap"><b>「아이디어로 창업하지 말라」</b> — 정세주 눔(Noom) 대표 · World Knowledge Forum 쇼츠. 아이디어보다 <strong>풀 문제</strong>에서 출발하라는, 02장과 같은 말을 IR 무대의 창업자가 합니다.</p></div>
+        <div class="ir-short wide"><iframe src="https://www.youtube-nocookie.com/embed/PWY_TQYMNBY?start=12173" title="2025 정주영 창업경진대회 트랙별 피칭 모아보기" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><p class="ir-cap"><b>「2025 정주영 창업경진대회 · 트랙별 피칭 모아보기」</b> — 아산나눔재단. <strong>3시간 22분 53초부터</strong> 시작합니다. 앞의 쇼츠가 「무엇에서 출발하나」라면, 이쪽은 <strong>실제 무대에서 몇 분 안에 문제 · 해결 · 시장을 말하는 모습</strong>입니다.</p></div>
       </div>
 
 
