@@ -20,6 +20,18 @@
     .kmooc-map td:first-child { font-weight: 700; color: var(--green); white-space: nowrap; }
     .kmooc-map .desc-col { color: var(--muted); line-height: 1.7; }
 
+    /* ── 링크 목록을 2열 카드로 — learn.css 의 .reslist.grid2 위에 카드 테두리만 얹는다 ── */
+    .learn-article .reslist.grid2.lcard { gap: 12px; align-items: stretch; margin: 10px 0 18px; }
+    .learn-article .reslist.grid2.lcard > li {
+      margin: 0; padding: 14px 16px 13px; border: 1px solid var(--line); border-top: 3px solid var(--green);
+      border-radius: 11px; background: linear-gradient(160deg, #f4f8f6 0%, #fff 70%);
+      display: flex; flex-direction: column; transition: box-shadow .18s, transform .18s;
+    }
+    .learn-article .reslist.grid2.lcard > li:hover { transform: translateY(-2px); box-shadow: 0 7px 18px rgba(16,42,67,.10); }
+    .learn-article .reslist.grid2.lcard > li > a { font-size: 15px; }
+    .learn-article .reslist.grid2.lcard .desc { font-size: 13px; flex: 1 1 auto; }
+    .learn-article .reslist.grid2.lcard .meta { margin-top: 8px; padding-top: 7px; border-top: 1px dashed var(--line); font-size: 11.5px; }
+
     /* ── 그라데이션 카드 — learn.css 의 roadmap 색 체계를 그대로 잇는다 ── */
     .learn-article .vcards {
       list-style: none; padding: 0; margin: 14px 0 24px;
@@ -476,7 +488,7 @@
 
       <p class="learn-part">관련 링크 · 더 배우기</p>
       <p>이론을 넘어 <strong>실제 데이터를 직접 분석</strong>해 보려면 공공 빅데이터 플랫폼을 활용하는 것이 가장 좋습니다. 서울시가 운영하는 빅데이터 캠퍼스는 관광·유동인구·상권 등 방대한 서울시 데이터를 분석 환경 안에서 다뤄볼 수 있는 대표적인 곳입니다. 아래에는 목적·분석 분야별로 자주 쓰는 국내외 플랫폼을 함께 정리했습니다.</p>
-      <ul class="reslist">
+      <ul class="reslist grid2 lcard">
         <li>
           <a href="kmooc-bigdata.html">K-MOOC 빅데이터 강좌 안내 (자체 제작) →</a>
           <span class="desc">K-MOOC에 개설된 빅데이터 강좌를 9개 유형으로 분류하고, 수준·목표별 추천 학습 경로와 학습 형태(일반·매치업·VOD·마이크로러닝)를 한 화면에 정리한 안내 페이지. 유형 필터로 원하는 강좌만 골라 볼 수 있습니다.</span>
