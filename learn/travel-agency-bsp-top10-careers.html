@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>2025 BSP 여행기업 비교와 강의 설명</title>
+<style>
+  :root{
+    --navy:#123b6d;
+    --blue:#2b6cb0;
+    --sky:#eef6ff;
+    --line:#d8e2ee;
+    --text:#1f2937;
+    --muted:#64748b;
+    --green:#0f8b6d;
+    --orange:#d97706;
+    --red:#b42318;
+    --card:#ffffff;
+    --bg:#f6f8fb;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:"Pretendard","Noto Sans KR","Malgun Gothic",sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.65;
+  }
+  .wrap{max-width:1320px;margin:0 auto;padding:28px}
+  .hero{
+    background:linear-gradient(135deg,#0f2f57,#174f8a);
+    color:#fff;
+    border-radius:24px;
+    padding:30px 34px;
+    box-shadow:0 16px 36px rgba(15,47,87,.18);
+  }
+  .hero h1{margin:0 0 8px;font-size:34px;line-height:1.25}
+  .hero p{margin:0;color:#dcecff;font-size:17px}
+  .note{
+    margin-top:18px;
+    background:#fff7e6;
+    border:1px solid #f3d7a4;
+    border-left:6px solid var(--orange);
+    border-radius:16px;
+    padding:16px 18px;
+  }
+  .section{
+    margin-top:24px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:22px;
+    padding:24px;
+    box-shadow:0 8px 26px rgba(15,23,42,.05);
+  }
+  .section h2{margin:0 0 14px;color:var(--navy);font-size:25px}
+  .section h3{margin:18px 0 8px;font-size:20px;color:var(--navy)}
+  .sub{color:var(--muted);margin-top:-6px}
+  .table-wrap{overflow-x:auto;border-radius:16px;border:1px solid var(--line)}
+  table{width:100%;border-collapse:collapse;min-width:1100px;background:#fff}
+  thead th{
+    position:sticky;top:0;
+    background:#edf4fb;color:#183b63;
+    font-size:14px;padding:13px 10px;border-bottom:1px solid var(--line);
+    text-align:center;
+  }
+  tbody td{padding:13px 10px;border-bottom:1px solid #edf1f5;font-size:14px;vertical-align:middle}
+  tbody tr:hover{background:#f8fbff}
+  td.rank{text-align:center;font-weight:800;color:var(--blue)}
+  td.num{text-align:right;font-variant-numeric:tabular-nums}
+  .tag{
+    display:inline-block;padding:4px 9px;border-radius:999px;font-size:12px;font-weight:700;
+    background:#edf4ff;color:#22558a;margin:2px 2px 2px 0;
+  }
+  .negative{color:var(--red);font-weight:800}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+  .card{
+    border:1px solid var(--line);border-radius:18px;padding:20px;background:#fbfdff;
+  }
+  .card .n{
+    width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    background:var(--navy);color:white;font-weight:800;margin-bottom:10px;
+  }
+  .card h3{margin:0 0 8px;font-size:22px}
+  .metric{font-size:20px;font-weight:800;color:#0f3e72;margin:8px 0}
+  .arrowline{
+    display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;
+    padding:18px;background:#f3f8fe;border-radius:16px;margin-top:12px;font-weight:800;
+  }
+  .arrowline .box{
+    padding:12px 16px;background:#fff;border:1px solid #cfe0f2;border-radius:12px;min-width:170px;text-align:center;
+  }
+  .arrow{color:var(--blue);font-size:22px}
+  .script{
+    background:#0f172a;color:#f8fafc;border-radius:18px;padding:24px;
+  }
+  .script p{margin:0 0 14px}
+  .script strong{color:#9fd0ff}
+  .question{
+    margin:18px 0;padding:18px 20px;border-radius:16px;background:#eefaf5;border:1px solid #bfe6d7;
+    border-left:6px solid var(--green);font-size:19px;font-weight:800;color:#0a5d48;
+  }
+  .flow{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px;
+  }
+  .flow .step{
+    background:#f8fbff;border:1px solid var(--line);border-radius:14px;padding:16px;text-align:center;
+  }
+  .step b{display:block;color:var(--navy);font-size:18px;margin-bottom:6px}
+  .foot{font-size:12px;color:#6b7280;margin-top:14px}
+  @media(max-width:900px){
+    .wrap{padding:14px}
+    .hero h1{font-size:27px}
+    .cards,.flow{grid-template-columns:1fr}
+  }
+  @media print{
+    body{background:white}
+    .wrap{max-width:none;padding:0}
+    .section,.hero{box-shadow:none;break-inside:avoid}
+  }
+
+  .job-btn{
+    display:inline-block;
+    padding:7px 11px;
+    border-radius:10px;
+    background:#123b6d;
+    color:#fff !important;
+    text-decoration:none;
+    font-size:12px;
+    font-weight:800;
+    white-space:nowrap;
+    transition:.15s ease;
+  }
+  .job-btn:hover{background:#2b6cb0;transform:translateY(-1px)}
+  .job-btn.secondary{background:#0f8b6d}
+  .job-btn.platform{background:#6b7280}
+  .job-src{display:block;margin-top:5px;color:#64748b;font-size:10.5px;white-space:nowrap}
+  .career-note{
+    margin-top:16px;padding:15px 17px;border:1px solid #cfe0f2;border-radius:14px;
+    background:#f8fbff;color:#334155;font-size:13px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero">
+<h1>2025 BSP 여행기업 TOP 10: 팩트에서 비즈니스 모델까지</h1>
+<p>학생들에게 먼저 숫자를 보여주고, 그 다음 “왜 이 기업들이 같은 시장에서 경쟁하는가?”를 설명하는 강의용 HTML</p>
+</section>
+<div class="note">
+<strong>먼저 설명할 핵심:</strong>
+    BSP는 <strong>항공권 발권실적</strong>이지 기업의 <strong>매출 순위</strong>가 아닙니다.
+    따라서 순위만 보지 말고 설립연도, 매출, 영업이익, 직원 수, 사업유형을 함께 봐야 합니다.
+    또한 레드캡투어는 렌터카 사업이 포함되고, 트립닷컴코리아는 글로벌 트립닷컴 전체가 아니라 한국법인 기준이라는 점에 유의합니다.
+  </div>
+<section class="section">
+<h2>① 2025 BSP 상위 10개 여행기업 비교</h2>
+<p class="sub">팩트 제시용 화면 — 기업 규모·사업유형과 함께 채용 페이지까지 바로 확인</p>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>BSP 순위</th>
+<th>기업</th>
+<th>설립·출범</th>
+<th>2025 매출</th>
+<th>2025 영업이익</th>
+<th>직원 수*</th>
+<th>특징</th>
+<th>채용 공고</th></tr>
+</thead>
+<tbody>
+<tr>
+<td class="rank">1</td>
+<td><strong>하나투어</strong></td>
+<td>1993.11</td>
+<td class="num"><strong>5,869억</strong></td>
+<td class="num"><strong>576억</strong></td>
+<td class="num">약 1,306명</td>
+<td><span class="tag">전통 패키지</span><span class="tag">FIT</span><span class="tag">OTA</span><span class="tag">AI</span></td>
+<td style="text-align:center;"><a class="job-btn" href="https://www.hanatourcompany.com/kr/careers/jobs/list" rel="noopener noreferrer" target="_blank">공식 채용 ↗</a><span class="job-src">공식</span></td></tr>
+<tr>
+<td class="rank">2</td>
+<td><strong>놀유니버스 NOL</strong></td>
+<td>법인 2022.04 / NOL 통합 2024.12</td>
+<td class="num"><strong>6,999억</strong></td>
+<td class="num"><strong>149.5억</strong></td>
+<td class="num"><strong>1,620명</strong></td>
+<td><span class="tag">야놀자 플랫폼</span><span class="tag">인터파크트리플</span><span class="tag">플랫폼형</span></td>
+<td style="text-align:center;"><a class="job-btn" href="https://careers.nol-universe.com/" rel="noopener noreferrer" target="_blank">공식 채용 ↗</a><span class="job-src">공식</span></td></tr>
+<tr>
+<td class="rank">3</td>
+<td><strong>마이리얼트립</strong></td>
+<td>2012.02</td>
+<td class="num"><strong>1,120억</strong></td>
+<td class="num negative">-19억</td>
+<td class="num">약 253명</td>
+<td><span class="tag">OTA</span><span class="tag">투어·액티비티</span><span class="tag">여행 슈퍼앱</span></td>
+<td style="text-align:center;"><a class="job-btn" href="https://careers.myrealtrip.com/" rel="noopener noreferrer" target="_blank">공식 채용 ↗</a><span class="job-src">공식</span></td></tr>
+<tr>
+<td class="rank">4</td>
+<td><strong>노랑풍선</strong></td>
+<td>2001년</td>
+<td class="num">1,197억</td>
+<td class="num">22억</td>
+<td class="num">약 359명</td>
+<td><span class="tag">패키지 중심</span><span class="tag">종합여행사</span></td>
+<td style="text-align:center;"><a class="job-btn secondary" href="https://www.jobkorea.co.kr/company/1761992/recruit" rel="noopener noreferrer" target="_blank">진행 공고 ↗</a><span class="job-src">잡코리아</span></td></tr>
+<tr>
+<td class="rank">5</td>
+<td><strong>트립닷컴코리아</strong></td>
+<td>2017.05</td>
+<td class="num">196.8억¹</td>
+<td class="num">55.1억¹</td>
+<td class="num">135명</td>
+<td><span class="tag">글로벌 OTA</span><span class="tag">한국법인</span></td>
+<td style="text-align:center;"><a class="job-btn" href="https://careers.trip.com/" rel="noopener noreferrer" target="_blank">글로벌 채용 ↗</a><span class="job-src">공식</span></td></tr>
+<tr>
+<td class="rank">6</td>
+<td><strong>모두투어</strong></td>
+<td>1989.02</td>
+<td class="num">2,104억</td>
+<td class="num">74억</td>
+<td class="num">약 573명</td>
+<td><span class="tag">전통 종합여행사</span><span class="tag">패키지</span></td>
+<td style="text-align:center;"><a class="job-btn" href="https://www.modetournetwork.com/employment/recruitment/" rel="noopener noreferrer" target="_blank">공식 채용 ↗</a><span class="job-src">공식</span></td></tr>
+<tr>
+<td class="rank">7</td>
+<td><strong>참좋은여행</strong></td>
+<td>현 법인 2007.02</td>
+<td class="num">921억</td>
+<td class="num">97.8억</td>
+<td class="num">약 341명</td>
+<td><span class="tag">유럽</span><span class="tag">장거리 패키지</span></td>
+<td style="text-align:center;"><a class="job-btn secondary" href="https://www.saramin.co.kr/zf_user/company-info/view-inner-recruit/csn/dURFclFqejlNdWl4ekhrVFRLY2NBZz09/company_nm/%EC%B0%B8%EC%A2%8B%EC%9D%80%EC%97%AC%ED%96%89%28%EC%A3%BC%29?nomo=1" rel="noopener noreferrer" target="_blank">진행 공고 ↗</a><span class="job-src">사람인</span></td></tr>
+<tr>
+<td class="rank">8</td>
+<td><strong>레드캡투어</strong></td>
+<td>현 법인 1996.07 / 여행사업 전신 1977</td>
+<td class="num">3,656억²</td>
+<td class="num">468억²</td>
+<td class="num">약 355명</td>
+<td><span class="tag">TMC</span><span class="tag">기업출장</span><span class="tag">렌터카 포함</span></td>
+<td style="text-align:center;"><a class="job-btn" href="https://career.redcap.co.kr/" rel="noopener noreferrer" target="_blank">공식 채용 ↗</a><span class="job-src">공식</span></td></tr>
+<tr>
+<td class="rank">9</td>
+<td><strong>여기어때투어</strong></td>
+<td>전신 온라인투어 2000 / 현 법인 2026.04</td>
+<td class="num">212억³</td>
+<td class="num negative">-3억³</td>
+<td class="num">현 법인 177명</td>
+<td><span class="tag">온라인 여행</span><span class="tag">항공</span><span class="tag">호텔</span></td>
+<td style="text-align:center;"><a class="job-btn secondary" href="https://www.jobkorea.co.kr/company/49812455/Recruit" rel="noopener noreferrer" target="_blank">진행 공고 ↗</a><span class="job-src">잡코리아</span></td></tr>
+<tr>
+<td class="rank">10</td>
+<td><strong>클럽로뎀</strong></td>
+<td>1997~1998년</td>
+<td class="num">약 47.1억⁴</td>
+<td class="num negative">약 -2.3억⁴</td>
+<td class="num">약 17명</td>
+<td><span class="tag">온라인 항공권</span><span class="tag">WhyPayMore</span></td>
+<td style="text-align:center;"><a class="job-btn platform" href="https://www.jobkorea.co.kr/company/46959069" rel="noopener noreferrer" target="_blank">채용 확인 ↗</a><span class="job-src">잡코리아</span></td></tr>
+</tbody>
+</table>
+</div>
+<div class="career-note"><strong>채용 링크 안내:</strong> ‘공식 채용’은 해당 기업의 자체 채용 사이트로 연결됩니다. 노랑풍선·참좋은여행·여기어때투어는 현재 공고를 한 번에 확인하기 쉬운 기업별 채용 페이지를 연결했습니다. 클럽로뎀은 별도 공식 채용 페이지가 명확히 확인되지 않아 잡코리아 기업 페이지를 연결했습니다. 채용 여부와 마감일은 수시로 바뀌므로 수업 시점에 링크에서 다시 확인하세요.</div><p class="foot">
+      * 직원 수는 공시·기업DB·국민연금 등 공개자료의 확인 시점이 서로 달라 기업 규모 비교용으로 보는 것이 적절합니다.
+      ¹ 트립닷컴코리아 한국법인 기준. ² 레드캡투어는 렌터카 사업 포함. ³ 여기어때투어는 법인 구조 변화에 유의. ⁴ 클럽로뎀은 공개자료가 제한적.
+    </p>
+</section>
+<section class="section" id="career-links">
+<h2>취업 연결: 기업별 채용 페이지</h2>
+<p class="sub">학생들이 “기업 분석 → 실제 직무 탐색 → 채용공고 확인”으로 바로 이어갈 수 있도록 구성</p>
+<div class="flow">
+<div class="step"><b>여행상품·OP</b>하나투어 · 노랑풍선 · 모두투어 · 참좋은여행</div>
+<div class="step"><b>OTA·플랫폼</b>놀유니버스 · 마이리얼트립 · 트립닷컴 · 여기어때투어</div>
+<div class="step"><b>B2B·TMC</b>레드캡투어의 기업출장·법인영업 직무 확인</div>
+<div class="step"><b>항공·발권</b>기업별 항공예약·발권·상품관리 직무를 비교</div>
+</div>
+</section><section class="section">
+<h2>② 학생들에게 보여줄 핵심: BSP 1~3위가 전혀 다른 회사다</h2>
+<div class="cards">
+<div class="card">
+<div class="n">1</div>
+<h3>하나투어</h3>
+<div class="metric">매출 5,869억 · 직원 약 1,300명</div>
+<p>1993년 설립. 전통 패키지 여행사에서 출발했지만 지금은 항공, 호텔, FIT, OTA, AI까지 영역을 확장.</p>
+<p><strong>핵심:</strong> 전통 종합여행사의 디지털 확장</p>
+</div>
+<div class="card">
+<div class="n">2</div>
+<h3>놀유니버스 NOL</h3>
+<div class="metric">매출 6,999억 · 직원 약 1,620명</div>
+<p>야놀자 플랫폼과 인터파크트리플의 결합. 숙박·항공·티켓·여행상품을 하나의 플랫폼에서 연결.</p>
+<p><strong>핵심:</strong> 대형 플랫폼형 여행기업</p>
+</div>
+<div class="card">
+<div class="n">3</div>
+<h3>마이리얼트립</h3>
+<div class="metric">매출 1,120억 · 직원 약 253명 · GMV 2.3조</div>
+<p>2012년 스타트업. 현지투어·액티비티에서 시작해 항공, 숙박, 패키지까지 확장한 디지털 OTA.</p>
+<p><strong>핵심:</strong> 플랫폼 비즈니스의 높은 확장성</p>
+</div>
+</div>
+<div class="arrowline">
+<div class="box">전통 종합여행사<br/><strong>하나투어</strong></div>
+<div class="arrow">→</div>
+<div class="box">거대 플랫폼<br/><strong>놀유니버스</strong></div>
+<div class="arrow">→</div>
+<div class="box">디지털 스타트업 OTA<br/><strong>마이리얼트립</strong></div>
+</div>
+</section>
+<section class="section">
+<h2>③ 학생들에게 직접 말하듯 설명하기</h2>
+<div class="script">
+<p>여러분, 먼저 이 표를 한번 보겠습니다.</p>
+<p>이 표는 국내 여행기업을 <strong>BSP 항공권 발권실적 순</strong>으로 놓은 것입니다.</p>
+<p>그런데 여기서 주의할 점이 있습니다. 이 순위는 <strong>매출 순위가 아닙니다.</strong> 항공권을 얼마나 많이 발권했는지를 보여주는 순위입니다.</p>
+<p>그래서 이 표를 볼 때는 순위 하나만 보지 말고, 회사 설립연도, 매출, 영업이익, 직원 수, 그리고 어떤 방식으로 사업을 하고 있는지를 같이 봐야 합니다.</p>
+<p>먼저 1위 하나투어를 보겠습니다. 하나투어는 1993년에 설립된 전통적인 종합여행사입니다. 2025년 매출은 약 5,869억 원이고, 영업이익은 약 576억 원입니다. 직원도 약 1,300명 정도 됩니다.</p>
+<p>전형적인 패키지 여행사에서 시작했지만 지금은 항공, 호텔, 자유여행, OTA, AI 서비스까지 사업 영역을 넓혀가고 있습니다.</p>
+<p>두 번째는 놀유니버스입니다. 놀유니버스는 야놀자 플랫폼과 인터파크트리플이 결합하면서 만들어진 대형 플랫폼 기업입니다.</p>
+<p>2025년 매출이 약 6,999억 원이고, 영업이익은 약 150억 원, 직원은 약 1,620명입니다.</p>
+<p>여기서 하나투어와 차이가 보이죠. 하나투어는 여행상품을 기획하고 판매하는 전통적인 여행사에서 출발했다면, 놀유니버스는 숙박, 항공, 티켓, 여행상품을 하나의 플랫폼 안에서 연결하는 방식으로 성장했습니다.</p>
+<p>세 번째가 마이리얼트립입니다. 마이리얼트립은 2012년에 설립된 비교적 젊은 스타트업입니다.</p>
+<p>그런데 2025년 매출이 약 1,120억 원이고, 실제 플랫폼에서 거래된 총거래액, 즉 GMV는 약 2조 3,000억 원입니다.</p>
+<p>여기서 여러분이 한번 생각해볼 부분이 있습니다. 매출은 하나투어나 놀유니버스보다 훨씬 작습니다. 그런데 항공권 BSP에서는 3위입니다.</p>
+<p><strong>왜 그럴까요?</strong></p>
+<p>바로 플랫폼 비즈니스의 특징 때문입니다. 마이리얼트립은 모든 여행상품을 직접 만들어서 판매하는 것이 아니라, 항공사, 호텔, 현지투어업체와 소비자를 플랫폼 안에서 연결합니다.</p>
+<p>그러니까 거래가 증가한다고 해서 직원이나 매장을 똑같은 비율로 늘릴 필요가 없습니다. 이런 특징을 <strong>확장성, Scalability</strong>라고 합니다.</p>
+<p>예를 들어 고객이 1만 명에서 10만 명으로 늘어난다고 해서 직원이 반드시 10배로 늘어야 하는 것은 아닙니다. 플랫폼과 시스템이 잘 구축되어 있다면 훨씬 적은 인력으로도 거래량을 크게 확대할 수 있습니다.</p>
+<p>그래서 이 표에서 여러분이 봐야 할 핵심은 ‘1등이 누구인가?’만이 아닙니다.</p>
+<p><strong>하나투어는 전통 종합여행사, 놀유니버스는 대형 플랫폼, 마이리얼트립은 디지털 OTA</strong>라는 점입니다.</p>
+<p>서로 전혀 다른 방식으로 출발한 기업들이 지금은 같은 항공권 시장에서 경쟁하고 있습니다.</p>
+<p>그리고 4위 이하도 한번 보세요. 노랑풍선, 모두투어, 참좋은여행 같은 전통 패키지 여행사가 있는 반면, 트립닷컴 같은 글로벌 OTA, 레드캡투어처럼 기업출장과 TMC를 중심으로 하는 회사, 여기어때투어 같은 온라인 여행기업도 함께 들어와 있습니다.</p>
+<p>결국 지금의 여행업은 더 이상 ‘패키지 여행사끼리 경쟁하는 시장’이라고만 볼 수 없습니다.</p>
+<p><strong>전통 여행사, OTA, 플랫폼, TMC, 글로벌 기업이 모두 같은 고객을 두고 경쟁하는 시장</strong>으로 바뀌고 있습니다.</p>
+</div>
+<div class="question">
+      학생 질문: “앞으로 여행업에서 경쟁력이 더 중요한 것은 무엇일까요? 좋은 여행상품을 많이 만드는 것일까요, 아니면 많은 공급자와 고객을 빠르게 연결하는 플랫폼을 만드는 것일까요?”
+    </div>
+</section>
+<section class="section">
+<h2>④ 수업 진행 흐름</h2>
+<div class="flow">
+<div class="step"><b>STEP 1</b>TOP 10 팩트 표<br/>숫자를 먼저 보여준다</div>
+<div class="step"><b>STEP 2</b>TOP 3 확대 비교<br/>사업모델 차이를 찾는다</div>
+<div class="step"><b>STEP 3</b>전통여행사 vs 플랫폼 vs OTA<br/>구조적 차이를 설명한다</div>
+<div class="step"><b>STEP 4</b>Scalability 질문<br/>플랫폼의 확장성을 토론한다</div>
+</div>
+</section>
+</div>
+</body>
+</html>
