@@ -75,6 +75,11 @@
     .learn-article .t-rose   { --v-a:#fbe4e4; --v-b:#fdf0f0; --v-ac:#b5555a; --v-ln:#f0cfd0; --v-sh:rgba(181,85,90,.16);  --v-tc:#8c3b40; }
     .learn-article .t-teal   { --v-a:#d9eef0; --v-b:#eef7f8; --v-ac:#2e7d86; --v-ln:#c2e0e3; --v-sh:rgba(46,125,134,.16); --v-tc:#1f5b62; }
     .learn-article .t-gray   { --v-a:#e4eae7; --v-b:#f1f4f3; --v-ac:#6b7d76; --v-ln:#d2dbd7; --v-sh:rgba(107,125,118,.16);--v-tc:#3c4d48; }
+    /* 꽉 찬 카드 — 여섯 출처 중 수업에서 바로 쓰는 공공 데이터만 진한 초록에 흰 글자로 세운다. */
+    .learn-article .vcards > li.solid { background: #2f5148; border-color: #2f5148; border-top-color: #1f382f; }
+    .learn-article .vcards > li.solid .vt { color: #cfe6dc; }
+    .learn-article .vcards > li.solid .vh,
+    .learn-article .vcards > li.solid .vd { color: #fff; }
 
     /* ── 단계 흐름 — 번호가 붙는 순서형 ── */
     .learn-article .steps { counter-reset: stp; }
@@ -351,7 +356,7 @@
         <li class="t-violet"><span class="vt">관심</span><span class="vh">검색·트렌드</span><span class="vd">여행 전 관심의 신호(무엇을 검색하는가).</span></li>
         <li class="t-rose"><span class="vt">감정</span><span class="vh">SNS·리뷰</span><span class="vd">사진·해시태그·후기에 담긴 감정과 장소.</span></li>
         <li class="t-teal"><span class="vt">경로</span><span class="vh">내비게이션·위치</span><span class="vd">실제 이동과 정체, 인기 경로.</span></li>
-        <li class="t-green"><span class="vt">공식</span><span class="vh">공공 데이터</span><span class="vd">관광 통계, 방문객 수, 개방 데이터(data.go.kr, 한국관광 데이터랩 등).</span></li>
+        <li class="t-green solid"><span class="vt">공식</span><span class="vh">공공 데이터</span><span class="vd">관광 통계, 방문객 수, 개방 데이터(data.go.kr, 한국관광 데이터랩 등).</span></li>
       </ul>
 
       <p class="learn-part">03 · 분석은 다섯 걸음으로</p>
