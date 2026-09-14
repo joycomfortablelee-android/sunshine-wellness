@@ -1,0 +1,943 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>2026 서울시 빅데이터 활용 경진대회 최우수상 상세 요약</title>
+<style>
+:root {
+  --navy:#0d2a4a; --blue:#1d5f9e; --sky:#eaf4ff; --gold:#c59a3d;
+  --ink:#17212b; --muted:#64748b; --line:#dce5ef; --paper:#f6f8fb; --white:#fff;
+  --good:#eef9f3; --bad:#fff4f1;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;font-family:"Pretendard","Noto Sans KR","Malgun Gothic",Arial,sans-serif;color:var(--ink);background:var(--paper)}
+body{overflow:hidden}
+.topbar{
+ position:fixed;left:0;right:0;top:0;height:66px;background:rgba(255,255,255,.96);
+ border-bottom:1px solid var(--line);display:flex;align-items:center;gap:14px;padding:0 22px;z-index:20;backdrop-filter:blur(10px)
+}
+.brand{font-weight:800;color:var(--navy);white-space:nowrap}
+.progress-wrap{flex:1;height:7px;background:#edf2f7;border-radius:999px;overflow:hidden}
+.progress{height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--gold));transition:.3s}
+.counter{font-variant-numeric:tabular-nums;color:var(--muted);font-weight:700;min-width:74px;text-align:right}
+.icon-btn{border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px 12px;cursor:pointer;font-weight:700;color:var(--navy)}
+.deck{height:100vh;padding-top:66px}
+.slide{display:none;height:calc(100vh - 66px);overflow:auto;padding:28px 30px 130px}
+.slide.active{display:block}
+.slide-inner{max-width:1180px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:24px;padding:38px 44px;box-shadow:0 18px 45px rgba(13,42,74,.08);min-height:calc(100vh - 170px)}
+.kicker{font-size:13px;font-weight:800;color:var(--blue);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+h1{margin:0 0 25px;font-size:clamp(28px,4vw,48px);line-height:1.16;color:var(--navy)}
+h3{color:var(--navy);margin:0 0 10px}
+p,li,td,th{font-size:17px;line-height:1.72}
+.lead{font-size:22px;line-height:1.65}
+strong{color:#133f6d}
+blockquote{margin:22px 0;padding:20px 24px;background:var(--sky);border-left:6px solid var(--blue);border-radius:14px;font-size:21px;line-height:1.65;font-weight:700;color:var(--navy)}
+.hero-card{padding:28px;border-radius:20px;background:linear-gradient(135deg,#0d2a4a,#1d5f9e);color:#fff;margin:22px 0}
+.hero-big{font-size:34px;font-weight:900;line-height:1.2}
+.hero-sub{margin-top:12px;font-size:18px;line-height:1.6;opacity:.92}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:20px 0}
+.box{border:1px solid var(--line);border-radius:16px;padding:20px;background:#fbfdff}
+.good{background:var(--good)} .bad{background:var(--bad)}
+.flow{display:grid;gap:8px;justify-items:center;margin:24px auto;max-width:760px;text-align:center}
+.flow>div{width:100%;padding:14px 18px;border:1px solid var(--line);border-radius:14px;background:#fff;font-size:18px;font-weight:700}
+.flow>span{color:var(--gold);font-size:22px;font-weight:900}
+.pipeline,.mini-flow{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:22px 0}
+.pipeline span,.mini-flow span{padding:9px 12px;background:var(--sky);border-radius:10px;font-weight:700;color:var(--navy)}
+.pipeline b,.mini-flow b{color:var(--gold)}
+table{width:100%;border-collapse:separate;border-spacing:0;margin:20px 0;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+th,td{padding:13px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#eef4fa;color:var(--navy);text-align:left}
+tr:last-child td{border-bottom:none}
+.score td:nth-child(2){font-size:22px;font-weight:900;color:var(--blue)}
+.note{padding:16px 18px;background:#fff8e8;border:1px solid #f0dca7;border-radius:13px;line-height:1.65;margin:18px 0}
+.formula{padding:18px;border-radius:14px;background:#0d2a4a;color:#fff;font-size:20px;font-weight:800;text-align:center;margin:22px 0}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+.chips span{padding:10px 14px;border:1px solid #bfd5ea;background:#f6fbff;border-radius:999px;font-weight:700;color:#174f83}
+.stepcard{margin:25px auto;max-width:700px;text-align:center;padding:24px;border:1px solid var(--line);border-radius:18px;background:#fbfdff;font-size:22px}
+.stepcard .arrow{color:var(--gold);font-size:24px;margin:6px 0}
+.matrix .urgent{background:#ffe6e2;color:#9b271d;font-weight:900}
+.dikw{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.dikw>div,.memory-grid>div{padding:19px;border:1px solid var(--line);border-radius:16px;background:#fbfdff}
+.dikw b,.memory-grid b{display:block;color:var(--navy);font-size:20px;margin-bottom:8px}
+.method-list li{margin:9px 0}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.nav{position:fixed;left:0;right:0;bottom:0;height:82px;background:rgba(255,255,255,.96);border-top:1px solid var(--line);display:flex;justify-content:center;gap:14px;align-items:center;z-index:25;backdrop-filter:blur(10px)}
+.nav button{min-width:150px;border:none;border-radius:14px;padding:15px 20px;font-size:17px;font-weight:900;cursor:pointer}
+.prev{background:#eaf0f6;color:var(--navy)} .next{background:var(--navy);color:#fff}
+.drawer{position:fixed;top:66px;bottom:108px;right:-390px;width:380px;background:#fff;border-left:1px solid var(--line);z-index:30;padding:18px;overflow:auto;transition:.28s;box-shadow:-18px 0 40px rgba(13,42,74,.08)}
+.drawer.open{right:0}
+.drawer h2{color:var(--navy);margin-top:4px}
+.toc-item{width:100%;display:flex;gap:12px;align-items:flex-start;text-align:left;border:0;border-bottom:1px solid #edf1f5;background:#fff;padding:12px 4px;cursor:pointer;font-size:14px;line-height:1.4}
+.toc-item span{color:var(--blue);font-weight:900;min-width:25px}
+
+.share-link{
+ position:absolute;
+ left:50%;
+ bottom:8px;
+ transform:translateX(-50%);
+ font-size:13px;
+ color:var(--blue);
+ text-decoration:none;
+ font-weight:700;
+ white-space:nowrap;
+ max-width:92vw;
+ overflow:hidden;
+ text-overflow:ellipsis;
+}
+.share-link:hover{text-decoration:underline}
+
+@media(max-width:760px){
+ .topbar{padding:0 12px} .brand{display:none} .slide{padding:18px 12px 100px}
+ .slide-inner{padding:26px 20px;border-radius:18px} .compare,.dikw,.memory-grid{grid-template-columns:1fr}
+ p,li,td,th{font-size:15.5px} h1{font-size:30px} blockquote{font-size:18px}
+ .nav button{min-width:120px} .drawer{width:88vw;right:-90vw}
+}
+@media print{
+ body{overflow:visible} .topbar,.nav,.drawer{display:none!important} .deck{padding:0;height:auto}
+ .slide{display:block!important;height:auto;overflow:visible;page-break-after:always;padding:0;margin:0}
+ .slide-inner{box-shadow:none;border:none;min-height:auto}
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">서울시 빅데이터 활용 경진대회 · 상세 연구노트</div>
+  <div class="progress-wrap"><div class="progress" id="progress"></div></div>
+  <div class="counter" id="counter"></div>
+  <button class="icon-btn" id="tocBtn">목차</button>
+</header>
+
+<main class="deck">
+
+    <section class="slide" data-index="0">
+      <div class="slide-inner">
+        <div class="kicker">Overview</div>
+        <h1>2026 서울시 빅데이터 활용 경진대회</h1>
+        <div class="content">
+<p class="lead">분석 부문 <strong>최우수상</strong> 발표를 바탕으로 정리한 상세 연구노트입니다.</p>
+<div class="hero-card">
+  <div class="hero-big">AI가 걸어본 서울 관광지 보행환경</div>
+  <div class="hero-sub">로드뷰 이미지 → 멀티모달 AI 평가 → 신뢰도 검증 → 키워드·토픽 분석 → 정책 우선순위 → 지도 시각화</div>
+</div>
+<p>이 자료는 앞서 이 채팅에서 정리한 <strong>상세 요약 전체</strong>와 <strong>문제 해결 · 자료 수집 방법 · 분석 방법 · 분석 프로그램</strong>을 모두 포함합니다.</p>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="1">
+      <div class="slide-inner">
+        <div class="kicker">핵심 개요</div>
+        <h1>1. 연구를 한 문장으로 정리하면</h1>
+        <div class="content">
+<blockquote>서울의 주요 관광지 44곳 주변을 AI가 직접 ‘걸어본 것처럼’ 로드뷰 이미지로 관찰하게 하고, 쾌적성·보행편의성·안전성을 평가하여 어디의 보행환경을 우선적으로 개선해야 하는지를 찾은 연구입니다.</blockquote>
+<p>연구팀명은 <strong>보행 소년단</strong>이고, 발표 주제는 대략 <strong>“AI가 걸어본 서울 관광지 보행환경 — MLLM 분석”</strong>으로 이해할 수 있습니다.</p>
+<p>발표 음성의 <code>MLM</code>, <code>MLNM</code> 등은 문맥상 <strong>MLLM, Multimodal Large Language Model</strong>, 즉 이미지와 텍스트를 함께 이해할 수 있는 멀티모달 AI 모델을 의미하는 것으로 보입니다.</p>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="2">
+      <div class="slide-inner">
+        <div class="kicker">연구 배경</div>
+        <h1>2. 왜 이 연구를 했는가?</h1>
+        <div class="content">
+<p>연구팀이 출발한 문제의식은 매우 명확합니다. 관광에서 <strong>보행환경(Walking Environment / Pedestrian Environment)</strong>은 단순히 “길이 걷기 편한가?”의 문제가 아닙니다.</p>
+<p>관광객은 주민과 다릅니다. 주민은 목적지를 알고 이동하지만 관광객은 대부분 <strong>낯선 공간을 탐색하면서 이동</strong>합니다. 따라서 관광객에게는 관광명소 자체뿐 아니라 <strong>지하철역에서 관광지까지 가는 길 → 주변 골목 → 보도 → 횡단보도 → 거리경관 → 관광지 입구</strong>까지가 하나의 관광 경험이 됩니다.</p>
+<blockquote>관광지에 도착하기 전의 이동 경험도 관광 경험이다.</blockquote>
+<p>따라서 유명 관광지의 콘텐츠가 아무리 좋아도 주변 보도가 좁고, 장애물이 많고, 보차분리가 안 되어 있으며, 거리경관이 혼잡하다면 관광객이 체감하는 관광경험의 질이 낮아질 수 있습니다.</p>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="3">
+      <div class="slide-inner">
+        <div class="kicker">기존 방식의 한계</div>
+        <h1>3. 기존 보행환경 평가의 문제</h1>
+        <div class="content">
+<p>기존에는 보행환경을 평가할 때 주로 <strong>전문가 현장조사 → 조사표 작성 → 항목별 평가</strong> 방식을 사용했습니다.</p>
+<p>문제는 규모입니다. 서울 전역의 수십 개 관광지를 대상으로 수백 또는 수천 개 지점을 조사하려면 많은 조사원과 시간이 필요합니다.</p>
+<div class="compare">
+  <div class="box"><h3>기존 방법</h3><p>전문가 현장 방문 → 보도폭 확인 → 장애물 확인 → 청결도 확인 → 보차분리 확인 → 점수 부여</p></div>
+  <div class="box"><h3>연구팀의 방법</h3><p>로드뷰 이미지 수집 → MLLM에 이미지 입력 → AI가 동일 평가기준 적용 → 1~7점 평가 → 평가 이유까지 텍스트 생성</p></div>
+</div>
+<p>즉, <strong>AI를 일종의 대규모 가상 현장조사원(Virtual Auditor)</strong>으로 사용한 것입니다.</p>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="4">
+      <div class="slide-inner">
+        <div class="kicker">연구 대상</div>
+        <h1>4. 연구 대상</h1>
+        <div class="content">
+<p>연구팀은 서울시 빅데이터캠퍼스에서 제공하는 관광 관련 데이터를 이용하여 <strong>서울의 주요 관광지 44곳</strong>을 분석 대상으로 선정했습니다.</p>
+<p>중요한 점은 관광지의 ‘점 하나’를 평가한 것이 아니라는 점입니다. 관광객은 관광지 중심점에 순간이동하지 않습니다. 따라서 연구팀은 각 관광지를 중심으로 주변 보행공간까지 분석했습니다.</p>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="5">
+      <div class="slide-inner">
+        <div class="kicker">공간 표본 설계</div>
+        <h1>5. 공간분석 설계</h1>
+        <div class="content">
+<div class="flow">
+  <div>관광지 중심점</div><span>↓</span>
+  <div>반경 약 <strong>400m 보행권(Buffer)</strong> 설정</div><span>↓</span>
+  <div>400m 영역 내 도로망 추출</div><span>↓</span>
+  <div>도로망을 따라 약 <strong>20m 간격</strong> 조사 포인트 생성</div><span>↓</span>
+  <div>각 포인트에서 <strong>동·서·남·북 4방향 로드뷰</strong> 수집</div><span>↓</span>
+  <div>4개 이미지를 <strong>파노라마 이미지</strong>로 결합</div><span>↓</span>
+  <div>MLLM 입력</div>
+</div>
+<p>한 방향 사진만 보면 보행환경을 왜곡해서 볼 수 있습니다. 정면에는 넓은 보도가 있지만 뒤쪽에는 불법주차가 있을 수 있기 때문입니다. 동·서·남·북을 결합하면 AI가 해당 지점의 주변 환경을 더 종합적으로 판단할 수 있습니다.</p>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="6">
+      <div class="slide-inner">
+        <div class="kicker">분석 절차</div>
+        <h1>6. 연구 전체 분석 파이프라인</h1>
+        <div class="content">
+<div class="pipeline">
+<span>관광지 선정</span><b>→</b><span>400m 보행권</span><b>→</b><span>도로망 추출</span><b>→</b><span>20m 포인트</span><b>→</b><span>로드뷰 수집</span><b>→</b><span>파노라마</span><b>→</b><span>MLLM 평가</span><b>→</b><span>신뢰도 검토</span><b>→</b><span>사람 평가 비교</span><b>→</b><span>유형별 분석</span><b>→</b><span>키워드</span><b>→</b><span>토픽</span><b>→</b><span>방문객 결합</span><b>→</b><span>우선순위</span><b>→</b><span>지도 시각화</span>
+</div>
+<p>이 전체 흐름이 사실상 이 경진대회 작품의 핵심입니다.</p>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="7">
+      <div class="slide-inner">
+        <div class="kicker">평가 기준</div>
+        <h1>7. AI에게 무엇을 평가하게 했는가?</h1>
+        <div class="content">
+<p>보행환경과 관련된 기존 평가항목 가운데 <strong>이미지만 보고도 AI가 비교적 판단할 수 있는 요소</strong>를 선정했습니다.</p>
+<table>
+<thead><tr><th>평가 차원</th><th>English</th><th>AI가 관찰하는 주요 내용</th></tr></thead>
+<tbody>
+<tr><td>쾌적성</td><td>Pleasantness / Amenity</td><td>청결도, 개방감, 거리환경, 시각적 상태</td></tr>
+<tr><td>보행편의성</td><td>Walkability / Pedestrian Convenience</td><td>보도 폭, 장애물, 이동 연속성 등</td></tr>
+<tr><td>안전성</td><td>Safety</td><td>보차분리, 횡단 위험, 차량과 보행자의 관계</td></tr>
+</tbody>
+</table>
+<p>각 항목은 <strong>1점 ← 매우 좋지 않음 ··· 매우 좋음 → 7점</strong> 척도로 평가하도록 했습니다.</p>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="8">
+      <div class="slide-inner">
+        <div class="kicker">모델 다중화</div>
+        <h1>8. AI를 한 종류만 사용하지 않음</h1>
+        <div class="content">
+<p>발표에서는 대표적인 멀티모달 AI 모델로 <strong>Gemini · GPT · Claude</strong> 등을 사용한 것으로 설명됩니다.</p>
+<p>하나의 AI만 사용하면 특정 모델의 평가성향이 결과에 영향을 줄 가능성이 있습니다. 그래서 여러 AI에게 같은 이미지를 평가하게 하고 <strong>“서로 비슷한 판단을 하는가?”</strong>를 확인했습니다.</p>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="9">
+      <div class="slide-inner">
+        <div class="kicker">신뢰도</div>
+        <h1>9. AI 결과를 그대로 믿지 않았다는 점</h1>
+        <div class="content">
+<p>이 연구에서 상당히 중요한 부분입니다. “AI가 이렇게 평가했다”에서 끝났다면 연구의 설득력이 약합니다.</p>
+<p>연구팀은 AI 평가 결과에 대해 <strong>신뢰도 검증</strong>을 했습니다. 발표에서는 <strong>Cronbach's alpha(크론바흐 알파)</strong>를 사용했다고 설명합니다.</p>
+<p>모델 및 평가차원별 α 값이 대체로 <strong>0.8 이상</strong>으로 나타나 평가의 내적 일관성 또는 평가 간 일관성이 양호하다고 판단했습니다.</p>
+<div class="note">주의: Cronbach's α가 높다고 해서 곧바로 “AI 평가가 객관적으로 맞다”는 의미는 아닙니다. 일관성이 높다는 근거에 가깝습니다.</div>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="10">
+      <div class="slide-inner">
+        <div class="kicker">타당성 점검</div>
+        <h1>10. 사람과 AI 평가 비교</h1>
+        <div class="content">
+<p>AI들끼리 평가가 비슷하더라도 <strong>“AI만 그렇게 생각하는 것은 아닌가?”</strong>라는 문제가 남습니다.</p>
+<p>그래서 일부 이미지를 추출하여 <strong>사람에게도 동일한 보행환경 평가</strong>를 실시했고, <strong>Human Rating ↔ AI Rating</strong>을 비교했습니다.</p>
+<p>발표에서는 두 평가 결과가 크게 다르지 않았다고 설명합니다. 따라서 연구팀은 <strong>MLLM을 대규모 보행환경 평가에 활용할 가능성이 있다</strong>고 판단했습니다.</p>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="11">
+      <div class="slide-inner">
+        <div class="kicker">핵심 결과</div>
+        <h1>11. 서울 관광지의 전체적인 보행환경 결과</h1>
+        <div class="content">
+<table class="score">
+<thead><tr><th>항목</th><th>평균 수준</th><th>해석</th></tr></thead>
+<tbody>
+<tr><td><strong>안전성</strong></td><td>약 <strong>4.8</strong></td><td>가장 높음</td></tr>
+<tr><td><strong>쾌적성</strong></td><td>약 <strong>4.5</strong></td><td>비교적 양호</td></tr>
+<tr><td><strong>보행편의성</strong></td><td>약 <strong>3.9</strong></td><td>가장 낮음</td></tr>
+</tbody>
+</table>
+<blockquote>서울 관광지의 가장 큰 문제는 ‘안전’ 자체보다는 실제로 걸을 때 느끼는 물리적 편의성이다.</blockquote>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="12">
+      <div class="slide-inner">
+        <div class="kicker">해석</div>
+        <h1>12. 정책적으로 중요한 발견</h1>
+        <div class="content">
+<p>관광지의 보행 문제라고 하면 흔히 “교통사고가 위험한가?”를 생각할 수 있습니다.</p>
+<p>하지만 AI 분석에서는 상대적으로 안전성보다 <strong>좁은 보도 · 장애물 · 보행 연속성 · 휴식공간 · 시각적 혼잡</strong> 같은 문제가 더 두드러졌습니다.</p>
+<p>즉 정책도 <strong>안전성 중심</strong>에서 한 단계 더 나아가 <strong>보행 경험의 질</strong>을 볼 필요가 있다는 것입니다.</p>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="13">
+      <div class="slide-inner">
+        <div class="kicker">유형별 차이</div>
+        <h1>13. 관광지를 유형별로 나눠 보니</h1>
+        <div class="content">
+<p>44개 관광지는 성격이 모두 다릅니다. 궁궐과 전통시장을 동일 기준으로 단순 비교하면 정책적 의미가 떨어질 수 있습니다.</p>
+<p>그래서 연구팀은 관광지를 <strong>6개 유형</strong>으로 분류했습니다. 발표에서 특히 강조된 것은 <strong>문화시설형</strong> 대 <strong>시장·상권형</strong>입니다.</p>
+<div class="compare">
+<div class="box good"><h3>문화시설형</h3><p>정비된 공간 · 보도 및 주변환경 관리 수준 양호 · 보행환경 점수 높음</p></div>
+<div class="box bad"><h3>시장·상권형</h3><p>좁은 보도 · 각종 적치물과 장애물 · 보행과 상업활동 충돌 · 시각적 혼잡 · 보행편의성 점수 낮음</p></div>
+</div>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="14">
+      <div class="slide-inner">
+        <div class="kicker">순위 해석</div>
+        <h1>14. 상위·하위 관광지의 성격</h1>
+        <div class="content">
+<p>관광지별 순위를 만들었을 때 <strong>상위 10개 관광지에는 문화시설형이 다수 포함</strong>되었고, <strong>하위 관광지에는 시장·상권형이 상대적으로 많이 포함</strong>되었습니다.</p>
+<p>따라서 문제를 “어떤 관광지가 관리가 잘 되었는가?”만으로 보기보다 <strong>“관광지 유형 자체가 특정한 보행환경 문제를 만들어내는 것은 아닌가?”</strong>라는 관점으로 확장했습니다.</p>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="15">
+      <div class="slide-inner">
+        <div class="kicker">진단으로 확장</div>
+        <h1>15. 단순한 점수 평가에서 끝내지 않음</h1>
+        <div class="content">
+<p>어떤 관광지의 점수가 <strong>3.6점</strong>이라고 합시다. 그 자체만으로는 정책 담당자가 무엇을 개선해야 할지 알 수 없습니다.</p>
+<p>그래서 MLLM에게 <strong>“왜 이 점수를 주었는가?”</strong>까지 설명하도록 했습니다.</p>
+<div class="formula">이미지 → 점수 + 평가 근거 문장 + 핵심 키워드</div>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="16">
+      <div class="slide-inner">
+        <div class="kicker">키워드 분석</div>
+        <h1>16. 보행환경 강점 키워드</h1>
+        <div class="content">
+<p>강점으로 나타난 키워드는 주로 <strong>쾌적성 및 안전성</strong> 관련 요소였습니다.</p>
+<p>서울의 주요 관광지 가운데 많은 지역에서 <strong>정비상태, 청결, 개방감, 보차분리</strong> 등은 상대적으로 긍정적으로 평가된 것으로 볼 수 있습니다.</p>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="17">
+      <div class="slide-inner">
+        <div class="kicker">약점 진단</div>
+        <h1>17. 약점 키워드</h1>
+        <div class="content">
+<div class="chips">
+<span>Walking Obstacle · 보행 장애물</span>
+<span>Visual Clutter · 시각적 혼잡</span>
+<span>Narrow Sidewalk · 좁은 보도</span>
+</div>
+<p>이들 핵심 문제의 비중을 합치면 <strong>50% 이상</strong>을 차지했다고 발표합니다.</p>
+<p>따라서 낮은 보행환경 점수의 상당 부분은 <strong>보행공간 자체가 좁거나, 물건·시설물·상업요소 등에 의해 실제 걸을 수 있는 공간이 감소하는 문제</strong>와 연결됩니다.</p>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="18">
+      <div class="slide-inner">
+        <div class="kicker">DIKW 연결</div>
+        <h1>18. 데이터에서 정보로</h1>
+        <div class="content">
+<div class="stepcard">
+  <div><strong>관광지 A = 3.8점</strong></div>
+  <div class="arrow">↓</div>
+  <div>왜?</div>
+  <div class="arrow">↓</div>
+  <div><strong>보도폭 부족 + 장애물 + 시각적 혼잡</strong></div>
+</div>
+<p>즉 AI가 단순한 <strong>평가 도구</strong>에서 <strong>진단 도구</strong>로 확장됩니다.</p>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="19">
+      <div class="slide-inner">
+        <div class="kicker">토픽 분석</div>
+        <h1>19. 키워드를 다시 토픽으로</h1>
+        <div class="content">
+<p>연구팀은 수많은 평가 이유와 키워드를 그대로 두지 않았습니다. 유사한 키워드를 묶어 더 상위 수준의 문제 유형, 즉 <strong>Topic</strong>으로 만들었습니다.</p>
+<p>발표 음성상으로는 <strong>LDA 계열 토픽 모델링</strong>으로 들리지만, 제공된 전사만으로 정확한 알고리즘 명칭은 다소 불명확합니다.</p>
+<p>최종적으로 약 <strong>7개 토픽</strong>이 도출된 것으로 설명합니다. 예를 들어 <strong>정비된 도심 보행환경</strong>과 같은 긍정적 토픽은 평균 점수가 높았고, <strong>특수·이질적 환경 또는 보행 열악성</strong>과 관련된 토픽은 점수가 낮았습니다.</p>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="20">
+      <div class="slide-inner">
+        <div class="kicker">패턴 발견</div>
+        <h1>20. 토픽 분석의 의미</h1>
+        <div class="content">
+<div class="flow">
+<div>1단계: “이 장소 점수가 낮다.”</div><span>↓</span>
+<div>2단계: “좁은 보도 때문이다.”</div><span>↓</span>
+<div>3단계: “이 지역은 ‘좁은 보도와 장애물이 반복되는 보행공간 유형’에 속한다.”</div>
+</div>
+<p>즉 개별 지점의 문제를 넘어 <strong>도시공간 문제의 유형(pattern)</strong>을 찾은 것입니다.</p>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="21">
+      <div class="slide-inner">
+        <div class="kicker">유형별 토픽</div>
+        <h1>21. 관광지 유형 × 보행 토픽</h1>
+        <div class="content">
+<p>연구팀은 <strong>어떤 관광지 유형에서 어떤 문제가 반복적으로 나타나는가</strong>를 살펴봤습니다.</p>
+<div class="compare">
+<div class="box bad"><h3>시장·상권형</h3><p>좁은 보도 + 보행 장애물 + 높은 시각적 혼잡</p></div>
+<div class="box good"><h3>거리·상업형 / 문화시설형 일부</h3><p>정비된 도시 보행환경 같은 긍정적 토픽이 상대적으로 많이 나타남</p></div>
+</div>
+<p>따라서 관광지별로 <strong>동일한 개선정책을 적용하면 안 된다</strong>는 결론이 나옵니다.</p>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="22">
+      <div class="slide-inner">
+        <div class="kicker">정책 설계</div>
+        <h1>22. 유형별 개선전략</h1>
+        <div class="content">
+<table>
+<thead><tr><th>관광지 유형</th><th>우선 전략</th></tr></thead>
+<tbody>
+<tr><td>자연·공원형 / 문화시설형</td><td>기존의 양호한 보행환경 유지 + 휴식공간·세부 편의시설 추가</td></tr>
+<tr><td>시장·상권형</td><td>보도폭 확보 + 장애물 관리 + 보행동선 확보 + 보행 연속성 강화</td></tr>
+</tbody>
+</table>
+<blockquote>관광지 유형별 맞춤형 보행환경 정책</blockquote>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="23">
+      <div class="slide-inner">
+        <div class="kicker">정책 우선순위</div>
+        <h1>23. 방문객 수와 보행환경 점수를 결합</h1>
+        <div class="content">
+<p>단순히 보행환경이 나쁜 곳부터 개선하면 합리적으로 보이지만 반드시 그렇지는 않습니다.</p>
+<p>예를 들어 A 관광지는 방문객 10만 명·보행점수 3.5, B 관광지는 방문객 1,000만 명·보행점수 3.6이라면 정책적 파급효과는 B가 훨씬 클 수 있습니다.</p>
+<p>그래서 연구팀은 <strong>X축 = 연간 방문객 수</strong>, <strong>Y축 = 보행환경 점수</strong>로 놓았습니다.</p>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="24">
+      <div class="slide-inner">
+        <div class="kicker">우선순위 매트릭스</div>
+        <h1>24. 정책 우선순위 매트릭스</h1>
+        <div class="content">
+<table class="matrix">
+<tr><th></th><th>보행환경 높음</th><th>보행환경 낮음</th></tr>
+<tr><th>방문객 많음</th><td>유지·관리</td><td class="urgent">긴급 개선 대상</td></tr>
+<tr><th>방문객 적음</th><td>유지</td><td>중장기 개선</td></tr>
+</table>
+<p>가장 중요한 곳은 <strong>방문객은 많은데 보행환경 점수는 낮은 관광지</strong>입니다. 개선했을 때 영향을 받는 관광객의 규모가 크기 때문입니다.</p>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="25">
+      <div class="slide-inner">
+        <div class="kicker">개선 대상</div>
+        <h1>25. 대표적인 긴급 개선 대상</h1>
+        <div class="content">
+<p>발표에서는 대표적으로 <strong>남대문시장 · 롯데월드 · 이태원 세계음식문화거리</strong> 등이 언급됩니다.</p>
+<p>이들 관광지는 방문량에 비해 상대적으로 보행환경 점수가 낮아 <strong>우선 개선 필요성이 높은 관광지</strong>로 제시되었습니다.</p>
+<div class="note">이는 “가장 나쁜 관광지”라는 의미가 아니라, <strong>높은 관광수요를 고려했을 때 보행환경 개선의 정책효과가 상대적으로 클 가능성이 있는 곳</strong>이라는 의미입니다.</div>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="26">
+      <div class="slide-inner">
+        <div class="kicker">시각화</div>
+        <h1>26. 마지막 결과물은 지도</h1>
+        <div class="content">
+<p>이 연구가 경진대회에서 강점을 가진 이유 중 하나는 연구결과를 논문표로만 제시하지 않고 <strong>공간정보 기반 인터랙티브 지도</strong>로 만들었다는 점입니다.</p>
+<p>지도에서는 <strong>44개 관광지의 위치</strong>를 볼 수 있고, 관광지를 클릭하면 <strong>보행환경 점수와 세부 평가</strong>를 확인할 수 있습니다.</p>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="27">
+      <div class="slide-inner">
+        <div class="kicker">사례</div>
+        <h1>27. 낙원악기상가 사례</h1>
+        <div class="content">
+<p>발표에서는 <strong>낙원악기상가</strong>를 예시로 보여줍니다.</p>
+<p>관광지 주변 도로마다 색상 또는 점수로 <strong>보행환경이 좋은 구간과 낮은 구간</strong>을 확인할 수 있게 만들었습니다.</p>
+<p>특정 포인트를 클릭하면 <strong>쾌적성 · 보행편의성 · 안전성</strong> 등의 점수와 <strong>개선이 필요한 이유</strong>까지 표시됩니다.</p>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="28">
+      <div class="slide-inner">
+        <div class="kicker">검증</div>
+        <h1>28. 카카오 로드뷰와 연결</h1>
+        <div class="content">
+<p>점수가 낮은 지점을 클릭한 뒤 <strong>카카오 로드뷰</strong>를 열면 <strong>“AI가 왜 이곳을 낮게 평가했는가?”</strong>를 실제 거리 이미지로 바로 검토할 수 있습니다.</p>
+<p>예를 들어 AI가 <strong>좁은 보도</strong>를 문제로 판단했다면 담당자가 실제 로드뷰를 통해 이를 확인할 수 있습니다.</p>
+<div class="formula">AI 판단 → 실제 공간 확인</div>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="29">
+      <div class="slide-inner">
+        <div class="kicker">의사결정 지원</div>
+        <h1>29. 지도는 단순 시각화가 아님</h1>
+        <div class="content">
+<p>이 지도는 사실상 <strong>관광 보행환경 의사결정지원 시스템</strong>에 가깝습니다.</p>
+<div class="flow">
+<div>관광지 선택</div><span>↓</span>
+<div>문제구간 발견</div><span>↓</span>
+<div>점수 확인</div><span>↓</span>
+<div>약점 확인</div><span>↓</span>
+<div>로드뷰 확인</div><span>↓</span>
+<div>정책 개입 결정</div>
+</div>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="30">
+      <div class="slide-inner">
+        <div class="kicker">결론</div>
+        <h1>30. 발표의 최종 결론</h1>
+        <div class="content">
+<p><strong>첫째</strong>, 서울 주요 관광지의 보행환경은 전체적으로 중간 이상 수준이며, 특히 <strong>안전성은 비교적 양호</strong>했습니다.</p>
+<p><strong>둘째</strong>, 가장 취약한 부분은 <strong>보행편의성</strong>이었습니다. 특히 보도폭, 장애물, 보행 연속성, 휴식 가능성 등 물리적 보행환경이 문제로 나타났습니다.</p>
+<p><strong>셋째</strong>, 관광지 유형에 따라 문제가 매우 달랐습니다. 문화시설형은 상대적으로 우수하고, 시장·상권형은 취약했습니다.</p>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="31">
+      <div class="slide-inner">
+        <div class="kicker">정책 시사점</div>
+        <h1>31. 가장 중요한 정책적 제안</h1>
+        <div class="content">
+<p>단순히 “서울 관광지의 보행환경을 개선하자”가 아닙니다.</p>
+<blockquote>관광객이 많은데 보행환경이 낮은 곳을 먼저 찾고 → 그 지역에서 반복적으로 나타나는 구체적인 장애요인을 확인하고 → 관광지 유형에 맞는 보행환경 개선사업을 실시하자.</blockquote>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="32">
+      <div class="slide-inner">
+        <div class="kicker">전체 구조</div>
+        <h1>32. 핵심 분석 논리 한 장</h1>
+        <div class="content">
+<div class="mini-flow">
+<span>서울 관광지 44개</span>→<span>400m 보행권</span>→<span>도로망 20m Point</span>→<span>동·서·남·북 Street View</span>→<span>Panorama</span>→<span>Gemini·GPT·Claude</span>→<span>쾌적성·보행편의성·안전성</span>→<span>1–7점</span>→<span>AI·Human 검증</span>→<span>Keyword</span>→<span>Topic</span>→<span>관광지 유형별 비교</span>→<span>방문객 × 보행환경</span>→<span>긴급 개선 관광지</span>→<span>지도·로드뷰</span>
+</div>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="33">
+      <div class="slide-inner">
+        <div class="kicker">빅데이터 관점</div>
+        <h1>33. 빅데이터 분석 경진대회 사례로 좋은 이유</h1>
+        <div class="content">
+<p>이 발표는 학생들에게 <strong>빅데이터 분석은 단순히 데이터가 많은 것이 아니라는 것</strong>을 보여주기에 매우 좋은 사례입니다.</p>
+<div class="chips">
+<span>관광객 데이터</span><span>관광지 공간데이터</span><span>도로망 데이터</span><span>로드뷰 이미지</span><span>AI 평가점수</span><span>AI 생성 텍스트</span><span>방문객 규모</span>
+</div>
+<blockquote>공간데이터 + 이미지 데이터 + 텍스트 데이터 + 관광통계 + 생성형 AI의 융합 분석</blockquote>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="34">
+      <div class="slide-inner">
+        <div class="kicker">분석방법</div>
+        <h1>34. 분석방법이 하나가 아님</h1>
+        <div class="content">
+<table>
+<thead><tr><th>분석영역</th><th>적용 내용</th></tr></thead>
+<tbody>
+<tr><td>GIS 공간분석</td><td>Buffer · Road Network · Point Generation</td></tr>
+<tr><td>Computer Vision / MLLM</td><td>이미지 이해 및 보행환경 평가</td></tr>
+<tr><td>척도 평가</td><td>1~7점</td></tr>
+<tr><td>신뢰도 분석</td><td>Cronbach's α</td></tr>
+<tr><td>Human–AI Validation</td><td>사람-AI 평가 비교</td></tr>
+<tr><td>Text Analysis</td><td>Keyword extraction</td></tr>
+<tr><td>Topic Analysis</td><td>잠재적 문제 유형 탐색</td></tr>
+<tr><td>비교분석</td><td>관광지·관광지 유형 간 비교</td></tr>
+<tr><td>우선순위 분석</td><td>방문객 × 보행환경</td></tr>
+<tr><td>Geovisualization</td><td>인터랙티브 지도</td></tr>
+</tbody>
+</table>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="35">
+      <div class="slide-inner">
+        <div class="kicker">DIKW</div>
+        <h1>35. DIKW로 설명하면</h1>
+        <div class="content">
+<div class="dikw">
+<div><b>DATA · 데이터</b><p>로드뷰 이미지 · 도로망 · 관광지 위치 · 방문객 수 · AI 평가점수</p></div>
+<div><b>INFORMATION · 정보</b><p>서울 관광지 보행환경 평균은 4점대 중반, 안전성 4.8 > 쾌적성 4.5 > 보행편의성 3.9</p></div>
+<div><b>KNOWLEDGE · 지식</b><p>시장·상권형 관광지는 문화시설형보다 좁은 보도와 장애물 문제가 반복적으로 나타남</p></div>
+<div><b>WISDOM · 지혜</b><p>방문객은 많은데 보행환경이 낮은 시장·상권형 관광지의 보도폭·장애물 문제부터 개선</p></div>
+</div>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="36">
+      <div class="slide-inner">
+        <div class="kicker">논문화</div>
+        <h1>36. 논문 구조로 바꾸면</h1>
+        <div class="content">
+<table>
+<thead><tr><th>논문 구성</th><th>이 발표의 내용</th></tr></thead>
+<tbody>
+<tr><td>Research Problem</td><td>관광지 주변 보행환경의 대규모·동일기준 평가 부족</td></tr>
+<tr><td>RQ1</td><td>서울 관광지의 보행환경 수준은 어떠한가?</td></tr>
+<tr><td>RQ2</td><td>관광지 유형에 따라 차이가 있는가?</td></tr>
+<tr><td>RQ3</td><td>낮은 평가를 만드는 핵심 환경요인은 무엇인가?</td></tr>
+<tr><td>RQ4</td><td>어느 관광지를 우선적으로 개선해야 하는가?</td></tr>
+<tr><td>Data</td><td>서울 관광데이터 + 도로망 + 로드뷰 + 방문객</td></tr>
+<tr><td>Method</td><td>GIS + MLLM + 신뢰도 검증 + 텍스트/토픽 분석</td></tr>
+<tr><td>Dependent Evaluation</td><td>쾌적성·보행편의성·안전성</td></tr>
+<tr><td>Main Finding</td><td>보행편의성이 가장 취약</td></tr>
+<tr><td>Group Difference</td><td>문화시설형 우수 / 시장·상권형 취약</td></tr>
+<tr><td>Problem Factors</td><td>장애물·시각적 혼잡·좁은 보도</td></tr>
+<tr><td>Policy Priority</td><td>방문객 多 + 보행점수 低</td></tr>
+<tr><td>Output</td><td>인터랙티브 공간 지도</td></tr>
+</tbody>
+</table>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="37">
+      <div class="slide-inner">
+        <div class="kicker">학술적 검토</div>
+        <h1>37. 학술연구 관점의 검토점</h1>
+        <div class="content">
+<p>경진대회 분석으로 매우 흥미롭지만 논문으로 확장한다면 몇 가지는 더 엄격하게 검증할 필요가 있습니다.</p>
+<p>가장 먼저 <strong>Cronbach's α가 높다고 해서 AI 평가의 타당성이 자동으로 확보되는 것은 아닙니다.</strong></p>
+<p>논문에서는 AI–AI agreement뿐 아니라 <strong>AI–Human inter-rater agreement</strong>를 ICC, correlation, MAE/RMSE 등의 방법으로 더욱 명확하게 검증하면 좋습니다.</p>
+<p>또한 GPT, Gemini, Claude가 같은 장면을 평가하더라도 <strong>모델 버전·프롬프트·temperature·평가시점</strong>에 따라 결과가 달라질 수 있으므로 재현성 관리도 필요합니다.</p>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="38">
+      <div class="slide-inner">
+        <div class="kicker">한계</div>
+        <h1>38. 로드뷰 기반 평가의 한계</h1>
+        <div class="content">
+<p>AI가 이미지로 판단하기 어려운 요소도 있습니다.</p>
+<div class="chips">
+<span>야간 안전성</span><span>실제 교통량</span><span>소음</span><span>경사도</span><span>체감온도</span><span>횡단 대기시간</span><span>보행 혼잡도</span><span>범죄 불안감</span><span>실제 만족도</span>
+</div>
+<blockquote>이 방법은 보행환경 전체라기보다 ‘시각적으로 관찰 가능한 물리적 보행환경’을 대규모로 측정하는 방법이라고 표현하는 것이 더 정확합니다.</blockquote>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="39">
+      <div class="slide-inner">
+        <div class="kicker">연구 가치</div>
+        <h1>39. 이 연구의 가장 좋은 점</h1>
+        <div class="content">
+<p>가장 좋은 점은 <strong>AI 분석 자체를 목적화하지 않았다는 점</strong>입니다.</p>
+<div class="flow">
+<div>AI 이미지 평가</div><span>↓</span>
+<div>점수</div><span>↓</span>
+<div>문제원인</div><span>↓</span>
+<div>관광지 유형</div><span>↓</span>
+<div>방문객 데이터</div><span>↓</span>
+<div>정책 우선순위</div><span>↓</span>
+<div>지도</div><span>↓</span>
+<div>실제 로드뷰 검증</div>
+</div>
+<p>그래서 단순한 생성형 AI 시연이 아니라 <strong>도시관광 의사결정 분석</strong>이 됩니다.</p>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="40">
+      <div class="slide-inner">
+        <div class="kicker">최종 요약</div>
+        <h1>40. 전체 발표 압축 요약</h1>
+        <div class="content">
+<p>2026 서울시 빅데이터 활용 경진대회 분석부문 최우수상 연구는 서울 주요 관광지 44곳의 주변 400m 보행권에서 약 20m 간격으로 로드뷰 이미지를 수집하고, Gemini·GPT·Claude 등의 멀티모달 AI를 활용해 쾌적성·보행편의성·안전성을 1~7점으로 평가한 연구입니다.</p>
+<p>AI 평가의 일관성과 사람 평가와의 유사성을 검토한 뒤 관광지별·유형별 점수를 비교하고, AI가 생성한 평가 이유에서 보행장애물·시각적 혼잡·좁은 보도 등의 약점 키워드를 추출하여 토픽 수준의 보행문제로 확장했습니다.</p>
+<p>분석 결과 서울 관광지는 안전성은 상대적으로 양호했지만 보행편의성이 가장 낮았으며, 문화시설형은 상대적으로 우수하고 시장·상권형은 취약한 경향을 보였습니다.</p>
+<p>또한 연간 방문객 수와 보행환경 점수를 결합하여 ‘방문객은 많지만 보행환경은 낮은 관광지’를 긴급 개선대상으로 제안하고, 이를 지점별 점수·문제요인·로드뷰까지 확인할 수 있는 인터랙티브 지도로 구현했습니다.</p>
+<blockquote>비정형 이미지 데이터를 관광정책의 구체적인 공간적 의사결정으로 전환했다는 데 핵심 가치가 있습니다.</blockquote>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="41">
+      <div class="slide-inner">
+        <div class="kicker">강의 포인트</div>
+        <h1>41. 수업용 핵심 문장</h1>
+        <div class="content">
+<blockquote>로드뷰라는 비정형 데이터를 AI가 읽고 → 점수와 텍스트라는 정보로 바꾸고 → 관광지 유형별 문제라는 지식을 발견하고 → 방문객이 많지만 보행환경이 낮은 곳부터 개선해야 한다는 정책적 지혜로 전환한 사례.</blockquote>
+<p>이 사례는 <strong>비정형데이터 → MLLM → 신뢰도 검증 → 텍스트마이닝 → 공간분석 → 정책 의사결정</strong>을 한 번에 설명할 수 있는 실전 사례입니다.</p>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="42">
+      <div class="slide-inner">
+        <div class="kicker">4단계 정리</div>
+        <h1>42. 문제 해결</h1>
+        <div class="content">
+<p>핵심 문제는 다음과 같습니다.</p>
+<blockquote>서울 관광지 가운데 어디가 걷기 불편하고, 무엇이 문제이며, 어디부터 먼저 개선해야 하는가?</blockquote>
+<p>기존에는 전문가가 직접 현장에 나가야 했지만, 이 방식은 비용과 시간이 많이 듭니다.</p>
+<div class="formula">사람의 현장조사 → 로드뷰 + AI 기반 대규모 보행환경 평가</div>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="43">
+      <div class="slide-inner">
+        <div class="kicker">4단계 정리</div>
+        <h1>43. 자료 수집 방법</h1>
+        <div class="content">
+<p>자료는 크게 네 종류입니다.</p>
+<table>
+<thead><tr><th>자료</th><th>수집·구성 방법</th></tr></thead>
+<tbody>
+<tr><td>관광지 데이터</td><td>서울 주요 관광지 <strong>44곳</strong> 선정</td></tr>
+<tr><td>공간·도로 데이터</td><td>관광지 중심 <strong>400m Buffer</strong> 설정 후 도로망 추출</td></tr>
+<tr><td>이미지 데이터</td><td>도로를 따라 약 <strong>20m 간격</strong> 포인트 생성 → 동·서·남·북 로드뷰 수집 → 파노라마 결합</td></tr>
+<tr><td>관광수요 데이터</td><td>각 관광지의 <strong>연간 방문객 수</strong> 활용</td></tr>
+</tbody>
+</table>
+<div class="formula">관광지 위치 + 도로망 + 로드뷰 이미지 + 관광객 방문량</div>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="44">
+      <div class="slide-inner">
+        <div class="kicker">4단계 정리</div>
+        <h1>44. 분석 방법</h1>
+        <div class="content">
+<ol class="method-list">
+<li><strong>공간분석</strong> — 400m Buffer, 도로망 추출, 20m 간격 Point 생성</li>
+<li><strong>MLLM 이미지 분석</strong> — GPT·Gemini·Claude 등으로 쾌적성·보행편의성·안전성 1~7점 평가</li>
+<li><strong>신뢰도 분석</strong> — Cronbach's α</li>
+<li><strong>Human–AI 비교</strong> — 일부 자료를 사람이 평가하고 AI와 비교</li>
+<li><strong>기술통계·비교분석</strong> — 관광지별·유형별 평균과 순위 비교</li>
+<li><strong>텍스트 분석</strong> — AI의 평가 이유에서 키워드 추출</li>
+<li><strong>토픽 분석</strong> — 비슷한 키워드를 묶어 문제 유형 탐색</li>
+<li><strong>우선순위 분석</strong> — 방문객 수 × 보행환경 점수</li>
+<li><strong>GIS 시각화</strong> — 지점별 점수와 문제를 지도에 표현</li>
+</ol>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="45">
+      <div class="slide-inner">
+        <div class="kicker">4단계 정리</div>
+        <h1>45. 분석 프로그램·도구</h1>
+        <div class="content">
+<table>
+<thead><tr><th>목적</th><th>프로그램·도구</th><th>용도</th></tr></thead>
+<tbody>
+<tr><td>이미지 AI 분석</td><td><strong>GPT</strong></td><td>로드뷰 보행환경 평가</td></tr>
+<tr><td>이미지 AI 분석</td><td><strong>Gemini</strong></td><td>로드뷰 보행환경 평가</td></tr>
+<tr><td>이미지 AI 분석</td><td><strong>Claude</strong></td><td>로드뷰 보행환경 평가</td></tr>
+<tr><td>실제 공간 확인</td><td><strong>카카오 로드뷰</strong></td><td>AI가 낮게 평가한 지점 실제 확인</td></tr>
+<tr><td>공간분석</td><td><strong>GIS 계열 도구</strong></td><td>Buffer, 도로망, Point 생성, 지도 시각화</td></tr>
+<tr><td>통계분석</td><td><strong>통계 분석 도구</strong></td><td>Cronbach's α, 평균, 비교분석</td></tr>
+</tbody>
+</table>
+<div class="note">발표 전사만으로는 ArcGIS, QGIS, Python, R, SPSS 가운데 무엇을 실제로 사용했는지 특정하기 어렵습니다. 따라서 임의로 프로그램명을 단정하지 않는 것이 정확합니다.</div>
+</div>
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="46">
+      <div class="slide-inner">
+        <div class="kicker">최종 정리</div>
+        <h1>46. 네 줄로 외우기</h1>
+        <div class="content">
+<div class="memory-grid">
+<div><b>문제 해결</b><p>관광지 보행환경을 대규모로 평가하고 개선 우선지역을 찾는다.</p></div>
+<div><b>자료 수집</b><p>관광지 + 도로망 + 20m 간격 로드뷰 + 방문객 데이터.</p></div>
+<div><b>분석 방법</b><p>GIS + MLLM + 신뢰도 분석 + 텍스트·토픽 분석 + 우선순위 분석.</p></div>
+<div><b>분석 도구</b><p>GPT·Gemini·Claude + GIS + 카카오 로드뷰.</p></div>
+</div>
+</div>
+      </div>
+    </section>
+    
+</main>
+
+<aside class="drawer" id="drawer">
+<h2>목차</h2>
+<button class="toc-item" data-go="0"><span>01</span>2026 서울시 빅데이터 활용 경진대회</button>
+<button class="toc-item" data-go="1"><span>02</span>1. 연구를 한 문장으로 정리하면</button>
+<button class="toc-item" data-go="2"><span>03</span>2. 왜 이 연구를 했는가?</button>
+<button class="toc-item" data-go="3"><span>04</span>3. 기존 보행환경 평가의 문제</button>
+<button class="toc-item" data-go="4"><span>05</span>4. 연구 대상</button>
+<button class="toc-item" data-go="5"><span>06</span>5. 공간분석 설계</button>
+<button class="toc-item" data-go="6"><span>07</span>6. 연구 전체 분석 파이프라인</button>
+<button class="toc-item" data-go="7"><span>08</span>7. AI에게 무엇을 평가하게 했는가?</button>
+<button class="toc-item" data-go="8"><span>09</span>8. AI를 한 종류만 사용하지 않음</button>
+<button class="toc-item" data-go="9"><span>10</span>9. AI 결과를 그대로 믿지 않았다는 점</button>
+<button class="toc-item" data-go="10"><span>11</span>10. 사람과 AI 평가 비교</button>
+<button class="toc-item" data-go="11"><span>12</span>11. 서울 관광지의 전체적인 보행환경 결과</button>
+<button class="toc-item" data-go="12"><span>13</span>12. 정책적으로 중요한 발견</button>
+<button class="toc-item" data-go="13"><span>14</span>13. 관광지를 유형별로 나눠 보니</button>
+<button class="toc-item" data-go="14"><span>15</span>14. 상위·하위 관광지의 성격</button>
+<button class="toc-item" data-go="15"><span>16</span>15. 단순한 점수 평가에서 끝내지 않음</button>
+<button class="toc-item" data-go="16"><span>17</span>16. 보행환경 강점 키워드</button>
+<button class="toc-item" data-go="17"><span>18</span>17. 약점 키워드</button>
+<button class="toc-item" data-go="18"><span>19</span>18. 데이터에서 정보로</button>
+<button class="toc-item" data-go="19"><span>20</span>19. 키워드를 다시 토픽으로</button>
+<button class="toc-item" data-go="20"><span>21</span>20. 토픽 분석의 의미</button>
+<button class="toc-item" data-go="21"><span>22</span>21. 관광지 유형 × 보행 토픽</button>
+<button class="toc-item" data-go="22"><span>23</span>22. 유형별 개선전략</button>
+<button class="toc-item" data-go="23"><span>24</span>23. 방문객 수와 보행환경 점수를 결합</button>
+<button class="toc-item" data-go="24"><span>25</span>24. 정책 우선순위 매트릭스</button>
+<button class="toc-item" data-go="25"><span>26</span>25. 대표적인 긴급 개선 대상</button>
+<button class="toc-item" data-go="26"><span>27</span>26. 마지막 결과물은 지도</button>
+<button class="toc-item" data-go="27"><span>28</span>27. 낙원악기상가 사례</button>
+<button class="toc-item" data-go="28"><span>29</span>28. 카카오 로드뷰와 연결</button>
+<button class="toc-item" data-go="29"><span>30</span>29. 지도는 단순 시각화가 아님</button>
+<button class="toc-item" data-go="30"><span>31</span>30. 발표의 최종 결론</button>
+<button class="toc-item" data-go="31"><span>32</span>31. 가장 중요한 정책적 제안</button>
+<button class="toc-item" data-go="32"><span>33</span>32. 핵심 분석 논리 한 장</button>
+<button class="toc-item" data-go="33"><span>34</span>33. 빅데이터 분석 경진대회 사례로 좋은 이유</button>
+<button class="toc-item" data-go="34"><span>35</span>34. 분석방법이 하나가 아님</button>
+<button class="toc-item" data-go="35"><span>36</span>35. DIKW로 설명하면</button>
+<button class="toc-item" data-go="36"><span>37</span>36. 논문 구조로 바꾸면</button>
+<button class="toc-item" data-go="37"><span>38</span>37. 학술연구 관점의 검토점</button>
+<button class="toc-item" data-go="38"><span>39</span>38. 로드뷰 기반 평가의 한계</button>
+<button class="toc-item" data-go="39"><span>40</span>39. 이 연구의 가장 좋은 점</button>
+<button class="toc-item" data-go="40"><span>41</span>40. 전체 발표 압축 요약</button>
+<button class="toc-item" data-go="41"><span>42</span>41. 수업용 핵심 문장</button>
+<button class="toc-item" data-go="42"><span>43</span>42. 문제 해결</button>
+<button class="toc-item" data-go="43"><span>44</span>43. 자료 수집 방법</button>
+<button class="toc-item" data-go="44"><span>45</span>44. 분석 방법</button>
+<button class="toc-item" data-go="45"><span>46</span>45. 분석 프로그램·도구</button>
+<button class="toc-item" data-go="46"><span>47</span>46. 네 줄로 외우기</button>
+</aside>
+
+<nav class="nav">
+<button class="prev" id="prevBtn">← 이전</button>
+<button class="next" id="nextBtn">다음 →</button>
+<a class="share-link" href="https://chatgpt.com/share/6aa787ce-b55c-83e8-bd4f-0a76c0716579" target="_blank" rel="noopener noreferrer">
+https://chatgpt.com/share/6aa787ce-b55c-83e8-bd4f-0a76c0716579
+</a>
+</nav>
+
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+const progress=document.getElementById('progress');
+const counter=document.getElementById('counter');
+const drawer=document.getElementById('drawer');
+let idx=0;
+function show(i){
+ idx=Math.max(0,Math.min(slides.length-1,i));
+ slides.forEach((s,n)=>s.classList.toggle('active',n===idx));
+ progress.style.width=((idx+1)/slides.length*100)+'%';
+ counter.textContent=(idx+1)+' / '+slides.length;
+ document.getElementById('prevBtn').disabled=idx===0;
+ document.getElementById('nextBtn').disabled=idx===slides.length-1;
+ slides[idx].scrollTop=0;
+ history.replaceState(null,'','#p'+(idx+1));
+}
+document.getElementById('prevBtn').onclick=()=>show(idx-1);
+document.getElementById('nextBtn').onclick=()=>show(idx+1);
+document.getElementById('tocBtn').onclick=()=>drawer.classList.toggle('open');
+document.querySelectorAll('.toc-item').forEach(b=>b.onclick=()=>{show(+b.dataset.go);drawer.classList.remove('open')});
+document.addEventListener('keydown',e=>{
+ if(e.key==='ArrowRight'||e.key==='PageDown')show(idx+1);
+ if(e.key==='ArrowLeft'||e.key==='PageUp')show(idx-1);
+ if(e.key==='Escape')drawer.classList.remove('open');
+});
+const m=location.hash.match(/p(\d+)/); if(m) idx=Math.max(0,Math.min(slides.length-1,+m[1]-1));
+show(idx);
+</script>
+</body>
+</html>
