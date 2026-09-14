@@ -100,6 +100,10 @@
     .learn-article .roadmap3 .rm-when.br { display: block; margin-left: 0; margin-top: 1px; white-space: nowrap; }
     /* 로드맵의 최종결과물 꼬리표 — 강의실 바 · 단계 3 의 샛노랑 알약과 같은 모양 */
     .learn-article .roadmap3 .rm-task b.fin { background: #ffe800; color: #14120a; border-radius: 999px; padding: 1px 8px; }
+    /* 꼬리표 뒤 글이 두 줄이 되면 둘째 줄을 꼬리표 폭만큼 들여 글 첫 줄과 맞춘다 */
+    .learn-article .roadmap3 .rm-task.tg { display: grid; grid-template-columns: auto 1fr; align-items: start; }
+    .learn-article .roadmap3 .rm-task.tg > b { margin-right: 6px; }
+    .learn-article .roadmap3 .rm-task.tg .rm-when.br { color: #ffe800; font-weight: 800; }
     .learn-article .task-box .tb-t span.when {
       display: inline-block; margin-left: 7px; padding: 2px 9px; border-radius: 999px;
       background: #fff; border: 1px dashed var(--s-ac, #2563a8); color: var(--s-dk, #1c4e8a);
@@ -877,7 +881,7 @@
         <div class="rm-arrow" aria-hidden="true"><span></span></div>
         <div class="rm-col mid">
           <p class="rm-cap">여기로 모인다</p>
-          <div class="rm-cell rm-do"><span class="rm-t">파트 03</span><strong>취업 지원의 바탕을 만든다</strong><em>모의 연습 · 공모 지원 준비 · 제작 실습</em><span class="rm-task"><b class="fin">최종결과물 1</b>AX 응모신청서 쓰기</span><span class="rm-task"><b class="fin">최종결과물 2</b>지역문화재단 · 관광공사 · 연구원 업무수행계획서<i class="rm-when br">모의 PT</i></span></div>
+          <div class="rm-cell rm-do"><span class="rm-t">파트 03</span><strong>취업 지원의 바탕을 만든다</strong><em>모의 연습 · 공모 지원 준비 · 제작 실습</em><span class="rm-task"><b class="fin">최종결과물 1</b>AX 응모신청서 쓰기</span><span class="rm-task tg"><b class="fin">최종결과물 2</b><span class="tx">지역문화재단 · 관광공사 · 연구원 업무수행계획서<i class="rm-when br">모의 PT</i></span></span></div>
         </div>
         <div class="rm-arrow flip" aria-hidden="true"><span></span></div>
         <div class="rm-col right">
