@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>한지를 깊이 이해하기 위한 8+1 핵심 지식</title>
+<style>
+  :root{
+    --navy:#17365D;
+    --blue:#1F4E79;
+    --sky:#EAF3F8;
+    --paper:#F8F4EA;
+    --gold:#B28A3E;
+    --ink:#24303A;
+    --muted:#66737F;
+    --line:#D9E1E8;
+    --white:#FFFFFF;
+    --green:#557A5B;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:"Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",sans-serif;
+    color:var(--ink);
+    background:linear-gradient(180deg,#f5f7fa 0%,#eef2f5 100%);
+    line-height:1.68;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:28px 20px 60px}
+  .hero{
+    background:linear-gradient(135deg,var(--navy),#274f7e);
+    color:#fff;border-radius:26px;padding:38px 42px;
+    box-shadow:0 18px 40px rgba(23,54,93,.18);
+    position:relative;overflow:hidden;
+  }
+  .hero:after{
+    content:"韓紙";
+    position:absolute;right:36px;top:6px;
+    font-size:110px;font-weight:800;opacity:.07;letter-spacing:.04em;
+  }
+  .kicker{font-size:14px;font-weight:700;letter-spacing:.08em;color:#d9e8f4}
+  h1{font-size:38px;line-height:1.25;margin:8px 0 14px}
+  .hero p{max-width:780px;font-size:17px;margin:0;color:#edf4fa}
+  .hero strong{color:#fff}
+  .flow{
+    margin-top:22px;display:flex;flex-wrap:wrap;gap:8px;align-items:center
+  }
+  .flow span{
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);
+    padding:8px 11px;border-radius:999px;font-size:13px;font-weight:700
+  }
+  .flow b{opacity:.7}
+  .section{
+    background:#fff;border-radius:22px;padding:28px 30px;margin-top:24px;
+    box-shadow:0 10px 26px rgba(34,53,75,.07);border:1px solid #edf1f4
+  }
+  .section h2{font-size:25px;color:var(--navy);margin:0 0 10px}
+  .section h3{font-size:19px;color:var(--blue);margin:24px 0 10px}
+  .lead{
+    font-size:17px;background:var(--paper);border-left:5px solid var(--gold);
+    padding:16px 18px;border-radius:12px;margin:14px 0 0
+  }
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+  .card{
+    background:#fbfcfd;border:1px solid var(--line);border-radius:16px;padding:18px;
+    min-height:165px
+  }
+  .card .num{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;
+    font-weight:800;margin-bottom:10px
+  }
+  .card h4{margin:0 0 6px;color:var(--navy);font-size:17px}
+  .card p{margin:0;font-size:14px;color:#485763}
+  .card .q{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);font-size:13px;color:var(--blue);font-weight:700}
+  table{width:100%;border-collapse:collapse;margin-top:16px;font-size:14px}
+  th,td{padding:12px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:var(--sky);color:var(--navy);text-align:left}
+  tr:last-child td{border-bottom:0}
+  .steps{
+    display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:18px
+  }
+  .step{
+    background:var(--paper);border:1px solid #eadfc7;border-radius:14px;
+    padding:14px;text-align:center;font-size:13px;font-weight:700
+  }
+  .step small{display:block;color:var(--muted);font-weight:500;margin-top:4px}
+  .arrowline{
+    display:flex;flex-wrap:wrap;gap:7px;align-items:center;
+    background:#f8fafc;border:1px solid var(--line);padding:16px;border-radius:14px;margin-top:14px
+  }
+  .arrowline span{font-weight:700;color:var(--navy)}
+  .arrowline b{color:var(--gold);font-size:18px}
+  .science{
+    display:grid;grid-template-columns:1.05fr .95fr;gap:18px;margin-top:18px
+  }
+  .box{
+    border-radius:16px;padding:18px;background:#f8fafc;border:1px solid var(--line)
+  }
+  .box h4{margin:0 0 10px;color:var(--navy)}
+  .tags{display:flex;flex-wrap:wrap;gap:8px}
+  .tag{
+    background:#eaf2f7;color:var(--blue);padding:7px 10px;border-radius:999px;
+    font-size:13px;font-weight:700
+  }
+  .heritage{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px
+  }
+  .heritage .box{background:#fffaf0;border-color:#eadfc7}
+  .ecosystem{
+    margin-top:20px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px
+  }
+  .eco{
+    padding:16px;border-radius:16px;background:#f8fbfd;border:1px solid var(--line);
+    text-align:center
+  }
+  .eco strong{display:block;color:var(--navy);margin-bottom:6px}
+  .eco em{font-style:normal;color:var(--blue);font-size:13px}
+  .research{
+    background:linear-gradient(135deg,#f2f6fa,#fff);
+    border:1px solid #dbe4ec
+  }
+  .research .path{
+    margin-top:16px;padding:18px;border-radius:16px;background:#fff;border:1px solid var(--line);
+    font-weight:700;color:var(--navy);text-align:center
+  }
+  .note{
+    margin-top:16px;color:var(--muted);font-size:13px
+  }
+  .sourcebox{
+    background:#f9fafb;border:1px dashed #c8d1da;border-radius:14px;padding:14px 16px;margin-top:16px;
+    font-size:13px;color:#4f5d68
+  }
+  footer{
+    margin-top:24px;text-align:center;color:#71808c;font-size:12px
+  }
+  @media(max-width:900px){
+    .grid{grid-template-columns:repeat(2,1fr)}
+    .steps{grid-template-columns:repeat(3,1fr)}
+    .science{grid-template-columns:1fr}
+    .heritage{grid-template-columns:1fr}
+    .ecosystem{grid-template-columns:repeat(2,1fr)}
+    .hero h1{font-size:30px}
+  }
+  @media(max-width:560px){
+    .grid,.ecosystem{grid-template-columns:1fr}
+    .steps{grid-template-columns:repeat(2,1fr)}
+    .hero{padding:28px 22px}
+    .section{padding:22px 18px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div style="text-align:right; font-size:14px; font-weight:700; color:#5f6b76; margin-bottom:10px;">
+    2026년 9월 14일
+  </div>
+
+  <header class="hero">
+    <div class="kicker">HANJI · 한지 깊이 읽기</div>
+    <h1>한지를 깊이 이해하려면 무엇을 알아야 하는가?</h1>
+    <p>
+      한지는 단순한 “전통 종이”가 아니라 <strong>재료·기술·물성·역사·장인·문화유산·산업·관광경험</strong>이
+      결합된 문화생태계입니다. 핵심은 “닥나무로 만든다”를 아는 데서 끝나지 않고,
+      <strong>왜 그런 물성이 생기고, 그것이 어떤 쓰임과 문화적 가치로 이어지는지</strong>를 설명하는 것입니다.
+    </p>
+    <div class="flow">
+      <span>원료</span><b>→</b><span>제조공정</span><b>→</b><span>외발뜨기</span><b>→</b>
+      <span>물성</span><b>→</b><span>역사</span><b>→</b><span>표준화</span><b>→</b>
+      <span>보존·복원</span><b>→</b><span>현대산업</span><b>→</b><span>관광·문화콘텐츠</span>
+    </div>
+  </header>
+
+  <section class="section">
+    <h2>1. 한지 지식의 전체 구조: 8+1 핵심 축</h2>
+    <div class="lead">깊은 이해는 “무엇인가?”보다 <strong>“왜 그런가?”</strong>에 답할 수 있을 때 시작됩니다.</div>
+    <div class="grid">
+      <div class="card"><div class="num">1</div><h4>원료</h4><p>닥나무, 백피·흑피, 닥풀(황촉규), 잿물</p><div class="q">왜 닥섬유가 한지의 강도를 만드는가?</div></div>
+      <div class="card"><div class="num">2</div><h4>제조공정</h4><p>닥무지, 삶기, 씻기·표백, 티고르기, 두드리기, 뜨기, 건조, 도침</p><div class="q">공정 변화가 물성을 어떻게 바꾸는가?</div></div>
+      <div class="card"><div class="num">3</div><h4>초지기술</h4><p>외발뜨기, 물의 흐름, 섬유 방향성, 두 장 겹침</p><div class="q">한지와 화지·선지는 무엇이 다른가?</div></div>
+      <div class="card"><div class="num">4</div><h4>물성</h4><p>인장강도, 내절강도, 습윤강도, pH, 색도, 보존성</p><div class="q">“질기다”를 어떤 지표로 설명할 수 있는가?</div></div>
+      <div class="card"><div class="num">5</div><h4>종류와 용도</h4><p>창호지, 장판지, 서화지, 복원지, 공예지 등</p><div class="q">용도에 따라 원료와 가공은 어떻게 달라지는가?</div></div>
+      <div class="card"><div class="num">6</div><h4>역사·문화</h4><p>조지서, 고문헌, 지역 전승, 한지장·한지발장</p><div class="q">한지는 한국의 생활문화와 어떻게 연결되는가?</div></div>
+      <div class="card"><div class="num">7</div><h4>보존·복원</h4><p>고문서·고서적·회화·전적·궁궐 도배지 복원</p><div class="q">왜 복원용 한지는 별도 기준이 필요한가?</div></div>
+      <div class="card"><div class="num">8</div><h4>현대 활용</h4><p>건축, 인테리어, 디자인, 패션, 문화상품</p><div class="q">전통기술이 현대 산업에서 어떻게 살아남는가?</div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>2. 가장 먼저 이해해야 할 것: 닥나무와 닥섬유</h2>
+    <p>한지의 성질은 제조기술 이전에 <strong>섬유 자체</strong>에서 시작합니다. 한지의 주원료인 닥나무는 긴 섬유를 가지며, 이 긴 섬유들이 서로 얽히면서 강한 종이 구조를 만듭니다.</p>
+    <div class="arrowline">
+      <span>닥나무</span><b>→</b><span>긴 닥섬유</span><b>→</b><span>섬유의 얽힘</span><b>→</b><span>강한 종이 구조</span>
+    </div>
+    <h3>닥풀(황촉규)의 역할</h3>
+    <p>닥풀은 물속에서 섬유가 한곳에 뭉치지 않도록 분산시키고, 종이를 뜰 때 섬유가 고르게 퍼지도록 돕습니다.</p>
+    <div class="sourcebox">핵심 이해: “닥나무가 재료라면, 닥풀은 섬유가 종이 구조를 형성하도록 돕는 공정의 조력자”라고 볼 수 있습니다.</div>
+  </section>
+
+  <section class="section">
+    <h2>3. 제조공정: 결과보다 과정이 중요하다</h2>
+    <p>전통 한지는 여러 단계의 손작업을 거치며, 각 단계가 최종 종이의 색·강도·표면·보존성에 영향을 줍니다.</p>
+    <div class="steps">
+      <div class="step">닥나무 수확<small>원료 확보</small></div>
+      <div class="step">껍질 벗기기<small>흑피·백피 처리</small></div>
+      <div class="step">삶기<small>섬유 연화</small></div>
+      <div class="step">씻기·표백<small>불순물 제거</small></div>
+      <div class="step">티고르기<small>잔여 불순물 선별</small></div>
+      <div class="step">두드리기<small>섬유 분해·정련</small></div>
+      <div class="step">닥풀 혼합<small>섬유 분산</small></div>
+      <div class="step">종이뜨기<small>섬유층 형성</small></div>
+      <div class="step">물빼기<small>습지 압착</small></div>
+      <div class="step">건조<small>형태 안정화</small></div>
+      <div class="step">도침<small>조직 치밀화</small></div>
+      <div class="step">완성<small>용도별 가공</small></div>
+    </div>
+    <div class="lead"><strong>도침(搗砧)</strong>은 종이를 두드려 조직을 치밀하게 만들고 표면을 매끄럽게 하는 가공입니다.</div>
+  </section>
+
+  <section class="section">
+    <h2>4. 한지의 핵심 기술: 외발뜨기</h2>
+    <p>외발뜨기는 단순히 “손으로 종이를 뜨는 방식”이 아닙니다. 물의 움직임을 이용해 섬유의 배열을 조정하고 종이의 구조를 만드는 기술입니다.</p>
+    <div class="arrowline">
+      <span>물의 움직임</span><b>→</b><span>섬유 배열</span><b>→</b><span>두 장의 결합</span><b>→</b><span>종이 구조</span><b>→</b><span>강도와 방향성</span>
+    </div>
+    <p>전통 외발뜨기에서는 떠낸 종이를 서로 반대 방향으로 겹쳐 한 장으로 만드는 방식이 활용됩니다. 이 때문에 섬유 배열과 방향성이 한지의 강도와 연결됩니다.</p>
+  </section>
+
+  <section class="section">
+    <h2>5. 전문가 수준의 이해: 한지의 물성</h2>
+    <div class="science">
+      <div class="box">
+        <h4>물리·기계적 특성</h4>
+        <div class="tags">
+          <span class="tag">인장강도 Tensile Strength</span>
+          <span class="tag">내절강도 Folding Endurance</span>
+          <span class="tag">습윤강도 Wet Tensile Strength</span>
+          <span class="tag">두께</span>
+          <span class="tag">평량</span>
+        </div>
+      </div>
+      <div class="box">
+        <h4>화학·보존 특성</h4>
+        <div class="tags">
+          <span class="tag">pH</span>
+          <span class="tag">색도</span>
+          <span class="tag">수분율</span>
+          <span class="tag">알칼리도</span>
+          <span class="tag">보존성 Durability</span>
+        </div>
+      </div>
+    </div>
+    <p>따라서 “한지가 질기다”라고만 말하는 것보다, <strong>어떤 제조요인이 어떤 물성으로 나타나는가</strong>를 설명할 수 있어야 깊은 이해라고 할 수 있습니다.</p>
+  </section>
+
+  <section class="section">
+    <h2>6. 역사·문화: 한지는 생활문화와 제도의 산물</h2>
+    <div class="heritage">
+      <div class="box"><h4>조지서(造紙署)</h4><p>조선시대 국가 차원의 종이 생산·원료 조달·규격·품질 관리와 연결되는 핵심 제도입니다.</p></div>
+      <div class="box"><h4>고문헌과 용어</h4><p>한지는 종류와 쓰임이 매우 다양하여, 문헌 속 용어를 통해 시대별 생산과 사용의 차이를 확인할 수 있습니다.</p></div>
+      <div class="box"><h4>장인과 지역 전승</h4><p>한지장·한지발장, 지역 공방, 생산지의 지식이 기술문화의 핵심입니다.</p></div>
+    </div>
+    <div class="lead">“천년 가는 종이”라는 표현보다 <strong>어떤 제도와 기술, 지역 지식이 그 품질을 만들었는지</strong>를 보는 것이 더 학술적입니다.</div>
+  </section>
+
+  <section class="section">
+    <h2>7. 현대의 중요한 변화: 한지 용어의 국가표준화</h2>
+    <p>한지 관련 용어는 지역과 장인에 따라 다르게 사용되어 왔습니다. 최근에는 원료 처리부터 제작·도침까지 관련 어휘를 체계화하여 <strong>국가표준(KS)</strong>으로 정리하려는 흐름이 강화되고 있습니다.</p>
+    <div class="arrowline">
+      <span>전통 현장어</span><b>→</b><span>용어 정리</span><b>→</b><span>공통 기준</span><b>→</b><span>연구·교육·산업 활용</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>8. 문화유산 보존·복원: “좋은 한지”는 용도마다 다르다</h2>
+    <p>한지는 고문서·고서적·회화·전적·궁궐 도배지 등 문화유산 보존과 복원에 활용됩니다. 이 분야에서는 단순한 미감보다 재질 안정성과 장기 보존성이 중요합니다.</p>
+    <table>
+      <thead><tr><th>용도</th><th>중요하게 보는 특성</th><th>핵심 질문</th></tr></thead>
+      <tbody>
+        <tr><td>서예·회화</td><td>먹 번짐, 표면감, 흡수성</td><td>표현에 적합한가?</td></tr>
+        <tr><td>공예</td><td>형태 유지, 강도, 가공성</td><td>접고 붙이고 성형하기 좋은가?</td></tr>
+        <tr><td>문화유산 복원</td><td>재질 안정성, pH, 보존성, 원재료 적합성</td><td>원유물과 장기간 안정적으로 공존할 수 있는가?</td></tr>
+      </tbody>
+    </table>
+    <div class="lead">즉, <strong>서예에 좋은 한지 ≠ 공예에 좋은 한지 ≠ 복원에 좋은 한지</strong>입니다.</div>
+  </section>
+
+  <section class="section">
+    <h2>9. 한지 × 현대산업 × 관광·문화콘텐츠</h2>
+    <p>한지를 문화콘텐츠 관점에서 보면, 종이 한 장이 아니라 <strong>지역 자원과 기술, 장인, 체험, 관광경험이 연결된 가치사슬</strong>로 볼 수 있습니다.</p>
+    <div class="ecosystem">
+      <div class="eco"><strong>Resource 자원</strong><em>닥나무 · 물 · 지역환경</em></div>
+      <div class="eco"><strong>Technique 기술</strong><em>삶기 · 두드리기 · 외발뜨기 · 도침</em></div>
+      <div class="eco"><strong>Craftsperson 장인</strong><em>한지장 · 한지발장</em></div>
+      <div class="eco"><strong>Product 제품</strong><em>서화지 · 생활용품 · 건축재</em></div>
+      <div class="eco"><strong>Heritage 문화유산</strong><em>기술 · 도구 · 기억 · 지역정체성</em></div>
+      <div class="eco"><strong>Experience 체험</strong><em>한지뜨기 · 공방 · 전시 · 교육</em></div>
+      <div class="eco"><strong>Tourism 관광</strong><em>축제 · 공방관광 · 지역브랜드</em></div>
+      <div class="eco"><strong>Industry 산업</strong><em>디자인 · 패션 · 인테리어 · 문화상품</em></div>
+    </div>
+  </section>
+
+  <section class="section research">
+    <h2>10. 연구·강의용으로 공부한다면 이 순서가 좋다</h2>
+    <div class="path">
+      ① 닥나무 → ② 제조공정 → ③ 외발뜨기·도침 → ④ 물성 → ⑤ 역사와 지역 → ⑥ 장인 → ⑦ 보존·복원 → ⑧ 현대산업 → ⑨ 관광·문화콘텐츠
+    </div>
+    <p>이 순서로 가면 “한지가 무엇인가”에서 출발해, “왜 이런 특성을 가지며 지역문화와 산업, 관광으로 어떻게 확장되는가”까지 연결할 수 있습니다.</p>
+    <div class="lead">
+      연구 관점에서는 <strong>한국 한지 전체 → 경북 한지 → 안동 한지 → 장인·공방 → 관광콘텐츠 → 연구주제</strong>처럼 범위를 좁혀가면 현장성과 연구 적용성이 함께 높아집니다.
+    </div>
+  </section>
+
+  <footer>한지 심화 학습노트 · 강의/연구용 HTML</footer>
+</div>
+</body>
+</html>
