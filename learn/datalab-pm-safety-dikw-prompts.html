@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>한국관광 데이터랩 PM 안전사례 · DIKW · 학생용 프롬프트</title>
+<style>
+  :root{
+    --navy:#173B63;
+    --blue:#245E9A;
+    --light:#F5F8FC;
+    --sky:#EAF2FB;
+    --gold:#C9A34A;
+    --text:#1E293B;
+    --muted:#64748B;
+    --line:#D9E2EC;
+    --green:#26785B;
+    --red:#A33A3A;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:"NanumBarunGothic","Noto Sans KR","Malgun Gothic",Arial,sans-serif;
+    color:var(--text);
+    background:#EEF3F8;
+    line-height:1.7;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:28px 18px 70px}
+  .hero{
+    background:linear-gradient(135deg,#173B63,#245E9A);
+    color:white;
+    border-radius:24px;
+    padding:34px 36px;
+    box-shadow:0 14px 34px rgba(23,59,99,.18);
+    margin-bottom:22px;
+  }
+  .hero .eyebrow{font-size:14px;font-weight:800;letter-spacing:.08em;opacity:.82}
+  .hero h1{margin:8px 0 8px;font-size:32px;line-height:1.25}
+  .hero p{margin:0;font-size:17px;opacity:.95}
+  .nav{
+    position:sticky;top:0;z-index:20;
+    display:flex;gap:8px;flex-wrap:wrap;
+    background:rgba(238,243,248,.94);
+    backdrop-filter:blur(8px);
+    padding:12px 0 14px;
+    margin-bottom:14px;
+  }
+  .nav a{
+    text-decoration:none;
+    color:var(--navy);
+    background:white;
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:8px 13px;
+    font-size:14px;
+    font-weight:700;
+  }
+  .card{
+    background:white;
+    border:1px solid #E3EAF2;
+    border-radius:20px;
+    padding:28px;
+    margin:18px 0;
+    box-shadow:0 8px 22px rgba(30,41,59,.06);
+  }
+  h2{color:var(--navy);font-size:25px;margin:0 0 14px}
+  h3{color:var(--blue);font-size:20px;margin:24px 0 10px}
+  h4{color:var(--navy);font-size:17px;margin:18px 0 8px}
+  p{margin:9px 0}
+  .lead{font-size:17px}
+  .star{font-weight:800;color:var(--blue)}
+  .flow{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:8px;
+    align-items:stretch;
+    margin:18px 0 6px;
+  }
+  .flow .box{
+    background:var(--light);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:12px 8px;
+    text-align:center;
+    font-weight:800;
+    color:var(--navy);
+    min-height:76px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .arrow{display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:900;font-size:24px}
+  .table-wrap{overflow-x:auto;margin:14px 0 8px}
+  table{width:100%;border-collapse:collapse;font-size:15px;background:white}
+  th{
+    background:#EEF4FA;color:var(--navy);
+    text-align:left;padding:12px;border:1px solid var(--line);
+  }
+  td{padding:12px;border:1px solid var(--line);vertical-align:top}
+  .dikw{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin-top:14px;
+  }
+  .dikw .item{
+    border-radius:16px;padding:18px;border:1px solid var(--line);background:#fff;
+  }
+  .dikw .item b{display:block;color:var(--navy);font-size:18px;margin-bottom:6px}
+  .callout{
+    background:#F8FBFF;
+    border-left:5px solid var(--blue);
+    padding:17px 18px;
+    border-radius:10px;
+    margin:16px 0;
+  }
+  .quote{
+    background:#FFF9EA;
+    border:1px solid #E8D59D;
+    border-radius:14px;
+    padding:18px;
+    font-weight:700;
+    color:#4B3B12;
+    margin:14px 0;
+  }
+  .prompt{
+    white-space:pre-wrap;
+    background:#0F2742;
+    color:#F7FAFC;
+    padding:22px;
+    border-radius:16px;
+    font-size:15px;
+    line-height:1.75;
+    overflow:auto;
+  }
+  .mini-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:12px 0;
+  }
+  .mini{
+    background:var(--light);border:1px solid var(--line);border-radius:14px;padding:16px;
+  }
+  .mini strong{color:var(--navy)}
+  ul,ol{padding-left:22px}
+  .formula{
+    font-size:21px;
+    text-align:center;
+    font-weight:900;
+    color:var(--navy);
+    background:var(--sky);
+    border-radius:16px;
+    padding:20px;
+    margin:14px 0;
+  }
+  .footer{
+    color:var(--muted);font-size:13px;text-align:center;margin-top:28px
+  }
+  @media(max-width:900px){
+    .flow{grid-template-columns:1fr}
+    .arrow{transform:rotate(90deg)}
+    .dikw,.mini-grid{grid-template-columns:1fr}
+    .hero h1{font-size:26px}
+    .card{padding:20px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <section class="hero">
+    <div class="eyebrow">관광빅데이터 분석 수업자료</div>
+    <h1>한국관광 데이터랩 PM 안전사례 · DIKW · 학생용 프롬프트</h1>
+    <p>문제 → 데이터 → 분석방법 → 정보 → 지식 → 의사결정 → 성과의 전 과정을 한 번에 보는 통합 HTML</p>
+  </section>
+
+  <nav class="nav">
+    <a href="#case">사례 전체 구조</a>
+    <a href="#data">데이터</a>
+    <a href="#analysis">분석방법</a>
+    <a href="#dikw">DIKW</a>
+    <a href="#meaning">핵심 해석</a>
+    <a href="#prompt">학생용 프롬프트</a>
+    <a href="#critical">비판적 분석</a>
+  </nav>
+
+  <section class="card" id="case">
+    <h2>1. 한국관광 데이터랩 2024 대상 사례 분석</h2>
+    <p class="lead">이 사례는 관광빅데이터 수업에서 <span class="star">“문제 → 데이터 수집 → 데이터 융합 → 분석 → DIKW → 정책 실행 → 성과”</span>의 전 과정을 보여주는 좋은 사례입니다.</p>
+
+    <div class="flow">
+      <div class="box">문제 발견</div><div class="arrow">→</div>
+      <div class="box">3종 데이터 융합</div><div class="arrow">→</div>
+      <div class="box">Who·Where·When 분석</div><div class="arrow">→</div>
+      <div class="box">위험지역 선정</div>
+    </div>
+    <div class="flow">
+      <div class="box">맞춤형 정책</div><div class="arrow">→</div>
+      <div class="box">교육·BIS·GS25 캠페인</div><div class="arrow">→</div>
+      <div class="box">사고 감소</div><div class="arrow">→</div>
+      <div class="box">전국 확산</div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>단계</th><th>내용</th><th>이 사례에서 확인되는 핵심</th></tr></thead>
+        <tbody>
+          <tr><td><b>문제 Problem</b></td><td>관광지에서 개인형 이동장치(PM) 사고와 안전문제 증가</td><td>최근 5년간 PM 사고 <b>약 10.6배 증가</b>, 관광지의 무단방치·보행자 안전·무면허·2인 탑승 문제</td></tr>
+          <tr><td><b>목표 Objective</b></td><td>사고 가능성이 높은 관광지역·시간·이용자 집단을 찾아 맞춤형 안전대책 마련</td><td>단순 단속이 아니라 <b>“어디서·언제·누구에게 개입할 것인가?”</b>를 데이터로 결정</td></tr>
+          <tr><td><b>데이터 Data</b></td><td>서로 다른 기관의 데이터를 결합</td><td>한국관광 데이터랩 + TAAS + 민간 공유 PM 이용데이터</td></tr>
+          <tr><td><b>분석 Analysis</b></td><td>방문·사고·이용 데이터를 공간·시간·연령 기준으로 결합 분석</td><td><b>GIS 공간분석 + 연령대 분석 + 시간대 분석 + 데이터 융합 + 위험지역 도출</b></td></tr>
+          <tr><td><b>결과 Insight</b></td><td>위험 집단·지역·시간대를 구체적으로 식별</td><td>10~20대, 관광·쇼핑·문화·레저·공원 및 교통거점, 오후~야간 시간대가 중요</td></tr>
+          <tr><td><b>실행 Action</b></td><td>분석결과를 실제 정책으로 연결</td><td>교육, GS25 LCD, BIS, 지자체·PM업체 협력 캠페인</td></tr>
+          <tr><td><b>성과 Outcome</b></td><td>데이터 기반 안전관리 효과 확인</td><td>주요 관광지 PM 사고 감소세, 맞춤형 안전교육 확대, 전국 확산 추진</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card" id="data">
+    <h2>2. 어떤 데이터를 사용했는가?</h2>
+    <p>이 사례에서 가장 중요한 것은 <b>하나의 데이터만 분석한 것이 아니라 서로 다른 데이터를 융합했다는 점</b>입니다.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>데이터 출처</th><th>주요 데이터</th><th>알 수 있는 것</th><th>분석에서의 역할</th></tr></thead>
+        <tbody>
+          <tr><td><b>한국관광 데이터랩</b></td><td>이동통신 기반 방문자 정보</td><td>누가 관광지를 방문하는가</td><td><b>관광객 분포 파악</b></td></tr>
+          <tr><td><b>한국관광 데이터랩</b></td><td>주요 방문지점 GIS</td><td>관광객이 어디를 방문하는가</td><td><b>관광공간 파악</b></td></tr>
+          <tr><td><b>TAAS 교통사고분석시스템</b></td><td>PM 사고 발생 위치·시간·연령 등</td><td>어디서 언제 사고가 발생하는가</td><td><b>사고 위험 파악</b></td></tr>
+          <tr><td><b>공유 PM 업체</b></td><td>PM 이용자·이용 위치·이용시간</td><td>PM이 어디서 언제 이용되는가</td><td><b>PM 이용행태 파악</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="formula">관광객 데이터 + 교통사고 데이터 + PM 이용 데이터 → 관광지 PM 위험지역 데이터</div>
+  </section>
+
+  <section class="card" id="analysis">
+    <h2>3. 분석 방법은 무엇인가?</h2>
+    <p>이 사례를 단순히 “빅데이터 분석”이라고 하면 너무 넓습니다.  <b> 5가지 분석방법</b>으로 나눠 보면 선명해집니다.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>분석방법</th><th>질문</th><th>사례</th></tr></thead>
+        <tbody>
+          <tr><td><b>① 기술통계 분석<br>Descriptive Analysis</b></td><td>어떤 사람이 많이 이용하는가?</td><td>PM 이용자의 <b>72%가 10~20대</b></td></tr>
+          <tr><td><b>② 시간대 분석<br>Temporal Analysis</b></td><td>언제 많이 이용하고 사고가 발생하는가?</td><td>이용 <b>15~21시</b>, 사고 <b>16~22시</b></td></tr>
+          <tr><td><b>③ 공간분석<br>Spatial Analysis</b></td><td>어디에서 문제가 발생하는가?</td><td>관광지·쇼핑지역·공원·지하철역·버스정류장</td></tr>
+          <tr><td><b>④ GIS 중첩분석<br>GIS Overlay Analysis</b></td><td>방문·사고·PM 이용이 동시에 집중되는 곳은 어디인가?</td><td>세 데이터의 위치정보를 중첩하여 <b>위험지역 도출</b></td></tr>
+          <tr><td><b>⑤ 세분화 분석<br>Segmentation</b></td><td>누구·어디·언제를 집중관리해야 하는가?</td><td><b>10~20대 × 관광·교통거점 × 오후·야간</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="formula">사람 Who × 장소 Where × 시간 When → 위험도가 높은 관광 상황 → 맞춤형 안전대책 What to do</div>
+  </section>
+
+  <section class="card" id="dikw">
+    <h2>4. DIKW 틀로 보면</h2>
+    <p>이 사례는 <b>DIKW(Data → Information → Knowledge → Wisdom)</b>를 설명하기에 특히 좋습니다.</p>
+
+    <div class="dikw">
+      <div class="item"><b>D · Data 데이터</b>관광객 이동통신 데이터, 관광지 GIS, PM 사고자료, PM 이용자료</div>
+      <div class="item"><b>I · Information 정보</b>PM 이용자 72%가 10~20대, 사고자 68%가 10~20대, 이용 15~21시, 사고 16~22시</div>
+      <div class="item"><b>K · Knowledge 지식</b>10~20대가 많이 방문하고 PM 이용이 많으며 사고도 집중되는 관광·교통지역이 핵심 위험지역</div>
+      <div class="item"><b>W · Wisdom 지혜</b>해당 장소·시간·연령층을 대상으로 BIS·GS25·교육·캠페인을 집중 실시</div>
+    </div>
+
+    <h3>Information과 Knowledge의 차이</h3>
+    <div class="callout"><b>정보 Information</b><br>“PM 사고가 16~22시에 많이 발생한다.”</div>
+    <div class="callout"><b>지식 Knowledge</b><br>“10~20대 관광객의 PM 이용시간과 사고시간이 겹치고, 이들이 많이 방문하는 관광·쇼핑·교통거점에서 위험이 높다.”</div>
+    <div class="quote"><b>지혜 Wisdom</b><br>“그렇다면 10~20대가 해당 장소에 있는 오후·저녁 시간에 안전 메시지를 집중적으로 노출하자.”</div>
+
+    <h3>DIKW 한눈에 보기</h3>
+    <div class="formula">
+      DATA<br>
+      관광객 이동 데이터 + 관광지 GIS + PM 사고 데이터 + PM 이용 데이터<br><br>
+      ↓<br><br>
+      INFORMATION<br>
+      PM 이용자 72% → 10~20대 · 사고자 68% → 10~20대 · 이용 15~21시 · 사고 16~22시<br><br>
+      ↓<br><br>
+      KNOWLEDGE<br>
+      “10~20대가 많이 방문하는 관광·교통거점에서 오후~야간 PM 사고위험이 높다.”<br><br>
+      ↓<br><br>
+      WISDOM<br>
+      10~20대 × 관광지·지하철·버스정류장·편의점 × 오후~야간<br>
+      → 교육 + BIS + GS25 LCD + 민관협력 캠페인<br>
+      → 관광지 PM 사고 감소
+    </div>
+  </section>
+
+  <section class="card" id="meaning">
+    <h2>5. 이 사례에서 가장 중요한 빅데이터 사고방식</h2>
+    <p>이 사례의 진짜 핵심은 <b>“PM 사고 데이터만 분석하지 않았다”</b>는 것입니다.</p>
+
+    <div class="mini-grid">
+      <div class="mini"><strong>사고 데이터만 보면</strong><br>어디에서 사고가 많이 났는가?</div>
+      <div class="mini"><strong>PM 이용 데이터를 더하면</strong><br>어디에서 PM을 많이 타는가?</div>
+      <div class="mini"><strong>한국관광 데이터랩을 더하면</strong><br>그 장소를 어떤 관광객이 많이 찾는가?</div>
+    </div>
+
+    <div class="formula">누가(Who), 어디에서(Where), 언제(When) 위험한가? → 누구에게, 어디에서, 언제 안전정책을 실시할 것인가?</div>
+
+    <h3>한 문장으로 말한다면</h3>
+    <div class="quote">
+      관광객·PM·사고 데이터를 모으고(Data) → 위험 시간·장소·연령을 파악하고(Information) → 10~20대 관광객이 많이 모이는 특정 장소와 시간에 PM 사고위험이 높다는 패턴을 발견하고(Knowledge) → 그 사람·장소·시간을 대상으로 안전교육과 캠페인을 집중하는 것(Wisdom)
+    </div>
+  </section>
+
+  <section class="card" id="prompt">
+    <h2>6. AI에게 어떻게 물어야 하는가?</h2>
+    <p>단순히 <b>“이 사례 분석해줘”</b>라고 하기보다, 분석 순서를 프롬프트 안에 넣어야 합니다. 특히 이 사례라면 <b>문제 → 데이터 → 분석방법 → DIKW → 실행 → 성과</b>가 자동으로 나오게 물으면 됩니다.</p>
+
+    <h3>학생용 기본 프롬프트</h3>
+    <div class="prompt">아래 관광·지역·교통 관련 사례를 빅데이터 분석 관점에서 분석해줘. 다음 순서로 정리해줘.
+
+1. 이 사례가 해결하려는 핵심 문제 Problem은 무엇인지 1~2문장으로 설명해줘.
+2. 문제 해결을 위해 사용한 데이터 Data를 출처별로 구분해줘.
+3. 각 데이터로 무엇을 알 수 있는지 설명해줘.
+4. 사용된 분석방법 Analysis Method을 찾아줘. 기술통계, 시간대 분석, 공간분석, GIS 중첩분석, 군집분석, 예측분석 등으로 구분해서 설명해줘.
+5. 분석과정을 Who(누가) · Where(어디서) · When(언제) · What(무엇이) 관점에서 정리해줘.
+6. 분석 결과를 DIKW(Data → Information → Knowledge → Wisdom) 단계로 구분해줘.
+7. 특히 Information과 Knowledge가 어떻게 다른지 이 사례의 실제 결과를 사용해서 설명해줘.
+8. 분석 결과가 어떤 정책·서비스·의사결정 Action으로 연결되었는지 설명해줘.
+9. 실제 성과 Outcome가 무엇인지 수치가 있으면 함께 제시해줘.
+10. 마지막으로 이 사례를
+문제 → 데이터 → 분석 → 정보 → 지식 → 의사결정 → 성과
+흐름의 한 줄 구조로 정리해줘.
+
+결과는 대학생이 이해할 수 있도록 어려운 전문용어를 풀어서 설명하고, 표를 활용해서 한눈에 비교할 수 있게 작성해줘. 사례에 없는 내용은 임의로 만들지 말고, 확인할 수 없는 분석방법은 ‘명확히 확인되지 않음’이라고 표시해줘.</div>
+
+    <h3>반드시 생각해야 하는 질문</h3>
+    <div class="prompt">AI가 분석한 결과를 그대로 받아들이지 말고, 마지막에 다음 질문에도 답해줘.
+
+‘이 데이터가 없었다면 어떤 판단을 하지 못했을까?’
+‘여러 데이터를 결합했기 때문에 새롭게 알게 된 것은 무엇인가?’</div>
+
+    <h3>이번 PM 사례용 실전 프롬프트</h3>
+    <div class="prompt">다음 ‘한국관광 데이터랩 우수 활용사례 — 관광지 PM 교통사고 안전관리’ 사례를 분석해줘.
+
+① 문제점 → ② 사용 데이터 → ③ 데이터 출처 → ④ 분석방법 → ⑤ 주요 분석결과 → ⑥ DIKW → ⑦ 정책 활용 → ⑧ 성과 순서로 정리해줘.
+
+특히 다음을 구체적으로 분석해줘.
+
+- 한국관광 데이터랩 데이터로 무엇을 알았는가?
+- TAAS 데이터로 무엇을 알았는가?
+- 공유 PM 업체 데이터로 무엇을 알았는가?
+- 세 데이터를 결합했기 때문에 새롭게 알게 된 것은 무엇인가?
+- 분석대상을 Who·Where·When으로 구분하면 각각 무엇인가?
+- 어떤 분석이 기술통계인지, 시간분석인지, 공간분석인지, GIS 기반 분석인지 구분해줘.
+- DIKW의 Data, Information, Knowledge, Wisdom에 실제 사례 내용을 각각 배치해줘.
+- 분석 결과가 실제 안전교육, BIS, 편의점 LCD 캠페인 등의 정책으로 어떻게 이어졌는지 설명해줘.
+
+마지막에는 ‘데이터 → 정보 → 지식 → 행동’을 각각 한 문장으로 작성해줘.</div>
+  </section>
+
+  <section class="card" id="critical">
+    <h2>7. 한 단계 더 — 비판적 분석 프롬프트</h2>
+
+    <div class="prompt">이 사례의 분석을 비판적으로 검토해줘.
+
+1. 현재 데이터만으로 정말 ‘사고의 원인’을 설명할 수 있는가?
+2. 단순한 상관관계와 인과관계를 구분해줘.
+3. 사고 감소가 캠페인 때문이라고 확정하려면 어떤 추가 데이터가 필요한가?
+4. 날씨, 요일, 관광객 수, PM 공급량, 단속 횟수 등 추가하면 좋은 변수를 제안해줘.
+5. 분석 결과를 더 정확하게 만들기 위한 추가 분석방법을 제안해줘.</div>
+
+    <h3>외워 두기 좋은 6문장 공식</h3>
+    <div class="formula">
+      ① 어떤 문제가 있는가?<br>
+      ② 어떤 데이터가 필요한가?<br>
+      ③ 데이터를 어떻게 분석할 것인가?<br>
+      ④ 분석해서 무엇을 알게 되었는가?<br>
+      ⑤ 그래서 무엇을 해야 하는가?<br>
+      ⑥ 실제로 무엇이 달라졌는가?
+    </div>
+
+    <h3>관광빅데이터 사례분석 만능 프롬프트</h3>
+    <div class="quote">
+      “○○ 사례에서 해결하려는 문제를 정의하고 → 필요한 데이터를 출처별로 구분하고 → 분석방법을 설명하고 → 핵심 정보를 도출하고 → 그 정보들이 결합되어 어떤 지식이 되었는지 설명하고 → 그 지식이 어떤 의사결정과 실행으로 연결되었으며 → 어떤 성과를 만들었는지 DIKW 관점에서 분석해줘.”
+    </div>
+  </section>
+
+  <div class="footer">
+    관광빅데이터 분석 수업용 통합 정리 · 한국관광 데이터랩 PM 안전사례
+  </div>
+</div>
+</body>
+</html>
