@@ -575,6 +575,9 @@
       display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 14px 0 20px;
     }
     @media (max-width: 760px) { .learn-article .book-pair { grid-template-columns: 1fr; } }
+    /* 맨 위 마인드맵 — 글자가 작아 본문 폭을 다 쓰고, 눌러서 크게 본다. */
+    .learn-article .learn-fig.mindmap { margin: 6px 0 26px; }
+    .learn-article .learn-fig.mindmap img { max-width: 100%; cursor: zoom-in; }
     .learn-article .book-pair .learn-fig { margin: 0; }
     .learn-article .book-pair .learn-fig img {
       width: 100%; max-width: 100%; border: 1px solid #e6dcc4; border-radius: 10px;
@@ -1651,6 +1654,11 @@
   <main class="learn-article">
     <div class="lw">
 
+      <figure class="learn-fig mindmap">
+        <img src="images/tourism-venture-mindmap.webp" width="1536" height="1024" alt="관광 창업(관광벤처창업론) 마인드맵 — 가운데 「여행의 불편을 반복 가능한 방식으로 푸는 일」을 두고 여덟 파트가 뻗는다. 01 낼 것을 먼저 본다(과제 · 도구 · 준비), 02 주차별 실습 목표(15주 + 기말), 03 창업의 흐름(문제 → 모델 → 검증 → 지원), 04 어디에 내는가(공모 · 지원사업), 05 업종별로 들어가기(여행업 · 외식 · 농어촌 자원 · 스마트팜 · 연구용역 · 로컬크리에이터), 06 창업하지 않아도 쓰인다(과제 2 · 취업 연계), 07 책 — 교재 두 권, 08 곁들여 보기 · 링크. 아래에 이 수업이 남기는 것과 관광벤처가 만드는 가치 다섯." />
+        <figcaption><b>한눈에 보기</b> 이 페이지의 <strong>여덟 파트</strong>가 가운데 한 문장 — <em>「여행의 불편을 반복 가능한 방식으로 푸는 일」</em>에서 뻗어 나갑니다. <span class="zoom-hint">누르면 크게 보입니다</span></figcaption>
+      </figure>
+
       <div class="lead-lines">
         <p>창업은 "좋은 아이템을 파는 일"이 아니라 <strong>"누군가의 불편을 반복 가능한 방식으로 푸는 일"</strong>입니다.</p>
         <p>관광벤처는 그 불편이 여행의 여정 어딘가에 있는 사업입니다.</p>
@@ -2612,7 +2620,7 @@
   var box = document.getElementById('imgzoom');
   if (!box) return;
   var big = box.querySelector('img');
-  document.querySelectorAll('.book-pair .learn-fig img').forEach(function (im) {
+  document.querySelectorAll('.book-pair .learn-fig img, .learn-fig.mindmap img').forEach(function (im) {
     im.addEventListener('click', function () {
       big.src = im.src; big.alt = im.alt; box.classList.add('on');
     });
