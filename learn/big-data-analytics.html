@@ -363,12 +363,14 @@
     .learn-article .task-box.bd-later .vidwrap {
       margin: 14px 0 0; padding-top: 12px; border-top: 1px dashed #e3d7b8;
     }
+    /* 영상과 그 설명을 상자 한가운데로 - 폭이 560px 이라 왼쪽에 붙으면 한쪽으로 쏠린다. */
     .learn-article .task-box.bd-later .vidwrap iframe {
       display: block; width: 100%; max-width: 560px; aspect-ratio: 16 / 9;
+      margin: 0 auto;
       border: 1px solid #e3d7b8; border-radius: 10px; background: #000;
     }
     .learn-article .task-box.bd-later .vidwrap .vw-n {
-      max-width: 560px; margin: 8px 0 0;
+      max-width: 560px; margin: 8px auto 0; text-align: center;
       font-size: 11.5px; line-height: 1.65; color: #5c5240; letter-spacing: -.2px;
     }
     .learn-article .task-box.bd-later .vidwrap .vw-n b { color: #2a2410; }
