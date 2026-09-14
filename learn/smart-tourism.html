@@ -373,6 +373,15 @@
     .learn-article .syl-box .pcol a.mapl:hover { background: #0e2a45; border-color: #0e2a45; color: #fff; }
     .learn-article .syl-box .pcol.p2 a.mapl { background: #a8681f; border-color: #a8681f; }
     .learn-article .syl-box .pcol.p2 a.mapl:hover { background: #7a4a14; border-color: #7a4a14; }
+    /* 문서 알약 옆에 웹판을 나란히 — margin-top:auto 가 알약에 걸려 있어 줄을 따로 만든다. */
+    .learn-article .syl-box .pcol .pc-tags {
+      display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto;
+    }
+    .learn-article .syl-box .pcol .pc-tags a.mapl { margin-top: 0; }
+    .learn-article .syl-box .pcol a.mapl.web { background: #fff; color: #17365d; border-color: #b9cade; }
+    .learn-article .syl-box .pcol a.mapl.web:hover { background: #17365d; border-color: #17365d; color: #fff; }
+    .learn-article .syl-box .pcol.p2 a.mapl.web { color: #a8681f; border-color: #ddb887; background: #fff; }
+    .learn-article .syl-box .pcol.p2 a.mapl.web:hover { background: #a8681f; border-color: #a8681f; color: #fff; }
 
     /* 「이 페이지 읽는 법」 알약 — 처음 여는 사람이 제일 먼저 눌러야 할 곳이다.
        남색 알약들 사이에서 금색으로 갈라 두고 ★ 와 옅은 링을 붙여 눈에 걸리게 한다.
@@ -904,7 +913,7 @@
                 <tr class="sum"><td>합계</td><td class="pct">100%</td><td></td></tr>
               </tbody>
             </table>
-            <a class="mapl" href="assets/smart-tourism-syllabus-15w-papers.docx" download="스마트투어리즘_15주_강의계획서(2안_시험논문형).docx">2안 강의계획서 ⤓ DOCX</a>
+            <span class="pc-tags"><a class="mapl" href="assets/smart-tourism-syllabus-15w-papers.docx" download="스마트투어리즘_15주_강의계획서(2안_시험논문형).docx">2안 강의계획서 ⤓ DOCX</a><a class="mapl web" href="smart-tourism-syllabus-15w-interactive.html" target="_blank" rel="noopener">웹에서 바로 보기 ↗</a></span>
           </div>
         </div>
         <p class="syl-d"><strong>1안</strong>은 위 <strong>파트 흐름</strong>을 <strong>15주 · 주 3시간</strong>의 주차별 계획으로 편 문서입니다. 학기를 <strong>네 단계</strong>로 쌓습니다 — <strong>Ⅰ. 현장을 본다</strong>(1~4주 · 개념과 국내 12곳, 용인을 끝까지 추적) → <strong>Ⅱ. 견준다</strong>(5~8주 · 유럽 스마트관광 수도 공모와 사례집) → <strong class="hot-t">Ⅲ. 벤치마킹한다</strong>(9~12주 · 유럽 수상 도시를 팀별로 맡아 다섯 칸 틀로 발표) → <strong>Ⅳ. 근거로 쓴다</strong>(13~15주 · 논문·통계로 뒷받침해 기획서로 완성하고 발표).</p>
@@ -947,6 +956,8 @@
         <a href="images/korea-smart-tourism-cities-map.jpg" target="_blank" rel="noopener"><img src="images/korea-smart-tourism-cities-map-web.jpg" alt="국내 스마트관광도시 지도 — 용인(TRAVEL YONGIN), 인천(Incheon EASY), 수원(Touch Suwon), 청주(CHEONGJU YEOGI), 남원(play NAMWON), 여수(YEOSUEN), 인제(Now, I'm in Inje), 양양(GOGO YANGYANG), 경주(GYEONGJURO-ON), 대구(DAEGU Trip), 울산(WHAT A ULSAN), 통영(Tongyeong U TOUR) 열두 도시의 위치와 브랜드" loading="lazy" /></a>
         <figcaption>국내 스마트관광도시 지도 — 위 카드에 적힌 <strong>열두 도시</strong>가 저마다 <strong>자기 브랜드와 앱</strong>을 갖고 있습니다. 인천 <em>Incheon Easy AR</em>(모바일로 19세기 여행), 수원 <em>Time Slip 1795</em>(화성), 인제 <em>스마트 숲 치유 도시</em>, 양양 <em>스마트 서프 시티</em>, 울산 <em>스마트 고래 도시</em>… <strong>같은 사업인데 도시마다 내건 것이 다르다</strong>는 점을 먼저 보십시오.</figcaption>
       </figure>
+
+      <p class="dltags"><a class="mapl form hot" href="smart-tourism-cities-funding-prompts.html" target="_blank" rel="noopener">언제 뽑혔고 누가 돈을 냈나 — 12곳 선정 시기 · 재원 구조 ↗</a><a class="mapl form" href="assets/smart-tourism-cities-funding.pptx" download="국내_스마트관광도시_12곳_선정시기_재원구조.pptx">같은 내용 · 수업용 슬라이드 ⤓ PPTX</a><span class="dl-src"><b>지도가 「어디」라면 이쪽은 「언제 · 얼마로」입니다.</b> 2020 시범 → 2021 확산 → 2022 다지역 → 2023 3년형으로 이어진 선정 흐름과, <b>국비 35억(2023년 이후 최대 45억) + 지방비 1:1 이상</b>이라는 재원 구조를 갈라 놓았습니다. <b>정부가 전액 낸 사업이 아닙니다</b> — 도시 카드의 「왜 만들었나」 칸을 쓸 때 이 구조를 모르면 근거가 헐거워집니다. 뒤쪽에 <b>분석 프롬프트 20</b>이 붙어 있어, 배정받은 도시를 정책 · 기술 · 서비스 · 데이터 · 성과 · 지속가능성 여섯 관점으로 물어볼 수 있습니다.</span></p>
 
       <div class="case-box flow" id="flow3">
         <p class="cb-title">이 아래는 세 단계로 이어집니다 <span>보고 → 고르고 → 낸다</span></p>

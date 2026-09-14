@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>스마트 투어리즘 15주 강의계획서</title>
+<style>
+  :root{
+    --navy:#123c36;
+    --navy2:#1c554c;
+    --gold:#b79535;
+    --gold-soft:#f8f0d6;
+    --blue:#1f5f9a;
+    --ink:#1f2937;
+    --muted:#6b7280;
+    --line:#dce4e1;
+    --soft:#f6f9f8;
+    --white:#ffffff;
+    --exam:#fff6d8;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:"Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",Arial,sans-serif;
+    background:#eef3f1;
+    color:var(--ink);
+    line-height:1.72;
+  }
+  a{color:inherit}
+  .layout{
+    display:grid;
+    grid-template-columns:260px minmax(0,1fr);
+    min-height:100vh;
+  }
+  aside{
+    position:sticky; top:0; height:100vh; overflow:auto;
+    background:linear-gradient(180deg,#0f352f 0%,#163f38 100%);
+    color:#fff; padding:26px 18px;
+  }
+  .brand{
+    padding:8px 8px 20px;
+    border-bottom:1px solid rgba(255,255,255,.14);
+    margin-bottom:16px;
+  }
+  .brand .eyebrow{font-size:12px;color:#d8c37c;letter-spacing:.08em}
+  .brand h1{font-size:19px;line-height:1.35;margin:6px 0 4px}
+  .brand p{margin:0;font-size:12px;color:#d4e2de}
+  nav a{
+    display:block; text-decoration:none;
+    padding:9px 10px; margin:3px 0; border-radius:8px;
+    color:#e8f0ed; font-size:13px;
+  }
+  nav a:hover{background:rgba(255,255,255,.10)}
+  .nav-note{
+    margin-top:18px;padding:12px;border:1px solid rgba(255,255,255,.12);
+    border-radius:10px;font-size:11px;color:#cbd9d5
+  }
+  main{min-width:0}
+  .hero{
+    background:linear-gradient(135deg,#173f38 0%,#1f5c51 100%);
+    color:white;padding:54px 7vw 44px;
+  }
+  .hero .kicker{color:#e6cf7a;font-weight:700;letter-spacing:.05em;font-size:13px}
+  .hero h2{font-size:38px;line-height:1.25;margin:7px 0 10px}
+  .hero .sub{font-size:16px;color:#e3eeeb;margin:0 0 26px}
+  .stats{display:flex;flex-wrap:wrap;gap:10px}
+  .stat{
+    background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.18);
+    border-radius:12px;padding:11px 14px;min-width:120px
+  }
+  .stat b{display:block;font-size:20px;color:#fff}
+  .stat span{font-size:11px;color:#d9e5e2}
+  .content{max-width:1180px;margin:0 auto;padding:34px 32px 70px}
+  section{
+    background:#fff;border:1px solid var(--line);border-radius:16px;
+    margin:0 0 20px;padding:28px 28px 30px;box-shadow:0 6px 18px rgba(20,45,38,.04)
+  }
+  .section-title{
+    display:flex;align-items:center;gap:11px;margin:0 0 18px;
+    font-size:23px;color:var(--navy)
+  }
+  .section-title .num{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:34px;height:34px;border-radius:50%;background:var(--navy);color:white;font-size:14px
+  }
+  .lead{font-size:15px;color:#374151}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .card{
+    border:1px solid var(--line);border-radius:12px;padding:16px;background:#fff
+  }
+  .card h4{margin:0 0 7px;color:var(--navy);font-size:15px}
+  .card p{margin:0;font-size:13px;color:#4b5563}
+  .kv{
+    display:grid;grid-template-columns:145px 1fr;border-top:1px solid var(--line);font-size:14px
+  }
+  .kv div{padding:11px 12px;border-bottom:1px solid var(--line)}
+  .kv .k{background:#f2f7f5;font-weight:700;color:#2b4c45}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th{background:var(--navy);color:#fff;font-weight:700;text-align:left;padding:11px 10px}
+  td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+  tr:nth-child(even) td{background:#fbfcfc}
+  .gold-row td{background:var(--exam)!important;font-weight:700;color:#6f5b14}
+  .badge{
+    display:inline-block;padding:3px 8px;border-radius:999px;font-size:11px;font-weight:700;
+    background:#eaf2f0;color:var(--navy2)
+  }
+  .badge.gold{background:var(--gold-soft);color:#7a641d}
+  .goals{display:grid;gap:9px}
+  .goal{
+    display:flex;gap:10px;align-items:flex-start;padding:10px 12px;
+    border-left:4px solid var(--navy2);background:#f8fbfa;border-radius:8px
+  }
+  .goal b{color:var(--navy2)}
+  .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .timebox{
+    border-radius:12px;padding:16px;border:1px solid var(--line);background:#fafcfc
+  }
+  .timebox .t{font-size:20px;font-weight:800;color:var(--navy)}
+  .timebox .d{font-size:12px;color:#4b5563}
+  .note{
+    margin-top:14px;padding:14px 15px;border:1px solid #ead99f;background:#fffaf0;border-radius:10px;
+    font-size:13px
+  }
+  .week-controls{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 14px}
+  .week-controls button{
+    border:1px solid var(--line);background:#fff;color:#38524c;border-radius:999px;
+    padding:7px 10px;cursor:pointer;font-size:12px
+  }
+  .week-controls button.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .week-table-wrap{overflow:auto}
+  .week-table td:first-child{width:58px;text-align:center;font-weight:800;color:var(--navy)}
+  .week-table td:nth-child(2){width:74px;text-align:center}
+  .week-table td:last-child{width:58px;text-align:center}
+  .groups{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+  .group{
+    display:grid;grid-template-columns:38px 1fr 92px;gap:10px;align-items:center;
+    border:1px solid var(--line);border-radius:10px;padding:10px 12px
+  }
+  .group .letter{
+    width:30px;height:30px;border-radius:8px;background:#f4ecd0;color:#7c681c;
+    display:flex;align-items:center;justify-content:center;font-weight:800
+  }
+  .bar{height:7px;background:#e8efed;border-radius:999px;overflow:hidden;margin-top:5px}
+  .bar i{display:block;height:100%;background:var(--navy2)}
+  .group .n{text-align:right;font-size:12px;color:#56645f}
+  .method-tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}
+  .method-tags span{font-size:11px;padding:5px 8px;border-radius:7px;background:#eef4f2;color:#27463f}
+  .career td:nth-child(1){font-weight:700;color:var(--navy)}
+  .warning-list{display:grid;gap:10px}
+  .warning{
+    border:1px solid #eadfc0;background:#fffdf6;border-radius:10px;padding:13px 14px
+  }
+  .warning strong{color:#7c651e}
+  .footer{
+    text-align:center;font-size:11px;color:#7a8681;padding:10px 10px 30px
+  }
+  .print-btn{
+    position:fixed;right:22px;bottom:22px;border:0;border-radius:999px;background:var(--navy);
+    color:white;padding:12px 16px;box-shadow:0 6px 16px rgba(0,0,0,.16);cursor:pointer;font-weight:700
+  }
+  @media (max-width:920px){
+    .layout{grid-template-columns:1fr}
+    aside{position:relative;height:auto}
+    nav{display:flex;overflow:auto;gap:4px}
+    nav a{white-space:nowrap}
+    .content{padding:20px 14px 60px}
+    .hero{padding:38px 22px}
+    .hero h2{font-size:30px}
+    .grid-2,.groups{grid-template-columns:1fr}
+    .timeline{grid-template-columns:1fr 1fr}
+    .kv{grid-template-columns:110px 1fr}
+  }
+  @media print{
+    aside,.print-btn,.week-controls{display:none!important}
+    .layout{display:block}
+    body{background:#fff}
+    .hero{background:#fff;color:#111;padding:0 0 18px}
+    .hero .sub,.hero .kicker{color:#333}
+    .stat{border:1px solid #bbb;color:#111}
+    .stat b,.stat span{color:#111}
+    section{box-shadow:none;break-inside:avoid}
+    .content{max-width:none;padding:0}
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside>
+    <div class="brand">
+      <div class="eyebrow">GKNU · TOURISM MANAGEMENT</div>
+      <h1>스마트 투어리즘<br/>15주 강의계획서</h1>
+      <p>Smart Tourism · Syllabus</p>
+    </div>
+    <nav>
+      <a href="#s1">1. 교과목 개요</a>
+      <a href="#s2">2. 교과목 소개</a>
+      <a href="#s3">3. 학습 목표</a>
+      <a href="#s4">4. 평가 방법</a>
+      <a href="#s5">5. 강의 자료·운영</a>
+      <a href="#s6">6. 주차별 계획</a>
+      <a href="#s7">7. 대주제 구성</a>
+      <a href="#s8">8. 과제·연구계획서</a>
+      <a href="#s9">9. 진로 연계</a>
+      <a href="#s10">10. 수강 유의사항</a>
+    </nav>
+    <div class="nav-note">특정 교재 대신 2020–2026년 스마트관광 관련 학술논문을 중심으로 수업하는 논문 리딩형 강의계획서입니다.</div>
+  </aside>
+
+  <main>
+    <header class="hero">
+      <div class="kicker">국립경국대학교 관광경영학과</div>
+      <h2>스마트 투어리즘 <span style="font-weight:400">(Smart Tourism)</span></h2>
+      <p class="sub">15주 강의계획서 · 논문 리딩 + 방법론 + 진로 연계형 수업</p>
+      <div class="stats">
+        <div class="stat"><b>15주</b><span>운영 기간</span></div>
+        <div class="stat"><b>30회차</b><span>주 2회 · 회당 75분</span></div>
+        <div class="stat"><b>138편</b><span>2020–2026 관련 논문</span></div>
+        <div class="stat"><b>14개</b><span>대주제 그룹</span></div>
+        <div class="stat"><b>25회차</b><span>논문 강의 회차</span></div>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <section id="s1">
+        <h3 class="section-title"><span class="num">1</span>교과목 개요</h3>
+        <div class="kv">
+          <div class="k">교과목명</div><div>스마트 투어리즘 (Smart Tourism)</div>
+          <div class="k">학점 / 시수</div><div>3학점 · 주 2회 · 회당 75분 (주 150분)</div>
+          <div class="k">운영 기간</div><div>15주 (총 30회차)</div>
+          <div class="k">강의 방식</div><div>이론 강의 + 논문 리딩 + 영상 시청 + NotebookLM 기반 토론</div>
+          <div class="k">선수 지식</div><div>별도 요구 없음. 통계·기술 배경이 없어도 수강 가능하도록 설계</div>
+        </div>
+      </section>
+
+      <section id="s2">
+        <h3 class="section-title"><span class="num">2</span>교과목 소개</h3>
+        <p class="lead">본 교과목은 정보통신기술과 관광의 결합으로 등장한 <b>스마트관광(Smart Tourism)</b>을 국내 학술 연구를 통해 체계적으로 이해하는 것을 목표로 한다.</p>
+        <div class="grid-2">
+          <div class="card">
+            <h4>논문 기반 수업</h4>
+            <p>특정 교재를 따르지 않고, 한국학술지인용색인(KCI)에 등재된 스마트관광 관련 학술논문 138편(2020–2026년 발표)을 직접 읽고 분석한다. 138편은 14개 대주제로 분류되어 25개 회차에 배분되며, 매회차 핵심 논문 약 3편을 심층적으로 다룬다.</p>
+          </div>
+          <div class="card">
+            <h4>결론이 아니라 연구 설계까지</h4>
+            <p>논문의 결론만 전달하지 않고 그 결론이 도출된 연구 설계와 방법을 함께 다룬다. 학기 말에는 스마트관광 분야의 지형을 파악하고, 학술 논문을 비판적으로 읽으며 자신의 연구 주제를 설정하도록 한다.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="s3">
+        <h3 class="section-title"><span class="num">3</span>학습 목표</h3>
+        <div class="goals">
+          <div class="goal"><b>①</b><span>스마트관광의 개념·구성요소·이론적 토대를 설명할 수 있다.</span></div>
+          <div class="goal"><b>②</b><span>기술수용이론(TAM·UTAUT2 등)을 비롯한 주요 이론 틀을 이해하고 사례에 적용할 수 있다.</span></div>
+          <div class="goal"><b>③</b><span>토픽모델링·구조방정식·AHP·CVM 등 스마트관광 연구에 쓰이는 주요 분석 방법의 목적과 한계를 구분할 수 있다.</span></div>
+          <div class="goal"><b>④</b><span>학술 논문의 초록과 연구 설계를 비판적으로 읽고, 결과의 신뢰성을 판단할 수 있다.</span></div>
+          <div class="goal"><b>⑤</b><span>스마트관광 분야의 연구 공백을 식별하고, 자신의 연구 주제와 방법론을 설계할 수 있다.</span></div>
+          <div class="goal"><b>⑥</b><span>스마트관광 관련 직무를 이해하고 자신의 진로 계획과 연결할 수 있다.</span></div>
+        </div>
+      </section>
+
+      <section id="s4">
+        <h3 class="section-title"><span class="num">4</span>평가 방법</h3>
+        <table>
+          <thead><tr><th>평가 항목</th><th>비중</th><th>내용</th></tr></thead>
+          <tbody>
+            <tr><td><b>중간고사</b></td><td>30%</td><td>1~7주 핵심 논문 21편 — 개념 정의, 이론 모형, 스마트관광도시 정책 사례</td></tr>
+            <tr><td><b>기말고사</b></td><td>30%</td><td>9~14주 핵심 논문 — XR, 생성형 AI, 경제적 가치평가, 산업별 적용, 지속가능성</td></tr>
+            <tr><td><b>연구계획서</b></td><td>25%</td><td>학기말 제출. 연구 주제·선행연구·방법론·기대효과 (14주-2회 자료 활용)</td></tr>
+            <tr><td><b>출석 및 참여</b></td><td>15%</td><td>수업 중 토론 참여, 회차별 논문 사전 읽기</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="s5">
+        <h3 class="section-title"><span class="num">5</span>강의 자료 및 운영 방식</h3>
+        <div class="grid-2">
+          <div class="card">
+            <h4>주교재</h4>
+            <p>별도 교재 없음. KCI 등재 학술논문 138편(2020–2026)을 회차별로 제공한다.</p>
+          </div>
+          <div class="card">
+            <h4>제공 자료</h4>
+            <p>회차별 강의 PPT, 논문 목록 엑셀, 연구 공백·방법론 특강 자료를 제공한다.</p>
+          </div>
+        </div>
+        <div class="method-tags">
+          <span>핵심 논문 소개</span><span>개념 설명</span><span>교수자 대본</span><span>APA 참고문헌</span><span>초록 전문</span><span>저자 키워드</span><span>DOI</span><span>URL</span>
+        </div>
+
+        <h4 style="margin:22px 0 10px;color:var(--navy)">75분 수업 운영 (표준)</h4>
+        <div class="timeline">
+          <div class="timebox"><div class="t">10분</div><div class="d">관련 영상 시청<br/>서비스 시연·사례 영상·개념 애니메이션</div></div>
+          <div class="timebox"><div class="t">25분</div><div class="d">개념 강의<br/>해당 회차의 이론·방법론 설명</div></div>
+          <div class="timebox"><div class="t">30분</div><div class="d">핵심 논문 3편 소개<br/>편당 10분 · 연구문제·변수·결과</div></div>
+          <div class="timebox"><div class="t">10분</div><div class="d">정리 및 질의응답</div></div>
+        </div>
+        <div class="note"><b>NotebookLM 활용</b><br/>회차 단위로 노트북을 분리해 핵심 논문과 참고 논문 PDF를 함께 업로드한다. 수업 중 “이 회차 논문들의 공통 변수는 무엇인가”와 같은 질문으로 즉석 비교가 가능하며, 학생은 과제 수행 시 동일한 노트북을 활용한다.</div>
+      </section>
+
+      <section id="s6">
+        <h3 class="section-title"><span class="num">6</span>주차별 강의 계획</h3>
+        <p style="font-size:12px;color:var(--muted)">‘편수’는 해당 회차에 배정된 논문 수(핵심 3편 + 참고)를 의미합니다.</p>
+        <div class="week-controls">
+          <button class="active" data-filter="all">전체</button>
+          <button data-filter="1-4">1–4주</button>
+          <button data-filter="5-7">5–7주</button>
+          <button data-filter="8-11">8–11주</button>
+          <button data-filter="12-15">12–15주</button>
+        </div>
+        <div class="week-table-wrap">
+          <table class="week-table" id="weekTable">
+            <thead><tr><th>주차</th><th>회차</th><th>강의 주제</th><th>편수</th></tr></thead>
+            <tbody>
+              <tr data-week="1"><td rowspan="2">1</td><td>1회</td><td>스마트관광의 개념·진화·이론적 토대</td><td>6</td></tr>
+              <tr data-week="1"><td>2회</td><td>연구동향 I: 문헌고찰·내용분석·국가별 비교</td><td>5</td></tr>
+
+              <tr data-week="2"><td rowspan="2">2</td><td>1회</td><td>연구동향 II: 토픽모델링·텍스트 네트워크</td><td>5</td></tr>
+              <tr data-week="2"><td>2회</td><td>소셜 빅데이터와 스마트관광 인식 분석</td><td>6</td></tr>
+
+              <tr data-week="3"><td rowspan="2">3</td><td>1회</td><td>스마트관광도시: 개념·계획기준·경쟁력 지표</td><td>5</td></tr>
+              <tr data-week="3"><td>2회</td><td>스마트관광도시: 성과 평가와 국내 사례</td><td>6</td></tr>
+
+              <tr data-week="4"><td rowspan="2">4</td><td>1회</td><td>스마트관광 생태계와 산업구조</td><td>6</td></tr>
+              <tr data-week="4"><td>2회</td><td>정책·법제도·데이터 거버넌스와 AI 윤리</td><td>7</td></tr>
+
+              <tr data-week="5"><td rowspan="2">5</td><td>1회</td><td>기술수용모델(TAM) 기초와 적용</td><td>5</td></tr>
+              <tr data-week="5"><td>2회</td><td>확장 TAM·기술준비수용모델(TRAM)</td><td>6</td></tr>
+
+              <tr data-week="6"><td rowspan="2">6</td><td>1회</td><td>UTAUT2와 통합기술수용 접근</td><td>5</td></tr>
+              <tr data-week="6"><td>2회</td><td>혁신저항·후기수용모형(PAM)과 서비스 디자인</td><td>5</td></tr>
+
+              <tr data-week="7"><td rowspan="2">7</td><td>1회</td><td>정보기술 속성 → 지각된 가치·만족·사용의도</td><td>6</td></tr>
+              <tr data-week="7"><td>2회</td><td>목적지 이미지·브랜드 경험·충성도</td><td>7</td></tr>
+
+              <tr class="gold-row" data-week="8"><td>8</td><td>1·2회</td><td>★ 중간고사</td><td>—</td></tr>
+
+              <tr data-week="9"><td rowspan="2">9</td><td>1회</td><td>AR 콘텐츠와 사용자 경험(UX)</td><td>5</td></tr>
+              <tr data-week="9"><td>2회</td><td>MR·스마트글라스·메타버스와 가상관광</td><td>5</td></tr>
+
+              <tr data-week="10"><td rowspan="2">10</td><td>1회</td><td>생성형 AI(ChatGPT·LLM)와 관광 서비스</td><td>5</td></tr>
+              <tr data-week="10"><td>2회</td><td>챗봇·추천시스템·IoT 지능형 인터페이스</td><td>7</td></tr>
+
+              <tr data-week="11"><td rowspan="2">11</td><td>1회</td><td>경제적 파급효과: 산업연관분석·RAS 기법</td><td>4</td></tr>
+              <tr data-week="11"><td>2회</td><td>가치평가 방법론: CVM·선택실험법</td><td>4</td></tr>
+
+              <tr data-week="12"><td rowspan="2">12</td><td>1회</td><td>산업별 적용 I: 숙박·외식·여행업·항공·의료</td><td>6</td></tr>
+              <tr data-week="12"><td>2회</td><td>산업별 적용 II: MICE·축제·이벤트·모빌리티</td><td>6</td></tr>
+
+              <tr data-week="13"><td rowspan="2">13</td><td>1회</td><td>지역·현장 기반: 스마트 농어촌·해양 / 스마트관광과 기술</td><td>6</td></tr>
+              <tr data-week="13"><td>2회</td><td>지속가능한 스마트관광·오버투어리즘·문화유산</td><td>6</td></tr>
+
+              <tr data-week="14"><td rowspan="2">14</td><td>1회</td><td>디지털 리터러시·교육·포용적 스마트관광</td><td>4</td></tr>
+              <tr class="gold-row" data-week="14"><td>2회</td><td>★ 스마트투어리즘과 취업 (진로 특강)</td><td>—</td></tr>
+
+              <tr class="gold-row" data-week="15"><td>15</td><td>1·2회</td><td>★ 기말고사</td><td>—</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="note"><b>총 운영 구조</b> · 논문 강의 25회차 · 시험 4회차 · 진로 특강 1회차 = 총 30회차 / 논문 138편 전량 배분</div>
+      </section>
+
+      <section id="s7">
+        <h3 class="section-title"><span class="num">7</span>대주제 구성 (14개 그룹)</h3>
+        <div class="groups">
+          <div class="group"><div class="letter">A</div><div><b>스마트관광의 개념과 이론적 기반</b><div class="bar"><i style="width:29%"></i></div></div><div class="n">6편 · 1주</div></div>
+          <div class="group"><div class="letter">B</div><div><b>스마트관광 연구동향</b><div class="bar"><i style="width:48%"></i></div></div><div class="n">10편 · 1~2주</div></div>
+          <div class="group"><div class="letter">C</div><div><b>빅데이터 기반 관광분석</b><div class="bar"><i style="width:29%"></i></div></div><div class="n">6편 · 2주</div></div>
+          <div class="group"><div class="letter">D</div><div><b>스마트관광도시</b><div class="bar"><i style="width:52%"></i></div></div><div class="n">11편 · 3주</div></div>
+          <div class="group"><div class="letter">E</div><div><b>생태계·정책·거버넌스</b><div class="bar"><i style="width:62%"></i></div></div><div class="n">13편 · 4주</div></div>
+          <div class="group" style="background:#fffaf0;border-color:#e8d899"><div class="letter">F</div><div><b>기술수용이론</b><div class="bar"><i style="width:100%"></i></div></div><div class="n"><b>21편 · 5~6주</b></div></div>
+          <div class="group"><div class="letter">G</div><div><b>정보기술 속성과 관광객 반응</b><div class="bar"><i style="width:62%"></i></div></div><div class="n">13편 · 7주</div></div>
+          <div class="group"><div class="letter">H</div><div><b>실감기술(XR)</b><div class="bar"><i style="width:48%"></i></div></div><div class="n">10편 · 9주</div></div>
+          <div class="group"><div class="letter">I</div><div><b>인공지능과 스마트관광</b><div class="bar"><i style="width:57%"></i></div></div><div class="n">12편 · 10주</div></div>
+          <div class="group"><div class="letter">J</div><div><b>경제적 가치와 성과 측정</b><div class="bar"><i style="width:38%"></i></div></div><div class="n">8편 · 11주</div></div>
+          <div class="group"><div class="letter">K</div><div><b>산업별 적용</b><div class="bar"><i style="width:57%"></i></div></div><div class="n">12편 · 12주</div></div>
+          <div class="group"><div class="letter">L</div><div><b>지역 기반 사례</b><div class="bar"><i style="width:29%"></i></div></div><div class="n">6편 · 13주</div></div>
+          <div class="group"><div class="letter">M</div><div><b>지속가능성과 문화유산</b><div class="bar"><i style="width:29%"></i></div></div><div class="n">6편 · 13주</div></div>
+          <div class="group"><div class="letter">N</div><div><b>역량·교육·포용</b><div class="bar"><i style="width:19%"></i></div></div><div class="n">4편 · 14주</div></div>
+        </div>
+        <div class="note"><b>핵심 특징</b> · 기술수용이론(F)이 21편으로 138편 중 최대 군집이며, 피인용 상위 논문도 이 계열에 집중되어 있다. 국내 스마트관광 연구의 주류 프레임임을 5~6주차에서 명시적으로 다룬다.</div>
+      </section>
+
+      <section id="s8">
+        <h3 class="section-title"><span class="num">8</span>과제 및 학기말 연구계획서</h3>
+        <div class="grid-2">
+          <div class="card">
+            <h4>회차별 사전 과제</h4>
+            <p>각 회차의 핵심 논문 3편을 사전에 읽고, 초록에서 연구문제·방법·주요 결과를 확인한 뒤 수업에 참여한다. 참고 논문은 NotebookLM에 업로드된 자료로 보완한다.</p>
+          </div>
+          <div class="card">
+            <h4>학기말 연구계획서 <span class="badge gold">25%</span></h4>
+            <p>학기 전반에 걸쳐 함께 확인한 스마트관광 분야의 연구 공백 중 하나를 선택해 연구계획서를 작성한다.</p>
+          </div>
+        </div>
+        <div class="kv" style="margin-top:14px">
+          <div class="k">구성</div><div>연구 주제 · 연구 필요성 · 선행연구 검토 · 연구 방법 · 기대효과</div>
+          <div class="k">분량</div><div>A4 3~5매</div>
+          <div class="k">주제 선정 지침</div><div>138편 전수 검색으로 확인된 연구 공백 중 선택 (예: 크루즈·복합리조트 산업, 농어촌 스마트관광, 무장애 스마트관광, ESG·탄소)</div>
+          <div class="k">방법론 지침</div><div>강의 중 다룬 검증된 방법 활용 (척도개발, 델파이·AHP, Kano 모델, 선택실험법, 내용분석 등)</div>
+          <div class="k">참고 자료</div><div>「연구 공백과 방법론」 특강 자료 · 138편 논문 목록 엑셀</div>
+        </div>
+      </section>
+
+      <section id="s9">
+        <h3 class="section-title"><span class="num">9</span>진로 연계 (14주-2회)</h3>
+        <p class="lead">학기 중 다룬 주차와 스마트관광 관련 직무를 연결해 진로 설계를 지원한다.</p>
+        <div style="overflow:auto">
+          <table class="career">
+            <thead><tr><th>직무 영역</th><th>연결 주차</th><th>요구 역량</th></tr></thead>
+            <tbody>
+              <tr><td>스마트관광도시 사업단 · 지자체 관광정책</td><td>3~4주</td><td>정책·조례 이해, 성과지표 설계</td></tr>
+              <tr><td>OTA · 관광 플랫폼 기획 / PM</td><td>6~7주, 12주</td><td>기술수용 이해, UX, 서비스 기획</td></tr>
+              <tr><td>DMO 디지털 마케팅</td><td>7주, 12주</td><td>목적지 브랜딩, 소셜 데이터 활용</td></tr>
+              <tr><td>관광 데이터 분석 · 리서치</td><td>2주, 10~11주</td><td>텍스트마이닝, 토픽모델링, 파급효과 분석</td></tr>
+              <tr><td>XR · 실감콘텐츠 기획</td><td>9주</td><td>AR/VR 기획, 사용성 평가</td></tr>
+              <tr><td>MICE 테크 · 이벤트</td><td>12주</td><td>하이브리드 운영, 중요도-실행도 분석(IPA)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h4 style="margin:20px 0 8px;color:var(--navy)">수업 활동</h4>
+        <div class="goals">
+          <div class="goal"><b>1</b><span>138편 저자키워드 워드클라우드 작성 → 산업이 요구하는 역량 키워드 도출</span></div>
+          <div class="goal"><b>2</b><span>관심 논문 1편 선택 → ‘논문 한 편으로 자기소개서 문단 쓰기’</span></div>
+          <div class="goal"><b>3</b><span>포트폴리오 1페이지 작성 — 관심 주제 · 활용 가능한 분석 도구 · 목표 직무</span></div>
+        </div>
+      </section>
+
+      <section id="s10">
+        <h3 class="section-title"><span class="num">10</span>수강 유의사항</h3>
+        <div class="warning-list">
+          <div class="warning"><strong>① 논문 인용 시 등재 여부를 확인할 것</strong><br/>138편 중 4편은 학술대회 발표자료(비등재), 4편은 미등재, 7편은 등재후보다. 강의 자료의 APA 참고문헌에 [학술대회 발표]로 구분 표기했다.</div>
+          <div class="warning"><strong>② 초록만 읽고 인용하지 말 것</strong><br/>일부 논문은 KCI 초록이 잘려 있거나 요인 나열이 중단되어 있다. 인용 시 원문 본문의 가설검정표를 확인해야 한다.</div>
+          <div class="warning"><strong>③ 기각된 가설을 함께 볼 것</strong><br/>채택된 결과만 보지 말고 기각된 가설을 확인하는 훈련을 반복한다. 다음 연구 주제가 그 자리에서 나온다.</div>
+        </div>
+      </section>
+
+      <div class="footer">Smart Tourism · 15주 강의계획서 · 국립경국대학교 관광경영학과</div>
+    </div>
+  </main>
+</div>
+
+<button class="print-btn" onclick="window.print()">인쇄 / PDF</button>
+
+<script>
+  const ranges = {
+    "all":[1,15],
+    "1-4":[1,4],
+    "5-7":[5,7],
+    "8-11":[8,11],
+    "12-15":[12,15]
+  };
+  document.querySelectorAll('.week-controls button').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('.week-controls button').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      const [min,max] = ranges[btn.dataset.filter];
+      document.querySelectorAll('#weekTable tbody tr').forEach(row=>{
+        const w = Number(row.dataset.week);
+        row.style.display = (w>=min && w<=max) ? '' : 'none';
+      });
+    });
+  });
+</script>
+</body>
+</html>

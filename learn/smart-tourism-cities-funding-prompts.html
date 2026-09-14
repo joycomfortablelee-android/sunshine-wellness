@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>스마트관광도시 12곳 · 선정시기 · 재원구조 · 분석 프롬프트 20</title>
+<style>
+  :root{
+    --navy:#0b2a4a;
+    --blue:#1f5fd1;
+    --blue2:#2c6bd8;
+    --sky:#eef5ff;
+    --bg:#eef3f8;
+    --line:#d9e3ef;
+    --text:#172433;
+    --muted:#66778b;
+    --gold:#c79a34;
+    --white:#ffffff;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:"NanumBarunGothic","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.62;
+  }
+  a{color:var(--blue);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .container{max-width:1420px;margin:0 auto;padding:24px}
+  .hero{
+    background:linear-gradient(135deg,#08233f 0%,#103b68 65%,#174a82 100%);
+    color:#fff;
+    border-radius:24px;
+    padding:38px 42px;
+    box-shadow:0 18px 44px rgba(11,42,74,.18);
+    margin-bottom:16px;
+  }
+  .hero .eyebrow{font-size:13px;letter-spacing:.08em;opacity:.78}
+  .hero h1{font-size:36px;line-height:1.22;margin:8px 0 12px}
+  .hero p{margin:0;color:#dce9f7;max-width:1080px}
+  .chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+  .chip{
+    display:inline-block;
+    border:1px solid rgba(255,255,255,.22);
+    background:rgba(255,255,255,.10);
+    padding:7px 11px;
+    border-radius:999px;
+    font-size:13px;
+  }
+
+  .nav{
+    position:sticky;top:0;z-index:50;
+    display:flex;gap:8px;flex-wrap:wrap;
+    padding:10px 0 12px;
+    background:rgba(238,243,248,.95);
+    backdrop-filter:blur(8px);
+  }
+  .nav a{
+    background:#fff;border:1px solid var(--line);
+    border-radius:11px;padding:9px 12px;
+    color:var(--navy);font-weight:800;font-size:14px;
+    box-shadow:0 3px 10px rgba(20,40,70,.04)
+  }
+
+  .section{
+    background:#fff;
+    border:1px solid #e2eaf3;
+    border-radius:20px;
+    padding:28px 30px;
+    margin:16px 0;
+    box-shadow:0 8px 24px rgba(30,48,70,.055);
+  }
+  .section h2{color:var(--navy);font-size:28px;margin:0 0 6px}
+  .section h3{color:var(--navy);font-size:21px;margin:22px 0 10px}
+  .subtitle{color:var(--muted);margin:0 0 18px}
+  .kicker{
+    display:inline-block;
+    background:#eaf2ff;color:var(--blue);
+    font-weight:900;font-size:12px;letter-spacing:.04em;
+    border-radius:8px;padding:5px 9px;margin-bottom:9px;
+  }
+
+  .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .metric{
+    border:1px solid var(--line);border-radius:16px;
+    background:#fbfdff;padding:18px;
+  }
+  .metric strong{display:block;color:var(--blue);font-size:28px;line-height:1.2}
+  .metric span{display:block;color:var(--muted);font-size:13px;margin-top:5px}
+
+  .callout{
+    margin:16px 0;
+    border-left:5px solid var(--blue);
+    background:#f4f8ff;
+    border-radius:12px;
+    padding:15px 17px;
+  }
+
+  .script{
+    display:grid;grid-template-columns:72px 1fr;gap:14px;
+    align-items:start;
+    margin-top:22px;
+    border:1px solid #bcd4f6;
+    background:#f9fbff;border-radius:14px;padding:14px 16px;
+  }
+  .script-label{
+    background:var(--blue);color:#fff;font-weight:900;
+    border-radius:7px;text-align:center;padding:7px 8px;font-size:13px;
+  }
+  .script p{margin:0;color:#43546a}
+
+  .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .year-card{
+    border:1px solid var(--line);border-top:5px solid var(--blue);
+    border-radius:15px;padding:17px;background:#fbfdff;
+  }
+  .year-card .tag{font-size:12px;color:var(--blue);font-weight:900}
+  .year-card .year{font-size:26px;color:var(--navy);font-weight:900}
+  .year-card b{display:block;margin-top:4px}
+  .year-card .money{margin-top:10px;color:#34485f;font-weight:700;font-size:14px}
+
+  .table-wrap{overflow:auto;border-radius:12px;border:1px solid var(--line)}
+  table{width:100%;border-collapse:collapse;font-size:14px;min-width:920px}
+  th{background:var(--navy);color:#fff;text-align:center;padding:11px 9px}
+  td{padding:9px;border-top:1px solid var(--line);border-right:1px solid var(--line);vertical-align:top}
+  td:last-child,th:last-child{border-right:none}
+  tbody tr:nth-child(even) td{background:#f9fbfd}
+
+  .bars{display:grid;gap:16px}
+  .barrow{display:grid;grid-template-columns:190px 1fr;gap:14px;align-items:center}
+  .barlabel{font-weight:900;color:var(--navy)}
+  .bar{height:38px;border-radius:10px;overflow:hidden;display:flex;border:1px solid var(--line);background:#eef2f7}
+  .seg{color:#fff;font-weight:900;font-size:12px;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 4px}
+  .nat{background:#1f5fd1}
+  .local{background:#648ed6}
+  .private{background:#c79a34}
+
+  .cards4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .card{
+    border:1px solid var(--line);border-radius:15px;
+    padding:16px;background:#fbfdff;
+  }
+  .card h4{margin:0 0 6px;color:var(--navy);font-size:18px}
+
+  .compare2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .city3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .city{
+    border:1px solid var(--line);border-radius:16px;
+    background:linear-gradient(180deg,#fbfdff,#f4f8fd);
+    padding:18px;
+  }
+  .city .type{font-size:12px;color:var(--blue);font-weight:900}
+  .city h4{font-size:21px;color:var(--navy);margin:3px 0 8px}
+
+  .policy4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .policy{
+    border:1px solid var(--line);border-radius:15px;
+    background:#fbfdff;padding:16px;
+  }
+  .policy .n{font-size:21px;color:var(--blue);font-weight:900}
+  .policy b{display:block;color:var(--navy);margin:3px 0 7px}
+
+  .prompt-tools{
+    display:flex;gap:10px;flex-wrap:wrap;
+    align-items:center;margin:14px 0 18px;
+  }
+  .prompt-tools input,.prompt-tools select{
+    font:inherit;border:1px solid var(--line);
+    background:#fff;border-radius:10px;padding:10px 12px;
+  }
+  .prompt-tools input{flex:1;min-width:250px}
+  .prompt-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .prompt{
+    border:1px solid var(--line);border-radius:16px;
+    padding:17px;background:#fff;
+    box-shadow:0 3px 10px rgba(20,40,70,.035);
+  }
+  .prompt .num{font-size:13px;color:var(--blue);font-weight:900}
+  .prompt h4{margin:2px 0 8px;color:var(--navy);font-size:18px}
+  .prompt p{margin:0;color:#334155}
+  .copy{
+    margin-top:12px;
+    border:1px solid #b9cff2;background:#f5f9ff;
+    color:var(--blue);border-radius:9px;
+    padding:7px 10px;font-weight:900;cursor:pointer;
+  }
+  .copy:hover{background:#eaf2ff}
+
+  .master{
+    border:2px solid var(--blue);
+    border-radius:18px;padding:20px;
+    background:#f5f9ff;margin-top:18px;
+  }
+  .master h3{margin-top:0}
+
+  .flow{
+    display:flex;flex-wrap:wrap;align-items:center;gap:8px;
+    margin:14px 0;
+  }
+  .node{
+    border:1px solid #bfd2ef;background:#f8fbff;
+    color:var(--navy);font-weight:800;
+    border-radius:12px;padding:9px 12px;
+  }
+  .arrow{color:var(--blue);font-weight:900}
+
+  .source-box{
+    background:#f8fafc;border:1px solid var(--line);
+    border-radius:14px;padding:16px;
+  }
+  .source-box p{margin:8px 0}
+  .small{font-size:12px;color:var(--muted)}
+  .footer{text-align:center;color:#718096;font-size:12px;padding:24px 0 8px}
+
+  @media(max-width:1050px){
+    .metrics,.timeline,.cards4,.policy4{grid-template-columns:repeat(2,1fr)}
+    .city3,.prompt-grid{grid-template-columns:1fr}
+  }
+  @media(max-width:700px){
+    .container{padding:12px}
+    .hero{padding:26px 22px}
+    .hero h1{font-size:28px}
+    .section{padding:21px 18px}
+    .metrics,.timeline,.cards4,.policy4,.compare2{grid-template-columns:1fr}
+    .barrow{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <section class="hero">
+    <div class="eyebrow">SMART TOURISM CITY · TEACHING NOTE</div>
+    <h1>국내 스마트관광도시 12곳<br>선정 시기 · 재원 구조 · 분석 프롬프트 20</h1>
+    <p>선정 시기와 재원 분담 구조를 먼저 이해한 뒤, 동일한 도시를 정책·기술·서비스·데이터·성과·지속가능성 관점에서 분석하도록 구성한 통합 수업자료입니다.</p>
+    <div class="chip-row">
+      <span class="chip">KTO 공식 12곳 기준</span>
+      <span class="chip">국비 · 지방비 · 민간현물</span>
+      <span class="chip">2020–2023 선정 흐름</span>
+      <span class="chip">분석 프롬프트 20</span>
+      <span class="chip">대본 박스 포함</span>
+    </div>
+  </section>
+
+  <nav class="nav">
+    <a href="#overview">01 핵심 결론</a>
+    <a href="#timeline">02 선정 흐름</a>
+    <a href="#cities">03 12개 도시</a>
+    <a href="#funding">04 재원 구조</a>
+    <a href="#policy">05 정책 해석</a>
+    <a href="#prompts">06 프롬프트 20</a>
+    <a href="#source">07 출처</a>
+  </nav>
+
+  <section class="section" id="overview">
+    <span class="kicker">PART 01 · 선정 시기와 재원 구조</span>
+    <h2>핵심 결론</h2>
+    <p class="subtitle">스마트관광도시는 정부 전액투자가 아니라 지자체·민간과 함께 조성하는 공동투자형 정책사업</p>
+
+    <div class="metrics">
+      <div class="metric"><strong>12곳</strong><span>현재 KTO 공식 특집관 기준</span></div>
+      <div class="metric"><strong>35억</strong><span>초기 기본 국비 지원</span></div>
+      <div class="metric"><strong>최대 45억</strong><span>2023년 이후 국비 한도</span></div>
+      <div class="metric"><strong>1:1 이상</strong><span>지방비 대응 기본 구조</span></div>
+    </div>
+
+    <div class="callout">
+      <b>해석 포인트</b><br>
+      국비는 사업을 여는 마중물입니다. 도시별 재원 구조는 대체로 <b>국비 50% 이하, 지방비 50% 이상</b>으로 읽는 것이 안전합니다.
+      다만 2020년 인천은 <b>국비 35억 + 지방비 35억 + 민간현물 18억 = 총 88억</b>으로 민간현물이 포함된 예외형입니다.
+    </div>
+
+    <div class="script">
+      <div class="script-label">대본</div>
+      <p>오늘은 국내 스마트관광도시 12곳의 선정 흐름과 재원 분담 구조를 살펴보겠습니다. 핵심은 국비 단독이 아니라 지방비와 민간이 결합되는 공동투자형 사업이라는 점입니다.</p>
+    </div>
+  </section>
+
+  <section class="section" id="timeline">
+    <h2>선정 시기 흐름</h2>
+    <p class="subtitle">2020 시범사업 → 2021 확산 → 2022 다지역 선정 → 2023 3년형 사업</p>
+
+    <div class="timeline">
+      <div class="year-card">
+        <div class="tag">시범사업 · 1곳</div>
+        <div class="year">2020</div>
+        <b>인천</b>
+        <div class="money">국비 35억 + 지방비 35억 + 민간현물 18억</div>
+      </div>
+      <div class="year-card">
+        <div class="tag">확산기 · 3곳</div>
+        <div class="year">2021</div>
+        <b>수원 · 대구 · 여수</b>
+        <div class="money">국비 35억 + 지방비 35억</div>
+      </div>
+      <div class="year-card">
+        <div class="tag">다지역 선정 · 현재 5곳*</div>
+        <div class="year">2022</div>
+        <b>울산 · 청주 · 경주 · 남원 · 양양</b>
+        <div class="money">국비 35억 + 지방비 1:1 이상</div>
+      </div>
+      <div class="year-card">
+        <div class="tag">3년형 · 3곳</div>
+        <div class="year">2023</div>
+        <b>용인 · 인제 · 통영</b>
+        <div class="money">국비 최대 45억 + 지방비 1:1 이상</div>
+      </div>
+    </div>
+    <p class="small">* 2022년 선정 발표에는 하동까지 6곳이 포함됐으나, 현재 KTO ‘스마트관광도시 12’ 특집관 기준에는 하동이 포함되지 않습니다.</p>
+
+    <div class="script">
+      <div class="script-label">대본</div>
+      <p>선정 흐름은 2020년 인천 시범사업에서 출발해 2021년 3개 도시, 2022년 다지역 선정, 2023년 3년형 사업으로 변화했습니다.</p>
+    </div>
+  </section>
+
+  <section class="section" id="cities">
+    <h2>12개 도시 선정 현황</h2>
+    <p class="subtitle">도시별 선정 시기 · 주요 대상지 · 국비 · 지방비/민간 · 재원 비율</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>선정</th><th>도시</th><th>주요 대상지</th><th>국비</th><th>지방비 / 민간</th><th>비율</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>2020.09</td><td><b>인천</b></td><td>중구 개항장</td><td>35억</td><td>지방비 35억 + 민간현물 18억</td><td>39.8 : 39.8 : 20.5</td></tr>
+          <tr><td>2021</td><td><b>수원</b></td><td>수원화성 관광특구</td><td>35억</td><td>지방비 35억</td><td>50 : 50</td></tr>
+          <tr><td>2021</td><td><b>대구</b></td><td>수성못 · 들안길 일원</td><td>35억</td><td>지방비 35억</td><td>50 : 50</td></tr>
+          <tr><td>2021</td><td><b>여수</b></td><td>이순신광장 · 종포해양공원</td><td>35억</td><td>도비 7억 + 시비 28억</td><td>50 : 50</td></tr>
+          <tr><td>2022.03</td><td><b>울산</b></td><td>장생포 고래문화특구</td><td>35억</td><td>지방비 1:1 이상</td><td>국비 ≤50 / 지방비 ≥50</td></tr>
+          <tr><td>2022.03</td><td><b>청주</b></td><td>문화제조창 · 원도심</td><td>35억</td><td>지방비 1:1 이상</td><td>국비 ≤50 / 지방비 ≥50</td></tr>
+          <tr><td>2022.03</td><td><b>경주</b></td><td>황리단길 일원</td><td>35억</td><td>지방비 1:1 이상</td><td>국비 ≤50 / 지방비 ≥50</td></tr>
+          <tr><td>2022.03</td><td><b>남원</b></td><td>광한루 전통문화체험지구</td><td>35억</td><td>지방비 1:1 이상</td><td>국비 ≤50 / 지방비 ≥50</td></tr>
+          <tr><td>2022.03</td><td><b>양양</b></td><td>서피비치로드</td><td>35억</td><td>지방비 1:1 이상</td><td>국비 ≤50 / 지방비 ≥50</td></tr>
+          <tr><td>2023.03</td><td><b>용인</b></td><td>한국민속촌–G뮤지엄파크</td><td>최대 45억</td><td>지방비 1:1 이상</td><td>국비 ≤50 / 지방비 ≥50</td></tr>
+          <tr><td>2023.03</td><td><b>인제</b></td><td>원대리 자작나무숲</td><td>최대 45억</td><td>지방비 1:1 이상</td><td>국비 ≤50 / 지방비 ≥50</td></tr>
+          <tr><td>2023.03</td><td><b>통영</b></td><td>동피랑–디피랑–서피랑</td><td>최대 45억</td><td>지방비 1:1 이상</td><td>국비 ≤50 / 지방비 ≥50</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="small">주: 2022·2023년은 지방비 1:1 이상 대응 조건이므로 실제 총사업비는 도시별 추가 재원에 따라 달라질 수 있습니다.</p>
+
+    <div class="script">
+      <div class="script-label">대본</div>
+      <p>도시별로 보면 선정연도는 다르지만 재원 구조는 대체로 국비와 지방비 매칭입니다. 인천은 민간현물이 포함되어 비율 해석이 달라집니다.</p>
+    </div>
+  </section>
+
+  <section class="section" id="funding">
+    <h2>재원 분담 구조 비교</h2>
+    <p class="subtitle">인천은 민간현물이 포함된 예외형 · 이후 사업은 국비·지방비 1:1 이상이 기본</p>
+
+    <div class="bars">
+      <div class="barrow">
+        <div class="barlabel">2020 인천</div>
+        <div class="bar">
+          <div class="seg nat" style="width:39.8%">국비 39.8%</div>
+          <div class="seg local" style="width:39.8%">지방비 39.8%</div>
+          <div class="seg private" style="width:20.4%">민간 20.5%</div>
+        </div>
+      </div>
+      <div class="barrow">
+        <div class="barlabel">2021–2022 기본형</div>
+        <div class="bar">
+          <div class="seg nat" style="width:50%">국비 50%</div>
+          <div class="seg local" style="width:50%">지방비 50% 이상</div>
+        </div>
+      </div>
+      <div class="barrow">
+        <div class="barlabel">2023 3년형</div>
+        <div class="bar">
+          <div class="seg nat" style="width:50%">국비 ≤50%</div>
+          <div class="seg local" style="width:50%">지방비 ≥50%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout"><b>“1:1 이상”</b>은 지방비가 국비와 같거나 더 많다는 의미입니다. 따라서 실제 총사업비 기준으로 국비 비중은 50% 이하가 됩니다.</div>
+
+    <div class="script">
+      <div class="script-label">대본</div>
+      <p>이 그래프는 재원 분담을 보여줍니다. 인천은 국비·지방비·민간현물이 함께 들어갔고, 이후 사업은 국비 50% 이하, 지방비 50% 이상으로 이해하면 됩니다.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>2020–2021: 시범에서 3개 도시 확산으로</h2>
+    <p class="subtitle">인천이 1호 모델을 만들고, 수원·대구·여수로 확대</p>
+
+    <div class="cards4">
+      <div class="card"><h4>2020 인천</h4><p>중구 개항장</p><b>35 + 35 + 18</b><p class="small">총 88억 / 민간현물 포함</p></div>
+      <div class="card"><h4>2021 수원</h4><p>수원화성 관광특구</p><b>35 + 35</b><p class="small">국비·지방비 1:1</p></div>
+      <div class="card"><h4>2021 대구</h4><p>수성못·들안길</p><b>35 + 35</b><p class="small">국비·지방비 1:1</p></div>
+      <div class="card"><h4>2021 여수</h4><p>해양공원·이순신광장</p><b>35 + 7 + 28</b><p class="small">국비 50 / 도비 10 / 시비 40</p></div>
+    </div>
+
+    <div class="script">
+      <div class="script-label">대본</div>
+      <p>2020~2021년은 시범에서 확산으로 넘어간 시기입니다. 인천 모델 이후 수원·대구·여수가 각 지역 관광자원에 맞춰 스마트관광 서비스를 구축했습니다.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>2022: 선정 발표와 현재 12곳 기준의 차이</h2>
+    <p class="subtitle">역사적 선정 목록과 현재 KTO 특집관 목록을 구분해야 함</p>
+
+    <div class="compare2">
+      <div class="card">
+        <h4>2022년 선정 발표</h4>
+        <p><b>울산 · 청주 · 경주 · 남원 · 양양 · 하동</b></p>
+        <p class="small">공식 발표상 6곳</p>
+      </div>
+      <div class="card">
+        <h4>현재 KTO “스마트관광도시 12” 기준</h4>
+        <p><b>울산 · 청주 · 경주 · 남원 · 양양</b></p>
+        <p class="small">현재 특집관에는 하동 제외</p>
+      </div>
+    </div>
+
+    <div class="callout"><b>재원 구조:</b> 도시당 국비 35억 원 + 지방비 1:1 이상 대응 → 최소 70억 원 이상 규모로 해석</div>
+
+    <div class="script">
+      <div class="script-label">대본</div>
+      <p>2022년은 주의가 필요합니다. 선정 발표에는 하동이 포함됐지만, 현재 KTO 공식 12곳 기준에는 하동이 빠져 있어 분석 기준을 명확히 해야 합니다.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>2023: 3년형 · 유형별 공모로 전환</h2>
+    <p class="subtitle">용인·인제·통영은 최대 45억 국비와 지방비 1:1 이상 대응 구조</p>
+
+    <div class="city3">
+      <div class="city">
+        <div class="type">관광명소형</div>
+        <h4>용인</h4>
+        <p>한국민속촌–G뮤지엄파크</p>
+        <p><b>스마트 아트로드 · 모빌리티</b></p>
+      </div>
+      <div class="city">
+        <div class="type">강소형</div>
+        <h4>인제</h4>
+        <p>원대리 자작나무숲</p>
+        <p><b>맞춤형 숲길 큐레이션 · 야간 확장</b></p>
+      </div>
+      <div class="city">
+        <div class="type">강소형</div>
+        <h4>통영</h4>
+        <p>동피랑–디피랑–서피랑</p>
+        <p><b>섬 관광 플랫폼 · XR · 야간콘텐츠</b></p>
+      </div>
+    </div>
+
+    <h3>3년 사업 구조</h3>
+    <div class="timeline" style="grid-template-columns:repeat(3,1fr)">
+      <div class="year-card"><div class="tag">1년차</div><b>계획 구체화</b><div class="money">국비 9억</div></div>
+      <div class="year-card"><div class="tag">2년차</div><b>구축 · 구현</b><div class="money">국비 17~27억</div></div>
+      <div class="year-card"><div class="tag">3년차</div><b>운영 · 고도화</b><div class="money">국비 9억</div></div>
+    </div>
+
+    <div class="callout"><b>재원:</b> 국비 최대 45억 + 지방비 1:1 이상 → 총 90억 이상 가능</div>
+
+    <div class="script">
+      <div class="script-label">대본</div>
+      <p>2023년부터는 단년도 구축보다 3년간 계획·구축·운영을 이어가는 구조가 강조됩니다. 그래서 국비 한도도 최대 45억 원으로 확대됐습니다.</p>
+    </div>
+  </section>
+
+  <section class="section" id="policy">
+    <h2>정책 분석 관점: 재원 구조가 말해주는 것</h2>
+    <p class="subtitle">재원 분담은 사업의 성격 · 지속가능성 · 지역 책임성을 함께 보여줌</p>
+
+    <div class="policy4">
+      <div class="policy"><div class="n">①</div><b>공동투자형 정책</b><p>국비는 초기 구축을 여는 마중물<br>지방비 매칭은 지역의 실행 책임</p></div>
+      <div class="policy"><div class="n">②</div><b>운영 지속성 이슈</b><p>앱·데이터·콘텐츠는 구축 후 운영비 필요<br>사업 종료 후 유지관리 체계가 핵심</p></div>
+      <div class="policy"><div class="n">③</div><b>민간 참여의 의미</b><p>기술기업은 실증·서비스 개발의 주체<br>인천처럼 현물투자 반영 가능</p></div>
+      <div class="policy"><div class="n">④</div><b>비교분석 기준</b><p>총사업비보다 ‘국비 한도 + 지방비 조건’을 먼저 확인<br>도시별 추가재원은 별도 검증</p></div>
+    </div>
+
+    <h3>수업·논문 분석의 핵심 논리</h3>
+    <div class="flow">
+      <div class="node">지역 관광문제</div><div class="arrow">→</div>
+      <div class="node">정책목표</div><div class="arrow">→</div>
+      <div class="node">기술·서비스</div><div class="arrow">→</div>
+      <div class="node">데이터</div><div class="arrow">→</div>
+      <div class="node">운영재원</div><div class="arrow">→</div>
+      <div class="node">성과·지속가능성</div>
+    </div>
+
+    <div class="script">
+      <div class="script-label">대본</div>
+      <p>재원 구조는 단순 예산표가 아니라 정책 성격을 보여줍니다. 지방비 매칭은 지역의 실행 책임을, 민간 참여는 기술 실증과 서비스 운영 가능성을 의미합니다.</p>
+    </div>
+  </section>
+
+  <section class="section" id="prompts">
+    <span class="kicker">PART 02 · 분석 프롬프트</span>
+    <h2>스마트관광도시 분석 프롬프트 20</h2>
+    <p class="subtitle">○○에 도시명을 넣어 바로 사용할 수 있습니다. 검색 또는 분석 목적별로 골라 복사할 수 있습니다.</p>
+
+    <div class="prompt-tools">
+      <input id="q" type="search" placeholder="예: 데이터, KPI, 기업, 관광객, ESG, 안동…" oninput="filterPrompts()">
+      <select id="cat" onchange="filterPrompts()">
+        <option value="">전체 분석 목적</option>
+        <option value="구조">구조</option>
+        <option value="정책">정책</option>
+        <option value="기술">기술</option>
+        <option value="서비스">서비스</option>
+        <option value="데이터">데이터</option>
+        <option value="기업">기업</option>
+        <option value="관광객">관광객</option>
+        <option value="성과">성과</option>
+        <option value="지속가능성">지속가능성</option>
+        <option value="비교">비교</option>
+        <option value="수업">수업</option>
+        <option value="적용">적용</option>
+      </select>
+    </div>
+
+    <div class="prompt-grid" id="promptGrid">
+
+      <article class="prompt" data-cat="구조"><div class="num">01</div><h4>전체 구조 분석</h4><p>“○○ 스마트관광도시 사업을 분석해줘. 추진 배경 → 지역문제 → 사업목표 → 적용기술 → 관광서비스 → 참여기업 → 관광객 편익 → 지역경제 효과 → 한계 순서로 정리해줘.”</p><button class="copy" onclick="copyPrompt(this)">프롬프트 복사</button></article>
+
+      <article class="prompt" data-cat="기술"><div class="num">02</div><h4>문제–기술 분석</h4><p>“○○ 지역이 스마트관광을 통해 해결하려는 관광문제를 먼저 찾아줘. 각 문제에 대해 문제 → 원인 → 적용기술 → 서비스 → 기대효과의 구조로 분석해줘.”</p><button class="copy" onclick="copyPrompt(this)">프롬프트 복사</button></article>
+
+      <article class="prompt" data-cat="정책"><div class="num">03</div><h4>정책 추진방식</h4><p>“○○ 스마트관광도시가 어떤 정책 추진방식을 사용했는지 분석해줘. 중앙정부, 지자체, 관광기관, 민간기업의 역할을 구분하고 협력구조를 설명해줘.”</p><button class="copy" onclick="copyPrompt(this)">프롬프트 복사</button></article>
+
+      <article class="prompt" data-cat="기술"><div class="num">04</div><h4>핵심 기술</h4><p>“○○ 스마트관광도시에 적용된 기술을 AI, 빅데이터, IoT, AR·VR·XR, 위치기반서비스, 모빌리티, 스마트결제, 디지털지도, 플랫폼으로 구분하여 분석해줘.”</p><button class="copy" onclick="copyPrompt(this)">프롬프트 복사</button></article>
+
+      <article class="prompt" data-cat="관광객"><div class="num">05</div><h4>관광객 여정</h4><p>“○○ 스마트관광 서비스를 관광객 여정(Customer Journey)에 따라 여행 전 → 이동 → 관광지 탐색 → 체험 → 결제 → 공유 → 재방문 단계로 분석해줘.”</p><button class="copy" onclick="copyPrompt(this)">프롬프트 복사</button></article>
+
+      <article class="prompt" data-cat="서비스"><div class="num">06</div><h4>스마트 서비스</h4><p>“○○ 지역의 스마트관광 서비스를 서비스명 → 관광객 문제 → 활용기술 → 이용방법 → 관광객 편익 → 운영주체 순서로 표로 정리해줘.”</p><button class="copy" onclick="copyPrompt(this)">프롬프트 복사</button></article>
+
+      <article class="prompt" data-cat="데이터"><div class="num">07</div><h4>데이터 흐름</h4><p>“○○ 스마트관광도시에서 관광객 데이터가 어떻게 생성·수집·분석·활용되는지 분석해줘. 데이터 발생 → 수집 → 통합 → 분석 → 서비스 제공 → 정책 활용의 흐름으로 설명해줘.”</p><button class="copy" onclick="copyPrompt(this)">프롬프트 복사</button></article>
+
+      <article class="prompt" data-cat="서비스"><div class="num">08</div><h4>플랫폼 분석</h4><p>“○○ 스마트관광도시의 통합 관광플랫폼 또는 앱을 분석해줘. 핵심 기능, 사용 데이터, 관광객 혜택, 사업자 혜택, 지자체 활용방식을 구분해줘.”</p><button class="copy" onclick="copyPrompt(this)">프롬프트 복사</button></article>
+
+      <article class="prompt" data-cat="기업"><div class="num">09</div><h4>기업 분석</h4><p>“○○ 스마트관광도시 사업에 참여한 기업을 찾아 기업명 → 기술 → 제공서비스 → 해결한 관광문제 → 관광산업 적용 가능성 순으로 분석해줘.”</p><button class="copy" onclick="copyPrompt(this)">프롬프트 복사</button></article>
+
+      <article class="prompt" data-cat="구조"><div class="num">10</div><h4>스마트 관광 생태계</h4><p>“○○ 스마트관광도시를 관광객–관광기업–지역주민–지자체–기술기업의 생태계 관점에서 분석해줘. 각 주체가 무엇을 제공하고 어떤 가치를 얻는지 보여줘.”</p><button class="copy" onclick="copyPrompt(this)">프롬프트 복사</button></article>
+
+      <article class="prompt" data-cat="관광객"><div class="num">11</div><h4>관광객 가치</h4><p>“○○ 스마트관광 서비스가 관광객에게 어떤 가치를 제공하는지 편리성, 접근성, 개인화, 정보성, 안전성, 몰입성, 이동 편의성 측면에서 평가해줘.”</p><button class="copy" onclick="copyPrompt(this)">프롬프트 복사</button></article>
+
+      <article class="prompt" data-cat="성과"><div class="num">12</div><h4>지역관광 효과</h4><p>“○○ 스마트관광도시 사업이 지역관광에 미친 효과를 방문객 증가, 체류시간, 관광소비, 관광동선 분산, 지역상권, 재방문, 관광 만족도 측면에서 분석해줘. 확인 가능한 근거와 추정은 구분해줘.”</p><button class="copy" onclick="copyPrompt(this)">프롬프트 복사</button></article>
+
+      <article class="prompt" data-cat="성과"><div class="num">13</div><h4>성과·KPI</h4><p>“○○ 스마트관광도시 사업의 성과를 측정한다면 어떤 KPI가 필요한지 제안해줘. 관광객, 기업, 지역주민, 지자체 관점으로 나누고 정량지표와 정성지표를 함께 제시해줘.”</p><button class="copy" onclick="copyPrompt(this)">프롬프트 복사</button></article>
+
+      <article class="prompt" data-cat="지속가능성"><div class="num">14</div><h4>실패·한계</h4><p>“○○ 스마트관광도시 사업의 한계를 분석해줘. 기술 중심 접근, 앱 이용률, 데이터 연계, 유지관리 비용, 고령층 접근성, 개인정보, 민간기업 지속가능성, 사업 종료 후 운영 문제를 중심으로 검토해줘.”</p><button class="copy" onclick="copyPrompt(this)">프롬프트 복사</button></article>
+
+      <article class="prompt" data-cat="지속가능성"><div class="num">15</div><h4>ESG·지속가능성</h4><p>“○○ 스마트관광도시가 지속가능관광 및 ESG와 어떻게 연결되는지 환경(E), 지역사회(S), 관광 거버넌스(G) 관점에서 분석해줘.”</p><button class="copy" onclick="copyPrompt(this)">프롬프트 복사</button></article>
+
+      <article class="prompt" data-cat="관광객"><div class="num">16</div><h4>접근성 분석</h4><p>“○○ 스마트관광 서비스가 장애인, 고령자, 외국인, 디지털 취약계층의 관광 접근성을 어떻게 개선하는지 분석하고 부족한 부분도 제시해줘.”</p><button class="copy" onclick="copyPrompt(this)">프롬프트 복사</button></article>
+
+      <article class="prompt" data-cat="비교"><div class="num">17</div><h4>도시 비교</h4><p>“○○와 △△ 스마트관광도시를 비교해줘. 지역 관광문제, 핵심기술, 대표서비스, 플랫폼, 참여기업, 데이터 활용, 관광객 편익, 사업성과, 지속가능성의 동일 기준으로 비교해줘.”</p><button class="copy" onclick="copyPrompt(this)">프롬프트 복사</button></article>
+
+      <article class="prompt" data-cat="비교"><div class="num">18</div><h4>국제 비교</h4><p>“○○ 스마트관광도시를 싱가포르, 두바이, 암스테르담 등 해외 스마트관광 사례와 비교해줘. 단순 기술 비교가 아니라 관광정책 목표와 도시문제 해결방식의 차이를 설명해줘.”</p><button class="copy" onclick="copyPrompt(this)">프롬프트 복사</button></article>
+
+      <article class="prompt" data-cat="수업"><div class="num">19</div><h4>수업용 사례 분석</h4><p>“○○ 스마트관광도시 사례를 대학 관광전공 수업용으로 분석해줘. ① 관광문제 ② 적용기술 ③ 실제 서비스 ④ 관광객 변화 ⑤ 관광기업 기회 ⑥ 토론 질문 순서로 구성해줘.”</p><button class="copy" onclick="copyPrompt(this)">프롬프트 복사</button></article>
+
+      <article class="prompt" data-cat="적용"><div class="num">20</div><h4>종합 진단·적용</h4><p>“○○ 스마트관광도시 사례를 분석한 뒤, 이 모델을 경북·안동에 적용한다면 무엇을 그대로 적용할 수 있고 무엇을 지역 특성에 맞게 수정해야 하는지 제안해줘. 관광자원, 관광객, 교통, 축제, 데이터, 기업 생태계를 고려해줘.”</p><button class="copy" onclick="copyPrompt(this)">프롬프트 복사</button></article>
+
+    </div>
+
+    <div class="master">
+      <h3>통합 프롬프트 — 한 번에 심층 분석</h3>
+      <p id="masterText">“○○ 스마트관광도시 사업을 관광정책 사례로 심층 분석해줘. 먼저 해당 지역이 해결하려 한 관광문제를 도출하고, 지역문제 → 정책목표 → 적용기술 → 스마트관광 서비스 → 참여기업 → 관광객 이용과정 → 생성·활용 데이터 → 관광객 편익 → 지역관광 효과 → 지속가능성 → 한계의 흐름으로 분석해줘. 기술 자체를 나열하지 말고 각각의 기술이 어떤 관광문제를 해결하는지 연결해줘. 마지막에는 ‘경북·안동 적용 가능성’과 대학 관광전공 수업에서 사용할 토론 질문 5개를 제시해줘. 확인된 사실과 해석은 구분하고, 출처가 있는 내용에는 원 출처와 URL을 표시해줘.”</p>
+      <button class="copy" onclick="copyMaster()">통합 프롬프트 복사</button>
+    </div>
+
+    <div class="callout"><b>수업 추천 순서:</b> ① 전체 구조 → ② 문제–기술 → ⑤ 관광객 여정 → ⑦ 데이터 흐름 → ⑨ 기업 → ⑫ 성과 → ⑭ 한계 → ⑳ 안동 적용</div>
+  </section>
+
+  <section class="section" id="source">
+    <span class="kicker">SOURCE</span>
+    <h2>자료 출처 및 사용상 주의</h2>
+    <div class="source-box">
+      <p><b>한국관광공사 스마트관광도시 특집관</b><br>
+      <a href="https://korean.visitkorea.or.kr/smarttourcity/main/index.kto" target="_blank">https://korean.visitkorea.or.kr/smarttourcity/main/index.kto</a></p>
+
+      <p><b>KTO 2021 스마트관광도시 수원 선정 보도자료</b><br>
+      수원 국비 35억·지방비 35억 1:1, 대구·여수 조성 언급</p>
+
+      <p><b>KTO 2022 스마트관광도시 선정 보도자료</b><br>
+      2022.03.08 · 울산·청주·경주·남원·양양·하동 6곳 · 국비 35억·지방비 1:1 이상</p>
+
+      <p><b>정책브리핑 2023 스마트관광도시 선정</b><br>
+      용인·인제·통영 · 3년간 국비 최대 45억 · 지방비 1:1 이상</p>
+
+      <p><b>인천 스마트관광도시 출범 자료</b><br>
+      총 88억 = 국비 35억 + 지방비 35억 + 민간현물 18억</p>
+
+      <p class="small"><b>주의:</b> 도시별 실제 집행액·추가 지방비·민간 부담은 결산자료 또는 지자체 세부자료 확인이 필요합니다. 발표자료에는 “현재 KTO 공식 12곳 기준”과 “당시 선정 발표 기준”을 구분해 표기하는 것이 안전합니다.</p>
+    </div>
+
+    <div class="script">
+      <div class="script-label">대본</div>
+      <p>마지막으로 자료를 사용할 때는 공식 12곳 기준과 선정 발표 기준을 구분해야 합니다. 실제 집행액은 지자체 결산자료로 추가 확인하는 것이 안전합니다.</p>
+    </div>
+  </section>
+
+  <div class="footer">스마트관광도시 12곳 선정 시기·재원 구조 + 분석 프롬프트 20 통합 HTML</div>
+</div>
+
+<script>
+function copyPrompt(btn){
+  const text = btn.parentElement.querySelector("p").innerText;
+  navigator.clipboard.writeText(text).then(()=>{
+    const old = btn.innerText;
+    btn.innerText = "복사됨 ✓";
+    setTimeout(()=>btn.innerText=old,1200);
+  });
+}
+function copyMaster(){
+  const text = document.getElementById("masterText").innerText;
+  navigator.clipboard.writeText(text);
+}
+function filterPrompts(){
+  const q = document.getElementById("q").value.trim().toLowerCase();
+  const cat = document.getElementById("cat").value;
+  document.querySelectorAll(".prompt").forEach(el=>{
+    const txt = el.innerText.toLowerCase();
+    const okQ = !q || txt.includes(q);
+    const okC = !cat || el.dataset.cat === cat;
+    el.style.display = (okQ && okC) ? "block" : "none";
+  });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>인바운드 여행시장｜18섹션 통합본 — 시각화 + 상세설명</title>
+<style>
+:root{--navy:#102a43;--navy2:#163a66;--blue:#1f5fae;--sky:#eaf3ff;--gold:#d5a62e;--ink:#233548;--muted:#6b7c8f;--line:#d9e3ee;--paper:#fff;--bg:#f4f7fb;--green:#2e7d68;--rose:#b65b6a;--orange:#c9782b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(#edf3f9,#f8fafc);font-family:"NanumBarunGothic","Noto Sans KR","Malgun Gothic",Arial,sans-serif;color:var(--ink)}
+header{position:sticky;top:0;z-index:30;background:rgba(16,42,67,.98);color:#fff;padding:12px 22px 10px;box-shadow:0 4px 18px #102a4322}.head{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:16px}.title-wrap h1{font-size:20px;margin:0}.title-wrap p{font-size:12px;color:#dce8f5;margin:4px 0 0}.head-right{display:flex;align-items:center;gap:8px}.count{background:#fff;color:var(--navy);font-weight:900;border-radius:999px;padding:8px 13px;white-space:nowrap}.topbtn{border:1px solid #ffffff33;background:#ffffff16;color:#fff;border-radius:10px;padding:8px 11px;font-weight:900;cursor:pointer}.topbtn:disabled{opacity:.3}.progress{max-width:1200px;margin:9px auto 0;height:4px;background:#ffffff2c;border-radius:99px;overflow:hidden}.bar{height:100%;background:var(--gold);width:5.55%;transition:.25s}
+main{width:min(1200px,94vw);margin:22px auto}.slide{display:none;background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:28px 30px 30px;min-height:76vh;box-shadow:0 18px 50px #17324a12;animation:fade .2s ease}.slide.active{display:block}@keyframes fade{from{opacity:.4;transform:translateX(8px)}to{opacity:1;transform:none}}
+.section-head{padding-bottom:14px;border-bottom:1px solid #e6edf5;margin-bottom:18px}.eyebrow{display:inline-block;font-size:12px;font-weight:900;color:var(--blue);background:var(--sky);border:1px solid #cfe1f6;border-radius:999px;padding:6px 10px;margin-bottom:9px}.section-head h2{margin:0;font-size:29px;line-height:1.3;color:var(--navy);letter-spacing:-.6px}.alt-title{font-size:12px;color:var(--muted);margin-top:7px}.merge-label{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:900;color:#42566c;margin:14px 0 8px}.merge-label span{font-size:11px;letter-spacing:.5px;color:#fff;background:var(--navy);padding:5px 8px;border-radius:7px}.merge-divider{height:34px;display:flex;align-items:center;justify-content:center;margin:2px 0 8px}.merge-divider:before,.merge-divider:after{content:"";height:1px;background:#dbe5ef;flex:1}.merge-divider span{margin:0 12px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#fff8e7;border:1px solid #ddc471;color:#9b7717;font-weight:900}
+/* shared content */
+p,li{font-size:15.5px;line-height:1.82}.lead{font-size:17px;line-height:1.72;color:#30465e;margin:0 0 16px}.quote{border-left:5px solid var(--gold);background:#fffaf0;border-radius:12px;padding:16px 18px;font-weight:800;line-height:1.7;margin:14px 0;color:#3e3a2d}.blue{color:var(--blue);font-weight:900}.gold{color:#9a7612;font-weight:900}h3{margin:22px 0 10px;font-size:18px;color:var(--navy2)}table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}th{background:var(--navy);color:#fff;text-align:left;padding:10px;border:1px solid #244b79}td{border:1px solid var(--line);padding:10px;vertical-align:top;line-height:1.55}tr:nth-child(even) td{background:#f9fbfd}.small{font-size:13px;color:var(--muted)}
+/* visual source A */
+.visual-pane{padding:2px 0 4px}.visual-pane .visual{margin:10px 0 18px;padding:18px;border:1px solid #d6e2ef;border-radius:20px;background:linear-gradient(180deg,#fbfdff,#f3f8fd);min-height:260px;display:flex;align-items:center;justify-content:center}.visual-pane svg{width:100%;max-width:980px;height:auto}.visual-pane .txt{font-size:22px;font-weight:800;fill:var(--navy)}.visual-pane .subtxt{font-size:16px;font-weight:700;fill:#4d6177}.visual-pane .smalltxt{font-size:13px;font-weight:700;fill:#617489}.visual-pane .node{fill:#fff;stroke:#b9cde1;stroke-width:2}.visual-pane .nodeBlue{fill:#eaf3ff;stroke:#9fc1e5;stroke-width:2}.visual-pane .nodeGold{fill:#fff8e7;stroke:#ddc471;stroke-width:2}.visual-pane .nodeGreen{fill:#eef8f4;stroke:#9bcab9;stroke-width:2}.visual-pane .nodeRose{fill:#fff0f3;stroke:#dfb0b9;stroke-width:2}.visual-pane svg .arrow{stroke:#d1a128;stroke-width:5;fill:none}.visual-pane svg .arrowBlue{stroke:#3b78bc;stroke-width:4;fill:none}.visual-pane .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.visual-pane .card{border:1px solid var(--line);background:#fbfdff;border-radius:14px;padding:14px;line-height:1.6}.visual-pane .card b{color:var(--navy)}
+/* detail source B */
+.detail-pane{padding:1px 0}.detail-pane .flow{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin:16px 0}.detail-pane .box{flex:1 1 145px;min-width:130px;background:#f8fbff;border:1px solid #cfe0f3;border-radius:14px;padding:14px 12px;text-align:center;font-weight:800;color:var(--navy)}.detail-pane .arrow{color:var(--gold);font-size:22px;font-weight:900}.detail-pane .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.detail-pane .card{border:1px solid var(--line);border-radius:16px;padding:16px 17px;background:#fbfdff}.detail-pane .card b{display:block;color:var(--navy);margin-bottom:7px}.detail-pane .formula{margin:18px 0;text-align:center;border:2px solid #d8e6f5;border-radius:18px;padding:20px;background:linear-gradient(180deg,#fbfdff,#f1f6fb);font-size:19px;font-weight:900;color:var(--navy);line-height:1.9}.detail-pane ul{padding-left:22px}
+.nav{display:flex;align-items:center;gap:10px;margin-top:22px;padding-top:18px;border-top:1px solid #e6edf5}.nav button{border:0;border-radius:12px;padding:12px 18px;font-family:inherit;font-weight:900;cursor:pointer}.prev{background:#e9eef5;color:var(--navy)}.next{background:var(--navy);color:#fff}.nav button:disabled{opacity:.35;cursor:not-allowed}.dots{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;flex:1}.dot{width:10px;height:10px;padding:0!important;min-width:10px;border-radius:50%!important;background:#c7d3e0!important}.dot.active{background:var(--gold)!important}footer{text-align:center;color:#7c8996;font-size:12px;padding:0 0 18px}
+@media(max-width:780px){header{padding:11px 12px 9px}.title-wrap h1{font-size:16px}.title-wrap p{display:none}.topbtn{display:none}.slide{padding:22px 18px}.section-head h2{font-size:23px}.visual-pane .visual{padding:8px;min-height:220px}.visual-pane .txt{font-size:18px}.visual-pane .subtxt{font-size:13px}.visual-pane .smalltxt{font-size:11px}.visual-pane .grid,.detail-pane .grid2{grid-template-columns:1fr}.detail-pane .arrow{display:none}.detail-pane .box{flex:1 1 100%}table{font-size:12.5px}th,td{padding:8px}}
+@media print{header,.nav,footer{display:none!important}body{background:#fff}.slide{display:block!important;box-shadow:none;border:0;page-break-after:always;min-height:auto;padding:12mm 8mm}.merge-divider{margin:2mm 0}}
+</style>
+</head>
+<body>
+<header><div class="head"><div class="title-wrap"><h1>인바운드 여행시장: 산업구조와 경쟁전략</h1><p>18개 섹션 · 시각화형 + 상세 좌우넘김형 손실없는 통합본</p></div><div class="head-right"><button class="topbtn" id="topPrev" aria-label="이전 섹션">←</button><div class="count"><span id="cur">1</span> / 18</div><button class="topbtn" id="topNext" aria-label="다음 섹션">→</button></div></div><div class="progress"><div class="bar" id="bar"></div></div></header>
+<main>
+<section class="slide active" data-section="1">
+      <div class="section-head"><span class="eyebrow">SECTION 01</span><h2>전체 논리</h2></div>
+      <div class="merge-label"><span>VISUAL</span> 시각화형 원본 도식·요약</div>
+      <div class="visual-pane source-a">
+
+<p class="lead">정의부터 성과 검증까지, 인바운드 비즈니스가 움직이는 전체 흐름을 먼저 봅니다.</p>
+<div class="visual">
+<svg viewbox="0 0 1000 320">
+<defs><marker id="arrow" markerheight="10" markerwidth="10" orient="auto" refx="8" refy="3"><path d="M0,0 L0,6 L9,3 z" fill="#d1a128"></path></marker></defs>
+<rect class="nodeBlue" height="90" rx="18" width="135" x="25" y="115"></rect><text class="subtxt" text-anchor="middle" x="92" y="150">시장 정의</text><text class="smalltxt" text-anchor="middle" x="92" y="178">Inbound?</text>
+<path class="arrow" d="M165 160 H215"></path>
+<rect class="node" height="90" rx="18" width="135" x="220" y="115"></rect><text class="subtxt" text-anchor="middle" x="288" y="150">고객 세분화</text><text class="smalltxt" text-anchor="middle" x="288" y="178">누가·왜?</text>
+<path class="arrow" d="M360 160 H410"></path>
+<rect class="nodeGold" height="90" rx="18" width="135" x="415" y="115"></rect><text class="subtxt" text-anchor="middle" x="482" y="150">유통구조</text><text class="smalltxt" text-anchor="middle" x="482" y="178">누가 판매?</text>
+<path class="arrow" d="M555 160 H605"></path>
+<rect class="nodeGreen" height="90" rx="18" width="135" x="610" y="115"></rect><text class="subtxt" text-anchor="middle" x="678" y="150">경쟁전략</text><text class="smalltxt" text-anchor="middle" x="678" y="178">무엇으로?</text>
+<path class="arrow" d="M750 160 H800"></path>
+<rect class="nodeRose" height="90" rx="18" width="160" x="805" y="115"></rect><text class="subtxt" text-anchor="middle" x="885" y="150">성과검증</text><text class="smalltxt" text-anchor="middle" x="885" y="178">Traffic·CAC·Margin</text>
+</svg></div>
+<div class="quote">핵심 흐름: <span class="blue">정의 → 세분화 → 유통 → 산업 변화 → 경쟁 → 성과</span></div>
+</div>
+      <div class="merge-divider"><span>+</span></div>
+      <div class="merge-label"><span>DETAIL</span> 좌우넘김형 원본 상세 설명</div>
+      <div class="detail-pane source-b">
+
+
+<p class="lead">강의 전체는 <span class="blue">정의 → 시장 세분화 → 유통구조 → 산업 변화 → 경쟁전략 → 성과 검증</span>의 흐름으로 이해하면 가장 쉽습니다.</p>
+<div class="flow">
+<div class="box">① 인바운드란 무엇인가?</div><div class="arrow">→</div>
+<div class="box">② 누가 왜 한국에 오는가?</div><div class="arrow">→</div>
+<div class="box">③ 상품은 어떻게 만들어지고 판매되는가?</div><div class="arrow">→</div>
+<div class="box">④ OTA·FIT가 구조를 어떻게 바꿨는가?</div><div class="arrow">→</div>
+<div class="box">⑤ 무엇으로 경쟁해야 하는가?</div><div class="arrow">→</div>
+<div class="box">⑥ 무엇으로 검증할 것인가?</div>
+</div>
+<div class="quote">인바운드 시장을 이해하려면 “누가 오는가”만이 아니라 “왜 오고, 무엇을 사고, 어떤 채널에서 구매하는가”까지 보아야 합니다.</div>
+</div>
+    </section>
+<section class="slide" data-section="2">
+      <div class="section-head"><span class="eyebrow">SECTION 02</span><h2>1. 인바운드 여행시장이란?</h2></div>
+      <div class="merge-label"><span>VISUAL</span> 시각화형 원본 도식·요약</div>
+      <div class="visual-pane source-a">
+
+<div class="visual">
+<svg viewbox="0 0 1000 340">
+<defs><marker id="arrow" markerheight="10" markerwidth="10" orient="auto" refx="8" refy="3"><path d="M0,0 L0,6 L9,3 z" fill="#d1a128"></path></marker></defs>
+<circle cx="500" cy="170" fill="#eaf3ff" r="85" stroke="#9fc1e5" stroke-width="3"></circle>
+<text class="txt" text-anchor="middle" x="500" y="160">KOREA</text><text class="subtxt" text-anchor="middle" x="500" y="190">Destination</text>
+<rect class="nodeGold" height="80" rx="18" width="190" x="70" y="55"></rect><text class="subtxt" text-anchor="middle" x="165" y="90">Inbound</text><text class="smalltxt" text-anchor="middle" x="165" y="113">외국인 → 한국</text>
+<path class="arrow" d="M260 100 C330 110,350 130,405 150"></path>
+<rect class="nodeGreen" height="80" rx="18" width="190" x="70" y="220"></rect><text class="subtxt" text-anchor="middle" x="165" y="255">Domestic</text><text class="smalltxt" text-anchor="middle" x="165" y="278">한국 거주자 → 한국</text>
+<path class="arrow" d="M260 260 C330 245,350 220,405 195"></path>
+<rect class="nodeRose" height="80" rx="18" width="190" x="740" y="130"></rect><text class="subtxt" text-anchor="middle" x="835" y="165">Outbound</text><text class="smalltxt" text-anchor="middle" x="835" y="188">한국 거주자 → 해외</text>
+<path class="arrow" d="M595 170 H735"></path>
+</svg></div>
+<table><tr><th>구분</th><th>핵심</th></tr><tr><td>Inbound</td><td>외국인·비거주자의 한국 방문</td></tr><tr><td>Domestic</td><td>자국 거주자의 자국 내 여행</td></tr><tr><td>Outbound</td><td>자국 거주자의 해외여행</td></tr></table>
+</div>
+      <div class="merge-divider"><span>+</span></div>
+      <div class="merge-label"><span>DETAIL</span> 좌우넘김형 원본 상세 설명</div>
+      <div class="detail-pane source-b">
+
+
+<div class="quote">핵심 질문: <span class="blue">누가 → 어디로 → 어떤 목적으로 이동하는가?</span></div>
+<table>
+<tr><th>구분</th><th>의미</th><th>예시</th></tr>
+<tr><td><b>Inbound Tourism</b></td><td>외국인·비거주자의 한국 방문</td><td>일본인 관광객의 서울 여행</td></tr>
+<tr><td><b>Domestic Tourism</b></td><td>자국 거주자의 자국 내 여행</td><td>한국 거주자의 제주 여행</td></tr>
+<tr><td><b>Outbound Tourism</b></td><td>자국 거주자의 해외여행</td><td>한국인의 일본 여행</td></tr>
+</table>
+<p><b>주의:</b> 음성기록의 ‘인프라 바운드’ 표현은 강의자료에서는 수정하는 편이 좋습니다. 국제적으로 일반적으로 사용하는 핵심 구분은 <span class="blue">Inbound / Domestic / Outbound</span>입니다.</p>
+<h3>여행을 더 넓게 보면</h3>
+<div class="formula">여행 = 공간 이동 과정에서 발생하는 <span class="blue">시간·비용·경험의 소비</span></div>
+<p>따라서 여행시장은 공간적 기준과 여행 목적을 함께 보아야 합니다.</p>
+</div>
+    </section>
+<section class="slide" data-section="3">
+      <div class="section-head"><span class="eyebrow">SECTION 03</span><h2>2. 인바운드 시장 세분화</h2></div>
+      <div class="merge-label"><span>VISUAL</span> 시각화형 원본 도식·요약</div>
+      <div class="visual-pane source-a">
+
+<div class="visual">
+<svg viewbox="0 0 1000 360">
+<circle cx="500" cy="180" fill="#102a43" r="72"></circle><text fill="white" font-size="22" font-weight="800" text-anchor="middle" x="500" y="170">TARGET</text><text fill="#dce8f5" font-size="14" font-weight="700" text-anchor="middle" x="500" y="200">외국인 관광객</text>
+<g>
+<rect class="nodeBlue" height="72" rx="16" width="210" x="90" y="35"></rect><text class="subtxt" text-anchor="middle" x="195" y="70">국적·거주지역</text>
+<rect class="nodeGold" height="72" rx="16" width="210" x="700" y="35"></rect><text class="subtxt" text-anchor="middle" x="805" y="70">방문 목적</text>
+<rect class="nodeGreen" height="72" rx="16" width="230" x="55" y="245"></rect><text class="subtxt" text-anchor="middle" x="170" y="280">연령·성별</text>
+<rect class="nodeRose" height="72" rx="16" width="230" x="715" y="245"></rect><text class="subtxt" text-anchor="middle" x="830" y="280">여행 방식</text>
+<rect class="node" height="62" rx="16" width="230" x="385" y="275"></rect><text class="subtxt" text-anchor="middle" x="500" y="313">정보탐색 채널</text>
+</g>
+<line stroke="#9fb3c8" stroke-width="3" x1="300" x2="440" y1="90" y2="145"></line><line stroke="#9fb3c8" stroke-width="3" x1="700" x2="560" y1="90" y2="145"></line>
+<line stroke="#9fb3c8" stroke-width="3" x1="285" x2="445" y1="260" y2="210"></line><line stroke="#9fb3c8" stroke-width="3" x1="715" x2="555" y1="260" y2="210"></line>
+<line stroke="#9fb3c8" stroke-width="3" x1="500" x2="500" y1="275" y2="252"></line>
+</svg></div>
+<div class="quote">세분화의 목적은 분류 자체가 아니라 <span class="blue">고객 니즈 → 맞춤 콘텐츠 → 판매채널</span>을 연결하는 것입니다.</div>
+</div>
+      <div class="merge-divider"><span>+</span></div>
+      <div class="merge-label"><span>DETAIL</span> 좌우넘김형 원본 상세 설명</div>
+      <div class="detail-pane source-b">
+
+
+<p class="lead">외국인을 단순히 ‘외국인 관광객’이라는 하나의 집단으로 보면 시장을 제대로 설명하기 어렵습니다.</p>
+<div class="grid2">
+<div class="card"><b>국적·거주지역</b>일본 / 중국 / 동남아 / 북미 / 유럽 등</div>
+<div class="card"><b>방문목적</b>휴양 / 한류 / 음식 / 문화 / 쇼핑 / 의료 / MICE / 비즈니스</div>
+<div class="card"><b>연령·성별</b>20대 여성 K-pop 관심층 / 가족여행객 / 중장년 문화관광객 등</div>
+<div class="card"><b>여행방식</b>Package / FIT / Semi-package</div>
+<div class="card"><b>정보탐색 채널</b>Google / SNS / YouTube / OTA / 여행사</div>
+<div class="card"><b>핵심 연결</b>시장 세분화 → 고객 니즈 → 맞춤 콘텐츠 → 판매채널</div>
+</div>
+</div>
+    </section>
+<section class="slide" data-section="4">
+      <div class="section-head"><span class="eyebrow">SECTION 04</span><h2>3. 인바운드 여행상품은 어떻게 만들어지는가?</h2></div>
+      <div class="merge-label"><span>VISUAL</span> 시각화형 원본 도식·요약</div>
+      <div class="visual-pane source-a">
+
+<div class="visual">
+<svg viewbox="0 0 1000 330">
+<defs><marker id="arrow" markerheight="10" markerwidth="10" orient="auto" refx="8" refy="3"><path d="M0,0 L0,6 L9,3 z" fill="#d1a128"></path></marker></defs>
+<rect class="node" height="100" rx="18" width="190" x="30" y="110"></rect><text class="subtxt" text-anchor="middle" x="125" y="145">현지 공급자</text><text class="smalltxt" text-anchor="middle" x="125" y="173">호텔·차량·가이드</text><text class="smalltxt" text-anchor="middle" x="125" y="194">식음·관광시설</text>
+<path class="arrow" d="M225 160 H300"></path>
+<rect class="nodeBlue" height="120" rx="18" width="190" x="305" y="100"></rect><text class="subtxt" text-anchor="middle" x="400" y="140">인바운드 랜드사</text><text class="smalltxt" text-anchor="middle" x="400" y="170">수배·구성·운영</text><text class="smalltxt" text-anchor="middle" x="400" y="193">B2B 공급</text>
+<path class="arrow" d="M500 160 H575"></path>
+<rect class="nodeGold" height="100" rx="18" width="190" x="580" y="110"></rect><text class="subtxt" text-anchor="middle" x="675" y="145">해외 Outbound</text><text class="smalltxt" text-anchor="middle" x="675" y="173">마케팅·모객·판매</text>
+<path class="arrow" d="M775 160 H845"></path>
+<circle cx="905" cy="160" fill="#eef8f4" r="58" stroke="#9bcab9" stroke-width="3"></circle><text class="subtxt" text-anchor="middle" x="905" y="153">외국인</text><text class="smalltxt" text-anchor="middle" x="905" y="180">관광객</text>
+</svg></div>
+</div>
+      <div class="merge-divider"><span>+</span></div>
+      <div class="merge-label"><span>DETAIL</span> 좌우넘김형 원본 상세 설명</div>
+      <div class="detail-pane source-b">
+
+
+<p class="lead">전통적인 패키지 여행에서는 공급자·랜드사·해외 아웃바운드 여행사·관광객이 단계적으로 연결됩니다.</p>
+<div class="flow">
+<div class="box">현지 관광 공급자<br/><span class="small">호텔·음식점·차량·가이드·관광시설</span></div>
+<div class="arrow">→</div>
+<div class="box">한국의 인바운드 랜드사<br/><span class="small">수배·상품 구성·운영</span></div>
+<div class="arrow">→</div>
+<div class="box">해외 Outbound 여행사<br/><span class="small">마케팅·모객·판매</span></div>
+<div class="arrow">→</div>
+<div class="box">외국인 관광객</div>
+</div>
+<div class="quote">전통 구조의 핵심은 <span class="blue">현지 운영 전문성</span>과 <span class="blue">고객 판매 전문성</span>의 분업입니다.</div>
+</div>
+    </section>
+<section class="slide" data-section="5">
+      <div class="section-head"><span class="eyebrow">SECTION 05</span><h2>4. 랜드사는 무엇을 하는가?</h2></div>
+      <div class="merge-label"><span>VISUAL</span> 시각화형 원본 도식·요약</div>
+      <div class="visual-pane source-a">
+
+<div class="visual">
+<svg viewbox="0 0 1000 360">
+<circle cx="500" cy="180" fill="#102a43" r="90"></circle><text fill="white" font-size="22" font-weight="800" text-anchor="middle" x="500" y="172">LAND</text><text fill="#dbe7f2" font-size="15" font-weight="700" text-anchor="middle" x="500" y="202">OPERATOR</text>
+<rect class="nodeBlue" height="82" rx="18" width="230" x="80" y="45"></rect><text class="subtxt" text-anchor="middle" x="195" y="80">① 수배</text><text class="smalltxt" text-anchor="middle" x="195" y="104">객실·차량·가이드 확보</text>
+<rect class="nodeGold" height="82" rx="18" width="230" x="690" y="45"></rect><text class="subtxt" text-anchor="middle" x="805" y="80">② 가격협상</text><text class="smalltxt" text-anchor="middle" x="805" y="104">구매력·물량 기반</text>
+<rect class="nodeGreen" height="82" rx="18" width="230" x="80" y="235"></rect><text class="subtxt" text-anchor="middle" x="195" y="270">③ 상품구성</text><text class="smalltxt" text-anchor="middle" x="195" y="294">서비스를 하나의 상품으로</text>
+<rect class="nodeRose" height="82" rx="18" width="230" x="690" y="235"></rect><text class="subtxt" text-anchor="middle" x="805" y="270">④ 현지운영</text><text class="smalltxt" text-anchor="middle" x="805" y="294">변경·불만·긴급대응</text>
+<line stroke="#9fb3c8" stroke-width="3" x1="310" x2="425" y1="110" y2="145"></line><line stroke="#9fb3c8" stroke-width="3" x1="690" x2="575" y1="110" y2="145"></line>
+<line stroke="#9fb3c8" stroke-width="3" x1="310" x2="425" y1="255" y2="215"></line><line stroke="#9fb3c8" stroke-width="3" x1="690" x2="575" y1="255" y2="215"></line>
+</svg></div>
+<div class="quote">랜드사는 <span class="blue">도매·B2B 공급자</span>, 해외 Outbound 여행사는 <span class="blue">소매·B2C 판매자</span>에 가깝습니다.</div>
+</div>
+      <div class="merge-divider"><span>+</span></div>
+      <div class="merge-label"><span>DETAIL</span> 좌우넘김형 원본 상세 설명</div>
+      <div class="detail-pane source-b">
+
+
+<div class="grid2">
+<div class="card"><b>① 수배 Procurement</b>호텔 객실, 차량, F&amp;B, 관광지 입장권, 체험, 가이드 등을 확보합니다.</div>
+<div class="card"><b>② 가격협상</b>판매량과 구매력이 높을수록 공급업체와의 협상력이 커집니다.</div>
+<div class="card"><b>③ 상품구성</b>개별 서비스를 결합하여 하나의 여행상품으로 만듭니다.</div>
+<div class="card"><b>④ 현지 운영</b>예약 변경, 교통 문제, 고객 불만, 긴급상황 등에 대응합니다.</div>
+</div>
+<div class="quote">유통 비유: <span class="blue">랜드사 = 도매·B2B 공급자</span>에 가깝고, <span class="blue">해외 Outbound 여행사 = 소매·B2C 판매자</span>에 가깝습니다.</div>
+</div>
+    </section>
+<section class="slide" data-section="6">
+      <div class="section-head"><span class="eyebrow">SECTION 06</span><h2>5. 왜 이런 분업구조가 생겼는가?</h2></div>
+      <div class="merge-label"><span>VISUAL</span> 시각화형 원본 도식·요약</div>
+      <div class="visual-pane source-a">
+
+<div class="visual">
+<svg viewbox="0 0 1000 330">
+<defs><marker id="arrow" markerheight="10" markerwidth="10" orient="auto" refx="8" refy="3"><path d="M0,0 L0,6 L9,3 z" fill="#d1a128"></path></marker></defs>
+<rect class="nodeRose" height="110" rx="18" width="175" x="60" y="100"></rect><text class="subtxt" text-anchor="middle" x="148" y="140">직접 현지운영</text><text class="smalltxt" text-anchor="middle" x="148" y="166">사무소·인력·계약</text><text class="smalltxt" text-anchor="middle" x="148" y="188">운영비 증가</text>
+<path class="arrow" d="M240 155 H340"></path>
+<rect class="nodeGold" height="110" rx="18" width="200" x="345" y="100"></rect><text class="subtxt" text-anchor="middle" x="445" y="140">비효율 발생</text><text class="smalltxt" text-anchor="middle" x="445" y="166">수요예측·현지대응</text><text class="smalltxt" text-anchor="middle" x="445" y="188">가격경쟁력 한계</text>
+<path class="arrow" d="M550 155 H650"></path>
+<rect class="nodeGreen" height="120" rx="18" width="285" x="655" y="95"></rect><text class="subtxt" text-anchor="middle" x="797" y="135">전문 분업</text><text class="smalltxt" text-anchor="middle" x="797" y="162">랜드사 = 현지 운영</text><text class="smalltxt" text-anchor="middle" x="797" y="186">해외여행사 = 모객·판매</text>
+</svg></div>
+</div>
+      <div class="merge-divider"><span>+</span></div>
+      <div class="merge-label"><span>DETAIL</span> 좌우넘김형 원본 상세 설명</div>
+      <div class="detail-pane source-b">
+
+
+<p>해외 여행사가 랜드사를 거치지 않고 현지에서 직접 조달하면 중간 마진을 줄일 수 있을 것처럼 보이지만, 실제로는 운영 부담이 커집니다.</p>
+<div class="flow">
+<div class="box">현지 사무소 설치</div><div class="arrow">→</div>
+<div class="box">직원 채용·파견</div><div class="arrow">→</div>
+<div class="box">공급업체 탐색</div><div class="arrow">→</div>
+<div class="box">가격협상·수요예측</div><div class="arrow">→</div>
+<div class="box">현지 이슈 대응</div>
+</div>
+<div class="quote">결국 <span class="blue">현지 운영은 랜드사에게</span>, <span class="blue">고객획득과 판매는 해외 여행사에게</span> 맡기는 구조가 효율적으로 자리 잡았습니다.</div>
+</div>
+    </section>
+<section class="slide" data-section="7">
+      <div class="section-head"><span class="eyebrow">SECTION 07</span><h2>6. 전통 여행산업의 역할 분담</h2></div>
+      <div class="merge-label"><span>VISUAL</span> 시각화형 원본 도식·요약</div>
+      <div class="visual-pane source-a">
+
+<div class="visual">
+<svg viewbox="0 0 1000 350">
+<rect class="nodeBlue" height="100" rx="18" width="200" x="60" y="70"></rect><text class="subtxt" text-anchor="middle" x="160" y="108">Outbound 여행사</text><text class="smalltxt" text-anchor="middle" x="160" y="137">브랜드·광고·모객</text>
+<rect class="nodeGold" height="100" rx="18" width="200" x="300" y="190"></rect><text class="subtxt" text-anchor="middle" x="400" y="228">Land Operator</text><text class="smalltxt" text-anchor="middle" x="400" y="257">수배·기획·운영</text>
+<rect class="nodeGreen" height="100" rx="18" width="200" x="540" y="70"></rect><text class="subtxt" text-anchor="middle" x="640" y="108">관광 공급업체</text><text class="smalltxt" text-anchor="middle" x="640" y="137">실제 서비스 제공</text>
+<rect class="nodeRose" height="100" rx="18" width="160" x="780" y="190"></rect><text class="subtxt" text-anchor="middle" x="860" y="228">OTA</text><text class="smalltxt" text-anchor="middle" x="860" y="257">검색·예약·결제</text>
+<path d="M260 120 C320 120,340 175,370 190" fill="none" stroke="#9fb3c8" stroke-width="3"></path>
+<path d="M500 230 C560 230,600 175,620 170" fill="none" stroke="#9fb3c8" stroke-width="3"></path>
+<path d="M740 120 C800 120,820 170,840 190" fill="none" stroke="#9fb3c8" stroke-width="3"></path>
+</svg></div>
+</div>
+      <div class="merge-divider"><span>+</span></div>
+      <div class="merge-label"><span>DETAIL</span> 좌우넘김형 원본 상세 설명</div>
+      <div class="detail-pane source-b">
+
+
+<table>
+<tr><th>주체</th><th>핵심 경쟁력</th></tr>
+<tr><td><b>Outbound 여행사</b></td><td>브랜드, 광고, 고객획득, 모객</td></tr>
+<tr><td><b>Inbound Land Operator</b></td><td>수배, 가격협상, 상품기획, 현지대응</td></tr>
+<tr><td><b>관광 공급업체</b></td><td>숙박·교통·식음·체험 등 실제 서비스 제공</td></tr>
+<tr><td><b>OTA</b></td><td>검색·비교·예약·결제와 같은 디지털 고객접점</td></tr>
+</table>
+<div class="quote">여행사는 고객을 모으고, 랜드사는 현지를 운영하며, OTA는 고객과 상품을 디지털로 직접 연결합니다.</div>
+</div>
+    </section>
+<section class="slide" data-section="8">
+      <div class="section-head"><span class="eyebrow">SECTION 08</span><h2>7. 그런데 FIT와 OTA가 등장했다</h2><div class="alt-title">시각화 원본 제목: 7. FIT와 OTA의 등장</div></div>
+      <div class="merge-label"><span>VISUAL</span> 시각화형 원본 도식·요약</div>
+      <div class="visual-pane source-a">
+
+<div class="visual">
+<svg viewbox="0 0 1000 360">
+<defs><marker id="arrow" markerheight="10" markerwidth="10" orient="auto" refx="8" refy="3"><path d="M0,0 L0,6 L9,3 z" fill="#d1a128"></path></marker></defs>
+<text class="subtxt" x="70" y="55">과거: 선형 구조</text>
+<rect class="node" height="70" rx="14" width="140" x="70" y="80"></rect><text class="smalltxt" text-anchor="middle" x="140" y="122">관광객</text>
+<path class="arrow" d="M215 115 H285"></path><rect class="node" height="70" rx="14" width="140" x="290" y="80"></rect><text class="smalltxt" text-anchor="middle" x="360" y="122">해외여행사</text>
+<path class="arrow" d="M435 115 H505"></path><rect class="node" height="70" rx="14" width="140" x="510" y="80"></rect><text class="smalltxt" text-anchor="middle" x="580" y="122">랜드사</text>
+<path class="arrow" d="M655 115 H725"></path><rect class="node" height="70" rx="14" width="160" x="730" y="80"></rect><text class="smalltxt" text-anchor="middle" x="810" y="122">공급업체</text>
+<text class="subtxt" x="70" y="220">FIT 확대 이후: 플랫폼 중심</text>
+<circle cx="470" cy="280" fill="#102a43" r="58"></circle><text fill="#fff" font-size="22" font-weight="800" text-anchor="middle" x="470" y="288">OTA</text>
+<rect class="nodeBlue" height="60" rx="14" width="170" x="80" y="250"></rect><text class="smalltxt" text-anchor="middle" x="165" y="286">관광객</text>
+<rect class="nodeGreen" height="60" rx="14" width="180" x="720" y="220"></rect><text class="smalltxt" text-anchor="middle" x="810" y="256">공급업체</text>
+<rect class="nodeGold" height="60" rx="14" width="180" x="720" y="295"></rect><text class="smalltxt" text-anchor="middle" x="810" y="331">랜드사</text>
+<path class="arrow" d="M250 280 H405"></path><path class="arrow" d="M528 265 C610 245,650 245,715 250"></path><path class="arrow" d="M528 300 C610 315,650 320,715 325"></path>
+</svg></div>
+</div>
+      <div class="merge-divider"><span>+</span></div>
+      <div class="merge-label"><span>DETAIL</span> 좌우넘김형 원본 상세 설명</div>
+      <div class="detail-pane source-b">
+
+
+<h3>과거</h3>
+<div class="flow">
+<div class="box">관광객</div><div class="arrow">→</div>
+<div class="box">해외여행사</div><div class="arrow">→</div>
+<div class="box">랜드사</div><div class="arrow">→</div>
+<div class="box">공급업체</div>
+</div>
+<h3>FIT 확대 이후</h3>
+<div class="flow">
+<div class="box">관광객</div><div class="arrow">→</div>
+<div class="box">OTA</div><div class="arrow">→</div>
+<div class="box">공급업체 또는 랜드사</div>
+</div>
+<p>OTA는 숙박, 투어, 티켓, 교통, 액티비티, 패스, 로컬 경험 등을 플랫폼에 입점시키며 기존 유통단계를 줄이기 시작했습니다.</p>
+</div>
+    </section>
+<section class="slide" data-section="9">
+      <div class="section-head"><span class="eyebrow">SECTION 09</span><h2>8. 산업 경계가 무너진다</h2><div class="alt-title">시각화 원본 제목: 8. 산업 경계가 흐려진다</div></div>
+      <div class="merge-label"><span>VISUAL</span> 시각화형 원본 도식·요약</div>
+      <div class="visual-pane source-a">
+
+<div class="visual">
+<svg viewbox="0 0 1000 340">
+<circle cx="410" cy="170" fill="#eaf3ff" r="130" stroke="#9fc1e5" stroke-width="3"></circle><circle cx="590" cy="170" fill="#fff6df" r="130" stroke="#ddc471" stroke-width="3"></circle>
+<text class="subtxt" text-anchor="middle" x="355" y="115">여행사</text><text class="smalltxt" text-anchor="middle" x="340" y="148">패키지</text><text class="smalltxt" text-anchor="middle" x="340" y="175">현지사무소</text><text class="smalltxt" text-anchor="middle" x="340" y="202">온라인 판매</text>
+<text class="subtxt" text-anchor="middle" x="645" y="115">OTA</text><text class="smalltxt" text-anchor="middle" x="660" y="148">숙박</text><text class="smalltxt" text-anchor="middle" x="660" y="175">항공·액티비티</text><text class="smalltxt" text-anchor="middle" x="660" y="202">묶음상품</text>
+<text class="txt" text-anchor="middle" x="500" y="162">HYBRID</text><text class="smalltxt" text-anchor="middle" x="500" y="195">FIT + Package</text><text class="smalltxt" text-anchor="middle" x="500" y="218">직판 + 플랫폼</text>
+</svg></div>
+</div>
+      <div class="merge-divider"><span>+</span></div>
+      <div class="merge-label"><span>DETAIL</span> 좌우넘김형 원본 상세 설명</div>
+      <div class="detail-pane source-b">
+
+
+<div class="grid2">
+<div class="card"><b>여행사의 변화</b>패키지만 판매 → 항공·호텔 개별판매 → 자유일정 결합 → 온라인 예약 → FIT 상품</div>
+<div class="card"><b>OTA의 변화</b>호텔 예약 → 액티비티 → 항공 → 교통 → 패스 → 묶음상품</div>
+</div>
+<div class="quote">이제 시장은 단순히 <span class="blue">여행사 vs OTA</span>로 나누기 어렵습니다. Package와 FIT, 여행사와 OTA의 경계가 점점 흐려지고 있습니다.</div>
+</div>
+    </section>
+<section class="slide" data-section="10">
+      <div class="section-head"><span class="eyebrow">SECTION 10</span><h2>9. 랜드사가 직판을 원하는 이유</h2></div>
+      <div class="merge-label"><span>VISUAL</span> 시각화형 원본 도식·요약</div>
+      <div class="visual-pane source-a">
+
+<div class="visual">
+<svg viewbox="0 0 1000 340">
+<defs><marker id="arrow" markerheight="10" markerwidth="10" orient="auto" refx="8" refy="3"><path d="M0,0 L0,6 L9,3 z" fill="#d1a128"></path></marker></defs>
+<rect class="nodeBlue" height="90" rx="18" width="170" x="50" y="120"></rect><text class="subtxt" text-anchor="middle" x="135" y="155">수배 확보</text><text class="smalltxt" text-anchor="middle" x="135" y="182">객실·차량·가이드</text>
+<path class="arrow" d="M225 165 H305"></path>
+<rect class="nodeRose" height="90" rx="18" width="170" x="310" y="120"></rect><text class="subtxt" text-anchor="middle" x="395" y="155">판매 부족</text><text class="smalltxt" text-anchor="middle" x="395" y="182">재고·계약 부담</text>
+<path class="arrow" d="M485 165 H565"></path>
+<rect class="nodeGold" height="110" rx="18" width="170" x="570" y="110"></rect><text class="subtxt" text-anchor="middle" x="655" y="150">OTA 직판</text><text class="smalltxt" text-anchor="middle" x="655" y="177">추가 판매채널</text><text class="smalltxt" text-anchor="middle" x="655" y="198">리스크 분산</text>
+<path class="arrow" d="M745 165 H825"></path>
+<circle cx="895" cy="165" fill="#eef8f4" r="58" stroke="#9bcab9" stroke-width="3"></circle><text class="smalltxt" text-anchor="middle" x="895" y="160">외국인</text><text class="smalltxt" text-anchor="middle" x="895" y="184">여행객</text>
+</svg></div>
+</div>
+      <div class="merge-divider"><span>+</span></div>
+      <div class="merge-label"><span>DETAIL</span> 좌우넘김형 원본 상세 설명</div>
+      <div class="detail-pane source-b">
+
+
+<p>랜드사는 객실·차량·가이드 등의 물량을 미리 수배합니다. 그런데 파트너 여행사를 통한 판매가 기대보다 적으면 위험이 커집니다.</p>
+<div class="flow">
+<div class="box">공급 확보</div><div class="arrow">→</div>
+<div class="box">판매 부족</div><div class="arrow">→</div>
+<div class="box">재고·계약 부담</div><div class="arrow">→</div>
+<div class="box">경영위험</div>
+</div>
+<h3>Land Operator의 멀티채널화</h3>
+<div class="grid2">
+<div class="card"><b>B2B</b>랜드사 → 해외 여행사</div>
+<div class="card"><b>B2C</b>랜드사 → OTA → 여행객</div>
+</div>
+<div class="quote">OTA 등록은 랜드사에게 <span class="blue">추가 판매채널</span>이자 <span class="blue">재고·수배 리스크를 줄이는 수단</span>이 됩니다.</div>
+</div>
+    </section>
+<section class="slide" data-section="11">
+      <div class="section-head"><span class="eyebrow">SECTION 11</span><h2>10. 그렇다면 새로운 경쟁은 어디서 발생하는가?</h2><div class="alt-title">시각화 원본 제목: 10. 새로운 경쟁은 어디서 발생하는가?</div></div>
+      <div class="merge-label"><span>VISUAL</span> 시각화형 원본 도식·요약</div>
+      <div class="visual-pane source-a">
+
+<div class="visual">
+<svg viewbox="0 0 1000 340">
+<rect class="nodeRose" height="150" rx="20" width="330" x="90" y="95"></rect><text class="txt" text-anchor="middle" x="255" y="145">과거 경쟁</text><text class="subtxt" text-anchor="middle" x="255" y="190">“누가 더 싸게 확보하는가?”</text>
+<rect class="nodeGreen" height="150" rx="20" width="330" x="580" y="95"></rect><text class="txt" text-anchor="middle" x="745" y="145">현재 경쟁</text><text class="subtxt" text-anchor="middle" x="745" y="184">“누가 더 매력적인 경험을”</text><text class="subtxt" text-anchor="middle" x="745" y="212">“더 효율적으로 파는가?”</text>
+<path d="M430 170 H570" stroke="#d1a128" stroke-width="5"></path>
+<polygon fill="#d1a128" points="570,170 550,160 550,180"></polygon>
+</svg></div>
+<div class="quote">핵심 경쟁력 = <span class="blue">Visit Motivation + Unique Tourism Content</span></div>
+</div>
+      <div class="merge-divider"><span>+</span></div>
+      <div class="merge-label"><span>DETAIL</span> 좌우넘김형 원본 상세 설명</div>
+      <div class="detail-pane source-b">
+
+
+<div class="grid2">
+<div class="card"><b>과거 경쟁</b>누가 더 싸게 확보하는가?</div>
+<div class="card"><b>현재 경쟁</b>누가 더 매력적인 경험을 만들고, 더 효율적으로 고객을 확보하는가?</div>
+</div>
+<div class="formula">핵심 경쟁력 = <span class="blue">Visit Motivation</span> + <span class="blue">Unique Tourism Content</span></div>
+</div>
+    </section>
+<section class="slide" data-section="12">
+      <div class="section-head"><span class="eyebrow">SECTION 12</span><h2>11. 경쟁력 ① 한국에 오고 싶게 만들어라</h2></div>
+      <div class="merge-label"><span>VISUAL</span> 시각화형 원본 도식·요약</div>
+      <div class="visual-pane source-a">
+
+<div class="visual">
+<svg viewbox="0 0 1000 360">
+<circle cx="500" cy="180" fill="#102a43" r="75"></circle><text fill="#fff" font-size="21" font-weight="800" text-anchor="middle" x="500" y="172">WHY</text><text fill="#dbe7f2" font-size="14" font-weight="700" text-anchor="middle" x="500" y="202">KOREA?</text>
+<rect class="nodeBlue" height="80" rx="18" width="230" x="80" y="65"></rect><text class="subtxt" text-anchor="middle" x="195" y="100">K-pop</text><text class="smalltxt" text-anchor="middle" x="195" y="124">팬문화·공연·촬영지</text>
+<rect class="nodeGold" height="80" rx="18" width="230" x="690" y="65"></rect><text class="subtxt" text-anchor="middle" x="805" y="100">한식</text><text class="smalltxt" text-anchor="middle" x="805" y="124">시장·쿠킹·로컬 경험</text>
+<rect class="nodeGreen" height="80" rx="18" width="230" x="80" y="225"></rect><text class="subtxt" text-anchor="middle" x="195" y="260">전통문화</text><text class="smalltxt" text-anchor="middle" x="195" y="284">한옥·한복·다도·역사</text>
+<rect class="nodeRose" height="80" rx="18" width="230" x="690" y="225"></rect><text class="subtxt" text-anchor="middle" x="805" y="260">로컬 콘텐츠</text><text class="smalltxt" text-anchor="middle" x="805" y="284">지역만의 분위기·이야기</text>
+<line stroke="#9fb3c8" stroke-width="3" x1="310" x2="430" y1="110" y2="155"></line><line stroke="#9fb3c8" stroke-width="3" x1="690" x2="570" y1="110" y2="155"></line>
+<line stroke="#9fb3c8" stroke-width="3" x1="310" x2="430" y1="255" y2="205"></line><line stroke="#9fb3c8" stroke-width="3" x1="690" x2="570" y1="255" y2="205"></line>
+</svg></div>
+</div>
+      <div class="merge-divider"><span>+</span></div>
+      <div class="merge-label"><span>DETAIL</span> 좌우넘김형 원본 상세 설명</div>
+      <div class="detail-pane source-b">
+
+
+<div class="quote">왜 이 외국인은 다른 나라가 아니라 <span class="blue">한국</span>에 와야 하는가?</div>
+<div class="grid2">
+<div class="card"><b>K-pop</b>공연 → 연습실 체험 → 촬영지 → 팬 문화 → 굿즈 → 지역 콘텐츠</div>
+<div class="card"><b>한식</b>음식 판매 → 시장 방문 → 식재료 이야기 → 쿠킹 클래스 → 로컬 주민 경험</div>
+<div class="card"><b>전통문화</b>한옥 관람 → 숙박 → 다도 → 한복 → 역사 스토리텔링</div>
+<div class="card"><b>핵심 전환</b>관광자원 → 스토리 → 경험 → 상품</div>
+</div>
+</div>
+    </section>
+<section class="slide" data-section="13">
+      <div class="section-head"><span class="eyebrow">SECTION 13</span><h2>12. 경쟁력 ② 복제하기 어려운 관광콘텐츠</h2></div>
+      <div class="merge-label"><span>VISUAL</span> 시각화형 원본 도식·요약</div>
+      <div class="visual-pane source-a">
+
+<div class="visual">
+<svg viewbox="0 0 1000 350">
+<defs><marker id="arrow" markerheight="10" markerwidth="10" orient="auto" refx="8" refy="3"><path d="M0,0 L0,6 L9,3 z" fill="#d1a128"></path></marker></defs>
+<rect class="nodeRose" height="90" rx="16" width="150" x="40" y="120"></rect><text class="subtxt" text-anchor="middle" x="115" y="155">판매량 ↓</text>
+<path class="arrow" d="M195 165 H250"></path>
+<rect class="nodeRose" height="90" rx="16" width="150" x="255" y="120"></rect><text class="subtxt" text-anchor="middle" x="330" y="155">협상력 ↓</text>
+<path class="arrow" d="M410 165 H465"></path>
+<rect class="nodeGold" height="90" rx="16" width="150" x="470" y="120"></rect><text class="subtxt" text-anchor="middle" x="545" y="155">원가 ↑</text>
+<path class="arrow" d="M625 165 H680"></path>
+<rect class="nodeRose" height="90" rx="16" width="150" x="685" y="120"></rect><text class="subtxt" text-anchor="middle" x="760" y="155">가격경쟁력 ↓</text>
+<path class="arrow" d="M840 165 H890"></path>
+<circle cx="935" cy="165" fill="#fff0f3" r="42" stroke="#dfb0b9" stroke-width="3"></circle><text class="smalltxt" text-anchor="middle" x="935" y="170">마진 ↓</text>
+<text class="subtxt" text-anchor="middle" x="500" y="275">해결 방향: “최저가”보다 “왜 이 상품이어야 하는가?”</text>
+</svg></div>
+</div>
+      <div class="merge-divider"><span>+</span></div>
+      <div class="merge-label"><span>DETAIL</span> 좌우넘김형 원본 상세 설명</div>
+      <div class="detail-pane source-b">
+
+
+<p>같은 관광상품을 여러 업체가 동시에 판매하면 경쟁은 결국 <span class="blue">가격</span>으로 이동합니다.</p>
+<div class="flow">
+<div class="box">판매량 ↓</div><div class="arrow">→</div>
+<div class="box">협상력 ↓</div><div class="arrow">→</div>
+<div class="box">구매단가 ↑</div><div class="arrow">→</div>
+<div class="box">가격경쟁력 ↓</div><div class="arrow">→</div>
+<div class="box">마진 ↓</div>
+</div>
+<div class="quote">초기 스타트업은 최저가 경쟁보다 <span class="blue">“왜 이 상품을 선택해야 하는가”</span>를 만드는 것이 중요합니다.</div>
+</div>
+    </section>
+<section class="slide" data-section="14">
+      <div class="section-head"><span class="eyebrow">SECTION 14</span><h2>13. 관광상품 차별화 공식</h2></div>
+      <div class="merge-label"><span>VISUAL</span> 시각화형 원본 도식·요약</div>
+      <div class="visual-pane source-a">
+
+<div class="visual">
+<svg viewbox="0 0 1000 360">
+<defs><marker id="arrow" markerheight="10" markerwidth="10" orient="auto" refx="8" refy="3"><path d="M0,0 L0,6 L9,3 z" fill="#d1a128"></path></marker></defs>
+<rect class="nodeBlue" height="80" rx="18" width="160" x="40" y="80"></rect><text class="smalltxt" text-anchor="middle" x="120" y="126">지역 고유성</text>
+<text class="txt" text-anchor="middle" x="225" y="130">×</text>
+<rect class="nodeGold" height="80" rx="18" width="160" x="250" y="80"></rect><text class="smalltxt" text-anchor="middle" x="330" y="126">고객 니즈</text>
+<text class="txt" text-anchor="middle" x="435" y="130">×</text>
+<rect class="nodeGreen" height="80" rx="18" width="160" x="460" y="80"></rect><text class="smalltxt" text-anchor="middle" x="540" y="126">스토리텔링</text>
+<text class="txt" text-anchor="middle" x="645" y="130">×</text>
+<rect class="nodeRose" height="80" rx="18" width="160" x="670" y="80"></rect><text class="smalltxt" text-anchor="middle" x="750" y="126">경험 설계</text>
+<path class="arrow" d="M435 210 H565"></path>
+<rect fill="#102a43" height="85" rx="22" width="300" x="350" y="235"></rect>
+<text fill="#fff" font-size="22" font-weight="800" text-anchor="middle" x="500" y="270">구매하고 싶은</text><text fill="#dce8f5" font-size="16" font-weight="700" text-anchor="middle" x="500" y="300">관광상품</text>
+</svg></div>
+<div class="quote">예: “안동 하회마을 투어” → <span class="blue">“조선시대 양반가의 하루 + 로컬 디너 + 야간 하회마을”</span></div>
+</div>
+      <div class="merge-divider"><span>+</span></div>
+      <div class="merge-label"><span>DETAIL</span> 좌우넘김형 원본 상세 설명</div>
+      <div class="detail-pane source-b">
+
+
+<div class="formula">
+    지역 고유성 × 고객 니즈 × 스토리텔링 × 경험 설계 × 접근성·예약 편의성
+    <br/>=<br/>
+<span class="blue">구매하고 싶은 관광상품</span>
+</div>
+<p><b>예:</b> 단순한 “안동 하회마을 투어”보다 <span class="blue">“조선시대 양반가의 하루를 따라가는 안동 로컬 디너와 하회마을 야간투어”</span>처럼 여행자가 구매해야 할 이유가 드러나야 합니다.</p>
+</div>
+    </section>
+<section class="slide" data-section="15">
+      <div class="section-head"><span class="eyebrow">SECTION 15</span><h2>14. 좋은 상품만 만들어서는 부족하다</h2></div>
+      <div class="merge-label"><span>VISUAL</span> 시각화형 원본 도식·요약</div>
+      <div class="visual-pane source-a">
+
+<div class="visual">
+<svg viewbox="0 0 1000 360">
+<circle cx="500" cy="180" fill="#102a43" r="75"></circle><text fill="#fff" font-size="20" font-weight="800" text-anchor="middle" x="500" y="173">CUSTOMER</text><text fill="#dce8f5" font-size="14" font-weight="700" text-anchor="middle" x="500" y="202">ACQUISITION</text>
+<rect class="nodeBlue" height="70" rx="16" width="190" x="60" y="45"></rect><text class="subtxt" text-anchor="middle" x="155" y="88">Google</text>
+<rect class="nodeRose" height="70" rx="16" width="190" x="750" y="45"></rect><text class="subtxt" text-anchor="middle" x="845" y="88">SNS</text>
+<rect class="nodeGold" height="70" rx="16" width="190" x="60" y="245"></rect><text class="subtxt" text-anchor="middle" x="155" y="288">OTA</text>
+<rect class="nodeGreen" height="70" rx="16" width="190" x="750" y="245"></rect><text class="subtxt" text-anchor="middle" x="845" y="288">자사몰</text>
+<rect class="node" height="65" rx="16" width="190" x="405" y="35"></rect><text class="subtxt" text-anchor="middle" x="500" y="75">YouTube</text>
+<rect class="node" height="65" rx="16" width="190" x="405" y="260"></rect><text class="subtxt" text-anchor="middle" x="500" y="300">현지 여행사</text>
+<line stroke="#9fb3c8" stroke-width="3" x1="250" x2="435" y1="90" y2="145"></line><line stroke="#9fb3c8" stroke-width="3" x1="750" x2="565" y1="90" y2="145"></line>
+<line stroke="#9fb3c8" stroke-width="3" x1="250" x2="435" y1="275" y2="215"></line><line stroke="#9fb3c8" stroke-width="3" x1="750" x2="565" y1="275" y2="215"></line>
+<line stroke="#9fb3c8" stroke-width="3" x1="500" x2="500" y1="100" y2="105"></line><line stroke="#9fb3c8" stroke-width="3" x1="500" x2="500" y1="255" y2="255"></line>
+</svg></div>
+</div>
+      <div class="merge-divider"><span>+</span></div>
+      <div class="merge-label"><span>DETAIL</span> 좌우넘김형 원본 상세 설명</div>
+      <div class="detail-pane source-b">
+
+
+<p class="lead">상품이 좋아도 외국인이 그 상품의 존재를 모르면 판매되지 않습니다.</p>
+<div class="quote">핵심 질문: <span class="blue">외국인 관광객을 어디에서 만날 것인가?</span></div>
+<div class="grid2">
+<div class="card"><b>검색</b>Google / 글로벌 포털</div>
+<div class="card"><b>SNS</b>Instagram / TikTok 등</div>
+<div class="card"><b>영상</b>YouTube</div>
+<div class="card"><b>판매 플랫폼</b>OTA</div>
+<div class="card"><b>간접 유통</b>현지 여행사</div>
+<div class="card"><b>직접 판매</b>자사몰 / 콘텐츠 마케팅</div>
+</div>
+</div>
+    </section>
+<section class="slide" data-section="16">
+      <div class="section-head"><span class="eyebrow">SECTION 16</span><h2>15. 결국 중요한 숫자</h2></div>
+      <div class="merge-label"><span>VISUAL</span> 시각화형 원본 도식·요약</div>
+      <div class="visual-pane source-a">
+
+<div class="visual">
+<svg viewbox="0 0 1000 380">
+<defs><marker id="arrow" markerheight="10" markerwidth="10" orient="auto" refx="8" refy="3"><path d="M0,0 L0,6 L9,3 z" fill="#d1a128"></path></marker></defs>
+<path d="M80 70 H920 L790 140 H210 Z" fill="#eaf3ff" stroke="#9fc1e5" stroke-width="2"></path><text class="subtxt" text-anchor="middle" x="500" y="112">Traffic</text>
+<path d="M210 150 H790 L690 220 H310 Z" fill="#fff6df" stroke="#ddc471" stroke-width="2"></path><text class="subtxt" text-anchor="middle" x="500" y="192">Conversion</text>
+<path d="M310 230 H690 L610 300 H390 Z" fill="#eef8f4" stroke="#9bcab9" stroke-width="2"></path><text class="subtxt" text-anchor="middle" x="500" y="272">Revenue</text>
+<rect fill="#102a43" height="50" rx="18" width="180" x="410" y="315"></rect><text fill="#fff" font-size="16" font-weight="800" text-anchor="middle" x="500" y="347">Margin</text>
+<rect class="nodeRose" height="75" rx="16" width="200" x="730" y="275"></rect><text class="subtxt" text-anchor="middle" x="830" y="307">CAC</text><text class="smalltxt" text-anchor="middle" x="830" y="330">고객획득비용</text>
+</svg></div>
+<div class="quote">좋은 상품 = 많이 팔리는 상품이 아니라 <span class="blue">CAC를 감당하면서 이익을 남기는 상품</span></div>
+</div>
+      <div class="merge-divider"><span>+</span></div>
+      <div class="merge-label"><span>DETAIL</span> 좌우넘김형 원본 상세 설명</div>
+      <div class="detail-pane source-b">
+
+
+<div class="flow">
+<div class="box">광고</div><div class="arrow">→</div>
+<div class="box">사이트 방문</div><div class="arrow">→</div>
+<div class="box">상품 조회</div><div class="arrow">→</div>
+<div class="box">예약</div><div class="arrow">→</div>
+<div class="box">결제</div>
+</div>
+<table>
+<tr><th>지표</th><th>의미</th></tr>
+<tr><td><b>Traffic</b></td><td>방문자 수</td></tr>
+<tr><td><b>Conversion Rate</b></td><td>방문자 가운데 실제 구매로 이어진 비율</td></tr>
+<tr><td><b>CAC</b></td><td>Customer Acquisition Cost, 고객 1명을 얻는 비용</td></tr>
+<tr><td><b>Average Transaction Value</b></td><td>평균 구매액</td></tr>
+<tr><td><b>Margin</b></td><td>실제 남는 이익</td></tr>
+</table>
+<div class="quote">좋은 인바운드 상품은 단순히 많이 팔리는 상품이 아니라, <span class="blue">고객획득비용을 감당하면서 지속적으로 이익을 남길 수 있는 상품</span>입니다.</div>
+</div>
+    </section>
+<section class="slide" data-section="17">
+      <div class="section-head"><span class="eyebrow">SECTION 17</span><h2>16. 이 음성기록의 최종 핵심구조</h2><div class="alt-title">시각화 원본 제목: 16. 최종 핵심구조</div></div>
+      <div class="merge-label"><span>VISUAL</span> 시각화형 원본 도식·요약</div>
+      <div class="visual-pane source-a">
+
+<div class="visual">
+<svg viewbox="0 0 1000 360">
+<defs><marker id="arrow" markerheight="10" markerwidth="10" orient="auto" refx="8" refy="3"><path d="M0,0 L0,6 L9,3 z" fill="#d1a128"></path></marker></defs>
+<g>
+<rect class="nodeBlue" height="80" rx="14" width="110" x="40" y="130"></rect><text class="smalltxt" text-anchor="middle" x="95" y="165">시장</text><text class="smalltxt" text-anchor="middle" x="95" y="187">이해</text>
+<path class="arrow" d="M155 170 H190"></path>
+<rect class="node" height="80" rx="14" width="110" x="195" y="130"></rect><text class="smalltxt" text-anchor="middle" x="250" y="165">고객</text><text class="smalltxt" text-anchor="middle" x="250" y="187">세분화</text>
+<path class="arrow" d="M310 170 H345"></path>
+<rect class="nodeGold" height="80" rx="14" width="110" x="350" y="130"></rect><text class="smalltxt" text-anchor="middle" x="405" y="165">공급</text><text class="smalltxt" text-anchor="middle" x="405" y="187">구조</text>
+<path class="arrow" d="M465 170 H500"></path>
+<rect class="nodeRose" height="80" rx="14" width="110" x="505" y="130"></rect><text class="smalltxt" text-anchor="middle" x="560" y="165">산업</text><text class="smalltxt" text-anchor="middle" x="560" y="187">변화</text>
+<path class="arrow" d="M620 170 H655"></path>
+<rect class="nodeGreen" height="80" rx="14" width="110" x="660" y="130"></rect><text class="smalltxt" text-anchor="middle" x="715" y="165">경쟁</text><text class="smalltxt" text-anchor="middle" x="715" y="187">전략</text>
+<path class="arrow" d="M775 170 H810"></path>
+<rect class="nodeBlue" height="80" rx="14" width="140" x="815" y="130"></rect><text class="smalltxt" text-anchor="middle" x="885" y="165">성과</text><text class="smalltxt" text-anchor="middle" x="885" y="187">검증</text>
+</g>
+<text class="subtxt" text-anchor="middle" x="500" y="275">Traffic → Conversion → CAC → Revenue → Margin</text>
+</svg></div>
+</div>
+      <div class="merge-divider"><span>+</span></div>
+      <div class="merge-label"><span>DETAIL</span> 좌우넘김형 원본 상세 설명</div>
+      <div class="detail-pane source-b">
+
+
+<div class="flow">
+<div class="box">STEP 1<br/>시장 이해</div><div class="arrow">→</div>
+<div class="box">STEP 2<br/>고객 세분화</div><div class="arrow">→</div>
+<div class="box">STEP 3<br/>상품 공급구조</div><div class="arrow">→</div>
+<div class="box">STEP 4<br/>산업 변화</div><div class="arrow">→</div>
+<div class="box">STEP 5<br/>경쟁전략</div><div class="arrow">→</div>
+<div class="box">STEP 6<br/>고객획득</div><div class="arrow">→</div>
+<div class="box">STEP 7<br/>성과검증</div>
+</div>
+<div class="quote"><span class="blue">Traffic → Conversion → CAC → Revenue → Margin</span></div>
+</div>
+    </section>
+<section class="slide" data-section="18">
+      <div class="section-head"><span class="eyebrow">SECTION 18</span><h2>17. 스스로에게 던질 핵심 질문</h2></div>
+      <div class="merge-label"><span>VISUAL</span> 시각화형 원본 도식·요약</div>
+      <div class="visual-pane source-a">
+
+<div class="visual">
+<svg viewbox="0 0 1000 390">
+<circle cx="500" cy="195" fill="#102a43" r="85"></circle><text fill="#fff" font-size="21" font-weight="800" text-anchor="middle" x="500" y="188">BUSINESS</text><text fill="#dce8f5" font-size="14" font-weight="700" text-anchor="middle" x="500" y="216">PLAN</text>
+<g>
+<rect class="nodeBlue" height="60" rx="16" width="175" x="75" y="45"></rect><text class="smalltxt" text-anchor="middle" x="162" y="82">어떤 시장?</text>
+<rect class="nodeGold" height="60" rx="16" width="175" x="305" y="30"></rect><text class="smalltxt" text-anchor="middle" x="392" y="67">누가 고객?</text>
+<rect class="nodeGreen" height="60" rx="16" width="175" x="535" y="30"></rect><text class="smalltxt" text-anchor="middle" x="622" y="67">무슨 문제?</text>
+<rect class="nodeRose" height="60" rx="16" width="175" x="765" y="45"></rect><text class="smalltxt" text-anchor="middle" x="852" y="82">왜 한국?</text>
+<rect class="nodeBlue" height="60" rx="16" width="175" x="75" y="285"></rect><text class="smalltxt" text-anchor="middle" x="162" y="322">무엇을 경험?</text>
+<rect class="nodeGold" height="60" rx="16" width="175" x="305" y="300"></rect><text class="smalltxt" text-anchor="middle" x="392" y="337">어디서 판매?</text>
+<rect class="nodeGreen" height="60" rx="16" width="175" x="535" y="300"></rect><text class="smalltxt" text-anchor="middle" x="622" y="337">어디서 수익?</text>
+<rect class="nodeRose" height="60" rx="16" width="175" x="765" y="285"></rect><text class="smalltxt" text-anchor="middle" x="852" y="322">무엇으로 검증?</text>
+</g>
+<line stroke="#9fb3c8" stroke-width="3" x1="250" x2="435" y1="105" y2="145"></line><line stroke="#9fb3c8" stroke-width="3" x1="750" x2="565" y1="105" y2="145"></line>
+<line stroke="#9fb3c8" stroke-width="3" x1="250" x2="435" y1="285" y2="240"></line><line stroke="#9fb3c8" stroke-width="3" x1="750" x2="565" y1="285" y2="240"></line>
+</svg></div>
+<div class="quote">학생 과제 흐름: <span class="blue">시장 → 고객 → 문제 → 상품 → 채널 → 수익 → 검증</span></div>
+</div>
+      <div class="merge-divider"><span>+</span></div>
+      <div class="merge-label"><span>DETAIL</span> 좌우넘김형 원본 상세 설명</div>
+      <div class="detail-pane source-b">
+
+
+<table>
+<tr><th>단계</th><th>학생이 답해야 할 질문</th></tr>
+<tr><td><b>시장</b></td><td>어떤 국가의 관광객을 대상으로 할 것인가?</td></tr>
+<tr><td><b>고객</b></td><td>어떤 연령·관심사·여행목적을 가진 사람인가?</td></tr>
+<tr><td><b>문제</b></td><td>한국 여행 과정에서 어떤 불편이 있는가?</td></tr>
+<tr><td><b>동기</b></td><td>왜 한국에 와야 하는가?</td></tr>
+<tr><td><b>콘텐츠</b></td><td>무엇을 경험하게 할 것인가?</td></tr>
+<tr><td><b>차별화</b></td><td>기존 상품과 무엇이 다른가?</td></tr>
+<tr><td><b>채널</b></td><td>어디에서 이 고객을 만날 것인가?</td></tr>
+<tr><td><b>전환</b></td><td>고객이 왜 실제로 결제할 것인가?</td></tr>
+<tr><td><b>수익</b></td><td>어디에서 돈을 버는가?</td></tr>
+<tr><td><b>검증</b></td><td>어떤 숫자로 성공 여부를 판단할 것인가?</td></tr>
+</table>
+<div class="quote">인바운드 시장의 경쟁력은 특정 외국인 고객이 <span class="blue">한국을 선택해야 할 이유</span>를 만들고, 그것을 <span class="blue">매력적인 관광상품</span>으로 구성하여 적절한 채널에서 <span class="blue">실제 구매로 전환</span>시키는 능력에 있습니다.</div>
+</div>
+    </section>
+<div class="nav"><button class="prev" id="prev">← 이전</button><div class="dots" id="dots"></div><button class="next" id="next">다음 →</button></div>
+</main>
+<footer>← → 키보드 방향키로도 이동 가능 · 인쇄 시 18개 섹션 전체 출력</footer>
+<script>
+const slides=[...document.querySelectorAll('.slide')],dotsBox=document.getElementById('dots');let idx=0;
+slides.forEach((_,i)=>{const b=document.createElement('button');b.className='dot'+(i===0?' active':'');b.title=(i+1)+'번 섹션';b.setAttribute('aria-label',(i+1)+'번 섹션으로 이동');b.onclick=()=>show(i);dotsBox.appendChild(b)});
+function show(n){if(n<0||n>=slides.length)return;slides[idx].classList.remove('active');dotsBox.children[idx].classList.remove('active');idx=n;slides[idx].classList.add('active');dotsBox.children[idx].classList.add('active');document.getElementById('cur').textContent=idx+1;document.getElementById('bar').style.width=((idx+1)/slides.length*100)+'%';['prev','topPrev'].forEach(id=>document.getElementById(id).disabled=idx===0);['next','topNext'].forEach(id=>document.getElementById(id).disabled=idx===slides.length-1);window.scrollTo({top:0,behavior:'smooth'});}
+document.getElementById('prev').onclick=()=>show(idx-1);document.getElementById('next').onclick=()=>show(idx+1);document.getElementById('topPrev').onclick=()=>show(idx-1);document.getElementById('topNext').onclick=()=>show(idx+1);document.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')show(idx-1);if(e.key==='ArrowRight')show(idx+1)});show(0);
+</script>
+</body></html>
