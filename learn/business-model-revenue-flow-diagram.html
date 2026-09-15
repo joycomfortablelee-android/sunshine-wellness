@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>사업모델 수익구조 도식화와 경쟁력 설명</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1F2433; --ink-2:#4A5063; --ink-3:#7A8093;
+    --paper:#FFFFFF; --wash:#F3F4F8; --rule:#DADDE6;
+    --value:#534AB7; --value-bg:#EEEDFE; --value-ink:#3C3489;
+    --money:#0F6E56; --money-line:#1D9E75; --money-bg:#E1F5EE;
+    --node:#F1EFE8; --node-line:#888780; --node-ink:#444441;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--wash);color:var(--ink);font-family:Pretendard,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:17px;line-height:1.8;-webkit-font-smoothing:antialiased}
+  .page{max-width:820px;margin:0 auto;background:var(--paper);padding:64px 56px 80px;min-height:100vh}
+  header{border-bottom:2px solid var(--ink);padding-bottom:28px;margin-bottom:40px}
+  .course{font-size:14px;color:var(--ink-3);margin:0 0 10px}
+  h1{font-family:"Noto Serif KR",serif;font-weight:700;font-size:34px;line-height:1.35;margin:0 0 18px;letter-spacing:-0.01em}
+  .lead{font-size:18px;color:var(--ink-2);margin:0}
+  .keyline{margin:28px 0 0;padding:20px 24px;background:var(--value-bg);border-left:4px solid var(--value);color:var(--value-ink);font-size:18px;line-height:1.7}
+  h2{font-family:"Noto Serif KR",serif;font-weight:700;font-size:24px;margin:56px 0 16px;display:flex;align-items:baseline;gap:12px}
+  h2 .step{font-family:Pretendard,sans-serif;font-size:14px;font-weight:600;color:#fff;background:var(--ink);padding:2px 10px;border-radius:4px;flex-shrink:0;transform:translateY(-3px)}
+  p{margin:0 0 16px}
+  strong{font-weight:700}
+  .src{font-size:12px;vertical-align:super;line-height:0;margin-left:2px}
+  .src a{color:var(--value);text-decoration:none;font-weight:600}
+  .src a:hover,.src a:focus-visible{text-decoration:underline}
+  figure{margin:28px 0;padding:24px;border:1px solid var(--rule);border-radius:12px;background:#fff}
+  figcaption{font-size:14px;color:var(--ink-3);margin-top:12px;text-align:center}
+  svg text{font-family:Pretendard,sans-serif}
+  .t-h{font-size:14px;font-weight:600}
+  .t-s{font-size:12px}
+  table{width:100%;border-collapse:collapse;margin:24px 0;font-size:16px}
+  th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+  thead th{background:var(--ink);color:#fff;font-weight:600;font-size:15px}
+  tbody td:last-child{color:var(--value-ink);font-weight:600;background:#FAFAFE}
+  .checklist{counter-reset:c;list-style:none;padding:0;margin:20px 0}
+  .checklist li{counter-increment:c;position:relative;padding:12px 0 12px 44px;border-bottom:1px solid var(--rule)}
+  .checklist li::before{content:counter(c);position:absolute;left:0;top:12px;width:28px;height:28px;border:1.5px solid var(--ink);border-radius:50%;font-size:14px;font-weight:600;display:flex;align-items:center;justify-content:center;line-height:1}
+  .model-btns{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+  .model-btns button{font:inherit;font-size:15px;padding:7px 14px;border:1px solid var(--rule);background:#fff;color:var(--ink-2);border-radius:6px;cursor:pointer}
+  .model-btns button:hover{border-color:var(--ink-3)}
+  .model-btns button[aria-pressed="true"]{border:1.5px solid var(--value);color:var(--value-ink);background:var(--value-bg);font-weight:600}
+  .model-btns button:focus-visible{outline:2px solid var(--value);outline-offset:2px}
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
+  .fact{background:var(--wash);border-radius:8px;padding:12px 16px}
+  .fact .label{font-size:13px;color:var(--ink-3)}
+  .fact .val{font-size:16px;font-weight:600;margin-top:2px}
+  .legend{display:flex;gap:24px;justify-content:center;margin-top:14px;font-size:14px;color:var(--ink-2)}
+  .legend span{display:flex;align-items:center;gap:8px}
+  .note{background:var(--wash);border-radius:8px;padding:16px 20px;margin:20px 0}
+  .kw{font-family:Pretendard,sans-serif;background:var(--wash);border:1px solid var(--rule);padding:1px 8px;border-radius:4px;font-size:15px;white-space:nowrap}
+  .sources{margin-top:64px;padding-top:24px;border-top:1px solid var(--rule);font-size:14px;color:var(--ink-2)}
+  .sources h3{font-size:16px;margin:0 0 10px;color:var(--ink)}
+  .sources ol{padding-left:22px;margin:0}
+  .sources li{margin-bottom:6px;line-height:1.6}
+  .sources a{color:var(--value);word-break:break-all}
+  .closing{margin-top:40px;color:var(--ink-3);font-size:15px}
+  @media (max-width:640px){
+    .page{padding:36px 20px 56px}
+    h1{font-size:27px}
+    figure{padding:14px}
+    th,td{padding:10px 8px;font-size:14px}
+  }
+  @media print{
+    body{background:#fff}
+    .page{padding:0;max-width:none}
+    figure{break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+<main class="page">
+
+<header>
+  <p class="course">예비창업패키지 사업계획서 · 2-2 사업모델: 수익창출 방법 도식화 + 경쟁력 설명</p>
+  <h1>사업모델은 화살표로 설명한다</h1>
+  <p class="lead">사업모델 도식화의 핵심은 한 문장으로 정리됩니다.</p>
+  <div class="keyline"><strong>"누가 누구에게 무엇을 주고, 돈은 어디서 어디로 흐르며, 그 사이에서 우리는 얼마를 남기는가"를 화살표로 보여주는 것</strong>입니다.</div>
+</header>
+
+<p>해외 자료도 같은 원리로 설명합니다. 한 자료는 수익모델을 제공물(offering), 고객, 가격이라는 세 요소로 구성하고, 이 세 가지를 시각화하면 사업이 어떻게 돈을 버는지 빠르게 이해할 수 있다고 정리합니다.<span class="src"><a href="#s1">[1]</a></span></p>
+<p>아래에 내 사업계획서 「2-2」 칸에 바로 옮길 수 있도록 설명 흐름과 시각 자료를 정리했습니다.</p>
+
+<!-- 1단계 -->
+<h2><span class="step">1단계</span>사업모델 도식의 기본 문법</h2>
+<p>가장 많이 틀리는 부분은 모든 화살표를 똑같이 그리는 것입니다. <strong>가치(서비스) 흐름과 돈의 흐름을 선 모양으로 구분</strong>하십시오. 관광 체험 예약 플랫폼을 예로 들면 다음과 같습니다.</p>
+
+<figure>
+<svg width="100%" viewBox="0 0 680 350" role="img" aria-labelledby="f1t f1d">
+<title id="f1t">관광 체험 예약 플랫폼의 사업모델 도식 기본형</title>
+<desc id="f1d">고객, 우리 서비스, 공급 파트너, 광고주 사이에서 가치 흐름은 실선, 돈의 흐름은 점선으로 표시한 도식</desc>
+<defs><marker id="arrow1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<rect x="40" y="110" width="140" height="64" rx="8" fill="#F1EFE8" stroke="#888780" stroke-width="0.8"/>
+<text class="t-h" x="110" y="132" text-anchor="middle" dominant-baseline="central" fill="#444441">고객</text>
+<text class="t-s" x="110" y="154" text-anchor="middle" dominant-baseline="central" fill="#5F5E5A">여행자</text>
+<rect x="270" y="110" width="140" height="64" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="1"/>
+<text class="t-h" x="340" y="132" text-anchor="middle" dominant-baseline="central" fill="#3C3489">우리 서비스</text>
+<text class="t-s" x="340" y="154" text-anchor="middle" dominant-baseline="central" fill="#534AB7">수익 15,000원</text>
+<rect x="500" y="110" width="140" height="64" rx="8" fill="#F1EFE8" stroke="#888780" stroke-width="0.8"/>
+<text class="t-h" x="570" y="132" text-anchor="middle" dominant-baseline="central" fill="#444441">공급 파트너</text>
+<text class="t-s" x="570" y="154" text-anchor="middle" dominant-baseline="central" fill="#5F5E5A">체험·숙소 업체</text>
+<rect x="270" y="240" width="140" height="56" rx="8" fill="#F1EFE8" stroke="#888780" stroke-width="0.8"/>
+<text class="t-h" x="340" y="259" text-anchor="middle" dominant-baseline="central" fill="#444441">광고주</text>
+<text class="t-s" x="340" y="279" text-anchor="middle" dominant-baseline="central" fill="#5F5E5A">지역 상점</text>
+<text class="t-s" x="225" y="104" text-anchor="middle" fill="#3C3489">예약·추천</text>
+<line x1="266" y1="126" x2="184" y2="126" stroke="#7F77DD" stroke-width="1.6" marker-end="url(#arrow1)"/>
+<text class="t-s" x="455" y="104" text-anchor="middle" fill="#3C3489">상품 공급</text>
+<line x1="496" y1="126" x2="414" y2="126" stroke="#7F77DD" stroke-width="1.6" marker-end="url(#arrow1)"/>
+<line x1="184" y1="158" x2="266" y2="158" stroke="#1D9E75" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#arrow1)"/>
+<text class="t-s" x="225" y="190" text-anchor="middle" fill="#085041">100,000원</text>
+<line x1="414" y1="158" x2="496" y2="158" stroke="#1D9E75" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#arrow1)"/>
+<text class="t-s" x="455" y="190" text-anchor="middle" fill="#085041">85,000원</text>
+<line x1="340" y1="238" x2="340" y2="178" stroke="#1D9E75" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#arrow1)"/>
+<text class="t-s" x="352" y="212" fill="#085041">광고비</text>
+</svg>
+<div class="legend">
+  <span><svg width="34" height="8" aria-hidden="true"><line x1="0" y1="4" x2="34" y2="4" stroke="#7F77DD" stroke-width="1.6"/></svg>가치·서비스 흐름</span>
+  <span><svg width="34" height="8" aria-hidden="true"><line x1="0" y1="4" x2="34" y2="4" stroke="#1D9E75" stroke-width="1.6" stroke-dasharray="5 4"/></svg>돈의 흐름</span>
+</div>
+<figcaption>그림 1. 관광 체험 예약 플랫폼의 사업모델 도식 기본형</figcaption>
+</figure>
+
+<p>이 그림에서 볼 점은 세 가지입니다. 첫째, 이해관계자(박스)는 3~4개로 제한합니다. 둘째, 실선과 점선으로 가치와 돈을 구분합니다. 셋째, <strong>우리 박스 안에 "우리가 남기는 돈"을 숫자로 적습니다.</strong> 이 한 줄이 들어가야 심사위원이 "돈 벌 구조가 있다"고 판단합니다. 실제로 창업패키지 작성 가이드들도 평가위원이 사업계획서를 읽을 때 가장 먼저 이 기업에 실제로 돈을 벌 구조가 있는지를 본다고 강조합니다.<span class="src"><a href="#s2">[2]</a></span></p>
+
+<!-- 2단계 -->
+<h2><span class="step">2단계</span>수익모델 유형별 도식 비교</h2>
+<p>같은 관광 사업이라도 수익을 내는 방식에 따라 화살표 방향이 달라집니다. 버튼을 눌러 유형별로 비교해 보세요. 누르기 전에 <strong>"돈이 어디로 가는지"</strong>를 먼저 맞혀 보면 더 잘 남습니다.</p>
+
+<figure>
+<div class="model-btns" id="btns" role="group" aria-label="수익모델 유형 선택"></div>
+<svg id="flow" width="100%" viewBox="0 0 680 160" role="img" aria-label="선택한 수익모델의 이해관계자와 흐름"></svg>
+<div class="facts">
+  <div class="fact"><div class="label">매출 공식</div><div class="val" id="formula"></div></div>
+  <div class="fact"><div class="label">관광 분야 예시</div><div class="val" id="example"></div></div>
+</div>
+<div class="legend">
+  <span><svg width="34" height="8" aria-hidden="true"><line x1="0" y1="4" x2="34" y2="4" stroke="#7F77DD" stroke-width="1.6"/></svg>가치·서비스</span>
+  <span><svg width="34" height="8" aria-hidden="true"><line x1="0" y1="4" x2="34" y2="4" stroke="#1D9E75" stroke-width="1.6" stroke-dasharray="5 4"/></svg>돈</span>
+</div>
+<figcaption>그림 2. 관광 사업의 수익모델 5가지 유형 (수수료형 · 판매마진형 · 구독형 · 광고형 · B2B 솔루션형)</figcaption>
+</figure>
+
+<p>수수료형과 판매마진형은 관광에서 특히 좋은 비교 사례입니다. 둘 다 "OTA"이지만 돈이 거쳐 가는 경로가 다르기 때문입니다. 부킹닷컴은 주로 에이전시(수수료) 방식을, 경쟁사 익스피디아는 머천트 방식을 선호해 왔습니다.<span class="src"><a href="#s3">[3]</a></span> 에이전시 모델에서는 투숙객이 숙박할 때 호텔에 직접 지불하고, 호텔이 투숙 후 OTA에 수수료를 지급합니다.<span class="src"><a href="#s4">[4]</a></span> 반면 머천트 모델에서는 투숙객이 예약 시점에 OTA에 결제하고, OTA가 호텔에 공급가(net rate)를 지급하며 그 위에 마진을 붙여 판매가를 정합니다.<span class="src"><a href="#s5">[5]</a></span></p>
+
+<p>여기서 얻을 교훈은 <strong>"화살표 방향 = 사업 리스크"</strong>라는 점입니다. 머천트형은 가격 결정권이 있는 대신 확보한 재고를 팔지 못하면 손실을 볼 수 있습니다.<span class="src"><a href="#s6">[6]</a></span> 그리고 실제 기업은 한 가지만 쓰지 않습니다. 부킹홀딩스는 에이전시·머천트 모델에 광고 등 다른 수익원을 섞어 2023년에 214억 달러의 매출을 올렸습니다.<span class="src"><a href="#s3">[3]</a></span> 그래서 내 도식에도 <strong>주 수익원 1개 + 보조 수익원 1~2개</strong>를 표시하십시오.</p>
+
+<!-- 3단계 -->
+<h2><span class="step">3단계</span>경쟁력 설명을 도식과 연결하기</h2>
+<p>「2-2」 항목에서 흔한 실수는 수익구조 그림과 경쟁력 설명이 따로 노는 것입니다. 경쟁력은 <strong>도식 속 어느 화살표를 우리가 더 잘 만드는지</strong>로 설명하십시오. 예를 들어 다음처럼 비교표를 도식 바로 아래에 붙이는 방식입니다.</p>
+
+<table>
+  <thead><tr><th>비교 기준</th><th>기존 OTA</th><th>우리 서비스</th></tr></thead>
+  <tbody>
+    <tr><td>파트너 수수료</td><td>15~20%</td><td>8% (지역 소상공인 부담 완화)</td></tr>
+    <tr><td>공급 상품</td><td>대형 숙소 중심</td><td>로컬 체험·마을 여행 특화</td></tr>
+    <tr><td>고객 가치</td><td>가격 비교</td><td>AI 맞춤 동선 추천</td></tr>
+  </tbody>
+</table>
+
+<p>"우리 수수료가 낮은데 어떻게 돈을 버나?"라는 질문을 스스로 던져 보십시오. 그 답(거래량 확대, 광고 수익 등)이 다시 도식의 보조 수익원 화살표로 돌아가야 논리가 완성됩니다.</p>
+
+<!-- 점검 질문 -->
+<h2>내 도식 점검 질문</h2>
+<p>내 도식을 스스로 점검할 때는 다섯 가지를 물어보면 됩니다.</p>
+<ol class="checklist">
+  <li>박스가 4개 이하인가</li>
+  <li>돈과 가치 화살표가 구분되는가</li>
+  <li>화살표 위에 금액이나 비율이 적혀 있는가</li>
+  <li>우리가 남기는 돈이 한 숫자로 보이는가</li>
+  <li>경쟁력 표의 항목이 도식의 특정 화살표와 연결되는가</li>
+</ol>
+
+<!-- 검색 팁 -->
+<h2>검색 활용 팁</h2>
+<p>검색어 <span class="kw">business model revenue flow diagram example</span>로 검색하면 Creately 같은 도식 템플릿 사이트가 주로 나옵니다. 이런 템플릿은 편집 후 JPEG, PNG, SVG 형식으로 내보내 PPT에 넣을 수 있습니다.<span class="src"><a href="#s7">[7]</a></span></p>
+<p>직접 해 보려면 Board of Innovation의 수익모델 플로차트도 추천할 만합니다. 이 도구는 몇 가지 질문에 답하면서 의사결정 나무를 따라가 자기 아이템에 맞는 스타트업 수익모델 사례를 찾도록 구성되어 있어서 조별 활동에 잘 맞습니다.<span class="src"><a href="#s8">[8]</a></span></p>
+<p>관광 사례를 찾을 때는 <span class="kw">OTA agency model merchant model</span>로 검색하면 돈의 흐름을 설명한 자료가 잘 나옵니다.</p>
+
+
+
+<section class="sources" aria-label="출처">
+  <h3>출처</h3>
+  <ol>
+    <li id="s1">Ravi Vij, "Revenue Model Diagrams: An Effective Tool for Explaining Business Growth Strategy", LinkedIn (2023). <a href="https://www.linkedin.com/pulse/revenue-model-diagrams-effective-tool-explaining-business-ravi-vij">링크</a></li>
+    <li id="s2">"2026년 초기창업패키지(일반형) 총정리 3편 – 사업계획서 작성법 실전편" (2026). <a href="https://find-the-freedom.com/114">링크</a></li>
+    <li id="s3">AltexSoft, "Agency Model in Travel: Payment Flows and Revenue Streams" (2025). <a href="https://www.altexsoft.com/blog/agency-model/">링크</a></li>
+    <li id="s4">Xotels Glossary, "Agency Model Definition" (2024). <a href="https://www.xotels.com/en/glossary/agency-model">링크</a></li>
+    <li id="s5">Xotels Glossary, "Merchant Model Definition" (2024). <a href="https://www.xotels.com/en/glossary/merchant-model">링크</a></li>
+    <li id="s6">WEX Inc., "Merchant model vs. agency model: A guide for business success" (2026). <a href="https://www.wexinc.com/resources/blog/merchant-vs-agency-model-travel-payments/">링크</a></li>
+    <li id="s7">Creately, "Revenue Model Flow Chart". <a href="https://creately.com/diagram/example/ii4qv9f1/revenue-model-flow-chart-classic">링크</a></li>
+    <li id="s8">Board of Innovation, "Revenue model flowchart B2C" (2025). <a href="https://www.boardofinnovation.com/tools/b2c-revenue-model-flowchart/">링크</a></li>
+  </ol>
+</section>
+
+</main>
+
+<script>
+const M=[
+{k:'수수료형',n:['여행자','숙소·체험','우리 플랫폼'],u:2,e:[[1,0,'v','숙박·체험 제공'],[0,1,'m','결제 100,000원'],[2,1,'v','고객 연결'],[1,2,'m','수수료 15,000원']],f:'거래액 × 수수료율',x:'부킹닷컴형 예약 중개'},
+{k:'판매마진형',n:['여행자','우리 플랫폼','숙소·체험'],u:1,e:[[1,0,'v','예약·결제'],[0,1,'m','판매가 100,000원'],[2,1,'v','객실 공급'],[1,2,'m','공급가 85,000원']],f:'판매가 − 공급가',x:'아고다·익스피디아형'},
+{k:'구독형',n:['이용자','우리 서비스','제휴처'],u:1,e:[[1,0,'v','할인·혜택'],[0,1,'m','월 9,900원'],[2,1,'v','제휴 할인 제공']],f:'구독자 수 × 월 요금',x:'여행 멤버십 서비스'},
+{k:'광고형',n:['여행자','우리 앱','광고주'],u:1,e:[[1,0,'v','무료 여행정보'],[1,2,'v','고객 노출'],[2,1,'m','광고비']],f:'노출·클릭 수 × 광고 단가',x:'여행 정보·리뷰 앱'},
+{k:'B2B 솔루션형',n:['관광객','지자체·관광기업','우리 회사'],u:2,e:[[1,0,'v','스마트 관광 서비스'],[2,1,'v','솔루션 제공'],[1,2,'m','연 이용료']],f:'고객사 수 × 계약 금액',x:'스마트관광 SaaS·AI 가이드'}
+];
+const X=[40,270,500],W=140,Y=56,H=56;
+const btns=document.getElementById('btns');
+function draw(i){
+  const m=M[i];
+  let s='<defs><marker id="ar2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>';
+  m.n.forEach((t,j)=>{
+    const us=j===m.u;
+    s+=`<rect x="${X[j]}" y="${Y}" width="${W}" height="${H}" rx="8" fill="${us?'#EEEDFE':'#F1EFE8'}" stroke="${us?'#534AB7':'#888780'}" stroke-width="${us?1:0.8}"/>`;
+    s+=`<text class="t-h" x="${X[j]+W/2}" y="${Y+H/2}" text-anchor="middle" dominant-baseline="central" fill="${us?'#3C3489':'#444441'}">${t}</text>`;
+  });
+  m.e.forEach(([a,b,t,l])=>{
+    const g=Math.min(a,b),x1=X[g]+W+4,x2=X[g+1]-4,cx=(X[g]+W+X[g+1])/2,top=t==='v';
+    const y=top?Y+14:Y+H-14,col=top?'#7F77DD':'#1D9E75',dash=top?'':' stroke-dasharray="5 4"';
+    const [sx,ex]=a<b?[x1,x2]:[x2,x1];
+    s+=`<line x1="${sx}" y1="${y}" x2="${ex}" y2="${y}" stroke="${col}" stroke-width="1.6"${dash} marker-end="url(#ar2)"/>`;
+    s+=`<text class="t-s" x="${cx}" y="${top?Y-12:Y+H+22}" text-anchor="middle" fill="${top?'#3C3489':'#085041'}">${l}</text>`;
+  });
+  document.getElementById('flow').innerHTML=s;
+  document.getElementById('formula').textContent=m.f;
+  document.getElementById('example').textContent=m.x;
+  [...btns.children].forEach((b,j)=>b.setAttribute('aria-pressed',j===i?'true':'false'));
+}
+M.forEach((m,i)=>{const b=document.createElement('button');b.type='button';b.textContent=m.k;b.onclick=()=>draw(i);btns.appendChild(b)});
+draw(0);
+</script>
+</body>
+</html>
