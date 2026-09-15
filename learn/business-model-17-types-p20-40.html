@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>비즈니스 모델 20–40쪽 전체정리 | 관광벤처창업론</title>
+<style>
+:root{
+  --navy:#0b1f4d; --blue:#1f4e8c; --sky:#eef5ff; --gold:#d7a928;
+  --ink:#172033; --muted:#667085; --line:#dfe6ef; --paper:#fff; --bg:#f4f7fb;
+  --green:#1d7a54; --greenbg:#edf9f3; --orange:#b85c00; --orangebg:#fff5e9;
+  --red:#a63a3a; --redbg:#fff1f1;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:"NanumBarunGothic","Noto Sans KR","Malgun Gothic",sans-serif;
+  line-height:1.58; letter-spacing:-.015em;
+}
+header{
+  position:sticky;top:0;z-index:50;color:#fff;
+  background:linear-gradient(135deg,var(--navy),var(--blue));
+  box-shadow:0 8px 28px rgba(11,31,77,.18);
+}
+.head{
+  max-width:1440px;margin:auto;padding:18px 22px 13px;
+  display:flex;justify-content:space-between;gap:18px;align-items:end;flex-wrap:wrap;
+}
+h1{font-size:clamp(23px,3vw,36px);margin:0 0 4px;letter-spacing:-.05em}
+.sub{margin:0;opacity:.84;font-size:13px}
+.legend{display:flex;gap:8px;flex-wrap:wrap}
+.pill{padding:6px 10px;border-radius:999px;font-size:12px;font-weight:800;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.22)}
+.tabs{
+  max-width:1440px;margin:auto;padding:0 22px 13px;
+  display:flex;gap:8px;overflow:auto;
+}
+.tabs button{
+  border:0;background:rgba(255,255,255,.11);color:#fff;padding:9px 12px;border-radius:9px;
+  cursor:pointer;font:inherit;font-weight:800;white-space:nowrap
+}
+.tabs button.active{background:#fff;color:var(--navy)}
+main{max-width:1440px;margin:18px auto 90px;padding:0 18px}
+.page{display:none}
+.page.active{display:block}
+.section{
+  background:var(--paper);border:1px solid var(--line);border-radius:18px;
+  box-shadow:0 12px 34px rgba(16,40,80,.07);padding:22px;margin-bottom:16px;
+}
+.section h2{margin:0 0 12px;color:var(--navy);font-size:clamp(21px,2vw,29px);letter-spacing:-.04em}
+.section h3{margin:22px 0 8px;color:var(--blue);font-size:19px}
+.note{
+  padding:13px 15px;border-radius:12px;background:var(--sky);border-left:4px solid var(--blue);
+  margin:12px 0;font-weight:700
+}
+.source-badge,.add-badge{
+  display:inline-block;padding:4px 8px;border-radius:999px;font-size:11px;font-weight:900;vertical-align:middle;margin-right:6px
+}
+.source-badge{background:#eaf2ff;color:var(--blue);border:1px solid #cbdcf6}
+.add-badge{background:var(--greenbg);color:var(--green);border:1px solid #cbe9dc}
+table{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border:1px solid var(--line);border-radius:13px;margin:12px 0 4px}
+th{background:#f4f7fb;color:var(--navy);font-size:13px;text-align:left}
+th,td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:900;color:var(--navy);white-space:nowrap}
+.star{color:#b45309;font-weight:900}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:12px}
+.card{border:1px solid var(--line);border-radius:14px;padding:15px;background:#fff}
+.card h4{margin:0 0 8px;color:var(--navy);font-size:17px}
+.flow{
+  display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:14px 0
+}
+.flow .box{
+  background:#fff;border:1px solid #cad7e8;border-radius:12px;padding:10px 13px;font-weight:900;color:var(--navy)
+}
+.flow .arr{color:var(--gold);font-weight:900;font-size:20px}
+.combo{
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;
+  padding:13px;border:1px solid var(--line);border-radius:14px;margin:10px 0;background:#fbfcfe
+}
+.combo .left,.combo .right{padding:10px 12px;border-radius:11px}
+.combo .left{background:#f3f6fb}
+.combo .right{background:#eef8f4}
+.combo .mid{font-size:22px;font-weight:900;color:var(--gold)}
+.prompt{
+  background:#0f274f;color:#fff;border-radius:14px;padding:15px 16px;margin-top:12px;
+}
+.prompt b{color:#ffe08a}
+.quote{
+  font-size:clamp(19px,2.2vw,28px);font-weight:900;line-height:1.5;color:var(--navy);
+  background:linear-gradient(90deg,#f8fbff,#fffaf0);border:1px solid #dfe7f2;border-radius:16px;padding:20px
+}
+.nav{
+  position:fixed;left:50%;bottom:15px;transform:translateX(-50%);z-index:60;
+  background:rgba(11,31,77,.95);padding:8px;border-radius:14px;display:flex;gap:8px;box-shadow:0 10px 32px rgba(0,0,0,.23)
+}
+.nav button{border:0;background:#fff;color:var(--navy);font:inherit;font-weight:900;padding:10px 14px;border-radius:9px;cursor:pointer}
+.nav .count{color:#fff;min-width:86px;text-align:center;align-self:center;font-weight:900}
+.small{font-size:12px;color:var(--muted)}
+ul{margin:8px 0;padding-left:1.25em}
+li{margin:6px 0}
+@media(max-width:800px){
+  main{padding:0 9px}.section{padding:16px;border-radius:13px}
+  table{display:block;overflow-x:auto;white-space:normal}
+  th,td{min-width:120px}
+  .combo{grid-template-columns:1fr}.combo .mid{text-align:center;transform:rotate(90deg)}
+  .nav{width:calc(100% - 18px)} .nav button{flex:1}.nav .count{min-width:62px}
+}
+@media print{
+  header,.nav{display:none!important}.page{display:block!important}.section{box-shadow:none;break-inside:avoid}
+  body{background:#fff}main{margin:0;max-width:none}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="head">
+    <div>
+      <h1>비즈니스 모델 20–40쪽 전체정리</h1>
+      <p class="sub">관광벤처창업론 · 원자료(스타트업 비즈니스 기획론 20–40쪽) 내용 + 관광 적용 사례</p>
+    </div>
+    <div class="legend">
+      <span class="pill">원자료 사례</span>
+      <span class="pill">추가 수업 사례</span>
+      <span class="pill">관광 적용</span>
+    </div>
+  </div>
+  <div class="tabs">
+    <button class="active" data-page="0">① 20–28쪽 기본관점</button>
+    <button data-page="1">② 29–40쪽 17개 모델</button>
+    <button data-page="2">③ 추가 일반·관광 사례</button>
+    <button data-page="3">④ 결합형 사례</button>
+    <button data-page="4">⑤ 내 아이템에 적용</button>
+  </div>
+</header>
+
+<main>
+  <section class="page active">
+    <div class="section">
+      <h2>20–28쪽: 비즈니스 모델을 보는 기본 관점</h2>
+      <table>
+        <thead><tr><th>쪽</th><th>내용</th><th>자료 속 예시·핵심</th></tr></thead>
+        <tbody>
+          <tr><td>20</td><td>무료는 비즈니스 모델이 아니다</td><td><span class="source-badge">원자료</span><b>인스타그램</b> — 초기에는 이용자는 많았지만 인수 전까지 명확한 수익창출 모델이 부족했다는 사례</td></tr>
+          <tr><td>21</td><td>프리미엄 / 추후 수익화</td><td>무료로 고객을 먼저 모으더라도 결국 <b>돈을 지불할 고객과 수익구조</b>가 필요</td></tr>
+          <tr><td>22–27</td><td>비즈니스 모델 핵심요소</td><td><b>고객 이해 → 고객가치 창출 → 경쟁자 분석 → 유통경로 설계 → 수익창출</b></td></tr>
+          <tr><td>28</td><td>비즈니스 모델 유형</td><td>이후 여러 수익모델을 <b>혼합·창조</b>할 수 있음을 제시</td></tr>
+        </tbody>
+      </table>
+      <div class="note">특히 자료는 <b>사업 배경·사업 환경·사업 조건</b>을 고려해 비즈니스 모델을 설계하고, 고객·가치·경쟁자·유통경로를 검토하도록 구성합니다.</div>
+    </div>
+
+    <div class="section">
+      <h2>비즈니스 모델을 한 문장으로 이해하기</h2>
+      <div class="quote">“무엇을 파느냐?”보다 <b>“누구에게, 어떤 시점에, 어떤 기준으로 돈을 받는가?”</b></div>
+      <div class="flow">
+        <span class="box">고객</span><span class="arr">→</span>
+        <span class="box">가치·서비스</span><span class="arr">→</span>
+        <span class="box">지불 시점</span><span class="arr">→</span>
+        <span class="box">가격 기준</span><span class="arr">→</span>
+        <span class="box">반복 수익</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="section">
+      <h2>29–40쪽: 17가지 비즈니스 모델과 예시</h2>
+      <table>
+        <thead><tr><th>쪽</th><th>모델</th><th>쉽게 말하면</th><th>예시</th></tr></thead>
+        <tbody>
+          <tr><td>29</td><td>① 일회성 선지급</td><td>처음 한 번에 돈을 받음</td><td><b>여행상품 100만원 선결제</b>, 장비 구매</td></tr>
+          <tr><td>30</td><td>② 원가 기준</td><td>원가 + 일정 마진</td><td>맞춤형 관광콘텐츠 제작비 <code>원가 1,000만원 + 마진 20%</code></td></tr>
+          <tr><td>31</td><td>③ 투입시간 기준</td><td>일한 시간만큼 받음</td><td>관광 컨설팅 <code>시간당 10만원</code>, 개발자·디자이너 용역</td></tr>
+          <tr><td>32</td><td>④ 사용료</td><td>월·연간 이용료</td><td><b>월 구독 SaaS</b>, 예약관리 프로그램 월 사용료</td></tr>
+          <tr><td>33</td><td>⑤ 기술이전</td><td>특허·기술 사용료</td><td>특허 라이선스, 관광 AI 기술 라이선싱</td></tr>
+          <tr><td>34</td><td>⑥ 소모품 기반</td><td>본체는 저렴하게 → 소모품 반복판매</td><td><span class="source-badge">원자료</span><span class="star">★</span> <b>면도기 → 면도날</b>, <b>프린터 → 잉크 카트리지</b></td></tr>
+          <tr><td>35</td><td>⑦ 부가가치 업셀링</td><td>기본상품 판매 후 추가상품 판매</td><td><span class="source-badge">원자료</span><span class="star">★</span> 가전제품 → <b>부속품·연장보증</b></td></tr>
+          <tr><td>35</td><td>⑧ 광고형</td><td>이용자는 무료 → 광고주가 지불</td><td><span class="source-badge">원자료</span><span class="star">★</span> <b>신문·잡지·웹사이트·Google</b></td></tr>
+          <tr><td>36</td><td>⑨ 제한적 접근</td><td>기본 이용 무료 → 특정 정보 접근은 유료</td><td><span class="source-badge">원자료</span><span class="star">★</span> <b>LinkedIn → 기업 채용담당자에게 회원정보 접근권 판매</b></td></tr>
+          <tr><td>36</td><td>⑩ 거래수수료</td><td>거래가 발생할 때 수수료</td><td><span class="source-badge">원자료</span><span class="star">★</span> <b>eBay 판매자 수수료</b>, <b>신용카드 가맹점 수수료</b></td></tr>
+          <tr><td>37</td><td>⑪ 종량형</td><td>쓴 만큼 지불</td><td>클라우드 사용량, 전기·데이터 사용량</td></tr>
+          <tr><td>37</td><td>⑫ 정액형</td><td>얼마나 쓰든 일정 금액</td><td>월 정액 서비스, 멤버십</td></tr>
+          <tr><td>38</td><td>⑬ 벌금형</td><td>규칙 위반 시 비용 부과</td><td><span class="source-badge">원자료</span><span class="star">★</span> <b>주차요금·지각 벌칙금</b></td></tr>
+          <tr><td>38</td><td>⑭ 소액결제형</td><td>작은 금액을 반복 결제</td><td><span class="source-badge">원자료</span><span class="star">★</span> <b>온라인게임 아이템·특별 기능 구매</b></td></tr>
+          <tr><td>39</td><td>⑮ 비용절감 공유</td><td>절약시킨 금액 일부를 수익으로</td><td><span class="source-badge">원자료</span><span class="star">★</span> <b>에너지 효율 프로젝트</b> — 절감된 비용 일부를 서비스업체가 수수료로 받음</td></tr>
+          <tr><td>40</td><td>⑯ 프랜차이즈</td><td>브랜드·운영방식 제공 → 가맹비·로열티</td><td>카페·호텔·여행서비스 가맹점</td></tr>
+          <tr><td>40</td><td>⑰ 유지보수</td><td>판매보다 지속적인 관리에서 수익</td><td><span class="source-badge">원자료</span><span class="star">★</span> <b>공장·시설물·에너지 설비 유지관리</b></td></tr>
+        </tbody>
+      </table>
+      <p class="small">※ <span class="source-badge">원자료</span> 표시는 원자료에 직접 나온 대표 사례이고, 나머지는 이해를 돕기 위해 덧붙인 설명입니다.</p>
+    </div>
+
+    <div class="section">
+      <h2>관광벤처에서 특히 쓰기 좋은 모델</h2>
+      <div class="cards">
+        <div class="card"><h4>④ 사용료</h4><p>예약관리·CRM·관광 SaaS</p></div>
+        <div class="card"><h4>⑦ 업셀링</h4><p>기본 투어 + 식사·픽업·사진·굿즈</p></div>
+        <div class="card"><h4>⑧ 광고형</h4><p>무료 여행정보 + 지역업체 광고</p></div>
+        <div class="card"><h4>⑩ 거래수수료</h4><p>OTA·체험예약 플랫폼</p></div>
+        <div class="card"><h4>⑪ 종량형</h4><p>AI API·번역·데이터 사용량</p></div>
+        <div class="card"><h4>⑫ 정액형</h4><p>여행 멤버십·구독 서비스</p></div>
+        <div class="card"><h4>⑯ 프랜차이즈</h4><p>지역관광 브랜드 확장</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="section">
+      <h2>17가지 모델별 추가 일반 사례 + 관광·여행업 적용</h2>
+      <table>
+        <thead><tr><th>비즈니스 모델</th><th>추가 일반 사례</th><th>관광·여행업 적용 예시</th></tr></thead>
+        <tbody>
+          <tr><td>① 일회성 선지급</td><td>노트북 구매, 온라인 강의 패키지</td><td><span class="add-badge">추가</span><span class="star">★</span> 2박 3일 안동 미식여행 <b>1인 29만원 선결제</b></td></tr>
+          <tr><td>② 원가 기준</td><td>주문제작 가구, 영상 제작</td><td><span class="add-badge">추가</span>기업·학교 맞춤형 관광프로그램 <code>원가 + 기획마진</code></td></tr>
+          <tr><td>③ 투입시간 기준</td><td>변호사·컨설턴트 시간당 비용</td><td><span class="add-badge">추가</span><span class="star">★</span> 여행 컨설턴트가 <b>1시간 여행설계 상담료 5만원</b></td></tr>
+          <tr><td>④ 사용료 모델</td><td>Adobe·Microsoft 등의 소프트웨어 이용</td><td><span class="add-badge">추가</span><span class="star">★</span> 숙박업체가 예약관리 솔루션을 <b>월 5만원에 이용</b></td></tr>
+          <tr><td>⑤ 기술이전</td><td>특허 기술 라이선스</td><td><span class="add-badge">추가</span>관광객 동선예측 AI를 지자체·관광기업에 라이선싱</td></tr>
+          <tr><td>⑥ 소모품 기반</td><td>커피머신 → 캡슐, 정수기 → 필터</td><td><span class="add-badge">추가</span>관광기기 판매 → 전용 콘텐츠·소모품을 지속 판매</td></tr>
+          <tr><td>⑦ 업셀링</td><td>항공 좌석 업그레이드, 저장공간 추가</td><td><span class="add-badge">추가</span><span class="star">★</span> 기본 투어 3만원 + 식사 2만원 + 사진촬영 1만원 + 픽업 2만원</td></tr>
+          <tr><td>⑧ 광고형</td><td>YouTube, 검색광고</td><td><span class="add-badge">추가</span><span class="star">★</span> 무료 지역여행 앱에 음식점·숙박업체 광고 노출</td></tr>
+          <tr><td>⑨ 제한적 접근</td><td>기본정보 무료, 전문정보 유료</td><td><span class="add-badge">추가</span>무료 여행정보 제공 → 전문가 추천코스·실시간 혼잡정보는 유료</td></tr>
+          <tr><td>⑩ 거래수수료</td><td>배달·중고거래 플랫폼</td><td><span class="add-badge">추가</span><span class="star">★</span> 관광체험 예약 5만원 발생 → 플랫폼이 <b>10% 수수료</b></td></tr>
+          <tr><td>⑪ 종량형</td><td>클라우드 API, 문자 발송</td><td><span class="add-badge">추가</span>관광 AI 번역·추천 API를 <b>호출 건수당 과금</b></td></tr>
+          <tr><td>⑫ 정액형</td><td>Netflix형 구독</td><td><span class="add-badge">추가</span><span class="star">★</span> 월 9,900원으로 여행 콘텐츠·할인·추천코스 이용</td></tr>
+          <tr><td>⑬ 벌금형</td><td>렌터카 반납 지연료</td><td><span class="add-badge">추가</span>자전거·캠핑장·관광장비 <b>반납 지연료</b></td></tr>
+          <tr><td>⑭ 소액결제형</td><td>게임 아이템, 앱 내 기능</td><td><span class="add-badge">추가</span><span class="star">★</span> 여행 앱에서 AR 해설 1,000원, 프리미엄 코스 3,000원</td></tr>
+          <tr><td>⑮ 비용절감 공유</td><td>에너지절감 솔루션</td><td><span class="add-badge">추가</span>호텔 에너지비 20% 절감 → 절감액 일부를 솔루션 회사가 받음</td></tr>
+          <tr><td>⑯ 프랜차이즈</td><td>편의점·카페</td><td><span class="add-badge">추가</span><span class="star">★</span> 지역관광 체험 브랜드를 다른 지역 운영자에게 가맹</td></tr>
+          <tr><td>⑰ 유지보수</td><td>엘리베이터·IT 시스템 유지관리</td><td><span class="add-badge">추가</span>관광안내 키오스크·AR 장비를 설치하고 <b>연간 관리비</b> 수취</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="section">
+      <h2>결합형 사례 1 · OTA형</h2>
+      <p><b>⑩ 거래수수료 모델</b>을 가장 직관적으로 보여주는 관광 사례입니다.</p>
+      <div class="flow">
+        <span class="box">지역 체험업체</span><span class="arr">→</span>
+        <span class="box">5만원 체험상품 등록</span><span class="arr">→</span>
+        <span class="box">고객 예약</span><span class="arr">→</span>
+        <span class="box">플랫폼 10% = 5천원 수익</span>
+      </div>
+      <div class="note">핵심: <b>“내가 상품을 직접 팔아서 돈을 버는 것이 아니라, 남의 거래가 발생하도록 연결하고 그 거래에서 돈을 받는다.”</b></div>
+    </div>
+
+    <div class="section">
+      <h2>결합형 사례 2 · 여행사 패키지형</h2>
+      <p><b>① 일회성 선지급 + ② 원가 기준</b>이 결합되는 구조입니다.</p>
+      <table>
+        <thead><tr><th>구성</th><th>예시 비용</th></tr></thead>
+        <tbody>
+          <tr><td>숙박</td><td>8만원</td></tr>
+          <tr><td>교통</td><td>4만원</td></tr>
+          <tr><td>식사</td><td>3만원</td></tr>
+          <tr><td>체험</td><td>2만원</td></tr>
+          <tr><td>운영비</td><td>3만원</td></tr>
+          <tr><td><b>총원가</b></td><td><b>20만원</b></td></tr>
+          <tr><td><b>판매가</b></td><td><b>25만원</b></td></tr>
+          <tr><td><b>마진</b></td><td><b>5만원</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>결합형 사례 3 · 무료 관광 앱</h2>
+      <div class="combo"><div class="left"><b>무료 관광정보</b><br>이용자 확보</div><div class="mid">→</div><div class="right"><b>숙박·체험 예약</b><br>⑩ 거래수수료</div></div>
+      <div class="combo"><div class="left"><b>지역업체 추천 노출</b></div><div class="mid">→</div><div class="right"><b>⑧ 광고수익</b></div></div>
+      <div class="combo"><div class="left"><b>AI 맞춤코스</b></div><div class="mid">→</div><div class="right"><b>⑫ 월 구독료</b></div></div>
+      <div class="note">즉 하나의 기업이 <b>⑧ 광고 + ⑩ 거래수수료 + ⑫ 정액형</b>을 동시에 사용할 수 있습니다.</div>
+    </div>
+
+    <div class="section">
+      <h2>결합형 사례 4 · 같은 상품도 다른 비즈니스 모델이 된다</h2>
+      <h3>안동 한옥여행 서비스</h3>
+      <table>
+        <thead><tr><th>수익화 방식</th><th>비즈니스 모델</th></tr></thead>
+        <tbody>
+          <tr><td>한옥여행 패키지 15만원 판매</td><td>① 일회성 선지급</td></tr>
+          <tr><td>한옥 예약금액의 12%</td><td>⑩ 거래수수료</td></tr>
+          <tr><td>월 9,900원 안동여행 멤버십</td><td>⑫ 정액형</td></tr>
+          <tr><td>무료 앱 + 음식점 광고</td><td>⑧ 광고형</td></tr>
+          <tr><td>기본 한옥체험 + 전통주·한복·사진촬영 추가</td><td>⑦ 업셀링</td></tr>
+          <tr><td>다른 도시 사업자에게 브랜드 사용권 제공</td><td>⑯ 프랜차이즈</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="section">
+      <h2>내 사업계획서에 바로 연결하는 방법</h2>
+      <p>사업계획서의 <b>“수익창출 방법을 도식화하라”</b>는 항목은 아래 다섯 질문으로 바꾸면 이해가 쉽습니다.</p>
+      <div class="flow">
+        <span class="box">① 누가 돈을 내는가?</span><span class="arr">→</span>
+        <span class="box">② 무엇을 이용하는가?</span><span class="arr">→</span>
+        <span class="box">③ 언제 돈을 내는가?</span><span class="arr">→</span>
+        <span class="box">④ 얼마를 내는가?</span><span class="arr">→</span>
+        <span class="box">⑤ 어떻게 반복 수익이 생기는가?</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>간단 적용 예시</h2>
+      <div class="cards">
+        <div class="card"><h4>지역 관광상품</h4><p><code>체험상품 30,000원</code> → <b>일회성 결제</b></p></div>
+        <div class="card"><h4>관광 AI 여행플래너</h4><p><code>기본 무료 → 프리미엄 월 9,900원</code> → <b>프리미엄 + 정액형</b></p></div>
+        <div class="card"><h4>지역 체험 예약 플랫폼</h4><p><code>예약금액의 10%</code> → <b>거래수수료</b></p></div>
+        <div class="card"><h4>관광사업자 예약관리 프로그램</h4><p><code>월 49,000원</code> → <b>사용료/정액형</b></p></div>
+        <div class="card"><h4>지역 브랜드 관광상품</h4><p><code>가맹비 + 매출액의 5%</code> → <b>프랜차이즈</b></p></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>내 아이템에 적용하는 질문</h2>
+      <div class="prompt">
+        <b>프롬프트</b><br><br>
+        “내 관광 아이템은 [아이템명]이다. 고객은 [목표고객]이다. 이 사업에 적용할 수 있는 비즈니스 모델을
+        ① 일회성 선지급 ② 원가 기준 ③ 투입시간 기준 ④ 사용료 ⑤ 기술이전 ⑥ 소모품 기반
+        ⑦ 업셀링 ⑧ 광고형 ⑨ 제한적 접근 ⑩ 거래수수료 ⑪ 종량형 ⑫ 정액형
+        ⑬ 벌금형 ⑭ 소액결제형 ⑮ 비용절감 공유 ⑯ 프랜차이즈 ⑰ 유지보수 가운데 검토해줘.
+        각 모델별로 ‘누가 돈을 내는지 → 무엇에 돈을 내는지 → 언제 지불하는지 → 가격 기준 → 반복수익 가능성’을 표로 비교하고,
+        가장 적합한 3개 모델을 추천해줘. 마지막에는 2개 이상의 모델을 결합한 수익구조도 제안해줘.”
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>핵심 문장</h2>
+      <div class="quote">비즈니스 모델 = <b>고객에게 가치를 제공하면서 기업이 반복적으로 돈을 벌도록 설계한 구조</b></div>
+      <p style="margin-top:14px"><b>공부하는 법:</b> 17가지 모델마다 <b>일반기업 사례 1개 + 관광기업 사례 1개 + 내 아이템에 대입해 보는 질문 1개</b>를 짝지어 보면 이해와 적용이 함께 됩니다.</p>
+    </div>
+  </section>
+</main>
+
+<div class="nav">
+  <button id="prev">← 이전</button>
+  <div class="count" id="count">1 / 5</div>
+  <button id="next">다음 →</button>
+</div>
+
+<script>
+const pages=[...document.querySelectorAll('.page')];
+const tabs=[...document.querySelectorAll('.tabs button')];
+let idx=0;
+function show(i){
+  idx=(i+pages.length)%pages.length;
+  pages.forEach((p,n)=>p.classList.toggle('active',n===idx));
+  tabs.forEach((b,n)=>b.classList.toggle('active',n===idx));
+  document.getElementById('count').textContent=`${idx+1} / ${pages.length}`;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+tabs.forEach((b,n)=>b.addEventListener('click',()=>show(n)));
+document.getElementById('prev').onclick=()=>show(idx-1);
+document.getElementById('next').onclick=()=>show(idx+1);
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowLeft')show(idx-1);
+  if(e.key==='ArrowRight')show(idx+1);
+});
+</script>
+</body>
+</html>
