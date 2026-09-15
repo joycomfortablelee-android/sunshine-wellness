@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>OTA 숙소 결제방식 이해하기 | 4장 좌우넘김</title>
+<style>
+  *{box-sizing:border-box}
+  :root{
+    --navy:#0b2f6b;
+    --blue:#1b66c9;
+    --line:#dfe8f5;
+    --bg:#f4f7fb;
+    --text:#0f2346;
+  }
+  html,body{height:100%;margin:0}
+  body{
+    font-family:"Pretendard","Noto Sans KR","Malgun Gothic",Arial,sans-serif;
+    background:linear-gradient(180deg,#eef4fb 0%,#f9fbfe 100%);
+    color:var(--text);
+    overflow:hidden;
+  }
+  .app{
+    height:100dvh;
+    display:grid;
+    grid-template-rows:auto 1fr auto;
+  }
+  header{
+    background:rgba(255,255,255,.96);
+    border-bottom:1px solid var(--line);
+    padding:10px 18px 8px;
+    box-shadow:0 3px 14px rgba(27,62,110,.07);
+    z-index:10;
+  }
+  .topline{
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    max-width:1500px;margin:0 auto 8px;
+  }
+  h1{font-size:20px;margin:0;color:var(--navy);letter-spacing:-.3px}
+  .counter{font-size:13px;font-weight:800;color:#55708f;white-space:nowrap}
+  .tabs{
+    max-width:1500px;margin:0 auto;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:8px;
+  }
+  .tab{
+    border:1px solid var(--line);background:#fff;color:#47617f;
+    padding:8px 10px;border-radius:10px;cursor:pointer;
+    font-size:13px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    transition:.2s;
+  }
+  .tab span{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:22px;height:22px;border-radius:50%;margin-right:6px;
+    background:#edf3fb;color:var(--navy);font-size:12px;
+  }
+  .tab.active{
+    background:var(--navy);color:#fff;border-color:var(--navy);
+    box-shadow:0 4px 10px rgba(11,47,107,.15);
+  }
+  .tab.active span{background:#fff;color:var(--navy)}
+  main{position:relative;min-height:0;overflow:hidden}
+  .track{
+    height:100%;display:flex;transition:transform .38s cubic-bezier(.22,.8,.2,1);
+    will-change:transform;
+  }
+  .slide{min-width:100%;height:100%;padding:18px 68px}
+  .slide-inner{
+    height:100%;display:flex;align-items:center;justify-content:center;
+    background:#fff;border:1px solid #e2ebf6;border-radius:16px;
+    box-shadow:0 12px 35px rgba(31,63,104,.12);
+    overflow:hidden;
+  }
+  .slide img{
+    display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;
+  }
+  .arrow{
+    position:absolute;top:50%;transform:translateY(-50%);
+    width:46px;height:70px;border:0;border-radius:14px;
+    background:rgba(11,47,107,.88);color:white;font-size:34px;line-height:1;
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;z-index:8;box-shadow:0 5px 18px rgba(0,0,0,.16);
+    transition:.2s;
+  }
+  .arrow:hover{background:#09285b;transform:translateY(-50%) scale(1.04)}
+  .arrow:disabled{opacity:.2;cursor:default}
+  .prev{left:12px} .next{right:12px}
+  footer{
+    display:flex;align-items:center;justify-content:center;
+    padding:8px 12px 10px;background:rgba(255,255,255,.92);
+    border-top:1px solid var(--line);
+  }
+  .dots{display:flex;gap:8px}
+  .dot{
+    width:9px;height:9px;border-radius:50%;border:0;background:#b8c8dc;padding:0;cursor:pointer;
+    transition:.2s;
+  }
+  .dot.active{width:28px;border-radius:10px;background:var(--navy)}
+  .hint{
+    position:absolute;right:18px;bottom:11px;font-size:11px;color:#71839b;z-index:9;
+  }
+  @media(max-width:900px){
+    h1{font-size:16px}
+    .tabs{display:flex;overflow-x:auto;scrollbar-width:none}
+    .tabs::-webkit-scrollbar{display:none}
+    .tab{min-width:170px}
+    .slide{padding:10px 44px}
+    .arrow{width:36px;height:58px;font-size:28px;border-radius:10px}
+    .prev{left:5px} .next{right:5px}
+    .hint{display:none}
+  }
+  @media(max-width:560px){
+    header{padding:8px 10px 6px}
+    .topline{margin-bottom:6px}
+    .slide{padding:7px 36px}
+    .slide-inner{border-radius:9px}
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="topline">
+      <h1>OTA 숙소 결제방식 이해하기</h1>
+      <div class="counter"><span id="now">1</span> / 4</div>
+    </div>
+    <nav class="tabs" aria-label="슬라이드 선택">
+      <button class="tab active" data-go="0"><span>1</span>1. 기본 구조</button>
+<button class="tab" data-go="1"><span>2</span>2. Expedia</button>
+<button class="tab" data-go="2"><span>3</span>3. Agoda</button>
+<button class="tab" data-go="3"><span>4</span>4. Booking.com</button>
+    </nav>
+  </header>
+
+  <main id="stage">
+    <div class="track" id="track">
+      
+    <section class="slide active" data-index="1">
+      <div class="slide-inner">
+        <img src="images/ota-payment-models-1.webp" alt="1. 기본 구조 | Basic Payment Models">
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="2">
+      <div class="slide-inner">
+        <img src="images/ota-payment-models-2.webp" alt="2. Expedia | 구조와 수치 해석">
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="3">
+      <div class="slide-inner">
+        <img src="images/ota-payment-models-3.webp" alt="3. Agoda | 과거와 현재">
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="4">
+      <div class="slide-inner">
+        <img src="images/ota-payment-models-4.webp" alt="4. Booking.com | Agency에서 혼합 운영으로">
+      </div>
+    </section>
+    
+    </div>
+    <button class="arrow prev" id="prev" aria-label="이전 슬라이드">‹</button>
+    <button class="arrow next" id="next" aria-label="다음 슬라이드">›</button>
+    <div class="hint">← → 키 또는 화면 좌우 버튼으로 이동</div>
+  </main>
+
+  <footer>
+    <div class="dots"><button class="dot active" data-go="0" aria-label="1번 슬라이드로 이동"></button>
+<button class="dot" data-go="1" aria-label="2번 슬라이드로 이동"></button>
+<button class="dot" data-go="2" aria-label="3번 슬라이드로 이동"></button>
+<button class="dot" data-go="3" aria-label="4번 슬라이드로 이동"></button></div>
+  </footer>
+</div>
+
+<script>
+(() => {
+  const track = document.getElementById('track');
+  const prev = document.getElementById('prev');
+  const next = document.getElementById('next');
+  const now = document.getElementById('now');
+  const tabs = [...document.querySelectorAll('.tab')];
+  const dots = [...document.querySelectorAll('.dot')];
+  const total = 4;
+  let index = 0;
+  let startX = null;
+
+  function render(){
+    track.style.transform = `translateX(${-index * 100}%)`;
+    now.textContent = index + 1;
+    tabs.forEach((b,i)=>b.classList.toggle('active',i===index));
+    dots.forEach((b,i)=>b.classList.toggle('active',i===index));
+    prev.disabled = index===0;
+    next.disabled = index===total-1;
+  }
+  function go(i){
+    index = Math.max(0, Math.min(total-1, i));
+    render();
+  }
+  prev.addEventListener('click',()=>go(index-1));
+  next.addEventListener('click',()=>go(index+1));
+  tabs.forEach(b=>b.addEventListener('click',()=>go(+b.dataset.go)));
+  dots.forEach(b=>b.addEventListener('click',()=>go(+b.dataset.go)));
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowLeft') go(index-1);
+    if(e.key==='ArrowRight') go(index+1);
+    if(e.key==='Home') go(0);
+    if(e.key==='End') go(total-1);
+  });
+  const stage = document.getElementById('stage');
+  stage.addEventListener('touchstart',e=>startX=e.changedTouches[0].clientX,{passive:true});
+  stage.addEventListener('touchend',e=>{
+    if(startX===null) return;
+    const dx=e.changedTouches[0].clientX-startX;
+    if(Math.abs(dx)>45) dx<0 ? go(index+1) : go(index-1);
+    startX=null;
+  },{passive:true});
+  render();
+})();
+</script>
+</body>
+</html>
