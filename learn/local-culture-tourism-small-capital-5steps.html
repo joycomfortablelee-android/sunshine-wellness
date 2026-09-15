@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>지역문화관광 상품개발 · 소자본 창업 5단계</title>
+<style>
+:root{
+  --navy:#0a2d57;
+  --blue:#1768b5;
+  --line:#cfe0f2;
+  --bg:#f3f7fb;
+  --card:#f8fbff;
+  --text:#26384f;
+  --muted:#6b7d92;
+  --gold:#b68b2c;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;background:#eaf0f6;color:var(--text)}
+body{overflow:hidden}
+
+.deck{height:100vh;display:flex;flex-direction:column}
+.topbar{
+  height:54px;background:#fff;border-bottom:1px solid #dfe7ef;
+  display:flex;align-items:center;justify-content:space-between;padding:0 20px;flex:0 0 auto;
+}
+.brand{font-weight:800;color:var(--navy);font-size:15px}
+.counter{font-size:13px;color:var(--muted);font-weight:700}
+.viewport{position:relative;flex:1;overflow:hidden}
+.track{height:100%;display:flex;transition:transform .42s ease}
+.slide{
+  min-width:100%;height:100%;padding:22px 26px 72px;overflow:auto;
+  background:linear-gradient(180deg,#ffffff 0%,#fbfdff 100%);
+}
+.inner{max-width:1180px;margin:0 auto}
+.eyebrow{font-size:14px;letter-spacing:.08em;font-weight:800;color:var(--blue);margin:0 0 8px}
+h1{font-size:44px;line-height:1.15;letter-spacing:-.04em;color:var(--navy);margin:0 0 8px}
+h2{font-size:30px;line-height:1.2;letter-spacing:-.03em;color:var(--navy);margin:0 0 8px}
+h3{margin:0;color:var(--navy);font-size:18px}
+.lead{font-size:18px;color:#43566e;margin:0 0 18px}
+.small{font-size:13px;color:var(--muted)}
+
+.overview{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:18px
+}
+.card{
+  border:1px solid var(--line);border-radius:17px;background:linear-gradient(180deg,#fbfdff,#eff6fd);
+  padding:15px 14px;min-height:235px;display:flex;flex-direction:column
+}
+.card .desc{font-size:13.5px;color:#4f6279;margin:7px 0 9px}
+.card .mission{border-top:1px dashed #bfd2e7;padding-top:9px;font-size:13.2px;line-height:1.55}
+.card .answer{margin-top:auto;padding-top:8px;font-size:12px;color:#8394a8}
+.star{color:var(--gold);font-weight:900}
+
+.promptbox{
+  border:1px solid #cbdcf0;border-left:5px solid var(--blue);
+  background:#f4f9ff;border-radius:14px;padding:16px 18px;
+  font-size:15px;line-height:1.72;white-space:pre-line
+}
+.step-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+.panel{
+  background:#fff;border:1px solid #d9e4ef;border-radius:16px;padding:16px 17px;
+  box-shadow:0 5px 16px rgba(21,54,88,.04)
+}
+.panel.full{grid-column:1/-1}
+.q{font-weight:800;color:#36516f;margin:8px 0 10px}
+.prompt{
+  background:#f7f9fc;border:1px solid #e1e8ef;border-radius:12px;padding:13px 14px;
+  font-size:14px;line-height:1.65;white-space:pre-line
+}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.chip{padding:7px 10px;background:#eef6ff;border:1px solid #cfe0f3;border-radius:999px;font-size:12.5px;color:var(--navy);font-weight:700}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;margin:22px 0 0}
+.flow .box{padding:9px 12px;border-radius:999px;background:#eef6ff;border:1px solid #cfe0f3;color:var(--navy);font-weight:800;font-size:13px}
+.arrow{color:#8498ae;font-weight:900}
+.note{margin-top:16px;background:#fffaf0;border:1px solid #ead9ae;border-radius:13px;padding:13px 15px;font-size:14px}
+
+.nav{
+  position:absolute;left:0;right:0;bottom:0;height:62px;
+  display:flex;align-items:center;justify-content:center;gap:14px;
+  background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,.96) 30%);
+}
+button{
+  border:1px solid #cbd9e7;background:#fff;color:var(--navy);
+  padding:10px 16px;border-radius:12px;font-weight:800;cursor:pointer;
+  box-shadow:0 4px 12px rgba(30,59,87,.08)
+}
+button:hover{background:#f3f8fd}
+button:disabled{opacity:.35;cursor:default}
+.dots{display:flex;gap:6px}
+.dot{width:8px;height:8px;border-radius:50%;background:#c9d6e4}
+.dot.active{background:var(--blue);transform:scale(1.15)}
+.hint{position:absolute;right:22px;bottom:20px;font-size:12px;color:#7d8ea2}
+
+@media(max-width:950px){
+  .overview{grid-template-columns:1fr 1fr}
+  .step-grid{grid-template-columns:1fr}
+  .panel.full{grid-column:auto}
+  h1{font-size:34px}
+}
+@media(max-width:620px){
+  .slide{padding:18px 14px 74px}
+  .overview{grid-template-columns:1fr}
+  .card{min-height:auto}
+  h1{font-size:30px}
+  h2{font-size:25px}
+  .hint{display:none}
+}
+</style>
+</head>
+<body>
+<div class="deck">
+  <div class="topbar">
+    <div class="brand">지역문화관광 상품개발 · SMALL CAPITAL ROADMAP</div>
+    <div class="counter"><span id="now">1</span> / <span id="total">7</span></div>
+  </div>
+
+  <div class="viewport">
+    <div class="track" id="track">
+
+      <!-- 1 -->
+      <section class="slide">
+        <div class="inner">
+          <p class="eyebrow">02 · SMALL CAPITAL ROADMAP</p>
+          <h1>소자본 창업 5단계 프로세스</h1>
+          <p class="lead">비용은 작게 시작하되, 전문성과 고객가치는 선명하게 설계합니다.</p>
+
+          <div class="overview">
+            <div class="card">
+              <h3>① 전문 분야 설정</h3>
+              <div class="desc">지역·테마·고객층을 명확하게 정의</div>
+              <div class="mission"><span class="star">★</span> <b>우리 고향에서 무엇을 팔 것인가?</b><br>지역자원 × 목표고객 × 여행욕구가 만나는 테마 3개 찾기</div>
+              <div class="answer">나의 답: __________________</div>
+            </div>
+            <div class="card">
+              <h3>② 온라인 플랫폼 구축</h3>
+              <div class="desc">저비용 홍보·예약·판매 채널 확보</div>
+              <div class="mission"><span class="star">★</span> <b>고객은 어디에서 발견할까?</b><br>발견 → 관심 → 예약 → 결제 → 방문 → 후기의 고객여정 설계</div>
+              <div class="answer">나의 답: __________________</div>
+            </div>
+            <div class="card">
+              <h3>③ 협력사 네트워크</h3>
+              <div class="desc">신뢰 가능한 지역 파트너 구축</div>
+              <div class="mission"><span class="star">★</span> <b>누구와 함께할까?</b><br>숙박·음식·카페·공방·주민·문화시설·관광기관 연결</div>
+              <div class="answer">나의 답: __________________</div>
+            </div>
+            <div class="card">
+              <h3>④ 특색 상품 설계</h3>
+              <div class="desc">감정 자극 + 불편 해결 + 독창성</div>
+              <div class="mission"><span class="star">★</span> <b>왜 이 지역이어야 할까?</b><br>스토리 + 체험 + 고객 불편 해결을 결합한 대표상품 설계</div>
+              <div class="answer">나의 답: __________________</div>
+            </div>
+            <div class="card">
+              <h3>⑤ 부가 수익원 확보</h3>
+              <div class="desc">교육·이커머스·콘텐츠 등 확장</div>
+              <div class="mission"><span class="star">★</span> <b>체험 1회 뒤에는 무엇을 팔까?</b><br>굿즈·교육·콘텐츠·기업프로그램·온라인 판매 확장</div>
+              <div class="answer">나의 답: __________________</div>
+            </div>
+          </div>
+          <div class="note"><b>여기가 핵심</b> · 5개 칸을 먼저 채운 뒤, 다음 장부터 상세 프롬프트로 아이디어를 구체화합니다.</div>
+        </div>
+      </section>
+
+      <!-- 2 -->
+      <section class="slide">
+        <div class="inner">
+          <p class="eyebrow">0 · STARTING PROMPT</p>
+          <h2>먼저 ChatGPT에게 내 과업을 알려주세요</h2>
+          <p class="lead">각 단계별 질문 전에 아래 공통 프롬프트를 한 번 입력합니다.</p>
+          <div class="promptbox">나는 <b>[나의 고향/관심지역]</b>을 기반으로 지역 문화관광 상품을 개발하려는 대학생이다. 단순히 유명 관광지를 소개하는 상품이 아니라, 지역 고유의 문화와 주민·상권·관광자원을 연결하면서 실제 고객이 돈을 지불할 수 있는 소자본 관광사업을 만들고 싶다.
+
+앞으로 내가 질문할 때 아이디어만 제시하지 말고,
+<b>지역자원 → 목표고객 → 고객문제·욕구 → 해결방법 → 상품 → 판매방법 → 수익</b>
+이 연결되도록 도와줘.
+
+확인되지 않은 지역정보는 사실처럼 만들지 말고, 추가 조사가 필요한 내용은 표시해줘.</div>
+          <div class="flow">
+            <div class="box">지역자원</div><div class="arrow">→</div>
+            <div class="box">목표고객</div><div class="arrow">→</div>
+            <div class="box">고객문제·욕구</div><div class="arrow">→</div>
+            <div class="box">해결방법</div><div class="arrow">→</div>
+            <div class="box">상품</div><div class="arrow">→</div>
+            <div class="box">판매방법</div><div class="arrow">→</div>
+            <div class="box">수익</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3 -->
+      <section class="slide">
+        <div class="inner">
+          <p class="eyebrow">STEP 01 · SPECIALTY</p>
+          <h2>① 전문 분야 설정</h2>
+          <p class="lead">우리 고향에서 무엇을 관광상품으로 만들까?</p>
+          <div class="step-grid">
+            <div class="panel">
+              <h3>나의 미션</h3>
+              <div class="q">★ 지역자원 × 목표고객 × 여행욕구가 만나는 테마 3개를 찾으세요.</div>
+              <div class="chips">
+                <span class="chip">역사</span><span class="chip">문화</span><span class="chip">음식</span>
+                <span class="chip">자연</span><span class="chip">생활문화</span><span class="chip">축제</span>
+                <span class="chip">인물</span><span class="chip">공간</span>
+              </div>
+            </div>
+            <div class="panel">
+              <h3>ChatGPT 프롬프트</h3>
+              <div class="prompt">“나는 <b>[지역명]</b>의 지역문화관광 상품을 만들려고 한다. 이 지역의 역사·문화·음식·자연·생활문화·축제·인물·공간 중 관광상품으로 발전시킬 수 있는 자원을 찾아줘.
+
+각 자원별로
+① 지역 고유성
+② 어떤 관광객에게 매력적인지
+③ 해결할 수 있는 여행자의 욕구·불편
+④ 상품화 가능성
+을 비교하고, 가장 가능성이 높은 테마 3개를 추천해줘.”</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4 -->
+      <section class="slide">
+        <div class="inner">
+          <p class="eyebrow">STEP 02 · CHANNEL</p>
+          <h2>② 온라인 플랫폼 구축</h2>
+          <p class="lead">이 상품을 어디에서 알리고 팔까?</p>
+          <div class="step-grid">
+            <div class="panel">
+              <h3>나의 미션</h3>
+              <div class="q">★ 고객의 발견부터 후기까지 고객여정을 설계하세요.</div>
+              <div class="flow" style="justify-content:flex-start;margin-top:12px">
+                <div class="box">발견</div><div class="arrow">→</div><div class="box">관심</div><div class="arrow">→</div>
+                <div class="box">예약</div><div class="arrow">→</div><div class="box">결제</div><div class="arrow">→</div>
+                <div class="box">방문</div><div class="arrow">→</div><div class="box">후기</div>
+              </div>
+            </div>
+            <div class="panel">
+              <h3>ChatGPT 프롬프트</h3>
+              <div class="prompt">“<b>[지역명]</b>에서 <b>[선택한 관광상품]</b>을 판매한다고 가정하자.
+
+주요 고객이 이 상품을 <b>발견 → 관심 → 예약 → 결제 → 방문 → 후기 작성</b>하는 과정을 설계해줘.
+
+네이버, 인스타그램, 유튜브, 스마트스토어, 지역관광 플랫폼, OTA 등에서 어떤 채널을 활용하면 좋은지 추천하고, 초기 비용이 적게 드는 방법부터 제시해줘.”</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5 -->
+      <section class="slide">
+        <div class="inner">
+          <p class="eyebrow">STEP 03 · NETWORK</p>
+          <h2>③ 협력사 네트워크</h2>
+          <p class="lead">지역에서 누구와 같이 해야 할까?</p>
+          <div class="step-grid">
+            <div class="panel">
+              <h3>나의 미션</h3>
+              <div class="q">★ 파트너별 역할과 서로 얻는 이익을 연결하세요.</div>
+              <div class="chips">
+                <span class="chip">숙박</span><span class="chip">음식점</span><span class="chip">카페</span>
+                <span class="chip">공방</span><span class="chip">문화시설</span><span class="chip">주민</span>
+                <span class="chip">해설사</span><span class="chip">교통업체</span><span class="chip">지자체·관광기관</span>
+              </div>
+            </div>
+            <div class="panel">
+              <h3>ChatGPT 프롬프트</h3>
+              <div class="prompt">“<b>[지역명]</b>에서 <b>[관광상품]</b>을 운영하려면 어떤 지역 파트너가 필요한지 찾아줘.
+
+숙박업체, 음식점, 카페, 공방, 문화시설, 주민, 해설사, 교통업체, 지자체·관광기관 등으로 구분하고,
+각 파트너가 제공하는 것과 내가 제공할 수 있는 것을
+
+<b>파트너 → 역할 → 협력방법 → 서로 얻는 이익</b>
+
+형태로 정리해줘.”</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6 -->
+      <section class="slide">
+        <div class="inner">
+          <p class="eyebrow">STEP 04 · SIGNATURE PRODUCT</p>
+          <h2>④ 특색 상품 설계</h2>
+          <p class="lead">다른 지역에서는 살 수 없는 상품은 무엇일까?</p>
+          <div class="step-grid">
+            <div class="panel">
+              <h3>나의 미션</h3>
+              <div class="q">★ “이 지역에 와야만 살 수 있는 경험”을 만드세요.</div>
+              <div class="flow" style="justify-content:flex-start;margin-top:10px">
+                <div class="box">지역자원</div><div class="arrow">+</div>
+                <div class="box">스토리</div><div class="arrow">+</div>
+                <div class="box">체험</div><div class="arrow">+</div>
+                <div class="box">고객 불편 해결</div>
+              </div>
+            </div>
+            <div class="panel">
+              <h3>ChatGPT 프롬프트</h3>
+              <div class="prompt">“<b>[지역명]</b>의 <b>[문화관광자원]</b>을 활용해 이 지역에서만 경험할 수 있는 시그니처 관광상품을 만들어줘.
+
+목표고객을 명확히 정하고,
+① 상품명 ② 핵심 콘셉트 ③ 고객이 해결하고 싶은 욕구·불편
+④ 체험 순서 ⑤ 지역문화 요소 ⑥ 차별화 포인트
+⑦ 예상 가격 ⑧ SNS에서 소개할 한 문장
+까지 작성해줘.”</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7 -->
+      <section class="slide">
+        <div class="inner">
+          <p class="eyebrow">STEP 05 · REVENUE</p>
+          <h2>⑤ 부가 수익원 확보</h2>
+          <p class="lead">관광객 1명에게 상품 하나만 팔 것인가?</p>
+          <div class="step-grid">
+            <div class="panel">
+              <h3>나의 미션</h3>
+              <div class="q">★ 체험 1회 판매 이후의 추가 수익원을 설계하세요.</div>
+              <div class="chips">
+                <span class="chip">굿즈</span><span class="chip">지역상품</span><span class="chip">음식·카페 연계</span>
+                <span class="chip">교육</span><span class="chip">워크숍</span><span class="chip">콘텐츠</span>
+                <span class="chip">멤버십</span><span class="chip">기업·단체 프로그램</span><span class="chip">온라인 판매</span>
+              </div>
+            </div>
+            <div class="panel">
+              <h3>ChatGPT 프롬프트</h3>
+              <div class="prompt">“<b>[지역명]</b>의 <b>[관광상품]</b>을 한 번의 체험 판매로 끝내지 않고 추가 수익을 만들 수 있는 방법을 제안해줘.
+
+굿즈, 지역상품 판매, 음식·카페 연계, 교육, 워크숍, 콘텐츠, 멤버십, 기업·단체 프로그램, 온라인 판매 등을 검토하고,
+
+<b>수익원 → 고객 → 판매내용 → 가격방식 → 실행난이도</b>
+
+로 비교해줘.”</div>
+            </div>
+          </div>
+
+          <div class="note" style="margin-top:20px">
+            <b>최종 산출물</b> · 나의 고향 → 지역자원 발견 → 누구에게 팔 것인가 → 어떤 경험을 만들 것인가 → 누구와 함께할 것인가 → 어디에서 팔 것인가 → 어떻게 돈을 벌 것인가
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <div class="nav">
+      <button id="prev">← 이전</button>
+      <div class="dots" id="dots"></div>
+      <button id="next">다음 →</button>
+    </div>
+    <div class="hint">키보드 ← → 로도 이동</div>
+  </div>
+</div>
+
+<script>
+const track = document.getElementById('track');
+const slides = [...document.querySelectorAll('.slide')];
+const prev = document.getElementById('prev');
+const next = document.getElementById('next');
+const now = document.getElementById('now');
+const total = document.getElementById('total');
+const dotsWrap = document.getElementById('dots');
+let idx = 0;
+
+total.textContent = slides.length;
+
+slides.forEach((_,i)=>{
+  const d=document.createElement('div');
+  d.className='dot'+(i===0?' active':'');
+  d.addEventListener('click',()=>go(i));
+  dotsWrap.appendChild(d);
+});
+const dots=[...document.querySelectorAll('.dot')];
+
+function go(i){
+  idx=Math.max(0,Math.min(slides.length-1,i));
+  track.style.transform=`translateX(-${idx*100}%)`;
+  now.textContent=idx+1;
+  prev.disabled=idx===0;
+  next.disabled=idx===slides.length-1;
+  dots.forEach((d,j)=>d.classList.toggle('active',j===idx));
+}
+prev.addEventListener('click',()=>go(idx-1));
+next.addEventListener('click',()=>go(idx+1));
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowLeft')go(idx-1);
+  if(e.key==='ArrowRight')go(idx+1);
+});
+let startX=null;
+track.addEventListener('touchstart',e=>startX=e.touches[0].clientX,{passive:true});
+track.addEventListener('touchend',e=>{
+  if(startX===null)return;
+  const dx=e.changedTouches[0].clientX-startX;
+  if(Math.abs(dx)>50) dx<0?go(idx+1):go(idx-1);
+  startX=null;
+},{passive:true});
+go(0);
+</script>
+</body>
+</html>
