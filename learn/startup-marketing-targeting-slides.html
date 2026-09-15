@@ -152,6 +152,14 @@
     cursor:pointer;
   }
   button:hover{background:#0f2e49}
+  /* 첫 화면 — 영상 설명 구조를 덧붙여 길어졌다. 이 장만 세로로 스크롤하고, 쪽 번호는 끝에 둔다 */
+  .slide.scroll{overflow-y:auto}
+  .slide.scroll .footer{position:static;margin-top:24px;padding-bottom:6px}
+  .intro-more{margin-top:28px;padding-top:22px;border-top:2px dashed #cfd9e3}
+  .intro-more .lead{margin-top:0}
+  .sub{margin:26px 0 6px;color:#0b2f4f;font-size:22px}
+  .tbl-scroll{overflow-x:auto}
+  .tbl-scroll table{min-width:620px}
   @media(max-width:900px){
     .slide{padding:70px 22px 28px;overflow-y:auto}
     h1{font-size:31px} h2{font-size:26px}
@@ -168,7 +176,7 @@
 
 <div class="deck" id="deck">
 
-<section class="slide">
+<section class="slide scroll">
   <div class="kicker">창업 마케팅 전략 ㊴</div>
   <h1>타겟팅 Targeting<br>“누구를 고객으로 선택할 것인가?”</h1>
   <p class="lead">
@@ -176,6 +184,47 @@
     <b>우리 기업이 충분히 공략할 수 있는 고객집단</b>을 선택하는 과정입니다.
   </p>
   <div class="callout">★ 타겟팅의 핵심 = “큰 시장”이 아니라 <b>우리에게 맞는 시장</b>을 고르는 것</div>
+
+  <div class="intro-more">
+    <p class="lead">이 영상에서 타겟팅(Targeting, 표적시장 선정)은 꽤 명확한 구조로 설명하고 있습니다. 핵심은 <b>“시장을 나눈 다음, 그중 우리 제품을 실제로 살 가능성이 높은 집단을 선택하는 것”</b>입니다.</p>
+
+    <h3 class="sub">영상의 타겟팅 설명 구조</h3>
+    <div class="tbl-scroll">
+    <table>
+      <tr><th>단계</th><th>영상에서 설명하는 내용</th><th>쉽게 바꾸면</th></tr>
+      <tr><td>① 시장 세분화</td><td>시장을 여러 소비자 집단으로 나눔</td><td>누가 있는가?</td></tr>
+      <tr><td>② 적정 시장 선택</td><td>세분시장 중 들어갈 시장을 결정</td><td>누구를 고객으로 할 것인가?</td></tr>
+      <tr><td>③ 구매 가능성 확인</td><td>제품을 살 의지가 있는 집단을 찾음</td><td>누가 실제 돈을 낼 것인가?</td></tr>
+      <tr><td>④ 기업 역량과 비교</td><td>기업 규모·자금력·인적자원과 맞아야 함</td><td>우리가 이 고객을 감당할 수 있는가?</td></tr>
+      <tr><td>⑤ 고객을 구체화</td><td>연령·직업·생활방식·관심사를 구체적으로 설정</td><td>그 고객은 어떤 사람인가?</td></tr>
+      <tr><td>⑥ 마케팅 집중</td><td>제품·서비스·마케팅을 그 고객에 맞춤</td><td>그 고객에게 무엇을 어떻게 팔 것인가?</td></tr>
+      <tr><td>⑦ 포지셔닝으로 연결</td><td>선택한 고객의 마음속에 차별화된 이미지를 구축</td><td>고객에게 어떻게 기억될 것인가?</td></tr>
+    </table>
+    </div>
+
+    <p style="margin-top:18px">영상의 논리를 한 줄로 줄이면 다음과 같습니다.</p>
+    <div class="callout">시장 전체 → 시장 세분화(Segmentation) → 살 가능성이 높은 집단 선택(Targeting) → 그 고객에게 맞는 제품·마케팅 → 고객 마음속 이미지 형성(Positioning)</div>
+
+    <h3 class="sub">영상에서 가장 중요한 타겟팅 기준</h3>
+    <p>영상에서는 단순히 “돈 많은 고객을 선택한다”거나 “큰 시장을 선택한다”고 하지 않습니다.</p>
+    <p>오히려 다음 질문을 강조합니다.</p>
+    <div class="callout">“이 시장이 우리 회사의 규모와 역량에 맞는가?”</div>
+    <p style="margin-top:18px">그래서 타겟시장 선정 시 다음 세 가지를 보라는 의미입니다.</p>
+    <div class="callout">시장 매력도 × 구매 가능성 × 기업의 실행 가능성</div>
+
+    <p style="margin-top:18px">예를 들어 작은 관광 스타트업이 있다고 해보겠습니다.</p>
+    <div class="two" style="margin-top:12px">
+      <div class="card">
+        <p>“전 세계 모든 고소득 여행객을 고객으로 하겠습니다.”</p>
+        <p style="margin-top:8px">→ 시장은 커 보이지만 너무 광범위합니다.</p>
+      </div>
+      <div class="card">
+        <p>반대로,</p>
+        <p style="margin-top:8px"><b>“서울을 방문하는 20~30대 일본인 여성 중 K-뷰티와 카페 콘텐츠에 관심이 높고, 개별여행을 선호하는 여행객”</b></p>
+        <p style="margin-top:8px">이라고 하면 훨씬 구체적인 표적시장이 됩니다.</p>
+      </div>
+    </div>
+  </div>
   <div class="footer"><span>Targeting</span><span>1 / 8</span></div>
 </section>
 
