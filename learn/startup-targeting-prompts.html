@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>타겟팅 AI 프롬프트 — 누구를 고객으로 고를 것인가</title>
+<style>
+  :root{
+    --ink:#1e293b; --muted:#64748b; --line:#dbe5ee; --bg:#f3f7f5; --card:#fff;
+    --green:#1faa59; --green-dk:#17864a; --green-bg:#eaf7ee; --navy:#17395f;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Noto Sans KR","Malgun Gothic",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.75}
+  .wrap{max-width:1040px;margin:0 auto;padding:28px 18px 64px}
+  .hero{background:linear-gradient(135deg,#17864a,#1faa59);color:#fff;border-radius:20px;padding:28px 30px;margin-bottom:18px}
+  .hero .eyebrow{font-size:13px;font-weight:800;letter-spacing:.06em;opacity:.85}
+  .hero h1{margin:6px 0 8px;font-size:28px;line-height:1.3}
+  .hero p{margin:0;font-size:15.5px;opacity:.95}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 24px;margin:16px 0;box-shadow:0 6px 18px rgba(30,41,59,.05)}
+  h2{margin:0 0 10px;font-size:20px;color:var(--navy)}
+  p{margin:8px 0}
+  .flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:12px 0 4px}
+  .flow b{background:var(--green-bg);border:1px solid #bfe6cc;color:var(--green-dk);border-radius:999px;padding:4px 12px;font-size:13.5px}
+  .flow i{font-style:normal;color:var(--green);font-weight:900}
+  .prompt{position:relative;white-space:pre-wrap;background:#0f2a1c;color:#f3fbf6;border-radius:12px;padding:18px 18px 16px;font-size:14.5px;line-height:1.8;margin:10px 0}
+  .prompt b{color:#ffe38a;font-weight:700}
+  .copy{position:absolute;top:10px;right:10px;border:0;border-radius:8px;background:var(--green);color:#fff;font:inherit;font-size:12px;font-weight:800;padding:5px 10px;cursor:pointer}
+  .copy:hover{background:var(--green-dk)}
+  .prompt .body{display:block;padding-right:56px}
+  .tbl-wrap{overflow-x:auto;margin:12px 0 4px}
+  table{width:100%;min-width:760px;border-collapse:collapse;font-size:14px;background:#fff}
+  th{background:var(--green-dk);color:#fff;text-align:left;padding:10px 12px;font-weight:800}
+  td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  td:first-child{white-space:nowrap;font-weight:800;color:var(--green-dk)}
+  td:nth-child(2){color:var(--navy);font-weight:700}
+  td.p{font-family:inherit;color:#243b2e}
+  .seven{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:10px 0}
+  .seven span{background:#fff;border:1px solid #bfe6cc;border-radius:10px;padding:6px 10px;font-size:14px;font-weight:700}
+  .seven i{font-style:normal;color:var(--green);font-weight:900}
+  .core{background:var(--green);color:#fff;border-radius:12px;padding:14px 18px;font-size:16px;font-weight:800;text-align:center;margin-top:6px}
+  .note{color:var(--muted);font-size:13.5px}
+  @media(max-width:640px){.hero h1{font-size:22px}.card{padding:18px 16px}.prompt{font-size:13.5px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <section class="hero">
+    <div class="eyebrow">관광벤처창업론 · 02장 WHO · 타겟팅</div>
+    <h1>타겟팅 AI 프롬프트 — 누구를 고객으로 고를 것인가</h1>
+    <p>「우리 고객은 누구야?」 한 줄로 묻지 말고, 순서를 프롬프트 안에 넣어 물으십시오.</p>
+  </section>
+
+  <section class="card">
+    <h2>1. 묻는 순서</h2>
+    <p>일반적인 타겟팅 프롬프트는 단순히 <b>“우리 고객은 누구야?”</b>라고 묻기보다, 아래 순서로 질문하는 것이 좋습니다.</p>
+    <div class="flow"><b>시장 세분화</b><i>→</i><b>후보 고객군 비교</b><i>→</i><b>매력도 평가</b><i>→</i><b>핵심 타겟 선정</b><i>→</i><b>선정 이유</b></div>
+  </section>
+
+  <section class="card">
+    <h2>2. 가장 범용적인 구조</h2>
+    <div class="prompt"><button class="copy" type="button">복사</button><span class="body"><b>[상품·서비스]</b>를 대상으로 잠재고객을 세분화하고, 각 고객군의 시장 매력도를 평가한 뒤 가장 적합한 핵심 타겟 고객을 선정해줘. 평가 기준은 시장규모, 성장가능성, 고객의 문제·욕구 강도, 구매가능성, 접근가능성, 경쟁강도, 우리 상품과의 적합성으로 해줘. 마지막에는 핵심 타겟 고객의 특징과 선정 이유를 구체적으로 설명해줘.</span></div>
+  </section>
+
+  <section class="card">
+    <h2>3. 단계별로 쓰기 — 일곱 걸음</h2>
+    <p>한 번에 다 묻기 어렵다면 아래처럼 한 단계씩 물으십시오. <b>대괄호 [ ]</b> 안만 내 것으로 바꿉니다.</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>단계</th><th>핵심 질문</th><th>프롬프트</th></tr></thead>
+        <tbody>
+          <tr><td>① 시장 세분화</td><td>누가 고객이 될 수 있는가?</td><td class="p">“[상품/서비스]의 잠재고객을 연령, 소득, 지역, 라이프스타일, 관심사, 여행목적, 소비행동을 기준으로 세분화해줘.”</td></tr>
+          <tr><td>② 고객 문제 분석</td><td>누가 이 서비스를 가장 필요로 하는가?</td><td class="p">“각 고객군이 [상품/서비스]와 관련하여 겪는 가장 큰 불편과 욕구를 분석해줘.”</td></tr>
+          <tr><td>③ 시장 매력도</td><td>어느 고객군이 사업성이 높은가?</td><td class="p">“각 고객군을 시장규모, 성장성, 구매력, 접근성, 경쟁강도, 문제의 심각성 기준으로 5점 척도로 평가해줘.”</td></tr>
+          <tr><td>④ 타겟 선정</td><td>누구를 선택할 것인가?</td><td class="p">“평가 결과를 바탕으로 가장 적합한 1차 타겟과 2차 타겟을 선정하고 선정 이유를 설명해줘.”</td></tr>
+          <tr><td>⑤ 고객 구체화</td><td>구체적으로 어떤 사람인가?</td><td class="p">“1차 타겟 고객을 연령, 직업, 소득, 거주지역, 관심사, 여행행동, 구매동기, 불편사항, 정보검색 채널을 포함해 페르소나로 만들어줘.”</td></tr>
+          <tr><td>⑥ 구매 가능성</td><td>실제 돈을 낼 것인가?</td><td class="p">“이 타겟 고객이 실제로 돈을 지불할 가능성이 높은 상황과 낮은 상황을 비교해줘.”</td></tr>
+          <tr><td>⑦ 접근 방법</td><td>어떻게 고객에게 도달할 것인가?</td><td class="p">“이 고객에게 접근하기 좋은 SNS, 검색채널, OTA, 커뮤니티, 오프라인 채널을 추천하고 이유를 설명해줘.”</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">좁은 화면에서는 표를 옆으로 밀어 보십시오.</p>
+  </section>
+
+  <section class="card">
+    <h2>4. 창업 아이템에 가장 실용적인 프롬프트</h2>
+    <div class="prompt"><button class="copy" type="button">복사</button><span class="body">내 사업 아이디어는 <b>[사업 아이디어]</b>이다. 이 서비스를 구매할 가능성이 있는 고객을 최소 5개 집단으로 나누어줘. 각 집단을 ① 문제의 크기 ② 구매의향 ③ 지불능력 ④ 시장규모 ⑤ 성장가능성 ⑥ 접근가능성 ⑦ 경쟁강도 기준으로 평가해줘. 그 결과 가장 사업성이 높은 핵심 타겟 고객 1개를 선정하고, ‘왜 이 고객을 먼저 선택해야 하는가?’를 설명해줘.</span></div>
+  </section>
+
+  <section class="card">
+    <h2>5. 관광 분야라면 — 지역 × 고객 × 여행목적 × 행동특성</h2>
+    <p>이 넷을 함께 넣으면 훨씬 구체적인 답이 나옵니다. 예를 들어 안동이라면:</p>
+    <div class="prompt"><button class="copy" type="button">복사</button><span class="body"><b>안동</b>을 대상으로 관광상품을 개발하려고 한다. 잠재 관광객을 지역, 연령, 동반자 유형, 여행목적, 관심 콘텐츠, 소비수준, 체류기간을 기준으로 세분화해줘. 이후 각 시장의 규모·성장성·지불의사·안동 관광자원과의 적합성·접근가능성·경쟁강도를 비교하고 가장 적합한 타겟 시장 3개를 순위별로 제시해줘.</span></div>
+  </section>
+
+  <section class="card">
+    <h2>6. 외워 두는 일곱 문장</h2>
+    <div class="seven"><span>누구인가?</span><i>→</i><span>어떤 문제가 있는가?</span><i>→</i><span>얼마나 많은가?</span><i>→</i><span>돈을 쓸 것인가?</span><i>→</i><span>우리가 접근할 수 있는가?</span><i>→</i><span>경쟁자는 많은가?</span><i>→</i><span>그래서 왜 이 고객을 선택하는가?</span></div>
+    <div class="core">“누가 우리 상품을 가장 필요로 하면서, 실제로 구매할 가능성이 높은가?”</div>
+    <p class="note" style="text-align:center;margin-top:10px">타겟팅의 핵심 질문은 결국 이 한 문장입니다.</p>
+  </section>
+
+</div>
+<script>
+document.querySelectorAll('.prompt .copy').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var text = btn.parentNode.querySelector('.body').innerText.trim();
+    var done = function(){ var o = btn.textContent; btn.textContent = '복사됨 ✓'; setTimeout(function(){ btn.textContent = o; }, 1200); };
+    if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(text).then(done, function(){}); }
+    else { var ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); done(); } catch(e){} ta.remove(); }
+  });
+});
+</script>
+</body>
+</html>
