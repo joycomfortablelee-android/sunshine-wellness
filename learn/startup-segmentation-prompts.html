@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>시장 세분화 AI 프롬프트 — 서로 다른 고객집단 찾기</title>
+<style>
+  :root{
+    --ink:#1e293b; --muted:#64748b; --line:#dbe5ee; --bg:#f3f7f5; --card:#fff;
+    --green:#1faa59; --green-dk:#17864a; --green-bg:#eaf7ee; --navy:#17395f;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Noto Sans KR","Malgun Gothic",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.75}
+  .wrap{max-width:1040px;margin:0 auto;padding:28px 18px 64px}
+  .hero{background:linear-gradient(135deg,#17864a,#1faa59);color:#fff;border-radius:20px;padding:28px 30px;margin-bottom:18px}
+  .hero .eyebrow{font-size:13px;font-weight:800;letter-spacing:.06em;opacity:.85}
+  .hero h1{margin:6px 0 8px;font-size:28px;line-height:1.3}
+  .hero p{margin:0;font-size:15.5px;opacity:.95}
+  .nav{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 6px}
+  .nav a{text-decoration:none;background:#fff;border:1px solid #bfe6cc;color:var(--green-dk);border-radius:999px;padding:5px 12px;font-size:13px;font-weight:700}
+  .nav a:hover{background:var(--green);border-color:var(--green);color:#fff}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 24px;margin:16px 0;box-shadow:0 6px 18px rgba(30,41,59,.05);scroll-margin-top:12px}
+  h2{margin:0 0 10px;font-size:20px;color:var(--navy)}
+  h3{margin:18px 0 6px;font-size:16px;color:var(--green-dk)}
+  p{margin:8px 0}
+  .prompt{position:relative;white-space:pre-wrap;background:#0f2a1c;color:#f3fbf6;border-radius:12px;padding:18px 18px 16px;font-size:14.5px;line-height:1.8;margin:10px 0}
+  .prompt b{color:#ffe38a;font-weight:700}
+  .prompt .body{display:block;padding-right:56px}
+  .copy{position:absolute;top:10px;right:10px;border:0;border-radius:8px;background:var(--green);color:#fff;font:inherit;font-size:12px;font-weight:800;padding:5px 10px;cursor:pointer}
+  .copy:hover{background:var(--green-dk)}
+  .tbl-wrap{overflow-x:auto;margin:12px 0 4px}
+  table{width:100%;min-width:820px;border-collapse:collapse;font-size:14px;background:#fff}
+  th{background:var(--green-dk);color:#fff;text-align:left;padding:10px 12px;font-weight:800}
+  td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  td:first-child{white-space:nowrap;font-weight:800;color:var(--green-dk)}
+  td:first-child small{display:block;font-weight:600;color:var(--muted);font-size:11.5px}
+  td:nth-child(2){color:var(--navy);font-weight:700;min-width:150px}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+  .chips span{background:var(--green-bg);border:1px solid #bfe6cc;color:#1e4d33;border-radius:999px;padding:4px 11px;font-size:13px;font-weight:700}
+  .formula{background:var(--green-bg);border-left:4px solid var(--green);border-radius:0 10px 10px 0;padding:10px 14px;font-weight:800;color:#1e4d33}
+  .stp{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:10px 0}
+  .stp div{background:#fff;border:1px solid #bfe6cc;border-radius:12px;padding:12px 14px}
+  .stp b{display:block;color:var(--green-dk);font-size:15px}
+  .stp span{font-size:13.5px}
+  .core{background:var(--green);color:#fff;border-radius:12px;padding:14px 18px;font-size:15.5px;font-weight:800;text-align:center;margin-top:8px}
+  .note{color:var(--muted);font-size:13.5px}
+  @media(max-width:640px){.hero h1{font-size:22px}.card{padding:18px 16px}.prompt{font-size:13.5px}.stp{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <section class="hero">
+    <div class="eyebrow">관광벤처창업론 · 02장 WHO · 시장 세분화(Segmentation)</div>
+    <h1>시장 세분화 AI 프롬프트 — 서로 다른 고객집단 찾기</h1>
+    <p>「연령별로 나눠줘」로 끝내지 말고, 세분화 기준을 정하고 각 집단의 특징 · 욕구 · 구매 가능성까지 비교하게 물으십시오.</p>
+  </section>
+
+  <nav class="nav">
+    <a href="#base">기준 여섯</a><a href="#geo">① 지리적</a><a href="#demo">② 인구통계적</a><a href="#psy">③ 심리적</a><a href="#beh">④ 행동적</a><a href="#ben">⑤ 추구편익</a><a href="#tour">⑥ 관광 특화</a><a href="#all">통합 프롬프트</a><a href="#stp">STP 흐름</a>
+  </nav>
+
+  <section class="card" id="base">
+    <h2>세분화 기준 여섯</h2>
+    <p>가장 일반적인 기준은 <b>지리적(Geographic) · 인구통계적(Demographic) · 심리적(Psychographic) · 행동적(Behavioral)</b>이고, 관광 · 서비스 분야에서는 여기에 <b>추구편익(Benefit sought) · 여행상황/목적(Situation/Purpose)</b>을 더하면 훨씬 실용적입니다.</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>세분화 기준</th><th>무엇을 나누는가</th><th>구체적인 프롬프트</th></tr></thead>
+        <tbody>
+          <tr><td>지리적<small>Geographic</small></td><td>국가, 지역, 도시, 생활권, 이동거리</td><td>“[상품/서비스]의 잠재고객을 거주지역, 출발지역, 도시 규모, 이동거리, 접근시간을 기준으로 세분화해줘. 각 지역 고객의 규모, 접근성, 소비특성, 우리 사업과의 적합성을 비교해줘.”</td></tr>
+          <tr><td>인구통계적<small>Demographic</small></td><td>연령, 성별, 소득, 직업, 가족구성</td><td>“잠재고객을 연령, 직업, 소득수준, 가족구성, 생애주기를 기준으로 구분해줘. 각 집단별 주요 욕구, 가격민감도, 구매력, 구매 가능성을 표로 비교해줘.”</td></tr>
+          <tr><td>심리적<small>Psychographic</small></td><td>가치관, 라이프스타일, 관심사, 성향</td><td>“잠재고객을 라이프스타일, 가치관, 관심사, 새로운 경험에 대한 태도, 소비성향을 기준으로 세분화해줘. 각 집단이 중요하게 생각하는 가치와 선호하는 상품 유형을 설명해줘.”</td></tr>
+          <tr><td>행동적<small>Behavioral</small></td><td>구매빈도, 이용경험, 충성도, 구매단계</td><td>“잠재고객을 이용빈도, 과거 구매경험, 정보검색 행동, 예약방식, 브랜드 충성도, 재구매 가능성을 기준으로 세분화해줘.”</td></tr>
+          <tr><td>추구편익<small>Benefit sought</small></td><td>고객이 원하는 핵심 가치</td><td>“고객이 [상품/서비스]에서 기대하는 핵심 편익을 기준으로 시장을 세분화해줘. 예를 들어 가격절감, 편리성, 재미, 휴식, 교육, 특별한 경험, 사회적 교류 등으로 나누고 각 집단의 특징을 설명해줘.”</td></tr>
+          <tr><td>상황·목적<small>Situation/Purpose</small></td><td>언제, 왜 구매하는가</td><td>“고객이 [상품/서비스]를 이용하는 목적과 상황을 기준으로 시장을 구분해줘. 이용 목적, 동반자, 이용 시기, 체류시간, 특별한 계기 등을 고려해 고객집단을 만들어줘.”</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">기준마다 질문을 하나씩 넣어 단계적으로 세분화하십시오. 좁은 화면에서는 표를 옆으로 밀어 봅니다.</p>
+  </section>
+
+  <section class="card" id="geo">
+    <h2>① 지리적 세분화</h2>
+    <div class="prompt"><button class="copy" type="button">복사</button><span class="body"><b>[사업 아이디어]</b>의 잠재고객을 지리적으로 세분화해줘. 국가 → 지역 → 도시 → 생활권 → 우리 사업까지의 이동시간 순으로 구분하고, 각 집단의 예상 고객규모, 접근성, 방문 가능성, 시장 매력도를 비교해줘.</span></div>
+    <h3>예 · 안동 관광상품</h3>
+    <div class="prompt"><button class="copy" type="button">복사</button><span class="body"><b>안동</b> 관광상품의 잠재고객을 안동·경북권, 대구·부산권, 수도권, 기타 국내지역, 해외 관광객으로 세분화해줘. 각 시장별 이동거리, 접근성, 예상 체류시간, 소비가능성, 방문동기를 비교해줘.</span></div>
+  </section>
+
+  <section class="card" id="demo">
+    <h2>② 인구통계적 세분화</h2>
+    <p><b>단순히 20대 · 30대만 나누지 않는 것</b>이 중요합니다.</p>
+    <div class="prompt"><button class="copy" type="button">복사</button><span class="body"><b>[상품]</b>의 잠재고객을 연령, 직업, 소득, 가족구성, 생애주기를 결합하여 5~7개 고객집단으로 세분화해줘. 각 집단별 구매력, 시간여유, 가격민감도, 관심상품, 주요 불편을 함께 정리해줘.</span></div>
+    <p>이렇게 <b>실제 고객상이 보이도록</b> 만드는 방식입니다.</p>
+    <div class="chips"><span>20대 대학생</span><span>20~30대 직장인</span><span>영유아 가족</span><span>초중등 자녀 가족</span><span>50대 부부</span><span>액티브 시니어</span></div>
+  </section>
+
+  <section class="card" id="psy">
+    <h2>③ 심리적 세분화</h2>
+    <p>관광 · 문화 · 여가 분야에서는 특히 중요합니다.</p>
+    <div class="prompt"><button class="copy" type="button">복사</button><span class="body"><b>[상품/서비스]</b>의 고객을 라이프스타일과 가치관을 기준으로 세분화해줘. 새로운 경험 추구, 휴식 추구, 자기계발, SNS 공유, 친환경 가치, 로컬문화 관심, 가성비 중시, 프리미엄 소비 성향 등을 고려하여 고객유형을 만들어줘.</span></div>
+    <p>결과는 예를 들어 이렇게 나올 수 있습니다.</p>
+    <div class="chips"><span>경험추구형</span><span>휴식추구형</span><span>문화탐구형</span><span>SNS공유형</span><span>가성비형</span><span>프리미엄형</span><span>친환경가치형</span></div>
+  </section>
+
+  <section class="card" id="beh">
+    <h2>④ 행동적 세분화</h2>
+    <p>이 기준이 <b>실제 사업과 가장 직접적으로</b> 연결됩니다.</p>
+    <div class="prompt"><button class="copy" type="button">복사</button><span class="body">잠재고객을 실제 구매행동을 기준으로 세분화해줘. 정보검색 채널, 예약 시점, 구매빈도, 평균지출액, 할인반응, 재구매 여부, 리뷰작성 여부, SNS 공유행동을 기준으로 고객집단을 만들어줘.</span></div>
+    <p>예를 들어 여행에서는 이렇게 구분할 수 있습니다.</p>
+    <div class="chips"><span>계획형 여행자</span><span>즉흥형 여행자</span><span>할인탐색형</span><span>OTA 중심형</span><span>SNS 정보탐색형</span><span>재방문 충성형</span></div>
+  </section>
+
+  <section class="card" id="ben">
+    <h2>⑤ 추구편익 세분화</h2>
+    <p>특히 추천하는 질문입니다.</p>
+    <div class="prompt"><button class="copy" type="button">복사</button><span class="body">고객이 이 상품을 구매하는 이유를 기준으로 시장을 세분화해줘. ‘무엇을 얻고 싶어서 돈을 지불하는가?’를 중심으로 편리성, 저렴한 가격, 특별한 경험, 휴식, 재미, 학습, 관계형성, 자기표현 등의 편익으로 구분해줘.</span></div>
+    <p>단순히 <b>‘누구인가’보다 ‘왜 사는가’</b>를 보는 방식입니다.</p>
+  </section>
+
+  <section class="card" id="tour">
+    <h2>⑥ 관광 분야 특화 세분화</h2>
+    <p>관광에서는 다음 구조가 가장 활용도가 높습니다.</p>
+    <p class="formula">출발지역 × 연령/생애주기 × 동반자 × 여행목적 × 관심콘텐츠 × 소비수준 × 여행행동</p>
+    <div class="prompt"><button class="copy" type="button">복사</button><span class="body"><b>[지역]</b> 관광시장의 잠재고객을 세분화해줘. 다음 기준을 모두 고려해 최소 6개의 고객집단을 만들어줘.
+
+① 거주·출발지역
+② 연령 및 생애주기
+③ 여행 동반자
+④ 여행목적
+⑤ 관심 관광콘텐츠
+⑥ 여행 소비수준
+⑦ 체류기간
+⑧ 정보검색 채널
+⑨ 예약방식
+⑩ 여행 중 중요하게 생각하는 가치
+
+각 고객집단별로 주요 특징, 관광욕구, 불편사항, 예상 소비금액, 구매 가능성이 높은 상품을 표로 정리해줘.</span></div>
+    <p>예를 들어 <b>안동</b>을 넣으면 AI가 단순히 20대 / 30대로 나누는 것이 아니라 더 실제적인 시장을 만듭니다.</p>
+    <div class="chips"><span>① 수도권 20~30대 로컬문화 탐방객</span><span>② 대구·경북 가족 역사문화 체험객</span><span>③ 50~60대 부부 전통문화 관광객</span><span>④ 외국인 한국문화 체험객</span><span>⑤ 20대 SNS 콘텐츠 여행객</span><span>⑥ 교육 목적 학생·단체 관광객</span></div>
+  </section>
+
+  <section class="card" id="all">
+    <h2>가장 추천하는 「통합 시장 세분화 프롬프트」</h2>
+    <p>하나만 쓴다면 이것을 기본형으로 쓰십시오.</p>
+    <div class="prompt"><button class="copy" type="button">복사</button><span class="body">내 사업 아이디어는 <b>[사업 아이디어]</b>이고 주요 지역은 <b>[지역]</b>이다. 잠재고객을 시장 세분화해줘. 지리적 변수, 인구통계적 변수, 심리적 변수, 행동적 변수, 추구편익, 이용목적을 모두 고려하여 서로 구별되는 고객집단 6~8개를 만들어줘. 단순히 연령만 기준으로 나누지 말고 여러 변수를 결합해 현실적인 고객집단으로 제시해줘. 각 집단별로 ① 고객 특징 ② 주요 욕구 ③ 해결하고 싶은 문제 ④ 구매동기 ⑤ 가격민감도 ⑥ 정보검색 채널 ⑦ 구매·예약 방식 ⑧ 예상 시장성까지 표로 비교해줘.</span></div>
+  </section>
+
+  <section class="card" id="stp">
+    <h2>다음 프롬프트로 이으면 — STP 흐름</h2>
+    <div class="stp">
+      <div><b>Segmentation · 시장 세분화</b><span>누가 존재하는가?</span></div>
+      <div><b>Targeting · 타겟팅</b><span>그중 누구를 선택할 것인가? — <a href="startup-targeting-prompts.html">타겟팅 AI 프롬프트 ↗</a></span></div>
+      <div><b>Positioning · 포지셔닝</b><span>선택한 고객에게 우리는 어떤 브랜드로 기억될 것인가?</span></div>
+    </div>
+    <div class="core">연령으로 나누는 것이 시장 세분화가 아니라, 서로 다른 욕구와 구매행동을 가진 고객집단을 찾아내는 것이 시장 세분화입니다.</div>
+  </section>
+
+</div>
+<script>
+document.querySelectorAll('.prompt .copy').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var text = btn.parentNode.querySelector('.body').innerText.trim();
+    var done = function(){ var o = btn.textContent; btn.textContent = '복사됨 ✓'; setTimeout(function(){ btn.textContent = o; }, 1200); };
+    if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(text).then(done, function(){}); }
+    else { var ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); done(); } catch(e){} ta.remove(); }
+  });
+});
+</script>
+</body>
+</html>
