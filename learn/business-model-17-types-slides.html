@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>비즈니스 모델 유형 17가지 | 좌우 넘김</title>
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:#edf3f9;
+  color:#0a2e5c;
+  font-family:"Pretendard","Noto Sans KR","Malgun Gothic",sans-serif;
+}
+.wrap{
+  width:min(1100px,100%);
+  margin:0 auto;
+  padding:16px;
+}
+.head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  margin-bottom:10px;
+}
+.head h1{
+  margin:0;
+  font-size:clamp(18px,2.4vw,28px);
+  letter-spacing:-.04em;
+}
+.tip{
+  font-size:13px;
+  color:#61748c;
+  white-space:nowrap;
+}
+.viewer{
+  display:flex;
+  width:100%;
+  overflow-x:auto;
+  overflow-y:hidden;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  border-radius:20px;
+  background:#fff;
+  box-shadow:0 14px 38px rgba(8,42,86,.16);
+  scrollbar-width:none;
+  -ms-overflow-style:none;
+}
+.viewer::-webkit-scrollbar{display:none}
+.slide{
+  position:relative;
+  flex:0 0 100%;
+  width:100%;
+  min-width:100%;
+  scroll-snap-align:start;
+  scroll-snap-stop:always;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff;
+}
+.slide img{
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:calc(100vh - 100px);
+  object-fit:contain;
+  user-select:none;
+  -webkit-user-drag:none;
+}
+.arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:20;
+  width:58px;
+  height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  text-decoration:none;
+  color:#fff;
+  background:#0b3f7b;
+  border:4px solid rgba(255,255,255,.92);
+  box-shadow:0 8px 24px rgba(0,0,0,.24);
+  font-size:38px;
+  font-weight:900;
+  line-height:1;
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+}
+.arrow:hover{background:#0d529d}
+.arrow:active{transform:translateY(-50%) scale(.94)}
+.prev{left:14px}
+.next{right:14px}
+
+.pager{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-top:13px;
+}
+.pager a{
+  display:block;
+  width:13px;
+  height:13px;
+  border-radius:50%;
+  background:#b9c8d8;
+  text-decoration:none;
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.06);
+}
+.pager a:hover,
+.pager a:focus{background:#0b3f7b;outline:none}
+
+.note{
+  text-align:center;
+  color:#60748b;
+  font-size:13px;
+  margin-top:8px;
+}
+
+@media(max-width:700px){
+  .wrap{padding:0}
+  .head{padding:10px 12px 0}
+  .tip{display:none}
+  .viewer{border-radius:0;box-shadow:none}
+  .slide img{max-height:none}
+  .arrow{
+    width:46px;height:46px;
+    font-size:30px;
+    border-width:3px;
+  }
+  .prev{left:8px}
+  .next{right:8px}
+  .pager{padding-bottom:2px}
+  .note{padding-bottom:10px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <h1>비즈니스 모델 유형 17가지</h1>
+    <div class="tip">버튼 클릭 또는 손가락으로 좌우 스와이프</div>
+  </div>
+
+  <div class="viewer" aria-label="비즈니스 모델 유형 슬라이드">
+    <section class="slide" id="slide1">
+      <img src="images/business-model-17-types-1.webp" alt="비즈니스 모델 유형 1~6">
+      <a class="arrow prev" href="#slide3" aria-label="3페이지로 이동">‹</a>
+      <a class="arrow next" href="#slide2" aria-label="2페이지로 이동">›</a>
+    </section>
+
+    <section class="slide" id="slide2">
+      <img src="images/business-model-17-types-2.webp" alt="비즈니스 모델 유형 7~12">
+      <a class="arrow prev" href="#slide1" aria-label="1페이지로 이동">‹</a>
+      <a class="arrow next" href="#slide3" aria-label="3페이지로 이동">›</a>
+    </section>
+
+    <section class="slide" id="slide3">
+      <img src="images/business-model-17-types-3.webp" alt="비즈니스 모델 유형 13~17">
+      <a class="arrow prev" href="#slide2" aria-label="2페이지로 이동">‹</a>
+      <a class="arrow next" href="#slide1" aria-label="1페이지로 이동">›</a>
+    </section>
+  </div>
+
+  <nav class="pager" aria-label="페이지 바로가기">
+    <a href="#slide1" aria-label="1페이지"></a>
+    <a href="#slide2" aria-label="2페이지"></a>
+    <a href="#slide3" aria-label="3페이지"></a>
+  </nav>
+  <div class="note">좌우 버튼 · 아래 점 · 손가락 스와이프로 넘깁니다</div>
+</div>
+</body>
+</html>
