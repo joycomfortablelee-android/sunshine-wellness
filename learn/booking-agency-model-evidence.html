@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Booking.com Agency Model 성장 배경과 증거</title>
+<style>
+  :root{
+    --navy:#102A43;
+    --blue:#1F5A94;
+    --blue2:#2E6EA6;
+    --light:#F4F8FC;
+    --line:#D9E4EF;
+    --text:#1E293B;
+    --muted:#64748B;
+    --gold:#A47A18;
+    --goldbg:#FFF8E7;
+    --white:#FFFFFF;
+    --green:#2F6F5E;
+    --greenbg:#EEF8F4;
+    --red:#A33C3C;
+    --redbg:#FFF4F4;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:"NanumBarunGothic","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    color:var(--text);
+    background:#EEF3F8;
+    line-height:1.65;
+  }
+  .wrap{
+    width:min(1180px, calc(100% - 28px));
+    margin:28px auto 64px;
+  }
+  .hero{
+    background:linear-gradient(135deg,#102A43 0%,#173F68 58%,#1F5A94 100%);
+    color:#fff;
+    padding:40px 42px;
+    border-radius:22px;
+    box-shadow:0 18px 50px rgba(15,42,67,.16);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero:after{
+    content:"";
+    width:270px;height:270px;
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:50%;
+    position:absolute;right:-70px;top:-110px;
+  }
+  .eyebrow{font-size:13px;letter-spacing:.12em;font-weight:800;color:#D6E8FA}
+  h1{font-size:clamp(28px,4vw,48px);line-height:1.22;margin:8px 0 16px}
+  .hero p{margin:0;max-width:900px;font-size:17px;color:#EDF6FF}
+  .hero .date{margin-top:18px;font-size:13px;color:#C7DBEF}
+  .summary{
+    margin-top:18px;
+    background:#fff;
+    border-radius:18px;
+    padding:24px;
+    border:1px solid var(--line);
+  }
+  .summary strong{color:var(--navy)}
+  .mainline{
+    font-size:20px;
+    font-weight:800;
+    line-height:1.5;
+    padding:18px 20px;
+    border-left:5px solid var(--blue);
+    background:#F8FBFE;
+    border-radius:12px;
+  }
+  .flow{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:10px;
+    margin-top:20px;
+    align-items:stretch;
+  }
+  .flow .step{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:14px 12px;
+    text-align:center;
+    min-height:116px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:5px;
+  }
+  .flow .num{
+    width:30px;height:30px;border-radius:50%;
+    background:var(--navy);color:#fff;
+    display:inline-grid;place-items:center;margin:0 auto 4px;
+    font-size:13px;font-weight:800;
+  }
+  .flow .ko{font-weight:800;font-size:14px;color:var(--navy)}
+  .flow .en{font-size:12px;color:var(--muted)}
+  section{
+    margin-top:24px;
+    background:#fff;
+    border-radius:18px;
+    border:1px solid var(--line);
+    overflow:hidden;
+  }
+  .section-head{
+    padding:22px 26px 16px;
+    border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg,#fff,#FAFCFE);
+  }
+  .section-head .kicker{font-size:12px;font-weight:900;letter-spacing:.08em;color:var(--blue)}
+  h2{margin:4px 0 4px;font-size:27px;line-height:1.35;color:var(--navy)}
+  .section-head p{margin:0;color:var(--muted);font-size:14px}
+  .content{padding:24px 26px 28px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .card{
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:18px;
+    background:#fff;
+  }
+  .card h3{margin:0 0 9px;color:var(--navy);font-size:18px}
+  .card p{margin:0 0 8px}
+  .icon{font-size:28px;margin-bottom:7px}
+  .evidence{
+    margin:16px 0;
+    padding:16px 18px;
+    border-radius:13px;
+    background:#F5F9FD;
+    border:1px solid #CFE0F0;
+  }
+  .evidence b{color:var(--blue)}
+  .interpret{
+    margin-top:12px;padding:15px 17px;border-radius:12px;
+    background:var(--goldbg);border:1px solid #E9D79A;
+  }
+  .interpret strong{color:#77580C}
+  .note{
+    margin-top:12px;padding:14px 16px;border-radius:12px;
+    background:var(--greenbg);border:1px solid #CFE6DC;
+  }
+  .warning{
+    margin-top:12px;padding:14px 16px;border-radius:12px;
+    background:var(--redbg);border:1px solid #E7CACA;
+  }
+  table{width:100%;border-collapse:collapse;margin:14px 0 0;font-size:14px}
+  th,td{border:1px solid var(--line);padding:11px 12px;vertical-align:top}
+  th{background:#EFF5FA;color:var(--navy);font-weight:800}
+  td.num{text-align:right;font-variant-numeric:tabular-nums}
+  .model{
+    display:grid;grid-template-columns:1fr 54px 1fr 54px 1fr;
+    align-items:center;gap:8px;margin:18px 0;
+  }
+  .node{
+    border:1px solid var(--line);
+    border-radius:15px;padding:18px;text-align:center;background:#fff;
+    min-height:118px;display:flex;flex-direction:column;justify-content:center;
+  }
+  .node strong{color:var(--navy);font-size:17px}
+  .node span{font-size:13px;color:var(--muted)}
+  .arrow{text-align:center;color:var(--blue);font-size:30px;font-weight:900}
+  .source{
+    border-top:1px dashed #C7D6E5;
+    margin-top:16px;padding-top:14px;
+    font-size:13px;color:#475569;
+  }
+  .source a{
+    color:var(--blue);text-decoration:none;font-weight:800;
+    word-break:break-all;
+  }
+  .source a:hover{text-decoration:underline}
+  .quote{
+    background:#102A43;color:#fff;border-radius:14px;padding:18px 20px;
+    margin:14px 0;
+  }
+  .quote .q{font-family:Georgia,serif;font-size:17px;line-height:1.55}
+  .quote .trans{margin-top:10px;color:#DDEBFA;font-size:14px}
+  .timeline{
+    border-left:3px solid #BDD3E6;margin-left:10px;padding-left:22px;
+  }
+  .timeitem{position:relative;margin:0 0 18px}
+  .timeitem:before{
+    content:"";width:13px;height:13px;border-radius:50%;
+    background:var(--blue);position:absolute;left:-30px;top:7px;
+    box-shadow:0 0 0 4px #EAF2F9;
+  }
+  .year{font-weight:900;color:var(--blue)}
+  .bigstat{
+    font-size:25px;font-weight:900;color:var(--navy);
+  }
+  .small{font-size:12px;color:var(--muted)}
+  .lecture{
+    background:#F8FAFC;border:1px solid var(--line);
+    border-radius:14px;padding:18px 20px;margin-top:14px;
+  }
+  .lecture .label{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.06em}
+  .lecture .sentence{font-size:19px;font-weight:800;color:var(--navy);margin-top:6px}
+  .sources-all{
+    background:#0F2236;color:#fff;
+  }
+  .sources-all .section-head{background:#0F2236;border-bottom-color:#29435D}
+  .sources-all h2,.sources-all .section-head p{color:#fff}
+  .sources-all .content{color:#E8F0F8}
+  .sources-all ol{padding-left:20px}
+  .sources-all li{margin:0 0 14px}
+  .sources-all a{color:#9ED0FF}
+  .topbtn{
+    position:fixed;right:18px;bottom:18px;
+    width:46px;height:46px;border-radius:50%;border:0;
+    background:var(--navy);color:#fff;font-size:20px;cursor:pointer;
+    box-shadow:0 8px 25px rgba(15,42,67,.25);
+  }
+  @media(max-width:900px){
+    .flow{grid-template-columns:repeat(2,1fr)}
+    .grid2,.grid3{grid-template-columns:1fr}
+    .model{grid-template-columns:1fr}
+    .arrow{transform:rotate(90deg)}
+    .hero{padding:30px 24px}
+    .content,.section-head{padding-left:20px;padding-right:20px}
+  }
+  @media print{
+    body{background:#fff}
+    .wrap{width:100%;margin:0}
+    .hero,section,.summary{box-shadow:none;break-inside:avoid}
+    .topbtn{display:none}
+    a{color:#000}
+  }
+</style>
+</head>
+<body>
+<div class="wrap" id="top">
+
+  <header class="hero">
+    <div class="eyebrow">OTA BUSINESS MODEL · EVIDENCE NOTE</div>
+    <h1>Booking.com은 왜<br>Agency(수수료) 모델로 빠르게 성장했는가?</h1>
+    <p>유럽의 분산된 독립호텔 시장, 성과기반 수수료 구조, 온라인 예약의 확산, 공급 확대와 예약 증가, 그리고 Priceline/Booking Holdings의 SEC 공시를 연결해 설명한 상세 자료</p>
+    <div class="date">업데이트 기준: 2026-09-15 · 1차 자료: U.S. SEC filings</div>
+  </header>
+
+  <div class="summary">
+    <div class="mainline">
+      핵심 결론｜Booking.com의 역사적 성장은 <strong>“수많은 숙박업체의 객실을 직접 사들이기보다 예약을 중개하고, 숙박이 이루어진 뒤 수수료를 받는 Agency Model”</strong>과 유럽의 분산된 숙박시장 구조가 잘 맞으면서 가속되었다.
+    </div>
+    <div class="flow">
+      <div class="step"><div class="num">1</div><div class="ko">분산된 숙박시장</div><div class="en">Fragmented lodging supply</div></div>
+      <div class="step"><div class="num">2</div><div class="ko">Booking.com 입점</div><div class="en">Property onboarding</div></div>
+      <div class="step"><div class="num">3</div><div class="ko">온라인 비교·예약</div><div class="en">Search & booking</div></div>
+      <div class="step"><div class="num">4</div><div class="ko">숙박 완료</div><div class="en">Stay completed</div></div>
+      <div class="step"><div class="num">5</div><div class="ko">수수료 수취</div><div class="en">Commission earned</div></div>
+      <div class="step"><div class="num">6</div><div class="ko">Agency Revenue 확대</div><div class="en">Revenue growth</div></div>
+    </div>
+  </div>
+
+  <section>
+    <div class="section-head">
+      <div class="kicker">01 · MARKET STRUCTURE</div>
+      <h2>유럽·아시아의 숙박시장 구조가 Booking.com에 유리했다</h2>
+      <p>대형 체인 중심 미국 시장과 달리, 유럽·아시아에는 독립호텔과 소규모 체인이 많이 분산되어 있었다.</p>
+    </div>
+    <div class="content">
+      <div class="grid3">
+        <div class="card">
+          <div class="icon">🏨</div>
+          <h3>공급자가 매우 분산</h3>
+          <p>호텔 공급이 수많은 독립사업자와 소규모 체인으로 나뉘어 있으면 각 호텔은 자체적으로 세계 고객에게 도달하기 어렵다.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🌍</div>
+          <h3>글로벌 판매망의 필요</h3>
+          <p>개별 숙박업체가 다국어 웹사이트, 해외 광고, 예약 시스템, 검색 노출을 모두 직접 구축하기에는 비용과 운영 부담이 크다.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🔗</div>
+          <h3>플랫폼의 연결 가치</h3>
+          <p>Booking.com은 여러 숙박업체를 한곳에 모으고 소비자가 가격·위치·조건을 비교하도록 하면서 분산된 공급을 하나의 검색시장으로 연결했다.</p>
+        </div>
+      </div>
+
+      <div class="evidence">
+        <b>SEC의 직접 설명</b><br>
+        Priceline은 유럽과 아시아의 호텔 자산 기반이 미국보다 특히 분산되어 있고, 미국은 대형 호텔체인의 비중이 높다고 설명했다. 또한 온라인 예약 시스템이 미국 외 지역에 흔한 <b>small chains and independent hotels</b>에 더 매력적일 수 있다고 밝혔다.
+      </div>
+
+      <div class="interpret">
+        <strong>왜 중요한가?</strong><br>
+        독립호텔이 많은 시장에서는 OTA가 단순한 “예약 사이트”가 아니라 <b>유통망·검색 노출·해외 고객 접점</b>의 역할을 한다. 이 때문에 Booking.com에 숙소가 더 많이 모일수록 소비자의 선택 폭이 커지고, 소비자가 늘수록 다시 숙소 입점 유인이 커지는 구조가 형성될 수 있다.
+      </div>
+
+      <div class="source">
+        <strong>원문 출처</strong><br>
+        Priceline Group, 2014 Form 10-K — Europe/Asia의 fragmented hotel market 및 independent hotels 관련 설명<br>
+        <a href="https://www.sec.gov/Archives/edgar/data/1075531/000107553115000007/pcln-20141231_10k.htm" target="_blank">https://www.sec.gov/Archives/edgar/data/1075531/000107553115000007/pcln-20141231_10k.htm</a><br><br>
+        Priceline Group, 2017 Form 10-K — 같은 시장구조 설명의 후속 공시<br>
+        <a href="https://www.sec.gov/Archives/edgar/data/1075531/000107553118000015/pcln-20171231_10k.htm" target="_blank">https://www.sec.gov/Archives/edgar/data/1075531/000107553118000015/pcln-20171231_10k.htm</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="kicker">02 · AGENCY MODEL</div>
+      <h2>Booking.com은 객실을 “사서 되파는” 것보다 예약 중개와 수수료에 강점이 있었다</h2>
+      <p>Agency Model의 핵심은 Booking.com이 merchant of record가 아닌 거래에서 예약 중개 후 commission을 얻는다는 점이다.</p>
+    </div>
+    <div class="content">
+      <div class="model">
+        <div class="node"><strong>숙박업체 Hotel</strong><span>객실·가격·판매조건 제공</span></div>
+        <div class="arrow">→</div>
+        <div class="node"><strong>Booking.com</strong><span>검색·비교·예약 연결</span></div>
+        <div class="arrow">→</div>
+        <div class="node"><strong>여행자 Traveler</strong><span>예약 후 실제 숙박 이용</span></div>
+      </div>
+      <div class="model">
+        <div class="node"><strong>숙박 완료</strong><span>고객이 호텔 체크아웃</span></div>
+        <div class="arrow">→</div>
+        <div class="node"><strong>호텔의 수수료 지급</strong><span>Commission payable</span></div>
+        <div class="arrow">→</div>
+        <div class="node"><strong>Booking.com Agency Revenue</strong><span>예약 중개 수익</span></div>
+      </div>
+
+      <div class="quote">
+        <div class="q">“Principally all of the revenue for Booking.com is comprised of travel commissions.”</div>
+        <div class="trans">의미: 당시 Booking.com 매출의 거의 전부가 여행 예약 관련 수수료로 구성되었다.</div>
+      </div>
+
+      <div class="evidence">
+        <b>2005년 유럽 사업 공시의 매우 구체적인 설명</b><br>
+        Priceline은 유럽 사업이 주로 retail model을 사용하며, 고객 신용카드로 예약을 확보하지만 <b>고객이 호텔 이용을 마칠 때까지 호텔로부터 보상을 받지 않고</b>, 투숙 완료 후 호텔에서 예약 수수료를 회수한다고 설명했다.
+      </div>
+
+      <div class="grid2">
+        <div class="card">
+          <h3>Agency Model</h3>
+          <p><b>예약 중개 중심.</b> Booking.com이 여행 서비스 자체의 판매자가 되는 것이 아니라 공급자와 고객을 연결하고 수수료를 얻는다.</p>
+          <p>초기 역사적 Booking.com 모델을 설명할 때 가장 핵심적인 구조이다.</p>
+        </div>
+        <div class="card">
+          <h3>Merchant Model</h3>
+          <p><b>플랫폼이 결제 흐름에 더 깊게 개입.</b> 고객 결제를 플랫폼이 처리하고, 공급자에게 지급할 금액과 플랫폼의 수익 구조가 결합된다.</p>
+          <p>현재 Booking.com은 이 모델도 크게 확대하였다.</p>
+        </div>
+      </div>
+
+      <div class="source">
+        <strong>원문 출처</strong><br>
+        Priceline 2011 Form 10-K — Booking.com 수익이 travel commissions로 구성된다는 설명<br>
+        <a href="https://www.sec.gov/Archives/edgar/data/1075531/000107553112000005/pcln-20111231_10k.htm" target="_blank">https://www.sec.gov/Archives/edgar/data/1075531/000107553112000005/pcln-20111231_10k.htm</a><br><br>
+        Priceline 2005 Form 10-Q — 유럽 retail model, 투숙 완료 후 호텔에서 commission을 회수하는 구조<br>
+        <a href="https://www.sec.gov/Archives/edgar/data/1075531/000110465905054039/a05-17886_110q.htm" target="_blank">https://www.sec.gov/Archives/edgar/data/1075531/000110465905054039/a05-17886_110q.htm</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="kicker">03 · WHY IT COULD SCALE</div>
+      <h2>왜 이 방식은 빠른 공급 확장과 잘 맞았는가?</h2>
+      <p>‘성과가 생긴 뒤 수수료’라는 거래 구조는 독립 숙박업체 입장에서 OTA 참여의 진입장벽을 낮추는 방향으로 작동했다.</p>
+    </div>
+    <div class="content">
+      <div class="grid3">
+        <div class="card">
+          <div class="icon">📦</div>
+          <h3>재고 매입 부담이 상대적으로 작음</h3>
+          <p>전통적 도매형 모델처럼 플랫폼이 객실 블록을 대량으로 먼저 사서 보유하는 것이 핵심이 아니었다. 따라서 더 많은 숙박업체를 연결하는 방향으로 공급을 확대하기 쉬웠다.</p>
+        </div>
+        <div class="card">
+          <div class="icon">💸</div>
+          <h3>예약 성과와 수익이 연결</h3>
+          <p>숙박업체는 실제 예약·투숙이 발생하면 commission을 지급한다. 따라서 OTA는 예약을 만들어낼수록 수익이 커지고 호텔은 판매채널을 확보한다.</p>
+        </div>
+        <div class="card">
+          <div class="icon">📈</div>
+          <h3>공급 증가 → 선택 증가</h3>
+          <p>숙소가 늘어나면 소비자의 비교 선택지가 증가한다. 소비자 유입이 커지면 플랫폼 입점이 숙박업체에 더 매력적으로 보일 수 있다.</p>
+        </div>
+      </div>
+
+      <div class="warning">
+        <b>읽을 때 주의할 점</b><br>
+        “Agency Model이라서 무조건 비용이 적고 자동으로 네트워크 효과가 발생했다”라고 단정하면 과도한 해석이다. SEC가 직접 확인해주는 것은 <b>거래구조, Booking.com의 commission 중심 수익, 국제 호텔시장의 분산성, Booking.com 예약 증가가 Agency bookings/revenue 증가를 이끌었다는 점</b>이다. 빠른 확장성·네트워크 효과는 이 사실들에 기반한 경영학적 해석으로 설명하는 것이 안전하다.
+      </div>
+
+      <div class="lecture">
+        <div class="label">한 문장으로</div>
+        <div class="sentence">“객실을 먼저 사서 파는 회사라기보다, 수많은 호텔의 예약을 연결하고 실제 거래가 발생했을 때 수수료를 받는 플랫폼이었기 때문에 공급 확장과 국제화에 유리했다.”</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="kicker">04 · CONSUMER SIDE</div>
+      <h2>소비자에게는 무엇이 매력적이었는가?</h2>
+      <p>다양한 숙소를 한 화면에서 탐색·비교하고 온라인으로 예약할 수 있다는 점이 핵심이었다.</p>
+    </div>
+    <div class="content">
+      <div class="grid3">
+        <div class="card">
+          <div class="icon">🔎</div>
+          <h3>검색비용 감소</h3>
+          <p>여행자가 여러 호텔 웹사이트를 각각 방문하지 않고 하나의 플랫폼에서 지역·가격·시설·조건을 비교할 수 있다.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🧾</div>
+          <h3>가격과 조건 비교</h3>
+          <p>분산되어 있던 숙박상품이 표준화된 검색 결과에 모이면서 비교 가능성이 높아졌다.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🌐</div>
+          <h3>국제 온라인 여행 성장</h3>
+          <p>Priceline은 국제 소비자가 여행 구매를 온라인으로 빠르게 옮겨가고 있으며 국제 온라인 여행의 성장률이 미국보다 높았다고 공시했다.</p>
+        </div>
+      </div>
+
+      <div class="interpret">
+        <strong>수요 측면의 의미</strong><br>
+        Booking.com의 가치가 단순히 “호텔을 대신 판매한다”에 그치지 않고, <b>여러 공급자의 정보를 모아 탐색·비교·예약을 한 번에 가능하게 하는 시장 인터페이스</b>에 있었다고 볼 수 있다.
+      </div>
+
+      <div class="source">
+        <strong>원문 출처</strong><br>
+        Priceline Group 2017 Form 10-K — international consumers의 online travel 전환, 국제 온라인 여행 성장, fragmented hotel supply 설명<br>
+        <a href="https://www.sec.gov/Archives/edgar/data/1075531/000107553118000015/pcln-20171231_10k.htm" target="_blank">https://www.sec.gov/Archives/edgar/data/1075531/000107553118000015/pcln-20171231_10k.htm</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="kicker">05 · EARLY GROWTH EVIDENCE</div>
+      <h2>2005~2006년: 유럽 Booking.com 사업이 Agency 성장의 초기 엔진이 되다</h2>
+      <p>초기 공시부터 유럽 숙박 예약 사업의 빠른 성장과 Agency bookings 확대가 연결되어 나타난다.</p>
+    </div>
+    <div class="content">
+      <div class="timeline">
+        <div class="timeitem">
+          <div class="year">2005</div>
+          <div>Priceline은 Booking.com 계열의 유럽 온라인 호텔예약 사업을 확대했고, 유럽 사업은 투숙 완료 후 호텔에서 commission을 받는 retail/agency 구조를 사용한다고 설명했다.</div>
+        </div>
+        <div class="timeitem">
+          <div class="year">2006 Q1</div>
+          <div>Priceline Europe의 유기적 gross bookings 성장률이 <b>100%를 초과</b>했다고 발표했으며, 성장의 대부분이 retail hotel room 판매에서 왔다고 설명했다.</div>
+        </div>
+        <div class="timeitem">
+          <div class="year">2006 연간</div>
+          <div>전체 hotel room nights sold는 2005년 <b>11.8 million</b>에서 2006년 <b>18.7 million</b>으로 증가했다. 회사는 증가의 주요 원인 가운데 하나로 Booking.com이 중심인 유럽 사업 성장을 지목했다.</div>
+        </div>
+        <div class="timeitem">
+          <div class="year">2006 Agency Bookings</div>
+          <div>Agency bookings는 전년 대비 <b>85.6% 증가</b>했고, 회사는 그 증가가 주로 Booking.com B.V.와 Booking.com Limited로 구성된 유럽 사업 성장에 기인했다고 설명했다.</div>
+        </div>
+      </div>
+
+      <div class="grid3">
+        <div class="card"><div class="small">2005 Hotel room nights</div><div class="bigstat">11.8M</div></div>
+        <div class="card"><div class="small">2006 Hotel room nights</div><div class="bigstat">18.7M</div></div>
+        <div class="card"><div class="small">2006 Agency bookings YoY</div><div class="bigstat">+85.6%</div></div>
+      </div>
+
+      <div class="source">
+        <strong>원문 출처</strong><br>
+        Priceline 2006 Form 10-K — Agency bookings +85.6%, 유럽 Booking.com 사업 성장, hotel room nights 18.7M<br>
+        <a href="https://www.sec.gov/Archives/edgar/data/1075531/000110465907015407/a07-5554_110k.htm" target="_blank">https://www.sec.gov/Archives/edgar/data/1075531/000110465907015407/a07-5554_110k.htm</a><br><br>
+        Priceline Q1 2006 Results — Priceline Europe organic bookings growth over 100%, retail hotel room sales 중심 성장<br>
+        <a href="https://www.sec.gov/Archives/edgar/data/1075531/000110465906030820/a06-2010_5ex99d1.htm" target="_blank">https://www.sec.gov/Archives/edgar/data/1075531/000110465906030820/a06-2010_5ex99d1.htm</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="kicker">06 · STRONGEST FINANCIAL EVIDENCE</div>
+      <h2>2011~2013년: Booking.com의 성장이 Agency Revenue 성장을 직접 이끌었다</h2>
+      <p>이 부분은 해석이 아니라 회사가 SEC 공시에서 직접 원인을 명시한 자료다.</p>
+    </div>
+    <div class="content">
+      <div class="quote">
+        <div class="q">“Agency revenues for the year ended December 31, 2012 increased 34.4% ... primarily as a result of growth in the business of Booking.com.”</div>
+        <div class="trans">의미: 2012년 Agency Revenue가 34.4% 증가한 주된 이유가 Booking.com 사업의 성장이라고 회사가 직접 설명했다.</div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>지표</th>
+            <th>2011</th>
+            <th>2012</th>
+            <th>증가율</th>
+            <th>회사 설명</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Agency Gross Bookings</td>
+            <td class="num">$17.610B</td>
+            <td class="num">$23.284B</td>
+            <td class="num"><b>+32.2%</b></td>
+            <td>주로 Booking.com hotel room night reservations의 성장</td>
+          </tr>
+          <tr>
+            <td>Agency Revenue</td>
+            <td class="num">$2.339B</td>
+            <td class="num">$3.143B</td>
+            <td class="num"><b>+34.4%</b></td>
+            <td>주로 Booking.com 사업 성장</td>
+          </tr>
+          <tr>
+            <td>Merchant Revenue</td>
+            <td class="num">$2.004B</td>
+            <td class="num">$2.105B</td>
+            <td class="num">+5.0%</td>
+            <td>Agency Revenue 성장과 뚜렷한 대비</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="evidence">
+        <b>2011년에도 동일한 패턴</b><br>
+        2011년 Agency Revenue는 2010년 대비 <b>69.4%</b> 증가했으며, 회사는 이 역시 <b>primarily as a result of growth in the business of Booking.com</b>이라고 설명했다.
+      </div>
+
+      <div class="evidence">
+        <b>2013년에도 계속</b><br>
+        2013년 Agency Gross Bookings는 2012년보다 <b>40.3%</b> 증가했고, Agency Revenue도 <b>40.3%</b> 증가했다. 회사는 Agency Revenue 증가를 다시 <b>Booking.com 사업 성장</b>이 주된 원인이라고 설명했다.
+      </div>
+
+      <div class="interpret">
+        <strong>이 자료가 강력한 이유</strong><br>
+        단순히 “Booking.com이 수수료형 회사였다”는 수준이 아니라, <b>Booking.com의 예약 증가 → Agency Gross Bookings 증가 → Agency Revenue 증가</b>라는 연결고리를 기업의 재무공시가 직접 확인해 준다.
+      </div>
+
+      <div class="source">
+        <strong>원문 출처</strong><br>
+        Priceline 2012 Form 10-K — 2011/2012 Agency bookings 및 Agency revenues, Booking.com 성장 원인 설명<br>
+        <a href="https://www.sec.gov/Archives/edgar/data/1075531/000107553113000011/pcln-20121231_10k.htm" target="_blank">https://www.sec.gov/Archives/edgar/data/1075531/000107553113000011/pcln-20121231_10k.htm</a><br><br>
+        Priceline 2013 Form 10-K — Agency bookings/revenue +40.3%, Booking.com 성장 설명<br>
+        <a href="https://www.sec.gov/Archives/edgar/data/1075531/000107553114000007/pcln-20131231_10k.htm" target="_blank">https://www.sec.gov/Archives/edgar/data/1075531/000107553114000007/pcln-20131231_10k.htm</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="kicker">07 · DIRECT PROOF OF COMMISSION MODEL</div>
+      <h2>“Booking.com 수익 = Agency Revenue + Travel Commissions”라는 직접 증거</h2>
+      <p>2013년 SEC 분기공시에는 가장 간결하고 명확한 표현이 등장한다.</p>
+    </div>
+    <div class="content">
+      <div class="quote">
+        <div class="q">“Substantially all of the revenue for Booking.com is agency revenue comprised of travel commissions.”</div>
+        <div class="trans">해석: 당시 Booking.com 매출의 사실상 대부분은 여행예약 수수료로 구성된 Agency Revenue였다.</div>
+      </div>
+
+      <div class="grid2">
+        <div class="card">
+          <h3>Agency Revenue의 정의</h3>
+          <p>여행 관련 거래에서 회사가 <b>merchant of record가 아니며</b>, 서비스 가격을 제3자가 결정하는 거래에서 발생한다.</p>
+          <p>수익에는 travel commissions 등이 포함된다.</p>
+        </div>
+        <div class="card">
+          <h3>Booking.com과의 연결</h3>
+          <p>회사는 Booking.com 수익의 사실상 전부가 <b>agency revenue comprised of travel commissions</b>라고 명시했다.</p>
+        </div>
+      </div>
+
+      <div class="source">
+        <strong>원문 출처</strong><br>
+        Priceline Q3 2013 Form 10-Q<br>
+        <a href="https://www.sec.gov/Archives/edgar/data/1075531/000107553113000052/pcln9301310q.htm" target="_blank">https://www.sec.gov/Archives/edgar/data/1075531/000107553113000052/pcln9301310q.htm</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="kicker">08 · PLATFORM FLYWHEEL</div>
+      <h2>사업모델을 ‘성장 순환구조’로 보면</h2>
+      <p>아래는 SEC에 확인되는 사실들을 바탕으로 정리한 플랫폼 관점의 해석이다.</p>
+    </div>
+    <div class="content">
+      <div class="flow">
+        <div class="step"><div class="num">1</div><div class="ko">독립호텔 다수</div><div class="en">Fragmented supply</div></div>
+        <div class="step"><div class="num">2</div><div class="ko">호텔 입점 증가</div><div class="en">More inventory</div></div>
+        <div class="step"><div class="num">3</div><div class="ko">고객 선택 확대</div><div class="en">More choice</div></div>
+        <div class="step"><div class="num">4</div><div class="ko">예약 증가</div><div class="en">More bookings</div></div>
+        <div class="step"><div class="num">5</div><div class="ko">수수료 증가</div><div class="en">More commission</div></div>
+        <div class="step"><div class="num">6</div><div class="ko">플랫폼 매력 증가</div><div class="en">Stronger platform</div></div>
+      </div>
+
+      <div class="interpret">
+        <strong>경영학적 해석｜양면시장(Two-sided market) 관점</strong><br>
+        Booking.com은 숙박업체와 여행자라는 두 집단을 연결한다. 공급자가 많아질수록 여행자의 검색·비교 가치가 커지고, 여행자가 많아질수록 숙박업체의 입점가치가 커지는 방향의 간접 네트워크 효과를 설명할 수 있다. 다만 이는 <b>SEC 공시의 직역이 아니라, 공시된 시장구조와 거래구조를 플랫폼 이론으로 해석한 것</b>임을 구분해 설명하는 것이 좋다.
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="kicker">09 · TODAY</div>
+      <h2>현재 Booking.com은 순수 Agency 모델이 아니다</h2>
+      <p>역사적 성장 설명과 현재 수익모델 설명을 분리해야 한다.</p>
+    </div>
+    <div class="content">
+      <div class="grid2">
+        <div class="card">
+          <h3>Agency</h3>
+          <p>Booking Holdings의 2025 Form 10-K는 Agency Revenue를 <b>여행자의 결제를 플랫폼이 처리하지 않는 거래</b>에서 발생하는 수익으로 정의한다.</p>
+          <p>2025년 Agency Revenue는 거의 전부 Booking.com의 accommodation reservation commissions에서 발생했다.</p>
+        </div>
+        <div class="card">
+          <h3>Merchant</h3>
+          <p>현재는 플랫폼이 여행자 결제를 처리하는 Merchant 거래도 매우 중요하다.</p>
+          <p>2025년 공시는 Merchant Revenue의 다수가 Booking.com accommodation reservations에서 발생한다고 설명한다.</p>
+        </div>
+      </div>
+
+      <div class="warning">
+        <b>따라서 피해야 할 표현</b><br>
+        “Booking.com은 지금도 수수료형 Agency 방식만 사용한다.” → 부정확<br><br>
+        <b>권장 표현</b><br>
+        “Booking.com은 역사적으로 숙박예약을 중개하고 commission을 받는 Agency 모델을 중심으로 성장한 대표적 OTA이며, 현재는 Agency와 Merchant를 함께 사용하는 혼합형 구조이다.”
+      </div>
+
+      <div class="source">
+        <strong>현재 기준 원문 출처</strong><br>
+        Booking Holdings 2025 Form 10-K — Merchant / Agency revenue definitions<br>
+        <a href="https://www.sec.gov/Archives/edgar/data/1075531/000107553126000009/bkng-20251231.htm" target="_blank">https://www.sec.gov/Archives/edgar/data/1075531/000107553126000009/bkng-20251231.htm</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="kicker">10 · SUMMARY VERSION</div>
+      <h2>발표 슬라이드에 바로 넣을 수 있는 최종 설명</h2>
+      <p>짧은 버전과 상세 버전을 함께 제시한다.</p>
+    </div>
+    <div class="content">
+      <div class="lecture">
+        <div class="label">짧은 버전</div>
+        <div class="sentence">수수료형(Agency) 대표 사례｜Booking.com — 역사적으로 숙박예약을 중개하고 숙박업체로부터 commission을 받는 방식으로 성장했다.</div>
+      </div>
+
+      <div class="lecture">
+        <div class="label">배경까지 포함한 버전</div>
+        <div class="sentence">유럽의 분산된 독립호텔 시장에서 Booking.com은 수많은 숙박업체를 하나의 온라인 예약시장에 연결했다. 객실을 대량으로 매입해 되파는 방식보다 예약을 중개하고 실제 숙박이 발생한 뒤 commission을 받는 Agency 구조가 중심이었으며, 숙소 공급과 온라인 예약이 빠르게 증가하면서 Booking.com의 성장 자체가 Priceline의 Agency Gross Bookings와 Agency Revenue 증가를 이끌었다.</div>
+      </div>
+
+      <div class="note">
+        <b>슬라이드 하단 주석 권장</b><br>
+        ※ 현재 Booking.com은 Agency와 Merchant 모델을 모두 사용한다. 위 설명은 Booking.com의 역사적 성장 과정에서 Agency/commission 모델이 차지한 역할을 설명한 것이다.
+      </div>
+
+      <div class="source">
+        <strong>슬라이드용 간단 출처 표기</strong><br>
+        Source: Priceline.com Inc. (2006, 2012, 2013), Form 10-K/10-Q; Booking Holdings Inc. (2025), Form 10-K, U.S. SEC.
+      </div>
+    </div>
+  </section>
+
+  <section class="sources-all">
+    <div class="section-head">
+      <div class="kicker" style="color:#9ED0FF">PRIMARY SOURCES</div>
+      <h2>SEC 원문 링크 모음</h2>
+      <p>이 자료의 각 주장과 숫자를 다시 확인할 수 있는 1차 자료</p>
+    </div>
+    <div class="content">
+      <ol>
+        <li><b>Priceline 2005 Form 10-Q</b> — 유럽 retail/agency 구조, 투숙 완료 후 호텔에서 commission 회수<br>
+          <a href="https://www.sec.gov/Archives/edgar/data/1075531/000110465905054039/a05-17886_110q.htm" target="_blank">SEC 원문 열기</a>
+        </li>
+        <li><b>Priceline 2006 Form 10-K</b> — Agency bookings +85.6%, Booking.com 중심 유럽 사업 성장, hotel room nights 증가<br>
+          <a href="https://www.sec.gov/Archives/edgar/data/1075531/000110465907015407/a07-5554_110k.htm" target="_blank">SEC 원문 열기</a>
+        </li>
+        <li><b>Priceline Q1 2006 Results</b> — 유럽 organic bookings 100% 이상 증가, retail hotel room 성장<br>
+          <a href="https://www.sec.gov/Archives/edgar/data/1075531/000110465906030820/a06-2010_5ex99d1.htm" target="_blank">SEC 원문 열기</a>
+        </li>
+        <li><b>Priceline 2011 Form 10-K</b> — Booking.com 수익의 거의 전부가 travel commissions; 2011 Agency Revenue +69.4%<br>
+          <a href="https://www.sec.gov/Archives/edgar/data/1075531/000107553112000005/pcln-20111231_10k.htm" target="_blank">SEC 원문 열기</a>
+        </li>
+        <li><b>Priceline 2012 Form 10-K</b> — Agency Gross Bookings +32.2%, Agency Revenue +34.4%, Booking.com 성장 원인 명시<br>
+          <a href="https://www.sec.gov/Archives/edgar/data/1075531/000107553113000011/pcln-20121231_10k.htm" target="_blank">SEC 원문 열기</a>
+        </li>
+        <li><b>Priceline Q3 2013 Form 10-Q</b> — “Substantially all ... agency revenue comprised of travel commissions.”<br>
+          <a href="https://www.sec.gov/Archives/edgar/data/1075531/000107553113000052/pcln9301310q.htm" target="_blank">SEC 원문 열기</a>
+        </li>
+        <li><b>Priceline 2013 Form 10-K</b> — Agency Gross Bookings 및 Revenue +40.3%, Booking.com 성장 원인 명시<br>
+          <a href="https://www.sec.gov/Archives/edgar/data/1075531/000107553114000007/pcln-20131231_10k.htm" target="_blank">SEC 원문 열기</a>
+        </li>
+        <li><b>Priceline 2014 Form 10-K</b> — 유럽·아시아의 fragmented hotel market, small chains/independent hotels<br>
+          <a href="https://www.sec.gov/Archives/edgar/data/1075531/000107553115000007/pcln-20141231_10k.htm" target="_blank">SEC 원문 열기</a>
+        </li>
+        <li><b>Priceline 2017 Form 10-K</b> — 국제 온라인여행 성장과 분산 숙박시장 구조의 후속 확인<br>
+          <a href="https://www.sec.gov/Archives/edgar/data/1075531/000107553118000015/pcln-20171231_10k.htm" target="_blank">SEC 원문 열기</a>
+        </li>
+        <li><b>Booking Holdings 2025 Form 10-K</b> — 현재 Merchant + Agency 혼합형 구조<br>
+          <a href="https://www.sec.gov/Archives/edgar/data/1075531/000107553126000009/bkng-20251231.htm" target="_blank">SEC 원문 열기</a>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+</div>
+
+<button class="topbtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로">↑</button>
+</body>
+</html>
