@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>창업정보 조사 사이트 통합 가이드</title>
+<style>
+  :root{
+    --navy:#0f2744;
+    --blue:#1e5ea8;
+    --sky:#eaf3ff;
+    --gold:#c89b3c;
+    --ink:#1c2430;
+    --muted:#6b7686;
+    --line:#dbe3ec;
+    --bg:#f5f8fc;
+    --card:#ffffff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Noto Sans KR","Malgun Gothic",Arial,sans-serif;background:var(--bg);color:var(--ink)}
+  a{color:var(--blue);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .topbar{
+    position:sticky;top:0;z-index:20;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    padding:12px 18px;background:rgba(15,39,68,.97);color:#fff;
+    box-shadow:0 2px 12px rgba(0,0,0,.12)
+  }
+  .brand{font-weight:800;letter-spacing:-.02em}
+  .counter{font-size:13px;opacity:.86}
+  .controls{display:flex;gap:8px}
+  button{
+    border:1px solid rgba(255,255,255,.28);background:#fff;color:var(--navy);
+    padding:8px 12px;border-radius:10px;font-weight:700;cursor:pointer
+  }
+  button:hover{background:#eef4fb}
+  .deck{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth}
+  .slide{
+    min-width:100vw;min-height:calc(100vh - 58px);scroll-snap-align:start;
+    padding:34px 4.5vw 48px
+  }
+  .sheet{
+    max-width:1180px;margin:0 auto;background:var(--card);border:1px solid var(--line);
+    border-radius:22px;padding:32px;box-shadow:0 14px 40px rgba(24,55,90,.07)
+  }
+  .kicker{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.08em;color:var(--blue);background:var(--sky);padding:6px 10px;border-radius:999px}
+  h1{font-size:38px;line-height:1.18;letter-spacing:-.035em;margin:14px 0 12px;color:var(--navy)}
+  h2{font-size:30px;letter-spacing:-.025em;color:var(--navy);margin:6px 0 20px}
+  h3{font-size:20px;color:var(--navy);margin:24px 0 10px}
+  p{line-height:1.75;margin:10px 0}
+  .lead{font-size:18px;color:#33455d;max-width:980px}
+  .hero-flow{
+    display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:28px
+  }
+  .flow{
+    border:1px solid var(--line);border-radius:16px;padding:16px 14px;background:#fbfdff;
+    min-height:120px
+  }
+  .flow b{display:block;color:var(--blue);margin-bottom:6px}
+  .flow small{color:var(--muted);line-height:1.5}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .card{border:1px solid var(--line);border-radius:16px;padding:18px;background:#fff}
+  .card strong{color:var(--navy)}
+  .note{border-left:5px solid var(--gold);background:#fff9ec;padding:14px 16px;border-radius:10px;margin:16px 0}
+  .formula{
+    display:flex;gap:8px;align-items:center;flex-wrap:wrap;
+    background:#f8fbff;border:1px solid #cfe0f5;padding:16px;border-radius:14px;font-weight:700
+  }
+  .formula span{background:#fff;border:1px solid #d8e5f4;border-radius:10px;padding:8px 10px;color:var(--navy)}
+  .arrow{color:var(--gold);font-weight:900}
+  table{width:100%;border-collapse:collapse;margin:12px 0 4px;font-size:14px}
+  th,td{border-bottom:1px solid var(--line);padding:11px 10px;text-align:left;vertical-align:top;line-height:1.55}
+  th{background:#f2f6fb;color:var(--navy);font-weight:800}
+  tr:hover td{background:#fbfdff}
+  .tag{display:inline-block;padding:4px 8px;border-radius:999px;background:var(--sky);color:var(--blue);font-size:12px;font-weight:800}
+  .important{color:var(--blue);font-weight:800}
+  .small{font-size:12px;color:var(--muted)}
+  .site-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+  .site{border:1px solid var(--line);border-radius:14px;padding:14px;background:#fff}
+  .site .n{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;font-size:12px;font-weight:800;margin-right:8px}
+  .site .name{font-weight:800;color:var(--navy)}
+  .site .url{display:block;margin:8px 0 6px;font-size:13px;word-break:break-all}
+  .site .use{font-size:13px;color:#425269;line-height:1.55}
+  .pillrow{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+  .pill{border:1px solid #cbd7e5;background:#fff;border-radius:999px;padding:7px 10px;font-size:13px}
+  .footer-tip{margin-top:22px;padding-top:16px;border-top:1px dashed var(--line);color:var(--muted);font-size:13px}
+  @media(max-width:900px){
+    h1{font-size:30px}
+    h2{font-size:25px}
+    .hero-flow,.grid3{grid-template-columns:1fr 1fr}
+    .grid2,.site-list{grid-template-columns:1fr}
+    .slide{padding:22px 14px 38px}
+    .sheet{padding:22px}
+  }
+  @media(max-width:560px){
+    .hero-flow{grid-template-columns:1fr}
+    .topbar{flex-wrap:wrap}
+    .counter{order:3;width:100%}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">창업정보 조사 사이트 통합 가이드</div>
+  <div class="counter"><span id="cur">1</span> / <span id="total">10</span></div>
+  <div class="controls">
+    <button onclick="prevSlide()">← 이전</button>
+    <button onclick="nextSlide()">다음 →</button>
+  </div>
+</div>
+
+<div class="deck" id="deck">
+
+<section class="slide">
+  <div class="sheet">
+    <span class="kicker">01 · OVERVIEW</span>
+    <h1>창업정보 사이트는 “자료 찾는 곳”이 아니라<br/>사업계획서의 근거를 만드는 도구입니다.</h1>
+    <p class="lead">창업 수업에서는 사이트를 외우기보다, <b>어느 질문에 답해 주는 사이트인가</b>를 연결해 설명하는 것이 핵심입니다.</p>
+    <div class="hero-flow">
+      <div class="flow"><b>① 시장규모·통계</b><small>시장이 얼마나 큰가?<br/>성장하고 있는가?</small></div>
+      <div class="flow"><b>② 고객·입지</b><small>고객은 누구이며<br/>어디에 있는가?</small></div>
+      <div class="flow"><b>③ 경쟁사·산업</b><small>누가 하고 있고<br/>어떻게 돈을 버는가?</small></div>
+      <div class="flow"><b>④ 소비자·트렌드</b><small>사람들은 무엇에<br/>관심을 보이는가?</small></div>
+      <div class="flow"><b>⑤ 창업자금·지원</b><small>어디에서 자금·교육·<br/>멘토링을 받을까?</small></div>
+      <div class="flow"><b>⑥ 기술·법·특허</b><small>기술·특허·법적으로<br/>실행 가능한가?</small></div>
+    </div>
+    <div class="note"><b>창업정보 조사 흐름</b><br/>아이디어 → 시장 데이터 → 고객 데이터 → 경쟁사 → 트렌드 → 사업모델 → 지원사업 → 특허·법률</div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="sheet">
+    <span class="kicker">02 · MARKET & LOCATION</span>
+    <h2>시장규모·고객·입지를 조사하는 사이트</h2>
+    <table>
+      <thead><tr><th>사이트</th><th>어떤 정보를 주는가</th><th>창업에서 어떻게 쓰는가</th></tr></thead>
+      <tbody>
+        <tr><td><b>KOSIS 국가통계포털</b></td><td>인구·가구·사업체·관광·소득·지역·산업 등 국가통계</td><td><span class="important">시장규모 계산</span>, 사업계획서의 객관적 근거</td></tr>
+        <tr><td><b>공공데이터포털</b></td><td>정부·공공기관 데이터 파일 및 Open API</td><td>서비스 개발, 관광·교통·시설·상권 자료 탐색</td></tr>
+        <tr><td><b>SGIS 통계지리정보서비스</b></td><td>지역별 인구·연령·가구·사업체의 공간정보</td><td><span class="important">입지선정</span>, 상권 및 생활권 분석</td></tr>
+        <tr><td><b>e-나라지표</b></td><td>국가 주요 경제·사회·정책 지표</td><td>거시환경과 정책 배경 설명</td></tr>
+        <tr><td><b>ISTANS</b></td><td>산업별 국내외 통계와 산업동향</td><td>산업 규모·성장성·구조 분석</td></tr>
+        <tr><td><b>중소기업통계</b></td><td>중소기업 수, 매출, 종사자, 업종 구조</td><td>경쟁시장 구조와 중소기업 환경 파악</td></tr>
+        <tr><td><b>한국은행 ECOS</b></td><td>GDP·금리·물가·환율·소비 등</td><td>거시경제 환경 분석</td></tr>
+        <tr><td><b>국세통계포털</b></td><td>사업자·업종·세금 관련 통계</td><td>사업체 규모, 업종별 현실적 구조 확인</td></tr>
+      </tbody>
+    </table>
+    <div class="note"><b>예시</b> — “반려동물 동반 여행사업”을 기획한다면: 반려가구 → 1인가구 → 관광소비 → 지역별 인구 → 관련 사업체 수를 연결해 <b>감(感)을 숫자로 바꾸는 조사</b>가 가능합니다.</div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="sheet">
+    <span class="kicker">03 · GLOBAL & COMPETITOR</span>
+    <h2>해외시장·경쟁기업·산업을 조사하는 사이트</h2>
+    <div class="grid2">
+      <div class="card">
+        <h3>해외시장·수출</h3>
+        <table>
+          <tr><th>사이트</th><th>활용</th></tr>
+          <tr><td>KOTRA 해외시장뉴스</td><td>국가별 시장동향·소비자·산업·진출정보</td></tr>
+          <tr><td>K-stat 한국무역협회</td><td>국가·품목별 수출입 규모 확인</td></tr>
+          <tr><td>ISTANS 국제통계</td><td>산업별 국제 비교</td></tr>
+          <tr><td>ECOS</td><td>환율·금리 등 해외 사업환경</td></tr>
+        </table>
+        <p><b>예:</b> 한국 전통 공예품을 해외에 판매한다면 KOTRA → 유망국가, K-stat → 실제 수출액, Google Trends → 현지 관심도를 교차 확인합니다.</p>
+      </div>
+      <div class="card">
+        <h3>경쟁기업·산업</h3>
+        <table>
+          <tr><th>사이트</th><th>활용</th></tr>
+          <tr><td>DART</td><td><b>매출·사업부문·신사업·위험요인</b> 확인</td></tr>
+          <tr><td>KDI 경제정보센터</td><td>정책·경제·산업 연구자료</td></tr>
+          <tr><td>KDB미래전략연구소</td><td>산업·기술·경제 이슈 분석</td></tr>
+          <tr><td>IBK경제연구소</td><td>중소기업·산업·경기 자료</td></tr>
+          <tr><td>현대경제연구원·LG경영연구원</td><td>경제·산업 전망과 연구</td></tr>
+        </table>
+        <p><b>DART의 핵심</b>은 경쟁기업의 공개자료를 통해 <span class="important">“이 회사는 무엇으로 돈을 버는가?”</span>를 확인하는 것입니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="sheet">
+    <span class="kicker">04 · CONSUMER & TREND</span>
+    <h2>소비자 관심과 트렌드를 확인하는 사이트</h2>
+    <table>
+      <thead><tr><th>사이트</th><th>주요 정보</th><th>창업 활용</th></tr></thead>
+      <tbody>
+        <tr><td><b>Google Trends</b></td><td>시점·지역별 검색 관심도, 급상승 검색어</td><td>시장 성장성·관심 변화의 <b>신호</b> 확인</td></tr>
+        <tr><td><b>네이버 데이터랩</b></td><td>검색어 트렌드·쇼핑·지역·댓글 관련 데이터</td><td>국내 소비자의 관심·연령·성별 비교</td></tr>
+        <tr><td><b>Wiseapp·Retail</b></td><td>앱 사용자·결제 등 시장자료</td><td>앱·플랫폼 경쟁환경 파악</td></tr>
+        <tr><td><b>오픈서베이</b></td><td>소비자 조사·트렌드 리포트</td><td>소비자 행동과 라이프스타일 이해</td></tr>
+        <tr><td><b>TrendWatching</b></td><td>글로벌·지역별 트렌드</td><td>아이디어 발굴과 해외 흐름 파악</td></tr>
+        <tr><td><b>브런치스토리</b></td><td>개인의 경험·에세이·콘텐츠</td><td>고객 Pain Point와 경험 탐색</td></tr>
+        <tr><td><b>TTimes</b></td><td>기업·기술·시장 사례</td><td>성공·실패사례와 비즈니스 모델 학습</td></tr>
+      </tbody>
+    </table>
+    <div class="note"><b>주의</b> — 검색량은 구매량이 아닙니다. Google Trends·Naver DataLab은 <b>시장수요 자체가 아니라 수요의 신호(signal)</b>로 사용해야 합니다.</div>
+    <div class="pillrow">
+      <span class="pill">한달살기</span><span class="pill">워케이션</span><span class="pill">촌캉스</span><span class="pill">웰니스여행</span><span class="pill">반려견여행</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="sheet">
+    <span class="kicker">05 · FUNDING & SUPPORT</span>
+    <h2>창업지원·정책자금·R&D를 찾는 사이트</h2>
+    <table>
+      <thead><tr><th>사이트</th><th>무엇을 찾는가</th><th>창업 단계</th></tr></thead>
+      <tbody>
+        <tr><td><b>K-Startup</b></td><td>창업지원사업, 교육, 멘토링, 사업화 프로그램</td><td><span class="tag">예비·초기창업 핵심</span></td></tr>
+        <tr><td><b>기업마당</b></td><td>금융·기술·인력·수출·내수·창업·경영 등 기업지원</td><td>창업 이후 중소기업까지</td></tr>
+        <tr><td><b>KOSMES</b></td><td>정책자금·기업지원</td><td>사업화·성장</td></tr>
+        <tr><td><b>KEIT</b></td><td>산업기술 R&D 사업</td><td>기술창업·R&D</td></tr>
+        <tr><td><b>NTIS</b></td><td>국가 R&D 사업·과제·연구자·논문·특허·성과</td><td>기술·연구개발</td></tr>
+        <tr><td><b>제로투원 뉴스레터</b></td><td>창업자금·정부지원 공고 큐레이션</td><td>보조 탐색</td></tr>
+      </tbody>
+    </table>
+    <div class="grid2">
+      <div class="card"><strong>K-Startup</strong><p>창업자를 위한 공고 중심. 예비창업·초기창업·사업화 지원 탐색에 적합합니다.</p></div>
+      <div class="card"><strong>기업마당</strong><p>창업을 넘어 중소기업 전반의 지원사업까지 폭넓게 찾는 데 적합합니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="sheet">
+    <span class="kicker">06 · TECHNOLOGY, IP & LAW</span>
+    <h2>기술·특허·법적 실행 가능성을 확인하는 사이트</h2>
+    <div class="grid3">
+      <div class="card"><h3>NTIS</h3><p><b>정부가 어떤 기술에 R&D 자금을 투자하는가?</b></p><p>유사 연구과제·연구자·논문·특허·사업화 정보를 연결해 확인합니다.</p></div>
+      <div class="card"><h3>KIPRIS</h3><p><b>이미 누군가 특허·상표를 등록했는가?</b></p><p>특허·실용신안·디자인·상표·심판 정보를 검색합니다.</p></div>
+      <div class="card"><h3>국가법령정보센터</h3><p><b>이 사업을 하는 데 어떤 법이 적용되는가?</b></p><p>법령과 자치법규를 확인하여 사업의 규제·허가 위험을 검토합니다.</p></div>
+    </div>
+    <div class="formula" style="margin-top:24px">
+      <span>AI 관광 일정 자동추천</span><b class="arrow">→</b>
+      <span>NTIS: 유사 R&D</span><b class="arrow">→</b>
+      <span>KIPRIS: 관련 특허</span><b class="arrow">→</b>
+      <span>DART: 관련 기업</span><b class="arrow">→</b>
+      <span>K-Startup: 지원사업</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="sheet">
+    <span class="kicker">07 · TOURISM STARTUP EXAMPLE</span>
+    <h2>관광벤처 수업 적용 예시</h2>
+    <p class="lead"><b>아이디어:</b> “외국인 대상 안동 전통문화 체험여행 플랫폼”</p>
+    <table>
+      <thead><tr><th>단계</th><th>질문</th><th>조사 사이트</th><th>얻는 정보</th></tr></thead>
+      <tbody>
+        <tr><td>① Problem</td><td>외국인 관광객은 어떤 불편이 있는가?</td><td>브런치·리뷰·공공자료</td><td>Pain Point</td></tr>
+        <tr><td>② Market</td><td>시장은 얼마나 큰가?</td><td>KOSIS</td><td>관광객·인구·시장규모</td></tr>
+        <tr><td>③ Location</td><td>안동이 적합한가?</td><td>SGIS·공공데이터</td><td>관광자원·접근성·지역</td></tr>
+        <tr><td>④ Customer</td><td>누가 고객인가?</td><td>Naver DataLab·Google Trends</td><td>관심·검색행동</td></tr>
+        <tr><td>⑤ Competitor</td><td>경쟁자는 누구인가?</td><td>DART·공공데이터</td><td>경쟁기업</td></tr>
+        <tr><td>⑥ Trend</td><td>시장이 성장하는가?</td><td>Google Trends·OpenSurvey</td><td>트렌드</td></tr>
+        <tr><td>⑦ Business Model</td><td>어떻게 돈을 벌까?</td><td>경쟁기업·사례자료</td><td>수익모델</td></tr>
+        <tr><td>⑧ Funding</td><td>사업비를 받을 수 있는가?</td><td>K-Startup·기업마당</td><td>지원사업</td></tr>
+        <tr><td>⑨ Technology</td><td>기술개발 가능성이 있는가?</td><td>NTIS</td><td>R&D</td></tr>
+        <tr><td>⑩ IP</td><td>유사 특허·상표는?</td><td>KIPRIS</td><td>지식재산</td></tr>
+        <tr><td>⑪ Regulation</td><td>법적으로 가능한가?</td><td>국가법령정보센터</td><td>관광진흥법 등</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="sheet">
+    <span class="kicker">08 · 34 WEBSITES DIRECTORY A</span>
+    <h2>창업정보 웹사이트 34선 · 1–17</h2>
+    <div class="site-list">
+      <div class="site"><span class="n">1</span><span class="name">국가통계포털 KOSIS</span><a class="url" href="https://kosis.kr/" target="_blank">https://kosis.kr/</a><span class="use">국가통계·시장규모·인구·사업체</span></div>
+      <div class="site"><span class="n">2</span><span class="name">공공데이터포털</span><a class="url" href="https://www.data.go.kr/" target="_blank">https://www.data.go.kr/</a><span class="use">공공데이터 파일·Open API</span></div>
+      <div class="site"><span class="n">3</span><span class="name">통계지리정보서비스 SGIS</span><a class="url" href="https://sgis.kostat.go.kr/" target="_blank">https://sgis.kostat.go.kr/</a><span class="use">입지·지역·인구·사업체 공간분석</span></div>
+      <div class="site"><span class="n">4</span><span class="name">e-나라지표</span><a class="url" href="https://www.index.go.kr/" target="_blank">https://www.index.go.kr/</a><span class="use">국가 주요 경제·사회 지표</span></div>
+      <div class="site"><span class="n">5</span><span class="name">KOTRA 해외시장뉴스 / 무역투자24</span><a class="url" href="https://www.kotra.or.kr/" target="_blank">https://www.kotra.or.kr/</a><span class="use">국가별 해외시장·진출정보</span></div>
+      <div class="site"><span class="n">6</span><span class="name">산업통계분석시스템 ISTANS</span><a class="url" href="https://istans.or.kr/" target="_blank">https://istans.or.kr/</a><span class="use">산업별 국내외 통계·동향</span></div>
+      <div class="site"><span class="n">7</span><span class="name">중소벤처기업부</span><a class="url" href="https://www.mss.go.kr/" target="_blank">https://www.mss.go.kr/</a><span class="use">중소기업 정책·통계·지원정보</span></div>
+      <div class="site"><span class="n">8</span><span class="name">한국무역협회 무역통계 K-stat</span><a class="url" href="https://stat.kita.net/" target="_blank">https://stat.kita.net/</a><span class="use">국가·품목별 수출입 통계</span></div>
+      <div class="site"><span class="n">9</span><span class="name">한국은행 경제통계시스템 ECOS</span><a class="url" href="https://ecos.bok.or.kr/" target="_blank">https://ecos.bok.or.kr/</a><span class="use">GDP·금리·물가·환율·소비</span></div>
+      <div class="site"><span class="n">10</span><span class="name">국세청 국세통계포털</span><a class="url" href="https://stats.nts.go.kr/" target="_blank">https://stats.nts.go.kr/</a><span class="use">사업자·업종·세금 관련 통계</span></div>
+      <div class="site"><span class="n">11</span><span class="name">금융감독원 전자공시시스템 DART</span><a class="url" href="https://dart.fss.or.kr/" target="_blank">https://dart.fss.or.kr/</a><span class="use">기업 공시·매출·사업부문·위험요인</span></div>
+      <div class="site"><span class="n">12</span><span class="name">KDI 경제정보센터</span><a class="url" href="https://eiec.kdi.re.kr/" target="_blank">https://eiec.kdi.re.kr/</a><span class="use">정책·경제·산업 자료</span></div>
+      <div class="site"><span class="n">13</span><span class="name">한국경제연구원 KERI</span><a class="url" href="https://www.keri.org/" target="_blank">https://www.keri.org/</a><span class="use">기업·산업·경제 연구자료</span></div>
+      <div class="site"><span class="n">14</span><span class="name">한국은행 경제연구원</span><a class="url" href="https://www.bok.or.kr/" target="_blank">https://www.bok.or.kr/</a><span class="use">경제·금융 연구자료</span></div>
+      <div class="site"><span class="n">15</span><span class="name">현대경제연구원 HRI</span><a class="url" href="https://hri.co.kr/" target="_blank">https://hri.co.kr/</a><span class="use">경제·산업 전망</span></div>
+      <div class="site"><span class="n">16</span><span class="name">KDB미래전략연구소</span><a class="url" href="https://rd.kdb.co.kr/" target="_blank">https://rd.kdb.co.kr/</a><span class="use">산업·기술·경제 이슈 분석</span></div>
+      <div class="site"><span class="n">17</span><span class="name">IBK경제연구소</span><a class="url" href="https://research.ibk.co.kr/" target="_blank">https://research.ibk.co.kr/</a><span class="use">중소기업·산업·경기 자료</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="sheet">
+    <span class="kicker">09 · 34 WEBSITES DIRECTORY B</span>
+    <h2>창업정보 웹사이트 34선 · 18–34</h2>
+    <div class="site-list">
+      <div class="site"><span class="n">18</span><span class="name">KT경제경영연구소 DIGIECO</span><a class="url" href="https://www.digieco.co.kr/" target="_blank">https://www.digieco.co.kr/</a><span class="use">※ 기존 서비스·과거 자료원으로 표시 권장</span></div>
+      <div class="site"><span class="n">19</span><span class="name">LG경영연구원</span><a class="url" href="https://www.lgbr.co.kr/" target="_blank">https://www.lgbr.co.kr/</a><span class="use">※ 구 LG경제연구원</span></div>
+      <div class="site"><span class="n">20</span><span class="name">Google Trends</span><a class="url" href="https://trends.google.com/" target="_blank">https://trends.google.com/</a><span class="use">검색 관심도·트렌드 신호</span></div>
+      <div class="site"><span class="n">21</span><span class="name">네이버 데이터랩</span><a class="url" href="https://datalab.naver.com/" target="_blank">https://datalab.naver.com/</a><span class="use">검색어·쇼핑·지역 데이터</span></div>
+      <div class="site"><span class="n">22</span><span class="name">브런치스토리</span><a class="url" href="https://brunch.co.kr/" target="_blank">https://brunch.co.kr/</a><span class="use">개인 경험·콘텐츠·고객 Pain Point</span></div>
+      <div class="site"><span class="n">23</span><span class="name">K-Startup 창업지원포털</span><a class="url" href="https://www.k-startup.go.kr/" target="_blank">https://www.k-startup.go.kr/</a><span class="use">창업지원사업·교육·멘토링</span></div>
+      <div class="site"><span class="n">24</span><span class="name">기업마당</span><a class="url" href="https://www.bizinfo.go.kr/" target="_blank">https://www.bizinfo.go.kr/</a><span class="use">기업지원사업 통합 탐색</span></div>
+      <div class="site"><span class="n">25</span><span class="name">중소벤처기업진흥공단 KOSMES</span><a class="url" href="https://www.kosmes.or.kr/" target="_blank">https://www.kosmes.or.kr/</a><span class="use">정책자금·성장지원</span></div>
+      <div class="site"><span class="n">26</span><span class="name">한국산업기술기획평가원 KEIT</span><a class="url" href="https://www.keit.re.kr/" target="_blank">https://www.keit.re.kr/</a><span class="use">※ 구 한국산업기술평가관리원, 산업기술 R&D</span></div>
+      <div class="site"><span class="n">27</span><span class="name">국가과학기술지식정보서비스 NTIS</span><a class="url" href="https://www.ntis.go.kr/" target="_blank">https://www.ntis.go.kr/</a><span class="use">국가 R&D 과제·성과·연구자·특허</span></div>
+      <div class="site"><span class="n">28</span><span class="name">특허정보검색서비스 KIPRIS</span><a class="url" href="https://www.kipris.or.kr/" target="_blank">https://www.kipris.or.kr/</a><span class="use">특허·상표·디자인 검색</span></div>
+      <div class="site"><span class="n">29</span><span class="name">국가법령정보센터</span><a class="url" href="https://www.law.go.kr/" target="_blank">https://www.law.go.kr/</a><span class="use">법령·자치법규 확인</span></div>
+      <div class="site"><span class="n">30</span><span class="name">TrendWatching</span><a class="url" href="https://trendwatching.com/" target="_blank">https://trendwatching.com/</a><span class="use">글로벌·지역별 트렌드</span></div>
+      <div class="site"><span class="n">31</span><span class="name">TTimes 티타임즈</span><a class="url" href="https://www.ttimes.co.kr/" target="_blank">https://www.ttimes.co.kr/</a><span class="use">기업·기술·시장 사례</span></div>
+      <div class="site"><span class="n">32</span><span class="name">와이즈앱·리테일</span><a class="url" href="https://www.wiseapp.co.kr/" target="_blank">https://www.wiseapp.co.kr/</a><span class="use">앱 사용자·결제 시장정보</span></div>
+      <div class="site"><span class="n">33</span><span class="name">오픈서베이</span><a class="url" href="https://www.opensurvey.co.kr/" target="_blank">https://www.opensurvey.co.kr/</a><span class="use">소비자 조사·트렌드 리포트</span></div>
+      <div class="site"><span class="n">34</span><span class="name">제로투원 뉴스레터</span><a class="url" href="https://page.stibee.com/subscriptions/82706" target="_blank">https://page.stibee.com/subscriptions/82706</a><span class="use">창업자금·정부지원 공고 큐레이션</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="sheet">
+    <span class="kicker">10 · TEACHING SUMMARY</span>
+    <h2>학생에게는 이 공식 하나로 설명하면 됩니다</h2>
+    <div class="formula">
+      <span>창업 아이디어</span><b class="arrow">→</b>
+      <span>KOSIS·SGIS<br/><small>시장이 정말 있는가?</small></span><b class="arrow">→</b>
+      <span>Google Trends·Naver DataLab<br/><small>관심이 실제로 있는가?</small></span><b class="arrow">→</b>
+      <span>DART·산업보고서<br/><small>누가 어떻게 돈을 버는가?</small></span><b class="arrow">→</b>
+      <span>K-Startup·기업마당<br/><small>어떤 지원을 받을 수 있는가?</small></span><b class="arrow">→</b>
+      <span>NTIS·KIPRIS·법령정보센터<br/><small>기술·특허·법적으로 가능한가?</small></span><b class="arrow">→</b>
+      <span>사업계획서</span>
+    </div>
+
+    <h3>수업자료 분류</h3>
+    <table>
+      <tr><th>구분</th><th>대표 사이트</th></tr>
+      <tr><td><b>시장·통계</b></td><td>KOSIS · 공공데이터포털 · SGIS · e-나라지표 · ISTANS · 중소기업통계 · ECOS · 국세통계</td></tr>
+      <tr><td><b>해외시장·산업</b></td><td>KOTRA · K-stat · KDI · KERI · 현대경제연구원 · KDB미래전략연구소 · IBK경제연구소 · LG경영연구원</td></tr>
+      <tr><td><b>경쟁기업</b></td><td>DART</td></tr>
+      <tr><td><b>소비자·트렌드</b></td><td>Google Trends · 네이버 데이터랩 · 브런치스토리 · TrendWatching · TTimes · Wiseapp · OpenSurvey</td></tr>
+      <tr><td><b>창업지원</b></td><td>K-Startup · 기업마당 · KOSMES · KEIT · NTIS · 제로투원</td></tr>
+      <tr><td><b>특허·법률</b></td><td>KIPRIS · 국가법령정보센터</td></tr>
+    </table>
+
+    <div class="note">
+      <b>명칭·주소 수정 메모</b><br/>
+      • LG경제연구원 → <b>LG경영연구원</b><br/>
+      • 한국산업기술평가관리원 → <b>한국산업기술기획평가원(KEIT)</b><br/>
+      • KOTRA 해외시장뉴스는 예전 news.kotra.or.kr 주소보다 현재 KOTRA/무역투자24 경로 사용 권장<br/>
+      • KT경제경영연구소 DIGIECO 주소는 최신 수업자료에서는 <b>과거 자료원</b>으로 표시 권장
+    </div>
+
+    <div class="footer-tip">← → 키보드 방향키 또는 상단 버튼으로 좌우 이동할 수 있습니다. 각 웹사이트 주소를 클릭하면 새 탭에서 열립니다.</div>
+  </div>
+</section>
+
+</div>
+
+<script>
+const deck = document.getElementById('deck');
+const slides = [...document.querySelectorAll('.slide')];
+const cur = document.getElementById('cur');
+const total = document.getElementById('total');
+total.textContent = slides.length;
+
+function currentIndex(){
+  return Math.round(deck.scrollLeft / window.innerWidth);
+}
+function updateCounter(){
+  cur.textContent = currentIndex()+1;
+}
+function goTo(i){
+  i = Math.max(0, Math.min(slides.length-1, i));
+  slides[i].scrollIntoView({behavior:'smooth', inline:'start', block:'nearest'});
+}
+function nextSlide(){ goTo(currentIndex()+1); }
+function prevSlide(){ goTo(currentIndex()-1); }
+
+deck.addEventListener('scroll', ()=>requestAnimationFrame(updateCounter));
+window.addEventListener('keydown', e=>{
+  if(e.key==='ArrowRight') nextSlide();
+  if(e.key==='ArrowLeft') prevSlide();
+});
+</script>
+</body>
+</html>
