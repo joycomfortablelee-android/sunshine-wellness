@@ -243,6 +243,17 @@
     .learn-article .six-box { border: 1px solid #c9e2c0; background: #f7fbf4; border-radius: 12px; padding: 16px 18px; margin: 14px 0 20px; }
     .learn-article .six-box p { margin: 0 0 10px; font-size: 13.5px; line-height: 1.8; }
     .learn-article .six-wrap { overflow-x: auto; margin: 4px 0 14px; }
+    /* 로컬크리에이터 7대 분야 표 — 2주차 칸 안. 좁으면 표만 가로로 밀린다 */
+    .learn-article .lc-wrap { overflow-x: auto; margin: 8px 0 6px; }
+    .learn-article table.lc-tbl { width: 100%; min-width: 620px; border-collapse: collapse; font-size: 12px; background: #fff; }
+    .learn-article table.lc-tbl th { background: #1f382f; color: #fff; text-align: left; padding: 7px 9px; font-weight: 800; }
+    .learn-article table.lc-tbl td { padding: 7px 9px; border-bottom: 1px solid #e2e9e4; vertical-align: top; line-height: 1.6; color: #4d5f74; }
+    .learn-article table.lc-tbl td b { color: #1f382f; }
+    .learn-article table.lc-tbl tr.hl td { background: #f2f8f4; }
+    .learn-article table.lc-tbl tr.hl td b { color: #17864a; }
+    .learn-article table.lc-tbl td.pc { white-space: nowrap; font-weight: 800; color: #7a4a35; }
+    .learn-article .lc-src { margin: 0 0 4px; font-size: 11.5px; line-height: 1.7; color: #8794a1; }
+    .learn-article .lc-src a { color: #4a6b8a; }
     .learn-article table.six-tbl { width: 100%; min-width: 560px; border-collapse: collapse; font-size: 12.5px; background: #fff; }
     .learn-article table.six-tbl th { background: #39611a; color: #fff; text-align: left; padding: 8px 10px; font-weight: 800; }
     .learn-article table.six-tbl td { padding: 8px 10px; border-bottom: 1px solid #e1ecd9; vertical-align: top; line-height: 1.6; }
@@ -1952,12 +1963,28 @@
       </details>
 
       <details class="wk-fold today">
-        <summary><b class="wk-tag">2주차</b>9월 8일(화) 수업 — 관광창업의 지도<span class="wk-sub">3유형과 로컬크리에이터 7대 유형 · 공고 원문 읽기 · 벤치마킹 발표</span></summary>
+        <summary><b class="wk-tag">2주차</b>9월 8일(화) 수업 — 관광창업의 지도<span class="wk-sub">3유형과 로컬크리에이터 7대 분야 · 공고 원문 읽기 · 벤치마킹 발표</span></summary>
         <div class="tf-body">
           <p class="nx-h">관광창업의 지도 — 내 아이템은 어느 칸에 서는가</p>
 
           <p class="nx-lb">이날의 목표</p>
-          <p class="nx-d">수업이 끝나면 <strong>「내 아이템이 공모의 어느 칸에 들어가는지」를 근거를 들어 말할 수 있게</strong> 됩니다. 두 가지를 했습니다 — <strong>①</strong> 관광벤처 <strong>3유형</strong>(플랫폼 · 콘텐츠 · 시설공간)과 로컬크리에이터 <strong>7대 유형</strong>을 나란히 놓고 <em>내 것</em>을 고릅니다. <strong>②</strong> 남의 요약이 아니라 <strong>공고 원문</strong>을 열어 모집유형 넷의 정의와 지원자격을 직접 읽습니다. <em>유형별 쿼터가 없다</em>는 것, <em>자본금도 학벌도 요건에 없다</em>는 것을 그 자리에서 확인합니다.</p>
+          <p class="nx-d">수업이 끝나면 <strong>「내 아이템이 공모의 어느 칸에 들어가는지」를 근거를 들어 말할 수 있게</strong> 됩니다. 두 가지를 했습니다 — <strong>①</strong> 관광벤처 <strong>3유형</strong>(플랫폼 · 콘텐츠 · 시설공간)과 로컬크리에이터 <strong>7대 분야</strong>를 나란히 놓고 <em>내 것</em>을 고릅니다. <strong>②</strong> 남의 요약이 아니라 <strong>공고 원문</strong>을 열어 모집유형 넷의 정의와 지원자격을 직접 읽습니다. <em>유형별 쿼터가 없다</em>는 것, <em>자본금도 학벌도 요건에 없다</em>는 것을 그 자리에서 확인합니다.</p>
+          <p class="nx-lb">로컬크리에이터 7대 분야</p>
+          <div class="lc-wrap">
+            <table class="lc-tbl">
+              <thead><tr><th>분야</th><th>무엇을 하는가</th><th>관광으로 어떻게 이어지나</th><th>2020년 선정 비중</th></tr></thead>
+              <tbody>
+                <tr><td><b>지역콘텐츠</b></td><td>지역 문화를 다시 조명해 이야기·콘텐츠로 만든다</td><td>로컬 투어 · 해설 프로그램 · 이야기가 붙은 굿즈</td><td class="pc">21%</td></tr>
+                <tr><td><b>로컬푸드</b></td><td>지역 먹거리를 상품·식당·가공품으로</td><td>미식 투어 · 쿠킹 클래스 · 시장 코스</td><td class="pc">20%</td></tr>
+                <tr><td><b>지역기반제조</b></td><td>지역 자원·기술로 물건을 만든다</td><td>공방 체험 · 기념품 · 제작 참여형 상품</td><td class="pc">17%</td></tr>
+                <tr class="hl"><td><b>디지털문화체험</b></td><td>앱 · AR · VR로 지역 문화를 겪게 한다</td><td>실감 콘텐츠 · 디지털 전시 · 다국어 안내</td><td class="pc">15%</td></tr>
+                <tr><td><b>거점브랜드</b></td><td>한 공간·거리를 브랜드로 키운다</td><td>체류형 코스의 <b>앵커</b> — 그곳에 가려고 오게 만드는 자리</td><td class="pc">14%</td></tr>
+                <tr class="hl"><td><b>스마트관광</b></td><td>기술로 관광의 불편을 푼다</td><td>예약 · 동선 · 안내 서비스 — <b>관광벤처와 가장 많이 겹치는 칸</b></td><td class="pc">9%</td></tr>
+                <tr class="hl"><td><b>자연친화활동</b></td><td>생태 · 아웃도어 활동을 상품으로</td><td>트레킹 · 해양 액티비티 · 생태 관찰</td><td class="pc">4%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="lc-src"><b>분야 이름과 비중은 중소벤처기업부 발표 원문</b>입니다 — <a href="https://www.korea.kr/news/policyNewsView.do?newsId=148873102" target="_blank" rel="noopener">「지역 자연·문화로 새로운 가치 창출 … 로컬크리에이터 140개 선정」(정책브리핑 · 2020-06-04) ↗</a>. 가운데 <b>「무엇을 하는가 · 관광으로 어떻게 이어지나」 두 칸은 수업용 풀이</b>입니다. 사업 이름은 <b>「지역가치 창업가(로컬크리에이터)」</b>이고, <b>2026년부터 「소상공인 도약 지원 사업」으로 통합</b>되므로 지원할 때는 그 해 공고의 분야 표기를 확인하십시오. 자세한 요강은 <b>05장 지원 제도</b>에 있습니다.</p>
 
           <p class="nx-lb">할 것</p>
           <p class="nx-d"><a href="https://touraz.kr/index#" target="_blank" rel="noopener">투어라즈(TOURAZ) 개인회원 가입 ↗</a> — <strong>touraz.kr</strong>. 공고문이 <strong>「공모마감 1주일 전까지 가입을 권장」</strong>한다고 적고 있습니다. 접수 · 심사 · 결과 발표가 전부 이곳에서 이뤄집니다. <strong>아직 안 했다면 지금 하십시오</strong> — 5분이면 되고, 가입 유형은 개인회원입니다.</p>
@@ -2112,7 +2139,7 @@
         </ol>
         <span class="tri-hub">비즈니스 모델</span>
       </div>
-      <p class="dltags"><a class="mapl form hot" href="business-model-revenue-flow-diagram.html" target="_blank" rel="noopener">사업모델 · 수익구조 도식화와 경쟁력 설명 ↗</a><a class="mapl form hot" href="bm-diagram-4types.html" target="_blank" rel="noopener">BM 도식 네 가지 예시 · 일곱 장 좌우 넘김 ↗</a><span class="dl-src">위 셋 가운데 <b>「어떻게 버는가」를 그림으로</b> 옮기는 법입니다 — <b>가치는 실선, 돈은 점선</b>, 박스는 3~4개, 우리 박스 안에 <b>남기는 돈을 숫자로</b>. 수수료형 · 판매마진형 · 구독형 · 광고형 · B2B 솔루션형 다섯 가지를 눌러 비교하고, 끝에 <b>경쟁력 표를 도식의 화살표와 잇는 법</b>과 점검 질문 다섯이 있습니다. 예비창업패키지 사업계획서 <b>「2-2 사업모델」</b> 칸에 그대로 쓰입니다.<br /><b>그 옆 판은 「그래서 어떤 모양으로 그리나」에 답합니다</b> — 실제 사업계획서에 쓰인 <b>BM 도식 네 가지</b>를 한 장에 모아 놓고 하나씩 뜯습니다. <b>① 타겟별 수익모델형</b>(B2B · B2C · B2G로 고객을 먼저 나누고 각 고객에서 나오는 판매 · 대여 · 구독 · 수수료를 붙인다) · <b>② 기업 중심 연결형</b>(기업을 가운데 두고 양쪽 고객군과 제공 기능을 잇는다) · <b>③ B2G–B2B 공급구조형</b>(공공기관에 넣은 것이 기업 고객으로 어떻게 번져 가는지, 확보 실적까지) · <b>④ 복합 수익모델형</b>(판매 · 구독 · 렌탈 · 플랫폼 수수료 · 기술료 · 광고 · 데이터 판매를 한 장에). <b>첫 장이 네 가지를 비교한 인포그래픽</b>이고, 뒤로 넘기면 분류 · 원본 · 자리별 해설이 나옵니다. 관광벤처라면 <b>①과 ④를 겹쳐</b> 그리는 쪽이 잘 맞습니다 — 외국인 관광객(B2C) 투어 판매가 <b>주수익</b>, 숙박업체(B2B) 중개수수료와 지자체(B2G) 사업 수행비가 <b>부수익</b>이 되는 식입니다.</span></p>
+      <p class="dltags"><a class="mapl form hot" href="business-model-revenue-flow-diagram.html" target="_blank" rel="noopener">사업모델 · 수익구조 도식화와 경쟁력 설명 ↗</a><a class="mapl form hot" href="bm-diagram-4types.html" target="_blank" rel="noopener">BM 도식 네 가지 예시 ↗</a><span class="dl-src">위 셋 가운데 <b>「어떻게 버는가」를 그림으로</b> 옮기는 법입니다 — <b>가치는 실선, 돈은 점선</b>, 박스는 3~4개, 우리 박스 안에 <b>남기는 돈을 숫자로</b>. 수수료형 · 판매마진형 · 구독형 · 광고형 · B2B 솔루션형 다섯 가지를 눌러 비교하고, 끝에 <b>경쟁력 표를 도식의 화살표와 잇는 법</b>과 점검 질문 다섯이 있습니다. 예비창업패키지 사업계획서 <b>「2-2 사업모델」</b> 칸에 그대로 쓰입니다.<br /><b>그 옆 판은 「그래서 어떤 모양으로 그리나」에 답합니다</b> — 실제 사업계획서에 쓰인 <b>BM 도식 네 가지</b>를 한 장에 모아 놓고 하나씩 뜯습니다. <b>① 타겟별 수익모델형</b>(B2B · B2C · B2G로 고객을 먼저 나누고 각 고객에서 나오는 판매 · 대여 · 구독 · 수수료를 붙인다) · <b>② 기업 중심 연결형</b>(기업을 가운데 두고 양쪽 고객군과 제공 기능을 잇는다) · <b>③ B2G–B2B 공급구조형</b>(공공기관에 넣은 것이 기업 고객으로 어떻게 번져 가는지, 확보 실적까지) · <b>④ 복합 수익모델형</b>(판매 · 구독 · 렌탈 · 플랫폼 수수료 · 기술료 · 광고 · 데이터 판매를 한 장에). <b>첫 장이 네 가지를 비교한 인포그래픽</b>이고, 뒤로 넘기면 분류 · 원본 · 자리별 해설이 나옵니다. 관광벤처라면 <b>①과 ④를 겹쳐</b> 그리는 쪽이 잘 맞습니다 — 외국인 관광객(B2C) 투어 판매가 <b>주수익</b>, 숙박업체(B2B) 중개수수료와 지자체(B2G) 사업 수행비가 <b>부수익</b>이 되는 식입니다.</span></p>
       <p class="dltags"><a class="mapl form" href="startup-business-planning-108p.html" target="_blank" rel="noopener">스타트업 비즈니스 기획론 · 108쪽 원본과 OCR ↗</a><a class="mapl form lime" href="business-model-17-types-p20-40.html" target="_blank" rel="noopener">그 20–40쪽 정리 · 비즈니스 모델 17가지 × 관광 적용 ↗</a><a class="mapl form lime" href="business-model-17-types-slides.html" target="_blank" rel="noopener">17가지 인포그래픽 · 세 장 좌우 넘김 ↗</a><span class="dl-src">POSTECH 서리빈 교수 학습자료 — <b>비즈니스 모델 설계와 수익성 분석</b>(비즈니스 모델 혁신 · 핵심 요소와 유형 · <b>고객 생애 가치(LTV)</b> · <b>고객 획득 비용(CAC)</b>). 위 도식에서 「남기는 돈」을 숫자로 적을 때 LTV · CAC 계산이 근거가 됩니다.<br /><b>초록 알약은 그 책의 20–40쪽을 다섯 탭으로 정리한 판입니다</b> — 「무료는 비즈니스 모델이 아니다」에서 시작해 <b>17가지 수익모델</b>(일회성 선지급 · 사용료 · 업셀링 · 광고 · 거래수수료 · 정액 · 프랜차이즈 …)마다 원자료 사례와 <b>관광 적용 예</b>를 나란히 두고, <b>한 상품이 여러 모델로 돈을 버는 결합형</b>(OTA형 · 패키지 원가표 · 무료 관광 앱 · 안동 한옥여행 여섯 갈래)과 <b>내 아이템에 17가지를 대입해 보는 프롬프트</b>로 끝납니다. 옆의 <b>인포그래픽 세 장</b>은 같은 17가지를 한 장에 여섯씩 — 모델마다 <b>뜻 한 줄 · 돈의 흐름 · 예시</b>만 남긴 복습용입니다.</span></p>
 
       <p class="learn-part lp-core"><span class="num">04</span>만들기 전에 검증하라 — 린 스타트업</p>
@@ -2578,9 +2605,9 @@
       <div class="lilac-box">
       <p>앞의 공모들에서 <strong>로컬 크리에이터</strong>라는 말이 여러 번 스쳤습니다. 분위기 있는 수식어가 아니라 <strong>정부 지원사업의 공식 용어</strong>입니다. 중소벤처기업부는 2020년부터 「로컬크리에이터 육성사업」을 운영하며 <em>지역의 문화·자연 자산을 창의적으로 사업화하는 창업자</em>를 이 이름으로 묶어 왔고, 지자체들도 같은 이름을 받아 지역판 공모를 엽니다. 정부 문서의 공식 표기는 <strong>「지역가치 창업가(로컬크리에이터)」</strong>입니다 — 공고를 검색할 때 두 단어를 모두 써 보십시오. 관광 전공자에게 중요한 이유는 <strong>지원 분야 자체가 관광과 겹치기 때문</strong>입니다.</p>
       <details class="spec-fold violet">
-      <summary>요강 — 7대 유형 · 두 층위 · 개인형과 협업형 · 계단처럼 이어진다 · 자격 · 이름은 바뀐다</summary>
+      <summary>요강 — 7대 분야 · 두 층위 · 개인형과 협업형 · 계단처럼 이어진다 · 자격 · 이름은 바뀐다</summary>
       <ul>
-        <li><strong>7대 유형</strong> — <span class="hot-t">지역가치 · 로컬푸드 · 지역기반제조 · <strong class="hot-t">지역특화관광</strong> · 거점브랜드 · <strong class="hot-t">디지털 문화체험</strong> · 자연친화활동</span>. 일곱 중 셋이 관광·문화 영역이고, 나머지도 결국 관광 상품으로 이어집니다.</li>
+        <li><strong>7대 분야</strong> — <span class="hot-t">지역콘텐츠 · 로컬푸드 · 지역기반제조 · <strong class="hot-t">디지털문화체험</strong> · 거점브랜드 · <strong class="hot-t">스마트관광</strong> · 자연친화활동</span>(중기부 발표 표기). 일곱 중 셋이 관광·문화 영역이고, 나머지도 결국 관광 상품으로 이어집니다. <b>2주차 칸에 분야별 설명과 선정 비중 표</b>가 있습니다.</li>
         <li><strong>두 층위로 열린다</strong> — ① <strong>전국</strong>: 중기부·소상공인시장진흥공단이 <strong>소상공인24</strong>로 접수 ② <strong>지역</strong>: 시·도가 자체 예산으로 여는 공모(예: 부산광역시·부산경제진흥원 「청년 로컬크리에이터 레벨업」). 같은 개념을 <strong>두 창구에서 각각</strong> 지원할 수 있다는 뜻입니다.</li>
         <li><strong>개인형과 협업형</strong> — 혼자 내는 것 말고 <strong>여럿이 팀을 짜서 내는 트랙</strong>이 따로 있습니다. 전국 사업 2025년 회차 기준 <strong>개인 210개사(최대 4,000만원)·협업 24개팀 내외(최대 7,000만원)</strong>, 부산 회차 기준 개인형 7개사(최대 2,500만원)·협업형 2개팀(최대 4,500만원). 협업형은 서로 다른 업종의 로컬 창업자가 한 프로젝트로 묶이는 형태여서, 관광 기획자가 <strong>식당·공방·숙소를 하나의 코스로 엮는 역할</strong>로 들어가기 좋습니다.</li>
         <li><strong>계단처럼 이어진다</strong> — 로컬크리에이터로 선정된 뒤 <strong>강한소상공인 성장지원사업</strong>, <strong>민간투자 연계형 매칭융자</strong> 등으로 연결하면 지원 규모가 <strong>최대 9억원까지</strong> 이어집니다. 지원사업은 <em>하나 받고 끝</em>이 아니라 <strong>다음 계단의 자격</strong>이 된다는 뜻입니다.</li>
@@ -2608,7 +2635,7 @@
             <summary>여섯 층위가 각각 무엇을 담고 있나</summary>
             <span class="desc"><strong>① 로컬크리에이터 육성 (중기부 소상공인 지원사업 통합공고)</strong> — 「로컬크리에이터」를 <strong>정부가 어떻게 정의하는지</strong> 확인할 수 있는 원문 공고. 지역의 문화·자연 자산을 활용해 사업 가치를 만드는 소상공인을 <strong>개인</strong>(BM 구체화·멘토링·브랜딩·마케팅 자금)과 <strong>협업</strong>(로컬크리에이터 간 협업과제로 지역혁신 추진)으로 나눠 지원합니다. 접수는 <strong>소상공인24</strong>. 2026년부터 강한소상공인 사업과 합쳐져 <strong>「소상공인 도약 지원 사업」</strong>으로 이름이 바뀌었으니 최신 회차는 그 이름으로 검색해야 합니다. 이 페이지가 올라와 있는 <strong>기업마당(bizinfo)</strong>은 부처·지자체 지원사업이 한데 모이는 창구여서, 사이트 자체를 <em>공고 검색 연습장</em>으로 써 두면 좋습니다. <span class="meta">중소벤처기업부 · 소상공인시장진흥공단 · 기업마당 bizinfo.go.kr · 접수: 소상공인24</span></span>
             <span class="desc"><strong>② 2025년 로컬크리에이터(개인) 육성 사업 참여 소상공인 모집 공고</strong> — 위 통합공고에서 갈라져 나온 <strong>실제 모집 공고문</strong>입니다. 통합공고가 "올해 이런 사업을 합니다"라는 <em>예고</em>라면, 이쪽은 <strong>접수 기간과 제출 서류가 확정된 문서</strong> — <strong>개인 트랙</strong>, 비즈니스모델 구체화·커뮤니티 형성·홍보마케팅 등 사업화 비용 <strong>최대 4,000만원</strong>, 2025년 2월 27일 마감, 소상공인24 온라인 접수. 사업 목적문이 <em>"지역 고유의 특성과 자원을 기반으로 혁신적인 아이디어를 접목하여 지역경제 활성화"</em>라는 한 문장인데, <strong>사업계획서의 첫 문단은 이 문장에 대한 대답</strong>이어야 합니다. <span class="meta">중소벤처기업부 · 소상공인시장진흥공단 · 개인 트랙 모집공고 · 접수: 소상공인24</span></span>
-            <span class="desc"><strong>③ 청년 로컬크리에이터 레벨업 사업 (부산광역시)</strong> — 위 전국 사업의 <strong>지역판</strong>. 만 39세 이하 청년 대표 · 창업 7년 미만 · 부산 사업자등록이 요건이며, <strong>개인형</strong> 7개사(사업화 2,000만원 + 판로개척 최대 500만원)와 <strong>협업형</strong> 2개팀(협업프로젝트 4,000만원 + 판로개척 최대 500만원)으로 나뉩니다(2025년 회차 기준, 매년 봄 접수). 모집 분야인 <strong>7대 유형에 '지역특화관광'과 '디지털 문화체험'이 들어 있어</strong> 관광 전공자가 그대로 지원할 수 있습니다. 공고문에서 <em>모집 유형 · 평가 항목 · 제출 서류</em>가 실제로 어떻게 쓰여 있는지 직접 읽어 보세요. <span class="meta">부산광역시 · 부산경제진흥원(BEPA) · 부산창업포털 busanstartup.kr</span></span>
+            <span class="desc"><strong>③ 청년 로컬크리에이터 레벨업 사업 (부산광역시)</strong> — 위 전국 사업의 <strong>지역판</strong>. 만 39세 이하 청년 대표 · 창업 7년 미만 · 부산 사업자등록이 요건이며, <strong>개인형</strong> 7개사(사업화 2,000만원 + 판로개척 최대 500만원)와 <strong>협업형</strong> 2개팀(협업프로젝트 4,000만원 + 판로개척 최대 500만원)으로 나뉩니다(2025년 회차 기준, 매년 봄 접수). 모집 분야에 <strong>관광 · 문화 칸</strong>이 들어 있어 관광 전공자가 그대로 지원할 수 있습니다(분야 이름은 회차 · 지자체마다 조금씩 다릅니다). 공고문에서 <em>모집 유형 · 평가 항목 · 제출 서류</em>가 실제로 어떻게 쓰여 있는지 직접 읽어 보세요. <span class="meta">부산광역시 · 부산경제진흥원(BEPA) · 부산창업포털 busanstartup.kr</span></span>
             <span class="desc"><strong>④ 「지역가치 창업가(로컬크리에이터)」 모집 (보도자료)</strong> — 중기부가 로컬크리에이터를 모집하며 낸 보도자료. 공고문에는 흩어져 있는 <strong>숫자가 한 문단에 모여</strong> 있습니다 — <strong>개인 210개사(최대 4,000만원) · 협업 24개팀 내외(최대 7,000만원)</strong>, 접수 2월 10~27일, 창구는 소상공인24. 선정 뒤 <strong>강한소상공인 성장지원사업·민간투자 연계형 매칭융자</strong>로 이어 붙이면 <strong>최대 9억원</strong>까지 연계된다는 대목을 꼭 보세요. 정부가 쓰는 공식 명칭이 <strong>「지역가치 창업가」</strong>라는 것도 여기서 확인됩니다 — 검색어 하나 바꾸면 안 보이던 공고가 보입니다. <span class="meta">중소벤처기업부 · 2025-01-24 보도자료 · mss.go.kr</span></span>
             <span class="desc"><strong>⑤ 지역기반 로컬크리에이터 활성화 지원사업 세부관리기준</strong> — 공고문보다 <strong>한 겹 안쪽</strong>에 있는 운영 규정 원문. 창업진흥원(KISED)이 <strong>사전정보공표</strong> 제도에 따라 연도별(2020·2021·2023년) 「세부관리기준」 파일을 공개해 둔 페이지입니다. 홍보물에 없는 것들이 여기 있습니다 — <strong>선정 평가 기준, 사업비로 쓸 수 있는 항목과 없는 항목, 정산·환수 규정, 협약 변경 절차</strong>. 사업계획서의 예산표를 짤 때 이 문서를 먼저 보면 <em>어떤 항목이 왜 반려되는지</em>를 미리 알 수 있습니다. 지원사업을 <strong>이벤트가 아니라 제도로 읽는 훈련</strong>에 좋은 자료입니다. <span class="meta">창업진흥원(KISED) 지역창업실 · 사전정보공표 · 연도별 첨부문서(HWP)</span></span>
             <span class="desc"><strong>⑥ 기업마당 공식 블로그 — 로컬크리에이터 지원사업 안내 글</strong> — 위 공고들이 올라오는 <strong>기업마당(bizinfo)이 직접 운영하는 블로그</strong>. 공고 원문이 표와 서식으로 된 <em>행정 문서</em>라면, 이곳은 같은 내용을 <strong>카드뉴스와 요약 글</strong>로 풀어 놓는 자리입니다. 공고문 읽기가 아직 버거운 단계에서 <strong>먼저 들르기 좋은 진입로</strong>이고, 지원사업 소식이 공고보다 <em>읽히는 형태</em>로 먼저 눈에 들어옵니다. 다만 요약은 어디까지나 요약이니, 실제 지원할 때는 <strong>반드시 기업마당의 공고 원문과 대조</strong>하십시오 — 자격 요건 한 줄이 요약에서 빠지는 일이 흔합니다. <span class="meta">중소벤처기업부·기업마당 공식 블로그 · blog.naver.com/bizinfo1357</span></span>
@@ -2624,7 +2651,7 @@
             <a href="https://search.mss.go.kr/mssSearch/search.do" target="_blank" rel="noopener">중기부 공고 통합검색 ↗</a>
           </div>
           <span class="desc">왼쪽 여섯 층위가 <em>한 사업을 깊이 읽는 법</em>이라면, 이쪽은 <strong>매년 새 공고를 찾아내는 창구</strong>입니다. 사업명은 몇 년마다 바뀌므로 <strong>소상공인24</strong>와 <strong>중기부 통합검색</strong>을 즐겨찾기해 두는 편이 안전합니다. 지자체판은 <strong>대구TP 공고문</strong>처럼 각 지역 테크노파크·경제진흥원이 따로 냅니다.<br />
-          <strong>이미 하고 있는 곳</strong> — <strong>리플레이스</strong>(문경 화수헌, 폐가를 한옥 카페·숙소로) · <strong>더웨이브컴퍼니</strong>(강릉, 워케이션과 지역 콘텐츠) · <strong>어반플레이</strong>(동네 콘텐츠 기획) · <strong>로컬스티치</strong>(코리빙·코워킹). 앞의 <em>7대 유형</em>이 실제 회사로 어떻게 나타나는지 보여주는 이름들입니다.</span>
+          <strong>이미 하고 있는 곳</strong> — <strong>리플레이스</strong>(문경 화수헌, 폐가를 한옥 카페·숙소로) · <strong>더웨이브컴퍼니</strong>(강릉, 워케이션과 지역 콘텐츠) · <strong>어반플레이</strong>(동네 콘텐츠 기획) · <strong>로컬스티치</strong>(코리빙·코워킹). 앞의 <em>7대 분야</em>가 실제 회사로 어떻게 나타나는지 보여주는 이름들입니다.</span>
           <span class="meta">중기부·소상공인시장진흥공단 · 지자체 테크노파크</span>
         </li>
         <li class="t-violet">
@@ -2639,7 +2666,7 @@
         </li>
         <li class="t-violet">
           <a href="hanji-8plus1-deep-knowledge.html" target="_blank" rel="noopener">한지를 깊이 이해하기 위한 8+1 핵심 지식 ↗</a>
-          <span class="desc">위 두 자료가 <em>정책과 회사</em>를 넓게 본다면, 이쪽은 <strong>지역 자원 하나를 끝까지 파 보는 본보기</strong>입니다. 한지를 <strong>원료 → 제조공정 → 외발뜨기 → 물성 → 역사 → 표준화 → 보존·복원 → 현대산업 → 관광·문화콘텐츠</strong>로 따라가며, 「닥나무로 만든다」에서 멈추지 않고 <strong>왜 그런 성질이 생기고 그것이 어떤 쓰임과 가치로 이어지는지</strong>를 묻습니다.<br /><strong>로컬크리에이터로 읽는 법</strong> — 끝의 가치사슬(<em>자원 · 기술 · 장인 · 제품 · 문화유산 · 체험 · 관광 · 산업</em>)이 앞 7대 유형의 <strong>지역기반제조 · 지역특화관광</strong>이 실제로 서는 자리입니다. 마지막 줄의 <strong>한국 한지 → 경북 한지 → 안동 한지 → 장인 · 공방 → 관광콘텐츠</strong>처럼 범위를 좁혀 가면, 내 지역 자원도 같은 틀로 아이템이 됩니다.</span>
+          <span class="desc">위 두 자료가 <em>정책과 회사</em>를 넓게 본다면, 이쪽은 <strong>지역 자원 하나를 끝까지 파 보는 본보기</strong>입니다. 한지를 <strong>원료 → 제조공정 → 외발뜨기 → 물성 → 역사 → 표준화 → 보존·복원 → 현대산업 → 관광·문화콘텐츠</strong>로 따라가며, 「닥나무로 만든다」에서 멈추지 않고 <strong>왜 그런 성질이 생기고 그것이 어떤 쓰임과 가치로 이어지는지</strong>를 묻습니다.<br /><strong>로컬크리에이터로 읽는 법</strong> — 끝의 가치사슬(<em>자원 · 기술 · 장인 · 제품 · 문화유산 · 체험 · 관광 · 산업</em>)이 앞 7대 분야의 <strong>지역기반제조 · 지역콘텐츠</strong>가 실제로 서는 자리입니다. 마지막 줄의 <strong>한국 한지 → 경북 한지 → 안동 한지 → 장인 · 공방 → 관광콘텐츠</strong>처럼 범위를 좁혀 가면, 내 지역 자원도 같은 틀로 아이템이 됩니다.</span>
           <span class="meta">선샤인 웰니스 자체 제작 · 지역 자원 심화 노트 · 2026. 9. 14.</span>
         </li>
       </ul>
