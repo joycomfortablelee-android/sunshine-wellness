@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>BM 모델 예시 4종 — 3파일 손실없는 통합본</title>
+<style>
+:root {
+  --navy:#103a60; --blue:#2c73b8; --green:#2d8a72; --ink:#1f2d3d;
+  --muted:#66788a; --line:#d9e4ee; --bg:#eef3f7; --white:#fff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+}
+.topbar{
+  position:sticky; top:0; z-index:30;
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+  padding:16px 24px; background:rgba(255,255,255,.96);
+  border-bottom:1px solid var(--line); backdrop-filter:blur(10px);
+}
+.brand h1{margin:0;color:var(--navy);font-size:23px;letter-spacing:-.6px}
+.brand p{margin:3px 0 0;color:var(--muted);font-size:13px}
+.counter{font-weight:800;color:var(--blue);white-space:nowrap}
+
+.viewport{position:relative;max-width:1220px;margin:0 auto;padding:26px 70px 42px}
+.track-wrap{overflow:hidden;border-radius:24px}
+.track{display:flex;transition:transform .42s ease;will-change:transform}
+.slide{min-width:100%;padding:2px}
+.slide .card{
+  margin:0; min-height:calc(100vh - 140px);
+  background:#fff;border:1px solid var(--line);border-radius:22px;
+  padding:30px;box-shadow:0 12px 30px rgba(17,57,95,.08);
+}
+.slide h2{color:var(--navy);border-left:5px solid var(--blue);padding-left:12px}
+.slide h3{color:#215f83}
+.slide p,.slide li{line-height:1.75}
+.slide img{display:block;width:100%;height:auto;border-radius:14px}
+.figure{overflow:hidden;border-radius:18px;border:1px solid var(--line);background:#fff;margin-top:18px}
+.caption{padding:12px 16px;color:var(--muted);font-size:13px;background:#f8fafc}
+.table-wrap{overflow:auto;margin:16px 0 22px;border:1px solid var(--line);border-radius:14px}
+table{width:100%;border-collapse:collapse;min-width:680px}
+th{background:#eef6fb;color:var(--navy);font-weight:800}
+th,td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+.callout{
+  background:linear-gradient(90deg,#edf5fb,#f7fbfe);
+  border:1px solid #cfe0ee;border-radius:16px;padding:18px 20px;margin:18px 0;
+}
+.kicker{font-size:13px;font-weight:800;color:var(--blue);letter-spacing:.08em;text-transform:uppercase}
+.note{font-size:13px;color:var(--muted)}
+.em{font-weight:900;color:#0f4d7a}
+
+.navbtn{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:48px;height:48px;border-radius:50%;border:1px solid #cfdce7;
+  background:#fff;color:var(--navy);font-size:30px;line-height:1;
+  cursor:pointer;box-shadow:0 8px 22px rgba(17,57,95,.12);z-index:10;
+}
+.navbtn:hover{background:#f3f8fc}
+.navbtn:disabled{opacity:.32;cursor:default}
+.prev{left:12px} .next{right:12px}
+
+.dots{display:flex;justify-content:center;gap:8px;margin-top:18px}
+.dot{width:10px;height:10px;border-radius:50%;border:0;background:#c8d6e2;cursor:pointer;padding:0}
+.dot.active{background:var(--blue);transform:scale(1.18)}
+
+.hint{text-align:center;color:var(--muted);font-size:13px;margin-top:10px}
+@media(max-width:760px){
+  .topbar{padding:12px 14px}
+  .brand h1{font-size:18px}
+  .brand p{display:none}
+  .viewport{padding:14px 8px 28px}
+  .slide .card{padding:20px;min-height:auto}
+  .navbtn{width:40px;height:40px;font-size:25px;top:auto;bottom:8px}
+  .prev{left:14px} .next{right:14px}
+  .dots{margin:16px 48px 0}
+}
+
+
+/* ===== 3-file merged additions ===== */
+.topbar{max-width:none;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;padding:12px 24px;gap:18px}
+.top-controls{display:flex;align-items:center;gap:9px}
+.topbar .navbtn{position:static;transform:none;width:42px;height:42px;border-radius:12px;font-size:25px;line-height:1}
+.topbar .counter{min-width:64px;text-align:center;font-size:14px}
+.chapter-nav{position:sticky;top:67px;z-index:25;background:rgba(238,243,247,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
+.chapter-inner{max-width:1220px;margin:0 auto;padding:8px 18px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:thin}
+.chapter-btn{flex:0 0 auto;border:1px solid #cfdde8;background:#fff;color:var(--navy);border-radius:999px;padding:8px 12px;font-size:12px;font-weight:800;cursor:pointer}
+.chapter-btn:hover{background:#eef6fb}.chapter-btn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.viewport{padding-top:18px}
+
+/* Supplemental slides from the top-arrow/classification version */
+.slide-title{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+.slide-title h2{margin:0;border-left:0;padding-left:0;color:var(--navy);font-size:28px;letter-spacing:-.7px}
+.badge{flex:0 0 auto;padding:7px 12px;border-radius:999px;background:#edf5fb;color:var(--blue);font-size:12px;font-weight:900}
+.section{border:1px solid var(--line);border-radius:18px;padding:18px 19px;margin:14px 0}
+.section.blue{background:linear-gradient(180deg,#f9fcff,#eef6fc)}
+.section.green{background:linear-gradient(180deg,#fbfefc,#eef8f3)}
+.section h3{margin:0 0 10px;color:var(--navy);font-size:20px;letter-spacing:-.4px}
+.section p{margin:7px 0;line-height:1.72}.section ul{margin:8px 0 0;padding-left:22px}.section li{margin:5px 0;line-height:1.6}
+.strong,.section strong,.flow strong,.example strong,.class-card strong{font-weight:900;color:#0f4f7c}.green strong{color:#236d5b}
+.core{margin-top:12px;padding:12px 14px;border-radius:13px;background:#fff;border-left:5px solid var(--blue);font-weight:800;line-height:1.65}.green .core{border-left-color:var(--green)}
+.flow{margin:18px 0 0;padding:18px;border-radius:18px;background:#f8fbfe;border:1px dashed #b9cfe0}.flow h3{margin:0 0 12px;color:var(--navy)}
+.flowline{display:flex;flex-wrap:wrap;align-items:center;gap:9px;font-size:15px;line-height:1.6}.step{padding:8px 11px;background:#fff;border:1px solid #d6e3ed;border-radius:10px;font-weight:800}.arrow{font-weight:900;color:var(--blue)}
+.example{margin-top:16px;padding:18px;border-radius:18px;background:linear-gradient(90deg,#eef6fb,#f6fbf8);border:1px solid #d4e5e0}.example h3{margin:0 0 10px;color:var(--navy)}.example p{margin:7px 0;line-height:1.72}
+.class-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.class-card{border-radius:20px;border:1px solid var(--line);padding:20px;min-height:235px;position:relative;overflow:hidden}.class-card:nth-child(1),.class-card:nth-child(4){background:linear-gradient(160deg,#f6fbff,#eaf4fb)}.class-card:nth-child(2),.class-card:nth-child(3){background:linear-gradient(160deg,#fbfefc,#edf8f2)}
+.num{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;background:var(--blue);margin-bottom:12px;font-size:18px}.class-card:nth-child(2) .num,.class-card:nth-child(3) .num{background:var(--green)}.class-card h3{margin:0 0 8px;color:var(--navy);font-size:21px}.class-card p{margin:5px 0;line-height:1.65}.q{margin-top:12px;padding:11px 12px;border-radius:12px;background:rgba(255,255,255,.82);font-weight:900}
+.summary{margin-top:18px;padding:16px 18px;border-radius:16px;background:#123b62;color:#fff;line-height:1.7;font-size:16px}.summary strong{color:#fff}
+@media(max-width:760px){.topbar{padding:9px 10px}.topbar .brand p{display:none}.topbar .navbtn{width:38px;height:38px}.chapter-nav{top:57px}.chapter-inner{padding:7px 8px}.class-grid{grid-template-columns:1fr}.slide-title h2{font-size:23px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+<div class="brand">
+<h1>BM 모델 예시 4종 · 통합본</h1>
+<p>구조화 그림 → 4가지 분류 → 원본 이미지 → 해석과 적용 → 정리 OCR → 바로 쓰는 프레임 → 상세 해설</p>
+</div>
+
+<div class="top-controls"><button aria-label="이전" class="navbtn prev" id="prev">‹</button><div class="counter"><span id="current">1</span> / <span id="total">7</span></div><button aria-label="다음" class="navbtn next" id="next">›</button></div></header><nav aria-label="통합 목차" class="chapter-nav"><div class="chapter-inner"><button class="chapter-btn" data-go="0" type="button">1. 구조화 그림</button><button class="chapter-btn" data-go="1" type="button">2. 4가지 분류</button><button class="chapter-btn" data-go="2" type="button">3. 원본 이미지</button><button class="chapter-btn" data-go="3" type="button">4. 해석과 적용</button><button class="chapter-btn" data-go="4" type="button">5. 정리 OCR</button><button class="chapter-btn" data-go="5" type="button">6. 바로 쓰는 프레임</button><button class="chapter-btn" data-go="6" type="button">7. 상세 해설</button></div></nav>
+<main class="viewport">
+
+<div class="track-wrap">
+<div class="track" id="track">
+<article class="slide" data-index="1"><section class="card" id="diagram"><div class="kicker">구조화 그림</div><h2>구조화된 그림</h2><div class="callout">원본의 4개 BM 표현 방식을 한눈에 비교할 수 있도록 <strong>2×2 인포그래픽</strong>으로 구조화했습니다.</div><div class="figure"><img alt="BM 모델 예시 4종 구조화 인포그래픽" src="images/bm-models-4types-infographic.webp"/><div class="caption">① <strong class="em">타겟별 수익모델형</strong> · ② <strong class="em">기업 중심 연결형</strong> · ③ <strong class="em">B2G–<strong class="em">B2B</strong> 공급구조형</strong> · ④ 복합 수익모델형</div></div></section></article>
+<section class="slide" data-index="2">
+<div class="card">
+<div class="slide-title">
+<h2>BM 모델 4가지 분류 — 한눈에 보기</h2>
+<span class="badge">PAGE 2</span>
+</div>
+<div class="class-grid">
+<div class="class-card">
+<div class="num">①</div>
+<h3>타겟별 수익모델형</h3>
+<p><strong>B2B · B2C · B2G</strong>처럼 고객군을 먼저 나누고, 각 고객군에서 발생하는 <strong>판매·대여·구독·수수료</strong> 등의 수익원을 표시합니다.</p>
+<div class="q">핵심 질문: <strong>누구에게 무엇으로 돈을 받는가?</strong></div>
+</div>
+<div class="class-card">
+<div class="num">②</div>
+<h3>기업 중심 연결형</h3>
+<p><strong>기업</strong>을 가운데 두고 <strong>B2B·B2G·B2C</strong>를 연결하여, 기업이 제공하는 <strong>기능·서비스·가치</strong>를 보여줍니다.</p>
+<div class="q">핵심 질문: <strong>기업이 누구와 어떤 기능으로 연결되는가?</strong></div>
+</div>
+<div class="class-card">
+<div class="num">③</div>
+<h3>B2G–B2B 공급구조형</h3>
+<p><strong>공공기관(B2G)</strong>에 제공하는 제품·서비스가 어떻게 <strong>기업 고객(B2B)</strong>으로 연결되고 확장되는지 공급 흐름을 보여줍니다.</p>
+<div class="q">핵심 질문: <strong>누구에게 무엇을 공급하고, 고객을 어떻게 확보하는가?</strong></div>
+</div>
+<div class="class-card">
+<div class="num">④</div>
+<h3>복합 수익모델형</h3>
+<p><strong>판매 · 구독 · 렌탈 · 플랫폼 수수료 · 기술료 · 광고 · 데이터 판매</strong> 등 여러 수익원을 동시에 구조화합니다.</p>
+<div class="q">핵심 질문: <strong>실제 돈은 어디에서, 어떤 방식으로 발생하는가?</strong></div>
+</div>
+</div>
+<div class="summary">
+            먼저 <strong>① 고객군 → ② 제공가치/상품 → ③ 거래방식 → ④ 수익원 → ⑤ 주수익·부수익</strong> 순서로 적은 뒤,
+            네 가지 표현 방식 가운데 <strong>내 사업에 가장 잘 맞는 도식</strong>을 골라 그리면 됩니다.
+          </div>
+</div>
+</section><article class="slide" data-index="3"><section class="card" id="source"><div class="kicker">원본</div><h2>원본 이미지</h2><div class="figure"><img alt="원본 BM 모델 예시 4종" src="images/bm-models-4types-original.webp"/><div class="caption">BM 모델 예시 4종 원본 이미지 — 위 인포그래픽은 이 그림을 다시 그린 것입니다.</div></div></section></article>
+<article class="slide" data-index="4"><section class="card" id="answer1"><div class="kicker">해석과 적용</div><h2>네 칸을 하나씩 읽는 법</h2><p>원본은 <strong>BM(Business Model)을 네 가지 방식으로 그린 예시 한 장</strong>입니다. 아래 표는 네 칸이 각각 <strong>무엇을 어떤 식으로 보여 주는지</strong>를 자리별로 갈라 놓은 것입니다.</p>
+<h3>이미지 중심 페이지 — BM 모델 예시 4종</h3>
+<div class="table-wrap"><table><thead><tr><th>위치</th><th>BM 구조</th><th>이미지 내 핵심 내용</th><th>표현의 특징</th></tr></thead><tbody>
+<tr><td>좌상단</td><td>타겟별 수익모델형</td><td>1차 타겟 <strong class="em">B2B</strong> / 2차 타겟 <strong class="em">B2C</strong> / 3차 타겟 B2G</td><td>고객군과 수익원을 표 형태로 연결</td></tr>
+<tr><td>우상단</td><td>기업 중심 이해관계자형</td><td>B2B + <strong class="em">B2G</strong> ↔ <strong class="em">기업</strong> ↔ <strong class="em">B2C</strong>, A기능·B기능·C기능·D기능</td><td>기업을 중심으로 양쪽 고객군과 제공 기능을 표현</td></tr>
+<tr><td>좌하단</td><td>B2G–<strong class="em">B2B</strong> 거래구조형</td><td>B2G <strong class="em">공공기관</strong> → 서비스·제품 → <strong class="em">B2B</strong> 기업</td><td>누구에게 어떤 <strong class="em">상품</strong>·서비스를 공급하는지 구체적으로 표현</td></tr>
+<tr><td>우하단</td><td>복합 수익모델형</td><td>B2C <strong class="em">판매</strong>·<strong class="em">구독</strong> / <strong class="em">B2B</strong> <strong class="em">판매</strong>·<strong class="em">렌탈</strong>·<strong class="em">수수료</strong>·<strong class="em">기술료</strong>·<strong class="em">광고</strong>·<strong class="em">데이터 판매</strong>·POC</td><td>하나의 사업에서 여러 수익원을 동시에 표현</td></tr>
+</tbody></table></div>
+<h2>① 좌상단 — 타겟별 BM 모델</h2>
+<p><strong>BM 모델</strong></p>
+<p>1차 타겟 <strong>B2B</strong> / 2차 타겟 <strong>B2C</strong> / 3차 타겟 <strong>B2G</strong></p>
+<p>수익 방식</p>
+<ul>
+<li>판매: 제품 1, 제품 2, 제품 3</li>
+<li>대여</li>
+<li>A/S: 유상보수, 하자보수</li>
+<li>플랫폼 사용료 / 구독</li>
+<li>원자재 거래 수수료</li>
+</ul>
+<p>핵심 포인트: <strong>고객(Target)을 먼저 나누고 → 각 고객에게서 어떤 방식으로 수익을 얻는지 보여주는 BM</strong></p>
+<h2>② 우상단 — <strong class="em">기업</strong> 중심 Business Model</h2>
+<p>왼쪽: <strong>B2B + B2G</strong></p>
+<p>가운데: <strong>기업</strong></p>
+<p>기업을 중심으로 A 기능, B 기능, C 기능, D 기능을 배치</p>
+<p>오른쪽: <strong>B2C</strong></p>
+<p>핵심 포인트: <strong>기업이 어떤 기능 또는 가치를 제공하여 <strong class="em">B2B</strong>·B2G와 B2C를 동시에 연결하는가</strong>를 보여주는 형태</p>
+<h2>③ 좌하단 — <strong class="em">B2G</strong> → <strong class="em">상품</strong>·서비스 → <strong class="em">B2B</strong> 모델</h2>
+<p><strong>B2G 공공기관</strong> → <strong class="em">구독</strong> 서비스 / 제조·<strong class="em">구독</strong> / 제품 설치 / 메인 제품 <strong class="em">판매</strong> / 소모품 <strong class="em">판매</strong> / 유지보수 / 컨설팅 → <strong>B2B</strong></p>
+<p><strong>현재 000,00 확보</strong> / <strong>B2B 00업체 및 농장</strong></p>
+<p>핵심 포인트: <strong>누구에게 → 무엇을 제공하고 → 현재 어느 정도 고객을 확보했는가</strong>까지 한 장에서 보여주는 유형</p>
+<h2>④ 우하단 — <strong class="em">B2C</strong> + <strong class="em">B2B</strong> 복합 수익모델</h2>
+<p>B2C: 기기 <strong class="em">판매</strong>, 부가 제품 <strong class="em">판매</strong>, AI 플랫폼 / <strong class="em">판매</strong>, 구독</p>
+<p>B2B: <strong class="em">판매</strong>, 기기 <strong class="em">렌탈</strong>, 플랫폼 이용 <strong class="em">수수료</strong>, <strong class="em">기술료</strong> 수익, 광고</p>
+<p>추가 수익: <strong class="em">데이터 판매</strong>, POC</p>
+<p><strong>POC = Proof of Concept, 개념검증</strong></p>
+<h3>이 그림에서 가장 중요한 흐름</h3>
+<p>① 누구에게 판매하는가? <strong class="em">B2C</strong> · <strong class="em">B2B</strong> · B2G</p>
+<p>→ ② 무엇을 제공하는가? 제품 · 서비스 · 플랫폼 · 콘텐츠 · 데이터</p>
+<p>→ ③ 어떻게 거래하는가? <strong class="em">판매</strong> · <strong class="em">대여</strong> · <strong class="em">렌탈</strong> · <strong class="em">구독</strong> · 중개</p>
+<p>→ ④ 무엇으로 돈을 버는가? 판매수익 · 구독료 · 이용수수료 · <strong class="em">기술료</strong> · 광고료 · 데이터 판매</p>
+<p>→ ⑤ 주수익과 부수익은 무엇인가?</p>
+<p>예를 들어 관광벤처라면:</p>
+<p>외국인 관광객 <strong class="em">B2C</strong> → 안동 로컬투어 <strong class="em">판매</strong> → <strong>투어 판매수익 [<strong class="em">주수익</strong>]</strong></p>
+<p>지역 숙박업체 <strong class="em">B2B</strong> → 예약 연계 → <strong>중개수수료 [<strong class="em">부수익</strong>]</strong></p>
+<p>지자체 <strong class="em">B2G</strong> → 관광콘텐츠 개발·운영 → <strong>사업 수행비 [<strong class="em">부수익</strong>]</strong></p></section></article>
+<article class="slide" data-index="5"><section class="card" id="answer2"><div class="kicker">정리 OCR</div><h2>BM 모델 예시 4종 — 정리 OCR</h2><p>그림 안의 글자를 <strong>자리별로 옮겨 적은 판</strong>입니다. 그림이 작아 잘 보이지 않을 때 이쪽을 보십시오.</p>
+<h2>BM 모델 예시 4종 — 정리 OCR</h2>
+<h3>① 좌상단｜타겟별 BM 모델</h3>
+<p><strong>BM 모델</strong></p>
+<div class="table-wrap"><table><thead><tr><th>1차 타겟</th><th>2차 타겟</th><th>3차 타겟</th></tr></thead><tbody>
+<tr><td>B2B</td><td>B2C</td><td>B2G</td></tr>
+</tbody></table></div>
+<p>수익·거래 방식: <strong class="em">판매</strong>(제품 1, 제품 2, 제품 3) / <strong class="em">대여</strong> / A/S(유상보수, 하자보수) / 플랫폼 사용료·<strong class="em">구독</strong> / 원자재 거래 수수료</p>
+<p>구조 핵심: <strong>타겟 고객 → 제공 제품·서비스 → 수익 발생 방식</strong></p>
+<h3>② 우상단｜<strong class="em">기업</strong> 중심 Business Model</h3>
+<p>왼쪽 <strong class="em">고객군</strong>: <strong>B2B + B2G</strong></p>
+<p>중앙: <strong>기업</strong></p>
+<p>기업을 중심으로 A 기능 / B 기능 / C 기능 / D 기능을 배치</p>
+<p>오른쪽 <strong class="em">고객군</strong>: <strong>B2C</strong></p>
+<p>즉, <strong>B2B·<strong class="em">B2G</strong> ← 기능·서비스 ← <strong class="em">기업</strong> → 기능·서비스 → B2C</strong></p>
+<p>※ 이미지 해상도상 A·B·C·D 기능 아래의 작은 세부 문구는 정확한 판독이 어려워 임의로 보완하지 않았습니다.</p>
+<h3>③ 좌하단｜<strong class="em">B2G</strong>–<strong class="em">B2B</strong> 공급·거래 모델</h3>
+<p>B2G 공공기관</p>
+<ul>
+<li>기관명</li>
+<li>기관명</li>
+<li>기관명</li>
+</ul>
+<p>제공 항목:</p>
+<ul>
+<li>구독 서비스</li>
+<li>제조·구독</li>
+<li>제품 설치</li>
+<li>메인 제품 판매</li>
+<li>소모품 판매</li>
+<li>유지보수</li>
+<li>컨설팅</li>
+</ul>
+<p>B2B</p>
+<ul>
+<li>기업 or <strong class="em">기업</strong> 분야 및 성격</li>
+<li>기업 or <strong class="em">기업</strong> 분야 및 성격</li>
+<li>기업 or <strong class="em">기업</strong> 분야 및 성격</li>
+</ul>
+<p>현재 000, 00 확보 / <strong class="em">B2B</strong> 00업체 및 농장</p>
+<p>핵심 구조: <strong>공공기관(<strong class="em">B2G</strong>) → 제품·서비스 공급 → <strong class="em">기업</strong>·사업체(<strong class="em">B2B</strong>)</strong></p>
+<h3>④ 우하단｜<strong class="em">B2C</strong> + <strong class="em">B2B</strong> 복합 수익모델</h3>
+<p>B2C:</p>
+<ul>
+<li>기기 판매</li>
+<li>부가 제품 <strong class="em">판매</strong>: 제품 A, 제품 B</li>
+<li>AI 플랫폼</li>
+</ul>
+<p>수익원: <strong class="em">판매</strong>, 구독</p>
+<p>B2B:</p>
+<ul>
+<li>판매</li>
+<li>기기 렌탈</li>
+<li>플랫폼 이용 수수료</li>
+<li>기술료 수익</li>
+<li>광고</li>
+</ul>
+<p>추가 수익원:</p>
+<ul>
+<li>데이터 판매</li>
+<li>POC</li>
+</ul>
+<h3>4개 모델을 한 번에 비교하면</h3>
+<p>① <strong class="em">타겟별 수익모델형</strong>: 누구에게 무엇으로 돈을 받는가?</p>
+<p>② <strong class="em">기업 중심 연결형</strong>: 기업이 누구와 어떤 기능으로 연결되는가?</p>
+<p>③ 공급·거래 구조형: 누구에게 무엇을 공급하는가?</p>
+<p>④ <strong class="em">복합 수익모델형</strong>: 실제 돈이 어디에서 발생하는가?</p>
+<p>관광벤처 사업계획서에는 <strong>①과 ④를 겹쳐 그리는 방식</strong>이 가장 잘 맞습니다 — 고객군을 나누고(①), 그 위에 수익원을 여러 개 얹습니다(④).</p>
+<p>B2C / <strong class="em">B2B</strong> / <strong class="em">B2G</strong> 고객군을 나눈 뒤 → 각 고객에게 제공하는 <strong class="em">상품</strong>·서비스 → 거래 방식 → <strong class="em">주수익</strong> → <strong class="em">부수익</strong> 순으로 그리면 이 이미지와 같은 수준의 BM 구조를 만들 수 있습니다.</p></section></article>
+<article class="slide" data-index="6"><section class="card"><div class="kicker">바로 쓰는 프레임</div><h2>바로 쓰는 핵심 프레임</h2><div class="callout"><strong>고객군(<strong class="em">B2C</strong>·<strong class="em">B2B</strong>·<strong class="em">B2G</strong>) → <strong class="em">제공가치</strong>/<strong class="em">상품</strong> → <strong class="em">거래방식</strong> → <strong class="em">주수익</strong> → 부수익</strong></div><p>이 순서로 적으면 단순한 아이디어 설명을 넘어 <strong>실제 돈의 흐름까지 한 장</strong>에 담깁니다. 사업계획서 <strong>2-2 사업모델</strong> 칸이 이 순서입니다.</p></section></article>
+<section class="slide" data-index="7">
+<div class="card">
+<div class="slide-title">
+<h2>BM 모델 예시 4종 — 상세 해설</h2>
+<span class="badge">PAGE 1</span>
+</div>
+<div class="section blue">
+<h3>① 좌상단 — 타겟별 BM 모델</h3>
+<p><strong>BM 모델</strong></p>
+<p>1차 타겟 <strong>B2B</strong> / 2차 타겟 <strong>B2C</strong> / 3차 타겟 <strong>B2G</strong></p>
+<p><strong>수익 방식</strong></p>
+<ul>
+<li><strong>판매</strong>: 제품 1, 제품 2, 제품 3</li>
+<li><strong>대여</strong></li>
+<li><strong>A/S</strong>: 유상보수, 하자보수</li>
+<li><strong>플랫폼 사용료 / 구독</strong></li>
+<li><strong>원자재 거래 수수료</strong></li>
+</ul>
+<div class="core">핵심 포인트: <strong>고객(Target)을 먼저 나누고 → 각 고객에게서 어떤 방식으로 수익을 얻는지 보여주는 BM</strong></div>
+</div>
+<div class="section green">
+<h3>② 우상단 — <strong>기업</strong> 중심 Business Model</h3>
+<p>왼쪽: <strong>B2B + B2G</strong></p>
+<p>가운데: <strong>기업</strong></p>
+<p>기업을 중심으로 <strong>A 기능, B 기능, C 기능, D 기능</strong>을 배치</p>
+<p>오른쪽: <strong>B2C</strong></p>
+<div class="core">핵심 포인트: <strong>기업이 어떤 기능 또는 가치를 제공하여 B2B·B2G와 B2C를 동시에 연결하는가</strong>를 보여주는 형태</div>
+</div>
+<div class="section green">
+<h3>③ 좌하단 — <strong>B2G</strong> → <strong>상품</strong>·서비스 → <strong>B2B</strong> 모델</h3>
+<p><strong>B2G 공공기관</strong> → <strong>구독</strong> 서비스 / 제조·<strong>구독</strong> / 제품 설치 / 메인 제품 <strong>판매</strong> / 소모품 <strong>판매</strong> / 유지보수 / 컨설팅 → <strong>B2B</strong></p>
+<p><strong>현재 000,00 확보</strong> / <strong>B2B 00업체 및 농장</strong></p>
+<div class="core">핵심 포인트: <strong>누구에게 → 무엇을 제공하고 → 현재 어느 정도 고객을 확보했는가</strong>까지 한 장에서 보여주는 유형</div>
+</div>
+<div class="section blue">
+<h3>④ 우하단 — <strong>B2C</strong> + <strong>B2B</strong> 복합 수익모델</h3>
+<p><strong>B2C</strong>: 기기 <strong>판매</strong>, 부가 제품 <strong>판매</strong>, AI 플랫폼 / <strong>판매</strong>, <strong>구독</strong></p>
+<p><strong>B2B</strong>: <strong>판매</strong>, 기기 <strong>렌탈</strong>, 플랫폼 이용 <strong>수수료</strong>, <strong>기술료</strong> 수익, 광고</p>
+<p>추가 수익: <strong>데이터 판매</strong>, <strong>POC</strong></p>
+<p><strong>POC = Proof of Concept, 개념검증</strong></p>
+</div>
+<div class="flow">
+<h3>가장 중요한 흐름</h3>
+<div class="flowline">
+<span class="step">① 누구에게 판매하는가? <strong>B2C · B2B · B2G</strong></span>
+<span class="arrow">→</span>
+<span class="step">② 무엇을 제공하는가? <strong>제품 · 서비스 · 플랫폼 · 콘텐츠 · 데이터</strong></span>
+<span class="arrow">→</span>
+<span class="step">③ 어떻게 거래하는가? <strong>판매 · 대여 · 렌탈 · 구독 · 중개</strong></span>
+<span class="arrow">→</span>
+<span class="step">④ 무엇으로 돈을 버는가? <strong>판매수익 · 구독료 · 이용수수료 · 기술료 · 광고료 · 데이터 판매</strong></span>
+<span class="arrow">→</span>
+<span class="step">⑤ <strong>주수익과 부수익</strong>은 무엇인가?</span>
+</div>
+</div>
+<div class="example">
+<h3>관광벤처 예시</h3>
+<p>외국인 관광객 <strong>B2C</strong> → 안동 로컬투어 <strong>판매</strong> → <strong>투어 판매수익 [주수익]</strong></p>
+<p>지역 숙박업체 <strong>B2B</strong> → 예약 연계 → <strong>중개수수료 [부수익]</strong></p>
+<p>지자체 <strong>B2G</strong> → 관광콘텐츠 개발·운영 → <strong>사업 수행비 [부수익]</strong></p>
+</div>
+</div>
+</section></div>
+</div>
+
+<div class="dots" id="dots"></div>
+<div class="hint">상단 ← → 버튼 · 목차 버튼 · 키보드 ← → · 모바일 스와이프로 이동</div>
+</main>
+<script>
+(() => {
+  const track = document.getElementById('track');
+  const slides = [...document.querySelectorAll('.slide')];
+  const prev = document.getElementById('prev');
+  const next = document.getElementById('next');
+  const current = document.getElementById('current');
+  const total = document.getElementById('total');
+  const dotsBox = document.getElementById('dots');
+  const chapterBtns = [...document.querySelectorAll('.chapter-btn')];
+  let index = 0;
+  let startX = null;
+
+  total.textContent = slides.length;
+  dotsBox.innerHTML = '';
+  slides.forEach((_, i) => {
+    const b = document.createElement('button');
+    b.className = 'dot';
+    b.setAttribute('aria-label', `${i+1}번 페이지`);
+    b.addEventListener('click', () => go(i));
+    dotsBox.appendChild(b);
+  });
+  const dots = [...dotsBox.children];
+
+  function go(i) {
+    index = Math.max(0, Math.min(slides.length - 1, i));
+    track.style.transform = `translateX(-${index * 100}%)`;
+    current.textContent = index + 1;
+    prev.disabled = index === 0;
+    next.disabled = index === slides.length - 1;
+    dots.forEach((d,j)=>d.classList.toggle('active', j===index));
+    chapterBtns.forEach((b,j)=>b.classList.toggle('active', j===index));
+    chapterBtns[index]?.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  prev.addEventListener('click', () => go(index - 1));
+  next.addEventListener('click', () => go(index + 1));
+  chapterBtns.forEach(b => b.addEventListener('click', () => go(Number(b.dataset.go))));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft') go(index - 1);
+    if (e.key === 'ArrowRight') go(index + 1);
+  });
+  track.addEventListener('touchstart', e => startX = e.touches[0].clientX, {passive:true});
+  track.addEventListener('touchend', e => {
+    if (startX === null) return;
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 50) dx < 0 ? go(index + 1) : go(index - 1);
+    startX = null;
+  }, {passive:true});
+
+  go(0);
+})();
+</script>
+</body>
+</html>
