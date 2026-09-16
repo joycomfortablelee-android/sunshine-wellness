@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>클라우드 기반 SaaS 모델 | IaaS · PaaS · SaaS 이해</title>
+<style>
+  :root{
+    --navy:#102a43;
+    --blue:#2457a6;
+    --sky:#eaf3ff;
+    --gold:#c9972b;
+    --ink:#17212b;
+    --muted:#607080;
+    --line:#dbe4ee;
+    --bg:#f5f8fc;
+    --white:#fff;
+    --green:#2d7d5a;
+    --orange:#b96a19;
+    --red:#a33d3d;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+    font-family:"NanumBarunGothic","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;}
+  body{min-height:100vh;overflow:hidden}
+  .app{height:100vh;display:flex;flex-direction:column}
+  header{
+    height:76px; flex:0 0 76px; background:var(--navy); color:white;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 28px; box-shadow:0 4px 14px rgba(16,42,67,.16); z-index:5;
+  }
+  .brand{display:flex;align-items:center;gap:14px;min-width:0}
+  .badge{
+    width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,#4a82d8,#83b4ff);
+    display:grid;place-items:center;font-weight:900;font-size:17px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.22)
+  }
+  .title-wrap{min-width:0}
+  .title{font-size:20px;font-weight:900;letter-spacing:-.4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .subtitle{font-size:12px;opacity:.75;margin-top:4px}
+  .counter{font-weight:800;font-size:13px;white-space:nowrap}
+
+  main{position:relative;flex:1;overflow:hidden}
+  .track{height:100%;display:flex;transition:transform .42s cubic-bezier(.2,.75,.2,1)}
+  .slide{
+    min-width:100%;height:100%;padding:28px 34px 86px;overflow-y:auto;
+    display:flex;justify-content:center;align-items:flex-start;
+  }
+  .page{width:min(1180px,100%);margin:0 auto}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    color:var(--blue);font-weight:900;font-size:13px;letter-spacing:.02em;margin-bottom:10px
+  }
+  h1{font-size:34px;line-height:1.18;margin:0 0 12px;letter-spacing:-1.2px;color:var(--navy)}
+  h2{font-size:26px;line-height:1.25;margin:0 0 14px;color:var(--navy);letter-spacing:-.8px}
+  h3{font-size:17px;margin:0 0 8px;color:var(--navy)}
+  p{font-size:16px;line-height:1.75;margin:0 0 10px}
+  .lead{font-size:19px;line-height:1.65;color:#2b3c4d;max-width:1000px}
+  .em{color:var(--blue);font-weight:900}
+  .star{color:var(--gold);font-weight:900}
+
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;margin-top:26px}
+  .hero-card,.card{
+    background:white;border:1px solid var(--line);border-radius:20px;padding:22px;
+    box-shadow:0 10px 28px rgba(31,55,77,.07)
+  }
+  .hero-card{padding:30px}
+  .big-formula{
+    margin:18px 0;background:linear-gradient(135deg,#eef5ff,#f8fbff);
+    border:1px solid #cfe0f5;border-radius:18px;padding:24px;text-align:center
+  }
+  .big-formula .abbr{font-size:48px;font-weight:1000;color:var(--blue);letter-spacing:-2px}
+  .big-formula .full{font-size:20px;font-weight:900;margin-top:5px;color:var(--navy)}
+  .big-formula .kr{font-size:15px;color:var(--muted);margin-top:7px}
+
+  .flow{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px;align-items:stretch
+  }
+  .flow .node{
+    background:white;border:1px solid var(--line);border-radius:16px;padding:17px 14px;text-align:center;
+    min-height:118px;display:flex;flex-direction:column;justify-content:center
+  }
+  .flow .node b{font-size:17px;color:var(--navy)}
+  .flow .node span{font-size:13px;color:var(--muted);line-height:1.55;margin-top:6px}
+  .arrow{display:none}
+
+  .compare{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px
+  }
+  .model{background:white;border-radius:20px;border:1px solid var(--line);padding:22px;box-shadow:0 8px 20px rgba(31,55,77,.05)}
+  .model .tag{display:inline-block;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:900;margin-bottom:12px;background:var(--sky);color:var(--blue)}
+  .model .abbr{font-size:30px;font-weight:1000;color:var(--navy)}
+  .model .full{font-size:13px;color:var(--muted);margin:3px 0 14px}
+  .model ul,.clean{margin:0;padding-left:18px}
+  .model li,.clean li{margin:8px 0;line-height:1.55;font-size:14px}
+  .example{margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);font-size:13px;color:#425467}
+
+  .stack{
+    display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:20px
+  }
+  .layers{display:flex;flex-direction:column;gap:8px}
+  .layer{
+    border-radius:12px;padding:12px 14px;font-weight:800;border:1px solid var(--line);background:#fff;
+    display:flex;justify-content:space-between;gap:10px;align-items:center
+  }
+  .provider{background:#eef5ff;border-color:#c9dcf4;color:#1f4f90}
+  .user{background:#fff8e8;border-color:#ead49a;color:#78580f}
+  .legend{display:flex;gap:12px;flex-wrap:wrap;font-size:13px;margin-top:14px}
+  .legend span{display:inline-flex;align-items:center;gap:7px}
+  .dotx{width:10px;height:10px;border-radius:3px;display:inline-block}
+  .dot-provider{background:#8fb6e6}.dot-user{background:#e1bd5b}
+
+  .revenue{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+  .revenue .card{padding:20px}
+  .icon{font-size:30px;margin-bottom:8px}
+  .moneyflow{
+    margin-top:22px;background:white;border:1px solid var(--line);border-radius:18px;padding:20px
+  }
+  .moneyline{display:flex;align-items:center;justify-content:center;gap:13px;flex-wrap:wrap}
+  .pill{padding:12px 15px;border-radius:14px;background:#f7faff;border:1px solid #d7e3f3;font-weight:900}
+  .arr{font-size:24px;color:var(--blue);font-weight:900}
+
+
+  .casegrid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:22px}
+  .casecard{
+    background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;
+    box-shadow:0 8px 20px rgba(31,55,77,.05)
+  }
+  .casehead{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px}
+  .casebrand{font-size:21px;font-weight:1000;color:var(--navy)}
+  .casetag{font-size:11px;font-weight:900;padding:6px 9px;border-radius:999px;background:var(--sky);color:var(--blue);white-space:nowrap}
+  .caseflow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:14px 0}
+  .caseflow span{background:#f7faff;border:1px solid #d7e3f3;border-radius:11px;padding:8px 10px;font-size:12px;font-weight:800}
+  .caseflow b{color:var(--blue)}
+  .caseq{margin-top:14px;border-left:4px solid var(--gold);background:#fffaf0;padding:12px 14px;border-radius:0 12px 12px 0;font-size:13px;line-height:1.6}
+  .tourism-case{border-top:6px solid #2d7d5a}
+  .mini-table{width:100%;border-collapse:separate;border-spacing:0;margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .mini-table th,.mini-table td{padding:12px 13px;border-bottom:1px solid var(--line);font-size:13px;line-height:1.5;vertical-align:top}
+  .mini-table th{background:#f2f6fb;color:var(--navy);text-align:left;font-weight:900}
+  .mini-table tr:last-child td{border-bottom:0}
+
+  .proscons{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:20px}
+  .pc{background:white;border:1px solid var(--line);border-radius:20px;padding:22px}
+  .pc.good{border-top:6px solid #4b9b73}
+  .pc.bad{border-top:6px solid #c76868}
+  .pc li{margin:10px 0;line-height:1.55}
+
+  .pizza{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px}
+  .pizza .card{text-align:center;padding:18px 15px}
+  .pizza .emoji{font-size:38px}
+  .pizza .name{font-size:17px;font-weight:1000;color:var(--navy);margin:7px 0}
+  .pizza .desc{font-size:13px;line-height:1.55;color:var(--muted)}
+  .summary-box{
+    margin-top:22px;background:linear-gradient(135deg,#102a43,#1f4e7a);color:white;border-radius:20px;padding:22px 24px;
+    box-shadow:0 10px 28px rgba(16,42,67,.18)
+  }
+  .summary-box strong{color:#ffd87a}
+  .source-box{
+    margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px
+  }
+  .source-box a{color:var(--blue);text-decoration:none;word-break:break-all}
+  .source-box li{margin:7px 0;font-size:13px;line-height:1.55}
+
+  nav{
+    position:fixed;left:50%;bottom:18px;transform:translateX(-50%);
+    z-index:10;display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.96);
+    padding:10px 12px;border:1px solid var(--line);border-radius:999px;
+    box-shadow:0 8px 24px rgba(31,55,77,.14);backdrop-filter:blur(10px)
+  }
+  .navbtn{
+    width:42px;height:42px;border:0;border-radius:50%;background:var(--navy);color:white;
+    font-size:20px;font-weight:900;cursor:pointer;display:grid;place-items:center
+  }
+  .navbtn:disabled{opacity:.3;cursor:not-allowed}
+  .dots{display:flex;gap:7px}
+  .dot{width:9px;height:9px;border-radius:50%;border:0;background:#c8d2dc;cursor:pointer;padding:0}
+  .dot.active{background:var(--blue);transform:scale(1.25)}
+  .hint{position:fixed;right:20px;bottom:18px;font-size:12px;color:#718090;background:white;border:1px solid var(--line);padding:8px 11px;border-radius:999px}
+  @media (max-width:900px){
+    header{height:68px;flex-basis:68px;padding:0 16px}
+    .title{font-size:17px}.subtitle{display:none}
+    .slide{padding:22px 18px 90px}
+    h1{font-size:28px}.lead{font-size:17px}
+    .hero-grid,.stack,.proscons{grid-template-columns:1fr}
+    .compare,.revenue,.casegrid{grid-template-columns:1fr}
+    .flow{grid-template-columns:1fr 1fr}
+    .pizza{grid-template-columns:1fr 1fr}
+    .hint{display:none}
+  }
+  @media (max-width:560px){
+    .flow,.pizza{grid-template-columns:1fr}
+    .counter{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+  <div class="brand">
+    <div class="badge">CLOUD</div>
+    <div class="title-wrap">
+      <div class="title">클라우드 기반 SaaS 모델</div>
+      <div class="subtitle">Software as a Service · IaaS · PaaS 비교</div>
+    </div>
+  </div>
+  <div class="counter"><span id="current">1</span> / <span id="total">7</span></div>
+</header>
+
+<main>
+<div class="track" id="track">
+
+<section class="slide">
+<div class="page">
+  <div class="eyebrow">01 · SaaS의 기본 개념</div>
+  <h1>SaaS는 <span class="em">Software as a Service</span>의 약자입니다.</h1>
+  <p class="lead">소프트웨어를 PC에 직접 설치해 소유하는 대신, <b>인터넷을 통해 접속하여 서비스 형태로 사용하는 클라우드 모델</b>입니다.</p>
+
+  <div class="hero-grid">
+    <div class="hero-card">
+      <div class="big-formula">
+        <div class="abbr">SaaS</div>
+        <div class="full">Software as a Service</div>
+        <div class="kr">서비스형 소프트웨어</div>
+      </div>
+      <div class="flow">
+        <div class="node"><b>① 공급업체</b><span>클라우드 서버에 소프트웨어 운영</span></div>
+        <div class="node"><b>② 인터넷</b><span>웹·앱을 통해 서비스 전달</span></div>
+        <div class="node"><b>③ 사용자</b><span>로그인하여 즉시 사용</span></div>
+        <div class="node"><b>④ 비용</b><span>월·연 구독 또는 사용량 기반 지불</span></div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h2>설치형 소프트웨어와 무엇이 다른가?</h2>
+      <p><span class="star">★ 설치형</span>은 소프트웨어를 구매하여 PC나 사내 서버에 설치하고 직접 관리합니다.</p>
+      <p><span class="star">★ SaaS</span>는 공급업체가 서버·업데이트·유지관리를 담당하고, 사용자는 브라우저나 앱으로 접속합니다.</p>
+      <div class="summary-box">
+        <strong>한 문장 기억</strong><br>
+        “프로그램을 사서 설치하는 것”이 아니라<br>
+        <b>“필요할 때 접속해 사용하는 서비스”</b>입니다.
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="slide">
+<div class="page">
+  <div class="eyebrow">02 · 클라우드 3대 서비스 모델</div>
+  <h1>IaaS · PaaS · SaaS는 <span class="em">무엇을 빌려 쓰는가</span>가 다릅니다.</h1>
+  <p class="lead">클라우드 서비스는 공급자가 어디까지 관리해 주는지에 따라 대표적으로 세 단계로 구분할 수 있습니다.</p>
+
+  <div class="compare">
+    <div class="model">
+      <div class="tag">INFRASTRUCTURE</div>
+      <div class="abbr">IaaS</div>
+      <div class="full">Infrastructure as a Service · 서비스형 인프라</div>
+      <ul>
+        <li>서버·스토리지·네트워크를 빌려 사용</li>
+        <li>운영체제와 애플리케이션은 사용자가 관리</li>
+        <li>IT 인프라를 직접 구매하지 않아도 됨</li>
+      </ul>
+      <div class="example"><b>예:</b> AWS EC2, Google Compute Engine, Azure Virtual Machines</div>
+    </div>
+    <div class="model">
+      <div class="tag">PLATFORM</div>
+      <div class="abbr">PaaS</div>
+      <div class="full">Platform as a Service · 서비스형 플랫폼</div>
+      <ul>
+        <li>애플리케이션 개발·배포 환경 제공</li>
+        <li>OS·런타임·DB 등 개발 기반을 공급자가 관리</li>
+        <li>개발자는 코드와 서비스 개발에 집중</li>
+      </ul>
+      <div class="example"><b>예:</b> Firebase, AWS Elastic Beanstalk, Heroku</div>
+    </div>
+    <div class="model">
+      <div class="tag">SOFTWARE</div>
+      <div class="abbr">SaaS</div>
+      <div class="full">Software as a Service · 서비스형 소프트웨어</div>
+      <ul>
+        <li>완성된 소프트웨어를 바로 사용</li>
+        <li>설치·서버·업데이트 관리 부담이 매우 적음</li>
+        <li>브라우저·앱에서 로그인하여 이용</li>
+      </ul>
+      <div class="example"><b>예:</b> Slack, Notion, Google Workspace, Microsoft 365, Salesforce</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="slide">
+<div class="page">
+  <div class="eyebrow">03 · 관리 범위 비교</div>
+  <h1>차이는 결국 <span class="em">“누가 어디까지 관리하는가?”</span>입니다.</h1>
+  <div class="stack">
+    <div class="card">
+      <h2>IaaS</h2>
+      <div class="layers">
+        <div class="layer user">애플리케이션 <span>사용자 관리</span></div>
+        <div class="layer user">데이터 <span>사용자 관리</span></div>
+        <div class="layer user">런타임·미들웨어 <span>사용자 관리</span></div>
+        <div class="layer user">운영체제(OS) <span>사용자 관리</span></div>
+        <div class="layer provider">서버·스토리지·네트워크 <span>공급자 관리</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <h2>PaaS</h2>
+      <div class="layers">
+        <div class="layer user">애플리케이션 <span>사용자 관리</span></div>
+        <div class="layer user">데이터 <span>사용자 관리</span></div>
+        <div class="layer provider">런타임·미들웨어 <span>공급자 관리</span></div>
+        <div class="layer provider">운영체제(OS) <span>공급자 관리</span></div>
+        <div class="layer provider">서버·스토리지·네트워크 <span>공급자 관리</span></div>
+      </div>
+    </div>
+    <div class="card" style="grid-column:1/-1">
+      <h2>SaaS</h2>
+      <div class="layers">
+        <div class="layer provider">애플리케이션 <span>공급자 관리</span></div>
+        <div class="layer provider">런타임·운영체제·플랫폼 <span>공급자 관리</span></div>
+        <div class="layer provider">서버·스토리지·네트워크 <span>공급자 관리</span></div>
+      </div>
+      <div class="legend">
+        <span><i class="dotx dot-provider"></i> 공급자가 관리</span>
+        <span><i class="dotx dot-user"></i> 사용자가 관리</span>
+      </div>
+      <p style="margin-top:14px"><span class="star">★ 핵심:</span> IaaS → PaaS → SaaS로 갈수록 <b>사용자가 직접 관리해야 하는 범위가 줄어듭니다.</b></p>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="slide">
+<div class="page">
+  <div class="eyebrow">04 · SaaS의 핵심 특징</div>
+  <h1>SaaS의 핵심은 <span class="em">접속 · 구독 · 자동관리 · 확장</span>입니다.</h1>
+  <div class="revenue">
+    <div class="card"><div class="icon">🌐</div><h3>인터넷 기반 접속</h3><p>PC, 노트북, 태블릿, 스마트폰 등 다양한 기기에서 웹 또는 앱으로 이용합니다.</p></div>
+    <div class="card"><div class="icon">🔄</div><h3>자동 업데이트</h3><p>패치와 버전 업그레이드를 공급자가 서버에서 처리하므로 사용자는 별도 설치가 적습니다.</p></div>
+    <div class="card"><div class="icon">👥</div><h3>멀티테넌시</h3><p>하나의 서비스 환경을 여러 고객 조직이 논리적으로 분리된 상태로 공유할 수 있습니다.</p></div>
+    <div class="card"><div class="icon">📈</div><h3>확장성</h3><p>사용자 수나 저장공간이 늘면 요금제와 리소스를 비교적 쉽게 확장할 수 있습니다.</p></div>
+    <div class="card"><div class="icon">🧩</div><h3>통합·연동</h3><p>API, 플러그인, 외부 서비스 연계를 통해 업무 흐름을 확장하기 쉽습니다.</p></div>
+    <div class="card"><div class="icon">☁️</div><h3>중앙 집중 관리</h3><p>소프트웨어와 데이터가 클라우드 환경에서 관리되어 조직 단위 운영이 편리합니다.</p></div>
+  </div>
+</div>
+</section>
+
+<section class="slide">
+<div class="page">
+  <div class="eyebrow">05 · SaaS 비즈니스 모델</div>
+  <h1>기술 모델이면서 동시에 <span class="em">반복 매출형 비즈니스 모델</span>입니다.</h1>
+  <p class="lead">SaaS 기업은 소프트웨어를 한 번 판매하고 끝내기보다, 고객이 계속 사용하는 동안 반복적으로 매출을 얻는 구조를 설계합니다.</p>
+  <div class="revenue">
+    <div class="card">
+      <div class="icon">💳</div>
+      <h3>정액 구독 Subscription</h3>
+      <p>월간·연간 단위로 일정 금액을 지불합니다.</p>
+      <p><b>예:</b> 사용자 1명당 월 요금</p>
+    </div>
+    <div class="card">
+      <div class="icon">📊</div>
+      <h3>종량제 Usage-based</h3>
+      <p>사용량·처리량·저장용량 등에 따라 비용을 지불합니다.</p>
+      <p><b>예:</b> API 호출 수, 저장공간</p>
+    </div>
+    <div class="card">
+      <div class="icon">🪜</div>
+      <h3>단계형 요금 Tiered</h3>
+      <p>Basic · Pro · Enterprise처럼 기능과 사용 범위에 따라 요금제를 구분합니다.</p>
+    </div>
+  </div>
+  <div class="moneyflow">
+    <h3 style="text-align:center;margin-bottom:16px">SaaS의 돈의 흐름</h3>
+    <div class="moneyline">
+      <div class="pill">고객</div><div class="arr">→</div>
+      <div class="pill">월·연 구독료 / 사용료</div><div class="arr">→</div>
+      <div class="pill">SaaS 기업</div><div class="arr">→</div>
+      <div class="pill">클라우드 운영 + 지속 업데이트</div>
+    </div>
+  </div>
+  <div class="summary-box">
+    <strong>핵심:</strong> SaaS는 “소프트웨어 종류”만을 뜻하지 않습니다.
+    <b>클라우드 제공 방식 + 반복 과금 구조</b>가 결합된 사업모델로 이해하면 좋습니다.
+  </div>
+</div>
+</section>
+
+
+<section class="slide">
+<div class="page">
+  <div class="eyebrow">06 · 실제 SaaS 사례</div>
+  <h1>우리가 매일 쓰는 서비스도 <span class="em">SaaS 비즈니스</span>입니다.</h1>
+  <p class="lead">“어떤 프로그램인가?”보다 <b>“무엇을 클라우드에서 서비스로 제공하고, 고객은 왜 계속 비용을 내는가?”</b>를 먼저 물으면 SaaS가 훨씬 쉽게 잡힙니다.</p>
+
+  <div class="casegrid">
+    <div class="casecard">
+      <div class="casehead"><div class="casebrand">Google Workspace</div><div class="casetag">생산성 · 협업</div></div>
+      <p>Gmail, Docs, Sheets, Drive, Meet 등 업무 도구를 인터넷 기반으로 제공하는 대표적인 클라우드 소프트웨어 사례입니다.</p>
+      <div class="caseflow"><span>기업·학교</span><b>→</b><span>계정·요금제</span><b>→</b><span>메일·문서·저장·회의</span></div>
+      <div class="caseq"><b>생각해 볼 질문</b> · “한글·엑셀 프로그램을 각 PC에 따로 설치하는 방식과 무엇이 다른가?”</div>
+    </div>
+
+    <div class="casecard">
+      <div class="casehead"><div class="casebrand">Slack</div><div class="casetag">조직 커뮤니케이션</div></div>
+      <p>팀의 채널형 메시지, 파일 공유, 검색, 외부 앱 연동을 하나의 온라인 업무공간에서 제공합니다.</p>
+      <div class="caseflow"><span>팀</span><b>→</b><span>사용자 계정</span><b>→</b><span>메시지·검색·연동</span></div>
+      <div class="caseq"><b>핵심 포인트</b> · 프로그램 설치 자체보다 “팀이 계속 같은 온라인 공간을 사용하는 것”이 가치입니다.</div>
+    </div>
+
+    <div class="casecard">
+      <div class="casehead"><div class="casebrand">Salesforce</div><div class="casetag">B2B · CRM</div></div>
+      <p>기업이 고객정보, 영업활동, 상담기록 등을 클라우드에서 통합 관리하도록 돕는 CRM 사례입니다.</p>
+      <div class="caseflow"><span>기업</span><b>→</b><span>클라우드 CRM</span><b>→</b><span>고객·영업·서비스 데이터</span></div>
+      <div class="caseq"><b>핵심 포인트</b> · 과거에는 CRM 서버와 소프트웨어를 기업 내부에 구축했지만, 클라우드 CRM은 인터넷으로 접근합니다.</div>
+    </div>
+
+    <div class="casecard">
+      <div class="casehead"><div class="casebrand">Canva</div><div class="casetag">디자인 · 콘텐츠</div></div>
+      <p>브라우저와 앱에서 디자인 제작, 템플릿, 협업 기능을 제공하여 사용자가 별도 고성능 편집 프로그램 설치 없이 콘텐츠를 만들 수 있습니다.</p>
+      <div class="caseflow"><span>개인·팀</span><b>→</b><span>온라인 디자인</span><b>→</b><span>템플릿·협업·저장</span></div>
+      <div class="caseq"><b>생각해 볼 질문</b> · “무료 사용자를 유료 구독자로 전환하려면 어떤 기능을 Pro에 넣어야 할까?”</div>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section class="slide">
+<div class="page">
+  <div class="eyebrow">07 · 관광·호텔 산업의 SaaS 사례</div>
+  <h1>호텔도 이제 <span class="em">서버를 직접 구축하기보다 클라우드 PMS를 사용</span>할 수 있습니다.</h1>
+  <p class="lead">호텔에서는 객실 예약·재고·고객정보·체크인·요금·결제·채널 관리를 클라우드에서 처리하는 시스템이 SaaS 이해에 특히 좋은 사례입니다.</p>
+
+  <div class="casegrid">
+    <div class="casecard tourism-case">
+      <div class="casehead"><div class="casebrand">Oracle OPERA Cloud PMS</div><div class="casetag">호텔 PMS</div></div>
+      <p>Oracle은 OPERA Cloud를 호텔용 클라우드 PMS로 제공하며, 호텔 운영 통합관리, 고객 프로필, 예약 검색, 객실·요금 관리, 결제, 실시간 비즈니스 인사이트 등을 지원합니다.</p>
+      <div class="caseflow"><span>호텔 직원</span><b>→</b><span>OPERA Cloud</span><b>→</b><span>예약·객실·고객·결제</span></div>
+      <div class="caseq"><b>SaaS인 이유</b> · 호텔마다 자체 PMS 서버를 구축하는 방식이 아니라, 공급자가 제공하는 클라우드 환경에 접속하여 운영 기능을 사용합니다.</div>
+    </div>
+
+    <div class="casecard tourism-case">
+      <div class="casehead"><div class="casebrand">Cloudbeds</div><div class="casetag">호텔 운영 플랫폼</div></div>
+      <p>Cloudbeds는 PMS를 중심으로 채널매니저, 예약엔진, 결제, 고객 커뮤니케이션, CRM, 수익관리 기능 등을 하나의 호텔 관리 플랫폼에서 연결합니다.</p>
+      <div class="caseflow"><span>호텔</span><b>→</b><span>Cloudbeds</span><b>→</b><span>PMS + OTA 배포 + 결제 + CRM</span></div>
+      <div class="caseq"><b>관광 포인트</b> · SaaS는 하나의 기능만 빌리는 것이 아니라, 여러 모듈을 연결하여 호텔의 디지털 운영체계를 만들 수도 있습니다.</div>
+    </div>
+
+    <div class="casecard tourism-case">
+      <div class="casehead"><div class="casebrand">Mews</div><div class="casetag">Hospitality Cloud</div></div>
+      <p>호텔 운영, 예약, 고객 경험, 결제 등을 클라우드 기반으로 연결하는 호스피탈리티 플랫폼 유형의 사례로 이해할 수 있습니다.</p>
+      <div class="caseflow"><span>숙박업체</span><b>→</b><span>클라우드 플랫폼</span><b>→</b><span>운영 자동화·고객 서비스</span></div>
+      <div class="caseq"><b>생각해 볼 질문</b> · “호텔이 자체 전산실을 크게 두지 않아도 여러 지점의 운영정보를 함께 관리할 수 있다면 어떤 장점이 있을까?”</div>
+    </div>
+
+    <div class="casecard tourism-case">
+      <div class="casehead"><div class="casebrand">관광 스타트업 적용 예</div><div class="casetag">사업모델 설계</div></div>
+      <p><b>지역 체험사업자용 예약·고객관리 SaaS</b>를 만든다고 가정하면, 체험업체는 프로그램을 구매하는 대신 월 구독료를 내고 예약·재고·고객·정산 기능을 사용할 수 있습니다.</p>
+      <div class="caseflow"><span>체험업체</span><b>→</b><span>월 ￦ 구독료</span><b>→</b><span>예약·CRM·정산 SaaS</span></div>
+      <div class="caseq"><b>창업 연결</b> · “누가 돈을 내는가(B2B) → 어떤 반복 문제를 해결하는가 → 왜 매달 계속 쓰는가”를 설계하면 SaaS 사업모델이 됩니다.</div>
+    </div>
+  </div>
+
+  <table class="mini-table">
+    <tr><th>사례</th><th>고객</th><th>서비스로 제공하는 것</th><th>SaaS 관점에서 볼 포인트</th></tr>
+    <tr><td><b>OPERA Cloud</b></td><td>호텔·리조트</td><td>PMS·예약·객실·고객·결제 관리</td><td>호텔 핵심 운영 소프트웨어의 클라우드화</td></tr>
+    <tr><td><b>Cloudbeds</b></td><td>독립호텔·호텔그룹</td><td>PMS·채널·예약엔진·CRM·수익 기능</td><td>여러 기능을 하나의 플랫폼으로 통합</td></tr>
+    <tr><td><b>관광 스타트업 SaaS</b></td><td>체험업체·여행사·관광기업</td><td>예약·고객·재고·정산 등</td><td>반복 업무를 월 구독형 서비스로 전환</td></tr>
+  </table>
+</div>
+</section>
+
+<section class="slide">
+<div class="page">
+  <div class="eyebrow">08 · 장점과 주의점</div>
+  <h1>SaaS는 편리하지만 <span class="em">인터넷·데이터·벤더 의존성</span>도 함께 봐야 합니다.</h1>
+  <div class="proscons">
+    <div class="pc good">
+      <h2>👍 장점</h2>
+      <ul class="clean">
+        <li><b>초기비용 절감:</b> 자체 서버 구축과 대규모 라이선스 구매 부담을 줄일 수 있음</li>
+        <li><b>빠른 도입:</b> 설치보다 계정 생성과 설정 중심으로 빠르게 시작 가능</li>
+        <li><b>유연한 확장:</b> 사용자·기능·저장공간 증가에 따라 요금제 변경 가능</li>
+        <li><b>자동 업데이트:</b> 보안 패치와 기능 개선을 공급자가 관리</li>
+        <li><b>원격 접근:</b> 장소와 기기에 덜 구애받고 이용 가능</li>
+      </ul>
+    </div>
+    <div class="pc bad">
+      <h2>⚠️ 주의점</h2>
+      <ul class="clean">
+        <li><b>인터넷 의존:</b> 연결 장애가 발생하면 서비스 이용이 제한될 수 있음</li>
+        <li><b>데이터 보안:</b> 외부 클라우드에 저장되는 데이터의 보안·규정 준수 검토 필요</li>
+        <li><b>벤더 락인:</b> 특정 서비스에 깊이 의존하면 다른 플랫폼으로 이전하기 어려울 수 있음</li>
+        <li><b>장기 비용:</b> 사용자가 많아질수록 누적 구독비용이 커질 수 있음</li>
+        <li><b>서비스 종료 위험:</b> 공급자 정책 변경이나 서비스 종료에 영향을 받을 수 있음</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="slide">
+<div class="page">
+  <div class="eyebrow">09 · 피자 비유로 끝내기</div>
+  <h1>피자를 먹는 방식으로 보면 <span class="em">IaaS · PaaS · SaaS</span>가 쉽습니다.</h1>
+  <div class="pizza">
+    <div class="card">
+      <div class="emoji">🍞</div>
+      <div class="name">직접 만들기</div>
+      <div class="desc">재료·도구·조리·식탁까지 모두 내가 준비<br><b>온프레미스</b></div>
+    </div>
+    <div class="card">
+      <div class="emoji">🧱</div>
+      <div class="name">IaaS</div>
+      <div class="desc">주방·오븐 같은 기반은 빌리고<br>조리와 레시피는 내가 관리</div>
+    </div>
+    <div class="card">
+      <div class="emoji">👨‍🍳</div>
+      <div class="name">PaaS</div>
+      <div class="desc">주방과 조리환경까지 준비됨<br>나는 메뉴 개발과 서비스에 집중</div>
+    </div>
+    <div class="card">
+      <div class="emoji">🍕</div>
+      <div class="name">SaaS</div>
+      <div class="desc">완성된 피자를 주문해 바로 먹음<br>사용자는 <b>완성된 소프트웨어 이용</b></div>
+    </div>
+  </div>
+
+  <div class="summary-box">
+    <strong>최종 정리</strong><br><br>
+    <b>IaaS</b> = 컴퓨팅 <u>인프라</u>를 빌린다<br>
+    <b>PaaS</b> = 개발·운영 <u>플랫폼</u>을 빌린다<br>
+    <b>SaaS</b> = 완성된 <u>소프트웨어</u>를 서비스로 사용한다
+  </div>
+
+  <div class="source-box">
+    <h3>참고 자료</h3>
+    <ul class="clean">
+      <li>Samsung SDS, SaaS 용어집 — <a href="https://www.samsungsds.com/kr/cloud-glossary/saas.html" target="_blank">https://www.samsungsds.com/kr/cloud-glossary/saas.html</a></li>
+      <li>AWS, What is SaaS? — <a href="https://aws.amazon.com/ko/what-is/saas/" target="_blank">https://aws.amazon.com/ko/what-is/saas/</a></li>
+      <li>Google Cloud, PaaS vs IaaS vs SaaS — <a href="https://cloud.google.com/learn/paas-vs-iaas-vs-saas?hl=ko" target="_blank">https://cloud.google.com/learn/paas-vs-iaas-vs-saas?hl=ko</a></li>
+      <li>Cloudflare, What is SaaS? — <a href="https://www.cloudflare.com/ko-kr/learning/cloud/what-is-saas/" target="_blank">https://www.cloudflare.com/ko-kr/learning/cloud/what-is-saas/</a></li>
+      <li>SAP, What is SaaS? — <a href="https://www.sap.com/korea/resources/what-is-saas" target="_blank">https://www.sap.com/korea/resources/what-is-saas</a></li>
+      <li>Oracle Hospitality, OPERA Cloud PMS — <a href="https://www.oracle.com/kr/hospitality/hotel-property-management/hotel-pms-software/" target="_blank">https://www.oracle.com/kr/hospitality/hotel-property-management/hotel-pms-software/</a></li>
+      <li>Cloudbeds, Hospitality Management Platform — <a href="https://www.cloudbeds.com/" target="_blank">https://www.cloudbeds.com/</a></li>
+      <li>Salesforce, Cloud CRM — <a href="https://www.salesforce.com/kr/crm/cloud-crm/" target="_blank">https://www.salesforce.com/kr/crm/cloud-crm/</a></li>
+    </ul>
+  </div>
+</div>
+</section>
+
+</div>
+</main>
+
+<nav aria-label="슬라이드 이동">
+  <button class="navbtn" id="prev" aria-label="이전">‹</button>
+  <div class="dots" id="dots"></div>
+  <button class="navbtn" id="next" aria-label="다음">›</button>
+</nav>
+<div class="hint">← → 키로도 이동</div>
+</div>
+
+<script>
+  const track = document.getElementById('track');
+  const slides = [...document.querySelectorAll('.slide')];
+  const prev = document.getElementById('prev');
+  const next = document.getElementById('next');
+  const dotsWrap = document.getElementById('dots');
+  const currentEl = document.getElementById('current');
+  const totalEl = document.getElementById('total');
+  let index = 0;
+
+  totalEl.textContent = slides.length;
+
+  slides.forEach((_, i) => {
+    const b = document.createElement('button');
+    b.className = 'dot';
+    b.setAttribute('aria-label', `${i+1}번 슬라이드`);
+    b.onclick = () => go(i);
+    dotsWrap.appendChild(b);
+  });
+
+  const dots = [...document.querySelectorAll('.dot')];
+
+  function go(i){
+    index = Math.max(0, Math.min(slides.length - 1, i));
+    track.style.transform = `translateX(-${index * 100}%)`;
+    currentEl.textContent = index + 1;
+    prev.disabled = index === 0;
+    next.disabled = index === slides.length - 1;
+    dots.forEach((d,j)=>d.classList.toggle('active', j===index));
+    slides[index].scrollTop = 0;
+  }
+
+  prev.onclick = ()=>go(index-1);
+  next.onclick = ()=>go(index+1);
+
+  document.addEventListener('keydown', e=>{
+    if(e.key === 'ArrowLeft') go(index-1);
+    if(e.key === 'ArrowRight') go(index+1);
+  });
+
+  let startX = null;
+  track.addEventListener('touchstart', e => startX = e.touches[0].clientX, {passive:true});
+  track.addEventListener('touchend', e => {
+    if(startX === null) return;
+    const dx = e.changedTouches[0].clientX - startX;
+    if(Math.abs(dx) > 45) dx < 0 ? go(index+1) : go(index-1);
+    startX = null;
+  }, {passive:true});
+
+  go(0);
+</script>
+</body>
+</html>

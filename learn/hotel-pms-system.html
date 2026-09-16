@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>호텔의 ERP? PMS(Property Management System) 이해</title>
+<style>
+:root{
+  --navy:#102a43; --navy2:#173f5f; --gold:#c89b3c; --ink:#1d2a35;
+  --muted:#617181; --line:#d9e2ec; --bg:#f5f8fb; --card:#ffffff;
+  --green:#16794c; --greenbg:#edf8f2; --amber:#9a6410; --amberbg:#fff7e6;
+  --bluebg:#eef5fb; --red:#a13a3a;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:"NanumBarunGothic","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  line-height:1.55;
+}
+.wrap{max-width:1180px;margin:0 auto;padding:22px 18px 42px}
+.hero{
+  background:linear-gradient(135deg,var(--navy),var(--navy2));
+  color:#fff;border-radius:18px;padding:26px 30px 24px;box-shadow:0 10px 30px rgba(16,42,67,.16)
+}
+.kicker{font-size:13px;letter-spacing:.08em;color:#d7e7f4;font-weight:700}
+h1{font-size:32px;line-height:1.2;margin:6px 0 10px}
+.hero p{margin:0;color:#eaf2f8;font-size:16px}
+.hero .one{
+  margin-top:16px;padding:12px 15px;border-left:4px solid var(--gold);
+  background:rgba(255,255,255,.08);border-radius:8px;font-weight:700
+}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.section{margin-top:18px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.section h2{margin:0 0 12px;color:var(--navy);font-size:21px}
+.section h3{margin:0 0 7px;color:var(--navy);font-size:16px}
+.card{border:1px solid var(--line);border-radius:13px;padding:15px;background:#fff}
+.card b{color:var(--navy)}
+.badge{display:inline-flex;align-items:center;gap:6px;border-radius:99px;padding:4px 9px;font-size:12px;font-weight:800}
+.ok{background:var(--greenbg);color:var(--green)}
+.fix{background:var(--amberbg);color:var(--amber)}
+.small{font-size:13px;color:var(--muted)}
+.fact{display:flex;gap:11px;align-items:flex-start}
+.fact .mark{font-size:22px;line-height:1}
+.diagram{
+  padding:16px;border-radius:14px;background:linear-gradient(180deg,#f9fbfd,#f3f7fa);
+  border:1px solid var(--line);overflow-x:auto
+}
+.flow{display:flex;align-items:stretch;justify-content:center;gap:8px;min-width:900px}
+.node{
+  min-width:140px;max-width:170px;flex:1;border:1.5px solid #b8c8d6;background:#fff;
+  border-radius:12px;padding:13px 11px;text-align:center;box-shadow:0 4px 12px rgba(16,42,67,.05)
+}
+.node.core{border:2px solid var(--gold);background:#fffaf0}
+.node .en{font-size:12px;color:var(--muted);font-weight:700}
+.node .kr{font-size:15px;color:var(--navy);font-weight:900;margin-top:2px}
+.node .desc{font-size:12px;color:#556575;margin-top:5px}
+.arrow{display:flex;align-items:center;color:var(--gold);font-size:24px;font-weight:900}
+.fn{position:relative;padding-top:40px}
+.fn .num{
+  position:absolute;left:14px;top:12px;width:26px;height:26px;border-radius:8px;
+  display:grid;place-items:center;background:var(--navy);color:#fff;font-size:13px;font-weight:800
+}
+.fn .tag{font-size:12px;color:var(--gold);font-weight:800}
+.metric{background:var(--bluebg)}
+.metric .formula{font-size:15px;font-weight:900;color:var(--navy);margin:4px 0}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{background:#eef3f7;color:var(--navy);text-align:left}
+th,td{border:1px solid var(--line);padding:9px 10px;vertical-align:top}
+td strong{color:var(--navy)}
+.callout{
+  border:1px solid #e3cf9c;background:#fffaf0;border-radius:13px;padding:14px 16px
+}
+.teacher{font-size:17px;font-weight:900;color:var(--navy)}
+.source a{color:#315f86;text-decoration:none;word-break:break-all}
+.source a:hover{text-decoration:underline}
+.checks{display:grid;grid-template-columns:1.1fr 1fr;gap:14px}
+.note{font-size:12px;color:#6c7a87;margin-top:8px}
+footer{margin-top:16px;text-align:center;color:#7c8995;font-size:12px}
+@media(max-width:850px){
+  h1{font-size:26px}.g2,.g3,.g4,.checks{grid-template-columns:1fr}
+  .hero{padding:22px}.section{padding:16px}
+}
+@media print{
+  body{background:#fff}.wrap{max-width:none;padding:0}.section,.hero{box-shadow:none;break-inside:avoid}
+  a{color:#000}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<section class="hero">
+  <div class="kicker">HOTEL TECHNOLOGY · PMS</div>
+  <h1>호텔의 ERP? → 핵심은 PMS</h1>
+  <p><b>PMS(Property Management System)</b>는 예약·객실·프런트·하우스키핑·결제·보고를 연결하는 호텔 운영의 중심 시스템입니다.</p>
+  <div class="one">한 문장으로 정리하면 <b>“PMS는 호텔 운영의 중심 허브이며, 일반 기업의 ERP와 비슷한 역할을 일부 수행하지만 ERP와 완전히 같은 개념은 아니다.”</b></div>
+</section>
+
+<section class="section">
+  <h2>01. 먼저 바로잡아야 할 핵심</h2>
+  <div class="checks">
+    <div class="card fact">
+      <div class="mark">✓</div>
+      <div>
+        <span class="badge ok">맞는 설명</span>
+        <h3 style="margin-top:8px">PMS는 호텔 운영 데이터를 한곳에 모은다</h3>
+        <div>예약, 객실 배정, 체크인·체크아웃, 객실 상태, 하우스키핑, 결제, 고객정보, 운영 보고 등을 통합 관리하는 것이 현대 PMS의 핵심입니다.</div>
+      </div>
+    </div>
+    <div class="card fact">
+      <div class="mark">!</div>
+      <div>
+        <span class="badge fix">표현 수정</span>
+        <h3 style="margin-top:8px">“PMS = 호텔의 ERP”는 비유로 사용</h3>
+        <div>ERP는 회계·인사·구매·재고·급여 등 기업 전체 자원을 포괄합니다. PMS는 주로 <b>숙박시설의 운영과 고객 여정</b>에 초점을 둡니다. 따라서 “호텔 운영의 ERP 같은 중심 시스템”이 더 정확합니다.</div>
+      </div>
+    </div>
+    <div class="card fact">
+      <div class="mark">!</div>
+      <div>
+        <span class="badge fix">용어 수정</span>
+        <h3 style="margin-top:8px">Property를 단순히 ‘자산’으로 번역하면 오해</h3>
+        <div>호텔 분야의 <i>property</i>는 보통 ‘호텔·숙박시설’을 뜻합니다. <b>호텔 운영관리시스템</b> 또는 <b>숙박시설 운영관리시스템</b>이라고 풀어 쓰는 편이 자연스럽습니다.</div>
+      </div>
+    </div>
+    <div class="card fact">
+      <div class="mark">!</div>
+      <div>
+        <span class="badge fix">구조 수정</span>
+        <h3 style="margin-top:8px">OTA 동기화의 실무 핵심은 Channel Manager</h3>
+        <div>Booking.com·Agoda·Expedia 등의 요금·재고·예약을 여러 채널에 실시간으로 배포·동기화하는 역할은 보통 <b>Channel Manager</b>가 담당하며 PMS와 양방향으로 연결됩니다.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>02. 호텔 시스템의 전체 구조</h2>
+  <div class="diagram">
+    <div class="flow">
+      <div class="node">
+        <div class="en">OTA / Direct</div><div class="kr">예약 채널</div>
+        <div class="desc">Booking.com · Agoda · Expedia · 호텔 홈페이지</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="node">
+        <div class="en">Channel Manager</div><div class="kr">채널 매니저</div>
+        <div class="desc">요금 · 재고 · 예약 동기화 / 오버부킹 위험 감소</div>
+      </div>
+      <div class="arrow">↔</div>
+      <div class="node core">
+        <div class="en">PMS</div><div class="kr">호텔 운영 중심 허브</div>
+        <div class="desc">예약 · 객실 · 투숙 · 결제 · 고객 · 하우스키핑 · 보고</div>
+      </div>
+      <div class="arrow">↔</div>
+      <div class="node">
+        <div class="en">Operations</div><div class="kr">현장 운영</div>
+        <div class="desc">Front Desk · Housekeeping · Maintenance</div>
+      </div>
+      <div class="arrow">↔</div>
+      <div class="node">
+        <div class="en">Other Systems</div><div class="kr">연계 시스템</div>
+        <div class="desc">POS · RMS · CRM · Payment · Accounting/ERP</div>
+      </div>
+    </div>
+  </div>
+  <div class="note">※ 실제 제품에 따라 Channel Manager가 PMS 안에 내장되거나 별도 솔루션으로 연결될 수 있습니다.</div>
+</section>
+
+<section class="section">
+  <h2>03. PMS가 실제로 관리하는 핵심 기능</h2>
+  <div class="grid g3">
+    <div class="card fn"><div class="num">1</div><div class="tag">ROOM INVENTORY</div><h3>객실 재고·가용성</h3>
+      <div>객실 유형별 판매 가능 객실, 판매 완료 객실, Out of Order/Service 상태 등을 확인합니다.</div></div>
+    <div class="card fn"><div class="num">2</div><div class="tag">RESERVATION</div><h3>예약 관리</h3>
+      <div>예약 생성·변경·취소, 투숙일, 객실 유형, 요금, 고객정보, 예약 출처 등을 관리합니다.</div></div>
+    <div class="card fn"><div class="num">3</div><div class="tag">FRONT OFFICE</div><h3>체크인·체크아웃</h3>
+      <div>객실 배정, 입실·퇴실 처리, 투숙객 상태와 객실 사용 현황을 실시간으로 연결합니다.</div></div>
+    <div class="card fn"><div class="num">4</div><div class="tag">HOUSEKEEPING</div><h3>청소·객실 상태</h3>
+      <div>Clean, Dirty, Inspected 등 객실 청소 상태를 표시하고 담당자와 작업을 배정할 수 있습니다.</div></div>
+    <div class="card fn"><div class="num">5</div><div class="tag">MAINTENANCE</div><h3>정비·수리</h3>
+      <div>고장·정비 요청, Out of Order/Out of Service 객실 등을 관리하여 판매 가능 객실과 연결합니다.</div></div>
+    <div class="card fn"><div class="num">6</div><div class="tag">REPORTING</div><h3>통계·경영 보고</h3>
+      <div>객실 판매량, 점유율, 평균객실단가, 매출, 예약 출처, 향후 객실 점유 전망 등을 분석합니다.</div></div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>04. PMS에서 자주 보는 핵심 호텔 지표</h2>
+  <div class="grid g3">
+    <div class="card metric">
+      <h3>OCC · Occupancy Rate</h3>
+      <div class="formula">객실점유율 = 판매 객실 수 ÷ 판매 가능 객실 수 × 100</div>
+      <div class="small">“오늘 호텔 객실이 얼마나 찼는가?”</div>
+    </div>
+    <div class="card metric">
+      <h3>ADR · Average Daily Rate</h3>
+      <div class="formula">ADR = 객실 매출 ÷ 판매 객실 수</div>
+      <div class="small">“판매된 객실 1실당 평균 얼마를 받았는가?”</div>
+    </div>
+    <div class="card metric">
+      <h3>RevPAR · Revenue per Available Room</h3>
+      <div class="formula">RevPAR = ADR × 객실점유율</div>
+      <div class="small">“판매 가능 객실 1실이 평균 얼마의 매출을 만들었는가?”</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>05. PMS와 다른 호텔 시스템은 무엇이 다른가?</h2>
+  <table>
+    <thead><tr><th>시스템</th><th>핵심 역할</th><th>쉽게 말하면</th></tr></thead>
+    <tbody>
+      <tr><td><strong>PMS</strong><br>Property Management System</td><td>예약·객실·투숙·하우스키핑·결제·운영정보 통합</td><td><b>호텔 운영의 중심 허브</b></td></tr>
+      <tr><td><strong>Channel Manager</strong></td><td>OTA·자사몰 등 여러 판매 채널의 요금·재고·예약 동기화</td><td>객실을 <b>여러 판매처에 동시에 배포</b></td></tr>
+      <tr><td><strong>CRS</strong><br>Central Reservation System</td><td>체인·브랜드 단위의 예약과 유통을 중앙 통제</td><td>여러 호텔의 <b>예약 중앙본부</b></td></tr>
+      <tr><td><strong>RMS</strong><br>Revenue Management System</td><td>수요예측·가격 최적화·수익관리</td><td>“오늘 객실을 <b>얼마에 팔 것인가?</b>”</td></tr>
+      <tr><td><strong>POS</strong><br>Point of Sale</td><td>레스토랑·바·스파·매장 등의 주문·결제</td><td>호텔 부대시설의 <b>판매 계산 시스템</b></td></tr>
+      <tr><td><strong>CRM</strong><br>Customer Relationship Management</td><td>고객 이력·선호·마케팅·충성고객 관리</td><td>“이 고객을 <b>어떻게 다시 오게 할까?</b>”</td></tr>
+      <tr><td><strong>ERP</strong><br>Enterprise Resource Planning</td><td>재무·회계·인사·구매·급여 등 기업 자원 전체 관리</td><td>회사 전체의 <b>경영 자원 관리</b></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section">
+  <h2>06. 실제 예약 1건이 들어오면</h2>
+  <div class="diagram">
+    <div class="flow" style="min-width:820px">
+      <div class="node"><div class="kr">① 예약 발생</div><div class="desc">Booking.com에서 객실 1실 예약</div></div>
+      <div class="arrow">→</div>
+      <div class="node"><div class="kr">② 재고 동기화</div><div class="desc">Channel Manager가 다른 채널의 판매 가능 객실 감소</div></div>
+      <div class="arrow">→</div>
+      <div class="node core"><div class="kr">③ PMS 반영</div><div class="desc">예약정보·투숙객·객실유형·요금 기록</div></div>
+      <div class="arrow">→</div>
+      <div class="node"><div class="kr">④ 현장 운영</div><div class="desc">객실 배정 → 체크인 → 청소/정비 상태 공유</div></div>
+      <div class="arrow">→</div>
+      <div class="node"><div class="kr">⑤ 보고</div><div class="desc">매출·OCC·ADR·RevPAR 등에 반영</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>07. 이렇게 설명하면 가장 정확합니다</h2>
+  <div class="callout">
+    <div class="teacher">“PMS는 호텔의 객실과 투숙객을 중심으로 예약부터 체크아웃까지 운영을 연결하는 핵심 시스템입니다.”</div>
+    <div style="margin-top:7px">“일반 기업에서 ERP가 여러 부서의 정보를 통합하듯, 호텔에서는 PMS가 프런트·예약·객실·하우스키핑·결제·운영 통계를 연결합니다. 다만 회계·인사·구매까지 포괄하는 ERP와는 범위가 다릅니다.”</div>
+    <div style="margin-top:7px">“OTA 재고 동기화는 PMS 혼자 하는 것으로 보기보다, <b>PMS ↔ Channel Manager ↔ OTA</b> 구조로 이해하는 것이 실무에 더 가깝습니다.”</div>
+  </div>
+</section>
+
+<section class="section source">
+  <h2>08. 확인 가능한 근거 · 공식 자료 중심</h2>
+  <div class="grid g2">
+    <div class="card"><b>Oracle Hospitality OPERA Cloud — Inventory & Rate Availability</b><br>
+      <span class="small">객실 재고, Rooms Sold, Occupancy, ADR, RevPAR, Out of Order 등의 정의 확인</span><br>
+      <a href="https://docs.oracle.com/en/industries/hospitality/opera-cloud/26.2/ocsuh/t_viewing_inventory_and_rate_availability.htm" target="_blank">Oracle 공식 문서 열기</a>
+    </div>
+    <div class="card"><b>Oracle Hospitality OPERA Cloud — Room Management</b><br>
+      <span class="small">Housekeeping, room status, maintenance request, Out of Order/Service 기능 확인</span><br>
+      <a href="https://docs.oracle.com/en/industries/hospitality/opera-cloud/24.3/ocsuh/c_housekeeping_room_management.htm" target="_blank">Oracle 공식 문서 열기</a>
+    </div>
+    <div class="card"><b>SiteMinder — Channel Management Software</b><br>
+      <span class="small">PMS와 OTA 사이의 양방향 예약·재고 동기화와 Channel Manager 역할 확인</span><br>
+      <a href="https://www.siteminder.com/channel-management-software/" target="_blank">SiteMinder 자료 열기</a>
+    </div>
+    <div class="card"><b>Mews — Property Management System</b><br>
+      <span class="small">예약, 결제, 하우스키핑, 보고, 고객운영을 통합하는 PMS 기능 확인</span><br>
+      <a href="https://www.mews.com/en/property-management-system" target="_blank">Mews PMS 자료 열기</a>
+    </div>
+    <div class="card"><b>Cloudbeds — Channel Manager</b><br>
+      <span class="small">PMS와 Channel Manager의 역할 차이 및 OTA 연결 구조 확인</span><br>
+      <a href="https://www.cloudbeds.com/channel-manager/" target="_blank">Cloudbeds 자료 열기</a>
+    </div>
+    <div class="card"><b>Cloudbeds — Reports</b><br>
+      <span class="small">재무·매출·점유율·예약·예측 보고 등 PMS의 리포팅 기능 확인</span><br>
+      <a href="https://myfrontdesk.cloudbeds.com/hc/en-us/articles/41695559811611-Cloudbeds-Reports-Hotel-Reporting-for-Operational-Financial-Revenue-Occupancy-Analysis" target="_blank">Cloudbeds Reports 열기</a>
+    </div>
+  </div>
+</section>
+
+<footer>호텔 PMS 학습자료 · 2026-09-16 기준 · 제품별 기능 구성은 상이할 수 있음</footer>
+</div>
+</body>
+</html>
