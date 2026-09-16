@@ -121,13 +121,14 @@
   <header>
     <div class="topline">
       <h1>OTA 숙소 결제방식 이해하기</h1>
-      <div class="counter"><span id="now">1</span> / 4</div>
+      <div class="counter"><span id="now">1</span> / 5</div>
     </div>
     <nav class="tabs" aria-label="슬라이드 선택">
       <button class="tab active" data-go="0"><span>1</span>1. 기본 구조</button>
-<button class="tab" data-go="1"><span>2</span>2. Expedia</button>
-<button class="tab" data-go="2"><span>3</span>3. Agoda</button>
-<button class="tab" data-go="3"><span>4</span>4. Booking.com</button>
+<button class="tab" data-go="1"><span>2</span>2. Expedia 두 모델</button>
+<button class="tab" data-go="2"><span>3</span>3. Expedia 수치</button>
+<button class="tab" data-go="3"><span>4</span>4. Agoda</button>
+<button class="tab" data-go="4"><span>5</span>5. Booking.com</button>
     </nav>
   </header>
 
@@ -143,21 +144,28 @@
 
     <section class="slide" data-index="2">
       <div class="slide-inner">
-        <img src="images/ota-payment-models-2.webp" alt="2. Expedia | 구조와 수치 해석">
+        <img src="images/ota-payment-models-expedia-collect.webp" alt="2. 익스피디아의 숙박 예약 수익구조 비교 | Expedia Collect(머천트 모델, 여행객이 예약 시 Expedia에 선결제 · Pay Now)와 Hotel Collect(에이전시 모델, 여행객이 숙박 시 호텔에 직접 결제 · Pay at Hotel)의 돈 흐름과 수익 원천 비교표">
       </div>
     </section>
     
 
     <section class="slide" data-index="3">
       <div class="slide-inner">
-        <img src="images/ota-payment-models-3.webp" alt="3. Agoda | 과거와 현재">
+        <img src="images/ota-payment-models-2.webp" alt="3. Expedia | 구조와 수치 해석">
       </div>
     </section>
     
 
     <section class="slide" data-index="4">
       <div class="slide-inner">
-        <img src="images/ota-payment-models-4.webp" alt="4. Booking.com | Agency에서 혼합 운영으로">
+        <img src="images/ota-payment-models-3.webp" alt="4. Agoda | 과거와 현재">
+      </div>
+    </section>
+    
+
+    <section class="slide" data-index="5">
+      <div class="slide-inner">
+        <img src="images/ota-payment-models-4.webp" alt="5. Booking.com | Agency에서 혼합 운영으로">
       </div>
     </section>
     
@@ -171,7 +179,8 @@
     <div class="dots"><button class="dot active" data-go="0" aria-label="1번 슬라이드로 이동"></button>
 <button class="dot" data-go="1" aria-label="2번 슬라이드로 이동"></button>
 <button class="dot" data-go="2" aria-label="3번 슬라이드로 이동"></button>
-<button class="dot" data-go="3" aria-label="4번 슬라이드로 이동"></button></div>
+<button class="dot" data-go="3" aria-label="4번 슬라이드로 이동"></button>
+<button class="dot" data-go="4" aria-label="5번 슬라이드로 이동"></button></div>
   </footer>
 </div>
 
@@ -183,7 +192,7 @@
   const now = document.getElementById('now');
   const tabs = [...document.querySelectorAll('.tab')];
   const dots = [...document.querySelectorAll('.dot')];
-  const total = 4;
+  const total = 5;
   let index = 0;
   let startX = null;
 
