@@ -1561,7 +1561,10 @@
     }
 
     /* 영상 아래로 내려온 「자주 무너지는 곳」 — 위 내려받기 줄과 같은 간격으로 */
-    .learn-article .psst-vid .psst-tip.vid { margin: 12px 0 0; }
+    /* 「세 칸 점검」은 읽는 글이라 가운데 정렬(.learn-fig)을 풀고 캡션과 같은 폭·왼쪽 맞춤으로 */
+    .learn-article .psst-vid .psst-tip.vid {
+      margin: 12px auto 0; text-align: left; max-width: 720px;
+    }
 
     /* 다음 수업도 접어 편다 — 붉은 테두리는 그대로 두어 「다음 회차」임이 보이게 한다. */
     .learn-article .wk-fold.next3 {
