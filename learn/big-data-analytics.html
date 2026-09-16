@@ -195,6 +195,67 @@
       .learn-article .vcards.c3,
       .learn-article .vcards.c2 { grid-template-columns: 1fr; }
     }
+
+    /* ── DIKW 상자 — 5V 바로 아래. 네 칸이 오른쪽으로 갈수록 한 칸씩 올라서는 계단 ── */
+    .learn-article .dikw-box {
+      margin: -6px 0 28px; padding: 18px 20px 16px; border-radius: 14px;
+      background: #f7f9fb; border: 1px solid #dde5ee;
+    }
+    .learn-article .dikw-box .dk-h { margin: 0 0 4px; font-size: 15.5px; font-weight: 800; color: var(--deep); line-height: 1.5; }
+    .learn-article .dikw-box .dk-h span { margin-left: 8px; font-size: 12px; font-weight: 700; color: #7c8a99; }
+    .learn-article .dikw-box .dk-lead { margin: 0 0 14px; font-size: 13px; line-height: 1.75; color: var(--muted); }
+    .learn-article .dikw {
+      list-style: none; margin: 0; padding: 0;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; align-items: stretch;
+    }
+    .learn-article .dikw > li { margin: 0; display: flex; flex-direction: column; }
+    .learn-article .dikw > li:nth-child(1) { padding-top: 54px; }
+    .learn-article .dikw > li:nth-child(2) { padding-top: 36px; }
+    .learn-article .dikw > li:nth-child(3) { padding-top: 18px; }
+    .learn-article .dikw .dk-card {
+      flex: 1 1 auto; padding: 12px 13px 13px; border-radius: 11px;
+      border: 1px solid var(--v-ln, var(--line)); border-top: 3px solid var(--v-ac, var(--green));
+      background: linear-gradient(158deg, var(--v-a, #f6f7f8) 0%, var(--v-b, #fbfbfb) 54%, #fff 88%);
+    }
+    .learn-article .dikw .dk-l { display: flex; align-items: baseline; gap: 7px; margin-bottom: 2px; }
+    .learn-article .dikw .dk-l b { font-size: 24px; font-weight: 900; line-height: 1; color: var(--v-ac, var(--green)); }
+    .learn-article .dikw .dk-l i { font-style: normal; font-size: 11px; font-weight: 800; letter-spacing: .03em; color: var(--v-tc, var(--deep)); }
+    .learn-article .dikw .dk-n { display: block; font-size: 14.5px; font-weight: 800; color: var(--deep); line-height: 1.45; }
+    .learn-article .dikw .dk-q {
+      display: inline-block; margin: 5px 0 7px; padding: 1px 9px; border-radius: 999px;
+      background: #fff; border: 1px solid var(--v-ln, var(--line));
+      font-size: 11px; font-weight: 700; color: var(--v-tc, var(--deep)); line-height: 1.6;
+    }
+    .learn-article .dikw .dk-d { display: block; font-size: 12.5px; line-height: 1.72; color: var(--muted); }
+    .learn-article .dikw .dk-ex {
+      display: block; margin-top: 8px; padding-top: 7px; border-top: 1px dashed var(--v-ln, var(--line));
+      font-size: 12px; line-height: 1.7; color: #3f4b57;
+    }
+    .learn-article .dikw .dk-ex::before { content: "관광 예 · "; font-weight: 800; color: var(--v-tc, var(--deep)); }
+    /* 맨 위 칸 — 진한 초록에 흰 글자. 5V 의 Value 와 같은 자리다. */
+    .learn-article .dikw > li.top .dk-card { background: #2f5148; border-color: #2f5148; border-top-color: #1f382f; }
+    .learn-article .dikw > li.top .dk-l b,
+    .learn-article .dikw > li.top .dk-l i,
+    .learn-article .dikw > li.top .dk-n,
+    .learn-article .dikw > li.top .dk-d,
+    .learn-article .dikw > li.top .dk-ex,
+    .learn-article .dikw > li.top .dk-d strong { color: #fff; }
+    .learn-article .dikw > li.top .dk-ex { border-top-color: rgba(255,255,255,.3); }
+    .learn-article .dikw > li.top .dk-ex::before { color: #cfe6dc; }
+    .learn-article .dikw > li.top .dk-q { background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.35); color: #fff; }
+    .learn-article .dikw-box .dk-foot {
+      margin: 14px 0 0; padding-top: 11px; border-top: 1px solid #dde5ee;
+      font-size: 12.5px; line-height: 1.75; color: var(--muted);
+    }
+    .learn-article .dikw-box .dk-foot strong { color: var(--deep); }
+    @media (max-width: 900px) {
+      .learn-article .dikw { grid-template-columns: repeat(2, 1fr); align-items: stretch; }
+      .learn-article .dikw > li:nth-child(n) { padding-top: 0; }
+    }
+    @media (max-width: 620px) {
+      .learn-article .dikw-box { padding: 15px 14px 13px; }
+      .learn-article .dikw { grid-template-columns: 1fr; }
+    }
     /* 스티키노트 알약 — 연결되는 페이지가 노랑이라 알약도 노랑으로 둔다. */
     /* 히어로에 강의실 바와 학사일정 상자를 나란히 — 둘 다 「언제 · 어디서」를 말한다.
        학사일정 상자는 본문(.learn-article) 안에 있던 것이라 히어로용 규칙을 따로 적는다. */
@@ -478,6 +539,42 @@
         <li class="t-gold"><span class="vt">＋2V</span><span class="vh">Veracity · 정확성</span><span class="vd">3V에 더해 5V로 셀 때 함께 꼽습니다.</span></li>
         <li class="t-green"><span class="vt">＋2V · 마지막 관문</span><span class="vh">Value · 가치</span><span class="vd">관광에서는 "데이터가 많다"가 아니라 <em>"그래서 어떤 결정을 바꾸는가"</em>가 마지막 관문입니다.</span></li>
       </ul>
+
+      <div class="dikw-box">
+        <p class="dk-h">DIKW 모형 — 데이터가 결정이 되기까지<span>Data → Information → Knowledge → Wisdom</span></p>
+        <p class="dk-lead">5V가 <strong>데이터가 어떤 모습인가</strong>를 말한다면, DIKW는 <strong>그 데이터를 어디까지 끌어올렸는가</strong>를 말합니다. 한 칸 오를 때마다 양은 줄고 쓸모는 커집니다.</p>
+        <ol class="dikw">
+          <li class="t-gray"><div class="dk-card">
+            <span class="dk-l"><b>D</b><i>DATA</i></span>
+            <span class="dk-n">데이터</span>
+            <span class="dk-q">가공 전의 기록</span>
+            <span class="dk-d">맥락 없이 쌓인 숫자·글자·신호. 그 자체로는 아무것도 말하지 않습니다.</span>
+            <span class="dk-ex">기지국 신호 한 건, 카드 결제 한 건, 후기 한 줄.</span>
+          </div></li>
+          <li class="t-blue"><div class="dk-card">
+            <span class="dk-l"><b>I</b><i>INFORMATION</i></span>
+            <span class="dk-n">정보</span>
+            <span class="dk-q">누가 · 언제 · 어디서 · 무엇을</span>
+            <span class="dk-d">데이터를 정리·집계해 <strong>맥락</strong>을 붙인 것. 표와 그래프가 여기서 나옵니다.</span>
+            <span class="dk-ex">「10월 주말, 하회마을 방문객은 20~30대가 가장 많다.」</span>
+          </div></li>
+          <li class="t-teal"><div class="dk-card">
+            <span class="dk-l"><b>K</b><i>KNOWLEDGE</i></span>
+            <span class="dk-n">지식</span>
+            <span class="dk-q">어떻게 · 왜 그런가</span>
+            <span class="dk-d">여러 정보를 엮어 찾은 <strong>패턴과 원인</strong>. 다음에도 통하는 규칙입니다.</span>
+            <span class="dk-ex">「축제 주간에 몰리지만 대부분 당일치기로, 저녁 전에 떠난다.」</span>
+          </div></li>
+          <li class="t-green top"><div class="dk-card">
+            <span class="dk-l"><b>W</b><i>WISDOM</i></span>
+            <span class="dk-n">지혜 · 통찰</span>
+            <span class="dk-q">그래서 무엇을 할 것인가</span>
+            <span class="dk-d">지식에 판단을 더해 <strong>결정과 행동</strong>으로 옮기는 단계. 여기까지 와야 가치가 됩니다.</span>
+            <span class="dk-ex">「축제 기간 야간 공연과 숙박을 묶어 하룻밤 더 머물게 한다.」</span>
+          </div></li>
+        </ol>
+        <p class="dk-foot"><strong>5V의 마지막 V(Value)는 DIKW의 W에서 생깁니다.</strong> 앞으로 배울 수집·정제는 D를 I로, 분석은 I를 K로, 시각화·해석은 K를 W로 끌어올리는 일입니다. 관광 예는 이해를 돕기 위해 만든 가상의 예입니다.</p>
+      </div>
 
       <p class="learn-part">02 · 관광 데이터는 어디서 오는가</p>
       <p>관광 빅데이터의 힘은, 여행자가 설문에 답하지 않아도 행동이 저절로 기록된다는 데 있습니다.</p>
