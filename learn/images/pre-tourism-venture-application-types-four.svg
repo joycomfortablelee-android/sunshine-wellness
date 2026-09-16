@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 650" width="960" height="650" role="img" aria-label="예비관광벤처 신청유형 넷 — 관광체험서비스 · 실감형관광콘텐츠 · 관광인프라 · 관광딥테크">
+  <style>
+    .bg { fill:#f7faf8; }
+    .ti { font:800 25px "Noto Sans KR","Malgun Gothic",sans-serif; fill:#14302a; }
+    .sub { font:400 14.5px "Noto Sans KR","Malgun Gothic",sans-serif; fill:#5b6b66; }
+    .card { fill:#ffffff; stroke:#dfe8e3; stroke-width:1.2; }
+    .num { font:800 14px "Noto Sans KR","Malgun Gothic",sans-serif; fill:#ffffff; }
+    .nm { font:800 21px "Noto Sans KR","Malgun Gothic",sans-serif; fill:#14302a; }
+    .de { font:400 15px "Noto Sans KR","Malgun Gothic",sans-serif; fill:#2d3f39; }
+    .ex { font:400 13.5px "Noto Sans KR","Malgun Gothic",sans-serif; fill:#68786f; }
+    .exh { font:800 13.5px "Noto Sans KR","Malgun Gothic",sans-serif; }
+    .foot { font:400 13px "Noto Sans KR","Malgun Gothic",sans-serif; fill:#6b7a72; }
+    .pick { font:800 15px "Noto Sans KR","Malgun Gothic",sans-serif; fill:#b4451f; }
+  </style>
+
+  <rect class="bg" x="0" y="0" width="960" height="650" rx="18" />
+
+  <text class="ti" x="30" y="44">예비관광벤처 <tspan fill="#b4451f">신청유형 넷</tspan> — 이 가운데 하나만 고릅니다 (택 1)</text>
+  <text class="sub" x="30" y="70">사업계획서 첫 표 「일반현황」의 칸입니다. 유형 이름은 양식 그대로이고, 아래 풀이와 예시는 수업용으로 붙였습니다.</text>
+
+  <!-- ① 관광체험서비스 -->
+  <g>
+    <rect class="card" x="28" y="92" width="444" height="242" rx="16" />
+    <rect x="28" y="92" width="444" height="7" rx="3.5" fill="#1faa59" />
+    <circle cx="58" cy="130" r="15" fill="#1faa59" />
+    <text class="num" x="58" y="135" text-anchor="middle">①</text>
+    <text class="nm" x="84" y="137">관광체험서비스</text>
+    <text class="de" x="52" y="174">관광객이 <tspan font-weight="800">직접 참여해 즐기는</tspan> 여행상품 ·</text>
+    <text class="de" x="52" y="197">테마코스 · 체험 프로그램을 기획하고 운영합니다.</text>
+    <text class="ex" x="52" y="232"><tspan class="exh" fill="#1faa59">예</tspan>  스토리텔링 테마투어 · 맞춤형 프라이빗 투어</text>
+    <text class="ex" x="52" y="256">소규모 특화여행(워크숍 · 교육 · 체류형)</text>
+    <text class="ex" x="52" y="280">기업 · 단체 대상 테마형 프로그램 운영</text>
+    <text class="ex" x="52" y="312" fill="#8a9a92">→ 「사람이 와서 무엇을 하는가」가 상품인 쪽</text>
+  </g>
+
+  <!-- ② 실감형관광콘텐츠 -->
+  <g>
+    <rect class="card" x="488" y="92" width="444" height="242" rx="16" />
+    <rect x="488" y="92" width="444" height="7" rx="3.5" fill="#2f6fb5" />
+    <circle cx="518" cy="130" r="15" fill="#2f6fb5" />
+    <text class="num" x="518" y="135" text-anchor="middle">②</text>
+    <text class="nm" x="544" y="137">실감형관광콘텐츠</text>
+    <text class="de" x="512" y="174">AR · VR · 미디어아트처럼 <tspan font-weight="800">보고 겪게 만드는</tspan></text>
+    <text class="de" x="512" y="197">디지털 관광 콘텐츠를 개발하고 운영합니다.</text>
+    <text class="ex" x="512" y="232"><tspan class="exh" fill="#2f6fb5">예</tspan>  AR · VR 콘텐츠 · 메타버스 체험</text>
+    <text class="ex" x="512" y="256">디지털 전시관 · 미디어아트 공간</text>
+    <text class="ex" x="512" y="280">다국어 안내 · 위치 기반 실감 안내 서비스</text>
+    <text class="ex" x="512" y="312" fill="#8a9a92">→ 체험의 알맹이가 「콘텐츠」인 쪽</text>
+  </g>
+
+  <!-- ③ 관광인프라 -->
+  <g>
+    <rect class="card" x="28" y="352" width="444" height="242" rx="16" />
+    <rect x="28" y="352" width="444" height="7" rx="3.5" fill="#c07a1a" />
+    <circle cx="58" cy="390" r="15" fill="#c07a1a" />
+    <text class="num" x="58" y="395" text-anchor="middle">③</text>
+    <text class="nm" x="84" y="397">관광인프라</text>
+    <text class="de" x="52" y="434"><tspan font-weight="800">오프라인 시설 · 공간 · 자원</tspan>을 새로운 콘셉트와</text>
+    <text class="de" x="52" y="457">기술로 고도화하는 공간 기반 사업입니다.</text>
+    <text class="ex" x="52" y="492"><tspan class="exh" fill="#c07a1a">예</tspan>  유휴공간을 고친 체험형 관광공간</text>
+    <text class="ex" x="52" y="516">스마트 관광단지 · 테마파크 운영</text>
+    <text class="ex" x="52" y="540">체류형 복합공간(스테이 · 워크 · 컬처 결합)</text>
+    <text class="ex" x="52" y="572" fill="#8a9a92">→ 「장소와 시설」이 먼저 있어야 하는 쪽</text>
+  </g>
+
+  <!-- ④ 관광딥테크 -->
+  <g>
+    <rect class="card" x="488" y="352" width="444" height="242" rx="16" />
+    <rect x="488" y="352" width="444" height="7" rx="3.5" fill="#6b4fbb" />
+    <circle cx="518" cy="390" r="15" fill="#6b4fbb" />
+    <text class="num" x="518" y="395" text-anchor="middle">④</text>
+    <text class="nm" x="544" y="397">관광딥테크</text>
+    <text class="de" x="512" y="434">관광기업 · 지자체의 <tspan font-weight="800">운영을 디지털화</tspan>하는</text>
+    <text class="de" x="512" y="457">데이터 · SaaS · 플랫폼 기반 B2B 솔루션입니다.</text>
+    <text class="ex" x="512" y="492"><tspan class="exh" fill="#6b4fbb">예</tspan>  숙박 · 체험시설 운영관리(PMS · POS · CRM)</text>
+    <text class="ex" x="512" y="516">관광데이터 분석과 수요예측</text>
+    <text class="ex" x="512" y="540">OTA 연동 · 정산 자동화 솔루션</text>
+    <text class="ex" x="512" y="572" fill="#8a9a92">→ 여행자가 아니라 「사업자」가 고객인 쪽</text>
+  </g>
+
+  <text class="pick" x="30" y="628">고르는 법 — 내 돈을 누가 내는가(여행자냐 사업자냐) · 내 것이 상품인가 콘텐츠인가 공간인가 기술인가.</text>
+</svg>
