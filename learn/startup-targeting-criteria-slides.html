@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>타겟팅(Targeting) 기준 총정리</title>
+<style>
+*{box-sizing:border-box}
+:root{--navy:#0d2f4f;--blue:#1f5f99;--gold:#b48b1f;--line:#cfd9e3;--text:#17324d;--muted:#66798b;--good:#0e6f5c;--bad:#b83232}
+html,body{margin:0;height:100%;background:#edf2f7;color:var(--text);font-family:"Noto Sans KR","Malgun Gothic",Arial,sans-serif}
+body{overflow:hidden}
+.deck{display:flex;width:100vw;height:100vh;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth}
+.deck::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100vw;height:100vh;scroll-snap-align:start;background:#fff;padding:34px 44px 30px;overflow-y:auto}
+.slide:nth-child(even){background:#f8fbfe}
+.kicker{color:var(--blue);font-weight:900;font-size:15px;letter-spacing:.06em;margin-bottom:7px}
+h1,h2,h3{color:var(--navy);margin-top:0}
+h1{font-size:38px;line-height:1.2;margin-bottom:18px}
+h2{font-size:29px;line-height:1.25;margin-bottom:16px}
+h3{font-size:20px;margin-bottom:8px}
+p,li,td,th{font-size:16.5px;line-height:1.55}
+.lead{font-size:21px;line-height:1.65}
+.highlight{background:#fff7d8;border-left:6px solid var(--gold);border-radius:12px;padding:16px 19px;font-size:20px;font-weight:800;margin:16px 0}
+.formula{background:var(--navy);color:white;padding:18px 20px;border-radius:16px;font-size:21px;font-weight:900;text-align:center;margin:18px 0}
+table{width:100%;border-collapse:collapse;background:#fff;margin-top:10px}
+th,td{border:1px solid var(--line);padding:9px 11px;vertical-align:top}
+th{background:#e7f1fa;color:var(--navy);font-weight:900}
+.compact td,.compact th{font-size:14.5px;line-height:1.4;padding:7px 9px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{border:1px solid #d5e0e9;border-radius:16px;padding:16px;background:#fff;box-shadow:0 5px 15px rgba(13,47,79,.05)}
+.good{color:var(--good);font-weight:900}.bad{color:var(--bad);font-weight:900}
+.stack{display:flex;flex-direction:column;gap:10px;margin:12px 0}
+.row{display:grid;grid-template-columns:180px 1fr;gap:12px;align-items:start;background:white;border:1px solid #dbe4ec;border-radius:12px;padding:11px 14px}
+.row b{color:var(--navy)}
+.targetbox{border:3px solid var(--blue);border-radius:18px;padding:18px 20px;background:#edf6ff;font-size:20px;font-weight:900;line-height:1.6}
+.nav{position:fixed;right:18px;top:16px;z-index:99;display:flex;gap:8px}
+.nav button{border:0;background:var(--navy);color:#fff;padding:10px 14px;border-radius:10px;font-weight:900;cursor:pointer}
+.nav button:hover{background:#174d78}
+.footer{margin-top:18px;font-size:12.5px;color:var(--muted);text-align:right}
+@media(max-width:900px){
+.slide{padding:68px 18px 30px} h1{font-size:29px} h2{font-size:24px}
+p,li,td,th{font-size:14.5px}.lead{font-size:18px}.grid2{grid-template-columns:1fr}.row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="nav">
+<button onclick="prevSlide()">◀ 이전</button>
+<button onclick="nextSlide()">다음 ▶</button>
+</div>
+
+<div class="deck" id="deck">
+
+<section class="slide">
+<div class="kicker">TARGETING · 표적시장 선정</div>
+<h1>타겟팅(Targeting)의 기준 총정리</h1>
+<p class="lead">타겟팅의 기준은 크게 <b>두 종류</b>로 나눠서 이해하는 것이 가장 정확합니다. 하나는 <b>“고객을 어떤 기준으로 나눌 것인가”</b>, 다른 하나는 <b>“그중 어느 집단을 실제 표적시장으로 선택할 것인가”</b>입니다.</p>
+<div class="highlight">★ 수업에서는 <b>고객을 나누는 기준</b>과 <b>표적시장을 선택하는 기준</b>을 구분해 설명하면 학생들이 훨씬 잘 이해합니다.</div>
+<div class="formula">Segmentation 기준 ≠ Target Market 선택 기준</div>
+<div class="footer">1 / 10</div>
+</section>
+
+<section class="slide">
+<div class="kicker">1 · 고객을 나누는 기준</div>
+<h2>“누구를 타겟으로 할 것인가?”</h2>
+<table class="compact">
+<tr><th>기준</th><th>세부 기준</th><th>관광·창업 예시</th></tr>
+<tr><td><b>지리적 Geographic</b></td><td>국가, 지역, 도시, 거주지, 방문지역, 도시/농촌</td><td>서울 거주자, 일본인 방한객, 경북 방문객</td></tr>
+<tr><td><b>인구통계적 Demographic</b></td><td>연령, 성별, 소득, 직업, 학력, 가족구성, 결혼 여부</td><td>20대 여성, 30~40대 전문직, 자녀 있는 가족</td></tr>
+<tr><td><b>사회경제적 Socioeconomic</b></td><td>소득수준, 소비여력, 직업군, 사회계층</td><td>고소득 여행객, 대학생, 은퇴자</td></tr>
+<tr><td><b>생애주기 Life-cycle</b></td><td>싱글, 신혼, 영유아 가족, 자녀동반, 시니어</td><td>신혼여행객, 초등학생 자녀 가족</td></tr>
+<tr><td><b>심리적 Psychographic</b></td><td>가치관, 성격, 관심사, 라이프스타일</td><td>친환경 여행 선호자, 자기계발형 여행객</td></tr>
+<tr><td><b>행동적 Behavioral</b></td><td>구매빈도, 사용량, 충성도, 구매시점, 이용경험</td><td>연 3회 이상 해외여행객, 재방문객</td></tr>
+<tr><td><b>추구편익 Benefit sought</b></td><td>가격, 편리성, 품질, 재미, 안전, 희소성</td><td>저가여행 추구자, 프리미엄 여행 추구자</td></tr>
+<tr><td><b>문제·불편 Pain point</b></td><td>고객이 현재 겪는 어려움</td><td>교통이 불편한 여행객, 정보 탐색이 어려운 외국인</td></tr>
+<tr><td><b>욕구 Needs</b></td><td>고객이 해결하고 싶은 욕구</td><td>휴식, 관계형성, 학습, 모험, 자기표현</td></tr>
+<tr><td><b>목적 Purpose</b></td><td>여행·구매의 목적</td><td>휴양, 업무, 의료, 문화, 쇼핑, 미식</td></tr>
+</table>
+<div class="footer">2 / 10</div>
+</section>
+
+<section class="slide">
+<div class="kicker">1 · 고객을 나누는 기준</div>
+<h2>세분화 기준 — 계속</h2>
+<table class="compact">
+<tr><th>기준</th><th>세부 기준</th><th>관광·창업 예시</th></tr>
+<tr><td><b>상황 Occasion</b></td><td>특정 시점·상황</td><td>주말여행, 방학, 기념일, 축제 방문</td></tr>
+<tr><td><b>가격 민감도 Price sensitivity</b></td><td>저가·중가·프리미엄 선호</td><td>5만원 이하 체험상품 선호자</td></tr>
+<tr><td><b>지불의사 Willingness to Pay</b></td><td>얼마까지 비용을 낼 의향이 있는가</td><td>프라이빗 투어에 20만원 이상 지불 가능한 고객</td></tr>
+<tr><td><b>사용빈도 Usage rate</b></td><td>Heavy / Medium / Light User</td><td>매달 여행하는 헤비 여행객</td></tr>
+<tr><td><b>충성도 Loyalty</b></td><td>브랜드·지역·서비스에 대한 충성도</td><td>제주 반복 방문객</td></tr>
+<tr><td><b>구매단계 Customer Journey</b></td><td>인지, 탐색, 비교, 구매, 재구매</td><td>아직 여행지를 결정하지 않은 사람</td></tr>
+<tr><td><b>정보탐색 방식</b></td><td>검색, SNS, OTA, 지인추천</td><td>인스타그램으로 여행지를 찾는 20대</td></tr>
+<tr><td><b>채널 Channel</b></td><td>온라인, 오프라인, 모바일, OTA</td><td>네이버 예약 이용자, Klook 이용객</td></tr>
+<tr><td><b>디지털 행동 Digital behavior</b></td><td>검색어, 클릭, 콘텐츠 소비, 앱 이용</td><td>TikTok에서 한국여행 콘텐츠를 보는 외국인</td></tr>
+<tr><td><b>SNS 성향</b></td><td>Instagram, YouTube, TikTok 등</td><td>사진·영상 공유를 즐기는 여행객</td></tr>
+</table>
+<div class="footer">3 / 10</div>
+</section>
+
+<section class="slide">
+<div class="kicker">1 · 고객을 나누는 기준</div>
+<h2>세분화 기준 — 계속</h2>
+<table class="compact">
+<tr><th>기준</th><th>세부 기준</th><th>관광·창업 예시</th></tr>
+<tr><td><b>기술수용성 Technology adoption</b></td><td>혁신수용자, 초기수용자, 후기수용자</td><td>AI 여행추천 서비스를 적극 이용하는 고객</td></tr>
+<tr><td><b>문화적 Cultural</b></td><td>언어, 문화권, 음식·종교적 요구</td><td>무슬림 여행객, 일본 자유여행객</td></tr>
+<tr><td><b>세대 Generation</b></td><td>Z세대, 밀레니얼, X세대, 베이비붐</td><td>Z세대 개별여행객</td></tr>
+<tr><td><b>관여도 Involvement</b></td><td>고관여 / 저관여 구매</td><td>고가 해외여행 상품은 고관여</td></tr>
+<tr><td><b>경험수준 Experience level</b></td><td>초보자, 숙련자, 전문가</td><td>첫 해외여행객 vs 여행 마니아</td></tr>
+<tr><td><b>추구 경험 Experience sought</b></td><td>감성, 교육, 오락, 몰입, 일탈</td><td>로컬문화 몰입형 관광객</td></tr>
+<tr><td><b>정체성 Identity</b></td><td>자신을 어떤 사람으로 표현하고 싶은가</td><td>“나는 지속가능한 여행자”</td></tr>
+<tr><td><b>열망 Aspirational</b></td><td>되고 싶은 모습</td><td>럭셔리 라이프스타일을 추구하는 고객</td></tr>
+<tr><td><b>커뮤니티 Community</b></td><td>특정 관심집단·팬덤</td><td>러닝크루, K-pop 팬, 캠핑 동호회</td></tr>
+</table>
+<div class="highlight">★ 창업 수업에서는 <b>인구통계만으로 타겟을 잡지 않게 하는 것</b>이 중요합니다.</div>
+<div class="footer">4 / 10</div>
+</section>
+
+<section class="slide">
+<div class="kicker">세분화의 질</div>
+<h2>“20대 여성”만으로는 부족합니다</h2>
+<div class="grid2">
+<div class="card"><h3 class="bad">❌ 너무 넓은 타겟</h3><p style="font-size:22px"><b>“20대 여성”</b></p></div>
+<div class="card"><h3 class="good">✅ 더 좋은 타겟</h3><p style="font-size:20px"><b>“혼자 국내여행을 즐기며, SNS에서 사진을 공유하고, 로컬 카페와 체험상품에 비용을 지불하는 20대 여성”</b></p></div>
+</div>
+<div class="highlight">좋은 타겟은 <b>인구통계 + 행동 + 관심 + 욕구 + 지불 가능성</b>이 함께 보입니다.</div>
+<div class="footer">5 / 10</div>
+</section>
+
+<section class="slide">
+<div class="kicker">2 · 표적시장 선택 기준</div>
+<h2>“나눌 수 있다”와 “선택해야 한다”는 다릅니다</h2>
+<p>실제 Targeting에서는 세분화한 집단 가운데 <b>사업적으로 매력적인 시장을 골라야</b> 합니다.</p>
+<table class="compact">
+<tr><th>판단기준</th><th>핵심 질문</th></tr>
+<tr><td><b>시장 규모 Size</b></td><td>고객 수가 충분한가?</td></tr>
+<tr><td><b>시장 성장성 Growth</b></td><td>앞으로 커질 시장인가?</td></tr>
+<tr><td><b>시장 수요 Demand</b></td><td>실제 수요가 존재하는가?</td></tr>
+<tr><td><b>구매력 Purchasing Power</b></td><td>실제 돈을 쓸 수 있는 고객인가?</td></tr>
+<tr><td><b>지불의사 WTP</b></td><td>문제 해결에 비용을 지불할 의향이 있는가?</td></tr>
+<tr><td><b>수익성 Profitability</b></td><td>고객을 확보했을 때 이익이 남는가?</td></tr>
+<tr><td><b>접근가능성 Accessibility</b></td><td>우리가 이 고객에게 접근할 수 있는가?</td></tr>
+<tr><td><b>식별가능성 Identifiability</b></td><td>누가 이 고객인지 알아볼 수 있는가?</td></tr>
+<tr><td><b>측정가능성 Measurability</b></td><td>고객 규모와 특성을 데이터로 측정할 수 있는가?</td></tr>
+<tr><td><b>차별성 Differentiability</b></td><td>다른 고객집단과 분명하게 다른가?</td></tr>
+<tr><td><b>실행가능성 Actionability</b></td><td>이 고객에게 맞는 상품·마케팅을 실제 만들 수 있는가?</td></tr>
+<tr><td><b>자사 역량 Fit</b></td><td>우리가 가진 기술·인력·자금으로 가능한가?</td></tr>
+<tr><td><b>브랜드 적합성 Brand Fit</b></td><td>우리 브랜드 이미지와 맞는 고객인가?</td></tr>
+</table>
+<div class="footer">6 / 10</div>
+</section>
+
+<section class="slide">
+<div class="kicker">2 · 표적시장 선택 기준</div>
+<h2>사업성·경쟁성·지속성까지 확인</h2>
+<table class="compact">
+<tr><th>판단기준</th><th>핵심 질문</th></tr>
+<tr><td><b>경쟁강도 Competition</b></td><td>이미 강력한 경쟁사가 장악했는가?</td></tr>
+<tr><td><b>진입장벽 Entry Barrier</b></td><td>시장 진입이 현실적으로 가능한가?</td></tr>
+<tr><td><b>고객획득비용 CAC</b></td><td>한 명의 고객을 확보하는 비용이 적정한가?</td></tr>
+<tr><td><b>고객생애가치 LTV</b></td><td>한 고객이 장기적으로 얼마나 많은 가치를 주는가?</td></tr>
+<tr><td><b>재구매 가능성 Retention</b></td><td>다시 구매할 가능성이 있는가?</td></tr>
+<tr><td><b>추천 가능성 WOM</b></td><td>다른 고객에게 추천할 가능성이 높은가?</td></tr>
+<tr><td><b>확장가능성 Scalability</b></td><td>다른 지역·고객으로 확대할 수 있는가?</td></tr>
+<tr><td><b>시장 지속성 Sustainability</b></td><td>일시적 유행이 아니라 지속될 수 있는가?</td></tr>
+<tr><td><b>데이터 확보 가능성</b></td><td>고객 데이터를 확보·분석할 수 있는가?</td></tr>
+<tr><td><b>채널 적합성 Channel Fit</b></td><td>우리가 사용하는 판매채널에서 만날 수 있는가?</td></tr>
+<tr><td><b>법적 가능성 Legal</b></td><td>규제·허가 등에 문제가 없는가?</td></tr>
+<tr><td><b>윤리성 Ethical Fit</b></td><td>사회적·윤리적 문제가 없는 타겟인가?</td></tr>
+<tr><td><b>위험 Risk</b></td><td>경기, 계절, 정책 변화에 너무 민감하지 않은가?</td></tr>
+</table>
+<div class="footer">7 / 10</div>
+</section>
+
+<section class="slide">
+<div class="kicker">3 · 수업용 핵심 압축</div>
+<h2>학생들에게는 이 6개를 핵심 기준으로</h2>
+<div class="stack">
+<div class="row"><b>① Market Size</b><span>고객이 충분히 있는가?</span></div>
+<div class="row"><b>② Pain / Need</b><span>이 고객에게 실제 문제가 있는가?</span></div>
+<div class="row"><b>③ Willingness to Pay</b><span>돈을 낼 의사가 있는가?</span></div>
+<div class="row"><b>④ Accessibility</b><span>우리가 접근할 수 있는가?</span></div>
+<div class="row"><b>⑤ Company Fit</b><span>우리가 해결할 수 있는가?</span></div>
+<div class="row"><b>⑥ Competitive Advantage</b><span>경쟁자보다 더 잘할 수 있는가?</span></div>
+</div>
+<div class="formula">좋은 타겟 = 충분한 시장 × 명확한 문제 × 지불의사 × 접근 가능성 × 우리 역량 × 차별화 가능성</div>
+<div class="footer">8 / 10</div>
+</section>
+
+<section class="slide">
+<div class="kicker">4 · 관광벤처 특화</div>
+<h2>관광에서는 지역·이동·시간·동행자·여행목적이 중요합니다</h2>
+<p>예를 들어 같은 30대 여성이라도, <b>서울 거주 30대 여성 + 친구와 주말여행 + 자차 이용 + 로컬 미식 관심 + SNS 공유 + 1인당 10만원 정도 지불 가능</b>이면 상당히 구체적인 관광 타겟이 됩니다.</p>
+<div class="stack">
+<div class="row"><b>WHO 누구인가</b><span>연령·직업·소득</span></div>
+<div class="row"><b>WHERE 어디에서 오는가</b><span>거주지·출발지역</span></div>
+<div class="row"><b>WHY 왜 여행하는가</b><span>여행목적·욕구</span></div>
+<div class="row"><b>WITH WHOM 누구와 오는가</b><span>혼자·연인·가족·친구</span></div>
+<div class="row"><b>WHEN 언제 오는가</b><span>주말·성수기·축제기간</span></div>
+<div class="row"><b>WHAT PROBLEM 어떤 불편이 있는가</b><span>정보·교통·예약·언어·체험 부족</span></div>
+<div class="row"><b>HOW MUCH 얼마를 쓸 수 있는가</b><span>객단가·지불의사</span></div>
+<div class="row"><b>HOW 어떻게 정보를 찾는가</b><span>네이버·Instagram·TikTok·OTA</span></div>
+</div>
+<div class="highlight">이렇게 하면 단순한 <b>인구통계 타겟</b>에서 실제 <b>구매 가능한 고객 Persona</b>로 넘어갑니다.</div>
+<div class="footer">9 / 10</div>
+</section>
+
+<section class="slide">
+<div class="kicker">5 · 안동 관광상품 예시</div>
+<h2>타겟을 단계적으로 구체화하기</h2>
+<div class="card"><h3 class="bad">너무 넓은 타겟</h3><p style="font-size:20px"><b>“안동을 방문하는 관광객”</b></p></div>
+<div class="card" style="margin-top:12px"><h3>조금 나아진 타겟</h3><p style="font-size:20px"><b>“20~30대 관광객”</b></p></div>
+<div class="targetbox" style="margin-top:12px">✅ 좋은 타겟<br>“서울·대구에서 주말에 친구 또는 연인과 안동을 방문하고, 로컬 음식과 문화체험을 선호하며, Instagram으로 여행지를 탐색하고 1인당 체험비 3~5만원을 지불할 의향이 있는 20~30대 개별여행객”</div>
+<div class="highlight">여기까지 가면 바로 <b>상품설계 → 가격 → 홍보채널 → 콘텐츠 → 수익모델</b>로 연결할 수 있습니다.</div>
+<div class="formula" style="font-size:18px">타겟팅은 단순히 “20대 여성”처럼 사람을 고르는 것이 아닙니다. “특정한 문제와 욕구를 가지고 있고, 우리가 접근할 수 있으며, 그 문제 해결에 실제 돈을 낼 가능성이 높은 고객을 선택하는 것”이 타겟팅입니다.</div>
+<div class="footer">10 / 10</div>
+</section>
+
+</div>
+
+<script>
+const deck=document.getElementById('deck');
+const slides=[...document.querySelectorAll('.slide')];
+function idx(){return Math.round(deck.scrollLeft/window.innerWidth)}
+function nextSlide(){slides[Math.min(idx()+1,slides.length-1)].scrollIntoView({behavior:'smooth',inline:'start'})}
+function prevSlide(){slides[Math.max(idx()-1,0)].scrollIntoView({behavior:'smooth',inline:'start'})}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')nextSlide();if(e.key==='ArrowLeft')prevSlide()})
+</script>
+</body>
+</html>
