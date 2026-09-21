@@ -286,6 +286,60 @@
       margin: -6px 0 28px; padding: 14px 0 12px; border-radius: 0;
       background: transparent; border: 0; border-top: 1px solid #e3e9f0;
     }
+    /* ===== 파트 머리글 — 아홉 파트를 가르는 큰 띠 (관광벤처창업론과 같은 양식) =====
+       왼쪽에 색 사각형을 세우고 「파트」 라벨 위에 큰 숫자를 얹어, 멀리서도 몇 번째인지 읽힌다. */
+    .learn-article .learn-part.pt-part {
+      display: grid; grid-template-columns: 56px minmax(0, 1fr);
+      align-items: stretch; gap: 0;
+      margin: 46px 0 18px; padding: 0; overflow: hidden;
+      border: 1px solid var(--pp-ln, var(--pp-ac)); border-radius: 10px;
+      background: var(--pp-bg); color: var(--pp-dk);
+      font-size: 19px; font-weight: 800; letter-spacing: -.3px;
+      box-shadow: 0 1px 0 rgba(16,32,48,.04);
+    }
+    .learn-article .learn-part.pt-part:first-of-type { margin-top: 14px; }
+    .learn-article .learn-part.pt-part .pt {
+      grid-column: 1; grid-row: 1 / span 2;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      background: var(--pp-ac); color: #fff; line-height: 1;
+    }
+    .learn-article .learn-part.pt-part .pt i {
+      font-style: normal; font-size: 9px; font-weight: 700; letter-spacing: .12em;
+      opacity: .78; margin-bottom: 3px;
+    }
+    .learn-article .learn-part.pt-part .pt b { font-size: 26px; font-weight: 800; letter-spacing: -.02em; }
+    .learn-article .learn-part.pt-part.pp-1 { --pp-ac:#2563a8; --pp-bg:#eff5fa; --pp-dk:#1c4e8a; --pp-ln:#c3daee; }
+    .learn-article .learn-part.pt-part.pp-2 { --pp-ac:#1f6a73; --pp-bg:#eaf5f4; --pp-dk:#175057; --pp-ln:#b9dcd9; }
+    .learn-article .learn-part.pt-part.pp-3 { --pp-ac:#3B6259; --pp-bg:#eef4f1; --pp-dk:#234b41; --pp-ln:#c6d8d1; }
+    .learn-article .learn-part.pt-part.pp-4 { --pp-ac:#c0392b; --pp-bg:#fbeeec; --pp-dk:#8c3b30; --pp-ln:#eec9c3; }
+    .learn-article .learn-part.pt-part.pp-5 { --pp-ac:#5b3f7a; --pp-bg:#f4eff8; --pp-dk:#4a3363; --pp-ln:#d8cbe6; }
+    .learn-article .learn-part.pt-part.pp-6 { --pp-ac:#8a5a17; --pp-bg:#fdf6ea; --pp-dk:#7a4e12; --pp-ln:#e8d3ae; }
+    .learn-article .learn-part.pt-part.pp-7 { --pp-ac:#7a6417; --pp-bg:#fdf8e8; --pp-dk:#5c4a10; --pp-ln:#e3d79a; }
+    .learn-article .learn-part.pt-part.pp-8 { --pp-ac:#17365d; --pp-bg:#eef3f9; --pp-dk:#123054; --pp-ln:#c3d2e2; }
+    .learn-article .learn-part.pt-part.pp-9 { --pp-ac:#9c3320; --pp-bg:#fbefeb; --pp-dk:#7c2a1a; --pp-ln:#eecac0; }
+    .learn-article .learn-part.pt-part.pp-x { --pp-ac:#66788a; --pp-bg:#f2f5f8; --pp-dk:#3f4d5a; --pp-ln:#d3dce4; }
+    .learn-article .learn-part.pt-part .pt-ti {
+      grid-column: 2; grid-row: 1;
+      display: block; padding: 11px 16px 0; line-height: 1.35;
+    }
+    .learn-article .learn-part.pt-part .pt-sub {
+      grid-column: 2; grid-row: 2;
+      display: block; padding: 5px 16px 11px; min-width: 0;
+      font-size: 11.5px; font-weight: 500; line-height: 1.6; letter-spacing: -.2px;
+      color: var(--pp-dk); opacity: .82;
+    }
+    .learn-article .learn-part.pt-part .pt-sub strong,
+    .learn-article .learn-part.pt-part .pt-sub b { font-weight: 800; opacity: 1; }
+    .learn-article .learn-part.pt-part .pt-sub em { font-style: normal; font-weight: 700; opacity: 1; }
+    .learn-article .learn-part.pt-part .pt-sub a { color: inherit; border-bottom: 1px solid currentColor; text-decoration: none; }
+    @media (max-width: 620px) {
+      .learn-article .learn-part.pt-part { grid-template-columns: 1fr; font-size: 16px; }
+      .learn-article .learn-part.pt-part .pt { grid-column: 1; grid-row: 1; flex-direction: row; justify-content: flex-start; gap: 7px; padding: 5px 14px; }
+      .learn-article .learn-part.pt-part .pt i { margin-bottom: 0; }
+      .learn-article .learn-part.pt-part .pt b { font-size: 15px; }
+      .learn-article .learn-part.pt-part .pt-ti { grid-column: 1; grid-row: 2; padding: 10px 14px 0; }
+      .learn-article .learn-part.pt-part .pt-sub { grid-column: 1; grid-row: 3; padding: 5px 14px 10px; }
+    }
     /* 파트 01 안의 세 모형 — 5V · DIKW · SECI 를 번호로 갈라 세운다. */
     .learn-article .mdl-h { margin: 18px 0 6px; font-size: 15.5px; font-weight: 800; color: var(--deep); line-height: 1.5; }
     .learn-article .mdl-n { margin-right: 6px; font-size: 15px; font-weight: 900; color: var(--green); }
@@ -723,7 +777,7 @@
       </div>
 
 
-      <p class="learn-part" id="p01">파트 01 · 빅데이터란</p>
+      <p class="learn-part pt-part pp-1" id="p01"><span class="pt"><i>파트</i><b>01</b></span><span class="pt-ti">빅데이터란</span><span class="pt-sub">세 개의 V에 둘을 더한 <strong>5V</strong>, 데이터가 결정이 되는 <strong>DIKW</strong>, 지식이 조직 안에서 도는 <strong>SECI</strong> — 세 모형으로 시작합니다.</span></p>
       <p class="mdl-h"><b class="mdl-n">①</b> 5V — 데이터가 어떤 모습인가</p>
       <p>빅데이터는 흔히 <strong>세 개의 V</strong>로 설명됩니다. 여기에 둘을 더해 <strong>5V</strong>라 부르기도 합니다.</p>
       <ul class="vcards c5">
@@ -808,8 +862,7 @@
         <strong>ADsP 1과목</strong>에서 <strong>Q5</strong>(네 단계의 순서)와 <strong>Q6</strong>(「경험을 문서·매체에 저장·가공한다」 = <strong>표출화</strong>)로 나옵니다 — <a href="adsp-subject1-50q-workbook.html#q5" target="_blank" rel="noopener">50문항 실전훈련 판에서 바로 풀어 보기 ↗</a></p>
       </div>
 
-      <p class="learn-part" id="p02">파트 02 · 관광 데이터는 어디서 오는가</p>
-      <p>관광 빅데이터의 힘은, 여행자가 설문에 답하지 않아도 행동이 저절로 기록된다는 데 있습니다.</p>
+      <p class="learn-part pt-part pp-2" id="p02"><span class="pt"><i>파트</i><b>02</b></span><span class="pt-ti">관광 데이터는 어디서 오는가</span><span class="pt-sub">관광 빅데이터의 힘은, <strong>여행자가 설문에 답하지 않아도 행동이 저절로 기록된다</strong>는 데 있습니다.</span></p>
       <ul class="vcards c3">
         <li class="t-blue"><span class="vt">이동</span><span class="vh">통신 데이터</span><span class="vd">기지국 신호로 본 유동인구·체류시간·방문지 이동 경로.</span></li>
         <li class="t-gold"><span class="vt">소비</span><span class="vh">카드·결제 데이터</span><span class="vd">어디서 얼마를, 어떤 업종에 썼는가(소비 지도).</span></li>
@@ -856,8 +909,7 @@
       </ul>
 
 
-      <p class="learn-part" id="p03">파트 03 · 분석은 다섯 걸음으로</p>
-      <p>데이터는 저절로 답을 주지 않습니다. 대개 다음 순서를 거칩니다.</p>
+      <p class="learn-part pt-part pp-3" id="p03"><span class="pt"><i>파트</i><b>03</b></span><span class="pt-ti">분석은 다섯 걸음으로</span><span class="pt-sub">데이터는 저절로 답을 주지 않습니다. <strong>문제 정의 → 수집 → 정제 → 분석 → 시각화·해석</strong>을 거칩니다.</span></p>
       <ol class="vcards c5 steps">
         <li class="t-blue"><span class="vh">문제 정의</span><span class="vd">무엇을 알고 싶은가. (예: 비수기 방문객은 왜 줄어드는가)</span></li>
         <li class="t-teal"><span class="vh">수집</span><span class="vd">필요한 데이터를 모은다(공공 API·크롤링·제휴 데이터).</span></li>
@@ -866,7 +918,7 @@
         <li class="t-green solid"><span class="vh">시각화·해석</span><span class="vd">그래프와 지도로 보여주고, 결정으로 잇는다.</span></li>
       </ol>
 
-      <p class="learn-part" id="p04">파트 04 · 대표 분석 기법</p>
+      <p class="learn-part pt-part pp-4" id="p04"><span class="pt"><i>파트</i><b>04</b></span><span class="pt-ti">대표 분석 기법</span><span class="pt-sub">기술 통계 · <strong>텍스트 마이닝</strong> · <strong>군집 분석</strong> · 예측 분석 넷을 보고, 그 아래 <em>실제 사례</em>로 잇습니다.</span></p>
       <ol class="vcards c4 steps">
         <li class="t-blue"><span class="vh">기술 통계·시각화</span><span class="vd">평균·분포·추세를 요약하고 지도·그래프로 보여주기. <em>가장 먼저, 가장 자주 쓰인다.</em></span></li>
         <li class="t-rose solid flame"><span class="vh">텍스트 마이닝·감성 분석</span><span class="vd">후기와 SNS의 단어를 세고(워드클라우드), 긍정/부정을 판정해 "무엇이 만족을 만드는가"를 읽는다.</span></li>
@@ -902,8 +954,7 @@
         </li>
       </ul>
 
-      <p class="learn-part" id="p05">파트 05 · 분석에 쓰는 도구·프로그램</p>
-      <p>앞의 기법들은 결국 <strong>도구</strong>로 실행됩니다. 관광 데이터 분석에서 자주 쓰는 프로그램을, 친숙한 것부터 소개합니다.</p>
+      <p class="learn-part pt-part pp-5" id="p05"><span class="pt"><i>파트</i><b>05</b></span><span class="pt-ti">분석에 쓰는 도구·프로그램</span><span class="pt-sub">앞의 기법들은 결국 <strong>도구</strong>로 실행됩니다. 관광 데이터 분석에서 자주 쓰는 프로그램을 친숙한 것부터 봅니다.</span></p>
       <div class="gtable-wrap">
         <table class="gtable">
           <thead><tr><th>도구</th><th>무엇을 하는가</th></tr></thead>
@@ -927,7 +978,7 @@
         </li>
       </ul>
 
-      <p class="learn-part" id="p06">파트 06 · 빅데이터 공모전</p>
+      <p class="learn-part pt-part pp-6" id="p06"><span class="pt"><i>파트</i><b>06</b></span><span class="pt-ti">빅데이터 공모전</span><span class="pt-sub">네 대회를 <strong>지금 낼 수 있는 것부터</strong> 놓고, 대회마다 <em>그 대회가 쓰는 데이터 창구</em>를 바로 아래 붙였습니다.</span></p>
       <p><em>부산</em>은 통신·카드 데이터로 해운대·광안리의 시간대별 혼잡을 읽고, 축제 기간 유동인구를 분석해 안전과 분산에 활용합니다. 감성 분석으로 외국인 관광객의 불편(언어·교통)을 짚어내는 것도 같은 맥락입니다.</p>
       <p>이 웹사이트도 작은 데이터 파이프라인을 갖고 있습니다 — <strong>여행 이야기·후기 게시판</strong>은 감성 분석의 재료(UGC)이고, <strong>방문 통계·검색 유입</strong>은 어떤 콘텐츠가 닿는지를 알려줍니다. 이 데이터를 읽고 상품과 콘텐츠로 바꾸는 일 — 그 끝에 있는 것이 다음 모듈 <strong>관광벤처창업론</strong>입니다.</p>
 
@@ -1061,8 +1112,7 @@
           <span class="meta">서울특별시 디지털도시국 데이터전략과 · 수상작 열셋과 제출 양식</span>
         </li>
       </ul>
-      <p class="learn-part" id="p07">파트 07 · 자격증으로 증명하기</p>
-      <p>역량을 <strong>증명</strong>하고 체계적으로 배우고 싶다면 자격증과 공개 강의를 활용할 수 있습니다.</p>
+      <p class="learn-part pt-part pp-7" id="p07"><span class="pt"><i>파트</i><b>07</b></span><span class="pt-ti">자격증으로 증명하기</span><span class="pt-sub">역량을 <strong>증명</strong>하고 싶다면 — ADsP · 빅데이터분석기사 · SQLD를 한 표에 놓고 견줍니다.</span></p>
       <ul class="vcards c4">
         <li class="t-gold"><span class="vt">국가기술자격</span><span class="vh">빅데이터분석기사</span><span class="vd">과학기술정보통신부·한국데이터산업진흥원(K-DATA)이 시행. 필기·실기로 나뉘며, <em>이 분야 취업의 대표적인 관문</em>.</span></li>
         <li class="t-blue solid sky"><span class="vt">단계별 검증</span><span class="vh">ADsP · ADP</span><span class="vd">데이터분석 준전문가/전문가(한국데이터산업진흥원). 통계·분석 기초부터 심화까지 단계별로 검증한다.</span></li>
@@ -1084,8 +1134,7 @@
           <span class="meta">학습 가이드 · ChatGPT 대화 정리 · 윤종식 ADsP 교재 80~100쪽 범위</span>
         </li>
       </ul>
-      <p class="learn-part" id="p08m">파트 08 · 학습 경로 — 무엇을 어떤 순서로 배울까</p>
-      <p>독학이 막막하다면 아래 <strong>K-MOOC</strong>의 무료 빅데이터 강좌로 시작해 보세요. 대학·공공기관의 데이터 분석 교육도 꾸준히 열립니다.</p>
+      <p class="learn-part pt-part pp-8" id="p08m"><span class="pt"><i>파트</i><b>08</b></span><span class="pt-ti">학습 경로 — 무엇을 어떤 순서로 배울까</span><span class="pt-sub">독학이 막막하다면 <strong>K-MOOC</strong>의 무료 강좌부터. 아홉 갈래로 나눈 지도와 <em>수준·목표별 경로</em>가 있습니다.</span></p>
 
       <h3><a href="kmooc-bigdata.html">K-MOOC 빅데이터 강좌 지도 ↗</a></h3>
       <p>K-MOOC의 빅데이터 관련 강좌는 크게 아홉 갈래로 나눠 보면 자신에게 필요한 것을 고르기 쉽습니다. 제목을 누르면 유형별 대표 강좌·학습 형태·마이크로러닝까지 정리한 <a href="kmooc-bigdata.html">전체 안내 페이지</a>로 이동합니다.</p>
@@ -1127,7 +1176,7 @@
         </li>
       </ul>
 
-      <p class="learn-part" id="plinks">관련 링크 · 더 배우기</p>
+      <p class="learn-part pt-part pp-x" id="plinks"><span class="pt"><i>파트</i><b>＋</b></span><span class="pt-ti">관련 링크 · 더 배우기</span><span class="pt-sub">목적 · 분석 분야별로 자주 쓰는 <strong>국내외 플랫폼</strong>을 모았습니다. 이론을 넘어 <em>실제 데이터를 직접 분석</em>해 볼 차례입니다.</span></p>
       <p>이론을 넘어 <strong>실제 데이터를 직접 분석</strong>해 보려면 공공 빅데이터 플랫폼을 활용하는 것이 가장 좋습니다. 서울시가 운영하는 빅데이터 캠퍼스는 관광·유동인구·상권 등 방대한 서울시 데이터를 분석 환경 안에서 다뤄볼 수 있는 대표적인 곳입니다. 아래에는 목적·분석 분야별로 자주 쓰는 국내외 플랫폼을 함께 정리했습니다.</p>
       <ul class="reslist grid2 lcard">
         <li>
@@ -1226,8 +1275,7 @@
         </li>
       </ul>
 
-      <p class="learn-part" id="p09">파트 09 · 현장 적용 — 호텔의 PMS와 빅데이터 RM</p>
-      <p>앞의 <strong>예측 분석</strong>이 산업에서 가장 또렷하게 작동하는 곳이 호텔의 <strong>객실 가격 결정</strong>입니다. 여기엔 두 시스템이 맞물립니다.</p>
+      <p class="learn-part pt-part pp-9" id="p09"><span class="pt"><i>파트</i><b>09</b></span><span class="pt-ti">현장 적용 — 호텔의 PMS와 빅데이터 RM</span><span class="pt-sub">앞의 <strong>예측 분석</strong>이 가장 또렷하게 작동하는 곳 — 호텔의 <strong>객실 가격 결정</strong>입니다.</span></p>
       <ol class="vcards c3 steps">
         <li class="t-blue"><span class="vt">데이터를 모으는 곳</span><span class="vh">PMS — 자산관리시스템</span><span class="vd">Property Management System. 호텔 운영의 중추. 예약·체크인/아웃·객실 배정·요금 청구·고객 관리를 한 곳에서 처리합니다. 최근에는 사내 서버형에서 <strong>클라우드 기반</strong>으로 옮겨가며 실시간 조회와 타 시스템 연동이 쉬워졌고, 무엇보다 <em>거래·이용 데이터가 쌓이는 저수지</em> 역할을 합니다.</span></li>
         <li class="t-gold"><span class="vt">데이터로 결정하는 곳</span><span class="vh">RM — 수익경영</span><span class="vd">Revenue Management. 쌓인 데이터에 경쟁사 가격·상권·SNS 트렌드·공공 데이터를 결합해 <strong>미래 수요를 예측</strong>하고, "적절한 방을 · 적절한 고객에게 · 적절한 시간에 · 적절한 가격으로" 파는 <em>다이내믹 프라이싱</em>을 구현합니다.</span></li>
