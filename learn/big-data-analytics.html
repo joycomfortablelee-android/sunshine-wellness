@@ -267,9 +267,12 @@
 
     /* ── DIKW 상자 — 5V 바로 아래. 네 칸이 오른쪽으로 갈수록 한 칸씩 올라서는 계단 ── */
     .learn-article .dikw-box {
-      margin: -6px 0 28px; padding: 18px 20px 16px; border-radius: 14px;
-      background: #f7f9fb; border: 1px solid #dde5ee;
+      margin: -6px 0 28px; padding: 14px 0 12px; border-radius: 0;
+      background: transparent; border: 0; border-top: 1px solid #e3e9f0;
     }
+    /* 01장 안의 세 모형 — 5V · DIKW · SECI 를 번호로 갈라 세운다. */
+    .learn-article .mdl-h { margin: 18px 0 6px; font-size: 15.5px; font-weight: 800; color: var(--deep); line-height: 1.5; }
+    .learn-article .mdl-n { margin-right: 6px; font-size: 15px; font-weight: 900; color: var(--green); }
     .learn-article .dikw-box .dk-h { margin: 0 0 4px; font-size: 15.5px; font-weight: 800; color: var(--deep); line-height: 1.5; }
     .learn-article .dikw-box .dk-h span { margin-left: 8px; font-size: 12px; font-weight: 700; color: #7c8a99; }
     .learn-article .dikw-box .dk-lead { margin: 0 0 14px; font-size: 13px; line-height: 1.75; color: var(--muted); }
@@ -302,7 +305,7 @@
     }
     .learn-article .dikw .dk-ex::before { content: "관광 예 · "; font-weight: 800; color: var(--v-tc, var(--deep)); }
     /* SECI 상자 - DIKW 와 같은 카드를 쓰되 계단을 없앤다. 올라가는 것이 아니라 도는 것이기 때문이다. */
-    .learn-article .seci-box { background: #f9f7fb; border-color: #e2dcec; }
+    .learn-article .seci-box { background: transparent; border: 0; border-top: 1px solid #e7e2f0; }
     .learn-article .dikw.seci > li:nth-child(1),
     .learn-article .dikw.seci > li:nth-child(2),
     .learn-article .dikw.seci > li:nth-child(3),
@@ -688,6 +691,7 @@
 
 
       <p class="learn-part">01 · 빅데이터란</p>
+      <p class="mdl-h"><b class="mdl-n">①</b> 5V — 데이터가 어떤 모습인가</p>
       <p>빅데이터는 흔히 <strong>세 개의 V</strong>로 설명됩니다. 여기에 둘을 더해 <strong>5V</strong>라 부르기도 합니다.</p>
       <ul class="vcards c5">
         <li class="t-blue"><span class="vt">3V</span><span class="vh">Volume · 양</span><span class="vd">규모가 방대하다.</span></li>
@@ -698,7 +702,7 @@
       </ul>
 
       <div class="dikw-box">
-        <p class="dk-h">DIKW 모형 — 데이터가 결정이 되기까지<span>Data → Information → Knowledge → Wisdom</span></p>
+        <p class="dk-h"><b class="mdl-n">②</b> DIKW 모형 — 데이터가 결정이 되기까지<span>Data → Information → Knowledge → Wisdom</span></p>
         <p class="dk-lead">5V가 <strong>데이터가 어떤 모습인가</strong>를 말한다면, DIKW는 <strong>그 데이터를 어디까지 끌어올렸는가</strong>를 말합니다. 한 칸 오를 때마다 양은 줄고 쓸모는 커집니다.</p>
         <ol class="dikw">
           <li class="t-gray"><div class="dk-card">
@@ -734,7 +738,7 @@
       </div>
 
       <div class="dikw-box seci-box">
-        <p class="dk-h">SECI 모형 — 지식은 조직 안에서 돈다<span>Socialization → Externalization → Combination → Internalization</span></p>
+        <p class="dk-h"><b class="mdl-n">③</b> SECI 모형 — 지식은 조직 안에서 돈다<span>Socialization → Externalization → Combination → Internalization</span></p>
         <p class="dk-lead">DIKW가 <strong>데이터를 어디까지 끌어올렸는가</strong>(올라가는 계단)라면, SECI는 <strong>그 지식이 사람과 사람 사이를 어떻게 도는가</strong>(도는 회로)입니다. 몸에 밴 <strong>암묵지</strong>를 글·매뉴얼·데이터 같은 <strong>형식지</strong>로 바꾸고, 그것이 다시 누군가의 몸에 붙어 암묵지가 되는 <strong>한 바퀴</strong>입니다. <em>분석 과정을 굳이 문서로 남기는 이유가 여기 있습니다.</em></p>
         <ol class="dikw seci">
           <li class="t-teal"><div class="dk-card">
