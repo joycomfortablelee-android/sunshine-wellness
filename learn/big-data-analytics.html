@@ -61,6 +61,8 @@
       box-shadow: 0 2px 10px rgba(59,98,89,.08);
     }
     .learn-article .reslist li.boxed-green .meta { border-top: 1px dashed #bcd3cd; margin-top: 9px; padding-top: 7px; }
+    /* 공모 상자 바로 아래 붙는 카드 - 그 대회가 쓰는 데이터 창구다. 상자와 한 벌로 보이게 붙여 둔다. */
+    .learn-article .reslist.under-box { margin: -14px 0 26px; }
     /* 강의 영상 제목을 알약으로 - 보라 바탕에 흰 글자.
        목록의 다른 제목 링크(밑줄 글자)와 갈라, 눌러서 보는 것임을 드러낸다. */
     .learn-article .reslist > li > a.pill-violet {
@@ -823,6 +825,20 @@
         <p class="tb-tags"><a class="mapl form hot" href="https://datalab.visitkorea.or.kr/site/portal/ex/bbs/View.do?cbIdx=1135&amp;bcIdx=311064&amp;pageIndex=1" target="_blank" rel="noopener">공고 원문 · 한국관광 데이터랩 ↗</a><a class="mapl form" href="https://datalab.visitkorea.or.kr/" target="_blank" rel="noopener">데이터랩 열기 — 쓸 데이터 먼저 보기 ↗</a><a class="mapl form sky" href="https://datalab.visitkorea.or.kr/site/portal/ex/bbs/View.do?cbIdx=1129&amp;bcIdx=309896" target="_blank" rel="noopener">활용 우수사례집 PDF ⤓</a><a class="mapl form sky" href="https://datalab.visitkorea.or.kr/html/interview4/interview01.jsp" target="_blank" rel="noopener">수상팀 인터뷰 5편 ↗</a><span class="tb-src"><b>지금 낼 수 있는 대회는 이것 하나입니다</b> — 아래 부산 대회는 <b>9/18</b>에 접수가 닫혔고, 이 대회가 <b>9/30</b>입니다. 부산에 냈던 팀이라면 같은 분석을 <em>그 분석이 무엇을 바꿨는가</em>로 각만 바꿔 내면 됩니다. <b>연한 파랑 알약 둘</b>은 <b>지난 대회가 무엇을 뽑았는지</b> 보는 자리입니다 — 요강을 읽기 전에 <em>수상작부터</em> 보는 편이 빠릅니다.</span></p>
       </div>
 
+      <ul class="reslist under-box">
+        <li class="wide boxed-green">
+          <a href="https://datalab.visitkorea.or.kr/datalab/portal/main/getMainForm.do" target="_blank" rel="noopener">한국관광 데이터랩 ★ ↗</a>
+          <div class="linkrow tiny fill-green">
+            <a href="https://datalab.visitkorea.or.kr/datalab/portal/loc/getTourLocalDataForm.do" target="_blank" rel="noopener">지역별 관광 현황 ↗</a>
+            <a class="sky" href="https://datalab.visitkorea.or.kr/site/portal/ex/bbs/View.do?cbIdx=1129&amp;bcIdx=309896" target="_blank" rel="noopener">활용 우수사례집 PDF ⤓</a>
+            <a class="sky" href="https://datalab.visitkorea.or.kr/html/interview4/interview01.jsp" target="_blank" rel="noopener">수상팀 인터뷰 5편 ↗</a>
+            <a class="ylw" href="datalab-pm-safety-dikw-prompts.html" target="_blank" rel="noopener">✦ 대상 사례 PM 안전 · DIKW와 프롬프트 ↗</a>
+            <a href="https://datalab.visitkorea.or.kr/site/portal/ex/bbs/View.do?cbIdx=1135&amp;bcIdx=311064&amp;pageIndex=1" target="_blank" rel="noopener">활용 경진대회 · ~9/30 ↗</a>
+          </div>
+          <span class="desc"><strong>이 모듈에서 가장 먼저 열 곳입니다.</strong> <strong>02장 「관광 데이터는 어디서 오는가」</strong>에서 본 통신 · 카드 · 내비게이션 · 관광지 방문객 데이터가 <strong>모두 여기 한 곳에</strong> 모여 있습니다. 공공데이터포털이 전 분야를 모은 창고라면, 이쪽은 <strong class="hot-t">관광만 골라 정리해 둔 곳</strong>입니다 — 지역별 · 월별 방문자와 소비를 바로 비교하고 그림과 표로 내려받습니다.<br /><strong>알약 넷은 이 순서로 씁니다.</strong><br /><strong>① 지역별 관광 현황</strong> — 시 · 군을 골라 <strong>방문자 수 · 체류 시간 · 소비 · 이동</strong>을 한 화면에서 봅니다. 배정받은 도시나 내 고향을 넣어 보는 것이 <em>03장 다섯 걸음</em>의 첫 걸음입니다.<br /><strong>② 활용 우수사례집 PDF</strong> — <em>「데이터로 만드는 관광 — Next Tourism Playbook」</em>(한국관광공사 관광데이터전략팀, 2025. 11.). <strong>남들이 이 데이터로 무엇을 만들었는지</strong>가 사례로 들어 있습니다. 공공누리 4유형이라 <strong>출처를 밝히고</strong> 쓰되 상업적 이용은 안 됩니다.<br /><strong>③ 수상팀 인터뷰 5편</strong> — <em>우수 활용사례(2024)</em> 코너입니다. 대상 · 최우수 2 · 우수 2, <strong>담당자가 직접 문제 상황 · 해결 방법 · 성과</strong>를 말합니다. 대상은 <em>「데이터로 잡은 전동 킥보드 사고 사각지대」</em>(한국도로교통공단 · 강원랜드) — <strong>관광 빅데이터와 교통사고 통계를 붙인</strong> 분석입니다. 사례집이 결과라면 인터뷰는 <strong class="hot-t">과정</strong>입니다.<br /><strong>노란 알약 · 대상 사례 PM 안전</strong> — 그 대상 사례를 <strong>문제 → 데이터 셋(데이터랩 · TAAS · 공유 PM) → 분석방법 다섯 → DIKW → 정책 → 성과</strong>로 뜯어 본 판입니다. 끝에 <strong>그대로 복사해 쓰는 프롬프트</strong>와 상관 · 인과를 가르는 <em>비판적 분석 프롬프트</em>가 붙어 있습니다.<br /><strong>④ 활용 경진대회</strong> — <strong>9월 30일 마감</strong>(총상금 2,000만원 · 문화체육관광부 장관상). ①로 보고 ②③으로 배운 것을 내는 자리입니다.</span>
+          <span class="meta">한국관광공사 · 관광 특화 데이터 · 지역별 방문자 · 소비 · 이동</span>
+        </li>
+      </ul>
       <div class="task-box bd-later" id="빅데이터대회">
         <p class="tb-t"><b class="tb-no">2</b><b class="tb-n">2027년 대비</b>2026년 Big Data 활용 대회 — 부산광역시 <span class="when">접수는 9월 18일에 닫혔습니다 · 본선은 10월 29일</span></p>
         <p class="tb-d"><strong>이 수업에서 배운 것을 그대로 내는 자리입니다.</strong> 부산의 <strong>공공 · 민간 데이터</strong>와 <strong>부산 빅데이터혁신센터 오픈랩 데이터</strong>로 지역 현안을 살펴보고, <strong class="hot-t">데이터에 근거한 정책 · 서비스 개선안</strong>을 내는 대회입니다. <strong>누구나</strong> 개인 또는 <strong>1~4인 팀</strong>으로 나갈 수 있고 <strong>참가비는 없습니다.</strong></p>
@@ -857,6 +873,27 @@
         <span class="yrnote"><b>2026 · 2025는 공고에서 확인한 날짜</b>이고, <b>2024 · 2023은 교차 확인 전</b>이라 그대로 믿지 마십시오. 상 이름이 <b>통계청장상(2025) → 국가데이터처장상(2026)</b>으로 바뀐 점도 함께 봅니다.</span>
         <p class="tb-tags"><a class="mapl form hot" href="https://kosis.kr/contest/index.do" target="_blank" rel="noopener">공모전 누리집 · 요강과 응모신청서 ↗</a><a class="mapl form sky-fill" href="https://kosis.kr/easyViewStatis/uccList.do" target="_blank" rel="noopener">역대 수상작 모음 · 제1회(2014)~제13회(2026) ↗</a><a class="mapl form sky-fill" href="https://kosis.kr/easyViewStatis/uccDetail.do?uccYear=2025&amp;boardIdx=71" target="_blank" rel="noopener">수상작 한 편 · 「KOSIS와 함께하는 스마트한 창업방법」 ↗</a><span class="tb-src"><b>요강보다 수상작을 먼저 여십시오</b> — <b>2분 영상이 실제로 어느 정도 만듦새인지</b> 보고 나면 준비할 것이 분명해집니다. 수상작 모음(「내가 말하는 통계」)에는 <b>2014년부터 열세 해치</b>가 연도별로 쌓여 있습니다. 그중 <b>2025년 우수상 「KOSIS와 함께하는 스마트한 창업방법」</b>(환민진 연구소 · 전진호 · 이환준 · 황민우)을 따로 걸어 둡니다 — 창업을 준비하는 청년이 <b>음식점별 20대 고객 현황 · 개업 투자비용 · 연간 매출액 · 영업 이익률</b>을 KOSIS에서 찾아 일식당 창업으로 잇는 이야기라, <b>03장 다섯 걸음</b>과 <b>관광벤처창업론의 사업계획서</b>가 영상 한 편 안에 그대로 들어 있습니다.</span></p>
       </div>
+      <ul class="reslist under-box">
+        <li class="boxed-green">
+          <a href="https://kosis.kr/index/index.do" target="_blank" rel="noopener">국가통계포털(KOSIS) ↗</a>
+          <div class="linkrow tiny fill-green">
+            <a href="https://kosis.kr/easyViewStatis/visualizationIndex.do" target="_blank" rel="noopener">통계시각화콘텐츠 ↗</a>
+            <a href="https://kosis.kr/visual/dataVisualExp/index.do" target="_blank" rel="noopener">데이터 시각화 체험하기 ↗</a>
+            <a class="sky" href="kosis-gyeongbuk-foreign-residents-dikw.html" target="_blank" rel="noopener">실습 예제 · 경북 외국인등록인구 해석 ↗</a>
+          </div>
+          <div class="linkrow tiny">
+            <a class="ylw" href="kosis-visualization-interpretation-prompts.html" target="_blank" rel="noopener">✦ KOSIS 시각화 결과 해석 프롬프트 · 학생용 ↗</a>
+            <a class="sky" href="assets/kosis-dikw-population-tourism-slides.pptx" download="KOSIS_DIKW_인구와_관광_발표자료_대본포함.pptx">인구관계도 × DIKW 발표자료 · 대본 포함 ⤓ PPTX</a>
+          </div>
+          <span class="desc">인구·경제·사회 등 다양한 분야의 공신력 있는 국가 공식 통계 지표를 검색·시각화·다운로드할 수 있는 통계 포털.<br />
+          <strong>통계시각화콘텐츠</strong> — 인구·물가 등 주요 지표를 차트·지도·웹툰 같은 그림으로 풀어 보여 주는 시각화 모음. 표를 읽기 전에 흐름부터 눈으로 잡을 때 좋습니다. <em>보는 곳.</em><br />
+          <strong>데이터 시각화 체험하기</strong> — 통계 데이터를 골라 차트·그래프를 직접 만들어 보는 체험 공간. 코딩 없이 「어떤 데이터에 어떤 그래프가 맞는가」를 손으로 익힐 수 있습니다. <em>만드는 곳.</em><br />
+          <strong>실습 예제</strong> — KOSIS 라인 차트 하나(경북 외국인등록인구 2016~2025)를 <strong>자료 → 정보 → 지식 → 지혜(DIKW)</strong>로 좌우 넘기며 읽습니다.<br />
+          <strong>해석 프롬프트</strong> — 내가 만든 그래프를 AI에게 보여 줄 때 쓰는 질문 틀. 원인을 단정하지 않고 <em>다음에 찾을 데이터</em>까지 묻게 합니다.<br />
+          <strong>발표자료(PPTX)</strong> — <strong>KOSIS 인구관계도</strong> 한 화면을 <strong>D → I → K → W</strong> 네 단계로 올려 보는 <strong>열 장</strong>. 인구 · 가구구조 변화에서 <strong>고령층 맞춤 · 1인 여행 · 체류형 관광</strong>이라는 관광 의사결정까지 내려옵니다. <strong>01장 5V</strong>와의 관계도 한 장 있습니다.</span>
+          <span class="meta">통계청 · 국가통계 · 시각화 보기 · 직접 만들기</span>
+        </li>
+      </ul>
       <div class="task-box bd-later" id="서울시대회">
         <p class="tb-t"><b class="tb-no">4</b><b class="tb-n">2027년 대비</b>2026 서울시 빅데이터 활용 경진대회 — 서울특별시 <span class="when">2026년은 5월 13일 마감 · 끝났습니다</span></p>
         <p class="tb-d"><strong>지금 낼 수는 없지만 지금 읽어야 하는 대회입니다.</strong> 접수가 <strong>3월</strong>에 열려 <strong>5월</strong>에 닫힙니다 — 그때 알면 늦습니다. <strong class="hot-t">부문이 셋</strong>이라 이 수업의 산출물과 관광벤처창업론의 사업계획서가 <strong>서로 다른 부문으로</strong> 들어갈 수 있는 것이 이 대회의 특징입니다.</p>
@@ -874,6 +911,19 @@
         </div>
       </div>
 
+      <ul class="reslist under-box">
+        <li class="boxed-green">
+          <a href="https://bigdata.seoul.go.kr/noti/selectPageListTabNoti.do?r_id=P260&amp;bbs_seq=548&amp;ac_type=A2" target="_blank" rel="noopener">서울특별시 빅데이터 캠퍼스 ↗</a>
+          <div class="linkrow tiny fill-green">
+            <a href="https://news.seoul.go.kr/gov/archives/576001" target="_blank" rel="noopener">2026 공고 원문 · 내 손안에 서울 ↗</a>
+            <a class="sky" href="https://data.seoul.go.kr/bsp/wgs/contest26.do" target="_blank" rel="noopener">경진대회 수상작 · 양식 ↗</a>
+            <a class="sky" href="https://www.youtube.com/watch?v=3vGNw3ApFk8&amp;t=430s" target="_blank" rel="noopener">▶ 분석 부문 최우수상 발표 · 7:10부터 ↗</a>
+            <a href="bigdata-ai-competitions-2026.html" target="_blank" rel="noopener">공모전 여섯 한눈에 ↗</a>
+          </div>
+          <span class="desc">서울시가 보유한 관광·유동인구·상권 등 대규모 데이터를 검색·분석하고 결과를 반출할 수 있는 공공 분석 플랫폼. 데이터 분석 사례, 강의·자료실, 공모전 등 지원 프로그램도 함께 제공합니다. 이용 신청·데이터 반출 등 일부 기능은 <strong>회원가입·로그인</strong> 후 이용할 수 있습니다.<br /><strong>경진대회 수상작 · 양식</strong> — 위 알약은 <strong>서울 데이터 허브</strong>의 시각화 부문 화면입니다. <strong>2026년 일곱 · 2025년 여섯</strong> 수상작이 발표자료 PDF · 대화형 체험 링크와 함께 걸려 있고, <strong>참가신청서 · 발표 PPT 템플릿</strong>도 여기서 받습니다. <em>데이터를 받는 곳과 그 데이터로 무엇을 만들어야 하는지가 한 칸에 있습니다.</em></span>
+          <span class="meta">서울특별시 디지털도시국 데이터전략과 · 수상작 열셋과 제출 양식</span>
+        </li>
+      </ul>
       <p class="learn-part">08 · 자격증과 학습 경로</p>
       <p>역량을 <strong>증명</strong>하고 체계적으로 배우고 싶다면 자격증과 공개 강의를 활용할 수 있습니다.</p>
       <ul class="vcards c4">
@@ -940,18 +990,6 @@
           <span class="desc">대한민국 정부·공공기관이 보유한 공공 데이터를 한곳에 모아 파일·오픈API로 제공하는 통합 데이터 포털. 데이터 수집의 출발점.</span>
           <span class="meta">행정안전부 · 공공데이터</span>
         </li>
-        <li class="wide boxed-green">
-          <a href="https://datalab.visitkorea.or.kr/datalab/portal/main/getMainForm.do" target="_blank" rel="noopener">한국관광 데이터랩 ★ ↗</a>
-          <div class="linkrow tiny fill-green">
-            <a href="https://datalab.visitkorea.or.kr/datalab/portal/loc/getTourLocalDataForm.do" target="_blank" rel="noopener">지역별 관광 현황 ↗</a>
-            <a class="sky" href="https://datalab.visitkorea.or.kr/site/portal/ex/bbs/View.do?cbIdx=1129&amp;bcIdx=309896" target="_blank" rel="noopener">활용 우수사례집 PDF ⤓</a>
-            <a class="sky" href="https://datalab.visitkorea.or.kr/html/interview4/interview01.jsp" target="_blank" rel="noopener">수상팀 인터뷰 5편 ↗</a>
-            <a class="ylw" href="datalab-pm-safety-dikw-prompts.html" target="_blank" rel="noopener">✦ 대상 사례 PM 안전 · DIKW와 프롬프트 ↗</a>
-            <a href="https://datalab.visitkorea.or.kr/site/portal/ex/bbs/View.do?cbIdx=1135&amp;bcIdx=311064&amp;pageIndex=1" target="_blank" rel="noopener">활용 경진대회 · ~9/30 ↗</a>
-          </div>
-          <span class="desc"><strong>이 모듈에서 가장 먼저 열 곳입니다.</strong> <strong>02장 「관광 데이터는 어디서 오는가」</strong>에서 본 통신 · 카드 · 내비게이션 · 관광지 방문객 데이터가 <strong>모두 여기 한 곳에</strong> 모여 있습니다. 공공데이터포털이 전 분야를 모은 창고라면, 이쪽은 <strong class="hot-t">관광만 골라 정리해 둔 곳</strong>입니다 — 지역별 · 월별 방문자와 소비를 바로 비교하고 그림과 표로 내려받습니다.<br /><strong>알약 넷은 이 순서로 씁니다.</strong><br /><strong>① 지역별 관광 현황</strong> — 시 · 군을 골라 <strong>방문자 수 · 체류 시간 · 소비 · 이동</strong>을 한 화면에서 봅니다. 배정받은 도시나 내 고향을 넣어 보는 것이 <em>03장 다섯 걸음</em>의 첫 걸음입니다.<br /><strong>② 활용 우수사례집 PDF</strong> — <em>「데이터로 만드는 관광 — Next Tourism Playbook」</em>(한국관광공사 관광데이터전략팀, 2025. 11.). <strong>남들이 이 데이터로 무엇을 만들었는지</strong>가 사례로 들어 있습니다. 공공누리 4유형이라 <strong>출처를 밝히고</strong> 쓰되 상업적 이용은 안 됩니다.<br /><strong>③ 수상팀 인터뷰 5편</strong> — <em>우수 활용사례(2024)</em> 코너입니다. 대상 · 최우수 2 · 우수 2, <strong>담당자가 직접 문제 상황 · 해결 방법 · 성과</strong>를 말합니다. 대상은 <em>「데이터로 잡은 전동 킥보드 사고 사각지대」</em>(한국도로교통공단 · 강원랜드) — <strong>관광 빅데이터와 교통사고 통계를 붙인</strong> 분석입니다. 사례집이 결과라면 인터뷰는 <strong class="hot-t">과정</strong>입니다.<br /><strong>노란 알약 · 대상 사례 PM 안전</strong> — 그 대상 사례를 <strong>문제 → 데이터 셋(데이터랩 · TAAS · 공유 PM) → 분석방법 다섯 → DIKW → 정책 → 성과</strong>로 뜯어 본 판입니다. 끝에 <strong>그대로 복사해 쓰는 프롬프트</strong>와 상관 · 인과를 가르는 <em>비판적 분석 프롬프트</em>가 붙어 있습니다.<br /><strong>④ 활용 경진대회</strong> — <strong>9월 30일 마감</strong>(총상금 2,000만원 · 문화체육관광부 장관상). ①로 보고 ②③으로 배운 것을 내는 자리입니다.</span>
-          <span class="meta">한국관광공사 · 관광 특화 데이터 · 지역별 방문자 · 소비 · 이동</span>
-        </li>
         <li class="wide">
           <span class="grouptitle">분야별 빅데이터 플랫폼 · 5곳</span>
           <div class="linkrow tiny">
@@ -967,36 +1005,6 @@
           <strong>금융혁신</strong>(국민연금공단·전북특별자치도) — 연금·신용·카드 등 금융 데이터. 관광객 카드 소비와 지역별 결제 흐름에.<br />
           <strong>보건의료</strong>(한국보건의료정보원) — 공공 보건의료 데이터 카탈로그·분석센터. 웰니스·의료관광 연구의 참고 자원.</span>
           <span class="meta">부처·기관별 분야 특화 데이터 플랫폼 · 분류 참고 <a href="https://boardmix.com/kr/reviews/big-data-platforms/" target="_blank" rel="noopener">Boardmix ↗</a></span>
-        </li>
-        <li class="boxed-green">
-          <a href="https://kosis.kr/index/index.do" target="_blank" rel="noopener">국가통계포털(KOSIS) ↗</a>
-          <div class="linkrow tiny fill-green">
-            <a href="https://kosis.kr/easyViewStatis/visualizationIndex.do" target="_blank" rel="noopener">통계시각화콘텐츠 ↗</a>
-            <a href="https://kosis.kr/visual/dataVisualExp/index.do" target="_blank" rel="noopener">데이터 시각화 체험하기 ↗</a>
-            <a class="sky" href="kosis-gyeongbuk-foreign-residents-dikw.html" target="_blank" rel="noopener">실습 예제 · 경북 외국인등록인구 해석 ↗</a>
-          </div>
-          <div class="linkrow tiny">
-            <a class="ylw" href="kosis-visualization-interpretation-prompts.html" target="_blank" rel="noopener">✦ KOSIS 시각화 결과 해석 프롬프트 · 학생용 ↗</a>
-            <a class="sky" href="assets/kosis-dikw-population-tourism-slides.pptx" download="KOSIS_DIKW_인구와_관광_발표자료_대본포함.pptx">인구관계도 × DIKW 발표자료 · 대본 포함 ⤓ PPTX</a>
-          </div>
-          <span class="desc">인구·경제·사회 등 다양한 분야의 공신력 있는 국가 공식 통계 지표를 검색·시각화·다운로드할 수 있는 통계 포털.<br />
-          <strong>통계시각화콘텐츠</strong> — 인구·물가 등 주요 지표를 차트·지도·웹툰 같은 그림으로 풀어 보여 주는 시각화 모음. 표를 읽기 전에 흐름부터 눈으로 잡을 때 좋습니다. <em>보는 곳.</em><br />
-          <strong>데이터 시각화 체험하기</strong> — 통계 데이터를 골라 차트·그래프를 직접 만들어 보는 체험 공간. 코딩 없이 「어떤 데이터에 어떤 그래프가 맞는가」를 손으로 익힐 수 있습니다. <em>만드는 곳.</em><br />
-          <strong>실습 예제</strong> — KOSIS 라인 차트 하나(경북 외국인등록인구 2016~2025)를 <strong>자료 → 정보 → 지식 → 지혜(DIKW)</strong>로 좌우 넘기며 읽습니다.<br />
-          <strong>해석 프롬프트</strong> — 내가 만든 그래프를 AI에게 보여 줄 때 쓰는 질문 틀. 원인을 단정하지 않고 <em>다음에 찾을 데이터</em>까지 묻게 합니다.<br />
-          <strong>발표자료(PPTX)</strong> — <strong>KOSIS 인구관계도</strong> 한 화면을 <strong>D → I → K → W</strong> 네 단계로 올려 보는 <strong>열 장</strong>. 인구 · 가구구조 변화에서 <strong>고령층 맞춤 · 1인 여행 · 체류형 관광</strong>이라는 관광 의사결정까지 내려옵니다. <strong>01장 5V</strong>와의 관계도 한 장 있습니다.</span>
-          <span class="meta">통계청 · 국가통계 · 시각화 보기 · 직접 만들기</span>
-        </li>
-        <li>
-          <a href="https://bigdata.seoul.go.kr/noti/selectPageListTabNoti.do?r_id=P260&amp;bbs_seq=548&amp;ac_type=A2" target="_blank" rel="noopener">서울특별시 빅데이터 캠퍼스 ↗</a>
-          <div class="linkrow tiny fill-green">
-            <a href="https://news.seoul.go.kr/gov/archives/576001" target="_blank" rel="noopener">2026 공고 원문 · 내 손안에 서울 ↗</a>
-            <a class="sky" href="https://data.seoul.go.kr/bsp/wgs/contest26.do" target="_blank" rel="noopener">경진대회 수상작 · 양식 ↗</a>
-            <a class="sky" href="https://www.youtube.com/watch?v=3vGNw3ApFk8&amp;t=430s" target="_blank" rel="noopener">▶ 분석 부문 최우수상 발표 · 7:10부터 ↗</a>
-            <a href="bigdata-ai-competitions-2026.html" target="_blank" rel="noopener">공모전 여섯 한눈에 ↗</a>
-          </div>
-          <span class="desc">서울시가 보유한 관광·유동인구·상권 등 대규모 데이터를 검색·분석하고 결과를 반출할 수 있는 공공 분석 플랫폼. 데이터 분석 사례, 강의·자료실, 공모전 등 지원 프로그램도 함께 제공합니다. 이용 신청·데이터 반출 등 일부 기능은 <strong>회원가입·로그인</strong> 후 이용할 수 있습니다.<br /><strong>경진대회 수상작 · 양식</strong> — 위 알약은 <strong>서울 데이터 허브</strong>의 시각화 부문 화면입니다. <strong>2026년 일곱 · 2025년 여섯</strong> 수상작이 발표자료 PDF · 대화형 체험 링크와 함께 걸려 있고, <strong>참가신청서 · 발표 PPT 템플릿</strong>도 여기서 받습니다. <em>데이터를 받는 곳과 그 데이터로 무엇을 만들어야 하는지가 한 칸에 있습니다.</em></span>
-          <span class="meta">서울특별시 디지털도시국 데이터전략과 · 수상작 열셋과 제출 양식</span>
         </li>
         <li>
           <a href="https://www.bigkinds.or.kr/" target="_blank" rel="noopener">빅카인즈(BIG KINDS) ↗</a>
