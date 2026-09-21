@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>BIGKinds 사용법과 검색어 감각 수업</title>
+<style>
+:root{
+  --bg:#f7f9fc; --ink:#182230; --muted:#5d6978; --line:#dde3ec; --card:#fff;
+  --blue:#2457d6; --blue2:#eef3ff; --violet:#6f46c9; --violet2:#f3efff;
+  --green:#117a5b; --green2:#eaf7f2; --orange:#a86005; --orange2:#fff3e4;
+  --red:#b5483f; --red2:#fff0ef; --dark:#0f1728;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo",Arial,sans-serif;color:var(--ink);background:var(--bg)}
+body{overflow:hidden}
+.deck{display:flex;height:100vh;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.slide{min-width:100vw;height:100vh;padding:38px 54px 78px;overflow:auto}
+.inner{max-width:1240px;margin:0 auto}
+.eyebrow{font-size:13px;font-weight:900;letter-spacing:.08em;color:var(--blue);text-transform:uppercase;margin-bottom:10px}
+h1{font-size:42px;line-height:1.18;margin:0 0 16px}
+h2{font-size:30px;line-height:1.25;margin:0 0 18px}
+h3{font-size:20px;line-height:1.3;margin:0 0 8px}
+p{font-size:17px;line-height:1.62;color:var(--muted);margin:7px 0}
+.lead{font-size:22px;color:var(--ink);font-weight:800;line-height:1.5}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:19px;box-shadow:0 5px 18px rgba(20,30,50,.045)}
+.blue{background:var(--blue2);border-color:#cdd9ff}.violet{background:var(--violet2);border-color:#ddd0ff}
+.green{background:var(--green2);border-color:#cce9de}.orange{background:var(--orange2);border-color:#f0d9b8}.red{background:var(--red2);border-color:#f2cbc6}
+.grid{display:grid;gap:16px}.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.kicker{font-size:48px;font-weight:900;color:var(--blue);line-height:1}
+.tag{display:inline-block;padding:6px 9px;border-radius:999px;background:#eef1f5;color:#3f4b5c;font-size:13px;font-weight:800;margin:3px 4px 3px 0}
+.tag.actual{background:#e9f7f2;color:#11664e}.tag.rec{background:#fff1df;color:#8c5208}.tag.ai{background:#efeaff;color:#5939ac}
+.quote{font-size:23px;line-height:1.55;font-weight:850;background:#fff;border-left:6px solid var(--blue);padding:18px 22px;border-radius:12px;margin:18px 0}
+.flow{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:16px 0}
+.node{background:#fff;border:2px solid #cfd7e5;border-radius:13px;padding:12px 16px;font-weight:850}
+.arrow{font-size:25px;color:var(--blue);font-weight:900}
+.searchbox{background:var(--dark);color:#fff;border-radius:14px;padding:15px 18px;font-size:18px;font-family:ui-monospace,Consolas,monospace;margin:10px 0}
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:14px;overflow:hidden;font-size:14px}
+th,td{padding:11px 12px;border-bottom:1px solid #e7ebf0;vertical-align:top;text-align:left}
+th{background:#f0f3f8;color:#344054;font-size:13px}
+tr:last-child td{border-bottom:none}
+.small{font-size:13px;color:#6b7585}.accent{color:var(--blue);font-weight:900}.good{color:var(--green);font-weight:900}.warn{color:var(--orange);font-weight:900}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.hero{min-height:80vh;display:flex;flex-direction:column;justify-content:center}
+.section-title{font-size:15px;color:var(--violet);font-weight:900;margin-bottom:8px}
+.list{padding-left:22px}.list li{margin:8px 0;font-size:17px;line-height:1.5}
+.ribbon{display:inline-block;background:var(--blue);color:#fff;font-size:13px;font-weight:900;border-radius:999px;padding:7px 11px;margin-bottom:12px}
+.nav{position:fixed;left:0;right:0;bottom:0;height:58px;background:rgba(255,255,255,.94);border-top:1px solid var(--line);display:flex;align-items:center;justify-content:center;gap:12px;z-index:100;backdrop-filter:blur(9px)}
+button{border:0;border-radius:10px;padding:10px 15px;font-weight:850;cursor:pointer;background:#e9edf5;color:#26354a}
+button.primary{background:var(--blue);color:#fff}
+.progress{min-width:100px;text-align:center;font-weight:850;color:#566274}
+.dots{display:flex;gap:4px;max-width:380px;overflow:hidden}
+.dot{width:6px;height:6px;background:#cbd3df;border-radius:50%}.dot.active{background:var(--blue)}
+.note{margin-top:14px;padding:12px 15px;border-radius:12px;background:#fff;border:1px dashed #cfd6e2;font-size:14px;color:#5f6877}
+@media(max-width:920px){
+ .slide{padding:26px 20px 75px}.g2,.g3,.g4,.two-col{grid-template-columns:1fr}
+ h1{font-size:33px} h2{font-size:26px}.hero{min-height:auto}.dots{display:none}
+}
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+<section class="slide"><div class="inner hero">
+<div class="ribbon">BIGKinds 뉴스 빅데이터 수업</div>
+<h1>빅카인즈 사용법과<br><span class="accent">검색어를 고르는 감각</span></h1>
+<p class="lead">학생에게 “버튼을 누르는 법”보다 더 중요한 것은<br>“어떤 단어를 검색해야 사회현상이 보이는가?”를 익히게 하는 것입니다.</p>
+<div class="grid g3" style="margin-top:26px">
+<div class="card blue"><div class="kicker">1</div><h3>실제 연구 사례</h3><p>BIGKinds로 실제 분석된 토픽을 통해 검색어의 수준을 봅니다.</p></div>
+<div class="card"><div class="kicker">2</div><h3>좋은 검색어 조건</h3><p>기사량·시계열·사회성·연관어·비교 가능성을 판단합니다.</p></div>
+<div class="card violet"><div class="kicker">3</div><h3>학생 실습</h3><p>검색 → 연관어 → 관계도 → 시기 비교 → 해석으로 이어갑니다.</p></div>
+</div>
+</div></section>
+
+<section class="slide"><div class="inner">
+<div class="eyebrow">수업 목표</div><h2>오늘 학생들이 가져가야 할 것</h2>
+<div class="grid g2">
+<div class="card"><h3>BIGKinds 사용법</h3><p>검색어 입력, 기간 설정, 언론사 선택, 기사량 추이, 연관어, 관계도, 기사 확인.</p></div>
+<div class="card blue"><h3>검색어 감각</h3><p>“왜 이 단어를 검색하는가?” “어떤 시기와 비교할 것인가?” “어떤 사회현상과 연결되는가?”를 판단하는 능력.</p></div>
+</div>
+<div class="quote">빅데이터 분석의 첫 단계는 분석기법이 아니라 <span class="accent">“어떤 데이터를 찾을 것인가?”</span>입니다.</div>
+</div></section>
+
+<section class="slide"><div class="inner">
+<div class="eyebrow">대화 흐름에서 도달한 핵심</div><h2>처음에는 ‘사회적 관심 단어’를 찾았고, 그 다음 실제 연구 사례를 확인했다</h2>
+<div class="flow">
+<div class="node">관광 주제 30개</div><div class="arrow">→</div>
+<div class="node">사회이슈 확대</div><div class="arrow">→</div>
+<div class="node">사건명 vs 담론 구분</div><div class="arrow">→</div>
+<div class="node">실제 BIGKinds 연구 토픽 확인</div><div class="arrow">→</div>
+<div class="node">학생용 검색어 기준</div>
+</div>
+<div class="grid g3">
+<div class="card"><h3>초기 후보</h3><p>저출생, 고령화, 1인가구, 지방소멸, 생성형 AI, 딥페이크, 기후위기 등.</p></div>
+<div class="card"><h3>문제 제기</h3><p>폭염·산불·키오스크 같은 단어는 그 자체로 담론이 아니라 사건·대상일 수 있음.</p></div>
+<div class="card blue"><h3>최종 방향</h3><p>“실제로 BIGKinds로 분석된 토픽”과 “그 외 분석 가치가 높은 후보”를 구분해 가르친다.</p></div>
+</div>
+</div></section>
+
+<section class="slide"><div class="inner">
+<div class="eyebrow">개념 구분</div><h2>사건명·대상명도 좋은 검색어다. 다만 분석 목적을 구분해야 한다</h2>
+<table><thead><tr><th>검색어</th><th>그대로 검색하면</th><th>한 단계 확장하면</th><th>적합한 분석</th></tr></thead>
+<tbody>
+<tr><td><b>폭염</b></td><td>재난·피해 기사 추이</td><td>기후불평등·취약계층·노동</td><td>트렌드 → 사회문제 해석</td></tr>
+<tr><td><b>키오스크</b></td><td>기술 확산·이용 이슈</td><td>디지털 격차·접근성·포용</td><td>연관어·프레임</td></tr>
+<tr><td><b>전기차 화재</b></td><td>사고·위험 보도</td><td>신기술 위험·안전·신뢰</td><td>사건 전후 비교</td></tr>
+<tr><td><b>산불</b></td><td>피해·복구 보도</td><td>재난 책임·복구·예방</td><td>사건 전후·관계도</td></tr>
+</tbody></table>
+<div class="note">핵심: “담론 분석이냐 아니냐”보다, 학생이 <b>무엇을 보고 싶은지</b> 먼저 구분하게 해야 합니다.</div>
+</div></section>
+
+<section class="slide"><div class="inner">
+<div class="eyebrow">실제 BIGKinds 활용 선행연구</div><h2>① 사회·역사·복지·교육 분야</h2>
+<div class="grid g4">
+<div class="card green"><span class="tag actual">실제 연구</span><h3>5·18</h3><p>장기 뉴스자료, 시기·지역별 빈도·네트워크 분석</p></div>
+<div class="card green"><span class="tag actual">실제 연구</span><h3>교권침해</h3><p>언론보도 변화, 키워드 트렌드·워드클라우드</p></div>
+<div class="card green"><span class="tag actual">실제 연구</span><h3>교사 인권</h3><p>사회적 인식과 현상 분석</p></div>
+<div class="card green"><span class="tag actual">실제 연구</span><h3>자사고</h3><p>이명박·박근혜·문재인 정부 시기 비교</p></div>
+<div class="card"><span class="tag actual">실제 연구</span><h3>고교학점제</h3><p>교육정책 관련 언론기사 분석</p></div>
+<div class="card"><span class="tag actual">실제 연구</span><h3>평생교육</h3><p>정책·지역발전·일자리 등 토픽 분석</p></div>
+<div class="card"><span class="tag actual">실제 연구</span><h3>노인학대</h3><p>사회적 인식, 토픽모델링, 미디어 프레임</p></div>
+<div class="card"><span class="tag actual">실제 연구</span><h3>발달장애인</h3><p>법 시행 이후 언론보도 경향</p></div>
+</div>
+</div></section>
+
+<section class="slide"><div class="inner">
+<div class="eyebrow">실제 BIGKinds 활용 선행연구</div><h2>② 기술·AI·산업·미디어 분야</h2>
+<div class="grid g4">
+<div class="card violet"><span class="tag actual">실제 연구</span><h3>GenAI</h3><p>ChatGPT 등장 전후 뉴스 이슈·트렌드 변화</p></div>
+<div class="card violet"><span class="tag actual">실제 연구</span><h3>생성형 AI × 정신건강</h3><p>생성형 AI 관련 정신건강 이슈 분석</p></div>
+<div class="card"><span class="tag actual">실제 연구</span><h3>숏폼</h3><p>주요 키워드와 사회현상 분석</p></div>
+<div class="card"><span class="tag actual">실제 연구</span><h3>OTT</h3><p>코로나19 전후 언론기사 비교</p></div>
+<div class="card"><span class="tag actual">실제 연구</span><h3>게더타운</h3><p>팬데믹 이후 미래교육 활용</p></div>
+<div class="card"><span class="tag actual">실제 연구</span><h3>UAM</h3><p>국내 언론보도, 관계도·연관어</p></div>
+<div class="card"><span class="tag actual">실제 연구</span><h3>스마트공장</h3><p>정책적 방향과 트렌드</p></div>
+<div class="card"><span class="tag actual">실제 연구</span><h3>디지털 치료제</h3><p>Pear Therapeutics 사례, 관계도·연관어·내용분석</p></div>
+</div>
+</div></section>
+
+<section class="slide"><div class="inner">
+<div class="eyebrow">실제 BIGKinds 활용 선행연구</div><h2>③ 문화·여가·생활·공간 분야</h2>
+<div class="grid g4">
+<div class="card"><span class="tag actual">실제 연구</span><h3>플로깅</h3><p>2018~2022 트렌드 분석</p></div>
+<div class="card"><span class="tag actual">실제 연구</span><h3>워케이션</h3><p>연도별 검색량 증가 확인 후 분석기간 설정</p></div>
+<div class="card"><span class="tag actual">실제 연구</span><h3>홈트레이닝</h3><p>코로나 시기 신문 빅데이터·키워드 분석</p></div>
+<div class="card"><span class="tag actual">실제 연구</span><h3>도시재생</h3><p>45,030건 지역일간지, 지역별 이슈 분석</p></div>
+<div class="card"><span class="tag actual">실제 연구</span><h3>덕수궁 돌담길</h3><p>메타데이터와 연관어를 통한 장소 담론 해석</p></div>
+<div class="card"><span class="tag actual">실제 연구</span><h3>광고</h3><p>1990~2019 장기 언론보도 변화</p></div>
+<div class="card"><span class="tag actual">실제 연구</span><h3>건강지향 베이커리</h3><p>COVID-19 전후 트렌드 분석</p></div>
+<div class="card"><span class="tag actual">실제 연구</span><h3>유소년 축구</h3><p>성인축구와 월드컵 시즌별 키워드 비교</p></div>
+</div>
+</div></section>
+
+<section class="slide"><div class="inner">
+<div class="eyebrow">실제 BIGKinds 활용 선행연구</div><h2>④ 국제·다문화·안전·정책 분야</h2>
+<div class="grid g4">
+<div class="card"><span class="tag actual">실제 연구</span><h3>난민</h3><p>신문기사 제목의 키워드 변화</p></div>
+<div class="card"><span class="tag actual">실제 연구</span><h3>외국인 마을</h3><p>국내 언론의 공간 담론 분석</p></div>
+<div class="card"><span class="tag actual">실제 연구</span><h3>아프리카</h3><p>국제뉴스의 보도지형·토픽모델링</p></div>
+<div class="card"><span class="tag actual">실제 연구</span><h3>중동·아랍·이슬람</h3><p>1990~2021 장기 언론보도 분석</p></div>
+<div class="card"><span class="tag actual">실제 연구</span><h3>재난</h3><p>재난 유형 용어 사용 추이와 사회적 인식</p></div>
+<div class="card"><span class="tag actual">실제 연구</span><h3>어린이 안전사고</h3><p>국내 언론보도 분석</p></div>
+<div class="card"><span class="tag actual">실제 연구</span><h3>범죄</h3><p>서울시 범죄 토픽의 시공간 변화·KoBERTopic</p></div>
+<div class="card"><span class="tag actual">실제 연구</span><h3>정보경찰</h3><p>주요 키워드·토픽의 시간적 변화</p></div>
+</div>
+</div></section>
+
+<section class="slide"><div class="inner">
+<div class="eyebrow">실제 연구 토픽 전체 모음</div><h2>지금까지 확인된 BIGKinds 분석 주제</h2>
+<div class="card">
+<p><b>5·18 · GenAI · 생성형 AI와 정신건강 · 플로깅 · 평생교육 · 교권침해 · 노인학대 · 숏폼 · 외국인 마을 · 전수교육관 · 리터러시 · 유아 인공지능 교육 · 대화경찰 · UAM · 어린이 안전사고 · OTT · 고교학점제 · 발달장애인 · 초등체육 · 홈트레이닝 · 범죄 · 스마트공장 · 워케이션 · 언어치료 · 재난 · 광고 · 유소년 축구 · 성인 축구 · 교사 인권 · 게더타운 · 도시재생 · 아프리카 · 건강지향 베이커리 · 한국관광 · 중동 · 아랍 · 이슬람 · 자사고 · 디지털 치료제 · 난민 · 스마트팜혁신밸리 · 덕수궁 돌담길 · 정보경찰 · 금융권 ESG</b></p>
+</div>
+<div class="quote">이 목록이 중요한 이유: 학생에게 “실제로 이런 단어 하나만으로도 연구가 된다”는 감각을 줄 수 있습니다.</div>
+</div></section>
+
+<section class="slide"><div class="inner">
+<div class="eyebrow">좋은 검색어의 조건</div><h2>① 기사량이 충분하다</h2>
+<div class="two-col">
+<div class="card blue"><h3>좋은 신호</h3><ul class="list"><li>몇 년간 꾸준한 기사가 있다.</li><li>특정 시점에 기사량이 뚜렷하게 증가한다.</li><li>연관어 상위 목록이 다양하게 나온다.</li></ul></div>
+<div class="card red"><h3>주의할 신호</h3><ul class="list"><li>기사 수가 너무 적다.</li><li>한두 사건 기사만 대부분이다.</li><li>동명이인·기업명 때문에 노이즈가 많다.</li></ul></div>
+</div>
+<div class="note">단, 희귀한 신생 개념도 “등장 과정”을 보는 연구라면 충분히 가치가 있습니다.</div>
+</div></section>
+
+<section class="slide"><div class="inner">
+<div class="eyebrow">좋은 검색어의 조건</div><h2>② 시간에 따라 의미가 변한다</h2>
+<div class="grid g3">
+<div class="card"><h3>정권 전후</h3><p>예: <b>자사고</b></p></div>
+<div class="card"><h3>기술 등장 전후</h3><p>예: <b>생성형 AI</b>, ChatGPT 등장</p></div>
+<div class="card"><h3>코로나 전후</h3><p>예: <b>OTT, 홈트레이닝</b></p></div>
+<div class="card"><h3>법·정책 시행 전후</h3><p>예: <b>발달장애인</b></p></div>
+<div class="card"><h3>사건 전후</h3><p>예: <b>난민, 재난</b></p></div>
+<div class="card"><h3>지역별</h3><p>예: <b>도시재생</b></p></div>
+</div>
+<div class="quote">같은 검색어라도 <span class="accent">시기를 나누는 순간 연구 질문이 생깁니다.</span></div>
+</div></section>
+
+<section class="slide"><div class="inner">
+<div class="eyebrow">좋은 검색어의 조건</div><h2>③ 다른 사회현상과 연결된다</h2>
+<table><thead><tr><th>검색어</th><th>함께 연결될 수 있는 주제</th><th>연구 가능성</th></tr></thead>
+<tbody>
+<tr><td>지방소멸</td><td>인구, 청년, 일자리, 관광, 교육, 빈집</td><td>지역문제의 구조적 연결</td></tr>
+<tr><td>키오스크</td><td>고령자, 장애인, 접근성, 디지털 격차</td><td>기술과 사회적 배제</td></tr>
+<tr><td>생성형 AI</td><td>일자리, 저작권, 교육, 윤리, 정신건강</td><td>신기술 확산과 사회반응</td></tr>
+<tr><td>기후위기</td><td>폭염, 산불, 노동, 취약계층, 탄소중립</td><td>환경과 사회불평등</td></tr>
+<tr><td>워라밸</td><td>근로시간, 주4일제, 여가, 행복, 생산성</td><td>노동 가치관 변화</td></tr>
+</tbody></table>
+</div></section>
+
+<section class="slide"><div class="inner">
+<div class="eyebrow">좋은 검색어의 조건</div><h2>④ 너무 넓지도, 너무 좁지도 않다</h2>
+<div class="grid g3">
+<div class="card red"><h3>너무 넓음</h3><div class="searchbox">사회</div><div class="searchbox">경제</div><p>무엇을 설명하려는지 불분명합니다.</p></div>
+<div class="card green"><h3>적절함</h3><div class="searchbox">난민</div><div class="searchbox">워케이션</div><p>하나의 사회현상을 가리키면서 연관어가 충분합니다.</p></div>
+<div class="card orange"><h3>너무 좁음</h3><div class="searchbox">난민 AND 갈등 AND 범죄 AND 다문화</div><p>초기 탐색에서는 예상 밖의 관계를 놓칠 수 있습니다.</p></div>
+</div>
+</div></section>
+
+<section class="slide"><div class="inner">
+<div class="eyebrow">검색식 감각</div><h2>단일 검색어 → 초점화 → 연구용 검색식</h2>
+<div class="grid g3">
+<div class="card"><h3>1단계: 탐색</h3><div class="searchbox">딥페이크</div><p>기사량·시기·연관어를 먼저 확인.</p></div>
+<div class="card blue"><h3>2단계: 초점화</h3><div class="searchbox">딥페이크 AND 청소년</div><p>특정 대상·맥락이 중요해졌는지 확인.</p></div>
+<div class="card violet"><h3>3단계: 연구용</h3><div class="searchbox">(딥페이크 OR 합성영상) AND (청소년 OR 학교)</div><p>연구 목적이 정해진 뒤 검색식을 정교화.</p></div>
+</div>
+<div class="note">학생 실습에서는 1단계부터 시작하게 하는 것이 좋습니다.</div>
+</div></section>
+
+<section class="slide"><div class="inner">
+<div class="eyebrow">검색어 그루핑</div><h2>① 인구·지역·주거</h2>
+<div class="grid g3">
+<div class="card blue"><h3>인구 변화</h3><span class="tag rec">저출생</span><span class="tag rec">고령화</span><span class="tag rec">1인가구</span></div>
+<div class="card"><h3>지역 변화</h3><span class="tag rec">지방소멸</span><span class="tag rec">생활인구</span><span class="tag actual">도시재생</span></div>
+<div class="card"><h3>주거·공간</h3><span class="tag rec">빈집</span><span class="tag actual">외국인 마을</span><span class="tag actual">덕수궁 돌담길</span></div>
+</div>
+</div></section>
+
+<section class="slide"><div class="inner">
+<div class="eyebrow">검색어 그루핑</div><h2>② 교육·청년·노동</h2>
+<div class="grid g3">
+<div class="card"><h3>교육정책</h3><span class="tag actual">자사고</span><span class="tag actual">고교학점제</span><span class="tag actual">평생교육</span></div>
+<div class="card"><h3>교사·학교</h3><span class="tag actual">교권침해</span><span class="tag actual">교사 인권</span><span class="tag rec">학교폭력</span></div>
+<div class="card blue"><h3>청년·노동</h3><span class="tag rec">은둔청년</span><span class="tag rec">청년실업</span><span class="tag rec">N잡러</span><span class="tag rec">주4일제</span><span class="tag rec">플랫폼 노동</span></div>
+</div>
+</div></section>
+
+<section class="slide"><div class="inner">
+<div class="eyebrow">검색어 그루핑</div><h2>③ AI·디지털·기술</h2>
+<div class="grid g3">
+<div class="card violet"><h3>AI 확산</h3><span class="tag actual">생성형 AI</span><span class="tag rec">AI 리터러시</span><span class="tag rec">AI 윤리</span></div>
+<div class="card"><h3>AI 위험·권리</h3><span class="tag rec">딥페이크</span><span class="tag rec">AI 저작권</span><span class="tag actual">생성형 AI × 정신건강</span></div>
+<div class="card"><h3>디지털 전환</h3><span class="tag rec">키오스크</span><span class="tag rec">디지털 격차</span><span class="tag actual">디지털 치료제</span><span class="tag actual">UAM</span></div>
+</div>
+</div></section>
+
+<section class="slide"><div class="inner">
+<div class="eyebrow">검색어 그루핑</div><h2>④ 복지·건강·안전</h2>
+<div class="grid g3">
+<div class="card"><h3>고령·돌봄</h3><span class="tag actual">노인학대</span><span class="tag rec">고독사</span><span class="tag rec">돌봄</span></div>
+<div class="card"><h3>아동·장애</h3><span class="tag actual">발달장애인</span><span class="tag actual">어린이 안전사고</span><span class="tag actual">언어치료</span></div>
+<div class="card orange"><h3>사회 안전</h3><span class="tag actual">범죄</span><span class="tag actual">재난</span><span class="tag rec">전기차 화재</span></div>
+</div>
+</div></section>
+
+<section class="slide"><div class="inner">
+<div class="eyebrow">검색어 그루핑</div><h2>⑤ 환경·기후·지속가능성</h2>
+<div class="grid g3">
+<div class="card blue"><h3>기후 문제</h3><span class="tag rec">기후위기</span><span class="tag rec">폭염</span><span class="tag rec">집중호우</span><span class="tag rec">산불</span></div>
+<div class="card"><h3>정책·전환</h3><span class="tag rec">탄소중립</span><span class="tag rec">지속가능성</span><span class="tag actual">금융권 ESG</span></div>
+<div class="card green"><h3>환경 실천</h3><span class="tag actual">플로깅</span><span class="tag rec">기후불평등</span><span class="tag rec">기후정의</span></div>
+</div>
+</div></section>
+
+<section class="slide"><div class="inner">
+<div class="eyebrow">검색어 그루핑</div><h2>⑥ 미디어·문화·여가·생활</h2>
+<div class="grid g3">
+<div class="card"><h3>미디어</h3><span class="tag actual">숏폼</span><span class="tag actual">OTT</span><span class="tag actual">광고</span><span class="tag actual">리터러시</span></div>
+<div class="card"><h3>생활·여가</h3><span class="tag actual">홈트레이닝</span><span class="tag actual">워케이션</span><span class="tag actual">플로깅</span><span class="tag rec">반려동물</span></div>
+<div class="card"><h3>스포츠·문화</h3><span class="tag actual">유소년 축구</span><span class="tag actual">성인 축구</span><span class="tag actual">전수교육관</span></div>
+</div>
+</div></section>
+
+<section class="slide"><div class="inner">
+<div class="eyebrow">검색어 그루핑</div><h2>⑦ 국제·다문화·사회인식</h2>
+<div class="grid g3">
+<div class="card green"><h3>이주·다문화</h3><span class="tag actual">난민</span><span class="tag actual">외국인 마을</span></div>
+<div class="card"><h3>국제 이미지</h3><span class="tag actual">아프리카</span><span class="tag actual">중동</span><span class="tag actual">아랍</span><span class="tag actual">이슬람</span></div>
+<div class="card"><h3>역사·기억</h3><span class="tag actual">5·18</span><span class="tag actual">한국관광</span></div>
+</div>
+</div></section>
+
+<section class="slide"><div class="inner">
+<div class="eyebrow">학생용 후보</div><h2>실습용으로 주기 좋은 검색어 30개</h2>
+<table><thead><tr><th>분야</th><th>검색어</th></tr></thead>
+<tbody>
+<tr><td>인구·지역</td><td>저출생 · 지방소멸 · 생활인구 · 1인가구 · 도시재생</td></tr>
+<tr><td>교육·청년</td><td>자사고 · 교권침해 · 고교학점제 · 은둔청년 · 평생교육</td></tr>
+<tr><td>AI·디지털</td><td>생성형 AI · 딥페이크 · AI 저작권 · 키오스크 · 디지털 격차</td></tr>
+<tr><td>노동·생활</td><td>플랫폼 노동 · 워라밸 · 주4일제 · N잡러 · 워케이션</td></tr>
+<tr><td>복지·사회</td><td>노인학대 · 고독사 · 돌봄 · 난민 · 디지털 치료제</td></tr>
+<tr><td>환경·미디어</td><td>기후위기 · 재난 · 숏폼 · OTT · 플로깅</td></tr>
+</tbody></table>
+<div class="note"><span class="tag actual">실제 연구</span>가 확인된 토픽과 <span class="tag rec">추천 후보</span>를 섞되, 학생에게는 두 종류를 구분해서 보여주는 것이 좋습니다.</div>
+</div></section>
+
+<section class="slide"><div class="inner">
+<div class="eyebrow">학생 실습</div><h2>BIGKinds 실습 절차</h2>
+<div class="flow">
+<div class="node">① 검색어 1개 선택</div><div class="arrow">→</div>
+<div class="node">② 기간 설정</div><div class="arrow">→</div>
+<div class="node">③ 기사량 확인</div><div class="arrow">→</div>
+<div class="node">④ 연관어 확인</div>
+</div>
+<div class="flow">
+<div class="node">⑤ 관계도 확인</div><div class="arrow">→</div>
+<div class="node">⑥ 급증 시점 이유 찾기</div><div class="arrow">→</div>
+<div class="node">⑦ 시기 분할 비교</div><div class="arrow">→</div>
+<div class="node">⑧ 한 문단 해석</div>
+</div>
+<div class="quote">“왜 이 시점에 늘었지?” “무엇과 같이 등장하지?” “예전과 지금이 왜 다르지?”</div>
+</div></section>
+
+<section class="slide"><div class="inner">
+<div class="eyebrow">학생 과제 예시</div><h2>검색어 하나를 ‘작은 연구’로 바꾸는 방법</h2>
+<table><thead><tr><th>검색어</th><th>비교 기준</th><th>학생 연구질문 예시</th></tr></thead>
+<tbody>
+<tr><td><b>자사고</b></td><td>정권별</td><td>정권별 언론 보도에서 자사고와 함께 등장한 핵심어는 어떻게 달라졌는가?</td></tr>
+<tr><td><b>생성형 AI</b></td><td>ChatGPT 등장 전후</td><td>기술 소개 중심 보도에서 위험·윤리·일자리 이슈로 확장되었는가?</td></tr>
+<tr><td><b>OTT</b></td><td>코로나 전후</td><td>OTT 관련 보도의 주요 관심사는 어떻게 변화했는가?</td></tr>
+<tr><td><b>난민</b></td><td>주요 사건 전후</td><td>난민을 둘러싼 인권·정책·갈등 관련 연관어는 어떻게 변화했는가?</td></tr>
+<tr><td><b>도시재생</b></td><td>지역별</td><td>지역별 도시재생 보도에서 강조되는 이슈는 어떻게 다른가?</td></tr>
+</tbody></table>
+</div></section>
+
+<section class="slide"><div class="inner">
+<div class="eyebrow">검색어 선택 체크리스트</div><h2>학생에게 이 6가지만 물어보게 하기</h2>
+<div class="grid g3">
+<div class="card"><h3>1. 기사량?</h3><p>분석할 만큼 충분한가?</p></div>
+<div class="card"><h3>2. 변화?</h3><p>시기별 변화가 보이는가?</p></div>
+<div class="card"><h3>3. 사건?</h3><p>증가·감소를 설명할 사건이나 정책이 있는가?</p></div>
+<div class="card"><h3>4. 연관어?</h3><p>다른 사회현상과 연결되는가?</p></div>
+<div class="card"><h3>5. 범위?</h3><p>너무 넓거나 너무 좁지 않은가?</p></div>
+<div class="card blue"><h3>6. 이유?</h3><p>“왜 이 검색어인가?”를 한 문장으로 설명할 수 있는가?</p></div>
+</div>
+</div></section>
+
+<section class="slide"><div class="inner">
+<div class="eyebrow">수업에서 강조할 핵심</div><h2>검색어는 정답이 아니라 탐색의 출발점</h2>
+<div class="grid g2">
+<div class="card green"><h3>좋은 접근</h3><div class="searchbox">난민</div><p>→ 연관어를 보고 주요 하위 이슈를 발견</p></div>
+<div class="card red"><h3>초기부터 너무 제한</h3><div class="searchbox">난민 AND 갈등 AND 범죄 AND 다문화</div><p>→ 연구자가 이미 결론의 범위를 너무 많이 정해버림</p></div>
+</div>
+<div class="quote">먼저 데이터에게 “무엇과 연결되어 있니?”라고 묻고, 그 다음 연구자가 분석 범위를 좁힌다.</div>
+</div></section>
+
+<section class="slide"><div class="inner">
+<div class="eyebrow">수업 마무리</div><h2>학생들이 기억해야 할 한 문장</h2>
+<div class="hero" style="min-height:55vh">
+<div class="quote" style="font-size:30px">좋은 검색어는 단순히 기사 수가 많은 단어가 아니라,<br><span class="accent">시간에 따라 의미가 바뀌고 다른 사회현상과 연결되는 단어</span>입니다.</div>
+<p class="lead">BIGKinds는 “정답 찾기” 도구가 아니라<br>사회가 어떤 문제를 언제, 무엇과 함께 말했는지 발견하는 도구입니다.</p>
+</div>
+</div></section>
+
+<section class="slide"><div class="inner">
+<div class="eyebrow">선행연구 사례 정리</div><h2>수업에서 보여주기 좋은 실제 연구 예시</h2>
+<table><thead><tr><th>토픽</th><th>연구 예시</th><th>수업 포인트</th></tr></thead>
+<tbody>
+<tr><td>5·18</td><td>박주현·박현지·김영범 (2024)</td><td>1990~2022 장기 시계열, 빈도·네트워크</td></tr>
+<tr><td>GenAI</td><td>이현주·성창수·전병훈 (2023)</td><td>ChatGPT 등장 전후 뉴스 변화</td></tr>
+<tr><td>플로깅</td><td>오경아·나규민 (2023)</td><td>2018~2022 트렌드</td></tr>
+<tr><td>숏폼</td><td>나규민·오세이 (2024)</td><td>주요 키워드와 사회현상</td></tr>
+<tr><td>교권침해</td><td>하동엽 (2023)</td><td>키워드 트렌드·워드클라우드</td></tr>
+<tr><td>도시재생</td><td>곽희종 (2022)</td><td>45,030건 지역일간지·지역별 이슈</td></tr>
+<tr><td>워케이션</td><td>오정민 (2024)</td><td>연도별 검색량 증가를 보고 분석기간 설정</td></tr>
+<tr><td>자사고</td><td>권충훈 (2019)</td><td>정권별 비교</td></tr>
+<tr><td>난민</td><td>이경민 (2019)</td><td>신문기사 제목 키워드 변화</td></tr>
+<tr><td>노인학대</td><td>김영지 (2026)</td><td>토픽모델링·미디어 프레임</td></tr>
+<tr><td>덕수궁 돌담길</td><td>성지영·김성균 (2017)</td><td>장소 담론·연관어</td></tr>
+<tr><td>금융권 ESG</td><td>김진배·김주일 (2021)</td><td>군집·이슈 구조</td></tr>
+</tbody></table>
+</div></section>
+
+<section class="slide"><div class="inner">
+<div class="eyebrow">강의자용 마지막 정리</div><h2>수업 흐름 한 장 요약</h2>
+<div class="flow">
+<div class="node">① BIGKinds란?</div><div class="arrow">→</div>
+<div class="node">② 실제 연구 사례</div><div class="arrow">→</div>
+<div class="node">③ 좋은 검색어 조건</div><div class="arrow">→</div>
+<div class="node">④ 분야별 후보</div>
+</div>
+<div class="flow">
+<div class="node">⑤ 검색 시연</div><div class="arrow">→</div>
+<div class="node">⑥ 연관어·관계도 읽기</div><div class="arrow">→</div>
+<div class="node">⑦ 시기 비교</div><div class="arrow">→</div>
+<div class="node">⑧ 학생 실습·발표</div>
+</div>
+<div class="quote">수업의 목표는 BIGKinds 기능 암기가 아니라 <span class="accent">“검색어를 연구문제로 바꾸는 감각”</span>을 만드는 것입니다.</div>
+</div></section>
+
+</div>
+
+<div class="nav">
+<button id="prev">← 이전</button>
+<div class="progress" id="progress"></div>
+<div class="dots" id="dots"></div>
+<button class="primary" id="next">다음 →</button>
+</div>
+
+<script>
+const deck=document.getElementById('deck');
+const slides=[...document.querySelectorAll('.slide')];
+const progress=document.getElementById('progress');
+const dots=document.getElementById('dots');
+let idx=0;
+slides.forEach((_,i)=>{const d=document.createElement('span');d.className='dot';dots.appendChild(d);});
+function render(){
+ deck.style.transform=`translateX(-${idx*100}vw)`;
+ progress.textContent=`${idx+1} / ${slides.length}`;
+ [...dots.children].forEach((d,i)=>d.classList.toggle('active',i===idx));
+}
+function next(){if(idx<slides.length-1){idx++;render();}}
+function prev(){if(idx>0){idx--;render();}}
+document.getElementById('next').onclick=next;
+document.getElementById('prev').onclick=prev;
+document.addEventListener('keydown',e=>{
+ if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();next();}
+ if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();prev();}
+ if(e.key==='Home'){idx=0;render();}
+ if(e.key==='End'){idx=slides.length-1;render();}
+});
+let sx=null;
+document.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});
+document.addEventListener('touchend',e=>{
+ if(sx===null)return;
+ const dx=e.changedTouches[0].clientX-sx;
+ if(dx<-50)next(); else if(dx>50)prev();
+ sx=null;
+},{passive:true});
+render();
+</script>
+</body>
+</html>
