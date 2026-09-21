@@ -295,6 +295,19 @@
       font-size: 12px; line-height: 1.7; color: #3f4b57;
     }
     .learn-article .dikw .dk-ex::before { content: "관광 예 · "; font-weight: 800; color: var(--v-tc, var(--deep)); }
+    /* SECI 상자 - DIKW 와 같은 카드를 쓰되 계단을 없앤다. 올라가는 것이 아니라 도는 것이기 때문이다. */
+    .learn-article .seci-box { background: #f9f7fb; border-color: #e2dcec; }
+    .learn-article .dikw.seci > li:nth-child(1),
+    .learn-article .dikw.seci > li:nth-child(2),
+    .learn-article .dikw.seci > li:nth-child(3),
+    .learn-article .dikw.seci > li:nth-child(4) { padding-top: 0; }
+    .learn-article .seci-box .dk-foot { border-top-color: #ddd5ea; color: #4a4459; }
+    .learn-article .seci-box .dk-foot a { color: #5a4a86; font-weight: 700; border-bottom: 1px solid currentColor; text-decoration: none; }
+    .learn-article .seci-box .dk-foot a:hover { color: #2f2447; }
+    .learn-article .seci-box .dk-key {
+      display: inline-block; margin: 8px 0 6px; padding: 4px 12px; border-radius: 999px;
+      background: #3c2f57; color: #f0eaf8; font-size: 12px; font-weight: 800;
+    }
     /* 맨 위 칸 — 진한 초록에 흰 글자. 5V 의 Value 와 같은 자리다. */
     .learn-article .dikw > li.top .dk-card { background: #2f5148; border-color: #2f5148; border-top-color: #1f382f; }
     .learn-article .dikw > li.top .dk-l b,
@@ -715,6 +728,44 @@
           </div></li>
         </ol>
         <p class="dk-foot"><strong>5V의 마지막 V(Value)는 DIKW의 W에서 생깁니다.</strong> 앞으로 배울 수집·정제는 D를 I로, 분석은 I를 K로, 시각화·해석은 K를 W로 끌어올리는 일입니다. 관광 예는 이해를 돕기 위해 만든 가상의 예입니다.</p>
+      </div>
+
+      <div class="dikw-box seci-box">
+        <p class="dk-h">SECI 모형 — 지식은 조직 안에서 돈다<span>Socialization → Externalization → Combination → Internalization</span></p>
+        <p class="dk-lead">DIKW가 <strong>데이터를 어디까지 끌어올렸는가</strong>(올라가는 계단)라면, SECI는 <strong>그 지식이 사람과 사람 사이를 어떻게 도는가</strong>(도는 회로)입니다. 몸에 밴 <strong>암묵지</strong>를 글·매뉴얼·데이터 같은 <strong>형식지</strong>로 바꾸고, 그것이 다시 누군가의 몸에 붙어 암묵지가 되는 <strong>한 바퀴</strong>입니다. <em>분석 과정을 굳이 문서로 남기는 이유가 여기 있습니다.</em></p>
+        <ol class="dikw seci">
+          <li class="t-teal"><div class="dk-card">
+            <span class="dk-l"><b>S</b><i>SOCIALIZATION</i></span>
+            <span class="dk-n">공통화</span>
+            <span class="dk-q">암묵지 → 암묵지</span>
+            <span class="dk-d">같이 겪으며 <strong>말 없이</strong> 옮겨 가는 단계. 경험과 관찰의 공유입니다.</span>
+            <span class="dk-ex">베테랑 가이드를 따라다니며 어깨너머로 배운다.</span>
+          </div></li>
+          <li class="t-gold"><div class="dk-card">
+            <span class="dk-l"><b>E</b><i>EXTERNALIZATION</i></span>
+            <span class="dk-n">표출화</span>
+            <span class="dk-q">암묵지 → 형식지</span>
+            <span class="dk-d">머릿속 요령을 <strong>문서 · 매뉴얼 · 데이터</strong>로 꺼내 놓는 단계. 남이 볼 수 있게 됩니다.</span>
+            <span class="dk-ex">그 요령을 코스 매뉴얼과 응대 체크리스트로 적는다.</span>
+          </div></li>
+          <li class="t-blue"><div class="dk-card">
+            <span class="dk-l"><b>C</b><i>COMBINATION</i></span>
+            <span class="dk-n">연결화</span>
+            <span class="dk-q">형식지 → 형식지</span>
+            <span class="dk-d">흩어진 형식지를 <strong>합쳐 새 지식</strong>을 만드는 단계. 분석과 종합이 여기입니다.</span>
+            <span class="dk-ex">지점별 매뉴얼과 데이터랩 방문자 데이터를 합쳐 표준 코스를 짠다.</span>
+          </div></li>
+          <li class="t-violet"><div class="dk-card">
+            <span class="dk-l"><b>I</b><i>INTERNALIZATION</i></span>
+            <span class="dk-n">내면화</span>
+            <span class="dk-q">형식지 → 암묵지</span>
+            <span class="dk-d">읽고 해 보다가 <strong>제 몸에 붙는</strong> 단계. 다시 암묵지가 되어 한 바퀴가 닫힙니다.</span>
+            <span class="dk-ex">신입이 그 표준 코스를 돌다 자기 요령이 생긴다.</span>
+          </div></li>
+        </ol>
+        <p class="dk-foot"><strong>내면화로 끝나지 않습니다.</strong> 새로 생긴 암묵지가 다시 <strong>공통화</strong>로 들어가 한 바퀴를 또 돕니다 — 그래서 <strong>나선</strong>이라 부릅니다. 시험에서는 이 순서를 뒤섞어 묻습니다.<br />
+        <span class="dk-key">공 → 표 → 연 → 내 (S → E → C → I)</span><br />
+        <strong>ADsP 1과목</strong>에서 <strong>Q5</strong>(네 단계의 순서)와 <strong>Q6</strong>(「경험을 문서·매체에 저장·가공한다」 = <strong>표출화</strong>)로 나옵니다 — <a href="adsp-subject1-50q-workbook.html#q5" target="_blank" rel="noopener">50문항 실전훈련 판에서 바로 풀어 보기 ↗</a></p>
       </div>
 
       <p class="learn-part">02 · 관광 데이터는 어디서 오는가</p>
