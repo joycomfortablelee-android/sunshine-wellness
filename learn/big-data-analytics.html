@@ -37,6 +37,12 @@
     .learn-article .reslist.grid2.lcard > li.wide { grid-column: 1 / -1; }
     /* K-MOOC 두 칸 - 왼쪽이 원래 사이트, 오른쪽이 우리가 정리한 안내. 나란히 두어야 성격 차이가 보인다. */
     .learn-article .reslist.grid2.lcard.kmooc-pair { margin: 10px 0 20px; }
+    /* 3열 카드 - 호텔 PMS·RM 읽을거리 셋처럼 성격이 같은 것을 한 줄에 세울 때. */
+    .learn-article .reslist.grid3.lcard {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+      align-items: stretch; margin: 12px 0 24px; list-style: none; padding: 0;
+    }
+    @media (max-width: 900px) { .learn-article .reslist.grid3.lcard { grid-template-columns: 1fr; } }
     .learn-article .reslist.grid2.lcard .meta { margin-top: 8px; padding-top: 7px; border-top: 1px dashed var(--line); font-size: 11.5px; }
     /* KOSIS 안의 두 알약 - 바깥 링크와 성격이 달라(같은 기관의 다른 창구) 채운 초록으로 세운다.
        흰 테두리 카드 위에서 눈에 걸리도록 밝은 샛초록을 쓴다. */
@@ -855,6 +861,24 @@
         <b>PMS · 데이터를 모으는 곳</b><i>→</i><b>RM · 데이터로 결정하는 곳</b>
         <p class="fb-note">이 모듈 전체의 흐름이 호텔 한 곳에서 실시간으로 돌아가는 셈입니다. 아래 야놀자리서치 브리프에서 더 깊이 살펴볼 수 있습니다.</p>
       </div>
+      <p>빅데이터가 실제 산업의 <strong>가격 결정</strong>을 어떻게 바꾸는지 보여주는 대표 사례가 호텔의 <strong>수익경영(Revenue Management, RM)</strong>입니다. 호텔 객실값은 수요·경쟁사·계절·검색 트렌드 같은 수많은 데이터로 실시간 조정되는데(다이내믹 프라이싱), 이는 이 모듈에서 배운 <strong>예측 분석</strong>이 현장에 적용된 좋은 예입니다.</p>
+      <ul class="reslist grid3 lcard">
+        <li>
+          <a href="https://www.yanolja-research.com/insight/view/35?lang=ko" target="_blank" rel="noopener">Vol.10 호텔산업 Pricing RM, 나아가야 할 방향은? ↗</a>
+          <span class="desc">호텔 객실 가격을 데이터로 정하는 수익경영(RM)의 현황 — 자체·외부 RMS(IDeaS·Duetto 등)와 휴리스틱 방식, 그리고 생성형 AI가 바꿀 다이내믹 프라이싱의 미래를 다룬 리서치 브리프(국문·영문 PDF 제공).</span>
+          <span class="meta">야놀자리서치 · 경희대·퍼듀대 공동연구 (2023)</span>
+        </li>
+        <li>
+          <a href="https://blog.oapms.com/blog/hotel-digital-transformation-system-implementation-roadmap" target="_blank" rel="noopener">호텔 시스템 도입 순서 가이드: PMS → 채널매니저 → CRM ↗</a>
+          <span class="desc">호텔 디지털 전환(DX)의 실무 로드맵. PMS로 운영 기반을 다진 뒤 채널매니저·부킹엔진으로 매출을 넓히고, 마지막에 CRM으로 고객 충성도를 높이는 3단계 순서를 설명합니다. "순서를 잘못하면 비용이 더 든다"는 현장 조언.</span>
+          <span class="meta">OATECH(오에이테크) · 숙박 운영 IT 플랫폼</span>
+        </li>
+        <li>
+          <a href="https://www.hotelstory.com/svc/pms" target="_blank" rel="noopener">호텔스토리 HUB — PMS(예약관리시스템) ↗</a>
+          <span class="desc">엑셀 기반 예약 관리를 벗어난 클라우드형 PMS 솔루션의 실제 예. 채널매니저·부킹엔진 자동 연동으로 반복 업무를 줄이고, 객실 할당·요금 차등·입금 관리와 함께 매출 데이터 분석을 제공합니다.</span>
+          <span class="meta">(주)호텔스토리</span>
+        </li>
+      </ul>
 
       <p class="learn-part">07 · 빅데이터 공모전</p>
       <p><em>부산</em>은 통신·카드 데이터로 해운대·광안리의 시간대별 혼잡을 읽고, 축제 기간 유동인구를 분석해 안전과 분산에 활용합니다. 감성 분석으로 외국인 관광객의 불편(언어·교통)을 짚어내는 것도 같은 맥락입니다.</p>
@@ -1173,24 +1197,6 @@
           <a href="https://wikidocs.net/book/16867" target="_blank" rel="noopener">파이썬 200제 (통계편) ↗</a>
           <span class="desc">위키독스에 무료로 공개된 파이썬 전자책. <strong>통계를 파이썬 코드로 직접 풀어 보는 200개의 문제</strong>로 이뤄져 있어, 개념만 알고 손이 안 떨어지는 단계에서 쓰기 좋습니다. 위 <strong>05장의 파이썬</strong>과 <strong>04장의 기술 통계</strong>를 잇는 징검다리로 삼을 만합니다.</span>
           <span class="meta">위키독스 · 조인호·조현선 · 무료 전자책</span>
-        </li>
-      </ul>
-      <p>빅데이터가 실제 산업의 <strong>가격 결정</strong>을 어떻게 바꾸는지 보여주는 대표 사례가 호텔의 <strong>수익경영(Revenue Management, RM)</strong>입니다. 호텔 객실값은 수요·경쟁사·계절·검색 트렌드 같은 수많은 데이터로 실시간 조정되는데(다이내믹 프라이싱), 이는 이 모듈에서 배운 <strong>예측 분석</strong>이 현장에 적용된 좋은 예입니다.</p>
-      <ul class="reslist">
-        <li>
-          <a href="https://www.yanolja-research.com/insight/view/35?lang=ko" target="_blank" rel="noopener">Vol.10 호텔산업 Pricing RM, 나아가야 할 방향은? ↗</a>
-          <span class="desc">호텔 객실 가격을 데이터로 정하는 수익경영(RM)의 현황 — 자체·외부 RMS(IDeaS·Duetto 등)와 휴리스틱 방식, 그리고 생성형 AI가 바꿀 다이내믹 프라이싱의 미래를 다룬 리서치 브리프(국문·영문 PDF 제공).</span>
-          <span class="meta">야놀자리서치 · 경희대·퍼듀대 공동연구 (2023)</span>
-        </li>
-        <li>
-          <a href="https://blog.oapms.com/blog/hotel-digital-transformation-system-implementation-roadmap" target="_blank" rel="noopener">호텔 시스템 도입 순서 가이드: PMS → 채널매니저 → CRM ↗</a>
-          <span class="desc">호텔 디지털 전환(DX)의 실무 로드맵. PMS로 운영 기반을 다진 뒤 채널매니저·부킹엔진으로 매출을 넓히고, 마지막에 CRM으로 고객 충성도를 높이는 3단계 순서를 설명합니다. "순서를 잘못하면 비용이 더 든다"는 현장 조언.</span>
-          <span class="meta">OATECH(오에이테크) · 숙박 운영 IT 플랫폼</span>
-        </li>
-        <li>
-          <a href="https://www.hotelstory.com/svc/pms" target="_blank" rel="noopener">호텔스토리 HUB — PMS(예약관리시스템) ↗</a>
-          <span class="desc">엑셀 기반 예약 관리를 벗어난 클라우드형 PMS 솔루션의 실제 예. 채널매니저·부킹엔진 자동 연동으로 반복 업무를 줄이고, 객실 할당·요금 차등·입금 관리와 함께 매출 데이터 분석을 제공합니다.</span>
-          <span class="meta">(주)호텔스토리</span>
         </li>
       </ul>
 
