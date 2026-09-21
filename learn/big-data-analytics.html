@@ -188,6 +188,35 @@
     .learn-article .gtable tbody tr:nth-child(odd) { background: rgba(59,98,89,.035); }
     .learn-article .gtable td:first-child { font-weight: 800; color: var(--deep); white-space: nowrap; }
     .learn-article .gtable .g-sub { color: var(--muted); line-height: 1.7; }
+    /* 수업 진행 기록 - 매 수업 뒤 한 줄씩 더하는 상자. 취업 상자와 같은 「접기」 꼴이되
+       색은 본문 쪽(청록)으로 가져와, 곁가지가 아니라 이 과목의 기록임을 보인다. */
+    .learn-article .syl-box.cls { border: 1px solid #bcd3cd; border-radius: 14px; background: #f3f9f7; padding: 0; margin: 18px 0 26px; }
+    .learn-article .syl-box.cls .cls-fold > summary {
+      cursor: pointer; list-style: none; display: flex; align-items: center; gap: 9px;
+      padding: 13px 16px; font-size: 14.5px; font-weight: 800; color: #17372f;
+    }
+    .learn-article .syl-box.cls .cls-fold > summary::-webkit-details-marker { display: none; }
+    .learn-article .syl-box.cls .cls-fold > summary::before { content: "▸"; font-size: 13px; color: #3b7a68; transition: transform .18s ease; }
+    .learn-article .syl-box.cls .cls-fold[open] > summary::before { transform: rotate(90deg); }
+    .learn-article .syl-box.cls .cls-fold > summary::after {
+      content: "＋펼침"; margin-left: auto; font-size: 11.5px; font-weight: 700; color: #35604f;
+      border: 1px solid #9dc2b6; background: #fff; border-radius: 999px; padding: 4px 11px;
+    }
+    .learn-article .syl-box.cls .cls-fold[open] > summary::after { content: "－접기"; }
+    .learn-article .syl-box.cls .cls-fold .cls-tag {
+      flex: none; padding: 3px 9px; border-radius: 999px; background: #2f6b5a; color: #eaf6f1;
+      font-size: 11px; font-weight: 800; letter-spacing: .02em;
+    }
+    .learn-article .syl-box.cls .cls-fold .cls-n { font-size: 11.5px; font-weight: 700; color: #5d7d73; }
+    .learn-article .syl-box.cls .cls-body { padding: 0 16px 6px; }
+    .learn-article .syl-box.cls .gtable-wrap { margin: 2px 0 12px; }
+    .learn-article .syl-box.cls .gtable { font-size: 12.5px; }
+    .learn-article .syl-box.cls .gtable td { vertical-align: top; }
+    .learn-article .syl-box.cls .gtable td.cls-topic { font-weight: 700; color: #24513f; white-space: nowrap; }
+    .learn-article .syl-box.cls .gtable td.cls-att { color: #35604f; }
+    .learn-article .syl-box.cls .gtable tr.cls-next td { background: #fffaf0; color: #7a5c1e; }
+    .learn-article .syl-box.cls .gtable tr.cls-next td:first-child { color: #7a5c1e; }
+    .learn-article .syl-box.cls .cls-src { display: block; font-size: 11.5px; color: #5d7d73; margin: 0 0 12px; }
 
     @media (max-width: 900px) {
       .learn-article .vcards.c5 { grid-template-columns: repeat(3, 1fr); }
@@ -529,6 +558,46 @@
           <p class="syl-tags job-more"><a class="mapl now" href="https://academy.visitkorea.or.kr/mainHome.do" target="_blank" rel="noopener">관광in · 관광전문인력포털 ↗</a><a class="mapl" href="https://www.hotelinnetwork.com/intro.php" target="_blank" rel="noopener">호텔인네트워크 · 호텔·관광 채용 ↗</a><a class="mapl" href="https://linkareer.com/list/intern?filterBy_activityTypeID=5&amp;filterBy_jobTypes=INTERN&amp;filterBy_status=OPEN&amp;orderBy_direction=DESC&amp;orderBy_field=RECENT&amp;page=1" target="_blank" rel="noopener">링커리어 · 인턴 공고 ↗</a><a class="mapl" href="https://www.hosco.com/en" target="_blank" rel="noopener">hosco · 해외 호스피탈리티 채용 ↗</a><a class="mapl" href="https://www.glassdoor.com/Job/united-arab-emirates-internship-in-hotel-jobs-SRCH_IL.0,20_IN6_KO21,40.htm" target="_blank" rel="noopener">Glassdoor · UAE 호텔 인턴 검색 ↗</a><a class="mapl blue" href="https://linkareer.com/activity/264438" target="_blank" rel="noopener">지금 열림 · 두바이 한국관 해외 인턴십 ↗</a><a class="mapl lime" href="chatgpt-job-prompts.html" target="_blank" rel="noopener">ChatGPT 취업 활용 프롬프트 6 ↗</a><span class="syl-src"><b>면접을 준비하기 전에 어떤 자리가 열려 있는지부터 봅니다.</b> 관광in은 한국관광공사가 여는 <b>공공 포털</b>(채용 · 교육 · 인력 정보), 호텔인네트워크는 <b>호텔 · 관광 분야 채용</b>, 링커리어는 <b>인턴 공고</b>를 최신순으로 모아 둡니다 — 재학 중에 넣을 수 있는 자리가 여기 있습니다.<br /><b>파란 알약은 개별 공고</b>입니다 — <em>Dubai Global Village 한국관 인턴십</em>(외국계 · 활동비 · 수료증). 모집이 끝나면 닫힙니다. <b>해외로 나갈 생각이라면 두 곳을 더 보십시오</b> — <b>hosco</b>는 호텔 · 레스토랑 등 호스피탈리티 분야의 국제 채용 네트워크이고, <b>Glassdoor</b>는 「UAE · 호텔 · 인턴」으로 이미 걸러 둔 검색 결과입니다. 두바이 공고가 닫혀도 같은 자리가 여기서 계속 올라옵니다.</span></p>
           <p class="syl-t job-forms"><b class="jf-lead">실전 입사지원서 — 위 질문에 답할 「내 이야기」를 먼저 종이에 옮깁니다</b><a class="sticky-pill" href="job-application-assignment.html" target="_blank" rel="noopener">웹에서 바로 작성 · 자동저장 ↗</a><a class="doc-pill" href="assets/job-application-assignment.docx" download="실전_입사지원서_과제양식.docx">워드로 내려받기 ⤓ DOCX</a></p>
           <p class="syl-d jf-d"><strong>면접 답은 지원서에서 시작합니다.</strong> 기업·기관 <strong>한 곳</strong>과 직무 <strong>하나</strong>를 실제로 고르고, <strong>채용공고의 자격요건과 내가 가진 것을 마주 놓은 뒤</strong>, 자기소개서 다섯 문항(<em>지원동기 · 직무역량 · 문제해결 · 협업 · 입사 후 목표</em>)을 <strong>상황 → 역할 → 행동 → 결과</strong> 흐름으로 씁니다. 위 스무 문항은 <strong class="hot-t">여기 적은 경험을 말로 옮기는 자리</strong>입니다 — 지원서가 비어 있으면 면접 답도 비어 있습니다. <strong>웹 양식</strong>은 칸에 바로 쓰면 <strong>그 브라우저에 자동저장</strong>되고, 인쇄 · PDF 저장과 작성내용 TXT 내려받기가 됩니다. <strong>워드 양식</strong>은 같은 내용을 손으로 채우는 <strong>A4 두 장</strong>입니다. 끝의 <strong>제출 전 자기점검 여덟 줄</strong>까지 채우고 내십시오.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="syl-box cls">
+        <details class="cls-fold">
+          <summary><b class="cls-tag">수업</b>수업 진행 기록 — 회차별 내용 · 발표 · 출석<span class="cls-n">매 수업 뒤에 한 줄씩 더합니다</span></summary>
+          <div class="cls-body">
+          <div class="gtable-wrap">
+            <table class="gtable">
+              <thead><tr><th>날짜(회차)</th><th>수업 내용</th><th>진행 기록</th><th>출석</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td>9/7 (1회)</td>
+                  <td class="cls-topic">과목 소개</td>
+                  <td class="g-sub">홈페이지 소개, 빅데이터 개념 · 분석방법 · 도구, <strong>ADsP</strong>, 교재 메일 발송, <strong>Orange 설치</strong></td>
+                  <td class="cls-att">정연승 · 고은서 · 서효원 · 이영훈 · 박상준 · 장민주 · 김윤서 <strong>(7명)</strong></td>
+                </tr>
+                <tr>
+                  <td>9/14 (2회)</td>
+                  <td class="cls-topic">ADsP · 머신러닝</td>
+                  <td class="g-sub">데이터 · 정보, DB, 빅데이터 가치 · 영향, 비즈니스 모델, 위기요인 · 통제방안 <strong>Q1~29</strong>. <strong>지도 · 비지도학습</strong>, 유아교사 공감능력 <strong>군집분석 사례</strong></td>
+                  <td class="cls-att">서효원 · 이연후 · 임준혁 · 김필석 · 장민주 · 고은석 · 한솔 · 연승 <strong>(8명)</strong></td>
+                </tr>
+                <tr>
+                  <td>9/21 (3회)</td>
+                  <td class="cls-topic">KOSIS · DIKW · 발표 · ADsP</td>
+                  <td class="g-sub"><strong>KOSIS 시각화</strong>, DIKW 관광 적용, <strong>Q30~37</strong>, ADsP 이력서 활용.<br />발표 — <strong>임준혁 · 김윤서 · 고은서 · 서효원 · 박상준</strong><br />9/28 발표 예정 — 한솔 · 김준호 · 이영훈 · 정연승 · 장민주</td>
+                  <td class="cls-att">한솔 · 김준호 · 이영훈 · 정연승 · 장민주 · 임준혁 · 김윤서 · 고은서 · 서효원 · 박상준 <strong>(10명)</strong></td>
+                </tr>
+                <tr class="cls-next">
+                  <td>9/28 (4회)</td>
+                  <td class="cls-topic">DIKW 발표 · ADsP</td>
+                  <td class="g-sub"><strong>한솔 · 김준호 · 이영훈 · 정연승 · 장민주</strong> 발표 예정. <strong>윤종식 ADsP 교재 80~100쪽</strong>까지 진행 예정</td>
+                  <td class="cls-att">예정</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <span class="cls-src">이 표의 <strong>수업 내용</strong> 칸은 아래 본문과 이어집니다 — 2회차의 군집분석 사례는 <strong>04장 사례 줄</strong>에, 3회차의 KOSIS · DIKW는 <strong>관련 링크 · 국가통계포털</strong> 줄에 자료가 있습니다.</span>
           </div>
         </details>
       </div>
