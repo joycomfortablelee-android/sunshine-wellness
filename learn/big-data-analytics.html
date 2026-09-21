@@ -436,6 +436,13 @@
     .learn-article .task-box.bd-now .tb-n { background: #5c4a12; color: #faf3e3; }
     /* 공모 상자의 「분야 이름」 - 무엇을 내는 자리인지가 한눈에 걸리도록 선명한 파랑으로 세운다. */
     .learn-article .task-box .kwlist .fld { color: #0a3bc4; font-weight: 900; }
+    /* 공모 상자 번호 - 07장에 넷이 나란히 서므로 몇 번째 상자인지 먼저 보이게 한다. */
+    .learn-article .task-box .tb-no {
+      display: inline-block; min-width: 21px; height: 21px; line-height: 21px; text-align: center;
+      border-radius: 999px; background: #2a2410; color: #faf3e3;
+      font-size: 12px; font-weight: 900; margin-right: 7px; vertical-align: 1px;
+    }
+    .learn-article .task-box.bd-now .tb-no { background: #5c4a12; color: #faf3e3; }
     /* 공모 상자 알약 중 「지난 대회가 무엇을 뽑았는지 보는 것」 둘 - 공고·데이터와 성격이 달라 하늘색으로 세운다.
        KOSIS 줄의 하늘색 알약과 같은 값을 써서, 사이트 안에서 하늘색의 뜻을 하나로 둔다. */
     .learn-article .task-box .tb-tags a.mapl.form.sky {
@@ -797,7 +804,7 @@
       <p>이 웹사이트도 작은 데이터 파이프라인을 갖고 있습니다 — <strong>여행 이야기·후기 게시판</strong>은 감성 분석의 재료(UGC)이고, <strong>방문 통계·검색 유입</strong>은 어떤 콘텐츠가 닿는지를 알려줍니다. 이 데이터를 읽고 상품과 콘텐츠로 바꾸는 일 — 그 끝에 있는 것이 다음 모듈 <strong>관광벤처창업론</strong>입니다.</p>
 
       <div class="task-box bd-now" id="데이터랩대회">
-        <p class="tb-t"><b class="tb-n">지금 낼 수 있는 것</b>2026 한국관광 데이터랩 활용 경진대회 — 한국관광공사 <span class="when">접수 마감 9월 30일</span></p>
+        <p class="tb-t"><b class="tb-no">1</b><b class="tb-n">지금 낼 수 있는 것</b>2026 한국관광 데이터랩 활용 경진대회 — 한국관광공사 <span class="when">접수 마감 9월 30일</span></p>
         <p class="tb-d"><strong>이 모듈이 내내 쓰는 그 데이터랩이 여는 대회입니다.</strong> <strong>02장 「관광 데이터는 어디서 오는가」</strong>에서 본 통신 · 카드 · 내비게이션 데이터가 모두 <strong>한국관광 데이터랩</strong> 한 곳에 모여 있고, 그 데이터로 <strong>관광 문제를 풀었거나 성과를 낸 사례</strong>를 내는 자리입니다. 아래 부산 대회가 <em>분석 결과물</em>을 낸다면, 이쪽은 <strong class="hot-t">데이터를 써서 무엇이 달라졌는가</strong>를 냅니다.</p>
         <ol class="kwlist bd-kw">
           <li><b>무엇을 내나</b><span>관광 데이터를 활용해 <strong>문제를 해결했거나 성과를 만든 사례</strong>. 아이디어 공모가 아니라 <em>해 본 것</em>을 내는 대회라, <strong>03장 다섯 걸음을 한 바퀴 돌린 결과</strong>가 그대로 재료가 됩니다.</span></li>
@@ -809,7 +816,7 @@
       </div>
 
       <div class="task-box bd-later" id="빅데이터대회">
-        <p class="tb-t"><b class="tb-n">2027년 대비</b>2026년 Big Data 활용 대회 — 부산광역시 <span class="when">접수는 9월 18일에 닫혔습니다 · 본선은 10월 29일</span></p>
+        <p class="tb-t"><b class="tb-no">2</b><b class="tb-n">2027년 대비</b>2026년 Big Data 활용 대회 — 부산광역시 <span class="when">접수는 9월 18일에 닫혔습니다 · 본선은 10월 29일</span></p>
         <p class="tb-d"><strong>이 수업에서 배운 것을 그대로 내는 자리입니다.</strong> 부산의 <strong>공공 · 민간 데이터</strong>와 <strong>부산 빅데이터혁신센터 오픈랩 데이터</strong>로 지역 현안을 살펴보고, <strong class="hot-t">데이터에 근거한 정책 · 서비스 개선안</strong>을 내는 대회입니다. <strong>누구나</strong> 개인 또는 <strong>1~4인 팀</strong>으로 나갈 수 있고 <strong>참가비는 없습니다.</strong></p>
         <ol class="kwlist bd-kw">
           <li><b>두 분야</b><span>① <strong class="fld">빅데이터 분석 및 시각화</strong> ② <strong class="fld">행정 공유데이터 발굴 및 활용 방안</strong>. 앞의 <strong>03장 다섯 걸음</strong>과 <strong>04장 분석 기법</strong>이 ①에, <strong>02장 데이터는 어디서 오는가</strong>가 ②에 그대로 붙습니다.</span></li>
@@ -821,7 +828,7 @@
         <p class="tb-tags"><a class="mapl form hot" href="https://www.contestkorea.com/sub/view.php?int_gbn=1&amp;Txt_bcode=030310001&amp;str_no=202609100010" target="_blank" rel="noopener">공고 원문 · 콘테스트코리아 ↗</a><a class="mapl form" href="bigdata-ai-competitions-2026.html" target="_blank" rel="noopener">공모전 여섯 한눈에 — 지금 낼 곳 · 내년 대비 ↗</a><span class="tb-src"><b>수상이 아니어도 남는 것이 있습니다</b> — 제출한 보고서 · 시각화 · 데이터 파일 한 벌이 그대로 <b>취업 서류의 「내 산출물」</b>이 되고, 관광벤처창업론 <b>과제 1 사업계획서의 「시장 규모와 근거」</b> 칸을 채우는 재료가 됩니다. 세부 요강은 주최 측 공고로 반드시 확인하십시오.</span></p>
       </div>
       <div class="task-box bd-later" id="통계콘텐츠공모전">
-        <p class="tb-t"><b class="tb-n">2027년 대비</b>국가승인통계 활용 디지털콘텐츠 공모전 — 국가데이터처 <span class="when">2026년(제13회)은 7월 12일 마감 · 끝났습니다</span></p>
+        <p class="tb-t"><b class="tb-no">3</b><b class="tb-n">2027년 대비</b>국가승인통계 활용 디지털콘텐츠 공모전 — 국가데이터처 <span class="when">2026년(제13회)은 7월 12일 마감 · 끝났습니다</span></p>
         <p class="tb-d"><strong>분석 대회가 아니라 콘텐츠 대회입니다.</strong> KOSIS의 <strong>국가승인통계</strong>를 써서 우리 사회의 모습 · 문화 · 일상의 경험을 <strong>2분 이내 동영상</strong>으로 만들어 내는 자리입니다. 통계를 <em>읽는</em> 데서 끝내지 않고 <strong>남에게 보여 주는 형태로 바꾸는</strong> 연습이라, <strong>02장 KOSIS 실습</strong>에서 읽은 그래프 한 장이 그대로 재료가 됩니다.</p>
         <ol class="kwlist bd-kw">
           <li><b>무엇을 내나</b><span><strong>동영상 한 편</strong>. 유튜브에 올릴 수 있는 형식(mp4 등) · <strong>720×480 이상</strong> · <strong>2분 이내 권장</strong>. 참가 자격은 <strong>제한 없음</strong>(개인 · 팀 · 단체).</span></li>
@@ -843,7 +850,7 @@
         <p class="tb-tags"><a class="mapl form hot" href="https://kosis.kr/contest/index.do" target="_blank" rel="noopener">공모전 누리집 · 요강과 응모신청서 ↗</a><a class="mapl form sky-fill" href="https://kosis.kr/easyViewStatis/uccList.do" target="_blank" rel="noopener">역대 수상작 모음 · 제1회(2014)~제13회(2026) ↗</a><a class="mapl form sky-fill" href="https://kosis.kr/easyViewStatis/uccDetail.do?uccYear=2025&amp;boardIdx=71" target="_blank" rel="noopener">수상작 한 편 · 「KOSIS와 함께하는 스마트한 창업방법」 ↗</a><span class="tb-src"><b>요강보다 수상작을 먼저 여십시오</b> — <b>2분 영상이 실제로 어느 정도 만듦새인지</b> 보고 나면 준비할 것이 분명해집니다. 수상작 모음(「내가 말하는 통계」)에는 <b>2014년부터 열세 해치</b>가 연도별로 쌓여 있습니다. 그중 <b>2025년 우수상 「KOSIS와 함께하는 스마트한 창업방법」</b>(환민진 연구소 · 전진호 · 이환준 · 황민우)을 따로 걸어 둡니다 — 창업을 준비하는 청년이 <b>음식점별 20대 고객 현황 · 개업 투자비용 · 연간 매출액 · 영업 이익률</b>을 KOSIS에서 찾아 일식당 창업으로 잇는 이야기라, <b>03장 다섯 걸음</b>과 <b>관광벤처창업론의 사업계획서</b>가 영상 한 편 안에 그대로 들어 있습니다.</span></p>
       </div>
       <div class="task-box bd-later" id="서울시대회">
-        <p class="tb-t"><b class="tb-n">2027년 대비</b>2026 서울시 빅데이터 활용 경진대회 — 서울특별시 <span class="when">2026년은 5월 13일 마감 · 끝났습니다</span></p>
+        <p class="tb-t"><b class="tb-no">4</b><b class="tb-n">2027년 대비</b>2026 서울시 빅데이터 활용 경진대회 — 서울특별시 <span class="when">2026년은 5월 13일 마감 · 끝났습니다</span></p>
         <p class="tb-d"><strong>지금 낼 수는 없지만 지금 읽어야 하는 대회입니다.</strong> 접수가 <strong>3월</strong>에 열려 <strong>5월</strong>에 닫힙니다 — 그때 알면 늦습니다. <strong class="hot-t">부문이 셋</strong>이라 이 수업의 산출물과 관광벤처창업론의 사업계획서가 <strong>서로 다른 부문으로</strong> 들어갈 수 있는 것이 이 대회의 특징입니다.</p>
         <ol class="kwlist bd-kw">
           <li><b>부문 셋</b><span><strong>창업</strong>(아이디어 기획 및 제품·서비스 개발) · <strong>분석</strong>(빅데이터 기반 사회문제 해결 또는 비즈니스 모델 발굴) · <strong>시각화</strong>(공공데이터 기반 시각화 결과물). 앞의 <strong>03장 · 04장</strong>이 분석·시각화에, <em>관광벤처창업론 사업계획서</em>가 창업 부문에 붙습니다.</span></li>
