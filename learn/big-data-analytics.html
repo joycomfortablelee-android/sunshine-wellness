@@ -476,6 +476,10 @@
       background: #fff; border-color: #c0392b; color: #a33224;
     }
     .learn-article .task-box.bd-later .tb-tags a.mapl.form.vid:hover { background: #c0392b; border-color: #c0392b; color: #fff; }
+    /* 「수상작을 보는 것」 표시 - 관련 링크의 하늘색 알약과 같은 뜻인데,
+       상자 안에서는 바탕색이 이미 제 뜻(영상은 붉게)을 가지고 있어 테두리만 하늘색으로 준다. */
+    .learn-article .task-box .tb-tags a.mapl.form.sky-line { border-color: #5aa7de; border-style: solid; }
+    .learn-article .task-box .tb-tags a.mapl.form.sky-line:hover { border-color: #14456f; }
     /* 상자 안 영상 - 화면을 다 채우지 않는다. 발표 영상이라 본문 폭의 2/3 면 충분하다. */
     .learn-article .task-box.bd-later .vidwrap {
       margin: 14px 0 0; padding-top: 12px; border-top: 1px dashed #e3d7b8;
@@ -795,7 +799,7 @@
           <li><b>자격과 시상</b><span>제한 없음 · 개인 또는 <strong>최대 5인 팀</strong>. 창업 8팀 1,150만원 · 분석 7팀 600만원 · 시각화 7팀 600만원 — <strong>모두 22팀 2,350만원</strong>.</span></li>
           <li><b>먼저 볼 것</b><span>요강보다 <strong class="hot-t">수상작</strong>입니다. 시각화 부문 페이지에 <strong>2026년 일곱 작품 + 2025년 여섯 작품</strong>이 발표자료 PDF · 대화형 체험 링크와 함께 걸려 있고, <strong>참가신청서 · 발표 PPT 템플릿</strong>도 거기서 받습니다. 요강은 <em>무엇을 내라</em>지만 수상작은 <strong>어느 수준으로 내라</strong>를 보여 줍니다.</span></li>
         </ol>
-        <p class="tb-tags"><a class="mapl form hot" href="https://news.seoul.go.kr/gov/archives/576001" target="_blank" rel="noopener">2026 공고 원문 · 내 손안에 서울 ↗</a><a class="mapl form" href="https://data.seoul.go.kr/bsp/wgs/contest26.do" target="_blank" rel="noopener">수상작 보기 · 서울 데이터 허브 ↗</a><a class="mapl form vid" href="https://www.youtube.com/watch?v=3vGNw3ApFk8&amp;t=430s" target="_blank" rel="noopener">▶ 분석 부문 최우수상 발표 · 7:10부터 ↗</a><a class="mapl form" href="bigdata-ai-competitions-2026.html" target="_blank" rel="noopener">공모전 여섯 한눈에 ↗</a><span class="tb-src"><b>지금 할 일은 하나입니다</b> — 수상작 열셋을 열어 보고 <b>「이 정도면 되는구나」를 눈에 넣어 두는 것</b>. <b>영상은 7분 10초부터</b>가 분석 부문 최우수상 발표입니다 — 문제를 어떻게 잡고 <b>몇 분 만에 어떻게 보여 주는지</b>가 그대로 나옵니다. 위 부산 대회(9/18)에 내는 결과물을 그 기준에 맞춰 만들면, 2027년 3월에는 <b>다듬어 내기만 하면 됩니다</b>. 세부 요강은 주최 측 공고로 반드시 확인하십시오.</span></p>
+        <p class="tb-tags"><a class="mapl form hot" href="https://news.seoul.go.kr/gov/archives/576001" target="_blank" rel="noopener">2026 공고 원문 · 내 손안에 서울 ↗</a><a class="mapl form sky-line" href="https://data.seoul.go.kr/bsp/wgs/contest26.do" target="_blank" rel="noopener">수상작 보기 · 서울 데이터 허브 ↗</a><a class="mapl form vid sky-line" href="https://www.youtube.com/watch?v=3vGNw3ApFk8&amp;t=430s" target="_blank" rel="noopener">▶ 분석 부문 최우수상 발표 · 7:10부터 ↗</a><a class="mapl form" href="bigdata-ai-competitions-2026.html" target="_blank" rel="noopener">공모전 여섯 한눈에 ↗</a><span class="tb-src"><b>지금 할 일은 하나입니다</b> — 수상작 열셋을 열어 보고 <b>「이 정도면 되는구나」를 눈에 넣어 두는 것</b>. <b>영상은 7분 10초부터</b>가 분석 부문 최우수상 발표입니다 — 문제를 어떻게 잡고 <b>몇 분 만에 어떻게 보여 주는지</b>가 그대로 나옵니다. 위 부산 대회(9/18)에 내는 결과물을 그 기준에 맞춰 만들면, 2027년 3월에는 <b>다듬어 내기만 하면 됩니다</b>. 세부 요강은 주최 측 공고로 반드시 확인하십시오.</span></p>
         <div class="vidwrap">
           <iframe src="https://www.youtube-nocookie.com/embed/3vGNw3ApFk8?start=430" title="2026 서울시 빅데이터 활용 경진대회 분석 부문 최우수상 발표" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           <p class="vw-n"><b>분석 부문 최우수상 「보행 소년단」 발표</b> — 7분 10초부터 시작합니다. <b>AI가 걸어본 서울 관광지 보행환경</b>을 주제로, 로드뷰 이미지를 멀티모달 AI에 보여 주고 쾌적성 · 보행편의성 · 안전성을 평가하게 한 연구입니다.</p>
