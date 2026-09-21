@@ -1376,7 +1376,40 @@
       background: #c0392b; border-color: #c0392b; color: #fff;
     }
     .learn-article .syl-box.job .syl-tags.job-more a.mapl.now:hover { background: #98291d; border-color: #98291d; }
-    /* 연한 빨강 — 관광in 옆 K-MICE 채용. 같은 한국관광공사 창구라 빨강 계열로 잇되 한 톤 옅게 */
+/* 취업 상자를 접는다 - 빅데이터 본문을 읽는 흐름에서는 곁가지라 닫아 두고,
+       필요한 사람만 편다. 상자 색(고동 · 베이지)은 그대로 쓴다. */
+    .learn-article .syl-box.job.fold { padding: 0; }
+    .learn-article .syl-box.job .job-fold > summary {
+      cursor: pointer; list-style: none;
+      display: flex; align-items: center; gap: 9px;
+      padding: 13px 16px; font-size: 14.5px; font-weight: 800; color: #171310;
+    }
+    .learn-article .syl-box.job .job-fold > summary::-webkit-details-marker { display: none; }
+    .learn-article .syl-box.job .job-fold > summary::before {
+      content: "▸"; font-size: 13px; color: #7a5c1e; transition: transform .18s ease;
+    }
+    .learn-article .syl-box.job .job-fold[open] > summary::before { transform: rotate(90deg); }
+    .learn-article .syl-box.job .job-fold > summary::after {
+      content: "＋펼침"; margin-left: auto;
+      font-size: 11.5px; font-weight: 700; color: #5c4f36;
+      border: 1px solid #b08d4a; background: #fdf8ec; border-radius: 999px; padding: 4px 11px;
+    }
+    .learn-article .syl-box.job .job-fold[open] > summary::after { content: "－접기"; }
+    .learn-article .syl-box.job .job-fold .jf-tag {
+      flex: none; padding: 3px 9px; border-radius: 999px;
+      background: #5c4f36; color: #f3e9d2; font-size: 10.5px; font-weight: 800; letter-spacing: .06em;
+    }
+    .learn-article .syl-box.job .job-fold .jf-n {
+      font-size: 11.5px; font-weight: 500; color: #6b5c3c; letter-spacing: -.2px;
+    }
+    .learn-article .syl-box.job .job-fold .jf-body { padding: 0 16px 13px; }
+    .learn-article .syl-box.job .job-fold .jf-body > .syl-t { margin-top: 4px; }
+    @media (max-width: 620px) {
+      .learn-article .syl-box.job .job-fold > summary { flex-wrap: wrap; }
+      .learn-article .syl-box.job .job-fold .jf-n { flex: 1 1 100%; }
+      .learn-article .syl-box.job .job-fold > summary::after { margin-left: 0; }
+    }
+        /* 연한 빨강 — 관광in 옆 K-MICE 채용. 같은 한국관광공사 창구라 빨강 계열로 잇되 한 톤 옅게 */
     .learn-article .syl-box.job .syl-tags.job-more a.mapl.soft { background: #e0665a; border-color: #e0665a; color: #fff; }
     .learn-article .syl-box.job .syl-tags.job-more a.mapl.soft:hover { background: #c0392b; border-color: #c0392b; color: #fff; }
     .learn-article .syl-box.job .syl-tags.job-more .syl-src em { font-style: normal; color: #2b2113; font-weight: 700; }
@@ -1904,14 +1937,20 @@
       </ol>
       </div>
 
-      <div class="syl-box job">
+      <div class="syl-box job fold">
+        <details class="job-fold">
+          <summary><b class="jf-tag">취업</b>면접 · 채용 — 스무 문항과 자리 아홉 곳<span class="jf-n">면접 준비는 학기 중에 시작합니다</span></summary>
+          <div class="jf-body">
         <p class="syl-t"><a class="task-badge lead" href="#과제2">과제 2</a><a href="interview-personality-20.html" target="_blank" rel="noopener">기관 인성면접 예상 질문 20문 ↗</a><a class="sticky-pill" href="interview-personality-20.html" target="_blank" rel="noopener">노란 스티키노트 한 장 ↗</a><a class="doc-pill" href="assets/interview-personality-20.docx" download="기관_인성면접_예상질문_20문.docx">워드로 내려받기 ⤓ DOCX</a></p>
         <p class="syl-d"><strong>창업만 길이 아닙니다.</strong> 이 수업의 산출물인 사업계획서와 모의 PT는 <strong>창업 IR</strong>에도 쓰이지만, 그대로 <strong>취업 면접의 자기 이야기</strong>가 됩니다 — 「무엇을 문제로 봤고, 어떻게 풀었는가」를 말하는 훈련이 같기 때문입니다. 아래 스무 문항은 <strong>공공기관·공기업 인성면접</strong>에서 반복해서 나오는 질문들입니다.</p>
         <p class="syl-d"><strong>쓰는 법은 하나입니다 — 눈으로 읽지 말고 소리 내어 답하십시오.</strong> 한 문항당 <strong>40초~1분</strong>이 실제 면접의 길이입니다. 스무 장이 <em>자기소개 → 장·단점 → 극복 경험 → 협업과 갈등 → 원칙과 태도 → 마지막 한마디</em> 순으로 놓여 있어, 위에서부터 훑으면 <strong class="hot-t">면접 한 회차가 그대로 지나갑니다</strong>. 인쇄하면 A4에 4열로 떨어져 손에 들고 연습할 수 있습니다.</p>
         <p class="syl-tags job-more"><a class="mapl now" href="https://academy.visitkorea.or.kr/mainHome.do" target="_blank" rel="noopener">관광in · 관광전문인력포털 ↗</a><a class="mapl soft" href="https://k-mice.visitkorea.or.kr/noti.kto?func_name=list&amp;pgbn=2" target="_blank" rel="noopener">K-MICE · 정규 · 계약직 · 인턴 채용 ↗</a><a class="mapl soft" href="https://promice.or.kr/" target="_blank" rel="noopener">PROMICE · 희망MICE인턴십 ↗</a><a class="mapl" href="https://www.hotelinnetwork.com/intro.php" target="_blank" rel="noopener">호텔인네트워크 · 호텔·관광 채용 ↗</a><a class="mapl" href="https://linkareer.com/list/intern?filterBy_activityTypeID=5&amp;filterBy_jobTypes=INTERN&amp;filterBy_status=OPEN&amp;orderBy_direction=DESC&amp;orderBy_field=RECENT&amp;page=1" target="_blank" rel="noopener">링커리어 · 인턴 공고 ↗</a><a class="mapl" href="https://www.hosco.com/en" target="_blank" rel="noopener">hosco · 해외 호스피탈리티 채용 ↗</a><a class="mapl" href="https://www.glassdoor.com/Job/united-arab-emirates-internship-in-hotel-jobs-SRCH_IL.0,20_IN6_KO21,40.htm" target="_blank" rel="noopener">Glassdoor · UAE 호텔 인턴 검색 ↗</a><a class="mapl blue" href="https://linkareer.com/activity/264438" target="_blank" rel="noopener">지금 열림 · 두바이 한국관 해외 인턴십 ↗</a><a class="mapl lime" href="chatgpt-job-prompts.html" target="_blank" rel="noopener">ChatGPT 취업 활용 프롬프트 6 ↗</a><span class="syl-src"><b>면접을 준비하기 전에 어떤 자리가 열려 있는지부터 봅니다.</b> 관광in은 한국관광공사가 여는 <b>공공 포털</b>(채용 · 교육 · 인력 정보), 호텔인네트워크는 <b>호텔 · 관광 분야 채용</b>, 링커리어는 <b>인턴 공고</b>를 최신순으로 모아 둡니다 — 재학 중에 넣을 수 있는 자리가 여기 있습니다.<br /><b>파란 알약은 개별 공고</b>입니다 — <em>Dubai Global Village 한국관 인턴십</em>(외국계 · 활동비 · 수료증). 모집이 끝나면 닫힙니다. <b>해외로 나갈 생각이라면 두 곳을 더 보십시오</b> — <b>hosco</b>는 호텔 · 레스토랑 등 호스피탈리티 분야의 국제 채용 네트워크이고, <b>Glassdoor</b>는 「UAE · 호텔 · 인턴」으로 이미 걸러 둔 검색 결과입니다. 두바이 공고가 닫혀도 같은 자리가 여기서 계속 올라옵니다.</span></p>
         <p class="syl-t job-forms"><b class="jf-lead">실전 입사지원서 — 위 질문에 답할 「내 이야기」를 먼저 종이에 옮깁니다</b><a class="sticky-pill" href="job-application-assignment.html" target="_blank" rel="noopener">웹에서 바로 작성 · 자동저장 ↗</a><a class="doc-pill" href="assets/job-application-assignment.docx" download="실전_입사지원서_과제양식.docx">워드로 내려받기 ⤓ DOCX</a></p>
         <p class="syl-d jf-d"><strong>면접 답은 지원서에서 시작합니다.</strong> 기업·기관 <strong>한 곳</strong>과 직무 <strong>하나</strong>를 실제로 고르고, <strong>채용공고의 자격요건과 내가 가진 것을 마주 놓은 뒤</strong>, 자기소개서 다섯 문항(<em>지원동기 · 직무역량 · 문제해결 · 협업 · 입사 후 목표</em>)을 <strong>상황 → 역할 → 행동 → 결과</strong> 흐름으로 씁니다. 위 스무 문항은 <strong class="hot-t">여기 적은 경험을 말로 옮기는 자리</strong>입니다 — 지원서가 비어 있으면 면접 답도 비어 있습니다. <strong>웹 양식</strong>은 칸에 바로 쓰면 <strong>그 브라우저에 자동저장</strong>되고, 인쇄 · PDF 저장과 작성내용 TXT 내려받기가 됩니다. <strong>워드 양식</strong>은 같은 내용을 손으로 채우는 <strong>A4 두 장</strong>입니다. 끝의 <strong>제출 전 자기점검 여덟 줄</strong>까지 채우고 내십시오.</p>
-              </div>
+              
+          </div>
+        </details>
+      </div>
 
       <div class="syl-box plan">
         <p class="syl-t">강의계획서 — 위 달력을 학사 서식으로 옮기면 이렇게 됩니다<a class="wb-pill" href="assets/tourism-venture-weekly-workbook.docx" download="관광벤처창업론_예비관광벤처_사업계획서_주차별_작업워크북.docx">두 안이 함께 쓰는 주차별 워크북 ⤓</a></p>
