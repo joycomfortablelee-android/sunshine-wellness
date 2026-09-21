@@ -53,6 +53,14 @@
     .learn-article .reslist .linkrow.fill-green a.sky { background: #d9ecfb; border-color: #a8cdea; color: #14456f; font-weight: 800; }
     .learn-article .reslist .linkrow a.sky:hover,
     .learn-article .reslist .linkrow.fill-green a.sky:hover { background: #14456f; border-color: #14456f; color: #eaf4fd; }
+    /* 카드 하나를 통째로 초록 선으로 둘러싼다 - 링크 다섯과 설명 다섯 줄이 한 덩어리임을 보이려고.
+       왼쪽 선만 있던 기본 모양을 네 변으로 바꾸고 안쪽에 여백을 준다. */
+    .learn-article .reslist li.boxed-green {
+      border: 2px solid #3B6259; border-radius: 14px;
+      padding: 14px 16px 12px; background: #f6faf8;
+      box-shadow: 0 2px 10px rgba(59,98,89,.08);
+    }
+    .learn-article .reslist li.boxed-green .meta { border-top: 1px dashed #bcd3cd; margin-top: 9px; padding-top: 7px; }
     /* 강의 영상 제목을 알약으로 - 보라 바탕에 흰 글자.
        목록의 다른 제목 링크(밑줄 글자)와 갈라, 눌러서 보는 것임을 드러낸다. */
     .learn-article .reslist > li > a.pill-violet {
@@ -960,7 +968,7 @@
           <strong>보건의료</strong>(한국보건의료정보원) — 공공 보건의료 데이터 카탈로그·분석센터. 웰니스·의료관광 연구의 참고 자원.</span>
           <span class="meta">부처·기관별 분야 특화 데이터 플랫폼 · 분류 참고 <a href="https://boardmix.com/kr/reviews/big-data-platforms/" target="_blank" rel="noopener">Boardmix ↗</a></span>
         </li>
-        <li>
+        <li class="boxed-green">
           <a href="https://kosis.kr/index/index.do" target="_blank" rel="noopener">국가통계포털(KOSIS) ↗</a>
           <div class="linkrow tiny fill-green">
             <a href="https://kosis.kr/easyViewStatis/visualizationIndex.do" target="_blank" rel="noopener">통계시각화콘텐츠 ↗</a>
