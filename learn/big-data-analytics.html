@@ -447,6 +447,14 @@
       background: #1565d8; border-style: solid; border-color: #1565d8; color: #fff; font-weight: 800;
     }
     .learn-article .task-box .tb-tags a.mapl.form.blu:hover { background: #0f4aa0; border-color: #0f4aa0; color: #fff; }
+    /* 공모 상자 안의 작은 연간 일정표 - 「매해 언제 열리나」를 한눈에. */
+    .learn-article .task-box .yrtbl { width: 100%; border-collapse: collapse; margin: 10px 0 4px; font-size: 12px; }
+    .learn-article .task-box .yrtbl th, .learn-article .task-box .yrtbl td { border: 1px solid #ddcfae; padding: 6px 8px; text-align: left; vertical-align: top; }
+    .learn-article .task-box .yrtbl thead th { background: #efe3c6; color: #2a2410; font-weight: 800; }
+    .learn-article .task-box .yrtbl td:first-child { white-space: nowrap; font-weight: 800; color: #2a2410; }
+    .learn-article .task-box .yrtbl tr.now td { background: #fdf8ec; }
+    .learn-article .task-box .yrtbl .unk { color: #8a7b55; font-style: normal; }
+    .learn-article .task-box .yrnote { display: block; font-size: 11.5px; color: #5c5240; margin: 2px 0 4px; }
     /* 마감이 먼 쪽은 알약을 채우지 않는다 — 급한 것과 갈라 보이게 */
     .learn-article .task-box.bd-now .tb-t span.when {
       background: #fff; border: 1px solid #c9a227; color: #5c4a12;
@@ -810,6 +818,28 @@
           <li><b>시상</b><span>총상금 <strong>650만원</strong> · 1위 <strong>300만원</strong>. 온라인 접수 · <strong>무료</strong>.</span></li>
         </ol>
         <p class="tb-tags"><a class="mapl form hot" href="https://www.contestkorea.com/sub/view.php?int_gbn=1&amp;Txt_bcode=030310001&amp;str_no=202609100010" target="_blank" rel="noopener">공고 원문 · 콘테스트코리아 ↗</a><a class="mapl form" href="bigdata-ai-competitions-2026.html" target="_blank" rel="noopener">공모전 여섯 한눈에 — 지금 낼 곳 · 내년 대비 ↗</a><span class="tb-src"><b>수상이 아니어도 남는 것이 있습니다</b> — 제출한 보고서 · 시각화 · 데이터 파일 한 벌이 그대로 <b>취업 서류의 「내 산출물」</b>이 되고, 관광벤처창업론 <b>과제 1 사업계획서의 「시장 규모와 근거」</b> 칸을 채우는 재료가 됩니다. 세부 요강은 주최 측 공고로 반드시 확인하십시오.</span></p>
+      </div>
+      <div class="task-box bd-later" id="통계콘텐츠공모전">
+        <p class="tb-t"><b class="tb-n">2027년 대비</b>국가승인통계 활용 디지털콘텐츠 공모전 — 국가데이터처 <span class="when">2026년(제13회)은 7월 12일 마감 · 끝났습니다</span></p>
+        <p class="tb-d"><strong>분석 대회가 아니라 콘텐츠 대회입니다.</strong> KOSIS의 <strong>국가승인통계</strong>를 써서 우리 사회의 모습 · 문화 · 일상의 경험을 <strong>2분 이내 동영상</strong>으로 만들어 내는 자리입니다. 통계를 <em>읽는</em> 데서 끝내지 않고 <strong>남에게 보여 주는 형태로 바꾸는</strong> 연습이라, <strong>02장 KOSIS 실습</strong>에서 읽은 그래프 한 장이 그대로 재료가 됩니다.</p>
+        <ol class="kwlist bd-kw">
+          <li><b>무엇을 내나</b><span><strong>동영상 한 편</strong>. 유튜브에 올릴 수 있는 형식(mp4 등) · <strong>720×480 이상</strong> · <strong>2분 이내 권장</strong>. 참가 자격은 <strong>제한 없음</strong>(개인 · 팀 · 단체).</span></li>
+          <li><b>심사</b><span>1차 <strong>전문가 40% + 국가데이터처 직원 20%</strong>, 2차 <strong class="hot-t">누리꾼 투표 40%</strong>. <em>절반 가까이가 공개 투표</em>라, 만든 뒤 알리는 일까지가 준비입니다.</span></li>
+          <li><b>시상</b><span>최우수 1편 <strong>120만원권</strong> · 우수 2편 각 60만원권 · 장려 3편 각 30만원권, 모두 <strong>국가데이터처장상</strong>. 수상하지 못한 팀 중 <strong>최대 10팀</strong>에도 5만원권이 갑니다 — <em>완주만 해도 받을 자리가 남아 있습니다.</em></span></li>
+          <li><b>눈여겨볼 조항</b><span><strong class="hot-t">AI를 썼다면 사용한 프롬프트와 활용 범위를 적어 내야 합니다.</strong> 이 수업에서 쓰는 프롬프트 기록이 그대로 제출 자료가 됩니다.</span></li>
+          <li><b>매해 언제 열리나</b><span>접수는 <strong>4월 말~5월 중순에 열려 7월 중순에 닫힙니다</strong>(약 두 달). 이어서 <strong>7월 말~8월 초 국민 투표</strong>, 수상작은 <strong>9월 1일 「통계의 날」</strong> 행사에서 발표합니다. <strong>2027년 4월에 다시 확인하십시오.</strong></span></li>
+        </ol>
+        <table class="yrtbl">
+          <thead><tr><th>회차 · 연도</th><th>접수 기간</th><th>수상작 발표</th></tr></thead>
+          <tbody>
+            <tr class="now"><td>제13회 · 2026</td><td>4. 30. ~ 7. 12.</td><td>9. 1. 통계의 날</td></tr>
+            <tr><td>제12회 · 2025</td><td>5. 1. ~ 7. 13.</td><td>9월 1일 무렵</td></tr>
+            <tr><td>제11회 · 2024</td><td><em class="unk">5월 중순 ~ 7월 중순(확인 필요)</em></td><td>8. 30. 통계의 날 기념식</td></tr>
+            <tr><td>제10회 · 2023</td><td><em class="unk">5. 15. ~ 7. 16.(확인 필요)</em></td><td>9. 1. 통계의 날</td></tr>
+          </tbody>
+        </table>
+        <span class="yrnote"><b>2026 · 2025는 공고에서 확인한 날짜</b>이고, <b>2024 · 2023은 교차 확인 전</b>이라 그대로 믿지 마십시오. 상 이름이 <b>통계청장상(2025) → 국가데이터처장상(2026)</b>으로 바뀐 점도 함께 봅니다.</span>
+        <p class="tb-tags"><a class="mapl form hot" href="https://kosis.kr/contest/index.do" target="_blank" rel="noopener">공모전 누리집 · KOSIS ↗</a><a class="mapl form sky-line" href="https://kosis.kr/contest/index.do" target="_blank" rel="noopener">지난 수상작 보기 ↗</a><span class="tb-src">누리집 안의 <b>「지난 수상작 보기」</b>를 먼저 여십시오 — <b>2분 영상이 실제로 어느 정도 만듦새인지</b> 보고 나면 준비할 것이 분명해집니다. 응모신청서 · 안내문도 같은 화면에서 내려받습니다.</span></p>
       </div>
       <div class="task-box bd-later" id="서울시대회">
         <p class="tb-t"><b class="tb-n">2027년 대비</b>2026 서울시 빅데이터 활용 경진대회 — 서울특별시 <span class="when">2026년은 5월 13일 마감 · 끝났습니다</span></p>
