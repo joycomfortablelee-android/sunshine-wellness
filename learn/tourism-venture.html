@@ -1010,6 +1010,15 @@
 
     /* 지나간 회차 접기 — 페이지 맨 위에 수업 진행 순서를 쌓아 둔다.
        지우지 않는 이유: 결석한 학생과 뒤늦게 합류한 학생이 그날 무엇을 했는지 볼 수 있어야 한다. */
+    /* 주차 부제 = 그날의 핵심 키워드 — 파란 글자에 형광펜 한 줄.
+       접힌 채로 훑을 때 「그날 무엇을 하는가」가 먼저 읽히게 한다. */
+    .learn-article .wk-fold > summary .wk-sub,
+    .learn-article .wk-fold.today > summary .wk-sub,
+    .learn-article .wk-fold.blue > summary .wk-sub {
+      color: #14508f; font-weight: 700;
+      background: linear-gradient(transparent 60%, #cfe6fa 60%);
+      padding: 0 3px; border-radius: 2px;
+    }
     /* 주차 칸 공통 본문 서식 — 원래 「오늘」 칸(.wk-fold.today)에만 있어서,
        5주차 이후 칸은 서식 없이 맨 문단으로 보였다. 모든 주차 칸에 같은 서식을 준다.
        색은 오늘 칸의 붉은 계열 대신 초록 계열로 — 지난 주와 다음 주를 눈으로 가른다. */
