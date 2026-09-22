@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2-2. 사업모델(Business Model) - 도식화</title>
+<style>
+:root{
+  --navy:#173f6b;
+  --blue:#2d6ea8;
+  --sky:#edf6ff;
+  --gold:#d7a928;
+  --red:#d95252;
+  --green:#3d7a63;
+  --ink:#1f2f3d;
+  --muted:#66798b;
+  --line:#dbe6ef;
+  --bg:#f5f8fb;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:"Noto Sans KR","Malgun Gothic",Arial,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.65;
+}
+.wrap{max-width:1220px;margin:auto;padding:24px 20px 52px}
+.hero{
+  background:linear-gradient(135deg,#123c68,#245f96);
+  color:#fff;border-radius:24px;padding:30px 34px;
+  box-shadow:0 16px 34px rgba(28,64,100,.16);
+}
+.hero .kicker{font-size:14px;letter-spacing:.08em;opacity:.85;font-weight:700}
+.hero h1{margin:6px 0 10px;font-size:clamp(30px,4vw,48px);line-height:1.17}
+.hero p{margin:0;font-size:18px;opacity:.95}
+.core{
+  margin-top:18px;background:#fff;border:2px solid #cfe1f1;border-radius:18px;
+  padding:20px 24px;font-size:18px;box-shadow:0 8px 22px rgba(35,75,110,.06)
+}
+.core b{color:var(--navy)}
+.section{margin-top:28px}
+.section-title{
+  display:flex;align-items:center;gap:12px;margin:0 0 14px;
+  color:var(--navy);font-size:26px
+}
+.num{
+  width:40px;height:40px;border-radius:12px;background:var(--navy);
+  color:#fff;display:inline-flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:18px;flex:0 0 auto
+}
+.card{
+  background:#fff;border:1px solid var(--line);border-radius:18px;
+  padding:22px;box-shadow:0 8px 20px rgba(32,68,102,.06)
+}
+.quote{
+  background:#eef6ff;border-left:6px solid var(--blue);
+  padding:16px 18px;border-radius:12px;font-size:18px;
+}
+table{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border-radius:14px;border:1px solid var(--line)}
+th,td{padding:14px 15px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#eaf2f9;color:var(--navy);font-weight:800;text-align:left}
+tr:last-child td{border-bottom:0}
+.flow{
+  display:grid;grid-template-columns:1fr 46px 1fr 46px 1fr 46px 1fr 46px 1fr;
+  align-items:stretch;gap:8px;margin-top:18px
+}
+.flow .box{
+  background:#fff;border:2px solid #cfe0ed;border-radius:16px;padding:16px;
+  min-height:150px;display:flex;flex-direction:column;justify-content:center;text-align:center
+}
+.flow .box strong{color:var(--navy);font-size:19px}
+.flow .arrow{display:flex;align-items:center;justify-content:center;color:var(--blue);font-size:34px;font-weight:900}
+.four-grid{
+  display:grid;grid-template-columns:1fr 44px 1fr 44px 1fr 44px 1fr;gap:8px;align-items:stretch
+}
+.actor{
+  border-radius:18px;padding:20px;background:#fff;border:2px solid #dce8f1;text-align:center
+}
+.actor h3{margin:0 0 8px;color:var(--navy);font-size:21px}
+.actor.customer{background:#fff1f0}
+.actor.company{background:#edf7ff}
+.actor.partner{background:#eff8ef}
+.actor.ota{background:#f4efff}
+.money{color:var(--red);font-weight:800}
+.service{color:var(--blue);font-weight:800}
+.arrowcol{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  font-size:13px;text-align:center
+}
+.arrowcol .svc{color:var(--blue);font-size:30px;line-height:1}
+.arrowcol .pay{color:var(--red);font-size:30px;line-height:1}
+.legend{
+  display:flex;gap:18px;flex-wrap:wrap;margin-top:12px;font-size:14px;color:var(--muted)
+}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.line-blue,.line-red{width:36px;height:4px;border-radius:4px}
+.line-blue{background:var(--blue)} .line-red{background:var(--red)}
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.revenue-list,.step-list,.comp-list{display:grid;gap:10px;margin-top:10px}
+.item{
+  background:#f9fbfd;border:1px solid var(--line);border-radius:12px;padding:13px 15px
+}
+.star{color:#d49b00;font-weight:900}
+.formula{
+  display:grid;grid-template-columns:1fr 42px 1fr 42px 1fr;align-items:center;gap:8px;margin-top:14px
+}
+.formula .fbox{
+  background:#fff8e6;border:1px solid #efd586;border-radius:14px;padding:18px;text-align:center;font-weight:800
+}
+.formula .plus{text-align:center;font-size:28px;color:var(--gold);font-weight:900}
+.steps{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px
+}
+.step{
+  background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px
+}
+.step .badge{
+  display:inline-block;background:var(--navy);color:#fff;border-radius:999px;
+  padding:6px 10px;font-size:13px;font-weight:800;margin-bottom:10px
+}
+.prompt{
+  white-space:pre-wrap;background:#102f50;color:#fff;border-radius:16px;padding:20px;
+  font-family:"Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.8;font-size:15px
+}
+.prof{
+  margin-top:16px;background:#fff7df;border:1px solid #ecd58f;border-radius:16px;padding:18px;font-size:18px
+}
+.final{
+  margin-top:26px;background:linear-gradient(135deg,#f2f7fb,#eaf2f8);border-radius:18px;
+  padding:22px;text-align:center;border:1px solid #d4e1ec
+}
+.final strong{font-size:21px;color:var(--navy)}
+.small{font-size:14px;color:var(--muted)}
+.copy-note{font-size:13px;color:#718294;margin-top:8px}
+@media(max-width:900px){
+  .flow{grid-template-columns:1fr}
+  .flow .arrow{transform:rotate(90deg)}
+  .four-grid{grid-template-columns:1fr}
+  .arrowcol{min-height:70px}
+  .twocol,.steps{grid-template-columns:1fr}
+  .formula{grid-template-columns:1fr}
+  .formula .plus{transform:rotate(90deg)}
+}
+</style>
+
+<style id="carousel-style">
+body{overflow-x:hidden}
+.wrap{max-width:none!important;margin:0!important;padding:0!important}
+.carousel-track{display:flex;width:100%;transition:transform .45s ease}
+.carousel-slide{min-width:100%;padding:26px 72px 90px}
+.carousel-page{
+  max-width:1220px;min-height:720px;margin:0 auto;background:#fff;
+  border-radius:24px;padding:34px;box-shadow:0 14px 35px rgba(22,53,82,.12)
+}
+.carousel-slide .section{margin-top:0}
+.carousel-nav{
+  position:fixed;top:50%;transform:translateY(-50%);z-index:1000;
+  width:50px;height:50px;border:0;border-radius:50%;
+  background:#173f6b;color:#fff;font-size:30px;line-height:1;
+  cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.18)
+}
+.carousel-nav:hover{background:#245f96}
+.carousel-prev{left:14px}.carousel-next{right:14px}
+.carousel-pager{
+  position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:1000;
+  display:flex;align-items:center;gap:12px;padding:9px 15px;
+  border-radius:999px;background:rgba(17,47,80,.94);color:#fff;font-size:14px
+}
+.carousel-dots{display:flex;gap:7px}
+.carousel-dot{width:8px;height:8px;border-radius:50%;background:#88a0b7;cursor:pointer}
+.carousel-dot.active{background:#fff;transform:scale(1.3)}
+@media(max-width:900px){
+  .carousel-slide{padding:18px 16px 88px}
+  .carousel-page{padding:22px;min-height:auto}
+  .carousel-nav{width:42px;height:42px;font-size:24px}
+  .carousel-prev{left:4px}.carousel-next{right:4px}
+}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+
+<section class="hero">
+  <div class="kicker">TOURISM VENTURE BUSINESS PLAN · 2-2</div>
+  <h1>사업모델(Business Model) - 도식화</h1>
+  <p>사업이 어떻게 작동하고, 어디에서 돈이 들어오며, 왜 경쟁력이 있는지를 한 장의 그림으로 설명하기</p>
+</section>
+
+<div class="core">
+  <b>학생들에게는 이렇게 설명하면 가장 쉽습니다.</b><br>
+  “사업모델은 <b>사업이 어떻게 돈을 버는지 한 장의 그림으로 설명하는 것</b>입니다.”
+  처음부터 Business Model Canvas 9칸을 채우기보다
+  <b>고객 → 가치 → 거래 → 수익 → 경쟁력</b> 순서로 이해시키는 것이 좋습니다.
+</div>
+
+<section class="section">
+  <h2 class="section-title"><span class="num">1</span> 사업모델을 먼저 한 문장으로 이해하기</h2>
+  <div class="card">
+    <div class="quote">
+      <b>사업모델(Business Model)이란?</b><br>
+      “누구의 어떤 문제를 해결하고, 무엇을 제공하며, 그 대가로 누구에게서 어떻게 돈을 받을 것인가”를 보여주는 구조입니다.
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title"><span class="num">2</span> 학생들에게 먼저 던질 5개 질문</h2>
+  <div class="card">
+    <table>
+      <thead>
+        <tr><th>질문</th><th>학생이 써야 할 내용</th><th>관광벤처 예시</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b>① 누구에게?</b></td><td>핵심 고객</td><td>한국을 방문한 외국인 개별여행객</td></tr>
+        <tr><td><b>② 무엇을?</b></td><td>제공 가치·상품</td><td>안동 전통문화 1일 로컬투어</td></tr>
+        <tr><td><b>③ 어떻게 판매?</b></td><td>판매·접점 채널</td><td>자사 웹사이트, Klook, OTA</td></tr>
+        <tr><td><b>④ 어떻게 돈을 벌지?</b></td><td>수익원</td><td>투어 판매수익, 체험비, 제휴수익</td></tr>
+        <tr><td><b>⑤ 왜 우리인가?</b></td><td>경쟁력</td><td>다국어 AI 안내 + 지역주민 프로그램</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title"><span class="num">3</span> 문제에서 경쟁력까지 연결하기</h2>
+  <div class="flow">
+    <div class="box"><strong>고객의 문제</strong><span>외국인이 안동에 와도 무엇을 보고 어떻게 이동해야 할지 어렵다.</span></div>
+    <div class="arrow">→</div>
+    <div class="box"><strong>우리의 해결책</strong><span>AI 다국어 안내 + 지역 체험을 결합한 안동 로컬투어</span></div>
+    <div class="arrow">→</div>
+    <div class="box"><strong>구매·이용</strong><span>외국인 관광객 → 웹/OTA 예약 → 투어 이용</span></div>
+    <div class="arrow">→</div>
+    <div class="box"><strong>수익 발생</strong><span>투어 가격 × 예약 인원<br>+ 체험 수수료<br>+ 지역상점 제휴수익</span></div>
+    <div class="arrow">→</div>
+    <div class="box"><strong>경쟁력</strong><span>이동·언어·예약의 불편을 한 번에 해결</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title"><span class="num">4</span> 네모 4개 + 화살표로 사업모델 도식화</h2>
+  <div class="card">
+    <h3 style="margin-top:0;color:#173f6b">예시｜안동 외국인 로컬투어</h3>
+    <div class="four-grid">
+      <div class="actor customer">
+        <h3>외국인 관광객</h3>
+        여행정보·예약·이동의 불편<br>
+        FIT · 소규모 그룹<br>
+        <span class="money">예약비·상품 구매 ￦</span>
+      </div>
+
+      <div class="arrowcol">
+        <div class="service">→</div><div class="service">여행정보·서비스</div>
+        <div class="pay">←</div><div class="money">결제</div>
+      </div>
+
+      <div class="actor company">
+        <h3>우리 회사</h3>
+        안동 로컬투어 기획·운영<br>
+        다국어 안내<br>
+        지역 파트너 연결<br>
+        고객 데이터 축적
+      </div>
+
+      <div class="arrowcol">
+        <div class="service">↔</div><div class="service">운영 의뢰·서비스</div>
+        <div class="pay">←</div><div class="money">수수료·정산</div>
+      </div>
+
+      <div class="actor partner">
+        <h3>지역 파트너</h3>
+        지역 가이드<br>
+        체험업체<br>
+        식당·카페<br>
+        숙박업체
+      </div>
+
+      <div class="arrowcol">
+        <div class="service">↔</div><div class="service">상품 등록·고객 유입</div>
+        <div class="pay">←</div><div class="money">플랫폼 수수료</div>
+      </div>
+
+      <div class="actor ota">
+        <h3>OTA·플랫폼</h3>
+        Klook<br>
+        GetYourGuide<br>
+        자사 웹/앱
+      </div>
+    </div>
+
+    <div class="legend">
+      <span><i class="line-blue"></i> 서비스·정보의 흐름</span>
+      <span><i class="line-red"></i> 돈의 흐름</span>
+      <span><b class="star">★</b> 우리 회사의 주요 수익 발생 지점</span>
+    </div>
+
+    <div class="quote" style="margin-top:16px">
+      <b>★ 학생들에게 강조할 핵심</b><br>
+      상품·서비스가 움직이는 방향과 돈이 움직이는 방향을 따로 표시합니다.<br>
+      <b>서비스 흐름:</b> 지역업체 → 우리 회사 → 관광객<br>
+      <b>돈의 흐름:</b> 관광객 → 우리 회사 → 지역업체
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title"><span class="num">5</span> 사업모델과 수익모델 구분하기</h2>
+  <div class="twocol">
+    <div class="card">
+      <h3 style="color:#173f6b;margin-top:0">Business Model</h3>
+      <p><b>사업 전체가 어떻게 작동하는가?</b></p>
+      <div class="item">고객</div>
+      <div class="item">가치제안</div>
+      <div class="item">판매·이용 경로</div>
+      <div class="item">파트너</div>
+      <div class="item">비용·수익 구조</div>
+    </div>
+    <div class="card">
+      <h3 style="color:#173f6b;margin-top:0">Revenue Model</h3>
+      <p><b>그 구조 안에서 어디에서 돈이 들어오는가?</b></p>
+      <div class="revenue-list">
+        <div class="item"><span class="star">★ ①</span> 투어 판매</div>
+        <div class="item"><span class="star">★ ②</span> 예약 수수료</div>
+        <div class="item"><span class="star">★ ③</span> 숙박·식당·체험 제휴수수료</div>
+        <div class="item"><span class="star">★ ④</span> 프리미엄 맞춤여행</div>
+        <div class="item"><span class="star">★ ⑤</span> B2B 기업·기관 프로그램</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title"><span class="num">6</span> 경쟁력은 “우리가 잘한다”가 아니라 비교로 설명하기</h2>
+  <div class="card">
+    <div class="formula">
+      <div class="fbox">기존 방식의 한계</div>
+      <div class="plus">＋</div>
+      <div class="fbox">우리만의 해결방법</div>
+      <div class="plus">＋</div>
+      <div class="fbox">모방하기 어려운 이유</div>
+    </div>
+
+    <div class="comp-list" style="margin-top:18px">
+      <div class="item"><b>기존 방식의 한계</b><br>기존 안동 관광상품은 유명 관광지 방문 중심이다.</div>
+      <div class="item"><b>우리만의 해결방법</b><br>관광객의 관심사를 AI로 분석하여 <b>맞춤 동선 + 지역주민 체험 + 다국어 안내</b>를 결합한다.</div>
+      <div class="item"><b>모방하기 어려운 이유</b><br>지역 체험업체 데이터와 파트너 네트워크를 축적하기 때문에 일반 여행상품이 쉽게 따라오기 어렵다.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title"><span class="num">7</span> 수업 활동은 3단계로 진행</h2>
+  <div class="steps">
+    <div class="step">
+      <span class="badge">STEP 1</span>
+      <h3>문장으로 만들기</h3>
+      <p><b>우리는 [고객]에게 [문제 해결 가치]를 제공하고, [상품/서비스]를 [채널]을 통해 판매하여 [수익원]으로 돈을 번다.</b></p>
+      <div class="small">
+        예: 우리는 한국을 방문한 외국인 개별여행객에게 지역 이동과 정보 부족 문제를 해결해 주고,
+        안동 맞춤형 로컬투어를 OTA와 자체 플랫폼을 통해 판매하여 투어 판매금액과 제휴수수료로 수익을 창출한다.
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="badge">STEP 2</span>
+      <h3>그림으로 바꾸기</h3>
+      <p><b>고객 → 우리 기업 → 파트너</b></p>
+      <p>화살표 위에 반드시 표시:</p>
+      <div class="item">예약</div>
+      <div class="item">서비스</div>
+      <div class="item">결제</div>
+      <div class="item">수수료</div>
+      <div class="item">데이터</div>
+    </div>
+
+    <div class="step">
+      <span class="badge">STEP 3</span>
+      <h3>돈 들어오는 곳에 ★ 표시</h3>
+      <p><b>“그래서 정확히 누가 여러분 회사에 돈을 줍니까?”</b></p>
+      <div class="small">
+        이 질문에 대답하지 못하면 아직 사업모델이 완성되지 않은 것입니다.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title"><span class="num">8</span> 학생들에게 바로 줄 ChatGPT 프롬프트</h2>
+  <div class="prompt">내 관광벤처 아이디어의 사업모델을 도식화해줘.
+
+먼저
+① 핵심 고객
+② 고객의 문제
+③ 제공 서비스
+④ 고객이 서비스를 구매하는 경로
+⑤ 주요 파트너
+⑥ 고객이 지불하는 돈
+⑦ 파트너에게 지급하는 돈
+⑧ 우리 기업의 주요 수익원
+⑨ 주요 비용
+⑩ 경쟁력
+을 분석해줘.
+
+이후 고객 → 우리 기업 → 파트너 → 플랫폼의 관계를 박스와 화살표로 표현하고,
+서비스의 흐름과 돈의 흐름을 구분해서 보여줘.
+
+돈이 우리 기업으로 들어오는 지점에는 ★를 표시해줘.
+
+마지막에는
+“왜 이 사업모델이 경쟁사보다 경쟁력이 있는가?”
+를 3가지로 설명해줘.</div>
+
+  <div class="prof">
+    <b>교수자용 핵심 질문</b><br>
+    “누구의 문제를 해결해서, 누가 우리에게 왜 돈을 주는가?”<br>
+    + “그 돈이 한 번 들어오는가, 반복해서 들어오는가?”
+  </div>
+</section>
+
+<div class="final">
+  <strong>한 장의 완성 순서</strong><br>
+  ① 고객 → ② 가치제안 → ③ 서비스 흐름 → ④ 돈의 흐름 → ⑤ 수익원 → ⑥ 경쟁력
+</div>
+
+</div>
+
+<script id="carousel-script">
+(function(){
+  const wrap = document.querySelector('.wrap');
+  if(!wrap) return;
+
+  const children = Array.from(wrap.children);
+  const groups = [];
+
+  // 첫 장: 제목 + 핵심 설명
+  if(children[0] && children[1]) groups.push([children[0], children[1]]);
+
+  // 중간: 각 section을 한 장씩
+  children.slice(2).forEach(node => groups.push([node]));
+
+  const track = document.createElement('div');
+  track.className = 'carousel-track';
+
+  groups.forEach(group => {
+    const slide = document.createElement('section');
+    slide.className = 'carousel-slide';
+    const page = document.createElement('div');
+    page.className = 'carousel-page';
+    group.forEach(node => page.appendChild(node));
+    slide.appendChild(page);
+    track.appendChild(slide);
+  });
+
+  wrap.replaceWith(track);
+
+  const prev = document.createElement('button');
+  prev.className='carousel-nav carousel-prev';
+  prev.setAttribute('aria-label','이전');
+  prev.innerHTML='‹';
+
+  const next = document.createElement('button');
+  next.className='carousel-nav carousel-next';
+  next.setAttribute('aria-label','다음');
+  next.innerHTML='›';
+
+  const pager = document.createElement('div');
+  pager.className='carousel-pager';
+  const count = document.createElement('span');
+  const dots = document.createElement('div');
+  dots.className='carousel-dots';
+  pager.append(count,dots);
+
+  document.body.append(prev,next,pager);
+
+  const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+  let index = 0;
+
+  slides.forEach((_,i)=>{
+    const d=document.createElement('span');
+    d.className='carousel-dot';
+    d.onclick=()=>go(i);
+    dots.appendChild(d);
+  });
+
+  function go(i){
+    index=Math.max(0,Math.min(slides.length-1,i));
+    track.style.transform=`translateX(-${index*100}%)`;
+    count.textContent=`${index+1} / ${slides.length}`;
+    Array.from(dots.children).forEach((d,n)=>d.classList.toggle('active',n===index));
+    prev.style.opacity=index===0?'.35':'1';
+    next.style.opacity=index===slides.length-1?'.35':'1';
+  }
+
+  prev.onclick=()=>go(index-1);
+  next.onclick=()=>go(index+1);
+
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowLeft') go(index-1);
+    if(e.key==='ArrowRight') go(index+1);
+  });
+
+  let startX=null;
+  document.addEventListener('touchstart',e=>{startX=e.touches[0].clientX},{passive:true});
+  document.addEventListener('touchend',e=>{
+    if(startX===null) return;
+    const dx=e.changedTouches[0].clientX-startX;
+    if(Math.abs(dx)>50) dx>0?go(index-1):go(index+1);
+    startX=null;
+  },{passive:true});
+
+  go(0);
+})();
+</script>
+
+</body>
+</html>
