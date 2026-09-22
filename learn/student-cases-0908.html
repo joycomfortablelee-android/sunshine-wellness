@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>9월 8일 학생 발표 사례 종합표</title>
+<style>
+  :root{
+    --bg:#f6f8fb;
+    --card:#ffffff;
+    --text:#172033;
+    --muted:#667085;
+    --line:#e5e7eb;
+    --accent:#0f766e;
+    --accent2:#ecfdf5;
+    --blue:#2563eb;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Pretendard","Noto Sans KR","Malgun Gothic",Arial,sans-serif;
+    line-height:1.65;
+  }
+  .wrap{
+    max-width:1500px;
+    margin:0 auto;
+    padding:36px 24px 60px;
+  }
+  .hero{
+    background:linear-gradient(135deg,#0f766e,#0f5f8f);
+    color:#fff;
+    border-radius:24px;
+    padding:34px 36px;
+    box-shadow:0 12px 35px rgba(15,118,110,.16);
+    margin-bottom:24px;
+  }
+  .hero h1{
+    margin:0 0 8px;
+    font-size:32px;
+    line-height:1.25;
+  }
+  .hero p{
+    margin:0;
+    opacity:.92;
+    font-size:16px;
+  }
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:20px;
+    box-shadow:0 8px 26px rgba(16,24,40,.05);
+    overflow:hidden;
+  }
+  .table-scroll{
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  table{
+    width:100%;
+    min-width:1280px;
+    border-collapse:collapse;
+  }
+  th{
+    position:sticky;
+    top:0;
+    z-index:1;
+    background:#eef7f6;
+    color:#134e4a;
+    text-align:left;
+    font-size:14px;
+    padding:16px 14px;
+    border-bottom:2px solid #cfe8e4;
+    white-space:nowrap;
+  }
+  td{
+    vertical-align:top;
+    padding:16px 14px;
+    border-bottom:1px solid var(--line);
+    font-size:14px;
+  }
+  tbody tr:hover{background:#fafcfd}
+  tbody tr:last-child td{border-bottom:none}
+  .case{
+    font-weight:800;
+    font-size:15px;
+  }
+  .presenter{
+    font-weight:800;
+    color:#7c3aed;
+    white-space:nowrap;
+  }
+  .problem strong{
+    color:#b42318;
+  }
+  .solution strong{
+    color:#0f766e;
+  }
+  a{
+    color:var(--blue);
+    text-decoration:none;
+    font-weight:700;
+  }
+  a:hover{text-decoration:underline}
+  .badge{
+    display:inline-block;
+    padding:4px 9px;
+    border-radius:999px;
+    background:var(--accent2);
+    color:var(--accent);
+    font-size:12px;
+    font-weight:800;
+    margin-bottom:4px;
+  }
+  .notes{
+    margin-top:22px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:22px 24px;
+  }
+  .notes h2{
+    margin:0 0 12px;
+    font-size:19px;
+  }
+  .notes p{
+    margin:8px 0;
+    color:#475467;
+    font-size:14px;
+  }
+  .tip{
+    margin-top:18px;
+    padding:16px 18px;
+    background:#eff6ff;
+    border-left:4px solid #2563eb;
+    border-radius:12px;
+    font-size:14px;
+  }
+  @media (max-width:700px){
+    .wrap{padding:20px 12px 40px}
+    .hero{padding:24px 20px;border-radius:18px}
+    .hero h1{font-size:24px}
+  }
+  @media print{
+    body{background:#fff}
+    .wrap{max-width:none;padding:0}
+    .hero{box-shadow:none}
+    .card,.notes{box-shadow:none}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <section class="hero">
+    <div class="badge">관광벤처 · 학생 발표 정리</div>
+    <h1>9월 8일 학생 발표 사례 종합표</h1>
+    <p>발표자 · 사례 · 분야 · 핵심 문제 · 해결 아이디어 · 웹사이트를 한 화면에 정리</p>
+  </section>
+
+  <section class="card">
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>사례</th>
+            <th>발표자</th>
+            <th>분야</th>
+            <th>발표에서 잡은 핵심 문제</th>
+            <th>해결 아이디어</th>
+            <th>웹사이트</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="case">더서비스플랫폼 / Funch Reward</td>
+            <td class="presenter">박상준</td>
+            <td>외국인 관광·쇼핑</td>
+            <td class="problem">상품정보 부족, 쇼핑짐 휴대, 복잡한 <strong>Tax Refund</strong>, 쇼핑과정 분절</td>
+            <td class="solution">쇼핑 탐색 → 구매 → 수령 → 세금환급을 연결하는 플랫폼</td>
+            <td><a href="https://www.theservice.ai/" target="_blank" rel="noopener">The Service Platform</a></td>
+          </tr>
+
+          <tr>
+            <td class="case">유디니</td>
+            <td class="presenter">서용주</td>
+            <td>여행정보 플랫폼</td>
+            <td class="problem"><strong>정보 과잉·신뢰성 부족·정보 파편화</strong></td>
+            <td class="solution">실제 여행자 경험을 데이터화하여 <strong>개인화 → 여행계획 → 예약</strong>으로 연결</td>
+            <td><a href="https://wetravel.co.kr/eudiny" target="_blank" rel="noopener">유디니 관련 여행페이지</a></td>
+          </tr>
+
+          <tr>
+            <td class="case">경주여락</td>
+            <td class="presenter">김다애</td>
+            <td>경주 로컬관광·공간</td>
+            <td class="problem">여행 중 <strong>이동·휴식 제약</strong>, 여행서비스 파편화, 숙박공간 활용 한계</td>
+            <td class="solution">숙박·카페·F&amp;B·관광 등을 결합한 <strong>복합 관광공간 서비스</strong></td>
+            <td><a href="https://www.instagram.com/gjyr.2022/" target="_blank" rel="noopener">Instagram @gjyr.2022</a></td>
+          </tr>
+
+          <tr>
+            <td class="case">캠핏 CAMFIT</td>
+            <td class="presenter">이영훈</td>
+            <td>캠핑 플랫폼</td>
+            <td class="problem">정보·비교·예약·결제가 캠핑장마다 흩어진 <strong>예약시장 파편화</strong></td>
+            <td class="solution"><strong>검색 → 비교 → 실시간 예약 → 결제 + 사업자 PMS</strong> 연결</td>
+            <td><a href="https://camfit.co.kr/" target="_blank" rel="noopener">CAMFIT</a></td>
+          </tr>
+
+          <tr>
+            <td class="case">와이리 Willy</td>
+            <td class="presenter">김한철</td>
+            <td>인플루언서 관광마케팅</td>
+            <td class="problem">여행업체는 적합한 인플루언서를 찾기 어렵고, 인플루언서는 안정적 수익상품 확보가 어려움</td>
+            <td class="solution">여행 특화 <strong>인플루언서 매칭 + 커머스</strong> 구조</td>
+            <td><a href="https://www.wairi.co.kr/" target="_blank" rel="noopener">와이리</a></td>
+          </tr>
+
+          <tr>
+            <td class="case">두왓 DOWHAT</td>
+            <td class="presenter">고은서</td>
+            <td>스마트호텔</td>
+            <td class="problem">전화·대면·수작업, 부서 간 전달, 분산된 호텔 시스템</td>
+            <td class="solution"><strong>모바일 체크인·스마트 게스트서비스·오더·하우스키핑·PMS 연동</strong></td>
+            <td><a href="https://www.dowhat.io/" target="_blank" rel="noopener">DOWHAT</a></td>
+          </tr>
+
+          <tr>
+            <td class="case">트립스토어</td>
+            <td class="presenter">차진희</td>
+            <td>패키지여행 플랫폼</td>
+            <td class="problem">패키지 상품의 구조가 복잡하고 사이트별 비교가 어려워 <strong>정보 비대칭·탐색비용</strong> 발생</td>
+            <td class="solution">여러 여행사의 상품을 <strong>한곳에서 비교·탐색·예약</strong></td>
+            <td><a href="https://www.tripstore.kr/" target="_blank" rel="noopener">트립스토어</a></td>
+          </tr>
+
+          <tr>
+            <td class="case">시골투어</td>
+            <td class="presenter">박준영</td>
+            <td>로컬·농촌관광</td>
+            <td class="problem">지역에 관광자원은 있지만 정보가 분산되고 <strong>상품화·온라인 판매가 부족</strong></td>
+            <td class="solution"><strong>지역자원 발굴 → 상품기획 → 온라인 예약·판매 → 지역활성화</strong></td>
+            <td><a href="https://sigoltour.co.kr/" target="_blank" rel="noopener">시골투어</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="notes">
+    <h2>웹사이트 관련 메모</h2>
+    <p><strong>유디니:</strong> 기존 서비스와 현재 확인 가능한 여행 페이지가 다를 수 있어, 위 표에는 앞서 정리한 관련 여행페이지를 연결했습니다.</p>
+    <p><strong>경주여락:</strong> 독립 공식 홈페이지 대신 공개 자료에서 확인된 Instagram 계정을 연결했습니다.</p>
+    <p><strong>더서비스플랫폼:</strong> 앞서 확인한 공식 홈페이지 표기에 맞춰 <strong>Funch Reward</strong>로 표기했습니다.</p>
+
+    <div class="tip">
+      <strong>수업 관리용 확장 추천:</strong>
+      이 표 오른쪽에 <strong>발표일 · 발표자료 · 교수 피드백 · 다음 발표 여부</strong> 열을 추가하면 학기 전체 발표 누적 관리표로 활용하기 좋습니다.
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
