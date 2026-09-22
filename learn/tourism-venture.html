@@ -1093,6 +1093,26 @@
     .learn-article .tri-wrap.hub-gap .vcards.tri3 > li:first-child:hover .tri-hub { transform: translate(-50%, calc(-50% + 2px)); }
     .learn-article .tri-wrap.tri-warm .tri-hub { background: #8a4f14; box-shadow: 0 4px 14px rgba(138,79,20,.3); }
 
+    /* ===== 출석부 — 마인드맵 바로 위. 학생 × 회차 표, 칸은 모두 가운데 정렬 =====
+       회차가 늘면 thead · 각 행에 한 칸씩 더한다(최근 회차가 오른쪽). 결석은 눈에 덜 걸리게 눌러 둔다. */
+    .learn-article .att-book { margin: 0 auto 22px; max-width: 640px; text-align: center; }
+    .learn-article .att-book .ab-t { margin: 0 0 8px; font-size: 15px; font-weight: 800; color: #1f5a52; }
+    .learn-article .att-book .ab-t span { display: block; margin-top: 2px; font-size: 11.5px; font-weight: 500; color: #8a96a3; }
+    .learn-article .att-book .ab-wrap { overflow-x: auto; border: 1px solid #cfe0dc; border-radius: 12px; background: #fff; }
+    .learn-article .att-book table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .learn-article .att-book th, .learn-article .att-book td {
+      padding: 6px 8px; text-align: center; border-bottom: 1px solid #edf2f1; white-space: nowrap;
+    }
+    .learn-article .att-book thead th { background: #e3f1ef; color: #1f5a52; font-weight: 800; }
+    .learn-article .att-book thead th small { display: block; font-size: 10.5px; font-weight: 600; color: #5d8a83; }
+    .learn-article .att-book tbody th { font-weight: 700; color: #2d3e50; }
+    .learn-article .att-book td.o { color: #1f5a52; font-weight: 800; }
+    .learn-article .att-book td.x { color: #b3bcc6; font-size: 11.5px; }
+    .learn-article .att-book td.sum { font-weight: 800; color: #2d3e50; background: #f7fafa; }
+    .learn-article .att-book tfoot th, .learn-article .att-book tfoot td {
+      border-bottom: 0; background: #f3f8f7; font-size: 12px; font-weight: 700; color: #4d5f74;
+    }
+    .learn-article .att-book .ab-note { margin: 7px 0 0; font-size: 11.5px; color: #8a96a3; }
     /* ===== 히어로 두 칸 — 강의실과 학사일정을 나란히 =====
        둘 다 「언제 · 어디서」를 말하는 정보라 한 줄에 놓으면 세로 공간이 크게 줄어든다.
        학사일정 상자는 본문(.learn-article) 안에 있던 것이라 히어로용 규칙을 따로 적는다. */
@@ -1136,25 +1156,6 @@
     .learn-hero .syl-box .syl-tags.docs a.mapl.stu:hover { background: #1f382f; border-color: #1f382f; }
     .learn-hero .syl-box .syl-tags.docs a.mapl.prof { background: #a8681f; border-color: #a8681f; }
     .learn-hero .syl-box .syl-tags.docs a.mapl.prof:hover { background: #8a4f14; border-color: #8a4f14; }
-    /* 출석 — 안내서 줄 아래 빈 자리. 회차마다 한 줄씩 위에 더한다(최근 회차가 맨 위).
-       출석 + 결석이 수강 13명이 되는지로 검산한다. 결석은 눈에 덜 걸리게 눌러 둔다. */
-    .learn-hero .syl-box .att-log { margin-top: 7px; padding-top: 7px; border-top: 1px dashed #c3d2e2; }
-    .learn-hero .syl-box .att-h { display: flex; align-items: baseline; gap: 8px; margin: 0 0 4px; }
-    .learn-hero .syl-box .att-h .dt-h { font-size: 10.5px; font-weight: 800; color: #7c8a99; letter-spacing: -.2px; }
-    .learn-hero .syl-box .att-n { font-size: 10.5px; color: #9aa6b2; }
-    .learn-hero .syl-box .att-row {
-      display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 8px; row-gap: 1px;
-      margin: 0; padding: 4px 0; font-size: 11.5px; line-height: 1.6;
-    }
-    .learn-hero .syl-box .att-row + .att-row { border-top: 1px dotted #dbe4ee; }
-    .learn-hero .syl-box .att-d {
-      grid-row: span 2; align-self: start; padding: 1px 7px; border-radius: 6px;
-      background: #e3f1ef; color: #1f5a52; font-size: 10.5px; font-weight: 800; white-space: nowrap;
-    }
-    .learn-hero .syl-box .att-in { color: #2d3e50; }
-    .learn-hero .syl-box .att-in strong { color: #1f5a52; }
-    .learn-hero .syl-box .att-out { color: #8a96a3; font-size: 11px; }
-    .learn-hero .syl-box .att-out strong { color: #8a96a3; font-weight: 700; }
     @media (max-width: 900px) {
       .learn-hero .hero-row { grid-template-columns: 1fr; }
     }
@@ -1938,11 +1939,6 @@
           <p class="syl-d"><strong>관광벤처창업론은 화요일 5·6·7교시</strong>입니다.</p>
           <p class="syl-tags"><a class="mapl" href="academic-calendar-2026-2.html" target="_blank" rel="noopener">9~12월 달력 열기 ↗</a><a class="mapl mini" href="tourism-venture-student-note.html" target="_blank" rel="noopener">학생 이해 노트 ↗</a><span class="syl-src">개강 9/1 · 중간시험 8주 · 기말시험 16주 · 보강일 포함</span></p>
           <p class="syl-tags docs"><b class="dt-h">안내서</b><a class="mapl stu" href="assets/tourism-venture-reading-guide.docx" download="관광벤처창업론_이_페이지를_읽는_법.docx">학생용 · 「이 페이지를 읽는 법」 ⤓</a><a class="mapl prof" href="assets/tourism-venture-class-intro-tree.docx" download="관광벤처창업론_홈페이지소개_가지치기트리_전체답변.docx">교수자용 · 「가지치기 트리」 ⤓</a></p>
-          <div class="att-log">
-            <p class="att-h"><b class="dt-h">출석</b><span class="att-n">수강 13명 · 출석 + 결석 = 13으로 검산</span></p>
-            <p class="att-row"><b class="att-d">9/22 · 4주</b><span class="att-in">김다애 · 김준호 · 김한철 · 박상준 · 박준영 · 서용주 · 이영훈 · 임준혁 · 차진희 <strong>(9명)</strong></span><span class="att-out">결석 — 고은서 · 김대호 · 김재윤 · 김현민 <strong>(4명)</strong></span></p>
-            <p class="att-row"><b class="att-d">9/15 · 3주</b><span class="att-in">고은서 · 김다애 · 김재윤 · 김한철 · 박상준 · 박준영 · 서용주 · 이영훈 · 임준혁 · 차진희 <strong>(10명)</strong></span><span class="att-out">결석 — 김대호 · 김준호 · 김현민 <strong>(3명)</strong></span></p>
-          </div>
         </div>
       </div>
     </div>
@@ -1950,6 +1946,32 @@
 
   <main class="learn-article">
     <div class="lw">
+
+      <section class="att-book" aria-labelledby="att-title">
+        <p class="ab-t" id="att-title">출석부 <span>수강 13명 · 최근 회차가 오른쪽 · 칸마다 출석 + 결석 = 13으로 검산</span></p>
+        <div class="ab-wrap">
+          <table>
+            <thead><tr><th scope="col">이름</th><th scope="col">9/1<small>1주</small></th><th scope="col">9/8<small>2주</small></th><th scope="col">9/15<small>3주</small></th><th scope="col">9/22<small>4주</small></th><th scope="col">출석</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">고은서</th><td class="x">결석</td><td class="o">○</td><td class="o">○</td><td class="x">결석</td><td class="sum">2/4</td></tr>
+              <tr><th scope="row">김다애</th><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="sum">4/4</td></tr>
+              <tr><th scope="row">김대호</th><td class="o">○</td><td class="x">결석</td><td class="x">결석</td><td class="x">결석</td><td class="sum">1/4</td></tr>
+              <tr><th scope="row">김재윤</th><td class="x">결석</td><td class="x">결석</td><td class="o">○</td><td class="x">결석</td><td class="sum">1/4</td></tr>
+              <tr><th scope="row">김준호</th><td class="x">결석</td><td class="x">결석</td><td class="x">결석</td><td class="o">○</td><td class="sum">1/4</td></tr>
+              <tr><th scope="row">김한철</th><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="sum">4/4</td></tr>
+              <tr><th scope="row">김현민</th><td class="x">결석</td><td class="x">결석</td><td class="x">결석</td><td class="x">결석</td><td class="sum">0/4</td></tr>
+              <tr><th scope="row">박상준</th><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="sum">4/4</td></tr>
+              <tr><th scope="row">박준영</th><td class="x">결석</td><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="sum">3/4</td></tr>
+              <tr><th scope="row">서용주</th><td class="x">결석</td><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="sum">3/4</td></tr>
+              <tr><th scope="row">이영훈</th><td class="x">결석</td><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="sum">3/4</td></tr>
+              <tr><th scope="row">임준혁</th><td class="o">○</td><td class="x">결석</td><td class="o">○</td><td class="o">○</td><td class="sum">3/4</td></tr>
+              <tr><th scope="row">차진희</th><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="sum">4/4</td></tr>
+            </tbody>
+            <tfoot><tr><th scope="row">출석 · 결석</th><td>6 · 7</td><td>8 · 5</td><td>10 · 3</td><td>9 · 4</td><td class="sum">33</td></tr></tfoot>
+          </table>
+        </div>
+        <p class="ab-note">9/1에는 공식 출석부에 없는 <b>황현종 · 김기동</b>도 출석했습니다(위 13명 검산에서는 뺐습니다).</p>
+      </section>
 
       <figure class="learn-fig mindmap">
         <img src="images/tourism-venture-mindmap.webp" width="1536" height="1024" alt="관광 창업(관광벤처창업론) 마인드맵 — 가운데 「여행의 불편을 반복 가능한 방식으로 푸는 일」을 두고 여덟 파트가 뻗는다. 01 낼 것을 먼저 본다(과제 · 도구 · 준비), 02 주차별 실습 목표(15주 + 기말), 03 창업의 흐름(문제 → 모델 → 검증 → 지원), 04 어디에 내는가(공모 · 지원사업), 05 업종별로 들어가기(여행업 · 외식 · 농어촌 자원 · 스마트팜 · 연구용역 · 로컬크리에이터), 06 창업하지 않아도 쓰인다(과제 2 · 취업 연계), 07 책 — 교재 두 권, 08 곁들여 보기 · 링크. 아래에 이 수업이 남기는 것과 관광벤처가 만드는 가치 다섯." />
