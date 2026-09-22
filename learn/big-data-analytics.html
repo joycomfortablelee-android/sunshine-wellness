@@ -640,6 +640,17 @@
     }
     .learn-article .task-box.bd-later .vidwrap .vw-n b { color: #2a2410; }
     .learn-article .task-box.bd-later .vidwrap .vw-tags { border-top: 0; margin-top: 10px; padding-top: 0; }
+    /* 카드 안으로 옮겨 온 영상 - 위 상자용 규칙이 닿지 않아 따로 준다.
+       영상만 가운데로 세우고, 설명 글은 카드의 다른 문단과 같이 왼쪽에 둔다. */
+    .learn-article .reslist .vidwrap { margin: 13px 0 4px; padding-top: 12px; border-top: 1px dashed var(--line); }
+    .learn-article .reslist .vidwrap iframe {
+      display: block; width: 100%; max-width: 560px; aspect-ratio: 16 / 9;
+      margin: 0 auto;
+      border: 1px solid #cfdae6; border-radius: 10px; background: #000;
+    }
+    .learn-article .reslist .vidwrap .vw-n { display: block; margin: 9px 0 0; font-size: 12px; line-height: 1.7; color: var(--muted); }
+    .learn-article .reslist .vidwrap .vw-n b { color: var(--deep); }
+    .learn-article .reslist .vidwrap .vw-tags { border-top: 0; margin-top: 10px; padding-top: 0; }
     /* 「번호) 키워드 : 설명」 — 다른 페이지와 같은 형식 */
     .learn-article .task-box .kwlist.bd-kw { margin: 10px 0 0; padding: 0; list-style: none; counter-reset: kw; }
     .learn-article .task-box .kwlist.bd-kw > li {
