@@ -57,6 +57,41 @@ figcaption{padding:8px 10px;color:var(--muted);font-size:12px}
 footer{color:#7a8693;font-size:11px;margin-top:18px;text-align:right}
 .hidden{display:none!important}
 @media(max-width:820px){.meta{grid-template-columns:repeat(2,1fr)}.cards,.gallery{grid-template-columns:1fr}}
+
+/* ===== 출석부 — 학생 x 회차(수·목) 체크 표. 칸을 누르면 상태가 돌아간다 ===== */
+.attend .at-bar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:0 0 12px}
+.attend .at-bar button{padding:8px 11px;font-size:13px}
+.attend .at-msg{font-size:12px;color:var(--muted)}
+.attend .at-wrap{overflow:auto;border:1px solid var(--line);border-radius:12px;background:#fff}
+.attend table{border-collapse:collapse;width:100%;min-width:1240px}
+.attend th,.attend td{position:static;padding:6px 4px;text-align:center;font-size:13px;border-bottom:1px solid #edf2f6;border-right:1px solid #f1f5f8;white-space:nowrap;width:auto}
+.attend thead th{background:#edf3f7;color:var(--navy);font-weight:800;font-size:12px}
+.attend thead tr.wk th{border-bottom:1px solid #dae4ec}
+.attend thead th small{display:block;font-size:10px;font-weight:600;color:#7d90a3}
+.attend thead th.ex{background:#fbf1df;color:#a8681f}
+.attend thead th.ex small{color:#c29255}
+.attend thead th.td{background:#dcebf7;color:#134a7c}
+.attend th.nm,.attend th.sm{min-width:86px}
+.attend tbody th[scope="row"],.attend tfoot th[scope="row"],.attend thead th.nm{
+  position:sticky;left:0;z-index:2;background:#fff;text-align:left;padding:6px 11px;font-weight:700;color:#2d3e50;min-width:86px}
+.attend thead th.nm{background:#edf3f7;z-index:3}
+.attend tfoot th[scope="row"]{background:#f3f7fa}
+.attend td.at{cursor:pointer;min-width:34px;color:#b8c2cc;font-weight:800;user-select:none}
+.attend td.at:hover{background:#eef5fb}
+.attend td.at:focus{outline:2px solid #7fb0da;outline-offset:-2px}
+.attend td.ex{background:#fffaf1}
+.attend td.td{background:#f2f8fd}
+.attend td.at.s-o{color:#1f5a52}
+.attend td.at.s-l{color:#a8681f;font-size:12px}
+.attend td.at.s-x{color:#c2504a;font-size:12px}
+.attend td.at.s-j{color:#c9a77a;font-size:15px}
+.attend td.sm,.attend tfoot td{font-size:12px;font-weight:700;color:#4d5f74;background:#f7fafc}
+.attend tfoot th,.attend tfoot td{border-bottom:0}
+.attend .legend .lg{display:inline-block;min-width:16px;margin-right:4px;font-weight:800}
+.attend .legend .lg.o{color:#1f5a52}.attend .legend .lg.l{color:#a8681f}
+.attend .legend .lg.x{color:#c2504a}.attend .legend .lg.j{color:#c9a77a}
+.attend .at-note{margin:12px 0 0;font-size:12px;color:var(--muted);line-height:1.75}
+@media print{.attend .at-bar{display:none}.attend table{min-width:0;font-size:10px}}
 @media print{body{background:white}.wrap{max-width:none;padding:0}.toolbar{display:none}.section,.hero{box-shadow:none}details{display:block}}
 </style>
 </head>
@@ -105,6 +140,47 @@ footer{color:#7a8693;font-size:11px;margin-top:18px;text-align:right}
     </div>
   </section>
 
+
+  <section class="section attend" id="attend">
+    <h2>1-2. 출석부 — 회차별 출석 체크</h2>
+    <p class="desc">수 1–2교시 · 목 2교시라 <b>한 주에 두 칸</b>입니다(1주 9/2·9/3 … 16주 12/16·12/17 · 총 32회차).
+      칸을 누를 때마다 <b>○ 출석 → 지 지각 → 결 결석 → – 공결·취업계 → 빈칸</b> 순으로 바뀝니다.</p>
+    <div class="at-bar">
+      <button type="button" onclick="atToday()">오늘 칸으로</button>
+      <button type="button" onclick="atFill()">오늘 회차 모두 출석</button>
+      <button type="button" onclick="atCopy()">표 내용 복사</button>
+      <button type="button" onclick="atClear()">전부 지우기</button>
+      <span class="at-msg" id="atMsg" role="status"></span>
+    </div>
+    <div class="at-wrap" id="atWrap">
+      <table id="atTable">
+        <thead>
+          <tr class="wk"><th rowspan="2" scope="col" class="nm">이름</th><th colspan="2" scope="colgroup">1주<small>9/2·3</small></th><th colspan="2" scope="colgroup">2주<small>9/9·10</small></th><th colspan="2" scope="colgroup">3주<small>9/16·17</small></th><th colspan="2" scope="colgroup">4주<small>9/23·24</small></th><th colspan="2" scope="colgroup">5주<small>9/30·1</small></th><th colspan="2" scope="colgroup">6주<small>10/7·8</small></th><th colspan="2" scope="colgroup">7주<small>10/14·15</small></th><th colspan="2" scope="colgroup" class="ex">8주<small>10/21·22 · 중간</small></th><th colspan="2" scope="colgroup">9주<small>10/28·29</small></th><th colspan="2" scope="colgroup">10주<small>11/4·5</small></th><th colspan="2" scope="colgroup">11주<small>11/11·12</small></th><th colspan="2" scope="colgroup">12주<small>11/18·19</small></th><th colspan="2" scope="colgroup">13주<small>11/25·26</small></th><th colspan="2" scope="colgroup">14주<small>12/2·3</small></th><th colspan="2" scope="colgroup">15주<small>12/9·10</small></th><th colspan="2" scope="colgroup" class="ex">16주<small>12/16·17 · 기말</small></th><th rowspan="2" scope="col" class="sm">출석</th></tr>
+          <tr class="dy"><th scope="col">수</th><th scope="col">목</th><th scope="col">수</th><th scope="col">목</th><th scope="col">수</th><th scope="col">목</th><th scope="col" class="td">수</th><th scope="col">목</th><th scope="col">수</th><th scope="col">목</th><th scope="col">수</th><th scope="col">목</th><th scope="col">수</th><th scope="col">목</th><th scope="col" class="ex">수</th><th scope="col" class="ex">목</th><th scope="col">수</th><th scope="col">목</th><th scope="col">수</th><th scope="col">목</th><th scope="col">수</th><th scope="col">목</th><th scope="col">수</th><th scope="col">목</th><th scope="col">수</th><th scope="col">목</th><th scope="col">수</th><th scope="col">목</th><th scope="col">수</th><th scope="col">목</th><th scope="col" class="ex">수</th><th scope="col" class="ex">목</th></tr>
+        </thead>
+        <tbody>
+          <tr data-n="정연승"><th scope="row">정연승</th><td class="at" data-k="20260902" tabindex="0" role="button" aria-label="정연승 9월 2일 출결"></td><td class="at" data-k="20260903" tabindex="0" role="button" aria-label="정연승 9월 3일 출결"></td><td class="at" data-k="20260909" tabindex="0" role="button" aria-label="정연승 9월 9일 출결"></td><td class="at" data-k="20260910" tabindex="0" role="button" aria-label="정연승 9월 10일 출결"></td><td class="at" data-k="20260916" tabindex="0" role="button" aria-label="정연승 9월 16일 출결"></td><td class="at" data-k="20260917" tabindex="0" role="button" aria-label="정연승 9월 17일 출결"></td><td class="at td" data-k="20260923" tabindex="0" role="button" aria-label="정연승 9월 23일 출결"></td><td class="at" data-k="20260924" tabindex="0" role="button" aria-label="정연승 9월 24일 출결"></td><td class="at" data-k="20260930" tabindex="0" role="button" aria-label="정연승 9월 30일 출결"></td><td class="at" data-k="20261001" tabindex="0" role="button" aria-label="정연승 10월 1일 출결"></td><td class="at" data-k="20261007" tabindex="0" role="button" aria-label="정연승 10월 7일 출결"></td><td class="at" data-k="20261008" tabindex="0" role="button" aria-label="정연승 10월 8일 출결"></td><td class="at" data-k="20261014" tabindex="0" role="button" aria-label="정연승 10월 14일 출결"></td><td class="at" data-k="20261015" tabindex="0" role="button" aria-label="정연승 10월 15일 출결"></td><td class="at ex" data-k="20261021" tabindex="0" role="button" aria-label="정연승 10월 21일 출결"></td><td class="at ex" data-k="20261022" tabindex="0" role="button" aria-label="정연승 10월 22일 출결"></td><td class="at" data-k="20261028" tabindex="0" role="button" aria-label="정연승 10월 28일 출결"></td><td class="at" data-k="20261029" tabindex="0" role="button" aria-label="정연승 10월 29일 출결"></td><td class="at" data-k="20261104" tabindex="0" role="button" aria-label="정연승 11월 4일 출결"></td><td class="at" data-k="20261105" tabindex="0" role="button" aria-label="정연승 11월 5일 출결"></td><td class="at" data-k="20261111" tabindex="0" role="button" aria-label="정연승 11월 11일 출결"></td><td class="at" data-k="20261112" tabindex="0" role="button" aria-label="정연승 11월 12일 출결"></td><td class="at" data-k="20261118" tabindex="0" role="button" aria-label="정연승 11월 18일 출결"></td><td class="at" data-k="20261119" tabindex="0" role="button" aria-label="정연승 11월 19일 출결"></td><td class="at" data-k="20261125" tabindex="0" role="button" aria-label="정연승 11월 25일 출결"></td><td class="at" data-k="20261126" tabindex="0" role="button" aria-label="정연승 11월 26일 출결"></td><td class="at" data-k="20261202" tabindex="0" role="button" aria-label="정연승 12월 2일 출결"></td><td class="at" data-k="20261203" tabindex="0" role="button" aria-label="정연승 12월 3일 출결"></td><td class="at" data-k="20261209" tabindex="0" role="button" aria-label="정연승 12월 9일 출결"></td><td class="at" data-k="20261210" tabindex="0" role="button" aria-label="정연승 12월 10일 출결"></td><td class="at ex" data-k="20261216" tabindex="0" role="button" aria-label="정연승 12월 16일 출결"></td><td class="at ex" data-k="20261217" tabindex="0" role="button" aria-label="정연승 12월 17일 출결"></td><td class="sm">0</td></tr>
+          <tr data-n="서효원"><th scope="row">서효원</th><td class="at" data-k="20260902" tabindex="0" role="button" aria-label="서효원 9월 2일 출결"></td><td class="at" data-k="20260903" tabindex="0" role="button" aria-label="서효원 9월 3일 출결"></td><td class="at" data-k="20260909" tabindex="0" role="button" aria-label="서효원 9월 9일 출결"></td><td class="at" data-k="20260910" tabindex="0" role="button" aria-label="서효원 9월 10일 출결"></td><td class="at" data-k="20260916" tabindex="0" role="button" aria-label="서효원 9월 16일 출결"></td><td class="at" data-k="20260917" tabindex="0" role="button" aria-label="서효원 9월 17일 출결"></td><td class="at td" data-k="20260923" tabindex="0" role="button" aria-label="서효원 9월 23일 출결"></td><td class="at" data-k="20260924" tabindex="0" role="button" aria-label="서효원 9월 24일 출결"></td><td class="at" data-k="20260930" tabindex="0" role="button" aria-label="서효원 9월 30일 출결"></td><td class="at" data-k="20261001" tabindex="0" role="button" aria-label="서효원 10월 1일 출결"></td><td class="at" data-k="20261007" tabindex="0" role="button" aria-label="서효원 10월 7일 출결"></td><td class="at" data-k="20261008" tabindex="0" role="button" aria-label="서효원 10월 8일 출결"></td><td class="at" data-k="20261014" tabindex="0" role="button" aria-label="서효원 10월 14일 출결"></td><td class="at" data-k="20261015" tabindex="0" role="button" aria-label="서효원 10월 15일 출결"></td><td class="at ex" data-k="20261021" tabindex="0" role="button" aria-label="서효원 10월 21일 출결"></td><td class="at ex" data-k="20261022" tabindex="0" role="button" aria-label="서효원 10월 22일 출결"></td><td class="at" data-k="20261028" tabindex="0" role="button" aria-label="서효원 10월 28일 출결"></td><td class="at" data-k="20261029" tabindex="0" role="button" aria-label="서효원 10월 29일 출결"></td><td class="at" data-k="20261104" tabindex="0" role="button" aria-label="서효원 11월 4일 출결"></td><td class="at" data-k="20261105" tabindex="0" role="button" aria-label="서효원 11월 5일 출결"></td><td class="at" data-k="20261111" tabindex="0" role="button" aria-label="서효원 11월 11일 출결"></td><td class="at" data-k="20261112" tabindex="0" role="button" aria-label="서효원 11월 12일 출결"></td><td class="at" data-k="20261118" tabindex="0" role="button" aria-label="서효원 11월 18일 출결"></td><td class="at" data-k="20261119" tabindex="0" role="button" aria-label="서효원 11월 19일 출결"></td><td class="at" data-k="20261125" tabindex="0" role="button" aria-label="서효원 11월 25일 출결"></td><td class="at" data-k="20261126" tabindex="0" role="button" aria-label="서효원 11월 26일 출결"></td><td class="at" data-k="20261202" tabindex="0" role="button" aria-label="서효원 12월 2일 출결"></td><td class="at" data-k="20261203" tabindex="0" role="button" aria-label="서효원 12월 3일 출결"></td><td class="at" data-k="20261209" tabindex="0" role="button" aria-label="서효원 12월 9일 출결"></td><td class="at" data-k="20261210" tabindex="0" role="button" aria-label="서효원 12월 10일 출결"></td><td class="at ex" data-k="20261216" tabindex="0" role="button" aria-label="서효원 12월 16일 출결"></td><td class="at ex" data-k="20261217" tabindex="0" role="button" aria-label="서효원 12월 17일 출결"></td><td class="sm">0</td></tr>
+          <tr data-n="김대호"><th scope="row">김대호</th><td class="at" data-k="20260902" tabindex="0" role="button" aria-label="김대호 9월 2일 출결"></td><td class="at" data-k="20260903" tabindex="0" role="button" aria-label="김대호 9월 3일 출결"></td><td class="at" data-k="20260909" tabindex="0" role="button" aria-label="김대호 9월 9일 출결"></td><td class="at" data-k="20260910" tabindex="0" role="button" aria-label="김대호 9월 10일 출결"></td><td class="at" data-k="20260916" tabindex="0" role="button" aria-label="김대호 9월 16일 출결"></td><td class="at" data-k="20260917" tabindex="0" role="button" aria-label="김대호 9월 17일 출결"></td><td class="at td" data-k="20260923" tabindex="0" role="button" aria-label="김대호 9월 23일 출결"></td><td class="at" data-k="20260924" tabindex="0" role="button" aria-label="김대호 9월 24일 출결"></td><td class="at" data-k="20260930" tabindex="0" role="button" aria-label="김대호 9월 30일 출결"></td><td class="at" data-k="20261001" tabindex="0" role="button" aria-label="김대호 10월 1일 출결"></td><td class="at" data-k="20261007" tabindex="0" role="button" aria-label="김대호 10월 7일 출결"></td><td class="at" data-k="20261008" tabindex="0" role="button" aria-label="김대호 10월 8일 출결"></td><td class="at" data-k="20261014" tabindex="0" role="button" aria-label="김대호 10월 14일 출결"></td><td class="at" data-k="20261015" tabindex="0" role="button" aria-label="김대호 10월 15일 출결"></td><td class="at ex" data-k="20261021" tabindex="0" role="button" aria-label="김대호 10월 21일 출결"></td><td class="at ex" data-k="20261022" tabindex="0" role="button" aria-label="김대호 10월 22일 출결"></td><td class="at" data-k="20261028" tabindex="0" role="button" aria-label="김대호 10월 28일 출결"></td><td class="at" data-k="20261029" tabindex="0" role="button" aria-label="김대호 10월 29일 출결"></td><td class="at" data-k="20261104" tabindex="0" role="button" aria-label="김대호 11월 4일 출결"></td><td class="at" data-k="20261105" tabindex="0" role="button" aria-label="김대호 11월 5일 출결"></td><td class="at" data-k="20261111" tabindex="0" role="button" aria-label="김대호 11월 11일 출결"></td><td class="at" data-k="20261112" tabindex="0" role="button" aria-label="김대호 11월 12일 출결"></td><td class="at" data-k="20261118" tabindex="0" role="button" aria-label="김대호 11월 18일 출결"></td><td class="at" data-k="20261119" tabindex="0" role="button" aria-label="김대호 11월 19일 출결"></td><td class="at" data-k="20261125" tabindex="0" role="button" aria-label="김대호 11월 25일 출결"></td><td class="at" data-k="20261126" tabindex="0" role="button" aria-label="김대호 11월 26일 출결"></td><td class="at" data-k="20261202" tabindex="0" role="button" aria-label="김대호 12월 2일 출결"></td><td class="at" data-k="20261203" tabindex="0" role="button" aria-label="김대호 12월 3일 출결"></td><td class="at" data-k="20261209" tabindex="0" role="button" aria-label="김대호 12월 9일 출결"></td><td class="at" data-k="20261210" tabindex="0" role="button" aria-label="김대호 12월 10일 출결"></td><td class="at ex" data-k="20261216" tabindex="0" role="button" aria-label="김대호 12월 16일 출결"></td><td class="at ex" data-k="20261217" tabindex="0" role="button" aria-label="김대호 12월 17일 출결"></td><td class="sm">0</td></tr>
+          <tr data-n="김준호"><th scope="row">김준호</th><td class="at" data-k="20260902" tabindex="0" role="button" aria-label="김준호 9월 2일 출결"></td><td class="at" data-k="20260903" tabindex="0" role="button" aria-label="김준호 9월 3일 출결"></td><td class="at" data-k="20260909" tabindex="0" role="button" aria-label="김준호 9월 9일 출결"></td><td class="at" data-k="20260910" tabindex="0" role="button" aria-label="김준호 9월 10일 출결"></td><td class="at" data-k="20260916" tabindex="0" role="button" aria-label="김준호 9월 16일 출결"></td><td class="at" data-k="20260917" tabindex="0" role="button" aria-label="김준호 9월 17일 출결"></td><td class="at td" data-k="20260923" tabindex="0" role="button" aria-label="김준호 9월 23일 출결"></td><td class="at" data-k="20260924" tabindex="0" role="button" aria-label="김준호 9월 24일 출결"></td><td class="at" data-k="20260930" tabindex="0" role="button" aria-label="김준호 9월 30일 출결"></td><td class="at" data-k="20261001" tabindex="0" role="button" aria-label="김준호 10월 1일 출결"></td><td class="at" data-k="20261007" tabindex="0" role="button" aria-label="김준호 10월 7일 출결"></td><td class="at" data-k="20261008" tabindex="0" role="button" aria-label="김준호 10월 8일 출결"></td><td class="at" data-k="20261014" tabindex="0" role="button" aria-label="김준호 10월 14일 출결"></td><td class="at" data-k="20261015" tabindex="0" role="button" aria-label="김준호 10월 15일 출결"></td><td class="at ex" data-k="20261021" tabindex="0" role="button" aria-label="김준호 10월 21일 출결"></td><td class="at ex" data-k="20261022" tabindex="0" role="button" aria-label="김준호 10월 22일 출결"></td><td class="at" data-k="20261028" tabindex="0" role="button" aria-label="김준호 10월 28일 출결"></td><td class="at" data-k="20261029" tabindex="0" role="button" aria-label="김준호 10월 29일 출결"></td><td class="at" data-k="20261104" tabindex="0" role="button" aria-label="김준호 11월 4일 출결"></td><td class="at" data-k="20261105" tabindex="0" role="button" aria-label="김준호 11월 5일 출결"></td><td class="at" data-k="20261111" tabindex="0" role="button" aria-label="김준호 11월 11일 출결"></td><td class="at" data-k="20261112" tabindex="0" role="button" aria-label="김준호 11월 12일 출결"></td><td class="at" data-k="20261118" tabindex="0" role="button" aria-label="김준호 11월 18일 출결"></td><td class="at" data-k="20261119" tabindex="0" role="button" aria-label="김준호 11월 19일 출결"></td><td class="at" data-k="20261125" tabindex="0" role="button" aria-label="김준호 11월 25일 출결"></td><td class="at" data-k="20261126" tabindex="0" role="button" aria-label="김준호 11월 26일 출결"></td><td class="at" data-k="20261202" tabindex="0" role="button" aria-label="김준호 12월 2일 출결"></td><td class="at" data-k="20261203" tabindex="0" role="button" aria-label="김준호 12월 3일 출결"></td><td class="at" data-k="20261209" tabindex="0" role="button" aria-label="김준호 12월 9일 출결"></td><td class="at" data-k="20261210" tabindex="0" role="button" aria-label="김준호 12월 10일 출결"></td><td class="at ex" data-k="20261216" tabindex="0" role="button" aria-label="김준호 12월 16일 출결"></td><td class="at ex" data-k="20261217" tabindex="0" role="button" aria-label="김준호 12월 17일 출결"></td><td class="sm">0</td></tr>
+          <tr data-n="박상준"><th scope="row">박상준</th><td class="at" data-k="20260902" tabindex="0" role="button" aria-label="박상준 9월 2일 출결"></td><td class="at" data-k="20260903" tabindex="0" role="button" aria-label="박상준 9월 3일 출결"></td><td class="at" data-k="20260909" tabindex="0" role="button" aria-label="박상준 9월 9일 출결"></td><td class="at" data-k="20260910" tabindex="0" role="button" aria-label="박상준 9월 10일 출결"></td><td class="at" data-k="20260916" tabindex="0" role="button" aria-label="박상준 9월 16일 출결"></td><td class="at" data-k="20260917" tabindex="0" role="button" aria-label="박상준 9월 17일 출결"></td><td class="at td" data-k="20260923" tabindex="0" role="button" aria-label="박상준 9월 23일 출결"></td><td class="at" data-k="20260924" tabindex="0" role="button" aria-label="박상준 9월 24일 출결"></td><td class="at" data-k="20260930" tabindex="0" role="button" aria-label="박상준 9월 30일 출결"></td><td class="at" data-k="20261001" tabindex="0" role="button" aria-label="박상준 10월 1일 출결"></td><td class="at" data-k="20261007" tabindex="0" role="button" aria-label="박상준 10월 7일 출결"></td><td class="at" data-k="20261008" tabindex="0" role="button" aria-label="박상준 10월 8일 출결"></td><td class="at" data-k="20261014" tabindex="0" role="button" aria-label="박상준 10월 14일 출결"></td><td class="at" data-k="20261015" tabindex="0" role="button" aria-label="박상준 10월 15일 출결"></td><td class="at ex" data-k="20261021" tabindex="0" role="button" aria-label="박상준 10월 21일 출결"></td><td class="at ex" data-k="20261022" tabindex="0" role="button" aria-label="박상준 10월 22일 출결"></td><td class="at" data-k="20261028" tabindex="0" role="button" aria-label="박상준 10월 28일 출결"></td><td class="at" data-k="20261029" tabindex="0" role="button" aria-label="박상준 10월 29일 출결"></td><td class="at" data-k="20261104" tabindex="0" role="button" aria-label="박상준 11월 4일 출결"></td><td class="at" data-k="20261105" tabindex="0" role="button" aria-label="박상준 11월 5일 출결"></td><td class="at" data-k="20261111" tabindex="0" role="button" aria-label="박상준 11월 11일 출결"></td><td class="at" data-k="20261112" tabindex="0" role="button" aria-label="박상준 11월 12일 출결"></td><td class="at" data-k="20261118" tabindex="0" role="button" aria-label="박상준 11월 18일 출결"></td><td class="at" data-k="20261119" tabindex="0" role="button" aria-label="박상준 11월 19일 출결"></td><td class="at" data-k="20261125" tabindex="0" role="button" aria-label="박상준 11월 25일 출결"></td><td class="at" data-k="20261126" tabindex="0" role="button" aria-label="박상준 11월 26일 출결"></td><td class="at" data-k="20261202" tabindex="0" role="button" aria-label="박상준 12월 2일 출결"></td><td class="at" data-k="20261203" tabindex="0" role="button" aria-label="박상준 12월 3일 출결"></td><td class="at" data-k="20261209" tabindex="0" role="button" aria-label="박상준 12월 9일 출결"></td><td class="at" data-k="20261210" tabindex="0" role="button" aria-label="박상준 12월 10일 출결"></td><td class="at ex" data-k="20261216" tabindex="0" role="button" aria-label="박상준 12월 16일 출결"></td><td class="at ex" data-k="20261217" tabindex="0" role="button" aria-label="박상준 12월 17일 출결"></td><td class="sm">0</td></tr>
+          <tr data-n="심태섭"><th scope="row">심태섭</th><td class="at" data-k="20260902" tabindex="0" role="button" aria-label="심태섭 9월 2일 출결"></td><td class="at" data-k="20260903" tabindex="0" role="button" aria-label="심태섭 9월 3일 출결"></td><td class="at" data-k="20260909" tabindex="0" role="button" aria-label="심태섭 9월 9일 출결"></td><td class="at" data-k="20260910" tabindex="0" role="button" aria-label="심태섭 9월 10일 출결"></td><td class="at" data-k="20260916" tabindex="0" role="button" aria-label="심태섭 9월 16일 출결"></td><td class="at" data-k="20260917" tabindex="0" role="button" aria-label="심태섭 9월 17일 출결"></td><td class="at td" data-k="20260923" tabindex="0" role="button" aria-label="심태섭 9월 23일 출결"></td><td class="at" data-k="20260924" tabindex="0" role="button" aria-label="심태섭 9월 24일 출결"></td><td class="at" data-k="20260930" tabindex="0" role="button" aria-label="심태섭 9월 30일 출결"></td><td class="at" data-k="20261001" tabindex="0" role="button" aria-label="심태섭 10월 1일 출결"></td><td class="at" data-k="20261007" tabindex="0" role="button" aria-label="심태섭 10월 7일 출결"></td><td class="at" data-k="20261008" tabindex="0" role="button" aria-label="심태섭 10월 8일 출결"></td><td class="at" data-k="20261014" tabindex="0" role="button" aria-label="심태섭 10월 14일 출결"></td><td class="at" data-k="20261015" tabindex="0" role="button" aria-label="심태섭 10월 15일 출결"></td><td class="at ex" data-k="20261021" tabindex="0" role="button" aria-label="심태섭 10월 21일 출결"></td><td class="at ex" data-k="20261022" tabindex="0" role="button" aria-label="심태섭 10월 22일 출결"></td><td class="at" data-k="20261028" tabindex="0" role="button" aria-label="심태섭 10월 28일 출결"></td><td class="at" data-k="20261029" tabindex="0" role="button" aria-label="심태섭 10월 29일 출결"></td><td class="at" data-k="20261104" tabindex="0" role="button" aria-label="심태섭 11월 4일 출결"></td><td class="at" data-k="20261105" tabindex="0" role="button" aria-label="심태섭 11월 5일 출결"></td><td class="at" data-k="20261111" tabindex="0" role="button" aria-label="심태섭 11월 11일 출결"></td><td class="at" data-k="20261112" tabindex="0" role="button" aria-label="심태섭 11월 12일 출결"></td><td class="at" data-k="20261118" tabindex="0" role="button" aria-label="심태섭 11월 18일 출결"></td><td class="at" data-k="20261119" tabindex="0" role="button" aria-label="심태섭 11월 19일 출결"></td><td class="at" data-k="20261125" tabindex="0" role="button" aria-label="심태섭 11월 25일 출결"></td><td class="at" data-k="20261126" tabindex="0" role="button" aria-label="심태섭 11월 26일 출결"></td><td class="at" data-k="20261202" tabindex="0" role="button" aria-label="심태섭 12월 2일 출결"></td><td class="at" data-k="20261203" tabindex="0" role="button" aria-label="심태섭 12월 3일 출결"></td><td class="at" data-k="20261209" tabindex="0" role="button" aria-label="심태섭 12월 9일 출결"></td><td class="at" data-k="20261210" tabindex="0" role="button" aria-label="심태섭 12월 10일 출결"></td><td class="at ex" data-k="20261216" tabindex="0" role="button" aria-label="심태섭 12월 16일 출결"></td><td class="at ex" data-k="20261217" tabindex="0" role="button" aria-label="심태섭 12월 17일 출결"></td><td class="sm">0</td></tr>
+          <tr data-n="김윤서"><th scope="row">김윤서</th><td class="at" data-k="20260902" tabindex="0" role="button" aria-label="김윤서 9월 2일 출결"></td><td class="at" data-k="20260903" tabindex="0" role="button" aria-label="김윤서 9월 3일 출결"></td><td class="at" data-k="20260909" tabindex="0" role="button" aria-label="김윤서 9월 9일 출결"></td><td class="at" data-k="20260910" tabindex="0" role="button" aria-label="김윤서 9월 10일 출결"></td><td class="at" data-k="20260916" tabindex="0" role="button" aria-label="김윤서 9월 16일 출결"></td><td class="at" data-k="20260917" tabindex="0" role="button" aria-label="김윤서 9월 17일 출결"></td><td class="at td" data-k="20260923" tabindex="0" role="button" aria-label="김윤서 9월 23일 출결"></td><td class="at" data-k="20260924" tabindex="0" role="button" aria-label="김윤서 9월 24일 출결"></td><td class="at" data-k="20260930" tabindex="0" role="button" aria-label="김윤서 9월 30일 출결"></td><td class="at" data-k="20261001" tabindex="0" role="button" aria-label="김윤서 10월 1일 출결"></td><td class="at" data-k="20261007" tabindex="0" role="button" aria-label="김윤서 10월 7일 출결"></td><td class="at" data-k="20261008" tabindex="0" role="button" aria-label="김윤서 10월 8일 출결"></td><td class="at" data-k="20261014" tabindex="0" role="button" aria-label="김윤서 10월 14일 출결"></td><td class="at" data-k="20261015" tabindex="0" role="button" aria-label="김윤서 10월 15일 출결"></td><td class="at ex" data-k="20261021" tabindex="0" role="button" aria-label="김윤서 10월 21일 출결"></td><td class="at ex" data-k="20261022" tabindex="0" role="button" aria-label="김윤서 10월 22일 출결"></td><td class="at" data-k="20261028" tabindex="0" role="button" aria-label="김윤서 10월 28일 출결"></td><td class="at" data-k="20261029" tabindex="0" role="button" aria-label="김윤서 10월 29일 출결"></td><td class="at" data-k="20261104" tabindex="0" role="button" aria-label="김윤서 11월 4일 출결"></td><td class="at" data-k="20261105" tabindex="0" role="button" aria-label="김윤서 11월 5일 출결"></td><td class="at" data-k="20261111" tabindex="0" role="button" aria-label="김윤서 11월 11일 출결"></td><td class="at" data-k="20261112" tabindex="0" role="button" aria-label="김윤서 11월 12일 출결"></td><td class="at" data-k="20261118" tabindex="0" role="button" aria-label="김윤서 11월 18일 출결"></td><td class="at" data-k="20261119" tabindex="0" role="button" aria-label="김윤서 11월 19일 출결"></td><td class="at" data-k="20261125" tabindex="0" role="button" aria-label="김윤서 11월 25일 출결"></td><td class="at" data-k="20261126" tabindex="0" role="button" aria-label="김윤서 11월 26일 출결"></td><td class="at" data-k="20261202" tabindex="0" role="button" aria-label="김윤서 12월 2일 출결"></td><td class="at" data-k="20261203" tabindex="0" role="button" aria-label="김윤서 12월 3일 출결"></td><td class="at" data-k="20261209" tabindex="0" role="button" aria-label="김윤서 12월 9일 출결"></td><td class="at" data-k="20261210" tabindex="0" role="button" aria-label="김윤서 12월 10일 출결"></td><td class="at ex" data-k="20261216" tabindex="0" role="button" aria-label="김윤서 12월 16일 출결"></td><td class="at ex" data-k="20261217" tabindex="0" role="button" aria-label="김윤서 12월 17일 출결"></td><td class="sm">0</td></tr>
+          <tr data-n="전승예"><th scope="row">전승예</th><td class="at" data-k="20260902" tabindex="0" role="button" aria-label="전승예 9월 2일 출결"></td><td class="at" data-k="20260903" tabindex="0" role="button" aria-label="전승예 9월 3일 출결"></td><td class="at" data-k="20260909" tabindex="0" role="button" aria-label="전승예 9월 9일 출결"></td><td class="at" data-k="20260910" tabindex="0" role="button" aria-label="전승예 9월 10일 출결"></td><td class="at" data-k="20260916" tabindex="0" role="button" aria-label="전승예 9월 16일 출결"></td><td class="at" data-k="20260917" tabindex="0" role="button" aria-label="전승예 9월 17일 출결"></td><td class="at td" data-k="20260923" tabindex="0" role="button" aria-label="전승예 9월 23일 출결"></td><td class="at" data-k="20260924" tabindex="0" role="button" aria-label="전승예 9월 24일 출결"></td><td class="at" data-k="20260930" tabindex="0" role="button" aria-label="전승예 9월 30일 출결"></td><td class="at" data-k="20261001" tabindex="0" role="button" aria-label="전승예 10월 1일 출결"></td><td class="at" data-k="20261007" tabindex="0" role="button" aria-label="전승예 10월 7일 출결"></td><td class="at" data-k="20261008" tabindex="0" role="button" aria-label="전승예 10월 8일 출결"></td><td class="at" data-k="20261014" tabindex="0" role="button" aria-label="전승예 10월 14일 출결"></td><td class="at" data-k="20261015" tabindex="0" role="button" aria-label="전승예 10월 15일 출결"></td><td class="at ex" data-k="20261021" tabindex="0" role="button" aria-label="전승예 10월 21일 출결"></td><td class="at ex" data-k="20261022" tabindex="0" role="button" aria-label="전승예 10월 22일 출결"></td><td class="at" data-k="20261028" tabindex="0" role="button" aria-label="전승예 10월 28일 출결"></td><td class="at" data-k="20261029" tabindex="0" role="button" aria-label="전승예 10월 29일 출결"></td><td class="at" data-k="20261104" tabindex="0" role="button" aria-label="전승예 11월 4일 출결"></td><td class="at" data-k="20261105" tabindex="0" role="button" aria-label="전승예 11월 5일 출결"></td><td class="at" data-k="20261111" tabindex="0" role="button" aria-label="전승예 11월 11일 출결"></td><td class="at" data-k="20261112" tabindex="0" role="button" aria-label="전승예 11월 12일 출결"></td><td class="at" data-k="20261118" tabindex="0" role="button" aria-label="전승예 11월 18일 출결"></td><td class="at" data-k="20261119" tabindex="0" role="button" aria-label="전승예 11월 19일 출결"></td><td class="at" data-k="20261125" tabindex="0" role="button" aria-label="전승예 11월 25일 출결"></td><td class="at" data-k="20261126" tabindex="0" role="button" aria-label="전승예 11월 26일 출결"></td><td class="at" data-k="20261202" tabindex="0" role="button" aria-label="전승예 12월 2일 출결"></td><td class="at" data-k="20261203" tabindex="0" role="button" aria-label="전승예 12월 3일 출결"></td><td class="at" data-k="20261209" tabindex="0" role="button" aria-label="전승예 12월 9일 출결"></td><td class="at" data-k="20261210" tabindex="0" role="button" aria-label="전승예 12월 10일 출결"></td><td class="at ex" data-k="20261216" tabindex="0" role="button" aria-label="전승예 12월 16일 출결"></td><td class="at ex" data-k="20261217" tabindex="0" role="button" aria-label="전승예 12월 17일 출결"></td><td class="sm">0</td></tr>
+        </tbody>
+        <tfoot><tr><th scope="row">출석 · 결석</th><td class="ft" data-k="20260902"></td><td class="ft" data-k="20260903"></td><td class="ft" data-k="20260909"></td><td class="ft" data-k="20260910"></td><td class="ft" data-k="20260916"></td><td class="ft" data-k="20260917"></td><td class="ft td" data-k="20260923"></td><td class="ft" data-k="20260924"></td><td class="ft" data-k="20260930"></td><td class="ft" data-k="20261001"></td><td class="ft" data-k="20261007"></td><td class="ft" data-k="20261008"></td><td class="ft" data-k="20261014"></td><td class="ft" data-k="20261015"></td><td class="ft ex" data-k="20261021"></td><td class="ft ex" data-k="20261022"></td><td class="ft" data-k="20261028"></td><td class="ft" data-k="20261029"></td><td class="ft" data-k="20261104"></td><td class="ft" data-k="20261105"></td><td class="ft" data-k="20261111"></td><td class="ft" data-k="20261112"></td><td class="ft" data-k="20261118"></td><td class="ft" data-k="20261119"></td><td class="ft" data-k="20261125"></td><td class="ft" data-k="20261126"></td><td class="ft" data-k="20261202"></td><td class="ft" data-k="20261203"></td><td class="ft" data-k="20261209"></td><td class="ft" data-k="20261210"></td><td class="ft ex" data-k="20261216"></td><td class="ft ex" data-k="20261217"></td><td class="sm"></td></tr></tfoot>
+      </table>
+    </div>
+    <div class="legend">
+      <span><b class="lg o">○</b> 출석</span>
+      <span><b class="lg l">지</b> 지각</span>
+      <span><b class="lg x">결</b> 결석</span>
+      <span><b class="lg j">–</b> 공결 · 취업계</span>
+      <span>빈칸 = 아직 오지 않은 회차</span>
+    </div>
+    <p class="at-note"><b>저장은 이 브라우저에만 됩니다.</b> 표시한 값은 지금 쓰는 기기·브라우저 안에만 남습니다 — 다른 컴퓨터에서 열면 비어 있고, 방문자에게도 보이지 않습니다.
+      기록을 옮기거나 넘기려면 <b>「표 내용 복사」</b>를 눌러 붙여 넣으십시오. 학기 <b>공식 출결은 학사 시스템</b> 쪽을 따릅니다.</p>
+  </section>
   <section class="section">
     <h2>2. 학생별 특징 · 진로 · 지역 메모</h2>
     <p class="desc">사진에 적힌 정보를 가능한 한 손실 없이 옮겼습니다. 불명확한 부분은 추정해 확정하지 않고 ?, 괄호, 원문메모로 남겼습니다.</p>
@@ -234,5 +310,109 @@ function filterCards(){
     el.classList.toggle('hidden', q && !el.dataset.search.toLowerCase().includes(q));
   });
 }
+</script>
+
+<script>
+/* 출석부 — 칸을 누르면 상태가 돌고, 값은 이 브라우저에만 저장된다. */
+(function () {
+  var KEY = 'stn-attend-v1';
+  var ORDER = ['', 'o', 'l', 'x', 'j'];
+  var MARK = { o: '\u25cb', l: '\uc9c0', x: '\uacb0', j: '\u2013' };
+  var table = document.getElementById('atTable');
+  if (!table) return;
+  var msg = document.getElementById('atMsg');
+  var data = {};
+
+  try { data = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { data = {}; }
+
+  function cells() { return Array.prototype.slice.call(table.querySelectorAll('td.at')); }
+  function idOf(td) { return td.parentNode.dataset.n + '|' + td.dataset.k; }
+
+  function paint(td) {
+    var v = data[idOf(td)] || '';
+    td.className = td.className.replace(/\s*s-[olxj]/g, '');
+    td.textContent = v ? MARK[v] : '';
+    if (v) td.className += ' s-' + v;
+  }
+
+  function totals() {
+    /* 학생별 출석 수(출석 + 지각) */
+    Array.prototype.slice.call(table.querySelectorAll('tbody tr')).forEach(function (tr) {
+      var n = 0;
+      Array.prototype.slice.call(tr.querySelectorAll('td.at')).forEach(function (td) {
+        var v = data[idOf(td)];
+        if (v === 'o' || v === 'l') n++;
+      });
+      tr.querySelector('td.sm').textContent = n;
+    });
+    /* 회차별 출석 · 결석 */
+    Array.prototype.slice.call(table.querySelectorAll('tfoot td.ft')).forEach(function (td) {
+      var k = td.dataset.k, o = 0, x = 0;
+      Array.prototype.slice.call(table.querySelectorAll('tbody tr')).forEach(function (tr) {
+        var v = data[tr.dataset.n + '|' + k];
+        if (v === 'o' || v === 'l') o++;
+        else if (v === 'x' || v === 'j') x++;
+      });
+      td.textContent = (o || x) ? (o + ' \u00b7 ' + x) : '';
+    });
+  }
+
+  function save(note) {
+    try { localStorage.setItem(KEY, JSON.stringify(data)); }
+    catch (e) { msg.textContent = '\uc800\uc7a5\ud558\uc9c0 \ubabb\ud588\uc2b5\ub2c8\ub2e4(\ube0c\ub77c\uc6b0\uc800 \uc800\uc7a5\uacf5\uac04 \ucc28\ub2e8).'; return; }
+    if (note) msg.textContent = note;
+  }
+
+  function cycle(td) {
+    var id = idOf(td);
+    var i = ORDER.indexOf(data[id] || '');
+    var v = ORDER[(i + 1) % ORDER.length];
+    if (v) data[id] = v; else delete data[id];
+    paint(td); totals(); save('\uc800\uc7a5\ub428');
+  }
+
+  table.addEventListener('click', function (e) {
+    var td = e.target.closest ? e.target.closest('td.at') : null;
+    if (td) cycle(td);
+  });
+  table.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('at')) {
+      e.preventDefault(); cycle(e.target);
+    }
+  });
+
+  window.atToday = function () {
+    var td = table.querySelector('td.at.td');
+    if (td) { td.scrollIntoView({ block: 'nearest', inline: 'center' }); td.focus(); }
+    else { msg.textContent = '\uc624\ub298\uc740 \uc218\uc5c5\uc77c\uc774 \uc544\ub2d9\ub2c8\ub2e4.'; }
+  };
+  window.atFill = function () {
+    var list = table.querySelectorAll('td.at.td');
+    if (!list.length) { msg.textContent = '\uc624\ub298\uc740 \uc218\uc5c5\uc77c\uc774 \uc544\ub2d9\ub2c8\ub2e4.'; return; }
+    Array.prototype.slice.call(list).forEach(function (td) { data[idOf(td)] = 'o'; paint(td); });
+    totals(); save('\uc624\ub298 \ud68c\ucc28\ub97c \ubaa8\ub450 \ucd9c\uc11d\uc73c\ub85c \ud588\uc2b5\ub2c8\ub2e4.');
+  };
+  window.atClear = function () {
+    if (!window.confirm('\ud45c\uc2dc\ud55c \ucd9c\uacb0\uc744 \uc804\ubd80 \uc9c0\uc6b8\uae4c\uc694?')) return;
+    data = {}; cells().forEach(paint); totals(); save('\uc804\ubd80 \uc9c0\uc6e0\uc2b5\ub2c8\ub2e4.');
+  };
+  window.atCopy = function () {
+    var out = [];
+    Array.prototype.slice.call(table.querySelectorAll('tr')).forEach(function (tr) {
+      var row = Array.prototype.slice.call(tr.children).map(function (c) {
+        return (c.textContent || '').replace(/\s+/g, ' ').trim();
+      });
+      out.push(row.join('\t'));
+    });
+    var text = out.join('\n');
+    function done() { msg.textContent = '\ubcf5\uc0ac\ud588\uc2b5\ub2c8\ub2e4 \u2014 \ubd99\uc5ec\ub123\uae30\ud558\uc138\uc694.'; }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, function () { window.prompt('\ubcf5\uc0ac\ud558\uc138\uc694', text); });
+    } else { window.prompt('\ubcf5\uc0ac\ud558\uc138\uc694', text); }
+  };
+
+  cells().forEach(paint);
+  totals();
+})();
 </script>
 </body></html>
