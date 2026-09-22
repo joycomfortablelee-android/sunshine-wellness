@@ -1095,14 +1095,24 @@
 
     /* ===== 출석부 — 마인드맵 바로 위. 학생 × 회차 표, 칸은 모두 가운데 정렬 =====
        회차가 늘면 thead · 각 행에 한 칸씩 더한다(최근 회차가 오른쪽). 결석은 눈에 덜 걸리게 눌러 둔다. */
-    .learn-article .att-book { margin: 0 auto 22px; max-width: 640px; text-align: center; }
+    .learn-article .att-book { margin: 0 auto 22px; text-align: center; }
     .learn-article .att-book .ab-t { margin: 0 0 8px; font-size: 15px; font-weight: 800; color: #1f5a52; }
     .learn-article .att-book .ab-t span { display: block; margin-top: 2px; font-size: 11.5px; font-weight: 500; color: #8a96a3; }
     .learn-article .att-book .ab-wrap { overflow-x: auto; border: 1px solid #cfe0dc; border-radius: 12px; background: #fff; }
     .learn-article .att-book table { width: 100%; border-collapse: collapse; font-size: 13px; }
     .learn-article .att-book th, .learn-article .att-book td {
-      padding: 6px 8px; text-align: center; border-bottom: 1px solid #edf2f1; white-space: nowrap;
+      padding: 6px 5px; text-align: center; border-bottom: 1px solid #edf2f1; white-space: nowrap;
+      min-width: 42px;
     }
+    /* 이름 칸은 가로로 넘겨도 붙어 있게 */
+    .learn-article .att-book th[scope="row"] { position: sticky; left: 0; z-index: 1; background: #fff; padding: 6px 10px; }
+    .learn-article .att-book thead th:first-child { position: sticky; left: 0; z-index: 2; }
+    .learn-article .att-book tfoot th[scope="row"] { background: #f3f8f7; }
+    /* 아직 오지 않은 회차 — 빈칸, 머리글만 흐리게. 시험 주는 금색 */
+    .learn-article .att-book thead th.fut { background: #f1f6f5; color: #8aa9a3; }
+    .learn-article .att-book thead th.exam { background: #fbf1df; color: #a8681f; }
+    .learn-article .att-book thead th.exam small { color: #c29255; }
+    .learn-article .att-book td.exam { background: #fffaf1; }
     .learn-article .att-book thead th { background: #e3f1ef; color: #1f5a52; font-weight: 800; }
     .learn-article .att-book thead th small { display: block; font-size: 10.5px; font-weight: 600; color: #5d8a83; }
     .learn-article .att-book tbody th { font-weight: 700; color: #2d3e50; }
@@ -1951,26 +1961,26 @@
     <div class="lw">
 
       <section class="att-book" aria-labelledby="att-title">
-        <p class="ab-t" id="att-title">출석부 <span>수강 13명 · 최근 회차가 오른쪽 · 칸마다 출석 + 결석 = 13으로 검산</span></p>
+        <p class="ab-t" id="att-title">출석부 <span>수강 13명 · 1~16주 · 빈칸은 아직 오지 않은 수업 · 회차마다 출석 + 결석 = 13으로 검산</span></p>
         <div class="ab-wrap">
           <table>
-            <thead><tr><th scope="col">이름</th><th scope="col">9/1<small>1주</small></th><th scope="col">9/8<small>2주</small></th><th scope="col">9/15<small>3주</small></th><th scope="col">9/22<small>4주</small></th><th scope="col">출석</th></tr></thead>
+            <thead><tr><th scope="col">이름</th><th scope="col">9/1<small>1주</small></th><th scope="col">9/8<small>2주</small></th><th scope="col">9/15<small>3주</small></th><th scope="col">9/22<small>4주</small></th><th scope="col" class="fut">9/29<small>5주</small></th><th scope="col" class="fut">10/6<small>6주</small></th><th scope="col" class="fut">10/13<small>7주</small></th><th scope="col" class="fut exam">10/20<small>8주 · 중간</small></th><th scope="col" class="fut">10/27<small>9주</small></th><th scope="col" class="fut">11/3<small>10주</small></th><th scope="col" class="fut">11/10<small>11주</small></th><th scope="col" class="fut">11/17<small>12주</small></th><th scope="col" class="fut">11/24<small>13주</small></th><th scope="col" class="fut">12/1<small>14주</small></th><th scope="col" class="fut">12/8<small>15주</small></th><th scope="col" class="fut exam">12/15<small>16주 · 기말</small></th><th scope="col">출석</th></tr></thead>
             <tbody>
-              <tr><th scope="row">고은서</th><td class="x">결석</td><td class="o">○</td><td class="o">○</td><td class="x">결석</td><td class="sum">2/4</td></tr>
-              <tr><th scope="row">김다애</th><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="sum">4/4</td></tr>
-              <tr><th scope="row">김대호<small class="job">(취업계)</small></th><td class="o">○</td><td class="x job">–</td><td class="x job">–</td><td class="x job">–</td><td class="sum">1/4</td></tr>
-              <tr><th scope="row">김재윤</th><td class="x">결석</td><td class="x">결석</td><td class="o">○</td><td class="x">결석</td><td class="sum">1/4</td></tr>
-              <tr><th scope="row">김준호</th><td class="x">결석</td><td class="x">결석</td><td class="x">결석</td><td class="o">○</td><td class="sum">1/4</td></tr>
-              <tr><th scope="row">김한철</th><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="sum">4/4</td></tr>
-              <tr><th scope="row">김현민<small class="job">(취업계)</small></th><td class="x job">–</td><td class="x job">–</td><td class="x job">–</td><td class="x job">–</td><td class="sum">0/4</td></tr>
-              <tr><th scope="row">박상준</th><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="sum">4/4</td></tr>
-              <tr><th scope="row">박준영</th><td class="x">결석</td><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="sum">3/4</td></tr>
-              <tr><th scope="row">서용주</th><td class="x">결석</td><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="sum">3/4</td></tr>
-              <tr><th scope="row">이영훈</th><td class="x">결석</td><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="sum">3/4</td></tr>
-              <tr><th scope="row">임준혁</th><td class="o">○</td><td class="x">결석</td><td class="o">○</td><td class="o">○</td><td class="sum">3/4</td></tr>
-              <tr><th scope="row">차진희</th><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="sum">4/4</td></tr>
+              <tr><th scope="row">고은서</th><td class="x">결석</td><td class="o">○</td><td class="o">○</td><td class="x">결석</td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="sum">2/4</td></tr>
+              <tr><th scope="row">김다애</th><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="sum">4/4</td></tr>
+              <tr><th scope="row">김대호<small class="job">(취업계)</small></th><td class="o">○</td><td class="x job">–</td><td class="x job">–</td><td class="x job">–</td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="sum">1/4</td></tr>
+              <tr><th scope="row">김재윤</th><td class="x">결석</td><td class="x">결석</td><td class="o">○</td><td class="x">결석</td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="sum">1/4</td></tr>
+              <tr><th scope="row">김준호</th><td class="x">결석</td><td class="x">결석</td><td class="x">결석</td><td class="o">○</td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="sum">1/4</td></tr>
+              <tr><th scope="row">김한철</th><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="sum">4/4</td></tr>
+              <tr><th scope="row">김현민<small class="job">(취업계)</small></th><td class="x job">–</td><td class="x job">–</td><td class="x job">–</td><td class="x job">–</td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="sum">0/4</td></tr>
+              <tr><th scope="row">박상준</th><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="sum">4/4</td></tr>
+              <tr><th scope="row">박준영</th><td class="x">결석</td><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="sum">3/4</td></tr>
+              <tr><th scope="row">서용주</th><td class="x">결석</td><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="sum">3/4</td></tr>
+              <tr><th scope="row">이영훈</th><td class="x">결석</td><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="sum">3/4</td></tr>
+              <tr><th scope="row">임준혁</th><td class="o">○</td><td class="x">결석</td><td class="o">○</td><td class="o">○</td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="sum">3/4</td></tr>
+              <tr><th scope="row">차진희</th><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="sum">4/4</td></tr>
             </tbody>
-            <tfoot><tr><th scope="row">출석 · 결석</th><td>6 · 7</td><td>8 · 5</td><td>10 · 3</td><td>9 · 4</td><td class="sum">33</td></tr></tfoot>
+            <tfoot><tr><th scope="row">출석 · 결석</th><td>6 · 7</td><td>8 · 5</td><td>10 · 3</td><td>9 · 4</td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="sum">33</td></tr></tfoot>
           </table>
         </div>
         <p class="ab-note"><b>(취업계)</b> 학생의 빠진 칸은 「결석」 대신 <b>–</b> 로 적었습니다(맨 아래 결석 수에는 들어 있습니다).<br />9/1에는 공식 출석부에 없는 <b>황현종 · 김기동</b>도 출석했습니다(위 13명 검산에서는 뺐습니다).</p>
