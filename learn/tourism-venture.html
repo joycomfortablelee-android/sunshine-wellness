@@ -1010,6 +1010,16 @@
 
     /* 지나간 회차 접기 — 페이지 맨 위에 수업 진행 순서를 쌓아 둔다.
        지우지 않는 이유: 결석한 학생과 뒤늦게 합류한 학생이 그날 무엇을 했는지 볼 수 있어야 한다. */
+    /* 눈에 띄게 둘 주차 — 「오늘」 칸과 같은 붉은 계열. today 는 오늘에만 쓰므로 따로 둔다. */
+    .learn-article .wk-fold.key { border-color: #e2c7c2; background: #fdf7f6; }
+    .learn-article .wk-fold.key > summary { color: #8a5a52; }
+    .learn-article .wk-fold.key > summary b.wk-tag { background: #a8564a; color: #fff; }
+    .learn-article .wk-fold.key > summary::after { color: #ab8079; }
+    .learn-article .wk-fold.key > summary .wk-sub {
+      color: #8a2119; background: linear-gradient(transparent 60%, #f3d3ce 60%);
+    }
+    .learn-article .wk-fold.key .nx-lb { color: #c0392b; border-top-color: #eccfc9; }
+    .learn-article .wk-fold.key .nx-n { border-top-color: #eccfc9; }
     /* 시험 주간 — 수업이 없는 칸이라 베이지로 눌러 둔다(공모 상자와 같은 계열). */
     .learn-article .wk-fold.exam { border-color: #ddc793; background: #faf3e3; }
     .learn-article .wk-fold.exam > summary { color: #5c4a12; }
@@ -2263,7 +2273,7 @@
         </div>
       </details>
 
-      <details class="wk-fold">
+      <details class="wk-fold key">
         <summary><b class="wk-tag">10주차</b>11월 3일(화) 수업 — 발표를 보고서로 옮긴다<span class="wk-sub">슬라이드 한 장 = 서식 한 칸 · 말을 문장으로 · 근거에 출처 달기</span></summary>
         <div class="tf-body">
           <p class="nx-h">말로 채운 것을 글로 옮기는 날</p>
