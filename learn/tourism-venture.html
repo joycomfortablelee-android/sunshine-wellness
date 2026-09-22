@@ -1010,6 +1010,17 @@
 
     /* 지나간 회차 접기 — 페이지 맨 위에 수업 진행 순서를 쌓아 둔다.
        지우지 않는 이유: 결석한 학생과 뒤늦게 합류한 학생이 그날 무엇을 했는지 볼 수 있어야 한다. */
+    /* 시험 주간 — 수업이 없는 칸이라 베이지로 눌러 둔다(공모 상자와 같은 계열). */
+    .learn-article .wk-fold.exam { border-color: #ddc793; background: #faf3e3; }
+    .learn-article .wk-fold.exam > summary { color: #5c4a12; }
+    .learn-article .wk-fold.exam > summary b.wk-tag { background: #8a7440; color: #fdfaf2; }
+    .learn-article .wk-fold.exam > summary::after { color: #8a7440; }
+    .learn-article .wk-fold.exam > summary .wk-sub {
+      color: #5c4a12; background: linear-gradient(transparent 60%, #ecd9a8 60%);
+    }
+    .learn-article .wk-fold.exam .nx-h { color: #3d310b; }
+    .learn-article .wk-fold.exam .nx-d strong { color: #3d310b; }
+    .learn-article .wk-fold.exam .nx-n { border-top-color: #e0cfa3; }
     /* 주차 부제 = 그날의 핵심 키워드 — 파란 글자에 형광펜 한 줄.
        접힌 채로 훑을 때 「그날 무엇을 하는가」가 먼저 읽히게 한다. */
     .learn-article .wk-fold > summary .wk-sub,
@@ -2220,7 +2231,7 @@
         </div>
       </details>
 
-      <details class="wk-fold">
+      <details class="wk-fold exam">
         <summary><b class="wk-tag">8주차</b>10월 19일(월)~25일(일) — 중간시험 주간<span class="wk-sub">10월 20일(화)은 시험 · 실습 없음</span></summary>
         <div class="tf-body">
           <p class="nx-h">여기까지가 문제 인식과 사업모델입니다</p>
