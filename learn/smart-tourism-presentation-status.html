@@ -147,6 +147,9 @@
     padding: 7px 11px; font: inherit; font-size: 13px; font-weight: 700; color: #163a63; cursor: pointer;
   }
   .attend .at-bar button:hover { background: #eaf1f8; }
+  /* 표 아래 한 줄 — 눌러 넣은 값을 밖으로 꺼내는 유일한 길이라 조용히 남겨 둔다. */
+  .attend .at-bar.one { justify-content: flex-start; gap: 10px; margin: 11px 0 0; }
+  .attend .at-bar.one button { padding: 6px 11px; font-size: 12px; }
   .attend .at-msg { font-size: 12px; color: #6b7280; }
   /* \uac00\ub85c \uc2a4\ud06c\ub864 \uc5c6\uc774 \ud55c \ud654\uba74\uc5d0 \u2014 \uce78\uc744 \uace0\ub974\uac8c \ub098\ub204\uace0 \uba38\ub9ac\uae00\uc740 \uc904\uc744 \uc811\ub294\ub2e4. */
   .attend .ab-wrap { overflow-x: visible; }
@@ -268,6 +271,7 @@
 <tfoot><tr><th scope="row">출석 · 결석</th><td class="ft" data-k="20260902"></td><td class="ft th3" data-k="20260903"></td><td class="ft" data-k="20260909">7 · 1</td><td class="ft" data-k="20260916">6 · 2</td><td class="ft td" data-k="20260923">6 · 2</td><td class="ft" data-k="20260930"></td><td class="ft th3" data-k="20261001"></td><td class="ft" data-k="20261007"></td><td class="ft" data-k="20261014"></td><td class="ft ex" data-k="20261021"></td><td class="ft" data-k="20261028"></td><td class="ft th3" data-k="20261029"></td><td class="ft" data-k="20261104"></td><td class="ft" data-k="20261111"></td><td class="ft" data-k="20261118"></td><td class="ft th3" data-k="20261119"></td><td class="ft" data-k="20261125"></td><td class="ft" data-k="20261202"></td><td class="ft" data-k="20261209"></td><td class="ft ex" data-k="20261216"></td><td class="sm">19</td></tr></tfoot>
 </table>
 </div>
+<p class="at-bar one"><button type="button" onclick="atCopy()">표 내용 복사 ⧉</button><span class="at-msg" id="atMsg" role="status">눌러 넣은 표시는 이 브라우저에만 남습니다 — 옮기거나 넘기려면 복사해 붙여 넣으십시오.</span></p>
 <div class="at-legend">
   <span><b class="lg o">○</b> 출석</span>
   <span><b class="lg l">지</b> 지각</span>
