@@ -175,6 +175,41 @@ td{padding:10px;border-bottom:1px solid var(--line);font-size:12.8px;vertical-al
   .assign-badge{font-size:7px;margin-left:1px}
 }
 
+  /* ===== 수업 달력 — 수업이 있는 날만 칠하고 그날 한 것을 적는다 (2026-09-23) ===== */
+  .cal-lead{margin:0 0 10px;font-size:13.5px;line-height:1.8;color:#45566a}
+  .cal-lead b{color:#17365d}
+  .cal-legend{display:flex;flex-wrap:wrap;gap:8px 14px;margin:0 0 14px;font-size:11.5px;color:#6b7280}
+  .cal-legend .lg::before{content:"";display:inline-block;width:11px;height:11px;margin-right:5px;border-radius:3px;vertical-align:-1px;background:#dfe7ef}
+  .cal-legend .lg.wed::before{background:#dbe8f7;border:1px solid #9fc0e4}
+  .cal-legend .lg.thu::before{background:#d9efe9;border:1px solid #8fc9bb}
+  .cal-legend .lg.ex::before{background:#fbf1df;border:1px solid #e0c79c}
+  .cal-legend .lg.empty::before{display:none}
+  .cal-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:16px}
+  .cal-m{border:1px solid #dde5ee;border-radius:12px;background:#fff;padding:10px 10px 12px}
+  .cal-mt{margin:0 0 7px;font-size:14px;font-weight:800;color:#17365d}
+  .cal-h,.cal-g{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:3px}
+  .cal-h{margin-bottom:4px;font-size:10.5px;font-weight:700;color:#8a96a3;text-align:center}
+  .cal-h .we{color:#c08a8a}
+  .cal-d{min-height:44px;padding:3px 3px 4px;border-radius:7px;background:#fafbfc;font-size:10.5px;line-height:1.35}
+  .cal-pad{display:block}
+  .cal-d .cd-n{display:block;font-size:11px;font-weight:700;color:#8a96a3}
+  .cal-d.we .cd-n{color:#c08a8a}
+  .cal-d.on{background:#dbe8f7;border:1px solid #9fc0e4}
+  .cal-d.on .cd-n{color:#17365d}
+  .cal-d.on.thu{background:#d9efe9;border-color:#8fc9bb}
+  .cal-d.on.thu .cd-n{color:#1f5a52}
+  .cal-d.on.ex{background:#fbf1df;border-color:#e0c79c}
+  .cal-d.on.ex .cd-n{color:#a8681f}
+  .cal-d .cd-w{display:block;font-size:9.5px;font-weight:800;color:#2b5f96}
+  .cal-d .cd-w em{display:block;font-style:normal;font-weight:600;color:#7d95ad}
+  .cal-d.thu .cd-w{color:#1f6d5d}
+  .cal-d.thu .cd-w em{color:#7ea69b}
+  .cal-d .cd-note{display:block;margin-top:2px;font-size:9.5px;font-weight:700;color:#14384f}
+  .cal-d .cd-note.empty{color:#adbccb;font-weight:400}
+  .cal-d .cd-note.ex{color:#a8681f}
+  .cal-foot{margin:12px 0 0;font-size:12px;color:#6b7280}
+  .cal-foot a{color:#17365d;font-weight:700}
+  @media (max-width:700px){.cal-wrap{grid-template-columns:1fr}.cal-d{min-height:40px}}
 </style>
 <style>
 /* 돌아가기 — 이 페이지는 새 탭으로 열리므로 모듈 페이지로 되돌린다. 페이지마다 CSS가 달라 값은 직접 적는다. */
@@ -197,6 +232,43 @@ td{padding:10px;border-bottom:1px solid var(--line);font-size:12.8px;vertical-al
 
   <div class="key">매주는 핵심 논문 4편을 중심으로 운영한다. 수요일에는 논문 ①~③을 각 20분 단위로 학습한 뒤 1·2팀이 도시 사례를 발표하고, 목요일에는 3팀 발표와 책 읽기를 진행한 후 1주의 학습을 종합 정리한다.</div>
 </header>
+
+<section id="calendar">
+<div class="section-title"><span class="n">1</span>수업 달력 · 주차별 한 것</div>
+<p class="cal-lead"><b>수요일 16주</b>(1–2교시 · 100분)에 <b>목요일 네 번</b>(9/3 · 10/1 · 10/29 · 11/19 · 50분)을 더해 <b>모두 20회차</b>입니다. 파란 칸이 수요일, 청록 칸이 목요일입니다. <b>수업이 끝나면 그날 칸에 한 줄씩 적습니다</b> — 지금은 9/9 · 9/16 · 9/23 셋이 채워져 있습니다.</p>
+<div class="cal-legend"><span class="lg wed">수요일 · 100분</span><span class="lg thu">목요일 · 50분</span><span class="lg ex">시험</span><span class="lg empty">— 는 아직 적지 않은 회차</span></div>
+<div class="cal-wrap">
+        <div class="cal-m">
+          <p class="cal-mt">9월</p>
+          <div class="cal-h"><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span class="we">토</span><span class="we">일</span></div>
+          <div class="cal-g">
+            <i class="cal-pad"></i><div class="cal-d"><b class="cd-n">1</b></div><div class="cal-d on wed"><b class="cd-n">2</b><span class="cd-w">1주<em>수 100분</em></span><span class="cd-note empty">—</span></div><div class="cal-d on thu"><b class="cd-n">3</b><span class="cd-w">1주<em>목 50분</em></span><span class="cd-note empty">—</span></div><div class="cal-d"><b class="cd-n">4</b></div><div class="cal-d we"><b class="cd-n">5</b></div><div class="cal-d we"><b class="cd-n">6</b></div><div class="cal-d"><b class="cd-n">7</b></div><div class="cal-d"><b class="cd-n">8</b></div><div class="cal-d on wed"><b class="cd-n">9</b><span class="cd-w">2주<em>수 100분</em></span><span class="cd-note">게시판 발표 · 7명</span></div><div class="cal-d"><b class="cd-n">10</b></div><div class="cal-d"><b class="cd-n">11</b></div><div class="cal-d we"><b class="cd-n">12</b></div><div class="cal-d we"><b class="cd-n">13</b></div><div class="cal-d"><b class="cd-n">14</b></div><div class="cal-d"><b class="cd-n">15</b></div><div class="cal-d on wed"><b class="cd-n">16</b><span class="cd-w">3주<em>수 100분</em></span><span class="cd-note">게시판 발표 · 6명</span></div><div class="cal-d"><b class="cd-n">17</b></div><div class="cal-d"><b class="cd-n">18</b></div><div class="cal-d we"><b class="cd-n">19</b></div><div class="cal-d we"><b class="cd-n">20</b></div><div class="cal-d"><b class="cd-n">21</b></div><div class="cal-d"><b class="cd-n">22</b></div><div class="cal-d on wed"><b class="cd-n">23</b><span class="cd-w">4주<em>수 100분</em></span><span class="cd-note">판서 발표 3명<br>박상준 · 김윤서 · 김준호</span></div><div class="cal-d"><b class="cd-n">24</b></div><div class="cal-d"><b class="cd-n">25</b></div><div class="cal-d we"><b class="cd-n">26</b></div><div class="cal-d we"><b class="cd-n">27</b></div><div class="cal-d"><b class="cd-n">28</b></div><div class="cal-d"><b class="cd-n">29</b></div><div class="cal-d on wed"><b class="cd-n">30</b><span class="cd-w">5주<em>수 100분</em></span><span class="cd-note empty">—</span></div>
+          </div>
+        </div>
+        <div class="cal-m">
+          <p class="cal-mt">10월</p>
+          <div class="cal-h"><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span class="we">토</span><span class="we">일</span></div>
+          <div class="cal-g">
+            <i class="cal-pad"></i><i class="cal-pad"></i><i class="cal-pad"></i><div class="cal-d on thu"><b class="cd-n">1</b><span class="cd-w">5주<em>목 50분</em></span><span class="cd-note empty">—</span></div><div class="cal-d"><b class="cd-n">2</b></div><div class="cal-d we"><b class="cd-n">3</b></div><div class="cal-d we"><b class="cd-n">4</b></div><div class="cal-d"><b class="cd-n">5</b></div><div class="cal-d"><b class="cd-n">6</b></div><div class="cal-d on wed"><b class="cd-n">7</b><span class="cd-w">6주<em>수 100분</em></span><span class="cd-note empty">—</span></div><div class="cal-d"><b class="cd-n">8</b></div><div class="cal-d"><b class="cd-n">9</b></div><div class="cal-d we"><b class="cd-n">10</b></div><div class="cal-d we"><b class="cd-n">11</b></div><div class="cal-d"><b class="cd-n">12</b></div><div class="cal-d"><b class="cd-n">13</b></div><div class="cal-d on wed"><b class="cd-n">14</b><span class="cd-w">7주<em>수 100분</em></span><span class="cd-note empty">—</span></div><div class="cal-d"><b class="cd-n">15</b></div><div class="cal-d"><b class="cd-n">16</b></div><div class="cal-d we"><b class="cd-n">17</b></div><div class="cal-d we"><b class="cd-n">18</b></div><div class="cal-d"><b class="cd-n">19</b></div><div class="cal-d"><b class="cd-n">20</b></div><div class="cal-d on wed ex"><b class="cd-n">21</b><span class="cd-w">8주<em>수 100분</em></span><span class="cd-note ex">중간고사</span></div><div class="cal-d"><b class="cd-n">22</b></div><div class="cal-d"><b class="cd-n">23</b></div><div class="cal-d we"><b class="cd-n">24</b></div><div class="cal-d we"><b class="cd-n">25</b></div><div class="cal-d"><b class="cd-n">26</b></div><div class="cal-d"><b class="cd-n">27</b></div><div class="cal-d on wed"><b class="cd-n">28</b><span class="cd-w">9주<em>수 100분</em></span><span class="cd-note empty">—</span></div><div class="cal-d on thu"><b class="cd-n">29</b><span class="cd-w">9주<em>목 50분</em></span><span class="cd-note empty">—</span></div><div class="cal-d"><b class="cd-n">30</b></div><div class="cal-d we"><b class="cd-n">31</b></div>
+          </div>
+        </div>
+        <div class="cal-m">
+          <p class="cal-mt">11월</p>
+          <div class="cal-h"><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span class="we">토</span><span class="we">일</span></div>
+          <div class="cal-g">
+            <i class="cal-pad"></i><i class="cal-pad"></i><i class="cal-pad"></i><i class="cal-pad"></i><i class="cal-pad"></i><i class="cal-pad"></i><div class="cal-d we"><b class="cd-n">1</b></div><div class="cal-d"><b class="cd-n">2</b></div><div class="cal-d"><b class="cd-n">3</b></div><div class="cal-d on wed"><b class="cd-n">4</b><span class="cd-w">10주<em>수 100분</em></span><span class="cd-note empty">—</span></div><div class="cal-d"><b class="cd-n">5</b></div><div class="cal-d"><b class="cd-n">6</b></div><div class="cal-d we"><b class="cd-n">7</b></div><div class="cal-d we"><b class="cd-n">8</b></div><div class="cal-d"><b class="cd-n">9</b></div><div class="cal-d"><b class="cd-n">10</b></div><div class="cal-d on wed"><b class="cd-n">11</b><span class="cd-w">11주<em>수 100분</em></span><span class="cd-note empty">—</span></div><div class="cal-d"><b class="cd-n">12</b></div><div class="cal-d"><b class="cd-n">13</b></div><div class="cal-d we"><b class="cd-n">14</b></div><div class="cal-d we"><b class="cd-n">15</b></div><div class="cal-d"><b class="cd-n">16</b></div><div class="cal-d"><b class="cd-n">17</b></div><div class="cal-d on wed"><b class="cd-n">18</b><span class="cd-w">12주<em>수 100분</em></span><span class="cd-note empty">—</span></div><div class="cal-d on thu"><b class="cd-n">19</b><span class="cd-w">12주<em>목 50분</em></span><span class="cd-note empty">—</span></div><div class="cal-d"><b class="cd-n">20</b></div><div class="cal-d we"><b class="cd-n">21</b></div><div class="cal-d we"><b class="cd-n">22</b></div><div class="cal-d"><b class="cd-n">23</b></div><div class="cal-d"><b class="cd-n">24</b></div><div class="cal-d on wed"><b class="cd-n">25</b><span class="cd-w">13주<em>수 100분</em></span><span class="cd-note empty">—</span></div><div class="cal-d"><b class="cd-n">26</b></div><div class="cal-d"><b class="cd-n">27</b></div><div class="cal-d we"><b class="cd-n">28</b></div><div class="cal-d we"><b class="cd-n">29</b></div><div class="cal-d"><b class="cd-n">30</b></div>
+          </div>
+        </div>
+        <div class="cal-m">
+          <p class="cal-mt">12월</p>
+          <div class="cal-h"><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span class="we">토</span><span class="we">일</span></div>
+          <div class="cal-g">
+            <i class="cal-pad"></i><div class="cal-d"><b class="cd-n">1</b></div><div class="cal-d on wed"><b class="cd-n">2</b><span class="cd-w">14주<em>수 100분</em></span><span class="cd-note empty">—</span></div><div class="cal-d"><b class="cd-n">3</b></div><div class="cal-d"><b class="cd-n">4</b></div><div class="cal-d we"><b class="cd-n">5</b></div><div class="cal-d we"><b class="cd-n">6</b></div><div class="cal-d"><b class="cd-n">7</b></div><div class="cal-d"><b class="cd-n">8</b></div><div class="cal-d on wed"><b class="cd-n">9</b><span class="cd-w">15주<em>수 100분</em></span><span class="cd-note empty">—</span></div><div class="cal-d"><b class="cd-n">10</b></div><div class="cal-d"><b class="cd-n">11</b></div><div class="cal-d we"><b class="cd-n">12</b></div><div class="cal-d we"><b class="cd-n">13</b></div><div class="cal-d"><b class="cd-n">14</b></div><div class="cal-d"><b class="cd-n">15</b></div><div class="cal-d on wed ex"><b class="cd-n">16</b><span class="cd-w">16주<em>수 100분</em></span><span class="cd-note ex">기말고사</span></div><div class="cal-d"><b class="cd-n">17</b></div><div class="cal-d"><b class="cd-n">18</b></div><div class="cal-d we"><b class="cd-n">19</b></div><div class="cal-d we"><b class="cd-n">20</b></div><div class="cal-d"><b class="cd-n">21</b></div><div class="cal-d"><b class="cd-n">22</b></div><div class="cal-d"><b class="cd-n">23</b></div><div class="cal-d"><b class="cd-n">24</b></div><div class="cal-d"><b class="cd-n">25</b></div><div class="cal-d we"><b class="cd-n">26</b></div><div class="cal-d we"><b class="cd-n">27</b></div><div class="cal-d"><b class="cd-n">28</b></div><div class="cal-d"><b class="cd-n">29</b></div><div class="cal-d"><b class="cd-n">30</b></div><div class="cal-d"><b class="cd-n">31</b></div>
+          </div>
+        </div>
+</div>
+<p class="cal-foot">출결은 <a href="smart-tourism-presentation-status.html#attend" target="_blank" rel="noopener">출석부 · 발표 현황 ↗</a>에서 회차별로 따로 셉니다. 이 달력은 <b>그날 무엇을 했는가</b>만 적는 자리입니다.</p>
+</section>
 
 <section id="week-table">
   <div class="section-title"><span class="n">1</span>주간 운영표</div>
@@ -257,7 +329,7 @@ td{padding:10px;border-bottom:1px solid var(--line);font-size:12.8px;vertical-al
 </section>
 
 <section id="paper-set">
-  <div class="section-title"><span class="n">2</span>논문 1편 = 20분 표준 세트</div>
+  <div class="section-title"><span class="n">3</span>논문 1편 = 20분 표준 세트</div>
   <div class="set-strip">
     <div class="set-card"><b>① 연구질문·HOOK</b><span class="m">3분</span><br>왜 이 연구인가?</div>
     <div class="set-card"><b>② 논문·사례영상</b><span class="m">4분</span><br>현상·맥락 보기</div>
@@ -268,7 +340,7 @@ td{padding:10px;border-bottom:1px solid var(--line);font-size:12.8px;vertical-al
 </section>
 
 <section id="day-units">
-  <div class="section-title"><span class="n">3</span>요일별 수업 단위표</div>
+  <div class="section-title"><span class="n">4</span>요일별 수업 단위표</div>
   <div class="table-wrap">
     <table>
       <thead><tr><th>구분</th><th>수요일 100분</th><th>목요일 50분</th></tr></thead>
@@ -283,7 +355,7 @@ td{padding:10px;border-bottom:1px solid var(--line);font-size:12.8px;vertical-al
 </section>
 
 <section id="overview">
-  <div class="section-title"><span class="n">4</span>전체 보기 10분</div>
+  <div class="section-title"><span class="n">5</span>전체 보기 10분</div>
   <div class="eval-grid">
     <div class="eval-card"><b>① PAPER</b>논문 4편의 공통점·차이는 무엇인가?</div>
     <div class="eval-card"><b>② CASE</b>3팀 사례와 어떤 논문이 가장 잘 연결되는가?</div>
@@ -292,7 +364,7 @@ td{padding:10px;border-bottom:1px solid var(--line);font-size:12.8px;vertical-al
 </section>
 
 <section id="team-assign">
-  <div class="section-title"><span class="n">5</span>학생 발표 주차 및 팀별 발표 배정</div>
+  <div class="section-title"><span class="n">6</span>학생 발표 주차 및 팀별 발표 배정</div>
   <div class="assign-card">
     <div class="assign-legend">
       <span class="kr">🇰🇷 국내 스마트관광도시</span>
