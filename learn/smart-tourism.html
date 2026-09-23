@@ -397,6 +397,10 @@
     .learn-article .syl-box .pcol .pc-tags {
       display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto;
     }
+    /* 2안 칸의 알약 줄 위에도 점선 — 1안의 「네 걸음」 줄과 높이를 맞춘다 (2026-09-23) */
+    .learn-article .syl-box .pcol.p2 .pc-tags:first-of-type {
+      margin-top: 9px; padding-top: 9px; border-top: 1px dashed #e0c79c;
+    }
     .learn-article .syl-box .pcol .pc-tags a.mapl { margin-top: 0; }
     .learn-article .syl-box .pcol .pc-tags + .pc-tags { margin-top: 6px; }
     .learn-article .syl-box .pcol .pc-tags a.mapl.y { background: #ffe800; border-color: #d8bb2a; color: #14120a; font-weight: 800; }
