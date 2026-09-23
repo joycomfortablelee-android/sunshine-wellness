@@ -1986,6 +1986,28 @@
       .learn-article .grow-bars .gb-wk { font-size: 9px; }
       .learn-article .grow-bars .gb-tip { width: 170px; }
     }
+    /* ===== 플랫폼 점선 상자 — 「무엇으로 만들어 어디에 올리나」 (2026-09-23) =====
+       본문 카드들과 달리 채우지 않고 점선만 두른다. 수업 내용이 아니라 도구 이야기라 한 겹 낮춘다. */
+    .learn-article .plat-box {
+      margin: 14px 0 18px; padding: 13px 15px 12px;
+      border: 1px dashed #b8c6d4; border-radius: 12px; background: #fcfdfe;
+    }
+    .learn-article .plat-box .pb-h {
+      margin: 0 0 6px; font-size: 14px; font-weight: 800; color: #17365d;
+    }
+    .learn-article .plat-box .pb-tag {
+      display: inline-block; margin-right: 8px; padding: 2px 9px 3px;
+      border-radius: 999px; background: #17365d; color: #fff;
+      font-size: 10px; font-weight: 800; letter-spacing: .06em; vertical-align: 2px;
+    }
+    .learn-article .plat-box .pb-d { margin: 0 0 9px; font-size: 13px; line-height: 1.8; color: #45566a; }
+    .learn-article .plat-box .pb-d strong { color: #17365d; }
+    .learn-article .plat-box .pb-tags { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0; }
+    .learn-article .plat-box a.mapl.form.plat {
+      background: #17365d; border-color: #17365d; color: #fff; font-weight: 800;
+    }
+    .learn-article .plat-box a.mapl.form.plat:hover { background: #0e2a45; border-color: #0e2a45; color: #fff; }
+    .learn-article .plat-box .pb-src { font-size: 11.5px; color: #7c8a99; }
     /* 벤치마킹 머리줄 — 초록 바와 연초록 바탕을 걷고 흰 바탕에 글자만 (9/22) */
     .learn-article .learn-part.lp-sub.bmk { background: #fff; border-left: 0; border-radius: 0; padding-left: 0; }
     .learn-article .learn-part.lp-sub.lrn { background: #f2f7fb; color: #1c4e8a; border-left-color: #2563a8; }
@@ -2649,6 +2671,12 @@
         <figcaption class="cap-list"><span class="cl"><b class="k">이 그림</b> : 사업계획서 「일반현황」의 <strong>신청유형(택 1)</strong> 넷을 한 장에 편 것입니다.</span><span class="cl"><b class="k">고르는 기준 ①</b> : <strong>내 돈을 누가 내는가</strong> — 여행자가 내면 ①②③ 쪽, 사업자가 내면 <strong>④ 관광딥테크</strong>.</span><span class="cl"><b class="k">고르는 기준 ②</b> : <strong>내 것이 무엇인가</strong> — 상품인가 · 콘텐츠인가 · 공간인가 · 기술인가.</span><span class="cl"><b class="k">워크북 시트 1</b> : 「그 유형을 고른 근거 한 문장」은 위 두 물음에 답하면 그대로 써집니다.</span><span class="cl"><b class="k">유형 이름</b> : 사업계획서 양식 그대로입니다.</span><span class="cl"><b class="k">풀이와 예시</b> : <strong>수업용으로 붙인 것</strong>입니다 — 뜻이 가장 가까운 공식 문서인 <strong>2026 부산관광스타트업 공모전 모집요강</strong>의 모집유형 표(개념 · 예시)를 참고했습니다.</span><span class="cl note"><b class="k">주의</b> : 관광벤처 공고문 원문의 정의와 글자까지 같지는 않습니다. 실제로 지원할 때는 <strong>해당 회차 공고문의 유형 설명</strong>을 그대로 확인하십시오.</span></figcaption>
       </figure>
       <p class="dltags"><a class="mapl form ylw" href="idea-development-workbook-4in1.html" target="_blank" rel="noopener">✦ 아이디어 구체화 4종 통합 워크북 · ChatGPT 프롬프트 · 다섯 장 좌우 넘김 ↗</a><span class="dl-src"><b>유형을 골랐으면 그다음은 아이디어를 「말이 되는 상품」으로 깎는 일입니다.</b> 원본 워크북 넷을 한 페이지에 모았습니다 — <b>① 피드백 루프</b>(한 번 묻고 끝내지 않고 <em>구체화 → 사례 비교 → 현실성 검토 · MVP</em>를 세 번 돌린다) · <b>② 프롬프트 워크북</b>(마스터 프롬프트 하나와 단계별 여덟 — 아이디어 진단 · 핵심 고객 · 이용 장면 · 정확히 무엇을 파는가 · 이용 흐름 · 차별성 · 운영과 가격 · MVP) · <b>③ PRODUCT · SERVICE 구체화</b> · <b>④ 관광상품 PRODUCT 구체화</b>. 프롬프트 상자는 <b>복사 버튼</b>이 붙어 있고 <b>[내 아이디어]</b>만 바꿔 넣으면 됩니다. 한지 교육 콘텐츠 · 지역문화 공연처럼 <b>막연한 한 줄이 시범 운영안까지 좁혀지는 예</b>가 끝에 둘 있습니다 — 02장에서 세운 <b>WHO · PROBLEM</b>을 여기서 <b>무엇을 파는가</b>로 옮깁니다.</span></p>
+
+      <div class="plat-box">
+        <p class="pb-h"><b class="pb-tag">플랫폼</b>도구는 어디에 있고 무엇이 어디로 가는가</p>
+        <p class="pb-d">아이템을 문장으로 만들었으면, 그것을 <strong>실제로 보이는 자리</strong>에 올리는 일이 남습니다. 이 판은 <strong>Claude Code · GitHub · Vercel</strong> 셋이 어떻게 이어지는지를 여섯 장으로 풉니다 — ① 네 도구의 역할 · ② 세 가지 연결 · ③ 처음 한 번 설정(코드 가져오기 → Claude Code 연결 → Vercel 연결) · ④ <strong>수정에서 배포까지 일곱 걸음</strong>(수정 목표 → AI에 요청 → 미리보기 → 저장 → Commit → Push → 배포 확인) · ⑤ <strong>어디에서 멈췄을까</strong>(「Commit했는데 GitHub에 없다」 「내 컴퓨터에서만 된다」 등 다섯 갈래) · ⑥ 관광 수업 실습 — <strong>안동 안내 사이트</strong>의 제목 고치기 · 관광지 카드 더하기 · 모바일 화면 손보기.</p>
+        <p class="pb-tags"><a class="mapl form plat" href="website-edit-deploy-guide.html" target="_blank" rel="noopener">AI와 함께 웹사이트 수정하기 · 여섯 장 좌우 넘김 ↗</a><span class="pb-src">사업계획서의 <b>실현 가능성</b> 칸에 「어떻게 만들 것인가」를 적을 때 근거가 되는 자리입니다.</span></p>
+      </div>
 
       <p class="learn-part lp-core" id="ch02"><span class="num">02</span>아이디어는 문제에서 나온다</p>
       <p>초보 창업이 가장 자주 넘어지는 지점은 "내가 만들고 싶은 것"에서 시작한다는 것입니다. 순서를 뒤집어야 합니다.</p>
