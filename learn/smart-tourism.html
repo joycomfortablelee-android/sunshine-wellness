@@ -872,6 +872,28 @@
       background: #fff; color: #17365d; border-color: #b9cade;
     }
     .learn-hero .syl-box .syl-tags a.mapl.mini:hover { background: #17365d; border-color: #17365d; color: #fff; }
+    /* 과제 넷을 계단으로 — 왼쪽 아래 실습 1에서 오른쪽 위 기말로 한 칸씩 오른다.
+       칸마다 제 열부터 오른쪽 끝까지 깔아, 아래 칸일수록 넓은 디딤판이 된다. */
+    .learn-article .tflow.stairs {
+      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-rows: repeat(4, auto); gap: 5px 0; align-items: stretch;
+    }
+    .learn-article .tflow.stairs .tf-a { display: none; }
+    .learn-article .tflow.stairs .tf-i {
+      border-radius: 8px 8px 0 0; padding: 8px 12px; flex-wrap: wrap; row-gap: 3px;
+      border-bottom-width: 3px; border-bottom-color: var(--t-dk, #17395f);
+    }
+    .learn-article .tflow.stairs a.tf-i.y { border-bottom-color: #14120a; }
+    .learn-article .tflow.stairs .tf-i:nth-of-type(1) { grid-column: 1 / -1; grid-row: 4; }
+    .learn-article .tflow.stairs .tf-i:nth-of-type(2) { grid-column: 2 / -1; grid-row: 3; }
+    .learn-article .tflow.stairs .tf-i:nth-of-type(3) { grid-column: 3 / -1; grid-row: 2; }
+    .learn-article .tflow.stairs .tf-i:nth-of-type(4) { grid-column: 4 / -1; grid-row: 1; }
+    @media (max-width: 620px) {
+      .learn-article .tflow.stairs .tf-i:nth-of-type(n) { grid-column: 1 / -1; }
+      .learn-article .tflow.stairs .tf-i:nth-of-type(2) { margin-left: 10%; }
+      .learn-article .tflow.stairs .tf-i:nth-of-type(3) { margin-left: 20%; }
+      .learn-article .tflow.stairs .tf-i:nth-of-type(4) { margin-left: 30%; }
+    }
     .learn-hero .syl-box .syl-src { font-size: 11px; color: #7c8a99; margin-left: 2px; }
     @media (max-width: 980px) { .learn-hero .hero-row { grid-template-columns: 1fr; } }
 
@@ -960,7 +982,7 @@
             <li><b>논문 읽는 표준</b><span>연구질문 · HOOK → 논문 · 사례영상 → 설계 · 핵심결과 → CONCEPT → LENS. 어느 논문이든 이 순서로 봅니다.</span></li>
             <li><b>발표 흐름</b><span><strong>국내 도시 발표</strong> → <strong>중간고사</strong> → <strong>해외 도시 발표</strong> → <strong>종합 발표</strong>.</span></li>
           </ol>
-          <p class="syl-tags row1"><a class="mapl grn" href="smart-tourism-presentation-status.html" target="_blank" rel="noopener">출석부 · 발표 현황 ↗</a><a class="mapl mini" href="smart-tourism-student-note.html" target="_blank" rel="noopener">학생 이해 노트 ↗</a><a class="mapl" href="academic-calendar-2026-2.html" target="_blank" rel="noopener">2학기 학사일정 달력 ↗</a></p>
+          <p class="syl-tags row1"><a class="mapl grn" href="smart-tourism-presentation-status.html" target="_blank" rel="noopener">출석부 · 발표 현황 ↗</a><a class="mapl mini" href="smart-tourism-student-note.html" target="_blank" rel="noopener">학생 이해 노트 ↗</a><a class="mapl mini y" href="#척도개발">척도개발 5편 복습 ↓</a><a class="mapl" href="academic-calendar-2026-2.html" target="_blank" rel="noopener">2학기 학사일정 달력 ↗</a></p>
           <p class="syl-tags"><a class="mapl" href="#평가방식">15주 강의계획서 — 평가방식 1안 · 2안 ↓</a><a class="mapl" href="smart-tourism-how-to-read.html" target="_blank" rel="noopener">이 페이지 읽는 법 — 순서 · 기호 · 평가 기준 ↗</a></p>
         </div>
       </div>
@@ -991,7 +1013,7 @@
         </div>
       </div>
 
-      <p class="tflow" aria-label="과제 넷의 순서">
+      <p class="tflow stairs" aria-label="과제 넷의 순서 — 계단처럼 한 칸씩 오른다">
         <a class="tf-i t1 prac" href="#과제1"><b>실습 1</b>국내 스마트 도시 벤치마킹</a>
         <span class="tf-a">→</span>
         <a class="tf-i t2 prac" href="#대비"><b>중간</b>국내사례 재발표<i>중간점검</i></a>
@@ -1033,7 +1055,7 @@
                 <tr class="sum"><td>합계</td><td class="pct">100%</td><td></td></tr>
               </tbody>
             </table>
-            <span class="pc-tags"><a class="mapl" href="assets/smart-tourism-syllabus-15w-papers.docx" download="스마트투어리즘_15주_강의계획서(2안_시험논문형).docx">2안 강의계획서 ⤓ DOCX</a><a class="mapl web" href="smart-tourism-syllabus-15w-interactive.html" target="_blank" rel="noopener">웹에서 바로 보기 ↗</a><a class="mapl y" href="#척도개발">척도개발 5편 복습 ↓</a></span>
+            <span class="pc-tags"><a class="mapl" href="assets/smart-tourism-syllabus-15w-papers.docx" download="스마트투어리즘_15주_강의계획서(2안_시험논문형).docx">2안 강의계획서 ⤓ DOCX</a><a class="mapl web" href="smart-tourism-syllabus-15w-interactive.html" target="_blank" rel="noopener">웹에서 바로 보기 ↗</a></span>
             <span class="pc-tags"><a class="mapl" href="assets/smart-tourism-concept-list-week1.pptx" download="1주차_스마트관광_개념목록_강의PPT.pptx">1주차 개념 목록 · 논문 138편이 쓴 말 ⤓ PPTX</a><a class="mapl" href="assets/smart-tourism-concept-checklist-a4.docx" download="학생배포_스마트관광_개념체크리스트_A4.docx">개념 체크리스트 A4 1장 · 발표 준비용 ⤓ DOCX</a></span>
           </div>
         </div>
