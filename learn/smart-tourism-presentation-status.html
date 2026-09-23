@@ -98,6 +98,30 @@
     font-weight: 700;
     color: #a15c00;
   }
+  /* ===== 출석부 — 매주 한 칸씩 채운다(2026-09-23) ===== */
+  .att-book { margin: 0 0 26px; text-align: center; }
+  .att-book .ab-t { margin: 0 0 8px; font-size: 16px; font-weight: 800; color: #163a63; }
+  .att-book .ab-t span, .pt-t span { display: block; margin-top: 3px; font-size: 12px; font-weight: 500; color: #6b7280; }
+  .pt-t { margin: 0 0 8px; font-size: 16px; font-weight: 800; color: #163a63; text-align: center; }
+  .att-book .ab-wrap { overflow-x: auto; border: 1px solid #d9e3ee; border-radius: 12px; background: #fff; }
+  table.ab { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  table.ab th, table.ab td { padding: 6px 3px; min-width: 34px; text-align: center; border-bottom: 1px solid #eef3f8; white-space: nowrap; }
+  table.ab thead th { background: #eaf1f8; color: #163a63; font-size: 11px; font-weight: 800; }
+  table.ab thead th small { display: block; font-size: 9.5px; font-weight: 600; color: #6f8bab; }
+  table.ab th[scope="row"] { position: sticky; left: 0; z-index: 1; background: #fff; padding: 6px 10px; font-weight: 700; color: #2d3e50; }
+  table.ab thead th:first-child { position: sticky; left: 0; z-index: 2; }
+  table.ab tfoot th[scope="row"] { background: #f4f8fb; }
+  table.ab thead th.fut { background: #f3f7fa; color: #94a8bd; }
+  table.ab thead th.exam { background: #fbf1df; color: #a8681f; }
+  table.ab thead th.exam small { color: #c29255; }
+  table.ab td.exam { background: #fffaf1; }
+  table.ab td.o { color: #16794d; font-weight: 800; }
+  table.ab td.x { color: #b3bcc6; font-size: 11px; }
+  table.ab td.x.job { color: #c9a77a; font-size: 14px; }
+  table.ab .jobtag { margin-left: 4px; font-size: 10.5px; font-weight: 700; color: #a8681f; }
+  table.ab td.sum { font-weight: 800; color: #2d3e50; background: #f9fbfd; }
+  table.ab tfoot th, table.ab tfoot td { border-bottom: 0; background: #f4f8fb; font-size: 12px; font-weight: 700; color: #4b5563; }
+  .att-book .ab-note { margin: 7px 0 0; font-size: 11.5px; color: #6b7280; }
   .foot {
     margin-top: 18px;
     padding: 14px 16px;
@@ -138,14 +162,33 @@
 <div class="note"><strong>9/23 판서:</strong> 6명 <span class="sm">(정연승 결석)</span></div>
 <div class="note"><strong>취업계:</strong> 김대호</div>
 </div>
+<section class="att-book">
+<h2 class="ab-t">출석부 <span>수강 8명 · 수요일 수업 · 1~16주 · 빈칸은 아직 오지 않은 수업 · 회차마다 출석 + 결석 = 8로 검산</span></h2>
+<div class="ab-wrap">
+<table class="ab">
+<thead><tr><th>이름</th><th class="fut">9/2<small>1주</small></th><th>9/9<small>2주</small></th><th>9/16<small>3주</small></th><th>9/23<small>4주</small></th><th class="fut">9/30<small>5주</small></th><th class="fut">10/7<small>6주</small></th><th class="fut">10/14<small>7주</small></th><th class="fut exam">10/21<small>8주 · 중간</small></th><th class="fut">10/28<small>9주</small></th><th class="fut">11/4<small>10주</small></th><th class="fut">11/11<small>11주</small></th><th class="fut">11/18<small>12주</small></th><th class="fut">11/25<small>13주</small></th><th class="fut">12/2<small>14주</small></th><th class="fut">12/9<small>15주</small></th><th class="fut exam">12/16<small>16주 · 기말</small></th><th>출석</th></tr></thead>
+<tbody>
+<tr><th scope="row">김대호<small class="jobtag">(취업계)</small></th><td class="fut"></td><td class="x job">–</td><td class="x job">–</td><td class="x job">–</td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="sum">0/3</td></tr>
+<tr><th scope="row">김윤서</th><td class="fut"></td><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="sum">3/3</td></tr>
+<tr><th scope="row">김준호</th><td class="fut"></td><td class="o">○</td><td class="x">결석</td><td class="o">○</td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="sum">2/3</td></tr>
+<tr><th scope="row">박상준</th><td class="fut"></td><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="sum">3/3</td></tr>
+<tr><th scope="row">서효원</th><td class="fut"></td><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="sum">3/3</td></tr>
+<tr><th scope="row">심태섭</th><td class="fut"></td><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="sum">3/3</td></tr>
+<tr><th scope="row">전승예</th><td class="fut"></td><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="sum">3/3</td></tr>
+<tr><th scope="row">정연승</th><td class="fut"></td><td class="o">○</td><td class="o">○</td><td class="x">결석</td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="sum">2/3</td></tr>
+</tbody>
+<tfoot><tr><th scope="row">출석 · 결석</th><td class="fut"></td><td>7 · 1</td><td>6 · 2</td><td>6 · 2</td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut"></td><td class="fut exam"></td><td class="sum">19</td></tr></tfoot>
+</table>
+</div>
+<p class="ab-note"><b>1주(9/2)</b>는 기록이 없어 비워 두었습니다. <b>(취업계)</b> 학생의 빠진 칸은 「결석」 대신 <b>–</b> 로 적었습니다(맨 아래 결석 수에는 들어 있습니다).</p>
+</section>
+
+<h2 class="pt-t">발표 현황 <span>9/9 · 9/16 게시판 발표와 남은 도시</span></h2>
 <table>
 <thead>
 <tr>
 <th>학번<span class="th-sub">학년 · 고향</span></th>
 <th>학생</th>
-<th>9/9<span class="th-sub">게시판</span></th>
-<th>9/16<span class="th-sub">게시판</span></th>
-<th>9/23<span class="th-sub">판서</span></th>
 <th>발표 도시<span class="th-sub">9/9</span></th>
 <th>남은 도시<span class="th-sub">9/16</span></th>
 <th>비고</th></tr>
@@ -154,65 +197,41 @@
 <tr>
 <td>20230881<span class="sub"><b>2학년</b>서울 · 도봉구</span></td>
 <td>심태섭</td>
-<td class="check">○</td>
-<td class="check">○</td>
-<td class="check">○</td>
 <td class="city">청주</td>
 <td class="city">용인</td>
 <td class="rm"></td></tr><tr>
 <td>20230041<span class="sub"><b>2학년</b>양양</span></td>
 <td>정연승</td>
-<td class="check">○</td>
-<td class="check">○</td>
-<td class="miss">✕</td>
 <td class="city">양양</td>
 <td class="city">인제</td>
 <td class="rm">9/23 판서 결석</td></tr><tr>
 <td>20250322<span class="sub"><b>2학년</b>경기도 파주</span></td>
 <td>김윤서</td>
-<td class="check">○</td>
-<td class="check">○</td>
-<td class="check">○</td>
 <td class="city">인천</td>
 <td class="city">수원</td>
 <td class="rm"></td></tr><tr>
 <td>20251140<span class="sub"><b>2학년</b>부산 · 사하구</span></td>
 <td>전승예</td>
-<td class="check">○</td>
-<td class="check">○</td>
-<td class="check">○</td>
 <td class="city">여수</td>
 <td class="city">경주</td>
 <td class="rm"></td></tr><tr>
 <td>20210664<span class="sub"><b>4학년</b>거제</span></td>
 <td>박상준</td>
-<td class="check">○</td>
-<td class="check">○</td>
-<td class="check">○</td>
 <td class="city">통영</td>
 <td class="city">대구</td>
 <td class="rm"></td></tr><tr>
 <td>20230036<span class="sub"><b>3학년</b>안동</span></td>
 <td>서효원</td>
-<td class="check">○</td>
-<td class="check">○</td>
-<td class="check">○</td>
 <td class="city">경주</td>
 <td class="city">울산</td>
 <td class="rm"></td></tr><tr>
 <td>20230035<span class="sub"><b>4학년</b>대전</span></td>
 <td>김준호</td>
-<td class="check">○</td>
-<td class="miss">✕</td>
-<td class="check">○</td>
 <td class="city">양양</td>
 <td class="city">남원(예정)</td>
 <td class="rm">9/16 게시물 없음</td></tr><tr class="warning-row">
 <td>20230032<span class="sub"><b>4학년</b>고향 미확인</span></td>
 <td>김대호</td>
-<td class="check">○</td>
-<td class="na">—</td>
-<td class="na">—</td>
 <td class="warning">취업계</td>
 <td class="warning">발표 대상 제외</td>
 <td class="rm">취업계로 9/16 이후 제외</td></tr></tbody>
