@@ -56,6 +56,13 @@
     .learn-article .case-box .f3-chain,
     .learn-article .case-box.flow .f3-why { list-style: none; margin: 0; padding: 0; }
     /* 한 줄만 남아 격자를 접었다 — 용인 상자의 머리글 바로 아래에 선다 */
+    /* 사례 상자를 접기로 — 제목줄(summary)만 보이다가 누르면 펼쳐진다 */
+    .learn-article details.case-box.cb-fold > summary { list-style: none; cursor: pointer; display: flex; align-items: baseline; gap: 0 6px; flex-wrap: wrap; margin: 0; }
+    .learn-article details.case-box.cb-fold > summary::-webkit-details-marker { display: none; }
+    .learn-article details.case-box.cb-fold > summary::before { content: "▸"; color: var(--s-ac); font-size: 12px; transition: transform .15s; }
+    .learn-article details.case-box.cb-fold[open] > summary { margin-bottom: 6px; }
+    .learn-article details.case-box.cb-fold[open] > summary::before { transform: rotate(90deg); }
+    .learn-article details.case-box.cb-fold > summary span { margin-left: 0; }
     .learn-article .case-box .f3-chain { display: grid; grid-template-columns: 1fr; margin: 9px 0 4px; }
     .learn-article .case-box .f3-chain li {
       display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px;
@@ -1062,8 +1069,8 @@
 
       <p class="learn-part pt-step s2"><span class="pt">단계 2</span>경북 지역 보기 <em>(예: 안동)</em></p>
 
-      <div class="case-box s2">
-        <p class="cb-title">스마트관광 콘텐츠 제작 실습 — 안동시 <span>우리가 만들 차례</span></p>
+      <details class="case-box s2 cb-fold">
+        <summary class="cb-title">스마트관광 콘텐츠 제작 실습 — 안동시 <span>우리가 만들 차례</span></summary>
         <p class="cb-lead">용인이 <strong>남의 도시가 이미 만든 것</strong>이라면, 안동은 <strong>여러분이 만들 도시</strong>입니다. 같은 구조를 같은 방법으로, 규모만 줄여 직접 해 봅니다 — <strong>만드는 자리는 바로 아래</strong>입니다 — 이 절 끝의 <strong>실습 접기</strong>를 펴면 안내서와 실습 페이지가 있습니다.</p>
 
         <span class="cb-group">① 만드는 법을 읽는다 · 안내</span>
@@ -1081,7 +1088,7 @@
           <li><a href="https://blog.naver.com/andongcity00" target="_blank" rel="noopener">안동시 공식블로그 ↗</a>
             <span class="cb-src">시가 <b>지금 무엇을 알리고 있는지</b>가 가장 빨리 올라오는 곳. 관광자원을 고를 때 <em>“시가 밀고 있는 것”과 “내가 찾아낸 것”</em>을 갈라 보면 고른 이유가 선명해집니다.</span></li>
         </ul>
-      </div>
+      </details>
       <details class="wk-fold s2blue">
         <summary><b class="wk-tag">실습</b>스마트관광 콘텐츠 제작 — 안동시 관광지도 만들기<span class="wk-sub">배경 지도 고르기 · 관광자원 찍기 · 도구의 한계 재기</span></summary>
         <ul class="reslist">
