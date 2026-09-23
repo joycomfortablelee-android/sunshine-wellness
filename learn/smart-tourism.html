@@ -304,6 +304,9 @@
       content: '펼치기 ▾'; margin-left: auto; font-size: 11px; font-weight: 700; color: #8b9aab;
     }
     .learn-article .wk-fold[open] > summary::after { content: '접기 ▴'; }
+    /* 실습 2 접기도 실습 1 상자처럼 제목 왼쪽에 작은 화살표 — 펴면 아래로 돈다 */
+    .learn-article .wk-fold.s2blue > summary::before { content: "▸"; color: #2563a8; font-size: 12px; transition: transform .15s; }
+    .learn-article .wk-fold.s2blue[open] > summary::before { transform: rotate(90deg); }
     .learn-article .wk-fold[open] > summary { margin-bottom: 10px; }
     .learn-article .wk-fold > summary b.wk-tag {
       padding: 2px 9px; border-radius: 999px; background: #e6eef6; color: #3d5772;
