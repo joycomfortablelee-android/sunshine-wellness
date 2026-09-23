@@ -210,6 +210,25 @@ td{padding:10px;border-bottom:1px solid var(--line);font-size:12.8px;vertical-al
   .cal-foot{margin:12px 0 0;font-size:12px;color:#6b7280}
   .cal-foot a{color:#17365d;font-weight:700}
   @media (max-width:700px){.cal-wrap{grid-template-columns:1fr}.cal-d{min-height:40px}}
+  /* 실제 진행 기록 — 매주 한 줄씩 채우는 표 (2026-09-23) */
+  .rec-wrap{overflow-x:auto;border:1px solid #dde5ee;border-radius:12px;background:#fff}
+  table.rec{width:100%;border-collapse:collapse;min-width:680px;font-size:13px}
+  table.rec th,table.rec td{padding:8px 10px;border-bottom:1px solid #eef3f8;text-align:left;vertical-align:top}
+  table.rec thead th{background:#eaf1f8;color:#17365d;font-size:11.5px;font-weight:800}
+  table.rec th[scope="row"]{width:64px;font-weight:800;color:#17365d}
+  table.rec .rec-d{width:110px;color:#6b7280;font-size:12px;white-space:nowrap}
+  table.rec .rec-did{font-weight:700;color:#14384f}
+  table.rec .rec-p{color:#2d3e50}
+  table.rec .rec-n{color:#6b7280;font-size:12px}
+  table.rec .rec-empty{color:#c3ccd5}
+  table.rec tr.rec-now{background:#f4f9f6}
+  table.rec tr.rec-now th[scope="row"]{color:#1f6d52}
+  table.rec tr.rec-ex{background:#fffaf1}
+  table.rec tr.rec-ex .rec-did{color:#a8681f}
+  .plan-tag{display:inline-block;margin-left:8px;padding:2px 9px 3px;border-radius:999px;background:#eef2f6;color:#7c8a99;font-size:10.5px;font-weight:800;letter-spacing:.04em;vertical-align:2px}
+  .plan-note{margin:-4px 0 12px;padding:8px 11px;border-left:3px solid #d8e2ec;background:#f8fafc;border-radius:0 8px 8px 0;font-size:12.5px;line-height:1.75;color:#6b7280}
+  .plan-note b{color:#45566a}
+  .plan-note a{color:#17365d;font-weight:700}
 </style>
 <style>
 /* 돌아가기 — 이 페이지는 새 탭으로 열리므로 모듈 페이지로 되돌린다. 페이지마다 CSS가 달라 값은 직접 적는다. */
@@ -270,8 +289,38 @@ td{padding:10px;border-bottom:1px solid var(--line);font-size:12.8px;vertical-al
 <p class="cal-foot">출결은 <a href="smart-tourism-presentation-status.html#attend" target="_blank" rel="noopener">출석부 · 발표 현황 ↗</a>에서 회차별로 따로 셉니다. 이 달력은 <b>그날 무엇을 했는가</b>만 적는 자리입니다.</p>
 </section>
 
+<section id="record">
+<div class="section-title"><span class="n">2</span>주차별 실제 진행 기록</div>
+<p class="cal-lead"><b>여기가 매주 채우는 자리입니다.</b> 아래 <b>주간 운영표</b>와 <b>발표 배정표</b>는 학기 초에 세운 <b>계획</b>이고, 실제로 무엇을 했는지는 이 표가 기준입니다. 수업이 끝나면 그 주 줄에 한 줄 적고, 달력의 같은 날 칸에도 짧게 옮깁니다.</p>
+<div class="rec-wrap">
+<table class="rec">
+<thead><tr><th>주차</th><th>날짜</th><th>그날 한 것</th><th>발표</th><th>비고</th></tr></thead>
+<tbody>
+<tr><th scope="row">1주</th><td class="rec-d">9/2 · 9/3</td><td class="rec-did"><span class="rec-empty">—</span></td><td class="rec-p"><span class="rec-empty">—</span></td><td class="rec-n"><span class="rec-empty">—</span></td></tr>
+<tr><th scope="row">2주</th><td class="rec-d">9/9</td><td class="rec-did"><span class="rec-empty">—</span></td><td class="rec-p">게시판 발표 7명</td><td class="rec-n">전원 게시</td></tr>
+<tr><th scope="row">3주</th><td class="rec-d">9/16</td><td class="rec-did"><span class="rec-empty">—</span></td><td class="rec-p">게시판 발표 6명</td><td class="rec-n">김준호 게시물 없음</td></tr>
+<tr class="rec-now"><th scope="row">4주</th><td class="rec-d">9/23</td><td class="rec-did"><span class="rec-empty">—</span></td><td class="rec-p">판서 발표 3명 — 박상준 · 김윤서 · 김준호</td><td class="rec-n">정연승 결석</td></tr>
+<tr><th scope="row">5주</th><td class="rec-d">9/30 · 10/1</td><td class="rec-did"><span class="rec-empty">—</span></td><td class="rec-p"><span class="rec-empty">—</span></td><td class="rec-n"><span class="rec-empty">—</span></td></tr>
+<tr><th scope="row">6주</th><td class="rec-d">10/7</td><td class="rec-did"><span class="rec-empty">—</span></td><td class="rec-p"><span class="rec-empty">—</span></td><td class="rec-n"><span class="rec-empty">—</span></td></tr>
+<tr><th scope="row">7주</th><td class="rec-d">10/14</td><td class="rec-did"><span class="rec-empty">—</span></td><td class="rec-p"><span class="rec-empty">—</span></td><td class="rec-n"><span class="rec-empty">—</span></td></tr>
+<tr class="rec-ex"><th scope="row">8주</th><td class="rec-d">10/21</td><td class="rec-did">중간고사</td><td class="rec-p"><span class="rec-empty">—</span></td><td class="rec-n"><span class="rec-empty">—</span></td></tr>
+<tr><th scope="row">9주</th><td class="rec-d">10/28 · 10/29</td><td class="rec-did"><span class="rec-empty">—</span></td><td class="rec-p"><span class="rec-empty">—</span></td><td class="rec-n"><span class="rec-empty">—</span></td></tr>
+<tr><th scope="row">10주</th><td class="rec-d">11/4</td><td class="rec-did"><span class="rec-empty">—</span></td><td class="rec-p"><span class="rec-empty">—</span></td><td class="rec-n"><span class="rec-empty">—</span></td></tr>
+<tr><th scope="row">11주</th><td class="rec-d">11/11</td><td class="rec-did"><span class="rec-empty">—</span></td><td class="rec-p"><span class="rec-empty">—</span></td><td class="rec-n"><span class="rec-empty">—</span></td></tr>
+<tr><th scope="row">12주</th><td class="rec-d">11/18 · 11/19</td><td class="rec-did"><span class="rec-empty">—</span></td><td class="rec-p"><span class="rec-empty">—</span></td><td class="rec-n"><span class="rec-empty">—</span></td></tr>
+<tr><th scope="row">13주</th><td class="rec-d">11/25</td><td class="rec-did"><span class="rec-empty">—</span></td><td class="rec-p"><span class="rec-empty">—</span></td><td class="rec-n"><span class="rec-empty">—</span></td></tr>
+<tr><th scope="row">14주</th><td class="rec-d">12/2</td><td class="rec-did"><span class="rec-empty">—</span></td><td class="rec-p"><span class="rec-empty">—</span></td><td class="rec-n"><span class="rec-empty">—</span></td></tr>
+<tr><th scope="row">15주</th><td class="rec-d">12/9</td><td class="rec-did"><span class="rec-empty">—</span></td><td class="rec-p"><span class="rec-empty">—</span></td><td class="rec-n"><span class="rec-empty">—</span></td></tr>
+<tr class="rec-ex"><th scope="row">16주</th><td class="rec-d">12/16</td><td class="rec-did">기말고사</td><td class="rec-p"><span class="rec-empty">—</span></td><td class="rec-n"><span class="rec-empty">—</span></td></tr>
+</tbody>
+</table>
+</div>
+<p class="cal-foot"><b>4주차(9/23)</b>까지는 계획의 「논문 3편 + 3팀 도시 발표」가 아니라 <b>게시판 글쓰기와 판서 발표</b>로 진행했습니다. 앞으로 알려 주시는 대로 이 표를 채웁니다.</p>
+</section>
+
 <section id="week-table">
-  <div class="section-title"><span class="n">1</span>주간 운영표</div>
+  <div class="section-title"><span class="n">3</span>주간 운영표 <b class="plan-tag">계획</b></div>
+<p class="plan-note">학기 초에 세운 <b>설계</b>입니다 — 실제 진행은 <a href="#record">2절 기록</a>을 따릅니다. 지금까지는 이 리듬 대신 <b>게시판 · 판서 발표</b>로 운영했습니다.</p>
   <div class="schedule">
     <article class="day wed">
       <div class="day-head"><strong>수요일 · 100분</strong><span>교수자 60 + 학습자 40</span></div>
@@ -329,7 +378,7 @@ td{padding:10px;border-bottom:1px solid var(--line);font-size:12.8px;vertical-al
 </section>
 
 <section id="paper-set">
-  <div class="section-title"><span class="n">3</span>논문 1편 = 20분 표준 세트</div>
+  <div class="section-title"><span class="n">4</span>논문 1편 = 20분 표준 세트</div>
   <div class="set-strip">
     <div class="set-card"><b>① 연구질문·HOOK</b><span class="m">3분</span><br>왜 이 연구인가?</div>
     <div class="set-card"><b>② 논문·사례영상</b><span class="m">4분</span><br>현상·맥락 보기</div>
@@ -340,7 +389,7 @@ td{padding:10px;border-bottom:1px solid var(--line);font-size:12.8px;vertical-al
 </section>
 
 <section id="day-units">
-  <div class="section-title"><span class="n">4</span>요일별 수업 단위표</div>
+  <div class="section-title"><span class="n">5</span>요일별 수업 단위표</div>
   <div class="table-wrap">
     <table>
       <thead><tr><th>구분</th><th>수요일 100분</th><th>목요일 50분</th></tr></thead>
@@ -355,7 +404,7 @@ td{padding:10px;border-bottom:1px solid var(--line);font-size:12.8px;vertical-al
 </section>
 
 <section id="overview">
-  <div class="section-title"><span class="n">5</span>전체 보기 10분</div>
+  <div class="section-title"><span class="n">6</span>전체 보기 10분</div>
   <div class="eval-grid">
     <div class="eval-card"><b>① PAPER</b>논문 4편의 공통점·차이는 무엇인가?</div>
     <div class="eval-card"><b>② CASE</b>3팀 사례와 어떤 논문이 가장 잘 연결되는가?</div>
@@ -364,7 +413,8 @@ td{padding:10px;border-bottom:1px solid var(--line);font-size:12.8px;vertical-al
 </section>
 
 <section id="team-assign">
-  <div class="section-title"><span class="n">6</span>학생 발표 주차 및 팀별 발표 배정</div>
+  <div class="section-title"><span class="n">7</span>학생 발표 주차 및 팀별 발표 배정 <b class="plan-tag">계획</b></div>
+<p class="plan-note">도시 배정은 <b>학기 초 계획</b>이라 실제 진도와 어긋나 있습니다 — <b>4주차까지 도시 발표는 시작하지 않았습니다.</b> 어느 주에 어느 도시를 할지 정해지면 <a href="#record">2절 기록</a>에 적고 이 표의 주차를 옮깁니다.</p>
   <div class="assign-card">
     <div class="assign-legend">
       <span class="kr">🇰🇷 국내 스마트관광도시</span>
