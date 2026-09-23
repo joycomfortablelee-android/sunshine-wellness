@@ -28,12 +28,17 @@ button{cursor:pointer;font-weight:700;color:var(--navy)}
 .section h2{margin:0 0 6px;color:var(--navy);font-size:21px}
 .section .desc{margin:0 0 16px;color:var(--muted);font-size:14px}
 .table-wrap{overflow:auto;border:1px solid var(--line);border-radius:12px}
-table{border-collapse:collapse;width:100%;min-width:720px}
+table{border-collapse:collapse;width:100%;min-width:960px}
 th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;font-size:14px}
 th{background:#edf3f7;color:var(--navy);font-size:12px;position:sticky;top:0}
 td:first-child,th:first-child{width:58px;text-align:center}
 td:nth-child(4),th:nth-child(4){width:76px;text-align:center}
 .name{font-weight:800}
+.rk-td{font-size:13px;line-height:1.7}
+.rk{display:inline-block;margin-right:10px;white-space:nowrap}
+.rk i{font-style:normal;font-size:11px;font-weight:700;color:#7c8a99;margin-right:4px}
+.rk-tag{display:inline-block;margin-right:8px;padding:1px 7px;border-radius:999px;background:#fbf1df;color:#a8681f;font-size:11px;font-weight:800}
+.rk-x{display:inline-block;font-size:12px;color:#8a96a3}
 tr:last-child td{border-bottom:0}
 tr.missing td{background:#fff9ee;color:#7c6848}
 .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
@@ -90,15 +95,15 @@ footer{color:#7a8693;font-size:11px;margin-top:18px;text-align:right}
     <p class="desc">학번·학과·학년은 공식 자료에서 확인된 경우만 입력했습니다. 확인되지 않은 값은 임의로 만들지 않았습니다.</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>순번</th><th>성명</th><th>학과</th><th>학년</th><th>학번</th></tr></thead>
-        <tbody><tr><td>1</td><td class='name'>정연승</td><td>유럽문화·관광학과</td><td>2</td><td>20230041</td></tr>
-<tr><td>2</td><td class='name'>서효원</td><td>유럽문화·관광학과</td><td>3</td><td>20230036</td></tr>
-<tr><td>3</td><td class='name'>김대호</td><td>유럽문화·관광학과</td><td>4</td><td>20230032</td></tr>
-<tr><td>4</td><td class='name'>김준호</td><td>유럽문화·관광학과</td><td>4</td><td>20230035</td></tr>
-<tr><td>5</td><td class='name'>박상준</td><td>문화관광학과</td><td>4</td><td>20210664</td></tr>
-<tr><td>6</td><td class='name'>심태섭</td><td>경영학부</td><td>2</td><td>20230881</td></tr>
-<tr><td>7</td><td class='name'>김윤서</td><td>경영학부</td><td>2</td><td>20250322</td></tr>
-<tr><td>8</td><td class='name'>전승예</td><td>경영학부</td><td>2</td><td>20251140</td></tr></tbody>
+        <thead><tr><th>순번</th><th>성명</th><th>학과</th><th>학년</th><th>학번</th><th>비고 · 지역 · 진로</th></tr></thead>
+        <tbody><tr><td>1</td><td class='name'>정연승</td><td>유럽문화·관광학과</td><td>2</td><td>20230041</td><td class="rk-td"><span class="rk"><i>지역</i>양양</span><span class="rk"><i>진로</i>미기재</span><span class="rk-x">희망 지역 양양 · 인제</span></td></tr>
+<tr><td>2</td><td class='name'>서효원</td><td>유럽문화·관광학과</td><td>3</td><td>20230036</td><td class="rk-td"><span class="rk"><i>지역</i>안동</span><span class="rk"><i>진로</i>? (사진 미기재)</span><span class="rk-x">희망 지역 서울 · 울산</span></td></tr>
+<tr><td>3</td><td class='name'>김대호</td><td>유럽문화·관광학과</td><td>4</td><td>20230032</td><td class="rk-td"><b class="rk-tag">취업계</b><span class="rk"><i>지역</i>사진 자료 없음</span><span class="rk"><i>진로</i>취업계</span><span class="rk-x">발표 대상 제외</span></td></tr>
+<tr><td>4</td><td class='name'>김준호</td><td>유럽문화·관광학과</td><td>4</td><td>20230035</td><td class="rk-td"><span class="rk"><i>지역</i>대전</span><span class="rk"><i>진로</i>Hotel</span><span class="rk-x">사진에 「양양」 추가 · 「대전」 동그라미</span></td></tr>
+<tr><td>5</td><td class='name'>박상준</td><td>문화관광학과</td><td>4</td><td>20210664</td><td class="rk-td"><span class="rk"><i>지역</i>거제</span><span class="rk"><i>진로</i>사진에서 명확하지 않음</span><span class="rk-x">지역 대구(동그라미) · 통영 · 거제 재기재</span></td></tr>
+<tr><td>6</td><td class='name'>심태섭</td><td>경영학부</td><td>2</td><td>20230881</td><td class="rk-td"><span class="rk"><i>지역</i>서울 · 도봉구</span><span class="rk"><i>진로</i>Korail (인턴)</span><span class="rk-x">다른 사진 광주 · 울산 — 「울진·울산」으로도 보임</span></td></tr>
+<tr><td>7</td><td class='name'>김윤서</td><td>경영학부</td><td>2</td><td>20250322</td><td class="rk-td"><span class="rk"><i>지역</i>경기도 파주</span><span class="rk"><i>진로</i>Hotel (뒤 문구 판독 어려움)</span><span class="rk-x">희망 지역 인천 · 수원</span></td></tr>
+<tr><td>8</td><td class='name'>전승예</td><td>경영학부</td><td>2</td><td>20251140</td><td class="rk-td"><span class="rk"><i>지역</i>부산 · 사하구</span><span class="rk"><i>진로</i>관광 → Hotel</span><span class="rk-x">희망 지역 여수 · 경주 / 서울 · 부산</span></td></tr></tbody>
       </table>
     </div>
     <div class="legend">
