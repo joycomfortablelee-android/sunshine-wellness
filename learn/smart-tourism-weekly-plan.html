@@ -220,6 +220,7 @@ td{padding:10px;border-bottom:1px solid var(--line);font-size:12.8px;vertical-al
   table.rec .rec-did{font-weight:700;color:#14384f}
   table.rec .rec-p{color:#2d3e50}
   table.rec .rec-n{color:#6b7280;font-size:12px}
+  table.rec .rec-sub{display:block;color:#98a4b0;font-size:11px}
   table.rec .rec-empty{color:#c3ccd5}
   table.rec tr.rec-now{background:#f4f9f6}
   table.rec tr.rec-now th[scope="row"]{color:#1f6d52}
@@ -254,14 +255,14 @@ td{padding:10px;border-bottom:1px solid var(--line);font-size:12.8px;vertical-al
 
 <section id="calendar">
 <div class="section-title"><span class="n">1</span>수업 달력 · 주차별 한 것</div>
-<p class="cal-lead"><b>수요일 16주</b>(1–2교시 · 100분)에 <b>목요일 네 번</b>(9/3 · 10/1 · 10/29 · 11/19 · 50분)을 더해 <b>모두 20회차</b>입니다. 파란 칸이 수요일, 청록 칸이 목요일입니다. <b>수업이 끝나면 그날 칸에 한 줄씩 적습니다</b> — 지금은 9/9 · 9/16 · 9/23 셋이 채워져 있습니다.</p>
+<p class="cal-lead"><b>수요일 16주</b>(1–2교시 · 100분)에 <b>목요일 네 번</b>(9/3 · 10/1 · 10/29 · 11/19 · 50분)을 더해 <b>모두 20회차</b>입니다. 파란 칸이 수요일, 청록 칸이 목요일입니다. <b>수업이 끝나면 그날 칸에 한 줄씩 적습니다</b> — 지금은 <b>1~4주</b>가 채워져 있습니다. 자세한 것은 아래 <a href="#record">2절 기록</a>에 있습니다.</p>
 <div class="cal-legend"><span class="lg wed">수요일 · 100분</span><span class="lg thu">목요일 · 50분</span><span class="lg ex">시험</span><span class="lg empty">— 는 아직 적지 않은 회차</span></div>
 <div class="cal-wrap">
         <div class="cal-m">
           <p class="cal-mt">9월</p>
           <div class="cal-h"><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span class="we">토</span><span class="we">일</span></div>
           <div class="cal-g">
-            <i class="cal-pad"></i><div class="cal-d"><b class="cd-n">1</b></div><div class="cal-d on wed"><b class="cd-n">2</b><span class="cd-w">1주<em>수 100분</em></span><span class="cd-note empty">—</span></div><div class="cal-d on thu"><b class="cd-n">3</b><span class="cd-w">1주<em>목 50분</em></span><span class="cd-note empty">—</span></div><div class="cal-d"><b class="cd-n">4</b></div><div class="cal-d we"><b class="cd-n">5</b></div><div class="cal-d we"><b class="cd-n">6</b></div><div class="cal-d"><b class="cd-n">7</b></div><div class="cal-d"><b class="cd-n">8</b></div><div class="cal-d on wed"><b class="cd-n">9</b><span class="cd-w">2주<em>수 100분</em></span><span class="cd-note">게시판 발표 · 7명</span></div><div class="cal-d"><b class="cd-n">10</b></div><div class="cal-d"><b class="cd-n">11</b></div><div class="cal-d we"><b class="cd-n">12</b></div><div class="cal-d we"><b class="cd-n">13</b></div><div class="cal-d"><b class="cd-n">14</b></div><div class="cal-d"><b class="cd-n">15</b></div><div class="cal-d on wed"><b class="cd-n">16</b><span class="cd-w">3주<em>수 100분</em></span><span class="cd-note">게시판 발표 · 6명</span></div><div class="cal-d"><b class="cd-n">17</b></div><div class="cal-d"><b class="cd-n">18</b></div><div class="cal-d we"><b class="cd-n">19</b></div><div class="cal-d we"><b class="cd-n">20</b></div><div class="cal-d"><b class="cd-n">21</b></div><div class="cal-d"><b class="cd-n">22</b></div><div class="cal-d on wed"><b class="cd-n">23</b><span class="cd-w">4주<em>수 100분</em></span><span class="cd-note">판서 발표 3명<br>박상준 · 김윤서 · 김준호</span></div><div class="cal-d"><b class="cd-n">24</b></div><div class="cal-d"><b class="cd-n">25</b></div><div class="cal-d we"><b class="cd-n">26</b></div><div class="cal-d we"><b class="cd-n">27</b></div><div class="cal-d"><b class="cd-n">28</b></div><div class="cal-d"><b class="cd-n">29</b></div><div class="cal-d on wed"><b class="cd-n">30</b><span class="cd-w">5주<em>수 100분</em></span><span class="cd-note empty">—</span></div>
+            <i class="cal-pad"></i><div class="cal-d"><b class="cd-n">1</b></div><div class="cal-d on wed"><b class="cd-n">2</b><span class="cd-w">1주<em>수 100분</em></span><span class="cd-note">강의 소개<br>도시 정하기</span></div><div class="cal-d on thu"><b class="cd-n">3</b><span class="cd-w">1주<em>목 50분</em></span><span class="cd-note">박소영 논문<br>온라인 5편</span></div><div class="cal-d"><b class="cd-n">4</b></div><div class="cal-d we"><b class="cd-n">5</b></div><div class="cal-d we"><b class="cd-n">6</b></div><div class="cal-d"><b class="cd-n">7</b></div><div class="cal-d"><b class="cd-n">8</b></div><div class="cal-d on wed"><b class="cd-n">9</b><span class="cd-w">2주<em>수 100분</em></span><span class="cd-note">도시 발표 1차<br>프롬프트 배부</span></div><div class="cal-d"><b class="cd-n">10</b></div><div class="cal-d"><b class="cd-n">11</b></div><div class="cal-d we"><b class="cd-n">12</b></div><div class="cal-d we"><b class="cd-n">13</b></div><div class="cal-d"><b class="cd-n">14</b></div><div class="cal-d"><b class="cd-n">15</b></div><div class="cal-d on wed"><b class="cd-n">16</b><span class="cd-w">3주<em>수 100분</em></span><span class="cd-note">1차 나머지<br>2차 프롬프트</span></div><div class="cal-d"><b class="cd-n">17</b></div><div class="cal-d"><b class="cd-n">18</b></div><div class="cal-d we"><b class="cd-n">19</b></div><div class="cal-d we"><b class="cd-n">20</b></div><div class="cal-d"><b class="cd-n">21</b></div><div class="cal-d"><b class="cd-n">22</b></div><div class="cal-d on wed"><b class="cd-n">23</b><span class="cd-w">4주<em>수 100분</em></span><span class="cd-note">발표 일부<br>팀명 정함</span></div><div class="cal-d"><b class="cd-n">24</b></div><div class="cal-d"><b class="cd-n">25</b></div><div class="cal-d we"><b class="cd-n">26</b></div><div class="cal-d we"><b class="cd-n">27</b></div><div class="cal-d"><b class="cd-n">28</b></div><div class="cal-d"><b class="cd-n">29</b></div><div class="cal-d on wed"><b class="cd-n">30</b><span class="cd-w">5주<em>수 100분</em></span><span class="cd-note empty">—</span></div>
           </div>
         </div>
         <div class="cal-m">
@@ -296,10 +297,10 @@ td{padding:10px;border-bottom:1px solid var(--line);font-size:12.8px;vertical-al
 <table class="rec">
 <thead><tr><th>주차</th><th>날짜</th><th>그날 한 것</th><th>발표</th><th>비고</th></tr></thead>
 <tbody>
-<tr><th scope="row">1주</th><td class="rec-d">9/2 · 9/3</td><td class="rec-did"><span class="rec-empty">—</span></td><td class="rec-p"><span class="rec-empty">—</span></td><td class="rec-n"><span class="rec-empty">—</span></td></tr>
-<tr><th scope="row">2주</th><td class="rec-d">9/9</td><td class="rec-did"><span class="rec-empty">—</span></td><td class="rec-p">게시판 발표 7명</td><td class="rec-n">전원 게시</td></tr>
-<tr><th scope="row">3주</th><td class="rec-d">9/16</td><td class="rec-did"><span class="rec-empty">—</span></td><td class="rec-p">게시판 발표 6명</td><td class="rec-n">김준호 게시물 없음</td></tr>
-<tr class="rec-now"><th scope="row">4주</th><td class="rec-d">9/23</td><td class="rec-did"><span class="rec-empty">—</span></td><td class="rec-p">판서 발표 3명 — 박상준 · 김윤서 · 김준호</td><td class="rec-n">정연승 결석</td></tr>
+<tr><th scope="row">1주</th><td class="rec-d">9/1 · 9/3</td><td class="rec-did"><b>9/1</b> 강의 소개 · <b>발표할 도시 정하기</b><br /><b>9/3</b> 박소영 논문 · 분야별 적용 <b>온라인 학습 5편</b></td><td class="rec-p"><span class="rec-empty">—</span></td><td class="rec-n">온라인 5편 — 여행업 7:26 · 숙박업 9:38 · 항공업 8:05 · 컨벤션 1:27 · 외식업 1:16 <span class="rec-sub">(컨벤션이 1주 1차시 출석 · 모두 12/31 마감)</span></td></tr>
+<tr><th scope="row">2주</th><td class="rec-d">9/9</td><td class="rec-did"><b>스마트 도시 발표 1차</b> · 프롬프트 배부</td><td class="rec-p">게시판 발표 7명</td><td class="rec-n">전원 게시</td></tr>
+<tr><th scope="row">3주</th><td class="rec-d">9/16</td><td class="rec-did"><b>1차 발표 나머지</b> · <b>2차 프롬프트</b> 배부 · 발표 연습</td><td class="rec-p">게시판 발표 6명</td><td class="rec-n">김준호 게시물 없음</td></tr>
+<tr class="rec-now"><th scope="row">4주</th><td class="rec-d">9/23</td><td class="rec-did">도시 발표 일부 — <b>남은 사람 있음</b> · <b>팀명 정함</b></td><td class="rec-p">판서 발표 3명 — 박상준 · 김윤서 · 김준호</td><td class="rec-n">정연승 결석</td></tr>
 <tr><th scope="row">5주</th><td class="rec-d">9/30 · 10/1</td><td class="rec-did"><span class="rec-empty">—</span></td><td class="rec-p"><span class="rec-empty">—</span></td><td class="rec-n"><span class="rec-empty">—</span></td></tr>
 <tr><th scope="row">6주</th><td class="rec-d">10/7</td><td class="rec-did"><span class="rec-empty">—</span></td><td class="rec-p"><span class="rec-empty">—</span></td><td class="rec-n"><span class="rec-empty">—</span></td></tr>
 <tr><th scope="row">7주</th><td class="rec-d">10/14</td><td class="rec-did"><span class="rec-empty">—</span></td><td class="rec-p"><span class="rec-empty">—</span></td><td class="rec-n"><span class="rec-empty">—</span></td></tr>
@@ -315,7 +316,7 @@ td{padding:10px;border-bottom:1px solid var(--line);font-size:12.8px;vertical-al
 </tbody>
 </table>
 </div>
-<p class="cal-foot"><b>4주차(9/23)</b>까지는 계획의 「논문 3편 + 3팀 도시 발표」가 아니라 <b>게시판 글쓰기와 판서 발표</b>로 진행했습니다. 앞으로 알려 주시는 대로 이 표를 채웁니다.</p>
+<p class="cal-foot"><b>4주차(9/23)</b>까지는 계획의 「논문 3편 + 3팀 도시 발표」 리듬 대신 <b>도시 정하기 → 프롬프트 → 게시판 · 판서 발표</b>로 진행했습니다. <b>도시 발표는 아직 남은 사람이 있고, 4주차에 팀명을 정했습니다.</b> 앞으로도 알려 주시는 대로 이 표를 채웁니다.</p>
 </section>
 
 <section id="week-table">
