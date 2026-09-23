@@ -104,6 +104,18 @@
   .att-book .ab-t span, .pt-t span { display: block; margin-top: 3px; font-size: 12px; font-weight: 500; color: #6b7280; }
   .pt-t { margin: 0 0 8px; font-size: 16px; font-weight: 800; color: #163a63; text-align: center; }
   .att-book .ab-wrap { overflow-x: auto; border: 1px solid #d9e3ee; border-radius: 12px; background: #fff; }
+  /* 수업일별 출석 — 위 격자와 같은 기록을 날짜 한 줄로 다시 읽는다 */
+  .att-book .dr-t { margin: 22px 0 8px; font-size: 16px; color: #163a63; }
+  .att-book .dr-t span { font-size: 12px; font-weight: 500; color: #6b7280; margin-left: 6px; }
+  .att-book .dr-wrap { overflow-x: auto; border: 1px solid #d9e3ee; border-radius: 12px; background: #fff; }
+  table.dr { font-size: 14px; border-radius: 0; }
+  table.dr thead th { padding: 10px; }
+  table.dr tbody th { padding: 11px 10px; white-space: nowrap; color: #163a63; font-weight: 800; border-bottom: 1px solid #e5e7eb; }
+  table.dr td { padding: 11px 10px; }
+  table.dr td.dr-who { text-align: left; }
+  table.dr td.dr-n { font-weight: 800; white-space: nowrap; }
+  table.dr td.dr-none { color: #6b7280; }
+  table.dr td.miss { white-space: nowrap; }
   table.ab { width: 100%; border-collapse: collapse; font-size: 12.5px; }
   table.ab th, table.ab td { padding: 6px 3px; min-width: 34px; text-align: center; border-bottom: 1px solid #eef3f8; white-space: nowrap; }
   table.ab thead th { background: #eaf1f8; color: #163a63; font-size: 11px; font-weight: 800; }
@@ -243,6 +255,17 @@
 </div>
 <p class="ab-note"><b>9/9 · 9/16 · 9/23</b> 세 회차는 <b>페이지에 직접 적어</b> 두었으므로 어느 기기에서 열어도 보입니다 — 9/9 전원 출석, 9/16 김준호 결석, 9/23 정연승 결석. <b>1주(9/2 수 · 9/3 목)</b>는 기록이 없어 비워 두었습니다.<br />
 <b>나머지 회차를 눌러 표시한 값은 이 브라우저에만 남습니다</b> — 다른 컴퓨터에서 열면 비어 있고, 방문자에게도 보이지 않습니다. <b>김대호</b>는 <b>취업계</b>라 <b>학기 내내 –</b> 로 적어 두었습니다 — 「결석」과 구분하되 맨 아래 결석 수에는 들어갑니다. 아직 열리지 않은 회차는 – 만 있으므로 <b>출석 · 결석 줄이 비어 있습니다.</b> 학기 <b>공식 출결은 학사 시스템</b> 쪽을 따릅니다.</p>
+<h3 class="dr-t">수업일별 출석 <span>날짜 한 줄에 한 회차 · 김대호(취업계) 제외 7명 기준</span></h3>
+<div class="dr-wrap">
+<table class="dr">
+<thead><tr><th scope="col">수업일</th><th scope="col">출석자</th><th scope="col">인원</th><th scope="col">미확인 · 결석</th></tr></thead>
+<tbody>
+<tr><th scope="row">9월 9일</th><td class="dr-who">심태섭, 정연승, 김윤서, 전승예, 박상준, 서효원, 김준호</td><td class="dr-n">7명</td><td class="dr-none">없음</td></tr>
+<tr><th scope="row">9월 16일</th><td class="dr-who">심태섭, 정연승, 김윤서, 전승예, 박상준, 서효원</td><td class="dr-n">6명</td><td class="miss">김준호</td></tr>
+<tr><th scope="row">9월 23일</th><td class="dr-who">서효원, 김준호, 심태섭, 전승예, 박상준, 김윤서</td><td class="dr-n">6명</td><td class="miss">정연승</td></tr>
+</tbody>
+</table>
+</div>
 </section>
 
 <h2 class="pt-t">발표 현황 <span>9/9 · 9/16 게시판 발표와 남은 도시</span></h2>
