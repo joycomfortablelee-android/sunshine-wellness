@@ -214,14 +214,6 @@
 </div>
 <section class="att-book attend" id="attend">
 <h2 class="ab-t">출석부 — 회차별 출석 체크 <span>수강 8명 · <b>수요일 16주</b>(1–2교시 · 2시간) + <b>목요일 네 번</b>(9/3 · 10/1 · 10/29 · 11/19 · 3시간 9–12시) · 모두 20회차</span></h2>
-<p class="at-lead">칸을 누를 때마다 <b>○ 출석 → 지 지각 → 결 결석 → – 공결·취업계 → 빈칸</b> 순으로 바뀝니다. 오른쪽 <b>출석</b> 칸과 맨 아래 <b>출석 · 결석</b> 줄은 누를 때마다 다시 셉니다.</p>
-<div class="at-bar">
-  <button type="button" onclick="atToday()">오늘 칸으로</button>
-  <button type="button" onclick="atFill()">오늘 회차 모두 출석</button>
-  <button type="button" onclick="atCopy()">표 내용 복사</button>
-  <button type="button" onclick="atClear()">전부 지우기</button>
-  <span class="at-msg" id="atMsg" role="status"></span>
-</div>
 <div class="ab-wrap">
 <table class="ab" id="atTable">
 <thead>
@@ -250,7 +242,7 @@
   <span>빈칸 = 기록 없음 · 아직 오지 않은 회차</span>
 </div>
 <p class="ab-note"><b>9/9 · 9/16 · 9/23</b> 세 회차는 <b>페이지에 직접 적어</b> 두었으므로 어느 기기에서 열어도 보입니다 — 9/9 전원 출석, 9/16 김준호 결석, 9/23 정연승 결석. <b>1주(9/2 수 · 9/3 목)</b>는 기록이 없어 비워 두었습니다.<br />
-<b>나머지 회차를 눌러 표시한 값은 이 브라우저에만 남습니다</b> — 다른 컴퓨터에서 열면 비어 있고, 방문자에게도 보이지 않습니다. 기록을 옮기거나 넘기려면 <b>「표 내용 복사」</b>를 눌러 붙여 넣으십시오. <b>김대호</b>는 <b>취업계</b>라 <b>학기 내내 –</b> 로 적어 두었습니다 — 「결석」과 구분하되 맨 아래 결석 수에는 들어갑니다. 아직 열리지 않은 회차는 – 만 있으므로 <b>출석 · 결석 줄이 비어 있습니다.</b> 학기 <b>공식 출결은 학사 시스템</b> 쪽을 따릅니다.</p>
+<b>나머지 회차를 눌러 표시한 값은 이 브라우저에만 남습니다</b> — 다른 컴퓨터에서 열면 비어 있고, 방문자에게도 보이지 않습니다. <b>김대호</b>는 <b>취업계</b>라 <b>학기 내내 –</b> 로 적어 두었습니다 — 「결석」과 구분하되 맨 아래 결석 수에는 들어갑니다. 아직 열리지 않은 회차는 – 만 있으므로 <b>출석 · 결석 줄이 비어 있습니다.</b> 학기 <b>공식 출결은 학사 시스템</b> 쪽을 따릅니다.</p>
 </section>
 
 <h2 class="pt-t">발표 현황 <span>9/9 · 9/16 게시판 발표와 남은 도시</span></h2>
@@ -334,7 +326,7 @@
   var MARK = { o: '\u25cb', l: '\uc9c0', x: '\uacb0', j: '\u2013' };
   var table = document.getElementById('atTable');
   if (!table) return;
-  var msg = document.getElementById('atMsg');
+  var msg = document.getElementById('atMsg') || {};
   var data = {};
 
   try { data = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { data = {}; }
