@@ -63,6 +63,8 @@
     .learn-article details.case-box.cb-fold[open] > summary { margin-bottom: 6px; }
     .learn-article details.case-box.cb-fold[open] > summary::before { transform: rotate(90deg); }
     .learn-article details.case-box.cb-fold > summary span { margin-left: 0; }
+    .learn-article details.case-box.cb-fold > summary::after { content: '펼치기 ▾'; margin-left: auto; font-size: 11px; font-weight: 700; color: #5b7fa6; }
+    .learn-article details.case-box.cb-fold[open] > summary::after { content: '접기 ▴'; }
     .learn-article .case-box .f3-chain { display: grid; grid-template-columns: 1fr; margin: 9px 0 4px; }
     .learn-article .case-box .f3-chain li {
       display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px;
