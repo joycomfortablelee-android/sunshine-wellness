@@ -817,6 +817,9 @@
       .learn-article .learn-part.pt-part .pt-ti { grid-column: 1; grid-row: 2; padding: 10px 14px 0; }
       .learn-article .learn-part.pt-part .pt-sub { grid-column: 1; grid-row: 3; padding: 5px 14px 10px; }
     }
+    /* 파트 머리글 제목 크기 — learn.css 의 mod-smart 글자 통일(10.5px)이 이 띠까지 눌러 제목이 작아졌다.
+       데스크톱에서만 되돌린다(모바일은 learn.css 가 9px 을 !important 로 건다). */
+    body.mod-smart .learn-article .learn-part.pt-part { font-size: 19px; line-height: normal; }
     /* 파트 머리글 안 이동 줄 — 다른 파트로 바로 뛴다. 지금 파트는 채워서 표시 */
     .learn-article .learn-part.pt-part .pt { grid-row: 1 / span 3; }
     .learn-article .learn-part.pt-part .pt-jump {
