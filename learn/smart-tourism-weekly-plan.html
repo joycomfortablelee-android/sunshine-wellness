@@ -185,7 +185,8 @@ td{padding:10px;border-bottom:1px solid var(--line);font-size:12.8px;vertical-al
   .cal-legend .lg.thu::before{background:#d9efe9;border:1px solid #8fc9bb}
   .cal-legend .lg.ex::before{background:#fbf1df;border:1px solid #e0c79c}
   .cal-legend .lg.empty::before{display:none}
-  .cal-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:16px}
+  /* 한 줄에 두 달씩 — 9·10월, 11·12월 (2026-09-24) */
+  .cal-wrap{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
   .cal-m{border:1px solid #dde5ee;border-radius:12px;background:#fff;padding:10px 10px 12px}
   .cal-mt{margin:0 0 7px;font-size:14px;font-weight:800;color:#17365d}
   .cal-h,.cal-g{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:3px}
