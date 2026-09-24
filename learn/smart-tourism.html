@@ -66,6 +66,21 @@
     .learn-article details.case-box.cb-fold > summary::after { content: '펼치기 ▾'; margin-left: auto; font-size: 11px; font-weight: 700; color: #5b7fa6; }
     .learn-article details.case-box.cb-fold[open] > summary::after { content: '접기 ▴'; }
     .learn-article .case-box .f3-chain { display: grid; grid-template-columns: 1fr; margin: 9px 0 4px; }
+    /* 용인 자료 여섯 — 세 갈래를 가로로 나란히. 위 「세 갈래 → 도시 카드 세 칸」이 화면에서도 셋으로 보이게. */
+    .learn-article .case-box .cb-3 {
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0 18px; margin: 10px 0 0; align-items: start;
+    }
+    .learn-article .case-box .cb-3 .cb-col { min-width: 0; }
+    .learn-article .case-box .cb-3 .cb-col + .cb-col { border-left: 1px dashed #d7e2ec; padding-left: 18px; }
+    .learn-article .case-box .cb-3 .cb-group { margin-top: 0; }
+    .learn-article .case-box .cb-3 li { font-size: 13px; }
+    .learn-article .case-box .cb-3 .cb-src { font-size: 11px; line-height: 1.7; }
+    @media (max-width: 900px) {
+      .learn-article .case-box .cb-3 { grid-template-columns: 1fr; gap: 0; }
+      .learn-article .case-box .cb-3 .cb-col + .cb-col { border-left: 0; padding-left: 0; }
+      .learn-article .case-box .cb-3 .cb-group { margin-top: 11px; }
+    }
     .learn-article .case-box .f3-chain li {
       display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px;
       margin: 0; padding: 2px 0; min-width: 0;
@@ -1240,29 +1255,35 @@
           <li><span class="f3-o">도시를 가른 <strong>세 갈래</strong> — 플랫폼 · 연구 · 홍보</span><i>→</i><span class="f3-i"><strong>도시 카드</strong>의 세 칸 — WHAT · PLATFORM+RESEARCH · PROMOTION</span></li>
         </ul>
 
-        <span class="cb-group">① 무엇을 만들었나 · 플랫폼</span>
+        <div class="cb-3">
+          <div class="cb-col">
+            <span class="cb-group">① 무엇을 만들었나 · 플랫폼</span>
         <ul>
           <li><a href="https://korean.visitkorea.or.kr/smarttourcity/city/yongin.kto" target="_blank" rel="noopener">스마트관광도시 용인 ↗</a>
             <span class="cb-src">한국관광공사 공식 소개. <b>“한 번의 터치로 연결되고, 특별한 경험으로 머무르는 당신의 스마트 용인가이드”</b> — 사업이 스스로를 어떻게 설명하는지 보십시오.</span></li>
           <li><a href="https://itour.yongin.go.kr/" target="_blank" rel="noopener">용인특례시 용인관광 공식 포털 ↗</a>
             <span class="cb-src">시가 직접 운영하는 <b>용인 스마트관광플랫폼</b>. 위 공사 소개가 <em>설명</em>이라면 이쪽이 <em>실물</em>입니다.</span></li>
         </ul>
-
-        <span class="cb-group">② 무엇을 근거로 삼았나 · 연구</span>
+          </div>
+          <div class="cb-col">
+            <span class="cb-group">② 무엇을 근거로 삼았나 · 연구</span>
         <ul>
           <li><a href="https://www.yongin.re.kr/lmth/01_data07_view.asp?cate=info&amp;b_idx=13377" target="_blank" rel="noopener">인포그래픽 제21호 — 용인 남부권, 여행자가 선택한 미래 관광지 ↗</a>
             <span class="cb-src">용인시정연구원(YRI). <b>데이터를 한 장으로 요약하는 형식</b> 자체가 리포트에 쓸 만한 본보기입니다.</span></li>
           <li><a href="https://www.yongin.re.kr/lmth/01_data01_view.asp?cate=report&amp;center=1&amp;bun=&amp;b_idx=1755&amp;page=1&amp;block=1" target="_blank" rel="noopener">기본연구 — 용인형 웰니스(Y-Wellness) 관광상품 및 프로그램 개발 ↗</a>
             <span class="cb-src">용인시정연구원 <b>[YRI_2021-기본02]</b>, 원문 PDF 공개. <strong>모듈 11 「웰니스 관광」과 바로 이어집니다</strong> — 지자체가 웰니스를 관광상품으로 설계한 실제 보고서입니다.</span></li>
         </ul>
-
-        <span class="cb-group">③ 어떻게 알렸나 · 홍보</span>
+          </div>
+          <div class="cb-col">
+            <span class="cb-group">③ 어떻게 알렸나 · 홍보</span>
         <ul>
           <li><a href="https://youtu.be/Qk0LyxnaHrY" target="_blank" rel="noopener">일상에 ㅇㅇ을 더하면? 즐거움이 찾아온다! | 용인 관광홍보영상 CF편 ↗</a>
             <span class="cb-src">용인시 공식 채널 <b>조아용TV</b>. 모듈 06 「영상 홍보 제작 실습」의 <em>지자체 실물 견본</em>으로 보십시오.</span></li>
           <li><a href="https://www.mt.co.kr/policy/2026/04/24/2026042409360423087" target="_blank" rel="noopener">용인특례시, ‘용인관광플랫폼’ 본격 운영… “클릭 한 번으로 여행 완성” ↗</a>
             <span class="cb-src">머니투데이 2026. 4. 24. <b>별도 앱 설치 없이 웹 접속만으로</b> 쓰게 만든 점이 기사의 핵심입니다.</span></li>
         </ul>
+          </div>
+        </div>
       </div>
 
       <p class="learn-part pt-step s2"><span class="pt">단계 2</span>경북 지역 보기 <em>(예: 안동)</em></p>
@@ -1384,7 +1405,7 @@
           <li><b>먼저 열어 볼 곳</b><span>노란 알약 <strong>「양식과 용인 예시를 한 화면에서」</strong>가 <strong>아래 워드 넷을 웹으로 펼쳐 놓은 판</strong>입니다 — <strong>1장 양식 → 3장 양식 → 용인 완성 예시 → 교수자 예시 안내</strong> 순으로 탭이 놓여 있습니다. 내려받기 전에 <em>어떤 칸을 무엇으로 채우는지</em>를 용인 실제 답안으로 먼저 보십시오. 용인은 <strong>사업명(스마트 다다익선 용인, Link&amp;Stay)</strong>과 <strong>지금 쓰는 플랫폼명(용인관광)</strong>이 달라, 그 둘을 갈라 적는 법도 여기서 배웁니다.</span></li>
           <li><b>양식 둘 중 하나만</b><span><strong>1장은 요약본</strong>, <strong>3장은 칸을 나눠 채우는 판</strong>입니다 — 둘 중 하나만 내면 됩니다.</span></li>
           <li><b>예시는 견본</b><span>용인을 맡은 팀은 <strong>그대로 옮기지 말고</strong> 예시가 다루지 않은 자료를 더 찾으십시오.</span></li>
-          <li><b>워크시트는 듣는 것</b><span>내는 것이 아니라 <strong class="hot-t">남의 발표를 보며 채우는 판</strong>이라 <strong>발표 도시 · 발표자</strong> 칸이 앞에 있습니다. 한 문장 요약 → 다섯 칸 구조 → 기억할 것 셋 → 여덟 항목 평가 → 한 단계 더 생각하기 순입니다.</span></li>
+          <li><b>워크시트는 듣는 것</b><span><strong class="hot-t">남의 발표를 들으며 채우는 판</strong> — 요약 → 다섯 칸 → 기억할 것 → 평가 → 더 생각하기.</span></li>
           <li><b>평가는 40점</b><span>내용 다섯에 <strong>발표 스타일 셋</strong>(아이컨택트 · 읽지 않고 말하듯 · 자기 말로 설명)을 더해 여덟 항목이고, 총점이 자동으로 더해집니다. <strong>웹판과 DOCX 가 같으니</strong> 어느 쪽으로 받아도 됩니다.</span></li>
           <li><b>낼 것은 PDF</b><span>웹판에 적은 것은 브라우저에 저장돼 창을 닫아도 남지만 <strong class="hot-t">그 기기에만 남습니다.</strong> 페이지 위아래의 <strong>「인쇄 / PDF 저장」</strong>으로 PDF를 만들어 제출하십시오.</span></li>
         </ol>
