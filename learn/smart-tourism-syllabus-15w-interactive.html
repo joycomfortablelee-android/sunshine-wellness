@@ -182,9 +182,18 @@
     section{box-shadow:none;break-inside:avoid}
     .content{max-width:none;padding:0}
   }
+    /* 주차 그림 접기 — 연구모형 그림은 기본으로 접어 두고 필요할 때 편다 */
+    .wf-fold { margin: 18px 0 14px; border: 1px solid #e3e8ee; border-radius: 10px; background: #fafcfe; padding: 10px 14px; }
+    .wf-fold > summary.wf-h { list-style: none; cursor: pointer; display: flex; align-items: center; flex-wrap: wrap; gap: 4px 0; margin: 0; }
+    .wf-fold > summary.wf-h::-webkit-details-marker { display: none; }
+    .wf-fold > summary.wf-h::after { content: '펼치기 ▾'; margin-left: auto; padding-left: 10px; font-size: 11px; font-weight: 700; color: #8b9aab; }
+    .wf-fold[open] > summary.wf-h::after { content: '접기 ▴'; }
+    .wf-fold .wk-fig { margin: 10px 0 2px; }
+    .wf-fold > summary.wf-h .wf-tag { margin-right: 8px; }
     .wk-fig { margin: 18px 0 14px; padding: 0; }
+    .wf-fold > summary.wf-h { font-size: 14px; font-weight: 800; color: var(--navy, #17365d); }
     .wk-fig .wf-h { margin: 0 0 8px; font-size: 14px; font-weight: 800; color: var(--navy, #17365d); }
-    .wk-fig .wf-tag { display: inline-block; margin-right: 8px; padding: 2px 9px 3px; border-radius: 999px;
+    .wk-fig .wf-tag, .wf-fold .wf-tag { display: inline-block; margin-right: 8px; padding: 2px 9px 3px; border-radius: 999px;
       background: #17365d; color: #fff; font-size: 10.5px; font-weight: 800; letter-spacing: .04em; vertical-align: 2px; }
     .wk-fig img { width: 100%; height: auto; border-radius: 10px; border: 1px solid #e3e8ee; }
     .wk-fig figcaption { margin-top: 9px; font-size: 12.5px; line-height: 1.8; color: #4d5f74; text-align: left; }
@@ -372,12 +381,14 @@
           </table>
         </div>
 
-        <figure class="wk-fig" id="etam">
-          <p class="wf-h"><b class="wf-tag">5 · 6주차 자료</b>확장된 기술수용모델(E-TAM) · UTAUT와 AI 보완적 이용의도</p>
-          <a href="images/etam-utaut-ai-complementary-model.webp" target="_blank" rel="noopener"><img src="images/etam-utaut-ai-complementary-model.webp" alt="확장된 기술수용모델(E-TAM)·UTAUT와 AI 보완적 이용의도 연구모형 — ① 기존 기술수용 기반: TAM(지각된 유용성·지각된 사용용이성)과 UTAUT/UTAUT2(성과기대·노력기대·사회적 영향·촉진조건). ② AI 맥락의 확장: AI를 도구가 아닌 판단 대상으로 평가 — AI 리터러시(한계·편향을 이해하고 검증)와 지각된 위험(편향·환각·개인정보)이 비판적 수용 → 사람의 검증 → 역할 배분으로 이어진다. ③ 수용의 방향과 결과: AI 보완적 이용의도(AI와 인간의 강점을 결합해 사용하려는 의도)가 지속사용의도와 의사결정 품질로 이어진다. 이론적 기반 Davis(1989), Venkatesh et al.(2003, 2012)." width="1200" height="675" loading="lazy" /></a>
-          <figcaption><b>왼쪽이 5주차, 가운데가 6주차에서 이어집니다.</b> 5주차의 <b>TAM · 확장 TAM</b>과 6주차의 <b>UTAUT2</b>가 그림 ①이고, 거기에 <b>AI 리터러시 · 지각된 위험</b>을 얹은 것이 ②입니다. 결과 쪽 <b>AI 보완적 이용의도</b>는 「AI를 믿는가」가 아니라 <b>AI와 사람의 강점을 어떻게 나눌 것인가</b>를 묻습니다 — 6주차 <b>혁신저항 · 후기수용모형(PAM)</b>과 나란히 놓고 보십시오.</figcaption>
-          <p class="wf-tags"><a class="wf-dl" href="assets/etam-utaut-ai-complementary-use-notes.docx" download="E-TAM_UTAUT_AI보완적이용의도_정리.docx">정리 노트 ⤓ DOCX</a><span class="wf-src">이론적 기반 Davis(1989) · Venkatesh et al.(2003 · 2012) · AI 확장요인은 제시 문헌으로 정리</span></p>
-        </figure>
+        <details class="wf-fold" id="etam">
+          <summary class="wf-h"><b class="wf-tag">5 · 6주차 자료</b>확장된 기술수용모델(E-TAM) · UTAUT와 AI 보완적 이용의도</summary>
+          <figure class="wk-fig">
+            <a href="images/etam-utaut-ai-complementary-model.webp" target="_blank" rel="noopener"><img src="images/etam-utaut-ai-complementary-model.webp" alt="확장된 기술수용모델(E-TAM)·UTAUT와 AI 보완적 이용의도 연구모형 — ① 기존 기술수용 기반: TAM(지각된 유용성·지각된 사용용이성)과 UTAUT/UTAUT2(성과기대·노력기대·사회적 영향·촉진조건). ② AI 맥락의 확장: AI를 도구가 아닌 판단 대상으로 평가 — AI 리터러시(한계·편향을 이해하고 검증)와 지각된 위험(편향·환각·개인정보)이 비판적 수용 → 사람의 검증 → 역할 배분으로 이어진다. ③ 수용의 방향과 결과: AI 보완적 이용의도(AI와 인간의 강점을 결합해 사용하려는 의도)가 지속사용의도와 의사결정 품질로 이어진다. 이론적 기반 Davis(1989), Venkatesh et al.(2003, 2012)." width="1200" height="675" loading="lazy" /></a>
+            <figcaption><b>왼쪽이 5주차, 가운데가 6주차에서 이어집니다.</b> 5주차의 <b>TAM · 확장 TAM</b>과 6주차의 <b>UTAUT2</b>가 그림 ①이고, 거기에 <b>AI 리터러시 · 지각된 위험</b>을 얹은 것이 ②입니다. 결과 쪽 <b>AI 보완적 이용의도</b>는 「AI를 믿는가」가 아니라 <b>AI와 사람의 강점을 어떻게 나눌 것인가</b>를 묻습니다 — 6주차 <b>혁신저항 · 후기수용모형(PAM)</b>과 나란히 놓고 보십시오.</figcaption>
+            <p class="wf-tags"><a class="wf-dl" href="assets/etam-utaut-ai-complementary-use-notes.docx" download="E-TAM_UTAUT_AI보완적이용의도_정리.docx">정리 노트 ⤓ DOCX</a><span class="wf-src">이론적 기반 Davis(1989) · Venkatesh et al.(2003 · 2012) · AI 확장요인은 제시 문헌으로 정리</span></p>
+          </figure>
+        </details>
         <div class="note"><b>총 운영 구조</b> · 논문 강의 25회차 · 시험 4회차 · 진로 특강 1회차 = 총 30회차 / 논문 138편 전량 배분</div>
       </section>
 
@@ -482,6 +493,16 @@
       });
     });
   });
+</script>
+<script>
+/* 주소 끝이 #etam 이면 접힌 그림을 펴서 보여 준다 */
+(function () {
+  function openHash() {
+    var d = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (d && d.tagName === 'DETAILS') d.open = true;
+  }
+  openHash(); window.addEventListener('hashchange', openHash);
+})();
 </script>
 </body>
 </html>
