@@ -2008,6 +2008,18 @@
     }
     .learn-article .plat-box a.mapl.form.plat:hover { background: #0e2a45; border-color: #0e2a45; color: #fff; }
     .learn-article .plat-box .pb-src { font-size: 11.5px; color: #7c8a99; }
+    /* 호스팅 만화 — 점선 상자 안, 알약 아래. 상자 밖으로 나가지 않게 폭을 맞춘다. */
+    .learn-article .plat-box .pb-fig { margin: 12px 0 0; text-align: center; }
+    .learn-article .plat-box .pb-fig img {
+      display: block; width: 100%; max-width: 720px; height: auto; margin: 0 auto;
+      border-radius: 10px; border: 1px solid #dde5ee;
+    }
+    .learn-article .plat-box .pb-fig figcaption {
+      margin: 9px auto 0; max-width: 720px; text-align: left;
+      font-size: 12px; line-height: 1.8; color: #56697c;
+    }
+    .learn-article .plat-box .pb-fig figcaption strong { color: #17365d; }
+    .learn-article .plat-box .pb-fig figcaption b { color: #2f4a63; font-weight: 700; }
     /* 벤치마킹 머리줄 — 초록 바와 연초록 바탕을 걷고 흰 바탕에 글자만 (9/22) */
     .learn-article .learn-part.lp-sub.bmk { background: #fff; border-left: 0; border-radius: 0; padding-left: 0; }
     .learn-article .learn-part.lp-sub.lrn { background: #f2f7fb; color: #1c4e8a; border-left-color: #2563a8; }
@@ -2676,6 +2688,13 @@
         <p class="pb-h"><b class="pb-tag">플랫폼</b>도구는 어디에 있고 무엇이 어디로 가는가</p>
         <p class="pb-d">아이템을 문장으로 만들었으면, 그것을 <strong>실제로 보이는 자리</strong>에 올리는 일이 남습니다. 이 판은 <strong>Claude Code · GitHub · Vercel</strong> 셋이 어떻게 이어지는지를 여섯 장으로 풉니다 — ① 네 도구의 역할 · ② 세 가지 연결 · ③ 처음 한 번 설정(코드 가져오기 → Claude Code 연결 → Vercel 연결) · ④ <strong>수정에서 배포까지 일곱 걸음</strong>(수정 목표 → AI에 요청 → 미리보기 → 저장 → Commit → Push → 배포 확인) · ⑤ <strong>어디에서 멈췄을까</strong>(「Commit했는데 GitHub에 없다」 「내 컴퓨터에서만 된다」 등 다섯 갈래) · ⑥ 관광 수업 실습 — <strong>안동 안내 사이트</strong>의 제목 고치기 · 관광지 카드 더하기 · 모바일 화면 손보기.</p>
         <p class="pb-tags"><a class="mapl form plat" href="website-edit-deploy-guide.html" target="_blank" rel="noopener">AI와 함께 웹사이트 수정하기 · 여섯 장 좌우 넘김 ↗</a><span class="pb-src">사업계획서의 <b>실현 가능성</b> 칸에 「어떻게 만들 것인가」를 적을 때 근거가 되는 자리입니다.</span></p>
+      
+        <figure class="pb-fig">
+          <a href="images/website-hosting-8panel.webp" target="_blank" rel="noopener"><img src="images/website-hosting-8panel.webp" alt="웹사이트를 인터넷에 올리는 법 여덟 칸 만화 — ① 친구들도 볼 수 있을까 ② 서버에 저장한다 ③ 가게에 빗대기(내용=상품, 호스팅=공간, 도메인=주소, 클라우드=빌려주는 곳) ④ AWS란 무엇인가 ⑤ 그 페이지는 안내 페이지일 뿐 ⑥ 무료의 뜻 ⑦ 한국 서비스 넷(네이버 클라우드·NHN Cloud·카페24·가비아) ⑧ 우리 수업에서 고르는 법" loading="lazy" width="1312" height="1199" /></a>
+          <figcaption><strong>그 전에 — 「어디에 올리나」</strong>를 여덟 칸으로 먼저 봅니다. 위 여섯 장이 <em>고치고 올리는 절차</em>라면, 이 만화는 그 절차가 딛고 선 <strong>바닥</strong>입니다.<br />
+          <strong>③번 칸 하나만 기억해도 됩니다</strong> — <b>웹사이트 내용 = 가게 안의 상품</b> · <b>호스팅 = 가게가 들어서는 공간</b> · <b>도메인 = 가게 주소</b> · <b>클라우드 = 공간과 시설을 빌려주는 곳</b>. 창업 수업에서 점포와 임대차를 말할 때 쓰는 말이 그대로 옮겨 옵니다.<br />
+          <strong>⑥번은 돈 이야기입니다</strong> — <em>「무료」는 대개 기간이나 사용량까지만</em>입니다. 사업계획서의 <strong>비용 추정</strong> 칸에 서버비를 적을 때 이 대목이 근거가 됩니다. <strong>⑧번</strong>은 고르는 순서입니다 — <em>간단한 소개 사이트면 웹호스팅으로 충분하고</em>, 회원가입·예약이 필요할 때 클라우드를 견줍니다. 우리 수업 사이트는 그중 <strong>가장 간단한 길</strong>(GitHub + Vercel)로 만들었습니다.</figcaption>
+        </figure>
       </div>
 
       <p class="learn-part lp-core" id="ch02"><span class="num">02</span>아이디어는 문제에서 나온다</p>
