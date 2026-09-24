@@ -1013,6 +1013,7 @@
     .pz-ov { position: fixed; inset: 0; z-index: 9999; background: rgba(10,18,28,.86); display: flex; align-items: center; justify-content: center; padding: 16px; cursor: zoom-out; }
     .pz-ov img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 6px; box-shadow: 0 10px 40px rgba(0,0,0,.45); }
     .learn-article .learn-fig.hk-poster img { cursor: zoom-in; }
+    .learn-article .stcomic.zoom .stc-slide img { cursor: zoom-in; }
     /* 포스터 옆에 설명 — 그림 오른쪽에 세로 가운데로 세운다. 좁은 화면에서는 아래로 */
     .learn-article .learn-fig.hk-poster.side {
       max-width: none; display: grid; grid-template-columns: minmax(0, 1fr) 300px minmax(0, 1fr);
@@ -2029,6 +2030,37 @@
         </div>
       </div>
 
+      <p class="mini-note" id="기술수용만화"><strong>기술수용 이론을 만화 네 장으로</strong> — <strong>TAM → TRAM → UTAUT2 → 혁신저항 · PAM · 서비스 디자인</strong>. <em>처음 수용 → 개인의 기술준비 → 통합적 수용 → 저항과 지속이용</em> 순서로 이어 읽으십시오.</p>
+
+      <div class="stcomic fit zoom">
+        <div class="stc-viewer" tabindex="0" aria-roledescription="캐러셀" aria-label="기술수용 이론 만화 — 네 장">
+          <div class="stc-track">
+            <section class="stc-slide" aria-label="1. 기술수용모델(TAM) 기초와 적용">
+              <p class="stc-head"><span class="stc-title">1. 기술수용모델(TAM) 기초와 적용</span><span class="stc-count">1 / 4</span></p>
+              <img src="images/tech-acceptance-comic-tam.webp" alt="기술수용모델(TAM) 기초와 적용 만화 — ① 새로운 관광 앱, 왜 쓰게 될까? TAM은 사람들이 새로운 기술을 수용하는 과정을 설명하는 이론. ② 지각된 유용성: 지도 · 일정관리 · 추천 명소처럼 기술이 나에게 도움을 준다고 느끼는 정도. ③ 지각된 사용용이성: 직관적인 화면 · 간단한 조작 · 처음 써도 쉽게 이해. ④ 전체 흐름: 지각된 유용성 + 지각된 사용용이성 → 사용태도/사용의도 → 실제사용. 핵심: 유용하고 쉬울수록 사용의도가 높아진다." />
+            </section>
+            <section class="stc-slide" aria-label="2. 확장 TAM · 기술준비수용모델(TRAM)">
+              <p class="stc-head"><span class="stc-title">2. 확장 TAM · 기술준비수용모델(TRAM)</span><span class="stc-count">2 / 4</span></p>
+              <img loading="lazy" src="images/tech-acceptance-comic-tram.webp" alt="확장 TAM · 기술준비수용모델(TRAM) 만화 — ① TRAM은 사람의 기술 준비도와 기술수용을 함께 본다(TAM + 기술준비도). ② 기술준비도의 긍정적 요인: 낙관성 · 혁신성. ③ 부정적 요인: 불편감 · 불안감(개인정보 · 오류 걱정). ④ 전체 흐름: 낙관성 · 혁신성은 수용을 높이고(+), 불편감 · 불안감은 낮춘다(−) → 지각된 유용성 · 사용용이성 → 사용의도. 핵심: 기술을 받아들이는 마음의 준비가 수용에 큰 영향을 준다." />
+            </section>
+            <section class="stc-slide" aria-label="3. UTAUT2와 통합기술수용 접근">
+              <p class="stc-head"><span class="stc-title">3. UTAUT2와 통합기술수용 접근</span><span class="stc-count">3 / 4</span></p>
+              <img loading="lazy" src="images/tech-acceptance-comic-utaut2.webp" alt="UTAUT2와 통합기술수용 접근 만화 — ① 새로운 관광 플랫폼, 왜 사람마다 다를까? UTAUT2는 여러 수용요인을 통합해 설명하는 모형. ② 핵심 수용요인: 성과기대 · 노력기대 · 사회적 영향. ③ 일상적 사용을 설명하는 추가 요인: 촉진조건 · 쾌락동기 · 가격가치 · 습관. ④ 일곱 요인 → 사용의도 → 실제사용. 핵심: 유용함, 쉬움, 주변 영향, 즐거움, 비용가치, 습관이 함께 사용을 설명한다." />
+            </section>
+            <section class="stc-slide" aria-label="4. 혁신저항 · 후기수용모형(PAM)과 서비스 디자인">
+              <p class="stc-head"><span class="stc-title">4. 혁신저항 · 후기수용모형(PAM)과 서비스 디자인</span><span class="stc-count">4 / 4</span></p>
+              <img loading="lazy" src="images/tech-acceptance-comic-pam.webp" alt="혁신저항 · 후기수용모형(PAM)과 서비스 디자인 만화 — ① 혁신저항: 복잡함 · 바꾸기 귀찮음 · 위험 걱정 · 기존 방식 선호. ② 수용 이후의 평가: 만족 · 유용성 확인. ③ 만족 + 유용성 확인 → 지속이용의도 → 재이용/추천. ④ 서비스 디자인과의 연계: 탐색 → 이용 → 문제발생 → 개선 → 재이용, 이용자 저항을 줄이고 만족을 높이도록 경험을 설계. 핵심: 저항은 줄이고, 만족과 경험개선은 높여야 지속이용이 생긴다." />
+            </section>
+          </div>
+          <button class="stc-nav stc-prev" type="button" aria-label="이전 그림">‹</button>
+          <button class="stc-nav stc-next" type="button" aria-label="다음 그림">›</button>
+        </div>
+        <p class="stc-dots">
+          <button class="stc-dot is-on" type="button" data-i="0" aria-label="1. 기술수용모델(TAM) 기초와 적용 보기"></button><button class="stc-dot" type="button" data-i="1" aria-label="2. 확장 TAM · 기술준비수용모델(TRAM) 보기"></button><button class="stc-dot" type="button" data-i="2" aria-label="3. UTAUT2와 통합기술수용 접근 보기"></button><button class="stc-dot" type="button" data-i="3" aria-label="4. 혁신저항 · 후기수용모형(PAM)과 서비스 디자인 보기"></button>
+        </p>
+        <p class="stc-hint">좌 · 우 버튼이나 아래 점을 누르고, 휴대폰에서는 화면을 옆으로 밉니다. <b>그림을 누르면 크게</b> 볼 수 있습니다.</p>
+      </div>
+
       <p class="learn-part pt-learn" id="척도개발"><span class="pt">보태기</span>척도개발 5편 — 스마트관광을 어떻게 재는가</p>
       <p>위 다섯 장이 <strong>스마트 관광이 무엇인가</strong>를 세웠다면, 이 열한 장은 <strong>그것을 어떻게 재는가</strong>로 넘어갑니다 — <strong>여행업 · 외식업 · 컨벤션 · 숙박업 · 항공산업</strong> 다섯 편의 척도개발 연구입니다. 좌우로 넘기며 훑거나, 오른쪽 「전체 펼쳐 보기」로 한 번에 읽으십시오.</p>
       <p class="dltags"><a class="mapl form y" href="smart-tourism-scale-slides.html" target="_blank" rel="noopener">슬라이드 11장 — 웹에서 넘겨 보기 ↗</a><a class="mapl form y" href="assets/smart-tourism-scale-development-review.docx" download="스마트관광_척도개발_복습노트_통합판.docx">척도개발 5편 복습 노트 ⤓ DOCX</a><a class="mapl form" href="assets/smart-tourism-scale-slides.pptx" download="스마트관광_척도개발_복습노트_슬라이드.pptx">같은 슬라이드 ⤓ PPTX</a><span class="dl-src">박소영 외(2024–2025) 다섯 편을 수업용으로 묶은 것입니다. <b>파트 07 연구</b>로 넘어가기 전에 펴 보십시오.<br /><b>셋은 같은 내용입니다</b> — <b>슬라이드</b>는 수업에서 띄우는 판(<b>← →</b> 로 넘기고 <b>F</b> 로 전체화면), <b>DOCX</b>는 읽고 인쇄하는 3쪽 노트, <b>PPTX</b>는 직접 고쳐 쓸 때 씁니다.</span></p>
@@ -2521,6 +2553,27 @@
       var im = document.createElement('img');
       im.src = a.getAttribute('href');
       im.alt = (a.querySelector('img') || {}).alt || '';
+      ov.appendChild(im);
+      function close() { ov.remove(); document.removeEventListener('keydown', onKey); }
+      function onKey(ev) { if (ev.key === 'Escape') close(); }
+      ov.addEventListener('click', close);
+      document.addEventListener('keydown', onKey);
+      document.body.appendChild(ov);
+    });
+  });
+})();
+</script>
+<script>
+/* 만화 넘김 확대 — .stcomic.zoom 의 그림을 누르면 포스터와 같은 방식으로 크게 띄운다 */
+(function () {
+  document.querySelectorAll('.stcomic.zoom .stc-slide img').forEach(function (img) {
+    img.addEventListener('click', function () {
+      var ov = document.createElement('div');
+      ov.className = 'pz-ov';
+      ov.setAttribute('role', 'dialog');
+      var im = document.createElement('img');
+      im.src = img.getAttribute('src');
+      im.alt = img.alt;
       ov.appendChild(im);
       function close() { ov.remove(); document.removeEventListener('keydown', onKey); }
       function onKey(ev) { if (ev.key === 'Escape') close(); }
