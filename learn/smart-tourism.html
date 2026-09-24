@@ -1003,12 +1003,19 @@
     .pz-ov img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 6px; box-shadow: 0 10px 40px rgba(0,0,0,.45); }
     .learn-article .learn-fig.hk-poster img { cursor: zoom-in; }
     /* 포스터 옆에 설명 — 그림 오른쪽에 세로 가운데로 세운다. 좁은 화면에서는 아래로 */
-    .learn-article .learn-fig.hk-poster.side { max-width: 640px; display: flex; align-items: center; gap: 20px; }
-    .learn-article .learn-fig.hk-poster.side > a { flex: 0 0 300px; margin: 0; }
-    .learn-article .learn-fig.hk-poster.side figcaption.cap-side { flex: 1 1 0; min-width: 0; white-space: normal; word-break: keep-all; margin: 0; text-align: center; font-size: 12.5px; line-height: 1.8; }
-    @media (max-width: 620px) {
-      .learn-article .learn-fig.hk-poster.side { flex-direction: column; gap: 8px; }
-      .learn-article .learn-fig.hk-poster.side > a { flex-basis: auto; width: 100%; max-width: 300px; }
+    .learn-article .learn-fig.hk-poster.side {
+      max-width: none; display: grid; grid-template-columns: minmax(0, 1fr) 300px minmax(0, 1fr);
+      align-items: center; column-gap: 22px;
+    }
+    .learn-article .learn-fig.hk-poster.side > a { grid-column: 2; width: 300px; max-width: 300px; margin: 0; }
+    .learn-article .learn-fig.hk-poster.side figcaption.cap-side {
+      grid-column: 3; min-width: 0; margin: 0; text-align: center; white-space: normal; word-break: keep-all;
+      font-size: 12.5px; line-height: 1.8;
+    }
+    @media (max-width: 760px) {
+      .learn-article .learn-fig.hk-poster.side { grid-template-columns: 1fr; row-gap: 8px; justify-items: center; }
+      .learn-article .learn-fig.hk-poster.side > a { grid-column: 1; width: 100%; }
+      .learn-article .learn-fig.hk-poster.side figcaption.cap-side { grid-column: 1; }
     }
     .learn-article .learn-fig.ax-form { margin: 16px 0 22px; padding: 0; border: 0; border-radius: 0; background: transparent; }
     .learn-article .learn-fig.ax-form img { border-radius: 8px; }
