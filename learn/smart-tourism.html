@@ -1059,6 +1059,16 @@
     /* 주간 운영 — 출석부 · 발표 현황과 같은 초록 줄기로 묶는다. */
     .learn-article .syl-box .syl-t a.grn-link { color: #17694a; border-bottom: 2px solid #9ccdb4; }
     .learn-article .syl-box .syl-t a.grn-link:hover { color: #0f4a33; border-bottom-color: #17694a; }
+    /* 형광펜 밑줄 — 글자 아래를 파랗게 칠한다. 밑줄 한 가닥보다 굵게 잡힌다 (2026-09-24) */
+    .learn-article .syl-box .syl-t a.hl-link {
+      color: #12395f; border-bottom: 0;
+      background: linear-gradient(transparent 58%, #9fd0f5 58%, #9fd0f5 94%, transparent 94%);
+      padding: 0 2px;
+    }
+    .learn-article .syl-box .syl-t a.hl-link:hover {
+      color: #0b2741;
+      background: linear-gradient(transparent 12%, #7cc0f2 12%, #7cc0f2 94%, transparent 94%);
+    }
     /* 설명이 긴 그림은 줄 머리를 맞춘다 — 가운데 정렬이면 읽는 자리가 매 줄 달라진다 (2026-09-23) */
     .learn-article .learn-fig.cap-left figcaption { text-align: left; }
     .learn-article .learn-fig.ax-form figcaption {
@@ -1097,7 +1107,7 @@
           <p class="rb-thu"><b>목요일 수업</b><a class="rt-d" href="smart-tourism-presentation-status.html">9/3</a><a class="rt-d" href="smart-tourism-presentation-status.html">10/1</a><a class="rt-d" href="smart-tourism-presentation-status.html">10/29</a><a class="rt-d" href="smart-tourism-presentation-status.html">11/19</a><span class="rt-n"><b>네 번만</b> 모입니다 — 각 <b>3시간</b>(09:00 – 12:00) · 사회대 3402호. 나머지 주는 <b>수요일만</b>입니다.</span></p>
         </div>
         <div class="syl-box">
-          <p class="syl-t"><a class="grn-link" href="smart-tourism-weekly-plan.html" target="_blank" rel="noopener">주간 수업 운영 · 학생 발표 배정 — 1~15주차 한 장 ↗</a></p>
+          <p class="syl-t"><a class="hl-link" href="smart-tourism-weekly-plan.html" target="_blank" rel="noopener">주간 수업 운영 · 학생 발표 배정 — 1~15주차 한 장 ↗</a></p>
           <ol class="kwlist syl-kw">
             <li><b>한 주의 크기</b><span><strong>150분(3시수)</strong> — 수요일 <strong>100분</strong> + 목요일 <strong>50분</strong>으로 나뉩니다.</span></li>
             <li><b>한 주의 구성</b><span><strong>이론</strong>(논문 · 책 · 개념 정리) · <strong>영상</strong> · <strong>복습</strong> · <strong>학생 발표</strong> · <strong>실습</strong>(손으로 만드는 것)</span></li>
