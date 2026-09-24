@@ -1115,6 +1115,16 @@ body.mod-smart .learn-article .lw > p.mini-note { max-width: 820px; }
 }
 .learn-article .dltags a.mapl.form.red:hover { background: #98291d; border-color: #98291d; color: #fff; }
 
+/* 같은 급의 자료 둘을 나란히 — 「보는」 자료와 「쓰는」 자료처럼 짝을 이룰 때. */
+.learn-article .dltags-pair {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px 18px;
+  margin: 14px 0 6px;
+}
+.learn-article .dltags-pair .dltags { margin: 0; }
+@media (max-width: 760px) {
+  .learn-article .dltags-pair { grid-template-columns: 1fr; }
+}
+
 /* 인성면접 20문 — 달력처럼 세 과목이 함께 쓰는 취업 자료.
    연결되는 노란 스티키노트 페이지와 색을 맞춘다. */
 .learn-article .syl-box.job {
