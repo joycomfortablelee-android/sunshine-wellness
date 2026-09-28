@@ -252,6 +252,21 @@
     .learn-article .what-box .wb-goal { margin: 0 0 12px; padding: 11px 14px; border-left: 3px solid #2563a8; border-radius: 0 10px 10px 0; background: #f3f8fd; font-size: 13px; line-height: 1.85; color: #34495e; }
     .learn-article .what-box .wb-goal .wb-gt { display: inline-block; margin-right: 8px; padding: 1px 8px; border-radius: 999px; background: #2563a8; color: #fff; font-size: 11px; font-weight: 800; vertical-align: 1px; }
     .learn-article .what-box .wb-goal strong { color: #17365d; }
+    /* 목표 여섯 — 한 줄에 하나씩, 번호를 달아 밟는 순서가 보이게. */
+    .learn-article .what-box .wb-goals {
+      list-style: none; counter-reset: wg; margin: 0 0 12px; padding: 0 0 0 2px;
+    }
+    .learn-article .what-box .wb-goals > li {
+      counter-increment: wg; position: relative; padding: 2px 0 2px 24px;
+      font-size: 12.5px; line-height: 1.75; color: #4d5f74;
+    }
+    .learn-article .what-box .wb-goals > li::before {
+      content: counter(wg); position: absolute; left: 0; top: 4px;
+      width: 16px; height: 16px; border-radius: 999px;
+      background: #dfe9f5; color: #2563a8;
+      font-size: 10px; font-weight: 800; line-height: 16px; text-align: center;
+    }
+    .learn-article .what-box .wb-goals > li b { font-weight: 800; color: #17365d; }
     .learn-article .what-box .wb-wrap { border: 1px solid #d9e6f4; border-radius: 12px; background: #fff; overflow: hidden; }
     .learn-article .what-box table { width: 100%; border-collapse: collapse; font-size: 13px; }
     .learn-article .what-box th, .learn-article .what-box td {
@@ -903,7 +918,15 @@
 
       <section class="what-box" aria-labelledby="what-title">
         <p class="wb-t" id="what-title">이 수업은 무엇을 하나<span>빅데이터 분석 = <b>실전 감각 편</b> · 데이터 분석 = <b>이론 기초 편</b></span></p>
-        <p class="wb-goal"><b class="wb-gt">수업 목표</b>이 수업은 관광 · 호스피탈리티 현장의 물음을 <strong>데이터로 풀어 보는 실전 감각</strong>을 기르는 데 목적을 둡니다. 그 출발은 <strong>이론적 관점과 각 분야의 도메인 지식</strong>에 기대어 현장의 물음을 <strong>스스로 데이터로 확인해 보려는 태도</strong>입니다. 학생은 <strong>빅데이터가 무엇인지</strong> 이해하고, 공공 · 민간 데이터 창구에서 <strong>필요한 데이터를 찾아낼 수 있습니다</strong>. 이어 <strong>분석 다섯 걸음과 대표 기법</strong>으로 문제를 세우고, Orange · 빅카인즈에서 SPSS, 파이썬 · R에 이르는 <strong>도구로 분석을 직접 실행</strong>하며, 그 결과를 시각화해 <strong>의사결정으로 이어지는 이야기</strong>로 발표할 수 있습니다. 끝으로 <strong>공모전 결과물과 ADsP 자격증</strong>으로 자신의 실력과 역량을 증명하는 데까지 나아갑니다.</p>
+        <p class="wb-goal"><b class="wb-gt">수업 목표</b>관광 · 호스피탈리티 현장의 물음을 <strong>데이터로 풀어 보는 실전 감각</strong>을 기릅니다. 출발은 <strong>이론과 도메인 지식에 기대어 스스로 확인해 보려는 태도</strong>입니다.</p>
+        <ol class="wb-goals">
+          <li><b>빅데이터가 무엇인지</b> 이해한다</li>
+          <li>공공 · 민간 창구에서 <b>필요한 데이터를 찾아낸다</b></li>
+          <li>다섯 걸음과 대표 기법으로 <b>문제를 세운다</b></li>
+          <li>Orange · 빅카인즈 · SPSS · 파이썬 · R로 <b>직접 분석한다</b></li>
+          <li>결과를 시각화해 <b>의사결정 이야기로 발표한다</b></li>
+          <li>공모전 결과물과 ADsP로 <b>증명한다</b></li>
+        </ol>
         <div class="wb-wrap">
           <table>
             <thead><tr><th scope="col">질문</th><th scope="col">뜻</th><th scope="col">편</th><th scope="col">어디서 하나</th></tr></thead>
