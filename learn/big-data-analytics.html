@@ -355,6 +355,44 @@
     .learn-article .what-box .wb-tag.thry { background: #5b3f7a; }
     .learn-article .what-box .wb-tag.tech { background: #1f6a4d; }
     .learn-article .what-box .wb-tag.cert { background: #a8681f; }
+    /* 네 편 큐브 - 표의 「편」 알약 넷(이론 · 기술 · 실전 · 증명)을 2×2 네모 블록으로 세운다.
+       색은 알약과 같은 값을 쓰고, 오른쪽 아래로 진한 그림자를 밀어 쌓은 블록처럼 보이게 한다.
+       가운데 원은 넷이 모두 한 물음(관광 현장의 물음)을 두고 돈다는 뜻. */
+    .learn-article .what-box .wb-cube { position: relative; max-width: 580px; margin: 16px auto 22px; }
+    .learn-article .what-box .wb-cube-t { text-align: center; font-size: 12.5px; font-weight: 800; color: #3a4a5c; margin: 0 0 10px; }
+    .learn-article .what-box .wb-cube ol {
+      list-style: none; margin: 0; padding: 0;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+    }
+    .learn-article .what-box .wb-cube li {
+      --c: #5b3f7a; --cd: #3d2a52; --cl: #f5f0fb;
+      aspect-ratio: 1 / 1; display: flex; flex-direction: column; gap: 6px;
+      padding: 16px 16px 14px; border-radius: 10px; margin: 0;
+      background: var(--cl); border: 2px solid var(--c);
+      box-shadow: 6px 6px 0 var(--cd);
+    }
+    .learn-article .what-box .wb-cube li.thry { --c: #5b3f7a; --cd: #3d2a52; --cl: #f5f0fb; }
+    .learn-article .what-box .wb-cube li.tech { --c: #1f6a4d; --cd: #134633; --cl: #eef7f2; }
+    .learn-article .what-box .wb-cube li.prac { --c: #2563a8; --cd: #173f6c; --cl: #eef4fb; }
+    .learn-article .what-box .wb-cube li.cert { --c: #a8681f; --cd: #6f4413; --cl: #fbf4ea; }
+    .learn-article .what-box .wb-cube .cb-h { display: flex; align-items: baseline; gap: 8px; }
+    .learn-article .what-box .wb-cube .cb-n { font-size: 26px; font-weight: 900; line-height: 1; color: var(--c); }
+    .learn-article .what-box .wb-cube .cb-ti { font-size: 19px; font-weight: 900; color: var(--c); letter-spacing: -.5px; }
+    .learn-article .what-box .wb-cube .cb-q { margin-left: auto; font-size: 11.5px; font-weight: 800; color: #fff; background: var(--c); border-radius: 999px; padding: 2px 9px; }
+    .learn-article .what-box .wb-cube .cb-d { font-size: 12.5px; line-height: 1.55; color: #33414f; word-break: keep-all; }
+    .learn-article .what-box .wb-cube .cb-p { font-size: 11px; font-weight: 700; color: var(--c); }
+    .learn-article .what-box .wb-cube .cb-l { margin-top: auto; display: flex; flex-wrap: wrap; gap: 4px; }
+    .learn-article .what-box .wb-cube .cb-mid {
+      position: absolute; left: 50%; top: calc(50% + 14px); transform: translate(-50%, -50%);
+      width: 84px; height: 84px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      text-align: center; background: #fff; border: 2px solid #2c3e50; box-shadow: 0 0 0 5px #fff;
+      font-size: 11.5px; font-weight: 800; line-height: 1.3; color: #2c3e50; word-break: keep-all;
+    }
+    @media (max-width: 620px) {
+      .learn-article .what-box .wb-cube ol { grid-template-columns: 1fr; }
+      .learn-article .what-box .wb-cube li { aspect-ratio: auto; }
+      .learn-article .what-box .wb-cube .cb-mid { display: none; }
+    }
     .learn-article .what-box .wb-l { display: flex; flex-wrap: wrap; gap: 5px; }
     .learn-article .what-box a.wb-go {
       display: inline-block; padding: 2px 9px; border-radius: 999px;
@@ -1016,6 +1054,36 @@
             <li><b>관광거점도시 육성사업 최종성과 분석 연구</b><span>전공 관광학 · 지역개발 — 도시별 <strong>최종성과 분석</strong>, 자체 평가 · 성과 관리, 보고서 작성</span><a class="wb-go" href="#p03">파트 03 다섯 걸음</a><a class="wb-go" href="#p11">파트 11 현장</a></li>
           </ul>
           <p class="wb-wn">위촉연구원 1급 · 월 3,048,330원(세전) · 석사, 또는 학사 뒤 연구경력 2년. <strong>지금 바로 낼 자리는 아닙니다</strong> — 대학원이나 연구보조를 거쳐 닿는 자리입니다. 다만 이 수업에서 익히는 말(<em>자료 분석 · 성과 분석 · 보고서</em>)이 공고의 「주요업무」 칸에 <strong class="hot-t">그대로 적혀 있습니다</strong>.</p>
+        </div>
+        <div class="wb-cube">
+          <p class="wb-cube-t">이 수업이 기르는 네 편 — 아래 표의 「편」 알약을 네모 넷으로</p>
+          <ol>
+            <li class="thry">
+              <p class="cb-h"><b class="cb-n">1</b><b class="cb-ti">이론</b><span class="cb-q">왜 · 어떻게</span></p>
+              <p class="cb-d"><strong>빅데이터가 무엇인가</strong> — 5V · DIKW · SECI.<br /><strong>다섯 걸음</strong>으로 분석을 설계한다 — 문제 정의 → 수집 → 정제 → 분석 → 시각화 · 해석.</p>
+              <p class="cb-p">논문으로 보면 · 이론적 배경 · 방법론</p>
+              <p class="cb-l"><a class="wb-go" href="#p01">파트 01</a><a class="wb-go" href="#p03">파트 03</a></p>
+            </li>
+            <li class="tech">
+              <p class="cb-h"><b class="cb-n">2</b><b class="cb-ti">기술</b><span class="cb-q">무엇으로</span></p>
+              <p class="cb-d"><strong>기법 넷</strong>을 도구로 직접 돌린다 — 기술 통계 · 텍스트 마이닝 · 군집 · 예측.<br />Orange · 빅카인즈 · <strong>SPSS</strong> · 파이썬 · R</p>
+              <p class="cb-p">논문으로 보면 · 분석</p>
+              <p class="cb-l"><a class="wb-go" href="#p04">파트 04</a><a class="wb-go" href="#p05">파트 05</a><a class="wb-go" href="#도구표">도구표</a></p>
+            </li>
+            <li class="prac">
+              <p class="cb-h"><b class="cb-n">3</b><b class="cb-ti">실전 감각</b><span class="cb-q">현장에서</span></p>
+              <p class="cb-d">현장의 물음을 <strong>연구 문제</strong>로 세우고, <strong>데이터 창구</strong>를 찾고, 결과를 그려 <strong>의사결정 이야기</strong>로 발표한다.<br /><em>KOSIS → DIKW 발표 → 피드백 (9/21 · 9/28)</em></p>
+              <p class="cb-p">논문으로 보면 · 서론 · 결과 · 논의</p>
+              <p class="cb-l"><a class="wb-go" href="#p02">파트 02</a><a class="wb-go" href="#kosis-card">KOSIS 실습</a><a class="wb-go" href="#p11">파트 11</a></p>
+            </li>
+            <li class="cert">
+              <p class="cb-h"><b class="cb-n">4</b><b class="cb-ti">증명</b><span class="cb-q">남이 알아보게</span></p>
+              <p class="cb-d"><strong>공모전 결과물</strong>과 <strong>ADsP</strong>로 실력과 역량을 남긴다.<br /><em>ADsP는 출발점이 아니라 도착점</em> — 1 · 2 · 3을 해 보고 나면 문제 속 말이 이미 써 본 말이 됩니다.</p>
+              <p class="cb-p">논문 밖 · 성과</p>
+              <p class="cb-l"><a class="wb-go" href="#p06">파트 06</a><a class="wb-go" href="#p07">파트 07</a><a class="wb-go" href="#ADsP1과목지도">ADsP 지도</a></p>
+            </li>
+          </ol>
+          <span class="cb-mid" aria-hidden="true">관광 현장의<br />물음</span>
         </div>
         <div class="wb-wrap">
           <table>
