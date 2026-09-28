@@ -748,6 +748,10 @@
     }
     .learn-article .vcards.hexa .hx-see.key { color: #14120a; font-weight: 800; }
     .learn-article .vcards.hexa .hx-see.key b { background: #14456f; border-color: #14456f; color: #fff; }
+    /* 5번 카드만 「우리가 한 것」 — 수업에서 이미 돈 한 바퀴(KOSIS → 시각화 → DIKW 발표 → 피드백)를 초록으로 갈라 적는다 */
+    .learn-article .vcards.hexa .hx-see.did b { background: #3B6259; border-color: #3B6259; color: #fff; }
+    .learn-article .vcards.hexa .hx-see.did strong { color: #2f5148; }
+    .learn-article .vcards.hexa .hx-see.did a { color: #2f5148; font-weight: 800; white-space: nowrap; }
     /* 0번 Reference — 짙은 파랑으로 세워 다섯 걸음과 성격이 다름을 보인다 */
     .learn-article .vcards.hexa > li.t-ref {
       --v-ac: #5aa7de; background: #14456f; border-color: #14456f; border-top-color: #5aa7de;
@@ -1051,7 +1055,7 @@
           <li class="t-teal"><span class="vh">수집</span><span class="vd">필요한 데이터를 모은다(공공 API·크롤링·제휴 데이터).</span><span class="hx-see key"><b>볼 것</b>어떤 데이터를 몇 개 겹쳤나 — 출처 이름을 적어 온다</span></li>
           <li class="t-gold"><span class="vh">정제(전처리)</span><span class="vd">결측·중복·오류를 걸러낸다. <em>실무 시간의 대부분이 여기 든다.</em></span><span class="hx-see"><b>볼 것</b>기간·지역 단위를 어떻게 맞췄나</span></li>
           <li class="t-violet"><span class="vh">분석</span><span class="vd">통계·기계학습으로 패턴을 찾는다.</span><span class="hx-see key"><b>볼 것</b>어떤 기법을 썼나 — 파트 04 기법 이름으로</span></li>
-          <li class="t-green"><span class="vh">시각화·해석</span><span class="vd">그래프와 지도로 보여주고, 결정으로 잇는다.</span><span class="hx-see"><b>볼 것</b>핵심 그림 한 장과 제안 한 줄</span></li>
+          <li class="t-green"><span class="vh">시각화·해석</span><span class="vd">그래프와 지도로 보여주고, 결정으로 잇는다.</span><span class="hx-see did"><b>우리가 한 것</b>KOSIS에서 데이터를 보고 → 시각화 → <strong>DIKW</strong>로 풀어 발표 → 서로 피드백 (9/21 · 9/28) <a href="kosis-gyeongbuk-foreign-residents-dikw.html" target="_blank" rel="noopener">실습 예제 ↗</a></span></li>
         </ol>
       </div>
       <ul class="reslist">
