@@ -302,7 +302,20 @@
     .learn-article .what-box tbody tr:last-child td { border-bottom: 0; }
     .learn-article .what-box tbody th[scope="row"] { font-weight: 800; color: #17365d; white-space: nowrap; }
     .learn-article .what-box .wb-m { color: #4d5f74; }
-    .learn-article .what-box .wb-s { width: 74px; }
+    .learn-article .what-box tbody th[scope="row"] { font-weight: 800; color: #17365d; white-space: normal; }
+    .learn-article .what-box tbody th[scope="row"] .wg-d {
+      display: block; margin-top: 2px;
+      font-size: 11px; line-height: 1.7; font-weight: 500; color: #7d8ea0; letter-spacing: -.2px;
+    }
+    .learn-article .what-box .wb-s { width: 78px; }
+    .learn-article .what-box .wb-s .wb-tag + .wb-tag { margin-top: 2px; }
+    /* 논문으로 보면 — 수업에서 하는 일이 논문의 어느 칸인지. 색을 눌러 목표 줄을 가리지 않게. */
+    .learn-article .what-box .wb-p { width: 116px; }
+    .learn-article .what-box .wb-p span {
+      display: inline-block; padding: 2px 9px; border-radius: 6px;
+      background: #f3eefb; color: #5b3f7a; font-size: 11px; font-weight: 700; letter-spacing: -.2px;
+    }
+    .learn-article .what-box .wb-p span.out { background: #f4f6f8; color: #7d8ea0; }
     .learn-article .what-box .wb-tag {
       display: inline-block; padding: 2px 9px; border-radius: 999px;
       font-size: 11px; font-weight: 800; color: #fff; letter-spacing: -.2px;
@@ -963,13 +976,6 @@
       <section class="what-box" aria-labelledby="what-title">
         <p class="wb-t" id="what-title">이 수업은 무엇을 하나<span>빅데이터 분석 = <b>실전 감각 편</b> · 데이터 분석 = <b>이론 기초 편</b></span></p>
         <p class="wb-goal"><b class="wb-gt">수업 목표</b>관광 · 호스피탈리티 현장의 물음을 <strong>데이터로 풀어 보는 실전 감각</strong>을 기릅니다. 출발은 <strong>이론과 도메인 지식에 기대어 스스로 확인해 보려는 태도</strong>입니다.</p>
-        <ol class="wb-goals">
-          <li><b>빅데이터가 무엇인지</b> 이해하고, 공공 · 민간 창구에서 <b>필요한 데이터를 찾아낸다</b><span class="wg-d">무엇이며, 어디에 있나 <a class="wb-go" href="#p01">파트 01 ↓</a><a class="wb-go" href="#p02">파트 02 ↓</a><a class="wb-go" href="#p10">파트 10 ↓</a></span></li>
-          <li><b>다섯 걸음</b>으로 <b>분석을 설계한다</b><span class="wg-d">문제 정의 → 수집 → 정제 → 분석 → 시각화·해석 <a class="wb-go" href="#p03">파트 03 ↓</a></span></li>
-          <li><b>대표 기법 넷</b>을 <b>도구로 직접 돌려 패턴을 찾는다</b><span class="wg-d">기술 통계·시각화 · 텍스트 마이닝·감성 분석 · 군집 분석 · 예측 분석 <a class="wb-go" href="#p04">파트 04 ↓</a><br />Orange · 빅카인즈 · SPSS · 파이썬 · R <a class="wb-go" href="#p05">파트 05 ↓</a></span></li>
-          <li>결과를 시각화해 <b>의사결정 이야기로 발표한다</b></li>
-          <li>공모전 결과물과 ADsP로 <b>증명한다</b></li>
-        </ol>
         <div class="wb-why">
           <p class="wb-wt"><b class="wb-gt why">왜 이 수업을 듣나</b>관광 데이터를 분석하는 사람을 국책연구원이 뽑습니다<a class="wb-job" href="https://kcti.plusrecruit.co.kr/#/recruitment/detail/59" target="_blank" rel="noopener">공고 원문 · 한국문화관광연구원 ↗</a></p>
           <p class="wb-wd"><strong>한국문화관광연구원 위촉직원 채용 공고 [2026-37]</strong>(접수 9/21 ~ 9/28) — 뽑는 과제 넷 가운데 <strong>둘이 관광 데이터를 다루는 자리</strong>입니다.</p>
@@ -981,36 +987,42 @@
         </div>
         <div class="wb-wrap">
           <table>
-            <thead><tr><th scope="col">질문</th><th scope="col">뜻</th><th scope="col">편</th><th scope="col">어디서 하나</th></tr></thead>
+            <thead><tr><th scope="col">수업 목표</th><th scope="col">편</th><th scope="col">논문으로 보면</th><th scope="col">어디서 하나</th></tr></thead>
             <tbody>
               <tr>
-                <th scope="row">무엇이며, 어디에 있나</th>
-                <td class="wb-m">빅데이터가 <strong>무엇인지</strong>, 데이터가 <strong>어디 있는지</strong> 안다</td>
+                <th scope="row">현장의 물음을 <b>연구 문제로 세운다</b><span class="wg-d">무엇을 알고 싶은가 — 그 바탕은 <strong>이론적 관점</strong>과 각 분야의 <strong>도메인 지식</strong></span></th>
                 <td class="wb-s"><b class="wb-tag prac">실전</b></td>
+                <td class="wb-p"><span>서론 · 연구 필요성</span></td>
+                <td class="wb-l"><a class="wb-go" href="#p03">파트 03 문제 정의</a></td>
+              </tr>
+              <tr>
+                <th scope="row">빅데이터가 <b>무엇이며, 어디에 있나</b><span class="wg-d">개념과 5V · 공공 · 민간 창구 · 없을 때 찾는 자리</span></th>
+                <td class="wb-s"><b class="wb-tag thry">이론</b><b class="wb-tag prac">실전</b></td>
+                <td class="wb-p"><span>이론적 배경 · 자료</span></td>
                 <td class="wb-l"><a class="wb-go" href="#p01">파트 01 빅데이터란</a><a class="wb-go" href="#p02">파트 02 창구들</a><a class="wb-go" href="#p10">파트 10 데이터셋</a></td>
               </tr>
               <tr>
-                <th scope="row">어떻게 하나</th>
-                <td class="wb-m"><strong>분석 방법론</strong></td>
+                <th scope="row"><b>다섯 걸음</b>으로 <b>분석을 설계한다</b><span class="wg-d">문제 정의 → 수집 → 정제 → 분석 → 시각화·해석</span></th>
                 <td class="wb-s"><b class="wb-tag thry">이론</b></td>
-                <td class="wb-l"><a class="wb-go" href="#p03">파트 03 다섯 걸음</a><a class="wb-go" href="#p04">파트 04 기법</a></td>
+                <td class="wb-p"><span>연구 설계 · 방법론</span></td>
+                <td class="wb-l"><a class="wb-go" href="#p03">파트 03 다섯 걸음</a></td>
               </tr>
               <tr>
-                <th scope="row">무엇으로 하나</th>
-                <td class="wb-m"><strong>프로그램 · 도구</strong> 기술 — Orange · 빅카인즈에서 <strong>SPSS</strong>(PC실 가능), <strong>파이썬 · R</strong>까지</td>
+                <th scope="row"><b>기법 넷</b>을 <b>도구로 직접 돌린다</b><span class="wg-d">기술 통계·시각화 · 텍스트 마이닝·감성 분석 · 군집 분석 · 예측 분석<br />Orange · 빅카인즈 · <strong>SPSS</strong>(PC실 가능) · 파이썬 · R</span></th>
                 <td class="wb-s"><b class="wb-tag tech">기술</b></td>
-                <td class="wb-l"><a class="wb-go" href="#p05">파트 05 Orange · 빅카인즈</a><a class="wb-go" href="#도구표">SPSS · 파이썬 · R</a></td>
+                <td class="wb-p"><span>분석</span></td>
+                <td class="wb-l"><a class="wb-go" href="#p04">파트 04 기법</a><a class="wb-go" href="#p05">파트 05 도구</a><a class="wb-go" href="#도구표">SPSS · 파이썬 · R</a></td>
               </tr>
               <tr>
-                <th scope="row">왜 하나</th>
-                <td class="wb-m">분석해 보려는 <strong>의지</strong> — 그 바탕은 <strong>이론적 관점</strong>과 각 분야의 <strong>도메인 지식</strong></td>
-                <td class="wb-s"><b class="wb-tag thry">이론</b></td>
+                <th scope="row">결과를 시각화해 <b>의사결정 이야기로 발표한다</b><span class="wg-d">그래프와 지도로 보여 주고, 결정으로 잇는다</span></th>
+                <td class="wb-s"><b class="wb-tag prac">실전</b></td>
+                <td class="wb-p"><span>결과 · 논의</span></td>
                 <td class="wb-l"><a class="wb-go" href="#p06">파트 06 공모전</a><a class="wb-go" href="#p11">파트 11 현장</a></td>
               </tr>
               <tr>
-                <th scope="row">어떻게 실력과 역량을 증명하나</th>
-                <td class="wb-m"><strong>공모전</strong> 결과물과 <strong>ADsP</strong> 자격증</td>
+                <th scope="row"><b>공모전 결과물과 ADsP</b>로 <b>증명한다</b><span class="wg-d">실력과 역량을 남이 알아보는 형태로 남긴다</span></th>
                 <td class="wb-s"><b class="wb-tag cert">증명</b></td>
+                <td class="wb-p"><span class="out">논문 밖 · 성과</span></td>
                 <td class="wb-l"><a class="wb-go" href="#p06">파트 06 공모전</a><a class="wb-go" href="#p07">파트 07 자격증</a><a class="wb-go" href="adsp-subject1-50q-workbook.html" target="_blank" rel="noopener">50문항 실전훈련 판 ↗</a></td>
               </tr>
             </tbody>
