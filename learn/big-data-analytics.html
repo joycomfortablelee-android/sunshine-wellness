@@ -4,11 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>빅데이터 분석 — 여행의 흔적을 읽다 | 선샤인 웰니스 교육자료</title>
-  <meta name="description" content="빅데이터의 정의(3V·5V), 관광 데이터의 원천(통신·카드·SNS·검색·후기·공공), 분석의 5단계, 핵심 분석 기법(기술통계·감성분석·군집·예측), 그리고 부산과 이 웹사이트를 사례로 본 관광 빅데이터." />
+  <meta name="description" content="관광 빅데이터 분석 강의 — 빅데이터 개념(5V · DIKW), KOSIS · 한국관광 데이터랩 · 네이버 데이터랩 등 데이터 창구, 분석 다섯 걸음, 군집분석 · 텍스트마이닝 · 예측 분석, Orange · SPSS · 파이썬 도구, 관광 빅데이터 공모전 수상작, ADsP · 빅데이터분석기사 자격증까지. 국립경국대학교 관광경영학과." />
   <link rel="canonical" href="https://www.sunshinewellness.co.kr/learn/big-data-analytics.html" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Course",
+   "name":"관광빅데이터분석 — 빅데이터 분석, 여행의 흔적을 읽다",
+   "description":"관광 · 호스피탈리티 현장의 물음을 데이터로 풀어 보는 빅데이터 분석 강의. 빅데이터 개념(5V · DIKW), 데이터 창구(KOSIS · 한국관광 데이터랩 · 네이버 데이터랩), 분석 다섯 걸음, 군집분석 · 텍스트마이닝 · 예측 분석, Orange · SPSS · 파이썬, 빅데이터 공모전, ADsP · 빅데이터분석기사 자격증.",
+   "inLanguage":"ko",
+   "url":"https://www.sunshinewellness.co.kr/learn/big-data-analytics.html",
+   "provider":{"@type":"CollegeOrUniversity","name":"국립경국대학교"},
+   "instructor":{"@type":"Person","name":"이유안"},
+   "educationalLevel":"학부 3학년",
+   "teaches":["빅데이터 개념","DIKW","KOSIS","한국관광 데이터랩","네이버 데이터랩","군집분석","텍스트마이닝","예측 분석","Orange Data Mining","SPSS","ADsP","빅데이터분석기사","관광 빅데이터 공모전"]}
+  </script>
   <meta property="og:type" content="article" />
   <meta property="og:title" content="빅데이터 분석 — 여행의 흔적을 읽다" />
-  <meta property="og:description" content="관광 데이터의 원천과 분석 과정·기법을 부산 사례로 배우는 입문" />
+  <meta property="og:description" content="관광 데이터의 창구 · 분석 다섯 걸음 · 기법 · 도구 · 공모전 · ADsP 자격증까지 — 관광 빅데이터 분석 입문" />
   <link rel="icon" href="data:," />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="learn.css?v=165" />
@@ -145,7 +156,12 @@
     }
     .learn-article .reslist li.boxed-green .meta { border-top: 1px dashed #bcd3cd; margin-top: 9px; padding-top: 7px; }
     /* 공모 상자 바로 아래 붙는 카드 - 그 대회가 쓰는 데이터 창구다. 상자와 한 벌로 보이게 붙여 둔다. */
-    .learn-article .reslist.under-box { margin: -14px 0 26px; }
+    .learn-article .reslist.under-box { margin: 0 0 26px; }
+    /* 2026-09-28 서랍 한 벌 - 공모 상자(갈색)가 제목, 아래 데이터 창구 카드(초록)가 딸린 서랍.
+       상자는 아래 모서리를, 카드는 위 모서리를 펴서 맞붙이고, 카드는 얇은 연초록 테두리 + 왼쪽 진초록 띠만 남겨
+       상자보다 한 단계 가볍게 둔다(굵은 2px 선 · 그림자는 이 자리에서만 걷음). */
+    .learn-article .task-box.bd-later:has(+ .reslist.under-box) { margin-bottom: 0; border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+    .learn-article .reslist.under-box > li.boxed-green { margin-bottom: 0; border: 1px solid #bcd3cd; border-top: 0; border-left: 4px solid #3B6259; border-radius: 0 0 14px 14px; box-shadow: none; }
     /* 페이지를 닫는 한 문단 — 다음 모듈로 넘기는 말이라 본문과 한 칸 띄우고 살짝 눌러 둔다. */
     .learn-article .mod-close {
       margin: 30px 0 4px; padding-top: 16px; border-top: 1px dashed var(--line);
@@ -608,6 +624,8 @@
     .learn-article .syl-box.cls .gtable td.cls-adsp strong { color: #35604f; white-space: nowrap; }
     .learn-article .syl-box.cls .gtable td.cls-att small.late { display: inline; }
     .learn-article .syl-box.cls .gtable td.cls-att small.cls-note { font-style: normal; color: #a08b4a; }
+    /* 학생 이름은 끝 글자를 ○로 가려 적는다(검색 노출 대비). ○에서 줄이 갈리지 않게 한 덩어리로. */
+    .learn-article .syl-box.cls .nm { white-space: nowrap; }
     /* 지각 - 출석에는 넣되 이름 옆에 작게 적어 둔다. */
     .learn-article .cls-att small.late { margin-left: 2px; font-size: 10.5px; font-weight: 700; color: #a8681f; }
     /* 결석 칸 - 출석과 더해 12명이 되는지 눈으로 검산하는 자리. 눈에 덜 걸리게 눌러 둔다. */
@@ -645,7 +663,7 @@
       font-size: 19px; font-weight: 800; letter-spacing: -.3px;
       box-shadow: 0 1px 0 rgba(16,32,48,.04);
     }
-    .learn-article .learn-part.pt-part:first-of-type { margin-top: 14px; }
+    .learn-article p.learn-part.pt-part:first-of-type { margin-top: 14px; }
     .learn-article .learn-part.pt-part .pt {
       grid-column: 1; grid-row: 1 / span 2;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -1339,34 +1357,34 @@
                   <td class="cls-kw"><a class="kw" href="#what-title">#과목소개</a> <a class="kw" href="#p01">#빅데이터개념</a> <a class="kw" href="#p03">#분석방법</a> <a class="kw" href="#p05">#분석도구</a> <a class="kw" href="#도구표">#Orange설치</a><small>홈페이지 소개 · 교재 메일 발송</small></td>
                   <td class="cls-pres cls-none">—</td>
                   <td class="cls-adsp"><strong>시험 소개</strong><small>문제 풀이 전</small></td>
-                  <td class="cls-att">고은서 · 김윤서 · 박상준 · 서효원 · 이영훈 · 장민주 · 정연승 <strong>(7명)</strong></td>
-                  <td class="cls-abs"><b>5명</b> — 김다애 · 김대호 · 김준호 · 임준혁 · 한솔</td>
+                  <td class="cls-att"><span class="nm">고은○</span> · <span class="nm">김윤○</span> · <span class="nm">박상○</span> · <span class="nm">서효○</span> · <span class="nm">이영○</span> · <span class="nm">장민○</span> · <span class="nm">정연○</span> <strong>(7명)</strong></td>
+                  <td class="cls-abs"><b>5명</b> — <span class="nm">김다○</span> · <span class="nm">김대○</span> · <span class="nm">김준○</span> · <span class="nm">임준○</span> · <span class="nm">한○</span></td>
                 </tr>
                 <tr>
                   <td>9/14 (2회)</td>
                   <td class="cls-kw"><a class="kw" href="#p04">#지도학습</a> <a class="kw" href="#p04">#비지도학습</a> <a class="kw" href="#empathy-case">#군집분석</a> <a class="kw" href="#src-tour">#빅데이터플랫폼</a><small>유아교사 공감능력 군집분석 사례 · <a href="#empathy-case">파트 04 사례 논문 ↓</a></small></td>
                   <td class="cls-pres cls-none">—</td>
                   <td class="cls-adsp"><strong>Q1~29</strong><small>데이터 · 정보, DB, 빅데이터 가치 · 영향, 비즈니스 모델, 위기요인 · 통제방안</small></td>
-                  <td class="cls-att">고은서 · 김윤서 · 서효원 · 이영훈 · 임준혁 · 장민주 · 정연승 · 한솔 <strong>(8명)</strong></td>
-                  <td class="cls-abs"><b>4명</b> — 김다애 · 김대호 · 김준호 · 박상준</td>
+                  <td class="cls-att"><span class="nm">고은○</span> · <span class="nm">김윤○</span> · <span class="nm">서효○</span> · <span class="nm">이영○</span> · <span class="nm">임준○</span> · <span class="nm">장민○</span> · <span class="nm">정연○</span> · <span class="nm">한○</span> <strong>(8명)</strong></td>
+                  <td class="cls-abs"><b>4명</b> — <span class="nm">김다○</span> · <span class="nm">김대○</span> · <span class="nm">김준○</span> · <span class="nm">박상○</span></td>
                 </tr>
                 <tr>
                   <td>9/21 (3회)</td>
                   <td class="cls-kw"><a class="kw" href="#kosis-card">#KOSIS</a> <a class="kw" href="#kosis-card">#시각화</a> <a class="kw" href="#dikw">#DIKW</a> <a class="kw" href="#dikw">#관광적용</a></td>
-                  <td class="cls-pres"><small>DIKW 관광 적용</small><strong>임준혁 · 김윤서 · 고은서 · 서효원 · 박상준</strong><small>9/28 예정 — 한솔 · 김준호 · 이영훈 · 정연승 · 장민주</small></td>
+                  <td class="cls-pres"><small>DIKW 관광 적용</small><strong><span class="nm">임준○</span> · <span class="nm">김윤○</span> · <span class="nm">고은○</span> · <span class="nm">서효○</span> · <span class="nm">박상○</span></strong><small>9/28 예정 — <span class="nm">한○</span> · <span class="nm">김준○</span> · <span class="nm">이영○</span> · <span class="nm">정연○</span> · <span class="nm">장민○</span></small></td>
                   <td class="cls-adsp"><strong>Q30~37</strong><small>ADsP 이력서 활용</small></td>
-                  <td class="cls-att">고은서 · 김윤서 · 김준호 · 박상준 · 서효원 · 이영훈 · 임준혁 · 장민주 · 정연승 · 한솔 <strong>(10명)</strong></td>
-                  <td class="cls-abs"><b>2명</b> — 김다애 · 김대호</td>
+                  <td class="cls-att"><span class="nm">고은○</span> · <span class="nm">김윤○</span> · <span class="nm">김준○</span> · <span class="nm">박상○</span> · <span class="nm">서효○</span> · <span class="nm">이영○</span> · <span class="nm">임준○</span> · <span class="nm">장민○</span> · <span class="nm">정연○</span> · <span class="nm">한○</span> <strong>(10명)</strong></td>
+                  <td class="cls-abs"><b>2명</b> — <span class="nm">김다○</span> · <span class="nm">김대○</span></td>
                 </tr>
                 <tr>
                   <td>9/28 (4회)</td>
                   <td class="cls-kw"><a class="kw" href="#seoul-bigdata">#경진대회사례</a> <a class="kw" href="#seoul-bigdata">#보행환경</a> <a class="kw" href="#seoul-bigdata">#AI분석</a><small>2026 서울시 빅데이터 활용 경진대회 분석 부문 최우수상 「보행 소년단」 발표 영상 — <em>AI가 걸어본 서울 관광지 보행환경</em> · <a href="#seoul-bigdata">파트 06의 서울 캠퍼스 카드 ↓</a></small>
                     <a class="kw" href="#arirang-case">#텍스트마이닝</a> <a class="kw" href="#arirang-case">#아리랑사례</a><small>밀양아리랑 · 정선아리랑 온라인 텍스트 비교 — 빈도분석 → 바이그램 → TF-IDF → LDA 토픽 · <a href="#arirang-case">파트 04 사례 논문 ↓</a></small>
                     <a class="kw" href="#naver-datalab">#네이버데이터랩API</a><small>검색어 트렌드 · 쇼핑인사이트를 무료 오픈 API로 — 최고 시점을 100으로 둔 상대값, 연령 · 성별 · 기기별 · <a href="#naver-datalab">관련 링크 ↓</a></small></td>
-                  <td class="cls-pres"><small>DIKW 관광 적용 · 그 자리에서 피드백</small><strong>김준호 · 이영훈 · 장민주 · 정연승</strong><small>예정자 다섯 중 <strong class="hot-t">한솔만 결석</strong>해 발표가 남았습니다.</small></td>
+                  <td class="cls-pres"><small>DIKW 관광 적용 · 그 자리에서 피드백</small><strong><span class="nm">김준○</span> · <span class="nm">이영○</span> · <span class="nm">장민○</span> · <span class="nm">정연○</span></strong><small>예정자 다섯 중 <strong class="hot-t"><span class="nm">한○</span>만 결석</strong>해 발표가 남았습니다.</small></td>
                   <td class="cls-adsp"><strong>1과목 50문항 중 1~10번</strong><small><a href="adsp-subject1-50q-workbook.html" target="_blank" rel="noopener">1과목 50문항 실전훈련 판 ↗</a></small></td>
-                  <td class="cls-att">고은서 · 김다애 · 김윤서 · 김준호 · 서효원 · 이영훈 · 임준혁 · 장민주 · 정연승<small class="late">(지각)</small> <strong>(9명)</strong><small class="cls-note">김다애는 이날 처음 나왔습니다.</small></td>
-                  <td class="cls-abs"><b>3명</b> — 김대호 · 박상준 · 한솔</td>
+                  <td class="cls-att"><span class="nm">고은○</span> · <span class="nm">김다○</span> · <span class="nm">김윤○</span> · <span class="nm">김준○</span> · <span class="nm">서효○</span> · <span class="nm">이영○</span> · <span class="nm">임준○</span> · <span class="nm">장민○</span> · <span class="nm">정연○</span><small class="late">(지각)</small> <strong>(9명)</strong><small class="cls-note"><span class="nm">김다○</span>는 이날 처음 나왔습니다.</small></td>
+                  <td class="cls-abs"><b>3명</b> — <span class="nm">김대○</span> · <span class="nm">박상○</span> · <span class="nm">한○</span></td>
                 </tr>
               </tbody>
             </table>
@@ -1377,7 +1395,7 @@
       </div>
 
 
-      <p class="learn-part pt-part pp-1" id="p01"><span class="pt"><i>파트</i><b>01</b></span><span class="pt-ti">빅데이터란</span><span class="pt-sub">세 개의 V에 둘을 더한 <strong>5V</strong>, 데이터가 결정이 되는 <strong>DIKW</strong>, 지식이 조직 안에서 도는 <strong>SECI</strong> — 세 모형으로 시작합니다.</span></p>
+      <h2 class="learn-part pt-part pp-1" id="p01"><span class="pt"><i>파트</i><b>01</b></span><span class="pt-ti">빅데이터란</span><span class="pt-sub">세 개의 V에 둘을 더한 <strong>5V</strong>, 데이터가 결정이 되는 <strong>DIKW</strong>, 지식이 조직 안에서 도는 <strong>SECI</strong> — 세 모형으로 시작합니다.</span></h2>
       <p class="mdl-h"><b class="mdl-n">①</b> 5V — 데이터가 어떤 모습인가</p>
       <p>빅데이터는 흔히 <strong>세 개의 V</strong>로 설명됩니다. 여기에 둘을 더해 <strong>5V</strong>라 부르기도 합니다.</p>
       <ul class="vcards c5">
@@ -1462,7 +1480,7 @@
         <strong>ADsP 1과목</strong>에서 <strong>Q5</strong>(네 단계의 순서)와 <strong>Q6</strong>(「경험을 문서·매체에 저장·가공한다」 = <strong>표출화</strong>)로 나옵니다 — <a href="adsp-subject1-50q-workbook.html#q5" target="_blank" rel="noopener">50문항 실전훈련 판에서 바로 풀어 보기 ↗</a></p>
       </div>
 
-      <p class="learn-part pt-part pp-2" id="p02"><span class="pt"><i>파트</i><b>02</b></span><span class="pt-ti">관광 데이터는 어디서 오는가</span><span class="pt-sub">관광 빅데이터의 힘은, <strong>여행자가 설문에 답하지 않아도 행동이 저절로 기록된다</strong>는 데 있습니다.</span></p>
+      <h2 class="learn-part pt-part pp-2" id="p02"><span class="pt"><i>파트</i><b>02</b></span><span class="pt-ti">관광 데이터는 어디서 오는가</span><span class="pt-sub">관광 빅데이터의 힘은, <strong>여행자가 설문에 답하지 않아도 행동이 저절로 기록된다</strong>는 데 있습니다.</span></h2>
       <ul class="vcards c3">
         <li class="t-blue"><span class="vt">이동</span><span class="vh">통신 데이터</span><span class="vd">기지국 신호로 본 유동인구·체류시간·방문지 이동 경로.</span></li>
         <li class="t-gold"><span class="vt">소비</span><span class="vh">카드·결제 데이터</span><span class="vd">어디서 얼마를, 어떤 업종에 썼는가(소비 지도).</span></li>
@@ -1569,7 +1587,7 @@
       </ul>
 
 
-      <p class="learn-part pt-part pp-3" id="p03"><span class="pt"><i>파트</i><b>03</b></span><span class="pt-ti">분석은 다섯 걸음으로</span><span class="pt-sub">데이터는 저절로 답을 주지 않습니다. <strong>문제 정의 → 수집 → 정제 → 분석 → 시각화·해석</strong>을 거칩니다.</span></p>
+      <h2 class="learn-part pt-part pp-3" id="p03"><span class="pt"><i>파트</i><b>03</b></span><span class="pt-ti">분석은 다섯 걸음으로</span><span class="pt-sub">데이터는 저절로 답을 주지 않습니다. <strong>문제 정의 → 수집 → 정제 → 분석 → 시각화·해석</strong>을 거칩니다.</span></h2>
       <div class="hexa-wrap">
         <svg class="hexa-svg" viewBox="0 0 1000 800" aria-hidden="true">
           <defs>
@@ -1654,7 +1672,7 @@
       </div>
 
 
-      <p class="learn-part pt-part pp-4" id="p04"><span class="pt"><i>파트</i><b>04</b></span><span class="pt-ti">대표 분석 기법</span><span class="pt-sub">기술 통계 · <strong>텍스트 마이닝</strong> · <strong>군집 분석</strong> · 예측 분석 넷을 보고, 그 아래 <em>실제 사례</em>로 잇습니다.</span></p>
+      <h2 class="learn-part pt-part pp-4" id="p04"><span class="pt"><i>파트</i><b>04</b></span><span class="pt-ti">대표 분석 기법</span><span class="pt-sub">기술 통계 · <strong>텍스트 마이닝</strong> · <strong>군집 분석</strong> · 예측 분석 넷을 보고, 그 아래 <em>실제 사례</em>로 잇습니다.</span></h2>
       <ol class="vcards c4 steps">
         <li class="t-blue"><span class="vh">기술 통계·시각화</span><span class="vd">평균·분포·추세를 요약하고 지도·그래프로 보여주기. <em>가장 먼저, 가장 자주 쓰인다.</em></span></li>
         <li class="t-rose solid flame"><span class="vh">텍스트 마이닝·감성 분석</span><span class="vd">후기와 SNS의 단어를 세고(워드클라우드), 긍정/부정을 판정해 "무엇이 만족을 만드는가"를 읽는다.</span></li>
@@ -1690,7 +1708,7 @@
         </li>
       </ul>
 
-      <p class="learn-part pt-part pp-5" id="p05"><span class="pt"><i>파트</i><b>05</b></span><span class="pt-ti">분석에 쓰는 도구·프로그램</span><span class="pt-sub">앞의 기법들은 결국 <strong>도구</strong>로 실행됩니다. 관광 데이터 분석에서 자주 쓰는 프로그램을 친숙한 것부터 봅니다.</span></p>
+      <h2 class="learn-part pt-part pp-5" id="p05"><span class="pt"><i>파트</i><b>05</b></span><span class="pt-ti">분석에 쓰는 도구·프로그램</span><span class="pt-sub">앞의 기법들은 결국 <strong>도구</strong>로 실행됩니다. 관광 데이터 분석에서 자주 쓰는 프로그램을 친숙한 것부터 봅니다.</span></h2>
       <div class="gtable-wrap" id="도구표">
         <table class="gtable">
           <thead><tr><th>도구</th><th>무엇을 하는가</th></tr></thead>
@@ -1709,7 +1727,7 @@
       <p>처음부터 파이썬을 배울 필요는 없습니다. 다루는 데이터가 커질 때마다 <strong>위 표의 순서대로 한 칸씩</strong> 올라가면 됩니다.</p>
       <p>그 사이를 메우는 길도 있습니다 — <strong>코딩 없이 블록을 이어 붙여</strong> 전처리부터 군집·예측까지 돌려 보는 도구입니다. 엑셀로는 부족하고 파이썬은 아직 부담스러운 단계에서 특히 쓸모가 있습니다 — 위 표의 <strong>주황 줄 Orange</strong>가 그 도구입니다.</p>
 
-      <p class="learn-part pt-part pp-6" id="p06"><span class="pt"><i>파트</i><b>06</b></span><span class="pt-ti">빅데이터 공모전</span><span class="pt-sub">파트 03 다섯 걸음의 <a href="#hx-ref"><strong>0번 Reference 보기</strong></a>가 이 파트입니다 — 맨 앞 <strong>수상작 서가</strong>부터 열고, 네 대회를 <strong>지금 낼 수 있는 것부터</strong> 놓고, 대회마다 <em>그 대회가 쓰는 데이터 창구</em>를 바로 아래 붙였습니다.</span></p>
+      <h2 class="learn-part pt-part pp-6" id="p06"><span class="pt"><i>파트</i><b>06</b></span><span class="pt-ti">빅데이터 공모전</span><span class="pt-sub">파트 03 다섯 걸음의 <a href="#hx-ref"><strong>0번 Reference 보기</strong></a>가 이 파트입니다 — 맨 앞 <strong>수상작 서가</strong>부터 열고, 네 대회를 <strong>지금 낼 수 있는 것부터</strong> 놓고, 대회마다 <em>그 대회가 쓰는 데이터 창구</em>를 바로 아래 붙였습니다.</span></h2>
       <div class="ref-shelf" id="수상작서가">
         <p class="rs-t"><b class="rs-n">수상작 서가</b>남이 뽑힌 작품부터 봅니다 <span class="rs-s">다섯 곳 · 다섯 질문 · 과제 한 줄</span></p>
         <p class="rs-d"><strong>요강은 「무엇을 내라」이고, 수상작은 「어느 수준으로 내라」입니다.</strong> 아래 대회 상자마다 흩어져 있던 수상작 창구를 한자리에 모았습니다. 다섯 곳은 성격이 다릅니다 — <strong>발표자료</strong>를 보는 곳, <strong>과정</strong>을 듣는 곳, <strong>영상</strong>을 보는 곳, <strong>지역 사례</strong>를 찾는 곳, <strong>분석 보고</strong>를 읽는 곳. <em>한 곳만 보지 말고 둘 이상을 나란히</em> 놓아야 「뽑히는 작품의 공통점」이 보입니다.</p>
@@ -1789,7 +1807,7 @@
           <li><b>시상</b><span>총상금 <strong>2,000만원</strong>. <strong class="hot-t">문화체육관광부 장관상 · 한국관광공사 사장상</strong>이 걸려 있습니다 — 관광 전공자의 이력서에서 무게가 다른 상입니다.</span></li>
           <li><b>먼저 할 것</b><span>공고 원문에는 <strong>부문 구분 · 등수별 상금 · 심사 일정이 적혀 있지 않습니다.</strong> 첨부된 <strong>「(공모요강) PDF」</strong>에 있으니 <strong>반드시 내려받아 확인</strong>하십시오.</span></li>
         </ol>
-        <p class="tb-tags"><a class="mapl form hot" href="https://datalab.visitkorea.or.kr/site/portal/ex/bbs/View.do?cbIdx=1135&amp;bcIdx=311064&amp;pageIndex=1" target="_blank" rel="noopener">공고 원문 · 한국관광 데이터랩 ↗</a><a class="mapl form" href="https://datalab.visitkorea.or.kr/" target="_blank" rel="noopener">데이터랩 열기 — 쓸 데이터 먼저 보기 ↗</a><a class="mapl form sky" href="https://datalab.visitkorea.or.kr/site/portal/ex/bbs/View.do?cbIdx=1129&amp;bcIdx=309896" target="_blank" rel="noopener">활용 우수사례집 PDF ⤓</a><a class="mapl form sky" href="https://datalab.visitkorea.or.kr/html/interview4/interview01.jsp" target="_blank" rel="noopener">수상팀 인터뷰 5편 ↗</a><a class="mapl form to-shelf" href="#수상작서가">★ 수상작 서가에서 나란히 보기 ↑</a><span class="tb-src"><b>지금 낼 수 있는 대회는 이것 하나입니다</b> — 아래 부산 대회는 <b>9/18</b>에 접수가 닫혔고, 이 대회가 <b>9/30</b>입니다. 부산에 냈던 팀이라면 같은 분석을 <em>그 분석이 무엇을 바꿨는가</em>로 각만 바꿔 내면 됩니다. <b>연한 파랑 알약 둘</b>은 <b>지난 대회가 무엇을 뽑았는지</b> 보는 자리입니다 — 요강을 읽기 전에 <em>수상작부터</em> 보는 편이 빠릅니다.</span></p>
+        <p class="tb-tags"><a class="mapl form hot" href="https://datalab.visitkorea.or.kr/site/portal/ex/bbs/View.do?cbIdx=1135&amp;bcIdx=311064&amp;pageIndex=1" target="_blank" rel="noopener">공고 원문 · 한국관광 데이터랩 ↗</a><a class="mapl form" href="https://datalab.visitkorea.or.kr/" target="_blank" rel="noopener">데이터랩 열기 — 쓸 데이터 먼저 보기 ↗</a><a class="mapl form to-shelf" href="#수상작서가">★ 수상작 서가에서 나란히 보기 ↑</a><span class="tb-src"><b>지금 낼 수 있는 대회는 이것 하나입니다</b> — 아래 부산 대회는 <b>9/18</b>에 접수가 닫혔고, 이 대회가 <b>9/30</b>입니다. 부산에 냈던 팀이라면 같은 분석을 <em>그 분석이 무엇을 바꿨는가</em>로 각만 바꿔 내면 됩니다. <b>아래 초록 칸의 연한 파랑 알약 둘</b>(활용 우수사례집 · 수상팀 인터뷰)은 <b>지난 대회가 무엇을 뽑았는지</b> 보는 자리입니다 — 요강을 읽기 전에 <em>수상작부터</em> 보는 편이 빠릅니다.</span></p>
       </div>
 
       <ul class="reslist under-box">
@@ -1800,9 +1818,8 @@
             <a class="sky" href="https://datalab.visitkorea.or.kr/site/portal/ex/bbs/View.do?cbIdx=1129&amp;bcIdx=309896" target="_blank" rel="noopener">활용 우수사례집 PDF ⤓</a>
             <a class="sky" href="https://datalab.visitkorea.or.kr/html/interview4/interview01.jsp" target="_blank" rel="noopener">수상팀 인터뷰 5편 ↗</a>
             <a class="ylw" href="datalab-pm-safety-dikw-prompts.html" target="_blank" rel="noopener">✦ 대상 사례 PM 안전 · DIKW와 프롬프트 ↗</a>
-            <a href="https://datalab.visitkorea.or.kr/site/portal/ex/bbs/View.do?cbIdx=1135&amp;bcIdx=311064&amp;pageIndex=1" target="_blank" rel="noopener">활용 경진대회 · ~9/30 ↗</a>
           </div>
-          <span class="desc"><strong>이 모듈에서 가장 먼저 열 곳입니다.</strong> <strong>파트 02 「관광 데이터는 어디서 오는가」</strong>에서 본 통신 · 카드 · 내비게이션 · 관광지 방문객 데이터가 <strong>모두 여기 한 곳에</strong> 모여 있습니다. 공공데이터포털이 전 분야를 모은 창고라면, 이쪽은 <strong class="hot-t">관광만 골라 정리해 둔 곳</strong>입니다 — 지역별 · 월별 방문자와 소비를 바로 비교하고 그림과 표로 내려받습니다.<br /><strong>알약 넷은 이 순서로 씁니다.</strong><br /><strong>① 지역별 관광 현황</strong> — 시 · 군을 골라 <strong>방문자 수 · 체류 시간 · 소비 · 이동</strong>을 한 화면에서 봅니다. 배정받은 도시나 내 고향을 넣어 보는 것이 <em>파트 03 다섯 걸음</em>의 첫 걸음입니다.<br /><strong>② 활용 우수사례집 PDF</strong> — <em>「데이터로 만드는 관광 — Next Tourism Playbook」</em>(한국관광공사 관광데이터전략팀, 2025. 11.). <strong>남들이 이 데이터로 무엇을 만들었는지</strong>가 사례로 들어 있습니다. 공공누리 4유형이라 <strong>출처를 밝히고</strong> 쓰되 상업적 이용은 안 됩니다.<br /><strong>③ 수상팀 인터뷰 5편</strong> — <em>우수 활용사례(2024)</em> 코너입니다. 대상 · 최우수 2 · 우수 2, <strong>담당자가 직접 문제 상황 · 해결 방법 · 성과</strong>를 말합니다. 대상은 <em>「데이터로 잡은 전동 킥보드 사고 사각지대」</em>(한국도로교통공단 · 강원랜드) — <strong>관광 빅데이터와 교통사고 통계를 붙인</strong> 분석입니다. 사례집이 결과라면 인터뷰는 <strong class="hot-t">과정</strong>입니다.<br /><strong>노란 알약 · 대상 사례 PM 안전</strong> — 그 대상 사례를 <strong>문제 → 데이터 셋(데이터랩 · TAAS · 공유 PM) → 분석방법 다섯 → DIKW → 정책 → 성과</strong>로 뜯어 본 판입니다. 끝에 <strong>그대로 복사해 쓰는 프롬프트</strong>와 상관 · 인과를 가르는 <em>비판적 분석 프롬프트</em>가 붙어 있습니다.<br /><strong>④ 활용 경진대회</strong> — <strong>9월 30일 마감</strong>(총상금 2,000만원 · 문화체육관광부 장관상). ①로 보고 ②③으로 배운 것을 내는 자리입니다.</span>
+          <span class="desc"><strong>이 모듈에서 가장 먼저 열 곳입니다.</strong> <strong>파트 02 「관광 데이터는 어디서 오는가」</strong>에서 본 통신 · 카드 · 내비게이션 · 관광지 방문객 데이터가 <strong>모두 여기 한 곳에</strong> 모여 있습니다. 공공데이터포털이 전 분야를 모은 창고라면, 이쪽은 <strong class="hot-t">관광만 골라 정리해 둔 곳</strong>입니다 — 지역별 · 월별 방문자와 소비를 바로 비교하고 그림과 표로 내려받습니다.<br /><strong>알약 셋(①~③)과 위 상자의 「공고 원문」(④)은 이 순서로 씁니다.</strong><br /><strong>① 지역별 관광 현황</strong> — 시 · 군을 골라 <strong>방문자 수 · 체류 시간 · 소비 · 이동</strong>을 한 화면에서 봅니다. 배정받은 도시나 내 고향을 넣어 보는 것이 <em>파트 03 다섯 걸음</em>의 첫 걸음입니다.<br /><strong>② 활용 우수사례집 PDF</strong> — <em>「데이터로 만드는 관광 — Next Tourism Playbook」</em>(한국관광공사 관광데이터전략팀, 2025. 11.). <strong>남들이 이 데이터로 무엇을 만들었는지</strong>가 사례로 들어 있습니다. 공공누리 4유형이라 <strong>출처를 밝히고</strong> 쓰되 상업적 이용은 안 됩니다.<br /><strong>③ 수상팀 인터뷰 5편</strong> — <em>우수 활용사례(2024)</em> 코너입니다. 대상 · 최우수 2 · 우수 2, <strong>담당자가 직접 문제 상황 · 해결 방법 · 성과</strong>를 말합니다. 대상은 <em>「데이터로 잡은 전동 킥보드 사고 사각지대」</em>(한국도로교통공단 · 강원랜드) — <strong>관광 빅데이터와 교통사고 통계를 붙인</strong> 분석입니다. 사례집이 결과라면 인터뷰는 <strong class="hot-t">과정</strong>입니다.<br /><strong>노란 알약 · 대상 사례 PM 안전</strong> — 그 대상 사례를 <strong>문제 → 데이터 셋(데이터랩 · TAAS · 공유 PM) → 분석방법 다섯 → DIKW → 정책 → 성과</strong>로 뜯어 본 판입니다. 끝에 <strong>그대로 복사해 쓰는 프롬프트</strong>와 상관 · 인과를 가르는 <em>비판적 분석 프롬프트</em>가 붙어 있습니다.<br /><strong>④ 활용 경진대회</strong>(위 상자 「공고 원문 · 한국관광 데이터랩」 알약) — <strong>9월 30일 마감</strong>(총상금 2,000만원 · 문화체육관광부 장관상). ①로 보고 ②③으로 배운 것을 내는 자리입니다.</span>
           <span class="meta">한국관광공사 · 관광 특화 데이터 · 지역별 방문자 · 소비 · 이동</span>
         </li>
       </ul>
@@ -1816,19 +1833,13 @@
           <li><b>자격과 시상</b><span>제한 없음 · 개인 또는 <strong>최대 5인 팀</strong>. 창업 8팀 1,150만원 · 분석 7팀 600만원 · 시각화 7팀 600만원 — <strong>모두 22팀 2,350만원</strong>.</span></li>
           <li><b>먼저 볼 것</b><span>요강보다 <strong class="hot-t">수상작</strong>입니다. 시각화 부문 페이지에 <strong>2026년 일곱 작품 + 2025년 여섯 작품</strong>이 발표자료 PDF · 대화형 체험 링크와 함께 걸려 있고, <strong>참가신청서 · 발표 PPT 템플릿</strong>도 거기서 받습니다. 요강은 <em>무엇을 내라</em>지만 수상작은 <strong>어느 수준으로 내라</strong>를 보여 줍니다.</span></li>
         </ol>
-        <p class="tb-tags"><a class="mapl form hot" href="https://news.seoul.go.kr/gov/archives/576001" target="_blank" rel="noopener">2026 공고 원문 · 내 손안에 서울 ↗</a><a class="mapl form sky-line" href="https://data.seoul.go.kr/bsp/wgs/contest26.do" target="_blank" rel="noopener">수상작 보기 · 서울 데이터 허브 ↗</a><a class="mapl form vid sky-line" href="https://www.youtube.com/watch?v=3vGNw3ApFk8&amp;t=430s" target="_blank" rel="noopener">▶ 분석 부문 최우수상 발표 · 7:10부터 ↗</a><a class="mapl form" href="bigdata-ai-competitions-2026.html" target="_blank" rel="noopener">공모전 여섯 한눈에 ↗</a><a class="mapl form to-shelf" href="#수상작서가">★ 수상작 서가에서 나란히 보기 ↑</a><span class="tb-src"><b>지금 할 일은 하나입니다</b> — 수상작 열셋을 열어 보고 <b>「이 정도면 되는구나」를 눈에 넣어 두는 것</b>. <b>분석 부문 최우수상 발표 영상</b>은 <b>바로 아래 빅데이터 캠퍼스 카드</b>에 걸어 두었습니다(7분 10초부터) — 문제를 어떻게 잡고 <b>몇 분 만에 어떻게 보여 주는지</b>가 그대로 나옵니다. 아래 부산 대회(9/18)에 내는 결과물을 그 기준에 맞춰 만들면, 2027년 3월에는 <b>다듬어 내기만 하면 됩니다</b>. 세부 요강은 주최 측 공고로 반드시 확인하십시오.</span></p>
+        <p class="tb-tags"><a class="mapl form hot" href="https://news.seoul.go.kr/gov/archives/576001" target="_blank" rel="noopener">2026 공고 원문 · 내 손안에 서울 ↗</a><a class="mapl form sky-line" href="https://data.seoul.go.kr/bsp/wgs/contest26.do" target="_blank" rel="noopener">수상작 · 양식 · 서울 데이터 허브 ↗</a><a class="mapl form vid sky-line" href="https://www.youtube.com/watch?v=3vGNw3ApFk8&amp;t=430s" target="_blank" rel="noopener">▶ 분석 부문 최우수상 발표 · 7:10부터 ↗</a><a class="mapl form" href="bigdata-ai-competitions-2026.html" target="_blank" rel="noopener">공모전 여섯 한눈에 ↗</a><a class="mapl form to-shelf" href="#수상작서가">★ 수상작 서가에서 나란히 보기 ↑</a><span class="tb-src"><b>지금 할 일은 하나입니다</b> — 수상작 열셋을 열어 보고 <b>「이 정도면 되는구나」를 눈에 넣어 두는 것</b>. <b>분석 부문 최우수상 발표 영상</b>은 <b>바로 아래 빅데이터 캠퍼스 카드</b>에 걸어 두었습니다(7분 10초부터) — 문제를 어떻게 잡고 <b>몇 분 만에 어떻게 보여 주는지</b>가 그대로 나옵니다. 아래 부산 대회(9/18)에 내는 결과물을 그 기준에 맞춰 만들면, 2027년 3월에는 <b>다듬어 내기만 하면 됩니다</b>. 세부 요강은 주최 측 공고로 반드시 확인하십시오.</span></p>
       </div>
 
       <ul class="reslist under-box">
         <li class="boxed-green" id="seoul-bigdata">
           <a href="https://bigdata.seoul.go.kr/noti/selectPageListTabNoti.do?r_id=P260&amp;bbs_seq=548&amp;ac_type=A2" target="_blank" rel="noopener">서울특별시 빅데이터 캠퍼스 ↗</a>
-          <div class="linkrow tiny fill-green">
-            <a href="https://news.seoul.go.kr/gov/archives/576001" target="_blank" rel="noopener">2026 공고 원문 · 내 손안에 서울 ↗</a>
-            <a class="sky" href="https://data.seoul.go.kr/bsp/wgs/contest26.do" target="_blank" rel="noopener">경진대회 수상작 · 양식 ↗</a>
-            <a class="sky" href="https://www.youtube.com/watch?v=3vGNw3ApFk8&amp;t=430s" target="_blank" rel="noopener">▶ 분석 부문 최우수상 발표 · 7:10부터 ↗</a>
-            <a href="bigdata-ai-competitions-2026.html" target="_blank" rel="noopener">공모전 여섯 한눈에 ↗</a>
-          </div>
-          <span class="desc">서울시가 보유한 관광·유동인구·상권 등 대규모 데이터를 검색·분석하고 결과를 반출할 수 있는 공공 분석 플랫폼. 데이터 분석 사례, 강의·자료실, 공모전 등 지원 프로그램도 함께 제공합니다. 이용 신청·데이터 반출 등 일부 기능은 <strong>회원가입·로그인</strong> 후 이용할 수 있습니다.<br /><strong>경진대회 수상작 · 양식</strong> — 위 알약은 <strong>서울 데이터 허브</strong>의 시각화 부문 화면입니다. <strong>2026년 일곱 · 2025년 여섯</strong> 수상작이 발표자료 PDF · 대화형 체험 링크와 함께 걸려 있고, <strong>참가신청서 · 발표 PPT 템플릿</strong>도 여기서 받습니다. <em>데이터를 받는 곳과 그 데이터로 무엇을 만들어야 하는지가 한 칸에 있습니다.</em></span>
+          <span class="desc">서울시가 보유한 관광·유동인구·상권 등 대규모 데이터를 검색·분석하고 결과를 반출할 수 있는 공공 분석 플랫폼. 데이터 분석 사례, 강의·자료실, 공모전 등 지원 프로그램도 함께 제공합니다. 이용 신청·데이터 반출 등 일부 기능은 <strong>회원가입·로그인</strong> 후 이용할 수 있습니다.<br /><strong>경진대회 수상작 · 양식</strong> — 위 상자의 「수상작 · 양식 · 서울 데이터 허브」 알약은 <strong>서울 데이터 허브</strong>의 시각화 부문 화면입니다. <strong>2026년 일곱 · 2025년 여섯</strong> 수상작이 발표자료 PDF · 대화형 체험 링크와 함께 걸려 있고, <strong>참가신청서 · 발표 PPT 템플릿</strong>도 여기서 받습니다. <em>데이터를 받는 곳과 그 데이터로 무엇을 만들어야 하는지가 한 칸에 있습니다.</em></span>
         <div class="vidwrap">
           <iframe src="https://www.youtube-nocookie.com/embed/3vGNw3ApFk8?start=430" title="2026 서울시 빅데이터 활용 경진대회 분석 부문 최우수상 발표" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           <p class="vw-n"><b>분석 부문 최우수상 「보행 소년단」 발표</b> — 7분 10초부터 시작합니다. <b>AI가 걸어본 서울 관광지 보행환경</b>을 주제로, 로드뷰 이미지를 멀티모달 AI에 보여 주고 쾌적성 · 보행편의성 · 안전성을 평가하게 한 연구입니다.</p>
@@ -1858,7 +1869,6 @@
             <a href="https://data.busan.go.kr/bdip/opendata/dataSet.do" target="_blank" rel="noopener">데이터 카탈로그 · 공공데이터 2,796건 ↗</a>
             <a class="sky" href="https://data.busan.go.kr/bdip/analysis/dataCases.do" target="_blank" rel="noopener">분석 우수사례 · 해커톤 · 경진대회 수상작 ↗</a>
             <a class="sky" href="https://busanbigdata.kr/intro-data-lab" target="_blank" rel="noopener">부산 빅데이터혁신센터 · 데이터 오픈랩 ↗</a>
-            <a href="https://www.contestkorea.com/sub/view.php?int_gbn=1&amp;Txt_bcode=030310001&amp;str_no=202609100010" target="_blank" rel="noopener">Big Data 활용 대회 · 본선 10/29 ↗</a>
           </div>
           <span class="desc"><strong>위 ③ 부산 대회가 쓰라고 지정한 데이터가 여기 있습니다.</strong> 부산시의 공식 공개데이터 플랫폼으로, <strong>공공데이터 2,796건</strong>이 파일 · API · 지도 · 차트 형태로 올라와 있고 분류에 <strong>「문화관광」</strong>이 따로 있습니다. 데이터를 받는 데서 끝나지 않고 <strong>대시보드 · 자체 분석 · 시각화 · 주소 좌표 변환</strong>까지 사이트 안에서 됩니다 — <strong>파트 05 도구</strong>를 설치하기 전에 브라우저만으로 한 바퀴 돌려 볼 수 있는 곳입니다.<br />
           <strong>데이터 오픈랩</strong> — 부산 빅데이터혁신센터(센텀기술창업타운)의 <em>안심 분석 공간</em>입니다. 시가 공개하지 않은 데이터와 민간에서 사들인 데이터를 정제해 두는 곳이라, <strong>카탈로그에 없는 데이터는 여기서 나옵니다.</strong> 대회 공고가 「오픈랩 데이터」를 함께 쓰라고 적어 둔 이유이고, <strong>본선 발표(10/29)도 이 센터</strong>에서 합니다.<br />
@@ -1867,7 +1877,7 @@
           <span class="meta">부산광역시 · 공공데이터 · 문화관광 분류 · 대시보드와 시각화 제공</span>
         </li>
       </ul>
-      <p class="learn-part pt-part pp-7" id="p07"><span class="pt"><i>파트</i><b>07</b></span><span class="pt-ti">자격증으로 증명하기</span><span class="pt-sub">역량을 <strong>증명</strong>하고 싶다면 — ADsP · 빅데이터분석기사 · SQLD를 한 표에 놓고 견줍니다.</span></p>
+      <h2 class="learn-part pt-part pp-7" id="p07"><span class="pt"><i>파트</i><b>07</b></span><span class="pt-ti">자격증으로 증명하기</span><span class="pt-sub">역량을 <strong>증명</strong>하고 싶다면 — ADsP · 빅데이터분석기사 · SQLD를 한 표에 놓고 견줍니다.</span></h2>
       <ul class="vcards c4">
         <li class="t-gold"><span class="vt">국가기술자격</span><span class="vh">빅데이터분석기사</span><span class="vd">과학기술정보통신부·한국데이터산업진흥원(K-DATA)이 시행. 필기·실기로 나뉘며, <em>이 분야 취업의 대표적인 관문</em>.</span><span class="vc-go"><a href="bigdata-certifications.html">통합 비교 →</a></span></li>
         <li class="t-blue solid sky"><span class="vt">단계별 검증</span><span class="vh">ADsP · ADP</span><span class="vd">데이터분석 준전문가/전문가(한국데이터산업진흥원). 통계·분석 기초부터 심화까지 단계별로 검증한다.</span><span class="vc-go"><a href="adsp-guide.html">ADsP 안내 →</a><a href="#ADsP1과목지도">1과목 지도 ↓</a><a href="adsp-subject1-50q-workbook.html" target="_blank" rel="noopener">50문항 판 ↗</a></span></li>
@@ -1932,7 +1942,7 @@
         </ol>
         <p class="a1-f"><b>곁가지</b> 2주에 함께 본 분석 실습 — <a href="cluster-analysis-orange-guide.html" target="_blank" rel="noopener">군집분석 · Orange ↗</a> · SPSS 빈도분석(LMS). <span>출제 예상 문항 수는 윤종식 교재의 「출제 경향 분석」(2021~2025) 기준입니다.</span></p>
       </div>
-      <p class="learn-part pt-part pp-8" id="p08m"><span class="pt"><i>파트</i><b>08</b></span><span class="pt-ti">학습 경로 — 무엇을 어떤 순서로 배울까</span><span class="pt-sub">독학이 막막하다면 <strong>K-MOOC</strong>의 무료 강좌부터. 아홉 갈래로 나눈 지도와 <em>수준·목표별 경로</em>가 있습니다.</span></p>
+      <h2 class="learn-part pt-part pp-8" id="p08m"><span class="pt"><i>파트</i><b>08</b></span><span class="pt-ti">학습 경로 — 무엇을 어떤 순서로 배울까</span><span class="pt-sub">독학이 막막하다면 <strong>K-MOOC</strong>의 무료 강좌부터. 아홉 갈래로 나눈 지도와 <em>수준·목표별 경로</em>가 있습니다.</span></h2>
 
       <h3><a href="kmooc-bigdata.html">K-MOOC 빅데이터 강좌 지도 ↗</a></h3>
       <p>K-MOOC의 빅데이터 관련 강좌는 크게 아홉 갈래로 나눠 보면 자신에게 필요한 것을 고르기 쉽습니다. 제목을 누르면 유형별 대표 강좌·학습 형태·마이크로러닝까지 정리한 <a href="kmooc-bigdata.html">전체 안내 페이지</a>로 이동합니다.</p>
@@ -1974,7 +1984,7 @@
         </li>
       </ul>
 
-      <p class="learn-part pt-part pp-2" id="p09"><span class="pt"><i>파트</i><b>09</b></span><span class="pt-ti">미디어 · 담론 분석</span><span class="pt-sub">뉴스와 소셜 텍스트에서 <strong>무엇이 언제 어떻게 이야기되었는가</strong>를 읽는 두 도구입니다. <strong>파트 04 텍스트 마이닝</strong>을 논문으로 확인하는 자리이기도 합니다 — 카드마다 <em>그 도구로 쓴 실제 논문</em>을 걸어 두었습니다.</span></p>
+      <h2 class="learn-part pt-part pp-2" id="p09"><span class="pt"><i>파트</i><b>09</b></span><span class="pt-ti">미디어 · 담론 분석</span><span class="pt-sub">뉴스와 소셜 텍스트에서 <strong>무엇이 언제 어떻게 이야기되었는가</strong>를 읽는 두 도구입니다. <strong>파트 04 텍스트 마이닝</strong>을 논문으로 확인하는 자리이기도 합니다 — 카드마다 <em>그 도구로 쓴 실제 논문</em>을 걸어 두었습니다.</span></h2>
       <ul class="reslist grid2 lcard">
         <li>
           <a href="https://www.bigkinds.or.kr/" target="_blank" rel="noopener">빅카인즈(BIG KINDS) ↗</a>
@@ -2003,7 +2013,7 @@
         </li>
       </ul>
 
-      <p class="learn-part pt-part pp-5" id="p10"><span class="pt"><i>파트</i><b>10</b></span><span class="pt-ti">키워드 · 트렌드 · 데이터셋</span><span class="pt-sub">사람들이 <strong>무엇을 검색하고 무엇을 사는지</strong>를 숫자로 보는 도구들과, 분석에 쓸 <strong>데이터를 구하는 곳</strong>입니다. 관심이 <em>언제·어디서</em> 오르내리는지부터 그 관심이 <em>실제 거래로 이어지는지</em>까지 나눠 봅니다.</span></p>
+      <h2 class="learn-part pt-part pp-5" id="p10"><span class="pt"><i>파트</i><b>10</b></span><span class="pt-ti">키워드 · 트렌드 · 데이터셋</span><span class="pt-sub">사람들이 <strong>무엇을 검색하고 무엇을 사는지</strong>를 숫자로 보는 도구들과, 분석에 쓸 <strong>데이터를 구하는 곳</strong>입니다. 관심이 <em>언제·어디서</em> 오르내리는지부터 그 관심이 <em>실제 거래로 이어지는지</em>까지 나눠 봅니다.</span></h2>
 
       <ul class="reslist grid2 lcard">
         <li>
@@ -2079,7 +2089,7 @@
         </li>
       </ul>
 
-      <p class="learn-part pt-part pp-9" id="p11"><span class="pt"><i>파트</i><b>11</b></span><span class="pt-ti">현장 적용 — 호텔의 PMS와 빅데이터 RM</span><span class="pt-sub">앞의 <strong>예측 분석</strong>이 가장 또렷하게 작동하는 곳 — 호텔의 <strong>객실 가격 결정</strong>입니다.</span></p>
+      <h2 class="learn-part pt-part pp-9" id="p11"><span class="pt"><i>파트</i><b>11</b></span><span class="pt-ti">현장 적용 — 호텔의 PMS와 빅데이터 RM</span><span class="pt-sub">앞의 <strong>예측 분석</strong>이 가장 또렷하게 작동하는 곳 — 호텔의 <strong>객실 가격 결정</strong>입니다.</span></h2>
       <ol class="vcards c3 steps">
         <li class="t-blue"><span class="vt">데이터를 모으는 곳</span><span class="vh">PMS — 자산관리시스템</span><span class="vd">Property Management System. 호텔 운영의 중추. 예약·체크인/아웃·객실 배정·요금 청구·고객 관리를 한 곳에서 처리합니다. 최근에는 사내 서버형에서 <strong>클라우드 기반</strong>으로 옮겨가며 실시간 조회와 타 시스템 연동이 쉬워졌고, 무엇보다 <em>거래·이용 데이터가 쌓이는 저수지</em> 역할을 합니다.</span></li>
         <li class="t-gold"><span class="vt">데이터로 결정하는 곳</span><span class="vh">RM — 수익경영</span><span class="vd">Revenue Management. 쌓인 데이터에 경쟁사 가격·상권·SNS 트렌드·공공 데이터를 결합해 <strong>미래 수요를 예측</strong>하고, "적절한 방을 · 적절한 고객에게 · 적절한 시간에 · 적절한 가격으로" 파는 <em>다이내믹 프라이싱</em>을 구현합니다.</span></li>
