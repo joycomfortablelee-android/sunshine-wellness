@@ -311,18 +311,18 @@
       font-size: 11px; line-height: 1.7; color: #7d8ea0; letter-spacing: -.2px;
     }
     .learn-article .what-box .wb-goals > li .wg-d a.wb-go { margin-left: 4px; vertical-align: 1px; }
-    .learn-article .what-box .wb-why { margin: 0 0 12px; padding: 11px 14px; border: 1px solid #f0d9b5; border-radius: 10px; background: #fffaf2; font-size: 13px; line-height: 1.8; color: #34495e; }
-    .learn-article .what-box .wb-gt.why { display: inline-block; margin-right: 8px; padding: 1px 8px; border-radius: 999px; background: #a8681f; color: #fff; font-size: 11px; font-weight: 800; vertical-align: 1px; }
-    .learn-article .what-box .wb-wt { margin: 0 0 4px; font-weight: 800; color: #5a3a12; }
-    .learn-article .what-box a.wb-job { display: inline-block; margin-left: 8px; padding: 1px 10px; border-radius: 999px; background: #a8681f; color: #fff; font-size: 11.5px; font-weight: 700; text-decoration: none; }
-    .learn-article .what-box a.wb-job:hover { background: #7f4d14; }
-    .learn-article .what-box .wb-wd, .learn-article .what-box .wb-wn { margin: 0; }
-    .learn-article .what-box .wb-wl { margin: 6px 0; padding: 0; list-style: none; }
-    .learn-article .what-box .wb-wl li { margin: 0 0 5px; padding: 6px 10px; border-radius: 8px; background: #fff; border: 1px solid #f3e4cc; }
-    .learn-article .what-box .wb-wl li b { display: block; color: #5a3a12; }
-    .learn-article .what-box .wb-wl li span { display: block; font-size: 12.5px; }
-    .learn-article .what-box .wb-wn { font-size: 12px; color: #56697c; }
-    .learn-article .what-box .wb-wl li a.wb-go { margin: 4px 4px 0 0; }
+    .learn-article .wb-why { margin: 0 0 12px; padding: 11px 14px; border: 1px solid #f0d9b5; border-radius: 10px; background: #fffaf2; font-size: 13px; line-height: 1.8; color: #34495e; }
+    .learn-article .wb-why .wb-gt.why { display: inline-block; margin-right: 8px; padding: 1px 8px; border-radius: 999px; background: #a8681f; color: #fff; font-size: 11px; font-weight: 800; vertical-align: 1px; }
+    .learn-article .wb-why .wb-wt { margin: 0 0 4px; font-weight: 800; color: #5a3a12; }
+    .learn-article .wb-why a.wb-job { display: inline-block; margin-left: 8px; padding: 1px 10px; border-radius: 999px; background: #a8681f; color: #fff; font-size: 11.5px; font-weight: 700; text-decoration: none; }
+    .learn-article .wb-why a.wb-job:hover { background: #7f4d14; }
+    .learn-article .wb-why .wb-wd, .learn-article .wb-why .wb-wn { margin: 0; }
+    .learn-article .wb-why .wb-wl { margin: 6px 0; padding: 0; list-style: none; }
+    .learn-article .wb-why .wb-wl li { margin: 0 0 5px; padding: 6px 10px; border-radius: 8px; background: #fff; border: 1px solid #f3e4cc; }
+    .learn-article .wb-why .wb-wl li b { display: block; color: #5a3a12; }
+    .learn-article .wb-why .wb-wl li span { display: block; font-size: 12.5px; }
+    .learn-article .wb-why .wb-wn { font-size: 12px; color: #56697c; }
+    .learn-article .wb-why .wb-wl li a.wb-go { margin: 4px 4px 0 0; }
     .learn-article .what-box .wb-wrap { border: 1px solid #d9e6f4; border-radius: 12px; background: #fff; overflow: hidden; }
     .learn-article .what-box table { width: 100%; border-collapse: collapse; font-size: 13px; }
     .learn-article .what-box th, .learn-article .what-box td {
@@ -394,12 +394,12 @@
       .learn-article .what-box .wb-cube .cb-mid { display: none; }
     }
     .learn-article .what-box .wb-l { display: flex; flex-wrap: wrap; gap: 5px; }
-    .learn-article .what-box a.wb-go {
+    .learn-article .what-box a.wb-go, .learn-article .wb-why a.wb-go {
       display: inline-block; padding: 2px 9px; border-radius: 999px;
       background: #fff; border: 1px solid #c3d8ea; color: #17539b;
       font-size: 11px; font-weight: 700; text-decoration: none; letter-spacing: -.2px;
     }
-    .learn-article .what-box a.wb-go:hover { background: #17539b; border-color: #17539b; color: #fff; }
+    .learn-article .what-box a.wb-go:hover, .learn-article .wb-why a.wb-go:hover { background: #17539b; border-color: #17539b; color: #fff; }
     .learn-article .what-box .wb-n { margin: 8px 0 0; font-size: 12px; line-height: 1.8; color: #56697c; }
     .learn-article .what-box .wb-n strong { color: #c0392b; }
     .learn-article .what-box .wb-n em { font-style: normal; font-weight: 700; color: #17365d; }
@@ -1042,19 +1042,19 @@
           </div>
         </details>
       </div>
+      <div class="wb-why">
+        <p class="wb-wt"><b class="wb-gt why">왜 이 수업을 듣나</b>관광 데이터를 분석하는 사람을 국책연구원이 뽑습니다<a class="wb-job" href="https://kcti.plusrecruit.co.kr/#/recruitment/detail/59" target="_blank" rel="noopener">공고 원문 · 한국문화관광연구원 ↗</a></p>
+        <p class="wb-wd"><strong>한국문화관광연구원 위촉직원 채용 공고 [2026-37]</strong>(접수 9/21 ~ 9/28) — 뽑는 과제 넷 가운데 <strong>둘이 관광 데이터를 다루는 자리</strong>입니다.</p>
+        <ul class="wb-wl">
+          <li><b>관광산업 특수분류 개정 연구</b><span>전공 관광학 · 사회학 · <strong>통계학</strong> — 관광산업 분류체계 관련 <strong>국내외 자료 분석</strong>, 보고서 작성</span><a class="wb-go" href="#p02">파트 02 창구</a><a class="wb-go" href="#p04">파트 04 기법</a></li>
+          <li><b>관광거점도시 육성사업 최종성과 분석 연구</b><span>전공 관광학 · 지역개발 — 도시별 <strong>최종성과 분석</strong>, 자체 평가 · 성과 관리, 보고서 작성</span><a class="wb-go" href="#p03">파트 03 다섯 걸음</a><a class="wb-go" href="#p11">파트 11 현장</a></li>
+        </ul>
+        <p class="wb-wn">위촉연구원 1급 · 월 3,048,330원(세전) · 석사, 또는 학사 뒤 연구경력 2년. <strong>지금 바로 낼 자리는 아닙니다</strong> — 대학원이나 연구보조를 거쳐 닿는 자리입니다. 다만 이 수업에서 익히는 말(<em>자료 분석 · 성과 분석 · 보고서</em>)이 공고의 「주요업무」 칸에 <strong class="hot-t">그대로 적혀 있습니다</strong>.</p>
+      </div>
 
       <section class="what-box" aria-labelledby="what-title">
         <p class="wb-t" id="what-title">이 수업은 무엇을 하나<span>빅데이터 분석 = <b>실전 감각 편</b> · 데이터 분석 = <b>이론 기초 편</b></span></p>
         <p class="wb-goal"><b class="wb-gt">수업 목표</b>관광 · 호스피탈리티 현장의 물음을 <strong>데이터로 풀어 보는 실전 감각</strong>을 기릅니다. 출발은 <strong>이론과 도메인 지식에 기대어 스스로 확인해 보려는 태도</strong>입니다.</p>
-        <div class="wb-why">
-          <p class="wb-wt"><b class="wb-gt why">왜 이 수업을 듣나</b>관광 데이터를 분석하는 사람을 국책연구원이 뽑습니다<a class="wb-job" href="https://kcti.plusrecruit.co.kr/#/recruitment/detail/59" target="_blank" rel="noopener">공고 원문 · 한국문화관광연구원 ↗</a></p>
-          <p class="wb-wd"><strong>한국문화관광연구원 위촉직원 채용 공고 [2026-37]</strong>(접수 9/21 ~ 9/28) — 뽑는 과제 넷 가운데 <strong>둘이 관광 데이터를 다루는 자리</strong>입니다.</p>
-          <ul class="wb-wl">
-            <li><b>관광산업 특수분류 개정 연구</b><span>전공 관광학 · 사회학 · <strong>통계학</strong> — 관광산업 분류체계 관련 <strong>국내외 자료 분석</strong>, 보고서 작성</span><a class="wb-go" href="#p02">파트 02 창구</a><a class="wb-go" href="#p04">파트 04 기법</a></li>
-            <li><b>관광거점도시 육성사업 최종성과 분석 연구</b><span>전공 관광학 · 지역개발 — 도시별 <strong>최종성과 분석</strong>, 자체 평가 · 성과 관리, 보고서 작성</span><a class="wb-go" href="#p03">파트 03 다섯 걸음</a><a class="wb-go" href="#p11">파트 11 현장</a></li>
-          </ul>
-          <p class="wb-wn">위촉연구원 1급 · 월 3,048,330원(세전) · 석사, 또는 학사 뒤 연구경력 2년. <strong>지금 바로 낼 자리는 아닙니다</strong> — 대학원이나 연구보조를 거쳐 닿는 자리입니다. 다만 이 수업에서 익히는 말(<em>자료 분석 · 성과 분석 · 보고서</em>)이 공고의 「주요업무」 칸에 <strong class="hot-t">그대로 적혀 있습니다</strong>.</p>
-        </div>
         <div class="wb-cube">
           <p class="wb-cube-t">이 수업이 기르는 네 편 — 아래 표의 「편」 알약을 네모 넷으로</p>
           <ol>
