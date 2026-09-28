@@ -291,6 +291,21 @@
     .learn-article .what-box .wb-goal .wb-gt { display: inline-block; margin-right: 8px; padding: 1px 8px; border-radius: 999px; background: #2563a8; color: #fff; font-size: 11px; font-weight: 800; vertical-align: 1px; }
     .learn-article .what-box .wb-goal strong { color: #17365d; }
     /* 목표 여섯 — 한 줄에 하나씩, 번호를 달아 밟는 순서가 보이게. */
+    /* 수업 목표 셋 — 상자 맨 위. 아래 표(배우는 것 여섯)보다 위에 서는 큰 목표다. */
+    .learn-article .what-box .wb-aims {
+      list-style: none; counter-reset: wa; margin: -6px 0 12px; padding: 0 0 0 2px;
+    }
+    .learn-article .what-box .wb-aims > li {
+      counter-increment: wa; position: relative; padding: 3px 0 3px 26px;
+      font-size: 13px; line-height: 1.75; color: #4d5f74;
+    }
+    .learn-article .what-box .wb-aims > li::before {
+      content: counter(wa); position: absolute; left: 0; top: 5px;
+      width: 18px; height: 18px; border-radius: 999px;
+      background: #2563a8; color: #fff;
+      font-size: 10.5px; font-weight: 800; line-height: 18px; text-align: center;
+    }
+    .learn-article .what-box .wb-aims > li b { font-weight: 800; color: #17365d; }
     .learn-article .what-box .wb-goals {
       list-style: none; counter-reset: wg; margin: 0 0 12px; padding: 0 0 0 2px;
     }
@@ -1054,7 +1069,12 @@
 
       <section class="what-box" aria-labelledby="what-title">
         <p class="wb-t" id="what-title">이 수업은 무엇을 하나<span>빅데이터 분석 = <b>실전 감각 편</b> · 데이터 분석 = <b>이론 기초 편</b></span></p>
-        <p class="wb-goal"><b class="wb-gt">수업 목표</b>관광 · 호스피탈리티 현장의 물음을 <strong>데이터로 풀어 보는 실전 감각</strong>을 기릅니다. 출발은 <strong>이론과 도메인 지식에 기대어 스스로 확인해 보려는 태도</strong>입니다.</p>
+        <p class="wb-goal"><b class="wb-gt">수업 목표</b>셋입니다.</p>
+        <ol class="wb-aims">
+          <li><b>빅데이터 분석을 할 줄 안다.</b></li>
+          <li>빅데이터 분석 역량을 키우기 위한 <b>기초 개념 · 분석 방법의 용어와 공부법</b>을 익힌다.</li>
+          <li>빅데이터 분석과 이어지는, 접근 가능한 <b>ADsP 자격증 취득의 기초</b>를 만든다.</li>
+        </ol>
         <div class="wb-cube">
           <p class="wb-cube-t">이 수업이 기르는 네 편 — 아래 표의 「편」 알약을 네모 넷으로</p>
           <ol>
@@ -1087,7 +1107,7 @@
         </div>
         <div class="wb-wrap">
           <table>
-            <thead><tr><th scope="col">수업 목표</th><th scope="col">편</th><th scope="col">논문으로 보면</th><th scope="col">어디서 하나</th></tr></thead>
+            <thead><tr><th scope="col">배우는 것</th><th scope="col">편</th><th scope="col">논문으로 보면</th><th scope="col">어디서 하나</th></tr></thead>
             <tbody>
               <tr>
                 <th scope="row">현장의 물음을 <b>연구 문제로 세운다</b><span class="wg-d">무엇을 알고 싶은가 — 그 바탕은 <strong>이론적 관점</strong>과 각 분야의 <strong>도메인 지식</strong></span></th>
