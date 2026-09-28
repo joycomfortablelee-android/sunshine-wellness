@@ -377,7 +377,8 @@
       background: #2f6b5a; color: #eaf6f1; font-size: 11.5px; font-weight: 800; white-space: nowrap;
     }
     .learn-article .syl-box.cls .gtable td small { display: block; font-size: 11.5px; color: #5d7d73; line-height: 1.5; }
-    .learn-article .syl-box.cls .gtable td.cls-kw small { margin-top: 2px; }
+    .learn-article .syl-box.cls .gtable td.cls-kw small { margin: 2px 0 8px; }
+    .learn-article .syl-box.cls .gtable td.cls-kw small:last-child { margin-bottom: 0; }
     /* 발표 칸 - 발표한 사람을 굵게, 주제와 예정은 작게. */
     .learn-article .syl-box.cls .gtable td { word-break: keep-all; }
     .learn-article .syl-box.cls .gtable td.cls-pres { min-width: 150px; }
@@ -1065,7 +1066,9 @@
                 </tr>
                 <tr>
                   <td>9/28 (4회)</td>
-                  <td class="cls-kw"><span>#경진대회사례</span> <span>#보행환경</span> <span>#AI분석</span><small>2026 서울시 빅데이터 활용 경진대회 분석 부문 최우수상 「보행 소년단」 발표 영상 — <em>AI가 걸어본 서울 관광지 보행환경</em> · <a href="#seoul-bigdata">파트 06의 서울 캠퍼스 카드 ↓</a></small></td>
+                  <td class="cls-kw"><span>#경진대회사례</span> <span>#보행환경</span> <span>#AI분석</span><small>2026 서울시 빅데이터 활용 경진대회 분석 부문 최우수상 「보행 소년단」 발표 영상 — <em>AI가 걸어본 서울 관광지 보행환경</em> · <a href="#seoul-bigdata">파트 06의 서울 캠퍼스 카드 ↓</a></small>
+                    <span>#텍스트마이닝</span> <span>#아리랑사례</span><small>밀양아리랑 · 정선아리랑 온라인 텍스트 비교 — 빈도분석 → 바이그램 → TF-IDF → LDA 토픽 · <a href="#arirang-case">파트 04 사례 논문 ↓</a></small>
+                    <span>#네이버데이터랩API</span><small>검색어 트렌드 · 쇼핑인사이트를 무료 오픈 API로 — 최고 시점을 100으로 둔 상대값, 연령 · 성별 · 기기별 · <a href="#naver-datalab">관련 링크 ↓</a></small></td>
                   <td class="cls-pres"><small>DIKW 관광 적용 · 그 자리에서 피드백</small><strong>김준호 · 이영훈 · 장민주 · 정연승</strong><small>예정자 다섯 중 <strong class="hot-t">한솔만 결석</strong>해 발표가 남았습니다.</small></td>
                   <td class="cls-adsp"><strong>1과목 50문항 중 1~10번</strong><small><a href="adsp-subject1-50q-workbook.html" target="_blank" rel="noopener">1과목 50문항 실전훈련 판 ↗</a></small></td>
                   <td class="cls-att">고은서 · 김다애 · 김윤서 · 김준호 · 서효원 · 이영훈 · 임준혁 · 장민주 · 정연승<small class="late">(지각)</small> <strong>(9명)</strong><small class="cls-note">김다애는 이날 처음 나왔습니다.</small></td>
@@ -1216,10 +1219,10 @@
           <strong>보건의료</strong>(한국보건의료정보원) — 공공 보건의료 데이터 카탈로그·분석센터. 웰니스·의료관광 연구의 참고 자원.</span>
           <span class="meta">부처·기관별 분야 특화 데이터 플랫폼 · 분류 참고 <a href="https://boardmix.com/kr/reviews/big-data-platforms/" target="_blank" rel="noopener">Boardmix ↗</a></span>
         </li>
-        <li>
+        <li id="naver-datalab">
           <a href="https://datalab.naver.com/" target="_blank" rel="noopener">네이버 데이터랩(DataLab) ↗</a>
-          <span class="desc">네이버 검색어·쇼핑 클릭 추이를 기간·기기·성별·연령별로 비교해 볼 수 있는 트렌드 분석 서비스. 여행지·관광 키워드의 관심도가 언제 오르내리는지 바로 확인할 수 있습니다.</span>
-          <span class="meta">네이버(NAVER) · 검색어 트렌드</span>
+          <span class="desc">네이버 검색어·쇼핑 클릭 추이를 기간·기기·성별·연령별로 비교해 볼 수 있는 트렌드 분석 서비스. 여행지·관광 키워드의 관심도가 언제 오르내리는지 바로 확인할 수 있습니다.<br /><strong>오픈 API로도 받습니다</strong> — 무료 · 로그인 없이, <a href="https://developers.naver.com/" target="_blank" rel="noopener">네이버 개발자 센터 ↗</a>에 애플리케이션을 등록해 받은 <strong>클라이언트 아이디 · 시크릿</strong>을 HTTP 헤더에 넣어 호출합니다. <strong>통합 검색어 트렌드</strong>(주제어 · 하위 검색어의 일간 · 주간 · 월간 추이, 연령 5세 단위 · 성별 · PC/모바일로 세분)와 <strong>쇼핑인사이트</strong>(쇼핑 분야 · 키워드별 클릭 추이) 두 가지이며, 값은 <strong>가장 많이 검색된 시점을 100으로 둔 상대값</strong>입니다 — 검색 건수가 아닙니다.</span>
+          <span class="meta">네이버(NAVER) · 검색어 트렌드 · 데이터랩 서비스 2016년 1월 개시</span>
         </li>
         <li>
           <a href="https://data.seoul.go.kr/" target="_blank" rel="noopener">서울 열린데이터광장 ↗</a>
@@ -1323,7 +1326,7 @@
       </ol>
 
       <ul class="reslist">
-        <li class="t-rose case-tone flame-tone">
+        <li class="t-rose case-tone flame-tone" id="arirang-case">
           <a href="assets/miryang-jeongseon-arirang-textmining.hwp" download="밀양아리랑과 정선아리랑의 온라인 텍스트 재현 양상 비교.hwp">사례 논문 · <b class="mth">텍스트 마이닝</b> · 밀양아리랑과 정선아리랑의 온라인 텍스트 재현 양상 비교 ⤓ HWP</a>
           <span class="desc"><strong>② 텍스트 마이닝을 관광에 그대로 쓴 사례입니다.</strong> <strong>네이버 검색 API</strong>로 두 아리랑의 관련 문서를 모으고, <strong>빈도분석 → 이항결합어(바이그램) → TF-IDF → LDA 토픽모델링</strong>으로 무엇이 함께 이야기되는지 읽은 뒤, <strong>네이버 데이터랩</strong>의 검색 추이로 두 지역의 관심도를 견줍니다. 결과는 같은 무형문화유산인데도 온라인에서 재현되는 모습이 갈립니다 — <strong>밀양아리랑</strong>은 축제 · 캠핑 · 천문대 · 영남루 · 밀양강처럼 <em>관광시설과 체험</em>에, <strong>정선아리랑</strong>은 시장 · 열차 · 공연 · 먹거리처럼 <em>전통시장과 관광교통</em>에 붙습니다. 토픽은 각각 여섯 개, 검색 관심도는 <strong>2016~2020년 정선, 2021년 이후 밀양</strong>이 앞섭니다. 감성(긍정/부정) 판정까지는 가지 않고 <strong>단어 → 주제 구조</strong>까지 읽은 판이라, 위 카드의 앞쪽 절반을 그대로 보여줍니다.</span>
           <span class="meta">이유안 · 국립경국대학교 · 네이버 검색 API · 데이터랩 · 텍스트마이닝</span>
