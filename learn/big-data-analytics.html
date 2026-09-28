@@ -400,11 +400,11 @@
     .learn-article .what-box .wb-cube-t { text-align: center; font-size: 12.5px; font-weight: 800; color: #3a4a5c; margin: 0 0 10px; }
     .learn-article .what-box .wb-cube ol {
       list-style: none; margin: 0; padding: 0;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+      display: grid; grid-template-columns: 1fr 1fr; grid-auto-rows: 1fr; gap: 14px;
     }
     .learn-article .what-box .wb-cube li {
       --c: #5b3f7a; --cd: #3d2a52; --cl: #f5f0fb;
-      aspect-ratio: 1 / 1; display: flex; flex-direction: column; gap: 6px;
+      min-height: 270px; display: flex; flex-direction: column; gap: 6px;
       padding: 16px 16px 14px; border-radius: 10px; margin: 0;
       background: var(--cl); border: 2px solid var(--c);
       box-shadow: 6px 6px 0 var(--cd);
@@ -422,6 +422,19 @@
     .learn-article .what-box .wb-cube a.cb-ref:hover { background: var(--c); color: #fff; }
     .learn-article .ref-shelf .rs-why { margin: 9px 0 0; padding: 9px 12px; border-left: 3px solid #2563a8; background: #f6f9fd; font-size: 13px; line-height: 1.8; color: #34495e; }
     .learn-article .ref-shelf .rs-why b.rs-wt { color: #2563a8; font-weight: 900; }
+    /* 1번 네모 안 다섯 걸음 - 파트 03 육각형의 1~5번을 한 줄씩. 네모의 여백을 이 목록이 채운다. */
+    .learn-article .what-box .wb-cube ol.cb-steps { display: block; margin: 0; padding: 6px 0 0; border-top: 1px dashed #cdbde3; }
+    .learn-article .what-box .wb-cube ol.cb-steps li {
+      aspect-ratio: auto; display: flex; flex-direction: row; align-items: center; gap: 6px; flex-wrap: nowrap; white-space: nowrap;
+      padding: 1px 0; margin: 0; border: 0; border-radius: 0; background: none; box-shadow: none;
+      font-size: 12.5px; font-weight: 700; color: #3d2a52;
+    }
+    .learn-article .what-box .wb-cube ol.cb-steps li b {
+      flex: none; width: 18px; height: 18px; border-radius: 50%; background: #5b3f7a; color: #fff;
+      font-size: 10.5px; display: inline-flex; align-items: center; justify-content: center;
+    }
+    .learn-article .what-box .wb-cube ol.cb-steps li small { font-size: 11px; font-weight: 500; color: #6d5f80; }
+    .learn-article .what-box .wb-cube ol > li { min-width: 0; }
     .learn-article .what-box .wb-cube .cb-mid {
       position: absolute; left: 50%; top: calc(50% + 14px); transform: translate(-50%, -50%);
       width: 84px; height: 84px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
@@ -430,7 +443,8 @@
     }
     @media (max-width: 620px) {
       .learn-article .what-box .wb-cube ol { grid-template-columns: 1fr; }
-      .learn-article .what-box .wb-cube li { aspect-ratio: auto; }
+      .learn-article .what-box .wb-cube ol { grid-auto-rows: auto; }
+      .learn-article .what-box .wb-cube li { min-height: 0; }
       .learn-article .what-box .wb-cube .cb-mid { display: none; }
     }
     .learn-article .what-box .wb-l { display: flex; flex-wrap: wrap; gap: 5px; }
@@ -1106,6 +1120,13 @@
             <li class="thry">
               <p class="cb-h"><b class="cb-n">1</b><b class="cb-ti">이론</b><span class="cb-q">왜 · 어떻게</span></p>
               <p class="cb-d"><strong>빅데이터란</strong> 무엇인가<br /><strong>다섯 걸음</strong>으로 분석 설계</p>
+              <ol class="cb-steps">
+                <li><b>1</b>문제 정의 <small>무엇을 알고 싶은가</small></li>
+                <li><b>2</b>수집 <small>데이터 모으기</small></li>
+                <li><b>3</b>정제 <small>결측 · 중복 · 오류 거르기</small></li>
+                <li><b>4</b>분석 <small>패턴 찾기</small></li>
+                <li><b>5</b>시각화 · 해석 <small>결정으로 잇기</small></li>
+              </ol>
             </li>
             <li class="tech">
               <p class="cb-h"><b class="cb-n">2</b><b class="cb-ti">기술</b><span class="cb-q">무엇으로</span></p>
@@ -1556,7 +1577,7 @@
         <ol class="vcards c5 steps">
           <li class="t-blue"><span class="vh">무엇을 물었나</span><span class="vd">제목 말고 <strong>질문 한 문장</strong>으로 줄여 적는다. 누가 곤란한 문제인가.</span></li>
           <li class="t-teal"><span class="vh">어떤 데이터를 겹쳤나</span><span class="vd">출처 이름을 <strong>모두</strong> 적는다. 한 가지만 쓴 수상작은 드물다.</span></li>
-          <li class="t-gold"><span class="vh">어떻게 맞췄나</span><span class="vd">기간 · 지역 단위를 어떻게 맞췄나. <em>안 적혀 있으면 「안 적힘」도 적는다.</em></span></li>
+          <li class="t-gold"><span class="vh">어떻게 맞췄나</span><span class="vd">기간 · 지역 단위를 어떻게 맞췄나.</span></li>
           <li class="t-violet"><span class="vh">어떤 기법을 썼나</span><span class="vd"><a href="#p04">파트 04</a>의 기법 이름으로 부른다. 기법이 질문에 맞았나.</span></li>
           <li class="t-green solid"><span class="vh">무엇을 보여 주고 제안했나</span><span class="vd">핵심 그림 한 장과 제안 한 줄. 누가 실행하나까지.</span></li>
         </ol>
