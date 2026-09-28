@@ -1033,6 +1033,41 @@
       .learn-article .vcards.hexa > li:hover { transform: translateY(-2px); }
       .learn-article .vcards.hexa > li.t-ref { box-shadow: none; }
     }
+    /* ── 수상작을 읽는 다섯 질문을 원으로 — 오각형 꼭짓점에 동그라미 다섯, 사이를 시계 방향 화살표로 잇는다.
+       좌표는 SVG viewBox(1000×860) 기준 중심 (500,440) · 반지름 300, 꼭짓점 (500,140) (785,347) (676,683) (324,683) (215,347). ── */
+    .learn-article .qring-wrap { position: relative; max-width: 860px; margin: 10px auto 18px; aspect-ratio: 1000 / 860; }
+    .learn-article .qring-wrap .qring-svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .learn-article .qring-svg .qr-c1 { font-size: 24px; font-weight: 700; fill: #6b7f94; }
+    .learn-article .qring-svg .qr-c2 { font-size: 34px; font-weight: 900; fill: #14456f; }
+    .learn-article .vcards.qring { display: block; margin: 0; }
+    .learn-article .vcards.qring > li {
+      position: absolute; width: 26%; aspect-ratio: 1; transform: translate(-50%, -50%); word-break: keep-all;
+      border-radius: 50%; border: 2px solid var(--v-ac); padding: 30px 20px 8px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+      box-shadow: 0 4px 14px rgba(16,42,67,.08);
+    }
+    .learn-article .vcards.qring > li:hover { transform: translate(-50%, calc(-50% - 2px)); }
+    .learn-article .vcards.qring > li::before { left: 50%; top: 8%; transform: translateX(-50%); }
+    .learn-article .vcards.qring .vh { font-size: 14px; margin-bottom: 4px; }
+    .learn-article .vcards.qring .vd { font-size: 12px; line-height: 1.6; }
+    .learn-article .vcards.qring > li:nth-child(1) { left: 50%;   top: 16.28%; }
+    .learn-article .vcards.qring > li:nth-child(2) { left: 78.5%; top: 40.35%; }
+    .learn-article .vcards.qring > li:nth-child(3) { left: 67.6%; top: 79.42%; }
+    .learn-article .vcards.qring > li:nth-child(4) { left: 32.4%; top: 79.42%; }
+    .learn-article .vcards.qring > li:nth-child(5) { left: 21.5%; top: 40.35%; }
+    .learn-article .vcards.qring > li.solid::before { background: #fff; color: #2f5148; }
+    @media (max-width: 760px) {
+      .learn-article .qring-wrap { aspect-ratio: auto; max-width: none; }
+      .learn-article .qring-wrap .qring-svg { display: none; }
+      .learn-article .vcards.qring { display: grid; grid-template-columns: 1fr; gap: 10px; }
+      .learn-article .vcards.qring > li {
+        position: relative; left: auto !important; top: auto !important; width: auto; aspect-ratio: auto;
+        transform: none; border-radius: 11px; border-width: 1px; border-top-width: 3px; padding: 30px 14px 14px;
+        display: block; text-align: left;
+      }
+      .learn-article .vcards.qring > li:hover { transform: translateY(-2px); }
+      .learn-article .vcards.qring > li::before { left: 14px; top: 11px; transform: none; }
+    }
     /* 알약으로 내려올 때 제목이 화면 맨 위에 딱 붙지 않게 */
     .learn-article .learn-part[id] { scroll-margin-top: 18px; }
 </style>
@@ -1574,13 +1609,30 @@
           </li>
         </ul>
         <p class="rs-q"><b>수상작을 읽는 다섯 질문</b> — <a href="#p03">파트 03 다섯 걸음</a>을 거꾸로 짚습니다. 남의 작품에서 다섯 칸이 채워지면, 내 작품의 빈칸도 보입니다.</p>
-        <ol class="vcards c5 steps">
+        <div class="qring-wrap">
+        <svg class="qring-svg" viewBox="0 0 1000 860" aria-hidden="true">
+          <defs>
+            <marker id="qringArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8aa3bd"/></marker>
+          </defs>
+          <circle cx="500" cy="440" r="300" fill="#f4f8fc" stroke="#d6e3ef" stroke-width="2"/>
+          <g fill="none" stroke="#8aa3bd" stroke-width="3" stroke-dasharray="8 7" marker-end="url(#qringArrow)">
+            <path d="M636,173 A300,300 0 0 1 712,228"/>
+            <path d="M796,487 A300,300 0 0 1 767,576"/>
+            <path d="M547,736 A300,300 0 0 1 453,736"/>
+            <path d="M233,576 A300,300 0 0 1 204,487"/>
+            <path d="M288,228 A300,300 0 0 1 364,173"/>
+          </g>
+          <text x="500" y="428" text-anchor="middle" class="qr-c1">수상작 한 편을</text>
+          <text x="500" y="470" text-anchor="middle" class="qr-c2">한 바퀴 읽는다</text>
+        </svg>
+        <ol class="vcards steps qring">
           <li class="t-blue"><span class="vh">무엇을 물었나</span><span class="vd">제목 말고 <strong>질문 한 문장</strong>으로 줄여 적는다. 누가 곤란한 문제인가.</span></li>
           <li class="t-teal"><span class="vh">어떤 데이터를 겹쳤나</span><span class="vd">출처 이름을 <strong>모두</strong> 적는다. 한 가지만 쓴 수상작은 드물다.</span></li>
           <li class="t-gold"><span class="vh">어떻게 맞췄나</span><span class="vd">기간 · 지역 단위를 어떻게 맞췄나.</span></li>
           <li class="t-violet"><span class="vh">어떤 기법을 썼나</span><span class="vd"><a href="#p04">파트 04</a>의 기법 이름으로 부른다. 기법이 질문에 맞았나.</span></li>
           <li class="t-green solid"><span class="vh">무엇을 보여 주고 제안했나</span><span class="vd">핵심 그림 한 장과 제안 한 줄. 누가 실행하나까지.</span></li>
         </ol>
+        </div>
         <p class="rs-task"><b class="rs-tn">과제</b><span><strong>서로 다른 서가에서 수상작 두 편</strong>을 골라 다섯 질문에 한 줄씩 답해 옵니다. 맨 끝에 한 줄을 더 — <strong class="hot-t">「내 주제에 가져올 것 하나」</strong>.</span></p>
       </div>
 
