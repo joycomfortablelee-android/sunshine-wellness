@@ -350,6 +350,25 @@
     .learn-article .syl-box.cls .gtable td { vertical-align: top; }
     .learn-article .syl-box.cls .gtable td.cls-topic { font-weight: 700; color: #24513f; white-space: nowrap; }
     .learn-article .syl-box.cls .gtable td.cls-att { color: #35604f; }
+    /* 이론 · 개념 칸 - 그날 다룬 개념을 #키워드 알약으로. ADsP 문제만 기억에 남지 않도록 이 칸을 가장 짙게 둔다. */
+    .learn-article .syl-box.cls .gtable td.cls-kw { min-width: 190px; }
+    .learn-article .syl-box.cls .gtable td.cls-kw span {
+      display: inline-block; margin: 0 3px 4px 0; padding: 2px 8px; border-radius: 999px;
+      background: #2f6b5a; color: #eaf6f1; font-size: 11.5px; font-weight: 800; white-space: nowrap;
+    }
+    .learn-article .syl-box.cls .gtable td small { display: block; font-size: 11.5px; color: #5d7d73; line-height: 1.5; }
+    .learn-article .syl-box.cls .gtable td.cls-kw small { margin-top: 2px; }
+    /* 발표 칸 - 발표한 사람을 굵게, 주제와 예정은 작게. */
+    .learn-article .syl-box.cls .gtable td { word-break: keep-all; }
+    .learn-article .syl-box.cls .gtable td.cls-pres { min-width: 150px; }
+    .learn-article .syl-box.cls .gtable td.cls-pres strong { display: block; color: #6b3fa0; margin: 1px 0; }
+    .learn-article .syl-box.cls .gtable td.cls-pres small strong { display: inline; }
+    .learn-article .syl-box.cls .gtable td.cls-none { color: #a9b9b3; text-align: center; }
+    /* ADsP 칸 - 그 주에 푼 문제 범위만. 곁가지라 색을 눌러 둔다. */
+    .learn-article .syl-box.cls .gtable td.cls-adsp { white-space: normal; min-width: 130px; }
+    .learn-article .syl-box.cls .gtable td.cls-adsp strong { color: #35604f; white-space: nowrap; }
+    .learn-article .syl-box.cls .gtable td.cls-att small.late { display: inline; }
+    .learn-article .syl-box.cls .gtable td.cls-att small.cls-note { font-style: normal; color: #a08b4a; }
     /* 지각 - 출석에는 넣되 이름 옆에 작게 적어 둔다. */
     .learn-article .cls-att small.late { margin-left: 2px; font-size: 10.5px; font-weight: 700; color: #a8681f; }
     /* 결석 칸 - 출석과 더해 12명이 되는지 눈으로 검산하는 자리. 눈에 덜 걸리게 눌러 둔다. */
@@ -1001,40 +1020,44 @@
           <div class="cls-body">
           <div class="gtable-wrap">
             <table class="gtable">
-              <thead><tr><th>날짜(회차)</th><th>수업 내용</th><th>진행 기록</th><th>출석</th><th>결석</th></tr></thead>
+              <thead><tr><th>날짜(회차)</th><th>이론 · 개념</th><th>발표</th><th>ADsP 문제 범위</th><th>출석</th><th>결석</th></tr></thead>
               <tbody>
                 <tr>
                   <td>9/7 (1회)</td>
-                  <td class="cls-topic">과목 소개</td>
-                  <td class="g-sub">홈페이지 소개, 빅데이터 개념 · 분석방법 · 도구, <strong>ADsP</strong>, 교재 메일 발송, <strong>Orange 설치</strong></td>
+                  <td class="cls-kw"><span>#과목소개</span> <span>#빅데이터개념</span> <span>#분석방법</span> <span>#분석도구</span> <span>#Orange설치</span><small>홈페이지 소개 · 교재 메일 발송</small></td>
+                  <td class="cls-pres cls-none">—</td>
+                  <td class="cls-adsp"><strong>시험 소개</strong><small>문제 풀이 전</small></td>
                   <td class="cls-att">고은서 · 김윤서 · 박상준 · 서효원 · 이영훈 · 장민주 · 정연승 <strong>(7명)</strong></td>
                   <td class="cls-abs"><b>5명</b> — 김다애 · 김대호 · 김준호 · 임준혁 · 한솔</td>
                 </tr>
                 <tr>
                   <td>9/14 (2회)</td>
-                  <td class="cls-topic">ADsP · 머신러닝</td>
-                  <td class="g-sub">데이터 · 정보, DB, 빅데이터 가치 · 영향, 비즈니스 모델, 위기요인 · 통제방안 <strong>Q1~29</strong>. <strong>지도 · 비지도학습</strong>, 유아교사 공감능력 <strong>군집분석 사례</strong></td>
+                  <td class="cls-kw"><span>#지도학습</span> <span>#비지도학습</span> <span>#군집분석</span><small>유아교사 공감능력 군집분석 사례</small></td>
+                  <td class="cls-pres cls-none">—</td>
+                  <td class="cls-adsp"><strong>Q1~29</strong><small>데이터 · 정보, DB, 빅데이터 가치 · 영향, 비즈니스 모델, 위기요인 · 통제방안</small></td>
                   <td class="cls-att">고은서 · 김윤서 · 서효원 · 이영훈 · 임준혁 · 장민주 · 정연승 · 한솔 <strong>(8명)</strong></td>
                   <td class="cls-abs"><b>4명</b> — 김다애 · 김대호 · 김준호 · 박상준</td>
                 </tr>
                 <tr>
                   <td>9/21 (3회)</td>
-                  <td class="cls-topic">KOSIS · 시각화 · DIKW · 발표 · ADsP</td>
-                  <td class="g-sub"><strong>KOSIS 시각화</strong>, DIKW 관광 적용, <strong>Q30~37</strong>, ADsP 이력서 활용.<br />발표 — <strong>임준혁 · 김윤서 · 고은서 · 서효원 · 박상준</strong><br />9/28 발표 예정 — 한솔 · 김준호 · 이영훈 · 정연승 · 장민주</td>
+                  <td class="cls-kw"><span>#KOSIS</span> <span>#시각화</span> <span>#DIKW</span> <span>#관광적용</span></td>
+                  <td class="cls-pres"><small>DIKW 관광 적용</small><strong>임준혁 · 김윤서 · 고은서 · 서효원 · 박상준</strong><small>9/28 예정 — 한솔 · 김준호 · 이영훈 · 정연승 · 장민주</small></td>
+                  <td class="cls-adsp"><strong>Q30~37</strong><small>ADsP 이력서 활용</small></td>
                   <td class="cls-att">고은서 · 김윤서 · 김준호 · 박상준 · 서효원 · 이영훈 · 임준혁 · 장민주 · 정연승 · 한솔 <strong>(10명)</strong></td>
                   <td class="cls-abs"><b>2명</b> — 김다애 · 김대호</td>
                 </tr>
                 <tr>
                   <td>9/28 (4회)</td>
-                  <td class="cls-topic">DIKW 발표 · ADsP</td>
-                  <td class="g-sub">발표 — <strong>김준호 · 이영훈 · 장민주 · 정연승</strong> 네 명이 발표하고 <strong>그 자리에서 피드백</strong>을 받았습니다. 예정자 다섯 중 <strong class="hot-t">한솔만 결석</strong>해 발표가 남았습니다.<br />영상 — <strong>2026 서울시 빅데이터 활용 경진대회 분석 부문 최우수상 「보행 소년단」</strong> 발표를 함께 봤습니다(<em>AI가 걸어본 서울 관광지 보행환경</em> · <a href="#seoul-bigdata">파트 06의 서울 캠퍼스 카드 ↓</a>).<br />ADsP — <a href="adsp-subject1-50q-workbook.html" target="_blank" rel="noopener">1과목 50문항 실전훈련 판 ↗</a>의 <strong>1~10번</strong>까지 풀었습니다. <em>김다애는 이날 처음 나왔습니다.</em></td>
-                  <td class="cls-att">고은서 · 김다애 · 김윤서 · 김준호 · 서효원 · 이영훈 · 임준혁 · 장민주 · 정연승<small class="late">(지각)</small> <strong>(9명)</strong></td>
+                  <td class="cls-kw"><span>#경진대회사례</span> <span>#보행환경</span> <span>#AI분석</span><small>2026 서울시 빅데이터 활용 경진대회 분석 부문 최우수상 「보행 소년단」 발표 영상 — <em>AI가 걸어본 서울 관광지 보행환경</em> · <a href="#seoul-bigdata">파트 06의 서울 캠퍼스 카드 ↓</a></small></td>
+                  <td class="cls-pres"><small>DIKW 관광 적용 · 그 자리에서 피드백</small><strong>김준호 · 이영훈 · 장민주 · 정연승</strong><small>예정자 다섯 중 <strong class="hot-t">한솔만 결석</strong>해 발표가 남았습니다.</small></td>
+                  <td class="cls-adsp"><strong>1과목 50문항 중 1~10번</strong><small><a href="adsp-subject1-50q-workbook.html" target="_blank" rel="noopener">1과목 50문항 실전훈련 판 ↗</a></small></td>
+                  <td class="cls-att">고은서 · 김다애 · 김윤서 · 김준호 · 서효원 · 이영훈 · 임준혁 · 장민주 · 정연승<small class="late">(지각)</small> <strong>(9명)</strong><small class="cls-note">김다애는 이날 처음 나왔습니다.</small></td>
                   <td class="cls-abs"><b>3명</b> — 김대호 · 박상준 · 한솔</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <span class="cls-src"><strong>수강 인원은 12명</strong>입니다 — 출석 + 결석이 12가 되는지로 검산합니다. <em>여기 적는 것은 그날 강의실에서 확인한 기록이고, 학사 시스템의 공식 출결과는 따로 봅니다.</em><br />이 표의 <strong>수업 내용</strong> 칸은 아래 본문과 이어집니다 — 2회차의 군집분석 사례는 <strong>파트 04 사례 줄</strong>에, 3회차의 KOSIS · DIKW는 <strong>관련 링크 · 국가통계포털</strong> 줄에 자료가 있습니다.</span>
+          <span class="cls-src"><strong>수강 인원은 12명</strong>입니다 — 출석 + 결석이 12가 되는지로 검산합니다. <em>여기 적는 것은 그날 강의실에서 확인한 기록이고, 학사 시스템의 공식 출결과는 따로 봅니다.</em><br /><strong>이론 · 개념</strong> · <strong>발표</strong> · <strong>ADsP</strong>를 칸으로 나눴습니다 — ADsP 문제는 수업의 한 부분이고, 이 과목의 몸통은 <strong>#키워드</strong>로 적은 이론과 여러분의 발표입니다. 키워드는 아래 본문과 이어집니다 — <strong>#군집분석</strong> 사례는 <strong>파트 04 사례 줄</strong>에, <strong>#KOSIS · #DIKW</strong>는 <strong>관련 링크 · 국가통계포털</strong> 줄에 자료가 있습니다.</span>
           </div>
         </details>
       </div>
