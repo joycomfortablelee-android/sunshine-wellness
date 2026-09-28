@@ -234,6 +234,17 @@
     .learn-article .vcards > li.solid .vt { color: #cfe6dc; }
     .learn-article .vcards > li.solid .vh,
     .learn-article .vcards > li.solid .vd { color: #fff; }
+    /* 자격증 카드 안 알약 - 관련 안내 · 학습 자료로 바로 간다. 채운 카드(solid)에서도 읽히게 흰 바탕. */
+    .learn-article .vcards .vc-go { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+    .learn-article .vcards .vc-go a {
+      display: inline-block; padding: 2px 9px; border-radius: 999px; background: #fff;
+      border: 1px solid rgba(0,0,0,.14); color: #17539b; font-size: 11px; font-weight: 800; text-decoration: none; white-space: nowrap;
+    }
+    .learn-article .vcards .vc-go a:hover { background: #17539b; border-color: #17539b; color: #fff; }
+    /* 안내 카드 요약형 - 긴 문단을 「이름표 + 한 줄」 목록으로. 내용은 문단 그대로, 문장만 줄였다. */
+    .learn-article .reslist .gc-sum { list-style: none; margin: 4px 0 6px; padding: 0; font-size: 12.5px; line-height: 1.6; color: #3a4a5c; }
+    .learn-article .reslist .gc-sum li { position: relative; display: block; padding: 2px 0 2px 82px; margin: 0; border: 0; background: none; box-shadow: none; }
+    .learn-article .reslist .gc-sum li > b { position: absolute; left: 0; top: 3px; width: 76px; font-size: 11.5px; color: #1f6a4d; }
     /* 진한 하늘색 변형 — 자격증 카드. solid 의 흰 글자는 그대로 쓰고 바탕만 바꾼다. */
     .learn-article .vcards > li.solid.sky { background: #1f7fb8; border-color: #1f7fb8; border-top-color: #155f8c; }
     .learn-article .vcards > li.solid.sky .vt { color: #d4ecf8; }
@@ -1851,23 +1862,38 @@
       </ul>
       <p class="learn-part pt-part pp-7" id="p07"><span class="pt"><i>파트</i><b>07</b></span><span class="pt-ti">자격증으로 증명하기</span><span class="pt-sub">역량을 <strong>증명</strong>하고 싶다면 — ADsP · 빅데이터분석기사 · SQLD를 한 표에 놓고 견줍니다.</span></p>
       <ul class="vcards c4">
-        <li class="t-gold"><span class="vt">국가기술자격</span><span class="vh">빅데이터분석기사</span><span class="vd">과학기술정보통신부·한국데이터산업진흥원(K-DATA)이 시행. 필기·실기로 나뉘며, <em>이 분야 취업의 대표적인 관문</em>.</span></li>
-        <li class="t-blue solid sky"><span class="vt">단계별 검증</span><span class="vh">ADsP · ADP</span><span class="vd">데이터분석 준전문가/전문가(한국데이터산업진흥원). 통계·분석 기초부터 심화까지 단계별로 검증한다.</span></li>
+        <li class="t-gold"><span class="vt">국가기술자격</span><span class="vh">빅데이터분석기사</span><span class="vd">과학기술정보통신부·한국데이터산업진흥원(K-DATA)이 시행. 필기·실기로 나뉘며, <em>이 분야 취업의 대표적인 관문</em>.</span><span class="vc-go"><a href="bigdata-certifications.html">통합 비교 →</a></span></li>
+        <li class="t-blue solid sky"><span class="vt">단계별 검증</span><span class="vh">ADsP · ADP</span><span class="vd">데이터분석 준전문가/전문가(한국데이터산업진흥원). 통계·분석 기초부터 심화까지 단계별로 검증한다.</span><span class="vc-go"><a href="adsp-guide.html">ADsP 안내 →</a><a href="#ADsP1과목지도">1과목 지도 ↓</a><a href="adsp-subject1-50q-workbook.html" target="_blank" rel="noopener">50문항 판 ↗</a></span></li>
         <li class="t-teal"><span class="vt">실무 기본기</span><span class="vh">SQLD</span><span class="vd">SQL 개발자 자격. 데이터를 뽑아내는 실무 기본기를 인증한다.</span></li>
-        <li class="t-violet"><span class="vt">조사·통계</span><span class="vh">사회조사분석사</span><span class="vd">설문·통계 조사의 설계와 해석. <em>관광 수요조사</em>와 곧바로 이어진다.</span></li>
+        <li class="t-violet"><span class="vt">조사·통계</span><span class="vh">사회조사분석사</span><span class="vd">설문·통계 조사의 설계와 해석. <em>관광 수요조사</em>와 곧바로 이어진다.</span><span class="vc-go"><a href="bigdata-certifications.html">통합 비교 →</a><a href="adsp-guide.html">ADsP와 비교 →</a></span></li>
       </ul>
       <p>어느 자격증부터 손대야 할지 막막하다면, 아래 두 안내 페이지에서 시험 구성·공부기간·연구 활용성을 비교해 보세요.</p>
       <ul class="reslist gcard two">
         <li class="t-green">
           <a href="bigdata-certifications.html">데이터 분석 자격증 통합 비교 — 빅데이터분석기사 중심 →</a>
-          <span class="desc">국가기술자격인 <strong>빅데이터분석기사</strong>를 중심에 두고 ADsP·PCED·PCAD·사회조사분석사 2급까지 한 표에 놓고 비교합니다. 필기 구성과 실기 유무, 전처리부터 모델 평가까지의 실제 분석 흐름, Python 예시 코드, 자격증별 현실적인 공부기간과 시간 대비 효율, 그리고 목적별 추천 학습 경로를 담았습니다.</span>
+          <ul class="gc-sum">
+            <li><b>비교 대상</b><strong>빅데이터분석기사</strong>(국가기술자격) 중심 · ADsP · PCED · PCAD · 사회조사분석사 2급 — 한 표</li>
+            <li><b>시험</b>필기 구성 · 실기 유무</li>
+            <li><b>분석 흐름</b>전처리 → 모델 평가 · Python 예시 코드</li>
+            <li><b>공부</b>자격증별 현실적인 공부기간 · 시간 대비 효율</li>
+            <li><b>추천</b>목적별 학습 경로</li>
+          </ul>
           <span class="meta">학습 가이드 · ChatGPT 대화 정리</span>
         </li>
         <li class="t-green">
           <a href="adsp-guide.html">ADsP 데이터분석 준전문가 안내 — 사회조사분석사 2급과 비교 →</a>
-          <span class="desc"><strong>ADsP</strong>의 시험 성격과 온라인 학습처(국비지원 과정 포함)를 정리하고, <strong>사회조사분석사 2급</strong>과 항목별로 견줍니다. 설문·표본추출·SPSS 중심의 <em>조사방법론 연구</em>와 전처리·회귀·군집 중심의 <em>데이터 분석 연구</em> 중 어느 쪽을 지향하는지에 따라 자격을 고르는 기준을 제시합니다.</span>
+          <ul class="gc-sum">
+            <li><b>ADsP</b>시험 성격 · 온라인 학습처(국비지원 과정 포함)</li>
+            <li><b>비교</b><strong>사회조사분석사 2급</strong>과 항목별로</li>
+            <li><b>고르는 기준</b><em>조사방법론 연구</em>(설문 · 표본추출 · SPSS) ↔ <em>데이터 분석 연구</em>(전처리 · 회귀 · 군집) — 어느 쪽을 지향하나</li>
+          </ul>
           <div class="linkrow tiny fill-green"><a href="adsp-career-link.html" target="_blank" rel="noopener">ADsP를 취업으로 잇는 법 · 이력서 · 자소서 · 면접 40초 ↗</a><a class="ylw" href="adsp-subject1-50q-workbook.html" target="_blank" rel="noopener">1과목 데이터이해 50문항 · 실전훈련 판 ↗</a></div>
-          <span class="desc"><strong>실전훈련 판</strong>은 세 칸으로 돌아갑니다 — <strong>① 개념학습</strong>(정형 · 반정형 · 비정형) → <strong>② 실전시험 · 자동채점</strong>(10문제씩 다섯 묶음, 또는 1~50 한 번에) → <strong>③ 정답 해설</strong>. 해설은 한 문제씩 넘기며 보기 넷을 <em>왜 맞고 왜 틀렸는지</em> 하나씩 갈라 주고, <strong>11~50번에는 「출제 규칙」과 「함정」</strong>이 두 줄로 붙습니다. 헷갈리는 문항에서는 <strong>보충학습 버튼</strong>이 떠서 그 자리에서 배경 개념을 펼쳐 읽습니다 — 10번(집계함수)은 <strong>「COUNT 완전정복」과 「SQL이 처음이라면」 두 개</strong>가 함께 뜹니다. <em>26번은 원문 유실로 채점에서 빠집니다.</em></span>
+          <ul class="gc-sum">
+            <li><b>실전훈련 판</b><strong>① 개념학습</strong>(정형 · 반정형 · 비정형) → <strong>② 실전시험 · 자동채점</strong>(10문제씩 다섯 묶음, 또는 1~50 한 번에) → <strong>③ 정답 해설</strong></li>
+            <li><b>해설</b>한 문제씩 — 보기 넷을 <em>왜 맞고 왜 틀렸는지</em> · <strong>11~50번</strong>은 「출제 규칙」 「함정」 두 줄</li>
+            <li><b>보충학습</b>헷갈리는 문항에 버튼 → 배경 개념 펼침 · 10번(집계함수)은 「COUNT 완전정복」 「SQL이 처음이라면」 둘</li>
+            <li><b>주의</b><em>26번은 원문 유실로 채점 제외</em></li>
+          </ul>
           <span class="meta">학습 가이드 · ChatGPT 대화 정리 · 윤종식 ADsP 교재 80~100쪽 범위</span>
         </li>
       </ul>
