@@ -242,6 +242,52 @@
     .learn-article .gtable tbody tr:nth-child(odd) { background: rgba(59,98,89,.035); }
     .learn-article .gtable td:first-child { font-weight: 800; color: var(--deep); white-space: nowrap; }
     .learn-article .gtable .g-sub { color: var(--muted); line-height: 1.7; }
+    /* ===== 이 수업은 무엇을 하나 — 다섯 줄 지도 =====
+       학생이 ADsP 문제부터 손대 어려워하는 것을 보고 냈다. 줄 순서가 곧 밟는 순서다 —
+       찾고 · 배우고 · 만져 보고 · 내 보고 · 확인한다. 「편」 칸의 색으로 그 리듬이 보인다. */
+    .learn-article .what-box { margin: 0 0 18px; }
+    .learn-article .what-box .wb-t { margin: 0 0 9px; font-size: 15px; font-weight: 800; color: #17365d; }
+    .learn-article .what-box .wb-t span { display: block; margin-top: 3px; font-size: 11.5px; font-weight: 500; color: #7d8ea0; }
+    .learn-article .what-box .wb-t span b { color: #2563a8; font-weight: 800; }
+    .learn-article .what-box .wb-wrap { border: 1px solid #d9e6f4; border-radius: 12px; background: #fff; overflow: hidden; }
+    .learn-article .what-box table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .learn-article .what-box th, .learn-article .what-box td {
+      padding: 9px 12px; text-align: left; vertical-align: middle; border-bottom: 1px solid #eef3f8;
+    }
+    .learn-article .what-box thead th { background: #eef4fb; color: #2563a8; font-size: 11px; font-weight: 800; letter-spacing: .04em; }
+    .learn-article .what-box tbody tr:last-child th,
+    .learn-article .what-box tbody tr:last-child td { border-bottom: 0; }
+    .learn-article .what-box tbody th[scope="row"] { font-weight: 800; color: #17365d; white-space: nowrap; }
+    .learn-article .what-box .wb-m { color: #4d5f74; }
+    .learn-article .what-box .wb-s { width: 74px; }
+    .learn-article .what-box .wb-tag {
+      display: inline-block; padding: 2px 9px; border-radius: 999px;
+      font-size: 11px; font-weight: 800; color: #fff; letter-spacing: -.2px;
+    }
+    .learn-article .what-box .wb-tag.prac { background: #2563a8; }
+    .learn-article .what-box .wb-tag.thry { background: #5b3f7a; }
+    .learn-article .what-box .wb-tag.tech { background: #1f6a4d; }
+    .learn-article .what-box .wb-tag.cert { background: #a8681f; }
+    .learn-article .what-box .wb-l { display: flex; flex-wrap: wrap; gap: 5px; }
+    .learn-article .what-box a.wb-go {
+      display: inline-block; padding: 2px 9px; border-radius: 999px;
+      background: #fff; border: 1px solid #c3d8ea; color: #17539b;
+      font-size: 11px; font-weight: 700; text-decoration: none; letter-spacing: -.2px;
+    }
+    .learn-article .what-box a.wb-go:hover { background: #17539b; border-color: #17539b; color: #fff; }
+    .learn-article .what-box .wb-n { margin: 8px 0 0; font-size: 12px; line-height: 1.8; color: #56697c; }
+    .learn-article .what-box .wb-n strong { color: #c0392b; }
+    .learn-article .what-box .wb-n em { font-style: normal; font-weight: 700; color: #17365d; }
+    @media (max-width: 720px) {
+      .learn-article .what-box table, .learn-article .what-box thead,
+      .learn-article .what-box tbody, .learn-article .what-box tr,
+      .learn-article .what-box th, .learn-article .what-box td { display: block; width: auto; }
+      .learn-article .what-box thead { display: none; }
+      .learn-article .what-box tbody tr { padding: 9px 12px; border-bottom: 1px solid #eef3f8; }
+      .learn-article .what-box tbody tr:last-child { border-bottom: 0; }
+      .learn-article .what-box th, .learn-article .what-box td { padding: 1px 0; border-bottom: 0; }
+      .learn-article .what-box .wb-s { width: auto; margin-top: 3px; }
+    }
     /* 수업 진행 기록 - 매 수업 뒤 한 줄씩 더하는 상자. 취업 상자와 같은 「접기」 꼴이되
        색은 본문 쪽(청록)으로 가져와, 곁가지가 아니라 이 과목의 기록임을 보인다. */
     .learn-article .syl-box.cls { border: 1px solid #bcd3cd; border-radius: 14px; background: #f3f9f7; padding: 0; margin: 18px 0 26px; }
@@ -835,6 +881,48 @@
           </div>
         </details>
       </div>
+
+      <section class="what-box" aria-labelledby="what-title">
+        <p class="wb-t" id="what-title">이 수업은 무엇을 하나<span>빅데이터 분석 = <b>실전 감각 편</b> · 데이터 분석 = <b>이론 기초 편</b></span></p>
+        <div class="wb-wrap">
+          <table>
+            <thead><tr><th scope="col">질문</th><th scope="col">뜻</th><th scope="col">편</th><th scope="col">어디서 하나</th></tr></thead>
+            <tbody>
+              <tr>
+                <th scope="row">어디에 있나</th>
+                <td class="wb-m">데이터가 <strong>어디 있는지</strong> 안다</td>
+                <td class="wb-s"><b class="wb-tag prac">실전</b></td>
+                <td class="wb-l"><a class="wb-go" href="#p02">파트 02 창구들</a><a class="wb-go" href="#p10">파트 10 데이터셋</a></td>
+              </tr>
+              <tr>
+                <th scope="row">어떻게 하나</th>
+                <td class="wb-m"><strong>분석 방법론</strong></td>
+                <td class="wb-s"><b class="wb-tag thry">이론</b></td>
+                <td class="wb-l"><a class="wb-go" href="#p03">파트 03 다섯 걸음</a><a class="wb-go" href="#p04">파트 04 기법</a></td>
+              </tr>
+              <tr>
+                <th scope="row">무엇으로 하나</th>
+                <td class="wb-m"><strong>프로그램 · 도구</strong> 기술</td>
+                <td class="wb-s"><b class="wb-tag tech">기술</b></td>
+                <td class="wb-l"><a class="wb-go" href="#p05">파트 05 Orange · 빅카인즈</a></td>
+              </tr>
+              <tr>
+                <th scope="row">왜 하나</th>
+                <td class="wb-m">분석해 보려는 <strong>의지</strong></td>
+                <td class="wb-s"><b class="wb-tag prac">실전</b></td>
+                <td class="wb-l"><a class="wb-go" href="#p06">파트 06 공모전</a><a class="wb-go" href="#p11">파트 11 현장</a></td>
+              </tr>
+              <tr>
+                <th scope="row">무엇으로 증명하나</th>
+                <td class="wb-m"><strong>ADsP</strong> 자격증</td>
+                <td class="wb-s"><b class="wb-tag cert">증명</b></td>
+                <td class="wb-l"><a class="wb-go" href="#p07">파트 07 자격증</a><a class="wb-go" href="adsp-subject1-50q-workbook.html" target="_blank" rel="noopener">50문항 실전훈련 판 ↗</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="wb-n"><strong>ADsP는 출발점이 아니라 도착점입니다.</strong> 위 넷을 한 번씩 해 보고 나면, 문제에 나오는 말이 <em>이미 써 본 말</em>이 됩니다.</p>
+      </section>
 
       <div class="syl-box cls">
         <details class="cls-fold">
