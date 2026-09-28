@@ -190,6 +190,13 @@
     .wf-fold[open] > summary.wf-h::after { content: '접기 ▴'; }
     .wf-fold .wk-fig { margin: 10px 0 2px; }
     .wf-fold > summary.wf-h .wf-tag { margin-right: 8px; }
+    /* 대주제별 질문 표 — 14그룹 막대 아래에서 「무엇을 묻는가」를 한 줄씩 */
+    .gq-h { margin: 22px 0 6px; font-size: 15px; font-weight: 800; color: var(--navy, #17365d); }
+    .gq-lead { margin: 0 0 10px; font-size: 13px; color: #4d5f74; line-height: 1.7; }
+    table.gq td.gq-k { width: 52px; text-align: center; font-weight: 900; color: var(--navy, #17365d); }
+    table.gq td.gq-w { width: 72px; text-align: center; white-space: nowrap; color: #5b6b7d; }
+    table.gq tr.hl td { background: #fffaf0; }
+    .gq-src { margin: 8px 0 0; font-size: 11.5px; color: #8a96a3; }
     .wk-fig { margin: 18px 0 14px; padding: 0; }
     .wf-fold > summary.wf-h { font-size: 14px; font-weight: 800; color: var(--navy, #17365d); }
     .wk-fig .wf-h { margin: 0 0 8px; font-size: 14px; font-weight: 800; color: var(--navy, #17365d); }
@@ -411,6 +418,28 @@
           <div class="group"><div class="letter">N</div><div><b>역량·교육·포용</b><div class="bar"><i style="width:19%"></i></div></div><div class="n">4편 · 14주</div></div>
         </div>
         <div class="note"><b>핵심 특징</b> · 기술수용이론(F)이 21편으로 138편 중 최대 군집이며, 피인용 상위 논문도 이 계열에 집중되어 있다. 국내 스마트관광 연구의 주류 프레임임을 5~6주차에서 명시적으로 다룬다.</div>
+        <h4 class="gq-h">대주제마다 묻는 질문</h4>
+        <p class="gq-lead">열네 그룹이 각각 <b>어떤 질문에 답하는 논문 묶음인가</b>를 한 문장으로 적었습니다. 그 주에 논문을 읽기 전에 이 질문을 먼저 쥐고 들어가십시오.</p>
+        <table class="gq">
+          <thead><tr><th>그룹</th><th>대주제</th><th>이 그룹이 묻는 질문</th><th>주차</th></tr></thead>
+          <tbody>
+            <tr><td class="gq-k">A</td><td><b>스마트관광의 개념과 이론적 기반</b></td><td>스마트관광은 무엇이고, 기존 관광 · e-관광과 무엇이 다른가?</td><td class="gq-w">1주</td></tr>
+            <tr><td class="gq-k">B</td><td><b>스마트관광 연구동향</b></td><td>지금까지 연구는 무엇을 물어 왔고, 아직 비어 있는 곳은 어디인가?</td><td class="gq-w">1~2주</td></tr>
+            <tr><td class="gq-k">C</td><td><b>빅데이터 기반 관광분석</b></td><td>관광객이 남긴 데이터(검색 · 결제 · 이동 · 리뷰)로 무엇을 알 수 있는가?</td><td class="gq-w">2주</td></tr>
+            <tr><td class="gq-k">D</td><td><b>스마트관광도시</b></td><td>도시는 어떤 관광 문제를 기술로 풀었고, 그 성과는 무엇인가?</td><td class="gq-w">3주</td></tr>
+            <tr><td class="gq-k">E</td><td><b>생태계 · 정책 · 거버넌스</b></td><td>정부 · 지자체 · 기업 · 주민 중 누가, 어떻게 함께 만들고 운영하는가?</td><td class="gq-w">4주</td></tr>
+            <tr class="hl"><td class="gq-k">F</td><td><b>기술수용이론</b></td><td>관광객은 왜 새 기술을 쓰고, 왜 쓰지 않거나 그만두는가?</td><td class="gq-w">5~6주</td></tr>
+            <tr><td class="gq-k">G</td><td><b>정보기술 속성과 관광객 반응</b></td><td>정보의 질 · 상호작용성 같은 기술의 속성이 만족 · 신뢰 · 재방문을 어떻게 바꾸는가?</td><td class="gq-w">7주</td></tr>
+            <tr><td class="gq-k">H</td><td><b>실감기술(XR)</b></td><td>실감 경험은 현장 방문을 대신하는가, 아니면 더 가고 싶게 만드는가?</td><td class="gq-w">9주</td></tr>
+            <tr><td class="gq-k">I</td><td><b>인공지능과 스마트관광</b></td><td>챗봇 · 추천 · 생성형 AI는 관광객의 선택과 경험을 어떻게 바꾸는가?</td><td class="gq-w">10주</td></tr>
+            <tr><td class="gq-k">J</td><td><b>경제적 가치와 성과 측정</b></td><td>스마트관광에 들인 돈은 어떤 가치로 돌아오며, 그것을 어떻게 재는가?</td><td class="gq-w">11주</td></tr>
+            <tr><td class="gq-k">K</td><td><b>산업별 적용</b></td><td>호텔 · 여행사 · 항공 · 외식 · 컨벤션은 같은 기술을 어떻게 다르게 쓰는가?</td><td class="gq-w">12주</td></tr>
+            <tr><td class="gq-k">L</td><td><b>지역 기반 사례</b></td><td>한 지역의 자원과 문제에 맞춘 스마트관광은 어떤 모습인가?</td><td class="gq-w">13주</td></tr>
+            <tr><td class="gq-k">M</td><td><b>지속가능성과 문화유산</b></td><td>기술은 과잉관광을 줄이고 문화유산을 지키는 데 어떻게 쓰이는가?</td><td class="gq-w">13주</td></tr>
+            <tr><td class="gq-k">N</td><td><b>역량 · 교육 · 포용</b></td><td>누가 소외되며, 종사자와 관광객에게는 어떤 역량이 필요한가?</td><td class="gq-w">14주</td></tr>
+          </tbody>
+        </table>
+        <p class="gq-src">질문은 수업용으로 정리한 것입니다 — 그룹 이름과 배정 주차를 바탕으로 적었으며, 개별 논문의 연구문제와 한 줄씩 대조한 것은 아닙니다.</p>
       </section>
 
       <section id="s8">
