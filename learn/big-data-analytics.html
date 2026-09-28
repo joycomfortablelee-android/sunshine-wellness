@@ -326,6 +326,10 @@
       font-size: 11px; line-height: 1.7; color: #7d8ea0; letter-spacing: -.2px;
     }
     .learn-article .what-box .wb-goals > li .wg-d a.wb-go { margin-left: 4px; vertical-align: 1px; }
+    /* 공고 마감(data-close) 뒤에는 is-closed가 붙어 「지난 공고」 문구로 바뀐다 */
+    .learn-article .wb-why .wb-closed { display: none; }
+    .learn-article .wb-why.is-closed .wb-closed { display: inline; }
+    .learn-article .wb-why.is-closed .wb-open { display: none; }
     .learn-article .wb-why { margin: 0 0 12px; padding: 11px 14px; border: 1px solid #f0d9b5; border-radius: 10px; background: #fffaf2; font-size: 13px; line-height: 1.8; color: #34495e; }
     .learn-article .wb-why .wb-gt.why { display: inline-block; margin-right: 8px; padding: 1px 8px; border-radius: 999px; background: #a8681f; color: #fff; font-size: 11px; font-weight: 800; vertical-align: 1px; }
     .learn-article .wb-why .wb-wt { margin: 0 0 4px; font-weight: 800; color: #5a3a12; }
@@ -1055,9 +1059,9 @@
           </div>
         </details>
       </div>
-      <div class="wb-why">
-        <p class="wb-wt"><b class="wb-gt why">왜 이 수업을 듣나</b>관광 데이터를 분석하는 사람을 국책연구원이 뽑습니다<a class="wb-job" href="https://kcti.plusrecruit.co.kr/#/recruitment/detail/59" target="_blank" rel="noopener">공고 원문 · 한국문화관광연구원 ↗</a></p>
-        <p class="wb-wd"><strong>한국문화관광연구원 위촉직원 채용 공고 [2026-37]</strong>(접수 9/21 ~ 9/28) — 뽑는 과제 넷 가운데 <strong>둘이 관광 데이터를 다루는 자리</strong>입니다.</p>
+      <div class="wb-why" data-close="2026-09-29T00:00:00+09:00">
+        <p class="wb-wt"><b class="wb-gt why">왜 이 수업을 듣나</b><span class="wb-closed">지난 공고 · 이런 자리가 열립니다 — </span>관광 데이터를 분석하는 사람을 국책연구원이 뽑습니다<a class="wb-job" href="https://kcti.plusrecruit.co.kr/#/recruitment/detail/59" target="_blank" rel="noopener">공고 원문 · 한국문화관광연구원<span class="wb-closed"> (마감)</span> ↗</a></p>
+        <p class="wb-wd"><strong>한국문화관광연구원 위촉직원 채용 공고 [2026-37]</strong>(접수 9/21 ~ 9/28<span class="wb-closed"> · 마감</span>) — 뽑는 과제 넷 가운데 <strong>둘이 관광 데이터를 다루는 자리</strong><span class="wb-open">입니다</span><span class="wb-closed">였습니다. 같은 연구원의 위촉직원 공고는 <strong>한 해에도 여러 번</strong> 올라오니(올해만 [2026-37] · [2026-38]), <a href="https://kcti.plusrecruit.co.kr/" target="_blank" rel="noopener">채용 누리집 ↗</a>을 가끔 열어 보십시오</span>.</p>
         <ul class="wb-wl">
           <li><b>관광산업 특수분류 개정 연구</b><span>전공 관광학 · 사회학 · <strong>통계학</strong> — 관광산업 분류체계 관련 <strong>국내외 자료 분석</strong>, 보고서 작성</span><a class="wb-go" href="#p02">파트 02 창구</a><a class="wb-go" href="#p04">파트 04 기법</a></li>
           <li><b>관광거점도시 육성사업 최종성과 분석 연구</b><span>전공 관광학 · 지역개발 — 도시별 <strong>최종성과 분석</strong>, 자체 평가 · 성과 관리, 보고서 작성</span><a class="wb-go" href="#p03">파트 03 다섯 걸음</a><a class="wb-go" href="#p11">파트 11 현장</a></li>
@@ -1871,5 +1875,11 @@
     </div>
   </footer>
 
+<script>
+  (function () {
+    var box = document.querySelector('.wb-why[data-close]');
+    if (box && Date.now() >= Date.parse(box.getAttribute('data-close'))) box.classList.add('is-closed');
+  })();
+</script>
 </body>
 </html>
