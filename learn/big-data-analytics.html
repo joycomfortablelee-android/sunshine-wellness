@@ -262,6 +262,13 @@
     .learn-article .gtable tr.g-orange td { background: #fff7ec; }
     .learn-article .gtable tr.g-orange td:first-child { font-weight: 800; color: #b3541e; }
     .learn-article .gtable tr.g-orange small { font-size: 11px; font-weight: 500; color: #8a6a4a; }
+    /* 교재 설명 - 따로 있던 교재 카드를 Orange 줄 안으로 들였다. 링크 줄 아래 얇은 선으로 가른다. */
+    .learn-article .gtable tr.g-orange .g-book {
+      display: block; margin-top: 8px; padding-top: 7px; border-top: 1px dashed #e8c9a4;
+      font-size: 12px; line-height: 1.6; color: #5e4a36;
+    }
+    .learn-article .gtable tr.g-orange .g-book b { color: #b3541e; }
+    .learn-article .gtable tr.g-orange .g-book small { display: inline; margin-left: 4px; color: #9a8166; }
     .learn-article .gtable .g-links { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 7px; }
     .learn-article .gtable .g-links a { padding: 2px 9px; border-radius: 999px; border: 1px solid #f0c89a; background: #fff; color: #b3541e; font-size: 11.5px; font-weight: 700; text-decoration: none; }
     .learn-article .gtable .g-links a.own { background: #e8f5ec; border-color: #9fd3b0; color: #1f6a4d; }
@@ -1473,7 +1480,7 @@
           <tbody>
             <tr><td>엑셀(Excel)</td><td class="g-sub">가장 친숙한 출발점. 피벗테이블·기초 통계·간단한 그래프까지, 이것만으로 충분한 경우도 많다.</td></tr>
             <tr><td>SPSS</td><td class="g-sub">메뉴를 눌러 기술통계·t검정·회귀·요인·군집분석까지. 설문 분석의 표준이며, 수업 PC실(2106호)에서 쓸 수 있다.</td></tr>
-            <tr class="g-orange"><td>Orange<br /><small>코딩 없는 머신러닝</small></td><td class="g-sub">위젯을 선으로 이어 전처리 → 군집 · 예측 → 시각화까지. <strong>무료 오픈소스</strong>이고, 엑셀과 파이썬 사이를 메운다. 이 수업의 <strong>첫 분석 도구</strong>.<span class="g-links"><a href="https://orangedatamining.com/download/" target="_blank" rel="noopener">내려받기 ↗</a><a href="https://orangedatamining.com/getting-started/" target="_blank" rel="noopener">시작하기 ↗</a><a href="https://orangedatamining.com/widget-catalog/" target="_blank" rel="noopener">위젯 목록 ↗</a><a href="https://www.youtube.com/@OrangeDataMining" target="_blank" rel="noopener">▶ 공식 영상 강좌 ↗</a><a class="own" href="orange-ml-software.html">교재 · Orange와 머신러닝 소프트웨어 →</a><a class="own" href="cluster-analysis-orange-guide.html" target="_blank" rel="noopener">군집분석 · ANOVA · Orange 강의자료 ↗</a></span></td></tr>
+            <tr class="g-orange"><td>Orange<br /><small>코딩 없는 머신러닝</small></td><td class="g-sub">위젯을 선으로 이어 전처리 → 군집 · 예측 → 시각화까지. <strong>무료 오픈소스</strong>이고, 엑셀과 파이썬 사이를 메운다. 이 수업의 <strong>첫 분석 도구</strong>.<span class="g-links"><a href="https://orangedatamining.com/download/" target="_blank" rel="noopener">내려받기 ↗</a><a href="https://orangedatamining.com/getting-started/" target="_blank" rel="noopener">시작하기 ↗</a><a href="https://orangedatamining.com/widget-catalog/" target="_blank" rel="noopener">위젯 목록 ↗</a><a href="https://www.youtube.com/@OrangeDataMining" target="_blank" rel="noopener">▶ 공식 영상 강좌 ↗</a><a class="own" href="orange-ml-software.html">교재 · Orange와 머신러닝 소프트웨어 →</a><a class="own" href="cluster-analysis-orange-guide.html" target="_blank" rel="noopener">군집분석 · ANOVA · Orange 강의자료 ↗</a></span><span class="g-book"><b>교재에 담은 것</b> — 위젯을 선으로 잇는 것만으로 분석 흐름이 눈에 보인다는 점을 학생에게 설명하는 법, <strong>머신러닝과 딥러닝 소프트웨어의 구분</strong>, 비용 · 코딩 부담 · 가시성 비교표, <strong>SAS는 구 모델인가</strong>라는 물음, 그리고 <em>「PCA · 군집분석은 SPSS에도 있는데 Orange와 무엇이 다른가」</em>. 파트 04의 군집 · 예측 분석을 직접 돌려 보고 싶을 때 첫 도구로 권할 만합니다. <small>학습 가이드 · ChatGPT 대화 정리</small></span></td></tr>
             <tr><td>SQL</td><td class="g-sub">데이터베이스에서 원하는 자료만 뽑아내는 질의 언어. 공공 데이터·PMS 같은 대형 데이터에선 필수.</td></tr>
             <tr><td>파이썬(Python)</td><td class="g-sub">사실상의 표준. <em>pandas</em>로 정제, <em>scikit-learn</em>으로 기계학습, <em>matplotlib</em>로 시각화까지 한 언어로.</td></tr>
             <tr><td>R</td><td class="g-sub">통계와 텍스트마이닝(감성 분석)에 강한 언어. 학계·조사 분야에서 널리 쓰인다.</td></tr>
@@ -1483,14 +1490,7 @@
         </table>
       </div>
       <p>처음부터 파이썬을 배울 필요는 없습니다. 다루는 데이터가 커질 때마다 <strong>위 표의 순서대로 한 칸씩</strong> 올라가면 됩니다.</p>
-      <p>그 사이를 메우는 길도 있습니다 — <strong>코딩 없이 블록을 이어 붙여</strong> 전처리부터 군집·예측까지 돌려 보는 도구입니다. 엑셀로는 부족하고 파이썬은 아직 부담스러운 단계에서 특히 쓸모가 있습니다.</p>
-      <ul class="reslist gcard">
-        <li class="t-green">
-          <a href="orange-ml-software.html">Orange Data Mining과 머신러닝 소프트웨어 이해 →</a>
-          <span class="desc">Orange는 <strong>무료 오픈소스</strong>이고, 위젯을 선으로 잇는 것만으로 분석 흐름이 눈에 보입니다. 교재에는 학생에게 설명하는 법, <strong>머신러닝과 딥러닝 소프트웨어의 구분</strong>, 비용·코딩 부담·가시성 비교표, <strong>SAS는 구 모델인가</strong>라는 물음, 그리고 <em>「PCA·군집분석은 SPSS에도 있는데 Orange와 무엇이 다른가」</em>까지 담았습니다. 파트 04의 군집·예측 분석을 직접 돌려 보고 싶을 때 첫 도구로 권할 만합니다.</span>
-          <span class="meta">학습 가이드 · ChatGPT 대화 정리</span>
-        </li>
-      </ul>
+      <p>그 사이를 메우는 길도 있습니다 — <strong>코딩 없이 블록을 이어 붙여</strong> 전처리부터 군집·예측까지 돌려 보는 도구입니다. 엑셀로는 부족하고 파이썬은 아직 부담스러운 단계에서 특히 쓸모가 있습니다 — 위 표의 <strong>주황 줄 Orange</strong>가 그 도구입니다.</p>
 
       <p class="learn-part pt-part pp-6" id="p06"><span class="pt"><i>파트</i><b>06</b></span><span class="pt-ti">빅데이터 공모전</span><span class="pt-sub">네 대회를 <strong>지금 낼 수 있는 것부터</strong> 놓고, 대회마다 <em>그 대회가 쓰는 데이터 창구</em>를 바로 아래 붙였습니다.</span></p>
       <div class="ref-shelf" id="수상작서가">
