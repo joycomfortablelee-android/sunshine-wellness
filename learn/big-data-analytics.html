@@ -39,6 +39,79 @@
     .learn-article .reslist.grid2.lcard.kmooc-pair { margin: 10px 0 20px; }
     /* 파트 02 카드 여섯 아래 — 「그 데이터를 실제로 어디서 받나」 창구 넷을 2×2 로. */
     .learn-article .reslist.grid2.lcard.ch02-src { margin: 14px 0 24px; }
+    /* ── 공공 데이터 지도 — 창구 아홉 곳을 층 넷(원자료 · 지표 · 분야 플랫폼 · 민간)으로 가른다.
+       맨 위 흐름 줄: 통신 · 카드 · 내비(민간 행동 데이터) → 한국관광 데이터랩. 칩은 아래 자세한 카드로 내려간다. ── */
+    .learn-article .pmap { margin: 6px 0 18px; }
+    .learn-article .pmap .pm-t { margin: 0 0 10px; font-size: 13.5px; line-height: 1.75; color: #34495e; }
+    .learn-article .pmap .pm-t b { color: var(--deep); font-weight: 900; font-size: 15px; }
+    .learn-article .pmap .pm-flow { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0; }
+    .learn-article .pmap .pm-src {
+      padding: 3px 11px; border-radius: 999px; font-size: 12px; font-weight: 800;
+      background: var(--v-a); border: 1px solid var(--v-ac); color: var(--v-tc);
+    }
+    .learn-article .pmap .pm-arw { font-size: 12.5px; color: #5a6b7a; margin: 0 4px; }
+    .learn-article .pmap .pm-arw strong { color: var(--deep); }
+    .learn-article .pmap .pm-hub, .learn-article .pmap .pm-chips a.key {
+      padding: 3px 12px; border-radius: 999px; background: #2f5148; color: #fff !important;
+      font-size: 12.5px; font-weight: 800; text-decoration: none; border: 1px solid #2f5148;
+    }
+    .learn-article .pmap .pm-flow-d { margin: 6px 0 14px; font-size: 12.5px; line-height: 1.7; color: #5a6b7a; }
+    .learn-article .pmap .pm-flow-d strong { color: var(--deep); }
+    .learn-article .pmap .pm-flow-d em { font-style: normal; font-weight: 800; color: #2f5148; }
+    .learn-article .pmap .pm-gov {
+      margin: 0; padding: 7px 12px; border-radius: 9px 9px 0 0; background: #2f5148; color: #fff;
+      font-size: 12.5px; font-weight: 800; text-align: center; letter-spacing: .02em;
+    }
+    .learn-article .pmap .pm-layers {
+      list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr);
+      border: 1px solid #c9e2da; border-top: 0; border-radius: 0 0 9px 9px; overflow: hidden;
+    }
+    .learn-article .pmap .pm-layers > li {
+      margin: 0; padding: 12px 14px 13px; display: flex; flex-direction: column; gap: 5px;
+      background: linear-gradient(180deg, var(--v-a) 0%, #fff 70%); border-top: 3px solid var(--v-ac);
+    }
+    .learn-article .pmap .pm-layers > li + li { border-left: 1px solid #dfe8e4; }
+    .learn-article .pmap .pm-l1 { --v-a:#dceefb; --v-ac:#2563a8; --v-tc:#1c4e8a; }
+    .learn-article .pmap .pm-l2 { --v-a:#d9eef0; --v-ac:#2e7d86; --v-tc:#1f5b62; }
+    .learn-article .pmap .pm-l3 { --v-a:#dff0ea; --v-ac:#3B6259; --v-tc:#2f5148; }
+    .learn-article .pmap .pm-n { font-size: 13px; font-weight: 900; color: var(--v-tc, #6b7d76); }
+    .learn-article .pmap .pm-h { font-size: 15px; font-weight: 900; color: var(--deep); margin-top: -4px; }
+    .learn-article .pmap .pm-v { font-size: 12px; color: #5a6b7a; }
+    .learn-article .pmap .pm-v b { color: var(--v-tc); font-weight: 900; font-size: 13px; }
+    .learn-article .pmap .pm-chips { display: flex; flex-wrap: wrap; gap: 5px; margin: 3px 0 2px; }
+    .learn-article .pmap .pm-chips a {
+      padding: 2px 10px; border-radius: 999px; background: #fff; border: 1px solid var(--v-ac);
+      color: var(--v-tc); font-size: 12px; font-weight: 800; text-decoration: none;
+    }
+    .learn-article .pmap .pm-chips a.far { opacity: .55; }
+    .learn-article .pmap .pm-chips a:hover { background: var(--v-ac); color: #fff; opacity: 1; }
+    .learn-article .pmap .pm-d { font-size: 12px; line-height: 1.65; color: #5a6b7a; }
+    .learn-article .pmap .pm-pv {
+      display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; margin: 10px 0 0; padding: 9px 12px;
+      border: 1px dashed #b9c4cc; border-radius: 9px; background: #f7f8f9; font-size: 12px; line-height: 1.65; color: #5a6b7a;
+    }
+    .learn-article .pmap .pm-pv b { color: #56606a; font-weight: 900; }
+    .learn-article .pmap .pm-pv a { font-weight: 800; color: #3c4d48; }
+    .learn-article .pmap .pm-pv strong { color: var(--deep); }
+    .learn-article .pmap .pm-qt { margin: 18px 0 6px; font-size: 13px; color: #34495e; }
+    .learn-article .pmap .pm-qt b { color: var(--deep); font-weight: 900; font-size: 14.5px; }
+    .learn-article .pmap .pm-q { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .learn-article .pmap .pm-q td { padding: 7px 10px; border-bottom: 1px solid #e6ece9; vertical-align: middle; }
+    .learn-article .pmap .pm-q td:first-child { color: #34495e; }
+    .learn-article .pmap .pm-q td:last-child { white-space: nowrap; text-align: right; }
+    .learn-article .pmap .pm-q td a { font-weight: 800; color: #2f5148; }
+    .learn-article .pmap .pm-q td i { font-style: normal; margin-left: 6px; font-size: 11px; font-weight: 800; color: #8a9a94; }
+    .learn-article .pmap .pm-more { margin: 14px 0 0; font-size: 12.5px; color: #5a6b7a; }
+    .learn-article .pmap .pm-more strong { color: var(--deep); }
+    .learn-article .pv-tag {
+      display: inline-block; margin-bottom: 4px; padding: 1px 8px; border-radius: 999px;
+      background: #eef0f2; border: 1px dashed #9aa6af; color: #56606a; font-size: 10.5px; font-weight: 800;
+    }
+    @media (max-width: 760px) {
+      .learn-article .pmap .pm-layers { grid-template-columns: 1fr; }
+      .learn-article .pmap .pm-layers > li + li { border-left: 0; }
+      .learn-article .pmap .pm-q td:last-child { white-space: normal; }
+    }
     /* 3열 카드 - 호텔 PMS·RM 읽을거리 셋처럼 성격이 같은 것을 한 줄에 세울 때. */
     .learn-article .reslist.grid3.lcard {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
@@ -1371,13 +1444,55 @@
         <li class="t-green solid"><span class="vt">공식</span><span class="vh">공공 데이터</span><span class="vd">관광 통계, 방문객 수, 개방 데이터(data.go.kr, 한국관광 데이터랩 등).</span></li>
       </ul>
 
+      <div class="pmap" id="공공데이터지도">
+        <p class="pm-t"><b>공공 데이터 지도</b> — 아래 창구 아홉 곳은 모양이 같아 보여도 <strong>하는 일이 셋으로 갈립니다.</strong> 먼저 층을 보고, 자세한 설명은 아래 카드에서 찾습니다.</p>
+        <p class="pm-flow">
+          <span class="pm-src t-blue">통신</span><span class="pm-src t-gold">카드</span><span class="pm-src t-teal">내비게이션</span>
+          <span class="pm-arw">민간 회사가 가진 <strong>행동 데이터</strong>를 모아 공공이 연다 →</span>
+          <a class="pm-hub" href="#src-tour">★ 한국관광 데이터랩</a>
+        </p>
+        <p class="pm-flow-d">위 여섯 카드 중 셋(통신 · 카드 · 내비)은 회사가 가진 데이터입니다. 학생이 직접 받을 수 없는 이 데이터를 <strong>한국관광 데이터랩이 모아 지역 · 월별로 열어 줍니다</strong> — <em>공공 데이터는 정부가 만든 통계만이 아닙니다.</em></p>
+        <p class="pm-gov">정부 · 공공기관 — 데이터를 가진 곳</p>
+        <ol class="pm-layers">
+          <li class="pm-l1">
+            <span class="pm-n">①</span><span class="pm-h">원자료 창고</span><span class="pm-v">원본을 <b>받는다</b> · 파일 · 오픈 API</span>
+            <span class="pm-chips"><a href="#src-datago">공공데이터포털</a><a href="#src-seoul">서울 열린데이터광장</a></span>
+            <span class="pm-d">기관이 개방한 원자료. 내가 직접 정제해야 합니다.</span>
+          </li>
+          <li class="pm-l2">
+            <span class="pm-n">②</span><span class="pm-h">집계된 지표</span><span class="pm-v">숫자 표를 <b>받는다</b> · 표 · 그림</span>
+            <span class="pm-chips"><a href="#src-kosis">KOSIS</a></span>
+            <span class="pm-d">이미 집계 · 검증된 국가 공식 통계. 표를 그대로 씁니다.</span>
+          </li>
+          <li class="pm-l3">
+            <span class="pm-n">③</span><span class="pm-h">분야 특화 플랫폼</span><span class="pm-v">분석된 결과를 <b>본다</b> · 비교 · 지도</span>
+            <span class="pm-chips"><a class="key" href="#src-tour">★ 한국관광 데이터랩</a><a href="#src-tour">문화</a><a href="#src-tour">소상공인365</a><a class="far" href="#src-far">환경</a><a class="far" href="#src-far">금융혁신</a><a class="far" href="#src-far">보건의료</a></span>
+            <span class="pm-d">주제별로 모아 그림까지 그려 둔 곳. 옅은 셋은 주제를 관광 밖으로 넓힐 때.</span>
+          </li>
+        </ol>
+        <p class="pm-pv"><span class="pm-n">④</span><b>민간 · 공공 아님</b><a href="#naver-datalab">네이버 데이터랩</a><span>검색 관심도 — 가장 많이 검색된 때를 100으로 둔 <strong>상대값</strong>. 위 여섯 카드 중 「관심 · 검색·트렌드」의 창구입니다.</span></p>
+
+        <p class="pm-qt"><b>이럴 땐 여기</b> — 기관 이름이 아니라 <strong>내 질문</strong>에서 출발합니다.</p>
+        <table class="pm-q">
+          <tbody>
+            <tr><td>강릉의 7월 방문객 · 소비가 궁금하다</td><td><a href="#src-tour">한국관광 데이터랩</a><i>③</i></td></tr>
+            <tr><td>관광지 주변 상권 매출을 보고 싶다</td><td><a href="#src-tour">소상공인365</a><i>③</i></td></tr>
+            <tr><td>시군구 인구 같은 공식 수치를 표로 받고 싶다</td><td><a href="#src-kosis">KOSIS</a><i>②</i></td></tr>
+            <tr><td>관광지 목록 원본 파일 · API가 필요하다</td><td><a href="#src-datago">공공데이터포털</a><i>①</i></td></tr>
+            <tr><td>서울 한 동네의 생활인구 · 교통을 보고 싶다</td><td><a href="#src-seoul">서울 열린데이터광장</a><i>①</i></td></tr>
+            <tr><td>사람들이 그 여행지를 언제 검색했나</td><td><a href="#naver-datalab">네이버 데이터랩</a><i>④ 민간</i></td></tr>
+          </tbody>
+        </table>
+        <p class="pm-more">아래는 <strong>곳마다 한 장씩 자세히</strong> — 무엇이 있고, 누가 운영하는지.</p>
+      </div>
+
       <ul class="reslist grid2 lcard ch02-src">
-        <li>
+        <li id="src-datago">
           <a href="https://www.data.go.kr/" target="_blank" rel="noopener">공공데이터포털(Data.go.kr) ↗</a>
           <span class="desc">대한민국 정부·공공기관이 보유한 공공 데이터를 한곳에 모아 파일·오픈API로 제공하는 통합 데이터 포털. 데이터 수집의 출발점.</span>
           <span class="meta">행정안전부 · 공공데이터</span>
         </li>
-        <li>
+        <li id="src-kosis">
           <a href="https://kosis.kr/index/index.do" target="_blank" rel="noopener">국가통계포털(KOSIS) ↗</a>
           <span class="desc">인구·경제·사회 등 <strong>국가 공식 통계</strong>를 검색·시각화·다운로드하는 포털. 공공데이터포털이 <em>기관이 개방한 원자료</em>를 모은 곳이라면, 이쪽은 <em>이미 집계·검증된 지표</em>가 있는 곳입니다 — 표를 그대로 쓰거나 그림으로 받을 수 있습니다.<br />
           <strong>실습 자료와 판 여섯은 <a href="#p03">파트 03</a>의 KOSIS 카드</strong>에 모아 두었습니다.</span>
@@ -1386,7 +1501,7 @@
       </ul>
 
       <ul class="reslist grid2 lcard ch02-src">
-        <li>
+        <li id="src-tour">
           <span class="grouptitle">분야별 빅데이터 플랫폼 ① 관광 · 문화 · 상권</span>
           <div class="linkrow tiny">
             <a class="sky" href="https://datalab.visitkorea.or.kr/datalab/portal/main/getMainForm.do" target="_blank" rel="noopener">관광 ↗</a>
@@ -1399,7 +1514,7 @@
           <strong>소상공인365</strong>(소상공인시장진흥공단) — 전국 상권·매출·소비를 지도 기반으로 분석. 관광지 주변 상권을 볼 때.</span>
           <span class="meta">한국관광공사 · 한국문화정보원 · 소상공인시장진흥공단</span>
         </li>
-        <li>
+        <li id="src-far">
           <span class="grouptitle">분야별 빅데이터 플랫폼 ② 환경 · 금융 · 보건의료</span>
           <div class="linkrow tiny">
             <a href="https://www.bigdata-environment.kr/user/main.do" target="_blank" rel="noopener">환경 ↗</a>
@@ -1413,11 +1528,12 @@
           <span class="meta">부처·기관별 분야 특화 데이터 플랫폼 · 분류 참고 <a href="https://boardmix.com/kr/reviews/big-data-platforms/" target="_blank" rel="noopener">Boardmix ↗</a></span>
         </li>
         <li id="naver-datalab">
+          <span class="pv-tag">④ 민간 · 공공 아님</span>
           <a href="https://datalab.naver.com/" target="_blank" rel="noopener">네이버 데이터랩(DataLab) ↗</a>
           <span class="desc">네이버 검색어·쇼핑 클릭 추이를 기간·기기·성별·연령별로 비교해 볼 수 있는 트렌드 분석 서비스. 여행지·관광 키워드의 관심도가 언제 오르내리는지 바로 확인할 수 있습니다.<br /><strong>오픈 API로도 받습니다</strong> — 무료 · 로그인 없이, <a href="https://developers.naver.com/" target="_blank" rel="noopener">네이버 개발자 센터 ↗</a>에 애플리케이션을 등록해 받은 <strong>클라이언트 아이디 · 시크릿</strong>을 HTTP 헤더에 넣어 호출합니다. <strong>통합 검색어 트렌드</strong>(주제어 · 하위 검색어의 일간 · 주간 · 월간 추이, 연령 5세 단위 · 성별 · PC/모바일로 세분)와 <strong>쇼핑인사이트</strong>(쇼핑 분야 · 키워드별 클릭 추이) 두 가지이며, 값은 <strong>가장 많이 검색된 시점을 100으로 둔 상대값</strong>입니다 — 검색 건수가 아닙니다.</span>
           <span class="meta">네이버(NAVER) · 검색어 트렌드 · 데이터랩 서비스 2016년 1월 개시</span>
         </li>
-        <li>
+        <li id="src-seoul">
           <a href="https://data.seoul.go.kr/" target="_blank" rel="noopener">서울 열린데이터광장 ↗</a>
           <span class="desc">서울시가 지속적으로 발굴·개방하는 공공데이터·통계·빅데이터 시각화를 제공하는 서울시 공식 데이터 플랫폼. 관광·교통·인구 등 지역 분석의 출발점.</span>
           <span class="meta">서울특별시 · 데이터 수집</span>
