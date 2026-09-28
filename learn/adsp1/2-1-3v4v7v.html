@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>빅데이터의 이해 | 3V·4V·7V 시각화</title>
+<style>
+:root{
+  --navy:#0f2747;
+  --navy2:#183a66;
+  --gold:#c49a45;
+  --bg:#f5f7fb;
+  --card:#ffffff;
+  --text:#172033;
+  --muted:#667085;
+  --line:#d9e1ec;
+  --blue:#2b5f9e;
+  --green:#2f7d68;
+  --orange:#b66a27;
+  --red:#a54a4a;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"NanumBarunGothic","Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.55}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 22px 60px}
+.hero{
+  background:linear-gradient(135deg,var(--navy),#173a67);
+  color:#fff;border-radius:24px;padding:30px 34px;box-shadow:0 14px 35px rgba(15,39,71,.16);
+}
+.kicker{font-size:14px;color:#e8cf96;font-weight:800;letter-spacing:.08em}
+h1{margin:7px 0 10px;font-size:34px;line-height:1.2}
+.hero p{margin:0;color:#e8eef6;font-size:17px}
+.exam{
+  margin-top:20px;background:#fff;border-radius:16px;padding:18px 20px;color:var(--text);
+  display:grid;grid-template-columns:130px 1fr;gap:16px;align-items:center
+}
+.exam .tag{background:#f2e6c8;color:#6e531c;border-radius:12px;padding:10px 12px;text-align:center;font-weight:900}
+.exam b{color:var(--navy)}
+.section{margin-top:34px}
+.section-title{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.section-title .num{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:#fff;font-weight:900}
+.section-title h2{margin:0;font-size:25px;color:var(--navy)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 7px 18px rgba(15,39,71,.06)}
+.card h3{margin:0 0 8px;color:var(--navy);font-size:20px}
+.card .mini{font-size:13px;color:var(--muted);font-weight:700}
+.scope{
+  min-height:205px;position:relative;overflow:hidden
+}
+.scope:after{
+  content:"";position:absolute;right:-34px;bottom:-34px;width:110px;height:110px;border-radius:50%;
+  background:rgba(43,95,158,.07)
+}
+.scope .big{font-size:31px;font-weight:900;color:var(--blue);margin:10px 0}
+.scope ul{margin:10px 0 0;padding-left:20px}
+.arrowrow{display:flex;align-items:stretch;gap:10px;margin:12px 0 18px}
+.arrowbox{flex:1;background:#fff;border:2px solid var(--line);border-radius:18px;padding:18px;text-align:center}
+.arrowbox strong{font-size:22px;color:var(--navy)}
+.arrow{align-self:center;font-size:28px;color:var(--gold);font-weight:900}
+.vtree{display:grid;grid-template-columns:1fr 44px 1fr 44px 1fr;align-items:center;gap:8px}
+.vbox{border-radius:20px;padding:22px;background:#fff;border:2px solid var(--line);min-height:310px}
+.vbox[data-kind="3"]{border-color:#8fb3df}
+.vbox[data-kind="4"]{border-color:#d9bd76}
+.vbox[data-kind="7"]{border-color:#9cc8b8}
+.vlabel{font-size:34px;font-weight:950;color:var(--navy)}
+.vdesc{font-size:14px;color:var(--muted);margin-bottom:12px}
+.pill{display:inline-flex;align-items:center;margin:5px 5px 0 0;padding:7px 10px;border-radius:999px;background:#eef3f9;font-size:13px;font-weight:800}
+.pill em{font-style:normal;color:var(--blue)}
+.vbox[data-kind="4"] .pill.add{background:#f7efda;color:#7b5b1d}
+.vbox[data-kind="7"] .pill.add{background:#e8f4ef;color:#2f6b58}
+.chev{text-align:center;font-size:28px;color:var(--gold);font-weight:950}
+.legend{margin-top:14px;padding:14px 16px;border-radius:14px;background:#edf2f8;color:#334155;font-size:14px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.tabbtn{border:none;background:#e9eef5;color:#344054;padding:10px 14px;border-radius:999px;font-weight:900;cursor:pointer}
+.tabbtn.active{background:var(--navy);color:#fff}
+.tabpanel{display:none}
+.tabpanel.active{display:block}
+.compare{display:grid;grid-template-columns:170px 1fr 180px;gap:12px;align-items:center}
+.compare .who{font-weight:900;color:var(--navy)}
+.compare .quote{background:#fff;border:1px solid var(--line);border-radius:15px;padding:16px}
+.compare .focus{text-align:center;background:#f4f7fb;border-radius:13px;padding:14px;font-weight:900;color:var(--blue)}
+.compare + .compare{margin-top:10px}
+.memory{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.memory .m{background:#fff;border-radius:16px;padding:18px;border-left:6px solid var(--blue)}
+.memory .m:nth-child(2){border-left-color:var(--gold)}
+.memory .m:nth-child(3){border-left-color:var(--green)}
+.memory strong{display:block;color:var(--navy);font-size:18px}
+.quiz{background:#fff;border-radius:20px;padding:22px;border:1px solid var(--line)}
+.q{font-size:18px;font-weight:900;color:var(--navy)}
+.opts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:13px}
+.opt{padding:13px 14px;border:1px solid var(--line);border-radius:13px;cursor:pointer;background:#fff;text-align:left}
+.opt:hover{background:#f7faff}
+.answer{display:none;margin-top:13px;padding:13px 15px;border-radius:13px;background:#edf7f2;color:#235d4b;font-weight:800}
+.footer{margin-top:28px;text-align:center;color:var(--muted);font-size:13px}
+@media(max-width:850px){
+  .grid3,.memory{grid-template-columns:1fr}
+  .vtree{grid-template-columns:1fr}
+  .chev{transform:rotate(90deg)}
+  .compare{grid-template-columns:1fr}
+  .exam{grid-template-columns:1fr}
+  .opts{grid-template-columns:1fr}
+}
+
+/* ===== Integrated detail sections ===== */
+.summary-table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 7px 18px rgba(15,39,71,.06)}
+.summary-table th,.summary-table td{padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+.summary-table th{background:#eef3f9;color:var(--navy);font-weight:900}
+.summary-table tr:last-child td{border-bottom:none}
+.summary-table td:first-child{font-weight:950;color:var(--navy);font-size:20px;white-space:nowrap}
+.detail-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 7px 18px rgba(15,39,71,.06);margin-bottom:16px}
+.detail-card h3{margin:0 0 12px;color:var(--navy);font-size:23px}
+.detail-card h4{margin:18px 0 8px;color:var(--blue);font-size:18px}
+.quote-box{margin:12px 0;padding:14px 16px;border-left:5px solid var(--gold);background:#fbf7ee;border-radius:10px;font-weight:850;color:#4d3f24}
+.flow{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin:18px 0}
+.flow .step{background:#fff;border:2px solid #cfd9e6;border-radius:15px;padding:13px 18px;font-weight:900;color:var(--navy);min-width:120px;text-align:center}
+.flow .arr{color:var(--gold);font-size:28px;font-weight:950}
+.vitem{display:grid;grid-template-columns:190px 1fr 230px;gap:14px;align-items:start;border-top:1px dashed #d9e1ec;padding:16px 0}
+.vitem:first-child{border-top:none;padding-top:0}
+.term{font-size:20px;font-weight:950;color:var(--navy)}
+.term small{display:block;font-size:13px;color:var(--muted);margin-top:4px}
+.question{background:#eef5fb;border-radius:13px;padding:12px 14px;color:#234c77;font-weight:900}
+.tagline{display:inline-block;background:#e8f4ef;color:#275f4e;padding:7px 11px;border-radius:999px;font-size:13px;font-weight:900;margin:4px 4px 0 0}
+.pron-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.pron-table th,.pron-table td{border-bottom:1px solid var(--line);padding:12px 11px;text-align:left;vertical-align:top}
+.pron-table th{background:#0f2747;color:#fff}
+.pron-table tr:last-child td{border-bottom:none}
+.pron{font-weight:900;color:#8a5c15}
+.memory-banner{background:linear-gradient(135deg,#0f2747,#183a66);color:#fff;border-radius:20px;padding:24px;margin-top:16px}
+.memory-banner .line{font-size:20px;margin:8px 0}
+.memory-banner mark{background:#f5d97a;color:#15233b;padding:1px 5px;border-radius:5px;font-weight:950}
+.three-q{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+.three-q .qbox{background:#fff;border-radius:16px;padding:18px;border:1px solid var(--line);text-align:center}
+.three-q .qbox strong{display:block;color:var(--navy);font-size:20px;margin-bottom:8px}
+.smallnote{font-size:13px;color:var(--muted)}
+@media(max-width:850px){
+  .vitem{grid-template-columns:1fr}
+  .three-q{grid-template-columns:1fr}
+  .pron-table{font-size:14px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero">
+<div class="kicker">PART 01 · 데이터의 이해 / 2장 데이터의 가치와 미래</div>
+<h1>빅데이터의 이해｜3V → 4V → 7V</h1>
+<p>시험에서는 “빅데이터가 무엇인가?”보다 <b>어떤 관점의 정의인지, V가 무엇을 의미하는지</b>를 비교하는 문제가 자주 출제됩니다.</p>
+<div class="exam">
+<div class="tag">출제 포인트</div>
+<div><b>2025년에는 관련 문항이 2문제 출제.</b> 정의의 관점과 <b>3V·4V·7V의 차이</b>를 구분해 두는 것이 핵심입니다. ※ 원문 OCR의 ‘3W’는 문맥상 <b>3V</b>로 보는 것이 타당합니다.</div>
+</div>
+</section>
+<section class="section">
+<div class="section-title"><span class="num">1</span><h2>빅데이터 정의는 ‘범위’가 점점 넓어진다</h2></div>
+<div class="grid3">
+<div class="card scope">
+<div class="mini">좁은 범위의 정의</div>
+<div class="big">DATA</div>
+<h3>데이터 자체의 변화</h3>
+<ul>
+<li>데이터의 양이 많아짐</li>
+<li>형태가 다양해짐</li>
+<li>생성·처리 속도가 빨라짐</li>
+</ul>
+<div class="pill"><em>핵심:</em> 3V</div>
+</div>
+<div class="card scope">
+<div class="mini">중간 범위의 정의</div>
+<div class="big">DATA + TECH</div>
+<h3>처리·분석 기술까지 포함</h3>
+<ul>
+<li>대규모 데이터 처리</li>
+<li>분석기술 및 아키텍처</li>
+<li>고속 수집·발굴·분석</li>
+</ul>
+<div class="pill"><em>핵심:</em> 기술 변화</div>
+</div>
+<div class="card scope">
+<div class="mini">넓은 범위의 정의</div>
+<div class="big">DATA + TECH + PEOPLE</div>
+<h3>인재·조직·사회 변화까지</h3>
+<ul>
+<li>새로운 통찰과 가치 창출</li>
+<li>조직의 의사결정 변화</li>
+<li>시장·기업·정부·시민 관계 변화</li>
+</ul>
+<div class="pill"><em>핵심:</em> 변화와 가치</div>
+</div>
+</div>
+<div class="arrowrow">
+<div class="arrowbox"><strong>데이터</strong><br/>“무엇이 달라졌나?”</div>
+<div class="arrow">→</div>
+<div class="arrowbox"><strong>기술</strong><br/>“어떻게 처리하나?”</div>
+<div class="arrow">→</div>
+<div class="arrowbox"><strong>조직·사회</strong><br/>“그래서 무엇이 바뀌나?”</div>
+</div>
+</section>
+<section class="section">
+<div class="section-title"><span class="num">2</span><h2>3V → 4V → 7V 한눈에 구분</h2></div>
+<div class="vtree">
+<div class="vbox" data-kind="3">
+<div class="vlabel">3V</div>
+<div class="vdesc">빅데이터의 <b>기본 특성</b></div>
+<div class="pill">Volume · 양 / 규모</div>
+<div class="pill">Variety · 다양성</div>
+<div class="pill">Velocity · 속도</div>
+<p><b>언제?</b><br/>빅데이터의 기본 개념과 정의를 설명할 때</p>
+</div>
+<div class="chev">→</div>
+<div class="vbox" data-kind="4">
+<div class="vlabel">4V</div>
+<div class="vdesc">3V + <b>활용 결과</b></div>
+<div class="pill">Volume</div>
+<div class="pill">Variety</div>
+<div class="pill">Velocity</div>
+<div class="pill add">+ Value · 가치</div>
+<p><b>언제?</b><br/>기업의 빅데이터 활용 사례와 가치 창출을 설명할 때</p>
+</div>
+<div class="chev">→</div>
+<div class="vbox" data-kind="7">
+<div class="vlabel">7V</div>
+<div class="vdesc">4V + <b>품질·관리 조건</b></div>
+<div class="pill">Volume</div><div class="pill">Variety</div><div class="pill">Velocity</div><div class="pill">Value</div>
+<div class="pill add">+ Veracity · 진실성</div>
+<div class="pill add">+ Validity · 정확성/유효성</div>
+<div class="pill add">+ Volatility · 휘발성/변동성</div>
+<p><b>언제?</b><br/>데이터 거버넌스·관리정책·프로젝트 실행조건을 논의할 때</p>
+</div>
+</div>
+<div class="legend">
+<b>암기 구조:</b> 3V는 “데이터 자체”, 4V는 “가치 창출”, 7V는 “품질·관리까지”입니다.
+  </div>
+</section>
+<section class="section">
+<div class="section-title"><span class="num">3</span><h2>3V의 의미를 실제 데이터로 이해하기</h2></div>
+<div class="grid3">
+<div class="card">
+<h3>Volume｜양·규모</h3>
+<p>“데이터가 얼마나 많은가?”</p>
+<div class="pill">수백만 건 로그</div>
+<div class="pill">대규모 거래기록</div>
+<div class="pill">센서 데이터</div>
+</div>
+<div class="card">
+<h3>Variety｜다양성</h3>
+<p>“데이터 형태가 얼마나 다양한가?”</p>
+<div class="pill">정형 데이터</div>
+<div class="pill">텍스트</div>
+<div class="pill">사진·영상</div>
+<div class="pill">SNS</div>
+</div>
+<div class="card">
+<h3>Velocity｜속도</h3>
+<p>“얼마나 빨리 생성·수집·분석해야 하는가?”</p>
+<div class="pill">실시간 수집</div>
+<div class="pill">빠른 처리</div>
+<div class="pill">즉시 분석</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-title"><span class="num">4</span><h2>3V · 4V · 7V를 관광 사례로 완전히 이해하기</h2></div>
+<table class="summary-table">
+<thead>
+<tr>
+<th>구분</th>
+<th>쉽게 말하면</th>
+<th>관광 사례</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3V</td>
+<td>데이터가 <b>많고·다양하고·빠르다</b></td>
+<td>관광객의 검색기록, 예약정보, 위치정보, SNS 사진·후기 등이 엄청나게 많이, 다양한 형태로, 실시간 생성됨</td>
+</tr>
+<tr>
+<td>4V</td>
+<td>그 데이터를 활용해 <b>가치를 만든다</b></td>
+<td>데이터를 분석해서 “이 관광객에게 어떤 숙소·맛집·관광지를 추천하면 예약할 가능성이 높은가?”를 예측</td>
+</tr>
+<tr>
+<td>7V</td>
+<td>가치뿐 아니라 데이터가 <b>믿을 만한지·정확한지·언제까지 쓸 수 있는지</b>까지 본다</td>
+<td>가짜 리뷰인지, 위치정보가 정확한지, 3개월 전 숙박가격을 지금도 써도 되는지 등을 점검</td>
+</tr>
+</tbody>
+</table>
+<div class="detail-card" style="margin-top:18px">
+<h3>1. 3V = “데이터 자체가 어떤가?”</h3>
+<p>예를 들어 <b>안동 관광 플랫폼</b>이 있다고 해보겠습니다.</p>
+<div class="vitem">
+<div class="term">Volume <small>볼륨 · 양/규모</small></div>
+<div>
+        하루에 관광객 10만 명이 검색·예약·결제·이동 기록을 남깁니다.
+        <div class="quote-box">“데이터가 엄청 많다.”</div>
+</div>
+<div class="question">핵심 질문<br/>데이터가 얼마나 많은가?</div>
+</div>
+<div class="vitem">
+<div class="term">Variety <small>버라이어티 · 다양성</small></div>
+<div>
+        데이터가 한 종류가 아닙니다.
+        <div>
+<span class="tagline">숙박 예약 데이터</span>
+<span class="tagline">카드 결제 데이터</span>
+<span class="tagline">GPS 위치 데이터</span>
+<span class="tagline">SNS 글</span>
+<span class="tagline">관광객 사진·영상</span>
+<span class="tagline">블로그 후기</span>
+</div>
+<div class="quote-box">“숫자만 있는 게 아니라 글·사진·영상·위치정보까지 다양하다.”</div>
+</div>
+<div class="question">핵심 질문<br/>데이터 형태가 얼마나 다양한가?</div>
+</div>
+<div class="vitem">
+<div class="term">Velocity <small>벌라서티 · 속도</small></div>
+<div>
+        관광객이 지금 어디에 있는지, 어떤 숙소를 검색하는지 데이터가 계속 실시간으로 들어옵니다.
+        <div class="quote-box">“데이터가 매우 빠르게 생성되고 처리된다.”</div>
+</div>
+<div class="question">핵심 질문<br/>얼마나 빠르게 들어오고 처리되는가?</div>
+</div>
+<p><b>정리:</b> 3V는 <b>데이터의 성격 자체</b>를 설명합니다.</p>
+</div>
+<div class="detail-card">
+<h3>2. 4V = “그래서 이걸 어디에 쓰는데?”</h3>
+<p>3V에 <b>Value(가치)</b>를 더합니다.</p>
+<h4>관광객 A의 데이터</h4>
+<div>
+<span class="tagline">20대</span>
+<span class="tagline">안동 방문</span>
+<span class="tagline">카페 검색이 많음</span>
+<span class="tagline">한옥 숙소 검색</span>
+<span class="tagline">야간관광 검색</span>
+</div>
+<div class="quote-box" style="margin-top:16px">
+      플랫폼이 분석 후 판단합니다.<br/>
+      “이 관광객에게 <b>하회마을 + 한옥숙박 + 월영교 야경 + 카페</b>를 추천하자.”
+    </div>
+<p>관광객은 원하는 정보를 쉽게 얻고, 관광사업자는 예약을 더 받을 수 있습니다.</p>
+<div class="flow">
+<div class="step">데이터</div><div class="arr">→</div>
+<div class="step">분석</div><div class="arr">→</div>
+<div class="step">추천</div><div class="arr">→</div>
+<div class="step">예약 증가</div>
+</div>
+<div class="quote-box"><b>이게 바로 Value입니다.</b><br/>3V는 “데이터가 많다”까지, 4V는 “그 데이터로 돈이나 편익을 만든다”까지입니다.</div>
+</div>
+<div class="detail-card">
+<h3>3. 7V = “그 데이터, 진짜 믿어도 돼?”</h3>
+<p>여기서부터는 <b>데이터 품질과 관리</b>가 중요해집니다.</p>
+<div class="vitem">
+<div class="term">Veracity <small>버래서티 · 진실성/신뢰성</small></div>
+<div>
+        어떤 식당의 별점이 <b>4.9점</b>인데, 리뷰 100개 중 60개가 광고업체가 만든 가짜 리뷰라면?
+        <div class="quote-box">“이 데이터가 믿을 만한가?”</div>
+<span class="tagline">가짜 리뷰인가?</span>
+<span class="tagline">조작된 SNS 게시물인가?</span>
+<span class="tagline">중복 데이터인가?</span>
+</div>
+<div class="question">암기<br/><b>믿어?</b></div>
+</div>
+<div class="vitem">
+<div class="term">Validity <small>벌리더티 · 유효성/정확성</small></div>
+<div>
+        관광객이 실제로는 <b>월영교</b>에 있는데 GPS 오류 때문에 <b>하회마을</b>로 기록되었다면?
+        <div class="quote-box">“이 데이터가 분석 목적에 맞게 정확한가?”</div>
+<span class="tagline">위치가 정확한가?</span>
+<span class="tagline">나이가 잘못 입력되지 않았는가?</span>
+<span class="tagline">숙박일자가 정확한가?</span>
+</div>
+<div class="question">암기<br/><b>맞아?</b></div>
+</div>
+<div class="vitem">
+<div class="term">Volatility <small>발러틸러티 · 변동성/휘발성</small></div>
+<div>
+        작년 여름 호텔가격은 <b>8만 원</b>이었는데 올해 축제기간에는 <b>18만 원</b>이라면, 작년 데이터를 그대로 추천에 사용하면 문제가 생깁니다.
+        <div class="quote-box">“이 데이터는 언제까지 쓸 수 있는가?”</div>
+<span class="tagline">호텔 가격</span>
+<span class="tagline">항공권 가격</span>
+<span class="tagline">실시간 교통량</span>
+<span class="tagline">관광지 혼잡도</span>
+<span class="tagline">날씨 정보</span>
+</div>
+<div class="question">암기<br/><b>안 변했어?</b></div>
+</div>
+<div class="three-q">
+<div class="qbox"><strong>Veracity</strong>믿어?</div>
+<div class="qbox"><strong>Validity</strong>맞아?</div>
+<div class="qbox"><strong>Volatility</strong>안 변했어?</div>
+</div>
+</div>
+<div class="detail-card">
+<h3>호텔 추천 사례 하나로 3V → 4V → 7V 연결</h3>
+<div class="flow">
+<div class="step">검색·예약·후기·GPS가 엄청 많이 들어온다<br/><b>3V</b></div>
+<div class="arr">→</div>
+<div class="step">분석해서 고객에게 맞는 호텔을 추천한다<br/><b>4V</b></div>
+<div class="arr">→</div>
+<div class="step">가짜 후기·위치 정확성·가격 유효기간을 확인한다<br/><b>7V</b></div>
+</div>
+<div class="quote-box"><b>핵심 흐름:</b> 데이터 특성 → 가치 창출 → 데이터 품질·관리</div>
+</div>
+</section>
+<section class="section">
+<div class="section-title"><span class="num">5</span><h2>7V 영어 의미 · 한글 발음 · 핵심 질문</h2></div>
+<table class="pron-table">
+<thead>
+<tr>
+<th>7V</th>
+<th>영어 의미</th>
+<th>한글 의미</th>
+<th>영어 발음</th>
+<th>핵심 질문</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><b>Volume</b></td>
+<td>amount of data</td>
+<td><b>데이터의 양·규모</b></td>
+<td class="pron"><b>볼</b>-륨</td>
+<td>데이터가 얼마나 많은가?</td>
+</tr>
+<tr>
+<td><b>Variety</b></td>
+<td>different types of data</td>
+<td><b>데이터의 다양성</b></td>
+<td class="pron">버-<b>라이</b>-어-티</td>
+<td>데이터 형태가 얼마나 다양한가?</td>
+</tr>
+<tr>
+<td><b>Velocity</b></td>
+<td>speed of data generation and processing</td>
+<td><b>데이터의 생성·처리 속도</b></td>
+<td class="pron">벌-<b>라</b>-서-티</td>
+<td>데이터가 얼마나 빠르게 들어오고 처리되는가?</td>
+</tr>
+<tr>
+<td><b>Value</b></td>
+<td>useful value created from data</td>
+<td><b>데이터가 만들어내는 가치</b></td>
+<td class="pron"><b>밸</b>-류</td>
+<td>이 데이터로 어떤 편익이나 이익을 만들 수 있는가?</td>
+</tr>
+<tr>
+<td><b>Veracity</b></td>
+<td>trustworthiness of data</td>
+<td><b>데이터의 진실성·신뢰성</b></td>
+<td class="pron">버-<b>래</b>-서-티</td>
+<td>이 데이터를 믿을 수 있는가?</td>
+</tr>
+<tr>
+<td><b>Validity</b></td>
+<td>whether data is valid and appropriate</td>
+<td><b>데이터의 유효성·정확성</b></td>
+<td class="pron">벌-<b>리</b>-더-티</td>
+<td>이 데이터가 분석 목적에 맞고 정확한가?</td>
+</tr>
+<tr>
+<td><b>Volatility</b></td>
+<td>how quickly data changes / how long it remains useful</td>
+<td><b>데이터의 변동성·휘발성</b></td>
+<td class="pron">발러-<b>틸</b>-러-티</td>
+<td>이 데이터는 얼마나 빨리 변하며 언제까지 유효한가?</td>
+</tr>
+</tbody>
+</table>
+<div class="memory-banner">
+<div class="line"><b>3V</b> = <mark>많고(Volume), 다양하고(Variety), 빠르다(Velocity)</mark></div>
+<div class="line"><b>4V</b> = 거기에 <mark>가치(Value)</mark>를 만든다.</div>
+<div class="line"><b>7V</b> = 그리고 <mark>믿을 수 있는지(Veracity), 유효한지(Validity), 얼마나 빨리 변하는지(Volatility)</mark>까지 본다.</div>
+</div>
+<div class="three-q">
+<div class="qbox"><strong>Veracity</strong>“믿어?”</div>
+<div class="qbox"><strong>Validity</strong>“맞아?”</div>
+<div class="qbox"><strong>Volatility</strong>“안 변했어?”</div>
+</div>
+</section>
+<section class="section">
+<div class="section-title"><span class="num">6</span><h2>대표 정의 비교: 무엇에 초점을 두는가?</h2></div>
+<div class="tabs">
+<button class="tabbtn active" onclick="openTab('all',this)">전체 비교</button>
+<button class="tabbtn" onclick="openTab('mck',this)">McKinsey</button>
+<button class="tabbtn" onclick="openTab('idc',this)">IDC</button>
+<button class="tabbtn" onclick="openTab('may',this)">Mayer-Schönberger &amp; Cukier</button>
+</div>
+<div class="tabpanel active" id="all">
+<div class="compare">
+<div class="who">McKinsey (2011)</div>
+<div class="quote">일반적인 데이터베이스 소프트웨어로 저장·관리·분석할 수 있는 범위를 넘어서는 규모의 데이터</div>
+<div class="focus">초점: 데이터 규모</div>
+</div>
+<div class="compare">
+<div class="who">IDC (2011)</div>
+<div class="quote">다양한 대규모 데이터에서 저렴한 비용으로 가치를 추출하고, 초고속 수집·발굴·분석을 지원하는 차세대 기술 및 아키텍처</div>
+<div class="focus">초점: 기술·비용·분석</div>
+</div>
+<div class="compare">
+<div class="who">Mayer-Schönberger &amp; Cukier</div>
+<div class="quote">대용량 데이터로 새로운 통찰과 가치를 추출하고, 시장·기업·시민·정부의 관계 등 여러 영역에 변화를 가져오는 것</div>
+<div class="focus">초점: 가치·사회적 변화</div>
+</div>
+</div>
+<div class="tabpanel card" id="mck">
+<h3>McKinsey = “너무 커서 기존 DB로는 어렵다”</h3>
+<p>시험에서 <b>‘데이터의 규모’</b>를 묻는 표현이 나오면 McKinsey 정의와 가장 가깝습니다.</p>
+</div>
+<div class="tabpanel card" id="idc">
+<h3>IDC = “기술과 아키텍처로 빠르고 저렴하게 가치 추출”</h3>
+<p><b>초고속 수집·발굴·분석, 차세대 기술, 아키텍처, 비용</b>이 핵심어입니다.</p>
+</div>
+<div class="tabpanel card" id="may">
+<h3>Mayer-Schönberger &amp; Cukier = “새로운 통찰과 변화”</h3>
+<p>데이터 규모 자체보다 <b>새로운 가치와 사회·조직의 변화</b>에 더 넓게 초점을 둡니다.</p>
+</div>
+</section>
+<section class="section">
+<div class="section-title"><span class="num">7</span><h2>시험 직전 10초 암기</h2></div>
+<div class="memory">
+<div class="m"><strong>3V = 기본</strong>양(Volume) · 다양성(Variety) · 속도(Velocity)</div>
+<div class="m"><strong>4V = 가치 추가</strong>3V + Value</div>
+<div class="m"><strong>7V = 관리·품질 추가</strong>4V + Veracity + Validity + Volatility</div>
+</div>
+</section>
+<section class="section">
+<div class="section-title"><span class="num">8</span><h2>출제형 미니 퀴즈</h2></div>
+<div class="quiz">
+<div class="q">Q. “데이터의 진실성, 정확성, 휘발성까지 고려하여 빅데이터를 관리해야 한다”는 설명과 가장 가까운 것은?</div>
+<div class="opts">
+<button class="opt" onclick="showAnswer(false)">① 3V</button>
+<button class="opt" onclick="showAnswer(false)">② 4V</button>
+<button class="opt" onclick="showAnswer(true)">③ 7V</button>
+<button class="opt" onclick="showAnswer(false)">④ Volume만 고려</button>
+</div>
+<div class="answer" id="ans">정답 ③ 7V — 4V에 Veracity, Validity, Volatility가 추가됩니다.</div>
+</div>
+</section>
+<div class="footer">빅데이터의 이해 · 정의 관점 / 3V·4V·7V / 관광 사례 / 영어 발음 / 대표기관 정의 비교 / 시험 대비</div>
+</div>
+<script>
+function openTab(id,btn){
+  document.querySelectorAll('.tabpanel').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.tabbtn').forEach(x=>x.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+function showAnswer(ok){
+  const a=document.getElementById('ans');
+  a.style.display='block';
+  a.textContent = ok
+    ? '정답 ③ 7V — 4V에 Veracity, Validity, Volatility가 추가됩니다.'
+    : '다시 확인해보세요. 품질·관리 조건까지 확장한 개념은 7V입니다.';
+}
+</script>
+</body>
+</html>

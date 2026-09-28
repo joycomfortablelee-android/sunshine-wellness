@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>빅데이터 기출문제 22~25 통합 해설</title>
+<style>
+  :root{
+    --navy:#17324d;
+    --navy2:#244b70;
+    --gold:#c39a4a;
+    --ink:#1f2937;
+    --muted:#6b7280;
+    --line:#d8e0e8;
+    --bg:#f4f7fa;
+    --good:#0f766e;
+    --bad:#b42318;
+    --soft:#eef4f8;
+    --warn:#fff7e8;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:"NanumBarunGothic","Noto Sans KR","Malgun Gothic",sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.7;
+  }
+  .wrap{max-width:1100px;margin:0 auto;padding:28px 18px 60px}
+  .hero{
+    background:linear-gradient(135deg,var(--navy),var(--navy2));
+    color:white;border-radius:22px;padding:28px 30px;margin-bottom:24px;
+    box-shadow:0 12px 30px rgba(23,50,77,.16);
+  }
+  .hero .eyebrow{font-size:14px;letter-spacing:.08em;opacity:.82;font-weight:700}
+  .hero h1{margin:6px 0 8px;font-size:34px;line-height:1.25}
+  .hero p{margin:0;opacity:.9}
+  .question-card{
+    background:white;border:1px solid var(--line);border-radius:20px;
+    margin:24px 0;overflow:hidden;box-shadow:0 8px 24px rgba(15,23,42,.06);
+  }
+  .qhead{
+    display:flex;align-items:center;gap:12px;padding:18px 24px;
+    background:#f8fafc;border-bottom:1px solid var(--line);
+  }
+  .qnum{
+    width:44px;height:44px;border-radius:50%;display:grid;place-items:center;
+    background:var(--navy);color:white;font-weight:800;font-size:18px;flex:0 0 auto;
+  }
+  .meta{font-size:13px;color:var(--muted);font-weight:700}
+  .qtitle{font-size:23px;font-weight:800;color:var(--navy);margin:0}
+  .question{
+    padding:24px 26px 18px;
+  }
+  .question .stem{
+    font-size:20px;font-weight:800;margin-bottom:16px;color:#111827;
+  }
+  .choices{
+    display:grid;gap:10px;margin:10px 0 0;
+  }
+  .choice{
+    border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:white;
+  }
+  .choice strong{color:var(--navy)}
+  .explain{
+    border-top:3px solid var(--gold);
+    background:#fbfcfd;
+    padding:22px 26px 26px;
+  }
+  .answer{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--navy);color:white;border-radius:999px;
+    padding:8px 14px;font-weight:800;margin-bottom:16px;
+  }
+  .sub{
+    font-size:18px;font-weight:800;color:var(--navy);margin:18px 0 8px;
+  }
+  table{
+    width:100%;border-collapse:collapse;margin:12px 0 4px;background:white;
+    border-radius:12px;overflow:hidden;
+  }
+  th,td{border:1px solid var(--line);padding:11px 12px;vertical-align:top}
+  th{background:#eef3f8;color:var(--navy);font-weight:800}
+  .ok{color:var(--good);font-weight:800}
+  .no{color:var(--bad);font-weight:800}
+  .tip{
+    margin-top:16px;background:var(--warn);border-left:5px solid var(--gold);
+    padding:14px 16px;border-radius:10px;font-weight:700;
+  }
+  .flow{
+    display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin:12px 0;
+  }
+  .box{
+    padding:10px 14px;border:1.5px solid var(--navy2);border-radius:10px;
+    background:white;font-weight:800;color:var(--navy);
+  }
+  .arrow{font-weight:900;color:var(--gold);font-size:20px}
+  .compare{
+    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:10px;
+  }
+  .mini{background:white;border:1px solid var(--line);border-radius:12px;padding:14px}
+  .mini b{color:var(--navy)}
+  .summary{
+    background:white;border:1px solid var(--line);border-radius:18px;
+    padding:20px 22px;margin-top:28px;
+  }
+  .summary h2{margin:0 0 12px;color:var(--navy)}
+  .star{color:#b7791f;font-weight:900}
+  .kw{color:#0b5aa7;font-weight:900;}
+  .kw-soft{color:#1d6fb8;font-weight:800;}
+
+  .chapter-line{
+    font-size:14px;font-weight:800;letter-spacing:.04em;opacity:.88;margin-bottom:6px;
+  }
+  .hero-tags{
+    display:flex;flex-wrap:wrap;gap:7px;margin-top:16px;
+  }
+  .hero-tags span{
+    font-size:12px;font-weight:700;padding:5px 9px;border-radius:999px;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.24);
+  }
+  .point-toc{
+    background:white;border:1px solid var(--line);border-radius:20px;
+    padding:22px;margin:0 0 24px;box-shadow:0 8px 24px rgba(15,23,42,.05);
+  }
+  .point-toc .toc-kicker{
+    color:var(--gold);font-size:13px;font-weight:900;letter-spacing:.08em;
+  }
+  .point-toc h2{
+    color:var(--navy);font-size:24px;margin:3px 0 6px;
+  }
+  .point-toc .toc-desc{
+    color:var(--muted);margin:0 0 16px;font-size:14px;
+  }
+  .toc-grid{
+    display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;
+  }
+  .toc-item{
+    display:block;text-decoration:none;color:inherit;background:#f8fafc;
+    border:1px solid var(--line);border-radius:14px;padding:15px 14px;
+    transition:.15s ease;
+  }
+  .toc-item:hover{transform:translateY(-2px);border-color:#9fb2c4;background:#f2f7fb}
+  .toc-no{
+    display:inline-grid;place-items:center;width:28px;height:28px;border-radius:8px;
+    background:var(--navy);color:#fff;font-size:12px;font-weight:900;margin-bottom:8px;
+  }
+  .toc-item b{display:block;color:var(--navy);font-size:16px;line-height:1.35;margin-bottom:5px}
+  .toc-item small{display:block;color:var(--muted);line-height:1.45}
+  .toc-q{
+    display:inline-block;margin-top:8px;font-size:12px;font-weight:900;color:#8a651d;
+  }
+  .source-point{
+    margin-top:14px;padding:12px 14px;border-radius:12px;background:var(--warn);
+    border-left:4px solid var(--gold);font-size:14px;
+  }
+
+
+    .top-status{grid-column:1 / -1;grid-row:1;text-align:center}
+    .top-nav-bar .nav-btn{min-width:0}
+  }
+
+  @media(max-width:700px){
+    .hero h1{font-size:26px}
+    .qtitle{font-size:19px}
+    .question .stem{font-size:18px}
+    .compare{grid-template-columns:1fr}
+    .toc-grid{grid-template-columns:1fr 1fr}
+    table{font-size:14px}
+  }
+  @media(max-width:480px){.toc-grid{grid-template-columns:1fr}}
+
+  .carousel-shell{
+    position:relative;
+    margin-top:24px;
+  }
+  .slides-viewport{
+    position:relative;
+    overflow:hidden;
+    min-height:650px;
+  }
+  .slide{
+    display:none;
+    animation:fadeSlide .22s ease;
+  }
+  .slide.active{
+    display:block;
+  }
+  @keyframes fadeSlide{
+    from{opacity:.2;transform:translateX(12px)}
+    to{opacity:1;transform:translateX(0)}
+  }
+  .nav-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    margin:18px 0 8px;
+    position:sticky;
+    bottom:12px;
+    z-index:10;
+  }
+  .nav-btn{
+    border:none;
+    background:var(--navy);
+    color:white;
+    font-weight:900;
+    font-size:15px;
+    padding:12px 18px;
+    border-radius:999px;
+    cursor:pointer;
+    box-shadow:0 7px 18px rgba(23,50,77,.18);
+  }
+  .nav-btn:hover{background:var(--navy2)}
+  .nav-btn:disabled{
+    opacity:.35;
+    cursor:not-allowed;
+    box-shadow:none;
+  }
+  .slide-status{
+    flex:1;
+    text-align:center;
+    font-size:14px;
+    font-weight:800;
+    color:var(--navy);
+  }
+  .dots{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    margin:10px 0 22px;
+  }
+  .dot{
+    width:11px;height:11px;border-radius:50%;
+    border:none;background:#cbd5e1;cursor:pointer;padding:0;
+  }
+  .dot.active{background:var(--navy)}
+  .slide-label{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    margin:0 0 10px;
+    padding:0 4px;
+    color:var(--muted);
+    font-size:13px;
+    font-weight:800;
+  }
+  .slide-label-left{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    min-width:0;
+  }
+  .slide-question{
+    color:var(--navy);
+    font-weight:900;
+    white-space:nowrap;
+  }
+  .slide-label strong{color:var(--navy)}
+  .inline-nav{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    flex:0 0 auto;
+  }
+  .inline-nav-btn{
+    border:1px solid #b8c6d4;
+    background:white;
+    color:var(--navy);
+    font-weight:900;
+    font-size:12px;
+    padding:7px 10px;
+    border-radius:999px;
+    cursor:pointer;
+  }
+  .inline-nav-btn:hover{
+    background:#eef4f8;
+  }
+  .inline-nav-btn:disabled{
+    opacity:.35;
+    cursor:not-allowed;
+  }
+  .keyboard-note{
+    text-align:center;
+    color:var(--muted);
+    font-size:12px;
+    margin-top:-12px;
+    margin-bottom:18px;
+  }
+  .toc-item{cursor:pointer}
+
+  @media print{
+    .slide{display:block !important;}
+    .nav-row,.dots,.keyboard-note,.top-nav-wrap,.inline-nav{display:none !important;}
+    body{background:white}
+    .question-card{box-shadow:none;break-inside:avoid}
+    .hero{box-shadow:none}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero">
+    <div class="chapter-line">PART 01 데이터 이해 · 2장 데이터의 가치와 미래</div>
+    <div class="eyebrow">비즈니스 모델</div>
+    <h1>빅데이터 활용 사례와 분석 테크닉</h1>
+    <p>원자료의 학습 흐름에 맞춰 22~25번 기출문제를 핵심 개념별로 연결했습니다.</p>
+    <div class="hero-tags">
+      <span>#빅데이터활용사례</span>
+      <span>#빅데이터테크닉</span>
+      <span>#연관규칙학습</span>
+      <span>#기계학습</span>
+      <span>#회귀분석</span>
+      <span>#감정분석</span>
+      <span>#소셜네트워크분석</span>
+      <span>#딥러닝</span>
+      <span>#머신러닝</span>
+    </div>
+  </section>
+
+  <section class="point-toc">
+    <div class="toc-kicker">POINT CONTENTS</div>
+    <h2>이 페이지의 핵심 포인트 목차</h2>
+    <p class="toc-desc">교재의 실제 학습 순서와 22~25번 기출문제를 바로 연결했습니다.</p>
+
+    <div class="toc-grid">
+      <a class="toc-item" href="#q22">
+        <span class="toc-no">01</span>
+        <b>빅데이터 활용 사례</b>
+        <small>기업·정부·개인의 활용과 정형·비정형 데이터 활용</small>
+        <span class="toc-q">연결 기출 Q22</span>
+      </a>
+
+      <a class="toc-item" href="#q23">
+        <span class="toc-no">02</span>
+        <b>빅데이터 활용 기본 테크닉</b>
+        <small>연관분석·군집분석·회귀분석·분류분석의 차이</small>
+        <span class="toc-q">연결 기출 Q23</span>
+      </a>
+
+      <a class="toc-item" href="#q24">
+        <span class="toc-no">03</span>
+        <b>Machine Learning</b>
+        <small>데이터 학습 → 패턴 발견 → 분류·예측</small>
+        <span class="toc-q">연결 기출 Q24</span>
+      </a>
+
+      <a class="toc-item" href="#q25">
+        <span class="toc-no">04</span>
+        <b>Deep Learning</b>
+        <small><span class="kw">RNN·LSTM·Autoencoder</span>와 <span class="kw">SVM</span>의 구분</small>
+        <span class="toc-q">연결 기출 Q25</span>
+      </a>
+    </div>
+
+    <div class="source-point">
+      <b>★ 출제 포인트</b> · 빅데이터 활용 기본 테크닉은 사례 제시형 문항으로 자주 출제되며,
+      머신러닝·딥러닝의 주요 특징도 기본 개념으로 구분해 두는 것이 중요합니다.
+    </div>
+  </section>
+
+
+
+  
+
+  
+
+  
+
+
+  <section class="carousel-shell" aria-label="문항별 좌우 슬라이드">
+    <div class="slides-viewport">
+      <div class="slide active" data-slide="0" data-q="22">
+  <div class="slide-label"><div class="slide-label-left"><span class="slide-question">QUESTION 22</span><strong>빅데이터 활용 사례</strong></div><div class="inline-nav"><button class="inline-nav-btn prev-inline" type="button" disabled>← 이전 문제</button><button class="inline-nav-btn next-inline" type="button">다음 문제 →</button></div></div>
+  <section class="question-card" id="q22">
+    <div class="qhead">
+      <div class="qnum">22</div>
+      <div>
+        <div class="meta">30회 기출 · 빅데이터 활용 사례</div>
+        <h2 class="qtitle">다음 중 빅데이터 활용의 사례로 적절하지 않은 것은?</h2>
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="stem">다음 중 빅데이터 활용의 사례로 적절하지 않은 것은?</div>
+      <div class="choices">
+        <div class="choice"><strong>①</strong> 구글, 애플 등의 기업에서는 <span class="kw">정형화된 데이터만</span> 수집하여 웹과 스마트폰의 서비스에 활용한다.</div>
+        <div class="choice"><strong>②</strong> 교통 데이터를 실시간으로 분석하여 도시 교통 체증을 완화하는 솔루션을 제공한다.</div>
+        <div class="choice"><strong>③</strong> 농업에서 드론 데이터를 활용해 작물 생육 상태를 모니터링하고 생산성을 높인다.</div>
+        <div class="choice"><strong>④</strong> 소셜 미디어의 감정 분석을 통해 브랜드 인지도를 높이는 캠페인을 설계한다.</div>
+      </div>
+    </div>
+
+    <div class="explain">
+      <div class="answer">정답 ①</div>
+      <p><b>핵심 오류는 <span class="kw">‘정형화된 데이터만’</span></b>이라는 표현입니다. 구글·애플 같은 기업은 정형 데이터뿐 아니라 검색어, 텍스트, 사진, 영상, 음성, 위치정보, 로그 등 다양한 반정형·비정형 데이터도 활용합니다.</p>
+
+      <div class="sub">오답 해설</div>
+      <table>
+        <tr><th>보기</th><th>판단</th><th>해설</th></tr>
+        <tr><td>① 정형화된 데이터만 수집</td><td class="no">오답 문장 → 정답</td><td>빅데이터는 정형 데이터만 다루지 않는다. 다양한 형식의 데이터를 함께 활용한다.</td></tr>
+        <tr><td>② 실시간 교통 데이터 분석</td><td class="ok">적절</td><td>실시간 교통량·GPS·속도 등을 분석해 교통체증 예측과 경로 최적화에 활용한다.</td></tr>
+        <tr><td>③ 드론을 이용한 농업 분석</td><td class="ok">적절</td><td>드론 이미지·센서 데이터로 작물 생육상태나 병충해 등을 파악하는 스마트농업 사례다.</td></tr>
+        <tr><td>④ SNS 감정 분석</td><td class="ok">적절</td><td>게시글·댓글 등의 텍스트를 분석해 긍정·부정 감정을 파악하고 마케팅에 활용한다.</td></tr>
+      </table>
+
+      <div class="tip">★ 시험 포인트: 빅데이터 = 정형 데이터만이 아니라 <b><span class="kw">정형 + 반정형 + 비정형 데이터</span></b>를 함께 활용한다.</div>
+    </div>
+  </section>
+</div><div class="slide" data-slide="1" data-q="23">
+  <div class="slide-label"><div class="slide-label-left"><span class="slide-question">QUESTION 23</span><strong>빅데이터 활용 기본 테크닉</strong></div><div class="inline-nav"><button class="inline-nav-btn prev-inline" type="button">← 이전 문제</button><button class="inline-nav-btn next-inline" type="button">다음 문제 →</button></div></div>
+  <section class="question-card" id="q23">
+    <div class="qhead">
+      <div class="qnum">23</div>
+      <div>
+        <div class="meta">37회 기출 · 빅데이터 분석 기본 테크닉</div>
+        <h2 class="qtitle">마트의 맥주와 기저귀 사례는 어떤 분석인가?</h2>
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="stem">다음 설명에 맞는 빅데이터 활용 분석의 기본 테크닉은 무엇인가?</div>
+      <div class="choice" style="margin-bottom:12px;">
+        A 마트는 금요일 저녁에 <span class="kw">맥주를 사는 사람은 기저귀도 함께 구매했다</span>는 사실을 발견하고, 두 가지 상품을 가까운 곳에 진열하기로 결정했다.
+      </div>
+      <div class="choices">
+        <div class="choice"><strong>①</strong> 연관 분석</div>
+        <div class="choice"><strong>②</strong> 군집 분석</div>
+        <div class="choice"><strong>③</strong> 회귀 분석</div>
+        <div class="choice"><strong>④</strong> 분류 분석</div>
+      </div>
+    </div>
+
+    <div class="explain">
+      <div class="answer">정답 ① <span class="kw">연관 분석</span></div>
+      <p>이 사례의 핵심 질문은 <b><span class="kw">“어떤 상품들이 함께 나타나는가?”</span></b>입니다. 따라서 특정 상품 간 동시 구매 패턴을 찾는 <b><span class="kw">연관 분석(Association Analysis / Association Rule Mining)</span></b>에 해당합니다.</p>
+
+      <div class="sub">분석기법별 구분</div>
+      <table>
+        <tr><th>분석</th><th>핵심 질문</th><th>예시</th></tr>
+        <tr><td><b class="kw">연관 분석</b></td><td>같이 나타나는가?</td><td>맥주를 사는 사람이 기저귀도 함께 사는가?</td></tr>
+        <tr><td><b class="kw-soft">군집 분석</b></td><td>비슷한 대상끼리 묶을 수 있는가?</td><td>관광객을 미식형·문화형·가족형으로 묶기</td></tr>
+        <tr><td><b class="kw-soft">회귀 분석</b></td><td>얼마나 변하는가?</td><td>광고비가 늘면 매출액은 얼마나 증가하는가?</td></tr>
+        <tr><td><b class="kw-soft">분류 분석</b></td><td>어느 범주에 속하는가?</td><td>구매고객 / 비구매고객으로 구분하기</td></tr>
+      </table>
+
+      <div class="flow">
+        <div class="box">맥주</div><div class="arrow">↔</div><div class="box">기저귀</div><div class="arrow">→</div><div class="box">연관 분석</div>
+      </div>
+
+      <div class="tip">★★★★★ 암기: <b><span class="kw">맥주 + 기저귀 = 연관 분석</span></b></div>
+    </div>
+  </section>
+</div><div class="slide" data-slide="2" data-q="24">
+  <div class="slide-label"><div class="slide-label-left"><span class="slide-question">QUESTION 24</span><strong>Machine Learning</strong></div><div class="inline-nav"><button class="inline-nav-btn prev-inline" type="button">← 이전 문제</button><button class="inline-nav-btn next-inline" type="button">다음 문제 →</button></div></div>
+  <section class="question-card" id="q24">
+    <div class="qhead">
+      <div class="qnum">24</div>
+      <div>
+        <div class="meta">31회 기출 · 인공지능 분야</div>
+        <h2 class="qtitle">데이터로 학습하여 분류·예측하는 분야는?</h2>
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="stem">다음 설명에 맞는 인공지능의 분야는 무엇인가?</div>
+      <div class="choice" style="margin-bottom:12px;">
+        컴퓨터가 <span class="kw">스스로 많은 데이터를 분석해서 패턴과 규칙을 찾아내고</span>, 학습된 패턴과 규칙을 활용하여 <span class="kw">분류나 예측</span>을 하는 분야
+      </div>
+      <div class="choices">
+        <div class="choice"><strong>①</strong> 머신러닝 (Machine Learning)</div>
+        <div class="choice"><strong>②</strong> 유전자 알고리즘 (Genetic Algorithm)</div>
+        <div class="choice"><strong>③</strong> 연관 분석 (Association Rule Mining)</div>
+        <div class="choice"><strong>④</strong> 규칙 기반 시스템 (Rule-Based System)</div>
+      </div>
+    </div>
+
+    <div class="explain">
+      <div class="answer">정답 ① <span class="kw">머신러닝</span></div>
+      <p>문제의 결정적인 단서는 <b>“많은 데이터를 분석해서 패턴과 규칙을 찾아내고”</b>, 그리고 <b>“학습된 패턴으로 분류나 예측을 한다”</b>는 부분입니다.</p>
+
+      <div class="flow">
+        <div class="box">데이터</div><div class="arrow">→</div>
+        <div class="box">학습</div><div class="arrow">→</div>
+        <div class="box">패턴 발견</div><div class="arrow">→</div>
+        <div class="box">분류·예측</div>
+      </div>
+
+      <div class="sub">오답 해설</div>
+      <table>
+        <tr><th>보기</th><th>해설</th></tr>
+        <tr><td><b>① 머신러닝</b></td><td>데이터를 통해 패턴을 학습하고 이를 이용해 분류와 예측을 수행한다.</td></tr>
+        <tr><td><b>② 유전자 알고리즘</b></td><td>진화 원리를 모방해 여러 후보 중 최적해를 찾는 최적화 기법이다.</td></tr>
+        <tr><td><b>③ 연관 분석</b></td><td>항목 사이의 동시 발생 관계를 찾는다. 대표 예시는 맥주와 기저귀다.</td></tr>
+        <tr><td><b>④ 규칙 기반 시스템</b></td><td>사람이 미리 정한 IF–THEN 규칙에 따라 판단하는 방식이다.</td></tr>
+      </table>
+
+      <div class="sub">머신러닝 vs 규칙 기반 시스템</div>
+      <div class="compare">
+        <div class="mini"><b>규칙 기반</b><br>사람이 먼저 규칙을 만든다.<br><br>IF 온도 ≥ 30℃<br>THEN 에어컨 ON</div>
+        <div class="mini"><b>머신러닝</b><br>컴퓨터가 과거 데이터를 보고 규칙과 패턴을 학습한다.<br><br>온도 + 습도 + 이용기록 → 에어컨 작동 예측</div>
+      </div>
+
+      <div class="tip">★ 시험 키워드: <b><span class="kw">스스로 학습 + 패턴 발견 + 분류·예측 = Machine Learning</span></b></div>
+    </div>
+  </section>
+</div><div class="slide" data-slide="3" data-q="25">
+  <div class="slide-label"><div class="slide-label-left"><span class="slide-question">QUESTION 25</span><strong>Deep Learning</strong></div><div class="inline-nav"><button class="inline-nav-btn prev-inline" type="button">← 이전 문제</button><button class="inline-nav-btn next-inline" type="button" disabled>다음 문제 →</button></div></div>
+  <section class="question-card" id="q25">
+    <div class="qhead">
+      <div class="qnum">25</div>
+      <div>
+        <div class="meta">32회 기출 · 딥러닝 기법</div>
+        <h2 class="qtitle">다음 중 딥러닝 기법에 해당하지 않는 것은?</h2>
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="stem">다음 중 딥러닝 기법에 해당하지 않는 것은?</div>
+      <div class="choices">
+        <div class="choice"><strong>①</strong> Autoencoder</div>
+        <div class="choice"><strong>②</strong> RNN (Recurrent Neural Network)</div>
+        <div class="choice"><strong>③</strong> SVM (Support Vector Machine)</div>
+        <div class="choice"><strong>④</strong> LSTM (Long Short-Term Memory)</div>
+      </div>
+    </div>
+
+    <div class="explain">
+      <div class="answer">정답 ③ <span class="kw">SVM</span></div>
+      <p><b><span class="kw">SVM(Support Vector Machine)</span></b>은 대표적인 전통적 머신러닝 알고리즘으로, 일반적으로 딥러닝 기법으로 분류하지 않습니다. 반면 Autoencoder, RNN, LSTM은 신경망 기반의 딥러닝 기법입니다.</p>
+
+      <div class="sub">오답 해설</div>
+      <table>
+        <tr><th>보기</th><th>판단</th><th>설명</th></tr>
+        <tr><td>① Autoencoder</td><td class="ok">딥러닝 O</td><td>신경망을 이용해 데이터를 압축하고 중요한 특징을 학습한다.</td></tr>
+        <tr><td>② RNN</td><td class="ok">딥러닝 O</td><td>순서가 있는 데이터를 처리하는 순환신경망(Recurrent Neural Network)이다.</td></tr>
+        <tr><td>③ SVM</td><td class="no">딥러닝 X</td><td>Support Vector Machine. 전통적 지도학습 기반 머신러닝 기법이다.</td></tr>
+        <tr><td>④ LSTM</td><td class="ok">딥러닝 O</td><td>Long Short-Term Memory. RNN의 장기 의존성 문제를 개선한 신경망 구조다.</td></tr>
+      </table>
+
+      <div class="sub">개념 관계</div>
+      <div class="flow">
+        <div class="box">인공지능 AI</div><div class="arrow">→</div>
+        <div class="box">머신러닝 ML</div><div class="arrow">→</div>
+        <div class="box">딥러닝 DL</div>
+      </div>
+
+      <div class="compare">
+        <div class="mini"><b>전통적 머신러닝</b><br>SVM · 의사결정나무 · KNN · 회귀 계열</div>
+        <div class="mini"><b>딥러닝</b><br>CNN · RNN · LSTM · Autoencoder · Transformer</div>
+      </div>
+
+      <div class="tip">★★★★★ 암기: <b><span class="kw">SVM = 머신러닝 O / 딥러닝 X</span></b><br>
+      LSTM의 정확한 풀네임은 <b>Long Short-Term Memory</b>이며, 문제의 “Long ShorHferm Memory”는 오타입니다.</div>
+    </div>
+  </section>
+</div>
+    </div>
+<button class="nav-btn" id="nextBtn" type="button" aria-label="다음 문제">다음 문제 →</button>
+    </div>
+</section>
+
+  <section class="summary">
+    <h2>22~25번 초압축 암기표</h2>
+    <table>
+      <tr><th>번호</th><th>핵심 단서</th><th>정답</th><th>한 줄 암기</th></tr>
+      <tr><td>22</td><td>정형 데이터만</td><td><b>①</b></td><td>빅데이터는 정형 + 반정형 + 비정형</td></tr>
+      <tr><td>23</td><td>맥주와 기저귀 함께 구매</td><td><b>① <span class="kw">연관 분석</span></b></td><td>같이 = 연관</td></tr>
+      <tr><td>24</td><td>학습 → 분류·예측</td><td><b>① 머신러닝</b></td><td>학습해서 예측 = ML</td></tr>
+      <tr><td>25</td><td>딥러닝이 아닌 것</td><td><b>③ SVM</b></td><td>SVM = 전통적 머신러닝</td></tr>
+    </table>
+    <p class="star">★★★★★ 특히 23번·24번·25번은 서로 연결해서 암기하면 좋습니다.</p>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const order = ['22','23','24','25'];
+  let current = 0;
+
+  function updateInlineButtons(){
+    slides.forEach((slide, i)=>{
+      const prev = slide.querySelector('.prev-inline');
+      const next = slide.querySelector('.next-inline');
+      if(prev) prev.disabled = (i === 0);
+      if(next) next.disabled = (i === slides.length - 1);
+    });
+  }
+
+  function showSlide(index, scroll=true){
+    if(index < 0 || index >= slides.length) return;
+    current = index;
+    slides.forEach((s,i)=>s.classList.toggle('active', i===current));
+    updateInlineButtons();
+    if(scroll){
+      document.querySelector('.carousel-shell').scrollIntoView({behavior:'smooth', block:'start'});
+    }
+    history.replaceState(null, '', '#q'+order[current]);
+  }
+
+  slides.forEach((slide, i)=>{
+    const prev = slide.querySelector('.prev-inline');
+    const next = slide.querySelector('.next-inline');
+    if(prev) prev.addEventListener('click', ()=>showSlide(i-1));
+    if(next) next.addEventListener('click', ()=>showSlide(i+1));
+  });
+
+  document.querySelectorAll('.toc-item').forEach(link=>{
+    link.addEventListener('click', function(e){
+      const href = this.getAttribute('href') || '';
+      const q = href.replace('#q','');
+      const idx = order.indexOf(q);
+      if(idx !== -1){
+        e.preventDefault();
+        showSlide(idx);
+      }
+    });
+  });
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowLeft') showSlide(current-1);
+    if(e.key === 'ArrowRight') showSlide(current+1);
+  });
+
+  const initialQ = location.hash.replace('#q','');
+  const initialIndex = order.indexOf(initialQ);
+  showSlide(initialIndex >= 0 ? initialIndex : 0, false);
+})();
+</script>
+
+</body>
+</html>

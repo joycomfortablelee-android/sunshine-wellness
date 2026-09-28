@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>빅데이터 기출문제 18~21 좌우 클릭형</title>
+<style>
+:root{
+  --navy:#12345B;
+  --blue:#1F5EA8;
+  --blue2:#2E75B6;
+  --sky:#EAF3FB;
+  --line:#D5E1EC;
+  --green:#198754;
+  --red:#C63A3A;
+  --gold:#D7A62B;
+  --ink:#1F2933;
+  --muted:#687584;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#EEF3F8;color:var(--ink);font-family:"Noto Sans KR","NanumBarunGothic","Malgun Gothic",sans-serif}
+body{min-height:100vh}
+.app{
+  width:min(1220px,96vw);
+  margin:0 auto;
+  padding:26px 0 34px;
+}
+.topbar{
+  background:linear-gradient(135deg,var(--navy),var(--blue));
+  color:#fff;
+  border-radius:20px;
+  padding:24px 28px;
+  box-shadow:0 12px 32px rgba(18,52,91,.18);
+  margin-bottom:16px;
+}
+.topbar h1{margin:0;font-size:28px;letter-spacing:-.5px}
+.topbar p{margin:7px 0 0;font-size:14px;opacity:.9}
+.progress{
+  display:flex;
+  gap:8px;
+  justify-content:center;
+  align-items:center;
+  margin:13px 0 17px;
+}
+.dot{
+  width:12px;height:12px;border-radius:50%;
+  background:#BFC9D4;
+  cursor:pointer;
+  border:none;
+}
+.dot.active{background:var(--blue);transform:scale(1.18)}
+.viewer{
+  position:relative;
+}
+.slide{
+  display:none;
+  background:#fff;
+  border-radius:22px;
+  border:1px solid #DEE6EE;
+  box-shadow:0 10px 28px rgba(31,47,68,.07);
+  overflow:hidden;
+  min-height:690px;
+}
+.slide.active{display:block}
+.slide-head{
+  display:grid;
+  grid-template-columns:125px 1fr;
+  border-bottom:1px solid var(--line);
+  background:#F9FBFD;
+}
+.qnum{
+  background:var(--navy);
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:26px 12px;
+}
+.qnum strong{font-size:33px;line-height:1}
+.qnum small{font-size:13px;opacity:.9;margin-top:8px}
+.qcontent{padding:24px 28px}
+.question{
+  font-size:22px;
+  font-weight:900;
+  line-height:1.5;
+  margin:0 0 16px;
+  color:#182433;
+}
+.kw{color:var(--blue);font-weight:900}
+.options{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px 12px;
+}
+.option{
+  background:#fff;
+  border:1px solid #DCE5EE;
+  border-radius:12px;
+  padding:13px 15px;
+  line-height:1.55;
+  min-height:58px;
+}
+.option .n{color:var(--blue);font-weight:900;margin-right:7px}
+.option.correct{border:2px solid #72B98E;background:#F4FBF7}
+.option.wrong-focus{border:2px solid #E49A9A;background:#FFF8F8}
+.answer{
+  padding:24px 28px 30px;
+}
+.answerbar{
+  display:grid;
+  grid-template-columns:150px 1fr;
+  border:1px solid #CEE1D5;
+  border-radius:14px;
+  overflow:hidden;
+  margin-bottom:17px;
+}
+.answerbar .label{
+  background:var(--green);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+  padding:12px;
+}
+.answerbar .value{
+  background:#F4FBF7;
+  padding:12px 15px;
+  font-weight:900;
+  color:#16492B;
+}
+.bodygrid{
+  display:grid;
+  grid-template-columns:1.12fr .88fr;
+  gap:18px;
+  align-items:start;
+}
+.tablebox{
+  border:1px solid var(--line);
+  border-radius:14px;
+  overflow:hidden;
+}
+table{width:100%;border-collapse:collapse;table-layout:fixed}
+th{background:var(--navy);color:#fff;padding:10px;text-align:left;font-size:14px}
+td{border-top:1px solid #E2E8F0;padding:10px;vertical-align:top;font-size:14px;line-height:1.55}
+th:nth-child(1),td:nth-child(1){width:33%}
+th:nth-child(2),td:nth-child(2){width:14%;text-align:center}
+.ok{color:var(--green);font-weight:900}
+.no{color:var(--red);font-weight:900}
+.side{display:grid;gap:12px}
+.box{
+  border-radius:13px;
+  padding:15px 16px;
+  line-height:1.6;
+}
+.box h4{margin:0 0 7px;color:var(--navy)}
+.note{background:var(--sky);border:1px solid #CFE1F2}
+.example{background:#F8FAFC;border:1px solid #E0E7EF}
+.memory{
+  background:#FFF8E7;
+  border:1px solid #F0DDA8;
+  border-left:5px solid var(--gold);
+  font-weight:800
+}
+.flow{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  margin-top:6px;
+}
+.flow span{
+  padding:8px 10px;
+  border:1px solid #C4D7E9;
+  border-radius:10px;
+  background:#fff;
+  color:var(--blue);
+  font-weight:900;
+  font-size:13px;
+}
+.flow b{color:var(--gold)}
+.navbtn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:10;
+  width:54px;height:54px;border-radius:50%;
+  border:none;
+  background:rgba(18,52,91,.94);
+  color:#fff;
+  font-size:32px;
+  cursor:pointer;
+  box-shadow:0 8px 24px rgba(18,52,91,.22);
+}
+.navbtn:hover{background:var(--blue)}
+.prev{left:-27px}
+.next{right:-27px}
+.bottom-nav{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  margin-top:16px;
+}
+.bottom-nav button{
+  border:1px solid #CBD7E3;
+  background:#fff;
+  color:var(--navy);
+  border-radius:10px;
+  padding:9px 14px;
+  font-weight:800;
+  cursor:pointer;
+}
+.bottom-nav button:hover{background:#F0F5FA}
+.counter{
+  font-weight:900;
+  color:var(--navy);
+  min-width:70px;
+  text-align:center;
+}
+@media(max-width:920px){
+  .slide-head{grid-template-columns:1fr}
+  .qnum{flex-direction:row;gap:8px;padding:13px}
+  .options,.bodygrid{grid-template-columns:1fr}
+  .slide{min-height:auto}
+  .prev{left:6px}
+  .next{right:6px}
+  .navbtn{top:38%;width:44px;height:44px;font-size:26px}
+}
+@media(max-width:620px){
+  .app{width:96vw}
+  .topbar{padding:20px}
+  .topbar h1{font-size:23px}
+  .qcontent,.answer{padding:18px 15px}
+  .question{font-size:18px}
+  .answerbar{grid-template-columns:1fr}
+  table{table-layout:auto}
+  .navbtn{position:fixed;top:auto;bottom:16px;transform:none}
+  .prev{left:16px}.next{right:16px}
+}
+@media print{
+  body{background:#fff}
+  .topbar,.progress,.navbtn,.bottom-nav{display:none!important}
+  .slide{display:block!important;box-shadow:none;border:none;break-after:page;min-height:auto}
+  .app{width:100%;padding:0}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <section class="topbar">
+    <h1>빅데이터 기출문제 18~21</h1>
+    <p>문제별 한 화면 · 좌우 클릭 이동 · 문제는 위 / 해설은 아래 · 중요 키워드는 파란색</p>
+  </section>
+
+  <div class="progress">
+    <button class="dot active" onclick="goTo(0)" aria-label="18번"></button>
+    <button class="dot" onclick="goTo(1)" aria-label="19번"></button>
+    <button class="dot" onclick="goTo(2)" aria-label="20번"></button>
+    <button class="dot" onclick="goTo(3)" aria-label="21번"></button>
+  </div>
+
+  <div class="viewer">
+    <button class="navbtn prev" onclick="changeSlide(-1)" aria-label="이전 문제">‹</button>
+    <button class="navbtn next" onclick="changeSlide(1)" aria-label="다음 문제">›</button>
+
+    <!-- 18 -->
+    <section class="slide active">
+      <div class="slide-head">
+        <div class="qnum"><strong>18</strong><small>13회 기출</small></div>
+        <div class="qcontent">
+          <h2 class="question">다음 중 빅데이터의 <span class="kw">수집·구축·분석의 최종 목적</span>으로 가장 적절한 것은?</h2>
+          <div class="options">
+            <div class="option correct"><span class="n">①</span><span class="kw">새로운 통찰과 가치를 창출</span></div>
+            <div class="option"><span class="n">②</span>데이터 중심 조직 구성</div>
+            <div class="option"><span class="n">③</span>초고속 데이터 처리 기술 개발</div>
+            <div class="option"><span class="n">④</span>데이터 관리 비용 절감</div>
+          </div>
+        </div>
+      </div>
+      <div class="answer">
+        <div class="answerbar"><div class="label">정답</div><div class="value">① 새로운 통찰과 가치를 창출</div></div>
+        <div class="bodygrid">
+          <div class="tablebox">
+            <table>
+              <thead><tr><th>보기</th><th>판단</th><th>해설</th></tr></thead>
+              <tbody>
+                <tr><td>① <span class="kw">통찰·가치 창출</span></td><td class="ok">정답</td><td>데이터를 모으고 분석하는 궁극적인 이유는 새로운 의미와 패턴을 발견하고 이를 <span class="kw">의사결정과 혁신</span>에 활용하여 가치를 만드는 것입니다.</td></tr>
+                <tr><td>② 데이터 중심 조직</td><td class="no">오답</td><td>데이터 중심 조직문화는 빅데이터 활용 과정에서 형성될 수 있는 <span class="kw">수단 또는 결과</span>이지 최종 목적은 아닙니다.</td></tr>
+                <tr><td>③ 처리 기술 개발</td><td class="no">오답</td><td>빠른 데이터 처리 기술은 빅데이터 분석을 가능하게 하는 <span class="kw">기술적 수단</span>입니다. 기술 개발 자체가 최종 목적은 아닙니다.</td></tr>
+                <tr><td>④ 비용 절감</td><td class="no">오답</td><td>클라우드나 분산처리를 이용하면 비용이 줄 수 있지만 이는 <span class="kw">부수적인 효과</span>입니다.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="side">
+            <div class="box note"><h4>핵심 흐름</h4><div class="flow"><span>데이터 수집</span><b>→</b><span>분석</span><b>→</b><span>통찰 Insight</span><b>→</b><span>가치 Value</span><b>→</b><span>의사결정</span></div></div>
+            <div class="box memory">★ 한 줄 암기: <span class="kw">기술·조직·비용은 수단</span>이고, 빅데이터의 최종 목적은 <span class="kw">통찰과 가치 창출</span>이다.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 19 -->
+    <section class="slide">
+      <div class="slide-head">
+        <div class="qnum"><strong>19</strong><small>34회 기출</small></div>
+        <div class="qcontent">
+          <h2 class="question">빅데이터는 현대 사회에서 다양한 방식으로 활용되고 있다. 다음 중 <span class="kw">빅데이터의 특성</span>에 대해 부적절하게 설명한 것은?</h2>
+          <div class="options">
+            <div class="option"><span class="n">①</span>비즈니스의 핵심 요소를 파악하기 위해 보다 객관적이고 종합적인 데이터를 확보하는 것이 중요하다.</div>
+            <div class="option wrong-focus"><span class="n">②</span><span class="kw">빅데이터 분석은 일차적인 분석으로는 불충분하다.</span></div>
+            <div class="option"><span class="n">③</span>기업의 데이터 분석은 조직 문화와 전략에 큰 영향을 미친다.</div>
+            <div class="option"><span class="n">④</span>데이터의 양이 많다고 해서 반드시 그 데이터가 더 큰 가치를 만들어내는 것은 아니다.</div>
+          </div>
+        </div>
+      </div>
+      <div class="answer">
+        <div class="answerbar"><div class="label">정답</div><div class="value">② 빅데이터 분석은 일차적인 분석으로는 불충분하다</div></div>
+        <div class="bodygrid">
+          <div class="tablebox">
+            <table>
+              <thead><tr><th>보기</th><th>판단</th><th>해설</th></tr></thead>
+              <tbody>
+                <tr><td>① 객관적·종합적 데이터</td><td class="ok">적절</td><td>경험이나 직관뿐 아니라 다양한 데이터를 확보하면 비즈니스 상황을 보다 <span class="kw">객관적으로 이해</span>할 수 있습니다.</td></tr>
+                <tr><td>② 일차 분석은 불충분</td><td class="no">정답</td><td><span class="kw">항상 복잡하고 심층적인 분석만 필요한 것은 아닙니다.</span> 빈도분석이나 기술통계 같은 일차적 분석만으로도 의미 있는 결과를 얻을 수 있고 필요할 때 심화 분석을 추가합니다.</td></tr>
+                <tr><td>③ 조직문화·전략 영향</td><td class="ok">적절</td><td>데이터에 근거한 의사결정이 확산되면 기업의 <span class="kw">전략과 업무 방식, 조직문화</span>도 달라질 수 있습니다.</td></tr>
+                <tr><td>④ 양 ≠ 가치</td><td class="ok">적절</td><td>데이터의 양뿐 아니라 <span class="kw">정확성·관련성·활용 가능성</span>이 중요합니다. 양이 많아도 품질이 낮으면 가치가 낮을 수 있습니다.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="side">
+            <div class="box example"><h4>관광 예시</h4>관광객 10만 명의 방문 데이터가 있어도 먼저 <span class="kw">“어느 관광지를 가장 많이 방문했는가?”</span>라는 단순 빈도분석만으로 의미 있는 결과를 얻을 수 있습니다.</div>
+            <div class="box memory">★ 한 줄 암기: <span class="kw">빅데이터 = 무조건 어려운 분석</span>은 아니다.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 20 -->
+    <section class="slide">
+      <div class="slide-head">
+        <div class="qnum"><strong>20</strong><small>34회 기출</small></div>
+        <div class="qcontent">
+          <h2 class="question">다음 중 <span class="kw">데이터의 가치 평가가 어려운 이유</span>로 가장 적절하지 않은 것은?</h2>
+          <div class="options">
+            <div class="option"><span class="n">①</span>데이터 재사용이 보편화되면서 특정 데이터를 누가 언제 사용했는지 추적하기 어렵기 때문이다.</div>
+            <div class="option wrong-focus"><span class="n">②</span><span class="kw">빅데이터 전문인력의 증가</span>로 다양한 곳에서 빅데이터가 활용되고 있기 때문이다.</div>
+            <div class="option"><span class="n">③</span>분석 기술의 발전으로 과거에 분석할 수 없던 데이터를 분석하게 되었기 때문이다.</div>
+            <div class="option"><span class="n">④</span>빅데이터는 새로운 가치를 창출하므로 그 가치를 평가하기 어렵기 때문이다.</div>
+          </div>
+        </div>
+      </div>
+      <div class="answer">
+        <div class="answerbar"><div class="label">정답</div><div class="value">② 빅데이터 전문인력의 증가</div></div>
+        <div class="bodygrid">
+          <div class="tablebox">
+            <table>
+              <thead><tr><th>보기</th><th>판단</th><th>해설</th></tr></thead>
+              <tbody>
+                <tr><td>① 데이터 재사용</td><td class="ok">이유</td><td>하나의 데이터가 여러 조직과 서비스에서 반복 사용될 수 있어 그 데이터가 만든 <span class="kw">가치를 정확히 추적하고 계산</span>하기 어렵습니다.</td></tr>
+                <tr><td>② 전문인력 증가</td><td class="no">정답</td><td>전문인력 증가는 <span class="kw">데이터 활용 역량의 증가</span>를 의미할 수 있지만, 데이터의 가치 자체를 평가하기 어렵게 만드는 직접적인 이유는 아닙니다.</td></tr>
+                <tr><td>③ 분석기술 발전</td><td class="ok">이유</td><td>분석기술이 발전하면 과거에는 가치가 없다고 보았던 데이터에서도 <span class="kw">새로운 가치</span>가 발견될 수 있어 현재 시점에서 가치를 확정하기 어렵습니다.</td></tr>
+                <tr><td>④ 새로운 가치 창출</td><td class="ok">이유</td><td>같은 데이터라도 <span class="kw">누가, 언제, 어떤 목적으로 분석하느냐</span>에 따라 전혀 다른 가치가 만들어질 수 있습니다.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="side">
+            <div class="box example"><h4>위치 데이터 가치 변화</h4>단순 GPS 기록 → <span class="kw">관광객 이동경로 분석</span> → 혼잡 관광지 발견 → 버스 노선 개선 → 상권 입지 분석</div>
+            <div class="box memory">★ 한 줄 암기: 데이터의 가치는 고정되어 있지 않고, <span class="kw">어떻게 활용하느냐에 따라 달라진다.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 21 -->
+    <section class="slide">
+      <div class="slide-head">
+        <div class="qnum"><strong>21</strong><small>37회 기출</small></div>
+        <div class="qcontent">
+          <h2 class="question">빅데이터가 <span class="kw">기업·개인·정부</span>에 미치는 영향으로 틀린 것은?</h2>
+          <div class="options">
+            <div class="option"><span class="n">①</span>기업은 고객 데이터를 분석하여 새로운 시장 기회를 발견하고, 고객 만족도를 개선하기 위한 전략을 수립할 수 있다.</div>
+            <div class="option"><span class="n">②</span>정부는 교통, 의료, 안전 등의 공공 데이터를 활용하여 시민의 삶의 질을 향상시키고 정책의 효율성을 증대할 수 있다.</div>
+            <div class="option"><span class="n">③</span>기업은 실시간 데이터를 활용하여 빠르게 시장 변화를 감지하고, 의사결정의 속도와 정확성을 높일 수 있다.</div>
+            <div class="option wrong-focus"><span class="n">④</span>개인은 아직까지 활용 대상의 위치에 머물러 있어 <span class="kw">데이터를 활용할 수 없다.</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="answer">
+        <div class="answerbar"><div class="label">정답</div><div class="value">④ 개인은 데이터를 활용할 수 없다</div></div>
+        <div class="bodygrid">
+          <div class="tablebox">
+            <table>
+              <thead><tr><th>보기</th><th>판단</th><th>해설</th></tr></thead>
+              <tbody>
+                <tr><td>① 기업</td><td class="ok">맞음</td><td>구매기록, 검색기록, 고객 행동 데이터를 분석하여 <span class="kw">시장 기회와 고객의 요구</span>를 파악하고 상품이나 서비스를 개발할 수 있습니다.</td></tr>
+                <tr><td>② 정부</td><td class="ok">맞음</td><td>교통, 의료, 재난, 안전 등의 데이터를 분석하여 정책을 설계하고 <span class="kw">공공서비스와 정책 효율성</span>을 개선할 수 있습니다.</td></tr>
+                <tr><td>③ 실시간 기업 분석</td><td class="ok">맞음</td><td>실시간 판매량, 검색량, SNS 반응 등을 분석하면 <span class="kw">시장 변화를 빠르게 감지</span>하고 대응할 수 있습니다.</td></tr>
+                <tr><td>④ 개인은 활용 불가</td><td class="no">정답</td><td>개인도 지도, 금융, 건강관리, 여행추천 등 다양한 서비스에서 데이터를 적극적으로 활용하여 <span class="kw">생활과 의사결정</span>에 도움을 받습니다.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="side">
+            <div class="box example"><h4>관광객 개인의 활용</h4><span class="kw">스마트폰 위치정보 + 리뷰 + 날씨 + 교통정보</span><br>→ 혼잡도 확인 → 날씨 확인 → 버스 도착시간 확인 → 맛집 평점 확인 → 여행 의사결정</div>
+            <div class="box memory">★ 한 줄 암기: 개인은 단순한 <span class="kw">데이터 제공 대상</span>이 아니라 동시에 <span class="kw">데이터 활용 주체</span>이기도 하다.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="bottom-nav">
+    <button onclick="changeSlide(-1)">← 이전 문제</button>
+    <div class="counter" id="counter">1 / 4</div>
+    <button onclick="changeSlide(1)">다음 문제 →</button>
+  </div>
+</div>
+
+<script>
+let current = 0;
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+const counter = document.getElementById('counter');
+
+function showSlide(index){
+  current = (index + slides.length) % slides.length;
+  slides.forEach((s,i)=>s.classList.toggle('active', i===current));
+  dots.forEach((d,i)=>d.classList.toggle('active', i===current));
+  counter.textContent = (current+1) + ' / ' + slides.length;
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function changeSlide(step){ showSlide(current + step); }
+function goTo(index){ showSlide(index); }
+
+document.addEventListener('keydown', (e)=>{
+  if(e.key === 'ArrowLeft') changeSlide(-1);
+  if(e.key === 'ArrowRight') changeSlide(1);
+});
+
+// swipe support
+let startX = null;
+document.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive:true});
+document.addEventListener('touchend', e => {
+  if(startX === null) return;
+  const dx = e.changedTouches[0].clientX - startX;
+  if(Math.abs(dx) > 50) changeSlide(dx > 0 ? -1 : 1);
+  startX = null;
+}, {passive:true});
+</script>
+</body>
+</html>

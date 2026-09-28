@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>데이터 분석·지식발견 범주화</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Pretendard", "Noto Sans KR", Arial, sans-serif;
+    background: #f6f8fb;
+    color: #1f2937;
+  }
+  .wrap {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 32px 24px 48px;
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  .header h1 {
+    margin: 0;
+    font-size: 34px;
+    letter-spacing: -0.03em;
+  }
+  .header p {
+    margin: 10px 0 0;
+    color: #6b7280;
+    font-size: 16px;
+  }
+
+  .root {
+    width: fit-content;
+    margin: 0 auto 30px;
+    padding: 18px 28px;
+    background: #111827;
+    color: white;
+    border-radius: 18px;
+    font-weight: 800;
+    font-size: 23px;
+    box-shadow: 0 10px 30px rgba(17,24,39,.12);
+  }
+
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    align-items: stretch;
+  }
+
+  .branch {
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 8px 28px rgba(15,23,42,.08);
+    padding: 24px;
+    border: 1px solid #e5e7eb;
+  }
+
+  .branch-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 800;
+    padding: 18px 14px;
+    border-radius: 16px;
+    margin-bottom: 22px;
+  }
+
+  .dm .branch-title {
+    background: #eaf3ff;
+    color: #174ea6;
+    border: 1px solid #cfe0ff;
+  }
+
+  .ml .branch-title {
+    background: #ecfdf5;
+    color: #047857;
+    border: 1px solid #c9f3df;
+  }
+
+  .subgrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  .box {
+    border-radius: 18px;
+    padding: 18px;
+    background: #fafafa;
+    border: 1px solid #e5e7eb;
+    min-height: 100%;
+  }
+
+  .box h3 {
+    margin: 0 0 14px;
+    font-size: 19px;
+    text-align: center;
+  }
+
+  .dm .box h3 { color: #1d4ed8; }
+  .ml .box h3 { color: #047857; }
+
+  .item {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 12px 13px;
+    margin: 9px 0;
+    font-weight: 700;
+    text-align: center;
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+
+  .item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(15,23,42,.08);
+  }
+
+  .deep {
+    margin-top: 18px;
+    padding: 18px;
+    border-radius: 18px;
+    background: #f0fdf4;
+    border: 1px dashed #86efac;
+  }
+
+  .deep-title {
+    text-align: center;
+    font-size: 19px;
+    font-weight: 800;
+    color: #166534;
+    margin-bottom: 12px;
+  }
+
+  .deep-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
+  }
+
+  .deep-grid .item {
+    margin: 0;
+  }
+
+  .note {
+    margin-top: 28px;
+    background: #fff7ed;
+    border: 1px solid #fed7aa;
+    border-radius: 18px;
+    padding: 18px 20px;
+  }
+
+  .note strong {
+    color: #9a3412;
+  }
+
+  .legend {
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 12px;
+  }
+  .legend div {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 14px;
+    text-align: center;
+  }
+  .legend b { display:block; margin-bottom:6px; }
+
+  @media (max-width: 900px) {
+    .split, .subgrid, .legend { grid-template-columns: 1fr; }
+    .deep-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <h1>데이터 분석 / 지식발견 범주화</h1>
+    <p>Data Analysis & Knowledge Discovery</p>
+  </div>
+
+  <div class="root">데이터 분석 / 지식발견</div>
+
+  <div class="split">
+
+    <section class="branch dm">
+      <div class="branch-title">데이터 마이닝 (Data Mining)</div>
+
+      <div class="subgrid">
+        <div class="box">
+          <h3>정형데이터 분석</h3>
+          <div class="item">분류 (Classification)</div>
+          <div class="item">군집 (Clustering)</div>
+          <div class="item">연관규칙 (Association Rules)</div>
+          <div class="item">예측 (Prediction)</div>
+        </div>
+
+        <div class="box">
+          <h3>텍스트 마이닝 (Text Mining)</h3>
+          <div class="item">단어 빈도</div>
+          <div class="item">키워드 분석</div>
+          <div class="item">토픽모델링 (Topic Modeling)</div>
+          <div class="item">감성분석 (Sentiment Analysis)</div>
+          <div class="item">텍스트 분류</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="branch ml">
+      <div class="branch-title">머신러닝 (Machine Learning)</div>
+
+      <div class="box">
+        <h3>학습 방식</h3>
+        <div class="item">지도학습 (Supervised Learning)</div>
+        <div class="item">비지도학습 (Unsupervised Learning)</div>
+        <div class="item">강화학습 (Reinforcement Learning)</div>
+
+        <div class="deep">
+          <div class="deep-title">딥러닝 (Deep Learning)</div>
+          <div class="deep-grid">
+            <div class="item">CNN</div>
+            <div class="item">RNN / LSTM</div>
+            <div class="item">Transformer</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="note">
+    <strong>수업용 핵심:</strong>
+    데이터 마이닝은 <b>데이터에서 패턴을 발견하는 분석 활동</b>,
+    텍스트 마이닝은 <b>텍스트를 대상으로 하는 데이터 마이닝</b>,
+    머신러닝은 <b>데이터로부터 규칙을 학습하는 방법</b>,
+    딥러닝은 <b>머신러닝의 하위 분야</b>로 이해하면 쉽습니다.
+  </div>
+
+  <div class="legend">
+    <div><b>Data Mining</b>무엇을 발견할 것인가?</div>
+    <div><b>Text Mining</b>어떤 데이터에서 발견할 것인가?</div>
+    <div><b>Machine / Deep Learning</b>어떤 학습 방법을 사용할 것인가?</div>
+  </div>
+
+</div>
+</body>
+</html>

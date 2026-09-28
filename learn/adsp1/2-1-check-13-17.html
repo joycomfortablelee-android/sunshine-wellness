@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>빅데이터 핵심개념체크 13~17번</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; height: 100%; background: #eef3f8; font-family: "Noto Sans KR", "Malgun Gothic", Arial, sans-serif; color: #1d2a3a; }
+  body { overflow: hidden; }
+
+  .app { width: 100%; height: 100vh; position: relative; }
+  .topbar {
+    position: fixed; top: 0; left: 0; right: 0; height: 58px;
+    background: #0f2f57; color: #fff; z-index: 20;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 28px; box-shadow: 0 2px 10px rgba(0,0,0,.15);
+  }
+  .topbar .title { font-size: 19px; font-weight: 800; letter-spacing: -0.4px; }
+  .topbar .page { font-size: 14px; opacity: .9; }
+
+  .viewport {
+    position: absolute; top: 58px; bottom: 0; left: 0; right: 0;
+    overflow: hidden;
+  }
+  .track {
+    height: 100%;
+    display: flex;
+    transition: transform .45s ease;
+  }
+  .slide {
+    min-width: 100%;
+    height: 100%;
+    padding: 24px 72px 80px;
+    overflow-y: auto;
+  }
+  .card {
+    max-width: 1180px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 10px 35px rgba(27, 54, 85, .12);
+    padding: 30px 34px 34px;
+    border: 1px solid #d9e3ee;
+  }
+
+  .qhead {
+    display: flex; align-items: center; gap: 14px; margin-bottom: 18px;
+  }
+  .qnum {
+    flex: 0 0 64px; height: 64px; border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    background: #0f2f57; color: #fff; font-size: 28px; font-weight: 900;
+  }
+  .qmeta .label { font-size: 14px; color: #6b7b8f; font-weight: 700; }
+  .qmeta h1 { margin: 3px 0 0; font-size: 26px; line-height: 1.35; letter-spacing: -0.8px; }
+
+  .question {
+    background: #f6f9fc; border-left: 6px solid #0f2f57;
+    padding: 18px 20px; border-radius: 12px;
+    font-size: 20px; line-height: 1.6; font-weight: 800; margin-bottom: 18px;
+  }
+  .stem-box {
+    background: #fff8e8; border: 1px solid #f0d89b;
+    padding: 15px 18px; border-radius: 12px; margin: 12px 0 16px;
+    font-size: 18px; line-height: 1.6; font-weight: 700;
+  }
+
+  .choices { display: grid; gap: 10px; margin: 8px 0 22px; }
+  .choice {
+    padding: 12px 16px; border-radius: 12px; border: 1px solid #dbe5ef;
+    background: #fff; font-size: 17px; line-height: 1.55;
+  }
+  .choice.correct { border: 2px solid #1f7a4d; background: #edf8f2; }
+  .choice.wrong-key { border: 2px solid #b94747; background: #fff1f1; }
+
+  .answer {
+    display: flex; align-items: center; gap: 10px;
+    margin: 8px 0 18px; font-size: 20px; font-weight: 900;
+  }
+  .badge {
+    display: inline-block; background: #c99723; color: white;
+    border-radius: 999px; padding: 7px 13px; font-size: 14px; font-weight: 900;
+  }
+
+  .explain-title {
+    margin: 18px 0 10px; font-size: 20px; color: #0f2f57; font-weight: 900;
+  }
+  table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 15.5px; }
+  th { background: #173f70; color: white; padding: 11px 10px; text-align: left; }
+  td { border: 1px solid #d6e1ec; padding: 10px; vertical-align: top; line-height: 1.55; }
+  td.judge { width: 92px; font-weight: 900; text-align: center; }
+  tr:nth-child(even) td { background: #fafcfe; }
+
+  .memory {
+    margin-top: 18px; padding: 16px 18px; border-radius: 13px;
+    background: #eef5ff; border: 1px solid #b9d2f2;
+    font-size: 17px; line-height: 1.6;
+  }
+  .memory strong { color: #0f2f57; }
+
+  .flow {
+    display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+    margin-top: 12px; font-weight: 900;
+  }
+  .flow .box {
+    background: #fff; border: 2px solid #0f2f57; border-radius: 12px;
+    padding: 10px 14px; min-width: 140px; text-align: center;
+  }
+  .flow .arrow { font-size: 22px; color: #c99723; }
+
+  .nav {
+    position: fixed; left: 0; right: 0; bottom: 16px; z-index: 30;
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+    pointer-events: none;
+  }
+  .nav button, .dots button { pointer-events: auto; }
+  .navbtn {
+    border: none; background: #0f2f57; color: white; width: 46px; height: 46px;
+    border-radius: 50%; font-size: 22px; cursor: pointer;
+    box-shadow: 0 4px 14px rgba(15,47,87,.25);
+  }
+  .navbtn:disabled { opacity: .35; cursor: default; }
+  .dots { display: flex; gap: 7px; }
+  .dots button {
+    width: 12px; height: 12px; border-radius: 50%; border: none;
+    background: #9eb1c5; cursor: pointer; padding: 0;
+  }
+  .dots button.active { background: #c99723; transform: scale(1.18); }
+
+  .tip {
+    color: #6a7786; font-size: 12px; margin-top: 14px; text-align: right;
+  }
+
+  @media (max-width: 800px) {
+    .topbar { padding: 0 14px; }
+    .topbar .title { font-size: 16px; }
+    .slide { padding: 16px 16px 80px; }
+    .card { padding: 22px 18px 28px; border-radius: 14px; }
+    .qnum { flex-basis: 52px; height: 52px; font-size: 22px; }
+    .qmeta h1 { font-size: 21px; }
+    .question { font-size: 18px; }
+    .choice { font-size: 15px; }
+    table { font-size: 14px; }
+    .flow { flex-direction: column; align-items: stretch; }
+    .flow .arrow { transform: rotate(90deg); align-self: center; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="topbar">
+    <div class="title">빅데이터 핵심개념체크 · 13~17번</div>
+    <div class="page"><span id="current">1</span> / 5</div>
+  </div>
+
+  <div class="viewport">
+    <div class="track" id="track">
+
+      <!-- 13 -->
+      <section class="slide">
+        <div class="card">
+          <div class="qhead">
+            <div class="qnum">13</div>
+            <div class="qmeta">
+              <div class="label">22회 기출 · ★★★★☆</div>
+              <h1>빅데이터의 정의</h1>
+            </div>
+          </div>
+
+          <div class="question">다음 중 일반적으로 통용되고 있는 빅데이터의 정의와 거리가 가장 먼 것은?</div>
+
+          <div class="choices">
+            <div class="choice">① 빅데이터는 일반적인 데이터베이스 소프트웨어로 저장·관리·분석할 수 있는 범위를 초과하는 규모의 데이터다.</div>
+            <div class="choice">② 빅데이터는 다양한 종류의 대규모 데이터로부터 저렴한 비용으로 가치를 추출하고 데이터의 초고속 수집·발굴·분석을 지원하도록 고안된 차세대 기술 및 아키텍처이다.</div>
+            <div class="choice">③ 빅데이터는 데이터의 양(Volume), 다양성(Variety), 속도(Velocity)가 급격히 증가하면서 나타난 현상이다.</div>
+            <div class="choice wrong-key">④ 빅데이터는 하둡(Hadoop)을 기반으로 하는 대용량 분산처리 기술을 통해서만 가치를 창출하는 새로운 방식이다.</div>
+          </div>
+
+          <div class="answer"><span class="badge">정답</span> ④</div>
+
+          <div class="explain-title">오답·정답 해설</div>
+          <table>
+            <tr><th>보기</th><th>판단</th><th>해설</th></tr>
+            <tr><td>①</td><td class="judge">적절</td><td>기존 DB 소프트웨어로 다루기 어려운 <b>대규모 데이터</b>라는 빅데이터의 전통적 정의이다.</td></tr>
+            <tr><td>②</td><td class="judge">적절</td><td>대규모·다양한 데이터에서 <b>가치를 추출</b>하고 빠르게 수집·분석하는 기술 및 아키텍처라는 설명이다.</td></tr>
+            <tr><td>③</td><td class="judge">적절</td><td><b>Volume·Variety·Velocity = 3V</b>에 기반한 대표적 설명이다.</td></tr>
+            <tr><td>④</td><td class="judge">오답</td><td>빅데이터를 <b>Hadoop이라는 특정 기술에 한정</b>하기 때문에 부적절하다. Hadoop은 여러 빅데이터 처리 기술 중 하나이다.</td></tr>
+          </table>
+
+          <div class="memory"><strong>★ 시험 포인트:</strong> <b>빅데이터 ≠ Hadoop</b>. 문제에서 “반드시”, “오직”, “특정 기술만”과 같이 범위를 지나치게 제한하는 표현이 나오면 의심한다.</div>
+        </div>
+      </section>
+
+      <!-- 14 -->
+      <section class="slide">
+        <div class="card">
+          <div class="qhead">
+            <div class="qnum">14</div>
+            <div class="qmeta">
+              <div class="label">36회 기출 · ★★★★☆</div>
+              <h1>사물인터넷 IoT</h1>
+            </div>
+          </div>
+
+          <div class="question">다음 설명에 맞는 가장 적절한 용어는 무엇인가?</div>
+          <div class="stem-box">인터넷에 연결된 기기가 사람의 개입 없이 상호 간에 정보를 주고받아 처리하는 것을 의미한다.</div>
+
+          <div class="choices">
+            <div class="choice correct">① 사물인터넷 (Internet of Things, IoT)</div>
+            <div class="choice">② 증강현실 (Augmented Reality, AR)</div>
+            <div class="choice">③ 가상현실 (Virtual Reality, VR)</div>
+            <div class="choice">④ 웨어러블 디바이스 (Wearable Devices)</div>
+          </div>
+
+          <div class="answer"><span class="badge">정답</span> ① 사물인터넷(IoT)</div>
+
+          <div class="explain-title">오답·정답 해설</div>
+          <table>
+            <tr><th>보기</th><th>판단</th><th>해설</th></tr>
+            <tr><td>① IoT</td><td class="judge">정답</td><td>기기와 기기가 인터넷으로 연결되어 <b>사람의 개입 없이 정보를 교환</b>하는 개념이다.</td></tr>
+            <tr><td>② AR</td><td class="judge">오답</td><td><b>Augmented Reality</b>. 현실 화면 위에 가상의 정보·이미지를 덧붙이는 기술이다.</td></tr>
+            <tr><td>③ VR</td><td class="judge">오답</td><td><b>Virtual Reality</b>. 현실과 분리된 가상의 환경을 체험하게 하는 기술이다.</td></tr>
+            <tr><td>④ Wearable</td><td class="judge">오답</td><td>몸에 착용하는 스마트기기를 의미한다. IoT 기기가 될 수 있지만 <b>IoT 전체를 의미하지는 않는다.</b></td></tr>
+          </table>
+
+          <div class="memory">
+            <strong>★ 4개 개념 구별:</strong>
+            <div class="flow">
+              <div class="box">IoT<br>기기 ↔ 기기</div><div class="arrow">→</div>
+              <div class="box">AR<br>현실 + 가상정보</div><div class="arrow">→</div>
+              <div class="box">VR<br>가상세계</div><div class="arrow">→</div>
+              <div class="box">Wearable<br>몸에 착용</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 15 -->
+      <section class="slide">
+        <div class="card">
+          <div class="qhead">
+            <div class="qnum">15</div>
+            <div class="qmeta">
+              <div class="label">33회 기출 · ★★★★☆</div>
+              <h1>빅데이터의 특징</h1>
+            </div>
+          </div>
+
+          <div class="question">다음 중 빅데이터의 특징이나 설명으로 적절하지 않은 것은?</div>
+
+          <div class="choices">
+            <div class="choice wrong-key">① 빅데이터 환경에서는 필요한 정보만을 추출하기 위해 표본조사의 중요성이 더욱 대두되고 있다.</div>
+            <div class="choice">② 빅데이터를 활용하면 전통적인 방법으로는 불가능했던 예측과 의사결정의 고도화가 가능하다.</div>
+            <div class="choice">③ 빅데이터의 출현 배경에는 모바일 디바이스의 보급, 네트워크 기술의 발전, 데이터 생성 비용의 감소 등이 있다.</div>
+            <div class="choice">④ 4차 산업혁명 시대에는 과거의 석유처럼 경제적 가치를 창출하는 핵심 자원으로 여겨지고 있다.</div>
+          </div>
+
+          <div class="answer"><span class="badge">정답</span> ①</div>
+
+          <div class="explain-title">오답·정답 해설</div>
+          <table>
+            <tr><th>보기</th><th>판단</th><th>해설</th></tr>
+            <tr><td>①</td><td class="judge">오답</td><td>교재상 빅데이터의 본질적 변화는 <b>표본 중심 → 더 많은 데이터·전수 데이터 활용</b>의 방향이다. 따라서 표본조사의 중요성이 더 커진다는 설명은 반대이다.</td></tr>
+            <tr><td>②</td><td class="judge">적절</td><td>대량 데이터를 분석하여 <b>예측과 의사결정의 정교화</b>가 가능해진다.</td></tr>
+            <tr><td>③</td><td class="judge">적절</td><td>모바일·센서·SNS·네트워크 발전, 저장 및 데이터 생성 비용 감소 등이 주요 배경이다.</td></tr>
+            <tr><td>④</td><td class="judge">적절</td><td>데이터는 경제적 가치를 만드는 핵심 자원이라는 의미에서 흔히 <b>21세기의 원유</b>에 비유된다.</td></tr>
+          </table>
+
+          <div class="memory"><strong>★ 시험 포인트:</strong> 기출에서는 <b>표본조사 → 전수조사</b>의 방향으로 외운다. 다만 현실의 모든 빅데이터 연구가 실제 전수조사를 하는 것은 아니라는 점과 구분한다.</div>
+        </div>
+      </section>
+
+      <!-- 16 -->
+      <section class="slide">
+        <div class="card">
+          <div class="qhead">
+            <div class="qnum">16</div>
+            <div class="qmeta">
+              <div class="label">12회 기출 · ★★★★☆</div>
+              <h1>빅데이터의 기능: 플랫폼</h1>
+            </div>
+          </div>
+
+          <div class="question">빅데이터의 기능 중 “공동 활용의 목적으로 구축된 유·무형의 구조물 역할을 수행한다.”에 해당하는 것은?</div>
+
+          <div class="choices">
+            <div class="choice">① 산업혁명 시대의 석탄, 철</div>
+            <div class="choice">② 21세기의 원유</div>
+            <div class="choice">③ 렌즈</div>
+            <div class="choice correct">④ 플랫폼</div>
+          </div>
+
+          <div class="answer"><span class="badge">정답</span> ④ 플랫폼</div>
+
+          <div class="explain-title">오답·정답 해설</div>
+          <table>
+            <tr><th>보기</th><th>판단</th><th>해설</th></tr>
+            <tr><td>① 석탄·철</td><td class="judge">오답</td><td>산업혁명을 이끈 <b>핵심 자원</b>의 비유이다. 공동 활용 구조를 의미하지 않는다.</td></tr>
+            <tr><td>② 원유</td><td class="judge">오답</td><td>빅데이터가 새로운 <b>경제적 자원</b>이라는 의미의 비유이다.</td></tr>
+            <tr><td>③ 렌즈</td><td class="judge">오답</td><td>데이터를 통해 기존에 보지 못했던 현상을 <b>새롭게 관찰하고 이해</b>하게 한다는 비유이다.</td></tr>
+            <tr><td>④ 플랫폼</td><td class="judge">정답</td><td>여러 사람이 데이터를 수집·저장·분석·활용할 수 있도록 만든 <b>공동 활용 기반</b>이다.</td></tr>
+          </table>
+
+          <div class="memory"><strong>★ 빠른 구별:</strong> 석탄·철 = 과거 핵심 자원 / 원유 = 경제적 가치 / 렌즈 = 세상을 보는 도구 / <b>플랫폼 = 함께 사용하는 기반</b></div>
+        </div>
+      </section>
+
+      <!-- 17 -->
+      <section class="slide">
+        <div class="card">
+          <div class="qhead">
+            <div class="qnum">17</div>
+            <div class="qmeta">
+              <div class="label">30회 기출 · ★★★★★</div>
+              <h1>빅데이터가 만들어내는 본질적인 변화</h1>
+            </div>
+          </div>
+
+          <div class="question">빅데이터가 만들어내는 본질적인 변화로 옳지 않은 것은?</div>
+
+          <div class="choices">
+            <div class="choice">① 표본조사에서 전수조사로 변화했다.</div>
+            <div class="choice">② 데이터의 질에서 데이터의 양으로 변화했다.</div>
+            <div class="choice wrong-key">③ 비정형 데이터에서 정형 데이터로 변화했다.</div>
+            <div class="choice">④ 사전처리에서 사후처리로 변화했다.</div>
+          </div>
+
+          <div class="answer"><span class="badge">정답</span> ③</div>
+
+          <div class="explain-title">오답·정답 해설</div>
+          <table>
+            <tr><th>보기</th><th>판단</th><th>해설</th></tr>
+            <tr><td>①</td><td class="judge">옳음</td><td>데이터 수집·저장·처리 비용이 감소하면서 <b>표본 중심 → 전체 데이터 활용 확대</b>로 변화했다.</td></tr>
+            <tr><td>②</td><td class="judge">옳음</td><td>완벽하게 정제된 일부 데이터만 사용하는 것보다 <b>많은 데이터를 활용해 전체 패턴을 찾는 방식</b>이 중요해졌다.</td></tr>
+            <tr><td>③</td><td class="judge">오답</td><td>방향이 반대이다. 빅데이터 환경에서는 <b>정형 데이터 → 비정형 데이터까지 활용 확대</b>되는 것이 특징이다.</td></tr>
+            <tr><td>④</td><td class="judge">옳음</td><td>필요한 데이터만 미리 골라 저장하기보다 <b>우선 많이 저장한 뒤 필요할 때 분석</b>하는 사후처리 방식이 확대되었다.</td></tr>
+          </table>
+
+          <div class="memory">
+            <strong>★ 반드시 외우기:</strong>
+            <div class="flow">
+              <div class="box">표본조사<br>↓<br>전수조사</div>
+              <div class="box">질<br>↓<br>양</div>
+              <div class="box">정형<br>↓<br>비정형까지</div>
+              <div class="box">사전처리<br>↓<br>사후처리</div>
+              <div class="box">인과 중심<br>↓<br>상관 활용 확대</div>
+            </div>
+          </div>
+
+          <div class="tip">※ 좌우 방향키로도 이동할 수 있습니다.</div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <div class="nav">
+    <button class="navbtn" id="prev" aria-label="이전">‹</button>
+    <div class="dots" id="dots"></div>
+    <button class="navbtn" id="next" aria-label="다음">›</button>
+  </div>
+</div>
+
+<script>
+  const track = document.getElementById('track');
+  const prev = document.getElementById('prev');
+  const next = document.getElementById('next');
+  const current = document.getElementById('current');
+  const dots = document.getElementById('dots');
+  const total = 5;
+  let index = 0;
+
+  for (let i = 0; i < total; i++) {
+    const b = document.createElement('button');
+    b.setAttribute('aria-label', (i+1) + '장');
+    b.addEventListener('click', () => { index = i; update(); });
+    dots.appendChild(b);
+  }
+
+  function update() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+    current.textContent = index + 1;
+    prev.disabled = index === 0;
+    next.disabled = index === total - 1;
+    [...dots.children].forEach((d, i) => d.classList.toggle('active', i === index));
+    document.querySelectorAll('.slide')[index].scrollTop = 0;
+  }
+
+  prev.addEventListener('click', () => { if (index > 0) { index--; update(); }});
+  next.addEventListener('click', () => { if (index < total - 1) { index++; update(); }});
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft' && index > 0) { index--; update(); }
+    if (e.key === 'ArrowRight' && index < total - 1) { index++; update(); }
+  });
+
+  update();
+</script>
+</body>
+</html>

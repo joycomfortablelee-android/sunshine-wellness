@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>빅데이터 위기요인·비식별화 기출 26~29 | 좌우 클릭 학습</title>
+<style>
+:root{
+  --navy:#0d2f57;
+  --navy2:#153f72;
+  --blue:#1769c2;
+  --sky:#eaf4ff;
+  --ink:#202833;
+  --muted:#64748b;
+  --line:#d8e3ef;
+  --green:#177245;
+  --green-bg:#eaf8f1;
+  --red:#b42318;
+  --gold-bg:#fff8df;
+  --white:#fff;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:"NanumBarunGothic","Malgun Gothic","Apple SD Gothic Neo",sans-serif;
+  color:var(--ink);
+  background:linear-gradient(180deg,#f4f8fc,#edf3f8);
+  line-height:1.68;
+  word-break:keep-all;
+}
+.app{max-width:1180px;margin:0 auto;padding:28px 18px 58px}
+.hero{
+  background:linear-gradient(130deg,var(--navy),#174c82 60%,#236ab0);
+  color:#fff;border-radius:24px;padding:30px 34px 26px;
+  box-shadow:0 16px 44px rgba(13,47,87,.18);margin-bottom:18px
+}
+.hero .eyebrow{font-size:13px;font-weight:800;letter-spacing:.08em;opacity:.82}
+.hero h1{font-size:32px;line-height:1.3;margin:6px 0 8px}
+.hero p{margin:0;opacity:.94}
+.kw{color:var(--blue);font-weight:850}
+.hero .kw{color:#9cd0ff}
+.toolbar{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  margin:14px 0 18px;flex-wrap:wrap
+}
+.toolbar-left{display:flex;gap:8px;flex-wrap:wrap}
+.tabbtn{
+  border:1px solid #cfdcea;background:#fff;color:var(--navy);
+  border-radius:999px;padding:9px 14px;font-weight:850;cursor:pointer;
+}
+.tabbtn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.counter{font-weight:850;color:var(--navy)}
+.stage{
+  position:relative;
+  min-height:740px;
+}
+.slide{
+  display:none;
+  animation:fade .24s ease;
+}
+.slide.active{display:block}
+@keyframes fade{from{opacity:.35;transform:translateX(10px)}to{opacity:1;transform:none}}
+.theory,.qcard{
+  background:#fff;border:1px solid #dce5ef;border-radius:22px;
+  box-shadow:0 10px 30px rgba(13,47,87,.07);overflow:hidden
+}
+.theory{padding:28px}
+.section-kicker{font-size:13px;color:var(--blue);font-weight:900;letter-spacing:.08em}
+.theory h2{color:var(--navy);margin:4px 0 8px;font-size:25px}
+.lead{color:#526173;margin:0 0 20px}
+.triplet{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 20px}
+.tbox{
+  border:1px solid #cfe0f1;border-radius:16px;padding:18px 17px;
+  background:linear-gradient(180deg,#fff,#f8fbff)
+}
+.tbox .n{
+  width:34px;height:34px;border-radius:11px;background:var(--navy);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:900;margin-bottom:10px
+}
+.tbox h3{margin:0 0 8px;color:var(--navy);font-size:18px}
+.tbox p{margin:0;font-size:14.5px;color:#455468}
+
+.problem{
+  padding:27px 30px 25px;background:linear-gradient(180deg,#fff,#f8fbff);
+  border-bottom:5px solid var(--navy)
+}
+.qmeta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.qnum{
+  width:48px;height:48px;border-radius:14px;background:var(--navy);color:white;
+  display:flex;align-items:center;justify-content:center;font-size:21px;font-weight:950
+}
+.tag{
+  background:#eaf3fd;color:var(--navy);border:1px solid #cbdff3;border-radius:999px;
+  padding:5px 10px;font-size:13px;font-weight:850
+}
+.problem h2{font-size:22px;line-height:1.52;margin:8px 0 16px;color:#17263a}
+.statement{
+  background:white;border:1px solid var(--line);border-left:5px solid var(--blue);
+  border-radius:12px;padding:15px 17px;margin:12px 0 16px
+}
+.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.choice{
+  background:#fff;border:1px solid #dce5ef;border-radius:11px;padding:12px 14px;
+  min-height:52px;display:flex;align-items:center
+}
+.choice.correct-choice{border-color:#9ed1b7;background:#f5fcf8}
+.explain{padding:28px 30px 31px;background:#fff}
+.answerline{display:flex;align-items:center;gap:11px;flex-wrap:wrap;margin-bottom:18px}
+.answerline h3{margin:0;color:var(--navy);font-size:21px}
+.answer-pill{
+  background:var(--green-bg);border:1px solid #b8e2cc;color:var(--green);
+  border-radius:999px;padding:7px 12px;font-weight:900
+}
+.why{
+  display:grid;grid-template-columns:150px 90px 1fr;border:1px solid var(--line);
+  border-radius:14px;overflow:hidden;margin:14px 0 18px
+}
+.why > div{padding:13px 14px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.why > div:nth-child(3n){border-right:0}
+.why > div:nth-last-child(-n+3){border-bottom:0}
+.why .head{background:#eef5fc;font-weight:900;color:var(--navy)}
+.good{color:var(--green);font-weight:900}
+.bad{color:var(--red);font-weight:900}
+.exbox{
+  margin:10px 0 14px;background:#f5f8fb;border-radius:12px;padding:13px 15px;
+  border:1px solid #e1e8f0
+}
+.memory{
+  margin-top:18px;padding:17px 18px;border-radius:14px;background:#eef6ff;
+  border:1px solid #c8ddf3
+}
+.memory-title{font-weight:950;color:var(--navy);margin-bottom:6px}
+.memory strong{color:var(--blue)}
+.flow{
+  display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin:12px 0
+}
+.flow .box{
+  background:white;border:1px solid #b9d4ef;color:var(--navy);border-radius:11px;
+  padding:10px 13px;font-weight:850
+}
+.flow .arr{color:var(--blue);font-size:21px;font-weight:950}
+.source-panel{
+  margin-top:20px;padding:18px;border:1px solid #d1deea;background:#fbfdff;border-radius:15px
+}
+.source-panel h4{margin:0 0 10px;color:var(--navy);font-size:17px}
+.source-panel p{margin:6px 0}
+.match-table,.clean-table,.deid-table{
+  width:100%;border-collapse:separate;border-spacing:0;margin:18px 0 6px;
+  border:1px solid var(--line);border-radius:14px;overflow:hidden;background:white
+}
+.match-table th,.clean-table th,.deid-table th{
+  background:#edf5fd;color:var(--navy);font-weight:900;text-align:left
+}
+.match-table th,.match-table td,.clean-table th,.clean-table td,.deid-table th,.deid-table td{
+  padding:13px 15px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);vertical-align:top
+}
+.match-table tr:last-child td,.clean-table tr:last-child td,.deid-table tr:last-child td{border-bottom:0}
+.match-table th:last-child,.match-table td:last-child,.clean-table th:last-child,.clean-table td:last-child,.deid-table th:last-child,.deid-table td:last-child{border-right:0}
+.match-table tbody tr:nth-child(even),.clean-table tbody tr:nth-child(even),.deid-table tbody tr:nth-child(even){background:#fbfdff}
+.arrow{color:var(--blue);font-weight:900;text-align:center}
+.note{
+  margin-top:14px;padding:14px 16px;border-radius:13px;background:var(--gold-bg);
+  border:1px solid #efd98d;color:#5d4b12;font-size:14.5px
+}
+.note b{color:#745800}
+
+.pager{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  margin-top:18px
+}
+.navbtn{
+  min-width:126px;border:0;border-radius:14px;padding:13px 18px;
+  background:var(--navy);color:#fff;font-weight:900;font-size:15px;cursor:pointer;
+  box-shadow:0 6px 16px rgba(13,47,87,.15)
+}
+.navbtn:hover{background:#174c82}
+.navbtn:disabled{opacity:.35;cursor:not-allowed}
+.dots{display:flex;gap:8px;align-items:center;justify-content:center;flex:1}
+.dot{
+  width:11px;height:11px;border-radius:50%;border:0;background:#c9d6e4;cursor:pointer;padding:0
+}
+.dot.active{background:var(--blue);transform:scale(1.18)}
+.hint{
+  text-align:center;color:var(--muted);font-size:13px;margin-top:8px
+}
+@media(max-width:850px){
+  .triplet{grid-template-columns:1fr}
+  .choice-grid{grid-template-columns:1fr}
+  .why{grid-template-columns:115px 75px 1fr;font-size:14px}
+}
+@media(max-width:610px){
+  .app{padding:16px 10px 40px}
+  .hero{padding:24px 20px}
+  .hero h1{font-size:25px}
+  .theory,.problem,.explain{padding-left:17px;padding-right:17px}
+  .problem h2{font-size:19px}
+  .why{display:block}
+  .why > div{border-right:0}
+  .why .head{display:none}
+  .navbtn{min-width:96px;padding:12px}
+}
+@media print{
+  body{background:#fff}
+  .toolbar,.pager,.hint{display:none}
+  .slide{display:block!important;page-break-after:always}
+  .theory,.qcard{box-shadow:none}
+}
+
+.top-pager{
+  display:grid;
+  grid-template-columns:150px 1fr 150px;
+  align-items:center;
+  gap:16px;
+  margin:0 0 18px;
+  position:sticky;
+  top:8px;
+  z-index:50;
+  background:rgba(244,248,252,.96);
+  backdrop-filter:blur(10px);
+  padding:10px 12px;
+  border:1px solid #d5e0eb;
+  border-radius:16px;
+  box-shadow:0 8px 24px rgba(13,47,87,.10);
+}
+.top-center{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  min-width:0;
+}
+.screen-title{
+  color:var(--navy);
+  font-weight:950;
+  font-size:15px;
+  text-align:center;
+}
+@media(max-width:610px){
+  .top-pager{
+    grid-template-columns:92px 1fr 92px;
+    gap:8px;
+    padding:8px;
+    top:4px;
+  }
+  .screen-title{font-size:13px}
+  .top-pager .navbtn{
+    min-width:0;
+    width:100%;
+    padding:10px 8px;
+    font-size:13px;
+  }
+}
+</style>
+</head>
+<body>
+<div class="app">
+<section class="hero">
+<div class="eyebrow">PART 01 · 데이터의 이해 · 2장 데이터의 가치와 미래</div>
+<h1>빅데이터 <span class="kw">위기 요인</span> · <span class="kw">통제 방안</span> · <span class="kw">개인정보 비식별화</span></h1>
+<p>교재 핵심 + 기출 26~29번 · 좌우 클릭형 무손실 학습자료</p>
+</section>
+<div class="toolbar">
+<div class="toolbar-left">
+<button class="tabbtn active" data-index="0">교재 핵심</button>
+<button class="tabbtn" data-index="1">26번</button>
+<button class="tabbtn" data-index="2">27번</button>
+<button class="tabbtn" data-index="3">28번</button>
+<button class="tabbtn" data-index="4">29번</button>
+</div>
+<div class="counter" id="counter">1 / 5</div>
+</div><div class="top-pager">
+<button class="navbtn" id="prevBtn">← 이전</button>
+<div class="top-center">
+<div class="screen-title" id="screenTitle">교재 핵심</div>
+<div class="dots" id="dots"></div>
+</div>
+<button class="navbtn" id="nextBtn">다음 →</button>
+</div>
+<div class="stage" id="stage">
+<div class="slide active" data-title="교재 핵심"><section class="theory" id="theory">
+<div class="section-kicker">TEXTBOOK CORE</div>
+<h2>먼저, 교재의 핵심 연결을 한눈에</h2>
+<p class="lead">이 네 문항은 결국 <span class="kw">위기 요인 3가지</span>, 그에 대응하는 <span class="kw">통제 방안 3가지</span>, 그리고 <span class="kw">비식별 기술</span>을 구분할 수 있는지를 묻습니다.</p>
+<div class="triplet">
+<div class="tbox">
+<div class="n">1</div>
+<h3><span class="kw">사생활 침해</span></h3>
+<p>핵심: <span class="kw">비밀 유지 불가</span>, <span class="kw">익명성 부족</span>, <span class="kw">동의 없는 수집</span></p>
+</div>
+<div class="tbox">
+<div class="n">2</div>
+<h3><span class="kw">책임원칙 훼손</span></h3>
+<p>핵심: <span class="kw">책임 소재 불분명</span>, <span class="kw">알고리즘 블랙박스</span>, <span class="kw">데이터 편향</span></p>
+</div>
+<div class="tbox">
+<div class="n">3</div>
+<h3><span class="kw">데이터 오용</span></h3>
+<p>핵심: <span class="kw">데이터 목적의 일탈</span>, <span class="kw">사기 및 조작</span>, 잘못된 지표 사용</p>
+</div>
+</div>
+<table class="match-table">
+<thead>
+<tr>
+<th style="width:29%">위기 요인</th>
+<th style="width:8%;text-align:center">→</th>
+<th style="width:30%">통제 방안</th>
+<th>시험에서 기억할 말</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="kw">사생활 침해</span></td>
+<td class="arrow">→</td>
+<td><span class="kw">동의에서 책임으로</span></td>
+<td>개인정보 제공자의 동의만이 아니라 <b>사용자의 책임</b></td>
+</tr>
+<tr>
+<td><span class="kw">책임원칙 훼손</span></td>
+<td class="arrow">→</td>
+<td><span class="kw">결과 기반 책임원칙 고수</span></td>
+<td>예측만으로 불이익을 주지 말고 <b>결과에 대한 책임</b>을 명확히</td>
+</tr>
+<tr>
+<td><span class="kw">데이터 오용</span></td>
+<td class="arrow">→</td>
+<td><span class="kw">알고리즘 접근 허용</span></td>
+<td>예측 알고리즘의 부당함을 <b>검증·반증</b>할 수 있게</td>
+</tr>
+</tbody>
+</table>
+<div class="note"><b>★ 출제 포인트:</b> 교재에서는 위기 요인과 통제 방안을 <b>짝지어</b> 이해하고, 각 통제 방안의 내용과 기대효과를 함께 정리하는 것을 강조합니다.</div>
+</section></div>
+<div class="slide" data-title="Q26"><section class="qcard" id="q26">
+<div class="problem">
+<div class="qmeta">
+<div class="qnum">26</div>
+<span class="tag">34회 기출</span>
+<span class="tag">위기 요인 구분</span>
+</div>
+<h2>빅데이터 기술이 발전함에 따라 발생할 수 있는 <span class="kw">위기 요인</span>과 그 예시로 <span class="kw">적절하지 않은 것</span>은?</h2>
+<div class="statement">
+<b>(가)</b> <span class="kw">사생활 침해</span>: 개인의 <span class="kw">검색 기록을 무단으로 수집</span>하여 맞춤형 광고를 제공<br/>
+<b>(나)</b> <span class="kw">책임 원칙 훼손</span>: 자동화된 채용 시스템이 과거 데이터를 기반으로 일부 후보자의 면접을 거부<br/>
+<b>(다)</b> <span class="kw">책임 원칙 훼손</span>: 기술이 사용자 행동을 1시간 후 87% 정확도로 예측한다고 주장<br/>
+<b>(라)</b> <span class="kw">데이터 오용</span>: 학교가 학생들의 성적을 <span class="kw">학문적 목적</span>에 맞게 분석하여 교육 과정 개선에 활용
+    </div>
+<div class="choice-grid">
+<div class="choice">① (가), (나)</div>
+<div class="choice">② (나), (라)</div>
+<div class="choice">③ (가), (다)</div>
+<div class="choice correct-choice">④ (다), (라)</div>
+</div>
+</div>
+<div class="explain">
+<div class="answerline">
+<h3>정답 · 오답 해설</h3>
+<span class="answer-pill">정답 ④ (다), (라)</span>
+</div>
+<div class="why">
+<div class="head">항목</div><div class="head">판단</div><div class="head">이유</div>
+<div><b>(가)</b></div><div class="good">적절</div>
+<div><span class="kw">동의 없는 개인정보 수집</span>이므로 교재가 제시한 <span class="kw">사생활 침해</span>의 핵심 특징과 맞습니다.</div>
+<div><b>(나)</b></div><div class="good">적절</div>
+<div>자동화된 판단으로 불이익이 발생할 때 <span class="kw">책임 소재가 불분명</span>해질 수 있으므로 <span class="kw">책임원칙 훼손</span> 사례로 볼 수 있습니다.</div>
+<div><b>(다)</b></div><div class="bad">부적절</div>
+<div>사용자 행동을 <span class="kw">예측했다는 사실 자체</span>만으로는 책임원칙 훼손이라고 할 수 없습니다. 책임원칙 훼손은 예측 때문에 실제로 부당한 판단·처분이 발생하는 맥락이 핵심입니다.</div>
+<div><b>(라)</b></div><div class="bad">부적절</div>
+<div>학생 성적을 <span class="kw">교육 과정 개선이라는 정당한 목적</span>에 활용했다면, 교재가 말하는 <span class="kw">데이터 목적의 일탈</span>에 해당하지 않습니다.</div>
+</div>
+<div class="source-panel">
+<h4>교재와 연결해서 보기</h4>
+<p><span class="kw">사생활 침해</span> → 동의 없는 수집·익명성 부족</p>
+<p><span class="kw">책임원칙 훼손</span> → 예측 알고리즘의 희생양·책임 소재 문제</p>
+<p><span class="kw">데이터 오용</span> → 잘못된 지표·목적 일탈·조작</p>
+</div>
+<div class="memory">
+<div class="memory-title">★ 한 줄 구분법</div>
+<strong>사생활 침해</strong> = “내 정보를 허락 없이 썼나?”<br/>
+<strong>책임원칙 훼손</strong> = “예측 때문에 불이익을 받았는데 누가 책임지나?”<br/>
+<strong>데이터 오용</strong> = “데이터나 지표를 잘못된 목적·방식으로 썼나?”
+    </div>
+</div>
+</section></div>
+<div class="slide" data-title="Q27"><section class="qcard" id="q27">
+<div class="problem">
+<div class="qmeta">
+<div class="qnum">27</div>
+<span class="tag">35회 기출</span>
+<span class="tag">사생활 침해 대응</span>
+</div>
+<h2>다음 중 <span class="kw">사생활 침해</span>를 해결하기 위한 빅데이터 기술로 적절한 것은?</h2>
+<div class="choice-grid">
+<div class="choice correct-choice">① <span class="kw">익명화</span></div>
+<div class="choice">② 범주화</div>
+<div class="choice">③ 데이터 정규화</div>
+<div class="choice">④ 값 표준화</div>
+</div>
+</div>
+<div class="explain">
+<div class="answerline">
+<h3>정답 · 오답 해설</h3>
+<span class="answer-pill">정답 ① 익명화</span>
+</div>
+<table class="clean-table">
+<thead>
+<tr>
+<th style="width:19%">보기</th>
+<th style="width:18%">핵심</th>
+<th>해설</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><b>① <span class="kw">익명화</span></b></td>
+<td class="good">정답</td>
+<td>개인 식별 정보를 <span class="kw">삭제하거나 알아볼 수 없는 형태로 변환</span>하여 개인을 식별하기 어렵게 합니다.</td>
+</tr>
+<tr>
+<td><b>② 범주화</b></td>
+<td class="bad">기출 정답 아님</td>
+<td>정확한 값을 범위·그룹으로 바꾸는 방식입니다. 예: <b>35세 → 30~40세</b>.</td>
+</tr>
+<tr>
+<td><b>③ 데이터 정규화</b></td>
+<td class="bad">오답</td>
+<td>데이터 구조를 효율적으로 구성하고 중복을 줄이는 데이터베이스 설계 개념입니다.</td>
+</tr>
+<tr>
+<td><b>④ 값 표준화</b></td>
+<td class="bad">오답</td>
+<td>분석을 위해 값의 단위·척도 등을 일정한 기준으로 맞추는 처리입니다.</td>
+</tr>
+</tbody>
+</table>
+<div class="exbox"><b>예:</b> “25세, 남성, 서울”처럼 세부 정보가 있는 데이터를 동일 조건의 여러 명으로 묶거나 식별 정보를 지워 <span class="kw">개인을 바로 알아볼 수 없게</span> 만드는 것이 익명화의 핵심입니다.</div>
+<div class="note">
+<b>교재 읽기 주의:</b> 이 문항의 기출 해설은 정답을 <b>① 익명화</b>로 제시합니다. 다만 같은 교재의 ‘비식별 기술의 종류와 예’ 표에서는 <b>범주화 역시 비식별 기술의 한 종류</b>로 설명됩니다. 시험에서는 <span class="kw">문항이 묻는 대표 대응 기술 = 익명화</span>로 기억하는 것이 안전합니다.
+    </div>
+<div class="memory">
+<div class="memory-title">★ 시험용 한 줄</div>
+<strong>사생활 침해 → 익명화(Anonymization)</strong>
+</div>
+</div>
+</section></div>
+<div class="slide" data-title="Q28"><section class="qcard" id="q28">
+<div class="problem">
+<div class="qmeta">
+<div class="qnum">28</div>
+<span class="tag">39회 기출</span>
+<span class="tag">위기 요인 ↔ 통제 방안</span>
+</div>
+<h2>빅데이터의 <span class="kw">위기 요인</span>과 <span class="kw">통제방안</span>을 서로 연결한 것 중 잘못 연결된 것은?</h2>
+<div class="statement">
+<b>가.</b> <span class="kw">사생활 침해</span> - <span class="kw">동의에서 책임으로 전환</span><br/>
+<b>나.</b> <span class="kw">책임원칙 훼손</span> - <span class="kw">알고리즘 접근 허용</span><br/>
+<b>다.</b> <span class="kw">데이터 오용</span> - <span class="kw">결과 기반 책임 원칙 고수</span>
+</div>
+<div class="choice-grid">
+<div class="choice">① 가, 나</div>
+<div class="choice">② 가, 다</div>
+<div class="choice correct-choice">③ 나, 다</div>
+<div class="choice">④ 가, 나, 다</div>
+</div>
+</div>
+<div class="explain">
+<div class="answerline">
+<h3>정답 · 오답 해설</h3>
+<span class="answer-pill">정답 ③ 나, 다</span>
+</div>
+<table class="match-table">
+<thead>
+<tr>
+<th>위기 요인</th>
+<th style="width:8%;text-align:center">→</th>
+<th>정확한 통제 방안</th>
+<th>핵심 의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="kw">사생활 침해</span></td>
+<td class="arrow">→</td>
+<td><span class="kw">동의에서 책임으로</span></td>
+<td>정보를 사용하는 주체의 책임 강화</td>
+</tr>
+<tr>
+<td><span class="kw">책임원칙 훼손</span></td>
+<td class="arrow">→</td>
+<td><span class="kw">결과 기반 책임원칙 고수</span></td>
+<td>예측만으로 불이익을 주지 않기</td>
+</tr>
+<tr>
+<td><span class="kw">데이터 오용</span></td>
+<td class="arrow">→</td>
+<td><span class="kw">알고리즘 접근 허용</span></td>
+<td>알고리즘의 부당함을 검증·반증</td>
+</tr>
+</tbody>
+</table>
+<div class="why">
+<div class="head">항목</div><div class="head">판단</div><div class="head">이유</div>
+<div><b>가</b></div><div class="good">올바름</div>
+<div><span class="kw">사생활 침해 → 동의에서 책임으로</span>는 정확한 연결입니다.</div>
+<div><b>나</b></div><div class="bad">잘못</div>
+<div><span class="kw">알고리즘 접근 허용</span>은 <span class="kw">데이터 오용</span>에 대한 대응책입니다.</div>
+<div><b>다</b></div><div class="bad">잘못</div>
+<div><span class="kw">결과 기반 책임원칙 고수</span>는 <span class="kw">책임원칙 훼손</span>에 대한 대응책입니다.</div>
+</div>
+<div class="flow">
+<div class="box">사생활 침해</div><div class="arr">→</div><div class="box">동의 → 책임</div>
+<div class="box">책임원칙 훼손</div><div class="arr">→</div><div class="box">결과 책임</div>
+<div class="box">데이터 오용</div><div class="arr">→</div><div class="box">알고리즘 접근</div>
+</div>
+<div class="memory">
+<div class="memory-title">★ 28번은 이것만 기억</div>
+<strong>나와 다가 서로 뒤바뀌었다.</strong>
+</div>
+</div>
+</section></div>
+<div class="slide" data-title="Q29"><section class="qcard" id="q29">
+<div class="problem">
+<div class="qmeta">
+<div class="qnum">29</div>
+<span class="tag">36회 기출</span>
+<span class="tag">개인정보 비식별화</span>
+</div>
+<h2><span class="kw">개인정보 비식별화 기법</span>은 데이터 활용 중 개인정보 노출을 방지하는 데 사용된다. 다음 중 설명으로 가장 적절하지 않은 것은?</h2>
+<div class="choice-grid">
+<div class="choice">① <span class="kw">가명처리</span> - 특정 식별 정보를 직접적으로 알 수 없는 값으로 변경</div>
+<div class="choice">② <span class="kw">범주화</span> - 식별 정보를 해당 데이터가 속하는 범주나 그룹으로 변환</div>
+<div class="choice correct-choice">③ <span class="kw">데이터 마스킹</span> - 개인 정보 식별이 가능한 특정 데이터 값 삭제 처리</div>
+<div class="choice">④ <span class="kw">총계처리</span> - 데이터 값을 집계 값으로 대체하여 원본 데이터를 숨김</div>
+</div>
+</div>
+<div class="explain">
+<div class="answerline">
+<h3>정답 · 오답 해설</h3>
+<span class="answer-pill">정답 ③ 데이터 마스킹</span>
+</div>
+<p><b>③이 틀린 핵심 이유:</b> <span class="kw">데이터 마스킹(Data Masking)</span>은 값을 단순히 삭제하는 것이 아니라, <span class="kw">길이·유형·형식 같은 속성을 유지하면서 일부를 가리거나 다른 형태로 익명화</span>하는 방식입니다.</p>
+<table class="deid-table">
+<thead>
+<tr>
+<th style="width:19%">비식별 기술</th>
+<th style="width:43%">교재 핵심 내용</th>
+<th>쉽게 보는 예</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="kw">데이터 마스킹</span></td>
+<td>데이터의 길이·유형·형식 등의 속성을 유지하면서 익명 형태로 생성</td>
+<td>홍길동 → <b>홍**</b><br/>한국대 → <b>**대</b></td>
+</tr>
+<tr>
+<td><span class="kw">가명처리</span></td>
+<td>개인정보 주체의 이름 등을 다른 값으로 변경</td>
+<td>홍길동 → 임꺽정 등 <b>다른 값</b></td>
+</tr>
+<tr>
+<td><span class="kw">총계처리</span></td>
+<td>개별값 대신 총합·평균 같은 집계값을 보여줌</td>
+<td>학생별 키 → <b>합 660cm / 평균 165cm</b></td>
+</tr>
+<tr>
+<td><span class="kw">데이터값 삭제</span></td>
+<td>필요 없는 값이나 개인 식별에 중요한 값을 실제로 삭제</td>
+<td>이름 삭제, 상세 날짜를 연 단위로 처리</td>
+</tr>
+<tr>
+<td><span class="kw">범주화</span></td>
+<td>데이터 값을 범주의 값으로 변환하여 값을 숨김</td>
+<td>35세 → <b>30~40세</b></td>
+</tr>
+</tbody>
+</table>
+<div class="source-panel">
+<h4>교재의 추가 비식별화 개념</h4>
+<p><span class="kw">난수화</span> : 일정한 순서나 규칙이 없는 무작위 숫자로 변환</p>
+<p><span class="kw">익명화</span> : 개인 식별 정보를 삭제하거나 알아볼 수 없는 형태로 변환</p>
+<p><span class="kw">일반화</span> : 구체적 값을 더 일반적인 값으로 변환</p>
+<div class="exbox">예: 서울특별시 강남구 신사동 → <b>서울특별시</b> / 1987년생 → <b>1980년대생</b></div>
+</div>
+<div class="memory">
+<div class="memory-title">★ 29번 함정</div>
+<strong>마스킹 ≠ 삭제</strong><br/>
+      마스킹 = <b>가리기·변환</b> / 실제 삭제 = <b>데이터값 삭제</b>
+</div>
+</div>
+</section></div>
+</div>
+
+
+</div>
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+const tabs=[...document.querySelectorAll('.tabbtn')];
+const dotsWrap=document.getElementById('dots');
+const counter=document.getElementById('counter');
+const prevBtn=document.getElementById('prevBtn');
+const nextBtn=document.getElementById('nextBtn');
+const screenTitle=document.getElementById('screenTitle');
+let current=0;
+
+const titles=['교재 핵심','26번 문제','27번 문제','28번 문제','29번 문제'];
+
+slides.forEach((_,i)=>{
+  const d=document.createElement('button');
+  d.className='dot'+(i===0?' active':'');
+  d.setAttribute('aria-label',`${i+1}번째 화면`);
+  d.addEventListener('click',()=>show(i));
+  dotsWrap.appendChild(d);
+});
+const dots=[...document.querySelectorAll('.dot')];
+
+function show(i){
+  current=Math.max(0,Math.min(i,slides.length-1));
+  slides.forEach((s,idx)=>s.classList.toggle('active',idx===current));
+  tabs.forEach((t,idx)=>t.classList.toggle('active',idx===current));
+  dots.forEach((d,idx)=>d.classList.toggle('active',idx===current));
+  counter.textContent=`${current+1} / ${slides.length}`;
+  screenTitle.textContent=titles[current];
+  prevBtn.disabled=current===0;
+  nextBtn.disabled=current===slides.length-1;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+tabs.forEach((t,i)=>t.addEventListener('click',()=>show(i)));
+prevBtn.addEventListener('click',()=>show(current-1));
+nextBtn.addEventListener('click',()=>show(current+1));
+document.addEventListener('keydown',(e)=>{
+  if(e.key==='ArrowLeft') show(current-1);
+  if(e.key==='ArrowRight') show(current+1);
+});
+show(0);
+</script>
+</body>
+</html>
