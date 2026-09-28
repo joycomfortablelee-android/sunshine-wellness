@@ -718,6 +718,57 @@
     .learn-article .ref-shelf .rs-tn { flex: none; padding: 2px 9px; border-radius: 999px; background: #5aa7de; color: #fff; font-size: 11px; font-weight: 800; }
     /* 대회 상자 · 카드에서 서가로 올라가는 작은 알약 */
     .learn-article a.to-shelf { font-weight: 800; }
+    /* ── 파트 03 다섯 걸음을 육각형으로 — 0번 꼭짓점이 Reference(수상작 서가), 1~5번이 다섯 걸음.
+       시각화 다음 화살표가 다시 0번으로 돌아간다: 결과를 수상작과 견주고 다음 바퀴를 돈다.
+       좌표는 SVG viewBox(1000×800) 기준 꼭짓점 (500,120) (820,270) (820,570) (500,720) (180,570) (180,270).
+       카드마다 「볼 것」 한 줄 — 수상작에서 그 걸음의 무엇을 봐야 하는지. 데이터(2)와 기법(4)은 진하게. ── */
+    .learn-article .hexa-wrap { position: relative; max-width: 1040px; margin: 14px auto 28px; aspect-ratio: 1000 / 800; }
+    .learn-article .hexa-wrap .hexa-svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .learn-article .hexa-svg .hx-c1 { font-size: 22px; font-weight: 700; fill: #6b7f94; }
+    .learn-article .hexa-svg .hx-c2 { font-size: 30px; font-weight: 900; fill: #14456f; }
+    .learn-article .steps.hexa { counter-reset: stp -1; display: block; margin: 0; padding: 0; list-style: none; }
+    .learn-article .vcards.hexa > li {
+      position: absolute; width: 21%; transform: translate(-50%, -50%);
+      box-shadow: 0 4px 14px rgba(16,42,67,.07);
+    }
+    .learn-article .vcards.hexa > li:hover { transform: translate(-50%, calc(-50% - 2px)); }
+    .learn-article .vcards.hexa > li:nth-child(1) { left: 50%; top: 15%; }
+    .learn-article .vcards.hexa > li:nth-child(2) { left: 82%; top: 33.75%; }
+    .learn-article .vcards.hexa > li:nth-child(3) { left: 82%; top: 71.25%; }
+    .learn-article .vcards.hexa > li:nth-child(4) { left: 50%; top: 90%; }
+    .learn-article .vcards.hexa > li:nth-child(5) { left: 18%; top: 71.25%; }
+    .learn-article .vcards.hexa > li:nth-child(6) { left: 18%; top: 33.75%; }
+    .learn-article .vcards.hexa .hx-see {
+      display: block; margin-top: 7px; padding-top: 6px; border-top: 1px dashed var(--v-ln, var(--line));
+      font-size: 11.5px; line-height: 1.6; color: #34495e;
+    }
+    .learn-article .vcards.hexa .hx-see b {
+      display: inline-block; margin-right: 5px; padding: 0 6px; border-radius: 999px;
+      background: #eaf4fd; border: 1px solid #5aa7de; color: #14456f; font-size: 10px; font-weight: 800;
+    }
+    .learn-article .vcards.hexa .hx-see.key { color: #14120a; font-weight: 800; }
+    .learn-article .vcards.hexa .hx-see.key b { background: #14456f; border-color: #14456f; color: #fff; }
+    /* 0번 Reference — 짙은 파랑으로 세워 다섯 걸음과 성격이 다름을 보인다 */
+    .learn-article .vcards.hexa > li.t-ref {
+      --v-ac: #5aa7de; background: #14456f; border-color: #14456f; border-top-color: #5aa7de;
+      box-shadow: 0 0 0 6px #dcebf8, 0 10px 22px rgba(20,69,111,.22);
+    }
+    .learn-article .vcards.hexa > li.t-ref .vh { color: #fff; font-size: 16px; }
+    .learn-article .vcards.hexa > li.t-ref .vd { color: #bcd8f0; }
+    .learn-article .vcards.hexa > li.t-ref .vd strong { color: #fff; }
+    .learn-article .vcards.hexa .hx-go {
+      display: inline-block; margin-top: 8px; padding: 3px 10px; border-radius: 999px;
+      background: #5aa7de; color: #fff; font-size: 11.5px; font-weight: 800; text-decoration: none;
+    }
+    .learn-article .vcards.hexa .hx-go:hover { background: #fff; color: #14456f; }
+    @media (max-width: 900px) {
+      .learn-article .hexa-wrap { aspect-ratio: auto; max-width: none; }
+      .learn-article .hexa-wrap .hexa-svg { display: none; }
+      .learn-article .vcards.hexa { display: grid; grid-template-columns: 1fr; gap: 10px; }
+      .learn-article .vcards.hexa > li { position: relative; left: auto !important; top: auto !important; width: auto; transform: none; }
+      .learn-article .vcards.hexa > li:hover { transform: translateY(-2px); }
+      .learn-article .vcards.hexa > li.t-ref { box-shadow: none; }
+    }
     /* 알약으로 내려올 때 제목이 화면 맨 위에 딱 붙지 않게 */
     .learn-article .learn-part[id] { scroll-margin-top: 18px; }
 </style>
@@ -976,13 +1027,33 @@
 
 
       <p class="learn-part pt-part pp-3" id="p03"><span class="pt"><i>파트</i><b>03</b></span><span class="pt-ti">분석은 다섯 걸음으로</span><span class="pt-sub">데이터는 저절로 답을 주지 않습니다. <strong>문제 정의 → 수집 → 정제 → 분석 → 시각화·해석</strong>을 거칩니다.</span></p>
-      <ol class="vcards c5 steps">
-        <li class="t-blue"><span class="vh">문제 정의</span><span class="vd">무엇을 알고 싶은가. (예: 비수기 방문객은 왜 줄어드는가)</span></li>
-        <li class="t-teal"><span class="vh">수집</span><span class="vd">필요한 데이터를 모은다(공공 API·크롤링·제휴 데이터).</span></li>
-        <li class="t-gold"><span class="vh">정제(전처리)</span><span class="vd">결측·중복·오류를 걸러낸다. <em>실무 시간의 대부분이 여기 든다.</em></span></li>
-        <li class="t-violet"><span class="vh">분석</span><span class="vd">통계·기계학습으로 패턴을 찾는다.</span></li>
-        <li class="t-green solid"><span class="vh">시각화·해석</span><span class="vd">그래프와 지도로 보여주고, 결정으로 잇는다.</span></li>
-      </ol>
+      <div class="hexa-wrap">
+        <svg class="hexa-svg" viewBox="0 0 1000 800" aria-hidden="true">
+          <defs>
+            <linearGradient id="hexaFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1f7fc"/><stop offset="1" stop-color="#f6f3fd"/></linearGradient>
+            <marker id="hexaArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8aa3bd"/></marker>
+          </defs>
+          <polygon points="500,120 820,270 820,570 500,720 180,570 180,270" fill="url(#hexaFill)" stroke="#c9d8e8" stroke-width="2"/>
+          <g fill="none" stroke="#8aa3bd" stroke-width="3" stroke-dasharray="8 7" marker-end="url(#hexaArrow)">
+            <path d="M612,173 L708,218"/>
+            <path d="M820,362 L820,478"/>
+            <path d="M708,622 L612,667"/>
+            <path d="M388,667 L292,622"/>
+            <path d="M180,478 L180,362"/>
+            <path d="M292,218 L388,173"/>
+          </g>
+          <text x="500" y="408" text-anchor="middle" class="hx-c1">걸음마다</text>
+          <text x="500" y="448" text-anchor="middle" class="hx-c2">0번과 견준다</text>
+        </svg>
+        <ol class="vcards steps hexa">
+          <li class="t-ref"><span class="vh">Reference 보기</span><span class="vd">분석을 시작하기 전에 <strong>수상작부터</strong> 연다. 무엇을 물었고, 어떤 데이터로, 어떻게 풀었나.</span><a class="hx-go" href="#수상작서가">수상작 서가로 ↓</a></li>
+          <li class="t-blue"><span class="vh">문제 정의</span><span class="vd">무엇을 알고 싶은가. (예: 비수기 방문객은 왜 줄어드는가)</span><span class="hx-see"><b>볼 것</b>수상작은 무엇을 질문 한 문장으로 세웠나</span></li>
+          <li class="t-teal"><span class="vh">수집</span><span class="vd">필요한 데이터를 모은다(공공 API·크롤링·제휴 데이터).</span><span class="hx-see key"><b>볼 것</b>어떤 데이터를 몇 개 겹쳤나 — 출처 이름을 적어 온다</span></li>
+          <li class="t-gold"><span class="vh">정제(전처리)</span><span class="vd">결측·중복·오류를 걸러낸다. <em>실무 시간의 대부분이 여기 든다.</em></span><span class="hx-see"><b>볼 것</b>기간·지역 단위를 어떻게 맞췄나</span></li>
+          <li class="t-violet"><span class="vh">분석</span><span class="vd">통계·기계학습으로 패턴을 찾는다.</span><span class="hx-see key"><b>볼 것</b>어떤 기법을 썼나 — 파트 04 기법 이름으로</span></li>
+          <li class="t-green"><span class="vh">시각화·해석</span><span class="vd">그래프와 지도로 보여주고, 결정으로 잇는다.</span><span class="hx-see"><b>볼 것</b>핵심 그림 한 장과 제안 한 줄</span></li>
+        </ol>
+      </div>
       <ul class="reslist">
         <li class="boxed-green">
           <a href="https://kosis.kr/index/index.do" target="_blank" rel="noopener">국가통계포털(KOSIS) ↗</a>
