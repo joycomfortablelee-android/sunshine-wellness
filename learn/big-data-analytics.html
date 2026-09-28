@@ -692,6 +692,32 @@
     }
     .learn-hero .toc-pills a.mapl.mini.toc:hover { background: #17365d; border-color: #17365d; color: #fff; }
     .learn-hero .toc-pills .hp-src { flex: 1 1 100%; margin-top: 6px; }
+    /* ── 수상작 서가 — 파트 06 맨 앞. 대회 상자마다 흩어진 수상작 창구 넷을 한자리에 모은다.
+       하늘색은 이 페이지에서 「수상작을 보는 것」이라는 뜻(알약 sky와 같다). ── */
+    .learn-article .ref-shelf {
+      margin: 18px 0 28px; padding: 16px 18px 14px;
+      border: 1px solid #c7ddef; border-top: 4px solid #5aa7de; border-radius: 12px;
+      background: linear-gradient(170deg, #f1f7fc 0%, #fff 60%);
+      scroll-margin-top: 18px;
+    }
+    .learn-article .ref-shelf .rs-t { margin: 0; font-size: 16px; font-weight: 900; color: #14456f; letter-spacing: -.3px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+    .learn-article .ref-shelf .rs-n { padding: 3px 10px; border-radius: 999px; background: #14456f; color: #eaf4fd; font-size: 11.5px; font-weight: 800; }
+    .learn-article .ref-shelf .rs-s { font-size: 11px; font-weight: 700; color: #4f7394; }
+    .learn-article .ref-shelf .rs-d { margin: 9px 0 0; font-size: 13px; line-height: 1.8; color: #34495e; }
+    .learn-article .ref-shelf .hot-t { color: #14456f; }
+    .learn-article .reslist.grid2.lcard.shelf { margin: 14px 0 16px; }
+    .learn-article .reslist.grid2.lcard.shelf > li { border-top-color: #5aa7de; background: #fff; }
+    .learn-article .reslist.grid2.lcard.shelf .linkrow { margin-top: 8px; }
+    .learn-article .reslist.grid2.lcard.shelf .meta a { color: #14456f; font-weight: 700; }
+    .learn-article .ref-shelf .rs-q { margin: 4px 0 8px; font-size: 13px; line-height: 1.7; color: #34495e; }
+    .learn-article .ref-shelf .rs-q b { color: #14456f; font-weight: 900; }
+    .learn-article .ref-shelf .rs-task {
+      display: flex; gap: 10px; align-items: baseline; margin: 12px 0 0; padding-top: 11px;
+      border-top: 1px dashed #c7ddef; font-size: 13px; line-height: 1.75; color: #2a3a4a;
+    }
+    .learn-article .ref-shelf .rs-tn { flex: none; padding: 2px 9px; border-radius: 999px; background: #5aa7de; color: #fff; font-size: 11px; font-weight: 800; }
+    /* 대회 상자 · 카드에서 서가로 올라가는 작은 알약 */
+    .learn-article a.to-shelf { font-weight: 800; }
     /* 알약으로 내려올 때 제목이 화면 맨 위에 딱 붙지 않게 */
     .learn-article .learn-part[id] { scroll-margin-top: 18px; }
 </style>
@@ -730,7 +756,7 @@
           <p class="syl-t"><a href="academic-calendar-2026-2.html" target="_blank" rel="noopener">2학기 학사일정 달력 ↗</a></p>
           <p class="syl-tags"><a class="mapl" href="academic-calendar-2026-2.html" target="_blank" rel="noopener">9~12월 달력 열기 ↗</a><span class="syl-src">개강 9/1 · 중간시험 8주 · 기말시험 16주 · 보강일 포함</span></p>
           <p class="hero-pills"><a class="mapl mini" href="big-data-student-note.html" target="_blank" rel="noopener">학생 이해 노트 ↗</a><span class="hp-src">공식 출석부 12명 · 화이트보드 사진</span></p>
-          <p class="toc-pills"><b class="toc-t">목차</b><a class="mapl mini toc" href="#p01">01 빅데이터란</a><a class="mapl mini toc" href="#p02">02 데이터는 어디서</a><a class="mapl mini toc" href="#p03">03 분석 다섯 걸음</a><a class="mapl mini toc" href="#p04">04 대표 분석 기법</a><a class="mapl mini toc" href="#p05">05 도구·프로그램</a><a class="mapl mini toc" href="#p06">06 빅데이터 공모전</a><a class="mapl mini toc" href="#p07">07 자격증</a><a class="mapl mini toc" href="#p08m">08 학습 경로</a><a class="mapl mini toc" href="#p09">09 미디어 · 담론 분석</a><a class="mapl mini toc" href="#p10">10 키워드 · 트렌드</a><a class="mapl mini toc" href="#p11">11 현장 적용 · 호텔</a></p>
+          <p class="toc-pills"><b class="toc-t">목차</b><a class="mapl mini toc" href="#p01">01 빅데이터란</a><a class="mapl mini toc" href="#p02">02 데이터는 어디서</a><a class="mapl mini toc" href="#p03">03 분석 다섯 걸음</a><a class="mapl mini toc" href="#p04">04 대표 분석 기법</a><a class="mapl mini toc" href="#p05">05 도구·프로그램</a><a class="mapl mini toc" href="#p06">06 빅데이터 공모전</a><a class="mapl mini toc" href="#수상작서가">★ 수상작 서가</a><a class="mapl mini toc" href="#p07">07 자격증</a><a class="mapl mini toc" href="#p08m">08 학습 경로</a><a class="mapl mini toc" href="#p09">09 미디어 · 담론 분석</a><a class="mapl mini toc" href="#p10">10 키워드 · 트렌드</a><a class="mapl mini toc" href="#p11">11 현장 적용 · 호텔</a></p>
         </div>
       </div>
     </div>
@@ -1010,7 +1036,7 @@
           </tbody>
         </table>
         <span class="yrnote"><b>2026 · 2025는 공고에서 확인한 날짜</b>이고, <b>2024 · 2023은 교차 확인 전</b>이라 그대로 믿지 마십시오. 상 이름이 <b>통계청장상(2025) → 국가데이터처장상(2026)</b>으로 바뀐 점도 함께 봅니다.</span>
-        <p class="tb-tags"><a class="mapl form hot" href="https://kosis.kr/contest/index.do" target="_blank" rel="noopener">공모전 누리집 · 요강과 응모신청서 ↗</a><a class="mapl form sky" href="https://kosis.kr/easyViewStatis/uccList.do" target="_blank" rel="noopener">역대 수상작 모음 · 제1회(2014)~제13회(2026) ↗</a><a class="mapl form sky" href="https://kosis.kr/easyViewStatis/uccDetail.do?uccYear=2025&amp;boardIdx=71" target="_blank" rel="noopener">수상작 한 편 · 「KOSIS와 함께하는 스마트한 창업방법」 ↗</a><span class="tb-src"><b>요강보다 수상작을 먼저 여십시오</b> — <b>2분 영상이 실제로 어느 정도 만듦새인지</b> 보고 나면 준비할 것이 분명해집니다. 수상작 모음(「내가 말하는 통계」)에는 <b>2014년부터 열세 해치</b>가 연도별로 쌓여 있습니다. 그중 <b>2025년 우수상 「KOSIS와 함께하는 스마트한 창업방법」</b>(환민진 연구소 · 전진호 · 이환준 · 황민우)을 따로 걸어 둡니다 — 창업을 준비하는 청년이 <b>음식점별 20대 고객 현황 · 개업 투자비용 · 연간 매출액 · 영업 이익률</b>을 KOSIS에서 찾아 일식당 창업으로 잇는 이야기라, <b>파트 03 다섯 걸음</b>과 <b>관광벤처창업론의 사업계획서</b>가 영상 한 편 안에 그대로 들어 있습니다.</span></p>
+        <p class="tb-tags"><a class="mapl form hot" href="https://kosis.kr/contest/index.do" target="_blank" rel="noopener">공모전 누리집 · 요강과 응모신청서 ↗</a><a class="mapl form sky" href="https://kosis.kr/easyViewStatis/uccList.do" target="_blank" rel="noopener">역대 수상작 모음 · 제1회(2014)~제13회(2026) ↗</a><a class="mapl form sky" href="https://kosis.kr/easyViewStatis/uccDetail.do?uccYear=2025&amp;boardIdx=71" target="_blank" rel="noopener">수상작 한 편 · 「KOSIS와 함께하는 스마트한 창업방법」 ↗</a><a class="mapl form to-shelf" href="#수상작서가">★ 수상작 서가에서 나란히 보기 ↓</a><span class="tb-src"><b>요강보다 수상작을 먼저 여십시오</b> — <b>2분 영상이 실제로 어느 정도 만듦새인지</b> 보고 나면 준비할 것이 분명해집니다. 수상작 모음(「내가 말하는 통계」)에는 <b>2014년부터 열세 해치</b>가 연도별로 쌓여 있습니다. 그중 <b>2025년 우수상 「KOSIS와 함께하는 스마트한 창업방법」</b>(환민진 연구소 · 전진호 · 이환준 · 황민우)을 따로 걸어 둡니다 — 창업을 준비하는 청년이 <b>음식점별 20대 고객 현황 · 개업 투자비용 · 연간 매출액 · 영업 이익률</b>을 KOSIS에서 찾아 일식당 창업으로 잇는 이야기라, <b>파트 03 다섯 걸음</b>과 <b>관광벤처창업론의 사업계획서</b>가 영상 한 편 안에 그대로 들어 있습니다.</span></p>
       </div>
 
 
@@ -1075,6 +1101,52 @@
       </ul>
 
       <p class="learn-part pt-part pp-6" id="p06"><span class="pt"><i>파트</i><b>06</b></span><span class="pt-ti">빅데이터 공모전</span><span class="pt-sub">네 대회를 <strong>지금 낼 수 있는 것부터</strong> 놓고, 대회마다 <em>그 대회가 쓰는 데이터 창구</em>를 바로 아래 붙였습니다.</span></p>
+      <div class="ref-shelf" id="수상작서가">
+        <p class="rs-t"><b class="rs-n">수상작 서가</b>남이 뽑힌 작품부터 봅니다 <span class="rs-s">네 곳 · 다섯 질문 · 과제 한 줄</span></p>
+        <p class="rs-d"><strong>요강은 「무엇을 내라」이고, 수상작은 「어느 수준으로 내라」입니다.</strong> 아래 대회 상자마다 흩어져 있던 수상작 창구를 한자리에 모았습니다. 네 곳은 성격이 다릅니다 — <strong>발표자료</strong>를 보는 곳, <strong>과정</strong>을 듣는 곳, <strong>영상</strong>을 보는 곳, <strong>지역 사례</strong>를 찾는 곳. <em>한 곳만 보지 말고 둘 이상을 나란히</em> 놓아야 「뽑히는 작품의 공통점」이 보입니다.</p>
+        <ul class="reslist grid2 lcard shelf">
+          <li>
+            <a href="https://data.seoul.go.kr/bsp/wgs/contest26.do" target="_blank" rel="noopener">① 서울시 빅데이터 활용 경진대회 · 수상작 ↗</a>
+            <span class="desc"><strong>2026년 일곱 + 2025년 여섯</strong>, 모두 열세 작품에 <strong>발표자료 PDF</strong>와 <strong>대화형 시각화 체험 링크</strong>가 붙어 있습니다. <strong class="hot-t">얻는 것 — 발표자료의 목차와 분량.</strong> 몇 장으로 문제를 세우고 몇 장으로 결과를 보여 주는지 세어 보십시오. 참가신청서 · 발표 PPT 템플릿도 여기서 받습니다.</span>
+            <div class="linkrow tiny">
+              <a class="sky" href="https://www.youtube.com/watch?v=3vGNw3ApFk8&amp;t=430s" target="_blank" rel="noopener">▶ 분석 부문 최우수상 발표 · 7:10부터 ↗</a>
+              <a class="ylw" href="seoul-bigdata-2026-award-notes.html" target="_blank" rel="noopener">✦ 그 발표를 뜯어 본 연구노트 ↗</a>
+            </div>
+            <span class="meta">서울특별시 · 창업 · 분석 · 시각화 세 부문 · <a href="#서울시대회">대회 상자로 ↓</a></span>
+          </li>
+          <li>
+            <a href="https://datalab.visitkorea.or.kr/html/interview4/interview01.jsp" target="_blank" rel="noopener">② 한국관광 데이터랩 · 수상팀 인터뷰 5편 ↗</a>
+            <span class="desc"><strong>우수 활용사례(2024)</strong> — 대상 · 최우수 2 · 우수 2. <strong>담당자가 직접</strong> 문제 상황 · 해결 방법 · 성과를 말합니다. <strong class="hot-t">얻는 것 — 과정.</strong> 결과물만 보면 보이지 않는 「왜 이 데이터를 붙였나」가 말로 나옵니다. <strong>관광 데이터로 뽑힌 작품</strong>이라 이 수업에 가장 가깝습니다.</span>
+            <div class="linkrow tiny">
+              <a class="sky" href="https://datalab.visitkorea.or.kr/site/portal/ex/bbs/View.do?cbIdx=1129&amp;bcIdx=309896" target="_blank" rel="noopener">활용 우수사례집 PDF ⤓</a>
+              <a class="ylw" href="datalab-pm-safety-dikw-prompts.html" target="_blank" rel="noopener">✦ 대상 사례 PM 안전 · DIKW와 프롬프트 ↗</a>
+            </div>
+            <span class="meta">한국관광공사 · 관광 특화 데이터 · <a href="#데이터랩대회">대회 상자로 ↓</a></span>
+          </li>
+          <li>
+            <a href="https://kosis.kr/easyViewStatis/uccList.do" target="_blank" rel="noopener">③ KOSIS 내가 말하는 통계 · 역대 수상 영상 ↗</a>
+            <span class="desc"><strong>제1회(2014)부터 제13회(2026)까지</strong> 국가통계로 만든 <strong>2분 안팎의 영상</strong>이 연도별로 쌓여 있습니다. <strong class="hot-t">얻는 것 — 숫자를 이야기로 바꾸는 법.</strong> 그래프 한 장을 어떻게 첫 장면으로 세우는지 보십시오. 분석 대회가 아니어도 <em>발표 과제의 본보기</em>로 씁니다.</span>
+            <div class="linkrow tiny">
+              <a class="sky" href="https://kosis.kr/easyViewStatis/uccDetail.do?uccYear=2025&amp;boardIdx=71" target="_blank" rel="noopener">수상작 한 편 · 「KOSIS와 함께하는 스마트한 창업방법」 ↗</a>
+            </div>
+            <span class="meta">국가데이터처 · 통계 활용 디지털콘텐츠 공모전 · <a href="#통계콘텐츠공모전">파트 03 상자로 ↑</a></span>
+          </li>
+          <li>
+            <a href="https://data.busan.go.kr/bdip/analysis/dataCases.do" target="_blank" rel="noopener">④ 부산 빅데이터웨이브 · 분석 우수사례 ↗</a>
+            <span class="desc"><strong>데이터 해커톤 · 분석활용 지원사업 · 분석활용 경진대회 · 창업경진대회</strong>의 우수사례가 한 칸에 모여 있습니다. <strong class="hot-t">얻는 것 — 한 도시의 데이터로 어디까지 갔나.</strong> 지역 하나를 정해 분석할 때, 남들이 이미 한 주제를 피하고 <em>빈자리</em>를 찾는 데 씁니다.</span>
+            <span class="meta">부산광역시 · 공공 · 민간 데이터 · <a href="#빅데이터대회">대회 상자로 ↓</a></span>
+          </li>
+        </ul>
+        <p class="rs-q"><b>수상작을 읽는 다섯 질문</b> — <a href="#p03">파트 03 다섯 걸음</a>을 거꾸로 짚습니다. 남의 작품에서 다섯 칸이 채워지면, 내 작품의 빈칸도 보입니다.</p>
+        <ol class="vcards c5 steps">
+          <li class="t-blue"><span class="vh">무엇을 물었나</span><span class="vd">제목 말고 <strong>질문 한 문장</strong>으로 줄여 적는다. 누가 곤란한 문제인가.</span></li>
+          <li class="t-teal"><span class="vh">어떤 데이터를 겹쳤나</span><span class="vd">출처 이름을 <strong>모두</strong> 적는다. 한 가지만 쓴 수상작은 드물다.</span></li>
+          <li class="t-gold"><span class="vh">어떻게 맞췄나</span><span class="vd">기간 · 지역 단위를 어떻게 맞췄나. <em>안 적혀 있으면 「안 적힘」도 적는다.</em></span></li>
+          <li class="t-violet"><span class="vh">어떤 기법을 썼나</span><span class="vd"><a href="#p04">파트 04</a>의 기법 이름으로 부른다. 기법이 질문에 맞았나.</span></li>
+          <li class="t-green solid"><span class="vh">무엇을 보여 주고 제안했나</span><span class="vd">핵심 그림 한 장과 제안 한 줄. 누가 실행하나까지.</span></li>
+        </ol>
+        <p class="rs-task"><b class="rs-tn">과제</b><span><strong>서로 다른 서가에서 수상작 두 편</strong>을 골라 다섯 질문에 한 줄씩 답해 옵니다. 맨 끝에 한 줄을 더 — <strong class="hot-t">「내 주제에 가져올 것 하나」</strong>.</span></p>
+      </div>
 
       <div class="task-box bd-later" id="데이터랩대회">
         <p class="tb-t"><b class="tb-no">1</b><b class="tb-n">지금 낼 수 있는 것</b>2026 한국관광 데이터랩 활용 경진대회 — 한국관광공사 <span class="when">접수 마감 9월 30일</span></p>
@@ -1085,7 +1157,7 @@
           <li><b>시상</b><span>총상금 <strong>2,000만원</strong>. <strong class="hot-t">문화체육관광부 장관상 · 한국관광공사 사장상</strong>이 걸려 있습니다 — 관광 전공자의 이력서에서 무게가 다른 상입니다.</span></li>
           <li><b>먼저 할 것</b><span>공고 원문에는 <strong>부문 구분 · 등수별 상금 · 심사 일정이 적혀 있지 않습니다.</strong> 첨부된 <strong>「(공모요강) PDF」</strong>에 있으니 <strong>반드시 내려받아 확인</strong>하십시오.</span></li>
         </ol>
-        <p class="tb-tags"><a class="mapl form hot" href="https://datalab.visitkorea.or.kr/site/portal/ex/bbs/View.do?cbIdx=1135&amp;bcIdx=311064&amp;pageIndex=1" target="_blank" rel="noopener">공고 원문 · 한국관광 데이터랩 ↗</a><a class="mapl form" href="https://datalab.visitkorea.or.kr/" target="_blank" rel="noopener">데이터랩 열기 — 쓸 데이터 먼저 보기 ↗</a><a class="mapl form sky" href="https://datalab.visitkorea.or.kr/site/portal/ex/bbs/View.do?cbIdx=1129&amp;bcIdx=309896" target="_blank" rel="noopener">활용 우수사례집 PDF ⤓</a><a class="mapl form sky" href="https://datalab.visitkorea.or.kr/html/interview4/interview01.jsp" target="_blank" rel="noopener">수상팀 인터뷰 5편 ↗</a><span class="tb-src"><b>지금 낼 수 있는 대회는 이것 하나입니다</b> — 아래 부산 대회는 <b>9/18</b>에 접수가 닫혔고, 이 대회가 <b>9/30</b>입니다. 부산에 냈던 팀이라면 같은 분석을 <em>그 분석이 무엇을 바꿨는가</em>로 각만 바꿔 내면 됩니다. <b>연한 파랑 알약 둘</b>은 <b>지난 대회가 무엇을 뽑았는지</b> 보는 자리입니다 — 요강을 읽기 전에 <em>수상작부터</em> 보는 편이 빠릅니다.</span></p>
+        <p class="tb-tags"><a class="mapl form hot" href="https://datalab.visitkorea.or.kr/site/portal/ex/bbs/View.do?cbIdx=1135&amp;bcIdx=311064&amp;pageIndex=1" target="_blank" rel="noopener">공고 원문 · 한국관광 데이터랩 ↗</a><a class="mapl form" href="https://datalab.visitkorea.or.kr/" target="_blank" rel="noopener">데이터랩 열기 — 쓸 데이터 먼저 보기 ↗</a><a class="mapl form sky" href="https://datalab.visitkorea.or.kr/site/portal/ex/bbs/View.do?cbIdx=1129&amp;bcIdx=309896" target="_blank" rel="noopener">활용 우수사례집 PDF ⤓</a><a class="mapl form sky" href="https://datalab.visitkorea.or.kr/html/interview4/interview01.jsp" target="_blank" rel="noopener">수상팀 인터뷰 5편 ↗</a><a class="mapl form to-shelf" href="#수상작서가">★ 수상작 서가에서 나란히 보기 ↑</a><span class="tb-src"><b>지금 낼 수 있는 대회는 이것 하나입니다</b> — 아래 부산 대회는 <b>9/18</b>에 접수가 닫혔고, 이 대회가 <b>9/30</b>입니다. 부산에 냈던 팀이라면 같은 분석을 <em>그 분석이 무엇을 바꿨는가</em>로 각만 바꿔 내면 됩니다. <b>연한 파랑 알약 둘</b>은 <b>지난 대회가 무엇을 뽑았는지</b> 보는 자리입니다 — 요강을 읽기 전에 <em>수상작부터</em> 보는 편이 빠릅니다.</span></p>
       </div>
 
       <ul class="reslist under-box">
@@ -1112,7 +1184,7 @@
           <li><b>자격과 시상</b><span>제한 없음 · 개인 또는 <strong>최대 5인 팀</strong>. 창업 8팀 1,150만원 · 분석 7팀 600만원 · 시각화 7팀 600만원 — <strong>모두 22팀 2,350만원</strong>.</span></li>
           <li><b>먼저 볼 것</b><span>요강보다 <strong class="hot-t">수상작</strong>입니다. 시각화 부문 페이지에 <strong>2026년 일곱 작품 + 2025년 여섯 작품</strong>이 발표자료 PDF · 대화형 체험 링크와 함께 걸려 있고, <strong>참가신청서 · 발표 PPT 템플릿</strong>도 거기서 받습니다. 요강은 <em>무엇을 내라</em>지만 수상작은 <strong>어느 수준으로 내라</strong>를 보여 줍니다.</span></li>
         </ol>
-        <p class="tb-tags"><a class="mapl form hot" href="https://news.seoul.go.kr/gov/archives/576001" target="_blank" rel="noopener">2026 공고 원문 · 내 손안에 서울 ↗</a><a class="mapl form sky-line" href="https://data.seoul.go.kr/bsp/wgs/contest26.do" target="_blank" rel="noopener">수상작 보기 · 서울 데이터 허브 ↗</a><a class="mapl form vid sky-line" href="https://www.youtube.com/watch?v=3vGNw3ApFk8&amp;t=430s" target="_blank" rel="noopener">▶ 분석 부문 최우수상 발표 · 7:10부터 ↗</a><a class="mapl form" href="bigdata-ai-competitions-2026.html" target="_blank" rel="noopener">공모전 여섯 한눈에 ↗</a><span class="tb-src"><b>지금 할 일은 하나입니다</b> — 수상작 열셋을 열어 보고 <b>「이 정도면 되는구나」를 눈에 넣어 두는 것</b>. <b>분석 부문 최우수상 발표 영상</b>은 <b>바로 아래 빅데이터 캠퍼스 카드</b>에 걸어 두었습니다(7분 10초부터) — 문제를 어떻게 잡고 <b>몇 분 만에 어떻게 보여 주는지</b>가 그대로 나옵니다. 아래 부산 대회(9/18)에 내는 결과물을 그 기준에 맞춰 만들면, 2027년 3월에는 <b>다듬어 내기만 하면 됩니다</b>. 세부 요강은 주최 측 공고로 반드시 확인하십시오.</span></p>
+        <p class="tb-tags"><a class="mapl form hot" href="https://news.seoul.go.kr/gov/archives/576001" target="_blank" rel="noopener">2026 공고 원문 · 내 손안에 서울 ↗</a><a class="mapl form sky-line" href="https://data.seoul.go.kr/bsp/wgs/contest26.do" target="_blank" rel="noopener">수상작 보기 · 서울 데이터 허브 ↗</a><a class="mapl form vid sky-line" href="https://www.youtube.com/watch?v=3vGNw3ApFk8&amp;t=430s" target="_blank" rel="noopener">▶ 분석 부문 최우수상 발표 · 7:10부터 ↗</a><a class="mapl form" href="bigdata-ai-competitions-2026.html" target="_blank" rel="noopener">공모전 여섯 한눈에 ↗</a><a class="mapl form to-shelf" href="#수상작서가">★ 수상작 서가에서 나란히 보기 ↑</a><span class="tb-src"><b>지금 할 일은 하나입니다</b> — 수상작 열셋을 열어 보고 <b>「이 정도면 되는구나」를 눈에 넣어 두는 것</b>. <b>분석 부문 최우수상 발표 영상</b>은 <b>바로 아래 빅데이터 캠퍼스 카드</b>에 걸어 두었습니다(7분 10초부터) — 문제를 어떻게 잡고 <b>몇 분 만에 어떻게 보여 주는지</b>가 그대로 나옵니다. 아래 부산 대회(9/18)에 내는 결과물을 그 기준에 맞춰 만들면, 2027년 3월에는 <b>다듬어 내기만 하면 됩니다</b>. 세부 요강은 주최 측 공고로 반드시 확인하십시오.</span></p>
       </div>
 
       <ul class="reslist under-box">
