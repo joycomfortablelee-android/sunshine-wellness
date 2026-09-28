@@ -345,8 +345,10 @@
     .learn-article .wb-why a.wb-job { display: inline-block; margin-left: 8px; padding: 1px 10px; border-radius: 999px; background: #a8681f; color: #fff; font-size: 11.5px; font-weight: 700; text-decoration: none; }
     .learn-article .wb-why a.wb-job:hover { background: #7f4d14; }
     .learn-article .wb-why .wb-wd, .learn-article .wb-why .wb-wn { margin: 0; }
-    .learn-article .wb-why .wb-wl { margin: 6px 0; padding: 0; list-style: none; }
-    .learn-article .wb-why .wb-wl li { margin: 0 0 5px; padding: 6px 10px; border-radius: 8px; background: #fff; border: 1px solid #f3e4cc; }
+    /* 과제 둘 - 1행 2열로 나란히. 좁은 화면(620px 이하)에서는 한 줄씩. */
+    .learn-article .wb-why .wb-wl { margin: 6px 0; padding: 0; list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    @media (max-width: 620px) { .learn-article .wb-why .wb-wl { grid-template-columns: 1fr; } }
+    .learn-article .wb-why .wb-wl li { margin: 0; padding: 6px 10px; border-radius: 8px; background: #fff; border: 1px solid #f3e4cc; }
     .learn-article .wb-why .wb-wl li b { display: block; color: #5a3a12; }
     .learn-article .wb-why .wb-wl li span { display: block; font-size: 12.5px; }
     .learn-article .wb-why .wb-wn { font-size: 12px; color: #56697c; }
