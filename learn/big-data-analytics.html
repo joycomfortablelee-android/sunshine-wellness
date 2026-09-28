@@ -436,12 +436,11 @@
     .learn-article .wb-why .wb-wl li b { display: block; color: #5a3a12; }
     .learn-article .wb-why .wb-wl li span { display: block; font-size: 12.5px; }
     .learn-article .wb-why .wb-wn { font-size: 12px; color: #56697c; }
-    /* 공고 아래 줄 - 왼쪽 조건 문장, 오른쪽 두 과제 공통 파트(02~07). 02 · 03 · 04는 채운 알약으로 핵심 표시. */
-    .learn-article .wb-why .wb-wf { display: grid; grid-template-columns: 1fr minmax(260px, 340px); gap: 12px; align-items: start; margin-top: 2px; }
-    @media (max-width: 760px) { .learn-article .wb-why .wb-wf { grid-template-columns: 1fr; } }
-    .learn-article .wb-why .wb-parts { margin: 0; display: flex; flex-wrap: wrap; gap: 4px; }
-    .learn-article .wb-why .wb-parts b { flex: 0 0 100%; font-size: 12px; color: #5a3a12; margin-bottom: 1px; }
-    .learn-article .wb-why .wb-parts small { flex: 0 0 100%; font-size: 11px; color: #8a6a4a; margin-top: 1px; }
+    /* 공고 아래 - 조건 문장, 그 아래 두 과제 공통 파트(02~07)를 한 줄로. 02 · 03 · 04는 채운 알약으로 핵심 표시. */
+    .learn-article .wb-why .wb-wf { display: block; margin-top: 2px; }
+    .learn-article .wb-why .wb-parts { margin: 8px 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 5px; }
+    .learn-article .wb-why .wb-parts b { font-size: 12px; color: #5a3a12; margin-right: 4px; }
+    .learn-article .wb-why .wb-parts small { font-size: 11px; color: #8a6a4a; margin-left: 4px; }
     .learn-article .wb-why .wb-parts a.wb-go.key { background: #17539b; border-color: #17539b; color: #fff; }
     .learn-article .wb-why .wb-wl li a.wb-go { margin: 4px 4px 0 0; }
     .learn-article .what-box .wb-wrap { border: 1px solid #d9e6f4; border-radius: 12px; background: #fff; overflow: hidden; }
