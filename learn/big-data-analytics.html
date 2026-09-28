@@ -801,6 +801,21 @@
     .learn-article .vcards.hexa .hx-see.did b { background: #3B6259; border-color: #3B6259; color: #fff; }
     .learn-article .vcards.hexa .hx-see.did strong { color: #2f5148; }
     .learn-article .vcards.hexa .hx-see.did a { color: #2f5148; font-weight: 800; white-space: nowrap; }
+    /* 「수집」 칸에만 붙는 받는 곳 줄 — 볼 것 아래에 한 단 더. 어디로 가면 목록이 있는지까지 적는다. */
+    .learn-article .vcards.hexa .hx-where {
+      display: block; margin-top: 5px; padding-top: 5px;
+      border-top: 1px dashed rgba(47,81,72,.22);
+      font-size: 11px; line-height: 1.65; color: #3f5a52;
+    }
+    .learn-article .vcards.hexa .hx-where b {
+      display: inline-block; margin-right: 5px; padding: 1px 7px; border-radius: 999px;
+      background: rgba(47,81,72,.12); color: #2f5148; font-size: 10px; font-weight: 800;
+    }
+    .learn-article .vcards.hexa .hx-where a {
+      font-weight: 800; color: #1f6a4d; border-bottom: 1px solid currentColor; white-space: nowrap;
+    }
+    .learn-article .vcards.hexa .hx-where strong { font-weight: 800; color: #1f6a4d; }
+    .learn-article .vcards.hexa .hx-where em { display: block; margin-top: 2px; font-style: normal; color: #6f8a82; }
     /* 0번 Reference — 짙은 파랑으로 세워 다섯 걸음과 성격이 다름을 보인다 */
     .learn-article .vcards.hexa > li.t-ref {
       --v-ac: #5aa7de; background: #14456f; border-color: #14456f; border-top-color: #5aa7de;
@@ -1145,7 +1160,7 @@
         <ol class="vcards steps hexa">
           <li class="t-ref"><span class="vh">Reference 보기</span><span class="vd">분석을 시작하기 전에 <strong>수상작부터</strong> 연다. 무엇을 물었고, 어떤 데이터로, 어떻게 풀었나.</span><a class="hx-go" href="#수상작서가">수상작 서가로 ↓</a></li>
           <li class="t-blue"><span class="vh">문제 정의</span><span class="vd">무엇을 알고 싶은가. (예: 비수기 방문객은 왜 줄어드는가)</span><span class="hx-see"><b>볼 것</b>수상작은 무엇을 질문 한 문장으로 세웠나</span></li>
-          <li class="t-teal"><span class="vh">수집</span><span class="vd">필요한 데이터를 모은다(공공 API·크롤링·제휴 데이터).</span><span class="hx-see key"><b>볼 것</b>어떤 데이터를 몇 개 겹쳤나 — 출처 이름을 적어 온다</span></li>
+          <li class="t-teal"><span class="vh">수집</span><span class="vd">필요한 데이터를 모은다(공공 API·크롤링·제휴 데이터).</span><span class="hx-see key"><b>볼 것</b>어떤 데이터를 몇 개 겹쳤나 — 출처 이름을 적어 온다</span><span class="hx-where"><b>어디서 받나</b><a href="#p02">파트 02 ↓</a> 공공데이터포털 · <strong>KOSIS</strong> · 한국관광 데이터랩 · 네이버 데이터랩 · 서울 열린데이터광장 · 분야별 플랫폼 여섯<em>목록과 신청 절차가 거기 있습니다.</em></span><span class="hx-where"><b>더 찾을 때</b><a href="#p10">파트 10 ↓</a> 캐글 · 구글 데이터셋 검색 · MDIS · Awesome Public Datasets · 썸트렌드 · 구글 트렌드<em>공공에 없는 것은 여기서 찾습니다.</em></span></li>
           <li class="t-gold"><span class="vh">정제(전처리)</span><span class="vd">결측·중복·오류를 걸러낸다. <em>실무 시간의 대부분이 여기 든다.</em></span><span class="hx-see"><b>볼 것</b>기간·지역 단위를 어떻게 맞췄나</span></li>
           <li class="t-violet"><span class="vh">분석</span><span class="vd">통계·기계학습으로 패턴을 찾는다.</span><span class="hx-see key"><b>볼 것</b>어떤 기법을 썼나 — 파트 04 기법 이름으로</span></li>
           <li class="t-green"><span class="vh">시각화·해석</span><span class="vd">그래프와 지도로 보여주고, 결정으로 잇는다.</span><span class="hx-see did"><b>우리가 한 것</b>KOSIS에서 데이터를 보고 → 시각화 → <strong>DIKW</strong>로 풀어 발표 → 서로 피드백 (9/21 · 9/28) <a href="kosis-gyeongbuk-foreign-residents-dikw.html" target="_blank" rel="noopener">실습 예제 ↗</a></span></li>
