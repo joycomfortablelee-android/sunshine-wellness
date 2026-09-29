@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- 학생 전용 — 검색에서 뺀다(주소는 단톡방 · LMS로만 나눔). 빅데이터 분석 본 페이지와 같은 방식. -->
+<meta name="robots" content="noindex, noarchive" />
+<title>빅데이터분석 15주 계획표 | 선샤인 웰니스 교육자료</title>
+<style>
+  :root{
+    --deep:#17372f; --green:#2f6b5a; --green-l:#eaf4f0; --line:#d5e3dd;
+    --ink:#1f2d2a; --muted:#5d7069; --sky:#2563a8; --sky-l:#eaf2fb;
+    --gold:#a8681f; --gold-l:#fbf3e6; --exam:#fff4d6; --make:#f1eefa; --violet:#5b3f7a;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:#f3f7f5;color:var(--ink);line-height:1.7;
+    font-family:"Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",Arial,sans-serif;word-break:keep-all}
+  a{color:var(--sky)}
+  .wrap{max-width:1180px;margin:0 auto;padding:22px 16px 60px}
+  .top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+  .top a{font-size:13px;font-weight:700;text-decoration:none;border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 13px;color:var(--deep)}
+  .top a:hover{background:var(--deep);color:#fff}
+  header.hd{background:linear-gradient(135deg,#17372f,#2f6b5a);color:#fff;border-radius:16px;padding:22px 24px}
+  header.hd .k{font-size:12px;letter-spacing:.14em;font-weight:800;opacity:.8}
+  header.hd h1{margin:4px 0 6px;font-size:26px;letter-spacing:-.5px}
+  header.hd p{margin:0;font-size:14px;opacity:.92}
+  .frame{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .frame span{font-size:12px;font-weight:800;border-radius:999px;padding:3px 11px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3)}
+  .frame span.ex{background:#fff4d6;color:#6b4a0f;border-color:#fff4d6}
+  .frame span.mk{background:#ece6fa;color:#46306b;border-color:#ece6fa}
+  h2{font-size:19px;color:var(--deep);margin:34px 0 10px;letter-spacing:-.3px}
+  h2 small{font-size:12.5px;color:var(--muted);font-weight:600;margin-left:8px}
+  .box{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+  .note{font-size:12.5px;color:var(--muted);margin:8px 2px 0}
+
+  /* 이 페이지 읽는 법 — 빅데이터 분석 페이지의 표시를 한 장에 */
+  .legend{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .legend li{list-style:none;background:var(--green-l);border:1px solid var(--line);border-radius:12px;padding:11px 13px;font-size:12.5px}
+  .legend{padding:0;margin:0}
+  .legend b.t{display:block;font-size:13.5px;color:var(--deep);margin-bottom:4px}
+  .legend .w{display:block;margin-top:3px;color:var(--muted);font-size:11.5px}
+  .chip{display:inline-block;font-size:11px;font-weight:800;border-radius:999px;padding:1px 8px;margin:1px 2px;border:1px solid transparent;white-space:nowrap}
+  .chip.g{background:#1f8a4c;color:#fff}.chip.s{background:#dcebfa;color:#17539b;border-color:#bcd6f0}
+  .chip.y{background:#ffe16b;color:#5a4300}.chip.k{background:#2f6b5a;color:#eaf6f1}
+  .chip.r{background:#b00020;color:#fff}.chip.l{background:#fff;color:#a8681f;border-color:#e8c9a4}
+  .chip.o{background:#fff;color:#35604f;border-color:#9dc2b6}
+  @media (max-width:900px){.legend{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:560px){.legend{grid-template-columns:1fr}}
+
+  /* 15주 표 */
+  .tw{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:#fff}
+  table.plan{width:100%;border-collapse:collapse;font-size:13px;min-width:1020px}
+  .plan th{background:var(--deep);color:#fff;text-align:left;font-size:12px;padding:10px;position:sticky;top:0}
+  .plan td{padding:10px;border-top:1px solid #e6eeea;vertical-align:top}
+  .plan td.wk{font-weight:900;color:var(--deep);font-size:15px;white-space:nowrap;width:44px}
+  .plan td.dt{white-space:nowrap;color:var(--muted);font-size:12px;width:62px}
+  .plan td.tp b{color:var(--deep)}
+  .plan td.tp small{display:block;color:var(--muted);font-size:11.5px;margin-top:2px}
+  .plan tr.done td.dt::after{content:"✓ 진행";display:block;color:#1f8a4c;font-weight:800;font-size:11px}
+  .plan tr.exam td{background:var(--exam)}
+  .plan tr.make td{background:var(--make)}
+  .plan tr.exam td.tp b,.plan tr.make td.tp b{color:#5a3a12}
+  .plan tr.make td.tp b{color:var(--violet)}
+  .plan td.go a{display:inline-block;margin:0 4px 4px 0;font-size:11.5px;font-weight:800;text-decoration:none;
+    border:1px solid #bcd6f0;background:var(--sky-l);color:#17539b;border-radius:999px;padding:2px 9px;white-space:nowrap}
+  .plan td.go a:hover{background:#17539b;color:#fff}
+  .plan td.how{font-size:12.5px;color:#33443f;min-width:190px}
+  .plan td.aw{font-size:12px;min-width:120px}
+  .plan td.aw .pr{display:inline-block;background:var(--gold-l);color:var(--gold);border:1px solid #ecd3ad;border-radius:8px;padding:2px 8px;font-weight:800;font-size:11.5px}
+  .plan td.ad{font-size:12px;color:var(--muted);white-space:nowrap}
+  .plan td.none{color:#b7c6c0}
+
+  /* 수상작 발표 */
+  .rot{display:grid;grid-template-columns:1.1fr 1fr;gap:14px}
+  @media (max-width:860px){.rot{grid-template-columns:1fr}}
+  .rot h3{margin:0 0 8px;font-size:15px;color:var(--deep)}
+  .rot ol.q{margin:0;padding-left:0;list-style:none;counter-reset:q}
+  .rot ol.q li{counter-increment:q;padding:4px 0 4px 30px;position:relative;font-size:13px}
+  .rot ol.q li::before{content:counter(q);position:absolute;left:0;top:5px;width:21px;height:21px;border-radius:50%;background:var(--gold);color:#fff;font-size:11.5px;font-weight:900;display:flex;align-items:center;justify-content:center}
+  .rot ol.q li span{display:block;color:var(--muted);font-size:11.5px}
+  .rot ul.rule{margin:0;padding-left:18px;font-size:13px}
+  .rot ul.rule li{margin:2px 0}
+  table.pick{width:100%;border-collapse:collapse;font-size:12.5px;min-width:760px}
+  .pick th{background:#f4ece0;color:#5a3a12;text-align:left;padding:8px 10px;font-size:12px}
+  .pick td{padding:8px 10px;border-top:1px solid #efe6d8;vertical-align:top}
+  .pick td.n{font-weight:900;color:var(--gold);width:34px}
+  .pick td.aw{white-space:nowrap;font-size:11.5px;color:#7a5c1e;font-weight:700}
+  .pick td.ti b{color:#3a2a14}
+  .pick td.ti small{display:block;color:var(--muted);font-size:11.5px}
+  .pick td.blank{min-width:110px;border-left:1px dashed #e8d9c2;color:#c9b69a;font-size:11.5px}
+  .pick tr.grp td{background:#faf5ec;font-weight:800;color:#5a3a12;font-size:12.5px}
+  .pick tr.grp td a{font-weight:700;font-size:12px;margin-left:6px}
+  .pw{overflow-x:auto;border:1px solid #ecd9bd;border-radius:14px;background:#fff;margin-top:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a href="big-data-analytics.html">← 빅데이터 분석 본 페이지</a>
+    <a href="academic-calendar-2026-2.html" target="_blank" rel="noopener">2학기 학사일정 달력 ↗</a>
+  </div>
+
+  <header class="hd">
+    <div class="k">관광빅데이터분석 · 월요일 1 · 2 · 3교시</div>
+    <h1>빅데이터분석 15주 계획표</h1>
+    <p>주마다 <b>무엇을 하는지</b>, 본 페이지에서 <b>어디를 열면 되는지</b>, 그리고 그 페이지를 <b>읽는 법 한 가지</b>를 함께 적었습니다. 「이번 주 열 곳」 알약을 누르면 본 페이지의 그 자리로 바로 갑니다.</p>
+    <div class="frame"><span>1~6주 수업</span><span class="mk">7주 보강</span><span class="ex">8주 중간시험</span><span>9~13주 수업</span><span class="mk">14주 보강</span><span class="ex">15주 기말시험</span></div>
+  </header>
+
+  <h2 id="읽는법">본 페이지 읽는 법<small>빅데이터 분석 페이지에 쓰인 표시 여덟 가지</small></h2>
+  <ul class="legend">
+    <li><b class="t">↓ 와 ↗</b>끝에 <b>↓</b>가 붙은 링크는 <b>같은 페이지 안</b>으로 내려갑니다. <b>↗</b>는 <b>새 창에서 바깥 사이트</b>나 다른 자료를 엽니다.<span class="w">⤓ 는 파일 내려받기</span></li>
+    <li><b class="t">목차 알약</b>맨 위 <span class="chip o">01 빅데이터란</span> 같은 알약으로 파트를 건너뜁니다. 처음부터 끝까지 읽는 페이지가 아닙니다.<span class="w">이 계획표가 그 주에 열 곳을 골라 줍니다</span></li>
+    <li><b class="t">알약 색</b><span class="chip g">초록</span> 원래 사이트 · 기관 창구 <span class="chip s">하늘색</span> 우리가 만든 수업 자료 <span class="chip y">✦ 노랑</span> 프롬프트 · 연구노트<span class="w">같은 카드 안에서도 색으로 성격이 갈립니다</span></li>
+    <li><b class="t">#키워드</b>수업 진행 기록의 <span class="chip k">#군집분석 ↓</span> 을 누르면 <b>그날 배운 자리</b>로 갑니다.<span class="w">지난 수업 복습은 여기서 시작</span></li>
+    <li><b class="t">＋펼침 상자</b>접힌 상자는 <b>필요할 때만</b> 엽니다. 수업 진행 기록 · 면접 · 채용이 접혀 있습니다.<span class="w">안 열어도 수업은 따라갑니다</span></li>
+    <li><b class="t">①~⑤ 번호</b>카드 위 알약과 아래 설명의 번호가 <b>같은 순서</b>입니다. 알약 ①을 열면 설명 ①을 읽습니다.<span class="w">파트 09 빅카인즈 카드가 본보기</span></li>
+    <li><b class="t">마감 알약</b><span class="chip r">접수 마감 9월 30일</span> 붉은색은 <b>지금 낼 수 있는 것</b>, <span class="chip l">2027 대비</span> 는 내년에 낼 것.<span class="w">파트 06 대회 상자</span></li>
+    <li><b class="t">「볼 것」 · 「우리가 한 것」</b>파트 03 다섯 걸음 칸의 <b>볼 것</b>은 수상작과 견줄 질문, <b>우리가 한 것</b>은 수업에서 이미 해 본 것입니다.<span class="w">내 과제가 어느 걸음인지 확인</span></li>
+  </ul>
+
+  <h2 id="15주">15주 흐름<small>날짜는 학사 달력을 참고한 것 · 보강 날짜는 따로 알립니다</small></h2>
+  <div class="tw">
+    <table class="plan">
+      <thead><tr><th>주</th><th>날짜</th><th>주제 · 활동</th><th>수상작 발표</th><th>이번 주 열 곳</th><th>보는 법 한 가지</th><th>ADsP 20분</th></tr></thead>
+      <tbody>
+        <tr class="done"><td class="wk">1</td><td class="dt">9/7</td><td class="tp"><b>과목 소개 · 빅데이터 개념 · Orange 설치</b></td><td class="aw none">—</td>
+          <td class="go"><a href="big-data-analytics.html#what-title">수업 목표 · 네 편</a><a href="big-data-analytics.html#p01">파트 01</a></td>
+          <td class="how">목차 알약으로 건너뛰기 · <b>↓는 페이지 안, ↗는 바깥</b></td><td class="ad">시험 소개</td></tr>
+        <tr class="done"><td class="wk">2</td><td class="dt">9/14</td><td class="tp"><b>지도 · 비지도학습 · 군집 사례 · 빅데이터 플랫폼</b></td><td class="aw none">—</td>
+          <td class="go"><a href="big-data-analytics.html#empathy-case">군집 사례 논문</a><a href="big-data-analytics.html#src-tour">빅데이터 플랫폼</a></td>
+          <td class="how"><b>#키워드 ↓</b>를 누르면 그날 배운 자리로</td><td class="ad">Q1~29</td></tr>
+        <tr class="done"><td class="wk">3</td><td class="dt">9/21</td><td class="tp"><b>KOSIS 시각화 · DIKW · 발표</b></td><td class="aw none">—</td>
+          <td class="go"><a href="big-data-analytics.html#dikw">DIKW</a><a href="big-data-analytics.html#kosis-card">KOSIS 카드</a></td>
+          <td class="how"><b>알약 색</b> — 초록 · 하늘색 · 노랑 ✦</td><td class="ad">Q30~37</td></tr>
+        <tr class="done"><td class="wk">4</td><td class="dt">9/28</td><td class="tp"><b>DIKW 발표 · 경진대회 영상 · 텍스트마이닝 · 네이버 데이터랩</b></td><td class="aw none">—</td>
+          <td class="go"><a href="big-data-analytics.html#seoul-bigdata">서울 캠퍼스 카드</a><a href="big-data-analytics.html#arirang-case">아리랑 사례</a><a href="big-data-analytics.html#naver-datalab">네이버 데이터랩</a></td>
+          <td class="how"><b>카드 → 사례 논문 → 강의자료</b> 세 단계로 읽기</td><td class="ad">50문항 1~10</td></tr>
+        <tr><td class="wk">5</td><td class="dt">10/12</td><td class="tp"><b>군집분석 실습 (Orange)</b></td><td class="aw"><span class="pr">2명</span><small> 서울시 2026</small></td>
+          <td class="go"><a href="big-data-analytics.html#p04">파트 04 군집</a><a href="big-data-analytics.html#도구표">도구표 Orange 줄</a><a href="big-data-analytics.html#수상작서가">수상작 서가</a></td>
+          <td class="how">도구표 한 줄 = 사이트 · 영상 · 교재 · 수상작 서가 알약 <b>▶ 영상 · ✦ 연구노트 · ⤓ PDF</b></td><td class="ad">50문항 11~20</td></tr>
+        <tr><td class="wk">6</td><td class="dt">10/19</td><td class="tp"><b>뉴스 텍스트마이닝 (빅카인즈 · 텍스톰)</b></td><td class="aw"><span class="pr">2명</span><small> 서울시 2026</small></td>
+          <td class="go"><a href="big-data-analytics.html#p09">파트 09</a></td>
+          <td class="how">카드 안 <b>①~⑤를 알약 순서대로</b></td><td class="ad">50문항 21~30</td></tr>
+        <tr class="make"><td class="wk">7</td><td class="dt">보강</td><td class="tp"><b>혼자 해 보기 · 검색 트렌드</b><small>네이버 데이터랩 · 구글 트렌드 · 아이템스카우트로 관광지 넷을 비교해 한 장 제출</small></td><td class="aw none">—</td>
+          <td class="go"><a href="big-data-analytics.html#p10">파트 10</a></td>
+          <td class="how"><b>같은 줄 두 카드는 짝</b> — 관심 ↔ 거래, 국내 ↔ 해외</td><td class="ad">31~50 혼자</td></tr>
+        <tr class="exam"><td class="wk">8</td><td class="dt">10/26</td><td class="tp"><b>중간시험</b></td><td class="aw none">—</td><td class="go none">—</td><td class="how none">—</td><td class="ad">—</td></tr>
+        <tr><td class="wk">9</td><td class="dt">11/2</td><td class="tp"><b>팀 구성 · 주제 잡기</b></td><td class="aw"><span class="pr">2명</span><small> 서울시 2025</small></td>
+          <td class="go"><a href="big-data-analytics.html#hx-ref">다섯 걸음 0번</a><a href="big-data-analytics.html#p06">파트 06 대회</a></td>
+          <td class="how">대회 상자의 <b>마감 알약</b> — 붉은색은 지금, 「2027 대비」는 내년</td><td class="ad">2과목 시작</td></tr>
+        <tr><td class="wk">10</td><td class="dt">11/9</td><td class="tp"><b>다섯 걸음 ① 문제 정의 · 수집</b></td><td class="aw"><span class="pr">2명</span><small> 서울시 2025</small></td>
+          <td class="go"><a href="big-data-analytics.html#p03">파트 03</a><a href="big-data-analytics.html#p02">파트 02 창구</a></td>
+          <td class="how">다섯 걸음 칸의 <b>「볼 것」</b> = 수상작과 견줄 질문</td><td class="ad">2과목</td></tr>
+        <tr><td class="wk">11</td><td class="dt">11/16</td><td class="tp"><b>다섯 걸음 ② 정제 · 분석</b></td><td class="aw"><span class="pr">2명</span><small> 데이터랩</small></td>
+          <td class="go"><a href="big-data-analytics.html#p04">파트 04</a><a href="big-data-analytics.html#p05">파트 05</a></td>
+          <td class="how"><b>＋펼침 상자</b>는 필요할 때만 연다</td><td class="ad">2과목</td></tr>
+        <tr><td class="wk">12</td><td class="dt">11/23</td><td class="tp"><b>다섯 걸음 ③ 시각화 · DIKW 이야기 · 리허설</b></td><td class="aw"><span class="pr">2명</span><small> 데이터랩</small></td>
+          <td class="go"><a href="big-data-analytics.html#kosis-card">KOSIS 해석 프롬프트</a><a href="big-data-analytics.html#dikw">DIKW</a></td>
+          <td class="how"><b>✦ 프롬프트</b>를 내 결과에 그대로 대입</td><td class="ad">2과목</td></tr>
+        <tr><td class="wk">13</td><td class="dt">11/30</td><td class="tp"><b>최종 발표 · 그 자리에서 피드백</b></td><td class="aw none">—</td>
+          <td class="go"><a href="big-data-analytics.html#수업기록">수업 진행 기록</a></td>
+          <td class="how">발표와 피드백이 <b>수업 진행 기록 표</b>에 쌓이는 방식</td><td class="ad">2과목 정리</td></tr>
+        <tr class="make"><td class="wk">14</td><td class="dt">보강</td><td class="tp"><b>혼자 해 보기 · 현장 적용</b><small>호텔 PMS · 빅데이터 RM을 읽고 내 발표에 한 줄 잇기 + 피드백 반영해 최종본 제출</small></td><td class="aw none">—</td>
+          <td class="go"><a href="big-data-analytics.html#p11">파트 11</a><a href="big-data-analytics.html#p07">파트 07 자격증</a></td>
+          <td class="how">이론(파트 04 예측)을 <b>현장에서 찾아보기</b> · 자격증 카드 알약</td><td class="ad">모의 혼자</td></tr>
+        <tr class="exam"><td class="wk">15</td><td class="dt">12/14</td><td class="tp"><b>기말시험</b></td><td class="aw none">—</td><td class="go none">—</td><td class="how none">—</td><td class="ad">—</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">1~4주는 이미 진행한 수업입니다 — 자세한 내용 · 발표 · 출석은 본 페이지 <a href="big-data-analytics.html#수업기록">수업 진행 기록 ↗</a>에 있습니다.</p>
+
+  <h2 id="수상작발표">수상작 발표 돌리기<small>5 · 6 · 9 · 10 · 11 · 12주 · 한 회 2명 · 12명이 한 번씩</small></h2>
+  <div class="rot">
+    <div class="box">
+      <h3>발표는 다섯 질문으로 (5~7분)</h3>
+      <ol class="q">
+        <li>무엇을 물었나<span>제목 말고 질문 한 문장으로. 누가 곤란한 문제인가.</span></li>
+        <li>어떤 데이터를 겹쳤나<span>출처 이름을 모두. 한 가지만 쓴 수상작은 드물다.</span></li>
+        <li>어떻게 맞췄나<span>기간 · 지역 단위를 어떻게 맞췄나.</span></li>
+        <li>어떤 기법을 썼나<span>파트 04의 기법 이름으로. 기법이 질문에 맞았나.</span></li>
+        <li>무엇을 보여 주고 제안했나<span>핵심 그림 한 장과 제안 한 줄. 누가 실행하나까지.</span></li>
+      </ol>
+      <p class="note">맨 끝에 한 줄 — <b>「내 주제에 가져올 것 하나」</b>. 다섯 질문은 본 페이지 <a href="big-data-analytics.html#수상작서가">수상작 서가 ↗</a>와 같습니다.</p>
+    </div>
+    <div class="box">
+      <h3>고르는 규칙</h3>
+      <ul class="rule">
+        <li>아래 <b>18작품 가운데 한 사람이 하나</b>를 고릅니다. <b>먼저 고른 사람</b>이 가져갑니다.</li>
+        <li>겹치지 않게 — 이미 이름이 적힌 작품은 고를 수 없습니다.</li>
+        <li><b>중간 전(5 · 6주)은 서울시 2026</b>, 9 · 10주는 서울시 2025, 11 · 12주는 데이터랩 인터뷰가 기본입니다. 원하는 주가 있으면 바꿔도 됩니다.</li>
+        <li>서울시 작품은 <b>발표자료 PDF의 목차와 분량</b>을, 데이터랩 인터뷰는 <b>「왜 이 데이터를 붙였나」</b>를 꼭 짚습니다.</li>
+        <li>4주에 함께 본 「보행 소년단」(분석 부문 최우수)은 이미 봤으므로 목록에서 뺐습니다.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pw">
+    <table class="pick">
+      <thead><tr><th>#</th><th>상</th><th>작품 · 팀</th><th>발표 주</th><th>발표자</th></tr></thead>
+      <tbody>
+        <tr class="grp"><td colspan="5">서울시 빅데이터 활용 경진대회 · 시각화 부문 2026 <a href="https://data.seoul.go.kr/bsp/wgs/contest26.do" target="_blank" rel="noopener">수상작 · 발표자료 · 체험 ↗</a></td></tr>
+        <tr><td class="n">1</td><td class="aw">대상</td><td class="ti"><b>혼자 사는 서울, 함께 보는 서울</b><small>서울돋보기팀 · 1인 가구 안전 지표를 공간 · 생활 유형별로</small></td><td class="blank"></td><td class="blank"></td></tr>
+        <tr><td class="n">2</td><td class="aw">최우수</td><td class="ti"><b>서울시 자치구별 쓰레기 발생 구조 진단 대시보드</b><small>서울 쓰레기 처리단 · 진단 · 분석 · 처방 단계</small></td><td class="blank"></td><td class="blank"></td></tr>
+        <tr><td class="n">3</td><td class="aw">우수</td><td class="ti"><b>어르신의 발걸음이 그리는 서울의 경계</b><small>절반의 서울 · 어르신 보행 속도로 다시 그린 생활권</small></td><td class="blank"></td><td class="blank"></td></tr>
+        <tr><td class="n">4</td><td class="aw">특별</td><td class="ti"><b>공시가격 정보 비대칭 해소를 위한 공시가격 적정성 진단 플랫폼</b><small>FAIR GROUND</small></td><td class="blank"></td><td class="blank"></td></tr>
+        <tr><td class="n">5</td><td class="aw">특별</td><td class="ti"><b>걸어서 10분, 닿지 않는 쉼터</b><small>Zemini · 폭염 취약도와 도보 접근성으로 쉼터 사각지대</small></td><td class="blank"></td><td class="blank"></td></tr>
+        <tr><td class="n">6</td><td class="aw">특별</td><td class="ti"><b>걸어서 15분, 안전하게 닿는 서울</b><small>이준성 · 발표자료만 있음(체험 링크 없음)</small></td><td class="blank"></td><td class="blank"></td></tr>
+        <tr><td class="n">7</td><td class="aw">특별</td><td class="ti"><b>목적지 너머의 일상을 향해: 유니버설 서울</b><small>팀 이음 · 장애인 이동지원 수요와 마이크로 허브 입지</small></td><td class="blank"></td><td class="blank"></td></tr>
+        <tr class="grp"><td colspan="5">서울 데이터 허브 시각화 경진대회 2025 <a href="https://data.seoul.go.kr/bsp/wgs/contest26.do" target="_blank" rel="noopener">같은 페이지에서 「2025년 수상작」 ↗</a></td></tr>
+        <tr><td class="n">8</td><td class="aw">대상</td><td class="ti"><b>걸어서 15분, 문화에 닿는 서울</b><small>서울컬쳐헌터스</small></td><td class="blank"></td><td class="blank"></td></tr>
+        <tr><td class="n">9</td><td class="aw">최우수</td><td class="ti"><b>도시 홍수 피해 저감을 위한 맞춤형 빗물 관리 방안 제안: 서울시 강남구를 중심으로</b><small>물방울 탐험대</small></td><td class="blank"></td><td class="blank"></td></tr>
+        <tr><td class="n">10</td><td class="aw">우수</td><td class="ti"><b>데이터로 보는 서울</b><small>TEAM FIRST</small></td><td class="blank"></td><td class="blank"></td></tr>
+        <tr><td class="n">11</td><td class="aw">우수</td><td class="ti"><b>서울시 기후취약 · 녹지체감 지도</b><small>나인와트</small></td><td class="blank"></td><td class="blank"></td></tr>
+        <tr><td class="n">12</td><td class="aw">우수</td><td class="ti"><b>서울의 이면</b><small>구름산책가</small></td><td class="blank"></td><td class="blank"></td></tr>
+        <tr><td class="n">13</td><td class="aw">특별</td><td class="ti"><b>지금 서울시는: 데이터로 읽는 폭염과 내일을 위한 준비</b><small>더위사냥</small></td><td class="blank"></td><td class="blank"></td></tr>
+        <tr class="grp"><td colspan="5">한국관광 데이터랩 우수 활용사례 2024 · 인터뷰 <a href="https://datalab.visitkorea.or.kr/html/interview4/interview01.jsp" target="_blank" rel="noopener">인터뷰 다섯 편 ↗</a></td></tr>
+        <tr><td class="n">14</td><td class="aw">대상</td><td class="ti"><b>데이터로 잡은 전동 킥보드 사고 사각지대 — 관광지 교통사고 줄이는 「안전 혁신」</b><small>한국도로교통공단 · <a href="https://datalab.visitkorea.or.kr/html/interview4/interview01.jsp" target="_blank" rel="noopener">인터뷰 ↗</a> · 우리 자료 <a href="datalab-pm-safety-dikw-prompts.html" target="_blank" rel="noopener">✦ DIKW 프롬프트 ↗</a></small></td><td class="blank"></td><td class="blank"></td></tr>
+        <tr><td class="n">15</td><td class="aw">최우수 · 성장왕</td><td class="ti"><b>관광 데이터로 발견한 인천 9경의 새로운 매력 — 체험 관광의 혁신</b><small>인천관광공사 · <a href="https://datalab.visitkorea.or.kr/html/interview4/interview02.jsp" target="_blank" rel="noopener">인터뷰 ↗</a></small></td><td class="blank"></td><td class="blank"></td></tr>
+        <tr><td class="n">16</td><td class="aw">최우수 · 해결왕</td><td class="ti"><b>데이터로 변신하는 우도 담수화 시설 — 새로운 문화 공간으로</b><small>웨이플러스 · <a href="https://datalab.visitkorea.or.kr/html/interview4/interview03.jsp" target="_blank" rel="noopener">인터뷰 ↗</a></small></td><td class="blank"></td><td class="blank"></td></tr>
+        <tr><td class="n">17</td><td class="aw">우수 · 성장왕</td><td class="ti"><b>데이터로 도시의 재미를 찾다: 지역 관광의 새로운 도전</b><small>아시아경제 · <a href="https://datalab.visitkorea.or.kr/html/interview4/interview04.jsp" target="_blank" rel="noopener">인터뷰 ↗</a></small></td><td class="blank"></td><td class="blank"></td></tr>
+        <tr><td class="n">18</td><td class="aw">우수 · 해결왕</td><td class="ti"><b>데이터로 만드는 대전의 새로운 매력 — 「노잼」에서 「꿀잼」으로</b><small>카이스트 학부생 팀 · <a href="https://datalab.visitkorea.or.kr/html/interview4/interview05.jsp" target="_blank" rel="noopener">인터뷰 ↗</a></small></td><td class="blank"></td><td class="blank"></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">「발표 주 · 발표자」 칸은 고른 뒤 채웁니다. 작품 이름 · 팀 이름은 2026-09-29에 서울 데이터 허브와 한국관광 데이터랩 누리집에서 옮겨 적었습니다.</p>
+</div>
+</body>
+</html>
