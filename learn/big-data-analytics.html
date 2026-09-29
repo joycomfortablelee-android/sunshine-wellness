@@ -127,6 +127,27 @@
       .learn-article .pmap .pm-layers > li + li { border-left: 0; }
       .learn-article .pmap .pm-q td:last-child { white-space: normal; }
     }
+    /* 빅데이터 플랫폼 한눈에 여덟 — 파트 02 끝. 별은 수업 활용도, 빈 별은 흐리게. */
+    .learn-article .pf-map { margin-top: 18px; }
+    .learn-article .pf-t { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .learn-article .pf-t th { padding: 7px 10px; text-align: left; font-size: 12px; font-weight: 900; color: var(--deep); border-bottom: 2px solid #cfdcd6; }
+    .learn-article .pf-t td { padding: 7px 10px; border-bottom: 1px solid #e6ece9; vertical-align: middle; color: #34495e; line-height: 1.55; }
+    .learn-article .pf-t td:first-child { white-space: nowrap; }
+    .learn-article .pf-t td a { font-weight: 800; color: #2f5148; }
+    .learn-article .pf-t a.pf-in { margin-left: 6px; font-size: 11px; font-weight: 800; color: #8a9a94; }
+    .learn-article .pf-t td.pf-s { white-space: nowrap; color: #e0a526; letter-spacing: 1px; }
+    .learn-article .pf-t td.pf-s i { font-style: normal; color: #dfe4e2; }
+    /* 폰: 줄마다 한 덩어리 — 이름 · 별이 윗줄, 기능 · 보는 것이 아랫줄. */
+    @media (max-width: 760px) {
+      .learn-article .pf-t thead { display: none; }
+      .learn-article .pf-t, .learn-article .pf-t tbody { display: block; }
+      .learn-article .pf-t tr { display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; padding: 8px 2px; border-bottom: 1px solid #e6ece9; }
+      .learn-article .pf-t td { display: block; padding: 0; border: 0; }
+      .learn-article .pf-t td:nth-child(2), .learn-article .pf-t td:nth-child(3) { grid-column: 1 / -1; font-size: 12px; color: #5a6b7a; }
+      .learn-article .pf-t td:nth-child(3)::before { content: "보는 것 — "; font-weight: 800; color: #8a9a94; }
+      .learn-article .pf-t td.pf-s { grid-column: 2; grid-row: 1; }
+      .learn-article .pf-t td:first-child { white-space: normal; }
+    }
     /* 3열 카드 - 호텔 PMS·RM 읽을거리 셋처럼 성격이 같은 것을 한 줄에 세울 때. */
     .learn-article .reslist.grid3.lcard {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
@@ -1624,6 +1645,23 @@
           <span class="meta">서울특별시 · 데이터 수집</span>
         </li>
       </ul>
+
+      <div class="pmap pf-map" id="플랫폼분류">
+        <p class="pm-t"><b>빅데이터 플랫폼 · 한눈에 여덟</b> — 데이터를 <strong>받는 곳</strong>과 남이 만든 <strong>수상작 · 코드를 보는 곳</strong>을 한 표에 모았습니다. 별은 이 수업(관광 빅데이터)에 쓰는 정도입니다.</p>
+        <table class="pf-t">
+          <thead><tr><th>플랫폼</th><th>핵심 기능</th><th>학생들이 보는 것</th><th>수업 활용</th></tr></thead>
+          <tbody>
+            <tr><td><a href="https://data.seoul.go.kr/bsp/wgs/contest26.do" target="_blank" rel="noopener">서울 데이터 허브 ↗</a><a class="pf-in" href="#seoul-bigdata">카드 ↓</a></td><td>공공데이터 분석 경진대회</td><td>수상작 · 발표자료 · 시각화</td><td class="pf-s">★★★★★</td></tr>
+            <tr><td><a href="https://sotong.go.kr/" target="_blank" rel="noopener">소통혁신24 ↗</a><a class="pf-in" href="#수상작서가">서가 ↓</a></td><td>정부 · 공공기관 공모전 성과</td><td>데이터 활용 우수사례 · 수상작</td><td class="pf-s">★★★★★</td></tr>
+            <tr><td><a href="https://www2.sejong.go.kr/bigdata/contest/contestWnpzListView.do" target="_blank" rel="noopener">세종 세담터 ↗</a><a class="pf-in" href="#수상작서가">서가 ↓</a></td><td>지자체 데이터 · AI 경진대회</td><td>지역문제 해결형 분석 사례</td><td class="pf-s">★★★★★</td></tr>
+            <tr><td><a href="https://dacon.io/" target="_blank" rel="noopener">Dacon ↗</a><a class="pf-in" href="#p10">파트 10 ↓</a></td><td>데이터 분석 경진대회</td><td>데이터 · Python 코드 · 상위 솔루션</td><td class="pf-s">★★★★★</td></tr>
+            <tr><td><a href="https://www.kaggle.com/" target="_blank" rel="noopener">Kaggle ↗</a><a class="pf-in" href="#p10">파트 10 ↓</a></td><td>글로벌 데이터사이언스</td><td>데이터 · Notebook · 코드 · 모델</td><td class="pf-s">★★★★★</td></tr>
+            <tr><td><a href="https://aida.kisti.re.kr/" target="_blank" rel="noopener">KISTI AIDA ↗</a> / <a href="https://dataon.kisti.re.kr/" target="_blank" rel="noopener">DataON ↗</a></td><td>DATA · AI 문제해결</td><td>AI 분석 경진대회 · 솔루션</td><td class="pf-s">★★★★<i>★</i></td></tr>
+            <tr><td><a href="https://www.aihub.or.kr/" target="_blank" rel="noopener">AI-Hub ↗</a></td><td>AI 데이터 + 외부 데이터 플랫폼 연결</td><td>AI 학습데이터 · 분야별 전문 데이터 플랫폼</td><td class="pf-s">★★★★★</td></tr>
+            <tr><td><a href="https://www.data.go.kr/" target="_blank" rel="noopener">공공데이터포털 ↗</a><a class="pf-in" href="#src-datago">카드 ↑</a></td><td>공공 원자료 제공</td><td>API · CSV · 공공데이터</td><td class="pf-s">★★★★<i>★</i></td></tr>
+          </tbody>
+        </table>
+      </div>
 
 
       <h2 class="learn-part pt-part pp-3" id="p03"><span class="pt"><i>파트</i><b>03</b></span><span class="pt-ti">분석은 다섯 걸음으로</span><span class="pt-sub">데이터는 저절로 답을 주지 않습니다. <strong>문제 정의 → 수집 → 정제 → 분석 → 시각화·해석</strong>을 거칩니다.</span></h2>
