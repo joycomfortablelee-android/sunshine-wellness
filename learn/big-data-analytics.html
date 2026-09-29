@@ -422,6 +422,17 @@
     /* 목표 2의 「공모전 수상작」 - 파트 06 수상작 서가로 내려가는 페이지 안 링크 */
     .learn-article .what-box .wb-aims > li a.aim-go { color: #2563a8; text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px; }
     .learn-article .what-box .wb-aims > li a.aim-go:hover { text-decoration-style: solid; }
+    /* 수업 목표 넷 앞 육하원칙 알약 - How · What · Where · Who. 폭을 맞춰 문장 시작을 가지런히. Why · When은 목록 아래 한 줄. */
+    .learn-article .what-box .wb-aims > li .aim-w {
+      display: inline-block; min-width: 88px; margin-right: 8px; padding: 0 8px; box-sizing: border-box;
+      border: 1px solid #2563a8; border-radius: 999px; background: #fff; color: #2563a8;
+      font-size: 11px; line-height: 18px; text-align: center; vertical-align: 1px; white-space: nowrap;
+    }
+    .learn-article .what-box .wb-aims > li .aim-w b { color: #2563a8; font-weight: 800; }
+    .learn-article .what-box .wb-aims > li .aim-w small { margin-left: 3px; font-size: 10px; font-weight: 600; }
+    .learn-article .what-box .wb-aims-more { margin: -8px 0 12px 28px; font-size: 11.5px; color: #7d8ea0; }
+    .learn-article .what-box .wb-aims-more b { color: #2563a8; }
+    .learn-article .what-box .wb-aims-more a.aim-go { color: #2563a8; text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px; }
     .learn-article .what-box .wb-goals {
       list-style: none; counter-reset: wg; margin: 0 0 12px; padding: 0 0 0 2px;
     }
@@ -1278,7 +1289,7 @@
           </div>
         </details>
       </div>
-      <div class="wb-why" data-close="2026-09-29T00:00:00+09:00">
+      <div class="wb-why" id="왜이수업" data-close="2026-09-29T00:00:00+09:00">
         <p class="wb-wt"><b class="wb-gt why">왜 이 수업을 듣나</b><span class="wb-closed">지난 공고 · 이런 자리가 열립니다 — </span>관광 데이터를 분석하는 사람을 국책연구원이 뽑습니다<a class="wb-job" href="https://kcti.plusrecruit.co.kr/#/recruitment/list" target="_blank" rel="noopener" title="한국문화관광연구원 채용 누리집 · 지금 열린 공고 목록">채용 공고 · 한국문화관광연구원 ↗</a></p>
         <p class="wb-wd"><strong>한국문화관광연구원 위촉직원 채용 공고 [2026-37]</strong> — 뽑는 과제 넷 가운데 <strong>둘이 관광 데이터를 다루는 자리</strong><span class="wb-open">입니다</span><span class="wb-closed">였습니다. 같은 연구원의 위촉직원 공고는 <strong>한 해에도 여러 번</strong> 올라오니(올해만 [2026-37] · [2026-38]), <a href="https://kcti.plusrecruit.co.kr/#/recruitment/list" target="_blank" rel="noopener">채용 누리집 ↗</a>을 가끔 열어 보십시오</span>.</p>
         <ul class="wb-wl">
@@ -1296,11 +1307,12 @@
         <p class="wb-t" id="what-title">이 수업은 무엇을 하나<span>빅데이터 분석 = <b>실전 감각 편</b> · 데이터 분석 = <b>이론 기초 편</b></span></p>
         <p class="wb-goal"><b class="wb-gt">수업 목표</b>넷입니다.</p>
         <ol class="wb-aims">
-          <li><b>빅데이터 분석을 할 줄 안다.</b></li>
-          <li>빅데이터 분석 역량을 키우기 위해 <b><a class="aim-go" href="#p01">기초 개념 ↓</a> · 통계 용어</b>와 <b><a class="aim-go" href="#kmooc">공부법 ↓</a></b>을 익힌다.</li>
-          <li>실전 감각을 기르기 위해 <b><a class="aim-go" href="#src-tour">빅데이터 플랫폼 ↓</a> · <a class="aim-go" href="#kosis-card">통계 지표 ↓</a> · <a class="aim-go" href="#수상작서가">공모전 수상작 ↓</a></b>을 직접 찾아본다.</li>
-          <li>빅데이터 분석과 이어지는, 접근 가능한 <b><a class="aim-go" href="#ADsP1과목지도">ADsP 자격증 ↓</a> 취득의 기초</b>를 만든다.</li>
+          <li><span class="aim-w"><b>How</b><small>어떻게</small></span><b>빅데이터 분석을 할 줄 안다.</b></li>
+          <li><span class="aim-w"><b>What</b><small>무엇을</small></span>빅데이터 분석 역량을 키우기 위해 <b><a class="aim-go" href="#p01">기초 개념 ↓</a> · 통계 용어</b>와 <b><a class="aim-go" href="#kmooc">공부법 ↓</a></b>을 익힌다.</li>
+          <li><span class="aim-w"><b>Where</b><small>어디서</small></span>실전 감각을 기르기 위해 <b><a class="aim-go" href="#src-tour">빅데이터 플랫폼 ↓</a> · <a class="aim-go" href="#kosis-card">통계 지표 ↓</a> · <a class="aim-go" href="#수상작서가">공모전 수상작 ↓</a></b>을 직접 찾아본다.</li>
+          <li><span class="aim-w"><b>Who</b><small>누구에게</small></span>빅데이터 분석과 이어지는, 접근 가능한 <b><a class="aim-go" href="#ADsP1과목지도">ADsP 자격증 ↓</a> 취득의 기초</b>를 만든다.</li>
         </ol>
+        <p class="wb-aims-more"><b>Why</b>는 위 <a class="aim-go" href="#왜이수업">왜 이 수업을 듣나 ↑</a> · <b>When</b>은 <a class="aim-go" href="big-data-15w-plan.html">15주 계획표 →</a></p>
         <div class="wb-cube">
           <p class="wb-cube-t">이 수업이 기르는 네 편 — 목표 · 논문 칸 · 링크는 아래 표에</p>
           <ol>
