@@ -60,14 +60,19 @@
   .plan tr.done td.dt::after{content:"✓ 진행";display:block;color:#1f8a4c;font-weight:800;font-size:11px}
   .plan tr.exam td{background:var(--exam)}
   .plan tr.make td{background:var(--make)}
+  .plan tr.off td{background:#f1f3f2;color:#8a9994}
+  .plan tr.off td.tp b{color:#6b7a75}
+  .plan tr.work td{background:#eef6f2}
   .plan tr.exam td.tp b,.plan tr.make td.tp b{color:#5a3a12}
   .plan tr.make td.tp b{color:var(--violet)}
   .plan td.go a{display:inline-block;margin:0 4px 4px 0;font-size:11.5px;font-weight:800;text-decoration:none;
     border:1px solid #bcd6f0;background:var(--sky-l);color:#17539b;border-radius:999px;padding:2px 9px;white-space:nowrap}
   .plan td.go a:hover{background:#17539b;color:#fff}
-  .plan td.how{font-size:12.5px;color:#33443f;min-width:190px}
+  .plan td.how{font-size:12.5px;color:#33443f;min-width:230px}
   .plan td.aw{font-size:12px;min-width:120px}
   .plan td.aw .pr{display:inline-block;background:var(--gold-l);color:var(--gold);border:1px solid #ecd3ad;border-radius:8px;padding:2px 8px;font-weight:800;font-size:11.5px}
+  .plan td.aw small{display:block;margin-top:3px;color:#7a5c1e;font-size:11px;white-space:nowrap}
+  .plan td.aw .pr{white-space:nowrap}
   .plan td.ad{font-size:12px;color:var(--muted);white-space:nowrap}
   .plan td.none{color:#b7c6c0}
 
@@ -104,9 +109,67 @@
   <header class="hd">
     <div class="k">관광빅데이터분석 · 월요일 1 · 2 · 3교시</div>
     <h1>빅데이터분석 15주 계획표</h1>
-    <p>주마다 <b>무엇을 하는지</b>, 본 페이지에서 <b>어디를 열면 되는지</b>, 그리고 그 페이지를 <b>읽는 법 한 가지</b>를 함께 적었습니다. 「이번 주 열 곳」 알약을 누르면 본 페이지의 그 자리로 바로 갑니다.</p>
-    <div class="frame"><span>1~6주 수업</span><span class="mk">7주 보강</span><span class="ex">8주 중간시험</span><span>9~13주 수업</span><span class="mk">14주 보강</span><span class="ex">15주 기말시험</span></div>
+    <p>주마다 <b>무엇을 하는지</b>, <b>무엇을 할 수 있게 되는지(학습 목표)</b>, 본 페이지에서 <b>어디를 열면 되는지</b>를 함께 적었습니다. 「이번 주 열 곳」 알약을 누르면 본 페이지의 그 자리로 바로 갑니다.</p>
+    <div class="frame"><span>1~4 · 6~7주 수업</span><span>5주 휴강(10/5)</span><span class="ex">8주 중간시험</span><span>9주 팀 작업</span><span>10~12주 수상작 발표</span><span class="mk">12/8(화) 보강 · 최종 발표</span><span class="ex">15주 기말시험</span></div>
   </header>
+
+  <h2 id="15주">15주 흐름<small>날짜는 2학기 학사 달력 기준 · 10/5 휴강분은 12/8(화) 보강</small></h2>
+  <div class="tw">
+    <table class="plan">
+      <thead><tr><th>주</th><th>날짜</th><th>주제 · 활동</th><th>이번 주 열 곳</th><th>학습 목표</th><th>ADsP 20분</th><th>학생 발표</th></tr></thead>
+      <tbody>
+        <tr class="done"><td class="wk">1</td><td class="dt">9/7</td><td class="tp"><b>과목 소개 · 빅데이터 개념 · Orange 설치</b></td>
+          <td class="go"><a href="big-data-analytics.html#what-title">수업 목표 · 네 편</a><a href="big-data-analytics.html#p01">파트 01</a></td>
+          <td class="how">빅데이터의 뜻을 <b>5V</b>로 설명하고, <b>Orange</b>를 설치해 실행할 수 있다.</td><td class="ad">시험 소개</td><td class="aw none">—</td></tr>
+        <tr class="done"><td class="wk">2</td><td class="dt">9/14</td><td class="tp"><b>지도 · 비지도학습 · 군집 사례 · 빅데이터 플랫폼</b></td>
+          <td class="go"><a href="big-data-analytics.html#empathy-case">군집 사례 논문</a><a href="big-data-analytics.html#src-tour">빅데이터 플랫폼</a></td>
+          <td class="how"><b>지도 · 비지도학습</b>을 구분하고, 군집분석이 무엇을 묶는지 사례로 설명할 수 있다.</td><td class="ad">Q1~29</td><td class="aw none">—</td></tr>
+        <tr class="done"><td class="wk">3</td><td class="dt">9/21</td><td class="tp"><b>KOSIS 시각화 · DIKW · 발표</b></td>
+          <td class="go"><a href="big-data-analytics.html#dikw">DIKW</a><a href="big-data-analytics.html#kosis-card">KOSIS 카드</a></td>
+          <td class="how"><b>KOSIS</b>에서 통계를 골라 그래프로 그리고, <b>DIKW</b> 네 단계로 해석할 수 있다.</td><td class="ad">Q30~37</td><td class="aw"><span class="pr">5명</span><small>DIKW 발표</small></td></tr>
+        <tr class="done"><td class="wk">4</td><td class="dt">9/28</td><td class="tp"><b>DIKW 발표 · 경진대회 영상 · 텍스트마이닝 · 네이버 데이터랩</b></td>
+          <td class="go"><a href="big-data-analytics.html#seoul-bigdata">서울 캠퍼스 카드</a><a href="big-data-analytics.html#arirang-case">아리랑 사례</a><a href="big-data-analytics.html#naver-datalab">네이버 데이터랩</a></td>
+          <td class="how">수상작 발표에서 <b>분석 흐름</b>을 읽고, 텍스트마이닝 · 네이버 데이터랩이 무엇을 보여 주는지 말할 수 있다.</td><td class="ad">50문항 1~10</td><td class="aw"><span class="pr">4명</span><small>DIKW 발표 · 피드백</small></td></tr>
+        <tr class="off"><td class="wk">5</td><td class="dt">10/5</td><td class="tp"><b>휴강 · 개천절 대체휴일</b><small>12/8(화)에 보강합니다</small></td>
+          <td class="go none">—</td>
+          <td class="how none">—</td><td class="ad">—</td><td class="aw none">—</td></tr>
+        <tr><td class="wk">6</td><td class="dt">10/12</td><td class="tp"><b>뉴스 텍스트마이닝 ① 빅카인즈</b><small>검색어 설계 → 기간 → 연관어 → 관계도</small></td>
+          <td class="go"><a href="big-data-analytics.html#bigkinds">빅카인즈 카드</a></td>
+          <td class="how">검색어 · 기간을 설계해 <b>연관어 · 관계도</b>를 뽑고, <b>기사 건수와 가중치</b>를 구분할 수 있다.</td><td class="ad">50문항 11~20</td><td class="aw none">—</td></tr>
+        <tr><td class="wk">7</td><td class="dt">10/19</td><td class="tp"><b>텍스트마이닝 ② 텍스톰</b><small>정제 → 빈도 · 워드클라우드 · N-gram → 의미연결망</small></td>
+          <td class="go"><a href="big-data-analytics.html#textom">텍스톰 카드</a></td>
+          <td class="how">텍스트를 정제해 <b>빈도 · 워드클라우드 · N-gram</b>을 만들고, <b>의미연결망</b>을 읽을 수 있다.</td><td class="ad">50문항 21~30</td><td class="aw none">—</td></tr>
+        <tr class="exam"><td class="wk">8</td><td class="dt">10/26</td><td class="tp"><b>중간시험</b></td>
+          <td class="go none">—</td>
+          <td class="how none">—</td><td class="ad">—</td><td class="aw none">—</td></tr>
+        <tr class="work"><td class="wk">9</td><td class="dt">11/2</td><td class="tp"><b>팀 작업</b><small>팀 구성 · 주제 잡기 · 발표할 수상작 고르기</small></td>
+          <td class="go"><a href="big-data-analytics.html#수상작서가">수상작 서가</a><a href="big-data-analytics.html#hx-ref">다섯 걸음 0번</a><a href="big-data-analytics.html#p06">파트 06 대회</a></td>
+          <td class="how">팀 주제를 <b>질문 한 문장</b>으로 세우고, 발표할 수상작을 고를 수 있다.</td><td class="ad">31~40</td><td class="aw none">—</td></tr>
+        <tr><td class="wk">10</td><td class="dt">11/9</td><td class="tp"><b>다섯 걸음 ① 문제 정의 · 수집</b><small>검색 트렌드(네이버 데이터랩 · 구글 트렌드 · 아이템스카우트) 포함</small></td>
+          <td class="go"><a href="big-data-analytics.html#p03">파트 03</a><a href="big-data-analytics.html#p02">파트 02 창구</a><a href="big-data-analytics.html#p10">파트 10</a></td>
+          <td class="how">문제를 정의하고 <b>데이터 창구</b>를 찾으며, 검색 트렌드로 관심의 변화를 확인할 수 있다.</td><td class="ad">41~50</td><td class="aw"><span class="pr">4명</span><small>수상작 · 1교시 2 · 2교시 2</small></td></tr>
+        <tr><td class="wk">11</td><td class="dt">11/16</td><td class="tp"><b>다섯 걸음 ② 정제 · 분석 — 군집분석 실습 (Orange)</b></td>
+          <td class="go"><a href="big-data-analytics.html#p04">파트 04 군집</a><a href="big-data-analytics.html#도구표">도구표 Orange 줄</a></td>
+          <td class="how">결측 · 중복을 정제하고 <b>Orange로 군집분석</b>을 돌려 군집의 특징을 해석할 수 있다.</td><td class="ad">2과목</td><td class="aw"><span class="pr">3명</span><small>수상작 · 1교시 2 · 2교시 1</small></td></tr>
+        <tr><td class="wk">12</td><td class="dt">11/23</td><td class="tp"><b>다섯 걸음 ③ 시각화 · DIKW 이야기</b></td>
+          <td class="go"><a href="big-data-analytics.html#kosis-card">KOSIS 해석 프롬프트</a><a href="big-data-analytics.html#dikw">DIKW</a></td>
+          <td class="how">결과를 그래프로 보여 주고 <b>DIKW로 의사결정 이야기</b>를 만들 수 있다.</td><td class="ad">2과목</td><td class="aw"><span class="pr">3명</span><small>수상작 · 1교시 2 · 2교시 1</small></td></tr>
+        <tr><td class="wk">13</td><td class="dt">11/30</td><td class="tp"><b>현장 적용 (호텔 PMS · 빅데이터 RM) · 발표 리허설</b></td>
+          <td class="go"><a href="big-data-analytics.html#p11">파트 11</a></td>
+          <td class="how"><b>예측 분석</b>이 호텔 객실 가격 결정(RM)에 쓰이는 방식을 설명하고, 발표를 리허설할 수 있다.</td><td class="ad">2과목</td><td class="aw none">—</td></tr>
+        <tr><td class="wk">14</td><td class="dt">12/7</td><td class="tp"><b>최종 발표 준비 · 피드백 반영</b></td>
+          <td class="go"><a href="big-data-analytics.html#p06">파트 06 대회</a><a href="big-data-analytics.html#p07">파트 07 자격증</a></td>
+          <td class="how">피드백을 반영해 <b>최종본</b>을 완성할 수 있다.</td><td class="ad">정리</td><td class="aw none">—</td></tr>
+        <tr class="make"><td class="wk">14</td><td class="dt">12/8(화)<br />보강</td><td class="tp"><b>최종 발표 · 그 자리에서 피드백</b><small>10/5 휴강분 보강</small></td>
+          <td class="go"><a href="big-data-analytics.html#수업기록">수업 진행 기록</a></td>
+          <td class="how">분석 결과를 <b>의사결정 이야기로 발표</b>하고, 피드백을 주고받을 수 있다.</td><td class="ad">—</td><td class="aw"><span class="pr">팀 전원</span><small>최종 발표</small></td></tr>
+        <tr class="exam"><td class="wk">15</td><td class="dt">12/14</td><td class="tp"><b>기말시험</b></td>
+          <td class="go none">—</td>
+          <td class="how none">—</td><td class="ad">—</td><td class="aw none">—</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">10 · 11 · 12주 발표자는 목표가 하나 더 붙습니다 — <b>수상작 한 편을 다섯 질문으로 읽고 발표할 수 있다.</b><br />1~4주는 이미 진행한 수업입니다 — 자세한 내용 · 발표 · 출석은 본 페이지 <a href="big-data-analytics.html#수업기록">수업 진행 기록 ↗</a>에 있습니다.</p>
 
   <h2 id="읽는법">본 페이지 읽는 법<small>빅데이터 분석 페이지에 쓰인 표시 여덟 가지</small></h2>
   <ul class="legend">
@@ -120,61 +183,10 @@
     <li><b class="t">「볼 것」 · 「우리가 한 것」</b>파트 03 다섯 걸음 칸의 <b>볼 것</b>은 수상작과 견줄 질문, <b>우리가 한 것</b>은 수업에서 이미 해 본 것입니다.<span class="w">내 과제가 어느 걸음인지 확인</span></li>
   </ul>
 
-  <h2 id="15주">15주 흐름<small>날짜는 학사 달력을 참고한 것 · 보강 날짜는 따로 알립니다</small></h2>
-  <div class="tw">
-    <table class="plan">
-      <thead><tr><th>주</th><th>날짜</th><th>주제 · 활동</th><th>수상작 발표</th><th>이번 주 열 곳</th><th>보는 법 한 가지</th><th>ADsP 20분</th></tr></thead>
-      <tbody>
-        <tr class="done"><td class="wk">1</td><td class="dt">9/7</td><td class="tp"><b>과목 소개 · 빅데이터 개념 · Orange 설치</b></td><td class="aw none">—</td>
-          <td class="go"><a href="big-data-analytics.html#what-title">수업 목표 · 네 편</a><a href="big-data-analytics.html#p01">파트 01</a></td>
-          <td class="how">목차 알약으로 건너뛰기 · <b>↓는 페이지 안, ↗는 바깥</b></td><td class="ad">시험 소개</td></tr>
-        <tr class="done"><td class="wk">2</td><td class="dt">9/14</td><td class="tp"><b>지도 · 비지도학습 · 군집 사례 · 빅데이터 플랫폼</b></td><td class="aw none">—</td>
-          <td class="go"><a href="big-data-analytics.html#empathy-case">군집 사례 논문</a><a href="big-data-analytics.html#src-tour">빅데이터 플랫폼</a></td>
-          <td class="how"><b>#키워드 ↓</b>를 누르면 그날 배운 자리로</td><td class="ad">Q1~29</td></tr>
-        <tr class="done"><td class="wk">3</td><td class="dt">9/21</td><td class="tp"><b>KOSIS 시각화 · DIKW · 발표</b></td><td class="aw none">—</td>
-          <td class="go"><a href="big-data-analytics.html#dikw">DIKW</a><a href="big-data-analytics.html#kosis-card">KOSIS 카드</a></td>
-          <td class="how"><b>알약 색</b> — 초록 · 하늘색 · 노랑 ✦</td><td class="ad">Q30~37</td></tr>
-        <tr class="done"><td class="wk">4</td><td class="dt">9/28</td><td class="tp"><b>DIKW 발표 · 경진대회 영상 · 텍스트마이닝 · 네이버 데이터랩</b></td><td class="aw none">—</td>
-          <td class="go"><a href="big-data-analytics.html#seoul-bigdata">서울 캠퍼스 카드</a><a href="big-data-analytics.html#arirang-case">아리랑 사례</a><a href="big-data-analytics.html#naver-datalab">네이버 데이터랩</a></td>
-          <td class="how"><b>카드 → 사례 논문 → 강의자료</b> 세 단계로 읽기</td><td class="ad">50문항 1~10</td></tr>
-        <tr><td class="wk">5</td><td class="dt">10/12</td><td class="tp"><b>군집분석 실습 (Orange)</b></td><td class="aw"><span class="pr">2명</span><small> 서울시 2026</small></td>
-          <td class="go"><a href="big-data-analytics.html#p04">파트 04 군집</a><a href="big-data-analytics.html#도구표">도구표 Orange 줄</a><a href="big-data-analytics.html#수상작서가">수상작 서가</a></td>
-          <td class="how">도구표 한 줄 = 사이트 · 영상 · 교재 · 수상작 서가 알약 <b>▶ 영상 · ✦ 연구노트 · ⤓ PDF</b></td><td class="ad">50문항 11~20</td></tr>
-        <tr><td class="wk">6</td><td class="dt">10/19</td><td class="tp"><b>뉴스 텍스트마이닝 (빅카인즈 · 텍스톰)</b></td><td class="aw"><span class="pr">2명</span><small> 서울시 2026</small></td>
-          <td class="go"><a href="big-data-analytics.html#p09">파트 09</a></td>
-          <td class="how">카드 안 <b>①~⑤를 알약 순서대로</b></td><td class="ad">50문항 21~30</td></tr>
-        <tr class="make"><td class="wk">7</td><td class="dt">보강</td><td class="tp"><b>혼자 해 보기 · 검색 트렌드</b><small>네이버 데이터랩 · 구글 트렌드 · 아이템스카우트로 관광지 넷을 비교해 한 장 제출</small></td><td class="aw none">—</td>
-          <td class="go"><a href="big-data-analytics.html#p10">파트 10</a></td>
-          <td class="how"><b>같은 줄 두 카드는 짝</b> — 관심 ↔ 거래, 국내 ↔ 해외</td><td class="ad">31~50 혼자</td></tr>
-        <tr class="exam"><td class="wk">8</td><td class="dt">10/26</td><td class="tp"><b>중간시험</b></td><td class="aw none">—</td><td class="go none">—</td><td class="how none">—</td><td class="ad">—</td></tr>
-        <tr><td class="wk">9</td><td class="dt">11/2</td><td class="tp"><b>팀 구성 · 주제 잡기</b></td><td class="aw"><span class="pr">2명</span><small> 서울시 2025</small></td>
-          <td class="go"><a href="big-data-analytics.html#hx-ref">다섯 걸음 0번</a><a href="big-data-analytics.html#p06">파트 06 대회</a></td>
-          <td class="how">대회 상자의 <b>마감 알약</b> — 붉은색은 지금, 「2027 대비」는 내년</td><td class="ad">2과목 시작</td></tr>
-        <tr><td class="wk">10</td><td class="dt">11/9</td><td class="tp"><b>다섯 걸음 ① 문제 정의 · 수집</b></td><td class="aw"><span class="pr">2명</span><small> 서울시 2025</small></td>
-          <td class="go"><a href="big-data-analytics.html#p03">파트 03</a><a href="big-data-analytics.html#p02">파트 02 창구</a></td>
-          <td class="how">다섯 걸음 칸의 <b>「볼 것」</b> = 수상작과 견줄 질문</td><td class="ad">2과목</td></tr>
-        <tr><td class="wk">11</td><td class="dt">11/16</td><td class="tp"><b>다섯 걸음 ② 정제 · 분석</b></td><td class="aw"><span class="pr">2명</span><small> 데이터랩</small></td>
-          <td class="go"><a href="big-data-analytics.html#p04">파트 04</a><a href="big-data-analytics.html#p05">파트 05</a></td>
-          <td class="how"><b>＋펼침 상자</b>는 필요할 때만 연다</td><td class="ad">2과목</td></tr>
-        <tr><td class="wk">12</td><td class="dt">11/23</td><td class="tp"><b>다섯 걸음 ③ 시각화 · DIKW 이야기 · 리허설</b></td><td class="aw"><span class="pr">2명</span><small> 데이터랩</small></td>
-          <td class="go"><a href="big-data-analytics.html#kosis-card">KOSIS 해석 프롬프트</a><a href="big-data-analytics.html#dikw">DIKW</a></td>
-          <td class="how"><b>✦ 프롬프트</b>를 내 결과에 그대로 대입</td><td class="ad">2과목</td></tr>
-        <tr><td class="wk">13</td><td class="dt">11/30</td><td class="tp"><b>최종 발표 · 그 자리에서 피드백</b></td><td class="aw none">—</td>
-          <td class="go"><a href="big-data-analytics.html#수업기록">수업 진행 기록</a></td>
-          <td class="how">발표와 피드백이 <b>수업 진행 기록 표</b>에 쌓이는 방식</td><td class="ad">2과목 정리</td></tr>
-        <tr class="make"><td class="wk">14</td><td class="dt">보강</td><td class="tp"><b>혼자 해 보기 · 현장 적용</b><small>호텔 PMS · 빅데이터 RM을 읽고 내 발표에 한 줄 잇기 + 피드백 반영해 최종본 제출</small></td><td class="aw none">—</td>
-          <td class="go"><a href="big-data-analytics.html#p11">파트 11</a><a href="big-data-analytics.html#p07">파트 07 자격증</a></td>
-          <td class="how">이론(파트 04 예측)을 <b>현장에서 찾아보기</b> · 자격증 카드 알약</td><td class="ad">모의 혼자</td></tr>
-        <tr class="exam"><td class="wk">15</td><td class="dt">12/14</td><td class="tp"><b>기말시험</b></td><td class="aw none">—</td><td class="go none">—</td><td class="how none">—</td><td class="ad">—</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p class="note">1~4주는 이미 진행한 수업입니다 — 자세한 내용 · 발표 · 출석은 본 페이지 <a href="big-data-analytics.html#수업기록">수업 진행 기록 ↗</a>에 있습니다.</p>
-
-  <h2 id="수상작발표">수상작 발표 돌리기<small>5 · 6 · 9 · 10 · 11 · 12주 · 한 회 2명 · 12명이 한 번씩</small></h2>
+  <h2 id="수상작발표">수상작 발표 돌리기<small>10 · 11 · 12주 · 수업 초반 1 · 2교시 · 4 · 3 · 3명 · 10명이 한 번씩</small></h2>
   <div class="rot">
     <div class="box">
-      <h3>발표는 다섯 질문으로 (5~7분)</h3>
+      <h3>발표는 다섯 질문으로 (한 사람 30분 안팎 · 발표와 그 자리 피드백)</h3>
       <ol class="q">
         <li>무엇을 물었나<span>제목 말고 질문 한 문장으로. 누가 곤란한 문제인가.</span></li>
         <li>어떤 데이터를 겹쳤나<span>출처 이름을 모두. 한 가지만 쓴 수상작은 드물다.</span></li>
@@ -187,9 +199,10 @@
     <div class="box">
       <h3>고르는 규칙</h3>
       <ul class="rule">
-        <li>아래 <b>18작품 가운데 한 사람이 하나</b>를 고릅니다. <b>먼저 고른 사람</b>이 가져갑니다.</li>
+        <li><b>9주 팀 작업 시간</b>에 아래 <b>18작품 가운데 한 사람이 하나</b>를 고릅니다. <b>먼저 고른 사람</b>이 가져갑니다.</li>
         <li>겹치지 않게 — 이미 이름이 적힌 작품은 고를 수 없습니다.</li>
-        <li><b>중간 전(5 · 6주)은 서울시 2026</b>, 9 · 10주는 서울시 2025, 11 · 12주는 데이터랩 인터뷰가 기본입니다. 원하는 주가 있으면 바꿔도 됩니다.</li>
+        <li>발표는 <b>수업 초반</b> — 1교시에 2명, 2교시에 2명(11 · 12주는 1명). <b>10주 4명 · 11주 3명 · 12주 3명</b>입니다.</li>
+        <li>작품은 어느 묶음에서 골라도 됩니다. 발표 주도 고를 때 함께 정합니다.</li>
         <li>서울시 작품은 <b>발표자료 PDF의 목차와 분량</b>을, 데이터랩 인터뷰는 <b>「왜 이 데이터를 붙였나」</b>를 꼭 짚습니다.</li>
         <li>4주에 함께 본 「보행 소년단」(분석 부문 최우수)은 이미 봤으므로 목록에서 뺐습니다.</li>
       </ul>
