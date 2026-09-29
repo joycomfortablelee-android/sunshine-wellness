@@ -1183,6 +1183,22 @@
     .learn-article .vcards.qring > li:nth-child(4) { left: 32.4%; top: 79.42%; }
     .learn-article .vcards.qring > li:nth-child(5) { left: 21.5%; top: 40.35%; }
     .learn-article .vcards.qring > li.solid::before { background: #fff; color: #2f5148; }
+    /* 작은 원 - 서울 빅데이터 캠퍼스 카드 안, 위 질문지를 「보행 소년단」 한 편으로 채운 예시. 같은 틀(.qring)에 크기만 줄인다.
+       초록 카드(.reslist li) 안이라 li 기본 여백 · 왼쪽 선을 되돌린다. */
+    .learn-article .qr-lead { margin: 14px 0 0; font-size: 13px; line-height: 1.7; color: #4a4230; }
+    .learn-article .qr-lead b { color: #14456f; }
+    .learn-article .qring-wrap.mini { max-width: 560px; margin: 4px auto 6px; }
+    .learn-article .qr-lead a { font-size: inherit; font-weight: 800; color: #14456f; }
+    .learn-article .qring-wrap.mini .vcards.qring > li { margin: 0; }
+    .learn-article .qring-wrap.mini .vcards.qring > li.solid .vd strong { color: #fff; }
+    @media (min-width: 761px) {
+      .learn-article .qring-wrap.mini .vcards.qring > li { width: 31%; padding: 22px 10px 6px; border-left-width: 2px; box-shadow: 0 2px 8px rgba(16,42,67,.07); }
+      .learn-article .qring-wrap.mini .vcards.qring > li::before { width: 17px; height: 17px; font-size: 10px; top: 7%; }
+      .learn-article .qring-wrap.mini .vcards.qring .vh { font-size: 11.5px; margin-bottom: 2px; }
+      .learn-article .qring-wrap.mini .vcards.qring .vd { font-size: 10.5px; line-height: 1.45; }
+    }
+    .learn-article .qring-wrap.mini .qring-svg .qr-c1 { font-size: 30px; }
+    .learn-article .qring-wrap.mini .qring-svg .qr-c2 { font-size: 42px; }
     @media (max-width: 760px) {
       .learn-article .qring-wrap { aspect-ratio: auto; max-width: none; }
       .learn-article .qring-wrap .qring-svg { display: none; }
@@ -1768,7 +1784,7 @@
           <li class="t-green solid"><span class="vh">무엇을 보여 주고 제안했나</span><span class="vd">핵심 그림 한 장과 제안 한 줄. 누가 실행하나까지.</span></li>
         </ol>
         </div>
-        <p class="rs-why"><b class="rs-wt">왜 남의 작품부터 보나</b> — 이 수업이 기르는 <a href="#what-title">셋째 편, 실전 감각</a> 때문입니다. <strong>물음을 연구 문제로 세우고 · 데이터 창구를 찾고 · 의사결정 이야기로 발표하는 것</strong>은 교재로 외워지지 않습니다. 수상작 한 편에는 이 셋이 <em>이미 끝까지 해 본 모습</em>으로 들어 있습니다 — 아래 다섯 질문 중 「무엇을 물었나」가 연구 문제, 「어떤 데이터를 겹쳤나」가 데이터 창구, 「무엇을 보여 주고 제안했나」가 의사결정 이야기입니다.</p>
+        <p class="rs-why"><b class="rs-wt">왜 남의 작품부터 보나</b> — 이 수업이 기르는 <a href="#what-title">셋째 편, 실전 감각</a> 때문입니다. <strong>물음을 연구 문제로 세우고 · 데이터 창구를 찾고 · 의사결정 이야기로 발표하는 것</strong>은 교재로 외워지지 않습니다. 수상작 한 편에는 이 셋이 <em>이미 끝까지 해 본 모습</em>으로 들어 있습니다 — 위 다섯 질문 중 「무엇을 물었나」가 연구 문제, 「어떤 데이터를 겹쳤나」가 데이터 창구, 「무엇을 보여 주고 제안했나」가 의사결정 이야기입니다.</p>
         <ul class="reslist grid2 lcard shelf">
           <li>
             <a href="https://data.seoul.go.kr/bsp/wgs/contest26.do" target="_blank" rel="noopener">① 서울시 빅데이터 활용 경진대회 · 수상작 ↗</a>
@@ -1856,6 +1872,31 @@
           <iframe src="https://www.youtube-nocookie.com/embed/3vGNw3ApFk8?start=430" title="2026 서울시 빅데이터 활용 경진대회 분석 부문 최우수상 발표" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           <p class="vw-n"><b>분석 부문 최우수상 「보행 소년단」 발표</b> — 7분 10초부터 시작합니다. <b>AI가 걸어본 서울 관광지 보행환경</b>을 주제로, 로드뷰 이미지를 멀티모달 AI에 보여 주고 쾌적성 · 보행편의성 · 안전성을 평가하게 한 연구입니다.</p>
           <p class="tb-tags vw-tags"><a class="mapl form hot" href="seoul-bigdata-2026-award-notes.html" target="_blank" rel="noopener">이 발표를 뜯어 본 연구노트 ↗</a><span class="tb-src">영상은 <b>결과</b>를 보여 주지만, 연구노트는 <b>어떻게 거기까지 갔는지</b>를 적었습니다 — 관광지 <b>44곳</b> 선정, 로드뷰 수집, <b>멀티모달 AI(MLLM)</b> 평가, 신뢰도 검증, 키워드 · 토픽 분석, 정책 우선순위, 지도 시각화까지 <b>일곱 걸음</b>. 「관광객은 주민과 달리 낯선 공간을 탐색하며 이동한다」는 한 문장에서 출발해 <b>지하철역에서 관광지까지의 길도 관광 경험</b>이라는 문제 정의로 이어집니다. <b>파트 03 다섯 걸음이 실제로 어떻게 돌아가는지</b> 보는 자리입니다.</span></p>
+          <p class="qr-lead"><b>이 발표를 다섯 질문으로</b> — 위 <a href="#수상작서가">수상작 서가</a>의 질문지를 「보행 소년단」 한 편으로 채워 본 예시입니다. 과제 한 줄은 이렇게 씁니다.</p>
+          <div class="qring-wrap mini">
+          <svg class="qring-svg" viewBox="0 0 1000 860" aria-hidden="true">
+            <defs>
+              <marker id="qringArrowMini" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8aa3bd"/></marker>
+            </defs>
+            <circle cx="500" cy="440" r="300" fill="#f4f8fc" stroke="#d6e3ef" stroke-width="2"/>
+            <g fill="none" stroke="#8aa3bd" stroke-width="3" stroke-dasharray="8 7" marker-end="url(#qringArrowMini)">
+              <path d="M636,173 A300,300 0 0 1 712,228"/>
+              <path d="M796,487 A300,300 0 0 1 767,576"/>
+              <path d="M547,736 A300,300 0 0 1 453,736"/>
+              <path d="M233,576 A300,300 0 0 1 204,487"/>
+              <path d="M288,228 A300,300 0 0 1 364,173"/>
+            </g>
+            <text x="500" y="428" text-anchor="middle" class="qr-c1">보행 소년단을</text>
+            <text x="500" y="474" text-anchor="middle" class="qr-c2">다섯 질문으로</text>
+          </svg>
+          <ol class="vcards steps qring">
+            <li class="t-blue"><span class="vh">무엇을 물었나</span><span class="vd">관광지 주변 <strong>어느 길부터</strong> 고쳐야 하나 — 역에서 관광지까지의 길도 관광 경험</span></li>
+            <li class="t-teal"><span class="vh">어떤 데이터를 겹쳤나</span><span class="vd">빅데이터 캠퍼스 관광 데이터(관광지 44곳) + <strong>로드뷰 이미지</strong> + 방문객 데이터</span></li>
+            <li class="t-gold"><span class="vh">어떻게 맞췄나</span><span class="vd">관광지마다 <strong>반경 400m</strong>, 길을 따라 <strong>20m 간격</strong> 지점, 동서남북 4장을 파노라마 한 장으로</span></li>
+            <li class="t-violet"><span class="vh">어떤 기법을 썼나</span><span class="vd"><strong>멀티모달 AI(MLLM)</strong> 1~7점 평가 → 크론바흐 α · 사람 평가 비교 → 키워드 · <strong>토픽(약 7개)</strong></span></li>
+            <li class="t-green solid"><span class="vh">무엇을 보여 주고 제안했나</span><span class="vd"><strong>보행편의성 3.9점이 가장 낮음</strong>(안전성 4.8) · 시장·상권형이 약점 → 우선 개선 지도</span></li>
+          </ol>
+          </div>
         </div>
           <span class="meta">서울특별시 디지털도시국 데이터전략과 · 수상작 열셋과 제출 양식</span>
         </li>
