@@ -994,6 +994,30 @@
       font-size: 11.5px; font-weight: 800; letter-spacing: .01em; vertical-align: 1px; text-decoration: none;
     }
     .learn-article p a.jump-in:hover { background: #17864a; border-color: #17864a; color: #fff; }
+    /* 노란 알약 + 빨간 별 — 실제 회사(안동온사람들)로 건너가는 표시. */
+    .learn-article p a.jump-in.ylw { background: #ffe800; border-color: #d8bb2a; color: #14120a; }
+    .learn-article p a.jump-in.ylw:hover { background: #14120a; border-color: #14120a; color: #ffe800; }
+    .learn-article p a.jump-in .rstar { color: #d62d20; font-weight: 900; }
+    /* 삼각형 세 칸 아래 — 안동온사람들의 서비스가 어느 유형에 서는가. */
+    .learn-article .tri3 .vx { display: block; margin-top: 8px; padding: 5px 8px; border-radius: 8px; background: #fffbe0; border: 1px solid #efd96a; font-size: 11.5px; line-height: 1.55; color: #3f3a1e; }
+    .learn-article .tri3 .vx b { display: block; font-size: 10.5px; font-weight: 900; color: #b8860b; }
+    .learn-article .tri3 .vx b::before { content: "★ "; color: #d62d20; }
+    .learn-article .tri3 .vx.none { background: #f6f6f2; border-color: #deded6; color: #8a8f86; }
+    /* 신청유형(택 1) 넷과 맞추는 꼬리표 — 세 꼭짓점은 ③ · ④ · ②, ① 관광체험서비스는 가운데 허브 아래. */
+    .learn-article .tri-wrap.hub-x .vo { display: inline-block; margin-top: 6px; padding: 1px 8px; border-radius: 999px; background: #4b6b21; color: #fff; font-size: 10.5px; font-weight: 800; }
+    .learn-article .tri-wrap.hub-x .vcards.tri3 { row-gap: 140px; }
+    .learn-article .tri-wrap.hub-x .tri-hub { top: calc(50% - 48px); }
+    .learn-article .tri-wrap.hub-x .tri-hx {
+      position: absolute; left: 50%; top: calc(50% - 24px); transform: translateX(-50%); z-index: 2;
+      width: min(92%, 340px); text-align: center;
+    }
+    .learn-article .tri-wrap.hub-x .tri-hx .vx { display: block; margin-top: 4px; padding: 5px 8px; border-radius: 8px; background: #fffbe0; border: 1px solid #efd96a; font-size: 11.5px; line-height: 1.55; color: #3f3a1e; }
+    .learn-article .tri-wrap.hub-x .tri-hx .vx b { display: block; font-size: 10.5px; font-weight: 900; color: #b8860b; }
+    .learn-article .tri-wrap.hub-x .tri-hx .vx b::before { content: "★ "; color: #d62d20; }
+    @media (max-width: 620px) {
+      .learn-article .tri-wrap.hub-x .vcards.tri3 { row-gap: 12px; }
+      .learn-article .tri-wrap.hub-x .tri-hx { position: static; transform: none; display: block; width: auto; margin-top: 12px; text-align: left; }
+    }
     .learn-article details:target { scroll-margin-top: 78px; }
 
     /* 강의실 이동 표시 — 머리줄 옆에 붙여 둔다(아래 목록의 7교시 칸과 짝이 된다). */
@@ -2716,15 +2740,16 @@
 
       <p class="learn-part lp-core"><span class="num">01</span>관광벤처란</p>
       <p>관광벤처란 <strong>ICT·콘텐츠·새로운 서비스 방식으로 관광의 문제를 푸는 혁신형 창업</strong>을 말합니다. 전통적인 여행사·숙박업과 달리, 기술과 아이디어로 기존 방식을 바꾸려 한다는 점이 다릅니다.</p>
-      <p id="tv-3types">유형은 대개 셋으로 나뉩니다. <a class="jump-in" href="#안동온사람들">실제 회사로 보기 · (주)안동온사람들 ↓</a></p>
-      <div class="tri-wrap">
+      <p id="tv-3types">유형은 대개 셋으로 나뉩니다. <a class="jump-in ylw" href="#안동온사람들"><b class="rstar">★</b> 실제 회사로 보기 · (주)안동온사람들 ↓</a></p>
+      <div class="tri-wrap hub-x">
         <svg class="tri-line" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polygon points="50,3 97,97 3,97" /></svg>
         <ol class="vcards c3 steps tri3">
-          <li class="t-lime"><span class="vh">시설·공간형</span><span class="vd">체험 · 숙박 · 복합공간</span></li>
-          <li class="t-lime2"><span class="vh">플랫폼·중개형</span><span class="vd">예약 · 매칭 · 큐레이션</span></li>
-          <li class="t-lime3"><span class="vh">콘텐츠·데이터형</span><span class="vd">가이드 · 미디어 · 분석 서비스</span></li>
+          <li class="t-lime"><span class="vh">시설·공간형</span><span class="vd">체험 · 숙박 · 복합공간</span><span class="vo">↔ ③ 관광인프라</span><span class="vx"><b>안동온</b>공유공간771(도산면 선성길)</span></li>
+          <li class="t-lime2"><span class="vh">플랫폼·중개형</span><span class="vd">예약 · 매칭 · 큐레이션</span><span class="vo">↔ ④ 관광딥테크</span><span class="vx"><b>안동온</b>관광플랫폼 운영(지역 크리에이터 발굴 · 육성)</span></li>
+          <li class="t-lime3"><span class="vh">콘텐츠·데이터형</span><span class="vd">가이드 · 미디어 · 분석 서비스</span><span class="vo">↔ ② 실감형관광콘텐츠</span><span class="vx none"><b>안동온</b>해당 없음</span></li>
         </ol>
         <span class="tri-hub">관광벤처</span>
+        <span class="tri-hx"><span class="vo">↔ ① 관광체험서비스</span><span class="vx"><b>안동온</b>관광체험프로그램(원데이 클래스 · 로컬 체험) · 관광행사기획</span></span>
       </div>
       <p>앞선 모듈의 <strong>스마트 관광·빅데이터</strong>가 곧 관광벤처의 도구가 됩니다.</p>
       <figure class="learn-fig">
