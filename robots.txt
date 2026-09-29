@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+# 작업일지 — 학생 이름 · 출결이 있어 검색 로봇을 막는다
+Disallow: /docs/
 
 Sitemap: https://www.sunshinewellness.co.kr/sitemap.xml
