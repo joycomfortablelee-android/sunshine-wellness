@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>스마트관광도시 AI 공모 프롬프트 19 · 좌구조 우프롬프트</title>
+<style>
+:root{
+ --bg:#eef3f9;--card:#fff;--text:#172033;--muted:#697386;--line:#dce4ee;
+ --accent:#2457d6;--soft:#edf2ff;--dark:#111d36;--green:#eaf8f0;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Pretendard,"Noto Sans KR","Apple SD Gothic Neo",Arial,sans-serif;background:var(--bg);color:var(--text);overflow:hidden}
+.app{height:100vh;display:grid;grid-template-rows:auto 1fr}
+.topbar{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;padding:11px 18px;background:#fff;border-bottom:1px solid var(--line);z-index:20}
+.brand{font-weight:900;font-size:16px;white-space:nowrap}
+.nav-top{display:flex;justify-content:center;gap:8px}
+button{border:0;border-radius:11px;padding:10px 14px;font-weight:800;cursor:pointer;background:var(--accent);color:#fff}
+button.ghost{background:#eef2f7;color:#26334d}
+.progress-wrap{display:flex;align-items:center;gap:8px;min-width:190px}
+.progress{height:8px;background:#e7ebf2;border-radius:999px;overflow:hidden;flex:1}
+.progress>div{height:100%;background:linear-gradient(90deg,#2457d6,#6f8ff5);width:0;transition:.3s}
+.count{font-size:12px;color:var(--muted);white-space:nowrap}
+.stage{position:relative;overflow:hidden}
+.track{height:100%;display:flex;transition:transform .38s ease}
+.slide{min-width:100%;height:100%;padding:18px 22px 22px}
+.slide-inner{height:100%;display:grid;grid-template-columns:minmax(0,46%) minmax(0,54%);gap:16px;max-width:1500px;margin:0 auto}
+.left-panel,.right-panel{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:0 10px 28px rgba(25,42,80,.06);min-height:0}
+.left-panel{padding:24px;overflow:auto}
+.right-panel{padding:22px;display:flex;flex-direction:column;min-height:0}
+.kicker{font-size:12px;font-weight:900;letter-spacing:.13em;color:var(--accent)}
+h2{font-size:clamp(24px,2.5vw,36px);line-height:1.18;margin:7px 0 14px}
+.structure-label{font-size:13px;font-weight:900;color:#506078;margin:0 0 12px}
+.structure{display:flex;flex-direction:column;align-items:stretch;gap:8px}
+.group{background:#f8fafd;border:1px solid #e5eaf1;border-radius:16px;padding:12px}
+.group-title{font-size:12px;font-weight:900;color:#40506c;margin-bottom:9px}
+.node-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(115px,1fr));gap:8px}
+.node{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #e3e8ef;border-radius:13px;padding:10px}
+.node-icon{width:35px;height:35px;border-radius:10px;background:var(--soft);display:grid;place-items:center;font-size:19px;flex:0 0 35px}
+.node-text{font-size:12.5px;font-weight:800;line-height:1.3}
+.connector{text-align:center;color:var(--accent);font-size:21px;font-weight:900;line-height:1}
+.prompt-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.prompt-label{font-size:11px;letter-spacing:.12em;font-weight:900;color:var(--accent)}
+h3{font-size:23px;margin:3px 0 0}
+pre{flex:1;min-height:0;white-space:pre-wrap;word-break:keep-all;margin:0;background:#f8fafc;border:1px solid #e5eaf1;border-radius:16px;padding:20px;font:inherit;font-size:clamp(14px,1.15vw,17px);line-height:1.78;overflow:auto}
+.toc-overlay{position:fixed;inset:0;background:rgba(12,20,34,.42);display:none;z-index:50}
+.toc-panel{position:absolute;right:0;top:0;height:100%;width:min(490px,94vw);background:#fff;padding:20px;overflow:auto}
+.toc-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.toc-grid{display:grid;gap:8px}
+.toc-item{width:100%;display:flex;align-items:center;gap:10px;text-align:left;background:#f7f9fc;color:#172033;border:1px solid #e5e9f0}
+.toc-item span{width:32px;height:32px;border-radius:8px;background:var(--soft);color:var(--accent);display:grid;place-items:center;flex:0 0 32px}
+.toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%) translateY(12px);background:#172033;color:#fff;padding:10px 15px;border-radius:10px;opacity:0;transition:.2s;z-index:80}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(max-width:1050px){
+ .topbar{grid-template-columns:1fr auto;grid-template-areas:"brand progress" "nav nav"}
+ .brand{grid-area:brand} .nav-top{grid-area:nav;justify-content:space-between} .progress-wrap{grid-area:progress;min-width:150px}
+ .slide-inner{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+ .progress-wrap{display:none}
+ .topbar{grid-template-columns:1fr;grid-template-areas:"brand" "nav"}
+ .slide{padding:12px}
+ .slide-inner{grid-template-columns:1fr;grid-template-rows:auto 1fr;overflow:auto}
+ .left-panel{overflow:visible}
+ .right-panel{min-height:55vh}
+ .node-row{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+.red-key{
+  text-decoration-line: underline;
+  text-decoration-color:#e53935;
+  text-decoration-thickness:3px;
+  text-underline-offset:4px;
+  text-decoration-skip-ink:none;
+  background:linear-gradient(to top, rgba(229,57,53,.10) 0 36%, transparent 36% 100%);
+  font-weight:900;
+}
+.node-text .red-key{font-weight:900}
+
+
+.blue-key{
+  text-decoration-line: underline;
+  text-decoration-color:#2563eb;
+  text-decoration-thickness:3px;
+  text-underline-offset:4px;
+  text-decoration-skip-ink:none;
+  background:linear-gradient(to top, rgba(37,99,235,.12) 0 36%, transparent 36% 100%);
+  font-weight:900;
+}
+
+</style>
+</head>
+<body>
+<div class="app">
+<header class="topbar">
+ <div class="brand">스마트관광도시 AI 공모 프롬프트 19</div>
+ <div class="nav-top">
+  <button class="ghost" onclick="prev()">← 이전</button>
+  <button class="ghost" onclick="openList()">☰ 전체 목록</button>
+  <button onclick="next()">다음 →</button>
+ </div>
+ <div class="progress-wrap">
+  <div class="progress"><div id="bar"></div></div>
+  <div class="count" id="count">1 / 19</div>
+ </div>
+</header>
+<main class="stage" id="stage">
+ <div class="track" id="track">
+    <section class="slide" data-index="0">
+      <div class="slide-inner">
+        <div class="left-panel">
+          <div class="kicker">PROMPT 01 / 19</div>
+          <h2>스마트관광도시 사례 이해 프롬프트</h2>
+          <div class="structure-label">핵심 키워드 구조</div>
+          <div class="structure"><div class="group"><div class="group-title"><span class="red-key">지역 맥락</span></div><div class="node-row"><div class="node"><div class="node-icon">🗺️</div><div class="node-text"><span class="red-key">관광자원</span></div></div><div class="node"><div class="node-icon">⚠️</div><div class="node-text"><span class="red-key"><span class="red-key">관광객</span> <span class="blue-key">불편</span></span></div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title"><span class="blue-key">스마트 개입</span></div><div class="node-row"><div class="node"><div class="node-icon">🤖</div><div class="node-text"><span class="red-key">스마트<span class="blue-key">기술</span></div></div><div class="node"><div class="node-icon">✨</div><div class="node-text"><span class="red-key"><span class="red-key">관광객</span> 경험 변화</span></div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title"><span class="red-key">지역 연계</span></div><div class="node-row"><div class="node"><div class="node-icon">🏪</div><div class="node-text"><span class="red-key"><span class="red-key">지역상권</span> 연계</span></div></div><div class="node"><div class="node-icon">💡</div><div class="node-text"><span class="red-key">핵심 아이디어</span></div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title"><span class="red-key">근거 구분</span></div><div class="node-row"><div class="node"><div class="node-icon">✅</div><div class="node-text"><span class="red-key">확인된 사실</span></div></div><div class="node"><div class="node-icon">🔍</div><div class="node-text">해석 가능</div></div><div class="node"><div class="node-icon">❗</div><div class="node-text"><span class="red-key">추가 조사 필요</span></div></div></div></div></div>
+        </div>
+        <div class="right-panel">
+          <div class="prompt-head">
+            <div>
+              <div class="prompt-label">FULL PROMPT</div>
+              <h3>원문 프롬프트</h3>
+            </div>
+            <button onclick="copyPrompt(1)">📋 복사</button>
+          </div>
+          <pre id="prompt-1">내가 업로드한 스마트관광도시 발표 PPT를 읽고, 이 지역의 <span class="red-key">관광자원</span>, <span class="red-key">관광객</span>의 <span class="blue-key">불편</span>, 사용된 <span class="red-key">스마트<span class="blue-key">기술</span>, <span class="red-key"><span class="red-key">관광객</span> 경험 변화</span>, <span class="red-key"><span class="red-key">지역상권</span> 연계</span>, <span class="red-key">핵심 아이디어</span>를 정리해주세요. PPT에서 확인되는 사실, <span class="red-key">해석 가능한 내용</span>, 추가 조사가 필요한 내용을 구분해주세요.</pre>
+        </div>
+      </div>
+    </section>
+    
+    <section class="slide" data-index="1">
+      <div class="slide-inner">
+        <div class="left-panel">
+          <div class="kicker">PROMPT 02 / 19</div>
+          <h2><span class="blue-key">문제</span> 해결 구조 추출 프롬프트</h2>
+          <div class="structure-label">핵심 키워드 구조</div>
+          <div class="structure"><div class="group"><div class="group-title">지역별 차이</div><div class="node-row"><div class="node"><div class="node-icon">📍</div><div class="node-text"><span class="red-key">지역마다 달라지는 요소</span></div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title"><span class="red-key">공통 구조</span></div><div class="node-row"><div class="node"><div class="node-icon">🧩</div><div class="node-text"><span class="blue-key">공통 적용 가능한 구조</span></div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title"><span class="blue-key">실행 수단</span></div><div class="node-row"><div class="node"><div class="node-icon">⚙️</div><div class="node-text"><span class="red-key">사용된 <span class="blue-key">기술</span></div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title"><span class="red-key">결과</span></div><div class="node-row"><div class="node"><div class="node-icon">🚶</div><div class="node-text"><span class="red-key"><span class="red-key">관광객</span> 행동 변화</span></div></div></div></div></div>
+        </div>
+        <div class="right-panel">
+          <div class="prompt-head">
+            <div>
+              <div class="prompt-label">FULL PROMPT</div>
+              <h3>원문 프롬프트</h3>
+            </div>
+            <button onclick="copyPrompt(2)">📋 복사</button>
+          </div>
+          <pre id="prompt-2">이 스마트관광도시 사례에서 특정 서비스나 <span class="blue-key">기술</span>을 그대로 가져오지 말고, 다른 지역에도 적용할 수 있는 <span class="blue-key">문제</span> 해결 구조를 찾아주세요. 지역마다 달라져야 하는 요소, <span class="blue-key">공통 적용 가능한 구조</span>, <span class="red-key">사용된 <span class="blue-key">기술</span>, <span class="red-key"><span class="red-key">관광객</span> 행동 변화</span>로 나누어 정리해주세요.</pre>
+        </div>
+      </div>
+    </section>
+    
+    <section class="slide" data-index="2">
+      <div class="slide-inner">
+        <div class="left-panel">
+          <div class="kicker">PROMPT 03 / 19</div>
+          <h2>타깃 지역 <span class="blue-key">문제</span> 발견 프롬프트</h2>
+          <div class="structure-label">핵심 키워드 구조</div>
+          <div class="structure"><div class="group"><div class="group-title"><span class="blue-key">이용자 <span class="blue-key">문제</span></span></div><div class="node-row"><div class="node"><div class="node-icon">😣</div><div class="node-text"><span class="red-key"><span class="red-key">관광객</span> <span class="blue-key">불편</span></span></div></div><div class="node"><div class="node-icon">🚌</div><div class="node-text">이동</div></div><div class="node"><div class="node-icon">🔎</div><div class="node-text">정보</div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title"><span class="red-key">체류·소비</span></div><div class="node-row"><div class="node"><div class="node-icon">⏳</div><div class="node-text">체류</div></div><div class="node"><div class="node-icon">🏬</div><div class="node-text"><span class="red-key">지역상권</span></div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title"><span class="red-key">자원 활용</span></div><div class="node-row"><div class="node"><div class="node-icon">🏞️</div><div class="node-text"><span class="red-key"><span class="red-key">관광자원</span> 활용</span></div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title">질문 방식</div><div class="node-row"><div class="node"><div class="node-icon">❓</div><div class="node-text">각 영역별 2~3개 질문</div></div></div></div></div>
+        </div>
+        <div class="right-panel">
+          <div class="prompt-head">
+            <div>
+              <div class="prompt-label">FULL PROMPT</div>
+              <h3>원문 프롬프트</h3>
+            </div>
+            <button onclick="copyPrompt(3)">📋 복사</button>
+          </div>
+          <pre id="prompt-3">이제 이 사례를 내가 선택한 지역에 적용하려고 합니다. 내가 적용하려는 지역은 <span class="red-key">[지역명]</span>입니다. 아직 아이디어를 만들지 말고, <span class="red-key"><span class="red-key">관광객</span> <span class="blue-key">불편</span></span>, 이동, 정보, 체류, <span class="red-key">지역상권</span>, <span class="red-key"><span class="red-key">관광자원</span> 활용</span> 측면에서 해결할 <span class="blue-key">문제</span>를 찾을 수 있도록 나에게 2~3개씩 질문해주세요.</pre>
+        </div>
+      </div>
+    </section>
+    
+    <section class="slide" data-index="3">
+      <div class="slide-inner">
+        <div class="left-panel">
+          <div class="kicker">PROMPT 04 / 19</div>
+          <h2>핵심 <span class="blue-key">문제</span> 구체화 프롬프트</h2>
+          <div class="structure-label">핵심 키워드 구조</div>
+          <div class="structure"><div class="group"><div class="group-title"><span class="blue-key"><span class="blue-key">문제</span> 맥락</span></div><div class="node-row"><div class="node"><div class="node-icon">👤</div><div class="node-text">누가</div></div><div class="node"><div class="node-icon">🕒</div><div class="node-text">언제</div></div><div class="node"><div class="node-icon">📍</div><div class="node-text">어디서</div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title"><span class="blue-key"><span class="blue-key">불편</span> 분석</span></div><div class="node-row"><div class="node"><div class="node-icon">😣</div><div class="node-text">어떤 <span class="blue-key">불편</span></div></div><div class="node"><div class="node-icon">🛠️</div><div class="node-text"><span class="blue-key">현재 해결방식</span></div></div><div class="node"><div class="node-icon">⛔</div><div class="node-text"><span class="red-key">기존 방식의 한계</span></div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title"><span class="red-key">최종 정리</span></div><div class="node-row"><div class="node"><div class="node-icon">➡️</div><div class="node-text"><span class="red-key">현재 상황</span></div></div><div class="node"><div class="node-icon">➡️</div><div class="node-text"><span class="blue-key">이용자 <span class="blue-key">불편</span></span></div></div><div class="node"><div class="node-icon">➡️</div><div class="node-text"><span class="blue-key">기존 해결방식</span></div></div><div class="node"><div class="node-icon">➡️</div><div class="node-text">한계</div></div><div class="node"><div class="node-icon">🎯</div><div class="node-text"><span class="blue-key">핵심 <span class="blue-key">문제</span></span></div></div></div></div></div>
+        </div>
+        <div class="right-panel">
+          <div class="prompt-head">
+            <div>
+              <div class="prompt-label">FULL PROMPT</div>
+              <h3>원문 프롬프트</h3>
+            </div>
+            <button onclick="copyPrompt(4)">📋 복사</button>
+          </div>
+          <pre id="prompt-4">내가 선택한 <span class="blue-key">핵심 <span class="blue-key">문제</span></span>는 [<span class="blue-key">문제</span> 입력]입니다. 이 <span class="blue-key">문제</span>를 더 구체화할 수 있도록 누가, 언제, 어디서, 어떤 <span class="blue-key">불편</span>을 겪는지, 현재 어떻게 해결하는지, <span class="red-key">기존 방식의 한계</span>가 무엇인지 질문해주세요. 마지막에는 ‘<span class="red-key">현재 상황</span> → <span class="blue-key">이용자 <span class="blue-key">불편</span></span> → <span class="blue-key">기존 해결방식</span> → 한계 → <span class="blue-key">핵심 <span class="blue-key">문제</span></span>’로 정리해주세요.</pre>
+        </div>
+      </div>
+    </section>
+    
+    <section class="slide" data-index="4">
+      <div class="slide-inner">
+        <div class="left-panel">
+          <div class="kicker">PROMPT 05 / 19</div>
+          <h2>스마트관광 AI 아이디어 생성 프롬프트</h2>
+          <div class="structure-label">핵심 키워드 구조</div>
+          <div class="structure"><div class="group"><div class="group-title">기본 구성</div><div class="node-row"><div class="node"><div class="node-icon">💡</div><div class="node-text">아이디어명</div></div><div class="node"><div class="node-icon">🎯</div><div class="node-text">해결 <span class="blue-key">문제</span></div></div><div class="node"><div class="node-icon">👥</div><div class="node-text">주요 이용자</div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title"><span class="blue-key">AI·서비스</span></div><div class="node-row"><div class="node"><div class="node-icon">🤖</div><div class="node-text"><span class="blue-key">AI 역할</span></div></div><div class="node"><div class="node-icon">📱</div><div class="node-text"><span class="blue-key">스마트관광 기능</span></div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title">지역 연결</div><div class="node-row"><div class="node"><div class="node-icon">🏞️</div><div class="node-text"><span class="red-key">지역 <span class="red-key">관광자원</span> 연계</span></div></div><div class="node"><div class="node-icon">🏪</div><div class="node-text"><span class="red-key"><span class="red-key">지역상권</span> 연계</span></div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title"><span class="red-key">비교 평가</span></div><div class="node-row"><div class="node"><div class="node-icon">🆕</div><div class="node-text">기존 사례와의 차이</div></div><div class="node"><div class="node-icon">🧱</div><div class="node-text">구현 난이도</div></div><div class="node"><div class="node-icon">3️⃣</div><div class="node-text">3개 아이디어 비교</div></div></div></div></div>
+        </div>
+        <div class="right-panel">
+          <div class="prompt-head">
+            <div>
+              <div class="prompt-label">FULL PROMPT</div>
+              <h3>원문 프롬프트</h3>
+            </div>
+            <button onclick="copyPrompt(5)">📋 복사</button>
+          </div>
+          <pre id="prompt-5">앞에서 정리한 지역 <span class="blue-key">문제</span>를 해결할 수 있는 AI 기반 스마트관광 아이디어를 3개 제안해주세요. 각 아이디어별로 아이디어명, 해결 <span class="blue-key">문제</span>, 주요 이용자, <span class="blue-key">AI 역할</span>, <span class="blue-key">스마트관광 기능</span>, <span class="red-key">지역 <span class="red-key">관광자원</span> 연계</span>, <span class="red-key"><span class="red-key">지역상권</span> 연계</span>, 기존 사례와의 차이, 구현 난이도를 비교해주세요.</pre>
+        </div>
+      </div>
+    </section>
+    
+    <section class="slide" data-index="5">
+      <div class="slide-inner">
+        <div class="left-panel">
+          <div class="kicker">PROMPT 06 / 19</div>
+          <h2>AI 필요성 검토 프롬프트</h2>
+          <div class="structure-label">핵심 키워드 구조</div>
+          <div class="structure"><div class="group"><div class="group-title">비AI 가능</div><div class="node-row"><div class="node"><div class="node-icon">🟢</div><div class="node-text">AI 없이도 가능한 기능</div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title">AI 필요</div><div class="node-row"><div class="node"><div class="node-icon">🤖</div><div class="node-text">AI 사용이 효과적인 기능</div></div><div class="node"><div class="node-icon">❓</div><div class="node-text">AI를 사용하는 이유</div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title">정리</div><div class="node-row"><div class="node"><div class="node-icon">✂️</div><div class="node-text">억지 AI 기능 제외</div></div></div></div></div>
+        </div>
+        <div class="right-panel">
+          <div class="prompt-head">
+            <div>
+              <div class="prompt-label">FULL PROMPT</div>
+              <h3>원문 프롬프트</h3>
+            </div>
+            <button onclick="copyPrompt(6)">📋 복사</button>
+          </div>
+          <pre id="prompt-6">제안한 아이디어마다 정말 AI가 필요한지 검토해주세요. AI 없이도 가능한 기능과 AI를 사용해야 효과적인 기능을 구분하고, AI를 사용하는 이유를 설명해주세요. AI를 억지로 넣은 기능은 제외해주세요.</pre>
+        </div>
+      </div>
+    </section>
+    
+    <section class="slide" data-index="6">
+      <div class="slide-inner">
+        <div class="left-panel">
+          <div class="kicker">PROMPT 07 / 19</div>
+          <h2>기존 사례와 차별화 프롬프트</h2>
+          <div class="structure-label">핵심 키워드 구조</div>
+          <div class="structure"><div class="group"><div class="group-title">참고</div><div class="node-row"><div class="node"><div class="node-icon">📚</div><div class="node-text"><span class="red-key">기존 사례에서 참고한 구조</span></div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title">지역 맞춤</div><div class="node-row"><div class="node"><div class="node-icon">🛠️</div><div class="node-text"><span class="red-key">우리 지역에 맞게 변경한 부분</span></div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title">차별화</div><div class="node-row"><div class="node"><div class="node-icon">🤖</div><div class="node-text"><span class="blue-key">새롭게 추가한 AI 기능</span></div></div></div></div></div>
+        </div>
+        <div class="right-panel">
+          <div class="prompt-head">
+            <div>
+              <div class="prompt-label">FULL PROMPT</div>
+              <h3>원문 프롬프트</h3>
+            </div>
+            <button onclick="copyPrompt(7)">📋 복사</button>
+          </div>
+          <pre id="prompt-7">기존 스마트관광도시 사례와 내가 만든 아이디어를 비교해주세요. ‘<span class="red-key">기존 사례에서 참고한 구조</span> / <span class="red-key">우리 지역에 맞게 변경한 부분</span> / <span class="blue-key">새롭게 추가한 AI 기능</span>’으로 나누어 정리해주세요.</pre>
+        </div>
+      </div>
+    </section>
+    
+    <section class="slide" data-index="7">
+      <div class="slide-inner">
+        <div class="left-panel">
+          <div class="kicker">PROMPT 08 / 19</div>
+          <h2>관광객 이용 흐름 프롬프트</h2>
+          <div class="structure-label">핵심 키워드 구조</div>
+          <div class="structure"><div class="group"><div class="group-title">초기</div><div class="node-row"><div class="node"><div class="node-icon">📍</div><div class="node-text"><span class="red-key">관광지 도착</span></div></div><div class="node"><div class="node-icon">🔎</div><div class="node-text"><span class="red-key">정보 탐색</span></div></div><div class="node"><div class="node-icon">✅</div><div class="node-text"><span class="red-key">관광지 선택</span></div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title">이동·체험</div><div class="node-row"><div class="node"><div class="node-icon">🚶</div><div class="node-text">이동</div></div><div class="node"><div class="node-icon">🎟️</div><div class="node-text"><span class="red-key">현장 체험</span></div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title">소비·연결</div><div class="node-row"><div class="node"><div class="node-icon">🍽️</div><div class="node-text"><span class="red-key">음식점·상점 방문</span></div></div><div class="node"><div class="node-icon">➡️</div><div class="node-text"><span class="red-key">다음 관광지 추천</span></div></div></div></div></div>
+        </div>
+        <div class="right-panel">
+          <div class="prompt-head">
+            <div>
+              <div class="prompt-label">FULL PROMPT</div>
+              <h3>원문 프롬프트</h3>
+            </div>
+            <button onclick="copyPrompt(8)">📋 복사</button>
+          </div>
+          <pre id="prompt-8">내가 선택한 아이디어를 <span class="red-key">관광객</span>의 실제 이용 과정으로 설명해주세요. <span class="red-key">관광지 도착</span> → <span class="red-key">정보 탐색</span> → <span class="red-key">관광지 선택</span> → 이동 → <span class="red-key">현장 체험</span> → <span class="red-key">음식점·상점 방문</span> → <span class="red-key">다음 관광지 추천</span> 순서로 서비스 이용 흐름을 만들어주세요.</pre>
+        </div>
+      </div>
+    </section>
+    
+    <section class="slide" data-index="8">
+      <div class="slide-inner">
+        <div class="left-panel">
+          <div class="kicker">PROMPT 09 / 19</div>
+          <h2>도입 전·후 비교 프롬프트</h2>
+          <div class="structure-label">핵심 키워드 구조</div>
+          <div class="structure"><div class="group"><div class="group-title">도입 전</div><div class="node-row"><div class="node"><div class="node-icon">😣</div><div class="node-text"><span class="blue-key">도입 전 <span class="blue-key">불편</span></span></div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title">개입</div><div class="node-row"><div class="node"><div class="node-icon">🤖</div><div class="node-text"><span class="blue-key">AI 서비스 기능</span></div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title">도입 후</div><div class="node-row"><div class="node"><div class="node-icon">✨</div><div class="node-text"><span class="red-key">도입 후 변화</span></div></div></div></div></div>
+        </div>
+        <div class="right-panel">
+          <div class="prompt-head">
+            <div>
+              <div class="prompt-label">FULL PROMPT</div>
+              <h3>원문 프롬프트</h3>
+            </div>
+            <button onclick="copyPrompt(9)">📋 복사</button>
+          </div>
+          <pre id="prompt-9">이 서비스가 도입되기 전과 후에 <span class="red-key">관광객</span>의 하루가 어떻게 달라지는지 비교해주세요. 각 단계에서 ‘<span class="blue-key">도입 전 <span class="blue-key">불편</span></span> → <span class="blue-key">AI 서비스 기능</span> → <span class="red-key">도입 후 변화</span>’ 구조로 정리해주세요.</pre>
+        </div>
+      </div>
+    </section>
+    
+    <section class="slide" data-index="9">
+      <div class="slide-inner">
+        <div class="left-panel">
+          <div class="kicker">PROMPT 10 / 19</div>
+          <h2>지역 효과 분석 프롬프트</h2>
+          <div class="structure-label">핵심 키워드 구조</div>
+          <div class="structure"><div class="group"><div class="group-title">이용자</div><div class="node-row"><div class="node"><div class="node-icon">🧳</div><div class="node-text"><span class="red-key">관광객</span></div></div><div class="node"><div class="node-icon">🏠</div><div class="node-text"><span class="red-key">지역주민</span></div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title">산업 주체</div><div class="node-row"><div class="node"><div class="node-icon">🏪</div><div class="node-text"><span class="red-key">지역상인</span></div></div><div class="node"><div class="node-icon">🏢</div><div class="node-text"><span class="red-key">관광사업자</span></div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title">지역 전체</div><div class="node-row"><div class="node"><div class="node-icon">🌐</div><div class="node-text"><span class="red-key">지역관광 전체</span></div></div></div></div></div>
+        </div>
+        <div class="right-panel">
+          <div class="prompt-head">
+            <div>
+              <div class="prompt-label">FULL PROMPT</div>
+              <h3>원문 프롬프트</h3>
+            </div>
+            <button onclick="copyPrompt(10)">📋 복사</button>
+          </div>
+          <pre id="prompt-10">이 아이디어가 도입될 경우 <span class="red-key">관광객</span>, <span class="red-key">지역주민</span>, <span class="red-key">지역상인</span>, <span class="red-key">관광사업자</span>, <span class="red-key">지역관광 전체</span>에 어떤 변화가 생길 수 있는지 구분해서 정리해주세요.</pre>
+        </div>
+      </div>
+    </section>
+    
+    <section class="slide" data-index="10">
+      <div class="slide-inner">
+        <div class="left-panel">
+          <div class="kicker">PROMPT 11 / 19</div>
+          <h2>실현 가능성 검토 프롬프트</h2>
+          <div class="structure-label">핵심 키워드 구조</div>
+          <div class="structure"><div class="group"><div class="group-title">자원</div><div class="node-row"><div class="node"><div class="node-icon">⚙️</div><div class="node-text"><span class="blue-key">기술</span></div></div><div class="node"><div class="node-icon">🗃️</div><div class="node-text"><span class="blue-key">데이터</span></div></div><div class="node"><div class="node-icon">🤝</div><div class="node-text"><span class="blue-key">기관 협력</span></div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title">운영 조건</div><div class="node-row"><div class="node"><div class="node-icon">💰</div><div class="node-text"><span class="red-key">예산</span></div></div><div class="node"><div class="node-icon">👥</div><div class="node-text"><span class="red-key">인력</span></div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title">난이도</div><div class="node-row"><div class="node"><div class="node-icon">🟢</div><div class="node-text">구현이 쉬운 부분</div></div><div class="node"><div class="node-icon">🔴</div><div class="node-text">구현이 어려운 부분</div></div></div></div></div>
+        </div>
+        <div class="right-panel">
+          <div class="prompt-head">
+            <div>
+              <div class="prompt-label">FULL PROMPT</div>
+              <h3>원문 프롬프트</h3>
+            </div>
+            <button onclick="copyPrompt(11)">📋 복사</button>
+          </div>
+          <pre id="prompt-11">이 아이디어를 실제로 구현하려면 어떤 <span class="blue-key">기술</span>, <span class="blue-key">데이터</span>, <span class="blue-key">기관 협력</span>, <span class="red-key">예산</span>, <span class="red-key">인력</span>이 필요한지 정리해주세요. 구현이 쉬운 부분과 어려운 부분도 구분해주세요.</pre>
+        </div>
+      </div>
+    </section>
+    
+    <section class="slide" data-index="11">
+      <div class="slide-inner">
+        <div class="left-panel">
+          <div class="kicker">PROMPT 12 / 19</div>
+          <h2>예상 <span class="blue-key">문제</span>점 점검 프롬프트</h2>
+          <div class="structure-label">핵심 키워드 구조</div>
+          <div class="structure"><div class="group"><div class="group-title"><span class="blue-key">데이터</span>·<span class="blue-key">기술</span></div><div class="node-row"><div class="node"><div class="node-icon">🔐</div><div class="node-text"><span class="red-key">개인정보</span></div></div><div class="node"><div class="node-icon">📉</div><div class="node-text"><span class="red-key"><span class="blue-key">데이터</span> 부족</span></div></div><div class="node"><div class="node-icon">⚠️</div><div class="node-text"><span class="red-key"><span class="blue-key">기술</span> 오류</span></div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title">이용자</div><div class="node-row"><div class="node"><div class="node-icon">🙅</div><div class="node-text"><span class="red-key">이용자 거부감</span></div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title">운영</div><div class="node-row"><div class="node"><div class="node-icon">💸</div><div class="node-text">비용</div></div><div class="node"><div class="node-icon">🔧</div><div class="node-text"><span class="red-key">유지관리</span></div></div><div class="node"><div class="node-icon">🤝</div><div class="node-text"><span class="red-key">지역사업자 참여 <span class="blue-key">문제</span></span></div></div></div></div></div>
+        </div>
+        <div class="right-panel">
+          <div class="prompt-head">
+            <div>
+              <div class="prompt-label">FULL PROMPT</div>
+              <h3>원문 프롬프트</h3>
+            </div>
+            <button onclick="copyPrompt(12)">📋 복사</button>
+          </div>
+          <pre id="prompt-12">이 서비스 도입 시 발생할 수 있는 <span class="blue-key">문제</span>를 찾아주세요. <span class="red-key">개인정보</span>, <span class="red-key"><span class="blue-key">데이터</span> 부족</span>, <span class="red-key"><span class="blue-key">기술</span> 오류</span>, <span class="red-key">이용자 거부감</span>, 비용, <span class="red-key">유지관리</span>, <span class="red-key">지역사업자 참여 <span class="blue-key">문제</span></span> 등을 중심으로 검토해주세요.</pre>
+        </div>
+      </div>
+    </section>
+    
+    <section class="slide" data-index="12">
+      <div class="slide-inner">
+        <div class="left-panel">
+          <div class="kicker">PROMPT 13 / 19</div>
+          <h2>단계별 추진계획 프롬프트</h2>
+          <div class="structure-label">핵심 키워드 구조</div>
+          <div class="structure"><div class="group"><div class="group-title">1단계</div><div class="node-row"><div class="node"><div class="node-icon">1️⃣</div><div class="node-text"><span class="red-key">시범운영</span></div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title">2단계</div><div class="node-row"><div class="node"><div class="node-icon">2️⃣</div><div class="node-text"><span class="red-key">지역 확산</span></div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title">3단계</div><div class="node-row"><div class="node"><div class="node-icon">3️⃣</div><div class="node-text"><span class="red-key">본격 운영</span></div></div></div></div></div>
+        </div>
+        <div class="right-panel">
+          <div class="prompt-head">
+            <div>
+              <div class="prompt-label">FULL PROMPT</div>
+              <h3>원문 프롬프트</h3>
+            </div>
+            <button onclick="copyPrompt(13)">📋 복사</button>
+          </div>
+          <pre id="prompt-13">이 아이디어를 1단계 <span class="red-key">시범운영</span> → 2단계 <span class="red-key">지역 확산</span> → 3단계 <span class="red-key">본격 운영</span>의 구조로 나누어 단계별 추진계획을 작성해주세요.</pre>
+        </div>
+      </div>
+    </section>
+    
+    <section class="slide" data-index="13">
+      <div class="slide-inner">
+        <div class="left-panel">
+          <div class="kicker">PROMPT 14 / 19</div>
+          <h2>응모신청서 연결 프롬프트</h2>
+          <div class="structure-label">핵심 키워드 구조</div>
+          <div class="structure"><div class="group"><div class="group-title">입력</div><div class="node-row"><div class="node"><div class="node-icon">📄</div><div class="node-text"><span class="red-key">발표자료·아이디어 내용</span></div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title">연결</div><div class="node-row"><div class="node"><div class="node-icon">🔗</div><div class="node-text"><span class="red-key">응모신청서 문항</span></div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title">출력</div><div class="node-row"><div class="node"><div class="node-icon">✍️</div><div class="node-text"><span class="red-key">작성할 핵심 내용</span></div></div></div></div></div>
+        </div>
+        <div class="right-panel">
+          <div class="prompt-head">
+            <div>
+              <div class="prompt-label">FULL PROMPT</div>
+              <h3>원문 프롬프트</h3>
+            </div>
+            <button onclick="copyPrompt(14)">📋 복사</button>
+          </div>
+          <pre id="prompt-14">지금까지 정리한 내용을 내가 업로드한 응모신청서의 항목과 연결해주세요. ‘<span class="red-key">발표자료·아이디어 내용</span> → <span class="red-key">응모신청서 문항</span> → <span class="red-key">작성할 핵심 내용</span>’ 형식의 표로 만들어주세요.</pre>
+        </div>
+      </div>
+    </section>
+    
+    <section class="slide" data-index="14">
+      <div class="slide-inner">
+        <div class="left-panel">
+          <div class="kicker">PROMPT 15 / 19</div>
+          <h2>응모신청서 초안 작성 프롬프트</h2>
+          <div class="structure-label">핵심 키워드 구조</div>
+          <div class="structure"><div class="group"><div class="group-title">신청서 본문</div><div class="node-row"><div class="node"><div class="node-icon">2️⃣</div><div class="node-text"><span class="red-key">응모작 개요</span></div></div><div class="node"><div class="node-icon">3️⃣</div><div class="node-text"><span class="blue-key"><span class="blue-key">문제</span> 인식</span></div></div><div class="node"><div class="node-icon">4️⃣</div><div class="node-text"><span class="blue-key">해결 방안</span></div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title">성과·실현</div><div class="node-row"><div class="node"><div class="node-icon">5️⃣</div><div class="node-text"><span class="red-key">도민 체감 효과</span></div></div><div class="node"><div class="node-icon">6️⃣</div><div class="node-text"><span class="red-key">실현 가능성</span></div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title"><span class="red-key">작성 원칙</span></div><div class="node-row"><div class="node"><div class="node-icon">❗</div><div class="node-text">자료 없는 통계·사실은 [<span class="red-key">추가 조사 필요</span>]</div></div></div></div></div>
+        </div>
+        <div class="right-panel">
+          <div class="prompt-head">
+            <div>
+              <div class="prompt-label">FULL PROMPT</div>
+              <h3>원문 프롬프트</h3>
+            </div>
+            <button onclick="copyPrompt(15)">📋 복사</button>
+          </div>
+          <pre id="prompt-15">지금까지 나눈 대화를 바탕으로 응모신청서의 2. <span class="red-key">응모작 개요</span>, 3. <span class="blue-key"><span class="blue-key">문제</span> 인식</span>, 4. <span class="blue-key">해결 방안</span>, 5. <span class="red-key">도민 체감 효과</span>, 6. <span class="red-key">실현 가능성</span> 순서대로 초안을 작성해주세요. 자료에 없는 통계나 사실은 만들지 말고 [<span class="red-key">추가 조사 필요</span>]라고 표시해주세요.</pre>
+        </div>
+      </div>
+    </section>
+    
+    <section class="slide" data-index="15">
+      <div class="slide-inner">
+        <div class="left-panel">
+          <div class="kicker">PROMPT 16 / 19</div>
+          <h2>신청서 논리 점검 프롬프트</h2>
+          <div class="structure-label">핵심 키워드 구조</div>
+          <div class="structure"><div class="group"><div class="group-title"><span class="blue-key">문제</span></div><div class="node-row"><div class="node"><div class="node-icon">📍</div><div class="node-text">지역 <span class="blue-key">문제</span></div></div><div class="node"><div class="node-icon">⛔</div><div class="node-text"><span class="red-key">기존 방식의 한계</span></div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title">해결</div><div class="node-row"><div class="node"><div class="node-icon">🤖</div><div class="node-text"><span class="blue-key">AI 해결방안</span></div></div><div class="node"><div class="node-icon">⚙️</div><div class="node-text">작동방식</div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title">변화</div><div class="node-row"><div class="node"><div class="node-icon">🚶</div><div class="node-text"><span class="red-key"><span class="red-key">관광객</span> 행동 변화</span></div></div><div class="node"><div class="node-icon">🌱</div><div class="node-text">지역 효과</div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title">검증</div><div class="node-row"><div class="node"><div class="node-icon">✅</div><div class="node-text"><span class="red-key">실현 가능성</span></div></div><div class="node"><div class="node-icon">🩹</div><div class="node-text">연결이 약한 부분 수정 방향</div></div></div></div></div>
+        </div>
+        <div class="right-panel">
+          <div class="prompt-head">
+            <div>
+              <div class="prompt-label">FULL PROMPT</div>
+              <h3>원문 프롬프트</h3>
+            </div>
+            <button onclick="copyPrompt(16)">📋 복사</button>
+          </div>
+          <pre id="prompt-16">작성한 응모신청서가 ‘지역 <span class="blue-key">문제</span> → <span class="red-key">기존 방식의 한계</span> → <span class="blue-key">AI 해결방안</span> → 작동방식 → <span class="red-key"><span class="red-key">관광객</span> 행동 변화</span> → 지역 효과 → <span class="red-key">실현 가능성</span>’의 논리로 자연스럽게 연결되는지 점검해주세요. 연결이 약한 부분은 수정 방향을 제안해주세요.</pre>
+        </div>
+      </div>
+    </section>
+    
+    <section class="slide" data-index="16">
+      <div class="slide-inner">
+        <div class="left-panel">
+          <div class="kicker">PROMPT 17 / 19</div>
+          <h2>학생 수준 문장 다듬기 프롬프트</h2>
+          <div class="structure-label">핵심 키워드 구조</div>
+          <div class="structure"><div class="group"><div class="group-title">문체</div><div class="node-row"><div class="node"><div class="node-icon">🎓</div><div class="node-text">대학생이 작성한 자연스러운 문장</div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title">표현</div><div class="node-row"><div class="node"><div class="node-icon">🔎</div><div class="node-text">구체적 표현</div></div><div class="node"><div class="node-icon">✂️</div><div class="node-text">거창·추상 표현 축소</div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title">현실성</div><div class="node-row"><div class="node"><div class="node-icon">📍</div><div class="node-text">실제 지역 맥락</div></div><div class="node"><div class="node-icon">🛠️</div><div class="node-text">구현 가능한 내용</div></div></div></div></div>
+        </div>
+        <div class="right-panel">
+          <div class="prompt-head">
+            <div>
+              <div class="prompt-label">FULL PROMPT</div>
+              <h3>원문 프롬프트</h3>
+            </div>
+            <button onclick="copyPrompt(17)">📋 복사</button>
+          </div>
+          <pre id="prompt-17">작성한 응모신청서를 대학생이 직접 조사하고 작성한 것처럼 자연스럽고 구체적인 문장으로 다듬어주세요. 지나치게 거창하거나 추상적인 표현은 줄이고, 실제 지역에서 구현 가능한 내용 중심으로 작성해주세요.</pre>
+        </div>
+      </div>
+    </section>
+    
+    <section class="slide" data-index="17">
+      <div class="slide-inner">
+        <div class="left-panel">
+          <div class="kicker">PROMPT 18 / 19</div>
+          <h2>최종 자체평가 프롬프트</h2>
+          <div class="structure-label">핵심 키워드 구조</div>
+          <div class="structure"><div class="group"><div class="group-title"><span class="blue-key">문제</span>·지역</div><div class="node-row"><div class="node"><div class="node-icon">🎯</div><div class="node-text"><span class="blue-key"><span class="blue-key">문제</span>의 구체성</span></div></div><div class="node"><div class="node-icon">📍</div><div class="node-text"><span class="red-key">지역 적합성</span></div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title"><span class="blue-key">기술</span>·차별화</div><div class="node-row"><div class="node"><div class="node-icon">🤖</div><div class="node-text"><span class="blue-key">AI 필요성</span></div></div><div class="node"><div class="node-icon">🆕</div><div class="node-text"><span class="red-key">스마트관광 차별성</span></div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title">효과</div><div class="node-row"><div class="node"><div class="node-icon">✨</div><div class="node-text"><span class="red-key"><span class="red-key">관광객</span> 체감효과</span></div></div><div class="node"><div class="node-icon">💰</div><div class="node-text"><span class="red-key">지역경제 효과</span></div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title">실행·보완</div><div class="node-row"><div class="node"><div class="node-icon">🧱</div><div class="node-text"><span class="red-key">구현 가능성</span></div></div><div class="node"><div class="node-icon">❓</div><div class="node-text">부족한 부분은 추가 질문</div></div></div></div></div>
+        </div>
+        <div class="right-panel">
+          <div class="prompt-head">
+            <div>
+              <div class="prompt-label">FULL PROMPT</div>
+              <h3>원문 프롬프트</h3>
+            </div>
+            <button onclick="copyPrompt(18)">📋 복사</button>
+          </div>
+          <pre id="prompt-18">최종 아이디어를 다음 기준으로 점검해주세요. <span class="blue-key"><span class="blue-key">문제</span>의 구체성</span>, <span class="red-key">지역 적합성</span>, <span class="blue-key">AI 필요성</span>, <span class="red-key">스마트관광 차별성</span>, <span class="red-key"><span class="red-key">관광객</span> 체감효과</span>, <span class="red-key">지역경제 효과</span>, <span class="red-key">구현 가능성</span>. 부족한 부분은 대신 작성하지 말고 추가로 생각해야 할 질문을 제시해주세요.</pre>
+        </div>
+      </div>
+    </section>
+    
+    <section class="slide" data-index="18">
+      <div class="slide-inner">
+        <div class="left-panel">
+          <div class="kicker">PROMPT 19 / 19</div>
+          <h2>인천 스마트관광도시 PPT → 응모신청서 작성 프롬프트</h2>
+          <div class="structure-label">핵심 키워드 구조</div>
+          <div class="structure"><div class="group"><div class="group-title">자료 분석</div><div class="node-row"><div class="node"><div class="node-icon">📊</div><div class="node-text"><span class="red-key">인천 스마트관광도시 PPT</span> 분석</div></div><div class="node"><div class="node-icon">🔗</div><div class="node-text">신청서 항목별 연결</div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title"><span class="red-key">작성 원칙</span></div><div class="node-row"><div class="node"><div class="node-icon">✍️</div><div class="node-text"><span class="red-key">공모사업 신청서 문체</span></div></div><div class="node"><div class="node-icon">❗</div><div class="node-text">PPT에 없는 내용은 [<span class="red-key">추가 조사 필요</span>]</div></div><div class="node"><div class="node-icon">📌</div><div class="node-text">참고한 PPT 내용 표시</div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title"><span class="red-key">최종 산출물</span></div><div class="node-row"><div class="node"><div class="node-icon">①</div><div class="node-text">인천 사례 핵심 정리</div></div><div class="node"><div class="node-icon">②</div><div class="node-text">응모신청서 작성본</div></div><div class="node"><div class="node-icon">③</div><div class="node-text">부족한 자료</div></div><div class="node"><div class="node-icon">④</div><div class="node-text">다른 지역 적용 템플릿</div></div></div></div><div class="connector">↓</div><div class="group"><div class="group-title">템플릿 변수</div><div class="node-row"><div class="node"><div class="node-icon">📍</div><div class="node-text"><span class="red-key">[지역명]</span></div></div><div class="node"><div class="node-icon">⚠️</div><div class="node-text"><span class="blue-key">[관광<span class="blue-key">문제</span>]</span></div></div><div class="node"><div class="node-icon">🤖</div><div class="node-text"><span class="blue-key">[스마트서비스]</span></div></div><div class="node"><div class="node-icon">✨</div><div class="node-text"><span class="red-key">[기대효과]</span></div></div></div></div></div>
+        </div>
+        <div class="right-panel">
+          <div class="prompt-head">
+            <div>
+              <div class="prompt-label">FULL PROMPT</div>
+              <h3>원문 프롬프트</h3>
+            </div>
+            <button onclick="copyPrompt(19)">📋 복사</button>
+          </div>
+          <pre id="prompt-19">첨부한 <span class="red-key">인천 스마트관광도시 PPT</span>를 먼저 분석한 뒤, 내용을 「0714~ 응모신청서」 양식의 항목과 순서에 맞춰 작성해주세요.
+
+작성할 때는 다음 원칙을 지켜주세요.
+
+1. 인천 PPT의 핵심 내용을 응모신청서 항목별로 연결해주세요.
+2. PPT 문장을 그대로 복사하지 말고 **<span class="red-key">공모사업 신청서 문체</span>**로 바꿔주세요.
+3. PPT에 없는 내용은 임의로 만들지 말고 **[<span class="red-key">추가 조사 필요</span>]**라고 표시해주세요.
+4. 각 항목마다 **인천 PPT의 어떤 내용을 참고했는지** 간단히 표시해주세요.
+5. 마지막에는 이 구조를 다른 지역에도 적용할 수 있도록 **<span class="red-key">[지역명]</span>, <span class="blue-key">[관광<span class="blue-key">문제</span>]</span>, <span class="blue-key">[스마트서비스]</span>, <span class="red-key">[기대효과]</span>** 형태의 빈칸 템플릿으로 만들어주세요.
+
+최종 결과는
+**① 인천 사례 핵심 정리 → ② 응모신청서 양식에 맞춘 작성본 → ③ 부족한 자료 → ④ 다른 지역 적용 템플릿**
+순서로 제시해주세요.</pre>
+        </div>
+      </div>
+    </section>
+    </div>
+</main>
+</div>
+
+<div class="toc-overlay" id="toc" onclick="if(event.target.id==='toc')closeList()">
+ <aside class="toc-panel">
+  <div class="toc-head"><div><div class="kicker">ALL PROMPTS</div><h3>전체 19개 프롬프트</h3></div><button class="ghost" onclick="closeList()">닫기 ✕</button></div>
+  <div class="toc-grid"><button class="toc-item" onclick="goTo(0);closeList()"><span>01</span>스마트관광도시 사례 이해 프롬프트</button><button class="toc-item" onclick="goTo(1);closeList()"><span>02</span>문제 해결 구조 추출 프롬프트</button><button class="toc-item" onclick="goTo(2);closeList()"><span>03</span>타깃 지역 문제 발견 프롬프트</button><button class="toc-item" onclick="goTo(3);closeList()"><span>04</span>핵심 문제 구체화 프롬프트</button><button class="toc-item" onclick="goTo(4);closeList()"><span>05</span>스마트관광 AI 아이디어 생성 프롬프트</button><button class="toc-item" onclick="goTo(5);closeList()"><span>06</span>AI 필요성 검토 프롬프트</button><button class="toc-item" onclick="goTo(6);closeList()"><span>07</span>기존 사례와 차별화 프롬프트</button><button class="toc-item" onclick="goTo(7);closeList()"><span>08</span>관광객 이용 흐름 프롬프트</button><button class="toc-item" onclick="goTo(8);closeList()"><span>09</span>도입 전·후 비교 프롬프트</button><button class="toc-item" onclick="goTo(9);closeList()"><span>10</span>지역 효과 분석 프롬프트</button><button class="toc-item" onclick="goTo(10);closeList()"><span>11</span>실현 가능성 검토 프롬프트</button><button class="toc-item" onclick="goTo(11);closeList()"><span>12</span>예상 문제점 점검 프롬프트</button><button class="toc-item" onclick="goTo(12);closeList()"><span>13</span>단계별 추진계획 프롬프트</button><button class="toc-item" onclick="goTo(13);closeList()"><span>14</span>응모신청서 연결 프롬프트</button><button class="toc-item" onclick="goTo(14);closeList()"><span>15</span>응모신청서 초안 작성 프롬프트</button><button class="toc-item" onclick="goTo(15);closeList()"><span>16</span>신청서 논리 점검 프롬프트</button><button class="toc-item" onclick="goTo(16);closeList()"><span>17</span>학생 수준 문장 다듬기 프롬프트</button><button class="toc-item" onclick="goTo(17);closeList()"><span>18</span>최종 자체평가 프롬프트</button><button class="toc-item" onclick="goTo(18);closeList()"><span>19</span>인천 스마트관광도시 PPT → 응모신청서 작성 프롬프트</button></div>
+ </aside>
+</div>
+<div class="toast" id="toast">프롬프트를 복사했습니다.</div>
+<script>
+let idx=0,total=19;
+const track=document.getElementById('track'),bar=document.getElementById('bar'),count=document.getElementById('count');
+function render(){
+ track.style.transform=`translateX(-${idx*100}%)`;
+ bar.style.width=`${((idx+1)/total)*100}%`;
+ count.textContent=`${idx+1} / ${total}`;
+}
+function next(){idx=Math.min(total-1,idx+1);render()}
+function prev(){idx=Math.max(0,idx-1);render()}
+function goTo(n){idx=n;render()}
+function openList(){document.getElementById('toc').style.display='block'}
+function closeList(){document.getElementById('toc').style.display='none'}
+async function copyPrompt(n){
+ const t=document.getElementById('prompt-'+n).innerText;
+ try{await navigator.clipboard.writeText(t)}catch(e){
+  const ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();
+ }
+ const x=document.getElementById('toast');x.classList.add('show');setTimeout(()=>x.classList.remove('show'),1200);
+}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')next();if(e.key==='ArrowLeft')prev();if(e.key==='Escape')closeList();});
+let sx=null;
+document.getElementById('stage').addEventListener('touchstart',e=>sx=e.changedTouches[0].clientX,{passive:true});
+document.getElementById('stage').addEventListener('touchend',e=>{if(sx===null)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>55)(dx<0?next():prev());sx=null;},{passive:true});
+render();
+</script>
+</body>
+</html>
