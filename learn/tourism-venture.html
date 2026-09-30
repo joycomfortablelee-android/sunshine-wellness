@@ -1198,7 +1198,7 @@
     /* ===== 출석부 — 마인드맵 바로 위. 학생 × 회차 표, 칸은 모두 가운데 정렬 =====
        회차가 늘면 thead · 각 행에 한 칸씩 더한다(최근 회차가 오른쪽). 결석은 눈에 덜 걸리게 눌러 둔다. */
     .learn-article .att-book { margin: 0 auto 22px; text-align: center; }
-    .learn-article .att-book::before {
+    .learn-article .att-book::before, .learn-article .learn-fig.mindmap::before {
       content: "✦ ✦ ✦"; display: block; margin: 8px 0 16px; line-height: 1; font-size: 18px; letter-spacing: 4px; color: #1f5a52;
       background: repeating-linear-gradient(90deg, #3f7f74 0 5px, transparent 5px 10px) no-repeat left center / calc(50% - 50px) 2.5px,
         repeating-linear-gradient(90deg, #3f7f74 0 5px, transparent 5px 10px) no-repeat right center / calc(50% - 50px) 2.5px;
