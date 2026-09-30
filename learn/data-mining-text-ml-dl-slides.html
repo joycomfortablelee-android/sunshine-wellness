@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>데이터 마이닝·텍스트 마이닝·머신러닝·딥러닝 범주화 · 좌우 넘김</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>데이터 마이닝·텍스트 마이닝·머신러닝·딥러닝 범주화</title>
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;background:#eef2f7;color:#172033;font-family:"Pretendard","Noto Sans KR",Arial,sans-serif}
@@ -118,595 +119,871 @@ tr:last-child td{border-bottom:none}
   .grid2,.grid3,.teach-grid,.goal-list,.memory-list,.quiz-options{grid-template-columns:1fr}.example{grid-template-columns:1fr}
   .flow-wrap{flex-direction:column}.arrow{transform:rotate(90deg)}.slide h1{font-size:28px}
 }
+
+.speaker-script{margin-top:18px;background:#0f172a;color:#f8fafc;border-radius:16px;padding:14px 18px;box-shadow:0 8px 22px rgba(15,23,42,.10);line-height:1.65;font-size:14px}
+.speaker-script .script-title{font-weight:900;color:#fbbf24;margin-bottom:6px;font-size:14px}
+.speaker-script strong{color:#ffffff}
+
+
+/* ===== visual polish ===== */
+:root{
+  --ink:#172033; --navy:#17365d; --blue:#2b5f9e; --sky:#eef5ff;
+  --green:#16745c; --mint:#edf9f4; --violet:#6b4fb3; --amber:#9a5b10;
+}
+body{background:#e9eef5}
+.slide{
+  padding:28px 48px 72px;
+  background:
+    radial-gradient(circle at 92% 4%, rgba(88,130,190,.10), transparent 24%),
+    linear-gradient(180deg,#fbfcfe 0%,#f0f4f9 100%);
+}
+.slide h1{
+  font-size:32px; line-height:1.2; margin-bottom:5px; color:#12233f;
+  font-weight:850; letter-spacing:-.035em;
+}
+.slide h2{font-size:23px; line-height:1.25; margin:4px 0 15px}
+.subtitle{font-size:14.5px; margin-bottom:17px; color:#667085}
+.card{
+  border-radius:20px; padding:18px 20px;
+  box-shadow:0 8px 24px rgba(25,45,75,.07);
+}
+.branch-title{font-size:20px;padding:13px;margin-bottom:14px}
+.box{padding:14px;border-radius:15px}
+.box h3{font-size:17px;margin-bottom:10px}
+.item{font-size:14px;padding:9px 10px;margin:6px 0;border-radius:10px}
+.deep{padding:12px;margin-top:10px}
+.flow{font-size:17px;min-width:175px;padding:14px;border-radius:15px}
+.arrow{font-size:25px}
+table{table-layout:fixed}
+th{font-size:13.5px;padding:11px 10px}
+td{font-size:13.5px;padding:10px 10px;line-height:1.45}
+.compact th,.compact td{font-size:13px;padding:9px 9px}
+.badge{font-size:11.5px;line-height:1.25}
+.note,.highlight{font-size:14px;padding:13px 15px;margin-top:12px}
+.quote{font-size:18px;line-height:1.65;padding:18px 20px}
+.reason{padding:15px;border-radius:16px}
+.reason h3{font-size:17px;margin-bottom:8px}
+.reason p{font-size:14px;margin:6px 0;line-height:1.55}
+.program{font-size:13px;padding:8px 10px}
+.mini-flow{gap:7px;margin:8px 0}
+.node{font-size:13px;padding:7px 9px}
+.goal-list,.memory-list{gap:10px}
+.goal,.memory{font-size:13.5px;padding:13px 14px}
+.teach{padding:17px}
+.teach .q{font-size:13px}
+.teach .a{font-size:17px}
+.navbar{height:54px}
+.navbar button{padding:8px 16px;font-size:13px}
+.counter{font-size:13px}
+.quiz-card{
+  padding:15px 16px; margin:10px 0; border-radius:16px;
+  box-shadow:0 6px 18px rgba(25,45,75,.05);
+}
+.quiz-card h3{font-size:16px;line-height:1.45;margin-bottom:9px}
+.quiz-options{gap:7px}
+.quiz-options button{
+  padding:9px 10px;font-size:13px;line-height:1.35;border-radius:10px;
+}
+.quiz-feedback{font-size:13px;padding:9px 11px;margin-top:8px}
+.quiz-score{font-size:13px;padding:11px 14px}
+.script-note{
+  margin-top:13px;
+  padding:12px 15px;
+  background:linear-gradient(135deg,#ffffff 0%,#f7f9fc 100%);
+  border:1px solid #dce4ee;
+  border-left:4px solid #365f91;
+  border-radius:13px;
+  color:#334155;
+  font-size:13.5px;
+  line-height:1.62;
+  box-shadow:0 4px 14px rgba(25,45,75,.04);
+}
+.script-note strong{color:#183b66}
+.section-kicker{
+  display:inline-block;
+  font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+  color:#58708f;background:#edf3fa;border-radius:999px;padding:5px 9px;margin-bottom:8px
+}
+@media(max-width:900px){
+  .slide{padding:22px 16px 78px}
+  .slide h1{font-size:26px}
+  .script-note{font-size:13px}
+}
+
+
+/* ===== header navigation adjustment ===== */
+.slide{
+  padding-top:22px;
+}
+.slide h1{
+  font-size:27px !important;
+  line-height:1.18;
+  margin:0;
+}
+.slide h2{
+  font-size:21px !important;
+}
+.slide-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  margin-bottom:6px;
+}
+.slide-header h1{
+  flex:1;
+}
+.top-nav{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-shrink:0;
+}
+.top-nav button{
+  border:0;
+  background:#1f3b64;
+  color:white;
+  border-radius:9px;
+  min-width:38px;
+  height:34px;
+  padding:0 11px;
+  font-size:17px;
+  font-weight:800;
+  cursor:pointer;
+  box-shadow:0 4px 10px rgba(31,59,100,.12);
+}
+.top-nav button:disabled{
+  opacity:.35;
+  cursor:default;
+}
+.top-nav .top-counter{
+  min-width:54px;
+  text-align:center;
+  color:#64748b;
+  font-size:12px;
+  font-weight:800;
+}
+.subtitle{
+  margin-top:4px;
+  margin-bottom:15px;
+}
+.navbar{
+  display:none !important;
+}
+@media(max-width:900px){
+  .slide-header{align-items:flex-start}
+  .slide h1{font-size:23px !important}
+  .top-nav button{min-width:34px;height:32px;font-size:16px;padding:0 9px}
+}
+
+
+/* ===== single conversational footer ===== */
+.script-note{
+  margin-top:14px;
+  padding:12px 2px 0;
+  background:transparent !important;
+  border:0 !important;
+  border-top:1px solid #cfd8e3 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  color:#475569;
+  font-size:13.5px;
+  line-height:1.68;
+}
+
 </style>
 </head>
 <body>
 <div class="deck">
-
 <section class="slide active">
+<div class="slide-header">
   <h1>데이터 분석 / 지식발견 범주화</h1>
-  <div class="subtitle">Data Analysis & Knowledge Discovery</div>
-
-  <div class="center" style="margin-bottom:26px"><div class="root">데이터 분석 / 지식발견</div></div>
-
-  <div class="grid2">
-    <div class="card">
-      <div class="branch-title blue">데이터 마이닝 (Data Mining)</div>
-      <div class="grid2">
-        <div class="box">
-          <h3>정형데이터 분석</h3>
-          <div class="item">분류 (Classification)</div>
-          <div class="item">군집 (Clustering)</div>
-          <div class="item">연관규칙 (Association Rules)</div>
-          <div class="item">예측 (Prediction)</div>
-        </div>
-        <div class="box">
-          <h3>텍스트 마이닝 (Text Mining)</h3>
-          <div class="item">단어 빈도</div>
-          <div class="item">키워드 분석</div>
-          <div class="item">토픽모델링</div>
-          <div class="item">감성분석</div>
-          <div class="item">텍스트 분류</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="branch-title green">머신러닝 (Machine Learning)</div>
-      <div class="box">
-        <h3>학습 방식</h3>
-        <div class="item">지도학습 (Supervised Learning)</div>
-        <div class="item">비지도학습 (Unsupervised Learning)</div>
-        <div class="item">강화학습 (Reinforcement Learning)</div>
-        <div class="deep">
-          <div class="title">딥러닝 (Deep Learning)</div>
-          <div class="grid3">
-            <div class="item">CNN</div>
-            <div class="item">RNN / LSTM</div>
-            <div class="item">Transformer</div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="top-nav">
+    <button class="top-prev" aria-label="이전 슬라이드">←</button>
+    <span class="top-counter">1 / 1</span>
+    <button class="top-next" aria-label="다음 슬라이드">→</button>
   </div>
+</div>
+<div class="subtitle">Data Analysis &amp; Knowledge Discovery</div>
+<div class="center" style="margin-bottom:26px"><div class="root">데이터 분석 / 지식발견</div></div>
+<div class="grid2">
+<div class="card">
+<div class="branch-title blue">데이터 마이닝 (Data Mining)</div>
+<div class="grid2">
+<div class="box">
+<h3>정형데이터 분석</h3>
+<div class="item">분류 (Classification)</div>
+<div class="item">군집 (Clustering)</div>
+<div class="item">연관규칙 (Association Rules)</div>
+<div class="item">예측 (Prediction)</div>
+</div>
+<div class="box">
+<h3>텍스트 마이닝 (Text Mining)</h3>
+<div class="item">단어 빈도</div>
+<div class="item">키워드 분석</div>
+<div class="item">토픽모델링</div>
+<div class="item">감성분석</div>
+<div class="item">텍스트 분류</div>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="branch-title green">머신러닝 (Machine Learning)</div>
+<div class="box">
+<h3>학습 방식</h3>
+<div class="item">지도학습 (Supervised Learning)</div>
+<div class="item">비지도학습 (Unsupervised Learning)</div>
+<div class="item">강화학습 (Reinforcement Learning)</div>
+<div class="deep">
+<div class="title">딥러닝 (Deep Learning)</div>
+<div class="grid3">
+<div class="item">CNN</div>
+<div class="item">RNN / LSTM</div>
+<div class="item">Transformer</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div>오늘은 데이터 마이닝, 텍스트 마이닝, 머신러닝, 딥러닝을 한 번에 구분해보겠습니다. 먼저 크게 보면 데이터에서 패턴을 찾는 쪽과, 컴퓨터가 데이터를 학습하는 쪽으로 나눌 수 있습니다. 중요한 것은 이 네 개가 완전히 따로 떨어진 개념이 아니라 실제 분석에서는 서로 겹쳐 사용된다는 점입니다.</div></div>
+
+  <div class="script-note">오늘은 네 가지 개념을 따로 외우기보다 서로 어떻게 연결되는지부터 보겠습니다. 왼쪽은 데이터에서 패턴을 찾는 관점이고, 오른쪽은 컴퓨터가 데이터를 보고 규칙을 학습하는 관점입니다. 실제 분석에서는 이 두 영역이 자주 함께 사용됩니다.</div>
 </section>
-
 <section class="slide">
+<div class="slide-header">
   <h1>1. 네 개념을 가장 쉽게 구분하면</h1>
-  <div class="subtitle">개념의 역할과 위치를 먼저 구분</div>
-  <div class="card">
-    <table>
-      <thead>
-        <tr><th>개념</th><th>가장 쉬운 설명</th><th>핵심</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><strong>Data Mining<br>데이터 마이닝</strong></td><td>많은 데이터에서 의미 있는 패턴을 발견</td><td><span class="badge b1">목적·분석 과정</span></td></tr>
-        <tr><td><strong>Text Mining<br>텍스트 마이닝</strong></td><td>글·문서·리뷰 같은 비정형 텍스트에서 정보를 발견</td><td><span class="badge b2">데이터 마이닝의 텍스트 분야</span></td></tr>
-        <tr><td><strong>Machine Learning<br>머신러닝</strong></td><td>컴퓨터가 데이터로부터 규칙을 학습</td><td><span class="badge b3">학습 방법</span></td></tr>
-        <tr><td><strong>Deep Learning<br>딥러닝</strong></td><td>여러 층의 인공신경망을 이용하는 머신러닝</td><td><span class="badge b4">머신러닝의 하위 분야</span></td></tr>
-      </tbody>
-    </table>
+  <div class="top-nav">
+    <button class="top-prev" aria-label="이전 슬라이드">←</button>
+    <span class="top-counter">1 / 1</span>
+    <button class="top-next" aria-label="다음 슬라이드">→</button>
   </div>
-  <div class="note">
-    <strong>핵심:</strong> 데이터 마이닝과 텍스트 마이닝은 “무엇을 분석하고 무엇을 발견하는가”에 가깝고,
+</div>
+<div class="subtitle">개념의 역할과 위치를 먼저 구분</div>
+<div class="card">
+<table>
+<thead>
+<tr><th>개념</th><th>가장 쉬운 설명</th><th>핵심</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Data Mining<br/>데이터 마이닝</strong></td><td>많은 데이터에서 의미 있는 패턴을 발견</td><td><span class="badge b1">목적·분석 과정</span></td></tr>
+<tr><td><strong>Text Mining<br/>텍스트 마이닝</strong></td><td>글·문서·리뷰 같은 비정형 텍스트에서 정보를 발견</td><td><span class="badge b2">데이터 마이닝의 텍스트 분야</span></td></tr>
+<tr><td><strong>Machine Learning<br/>머신러닝</strong></td><td>컴퓨터가 데이터로부터 규칙을 학습</td><td><span class="badge b3">학습 방법</span></td></tr>
+<tr><td><strong>Deep Learning<br/>딥러닝</strong></td><td>여러 층의 인공신경망을 이용하는 머신러닝</td><td><span class="badge b4">머신러닝의 하위 분야</span></td></tr>
+</tbody>
+</table>
+</div>
+<div class="note">
+<strong>핵심:</strong> 데이터 마이닝과 텍스트 마이닝은 “무엇을 분석하고 무엇을 발견하는가”에 가깝고,
     머신러닝과 딥러닝은 “어떻게 학습시킬 것인가”에 가깝습니다.
   </div>
+<div>네 개념을 가장 쉽게 구분해보겠습니다. 데이터 마이닝은 많은 데이터에서 의미 있는 패턴을 찾는 분석 과정이고, 텍스트 마이닝은 그중에서 글이나 리뷰 같은 텍스트를 대상으로 합니다. 머신러닝은 컴퓨터가 데이터에서 규칙을 학습하는 방법이고, 딥러닝은 그 머신러닝 중에서도 여러 층의 신경망을 사용하는 방식입니다.</div></div>
+
+  <div class="script-note">이 네 가지는 역할로 나누면 훨씬 쉽습니다. 데이터 마이닝은 패턴을 찾는 것, 텍스트 마이닝은 텍스트를 분석하는 것, 머신러닝은 데이터를 통해 규칙을 학습하는 것, 딥러닝은 그 학습을 여러 층의 신경망으로 하는 것이라고 기억하면 됩니다.</div>
 </section>
-
 <section class="slide">
+<div class="slide-header">
   <h1>2. 포함관계로 보면</h1>
-  <div class="subtitle">AI 계열과 데이터 마이닝 계열을 두 축으로 나누어 이해</div>
-
-  <div class="card" style="margin-bottom:20px">
-    <h2>인공지능 계열</h2>
-    <div class="flow-wrap">
-      <div class="flow">인공지능<br><small>Artificial Intelligence</small></div>
-      <div class="arrow">→</div>
-      <div class="flow">머신러닝<br><small>Machine Learning</small></div>
-      <div class="arrow">→</div>
-      <div class="flow">딥러닝<br><small>Deep Learning</small></div>
-    </div>
-    <div class="code">AI
+  <div class="top-nav">
+    <button class="top-prev" aria-label="이전 슬라이드">←</button>
+    <span class="top-counter">1 / 1</span>
+    <button class="top-next" aria-label="다음 슬라이드">→</button>
+  </div>
+</div>
+<div class="subtitle">AI 계열과 데이터 마이닝 계열을 두 축으로 나누어 이해</div>
+<div class="card" style="margin-bottom:20px">
+<h2>인공지능 계열</h2>
+<div class="flow-wrap">
+<div class="flow">인공지능<br/><small>Artificial Intelligence</small></div>
+<div class="arrow">→</div>
+<div class="flow">머신러닝<br/><small>Machine Learning</small></div>
+<div class="arrow">→</div>
+<div class="flow">딥러닝<br/><small>Deep Learning</small></div>
+</div>
+<div class="code">AI
 └─ Machine Learning
    └─ Deep Learning</div>
-  </div>
-
-  <div class="grid2">
-    <div class="card">
-      <h2>데이터 마이닝</h2>
-      <p><strong>Data Mining</strong> → 데이터에서 패턴과 지식을 찾는 분석 활동</p>
-      <div class="code">Data Mining
+</div>
+<div class="grid2">
+<div class="card">
+<h2>데이터 마이닝</h2>
+<p><strong>Data Mining</strong> → 데이터에서 패턴과 지식을 찾는 분석 활동</p>
+<div class="code">Data Mining
 ├─ 정형 데이터 마이닝
 └─ Text Mining</div>
-    </div>
-    <div class="card">
-      <h2>텍스트 마이닝</h2>
-      <p><strong>Text Mining</strong> → 데이터 마이닝 중에서도 텍스트를 대상으로 하는 분석</p>
-      <div class="note">
-        <strong>AI → ML → DL</strong>은 비교적 명확한 포함관계이고,
+</div>
+<div class="card">
+<h2>텍스트 마이닝</h2>
+<p><strong>Text Mining</strong> → 데이터 마이닝 중에서도 텍스트를 대상으로 하는 분석</p>
+<div class="note">
+<strong>AI → ML → DL</strong>은 비교적 명확한 포함관계이고,
         <strong>Data Mining ↔ Machine Learning</strong>은 실제 분석에서 많이 겹칩니다.
       </div>
-    </div>
-  </div>
+</div>
+</div>
+<div>포함관계는 여기서 꼭 기억해 주세요. 인공지능 안에 머신러닝이 있고, 머신러닝 안에 딥러닝이 있습니다. 반면 데이터 마이닝과 머신러닝은 완전히 상하관계라기보다 실제 연구에서 서로 많이 겹칩니다. 그래서 하나의 연구에 데이터 마이닝과 머신러닝이 동시에 등장할 수 있습니다.</div></div>
+
+  <div class="script-note">AI 안에 머신러닝이 있고, 머신러닝 안에 딥러닝이 있다는 관계는 비교적 분명합니다. 반면 데이터 마이닝과 머신러닝은 완전히 따로 떨어진 개념이라기보다 실제 분석에서 목적과 방법으로 서로 겹쳐서 사용된다고 이해하면 좋습니다.</div>
 </section>
-
 <section class="slide">
+<div class="slide-header">
   <h1>3. 서로 만나는 지점</h1>
-  <div class="subtitle">예: 호텔 리뷰 10만 건 분석 — 분석 목적과 방법을 함께 보기</div>
-
-  <div class="card">
-    <table class="compact">
-      <thead>
-        <tr>
-          <th>분석 사례</th>
-          <th>분류</th>
-          <th>왜 이렇게 분류하는가?</th>
-          <th>대표 방법 / 프로그램</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>리뷰에서 자주 등장하는 단어 찾기</strong></td>
-          <td><span class="badge b1">텍스트 마이닝</span></td>
-          <td>단어의 빈도와 중요도를 계산하는 작업으로, 별도의 학습 모델이 꼭 필요하지 않습니다.</td>
-          <td>빈도분석, TF-IDF<br>Orange, KH Coder, Python</td>
-        </tr>
-        <tr>
-          <td><strong>리뷰를 긍정 / 부정으로 자동 분류</strong></td>
-          <td><span class="badge b2">텍스트 마이닝 + 머신러닝</span></td>
-          <td>사람이 붙인 긍정·부정 정답(label)을 바탕으로 컴퓨터가 분류 규칙을 학습합니다.</td>
-          <td>Logistic Regression, SVM<br>Orange, Python</td>
-        </tr>
-        <tr>
-          <td><strong>BERT를 이용해 감성분석</strong></td>
-          <td><span class="badge b4">텍스트 마이닝 + 딥러닝</span></td>
-          <td>BERT가 Transformer 기반의 다층 신경망을 사용하여 문장과 문맥 관계를 학습하기 때문입니다.</td>
-          <td>BERT, KoBERT, KLUE-BERT<br>Python, Hugging Face, PyTorch</td>
-        </tr>
-        <tr>
-          <td><strong>고객 데이터를 군집화하여 관광객 유형 발견</strong></td>
-          <td><span class="badge b3">데이터 마이닝 + 머신러닝</span></td>
-          <td>정답 없이 데이터의 유사성을 학습해 비슷한 고객을 자동으로 묶는 비지도학습이기 때문입니다.</td>
-          <td>K-means, Hierarchical Clustering<br>Orange, SPSS, Python</td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="top-nav">
+    <button class="top-prev" aria-label="이전 슬라이드">←</button>
+    <span class="top-counter">1 / 1</span>
+    <button class="top-next" aria-label="다음 슬라이드">→</button>
   </div>
-
-  <div class="highlight">
+</div>
+<div class="subtitle">예: 호텔 리뷰 10만 건 분석 — 분석 목적과 방법을 함께 보기</div>
+<div class="card">
+<table class="compact">
+<thead>
+<tr>
+<th>분석 사례</th>
+<th>분류</th>
+<th>왜 이렇게 분류하는가?</th>
+<th>대표 방법 / 프로그램</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>리뷰에서 자주 등장하는 단어 찾기</strong></td>
+<td><span class="badge b1">텍스트 마이닝</span></td>
+<td>단어의 빈도와 중요도를 계산하는 작업으로, 별도의 학습 모델이 꼭 필요하지 않습니다.</td>
+<td>빈도분석, TF-IDF<br/>Orange, KH Coder, Python</td>
+</tr>
+<tr>
+<td><strong>리뷰를 긍정 / 부정으로 자동 분류</strong></td>
+<td><span class="badge b2">텍스트 마이닝 + 머신러닝</span></td>
+<td>사람이 붙인 긍정·부정 정답(label)을 바탕으로 컴퓨터가 분류 규칙을 학습합니다.</td>
+<td>Logistic Regression, SVM<br/>Orange, Python</td>
+</tr>
+<tr>
+<td><strong>BERT를 이용해 감성분석</strong></td>
+<td><span class="badge b4">텍스트 마이닝 + 딥러닝</span></td>
+<td>BERT가 Transformer 기반의 다층 신경망을 사용하여 문장과 문맥 관계를 학습하기 때문입니다.</td>
+<td>BERT, KoBERT, KLUE-BERT<br/>Python, Hugging Face, PyTorch</td>
+</tr>
+<tr>
+<td><strong>고객 데이터를 군집화하여 관광객 유형 발견</strong></td>
+<td><span class="badge b3">데이터 마이닝 + 머신러닝</span></td>
+<td>정답 없이 데이터의 유사성을 학습해 비슷한 고객을 자동으로 묶는 비지도학습이기 때문입니다.</td>
+<td>K-means, Hierarchical Clustering<br/>Orange, SPSS, Python</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="highlight">
     같은 “감성분석”이라도 사용하는 알고리즘에 따라 달라집니다.
     <strong>Logistic Regression·SVM</strong>을 쓰면 머신러닝,
     <strong>BERT·Transformer</strong>를 쓰면 딥러닝입니다.
-    <br><br>
-    <strong>기억:</strong> 머신러닝은 데이터에서 규칙을 학습하고,
+    <br/><br/>
+<strong>기억:</strong> 머신러닝은 데이터에서 규칙을 학습하고,
     딥러닝은 그 학습을 <strong>다층 인공신경망</strong>으로 수행합니다.
   </div>
-</section>
+<div>호텔 리뷰 10만 건을 분석한다고 생각해봅시다. 단어 빈도만 보면 텍스트 마이닝이고, 긍정과 부정을 자동으로 분류하도록 학습시키면 머신러닝이 들어갑니다. BERT로 문맥까지 학습하면 딥러닝이고, 고객을 비슷한 특성끼리 묶으면 비지도 머신러닝입니다. 즉 분석 목적과 사용하는 알고리즘을 함께 봐야 정확히 구분할 수 있습니다.</div></div>
 
+  <div class="script-note">같은 호텔 리뷰라도 무엇을 하느냐에 따라 분석 이름이 달라집니다. 단어 빈도를 보면 텍스트 마이닝이고, 긍정과 부정을 자동 분류하면 머신러닝이 결합됩니다. BERT를 사용하면 Transformer 기반의 다층 신경망을 쓰기 때문에 딥러닝이라고 부릅니다.</div>
+</section>
 <section class="slide">
+<div class="slide-header">
   <h1>4. 왜 이것은 텍스트 마이닝인가?</h1>
-  <div class="subtitle">리뷰에서 자주 등장하는 단어 찾기</div>
-
-  <div class="grid2">
-    <div class="reason">
-      <h3>분석 논리</h3>
-      <p>컴퓨터가 정답을 학습하거나 신경망을 훈련할 필요 없이, 텍스트 안의 단어 빈도와 중요도를 계산합니다.</p>
-      <div class="mini-flow">
-        <div class="node">호텔 리뷰</div><div class="arr">→</div>
-        <div class="node">단어 분리</div><div class="arr">→</div>
-        <div class="node">빈도 / TF-IDF</div><div class="arr">→</div>
-        <div class="node">핵심 단어</div>
-      </div>
-      <p><strong>예:</strong> 친절, 청결, 위치, 조식, 소음</p>
-    </div>
-
-    <div class="reason">
-      <h3>분석 프로그램</h3>
-      <div class="program">Orange → Text Add-on</div>
-      <div class="program">KH Coder</div>
-      <div class="program">Python → pandas / scikit-learn</div>
-      <div class="program">R → tidytext</div>
-      <div class="program">빅카인즈 → 키워드·연관어 분석</div>
-    </div>
+  <div class="top-nav">
+    <button class="top-prev" aria-label="이전 슬라이드">←</button>
+    <span class="top-counter">1 / 1</span>
+    <button class="top-next" aria-label="다음 슬라이드">→</button>
   </div>
-
-  <div class="note">
-    <strong>학생에게:</strong> “단어가 몇 번 나왔는가?”를 보는 것은 기본적으로 <strong>텍스트 마이닝</strong>입니다.
+</div>
+<div class="subtitle">리뷰에서 자주 등장하는 단어 찾기</div>
+<div class="grid2">
+<div class="reason">
+<h3>분석 논리</h3>
+<p>컴퓨터가 정답을 학습하거나 신경망을 훈련할 필요 없이, 텍스트 안의 단어 빈도와 중요도를 계산합니다.</p>
+<div class="mini-flow">
+<div class="node">호텔 리뷰</div><div class="arr">→</div>
+<div class="node">단어 분리</div><div class="arr">→</div>
+<div class="node">빈도 / TF-IDF</div><div class="arr">→</div>
+<div class="node">핵심 단어</div>
+</div>
+<p><strong>예:</strong> 친절, 청결, 위치, 조식, 소음</p>
+</div>
+<div class="reason">
+<h3>분석 프로그램</h3>
+<div class="program">Orange → Text Add-on</div>
+<div class="program">KH Coder</div>
+<div class="program">Python → pandas / scikit-learn</div>
+<div class="program">R → tidytext</div>
+<div class="program">빅카인즈 → 키워드·연관어 분석</div>
+</div>
+</div>
+<div class="note">
+<strong>학생에게:</strong> “단어가 몇 번 나왔는가?”를 보는 것은 기본적으로 <strong>텍스트 마이닝</strong>입니다.
   </div>
+<div>리뷰에서 어떤 단어가 많이 나왔는지만 보는 경우를 생각해보겠습니다. 여기서는 컴퓨터가 정답을 학습할 필요가 없습니다. 단어를 나누고, 몇 번 나왔는지 혹은 얼마나 중요한지 계산하면 됩니다. 그래서 대표적인 텍스트 마이닝이라고 볼 수 있고, Orange나 KH Coder, Python 등으로 실습할 수 있습니다.</div></div>
+
+  <div class="script-note">여기서는 리뷰 안에 어떤 단어가 많이 나오는지, 어떤 단어가 중요한지를 보는 데 초점이 있습니다. 컴퓨터가 정답을 학습하는 과정이 꼭 필요한 것은 아니기 때문에 기본적으로 텍스트 마이닝이라고 보면 됩니다.</div>
 </section>
-
 <section class="slide">
+<div class="slide-header">
   <h1>5. 왜 긍정·부정 분류는 머신러닝인가?</h1>
-  <div class="subtitle">텍스트 마이닝 + 지도학습(Supervised Learning)</div>
-
-  <div class="grid2">
-    <div class="reason">
-      <h3>머신러닝인 이유</h3>
-      <p>사람이 일부 리뷰에 <strong>긍정 / 부정 정답(label)</strong>을 붙여주면 컴퓨터가 그 예시에서 분류 규칙을 학습합니다.</p>
-      <div class="mini-flow">
-        <div class="node">리뷰 + 정답</div><div class="arr">→</div>
-        <div class="node g">학습</div><div class="arr">→</div>
-        <div class="node">분류 규칙</div><div class="arr">→</div>
-        <div class="node g">새 리뷰 예측</div>
-      </div>
-      <p><strong>대표 알고리즘:</strong> Logistic Regression, SVM, Random Forest, Naive Bayes</p>
-    </div>
-
-    <div class="reason">
-      <h3>분석 프로그램</h3>
-      <div class="program">Orange → Logistic Regression / SVM / Random Forest</div>
-      <div class="program">Python → scikit-learn</div>
-      <div class="program">R → caret / tidymodels</div>
-      <div class="program">RapidMiner</div>
-    </div>
+  <div class="top-nav">
+    <button class="top-prev" aria-label="이전 슬라이드">←</button>
+    <span class="top-counter">1 / 1</span>
+    <button class="top-next" aria-label="다음 슬라이드">→</button>
   </div>
-
-  <div class="code">Orange 예시 흐름
+</div>
+<div class="subtitle">텍스트 마이닝 + 지도학습(Supervised Learning)</div>
+<div class="grid2">
+<div class="reason">
+<h3>머신러닝인 이유</h3>
+<p>사람이 일부 리뷰에 <strong>긍정 / 부정 정답(label)</strong>을 붙여주면 컴퓨터가 그 예시에서 분류 규칙을 학습합니다.</p>
+<div class="mini-flow">
+<div class="node">리뷰 + 정답</div><div class="arr">→</div>
+<div class="node g">학습</div><div class="arr">→</div>
+<div class="node">분류 규칙</div><div class="arr">→</div>
+<div class="node g">새 리뷰 예측</div>
+</div>
+<p><strong>대표 알고리즘:</strong> Logistic Regression, SVM, Random Forest, Naive Bayes</p>
+</div>
+<div class="reason">
+<h3>분석 프로그램</h3>
+<div class="program">Orange → Logistic Regression / SVM / Random Forest</div>
+<div class="program">Python → scikit-learn</div>
+<div class="program">R → caret / tidymodels</div>
+<div class="program">RapidMiner</div>
+</div>
+</div>
+<div class="code">Orange 예시 흐름
 File → Corpus → Preprocess Text → Bag of Words
-→ Logistic Regression / SVM → Test & Score → Predictions</div>
+→ Logistic Regression / SVM → Test &amp; Score → Predictions</div>
+<div>이번에는 리뷰를 긍정과 부정으로 자동 분류한다고 해보겠습니다. 사람이 일부 리뷰에 긍정 또는 부정이라는 정답을 붙여주고, 컴퓨터가 그 예시를 통해 분류 규칙을 학습합니다. 이것이 지도학습입니다. Logistic Regression이나 SVM 같은 알고리즘을 사용하면 전형적인 머신러닝 분류 문제가 됩니다.</div></div>
+
+  <div class="script-note">사람이 먼저 일부 리뷰에 긍정과 부정이라는 정답을 붙여주면 컴퓨터가 그 예시를 보고 분류 규칙을 배웁니다. 그리고 새로운 리뷰가 들어왔을 때 어느 쪽에 가까운지 예측합니다. 이렇게 정답을 보고 배우는 방식이 지도학습입니다.</div>
 </section>
-
 <section class="slide">
+<div class="slide-header">
   <h1>6. 왜 BERT 감성분석은 딥러닝인가?</h1>
-  <div class="subtitle">감성분석이라는 목적은 같지만, 사용하는 모델이 다름</div>
-
-  <div class="grid2">
-    <div class="reason">
-      <h3>전통적 머신러닝</h3>
-      <div class="mini-flow">
-        <div class="node">문장</div><div class="arr">→</div>
-        <div class="node">TF-IDF</div><div class="arr">→</div>
-        <div class="node g">SVM / Logistic</div><div class="arr">→</div>
-        <div class="node">긍정·부정</div>
-      </div>
-      <p>단어를 숫자 벡터로 바꾸고 별도의 분류 알고리즘이 학습합니다.</p>
-    </div>
-
-    <div class="reason">
-      <h3>BERT 딥러닝</h3>
-      <div class="mini-flow">
-        <div class="node">문장</div><div class="arr">→</div>
-        <div class="node p">Transformer</div><div class="arr">→</div>
-        <div class="node p">BERT</div><div class="arr">→</div>
-        <div class="node">긍정·부정</div>
-      </div>
-      <p>BERT는 여러 층의 Transformer 신경망을 이용해 <strong>문맥 관계</strong>를 학습합니다.</p>
-    </div>
+  <div class="top-nav">
+    <button class="top-prev" aria-label="이전 슬라이드">←</button>
+    <span class="top-counter">1 / 1</span>
+    <button class="top-next" aria-label="다음 슬라이드">→</button>
   </div>
-
-  <div class="highlight">
-    예: “호텔은 정말 좋았는데 다시 가고 싶지는 않다.”<br>
+</div>
+<div class="subtitle">감성분석이라는 목적은 같지만, 사용하는 모델이 다름</div>
+<div class="grid2">
+<div class="reason">
+<h3>전통적 머신러닝</h3>
+<div class="mini-flow">
+<div class="node">문장</div><div class="arr">→</div>
+<div class="node">TF-IDF</div><div class="arr">→</div>
+<div class="node g">SVM / Logistic</div><div class="arr">→</div>
+<div class="node">긍정·부정</div>
+</div>
+<p>단어를 숫자 벡터로 바꾸고 별도의 분류 알고리즘이 학습합니다.</p>
+</div>
+<div class="reason">
+<h3>BERT 딥러닝</h3>
+<div class="mini-flow">
+<div class="node">문장</div><div class="arr">→</div>
+<div class="node p">Transformer</div><div class="arr">→</div>
+<div class="node p">BERT</div><div class="arr">→</div>
+<div class="node">긍정·부정</div>
+</div>
+<p>BERT는 여러 층의 Transformer 신경망을 이용해 <strong>문맥 관계</strong>를 학습합니다.</p>
+</div>
+</div>
+<div class="highlight">
+    예: “호텔은 정말 좋았는데 다시 가고 싶지는 않다.”<br/>
     단어 빈도만 보면 “좋았다”가 강하게 보일 수 있지만, BERT는 문장 전체의 문맥을 고려하도록 설계된 딥러닝 모델입니다.
   </div>
+<div class="grid2" style="margin-top:16px">
+<div class="reason">
+<h3>대표 모델</h3>
+<p>BERT · KoBERT · KLUE-BERT · KoELECTRA · RoBERTa</p>
+</div>
+<div class="reason">
+<h3>대표 프로그램</h3>
+<div class="program">Python + Hugging Face Transformers</div>
+<div class="program">PyTorch / TensorFlow</div>
+<div class="program">Google Colab</div>
+</div>
+</div>
+<div>BERT도 긍정과 부정을 분류할 수 있지만, 앞의 방법과 내부 구조가 다릅니다. BERT는 Transformer 기반의 여러 층 신경망을 이용해 단어 하나가 아니라 문장 안의 문맥 관계까지 학습합니다. 그래서 같은 감성분석이라도 BERT를 사용하면 딥러닝이라고 부릅니다. Python과 Hugging Face, PyTorch를 함께 사용하는 경우가 많습니다.</div></div>
 
-  <div class="grid2" style="margin-top:16px">
-    <div class="reason">
-      <h3>대표 모델</h3>
-      <p>BERT · KoBERT · KLUE-BERT · KoELECTRA · RoBERTa</p>
-    </div>
-    <div class="reason">
-      <h3>대표 프로그램</h3>
-      <div class="program">Python + Hugging Face Transformers</div>
-      <div class="program">PyTorch / TensorFlow</div>
-      <div class="program">Google Colab</div>
-    </div>
-  </div>
+  <div class="script-note">감성분석 자체가 곧 딥러닝이라는 뜻은 아닙니다. 같은 감성분석이라도 Logistic Regression이나 SVM을 쓰면 머신러닝이고, BERT처럼 Transformer 기반의 여러 신경망 층을 쓰면 딥러닝입니다. 결국 어떤 모델을 사용했는지가 기준입니다.</div>
 </section>
-
 <section class="slide">
+<div class="slide-header">
   <h1>7. 왜 고객 군집분석은 머신러닝인가?</h1>
-  <div class="subtitle">정답 없이 비슷한 고객을 스스로 묶는 비지도학습</div>
-
-  <div class="grid2">
-    <div class="reason">
-      <h3>머신러닝인 이유</h3>
-      <p>“이 고객은 어떤 유형이다”라는 정답을 미리 주지 않습니다.</p>
-      <div class="mini-flow">
-        <div class="node">숙박비</div>
-        <div class="node">체류일</div>
-        <div class="node">식음료 지출</div>
-        <div class="node">관광활동</div>
-        <div class="arr">→</div>
-        <div class="node g">유사도 계산</div>
-        <div class="arr">→</div>
-        <div class="node g">Cluster 1·2·3</div>
-      </div>
-      <p><strong>대표 알고리즘:</strong> K-means, Hierarchical Clustering, DBSCAN</p>
-    </div>
-
-    <div class="reason">
-      <h3>분석 프로그램</h3>
-      <div class="program">Orange → K-Means / Hierarchical Clustering</div>
-      <div class="program">SPSS → K-Means / 계층적 군집분석</div>
-      <div class="program">Python → scikit-learn</div>
-      <div class="program">R → cluster / factoextra</div>
-    </div>
+  <div class="top-nav">
+    <button class="top-prev" aria-label="이전 슬라이드">←</button>
+    <span class="top-counter">1 / 1</span>
+    <button class="top-next" aria-label="다음 슬라이드">→</button>
   </div>
-
-  <div class="note">
+</div>
+<div class="subtitle">정답 없이 비슷한 고객을 스스로 묶는 비지도학습</div>
+<div class="grid2">
+<div class="reason">
+<h3>머신러닝인 이유</h3>
+<p>“이 고객은 어떤 유형이다”라는 정답을 미리 주지 않습니다.</p>
+<div class="mini-flow">
+<div class="node">숙박비</div>
+<div class="node">체류일</div>
+<div class="node">식음료 지출</div>
+<div class="node">관광활동</div>
+<div class="arr">→</div>
+<div class="node g">유사도 계산</div>
+<div class="arr">→</div>
+<div class="node g">Cluster 1·2·3</div>
+</div>
+<p><strong>대표 알고리즘:</strong> K-means, Hierarchical Clustering, DBSCAN</p>
+</div>
+<div class="reason">
+<h3>분석 프로그램</h3>
+<div class="program">Orange → K-Means / Hierarchical Clustering</div>
+<div class="program">SPSS → K-Means / 계층적 군집분석</div>
+<div class="program">Python → scikit-learn</div>
+<div class="program">R → cluster / factoextra</div>
+</div>
+</div>
+<div class="note">
     연구자는 분석 결과를 보고 사후에 “고소비 장기체류형”, “저비용 단기체류형”처럼 군집의 의미를 해석합니다.
   </div>
+<div>고객 군집분석은 정답을 미리 주지 않는다는 것이 핵심입니다. 숙박비, 체류일, 관광활동 같은 특성을 보고 비슷한 고객끼리 자동으로 묶습니다. 그래서 비지도학습에 해당하고, K-means가 대표적인 방법입니다. 분석이 끝난 뒤 연구자가 각 군집의 특징을 보고 고소비형, 장기체류형처럼 이름을 붙입니다.</div></div>
+
+  <div class="script-note">군집분석은 미리 정답을 주지 않고 고객들의 특성이 얼마나 비슷한지를 보고 자동으로 묶습니다. 그래서 비지도학습에 해당합니다. 분석이 끝난 뒤에는 연구자가 각 군집의 특징을 보고 장기체류형이나 고소비형처럼 의미를 붙이게 됩니다.</div>
 </section>
-
 <section class="slide">
+<div class="slide-header">
   <h1>8. 분석 목적과 분석 방법을 구분하자</h1>
-  <div class="subtitle">가장 중요한 개념 구분</div>
-
-  <div class="card">
-    <table>
-      <thead>
-        <tr>
-          <th>질문</th>
-          <th>분석 성격</th>
-          <th>방법</th>
-          <th>프로그램</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>어떤 단어가 많이 나왔나?</strong></td>
-          <td>텍스트 마이닝</td>
-          <td>빈도, TF-IDF</td>
-          <td>Orange, KH Coder, Python</td>
-        </tr>
-        <tr>
-          <td><strong>이 리뷰는 긍정인가 부정인가?</strong></td>
-          <td>텍스트 마이닝 + 머신러닝</td>
-          <td>Logistic, SVM</td>
-          <td>Orange, Python</td>
-        </tr>
-        <tr>
-          <td><strong>문맥까지 이해해서 감성을 판단할까?</strong></td>
-          <td>텍스트 마이닝 + 딥러닝</td>
-          <td>BERT, Transformer</td>
-          <td>Python, Hugging Face, PyTorch</td>
-        </tr>
-        <tr>
-          <td><strong>비슷한 관광객을 자동으로 묶을까?</strong></td>
-          <td>데이터 마이닝 + 머신러닝</td>
-          <td>K-means</td>
-          <td>Orange, SPSS, Python</td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="top-nav">
+    <button class="top-prev" aria-label="이전 슬라이드">←</button>
+    <span class="top-counter">1 / 1</span>
+    <button class="top-next" aria-label="다음 슬라이드">→</button>
   </div>
-
-  <div class="highlight">
-    <strong>중요:</strong> “감성분석 = 딥러닝”이 아닙니다.<br>
+</div>
+<div class="subtitle">가장 중요한 개념 구분</div>
+<div class="card">
+<table>
+<thead>
+<tr>
+<th>질문</th>
+<th>분석 성격</th>
+<th>방법</th>
+<th>프로그램</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>어떤 단어가 많이 나왔나?</strong></td>
+<td>텍스트 마이닝</td>
+<td>빈도, TF-IDF</td>
+<td>Orange, KH Coder, Python</td>
+</tr>
+<tr>
+<td><strong>이 리뷰는 긍정인가 부정인가?</strong></td>
+<td>텍스트 마이닝 + 머신러닝</td>
+<td>Logistic, SVM</td>
+<td>Orange, Python</td>
+</tr>
+<tr>
+<td><strong>문맥까지 이해해서 감성을 판단할까?</strong></td>
+<td>텍스트 마이닝 + 딥러닝</td>
+<td>BERT, Transformer</td>
+<td>Python, Hugging Face, PyTorch</td>
+</tr>
+<tr>
+<td><strong>비슷한 관광객을 자동으로 묶을까?</strong></td>
+<td>데이터 마이닝 + 머신러닝</td>
+<td>K-means</td>
+<td>Orange, SPSS, Python</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="highlight">
+<strong>중요:</strong> “감성분석 = 딥러닝”이 아닙니다.<br/>
     감성분석은 <strong>분석 목적</strong>이고,
     Logistic Regression을 쓰면 머신러닝,
     BERT를 쓰면 딥러닝입니다.
   </div>
-</section>
+<div>여기서 가장 중요한 구분은 분석 목적과 분석 방법입니다. 예를 들어 감성분석은 목적이고, 그 목적을 Logistic Regression으로 수행하면 머신러닝, BERT로 수행하면 딥러닝입니다. 따라서 감성분석 자체가 곧 딥러닝이라는 뜻은 아닙니다. 어떤 알고리즘을 사용했는지를 반드시 확인해야 합니다.</div></div>
 
+  <div class="script-note">여기서 가장 중요한 것은 목적과 방법을 구분하는 것입니다. 감성분석은 무엇을 알고 싶은지에 대한 목적이고, Logistic Regression이나 SVM, BERT는 그 목적을 해결하기 위해 선택하는 방법입니다. 이 둘을 나눠 생각하면 개념이 훨씬 정리됩니다.</div>
+</section>
 <section class="slide">
+<div class="slide-header">
   <h1>9. 관광빅데이터분석 수업용 학습 단계</h1>
-  <div class="subtitle">학생들이 난이도 순서대로 이해하도록 구성</div>
-
-  <div class="flow-wrap">
-    <div class="flow">① Orange<br><small>시각적 머신러닝</small></div>
-    <div class="arrow">→</div>
-    <div class="flow">② SPSS / Orange<br><small>군집·분류</small></div>
-    <div class="arrow">→</div>
-    <div class="flow">③ Python<br><small>머신러닝</small></div>
-    <div class="arrow">→</div>
-    <div class="flow">④ Python + BERT<br><small>딥러닝</small></div>
+  <div class="top-nav">
+    <button class="top-prev" aria-label="이전 슬라이드">←</button>
+    <span class="top-counter">1 / 1</span>
+    <button class="top-next" aria-label="다음 슬라이드">→</button>
   </div>
+</div>
+<div class="subtitle">학생들이 난이도 순서대로 이해하도록 구성</div>
+<div class="flow-wrap">
+<div class="flow">① Orange<br/><small>시각적 머신러닝</small></div>
+<div class="arrow">→</div>
+<div class="flow">② SPSS / Orange<br/><small>군집·분류</small></div>
+<div class="arrow">→</div>
+<div class="flow">③ Python<br/><small>머신러닝</small></div>
+<div class="arrow">→</div>
+<div class="flow">④ Python + BERT<br/><small>딥러닝</small></div>
+</div>
+<div class="grid2">
+<div class="card">
+<h2>초급</h2>
+<div class="item">텍스트 빈도 분석</div>
+<div class="item">워드클라우드</div>
+<div class="item">K-means 군집</div>
+<div class="item">간단한 분류</div>
+</div>
+<div class="card">
+<h2>고급</h2>
+<div class="item">Python 데이터 전처리</div>
+<div class="item">scikit-learn 머신러닝</div>
+<div class="item">Transformer</div>
+<div class="item">BERT 감성분석</div>
+</div>
+</div>
+<div>수업에서는 난이도를 단계적으로 가져가면 좋습니다. 먼저 Orange로 분석 흐름을 눈으로 익히고, 군집과 분류를 이해한 다음 Python으로 넘어갑니다. 이후 scikit-learn으로 머신러닝을 해보고, 마지막에 BERT 같은 딥러닝 모델을 연결하면 학생들이 개념을 훨씬 자연스럽게 받아들일 수 있습니다.</div></div>
 
-  <div class="grid2">
-    <div class="card">
-      <h2>초급</h2>
-      <div class="item">텍스트 빈도 분석</div>
-      <div class="item">워드클라우드</div>
-      <div class="item">K-means 군집</div>
-      <div class="item">간단한 분류</div>
-    </div>
-    <div class="card">
-      <h2>고급</h2>
-      <div class="item">Python 데이터 전처리</div>
-      <div class="item">scikit-learn 머신러닝</div>
-      <div class="item">Transformer</div>
-      <div class="item">BERT 감성분석</div>
-    </div>
-  </div>
+  <div class="script-note">수업에서는 난이도를 단계적으로 가져가면 좋습니다. 먼저 Orange로 분석 흐름을 눈으로 익히고, 군집과 분류를 이해한 다음 Python으로 넘어갑니다. 이후 scikit-learn으로 머신러닝을 해보고, 마지막에 BERT 같은 딥러닝 모델을 연결하면 학생들이 개념을 훨씬 자연스럽게 받아들일 수 있습니다.</div>
 </section>
-
 <section class="slide">
+<div class="slide-header">
   <h1>10. 학생들에게 한 문장으로 설명하면</h1>
-  <div class="subtitle">수업용 최종 문장</div>
-
-  <div class="quote">
+  <div class="top-nav">
+    <button class="top-prev" aria-label="이전 슬라이드">←</button>
+    <span class="top-counter">1 / 1</span>
+    <button class="top-next" aria-label="다음 슬라이드">→</button>
+  </div>
+</div>
+<div class="subtitle">수업용 최종 문장</div>
+<div class="quote">
     데이터 마이닝은 데이터에서 패턴을 찾는 큰 분석 활동이고,
     텍스트 마이닝은 그중 텍스트를 대상으로 한 분석이다.
     머신러닝은 데이터를 통해 컴퓨터가 규칙을 학습하는 방법이며,
     딥러닝은 머신러닝 중 인공신경망을 깊게 사용하는 방법이다.
   </div>
+<div class="teach-grid">
+<div class="teach"><div class="q">Data Mining</div><div class="a">무엇을 발견할 것인가?</div></div>
+<div class="teach"><div class="q">Text Mining</div><div class="a">어떤 데이터에서 발견할 것인가?</div></div>
+<div class="teach"><div class="q">Machine / Deep Learning</div><div class="a">어떤 방법으로 학습할 것인가?</div></div>
+</div>
+<div>이 한 문장만 기억해도 전체 구조가 잡힙니다. 데이터 마이닝은 패턴을 찾는 큰 분석 활동, 텍스트 마이닝은 텍스트를 대상으로 하는 분석, 머신러닝은 데이터에서 규칙을 학습하는 방법, 딥러닝은 그 학습을 깊은 신경망으로 수행하는 방법입니다. 시험이나 발표에서도 이 구분을 중심으로 설명하면 됩니다.</div></div>
 
-  <div class="teach-grid">
-    <div class="teach"><div class="q">Data Mining</div><div class="a">무엇을 발견할 것인가?</div></div>
-    <div class="teach"><div class="q">Text Mining</div><div class="a">어떤 데이터에서 발견할 것인가?</div></div>
-    <div class="teach"><div class="q">Machine / Deep Learning</div><div class="a">어떤 방법으로 학습할 것인가?</div></div>
-  </div>
+  <div class="script-note">한 문장으로 정리하면 데이터 마이닝은 데이터에서 패턴을 찾는 큰 분석 활동이고, 텍스트 마이닝은 그중 텍스트를 대상으로 합니다. 머신러닝은 데이터를 통해 규칙을 학습하는 방법이고, 딥러닝은 그중 다층 인공신경망을 사용하는 방법입니다.</div>
 </section>
-
-
 <section class="slide">
+<div class="slide-header">
   <h1>11. 학습 목표</h1>
-  <div class="subtitle">이 단원을 마친 뒤 학생이 할 수 있어야 하는 것</div>
-
-  <div class="card">
-    <div class="goal-list">
-      <div class="goal"><b>① 개념 구분</b><br>데이터 마이닝, 텍스트 마이닝, 머신러닝, 딥러닝의 차이를 설명할 수 있다.</div>
-      <div class="goal"><b>② 포함관계 이해</b><br>AI → Machine Learning → Deep Learning의 관계를 설명할 수 있다.</div>
-      <div class="goal"><b>③ 분석 목적과 방법 구분</b><br>감성분석·군집분석 같은 분석 목적과 BERT·SVM·K-means 같은 분석 방법을 구분할 수 있다.</div>
-      <div class="goal"><b>④ 사례 판단</b><br>관광 리뷰·고객 데이터를 보고 적절한 분석 유형을 선택할 수 있다.</div>
-      <div class="goal"><b>⑤ 프로그램 연결</b><br>Orange, SPSS, Python, Hugging Face 등이 어떤 분석에 적합한지 설명할 수 있다.</div>
-      <div class="goal"><b>⑥ 결과 해석</b><br>분류·군집·감성분석 결과를 관광 의사결정과 연결하여 해석할 수 있다.</div>
-    </div>
+  <div class="top-nav">
+    <button class="top-prev" aria-label="이전 슬라이드">←</button>
+    <span class="top-counter">1 / 1</span>
+    <button class="top-next" aria-label="다음 슬라이드">→</button>
   </div>
-</section>
+</div>
+<div class="subtitle">이 단원을 마친 뒤 학생이 할 수 있어야 하는 것</div>
+<div class="card">
+<div class="goal-list">
+<div class="goal"><b>① 개념 구분</b><br/>데이터 마이닝, 텍스트 마이닝, 머신러닝, 딥러닝의 차이를 설명할 수 있다.</div>
+<div class="goal"><b>② 포함관계 이해</b><br/>AI → Machine Learning → Deep Learning의 관계를 설명할 수 있다.</div>
+<div class="goal"><b>③ 분석 목적과 방법 구분</b><br/>감성분석·군집분석 같은 분석 목적과 BERT·SVM·K-means 같은 분석 방법을 구분할 수 있다.</div>
+<div class="goal"><b>④ 사례 판단</b><br/>관광 리뷰·고객 데이터를 보고 적절한 분석 유형을 선택할 수 있다.</div>
+<div class="goal"><b>⑤ 프로그램 연결</b><br/>Orange, SPSS, Python, Hugging Face 등이 어떤 분석에 적합한지 설명할 수 있다.</div>
+<div class="goal"><b>⑥ 결과 해석</b><br/>분류·군집·감성분석 결과를 관광 의사결정과 연결하여 해석할 수 있다.</div>
+</div>
+</div>
+<div>이번 단원의 학습 목표를 확인해보겠습니다. 단순히 용어를 외우는 것이 아니라 네 개념의 차이와 포함관계를 설명하고, 실제 관광 데이터 사례에서 어떤 분석 방법을 써야 하는지 판단하는 것이 목표입니다. 또한 Orange, SPSS, Python 같은 도구를 분석 목적과 연결할 수 있어야 합니다.</div></div>
 
+  <div class="script-note">이 단원에서는 용어를 외우는 것보다 실제 사례를 보고 어떤 분석에 해당하는지 설명할 수 있는 것이 중요합니다. 관광 데이터 상황을 보고 적절한 분석 방법과 프로그램까지 연결할 수 있으면 핵심을 이해한 것입니다.</div>
+</section>
 <section class="slide">
+<div class="slide-header">
   <h1>12. 반드시 기억할 것</h1>
-  <div class="subtitle">시험·발표·실습 전에 확인할 핵심 목록</div>
-
-  <div class="memory-list">
-    <div class="memory"><strong>1.</strong> 데이터 마이닝은 데이터에서 <b>패턴과 지식</b>을 발견하는 분석 활동이다.</div>
-    <div class="memory"><strong>2.</strong> 텍스트 마이닝은 리뷰·뉴스·SNS 등 <b>비정형 텍스트</b>를 분석한다.</div>
-    <div class="memory"><strong>3.</strong> 머신러닝은 데이터로부터 <b>규칙을 학습</b>하는 방법이다.</div>
-    <div class="memory"><strong>4.</strong> 딥러닝은 머신러닝의 하위 분야이며 <b>다층 신경망</b>을 사용한다.</div>
-    <div class="memory"><strong>5.</strong> AI → Machine Learning → Deep Learning은 비교적 명확한 포함관계다.</div>
-    <div class="memory"><strong>6.</strong> 감성분석은 <b>분석 목적</b>이다. 방법에 따라 머신러닝도, 딥러닝도 될 수 있다.</div>
-    <div class="memory"><strong>7.</strong> Logistic Regression·SVM은 대표적인 전통적 머신러닝 분류 방법이다.</div>
-    <div class="memory"><strong>8.</strong> BERT는 Transformer 기반 <b>딥러닝 모델</b>이다.</div>
-    <div class="memory"><strong>9.</strong> K-means는 정답 없이 유사한 대상을 묶는 <b>비지도학습</b>이다.</div>
-    <div class="memory"><strong>10.</strong> 실제 연구에서는 Text Mining + ML + DL이 <b>서로 결합</b>될 수 있다.</div>
+  <div class="top-nav">
+    <button class="top-prev" aria-label="이전 슬라이드">←</button>
+    <span class="top-counter">1 / 1</span>
+    <button class="top-next" aria-label="다음 슬라이드">→</button>
   </div>
+</div>
+<div class="subtitle">시험·발표·실습 전에 확인할 핵심 목록</div>
+<div class="memory-list">
+<div class="memory"><strong>1.</strong> 데이터 마이닝은 데이터에서 <b>패턴과 지식</b>을 발견하는 분석 활동이다.</div>
+<div class="memory"><strong>2.</strong> 텍스트 마이닝은 리뷰·뉴스·SNS 등 <b>비정형 텍스트</b>를 분석한다.</div>
+<div class="memory"><strong>3.</strong> 머신러닝은 데이터로부터 <b>규칙을 학습</b>하는 방법이다.</div>
+<div class="memory"><strong>4.</strong> 딥러닝은 머신러닝의 하위 분야이며 <b>다층 신경망</b>을 사용한다.</div>
+<div class="memory"><strong>5.</strong> AI → Machine Learning → Deep Learning은 비교적 명확한 포함관계다.</div>
+<div class="memory"><strong>6.</strong> 감성분석은 <b>분석 목적</b>이다. 방법에 따라 머신러닝도, 딥러닝도 될 수 있다.</div>
+<div class="memory"><strong>7.</strong> Logistic Regression·SVM은 대표적인 전통적 머신러닝 분류 방법이다.</div>
+<div class="memory"><strong>8.</strong> BERT는 Transformer 기반 <b>딥러닝 모델</b>이다.</div>
+<div class="memory"><strong>9.</strong> K-means는 정답 없이 유사한 대상을 묶는 <b>비지도학습</b>이다.</div>
+<div class="memory"><strong>10.</strong> 실제 연구에서는 Text Mining + ML + DL이 <b>서로 결합</b>될 수 있다.</div>
+</div>
+<div>시험이나 실습 전에 이 목록만 다시 보셔도 좋습니다. 특히 감성분석은 목적이고 BERT는 방법이라는 점, K-means는 비지도학습이라는 점, 그리고 BERT는 Transformer 기반 딥러닝이라는 점을 꼭 기억하세요. 실제 분석에서는 여러 방법이 함께 사용될 수 있다는 것도 중요합니다.</div></div>
+
+  <div class="script-note">여기 있는 내용은 최소한 기억해야 할 핵심입니다. 특히 감성분석은 목적이고 BERT는 방법이라는 점, 그리고 K-means가 정답 없이 묶는 비지도학습이라는 점은 꼭 기억해 두면 좋습니다.</div>
 </section>
-
 <section class="slide">
+<div class="slide-header">
   <h1>13. 한 장 압축표</h1>
-  <div class="subtitle">개념·목적·방법·프로그램·관광 사례를 한 번에 정리</div>
-
-  <div class="card">
-    <table class="compact">
-      <thead>
-        <tr>
-          <th>구분</th>
-          <th>핵심 질문</th>
-          <th>대표 방법</th>
-          <th>프로그램</th>
-          <th>관광 사례</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Data Mining</td>
-          <td>데이터에서 어떤 패턴을 찾을까?</td>
-          <td>분류·군집·연관규칙·예측</td>
-          <td>Orange, SPSS, Python, R</td>
-          <td>관광객 유형 발견, 재방문 예측</td>
-        </tr>
-        <tr>
-          <td>Text Mining</td>
-          <td>텍스트에서 무엇을 발견할까?</td>
-          <td>빈도, TF-IDF, 토픽, 감성</td>
-          <td>Orange, KH Coder, Python, 빅카인즈</td>
-          <td>호텔 리뷰 키워드, 관광뉴스 토픽</td>
-        </tr>
-        <tr>
-          <td>Machine Learning</td>
-          <td>데이터로 어떤 규칙을 학습할까?</td>
-          <td>Logistic, SVM, Random Forest, K-means</td>
-          <td>Orange, Python, R</td>
-          <td>리뷰 긍·부정 분류, 관광객 군집</td>
-        </tr>
-        <tr>
-          <td>Deep Learning</td>
-          <td>복잡한 패턴·문맥을 신경망으로 학습할까?</td>
-          <td>CNN, RNN/LSTM, Transformer, BERT</td>
-          <td>Python, PyTorch, TensorFlow, Hugging Face</td>
-          <td>BERT 관광리뷰 감성분석, 이미지 분석</td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="top-nav">
+    <button class="top-prev" aria-label="이전 슬라이드">←</button>
+    <span class="top-counter">1 / 1</span>
+    <button class="top-next" aria-label="다음 슬라이드">→</button>
   </div>
-
-  <div class="highlight">
-    <strong>한 줄 기억법:</strong>
+</div>
+<div class="subtitle">개념·목적·방법·프로그램·관광 사례를 한 번에 정리</div>
+<div class="card">
+<table class="compact">
+<thead>
+<tr>
+<th>구분</th>
+<th>핵심 질문</th>
+<th>대표 방법</th>
+<th>프로그램</th>
+<th>관광 사례</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data Mining</td>
+<td>데이터에서 어떤 패턴을 찾을까?</td>
+<td>분류·군집·연관규칙·예측</td>
+<td>Orange, SPSS, Python, R</td>
+<td>관광객 유형 발견, 재방문 예측</td>
+</tr>
+<tr>
+<td>Text Mining</td>
+<td>텍스트에서 무엇을 발견할까?</td>
+<td>빈도, TF-IDF, 토픽, 감성</td>
+<td>Orange, KH Coder, Python, 빅카인즈</td>
+<td>호텔 리뷰 키워드, 관광뉴스 토픽</td>
+</tr>
+<tr>
+<td>Machine Learning</td>
+<td>데이터로 어떤 규칙을 학습할까?</td>
+<td>Logistic, SVM, Random Forest, K-means</td>
+<td>Orange, Python, R</td>
+<td>리뷰 긍·부정 분류, 관광객 군집</td>
+</tr>
+<tr>
+<td>Deep Learning</td>
+<td>복잡한 패턴·문맥을 신경망으로 학습할까?</td>
+<td>CNN, RNN/LSTM, Transformer, BERT</td>
+<td>Python, PyTorch, TensorFlow, Hugging Face</td>
+<td>BERT 관광리뷰 감성분석, 이미지 분석</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="highlight">
+<strong>한 줄 기억법:</strong>
     Data Mining = 패턴 발견 /
     Text Mining = 텍스트 분석 /
     Machine Learning = 규칙 학습 /
     Deep Learning = 다층 신경망 학습
   </div>
-</section>
+<div>이 표는 오늘 배운 내용을 한 장으로 압축한 것입니다. 개념 이름만 보지 말고 핵심 질문, 대표 방법, 프로그램, 관광 사례를 같이 연결해서 보세요. 예를 들어 텍스트 마이닝이라고 하면 리뷰나 뉴스, 머신러닝이라고 하면 분류와 군집, 딥러닝이라고 하면 BERT나 Transformer가 바로 떠오르면 됩니다.</div></div>
 
+  <div class="script-note">이 표는 지금까지의 내용을 한 번에 정리한 것입니다. 개념 이름만 보지 말고 핵심 질문, 대표 방법, 프로그램, 관광 사례를 함께 보면 실제 분석에서 각각이 어디에 쓰이는지 훨씬 쉽게 연결할 수 있습니다.</div>
+</section>
 <section class="slide">
+<div class="slide-header">
   <h1>14. 퀴즈 ① 개념 확인</h1>
-  <div class="subtitle">선택지를 클릭하면 바로 정답을 확인할 수 있습니다.</div>
-
-  <div class="quiz-card">
-    <h3>Q1. 호텔 리뷰에서 자주 등장하는 단어의 빈도를 계산하는 분석은?</h3>
-    <div class="quiz-options">
-      <button onclick="answer(this,false,'q1')">A. 강화학습</button>
-      <button onclick="answer(this,true,'q1')">B. 텍스트 마이닝</button>
-      <button onclick="answer(this,false,'q1')">C. 딥러닝만 가능</button>
-      <button onclick="answer(this,false,'q1')">D. 회귀분석만 가능</button>
-    </div>
-    <div id="q1" class="quiz-feedback">단어 빈도·키워드 분석은 대표적인 텍스트 마이닝 작업입니다.</div>
+  <div class="top-nav">
+    <button class="top-prev" aria-label="이전 슬라이드">←</button>
+    <span class="top-counter">1 / 1</span>
+    <button class="top-next" aria-label="다음 슬라이드">→</button>
   </div>
+</div>
+<div class="subtitle">선택지를 클릭하면 바로 정답을 확인할 수 있습니다.</div>
+<div class="quiz-card">
+<h3>Q1. 호텔 리뷰에서 자주 등장하는 단어의 빈도를 계산하는 분석은?</h3>
+<div class="quiz-options">
+<button onclick="answer(this,false,'q1')">A. 강화학습</button>
+<button onclick="answer(this,true,'q1')">B. 텍스트 마이닝</button>
+<button onclick="answer(this,false,'q1')">C. 딥러닝만 가능</button>
+<button onclick="answer(this,false,'q1')">D. 회귀분석만 가능</button>
+</div>
+<div class="quiz-feedback" id="q1">단어 빈도·키워드 분석은 대표적인 텍스트 마이닝 작업입니다.</div>
+</div>
+<div class="quiz-card">
+<h3>Q2. 사람의 정답 라벨을 이용해 리뷰를 긍정/부정으로 학습시키는 것은?</h3>
+<div class="quiz-options">
+<button onclick="answer(this,true,'q2')">A. 지도학습</button>
+<button onclick="answer(this,false,'q2')">B. 비지도학습</button>
+<button onclick="answer(this,false,'q2')">C. 연관규칙만 해당</button>
+<button onclick="answer(this,false,'q2')">D. 단순 빈도분석</button>
+</div>
+<div class="quiz-feedback" id="q2">정답(label)을 이용해 학습하는 방식은 지도학습입니다.</div>
+</div>
+<div class="quiz-card">
+<h3>Q3. BERT가 딥러닝으로 분류되는 가장 직접적인 이유는?</h3>
+<div class="quiz-options">
+<button onclick="answer(this,false,'q3')">A. 표만 분석하기 때문에</button>
+<button onclick="answer(this,false,'q3')">B. SPSS에서만 사용하기 때문에</button>
+<button onclick="answer(this,true,'q3')">C. Transformer 기반 다층 신경망 모델이기 때문에</button>
+<button onclick="answer(this,false,'q3')">D. 단어 수만 세기 때문에</button>
+</div>
+<div class="quiz-feedback" id="q3">BERT는 Transformer 구조의 여러 신경망 층을 사용하는 딥러닝 모델입니다.</div>
+</div>
+<div>이제 개념을 제대로 구분했는지 확인해보겠습니다. 단순 암기보다는 왜 그 답이 맞는지를 생각하면서 선택해보세요. 특히 텍스트 마이닝과 머신러닝의 차이, 그리고 BERT가 왜 딥러닝인지에 집중하면 됩니다. 정답을 누르면 바로 해설이 나옵니다.</div></div>
 
-  <div class="quiz-card">
-    <h3>Q2. 사람의 정답 라벨을 이용해 리뷰를 긍정/부정으로 학습시키는 것은?</h3>
-    <div class="quiz-options">
-      <button onclick="answer(this,true,'q2')">A. 지도학습</button>
-      <button onclick="answer(this,false,'q2')">B. 비지도학습</button>
-      <button onclick="answer(this,false,'q2')">C. 연관규칙만 해당</button>
-      <button onclick="answer(this,false,'q2')">D. 단순 빈도분석</button>
-    </div>
-    <div id="q2" class="quiz-feedback">정답(label)을 이용해 학습하는 방식은 지도학습입니다.</div>
-  </div>
-
-  <div class="quiz-card">
-    <h3>Q3. BERT가 딥러닝으로 분류되는 가장 직접적인 이유는?</h3>
-    <div class="quiz-options">
-      <button onclick="answer(this,false,'q3')">A. 표만 분석하기 때문에</button>
-      <button onclick="answer(this,false,'q3')">B. SPSS에서만 사용하기 때문에</button>
-      <button onclick="answer(this,true,'q3')">C. Transformer 기반 다층 신경망 모델이기 때문에</button>
-      <button onclick="answer(this,false,'q3')">D. 단어 수만 세기 때문에</button>
-    </div>
-    <div id="q3" class="quiz-feedback">BERT는 Transformer 구조의 여러 신경망 층을 사용하는 딥러닝 모델입니다.</div>
-  </div>
+  <div class="script-note">이제 앞에서 본 내용을 바로 확인해 보겠습니다. 정답 자체보다 왜 다른 선택지는 아닌지 생각하면서 풀어보면 개념 차이를 더 확실하게 정리할 수 있습니다.</div>
 </section>
-
 <section class="slide">
+<div class="slide-header">
   <h1>15. 퀴즈 ② 사례·프로그램 연결</h1>
-  <div class="subtitle">관광빅데이터 실습 상황을 판단해 보세요.</div>
-
-  <div class="quiz-card">
-    <h3>Q4. 관광객의 숙박비·체류일·관광활동을 바탕으로 비슷한 사람끼리 자동으로 묶고 싶다. 가장 적절한 방법은?</h3>
-    <div class="quiz-options">
-      <button onclick="answer(this,false,'q4')">A. 단어 빈도</button>
-      <button onclick="answer(this,true,'q4')">B. K-means 군집분석</button>
-      <button onclick="answer(this,false,'q4')">C. BERT 번역</button>
-      <button onclick="answer(this,false,'q4')">D. 연관어 시각화만 수행</button>
-    </div>
-    <div id="q4" class="quiz-feedback">K-means는 정답 라벨 없이 유사한 관측치를 묶는 대표적인 비지도학습 방법입니다.</div>
+  <div class="top-nav">
+    <button class="top-prev" aria-label="이전 슬라이드">←</button>
+    <span class="top-counter">1 / 1</span>
+    <button class="top-next" aria-label="다음 슬라이드">→</button>
   </div>
+</div>
+<div class="subtitle">관광빅데이터 실습 상황을 판단해 보세요.</div>
+<div class="quiz-card">
+<h3>Q4. 관광객의 숙박비·체류일·관광활동을 바탕으로 비슷한 사람끼리 자동으로 묶고 싶다. 가장 적절한 방법은?</h3>
+<div class="quiz-options">
+<button onclick="answer(this,false,'q4')">A. 단어 빈도</button>
+<button onclick="answer(this,true,'q4')">B. K-means 군집분석</button>
+<button onclick="answer(this,false,'q4')">C. BERT 번역</button>
+<button onclick="answer(this,false,'q4')">D. 연관어 시각화만 수행</button>
+</div>
+<div class="quiz-feedback" id="q4">K-means는 정답 라벨 없이 유사한 관측치를 묶는 대표적인 비지도학습 방법입니다.</div>
+</div>
+<div class="quiz-card">
+<h3>Q5. 코딩 경험이 적은 학생이 K-means와 분류 알고리즘의 흐름을 시각적으로 실습하기 가장 쉬운 프로그램은?</h3>
+<div class="quiz-options">
+<button onclick="answer(this,true,'q5')">A. Orange</button>
+<button onclick="answer(this,false,'q5')">B. 메모장</button>
+<button onclick="answer(this,false,'q5')">C. PowerPoint만 사용</button>
+<button onclick="answer(this,false,'q5')">D. PDF Reader만 사용</button>
+</div>
+<div class="quiz-feedback" id="q5">Orange는 위젯 기반으로 데이터 전처리·분류·군집·평가 흐름을 시각적으로 구성할 수 있습니다.</div>
+</div>
+<div class="quiz-card">
+<h3>Q6. “감성분석은 항상 딥러닝이다”라는 설명은?</h3>
+<div class="quiz-options">
+<button onclick="answer(this,false,'q6')">A. 맞다. 감성분석은 무조건 BERT를 사용한다.</button>
+<button onclick="answer(this,true,'q6')">B. 틀리다. 감성분석은 목적이며 방법에 따라 머신러닝 또는 딥러닝이 될 수 있다.</button>
+<button onclick="answer(this,false,'q6')">C. 맞다. 머신러닝으로는 텍스트를 분석할 수 없다.</button>
+<button onclick="answer(this,false,'q6')">D. 틀리다. 감성분석은 데이터 분석이 아니다.</button>
+</div>
+<div class="quiz-feedback" id="q6">감성분석은 분석 목적입니다. Logistic Regression·SVM을 쓰면 머신러닝, BERT를 쓰면 딥러닝으로 수행할 수 있습니다.</div>
+</div>
+<div class="quiz-score">정답을 클릭하며 핵심 개념을 다시 확인하세요.</div>
+<div>마지막은 실제 사례와 프로그램을 연결하는 문제입니다. 관광객 군집에는 어떤 방법이 적절한지, 코딩 경험이 적을 때 어떤 프로그램이 쉬운지, 그리고 감성분석이 항상 딥러닝인지 판단해보세요. 이 세 가지를 정확히 구분하면 오늘 수업의 핵심은 이해한 것입니다.</div></div>
 
-  <div class="quiz-card">
-    <h3>Q5. 코딩 경험이 적은 학생이 K-means와 분류 알고리즘의 흐름을 시각적으로 실습하기 가장 쉬운 프로그램은?</h3>
-    <div class="quiz-options">
-      <button onclick="answer(this,true,'q5')">A. Orange</button>
-      <button onclick="answer(this,false,'q5')">B. 메모장</button>
-      <button onclick="answer(this,false,'q5')">C. PowerPoint만 사용</button>
-      <button onclick="answer(this,false,'q5')">D. PDF Reader만 사용</button>
-    </div>
-    <div id="q5" class="quiz-feedback">Orange는 위젯 기반으로 데이터 전처리·분류·군집·평가 흐름을 시각적으로 구성할 수 있습니다.</div>
-  </div>
-
-  <div class="quiz-card">
-    <h3>Q6. “감성분석은 항상 딥러닝이다”라는 설명은?</h3>
-    <div class="quiz-options">
-      <button onclick="answer(this,false,'q6')">A. 맞다. 감성분석은 무조건 BERT를 사용한다.</button>
-      <button onclick="answer(this,true,'q6')">B. 틀리다. 감성분석은 목적이며 방법에 따라 머신러닝 또는 딥러닝이 될 수 있다.</button>
-      <button onclick="answer(this,false,'q6')">C. 맞다. 머신러닝으로는 텍스트를 분석할 수 없다.</button>
-      <button onclick="answer(this,false,'q6')">D. 틀리다. 감성분석은 데이터 분석이 아니다.</button>
-    </div>
-    <div id="q6" class="quiz-feedback">감성분석은 분석 목적입니다. Logistic Regression·SVM을 쓰면 머신러닝, BERT를 쓰면 딥러닝으로 수행할 수 있습니다.</div>
-  </div>
-
-  <div class="quiz-score">정답을 클릭하며 핵심 개념을 다시 확인하세요.</div>
+  <div class="script-note">이번에는 실제 관광 데이터 상황을 보고 판단해 보겠습니다. 먼저 무엇을 알고 싶은지 보고, 그다음 정답 라벨이 있는지 없는지, 어떤 알고리즘을 쓰는지를 확인하면 답을 찾기 쉽습니다.</div>
 </section>
-
 <div class="navbar">
-  <button id="prev">← 이전</button>
-  <div class="counter"><span id="now">1</span> / <span id="total">16</span></div>
-  <div class="dots" id="dots"></div>
-  <button id="next">다음 →</button>
+<button id="prev">← 이전</button>
+<div class="counter"><span id="now">1</span> / <span id="total">16</span></div>
+<div class="dots" id="dots"></div>
+<button id="next">다음 →</button>
 </div>
 </div>
-
 <script>
 const slides=[...document.querySelectorAll('.slide')];
 const now=document.getElementById('now');
@@ -723,6 +1000,25 @@ slides.forEach((_,i)=>{
   d.onclick=()=>show(i);
   dots.appendChild(d);
 });
+
+
+function syncTopNav(){
+  const totalCount=slides.length;
+  document.querySelectorAll('.slide').forEach((s,j)=>{
+    const p=s.querySelector('.top-prev');
+    const n=s.querySelector('.top-next');
+    const c=s.querySelector('.top-counter');
+    if(p){
+      p.disabled=j===0;
+      p.onclick=()=>show(j-1);
+    }
+    if(n){
+      n.disabled=j===totalCount-1;
+      n.onclick=()=>show(j+1);
+    }
+    if(c) c.textContent=(j+1)+' / '+totalCount;
+  });
+}
 
 function show(i){
   idx=Math.max(0,Math.min(slides.length-1,i));
@@ -758,6 +1054,7 @@ function answer(btn,isCorrect,id){
   }
 }
 
+syncTopNav();
 show(0);
 </script>
 </body>
