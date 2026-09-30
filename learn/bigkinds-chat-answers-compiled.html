@@ -1,421 +1,302 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BIGKinds 수업자료 | 검색어 입력부터 연관어·관계도 분석까지</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>BIGKinds 수업자료 | 표 완전반영 좌우넘김</title>
 <style>
-:root {
-  --bg:#f6f8fb;
-  --card:#ffffff;
-  --ink:#1f2937;
-  --muted:#6b7280;
-  --line:#dfe5ec;
-  --accent:#1f5ea8;
-  --accent2:#0f766e;
-  --soft:#eaf2fb;
-  --warn:#fff7ed;
+:root{--bg:#edf2f7;--paper:#fff;--ink:#1f2937;--muted:#64748b;--blue:#1f5ea8;--blue2:#123a68;--teal:#0f766e;--line:#dbe4ee;--soft:#edf4fb;--warn:#fff7ed}
+*{box-sizing:border-box} html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;background:linear-gradient(135deg,#dde7f1,#f7f9fc);color:var(--ink)}
+.deck{position:relative;width:100%;height:100%}
+.slide{position:absolute;inset:0;display:none;padding:12px 20px 60px}.slide.active{display:block}
+.slide-inner{width:min(1260px,100%);height:100%;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:18px;padding:15px 18px;box-shadow:0 14px 42px rgba(15,23,42,.1);overflow:hidden}
+.cover{display:flex;flex-direction:column;justify-content:center;background:linear-gradient(135deg,#123a68,#1f5ea8);color:#fff}
+.eyebrow{font-size:13px;letter-spacing:.12em;font-weight:700;opacity:.86}
+h1{font-size:clamp(34px,5vw,60px);line-height:1.08;margin:10px 0 14px}
+h2{font-size:23px;line-height:1.18;color:var(--blue2);margin:0 0 8px}
+h3{font-size:15px;color:#0f4c81;margin:6px 0 4px}
+p{font-size:12.8px;line-height:1.37;margin:4px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.card{border:1px solid var(--line);border-radius:10px;padding:8px 9px;background:#fff}.soft{background:#f8fbff}.teal{background:#f0fdfa;border-color:#99f6e4}.warn{background:var(--warn);border-color:#fed7aa}
+.table-wrap{overflow:hidden;border:1px solid var(--line);border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:11.55px;line-height:1.24}
+th,td{padding:4.5px 6px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+th{background:var(--soft);color:var(--blue2);font-weight:800}tr:last-child td{border-bottom:0}th:last-child,td:last-child{border-right:0}
+.query{font-family:Consolas,"Courier New",monospace;background:#0f172a;color:#e2e8f0;padding:7px 9px;border-radius:8px;font-size:11.8px;line-height:1.32;margin:5px 0}
+.finalbox{margin-top:7px;padding:9px 11px;border-left:5px solid var(--teal);background:#edf7f5;border-radius:10px;font-size:12.5px;line-height:1.38}
+.flow{display:flex;flex-wrap:wrap;gap:5px;align-items:center;padding:8px 9px;border:1px solid #cfe7e2;background:#f0fdfa;border-radius:10px}
+.flow span{padding:4px 7px;background:#fff;border:1px solid #bfe1da;border-radius:999px;font-size:11.2px;font-weight:700}.flow b{color:var(--teal)}
+ul{margin:3px 0 0 16px;padding:0}li{font-size:12.1px;line-height:1.3;margin:2px 0}
+.quote{font-size:13px;font-weight:800;color:#153b66;padding:8px 10px;background:#f8fbff;border-left:4px solid var(--blue);border-radius:8px}
+.controls{position:fixed;left:0;right:0;bottom:8px;display:flex;align-items:center;justify-content:center;gap:14px;z-index:20}
+button{border:0;background:#153b66;color:white;width:39px;height:39px;border-radius:50%;font-size:18px;cursor:pointer;box-shadow:0 5px 15px rgba(15,23,42,.2)}
+button:disabled{opacity:.35}.counter{min-width:90px;text-align:center;padding:6px 10px;background:rgba(255,255,255,.95);border:1px solid var(--line);border-radius:999px;font-size:12px;font-weight:800;color:#153b66}
+.progress{position:fixed;left:0;bottom:0;height:4px;background:var(--blue);width:0}.hint{position:fixed;right:10px;top:7px;font-size:10px;color:var(--muted);background:rgba(255,255,255,.75);padding:4px 6px;border-radius:999px}
+@media(max-height:760px){.slide{padding:7px 12px 54px}.slide-inner{padding:10px 12px}h2{font-size:20px;margin-bottom:5px}table{font-size:10.3px}th,td{padding:3.5px 4px}p,li{font-size:11.1px}.finalbox,.quote{font-size:11.4px}}
+
+/* exact 10-slide fit tuning */
+.slide:nth-of-type(9) table{font-size:10.7px}
+.slide:nth-of-type(9) th,.slide:nth-of-type(9) td{padding:3.5px 5px}
+.slide:nth-of-type(9) .card,.slide:nth-of-type(9) .finalbox{padding:6px 8px;margin-top:5px}
+.slide:nth-of-type(10) p{font-size:11.7px;line-height:1.3}
+.slide:nth-of-type(10) .card{padding:6px 8px}
+</style>
+
+<style>
+.cover .flow span{
+  color:#123a68 !important;
+  background:#ffffff !important;
+  border-color:rgba(255,255,255,.92) !important;
+  font-weight:800 !important;
 }
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
-  background:var(--bg);
-  color:var(--ink);
-  line-height:1.72;
-}
-header{
-  padding:56px 24px 42px;
-  background:linear-gradient(135deg,#123a68,#1f5ea8);
-  color:white;
-}
-.header-inner{max-width:1100px;margin:auto}
-.kicker{font-size:14px;letter-spacing:.08em;opacity:.88;margin-bottom:8px}
-h1{font-size:clamp(30px,5vw,52px);line-height:1.18;margin:0 0 16px}
-.subtitle{font-size:18px;opacity:.92;max-width:850px}
-main{max-width:1100px;margin:0 auto;padding:30px 22px 70px}
-.toc{
-  background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px 24px;
-  box-shadow:0 8px 26px rgba(15,23,42,.06);margin-top:-26px;margin-bottom:28px;
-}
-.toc strong{display:block;margin-bottom:8px}
-.toc .chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{background:var(--soft);color:#174a83;padding:7px 11px;border-radius:999px;font-size:14px}
-.hero-line{font-size:20px;font-weight:800;margin:28px 0 8px;color:#123a68}
-.flow{
-  margin:18px 0 28px;padding:18px 20px;border-radius:14px;
-  background:#edf7f5;border-left:5px solid var(--accent2);font-weight:700;
-}
-.section-title{
-  margin:34px 0 14px;padding:16px 20px;
-  background:#fff;border:1px solid var(--line);border-radius:15px;
-  box-shadow:0 5px 16px rgba(15,23,42,.05)
-}
-.section-title h2{margin:0;color:#153b66;font-size:24px}
-h3{margin:28px 0 10px;color:#0f4c81;font-size:19px}
-p{background:#fff;border:1px solid #edf0f4;border-radius:13px;padding:16px 18px;margin:10px 0}
-.bullet{position:relative;background:#fff;padding:13px 16px 13px 42px;border-bottom:1px solid #eef2f6}
-.bullet:before{content:"✓";position:absolute;left:17px;color:var(--accent2);font-weight:800}
-.query{
-  font-family:Consolas,"Courier New",monospace;
-  background:#0f172a;color:#e2e8f0;padding:16px 18px;border-radius:13px;
-  overflow:auto;margin:14px 0;font-size:15px;
-}
-.note{
-  background:var(--warn);border:1px solid #fed7aa;border-left:5px solid #f97316;
-  padding:16px 18px;border-radius:12px;margin:16px 0;
-}
-.note strong{color:#c2410c;margin-right:8px}
-.table-wrap{overflow-x:auto;margin:16px 0 24px}
-table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
-th,td{padding:12px 14px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
-th{background:#eaf2fb;color:#123a68;font-weight:800}
-tr:last-child td{border-bottom:0}
-th:last-child,td:last-child{border-right:0}
-.footer-note{margin-top:40px;color:var(--muted);font-size:13px;text-align:center}
-@media print {
-  body{background:#fff}
-  header{background:#fff;color:#000;padding:20px 0}
-  main{padding:0}
-  .toc{box-shadow:none;margin:0 0 20px}
-  p,.section-title,table{break-inside:avoid}
+.cover .flow b{
+  color:#ffffff !important;
 }
 </style>
+
+
+<style>
+:root{
+  --bg:#eef3f8;--paper:#ffffff;--ink:#243142;--muted:#667085;
+  --blue:#245f9e;--blue2:#163d68;--teal:#0f766e;--line:#d7e0ea;
+  --soft:#edf5fb;--warn:#fff7ed;--shadow:0 18px 48px rgba(31,56,88,.12)
+}
+.slide{padding:18px 30px 66px !important}
+.slide-inner{
+  width:min(1320px,calc(100% - 6px)) !important;height:100% !important;
+  padding:24px 30px !important;border-radius:22px !important;
+  box-shadow:var(--shadow) !important;overflow:hidden !important
+}
+.cover{padding:54px 60px !important}
+.cover .eyebrow{font-size:15px !important;letter-spacing:.14em !important}
+.cover h1{
+  font-size:clamp(44px,5.8vw,76px) !important;line-height:1.05 !important;
+  margin:14px 0 18px !important;letter-spacing:-.03em !important
+}
+.cover > p{font-size:20px !important;line-height:1.48 !important}
+.cover .flow{margin-top:26px !important;gap:8px !important;padding:12px 14px !important}
+.cover .flow span{font-size:13.5px !important;padding:7px 11px !important;border-radius:999px !important}
+
+h2{font-size:30px !important;line-height:1.18 !important;margin:0 0 16px !important;letter-spacing:-.02em !important}
+h3{font-size:19px !important;line-height:1.25 !important;margin:10px 0 7px !important}
+p{font-size:15.5px !important;line-height:1.5 !important;margin:6px 0 !important}
+li{font-size:15px !important;line-height:1.45 !important}
+.grid2{gap:14px !important}.grid3{gap:14px !important}
+.card{
+  padding:14px 16px !important;border-radius:14px !important;
+  box-shadow:0 4px 14px rgba(31,56,88,.04) !important
+}
+.soft{background:#f8fbff !important}.teal{background:#f0fbf8 !important}.warn{background:#fff8ed !important}
+
+.table-wrap{border-radius:14px !important;box-shadow:0 3px 12px rgba(31,56,88,.035) !important}
+table{font-size:14.2px !important;line-height:1.36 !important}
+th,td{padding:8px 10px !important}
+th{font-size:14.5px !important;letter-spacing:-.01em !important}
+
+.query{
+  font-size:14.5px !important;line-height:1.45 !important;
+  padding:11px 14px !important;margin:10px 0 !important;border-radius:12px !important
+}
+.finalbox{
+  font-size:15px !important;line-height:1.48 !important;padding:12px 15px !important;
+  margin-top:10px !important;border-radius:12px !important
+}
+.quote{
+  font-size:15px !important;line-height:1.48 !important;padding:12px 14px !important;
+  border-radius:12px !important
+}
+.flow{gap:7px !important;padding:11px 12px !important;border-radius:12px !important}
+.flow span{font-size:13px !important;padding:6px 9px !important}
+
+.slide:nth-of-type(3) .card p{font-size:15px !important}
+.slide:nth-of-type(3) .flow span{font-size:12.8px !important}
+
+.slide:nth-of-type(4) table,
+.slide:nth-of-type(5) table,
+.slide:nth-of-type(6) table,
+.slide:nth-of-type(7) table,
+.slide:nth-of-type(8) table{font-size:14.5px !important}
+.slide:nth-of-type(4) th,.slide:nth-of-type(4) td,
+.slide:nth-of-type(5) th,.slide:nth-of-type(5) td,
+.slide:nth-of-type(6) th,.slide:nth-of-type(6) td,
+.slide:nth-of-type(7) th,.slide:nth-of-type(7) td,
+.slide:nth-of-type(8) th,.slide:nth-of-type(8) td{padding:9px 11px !important}
+
+.slide:nth-of-type(9) h2{font-size:27px !important;margin-bottom:10px !important}
+.slide:nth-of-type(9) table{font-size:12.6px !important;line-height:1.28 !important}
+.slide:nth-of-type(9) th,.slide:nth-of-type(9) td{padding:5px 7px !important}
+.slide:nth-of-type(9) .card{padding:8px 10px !important}
+.slide:nth-of-type(9) .card p{font-size:13.4px !important;line-height:1.35 !important}
+.slide:nth-of-type(9) .finalbox{font-size:13.8px !important;padding:8px 10px !important}
+
+.slide:nth-of-type(10) h2{font-size:28px !important}
+.slide:nth-of-type(10) .card{padding:12px 14px !important}
+.slide:nth-of-type(10) .card p{font-size:14.5px !important;line-height:1.42 !important}
+.slide:nth-of-type(10) .flow{margin-top:10px !important}
+.slide:nth-of-type(10) .flow span{font-size:12.7px !important}
+
+button{width:46px !important;height:46px !important;font-size:21px !important}
+.counter{min-width:104px !important;font-size:13px !important;padding:8px 12px !important}
+.hint{font-size:11px !important;top:10px !important;right:14px !important}
+
+@media(max-height:800px){
+  .slide{padding:10px 18px 58px !important}
+  .slide-inner{padding:16px 20px !important}
+  h2{font-size:25px !important;margin-bottom:10px !important}
+  h3{font-size:17px !important}
+  p{font-size:13.8px !important;line-height:1.38 !important}
+  table{font-size:12.4px !important;line-height:1.28 !important}
+  th,td{padding:5px 7px !important}
+  .card{padding:10px 12px !important}
+  .finalbox,.quote{font-size:13.2px !important}
+  .query{font-size:13px !important}
+  .slide:nth-of-type(9) table{font-size:10.9px !important}
+  .slide:nth-of-type(9) th,.slide:nth-of-type(9) td{padding:3px 4px !important}
+  .slide:nth-of-type(10) .card p{font-size:12.2px !important}
+}
+</style>
+
 </head>
 <body>
-<header>
-  <div class="header-inner">
-    <div class="kicker">BIGKinds 수업자료</div>
-    <h1>검색어 입력부터 연관어 · 관계도 분석까지</h1>
-    <div class="subtitle">Word 통합본의 답변을 바탕으로 수업 흐름에 맞게 정리한 HTML 버전</div>
-  </div>
-</header>
-
-<main>
-  <div class="toc">
-    <strong>핵심 흐름</strong>
-    <div class="chips">
-      <span class="chip">검색어 설계</span>
-      <span class="chip">기간 설정</span>
-      <span class="chip">기사 검색</span>
-      <span class="chip">연관어 분석</span>
-      <span class="chip">관계도 분석</span>
-      <span class="chip">원문 확인</span>
-    </div>
-  </div>
-
-  <div class="hero-line">BIGKinds 수업자료</div>
-<div class="hero-line">검색어 입력부터 연관어·관계도 분석까지</div>
-<p>이 채팅창의 답변 통합본 · 예시 주제: ‘여가 만족’</p>
-<div class="flow">검색어 설계 → 기간 설정 → 기사 검색 → 연관어 분석 → 관계도 분석 → 원문 확인</div>
-<div class="section-title"><h2>1. ‘여가 만족’을 언론기사에서 어떻게 검색할까?</h2></div>
-<p>‘여가 만족’을 주제로 언론보도 내용을 수집해 텍스트 분석하려면, 단순히 ‘여가 만족’만 검색하기보다 여가 관련 표현과 만족 표현을 함께 잡는 방식이 좋습니다.</p>
+<div class="deck">
+<section class="slide active"><div class="slide-inner cover"><div class="eyebrow">BIGKinds 수업자료 · 표 완전반영판</div><h1>검색어 설계부터<br/>연관어 · 관계도 분석까지</h1><p style="font-size:17px;max-width:920px">검색어 입력 원리, 학생 실습, 기간 설정, 연관어·관계도 비교, 결과 해석까지 한 흐름으로 정리했습니다.</p><div class="flow" style="margin-top:18px;background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.25)">
+<span>검색식 설정</span><b>→</b><span>기사 수 확인</span><b>→</b><span>노이즈 검토</span><b>→</b><span>제외어 확정</span><b>→</b><span>데이터 다운로드</span><b>→</b><span>연도별 빈도</span><b>→</b><span>연관어</span><b>→</b><span>관계도</span><b>→</b><span>원문 확인</span></div></div></section>
+<section class="slide"><div class="slide-inner">
+<h2>2장. 빅카인즈 입력란 표 + 검색식</h2>
+<p>단순히 ‘여가 만족’만 검색하기보다, 여가 관련 표현과 만족 표현을 함께 잡는 방식이 좋습니다.</p>
 <div class="table-wrap"><table>
-<tr>
-<th>빅카인즈 입력란</th>
-<th>입력 내용</th>
-<th>의미</th>
-</tr>
-<tr>
-<td>검색어 처리</td>
-<td>형태소 분석</td>
-<td>그대로 유지</td>
-</tr>
-<tr>
-<td>검색어 범위</td>
-<td>제목+본문</td>
-<td>제목만 검색할 때보다 자료 누락을 줄임</td>
-</tr>
-<tr>
-<td>단어 중 1개 이상 포함</td>
-<td>여가 여가생활 여가활동 레저</td>
-<td>이 중 하나라도 등장</td>
-</tr>
-<tr>
-<td>다음단어 모두 포함</td>
-<td>만족</td>
-<td>‘만족’이 반드시 포함</td>
-</tr>
-<tr>
-<td>정확히 일치하는 단어</td>
-<td>처음에는 비워두기</td>
-<td>너무 좁아지는 것을 방지</td>
-</tr>
-<tr>
-<td>다음단어 제외</td>
-<td>처음에는 비워두기</td>
-<td>결과를 본 뒤 불필요 기사 제거</td>
-</tr>
+<tr><th>빅카인즈 입력란</th><th>입력 내용</th><th>의미</th></tr>
+<tr><td>검색어 처리</td><td>형태소 분석</td><td>그대로 유지</td></tr>
+<tr><td>검색어 범위</td><td>제목+본문</td><td>제목만 검색할 때보다 자료 누락을 줄임</td></tr>
+<tr><td>단어 중 1개 이상 포함</td><td>여가 · 여가생활 · 여가활동 · 레저</td><td>이 중 하나라도 등장</td></tr>
+<tr><td>다음단어 모두 포함</td><td>만족</td><td>‘만족’이 반드시 포함</td></tr>
+<tr><td>정확히 일치하는 단어</td><td>처음에는 비워두기</td><td>너무 좁아지는 것을 방지</td></tr>
+<tr><td>다음단어 제외</td><td>처음에는 비워두기</td><td>결과를 본 뒤 불필요 기사 제거</td></tr>
 </table></div>
 <div class="query">(여가 OR 여가생활 OR 여가활동 OR 레저) AND 만족</div>
-<p>이 방식은 기사에서 ‘여가활동에 대한 만족도가 높아졌다’, ‘여가생활 만족 수준이 증가했다’처럼 표현이 달라져도 함께 포착할 수 있다는 장점이 있습니다.</p>
-<p>검색 강도에 따른 3가지 방법</p>
-<p>① 엄격한 검색: 정확히 일치하는 단어에 ‘여가 만족’ 또는 ‘여가생활 만족’을 넣어 특정 표현 중심으로 검색합니다. 자료 수는 적어질 수 있습니다.</p>
-<div class="query">② 추천 방식: (여가 OR 여가생활 OR 여가활동 OR 문화여가 OR 레저) AND 만족 — 언론의 여가 만족 담론을 분석할 때 적절하며 키워드·연관어·토픽 분석에 활용하기 좋습니다.</div>
-<div class="query">③ 더 넓은 여가의 질 연구: (여가 OR 여가생활 OR 여가활동) AND (만족 OR 행복 OR 삶의질 OR 웰빙) — 행복·삶의 질·웰빙까지 함께 보고 싶을 때 사용합니다.</div>
+<div class="finalbox">‘여가활동 만족도’, ‘여가생활 만족 수준’처럼 표현이 달라도 함께 포착할 수 있습니다.</div>
+</div></section>
+<section class="slide"><div class="slide-inner">
+<h2>3장. 검색 강도 3가지 + 추천 분석 흐름</h2>
+<div class="grid3">
+<div class="card"><h3>① 엄격한 검색</h3><p>‘여가 만족’ 또는 ‘여가생활 만족’ 같은 정확한 표현 중심. 자료 수는 적어질 수 있음.</p></div>
+<div class="card teal"><h3>② 추천 방식</h3><p>(여가 OR 여가생활 OR 여가활동 OR 문화여가 OR 레저) AND 만족</p><p>언론 담론, 키워드·연관어·토픽 분석에 적합.</p></div>
+<div class="card warn"><h3>③ 더 넓은 여가의 질 연구</h3><p>(여가 OR 여가생활 OR 여가활동) AND (만족 OR 행복 OR 삶의질 OR 웰빙)</p><p>행복·삶의 질·웰빙까지 함께 볼 때 사용.</p></div>
+</div>
 <h3>추천 분석 흐름</h3>
-<p>검색식 설정 → 기사 수 확인 → 불필요 기사 20~30개 직접 검토 → 제외어 확정 → 최종 데이터 다운로드 → 연도별 빈도 → 연관어 → 토픽모델링 → 시기별 비교</p>
-<div class="section-title"><h2>2. 학생들에게 검색어 입력 원리를 어떻게 가르칠까?</h2></div>
-<p>수업에서는 검색어를 많이 넣기보다, 같은 주제를 검색조건만 바꾸어 결과가 어떻게 달라지는지 보여주는 방식이 효과적입니다.</p>
+<div class="flow"><span>검색식 설정</span><b>→</b><span>기사 수 확인</span><b>→</b><span>불필요 기사 20~30개 검토</span><b>→</b><span>제외어 확정</span><b>→</b><span>최종 데이터 다운로드</span><b>→</b><span>연도별 빈도</span><b>→</b><span>연관어</span><b>→</b><span>토픽모델링</span><b>→</b><span>시기별 비교</span></div>
+</div></section>
+<section class="slide"><div class="slide-inner">
+<h2>4장. 검색어 입력 원리 표</h2>
 <div class="table-wrap"><table>
-<tr>
-<th>단계</th>
-<th>빅카인즈 입력</th>
-<th>검색 논리</th>
-<th>학생 설명</th>
-</tr>
-<tr>
-<td>① 넓게 검색</td>
-<td>단어 중 1개 이상 포함: 여가 여가생활 여가활동</td>
-<td>OR</td>
-<td>셋 중 하나만 들어가도 검색</td>
-</tr>
-<tr>
-<td>② 주제 좁히기</td>
-<td>위 조건 + 다음단어 모두 포함: 만족</td>
-<td>(OR 묶음) AND 만족</td>
-<td>여가 관련 기사 중 ‘만족’도 포함된 기사</td>
-</tr>
-<tr>
-<td>③ 더 엄격하게</td>
-<td>정확히 일치하는 단어: 여가 만족 또는 여가생활 만족</td>
-<td>Exact</td>
-<td>정확한 표현 중심으로 검색</td>
-</tr>
-<tr>
-<td>④ 노이즈 제거</td>
-<td>다음단어 제외: 불필요한 단어</td>
-<td>NOT</td>
-<td>관계없는 기사 제거</td>
-</tr>
+<tr><th>단계</th><th>빅카인즈 입력</th><th>검색 논리</th><th>학생 설명</th></tr>
+<tr><td>① 넓게 검색</td><td>단어 중 1개 이상 포함: 여가 여가생활 여가활동</td><td>OR</td><td>셋 중 하나만 들어가도 검색</td></tr>
+<tr><td>② 주제 좁히기</td><td>위 조건 + 다음단어 모두 포함: 만족</td><td>(OR 묶음) AND 만족</td><td>여가 관련 기사 중 ‘만족’도 포함된 기사</td></tr>
+<tr><td>③ 더 엄격하게</td><td>정확히 일치하는 단어: 여가 만족 또는 여가생활 만족</td><td>Exact</td><td>정확한 표현 중심으로 검색</td></tr>
+<tr><td>④ 노이즈 제거</td><td>다음단어 제외: 불필요한 단어</td><td>NOT</td><td>관계없는 기사 제거</td></tr>
 </table></div>
-<p>“빅카인즈 검색은 단어를 입력하는 것이 아니라, 내가 원하는 기사를 어떤 조건으로 걸러낼 것인지를 설계하는 과정입니다.”</p>
-<p>OR는 검색범위를 넓히고, AND는 검색범위를 좁힙니다.</p>
-<p>학생 실습 예시</p>
+<div class="quote">“빅카인즈 검색은 단어를 입력하는 것이 아니라, 내가 원하는 기사를 어떤 조건으로 걸러낼 것인지를 설계하는 과정입니다.”</div>
+<div class="finalbox">OR는 검색범위를 넓히고, AND는 검색범위를 좁힙니다.</div>
+</div></section>
+<section class="slide"><div class="slide-inner">
+<h2>5장. 학생 실습 A~D 표</h2>
 <div class="table-wrap"><table>
-<tr>
-<th>실습</th>
-<th>검색조건</th>
-<th>기사 건수</th>
-<th>관찰</th>
-</tr>
-<tr>
-<td>A</td>
-<td>여가</td>
-<td>학생 입력</td>
-<td>기본 검색</td>
-</tr>
-<tr>
-<td>B</td>
-<td>여가 OR 여가생활 OR 여가활동</td>
-<td>학생 입력</td>
-<td>검색범위 ↑</td>
-</tr>
-<tr>
-<td>C</td>
-<td>(여가 OR 여가생활 OR 여가활동) AND 만족</td>
-<td>학생 입력</td>
-<td>검색범위 ↓</td>
-</tr>
-<tr>
-<td>D</td>
-<td>C + 제외어</td>
-<td>학생 입력</td>
-<td>불필요 기사 ↓</td>
-</tr>
+<tr><th>실습</th><th>검색조건</th><th>기사 건수</th><th>관찰</th></tr>
+<tr><td>A</td><td>여가</td><td>학생 입력</td><td>기본 검색</td></tr>
+<tr><td>B</td><td>여가 OR 여가생활 OR 여가활동</td><td>학생 입력</td><td>검색범위 ↑</td></tr>
+<tr><td>C</td><td>(여가 OR 여가생활 OR 여가활동) AND 만족</td><td>학생 입력</td><td>검색범위 ↓</td></tr>
+<tr><td>D</td><td>C + 제외어</td><td>학생 입력</td><td>불필요 기사 ↓</td></tr>
 </table></div>
-<p>검색어를 어떻게 설정하느냐에 따라 분석할 데이터 자체가 달라진다. 빅데이터 분석은 분석기법을 적용하기 전에 ‘검색어를 설계하는 것’에서 시작한다.</p>
-<div class="section-title"><h2>3. 수업용 HTML 자료로 정리한 구성</h2></div>
-<p>이 대화에서 별도의 좌우 넘김형 HTML 수업자료를 만들었으며, 실제 빅카인즈 화면 이미지와 함께 다음 순서로 구성했습니다.</p>
-<p>① 검색화면 이해</p>
-<p>② 실제 입력 예시</p>
-<p>③ OR·AND 비교</p>
-<p>④ 검색어 설계 절차</p>
-<p>⑤ 학생 실습</p>
-<p>⑥ 미니 퀴즈</p>
-<p>생성 파일명: 빅카인즈_검색어_입력방법_여가만족_수업용.html</p>
-<div class="section-title"><h2>4. 상세검색 화면의 4개 입력 칸에는 무엇을 넣을까?</h2></div>
+<div class="finalbox"><b>핵심:</b> 검색어를 어떻게 설정하느냐에 따라 분석할 데이터 자체가 달라집니다. 빅데이터 분석은 분석기법 이전에 ‘검색어 설계’에서 시작합니다.</div>
+</div></section>
+<section class="slide"><div class="slide-inner">
+<h2>6장. 상세검색 4개 입력칸 표 + 권장 화면 설정</h2>
 <div class="table-wrap"><table>
-<tr>
-<th>화면 입력 칸</th>
-<th>실제 입력</th>
-<th>학생에게 설명할 말</th>
-</tr>
-<tr>
-<td>단어 중 1개 이상 포함</td>
-<td>여가 여가생활 여가활동</td>
-<td>세 단어 중 하나라도 포함된 기사를 찾는다 → OR</td>
-</tr>
-<tr>
-<td>다음단어 모두 포함</td>
-<td>만족</td>
-<td>위 기사 중 ‘만족’이 반드시 들어간 기사만 찾는다 → AND</td>
-</tr>
-<tr>
-<td>정확히 일치하는 단어</td>
-<td>비워두기</td>
-<td>첫 검색에서는 너무 엄격하게 제한하지 않는다</td>
-</tr>
-<tr>
-<td>다음단어 제외</td>
-<td>비워두기</td>
-<td>검색 결과를 확인한 뒤 관계없는 기사에 반복되는 단어를 넣는다 → NOT</td>
-</tr>
+<tr><th>화면 입력 칸</th><th>실제 입력</th><th>학생에게 설명할 말</th></tr>
+<tr><td>단어 중 1개 이상 포함</td><td>여가 여가생활 여가활동</td><td>세 단어 중 하나라도 포함된 기사를 찾는다 → OR</td></tr>
+<tr><td>다음단어 모두 포함</td><td>만족</td><td>위 기사 중 ‘만족’이 반드시 들어간 기사만 찾는다 → AND</td></tr>
+<tr><td>정확히 일치하는 단어</td><td>비워두기</td><td>첫 검색에서는 너무 엄격하게 제한하지 않는다</td></tr>
+<tr><td>다음단어 제외</td><td>비워두기</td><td>관계없는 기사에 반복되는 단어를 넣는다 → NOT</td></tr>
 </table></div>
-<h3>권장 화면 설정: 검색유형=뉴스 / 검색어 처리=형태소 분석 / 검색어 범위=제목+본문 / 기자명=비워두기</h3>
-<p>첫 번째 칸은 비슷한 표현을 넓게 모으는 OR, 두 번째 칸은 반드시 포함할 핵심개념을 넣는 AND입니다.</p>
-<div class="section-title"><h2>5. 기간은 어떻게 설정할까?</h2></div>
-<p>상단의 ‘기간’을 클릭하여 시작일과 종료일을 지정합니다. 수업에서는 기간도 데이터 수집 범위를 정하는 분석설계 요소라고 설명하면 좋습니다.</p>
-<p>검색어는 ‘무엇을’ 수집할지를 결정하고, 기간은 ‘언제의 데이터’를 수집할지를 결정합니다.</p>
-<div class="table-wrap"><table>
-<tr>
-<th>실습 목적</th>
-<th>추천 기간</th>
-</tr>
-<tr>
-<td>검색 기능 연습</td>
-<td>최근 1년</td>
-</tr>
-<tr>
-<td>연도별 변화 확인</td>
-<td>최근 5년</td>
-</tr>
-<tr>
-<td>코로나 전후 비교</td>
-<td>2017~2019 vs. 2020~2022 vs. 2023~2025</td>
-</tr>
-<tr>
-<td>장기적인 여가 담론 변화</td>
-<td>2016.01.01~2025.12.31</td>
-</tr>
+<div class="grid2" style="margin-top:7px">
+<div class="card soft"><h3>권장 화면 설정</h3><p>검색유형=뉴스 / 검색어 처리=형태소 분석 / 검색어 범위=제목+본문 / 기자명=비워두기</p></div>
+<div class="card teal"><h3>기억할 것</h3><p>첫 번째 칸 = OR / 두 번째 칸 = AND</p></div>
+</div>
+</div></section>
+<section class="slide"><div class="slide-inner">
+<h2>7장. 기간 설정 표</h2>
+<div class="quote">검색어는 ‘무엇을’ 수집할지를 결정하고, 기간은 ‘언제의 데이터’를 수집할지를 결정합니다.</div>
+<div class="table-wrap" style="margin-top:7px"><table>
+<tr><th>실습 목적</th><th>추천 기간</th></tr>
+<tr><td>검색 기능 연습</td><td>최근 1년</td></tr>
+<tr><td>연도별 변화 확인</td><td>최근 5년</td></tr>
+<tr><td>코로나 전후 비교</td><td>2017~2019 vs. 2020~2022 vs. 2023~2025</td></tr>
+<tr><td>장기적인 여가 담론 변화</td><td>2016.01.01~2025.12.31</td></tr>
 </table></div>
 <div class="query">예: 2025.01.01~2025.12.31 + (여가 OR 여가생활 OR 여가활동) AND 만족</div>
-<div class="section-title"><h2>6. 연관어 분석과 관계도 분석을 어떻게 소개할까?</h2></div>
-<p>학생들에게는 ‘연관어 분석 = 어떤 단어가 함께 떠오르는가’, ‘관계도 분석 = 그 단어·기관·인물이 서로 어떻게 연결되어 있는가’로 구분하면 이해가 빠릅니다.</p>
+</div></section>
+<section class="slide"><div class="slide-inner">
+<h2>8장. 연관어 vs 관계도 간단 비교표</h2>
 <div class="table-wrap"><table>
-<tr>
-<th>구분</th>
-<th>연관어 분석</th>
-<th>관계도 분석</th>
-</tr>
-<tr>
-<td>핵심 질문</td>
-<td>검색어와 어떤 단어가 함께 등장하는가?</td>
-<td>기사 속 인물·기관·키워드가 서로 어떻게 연결되는가?</td>
-</tr>
-<tr>
-<td>보여주는 것</td>
-<td>주요 관련 키워드</td>
-<td>개체 간 연결망</td>
-</tr>
-<tr>
-<td>표현 방식</td>
-<td>워드클라우드, 막대그래프</td>
-<td>네트워크 그래프</td>
-</tr>
-<tr>
-<td>해석 포인트</td>
-<td>상대적으로 중요한 연관어 확인</td>
-<td>선으로 연결된 개체들의 관계 구조 확인</td>
-</tr>
-<tr>
-<td>용도</td>
-<td>이슈의 주요 내용 파악</td>
-<td>이슈의 구조·주체·관계 파악</td>
-</tr>
-<tr>
-<td>한마디</td>
-<td>무엇이 함께 언급되는가?</td>
-<td>무엇과 무엇이 연결되는가?</td>
-</tr>
+<tr><th>구분</th><th>연관어 분석</th><th>관계도 분석</th></tr>
+<tr><td>핵심 질문</td><td>검색어와 어떤 단어가 함께 등장하는가?</td><td>기사 속 인물·기관·키워드가 서로 어떻게 연결되는가?</td></tr>
+<tr><td>보여주는 것</td><td>주요 관련 키워드</td><td>개체 간 연결망</td></tr>
+<tr><td>표현 방식</td><td>워드클라우드, 막대그래프</td><td>네트워크 그래프</td></tr>
+<tr><td>해석 포인트</td><td>상대적으로 중요한 연관어 확인</td><td>선으로 연결된 개체들의 관계 구조 확인</td></tr>
+<tr><td>용도</td><td>이슈의 주요 내용 파악</td><td>이슈의 구조·주체·관계 파악</td></tr>
+<tr><td>한마디</td><td>무엇이 함께 언급되는가?</td><td>무엇과 무엇이 연결되는가?</td></tr>
 </table></div>
-<p>현재 ‘여가 만족’ 결과의 읽는 법</p>
-<p>연관어 화면에서 ‘최고치’, ‘조사 참여자’, ‘국민 10명’, ‘문화체육관광부’, ‘연차 소진율’, ‘문화예술행사’, ‘해외여행’ 등이 보인다면, 여가 만족 관련 보도가 개인의 감상보다는 조사·통계·정부 발표 맥락에서 많이 다뤄졌을 가능성을 생각해볼 수 있습니다.</p>
-<p>다만 워드클라우드의 글자 크기를 단순 빈도와 동일시하면 안 됩니다. 빅카인즈에서 선택한 데이터 유형이 ‘가중치’인지 ‘기사 건수’인지 먼저 확인해야 합니다.</p>
-<p>관계도 화면에서 문화체육관광부, 한국문화관광연구원, 코로나19, 근로자, 문화예술 관련 주체가 연결된다면, 여가 만족 이슈가 정부기관·조사기관·근로자·사회적 현상과 함께 보도되는 구조를 확인할 수 있습니다.</p>
-<div class="note"><strong>주의</strong> 관계도에서 연결되어 있다고 해서 인과관계가 있다는 뜻은 아닙니다. 연결구조를 본 뒤 원문 기사를 다시 확인해야 합니다.</div>
-<p>수업용 비유</p>
-<h3>연관어 분석 = 이 이야기의 주요 소재는 무엇인가?</h3>
-<h3>관계도 분석 = 이 이야기의 등장인물은 누구이고, 서로 어떤 관계인가?</h3>
-<p>또는 더 짧게: 연관어 분석 = 내용(Content) 파악 / 관계도 분석 = 구조(Relationship) 파악</p>
-<p>학생에게 던질 질문</p>
-<p>“우리는 ‘여가 만족’을 검색했는데 왜 ‘조사 참여자’, ‘국민 10명’, ‘문화체육관광부’가 크게 나왔을까요?”</p>
-<p>이 질문을 통해 학생들이 단어를 보는 데서 끝나지 않고, 왜 그런 단어가 크게 나타났는지 원문 기사로 다시 확인하도록 유도할 수 있습니다.</p>
-<p>검색 → 연관어 분석: ‘무엇이 함께 언급되는가?’ → 관계도 분석: ‘그것들이 어떻게 연결되는가?’ → 원문 확인: ‘왜 그런 관계가 나타났는가?’</p>
-<div class="section-title"><h2>7. 연관어 분석과 관계도 분석의 차이를 더 정확하게 정리</h2></div>
+</div></section>
+<section class="slide"><div class="slide-inner">
+<h2>9장. 연관어 vs 관계도 상세 비교표 + 수업용 최종 표현</h2>
 <div class="table-wrap"><table>
-<tr>
-<th>구분</th>
-<th>연관어 분석</th>
-<th>관계도 분석</th>
-</tr>
-<tr>
-<td>핵심 질문</td>
-<td>검색한 주제와 함께 나타나는 핵심 단어는 무엇인가?</td>
-<td>기사 속 주요 대상들이 서로 어떤 관계를 이루고 있는가?</td>
-</tr>
-<tr>
-<td>분석의 초점</td>
-<td>단어의 중요성</td>
-<td>대상 간 연결관계</td>
-</tr>
-<tr>
-<td>주로 보는 대상</td>
-<td>키워드·주제어</td>
-<td>인물·기관·장소·키워드</td>
-</tr>
-<tr>
-<td>보여주는 것</td>
-<td>검색 주제를 설명하는 주요 관련어</td>
-<td>주요 개체들이 형성하는 연결 구조</td>
-</tr>
-<tr>
-<td>표현 방식</td>
-<td>워드클라우드·막대그래프</td>
-<td>네트워크 그래프</td>
-</tr>
-<tr>
-<td>해석 방법</td>
-<td>어떤 단어가 검색 주제와 강하게 관련되는지 본다</td>
-<td>어떤 대상이 서로 함께 등장하고 연결되는지 본다</td>
-</tr>
-<tr>
-<td>알 수 있는 것</td>
-<td>이 이슈는 무엇에 관한 이야기인가?</td>
-<td>이 이슈에는 누가 등장하고, 서로 어떻게 얽혀 있는가?</td>
-</tr>
-<tr>
-<td>예: 여가 만족</td>
-<td>국민, 조사, 문화체육관광부, 여행 등이 관련어로 등장</td>
-<td>문화체육관광부 ↔ 한국문화관광연구원 ↔ 근로자 ↔ 코로나19 등의 연결 확인</td>
-</tr>
-<tr>
-<td>학생용 한마디</td>
-<td>주변에 어떤 단어가 따라오는가?</td>
-<td>등장한 대상들이 누구와 연결되는가?</td>
-</tr>
-<tr>
-<td>가장 쉬운 표현</td>
-<td>키워드를 찾는 분석</td>
-<td>연결관계를 찾는 분석</td>
-</tr>
+<tr><th>구분</th><th>연관어 분석</th><th>관계도 분석</th></tr>
+<tr><td>핵심 질문</td><td>검색한 주제와 함께 나타나는 핵심 단어는 무엇인가?</td><td>기사 속 주요 대상들이 서로 어떤 관계를 이루고 있는가?</td></tr>
+<tr><td>분석의 초점</td><td>단어의 중요성</td><td>대상 간 연결관계</td></tr>
+<tr><td>주로 보는 대상</td><td>키워드·주제어</td><td>인물·기관·장소·키워드</td></tr>
+<tr><td>보여주는 것</td><td>검색 주제를 설명하는 주요 관련어</td><td>주요 개체들이 형성하는 연결 구조</td></tr>
+<tr><td>표현 방식</td><td>워드클라우드·막대그래프</td><td>네트워크 그래프</td></tr>
+<tr><td>해석 방법</td><td>어떤 단어가 검색 주제와 강하게 관련되는지 본다</td><td>어떤 대상이 서로 함께 등장하고 연결되는지 본다</td></tr>
+<tr><td>알 수 있는 것</td><td>이 이슈는 무엇에 관한 이야기인가?</td><td>이 이슈에는 누가 등장하고, 서로 어떻게 얽혀 있는가?</td></tr>
+<tr><td>예: 여가 만족</td><td>국민, 조사, 문화체육관광부, 여행 등이 관련어로 등장</td><td>문화체육관광부 ↔ 한국문화관광연구원 ↔ 근로자 ↔ 코로나19 등 연결 확인</td></tr>
+<tr><td>학생용 한마디</td><td>주변에 어떤 단어가 따라오는가?</td><td>등장한 대상들이 누구와 연결되는가?</td></tr>
+<tr><td>가장 쉬운 표현</td><td><b>키워드를 찾는 분석</b></td><td><b>연결관계를 찾는 분석</b></td></tr>
 </table></div>
-<p>수업용 최종 표현</p>
-<h3>연관어 분석: “이 주제를 설명할 때 어떤 단어가 함께 나타나는가?”</h3>
-<h3>관계도 분석: “이 주제에 등장하는 주요 대상들은 서로 어떻게 연결되어 있는가?”</h3>
-<p>학생들이 기억하기 쉽게 정리하면: 연관어 = 내용 파악 / 관계도 = 구조 파악</p>
-<div class="section-title"><h2>8. 강의 마무리용 핵심 요약</h2></div>
-<p>검색어 설계: OR로 유사 표현을 넓게 모으고, AND로 핵심 조건을 좁힌다.</p>
-<h3>기간 설정: 분석 대상의 시간적 경계를 정한다.</h3>
-<h3>제외어 설정: 검색 결과를 검토한 뒤 노이즈를 줄인다.</h3>
-<h3>연관어 분석: 주제를 설명할 때 함께 나타나는 핵심 단어를 찾는다.</h3>
-<h3>관계도 분석: 기사 속 인물·기관·장소·키워드가 어떤 연결구조를 이루는지 본다.</h3>
-<div class="note"><strong>주의</strong> 원문 확인: 워드클라우드나 네트워크만으로 인과관계를 단정하지 않고 기사 원문으로 맥락을 확인한다.</div>
-<p>빅카인즈 분석의 핵심은 ‘버튼을 누르는 법’이 아니라, 어떤 데이터를 수집하고 어떻게 해석할 것인지를 설계하는 것입니다.</p>
+<div class="card teal" style="margin-bottom:8px"><p style="font-size:16px"><b>연관어 분석:</b> “이 주제를 설명할 때 어떤 단어가 함께 나타나는가?”</p></div><div class="card soft" style="margin-bottom:8px"><p style="font-size:16px"><b>관계도 분석:</b> “이 주제에 등장하는 주요 대상들은 서로 어떻게 연결되어 있는가?”</p></div><div class="finalbox" style="font-size:15px">학생들이 기억하기 쉽게 정리하면: <b>연관어 = 내용 파악 / 관계도 = 구조 파악</b></div></div></section>
+<section class="slide"><div class="slide-inner">
+<h2>10장. 해석 예시 + 원문 확인 + 학생 질문</h2>
+<div class="grid2">
+<div class="card teal"><h3>연관어 화면</h3><p>‘최고치’, ‘조사 참여자’, ‘국민 10명’, ‘문화체육관광부’, ‘연차 소진율’, ‘문화예술행사’, ‘해외여행’ 등이 보인다면 조사·통계·정부 발표 맥락에서 많이 다뤄졌을 가능성을 생각할 수 있습니다.</p><p><b>주의:</b> 워드클라우드 글자 크기가 ‘가중치’인지 ‘기사 건수’인지 먼저 확인합니다.</p></div>
+<div class="card soft"><h3>관계도 화면</h3><p>문화체육관광부, 한국문화관광연구원, 코로나19, 근로자, 문화예술 관련 주체가 연결된다면 어떤 주체들이 함께 등장하는지 구조를 볼 수 있습니다.</p><p><b>중요:</b> 연결되어 있다고 해서 인과관계가 있다는 뜻은 아닙니다. 반드시 원문 기사를 다시 확인합니다.</p></div>
+</div>
 
-  <div class="footer-note">
-    원본: 빅카인즈_검색어입력_연관어관계도분석_채팅답변통합본.docx
-  </div>
-</main>
+<div class="grid2" style="margin-top:7px">
+<div class="card">
+<h3>원문 확인</h3>
+<p>연관어와 관계도만 보고 결론 내리지 않고, 실제 기사 원문을 다시 읽어 왜 그런 단어와 연결이 나타났는지 확인합니다.</p>
+</div>
+<div class="card warn">
+<h3>학생에게 던질 질문</h3>
+<p>“우리는 ‘여가 만족’을 검색했는데 왜 ‘조사 참여자’, ‘국민 10명’, ‘문화체육관광부’가 크게 나왔을까요?”</p>
+</div>
+</div>
+<div class="flow" style="margin-top:7px">
+<span>검색</span><b>→</b><span>연관어: 무엇이 함께 언급되는가?</span><b>→</b><span>관계도: 그것들이 어떻게 연결되는가?</span><b>→</b><span>원문 확인: 왜 그런 관계가 나타났는가?</span>
+</div></div></section>
+
+
+</div>
+<div class="hint">← → 방향키</div>
+<div class="controls"><button id="prev">←</button><div class="counter"><span id="current">1</span> / <span id="total">10</span></div><button id="next">→</button></div>
+<div class="progress" id="progress"></div>
+<script>
+const slides=[...document.querySelectorAll('.slide')];let idx=0;
+function show(i){idx=Math.max(0,Math.min(i,slides.length-1));slides.forEach((s,n)=>s.classList.toggle('active',n===idx));document.getElementById('current').textContent=idx+1;document.getElementById('total').textContent=slides.length;document.getElementById('prev').disabled=idx===0;document.getElementById('next').disabled=idx===slides.length-1;document.getElementById('progress').style.width=((idx+1)/slides.length*100)+'%'}
+document.getElementById('prev').onclick=()=>show(idx-1);document.getElementById('next').onclick=()=>show(idx+1);
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' ')show(idx+1);if(e.key==='ArrowLeft'||e.key==='PageUp')show(idx-1)});
+show(0);
+</script>
 </body>
 </html>
