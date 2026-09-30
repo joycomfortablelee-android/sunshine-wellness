@@ -1122,6 +1122,26 @@
     .learn-article .learn-fig.ax-form figcaption {
       text-align: left; color: #4d5f74;   /* 설명이 길어 가운데 정렬이면 줄 머리가 고르지 않다 */
     }
+    /* 중간고사 대체 과제 — 본 과제라 샛노랑 줄기(최종결과물과 같은 계열). 머리 상자 알약도 같은 색 (2026-09-30) */
+    .learn-hero .syl-box .syl-tags a.mapl.mid { background: #ffe800; border-color: #d8bb2a; color: #14120a; font-weight: 800; }
+    .learn-hero .syl-box .syl-tags a.mapl.mid:hover { background: #14120a; border-color: #14120a; color: #ffe800; }
+    .learn-article .mid-task {
+      margin: 18px 0 14px; padding: 14px 16px 12px; border-radius: 12px;
+      background: #fffbe0; border: 1.5px solid #e2cb3a; scroll-margin-top: 78px;
+    }
+    .learn-article .mid-task .mt-t { margin: 0 0 6px; font-size: 15px; font-weight: 800; color: #2b2410; line-height: 1.5; }
+    .learn-article .mid-task .mt-t .mt-badge {
+      display: inline-block; margin-right: 7px; padding: 1px 9px 2px; border-radius: 999px;
+      background: #ffe800; border: 1px solid #d8bb2a; font-size: 11.5px; font-weight: 900; vertical-align: 1px;
+    }
+    .learn-article .mid-task .mt-d { margin: 0 0 8px; font-size: 13.5px; line-height: 1.75; color: #4a4531; }
+    .learn-article .mid-task .mt-d strong { color: #2b2410; }
+    .learn-article .mid-task ol.mt-days { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
+    .learn-article .mid-task ol.mt-days li { display: grid; grid-template-columns: 96px 1fr; gap: 10px; font-size: 13px; line-height: 1.65; color: #3a3416; }
+    .learn-article .mid-task ol.mt-days li > b { color: #7a5b00; font-weight: 800; }
+    .learn-article .mid-task ol.mt-days li.sub > b { color: #14120a; }
+    .learn-article .mid-task .mt-foot { margin: 8px 0 0; font-size: 12.5px; color: #6b5f3a; }
+    @media (max-width: 560px) { .learn-article .mid-task ol.mt-days li { grid-template-columns: 1fr; gap: 0; } }
   </style>
 </head>
 <body class="mod-smart">
@@ -1164,7 +1184,7 @@
           </ol>
           <p class="syl-tags row1"><a class="mapl grn" href="smart-tourism-presentation-status.html" target="_blank" rel="noopener">출석부 · 발표 현황 · 매주 진도 ↗</a><a class="mapl mini" href="smart-tourism-student-note.html" target="_blank" rel="noopener">학생 이해 노트 ↗</a><a class="mapl" href="academic-calendar-2026-2.html" target="_blank" rel="noopener">2학기 학사일정 달력 ↗</a></p>
           <p class="syl-tags"><a class="mapl" href="#평가방식">15주 강의계획서 — 평가방식 1안 · 2안 ↓</a><a class="mapl" href="smart-tourism-how-to-read.html" target="_blank" rel="noopener">이 페이지 읽는 법 — 순서 · 기호 · 평가 기준 ↗</a></p>
-          <p class="syl-tags"><a class="mapl lb" href="smart-tourism-weekly-plan.html" target="_blank" rel="noopener">▶ 주간 수업 운영 · 학생 발표 배정 — 1~15주차 한 장 ↗</a></p>
+          <p class="syl-tags"><a class="mapl lb" href="smart-tourism-weekly-plan.html" target="_blank" rel="noopener">▶ 주간 수업 운영 · 학생 발표 배정 — 1~15주차 한 장 ↗</a><a class="mapl mid" href="#중간과제">중간고사 대체 과제 — 10/7 · 10/14 활동 → 10/21 제출 ↓</a></p>
         </div>
       </div>
     </div>
@@ -1291,6 +1311,18 @@
         <a href="images/korea-smart-tourism-cities-map.jpg" target="_blank" rel="noopener"><img src="images/korea-smart-tourism-cities-map-web.jpg" alt="국내 스마트관광도시 지도 — 용인(TRAVEL YONGIN), 인천(Incheon EASY), 수원(Touch Suwon), 청주(CHEONGJU YEOGI), 남원(play NAMWON), 여수(YEOSUEN), 인제(Now, I'm in Inje), 양양(GOGO YANGYANG), 경주(GYEONGJURO-ON), 대구(DAEGU Trip), 울산(WHAT A ULSAN), 통영(Tongyeong U TOUR) 열두 도시의 위치와 브랜드" /></a>
         <figcaption>국내 스마트관광도시 지도 — 위 카드에 적힌 <strong>열두 도시</strong>가 저마다 <strong>자기 브랜드와 앱</strong>을 갖고 있습니다. 인천 <em>Incheon Easy AR</em>(모바일로 19세기 여행), 수원 <em>Time Slip 1795</em>(화성), 인제 <em>스마트 숲 치유 도시</em>, 양양 <em>스마트 서프 시티</em>, 울산 <em>스마트 고래 도시</em>… <strong>같은 사업인데 도시마다 내건 것이 다르다</strong>는 점을 먼저 보십시오.</figcaption>
       </figure>
+
+      <div class="mid-task" id="중간과제">
+        <p class="mt-t"><span class="mt-badge">중간고사 대체 과제</span>스마트관광도시 현황에서 「문제」를 찾아, 사진으로 보여 준다</p>
+        <p class="mt-d"><strong>무엇을</strong> — 문제라고 생각하는 부분을 찾습니다. <strong>어디서</strong> — <strong>내가 발표한 도시</strong>와 <strong>학우들이 발표한 도시</strong>의 현황 사례에서. 플랫폼 화면만 보고 말로 읽고 끝내지 않고, <strong>내 발표 PT · 찾아본 연구</strong>를 다시 펴서 무엇이 안 되고 있는지 짚습니다.</p>
+        <p class="mt-d"><strong>사진 자료가 가장 중요합니다.</strong> 앱 · 웹 화면 캡처, 현장 사진, 안내판 · 키오스크 — 「문제」마다 <strong>눈으로 보이는 증거</strong>를 한 장 이상 붙입니다.</p>
+        <ol class="mt-days">
+          <li><b>10/7 (수)</b><span><strong>찾기</strong> — 내 발표 PT와 찾아본 연구를 다시 보고, 내 도시 현황에서 문제 후보를 고릅니다. 문제마다 사진을 모읍니다.</span></li>
+          <li><b>10/14 (수)</b><span><strong>견주기</strong> — 학우들이 발표한 도시와 같은 관점으로 비교 · 대조하고, 「지역 문제 → 스마트 서비스 → 성과」 <strong>문제-해결</strong> 한 줄로 정리합니다.</span></li>
+          <li class="sub"><b>10/21 (수)</b><span><strong>제출</strong> — 두 주 활동을 모아 중간고사 대신 냅니다.</span></li>
+        </ol>
+        <p class="mt-foot">함께 보는 자료 — 바로 아래 알약 넷(선정 시기 · 재원 구조 / 12도시 강의노트 / 일곱 관점 8장 / 그림 + 프롬프트).</p>
+      </div>
 
       <p class="dltags"><a class="mapl form hot" href="smart-tourism-cities-funding-prompts.html" target="_blank" rel="noopener">언제 뽑혔고 누가 돈을 냈나 — 12곳 선정 시기 · 재원 구조 ↗</a><a class="mapl form" href="assets/smart-tourism-cities-funding.pptx" download="국내_스마트관광도시_12곳_선정시기_재원구조.pptx">같은 내용 · 수업용 슬라이드 ⤓ PPTX</a><span class="dl-src"><b>지도가 「어디」라면 이쪽은 「언제 · 얼마로」입니다.</b> 2020 시범 → 2021 확산 → 2022 다지역 → 2023 3년형으로 이어진 선정 흐름과, <b>국비 35억(2023년 이후 최대 45억) + 지방비 1:1 이상</b>이라는 재원 구조를 갈라 놓았습니다. <b>정부가 전액 낸 사업이 아닙니다</b> — 도시 카드의 「왜 만들었나」 칸을 쓸 때 이 구조를 모르면 근거가 헐거워집니다. 뒤쪽에 <b>분석 프롬프트 20</b>이 붙어 있어, 배정받은 도시를 정책 · 기술 · 서비스 · 데이터 · 성과 · 지속가능성 여섯 관점으로 물어볼 수 있습니다.</span></p>
 
