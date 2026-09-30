@@ -1072,6 +1072,8 @@
     .learn-article .lead.lead-rows > span + span { margin-top: 5px; }
     /* 목표 셋 — 한 칸 들여 세 줄로 세운다. 줄 사이는 좁게 붙여 한 묶음으로 읽히게. */
     .learn-article .lead.lead-rows > span.gl { padding-left: 15px; }
+    /* 수업 목표 문단만 820px 제한을 풀어 넓은 화면에서 ②가 한 줄에 들어가게 (2026-09-30) */
+    body.mod-smart .learn-article .lw > p.lead.lead-rows { max-width: none; }
     .learn-article .lead.lead-rows > span.gl + span.gl { margin-top: 2px; }
     /* 목표 셋의 열쇠말 다섯(개념 · 관점 · 사례 · 문제-해결 · 자기 산출물) — 연한 파랑 형광펜 줄 (2026-09-30) */
     .learn-article .lead.lead-rows > span.gl mark.kw { background: linear-gradient(transparent 55%, #cfe3fb 55%); color: inherit; padding: 0 2px; }
