@@ -164,6 +164,9 @@
     /* 노란 알약 - 초록 줄 안에서도 「직접 풀어 보는 사례 · 프롬프트」 하나만 갈라 세운다. */
     .learn-article .reslist .linkrow a.ylw,
     .learn-article .reslist .linkrow.fill-green a.ylw { background: #ffe800; border-color: #d8bb2a; color: #14120a; font-weight: 800; }
+    /* 고동색 알약 — 채용 기회 알림판(인천연구원 데이터관리). 초록 · 노랑 사이에서 채용 공고 하나만 갈라 둔다 (2026-09-30) */
+    .learn-article .reslist .linkrow.fill-green a.brown { background: #5c3a1e; border-color: #5c3a1e; color: #fff; font-weight: 800; }
+    .learn-article .reslist .linkrow.fill-green a.brown:hover { background: #3d2512; border-color: #3d2512; color: #f3e3cf; }
     .learn-article .reslist .linkrow a.ylw:hover,
     .learn-article .reslist .linkrow.fill-green a.ylw:hover { background: #14120a; border-color: #14120a; color: #ffe800; }
     /* 연한 파랑 알약 - KOSIS 줄에서 「우리가 만든 수업 자료」 둘(실습 예제 · DIKW 발표자료)을
@@ -476,10 +479,6 @@
     .learn-article .what-box .wb-goals > li .wg-d a.wb-go { margin-left: 4px; vertical-align: 1px; }
     /* 공고 마감(data-close) 뒤에는 is-closed가 붙어 「지난 공고」 문구로 바뀐다 */
     .learn-article .wb-why .wb-closed { display: none; }
-    /* 문광연 공고 상자 아래 빨간 알약 — 인천연구원(채용 기회 알림판) (2026-09-30) */
-    .learn-article .wb-pill-row { margin: -4px 0 10px; }
-    .learn-article a.wb-pill-red { display: inline-block; padding: 4px 12px; border-radius: 999px; background: #d62828; border: 1px solid #d62828; color: #fff; font-size: 12px; font-weight: 800; text-decoration: none; }
-    .learn-article a.wb-pill-red:hover { background: #8f1414; border-color: #8f1414; }
     /* 인천연구원 「하는 일」 — 채용 기회 알림판과 같은 연한 빨강 줄 형광펜 (2026-09-30) */
     .learn-article .wb-why mark.hl-red { background: linear-gradient(transparent 55%, #fbd0d0 55%); color: inherit; padding: 0 2px; font-weight: 700; }
     .learn-article .wb-why.is-closed .wb-closed { display: inline; }
@@ -1480,7 +1479,6 @@
         <figure class="wb-shot"><img src="images/kcti-2026-37-tasks.webp" width="700" height="191" loading="lazy" alt="공고 [2026-37] 과제 표 일부 — 정책환경 변화에 따른 관광산업 특수분류 개정 연구(관광학 · 사회학 · 통계학 등), 관광거점도시 육성사업 최종성과 분석 연구(관광학 · 지역개발 등), 둘 다 위촉연구원 1급 1명" /><figcaption>공고 원문의 과제 표 — 「주요업무」 칸(맨 오른쪽)을 보십시오</figcaption></figure>
       </div>
 
-      <p class="wb-pill-row"><a class="wb-pill-red" href="job-opportunities-board.html#ii" target="_blank" rel="noopener">채용 기회 알림판 — 인천연구원 연구지원직(데이터관리) · AI·빅데이터 분석 ↗</a></p>
       <div class="wb-why" id="인천연구원" data-close="2026-09-23T00:00:00+09:00">
         <p class="wb-wt"><b class="wb-gt why">하나 더</b><span class="wb-closed">지난 공고 · 이런 자리가 열립니다 — </span>데이터를 다루는 연구지원직을 시 · 도 연구원이 뽑습니다<a class="wb-job" href="job-opportunities-board.html#ii" target="_blank" rel="noopener" title="채용 기회 알림판 · 인천연구원 카드">채용 공고 · 인천연구원 ↗</a></p>
         <p class="wb-wd"><strong>인천연구원 연구지원직(데이터관리) 1명 · 정규직</strong> — 인천광역시 출연 연구기관<span class="wb-open">입니다</span><span class="wb-closed">. 이번 공고(9. 7. ~ 9. 22.)는 끝났지만 <strong>시 · 도 연구원은 해마다 여러 번</strong> 연구직 · 연구지원직을 뽑습니다 — <a href="job-opportunities-board.html" target="_blank" rel="noopener">채용 기회 알림판 ↗</a>에서 다른 기관도 함께 보십시오</span>.</p>
@@ -2079,7 +2077,7 @@
             <li><b>비교</b><strong>사회조사분석사 2급</strong>과 항목별로</li>
             <li><b>고르는 기준</b><em>조사방법론 연구</em>(설문 · 표본추출 · SPSS) ↔ <em>데이터 분석 연구</em>(전처리 · 회귀 · 군집) — 어느 쪽을 지향하나</li>
           </ul>
-          <div class="linkrow tiny fill-green" id="ADsP취업연계" style="scroll-margin-top: 18px;"><a href="adsp-career-link.html" target="_blank" rel="noopener">ADsP를 취업으로 잇는 법 · 이력서 · 자소서 · 면접 40초 ↗</a><a class="ylw" href="adsp-subject1-50q-workbook.html" target="_blank" rel="noopener">1과목 데이터이해 50문항 · 실전훈련 판 ↗</a><a href="#ADsP1과목지도">ADsP 1과목 지도 ↓</a></div>
+          <div class="linkrow tiny fill-green" id="ADsP취업연계" style="scroll-margin-top: 18px;"><a class="brown" href="job-opportunities-board.html#ii" target="_blank" rel="noopener">채용 기회 알림판 — 인천연구원 연구지원직(데이터관리) · AI·빅데이터 분석 ↗</a><a href="adsp-career-link.html" target="_blank" rel="noopener">ADsP를 취업으로 잇는 법 · 이력서 · 자소서 · 면접 40초 ↗</a><a class="ylw" href="adsp-subject1-50q-workbook.html" target="_blank" rel="noopener">1과목 데이터이해 50문항 · 실전훈련 판 ↗</a><a href="#ADsP1과목지도">ADsP 1과목 지도 ↓</a></div>
           <span class="meta">학습 가이드 · ChatGPT 대화 정리 · 윤종식 ADsP 교재 80~100쪽 범위</span>
         </li>
       </ul>
