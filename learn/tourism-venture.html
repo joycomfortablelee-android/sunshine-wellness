@@ -657,6 +657,36 @@
     .learn-article #wk5-video .vid-pill a:hover { background: #14120a; color: #ffe800; }
     .learn-article #wk5-video .vid-pill span { display: block; margin-top: 5px; font-size: 11.5px; color: #6b7a86; }
     .learn-article .psst-lead a.psst-dl:hover { background: #a8322a; border-color: #a8322a; color: #fff; }
+    /* 수업 목표 — 7칸 그림 위. 최종 목표 한 줄 + 매주 채우는 세 단계 */
+    .learn-article .cgoal { margin: 6px 0 22px; padding: 16px 18px 14px; border: 1px solid #c6d8d1; border-radius: 12px; background: #f7fbf9; }
+    .learn-article .cgoal .cg-h { margin: 0 0 10px; font-size: 16px; font-weight: 800; color: #1f382f; }
+    .learn-article .cgoal .cg-final { margin: 0 0 14px; padding: 11px 14px; border-radius: 9px; background: #1f382f; color: #fff; font-size: 14px; line-height: 1.7; }
+    .learn-article .cgoal .cg-final strong { color: #ffe8a3; font-weight: 800; }
+    .learn-article .cgoal .cg-final b { display: block; font-size: 11px; letter-spacing: .08em; color: #ffe8a3; margin-bottom: 2px; }
+    .learn-article .cgoal .cg-sub { margin: 0 0 8px; font-size: 12.5px; font-weight: 800; color: #3B6259; }
+    .learn-article .cgoal .cg-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+    @media (max-width: 900px) { .learn-article .cgoal .cg-steps { grid-template-columns: 1fr; } }
+    .learn-article .cgoal .cg-steps > li { margin: 0; padding: 11px 13px 12px; border: 1px solid #d6e3dd; border-top: 3px solid #3B6259; border-radius: 9px; background: #fff; font-size: 12.5px; line-height: 1.75; color: #4d5f74; }
+    .learn-article .cgoal .cg-steps > li::before { content: none; }
+    .learn-article .cgoal .cg-steps > li > strong { display: block; margin-bottom: 5px; font-size: 13.5px; line-height: 1.5; color: #1f382f; }
+    .learn-article .cgoal .cg-steps ul { margin: 4px 0 6px; padding-left: 16px; }
+    .learn-article .cgoal .cg-steps ul li { margin: 2px 0; padding: 0; border: 0; font-size: 12.5px; line-height: 1.7; }
+    .learn-article .cgoal .cg-steps ul li::before { content: none; }
+    .learn-article .cgoal .cg-steps ul b { color: #1f382f; }
+    .learn-article .cgoal .cg-flow { margin: 12px 0 0; font-size: 12.5px; font-weight: 700; color: #3B6259; text-align: center; }
+    /* PSST → 예비관광벤처 7칸 대응표 — PSST 설명 아래 */
+    .learn-article .psst-map-wrap { overflow-x: auto; margin: 4px 0 0; }
+    .learn-article table.psst-map { width: 100%; min-width: 480px; border-collapse: collapse; font-size: 12.5px; background: #fff; }
+    .learn-article table.psst-map th { background: #1f382f; color: #fff; text-align: left; padding: 8px 10px; font-weight: 800; }
+    .learn-article table.psst-map td { padding: 8px 10px; border-bottom: 1px solid #e2e9e4; vertical-align: top; line-height: 1.65; color: #4d5f74; }
+    .learn-article table.psst-map td:first-child { white-space: nowrap; font-weight: 800; border-left: 4px solid var(--pc, #b9c6c0); color: var(--pt, #1f382f); background: var(--pb, #f6f8f7); }
+    .learn-article table.psst-map tr.ps1 { --pc: #2563a8; --pb: #f2f7fb; --pt: #1c4e8a; }
+    .learn-article table.psst-map tr.ps2 { --pc: #2a9d8f; --pb: #eff7f5; --pt: #1f7a70; }
+    .learn-article table.psst-map tr.ps3 { --pc: #c9871f; --pb: #fdf6ec; --pt: #8a5a17; }
+    .learn-article table.psst-map tr.ps4 { --pc: #7a67a8; --pb: #f6f4fc; --pt: #56487a; }
+    .learn-article table.psst-map tr.none td { background: #fbf6f5; }
+    .learn-article table.psst-map tr.none td:first-child { --pc: #c0392b; --pt: #a8322a; }
+    .learn-article table.psst-map td b { color: #1f382f; }
     .learn-article .psst-grid {
       list-style: none; margin: 0; padding: 0;
       display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px;
@@ -2190,6 +2220,27 @@
   <main class="learn-article">
     <div class="lw">
 
+      <section class="cgoal" id="course-goal" aria-labelledby="cg-title">
+        <p class="cg-h" id="cg-title">수업 목표</p>
+        <p class="cg-final"><b>🎯 최종 목표</b>학기가 끝날 때, <strong>내 사업 모델(창업 아이템)</strong>로 정부 지원사업에 그대로 제출할 수 있는 <strong>사업계획서(PSST) 한 부</strong>를 완성한다.</p>
+        <p class="cg-sub">매주 작업과 컨설팅으로 채우는 단계</p>
+        <ol class="cg-steps">
+          <li><strong>① PSST 작업 — 내 사업 모델(창업 아이템)을 PSST 칸으로 채운다</strong>
+            <ul>
+              <li><b>Problem</b>: 누구의 어떤 문제를 푸는가 — 「○○하는 여행자가 △△할 때 겪는 □□을 해결한다.」</li>
+              <li><b>Solution</b>: 어떻게 푸는가</li>
+              <li><b>Scale-up</b>: 고객은 몇 명이고 얼마를 내는가, 어떻게 키우는가</li>
+              <li><b>Team</b>: 나는 무엇을 갖고 있는가</li>
+            </ul>
+            「좋아 보인다」가 아니라 <b>「이만큼, 이래서」</b>로 씁니다.</li>
+          <li><strong>② 발표 · 피드백 · 업데이트 — 수업에서 HTML로 발표하고, 피드백대로 고쳐 다음 주에 다시 가져온다</strong>
+            작업한 PSST를 HTML 페이지로 발표합니다. 받은 피드백(잘한 점 · 보완사항 · 다음 작업)으로 내 사업 모델을 더 좁히고 구체화합니다. 보완사항을 반영해 HTML을 업데이트하고, 무엇을 고쳤는지 다음 발표에서 먼저 보여 줍니다.</li>
+          <li><strong>③ 공모전 양식으로 옮기기 — 쌓아 온 HTML을 최종 공모전 양식의 페이퍼로 바꾼다</strong>
+            한 학기 동안 고쳐 온 HTML을 실제 공고의 사업계획서 양식(예: 아래 예비관광벤처 양식 · 예비창업패키지 PSST 서식)에 맞춰 옮깁니다. 칸 이름 · 분량 제한 · 필수 항목을 양식대로 맞추면 그대로 제출할 수 있는 한 부가 됩니다.</li>
+        </ol>
+        <p class="cg-flow">쓰고(①) → 발표하고 고치고(②) → 양식으로 옮겨 낸다(③)</p>
+      </section>
+
       <figure class="learn-fig bp7" id="bp-7parts">
         <a href="images/pre-tourism-venture-business-plan-7-parts.webp" target="_blank" rel="noopener"><img src="images/pre-tourism-venture-business-plan-7-parts.webp" width="1536" height="1024" alt="예비관광벤처 사업계획서 7가지 핵심 구성 한눈에 보기 — 0 기본정보(표지·요약 별도: 대표자·기업정보, 신청유형, 서비스명·한줄설명, 협약목표 KPI) · 1 사업 개요(2장 이내: 문제 정의, 문제 발생 원인, 문제 대상, 해결방법) · 2 시장성(3장 이내: 시장현황, 목표고객, 사업모델, 잠재리스크) · 3 사업화 역량 및 실현가능성(4장 이내: 개발계획, 홍보 및 판로, 자금운용, 일정, 성장전략) · 4 관광산업 트렌드 부합성 및 연관성(1장 이내) · 5 팀 빌딩 및 역량(2장 이내) · 6 기업가 정신 및 태도(1장 이내: KPI 달성 현실성, 보유자원, 지원사업 필요성, 기업가 정신)"></a>
         <figcaption><strong>예비관광벤처 사업계획서 — 7가지 핵심 구성 한눈에 보기.</strong><br />0 기본정보 · 1 사업 개요(2장) · 2 시장성(3장) · 3 사업화 역량 및 실현가능성(4장) · 4 관광산업 트렌드 부합성(1장) · 5 팀 빌딩 및 역량(2장) · 6 기업가 정신 및 태도(1장) · 그림을 누르면 크게 봅니다.</figcaption>
@@ -2356,6 +2407,18 @@
       </div>
       <div class="psst">
       <p class="psst-lead">공고마다 서식이 조금씩 다르지만 <strong>묻는 것은 거의 같습니다</strong>. 이 네 칸의 순서가 곧 심사자가 읽는 순서이고, <strong class="hot-t">앞 칸이 흔들리면 뒤 칸은 읽히지 않습니다</strong> — 문제가 분명하지 않으면 아무리 좋은 솔루션도 「그래서 왜?」로 되돌아옵니다. <a class="psst-dl" href="assets/preliminary-startup-package-business-plan-form-2026.docx" download="2026_예비창업패키지_사업계획서_양식.docx">2026 예비창업패키지 양식 ⤓ DOCX</a></p>
+      <div class="psst-map-wrap">
+        <table class="psst-map" aria-label="PSST 네 칸이 예비관광벤처 사업계획서 일곱 칸 중 어디에 들어가는가">
+          <thead><tr><th scope="col">PSST (매주 작업)</th><th scope="col">예비관광벤처 양식 칸</th></tr></thead>
+          <tbody>
+            <tr class="ps1"><td>Problem</td><td><b>1 사업 개요</b>(2장) — 문제 정의 · 발생 원인 · 대상</td></tr>
+            <tr class="ps2"><td>Solution</td><td><b>1 사업 개요</b>의 해결방법 · <b>3 개발계획</b></td></tr>
+            <tr class="ps3"><td>Scale-up</td><td><b>2 시장성</b>(3장) · <b>3 사업화 역량</b>(4장) — 홍보 · 판로, 자금, 일정, 성장전략</td></tr>
+            <tr class="ps4"><td>Team</td><td><b>5 팀 빌딩 및 역량</b>(2장) · <b>6 기업가 정신</b>(1장)</td></tr>
+            <tr class="none"><td>PSST에 없는 칸</td><td><b>0 기본정보</b>(신청유형 · 서비스명 · 협약목표 KPI) · <b>4 관광산업 트렌드 부합성</b>(1장)</td></tr>
+          </tbody>
+        </table>
+      </div>
       </div>
 
       <details class="wk-fold today" id="wk2">
