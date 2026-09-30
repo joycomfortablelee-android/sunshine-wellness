@@ -479,6 +479,8 @@
     .learn-article .what-box .wb-goals > li .wg-d a.wb-go { margin-left: 4px; vertical-align: 1px; }
     /* 공고 마감(data-close) 뒤에는 is-closed가 붙어 「지난 공고」 문구로 바뀐다 */
     .learn-article .wb-why .wb-closed { display: none; }
+    /* 인천연구원 「하는 일」 — 채용 기회 알림판과 같은 연한 빨강 줄 형광펜 (2026-09-30) */
+    .learn-article .wb-why mark.hl-red { background: linear-gradient(transparent 55%, #fbd0d0 55%); color: inherit; padding: 0 2px; font-weight: 700; }
     .learn-article .wb-why.is-closed .wb-closed { display: inline; }
     .learn-article .wb-why.is-closed .wb-open { display: none; }
     .learn-article .wb-why { margin: 0 0 12px; padding: 11px 14px; border: 1px solid #f0d9b5; border-radius: 10px; background: #fffaf2; font-size: 13px; line-height: 1.8; color: #34495e; }
@@ -1477,6 +1479,19 @@
         <figure class="wb-shot"><img src="images/kcti-2026-37-tasks.webp" width="700" height="191" loading="lazy" alt="공고 [2026-37] 과제 표 일부 — 정책환경 변화에 따른 관광산업 특수분류 개정 연구(관광학 · 사회학 · 통계학 등), 관광거점도시 육성사업 최종성과 분석 연구(관광학 · 지역개발 등), 둘 다 위촉연구원 1급 1명" /><figcaption>공고 원문의 과제 표 — 「주요업무」 칸(맨 오른쪽)을 보십시오</figcaption></figure>
       </div>
 
+      <div class="wb-why" id="인천연구원" data-close="2026-09-23T00:00:00+09:00">
+        <p class="wb-wt"><b class="wb-gt why">하나 더</b><span class="wb-closed">지난 공고 · 이런 자리가 열립니다 — </span>데이터를 다루는 연구지원직을 시 · 도 연구원이 뽑습니다<a class="wb-job" href="job-opportunities-board.html#ii" target="_blank" rel="noopener" title="채용 기회 알림판 · 인천연구원 카드">채용 공고 · 인천연구원 ↗</a></p>
+        <p class="wb-wd"><strong>인천연구원 연구지원직(데이터관리) 1명 · 정규직</strong> — 인천광역시 출연 연구기관<span class="wb-open">입니다</span><span class="wb-closed">. 이번 공고(9. 7. ~ 9. 22.)는 끝났지만 <strong>시 · 도 연구원은 해마다 여러 번</strong> 연구직 · 연구지원직을 뽑습니다 — <a href="job-opportunities-board.html" target="_blank" rel="noopener">채용 기회 알림판 ↗</a>에서 다른 기관도 함께 보십시오</span>.</p>
+        <ul class="wb-wl">
+          <li><b>하는 일</b><span><mark class="hl-red">AI · 빅데이터 분석</mark>, 데이터사이언스를 활용한 연구과제 지원 — <mark class="hl-red">자료 조사, 통계 · 공간데이터 분석, 보고서 작성</mark></span></li>
+          <li><b>전형</b><span>서류 → <strong>발표자료(PPT 15장 이내) 제출</strong> → 발표면접 → 임용</span></li>
+        </ul>
+        <div class="wb-wf">
+          <p class="wb-wn">석사(신입 가능, 연구 경력자 우대) · 연봉 3,400만 ~ 5,500만 원 + 수당 · 성과급. <strong>석사 졸업생이 신입으로 들어갈 수 있는 정규직</strong>입니다. 위 한국문화관광연구원과 같은 말(<em>자료 조사 · 통계 분석 · 보고서</em>)이 「하는 일」에 <strong class="hot-t">그대로 적혀 있고</strong>, 발표면접까지 있어 이 수업의 발표가 곧 연습입니다.</p>
+          <p class="wb-parts"><b>이 자리에 닿는 이 수업의 파트</b><a class="wb-go" href="#p02">02 창구</a><a class="wb-go key" href="#p03">03 다섯 걸음</a><a class="wb-go key" href="#p04">04 기법</a><a class="wb-go key" href="#p05">05 도구</a><a class="wb-go" href="#p07">07 자격증</a><small>진한 셋(03 · 04 · 05)이 「통계 · 공간데이터 분석」의 핵심</small></p>
+        </div>
+      </div>
+
 
 
       <h2 class="learn-part pt-part pp-1" id="p01"><span class="pt"><i>파트</i><b>01</b></span><span class="pt-ti">빅데이터란</span><span class="pt-sub">세 개의 V에 둘을 더한 <strong>5V</strong>, 데이터가 결정이 되는 <strong>DIKW</strong>, 지식이 조직 안에서 도는 <strong>SECI</strong> — 세 모형으로 시작합니다.</span></h2>
@@ -2291,8 +2306,9 @@
 
 <script>
   (function () {
-    var box = document.querySelector('.wb-why[data-close]');
-    if (box && Date.now() >= Date.parse(box.getAttribute('data-close'))) box.classList.add('is-closed');
+    document.querySelectorAll('.wb-why[data-close]').forEach(function (box) {
+      if (Date.now() >= Date.parse(box.getAttribute('data-close'))) box.classList.add('is-closed');
+    });
   })();
 </script>
 </body>
