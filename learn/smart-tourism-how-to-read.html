@@ -304,7 +304,7 @@
   /* ---------- tracks ---------- */
   .tracks {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  /* 경로 넷 — 넓은 화면 2×2 (2026-10-01) */
     gap: 14px;
   }
   .track {
@@ -465,6 +465,93 @@
     .band { grid-template-columns: 1fr; gap: 8px; }
     .band .parts { padding-top: 0; }
   }
+
+  /* ===== 콤팩트 디자인 (2026-10-01) — 본 페이지와 같은 남색 · 샛노랑, 넓은 화면은 여러 칸으로 ===== */
+  :root {
+    --ground: #F4F7FB; --surface: #FFFFFF; --sunk: #EEF3F8;
+    --ink: #14243A; --ink-2: #44566B; --ink-3: #7C8A99;
+    --line: #DBE4EE; --line-soft: #E8EEF5;
+    --green: #17365D; --green-deep: #0E2A45;
+    --gold: #9A6A00; --gold-soft: #FFF3B0;
+    --warn: #C0392B; --warn-soft: #FFF3F2;
+    --shadow: 0 1px 2px rgba(20,36,58,.06), 0 6px 18px -14px rgba(20,36,58,.35);
+  }
+  body { font-size: 14.5px; line-height: 1.6; }
+  .sheet { max-width: 1060px; padding: 26px 20px 48px; gap: 26px; }
+  .eyebrow { font-size: 10px; letter-spacing: .14em; }
+  h1 { font-family: 'Noto Sans KR', system-ui, sans-serif; font-size: clamp(22px, 3.2vw, 28px); font-weight: 700; }
+  h2 { font-family: 'Noto Sans KR', system-ui, sans-serif; font-size: 16.5px; font-weight: 700; }
+  h3 { font-size: 13.5px; }
+  p { max-width: none; }
+  .lede { font-size: 14px; line-height: 1.65; }
+  header { gap: 8px; }
+  section { gap: 10px; }
+  .head { flex-direction: row; align-items: center; gap: 10px; padding: 0 0 0 10px; border-bottom: 0; border-left: 4px solid var(--green); }
+  .head .eyebrow { background: var(--gold-soft); color: var(--green-deep); padding: 2px 8px; border-radius: 999px; letter-spacing: .06em; white-space: nowrap; }
+
+  .thesis { padding: 12px 16px; border-radius: 10px; border-left-width: 4px; }
+  .thesis p { font-size: 14.5px; line-height: 1.7; max-width: none; }
+  .goals { grid-template-columns: repeat(3, 1fr); border-radius: 10px; }
+  .goal { padding: 10px 12px; gap: 3px; }
+  .goal .n { font-size: 10px; color: var(--green); }
+  .goal .t { font-size: 13px; line-height: 1.55; }
+
+  .rail { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .band { display: flex; flex-direction: column; gap: 4px; padding: 10px 12px 12px; border: 1px solid var(--line); border-top: 4px solid var(--green); border-radius: 10px; background: var(--surface); }
+  .band:first-child { border-top: 4px solid #1F6D52; }
+  .band:nth-child(2) { border-top-color: #A8681F; background: #FFFBEF; }
+  .band:nth-child(3) { border-top-color: #6B3FA0; }
+  .band:nth-child(4) { border-top-color: #4D3F6E; }
+  .band .parts { font-size: 10.5px; padding: 0; }
+  .band .title { font-size: 13.5px; line-height: 1.45; }
+  .band .desc { font-size: 12.5px; line-height: 1.6; max-width: none; }
+  .band .desc code { font-size: 11px; padding: 0 4px; }
+
+  .legend { grid-template-columns: repeat(3, 1fr); gap: 8px 16px; }
+  .sym { grid-template-columns: 30px 1fr; gap: 8px; }
+  .sym .mark { font-size: 13px; border-radius: 6px; padding: 1px 0; }
+  .sym .mark.badge { font-size: 8px; }
+  .sym .txt { font-size: 12.5px; line-height: 1.55; }
+
+  .checks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .check { padding: 10px 12px; gap: 10px; border-radius: 10px; grid-template-columns: 22px 1fr; }
+  .check::before { width: 20px; height: 20px; font-size: 11px; }
+  .check .c-why { font-size: 12.5px; line-height: 1.6; max-width: none; }
+
+  .tracks { grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .track { padding: 10px 12px; gap: 6px; border-radius: 10px; background: var(--surface); }
+  .track:last-child { background: #FFFBEF; border-color: #E9CD7A; }
+  .track .cap { font-size: 9.5px; }
+  .track h3 { font-size: 13.5px; }
+  .track .path { font-size: 12.5px; line-height: 1.7; }
+  .track .note { font-size: 11.5px; line-height: 1.55; }
+
+  .scroll { border-radius: 10px; }
+  th, td { padding: 7px 10px; font-size: 12.5px; line-height: 1.55; }
+  thead th { font-size: 10px; }
+  tbody tr:first-child td { background: #FFFBEF; }
+
+  .warn-block { padding: 12px 16px; gap: 8px; border-radius: 10px; }
+  .eq { font-family: 'Noto Sans KR', system-ui, sans-serif; font-size: 14.5px; gap: 8px; grid-template-columns: 22px 1fr; }
+  .eq .op { font-size: 15px; }
+  .warn-block p { font-size: 12.5px; line-height: 1.6; }
+
+  .script { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: auto 1fr; grid-auto-flow: column; gap: 6px 14px; padding: 12px 14px; border-radius: 10px; }
+  .script .stage { font-size: 10.5px; color: var(--green); font-weight: 700; letter-spacing: .06em; }
+  .script .line { font-family: 'Noto Sans KR', system-ui, sans-serif; font-size: 12.5px; line-height: 1.65; padding-left: 10px; max-width: none; }
+  .closer { padding: 12px 16px; border-radius: 10px; gap: 4px; }
+  .closer .say { font-family: 'Noto Sans KR', system-ui, sans-serif; font-size: 14.5px; line-height: 1.6; max-width: none; }
+  footer { padding-top: 10px; font-size: 11.5px; }
+
+  @media (max-width: 860px) {
+    .rail, .tracks { grid-template-columns: repeat(2, 1fr); }
+    .legend, .checks { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .goals, .rail, .tracks, .legend, .checks { grid-template-columns: 1fr; }
+    .script { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-flow: row; }
+    .head { flex-direction: column; align-items: flex-start; gap: 4px; }
+  }
 </style>
 </head>
 <body>
@@ -484,55 +571,48 @@
       <h2>이 페이지가 무엇인지 한 문장으로</h2>
     </div>
     <div class="thesis">
-      <p>스마트 관광은 “여행에 기술을 얹는 것”이 아니라 <strong>기술로 여행자·기업·도시가 실시간으로 연결되는 하나의 생태계</strong>를 만드는 일이고, 이 페이지는 그것을 <em>남의 도시로 보고 → 내 도시로 만들어 보고 → 이론으로 확인하는</em> 순서로 배치한 것입니다.</p>
+      <p>스마트 관광은 “여행에 기술을 얹는 것”이 아니라 <strong>기술로 여행자·기업·도시가 실시간으로 연결되는 하나의 생태계</strong>를 만드는 일이고, 이 페이지는 그것을 <em>사례로 보고 → 문제에서 출발해 만들고 → 이론과 근거로 받치는</em> 순서로 배치한 것입니다.</p>
     </div>
     <div class="goals">
       <div class="goal"><span class="n">목표 01</span><span class="t">스마트 관광 도시 현상을 설명하는 이론적 관점을 익히고, 연구 · 실무 사례를 분석하고 설명할 수 있다</span></div>
       <div class="goal"><span class="n">목표 02</span><span class="t">국내외 스마트 관광 도시 사례를 플랫폼 · 연구 · 웹 · 앱 · 이미지 · 영상 · AI 등으로 심층 탐구하고, 비교 · 대조하여 문제-해결 방식으로 벤치마킹할 수 있다</span></div>
-      <div class="goal"><span class="n">목표 03</span><span class="t">그 사례와 이론을 리포트·기획서의 근거로 쓸 수 있다</span></div>
+      <div class="goal"><span class="n">목표 03</span><span class="t">그 사례와 이론을 리포트·기획서의 근거로 쓰고, 취업 지원 서류와 발표에서 자기 산출물로 설명할 수 있다</span></div>
     </div>
-    <p class="lede" style="font-size:14.5px;"><strong>이 세 줄이 곧 평가 기준입니다.</strong> 리포트도 발표도 여기에 맞춰 채점됩니다. 페이지의 모든 파트는 셋 중 하나에 걸려 있으니, 자료를 열 때마다 “이건 어느 목표인가”를 떠올리면 길을 잃지 않습니다.</p>
+    <p class="lede" style="font-size:14.5px;"><strong>이 세 줄이 곧 평가 기준입니다.</strong> 중간 과제도 기말 과제도 여기에 맞춰 채점됩니다. 페이지의 모든 파트는 셋 중 하나에 걸려 있으니, 자료를 열 때마다 “이건 어느 목표인가”를 떠올리면 길을 잃지 않습니다.</p>
   </section>
 
   <section>
     <div class="head">
       <div class="eyebrow">구조</div>
-      <h2>일곱 파트를 다섯 덩어리로 보면 끝납니다</h2>
+      <h2>여덟 파트를 네 덩어리로 보면 끝납니다</h2>
     </div>
     <div class="rail">
       <div class="band">
         <div class="parts">파트 01 · 02</div>
         <div class="body">
-          <div class="title">현장을 본다</div>
-          <div class="desc">국내(스마트관광도시 12곳 · 용인 심층 추적)와 해외(유럽 스마트관광 수도 공모 · 89쪽 사례집). 개념 설명 없이 실물부터 보는 구간입니다.</div>
+          <div class="title">사례를 본다</div>
+          <div class="desc">국내(스마트관광도시 12곳 · 용인 심층 추적 · 경북 지역 보기)와 해외(유럽 스마트관광 수도 공모 · 89쪽 사례집). <strong>개념 설명 없이 실물부터</strong> 보는 구간입니다 — 목표 ②의 재료가 여기서 나옵니다.</div>
         </div>
       </div>
       <div class="band">
-        <div class="parts">파트 03</div>
+        <div class="parts">파트 03 · 04</div>
         <div class="body">
-          <div class="title">직접 만든다 — 이 페이지의 중심</div>
-          <div class="desc">안동시 관광지도 제작 실습. 코딩도 편집기도 없이 지도를 눌러 관광자원을 찍고 <code>왜 골랐는가</code>를 적습니다. <strong>나머지 파트는 모두 이 실습을 떠받치는 자료입니다.</strong></div>
+          <div class="title">문제에서 출발해 만든다 — 이 페이지의 중심</div>
+          <div class="desc"><b>03 공모전</b>이 과녁이고(경북 AX 응모신청서 · 업무수행계획서), <b>04 PBL</b>이 방법입니다 — 해커톤에서 뽑혀 시범사업이 된 아홉 곳이 모두 <code>문제 두 줄 → 해결 두 줄</code>로 적혀 있습니다. <strong>중간 · 기말 과제가 이 틀로 쓰입니다.</strong></div>
         </div>
       </div>
       <div class="band">
-        <div class="parts">파트 04 · 05</div>
+        <div class="parts">파트 05 · 06</div>
         <div class="body">
-          <div class="title">개념·관점을 배운다</div>
-          <div class="desc">교재 두 권(경희대 스마트관광연구소)과 이론 슬라이드 5장 — 정의 · 네 기둥 · 기술 · 여정 · 스마트 관광도시. 개념을 정리할 때 여기 슬라이드가 뼈대가 됩니다.</div>
+          <div class="title">이론으로 받친다</div>
+          <div class="desc"><b>05 책</b>(12개 장 마인드맵)과 <b>06 이론</b> 네 갈래 — <b>06-1</b> 스마트 관광이란 · <b>06-2</b> 척도개발 5편(어떻게 재나) · <b>06-3</b> 기술수용 이론(왜 쓰고 왜 안 쓰나) · <b>06-4</b> 적용(어느 산업에 · 누구에게 · 어떤 기술로). 목표 ①의 뼈대입니다.</div>
         </div>
       </div>
       <div class="band">
-        <div class="parts">파트 06</div>
+        <div class="parts">파트 07 · 08</div>
         <div class="body">
-          <div class="title">깊이를 더한다</div>
-          <div class="desc">국제 논문 11편 + 국내 KCI 4편. 각 논문에 <code>공급자 / 수요자</code> 표시가 붙어 있습니다 — 리포트를 쓸 때 <strong>내가 지금 누구의 관점으로 쓰고 있는지</strong> 확인하는 데 씁니다.</div>
-        </div>
-      </div>
-      <div class="band">
-        <div class="parts">파트 07</div>
-        <div class="body">
-          <div class="title">찾아 쓴다</div>
-          <div class="desc">한국관광 데이터랩 게시판 등 한국어 보고서 창구. 리포트에 인용할 통계가 필요할 때 되돌아오는 자리입니다.</div>
+          <div class="title">근거를 찾아 쓴다</div>
+          <div class="desc"><b>07 연구</b>(국제 SSCI · 국내 KCI — 논문마다 <code>공급자 / 수요자</code> 표시)와 <b>08 국내 자료실</b>(데이터랩 · 보고서 게시판). 리포트 · 기획서에 인용할 논문과 통계가 필요할 때 되돌아오는 자리입니다 — 목표 ③.</div>
         </div>
       </div>
     </div>
@@ -541,20 +621,28 @@
   <section>
     <div class="head">
       <div class="eyebrow">기호</div>
-      <h2>페이지의 표시 네 가지만 알면 됩니다</h2>
+      <h2>페이지의 표시 여섯 가지만 알면 됩니다</h2>
     </div>
     <div class="legend">
       <div class="sym">
         <div class="mark">↗</div>
-        <div class="txt"><b>바깥으로 나갑니다.</b> 정부·EU·언론 등 원출처. <strong>인용할 때 이 주소를 씁니다.</strong></div>
+        <div class="txt"><b>바깥으로 나갑니다.</b> 정부·EU·언론 등 원출처, 또는 새 탭의 정리 페이지. <strong>인용할 때 이 주소를 씁니다.</strong></div>
+      </div>
+      <div class="sym">
+        <div class="mark">↓</div>
+        <div class="txt"><b>같은 페이지 아래로 내려갑니다.</b> 파트 · 상자로 바로 갑니다.</div>
       </div>
       <div class="sym">
         <div class="mark">⤓</div>
-        <div class="txt"><b>파일을 내려받습니다.</b> PPT·PDF 정리본. 과제와 발표에 그대로 쓸 수 있습니다.</div>
+        <div class="txt"><b>파일을 내려받습니다.</b> PPT·PDF·DOCX 정리본. 과제와 발표에 그대로 쓸 수 있습니다.</div>
+      </div>
+      <div class="sym">
+        <div class="mark badge">노랑</div>
+        <div class="txt"><b>샛노랑 알약은 지금 할 과제입니다.</b> 중간고사 대체 과제 · 실습처럼 손으로 해야 하는 것.</div>
       </div>
       <div class="sym">
         <div class="mark badge">자체제작</div>
-        <div class="txt"><b>선샤인 웰니스가 만든 것.</b> 지도·마인드맵·실습 페이지. 수업에서 직접 손으로 다루는 자료입니다.</div>
+        <div class="txt"><b>선샤인 웰니스가 만든 것.</b> 지도·마인드맵·좌우 넘김·실습 페이지. 수업에서 직접 손으로 다루는 자료입니다.</div>
       </div>
       <div class="sym">
         <div class="mark badge">NOW</div>
@@ -577,13 +665,13 @@
       </div>
       <div class="check">
         <div class="c-body">
-          <h3>파트 03 — 안동 실습 페이지에서 직접 점 하나 찍어보기</h3>
-          <div class="c-why">두 가지를 만나게 됩니다. <b>줌 15 이상에서 뜨는 해상도 경고</b>(원본 고도자료의 한계), 그리고 <b>검색해도 안 나오는 장소</b>(아직 아무도 지도에 올리지 않은 곳). <strong>둘 다 오류가 아닙니다</strong> — 왜 그런지 설명할 수 있는 것이 과제의 일부입니다.</div>
+          <h3>파트 04 — 「실제 시범사업은 무엇이 되었나」 원형 맵 열어보기</h3>
+          <div class="c-why">여섯 갈래(안전 · 콘텐츠 · 주차 · 지도 · 결제 · 접근성) 가운데 하나를 눌러 <b>어느 회사가 무슨 문제를 어떻게 풀었는지</b> 보세요. <strong>문제 → 해결</strong>로 읽는 눈이 중간 과제의 시작입니다.</div>
         </div>
       </div>
       <div class="check">
         <div class="c-body">
-          <h3>파트 05 — 이론 슬라이드 첫 장 「01 정의」</h3>
+          <h3>파트 06-1 — 이론 슬라이드 첫 장 「01 정의」</h3>
           <div class="c-why">리포트가 가장 많이 무너지는 지점이 여기 한 문장에 들어 있습니다. 아래 <b>「하나만 지킨다」</b> 항목으로 이어집니다.</div>
         </div>
       </div>
@@ -593,26 +681,32 @@
   <section>
     <div class="head">
       <div class="eyebrow">경로</div>
-      <h2>무엇을 하려는지에 따라 세 갈래</h2>
+      <h2>무엇을 하려는지에 따라 네 갈래</h2>
     </div>
     <div class="tracks">
       <div class="track">
         <div class="cap">처음이라면</div>
         <h3>최소 경로</h3>
-        <div class="path"><b>01</b> 도시 눌러보기 → <b>05</b> 슬라이드 5장 → <b>03</b> 안동 실습</div>
-        <div class="note">셋만 거쳐도 목표 ①③에 닿습니다. 시간이 없을 때는 이 순서로 가세요.</div>
+        <div class="path"><b>01</b> 도시 눌러보기 → <b>04</b> 시범사업 원형 맵 → <b>06-1</b> 정의 슬라이드</div>
+        <div class="note">셋만 거쳐도 목표 ①②의 입구에 닿습니다. 시간이 없을 때는 이 순서로 가세요.</div>
       </div>
       <div class="track">
         <div class="cap">비교 과제</div>
         <h3>비교 경로</h3>
-        <div class="path">최소 경로 + <b>02</b> 유럽 사례 + <b>04</b> 교재 12장 + <b>06</b> Gursoy(2024) 1편</div>
+        <div class="path">최소 경로 + <b>02</b> 유럽 사례 + <b>05</b> 책 12장 + <b>07</b> Gursoy(2024) 1편</div>
         <div class="note">목표 ② 비교·대조가 여기서 들어옵니다. 한국의 「디지털화 중심」과 EU의 「접근성 우선」을 맞붙이는 것이 핵심입니다.</div>
       </div>
       <div class="track">
         <div class="cap">리포트 쓸 때</div>
         <h3>리포트 경로</h3>
-        <div class="path"><b>06</b> 논문으로 개념 → <b>02</b> 89쪽 사례집으로 사례 → <b>07</b> 데이터랩으로 통계</div>
+        <div class="path"><b>07</b> 논문으로 개념 → <b>02</b> 89쪽 사례집으로 사례 → <b>08</b> 데이터랩으로 통계</div>
         <div class="note"><strong>원문을 처음부터 다 읽지 마세요.</strong> 한국어 마인드맵·표 정리본을 먼저 보고, 원문은 “인용할 때 찾아가는 곳”으로 두면 됩니다.</div>
+      </div>
+      <div class="track">
+        <div class="cap">과제할 때</div>
+        <h3>과제 경로</h3>
+        <div class="path"><b>01</b> 분석 프롬프트 20 「③ 복사해 쓰기」 → <b>06-4</b> 어떤 기술로 표 → <b>03</b> AI 공모 프롬프트 19 → AX 응모신청서</div>
+        <div class="note">프롬프트는 <strong>원문 그대로 복사해</strong> 내 도시 이름만 바꿉니다. 「앱을 만든다」가 아니라 <strong>어떤 데이터 · 어떤 기술로</strong> 푸는지까지 적으세요.</div>
       </div>
     </div>
   </section>
@@ -629,6 +723,11 @@
           <tr><th>짝</th><th>무엇이 갈리는가</th><th>어떻게 쓰나</th></tr>
         </thead>
         <tbody>
+          <tr>
+            <td>문제 <span class="arrow">↔</span> 해결</td>
+            <td>관광객 · 지역이 겪는 불편 <span class="arrow">↔</span> 그것을 푼 스마트 서비스</td>
+            <td>파트 04 시범사업 아홉 곳이 견본. <b>중간 · 기말 과제의 뼈대</b> — 문제 장 다음에 해결 장, 전 · 후를 나란히</td>
+          </tr>
           <tr>
             <td>용인 <span class="arrow">↔</span> 안동</td>
             <td>이미 만들어진 도시 <span class="arrow">↔</span> 내가 만들 도시</td>
@@ -647,7 +746,7 @@
           <tr>
             <td>공급자 <span class="arrow">↔</span> 수요자</td>
             <td>도시·기업이 관리하는 쪽 <span class="arrow">↔</span> 관광객이 겪는 쪽</td>
-            <td>파트 06 논문마다 붙은 표시. 내가 어느 쪽 관점으로 쓰는지 확인하는 도구</td>
+            <td>파트 07 논문마다 붙은 표시. 내가 어느 쪽 관점으로 쓰는지 확인하는 도구</td>
           </tr>
         </tbody>
       </table>
@@ -666,28 +765,29 @@
         <div class="eq yes"><span class="op">=</span><span>스마트 관광 = 기술과 혁신으로 도시의 관광 전체를 더 지속가능하고 · 접근 가능하고 · 효율적으로 관리하는 것</span></div>
       </div>
       <p>목표는 관광객만 편리한 도시가 아니라 <strong>관광을 더 잘 관리하는 도시</strong>입니다. AI·앱·빅데이터로만 설명하면 EU 정의보다 좁아집니다. <strong>리포트를 쓰기 전에 이 한 줄을 다시 읽으세요.</strong></p>
+      <p>그래서 파트 <b>06-4 적용</b>은 기술 이름보다 먼저 묻습니다 — <strong>어느 산업에 · 누구에게 · 어떤 기술로</strong>. 외국인 · 장애인 · 고령자 · 지역주민처럼 대상이 바뀌면 같은 기술도 푸는 불편이 달라집니다.</p>
     </div>
   </section>
 
   <section>
     <div class="head">
       <div class="eyebrow">평가</div>
-      <h2>실습은 지도의 완성도로 보지 않습니다</h2>
+      <h2>무엇으로 보나 — 중간은 시각화된 심층 PT, 기말은 AX 양식</h2>
     </div>
     <div class="script">
-      <div class="stage">1 — 왜 이 세 곳인가</div>
-      <div class="line">고른 이유를 말로 설명할 수 있어야 합니다. <b>“유명해서”는 이유가 아닙니다.</b> 어떤 기준으로 골랐는지가 곧 여러분의 관점입니다.</div>
+      <div class="stage">중간 — 시각화된 심층 PT</div>
+      <div class="line">내가 발표한 PT를 <b>문제(이슈) → 해결의 관점</b>으로 다시 만듭니다. ① <b>장마다 사진</b> — 혁신과 도입 전 · 후 변화가 보이는 것 ② <b>줄글 → 그림</b> — 모든 단어를 그림 · 사진으로 ③ <b>증거 연구</b> — 문제가 실제로 있고 해결이 효과가 있다는 것을 논문으로. 직접 PT를 제출하고, 그 PT로 다시 발표합니다.</div>
 
-      <div class="stage">2 — 출처를 밝혔는가</div>
-      <div class="line">어디서 가져온 정보인지 적혀 있어야 합니다. 페이지의 <b>↗ 표시</b>를 따라가면 나오는 주소가 그 출처입니다.</div>
+      <div class="stage">기말 — AX 양식 작성 (경북)</div>
+      <div class="line">경북 AX 응모신청서의 <b>[3] 문제 · [4] 해결 · [5] 효과(전 · 후) · [6] 비슷한 사례</b>를 채웁니다. 웹 양식 「응모신청서 4~8쪽」에 바로 쓸 수 있고, 준비는 <b>AI 공모 프롬프트 19</b>로 합니다.</div>
 
-      <div class="stage">3 — 왜 더 확대하지 않았는가</div>
-      <div class="line">줌을 더 당기지 <b>못한</b> 이유를 아는 것. 도구를 쓰는 법보다 <b>도구의 한계를 아는 법</b>이 오래 갑니다.</div>
+      <div class="stage">둘 다 — 왜 · 근거 · 한계</div>
+      <div class="line"><b>“유명해서”는 이유가 아닙니다.</b> 왜 그 문제를 골랐는지, 어디서 가져온 근거인지(↗ 원출처), 그리고 <b>무엇을 아직 모르는지</b>를 솔직하게 적는 것 — 도구를 쓰는 법보다 <b>한계를 아는 법</b>이 오래 갑니다.</div>
     </div>
 
     <div class="closer">
       <div class="cap">기억할 한 문장</div>
-      <div class="say">“스마트 관광은 앱을 만드는 게 아니라 도시가 관광을 관리하는 방식입니다. 이 페이지는 그걸 남의 도시로 보고, 내 도시로 만들어 보고, 그다음에 이론으로 확인하는 순서입니다.”</div>
+      <div class="say">“스마트 관광은 앱을 만드는 게 아니라 도시가 관광을 관리하는 방식입니다. 이 페이지는 그걸 사례로 보고, 문제에서 출발해 만들고, 이론과 근거로 받치는 순서입니다.”</div>
     </div>
   </section>
 
