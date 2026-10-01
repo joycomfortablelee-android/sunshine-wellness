@@ -135,18 +135,6 @@
   @media (prefers-reduced-motion: reduce) { .pt-ws a { animation: none; } }
   .pt-t { margin: 0 0 8px; font-size: 16px; font-weight: 800; color: #163a63; text-align: center; }
   .att-book .ab-wrap { overflow-x: auto; border: 1px solid #d9e3ee; border-radius: 12px; background: #fff; }
-  /* 수업일별 출석 — 위 격자와 같은 기록을 날짜 한 줄로 다시 읽는다 */
-  .att-book .dr-t { margin: 22px 0 8px; font-size: 16px; color: #163a63; }
-  .att-book .dr-t span { font-size: 12px; font-weight: 500; color: #6b7280; margin-left: 6px; }
-  .att-book .dr-wrap { overflow-x: auto; border: 1px solid #d9e3ee; border-radius: 12px; background: #fff; }
-  table.dr { font-size: 14px; border-radius: 0; }
-  table.dr thead th { padding: 10px; }
-  table.dr tbody th { padding: 11px 10px; white-space: nowrap; color: #163a63; font-weight: 800; border-bottom: 1px solid #e5e7eb; }
-  table.dr td { padding: 11px 10px; }
-  table.dr td.dr-who { text-align: left; }
-  table.dr td.dr-n { font-weight: 800; white-space: nowrap; }
-  table.dr td.dr-none { color: #6b7280; }
-  table.dr td.miss { white-space: nowrap; }
   table.ab { width: 100%; border-collapse: collapse; font-size: 12.5px; }
   table.ab th, table.ab td { padding: 6px 3px; min-width: 34px; text-align: center; border-bottom: 1px solid #eef3f8; white-space: nowrap; }
   table.ab thead th { background: #eaf1f8; color: #163a63; font-size: 11px; font-weight: 800; }
@@ -298,18 +286,6 @@
 <tr data-n="정연승"><th scope="row">정연승</th><td class="at" data-k="20260902" tabindex="0" role="button" aria-label="정연승 9월 2일 출결"></td><td class="at th3" data-k="20260903" tabindex="0" role="button" aria-label="정연승 9월 3일 출결"></td><td class="at s-o" data-v="o" data-k="20260909" tabindex="0" role="button" aria-label="정연승 9월 9일 출결">○</td><td class="at s-o" data-v="o" data-k="20260916" tabindex="0" role="button" aria-label="정연승 9월 16일 출결">○</td><td class="at s-x" data-v="x" data-k="20260923" tabindex="0" role="button" aria-label="정연승 9월 23일 출결">결</td><td class="at td s-o" data-v="o" data-k="20260930" tabindex="0" role="button" aria-label="정연승 9월 30일 출결">○</td><td class="at th3" data-k="20261001" tabindex="0" role="button" aria-label="정연승 10월 1일 출결"></td><td class="at" data-k="20261007" tabindex="0" role="button" aria-label="정연승 10월 7일 출결"></td><td class="at" data-k="20261014" tabindex="0" role="button" aria-label="정연승 10월 14일 출결"></td><td class="at ex" data-k="20261021" tabindex="0" role="button" aria-label="정연승 10월 21일 출결"></td><td class="at" data-k="20261028" tabindex="0" role="button" aria-label="정연승 10월 28일 출결"></td><td class="at th3" data-k="20261029" tabindex="0" role="button" aria-label="정연승 10월 29일 출결"></td><td class="at" data-k="20261104" tabindex="0" role="button" aria-label="정연승 11월 4일 출결"></td><td class="at" data-k="20261111" tabindex="0" role="button" aria-label="정연승 11월 11일 출결"></td><td class="at" data-k="20261118" tabindex="0" role="button" aria-label="정연승 11월 18일 출결"></td><td class="at" data-k="20261125" tabindex="0" role="button" aria-label="정연승 11월 25일 출결"></td><td class="at th3" data-k="20261126" tabindex="0" role="button" aria-label="정연승 11월 26일 출결"></td><td class="at" data-k="20261202" tabindex="0" role="button" aria-label="정연승 12월 2일 출결"></td><td class="at" data-k="20261209" tabindex="0" role="button" aria-label="정연승 12월 9일 출결"></td><td class="at ex" data-k="20261216" tabindex="0" role="button" aria-label="정연승 12월 16일 출결"></td><td class="sm">3</td></tr>
 </tbody>
 <tfoot><tr><th scope="row">출석 · 결석</th><td class="ft" data-k="20260902"></td><td class="ft th3" data-k="20260903"></td><td class="ft" data-k="20260909">7 · 1</td><td class="ft" data-k="20260916">6 · 2</td><td class="ft" data-k="20260923">6 · 2</td><td class="ft td" data-k="20260930">6 · 2</td><td class="ft th3" data-k="20261001"></td><td class="ft" data-k="20261007"></td><td class="ft" data-k="20261014"></td><td class="ft ex" data-k="20261021"></td><td class="ft" data-k="20261028"></td><td class="ft th3" data-k="20261029"></td><td class="ft" data-k="20261104"></td><td class="ft" data-k="20261111"></td><td class="ft" data-k="20261118"></td><td class="ft" data-k="20261125"></td><td class="ft th3" data-k="20261126"></td><td class="ft" data-k="20261202"></td><td class="ft" data-k="20261209"></td><td class="ft ex" data-k="20261216"></td><td class="sm">25</td></tr></tfoot>
-</table>
-</div>
-<h3 class="dr-t">수업일별 출석 <span>날짜 한 줄에 한 회차 · 김대호(취업계) 제외 7명 기준</span></h3>
-<div class="dr-wrap">
-<table class="dr">
-<thead><tr><th scope="col">수업일</th><th scope="col">출석자</th><th scope="col">인원</th><th scope="col">미확인 · 결석</th></tr></thead>
-<tbody>
-<tr><th scope="row">9월 9일</th><td class="dr-who">심태섭, 정연승, 김윤서, 전승예, 박상준, 서효원, 김준호</td><td class="dr-n">7명</td><td class="dr-none">없음</td></tr>
-<tr><th scope="row">9월 16일</th><td class="dr-who">심태섭, 정연승, 김윤서, 전승예, 박상준, 서효원</td><td class="dr-n">6명</td><td class="miss">김준호</td></tr>
-<tr><th scope="row">9월 23일</th><td class="dr-who">서효원, 김준호, 심태섭, 전승예, 박상준, 김윤서</td><td class="dr-n">6명</td><td class="miss">정연승</td></tr>
-<tr><th scope="row">9월 30일</th><td class="dr-who">심태섭, 정연승, 김윤서, 전승예, 박상준, 서효원</td><td class="dr-n">6명</td><td class="miss">김준호</td></tr>
-</tbody>
 </table>
 </div>
 </section>
