@@ -1240,6 +1240,19 @@
     .learn-article .sc-hepta .sh-d { font-size: 12.5px; font-weight: 600; fill: #3a4a5c; }
     .learn-article .sc-hepta figcaption { text-align: left; font-size: 12.5px; line-height: 1.7; color: #33475b; }
     .learn-article .sc-hepta .sh-r { color: #b00020; }
+    /* 대상별 기술 표 — 칠각형 아래, 데이터 → 분석 · 기술 → 서비스 (2026-10-01) */
+    .learn-article .sc-tech { max-width: 980px; margin: 14px auto 0; }
+    .learn-article .sc-tech .st-t { margin: 0 0 8px; font-size: 14.5px; font-weight: 800; color: #17365d; text-align: center; }
+    .learn-article .sc-tech .st-t b { color: #1f6d52; }
+    .learn-article .sc-tech table.st-tb { width: 100%; border-collapse: collapse; font-size: 12.5px; line-height: 1.6; background: #fff; }
+    .learn-article .sc-tech table.st-tb th, .learn-article .sc-tech table.st-tb td { padding: 7px 9px; border-bottom: 1px solid #e1e9f2; text-align: left; vertical-align: top; }
+    .learn-article .sc-tech table.st-tb thead th { background: #e3eefa; color: #17365d; font-weight: 800; white-space: nowrap; }
+    .learn-article .sc-tech table.st-tb tbody th { color: #17365d; font-weight: 800; white-space: nowrap; }
+    .learn-article .sc-tech table.st-tb td:nth-child(3) { color: #1f3a2f; font-weight: 600; }
+    .learn-article .sc-tech table.st-tb tr.r th { color: #b00020; }
+    .learn-article .sc-tech table.st-tb a { color: #17365d; font-weight: 700; }
+    .learn-article .sc-tech .st-none { color: #b8c4d0; }
+    .learn-article .sc-tech .st-foot { margin: 8px 0 0; font-size: 12.5px; color: #33475b; }
     .learn-article .sc-scene-mini img { width: 100%; height: auto; border-radius: 8px; }
     /* 「이제 아홉 곳을 하나씩」 앞 표지 알약 — 주간 운영 11주 알약과 같은 이름 (2026-09-30) */
     .learn-article .mini-note .pv-co { display: inline-block; margin: 0 6px 4px 0; padding: 3px 11px; border-radius: 999px; background: #ffe800; border: 1px solid #d8bb2a; color: #14120a; font-size: 12px; font-weight: 800; vertical-align: 1px; }
@@ -2545,6 +2558,25 @@
         </svg>
         <figcaption>위 오각형이 <b>어느 산업에</b>였다면, 이 칠각형은 <b>누구에게</b>입니다 — 같은 기술도 대상마다 푸는 불편이 다릅니다. 여섯은 관광객이고, <b class="sh-r">지역주민</b>은 관광을 <b>받는 쪽</b>이라 색을 달리했습니다. 분석 프롬프트 16 「접근성 분석」(장애인 · 고령자 · 외국인 · 디지털 취약계층)과 이어 쓰십시오.</figcaption>
       </figure>
+
+      <div class="sc-tech" id="대상별기술">
+        <p class="st-t">어떤 기술로 푸나 — <b>데이터</b>를 모으고 → <b>분석 · 기술</b>로 → <b>서비스</b>로 돌려준다</p>
+        <div class="tbl-wrap">
+          <table class="st-tb">
+            <thead><tr><th scope="col">대상</th><th scope="col">① 모으는 데이터</th><th scope="col">② 분석 · 기술</th><th scope="col">③ 돌려주는 서비스</th><th scope="col">이 페이지 사례</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">외국인</th><td>질문(음성 · 글) · 결제 요청</td><td>음성인식(STT) → 기계번역 · AI 챗봇(LLM) → 음성합성(TTS) · 해외 간편결제 QR을 결제 시스템(API)에 연동</td><td>자기 나라 말 안내 · 환전 없이 휴대폰 결제</td><td><a href="#문제해결기업">애프터워크 AI 챗봇 · 유디아이디 QR 결제 ↓</a></td></tr>
+              <tr><th scope="row">장애인 · 교통약자</th><td>길의 계단 · 경사 · 엘리베이터 · 단차, 실내 위치</td><td>지도 데이터(GIS)에 접근성 속성 · 길찾기 알고리즘이 계단 회피 · 실내 비콘(BLE) 측위</td><td>무장애 경로 · 위치 따라 읽어 주는 음성 안내</td><td><a href="#문제해결기업">다비오 축제 디지털 지도 ↓</a></td></tr>
+              <tr><th scope="row">고령자</th><td>화면 조작 · 말로 한 주문</td><td>큰 글씨 모드 · 음성 주문(음성인식) · 막히면 영상통화 원격 연결</td><td>쉬운 화면 · 말로 주문 · 현장 도움</td><td><span class="st-none">—</span></td></tr>
+              <tr><th scope="row">디지털 취약계층</th><td>앱 없이 찍는 QR</td><td>QR → 웹 페이지 바로 열기 · 안내소 · 키오스크가 같은 데이터 공유</td><td>설치 · 가입 없이 같은 정보</td><td><span class="st-none">—</span></td></tr>
+              <tr><th scope="row">가족 · 아동 동반</th><td>통신사 유동인구 · CCTV 인원 세기 · 와이파이 접속 수 · 시설 위치</td><td>머신러닝 시계열 예측(몇 시에 붐비나) · 공공데이터(수유실 · 유아차 대여소)를 지도에</td><td>혼잡도 예측 · 편의시설 지도</td><td><a href="#문제해결기업">피치에이아이 혼잡도 예측 ↓</a></td></tr>
+              <tr><th scope="row">반려동물 동반</th><td>장소마다 동반 가능 여부</td><td>장소 데이터베이스에 속성 · 위치기반 검색 필터</td><td>동반 가능 장소 지도</td><td><span class="st-none">—</span></td></tr>
+              <tr class="r"><th scope="row">지역주민</th><td>실시간 유동인구 · 예약</td><td>덜 붐비는 곳 추천(추천 알고리즘) · 시간대 예약제</td><td>혼잡 분산 · 오버투어리즘 관리</td><td><a href="#문제해결기업">피치에이아이 혼잡도 예측 ↓</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="st-foot">중간 과제 「문제 → 해결」을 쓸 때 <b>②의 기술 이름</b>까지 적으십시오 — 「앱을 만든다」가 아니라 「유동인구 데이터를 머신러닝으로 예측해 혼잡도를 보여 준다」처럼.</p>
+      </div>
 
 
 
