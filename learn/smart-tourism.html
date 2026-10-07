@@ -331,6 +331,12 @@
       content: '펼치기 ▾'; margin-left: auto; font-size: 11px; font-weight: 700; color: #8b9aab;
     }
     .learn-article .wk-fold[open] > summary::after { content: '접기 ▴'; }
+    /* 평가방식 두 안 — 접고 펼치기(2026-10-07). 알약 「평가방식 1안 · 2안 ↓」로 오면 저절로 펼친다. */
+    .learn-article .plan-fold > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+    .learn-article .plan-fold > summary::-webkit-details-marker { display: none; }
+    .learn-article .plan-fold > summary::after { content: '펼치기 ▾'; margin-left: auto; font-size: 11px; font-weight: 700; color: #8b9aab; }
+    .learn-article .plan-fold[open] > summary::after { content: '접기 ▴'; }
+    .learn-article .plan-fold[open] > summary { margin-bottom: 10px; }
     /* 실습 2 접기도 실습 1 상자처럼 제목 왼쪽에 작은 화살표 — 펴면 아래로 돈다 */
     .learn-article .wk-fold.s2blue > summary::before { content: "▸"; color: #2563a8; font-size: 12px; transition: transform .15s; }
     .learn-article .wk-fold.s2blue[open] > summary::before { transform: rotate(90deg); }
@@ -1452,8 +1458,8 @@
         <strong>⑥ 단계별 추진</strong>은 <em>시범 → 확산 → 전면</em> 세 칸이면 충분하며 <em>시간·비용은 추정으로 OK</em>라고 명시돼 있습니다.</figcaption>
       </figure>
 
-      <div class="syl-box plan-box" id="평가방식">
-        <p class="syl-t">15주 강의계획서 — 평가 방식이 다른 두 안</p>
+      <details class="syl-box plan-box plan-fold" id="평가방식">
+        <summary class="syl-t">15주 강의계획서 — 평가 방식이 다른 두 안</summary>
         <div class="plan2">
           <div class="pcol p1">
             <p class="pc-t"><b>평가방식 1안</b>과제 · 발표형 — 만든 것으로 평가한다</p>
@@ -1490,7 +1496,7 @@
             <span class="pc-tags"><a class="mapl" href="assets/smart-tourism-concept-list-week1.pptx" download="1주차_스마트관광_개념목록_강의PPT.pptx">1주차 개념 목록 · 논문 138편이 쓴 말 ⤓ PPTX</a><a class="mapl" href="assets/smart-tourism-concept-checklist-a4.docx" download="학생배포_스마트관광_개념체크리스트_A4.docx">개념 체크리스트 A4 1장 · 발표 준비용 ⤓ DOCX</a></span>
           </div>
         </div>
-      </div>
+      </details>
 
 
 
@@ -3108,6 +3114,22 @@
       document.addEventListener('keydown', onKey);
       document.body.appendChild(ov);
     });
+  });
+})();
+</script>
+<script>
+/* #평가방식 으로 들어오면 접힌 평가방식 상자를 편다 */
+(function () {
+  function openPlan() {
+    var d = document.getElementById('평가방식');
+    if (d && decodeURIComponent(location.hash) === '#평가방식') d.open = true;
+  }
+  openPlan();
+  window.addEventListener('hashchange', openPlan);
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href="#평가방식"]');
+    var d = document.getElementById('평가방식');
+    if (a && d) d.open = true;
   });
 })();
 </script>
