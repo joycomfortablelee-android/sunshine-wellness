@@ -144,6 +144,13 @@
   .bar{height:7px;background:#e8efed;border-radius:999px;overflow:hidden;margin-top:5px}
   .bar i{display:block;height:100%;background:var(--navy2)}
   .group .n{text-align:right;font-size:12px;color:#56645f}
+  /* 추가 주제 O · P — 점선 테두리 · 연한 블루, 앞으로 더해지는 주제도 같은 모양(2026-10-07) */
+  .group.add{border-style:dashed;border-color:#a9c4e4;background:#f5f9fe}
+  .group.add .letter{background:#e3eefa;color:#17365d;font-size:13px}
+  .group .gsub{margin-top:4px;font-size:11.5px;line-height:1.55;color:#56645f}
+  .group .gsub b{color:#17365d}
+  .stat b .gcount{display:inline;margin:0;font:inherit;color:inherit;letter-spacing:inherit}
+  table.gq tr.add td{background:#f5f9fe}
   .method-tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}
   .method-tags span{font-size:11px;padding:5px 8px;border-radius:7px;background:#eef4f2;color:#27463f}
   .career td:nth-child(1){font-weight:700;color:var(--navy)}
@@ -244,7 +251,7 @@
         <div class="stat"><b>15주</b><span>운영 기간</span></div>
         <div class="stat"><b>30회차</b><span>주 2회 · 회당 75분</span></div>
         <div class="stat"><b>138편</b><span>2020–2026 관련 논문</span></div>
-        <div class="stat"><b>14개</b><span>대주제 그룹</span></div>
+        <div class="stat"><b><span class="gcount">16</span>개</b><span>대주제 · 계속 늘어남</span></div>
         <div class="stat"><b>25회차</b><span>논문 강의 회차</span></div>
       </div>
     </header>
@@ -268,7 +275,7 @@
         <div class="grid-2">
           <div class="card">
             <h4>논문 기반 수업</h4>
-            <p>특정 교재를 따르지 않고, 한국학술지인용색인(KCI)에 등재된 스마트관광 관련 학술논문 138편(2020–2026년 발표)을 직접 읽고 분석한다. 138편은 14개 대주제로 분류되어 25개 회차에 배분되며, 매회차 핵심 논문 약 3편을 심층적으로 다룬다.</p>
+            <p>특정 교재를 따르지 않고, 한국학술지인용색인(KCI)에 등재된 스마트관광 관련 학술논문 138편(2020–2026년 발표)을 직접 읽고 분석한다. 138편은 대주제(A~N)로 분류되어 25개 회차에 배분되며(O · P처럼 주제는 계속 더해진다), 매회차 핵심 논문 약 3편을 심층적으로 다룬다.</p>
           </div>
           <div class="card">
             <h4>결론이 아니라 연구 설계까지</h4>
@@ -400,7 +407,7 @@
       </section>
 
       <section id="s7">
-        <h3 class="section-title"><span class="num">7</span>대주제 구성 (14개 그룹)</h3>
+        <h3 class="section-title"><span class="num">7</span><span>대주제 구성 (<span class="gcount">16</span>개 · 계속 늘어남)</span></h3>
         <div class="groups">
           <div class="group"><div class="letter">A</div><div><b>스마트관광의 개념과 이론적 기반</b><div class="bar"><i style="width:29%"></i></div></div><div class="n">6편 · 1주</div></div>
           <div class="group"><div class="letter">B</div><div><b>스마트관광 연구동향</b><div class="bar"><i style="width:48%"></i></div></div><div class="n">10편 · 1~2주</div></div>
@@ -416,10 +423,12 @@
           <div class="group"><div class="letter">L</div><div><b>지역 기반 사례</b><div class="bar"><i style="width:29%"></i></div></div><div class="n">6편 · 13주</div></div>
           <div class="group"><div class="letter">M</div><div><b>지속가능성과 문화유산</b><div class="bar"><i style="width:29%"></i></div></div><div class="n">6편 · 13주</div></div>
           <div class="group"><div class="letter">N</div><div><b>역량·교육·포용</b><div class="bar"><i style="width:19%"></i></div></div><div class="n">4편 · 14주</div></div>
+          <div class="group add"><div class="letter">O</div><div><b>스마트관광 서비스</b><div class="gsub">서비스 유형 · 서비스 품질 · 서비스 디자인 · 접점(키오스크 · 앱 · 챗봇)</div></div><div class="n">추가 주제</div></div>
+          <div class="group add"><div class="letter">P</div><div><b>스마트 관광객 심리 및 행동</b><div class="gsub"><b>심리</b> 동기 · 지각된 가치 · 지각된 위험 · 감정(즐거움 · 불안 · 기술 피로) · 신뢰 · 프라이버시 우려<br /><b>행동</b> 여행 전 정보탐색 · 예약 → 여행 중 이용 · 공유 → 여행 후 리뷰 · 만족 · 재방문 · 추천 · 중단</div></div><div class="n">추가 주제</div></div>
         </div>
         <div class="note"><b>핵심 특징</b> · 기술수용이론(F)이 21편으로 138편 중 최대 군집이며, 피인용 상위 논문도 이 계열에 집중되어 있다. 국내 스마트관광 연구의 주류 프레임임을 5~6주차에서 명시적으로 다룬다.</div>
         <h4 class="gq-h">대주제마다 묻는 질문</h4>
-        <p class="gq-lead">열네 그룹이 각각 <b>어떤 질문에 답하는 논문 묶음인가</b>를 한 문장으로 적었습니다. 그 주에 논문을 읽기 전에 이 질문을 먼저 쥐고 들어가십시오.</p>
+        <p class="gq-lead">대주제 <span class="gcount">16</span>개가 각각 <b>어떤 질문에 답하는 논문 묶음인가</b>를 한 문장으로 적었습니다. 그 주에 논문을 읽기 전에 이 질문을 먼저 쥐고 들어가십시오.</p>
         <table class="gq">
           <thead><tr><th>그룹</th><th>대주제</th><th>이 그룹이 묻는 질문</th><th>주차</th></tr></thead>
           <tbody>
@@ -437,6 +446,8 @@
             <tr><td class="gq-k">L</td><td><b>지역 기반 사례</b></td><td>한 지역의 자원과 문제에 맞춘 스마트관광은 어떤 모습인가?</td><td class="gq-w">13주</td></tr>
             <tr><td class="gq-k">M</td><td><b>지속가능성과 문화유산</b></td><td>기술은 과잉관광을 줄이고 문화유산을 지키는 데 어떻게 쓰이는가?</td><td class="gq-w">13주</td></tr>
             <tr><td class="gq-k">N</td><td><b>역량 · 교육 · 포용</b></td><td>누가 소외되며, 종사자와 관광객에게는 어떤 역량이 필요한가?</td><td class="gq-w">14주</td></tr>
+            <tr class="add"><td class="gq-k">O</td><td><b>스마트관광 서비스</b></td><td>스마트관광 서비스에는 어떤 유형이 있고, 좋은 서비스는 품질 · 디자인 · 접점 중 무엇으로 정해지는가?</td><td class="gq-w">추가</td></tr>
+            <tr class="add"><td class="gq-k">P</td><td><b>스마트 관광객 심리 및 행동</b></td><td>스마트 기술을 만난 관광객은 무엇을 느끼고(동기 · 가치 · 위험 · 감정 · 신뢰), 그래서 여행 전 · 중 · 후에 무엇을 하는가(탐색 · 이용 · 공유 · 재방문 · 중단)?</td><td class="gq-w">추가</td></tr>
           </tbody>
         </table>
         <p class="gq-src">질문은 수업용으로 정리한 것입니다 — 그룹 이름과 배정 주차를 바탕으로 적었으며, 개별 논문의 연구문제와 한 줄씩 대조한 것은 아닙니다.</p>
@@ -532,6 +543,10 @@
   }
   openHash(); window.addEventListener('hashchange', openHash);
 })();
+</script>
+<script>
+/* 대주제 수 — 카드 개수를 세어 넣는다. 주제를 더하면 숫자가 저절로 바뀐다(2026-10-07) */
+(function(){var n=document.querySelectorAll(".groups .group").length;document.querySelectorAll(".gcount").forEach(function(e){e.textContent=n;});})();
 </script>
 </body>
 </html>
