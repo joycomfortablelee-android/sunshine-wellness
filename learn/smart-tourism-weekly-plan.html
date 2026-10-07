@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- 학생 이름이 있는 페이지 — 검색에서 뺀다 -->
 <meta name="robots" content="noindex, noarchive" />
-<title>스마트관광의 이해 — 주간 수업 운영 및 학생 발표 배정</title>
+<title>스마트관광의 이해 — 주간 수업 운영 · 출석부 · 학생 발표</title>
 <style>
 :root{
   --navy:#17365d;
@@ -262,6 +262,259 @@ td{padding:10px;border-bottom:1px solid var(--line);font-size:12.8px;vertical-al
   .plan-note{margin:-4px 0 12px;padding:8px 11px;border-left:3px solid #d8e2ec;background:#f8fafc;border-radius:0 8px 8px 0;font-size:12.5px;line-height:1.75;color:#6b7280}
   .plan-note b{color:#45566a}
   .plan-note a{color:#17365d;font-weight:700}
+
+  /* ===== 출석부 · 발표 현황 — 옛 「발표 현황」 페이지에서 옮겨 옴(2026-10-07). 아래 규칙은 .stm 안에서만 듣는다 ===== */
+  .stm th, .stm td { padding: revert; font-size: revert; vertical-align: revert; text-align: revert; background: revert; color: revert; border-bottom: revert; }
+  .stm table { min-width: 0; }
+  .stm { line-height: normal; margin-top: 28px; }
+  .stm section { margin-top: 0; }
+  .stm .stm-h { font-weight: 800; }
+  /* 발표 현황은 흰 카드 바깥 — 페이지 바탕 위에 바로 놓는다(2026-10-07) */
+  .stm.stm-flat { background: transparent; box-shadow: none; border-radius: 0; padding: 0; max-width: 980px; }
+  /* 발표 현황 표 — 연한 블루 머리 · 흰 행과 아주 연한 블루 행을 번갈아(2026-10-07) */
+  .stm.stm-flat table { border: 1px solid #cfe0f3; background: #fff; }
+  .stm.stm-flat thead th { background: #e3eefa; color: #163a63; border-bottom: 2px solid #a9c4e4; }
+  .stm.stm-flat thead th .th-sub { color: #5f7fa6; }
+  .stm.stm-flat tbody tr { background: #fff; }
+  .stm.stm-flat tbody tr:nth-child(even) { background: #f2f7fd; }
+  .stm.stm-flat tbody td { border-bottom: 1px solid #e3ecf6; }
+  .stm.stm-flat tbody tr:hover { background: #e8f1fb; }
+  .stm.stm-flat tbody tr.warning-row { background: #fff7df !important; }
+  /* 유럽 발표 날짜 열 — 도시가 정해지면 칸에 적는다(2026-10-07) */
+  .stm.stm-flat .pt-scroll { overflow-x: auto; border-radius: 12px; }
+  .stm.stm-flat { max-width: none; }
+  .stm.stm-flat table { min-width: 1000px; }
+  .stm.stm-flat thead th, .stm.stm-flat tbody td { padding: 9px 6px; white-space: nowrap; font-size: 14px; }
+  .stm.stm-flat tbody td.rm { white-space: normal; min-width: 84px; font-size: 12px; }
+  .stm.stm-flat thead th.eu { min-width: 70px; }
+  .stm.stm-flat thead th.eu { background: #eef0fb; color: #2b3a8c; }
+  .stm.stm-flat thead th.eu .th-sub { color: #6b74b0; }
+  .stm.stm-flat td.eu { background: rgba(238,240,251,.45); }
+  .stm.stm-flat td.p30.na { font-size: 12px; }
+  .stm-nav { position: sticky; top: 0; z-index: 5; display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin: 14px 0 0; padding: 8px 0; background: var(--bg); }
+  .stm-nav a { display: inline-block; padding: 4px 13px; border-radius: 999px; border: 1px solid #c9d6e6; background: #fff; color: #163a63; font-size: 13px; font-weight: 800; text-decoration: none; }
+  .stm-nav a:hover { background: #163a63; border-color: #163a63; color: #fff; }
+
+  .stm {
+    font-family: "Malgun Gothic", "Apple SD Gothic Neo", Arial, sans-serif;
+    background: #f5f7fb;
+    color: #1f2937;
+    margin: 0;
+    padding: 40px 20px;
+  }
+  .stm {
+    max-width: 980px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    padding: 30px;
+  }
+  .stm .stm-h {
+    margin: 0 0 8px;
+    font-size: 21px;
+    color: #163a63;
+  }
+  .stm .subtitle {
+    color: #667085;
+    margin-bottom: 24px;
+    font-size: 15px;
+  }
+  /* 학번 아래 한 줄 — 학년과 고향. 표를 넓히지 않고 칸 안에 접어 넣는다. */
+  .stm tbody td .sub {
+    display: block; margin-top: 3px;
+    font-size: 12px; color: #6b7280; font-weight: 500; letter-spacing: -.2px;
+  }
+  .stm tbody td .sub b { font-weight: 700; color: #4b5563; margin-right: 6px; }
+  .stm thead th .th-sub {
+    display: block; margin-top: 2px;
+    font-size: 11px; font-weight: 500; color: #b9cbe0;
+  }
+  .stm tbody tr.warning-row td .sub { color: #9a6b4a; }
+  .stm table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 12px;
+    font-size: 15px;
+  }
+  .stm thead th {
+    background: #163a63;
+    color: white;
+    padding: 13px 10px;
+    text-align: center;
+  }
+  .stm tbody td {
+    border-bottom: 1px solid #e5e7eb;
+    padding: 13px 10px;
+    text-align: center;
+  }
+  .stm tbody tr:nth-child(even) {
+    background: #f9fbfd;
+  }
+  .stm .city {
+    font-weight: 700;
+    color: #163a63;
+  }
+  .stm .check {
+    font-weight: 700;
+    color: #16794d;
+  }
+  /* 빠진 칸 — 눈에 덜 걸리게 눌러 둔다(2026-09-23) */
+  .stm .miss { font-weight: 700; color: #c0524a; }
+  .stm .na { color: #b7bfc8; }
+  .stm .rm { font-size: 12px; color: #6b7280; }
+  .stm .subtitle .asof { font-size: 12px; color: #6b7280; }
+  .stm .warning-row {
+    background: #fff7df !important;
+  }
+  .stm .warning {
+    font-weight: 700;
+    color: #a15c00;
+  }
+  /* ===== 출석부 — 매주 한 칸씩 채운다(2026-09-23) ===== */
+  .stm .att-book { margin: 0 0 26px; text-align: center; }
+  /* 매주 한 일 — 수업이 끝나면 그 주 줄에 한 줄씩 적는다(2026-09-30). */
+  .stm .wk-log { margin: 0 0 26px; }
+  .stm .wk-log .wl-wrap { overflow-x: auto; border: 1px solid #d9e3ee; border-radius: 12px; background: #fff; }
+  .stm table.wl { font-size: 13.5px; border-radius: 0; min-width: 560px; }
+  .stm table.wl th, .stm table.wl td { text-align: left; vertical-align: top; padding: 10px; }
+  .stm table.wl tbody th { white-space: nowrap; color: #163a63; font-weight: 800; border-bottom: 1px solid #e5e7eb; }
+  .stm table.wl td.wl-d { white-space: nowrap; color: #6b7280; font-size: 12px; }
+  .stm table.wl td.wl-did { color: #14384f; line-height: 1.6; }
+  .stm table.wl td.wl-did b { color: #163a63; }
+  .stm table.wl td.wl-n { color: #6b7280; font-size: 12px; }
+  .stm table.wl .wl-empty { color: #c3ccd5; }
+  .stm table.wl .wl-plan { display: inline-block; margin-left: 4px; padding: 0 6px; border-radius: 999px; background: #fdf7e8; border: 1px solid #e9cd7a; color: #8a6d1f; font-size: 11px; font-weight: 700; }
+  /* 15주 논문 읽기 계획 알약 — 스마트관광 페이지의 같은 알약과 같은 보라 (2026-09-30) */
+  /* 비고 「경청 메모」 — 발표 듣는 날 워크시트, 작은 글씨 (2026-09-30) */
+  .stm table.wl a.wl-memo { font-size: 11.5px; color: #8a6d1f; font-weight: 700; text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 2px; }
+  .stm table.wl a.wl-memo:hover { color: #14120a; text-decoration-style: solid; }
+  .stm table.wl a.wl-pp { display: inline-block; margin-right: 4px; padding: 1px 9px 2px; border-radius: 999px; background: #6b3fa0; border: 1px solid #6b3fa0; color: #fff; font-size: 11.5px; font-weight: 800; text-decoration: none; line-height: 1.5; }
+  .stm table.wl a.wl-pp:hover { background: #4a2a72; border-color: #4a2a72; color: #efe4ff; }
+  .stm table.wl tr.wl-now { background: #f4f9f6; }
+  .stm table.wl tr.wl-now th { color: #1f6d52; }
+  .stm table.wl tr.wl-ex td.wl-did { color: #a8681f; }
+  .stm .att-book .ab-t { margin: 0 0 8px; font-size: 16px; font-weight: 800; color: #163a63; }
+  .stm .att-book .ab-t span, .stm .pt-t span { display: block; margin-top: 3px; font-size: 12px; font-weight: 500; color: #6b7280; }
+  /* 발표 현황 머리 아래 노란 알약 — 발표를 들으며 쓰는 워크시트로 */
+  .stm .pt-ws { text-align: center; margin: 0 0 12px; }
+  /* 발표 현황 워크시트 알약 — 발표를 들으며 바로 여는 곳이라 ◆ ✦ 로 양옆을 달고 옅은 링이 숨 쉬듯 번진다(2026-09-30). */
+  .stm .pt-ws a { display: inline-flex; align-items: center; gap: 7px; padding: 8px 18px; border-radius: 999px; background: #ffe800; border: 2px solid #14120a; color: #14120a; font-size: 14px; font-weight: 800; text-decoration: none; box-shadow: 0 3px 0 #14120a; animation: ptws-ring 2.2s ease-out infinite; transition: transform .12s, box-shadow .12s; }
+  .stm .pt-ws a .ws-dia { color: #c0392b; font-size: 13px; }
+  .stm .pt-ws a .ws-star { color: #c0392b; font-size: 15px; }
+  .stm .pt-ws a:hover { background: #14120a; border-color: #14120a; color: #ffe800; transform: translateY(1px); box-shadow: 0 2px 0 #14120a; }
+  .stm .pt-ws a:hover .ws-dia, .stm .pt-ws a:hover .ws-star { color: #ffe800; }
+  @keyframes ptws-ring { 0% { box-shadow: 0 3px 0 #14120a, 0 0 0 0 rgba(255,232,0,.75); } 70%,100% { box-shadow: 0 3px 0 #14120a, 0 0 0 12px rgba(255,232,0,0); } }
+  @media (prefers-reduced-motion: reduce) { .stm .pt-ws a { animation: none; } }
+  .stm .pt-t { margin: 0 0 8px; font-size: 16px; font-weight: 800; color: #163a63; text-align: center; }
+  .stm .att-book .ab-wrap { overflow-x: auto; border: 1px solid #d9e3ee; border-radius: 12px; background: #fff; }
+  .stm table.ab { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  .stm table.ab th, .stm table.ab td { padding: 6px 3px; min-width: 34px; text-align: center; border-bottom: 1px solid #eef3f8; white-space: nowrap; }
+  .stm table.ab thead th { background: #eaf1f8; color: #163a63; font-size: 11px; font-weight: 800; }
+  .stm table.ab thead th small { display: block; font-size: 9.5px; font-weight: 600; color: #6f8bab; }
+  .stm table.ab th[scope="row"] { position: sticky; left: 0; z-index: 1; background: #fff; padding: 6px 10px; font-weight: 700; color: #2d3e50; }
+  .stm table.ab thead th:first-child { position: sticky; left: 0; z-index: 2; }
+  .stm table.ab tfoot th[scope="row"] { background: #f4f8fb; }
+  .stm table.ab thead th.fut { background: #f3f7fa; color: #94a8bd; }
+  .stm table.ab thead th.exam { background: #fbf1df; color: #a8681f; }
+  .stm table.ab thead th.exam small { color: #c29255; }
+  .stm table.ab td.exam { background: #fffaf1; }
+  .stm table.ab td.o { color: #16794d; font-weight: 800; }
+  .stm table.ab td.x { color: #b3bcc6; font-size: 11px; }
+  .stm table.ab td.x.job { color: #c9a77a; font-size: 14px; }
+  .stm table.ab .jobtag { margin-left: 4px; font-size: 10.5px; font-weight: 700; color: #a8681f; }
+  .stm table.ab td.sum { font-weight: 800; color: #2d3e50; background: #f9fbfd; }
+  .stm table.ab tfoot th, .stm table.ab tfoot td { border-bottom: 0; background: #f4f8fb; font-size: 12px; font-weight: 700; color: #4b5563; }
+  .stm .att-book .ab-note { margin: 7px 0 0; font-size: 11.5px; color: #6b7280; }
+
+  /* ===== 출석부 — 칸을 눌러 표시한다. 수요일 16주 + 목요일 네 번 ===== */
+  .stm .attend .at-lead { margin: 0 0 12px; font-size: 13px; color: #6b7280; text-align: center; }
+  .stm .attend .at-bar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: center; margin: 0 0 12px; }
+  .stm .attend .at-bar button {
+    border: 1px solid #d9e3ee; background: #fff; border-radius: 10px;
+    padding: 7px 11px; font: inherit; font-size: 13px; font-weight: 700; color: #163a63; cursor: pointer;
+  }
+  .stm .attend .at-bar button:hover { background: #eaf1f8; }
+  /* 표 아래 한 줄 — 눌러 넣은 값을 밖으로 꺼내는 유일한 길이라 조용히 남겨 둔다. */
+  .stm .attend .at-bar.one { justify-content: flex-start; gap: 10px; margin: 11px 0 0; }
+  .stm .attend .at-bar.one button { padding: 6px 11px; font-size: 12px; }
+  .stm .attend .at-msg { font-size: 12px; color: #6b7280; }
+  /* \uac00\ub85c \uc2a4\ud06c\ub864 \uc5c6\uc774 \ud55c \ud654\uba74\uc5d0 \u2014 \uce78\uc744 \uace0\ub974\uac8c \ub098\ub204\uace0 \uba38\ub9ac\uae00\uc740 \uc904\uc744 \uc811\ub294\ub2e4. */
+  .stm .attend .ab-wrap { overflow-x: visible; }
+  .stm .attend table.ab { table-layout: fixed; min-width: 0; width: 100%; font-size: 12px; }
+  .stm .attend table.ab th, .stm .attend table.ab td { min-width: 0; padding: 5px 1px; white-space: normal; word-break: keep-all; }
+  .stm .attend table.ab col.c-nm { width: 84px; }
+  .stm .attend table.ab col.c-sm { width: 40px; }
+  .stm .attend table.ab thead th small { font-size: 9px; line-height: 1.25; letter-spacing: -.3px; }
+  .stm .attend table.ab th[scope="row"] { position: static; padding: 5px 6px; font-size: 11.5px; letter-spacing: -.4px; }
+  .stm .attend table.ab .jobtag { display: block; margin: 0; font-size: 9.5px; }
+  .stm .attend table.ab tfoot th[scope="row"], .stm .attend table.ab thead th.nm { position: static; }
+  .stm .attend table.ab tfoot td { font-size: 10.5px; letter-spacing: -.4px; }
+  /* \uace0\uc815 \ud589 \u2014 \ub20c\ub7ec\ub3c4 \ubc14\ub00c\uc9c0 \uc54a\ub294\ub2e4 */
+  .stm .attend table.ab td.at.lock { cursor: default; background: #fbfcfd; }
+  .stm .attend table.ab td.at.lock:hover { background: #fbfcfd; }
+  @media (max-width: 720px) {
+    .stm .attend .ab-wrap { overflow-x: auto; }
+    .stm .attend table.ab { table-layout: auto; min-width: 680px; }
+  }
+  .stm .attend table.ab thead th {
+    background: #eaf1f8; color: #163a63; padding: 6px 3px; font-size: 11px; font-weight: 800;
+  }
+  .stm .attend table.ab thead tr.wk th { border-bottom: 1px solid #dbe6f1; }
+  .stm .attend table.ab thead th.ex { background: #fbf1df; color: #a8681f; }
+  .stm .attend table.ab thead th.ex small { color: #c29255; }
+  .stm .attend table.ab thead th.td { background: #dcebf7; color: #134a7c; }
+  .stm .attend table.ab thead th.th3 { background: #eaf4ee; color: #17694a; }
+  .stm .attend table.ab thead th.nm, .stm .attend table.ab th[scope="row"] { min-width: 96px; text-align: left; }
+  .stm .attend table.ab thead th.nm { background: #eaf1f8; z-index: 3; }
+  .stm .attend table.ab tbody td { padding: 6px 3px; border-bottom: 1px solid #eef3f8; }
+  .stm .attend table.ab td.at { cursor: pointer; min-width: 34px; color: #c2cad3; font-weight: 800; user-select: none; }
+  .stm .attend table.ab td.at:hover { background: #eef5fb; }
+  .stm .attend table.ab td.at:focus { outline: 2px solid #7fb0da; outline-offset: -2px; }
+  .stm .attend table.ab td.th3 { background: #f6fbf8; }
+  .stm .attend table.ab td.ex { background: #fffaf1; }
+  .stm .attend table.ab td.td { background: #f2f8fd; }
+  .stm .attend table.ab td.at.s-o { color: #16794d; }
+  .stm .attend table.ab td.at.s-l { color: #a8681f; font-size: 11px; }
+  .stm .attend table.ab td.at.s-x { color: #c0524a; font-size: 11px; }
+  .stm .attend table.ab td.at.s-j { color: #c9a77a; font-size: 14px; }
+  .stm .attend .at-legend {
+    display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;
+    margin: 10px 0 0; font-size: 12px; color: #6b7280;
+  }
+  .stm .attend .at-legend span { background: #f7f9fc; border: 1px solid #e3eaf2; padding: 4px 9px; border-radius: 999px; }
+  .stm .attend .at-legend em { font-style: normal; color: #94a3b3; }
+  .stm .attend .at-legend .lg { display: inline-block; min-width: 15px; margin-right: 4px; font-weight: 800; }
+  .stm .attend .at-legend .lg.o { color: #16794d; }
+  .stm .attend .at-legend .lg.l { color: #a8681f; }
+  .stm .attend .at-legend .lg.x { color: #c0524a; }
+  .stm .attend .at-legend .lg.j { color: #c9a77a; }
+  .stm .attend .at-legend .lg.t3 { color: #17694a; }
+  .stm .attend .ab-note { text-align: left; line-height: 1.8; }
+  @media print { .stm .attend .at-bar { display: none } }
+  .stm .p23 { color: #b7bfc8; font-weight: 700; }
+  .stm .p23.yes { color: #16794d; }
+  .stm .p30 { color: #b7bfc8; font-weight: 700; }
+  .stm .p30.due { color: #b45309; }
+  .stm .p30.yes { color: #16794d; }
+  .stm .foot {
+    margin-top: 18px;
+    padding: 14px 16px;
+    border-left: 4px solid #d89b12;
+    background: #fffaf0;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .stm .foot .dup {
+    margin: 10px 0 0;
+    padding-top: 10px;
+    border-top: 1px dashed #e5cf9a;
+  }
+  .stm .foot .dup b { color: #8a5a12; }
+  .stm .foot .dup span { display: inline-block; margin-right: 16px; }
+  /* 상단 알약 줄 — 발표를 들으며 채우는 워크시트로 바로 간다. */
+
 </style>
 <style>
 /* 돌아가기 — 이 페이지는 새 탭으로 열리므로 모듈 페이지로 되돌린다. 페이지마다 CSS가 달라 값은 직접 적는다. */
@@ -279,11 +532,12 @@ td{padding:10px;border-bottom:1px solid var(--line);font-size:12.8px;vertical-al
 
 <header class="hero">
   <div class="eyebrow">SMART TOURISM · WEEKLY 150-MINUTE RHYTHM</div>
-  <h1>주간 수업 운영 · 학생 발표 배정</h1>
+  <h1>주간 수업 운영 · 출석부 · 학생 발표</h1>
   <p class="subtitle">수요일 실습 50분(발표) + 50분(제작) · 목요일 이론 50분 · 학생 발표 3팀 + 제작 실습 + 논문 또는 책</p>
 
   <div class="key">매주는 수요일 실습 · 목요일 이론으로 나눈다. 수요일에는 1·2·3팀이 도시 사례를 발표하고 발표 도시로 콘텐츠를 직접 만든다. 목요일에는 논문 또는 책으로 이론을 학습한 뒤 이론과 사례를 연결해 1주의 학습을 종합 정리한다.</div>
 </header>
+<nav class="stm-nav" aria-label="이 페이지 바로가기"><a href="#calendar">달력</a><a href="#record">주간 기록 · 진도</a><a href="#attend">출석부</a><a href="#present">발표 현황</a><a href="#team-assign">배정표</a><a href="#week-table">주차별 표</a></nav>
 
 <section id="calendar">
 <div class="section-title"><span class="n">1</span>수업 달력 · 주차별 한 것</div>
@@ -308,7 +562,7 @@ td{padding:10px;border-bottom:1px solid var(--line);font-size:12.8px;vertical-al
           <p class="cal-mt">11월</p>
           <div class="cal-h"><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span class="we">토</span><span class="we">일</span></div>
           <div class="cal-g">
-            <i class="cal-pad"></i><i class="cal-pad"></i><i class="cal-pad"></i><i class="cal-pad"></i><i class="cal-pad"></i><i class="cal-pad"></i><div class="cal-d we"><b class="cd-n">1</b></div><div class="cal-d"><b class="cd-n">2</b></div><div class="cal-d"><b class="cd-n">3</b></div><div class="cal-d on wed"><b class="cd-n">4</b><span class="cd-w">10주</span><span class="cd-note empty">—</span></div><div class="cal-d"><b class="cd-n">5</b></div><div class="cal-d"><b class="cd-n">6</b></div><div class="cal-d we"><b class="cd-n">7</b></div><div class="cal-d we"><b class="cd-n">8</b></div><div class="cal-d"><b class="cd-n">9</b></div><div class="cal-d"><b class="cd-n">10</b></div><div class="cal-d on wed"><b class="cd-n">11</b><span class="cd-w">11주</span><span class="cd-note empty">—</span></div><div class="cal-d"><b class="cd-n">12</b></div><div class="cal-d"><b class="cd-n">13</b></div><div class="cal-d we"><b class="cd-n">14</b></div><div class="cal-d we"><b class="cd-n">15</b></div><div class="cal-d"><b class="cd-n">16</b></div><div class="cal-d"><b class="cd-n">17</b></div><div class="cal-d on wed"><b class="cd-n">18</b><span class="cd-w">12주</span><span class="cd-note empty">—</span></div><div class="cal-d"><b class="cd-n">19</b></div><div class="cal-d"><b class="cd-n">20</b></div><div class="cal-d we"><b class="cd-n">21</b></div><div class="cal-d we"><b class="cd-n">22</b></div><div class="cal-d"><b class="cd-n">23</b></div><div class="cal-d"><b class="cd-n">24</b></div><div class="cal-d on wed"><b class="cd-n">25</b><span class="cd-w">13주</span><span class="cd-note">AI 프롬프트 19</span></div><div class="cal-d on thu"><b class="cd-n">26</b><span class="cd-w">13주</span><span class="cd-note">논문 관련<br>영상</span></div><div class="cal-d"><b class="cd-n">27</b></div><div class="cal-d we"><b class="cd-n">28</b></div><div class="cal-d we"><b class="cd-n">29</b></div><div class="cal-d"><b class="cd-n">30</b></div>
+            <i class="cal-pad"></i><i class="cal-pad"></i><i class="cal-pad"></i><i class="cal-pad"></i><i class="cal-pad"></i><i class="cal-pad"></i><div class="cal-d we"><b class="cd-n">1</b></div><div class="cal-d"><b class="cd-n">2</b></div><div class="cal-d"><b class="cd-n">3</b></div><div class="cal-d on wed"><b class="cd-n">4</b><span class="cd-w">10주</span><span class="cd-note">유럽 도시<br>발표(예정)</span></div><div class="cal-d"><b class="cd-n">5</b></div><div class="cal-d"><b class="cd-n">6</b></div><div class="cal-d we"><b class="cd-n">7</b></div><div class="cal-d we"><b class="cd-n">8</b></div><div class="cal-d"><b class="cd-n">9</b></div><div class="cal-d"><b class="cd-n">10</b></div><div class="cal-d on wed"><b class="cd-n">11</b><span class="cd-w">11주</span><span class="cd-note">유럽 도시<br>발표(예정)</span></div><div class="cal-d"><b class="cd-n">12</b></div><div class="cal-d"><b class="cd-n">13</b></div><div class="cal-d we"><b class="cd-n">14</b></div><div class="cal-d we"><b class="cd-n">15</b></div><div class="cal-d"><b class="cd-n">16</b></div><div class="cal-d"><b class="cd-n">17</b></div><div class="cal-d on wed"><b class="cd-n">18</b><span class="cd-w">12주</span><span class="cd-note">유럽 도시<br>발표(예정)</span></div><div class="cal-d"><b class="cd-n">19</b></div><div class="cal-d"><b class="cd-n">20</b></div><div class="cal-d we"><b class="cd-n">21</b></div><div class="cal-d we"><b class="cd-n">22</b></div><div class="cal-d"><b class="cd-n">23</b></div><div class="cal-d"><b class="cd-n">24</b></div><div class="cal-d on wed"><b class="cd-n">25</b><span class="cd-w">13주</span><span class="cd-note">유럽 도시 발표(예정)<br>AI 프롬프트 19</span></div><div class="cal-d on thu"><b class="cd-n">26</b><span class="cd-w">13주</span><span class="cd-note">논문 관련<br>영상</span></div><div class="cal-d"><b class="cd-n">27</b></div><div class="cal-d we"><b class="cd-n">28</b></div><div class="cal-d we"><b class="cd-n">29</b></div><div class="cal-d"><b class="cd-n">30</b></div>
           </div>
         </div>
         <div class="cal-m">
@@ -319,7 +573,7 @@ td{padding:10px;border-bottom:1px solid var(--line);font-size:12.8px;vertical-al
           </div>
         </div>
 </div>
-<p class="cal-foot">출결은 <a href="smart-tourism-presentation-status.html#attend" target="_blank" rel="noopener">출석부 · 발표 현황 ↗</a>에서 회차별로 따로 셉니다. 이 달력은 <b>그날 무엇을 했는가</b>만 적는 자리입니다.</p>
+<p class="cal-foot">출결은 <a href="#attend">출석부 · 발표 현황 ↓</a>에서 회차별로 따로 셉니다. 이 달력은 <b>그날 무엇을 했는가</b>만 적는 자리입니다.</p>
 </section>
 
 <section id="record">
@@ -334,9 +588,9 @@ td{padding:10px;border-bottom:1px solid var(--line);font-size:12.8px;vertical-al
 <tr><th scope="row">2주</th><td class="rec-d">9/9 <small class="rec-dow">(수)</small></td><td class="rec-did"><span class="rec-tag done">한 것</span><b>도시 발표 1차</b> — 프롬프트 없이 <b>공모전 양식</b>에 맞춰 발표</td><td class="rec-p">게시판 발표 7명</td><td class="rec-n">전원 게시</td></tr>
 <tr><th scope="row">3주</th><td class="rec-d">9/16 <small class="rec-dow">(수)</small></td><td class="rec-did"><span class="rec-tag done">한 것</span><b>1차 발표 나머지</b> · <b>2차 발표 준비</b>(프롬프트 선택)</td><td class="rec-p">게시판 발표 6명</td><td class="rec-n">김준호 게시물 없음<br /><small>배정표 도시: 🇰🇷 통영 · 용인 · 인제 (2023 선정)</small></td></tr>
 <tr class="rec-now"><th scope="row">4주</th><td class="rec-d">9/23 <small class="rec-dow">(수)</small></td><td class="rec-did"><span class="rec-tag done">한 것</span>도시 발표 일부 — <b>남은 사람 있음</b> · <b>팀명 정함</b></td><td class="rec-p">판서 발표 3명 — 박상준 · 김윤서 · 김준호</td><td class="rec-n">정연승 결석<br /><small>배정표 도시: 🇰🇷 울산 · 양양 · 경주 (2022 선정)</small></td></tr>
-<tr class="rec-2a"><th scope="row" rowspan="2">5주</th><td class="rec-d">9/30 <small class="rec-dow">(수)</small></td><td class="rec-did"><span class="rec-tag done">한 것</span>① 교통 편 — <b>코레일 취업 가이드</b>(필기시험 구성 · 경쟁률 · 합격자 후기 · 3대 웹사이트 <a href="https://yuanlee.info/career/employment-live-2026-08-11.html" target="_blank" rel="noopener">yuanlee.info ↗</a>) ② <b>KCI</b> 소개 — 연구 update &gt; 책 ③ <b>경희대 스마트관광연구원</b> ④ <a class="rec-pp" href="smart-tourism-syllabus-15w-interactive.html" target="_blank" rel="noopener">15주 논문 읽기 계획 ↗</a> <b>스마트관광 연구를 보는 14가지 관점</b> → 논문 발표 3명</td><td class="rec-p" rowspan="2">9/30 논문 발표 3명 — 서효원 스마트관광 행동 · 박상준 스마트관광도시 사례 · 전승예 스마트관광 가치<br />10/1 논문 발표 3명 — 정연승 무장애 · 스마트기술 · 김윤서 외국인 · AI · 심태섭 철도 · 도시 발표 심태섭 용인</td><td class="rec-n" rowspan="2"><a class="rec-memo" href="smart-tourism-city-analysis-worksheet.html" target="_blank" rel="noopener">✎ 경청 메모 — 10/1 (목) ↗</a><br /><small>배정표 도시: 🇰🇷 청주 · 남원 · 수원 (2022·2021 선정)</small></td></tr>
+<tr class="rec-2a"><th scope="row" rowspan="2">5주</th><td class="rec-d">9/30 <small class="rec-dow">(수)</small></td><td class="rec-did"><span class="rec-tag done">한 것</span>① 교통 편 — <b>코레일 취업 가이드</b>(필기시험 구성 · 경쟁률 · 합격자 후기 · 코레일 취업 3대 웹사이트 <a href="https://yuanlee.info/career/employment-live-2026-08-11.html" target="_blank" rel="noopener">yuanlee.info ↗</a>) ② <b>KCI</b> 소개 — 연구가 책보다 먼저 새로워진다(연구 update &gt; 책) ③ <b>경희대 스마트관광연구원</b> ④ <a class="rec-pp" href="smart-tourism-syllabus-15w-interactive.html" target="_blank" rel="noopener">15주 논문 읽기 계획 ↗</a> <b>스마트관광 연구를 보는 14가지 관점</b> — 이날 가장 중요한 것 → 논문 발표 3명</td><td class="rec-p" rowspan="2">9/30 논문 발표 3명 — 서효원 스마트관광 행동 · 박상준 스마트관광도시 사례(서울 · 부산 · 제주 · 대구 등) · 전승예 스마트관광 가치(앱 · 수원 · 전기 및 편의성 등)<br />10/1 논문 발표 3명 — 정연승 무장애 · 스마트기술 · 김윤서 외국인 · AI · 심태섭 철도 · 도시 발표 심태섭 용인 · 남은 3명은 10/7 · 김준호 논문 발표 안 함</td><td class="rec-n" rowspan="2"><small>9/30 출석 6명 · 김준호 결석</small><br /><a class="rec-memo" href="smart-tourism-city-analysis-worksheet.html" target="_blank" rel="noopener">✎ 경청 메모 — 10/1 (목) ↗</a><br /><small>배정표 도시: 🇰🇷 청주 · 남원 · 수원 (2022·2021 선정)</small></td></tr>
 <tr class="rec-2b"><td class="rec-d">10/1 <small class="rec-dow">(목)</small></td><td class="rec-did"><span class="rec-tag done">한 것</span>① <b>학생 목표 개별 질문</b> — 영어 · 외국어 · 운동 · 졸업 후 진로 계획 · 꾸준히 하는 것 등 ② 논문 발표 3명 — 정연승 <b>무장애 · 스마트기술</b> · 김윤서 <b>외국인 · AI</b> · 심태섭 <b>철도</b> ③ 남은 도시 발표 — 심태섭 <b>용인</b> (인제 · 경주 · 울산은 10/7) ④ <b>호텔 취업</b> 소개</td></tr>
-<tr><th scope="row">6주</th><td class="rec-d">10/7 <small class="rec-dow">(수)</small></td><td class="rec-did plan" rowspan="2"><div class="rec-2wk"><span class="rec-tag done">한 것</span><b>10/7</b> 스마트 관광 — 업종별 척도 논문 리뷰 · 「5개 산업의 요인 패턴」 용어 복습 <a class="rec-pill" href="smart-tourism.html#척도개발" target="_blank" rel="noopener">02-2 척도 ↗</a><br /><span class="rec-tag done">한 것</span><b>실습</b> 학생들이 <mark class="pt-hl">시각화된 심층 PT</mark>를 만들어 감<br /><span class="rec-tag todo">할 것</span><b>10/14</b> 남은 도시 발표 3명 — 정연승 인제 · 전승예 경주 · 서효원 울산 <small>(10/7에서 옮김)</small><a class="rec-pill" href="job-opportunities-board.html" target="_blank" rel="noopener">채용 기회 알림판 — 공공기관 · 연구원 · 재단 ↗</a><br /><span class="rec-tag todo">과제</span> 내가 발표한 도시를 <b>8요인 × 1~5점</b>으로 매기고 비교 도시와 나란히 — PT 한 장<a class="rec-pill r" href="smart-tourism-city-8-factor-scorecard.html" target="_blank" rel="noopener">도시 8요인 점수표 — PT 한 장 양식 ↗</a><br /><span class="rec-sub2">2주 동안</span><br /><b>국내외 스마트 관광 도시 사례를 <mark class="rec-kwp">플랫폼 · 연구 · 웹 · 앱 · 이미지 · 영상 · AI 등</mark>으로 심층 탐구</b><br /><a class="rec-pill y" href="smart-tourism.html#중간과제" target="_blank" rel="noopener">중간고사 대체 과제 — <mark class="pt-hl">시각화된 심층 PT</mark> ↗</a><a class="rec-pill" href="smart-tourism-cities-funding-prompts.html" target="_blank" rel="noopener">12곳 선정 시기 · 재원 구조 ↗</a><a class="rec-pill" href="smart-tourism-12-cities-lecture-note.html" target="_blank" rel="noopener">학생12도시 발표 강의노트 ↗</a><a class="rec-pill" href="smart-tourism-8-sections-overview.html" target="_blank" rel="noopener">일곱 관점 전체 개요 + 상세 8장 ↗</a></div></td><td class="rec-p"><span class="rec-empty">—</span></td><td class="rec-n"><small>10/7 출석 6명 · 김준호 결석</small></td></tr>
+<tr><th scope="row">6주</th><td class="rec-d">10/7 <small class="rec-dow">(수)</small></td><td class="rec-did plan" rowspan="2"><div class="rec-2wk"><span class="rec-tag done">한 것</span><b>10/7</b> 스마트 관광 — 업종별 척도 논문 리뷰 · 「5개 산업의 요인 패턴」 용어 복습(편의성 · 스마트인프라 · 정보성 · 기술통합성 · 신뢰성 · 개인화 · 상호작용성 · 보안성) <a class="rec-pill" href="smart-tourism.html#척도개발" target="_blank" rel="noopener">02-2 척도 ↗</a><br /><span class="rec-tag done">한 것</span><b>실습</b> 학생들이 <mark class="pt-hl">시각화된 심층 PT</mark>를 만들어 감<br /><span class="rec-tag todo">할 것</span><b>10/14</b> 남은 도시 발표 3명 — 정연승 인제 · 전승예 경주 · 서효원 울산 <small>(10/7에서 옮김)</small><a class="rec-pill" href="job-opportunities-board.html" target="_blank" rel="noopener">채용 기회 알림판 — 공공기관 · 연구원 · 재단 ↗</a><br /><span class="rec-tag todo">과제</span> 내가 발표한 도시를 <b>8요인 × 1~5점</b>으로 매기고 비교 도시와 나란히 — PT 한 장<a class="rec-pill r" href="smart-tourism-city-8-factor-scorecard.html" target="_blank" rel="noopener">도시 8요인 점수표 — PT 한 장 양식 ↗</a><br /><span class="rec-sub2">2주 동안</span><br /><b>국내외 스마트 관광 도시 사례를 <mark class="rec-kwp">플랫폼 · 연구 · 웹 · 앱 · 이미지 · 영상 · AI 등</mark>으로 심층 탐구</b><br /><a class="rec-pill y" href="smart-tourism.html#중간과제" target="_blank" rel="noopener">중간고사 대체 과제 — <mark class="pt-hl">시각화된 심층 PT</mark> ↗</a><a class="rec-pill" href="smart-tourism-cities-funding-prompts.html" target="_blank" rel="noopener">12곳 선정 시기 · 재원 구조 ↗</a><a class="rec-pill" href="smart-tourism-12-cities-lecture-note.html" target="_blank" rel="noopener">학생12도시 발표 강의노트 ↗</a><a class="rec-pill" href="smart-tourism-8-sections-overview.html" target="_blank" rel="noopener">일곱 관점 전체 개요 + 상세 8장 ↗</a></div></td><td class="rec-p"><span class="rec-empty">—</span></td><td class="rec-n"><small>10/7 출석 6명 · 김준호 결석</small></td></tr>
 <tr><th scope="row">7주</th><td class="rec-d">10/14 <small class="rec-dow">(수)</small></td><td class="rec-p"><span class="rec-empty">—</span></td><td class="rec-n"><span class="rec-empty">—</span></td></tr>
 <tr class="rec-ex"><th scope="row">8주</th><td class="rec-d">10/21 <small class="rec-dow">(수)</small></td><td class="rec-did plan"><span class="rec-tag todo">할 것</span>★ <a href="smart-tourism.html#중간과제" target="_blank" rel="noopener">중간고사 대체 과제 ↗</a> <b>제출</b> — <mark class="pt-hl">시각화된 심층 PT</mark> (직접 PT 제출)<br /><a class="rec-pill" href="interview-personality-20.html" target="_blank" rel="noopener">VIA 성격강점 검사 · 인성면접 2번 발표 준비 ↗</a><br /><small>VIA 상위 다섯 캡처 — LMS 제출, 10/27(화) 전까지</small></td><td class="rec-p"><span class="rec-empty">—</span></td><td class="rec-n"><span class="rec-empty">—</span></td></tr>
 <tr class="rec-2a"><th scope="row" rowspan="2">9주</th><td class="rec-d">10/28 <small class="rec-dow">(수)</small></td><td class="rec-did plan"><span class="rec-tag todo">할 것</span>① <b>중간 과제 발표</b> — 중간에 낸 <mark class="pt-hl">시각화된 심층 PT</mark>로 다시 발표 <a class="rec-pill y" href="smart-tourism.html#중간과제" target="_blank" rel="noopener">중간고사 대체 과제 ↗</a><br />② <b>후반부 발표 도시 정하기</b> — 🇪🇺 수상도시 탐페레 · 토리노 · 더블린 등</td><td class="rec-p" rowspan="2"><span class="rec-empty">—</span></td><td class="rec-n" rowspan="2"><a class="rec-memo" href="smart-tourism-city-analysis-worksheet.html" target="_blank" rel="noopener">✎ 경청 메모 ↗</a></td></tr>
@@ -354,6 +608,167 @@ td{padding:10px;border-bottom:1px solid var(--line);font-size:12.8px;vertical-al
 </div>
 <p class="cal-foot"><b>4주차(9/23)</b>까지는 계획의 「논문 3편 + 3팀 도시 발표」 리듬 대신 <b>도시 정하기 → 프롬프트 → 게시판 · 판서 발표</b>로 진행했습니다. <b>도시 발표는 아직 남은 사람이 있고, 4주차에 팀명을 정했습니다.</b> 앞으로도 알려 주시는 대로 이 표를 채웁니다. <b>목표 키워드</b> 열은 아래 <a href="#team-assign">3절 발표 배정표</a>의 주차를 그대로 옮긴 것입니다 — 실제 진행이 그 흐름을 아직 못 따라가고 있다는 것이 이 표의 요점입니다.</p>
 </section>
+
+<div class="stm" id="출석부">
+<p class="stm-h">스마트관광의 이해 — 출석부</p>
+<section class="att-book attend" id="attend">
+<h2 class="ab-t">출석부 — 회차별 출석 체크 <span>수강 8명 · <b>수요일 16주</b>(1–2교시 · 2시간) + <b>목요일 네 번</b>(9/3 · 10/1 · 10/29 · 11/26 · 3시간 9–12시) · 모두 20회차</span></h2>
+<div class="ab-wrap">
+<table class="ab" id="atTable">
+<colgroup><col class="c-nm" /><col /><col /><col /><col /><col /><col /><col /><col /><col /><col /><col /><col /><col /><col /><col /><col /><col /><col /><col /><col /><col class="c-sm" /></colgroup>
+<thead>
+<tr class="wk"><th rowspan="2" scope="col" class="nm">이름</th><th colspan="2" scope="colgroup">1주<small>9/2·3</small></th><th colspan="1" scope="colgroup">2주<small>9/9</small></th><th colspan="1" scope="colgroup">3주<small>9/16</small></th><th colspan="1" scope="colgroup">4주<small>9/23</small></th><th colspan="2" scope="colgroup">5주<small>9/30·10/1</small></th><th colspan="1" scope="colgroup">6주<small>10/7</small></th><th colspan="1" scope="colgroup">7주<small>10/14</small></th><th colspan="1" scope="colgroup" class="ex">8주<small>10/21 · 중간</small></th><th colspan="2" scope="colgroup">9주<small>10/28·29</small></th><th colspan="1" scope="colgroup">10주<small>11/4</small></th><th colspan="1" scope="colgroup">11주<small>11/11</small></th><th colspan="1" scope="colgroup">12주<small>11/18</small></th><th colspan="2" scope="colgroup">13주<small>11/25·26</small></th><th colspan="1" scope="colgroup">14주<small>12/2</small></th><th colspan="1" scope="colgroup">15주<small>12/9</small></th><th colspan="1" scope="colgroup" class="ex">16주<small>12/16 · 기말</small></th><th rowspan="2" scope="col" class="sm">출석</th></tr>
+<tr class="dy"><th scope="col">수</th><th scope="col" class="th3">목</th><th scope="col">수</th><th scope="col">수</th><th scope="col">수</th><th scope="col" class="td">수</th><th scope="col" class="th3">목</th><th scope="col">수</th><th scope="col">수</th><th scope="col" class="ex">수</th><th scope="col">수</th><th scope="col" class="th3">목</th><th scope="col">수</th><th scope="col">수</th><th scope="col">수</th><th scope="col">수</th><th scope="col" class="th3">목</th><th scope="col">수</th><th scope="col">수</th><th scope="col" class="ex">수</th></tr>
+</thead>
+<tbody>
+<tr data-n="김대호"><th scope="row">김대호<small class="jobtag">(취업계)</small></th><td class="at lock s-j" data-v="j" data-lock="j" data-k="20260902" tabindex="0" role="button" aria-label="김대호 9월 2일 출결">–</td><td class="at lock th3 s-j" data-v="j" data-lock="j" data-k="20260903" tabindex="0" role="button" aria-label="김대호 9월 3일 출결">–</td><td class="at lock s-j" data-v="j" data-lock="j" data-k="20260909" tabindex="0" role="button" aria-label="김대호 9월 9일 출결">–</td><td class="at lock s-j" data-v="j" data-lock="j" data-k="20260916" tabindex="0" role="button" aria-label="김대호 9월 16일 출결">–</td><td class="at lock s-j" data-v="j" data-lock="j" data-k="20260923" tabindex="0" role="button" aria-label="김대호 9월 23일 출결">–</td><td class="at lock td s-j" data-v="j" data-lock="j" data-k="20260930" tabindex="0" role="button" aria-label="김대호 9월 30일 출결">–</td><td class="at lock th3 s-j" data-v="j" data-lock="j" data-k="20261001" tabindex="0" role="button" aria-label="김대호 10월 1일 출결">–</td><td class="at lock s-j" data-v="j" data-lock="j" data-k="20261007" tabindex="0" role="button" aria-label="김대호 10월 7일 출결">–</td><td class="at lock s-j" data-v="j" data-lock="j" data-k="20261014" tabindex="0" role="button" aria-label="김대호 10월 14일 출결">–</td><td class="at lock ex s-j" data-v="j" data-lock="j" data-k="20261021" tabindex="0" role="button" aria-label="김대호 10월 21일 출결">–</td><td class="at lock s-j" data-v="j" data-lock="j" data-k="20261028" tabindex="0" role="button" aria-label="김대호 10월 28일 출결">–</td><td class="at lock th3 s-j" data-v="j" data-lock="j" data-k="20261029" tabindex="0" role="button" aria-label="김대호 10월 29일 출결">–</td><td class="at lock s-j" data-v="j" data-lock="j" data-k="20261104" tabindex="0" role="button" aria-label="김대호 11월 4일 출결">–</td><td class="at lock s-j" data-v="j" data-lock="j" data-k="20261111" tabindex="0" role="button" aria-label="김대호 11월 11일 출결">–</td><td class="at lock s-j" data-v="j" data-lock="j" data-k="20261118" tabindex="0" role="button" aria-label="김대호 11월 18일 출결">–</td><td class="at lock s-j" data-v="j" data-lock="j" data-k="20261125" tabindex="0" role="button" aria-label="김대호 11월 25일 출결">–</td><td class="at lock th3 s-j" data-v="j" data-lock="j" data-k="20261126" tabindex="0" role="button" aria-label="김대호 11월 26일 출결">–</td><td class="at lock s-j" data-v="j" data-lock="j" data-k="20261202" tabindex="0" role="button" aria-label="김대호 12월 2일 출결">–</td><td class="at lock s-j" data-v="j" data-lock="j" data-k="20261209" tabindex="0" role="button" aria-label="김대호 12월 9일 출결">–</td><td class="at lock ex s-j" data-v="j" data-lock="j" data-k="20261216" tabindex="0" role="button" aria-label="김대호 12월 16일 출결">–</td><td class="sm">0</td></tr>
+<tr data-n="김윤서"><th scope="row">김윤서</th><td class="at" data-k="20260902" tabindex="0" role="button" aria-label="김윤서 9월 2일 출결"></td><td class="at th3" data-k="20260903" tabindex="0" role="button" aria-label="김윤서 9월 3일 출결"></td><td class="at s-o" data-v="o" data-k="20260909" tabindex="0" role="button" aria-label="김윤서 9월 9일 출결">○</td><td class="at s-o" data-v="o" data-k="20260916" tabindex="0" role="button" aria-label="김윤서 9월 16일 출결">○</td><td class="at s-o" data-v="o" data-k="20260923" tabindex="0" role="button" aria-label="김윤서 9월 23일 출결">○</td><td class="at td s-o" data-v="o" data-k="20260930" tabindex="0" role="button" aria-label="김윤서 9월 30일 출결">○</td><td class="at th3 s-o" data-v="o" data-k="20261001" tabindex="0" role="button" aria-label="김윤서 10월 1일 출결">○</td><td class="at s-o" data-v="o" data-k="20261007" tabindex="0" role="button" aria-label="김윤서 10월 7일 출결">○</td><td class="at" data-k="20261014" tabindex="0" role="button" aria-label="김윤서 10월 14일 출결"></td><td class="at ex" data-k="20261021" tabindex="0" role="button" aria-label="김윤서 10월 21일 출결"></td><td class="at" data-k="20261028" tabindex="0" role="button" aria-label="김윤서 10월 28일 출결"></td><td class="at th3" data-k="20261029" tabindex="0" role="button" aria-label="김윤서 10월 29일 출결"></td><td class="at" data-k="20261104" tabindex="0" role="button" aria-label="김윤서 11월 4일 출결"></td><td class="at" data-k="20261111" tabindex="0" role="button" aria-label="김윤서 11월 11일 출결"></td><td class="at" data-k="20261118" tabindex="0" role="button" aria-label="김윤서 11월 18일 출결"></td><td class="at" data-k="20261125" tabindex="0" role="button" aria-label="김윤서 11월 25일 출결"></td><td class="at th3" data-k="20261126" tabindex="0" role="button" aria-label="김윤서 11월 26일 출결"></td><td class="at" data-k="20261202" tabindex="0" role="button" aria-label="김윤서 12월 2일 출결"></td><td class="at" data-k="20261209" tabindex="0" role="button" aria-label="김윤서 12월 9일 출결"></td><td class="at ex" data-k="20261216" tabindex="0" role="button" aria-label="김윤서 12월 16일 출결"></td><td class="sm">6</td></tr>
+<tr data-n="김준호"><th scope="row">김준호</th><td class="at" data-k="20260902" tabindex="0" role="button" aria-label="김준호 9월 2일 출결"></td><td class="at th3" data-k="20260903" tabindex="0" role="button" aria-label="김준호 9월 3일 출결"></td><td class="at s-o" data-v="o" data-k="20260909" tabindex="0" role="button" aria-label="김준호 9월 9일 출결">○</td><td class="at s-x" data-v="x" data-k="20260916" tabindex="0" role="button" aria-label="김준호 9월 16일 출결">결</td><td class="at s-o" data-v="o" data-k="20260923" tabindex="0" role="button" aria-label="김준호 9월 23일 출결">○</td><td class="at td s-x" data-v="x" data-k="20260930" tabindex="0" role="button" aria-label="김준호 9월 30일 출결">결</td><td class="at th3 s-x" data-v="x" data-k="20261001" tabindex="0" role="button" aria-label="김준호 10월 1일 출결">결</td><td class="at s-x" data-v="x" data-k="20261007" tabindex="0" role="button" aria-label="김준호 10월 7일 출결">결</td><td class="at" data-k="20261014" tabindex="0" role="button" aria-label="김준호 10월 14일 출결"></td><td class="at ex" data-k="20261021" tabindex="0" role="button" aria-label="김준호 10월 21일 출결"></td><td class="at" data-k="20261028" tabindex="0" role="button" aria-label="김준호 10월 28일 출결"></td><td class="at th3" data-k="20261029" tabindex="0" role="button" aria-label="김준호 10월 29일 출결"></td><td class="at" data-k="20261104" tabindex="0" role="button" aria-label="김준호 11월 4일 출결"></td><td class="at" data-k="20261111" tabindex="0" role="button" aria-label="김준호 11월 11일 출결"></td><td class="at" data-k="20261118" tabindex="0" role="button" aria-label="김준호 11월 18일 출결"></td><td class="at" data-k="20261125" tabindex="0" role="button" aria-label="김준호 11월 25일 출결"></td><td class="at th3" data-k="20261126" tabindex="0" role="button" aria-label="김준호 11월 26일 출결"></td><td class="at" data-k="20261202" tabindex="0" role="button" aria-label="김준호 12월 2일 출결"></td><td class="at" data-k="20261209" tabindex="0" role="button" aria-label="김준호 12월 9일 출결"></td><td class="at ex" data-k="20261216" tabindex="0" role="button" aria-label="김준호 12월 16일 출결"></td><td class="sm">2</td></tr>
+<tr data-n="박상준"><th scope="row">박상준</th><td class="at" data-k="20260902" tabindex="0" role="button" aria-label="박상준 9월 2일 출결"></td><td class="at th3" data-k="20260903" tabindex="0" role="button" aria-label="박상준 9월 3일 출결"></td><td class="at s-o" data-v="o" data-k="20260909" tabindex="0" role="button" aria-label="박상준 9월 9일 출결">○</td><td class="at s-o" data-v="o" data-k="20260916" tabindex="0" role="button" aria-label="박상준 9월 16일 출결">○</td><td class="at s-o" data-v="o" data-k="20260923" tabindex="0" role="button" aria-label="박상준 9월 23일 출결">○</td><td class="at td s-o" data-v="o" data-k="20260930" tabindex="0" role="button" aria-label="박상준 9월 30일 출결">○</td><td class="at th3 s-o" data-v="o" data-k="20261001" tabindex="0" role="button" aria-label="박상준 10월 1일 출결">○</td><td class="at s-o" data-v="o" data-k="20261007" tabindex="0" role="button" aria-label="박상준 10월 7일 출결">○</td><td class="at" data-k="20261014" tabindex="0" role="button" aria-label="박상준 10월 14일 출결"></td><td class="at ex" data-k="20261021" tabindex="0" role="button" aria-label="박상준 10월 21일 출결"></td><td class="at" data-k="20261028" tabindex="0" role="button" aria-label="박상준 10월 28일 출결"></td><td class="at th3" data-k="20261029" tabindex="0" role="button" aria-label="박상준 10월 29일 출결"></td><td class="at" data-k="20261104" tabindex="0" role="button" aria-label="박상준 11월 4일 출결"></td><td class="at" data-k="20261111" tabindex="0" role="button" aria-label="박상준 11월 11일 출결"></td><td class="at" data-k="20261118" tabindex="0" role="button" aria-label="박상준 11월 18일 출결"></td><td class="at" data-k="20261125" tabindex="0" role="button" aria-label="박상준 11월 25일 출결"></td><td class="at th3" data-k="20261126" tabindex="0" role="button" aria-label="박상준 11월 26일 출결"></td><td class="at" data-k="20261202" tabindex="0" role="button" aria-label="박상준 12월 2일 출결"></td><td class="at" data-k="20261209" tabindex="0" role="button" aria-label="박상준 12월 9일 출결"></td><td class="at ex" data-k="20261216" tabindex="0" role="button" aria-label="박상준 12월 16일 출결"></td><td class="sm">6</td></tr>
+<tr data-n="서효원"><th scope="row">서효원</th><td class="at" data-k="20260902" tabindex="0" role="button" aria-label="서효원 9월 2일 출결"></td><td class="at th3" data-k="20260903" tabindex="0" role="button" aria-label="서효원 9월 3일 출결"></td><td class="at s-o" data-v="o" data-k="20260909" tabindex="0" role="button" aria-label="서효원 9월 9일 출결">○</td><td class="at s-o" data-v="o" data-k="20260916" tabindex="0" role="button" aria-label="서효원 9월 16일 출결">○</td><td class="at s-o" data-v="o" data-k="20260923" tabindex="0" role="button" aria-label="서효원 9월 23일 출결">○</td><td class="at td s-o" data-v="o" data-k="20260930" tabindex="0" role="button" aria-label="서효원 9월 30일 출결">○</td><td class="at th3 s-o" data-v="o" data-k="20261001" tabindex="0" role="button" aria-label="서효원 10월 1일 출결">○</td><td class="at s-o" data-v="o" data-k="20261007" tabindex="0" role="button" aria-label="서효원 10월 7일 출결">○</td><td class="at" data-k="20261014" tabindex="0" role="button" aria-label="서효원 10월 14일 출결"></td><td class="at ex" data-k="20261021" tabindex="0" role="button" aria-label="서효원 10월 21일 출결"></td><td class="at" data-k="20261028" tabindex="0" role="button" aria-label="서효원 10월 28일 출결"></td><td class="at th3" data-k="20261029" tabindex="0" role="button" aria-label="서효원 10월 29일 출결"></td><td class="at" data-k="20261104" tabindex="0" role="button" aria-label="서효원 11월 4일 출결"></td><td class="at" data-k="20261111" tabindex="0" role="button" aria-label="서효원 11월 11일 출결"></td><td class="at" data-k="20261118" tabindex="0" role="button" aria-label="서효원 11월 18일 출결"></td><td class="at" data-k="20261125" tabindex="0" role="button" aria-label="서효원 11월 25일 출결"></td><td class="at th3" data-k="20261126" tabindex="0" role="button" aria-label="서효원 11월 26일 출결"></td><td class="at" data-k="20261202" tabindex="0" role="button" aria-label="서효원 12월 2일 출결"></td><td class="at" data-k="20261209" tabindex="0" role="button" aria-label="서효원 12월 9일 출결"></td><td class="at ex" data-k="20261216" tabindex="0" role="button" aria-label="서효원 12월 16일 출결"></td><td class="sm">6</td></tr>
+<tr data-n="심태섭"><th scope="row">심태섭</th><td class="at" data-k="20260902" tabindex="0" role="button" aria-label="심태섭 9월 2일 출결"></td><td class="at th3" data-k="20260903" tabindex="0" role="button" aria-label="심태섭 9월 3일 출결"></td><td class="at s-o" data-v="o" data-k="20260909" tabindex="0" role="button" aria-label="심태섭 9월 9일 출결">○</td><td class="at s-o" data-v="o" data-k="20260916" tabindex="0" role="button" aria-label="심태섭 9월 16일 출결">○</td><td class="at s-o" data-v="o" data-k="20260923" tabindex="0" role="button" aria-label="심태섭 9월 23일 출결">○</td><td class="at td s-o" data-v="o" data-k="20260930" tabindex="0" role="button" aria-label="심태섭 9월 30일 출결">○</td><td class="at th3 s-o" data-v="o" data-k="20261001" tabindex="0" role="button" aria-label="심태섭 10월 1일 출결">○</td><td class="at s-o" data-v="o" data-k="20261007" tabindex="0" role="button" aria-label="심태섭 10월 7일 출결">○</td><td class="at" data-k="20261014" tabindex="0" role="button" aria-label="심태섭 10월 14일 출결"></td><td class="at ex" data-k="20261021" tabindex="0" role="button" aria-label="심태섭 10월 21일 출결"></td><td class="at" data-k="20261028" tabindex="0" role="button" aria-label="심태섭 10월 28일 출결"></td><td class="at th3" data-k="20261029" tabindex="0" role="button" aria-label="심태섭 10월 29일 출결"></td><td class="at" data-k="20261104" tabindex="0" role="button" aria-label="심태섭 11월 4일 출결"></td><td class="at" data-k="20261111" tabindex="0" role="button" aria-label="심태섭 11월 11일 출결"></td><td class="at" data-k="20261118" tabindex="0" role="button" aria-label="심태섭 11월 18일 출결"></td><td class="at" data-k="20261125" tabindex="0" role="button" aria-label="심태섭 11월 25일 출결"></td><td class="at th3" data-k="20261126" tabindex="0" role="button" aria-label="심태섭 11월 26일 출결"></td><td class="at" data-k="20261202" tabindex="0" role="button" aria-label="심태섭 12월 2일 출결"></td><td class="at" data-k="20261209" tabindex="0" role="button" aria-label="심태섭 12월 9일 출결"></td><td class="at ex" data-k="20261216" tabindex="0" role="button" aria-label="심태섭 12월 16일 출결"></td><td class="sm">6</td></tr>
+<tr data-n="전승예"><th scope="row">전승예</th><td class="at" data-k="20260902" tabindex="0" role="button" aria-label="전승예 9월 2일 출결"></td><td class="at th3" data-k="20260903" tabindex="0" role="button" aria-label="전승예 9월 3일 출결"></td><td class="at s-o" data-v="o" data-k="20260909" tabindex="0" role="button" aria-label="전승예 9월 9일 출결">○</td><td class="at s-o" data-v="o" data-k="20260916" tabindex="0" role="button" aria-label="전승예 9월 16일 출결">○</td><td class="at s-o" data-v="o" data-k="20260923" tabindex="0" role="button" aria-label="전승예 9월 23일 출결">○</td><td class="at td s-o" data-v="o" data-k="20260930" tabindex="0" role="button" aria-label="전승예 9월 30일 출결">○</td><td class="at th3 s-o" data-v="o" data-k="20261001" tabindex="0" role="button" aria-label="전승예 10월 1일 출결">○</td><td class="at s-o" data-v="o" data-k="20261007" tabindex="0" role="button" aria-label="전승예 10월 7일 출결">○</td><td class="at" data-k="20261014" tabindex="0" role="button" aria-label="전승예 10월 14일 출결"></td><td class="at ex" data-k="20261021" tabindex="0" role="button" aria-label="전승예 10월 21일 출결"></td><td class="at" data-k="20261028" tabindex="0" role="button" aria-label="전승예 10월 28일 출결"></td><td class="at th3" data-k="20261029" tabindex="0" role="button" aria-label="전승예 10월 29일 출결"></td><td class="at" data-k="20261104" tabindex="0" role="button" aria-label="전승예 11월 4일 출결"></td><td class="at" data-k="20261111" tabindex="0" role="button" aria-label="전승예 11월 11일 출결"></td><td class="at" data-k="20261118" tabindex="0" role="button" aria-label="전승예 11월 18일 출결"></td><td class="at" data-k="20261125" tabindex="0" role="button" aria-label="전승예 11월 25일 출결"></td><td class="at th3" data-k="20261126" tabindex="0" role="button" aria-label="전승예 11월 26일 출결"></td><td class="at" data-k="20261202" tabindex="0" role="button" aria-label="전승예 12월 2일 출결"></td><td class="at" data-k="20261209" tabindex="0" role="button" aria-label="전승예 12월 9일 출결"></td><td class="at ex" data-k="20261216" tabindex="0" role="button" aria-label="전승예 12월 16일 출결"></td><td class="sm">6</td></tr>
+<tr data-n="정연승"><th scope="row">정연승</th><td class="at" data-k="20260902" tabindex="0" role="button" aria-label="정연승 9월 2일 출결"></td><td class="at th3" data-k="20260903" tabindex="0" role="button" aria-label="정연승 9월 3일 출결"></td><td class="at s-o" data-v="o" data-k="20260909" tabindex="0" role="button" aria-label="정연승 9월 9일 출결">○</td><td class="at s-o" data-v="o" data-k="20260916" tabindex="0" role="button" aria-label="정연승 9월 16일 출결">○</td><td class="at s-x" data-v="x" data-k="20260923" tabindex="0" role="button" aria-label="정연승 9월 23일 출결">결</td><td class="at td s-o" data-v="o" data-k="20260930" tabindex="0" role="button" aria-label="정연승 9월 30일 출결">○</td><td class="at th3 s-o" data-v="o" data-k="20261001" tabindex="0" role="button" aria-label="정연승 10월 1일 출결">○</td><td class="at s-o" data-v="o" data-k="20261007" tabindex="0" role="button" aria-label="정연승 10월 7일 출결">○</td><td class="at" data-k="20261014" tabindex="0" role="button" aria-label="정연승 10월 14일 출결"></td><td class="at ex" data-k="20261021" tabindex="0" role="button" aria-label="정연승 10월 21일 출결"></td><td class="at" data-k="20261028" tabindex="0" role="button" aria-label="정연승 10월 28일 출결"></td><td class="at th3" data-k="20261029" tabindex="0" role="button" aria-label="정연승 10월 29일 출결"></td><td class="at" data-k="20261104" tabindex="0" role="button" aria-label="정연승 11월 4일 출결"></td><td class="at" data-k="20261111" tabindex="0" role="button" aria-label="정연승 11월 11일 출결"></td><td class="at" data-k="20261118" tabindex="0" role="button" aria-label="정연승 11월 18일 출결"></td><td class="at" data-k="20261125" tabindex="0" role="button" aria-label="정연승 11월 25일 출결"></td><td class="at th3" data-k="20261126" tabindex="0" role="button" aria-label="정연승 11월 26일 출결"></td><td class="at" data-k="20261202" tabindex="0" role="button" aria-label="정연승 12월 2일 출결"></td><td class="at" data-k="20261209" tabindex="0" role="button" aria-label="정연승 12월 9일 출결"></td><td class="at ex" data-k="20261216" tabindex="0" role="button" aria-label="정연승 12월 16일 출결"></td><td class="sm">5</td></tr>
+</tbody>
+<tfoot><tr><th scope="row">출석 · 결석</th><td class="ft" data-k="20260902"></td><td class="ft th3" data-k="20260903"></td><td class="ft" data-k="20260909">7 · 1</td><td class="ft" data-k="20260916">6 · 2</td><td class="ft" data-k="20260923">6 · 2</td><td class="ft td" data-k="20260930">6 · 2</td><td class="ft th3" data-k="20261001">6 · 2</td><td class="ft" data-k="20261007">6 · 2</td><td class="ft" data-k="20261014"></td><td class="ft ex" data-k="20261021"></td><td class="ft" data-k="20261028"></td><td class="ft th3" data-k="20261029"></td><td class="ft" data-k="20261104"></td><td class="ft" data-k="20261111"></td><td class="ft" data-k="20261118"></td><td class="ft" data-k="20261125"></td><td class="ft th3" data-k="20261126"></td><td class="ft" data-k="20261202"></td><td class="ft" data-k="20261209"></td><td class="ft ex" data-k="20261216"></td><td class="sm">37</td></tr></tfoot>
+</table>
+</div>
+</section>
+
+<!-- 「매주 한 일」은 위 「주간 기록」(#record)으로 합침 — 2026-10-07 -->
+
+</div>
+
+<div class="stm stm-flat" id="발표현황">
+<h2 class="pt-t" id="present">발표 현황 <span>9/9 · 9/16 게시판 발표와 남은 도시</span></h2>
+<p class="pt-ws"><a href="smart-tourism-city-analysis-worksheet.html" target="_blank" rel="noopener"><span class="ws-dia" aria-hidden="true">◆</span><span class="ws-star" aria-hidden="true">✦</span>발표 들으며 쓰는 워크시트 — 웹에서 바로 ↗<span class="ws-star" aria-hidden="true">✦</span><span class="ws-dia" aria-hidden="true">◆</span></a></p>
+<div class="pt-scroll"><table>
+<thead>
+<tr>
+<th>학번<span class="th-sub">학년 · 고향</span></th>
+<th>학생</th>
+<th>발표 도시<span class="th-sub">9/9</span></th>
+<th>남은 도시<span class="th-sub">9/16</span></th>
+<th>9/23 발표<span class="th-sub">판서</span></th>
+<th>10/1 발표<span class="th-sub">남은 발표</span></th>
+<th>10/7 발표<span class="th-sub">남은 발표</span></th>
+<th>10/14 발표<span class="th-sub">남은 발표</span></th>
+<th class="eu">11/4<span class="th-sub">10주 · 유럽 수상</span></th>
+<th class="eu">11/11<span class="th-sub">11주 · 유럽 수상</span></th>
+<th class="eu">11/18<span class="th-sub">12주 · Green</span></th>
+<th class="eu">11/25<span class="th-sub">13주 · 최종후보</span></th>
+<th>비고</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>20230881<span class="sub"><b>2학년</b>서울 · 도봉구</span></td>
+<td>심태섭</td>
+<td class="city">청주</td>
+<td class="city">용인</td>
+<td class="p23">—</td>
+<td class="p30 yes">발표함</td>
+<td class="p30">—</td>
+<td class="na">—</td>
+<td class="eu"></td>
+<td class="eu"></td>
+<td class="eu"></td>
+<td class="eu"></td>
+<td class="rm"></td></tr><tr>
+<td>20230041<span class="sub"><b>2학년</b>양양</span></td>
+<td>정연승</td>
+<td class="city">양양</td>
+<td class="city">인제</td>
+<td class="p23">—</td>
+<td class="p30">—</td>
+<td class="p30 na">10/14로 옮김</td>
+<td class="p30 due">발표 예정</td>
+<td class="eu"></td>
+<td class="eu"></td>
+<td class="eu"></td>
+<td class="eu"></td>
+<td class="rm">9/23 판서 결석</td></tr><tr>
+<td>20250322<span class="sub"><b>2학년</b>경기도 파주</span></td>
+<td>김윤서</td>
+<td class="city">인천</td>
+<td class="city">수원</td>
+<td class="p23 yes">발표함</td>
+<td class="p30">—</td>
+<td class="p30">—</td>
+<td class="na">—</td>
+<td class="eu"></td>
+<td class="eu"></td>
+<td class="eu"></td>
+<td class="eu"></td>
+<td class="rm"></td></tr><tr>
+<td>20251140<span class="sub"><b>2학년</b>부산 · 사하구</span></td>
+<td>전승예</td>
+<td class="city">여수</td>
+<td class="city">경주</td>
+<td class="p23">—</td>
+<td class="p30">—</td>
+<td class="p30 na">10/14로 옮김</td>
+<td class="p30 due">발표 예정</td>
+<td class="eu"></td>
+<td class="eu"></td>
+<td class="eu"></td>
+<td class="eu"></td>
+<td class="rm"></td></tr><tr>
+<td>20210664<span class="sub"><b>4학년</b>거제</span></td>
+<td>박상준</td>
+<td class="city">통영</td>
+<td class="city">대구</td>
+<td class="p23 yes">발표함</td>
+<td class="p30">—</td>
+<td class="p30">—</td>
+<td class="na">—</td>
+<td class="eu"></td>
+<td class="eu"></td>
+<td class="eu"></td>
+<td class="eu"></td>
+<td class="rm"></td></tr><tr>
+<td>20230036<span class="sub"><b>3학년</b>안동</span></td>
+<td>서효원</td>
+<td class="city">경주</td>
+<td class="city">울산</td>
+<td class="p23">—</td>
+<td class="p30">—</td>
+<td class="p30 na">10/14로 옮김</td>
+<td class="p30 due">발표 예정</td>
+<td class="eu"></td>
+<td class="eu"></td>
+<td class="eu"></td>
+<td class="eu"></td>
+<td class="rm"></td></tr><tr>
+<td>20230035<span class="sub"><b>4학년</b>대전</span></td>
+<td>김준호</td>
+<td class="city">양양</td>
+<td class="city">남원(예정)</td>
+<td class="p23 yes">발표함</td>
+<td class="p30">—</td>
+<td class="p30">—</td>
+<td class="na">—</td>
+<td class="eu"></td>
+<td class="eu"></td>
+<td class="eu"></td>
+<td class="eu"></td>
+<td class="rm">9/16 게시물 없음</td></tr><tr class="warning-row">
+<td>20230032<span class="sub"><b>4학년</b>고향 미확인</span></td>
+<td>김대호</td>
+<td class="warning">취업계</td>
+<td class="warning">발표 대상 제외</td>
+<td class="na">—</td>
+<td class="na">—</td>
+<td class="na">—</td>
+<td class="na">—</td>
+<td class="na">—</td>
+<td class="na">—</td>
+<td class="na">—</td>
+<td class="na">—</td>
+<td class="rm">취업계로 9/16 이후 제외</td></tr></tbody>
+</table></div>
+<div class="foot"><strong>비고:</strong> 김준호 학생은 9/16 게시물이 없어 남은 도시 남원은 예정으로 둠. 심태섭 학생의 남은 도시는 용인으로 지정함.<div class="dup"><b>도시가 겹치는 곳</b> — <span>경주 → 서효원, 전승예</span><span>양양 → 정연승, 김준호</span></div></div>
+</div>
+
 
 
 
@@ -413,15 +828,7 @@ td{padding:10px;border-bottom:1px solid var(--line);font-size:12.8px;vertical-al
 <p class="plan-note">학기 초에 세운 <b>설계</b>입니다 — 실제 진행은 <a href="#record">2절 기록</a>을 따릅니다. 지금까지는 이 리듬 대신 <b>게시판 · 판서 발표</b>로 운영했습니다.</p>
   <div class="schedule">
     <article class="day wed">
-      <div class="day-head"><strong>수요일 · 실습</strong><span>50분 + 50분 · 학습자 중심</span></div>
-      <div class="period">
-        <div class="period-top"><div class="period-name">학습자 · 도시 사례 발표</div><span class="time-badge">50분</span></div>
-        <div class="team-row three-team">
-          <div class="team-box">1팀 발표 · 17분</div>
-          <div class="team-box">2팀 발표 · 17분</div>
-          <div class="team-box">3팀 발표 · 16분</div>
-        </div>
-      </div>
+      <div class="day-head"><strong>수요일 · 실습</strong><span>학습자 중심</span></div>
       <div class="period">
         <div class="period-top"><div class="period-name">실습 · 콘텐츠 제작</div><span class="time-badge">50분</span></div>
         <div class="thu-stack">
@@ -433,16 +840,10 @@ td{padding:10px;border-bottom:1px solid var(--line);font-size:12.8px;vertical-al
     <article class="day thu">
       <div class="day-head"><strong>목요일 · 이론</strong><span>50분 · 교수자 중심</span></div>
       <div class="period">
-        <div class="period-top"><div class="period-name thu-instructor-title">교수자 · 논문 또는 책</div><span class="time-badge">40분</span></div>
-        <div class="thu-stack thu-two-col">
-          <div class="paper-box"><h3>논문 · 20분 × 2편</h3><p>연구질문·HOOK 3 → 논문/영상 4 → 연구설계·결과 8 → CONCEPT 3 → LENS 2</p></div>
-          <div class="paper-box"><h3>또는 책 · 40분</h3><p>핵심 내용 읽기 → 주요 개념 정리 → 사례 연결 → LENS</p></div>
-        </div>
-      </div>
-      <div class="period">
-        <div class="period-top"><div class="period-name thu-instructor-title">전체 보기</div><span class="time-badge">10분</span></div>
+        <div class="period-top"><div class="period-name thu-instructor-title">논문 또는 책 → 이론 × 사례 연결</div><span class="time-badge">40 + 10분</span></div>
         <div class="thu-stack">
-          <div class="thu-box eval"><b>이론 × 사례 연결</b>이번 주 이론과 3팀 사례의 공통점·차이·연결성 → 최종 LENS 정리</div>
+          <div class="paper-box"><h3>읽기 · 40분 — 논문 2편(20분씩) 또는 책</h3><p>질문 · HOOK → 논문 · 영상 → 연구설계 · 결과 → CONCEPT → LENS</p></div>
+          <div class="thu-box eval"><b>연결 · 10분</b>이번 주 이론과 발표 사례의 공통점 · 차이 → 최종 LENS 정리</div>
         </div>
       </div>
     </article>
@@ -465,7 +866,7 @@ td{padding:10px;border-bottom:1px solid var(--line);font-size:12.8px;vertical-al
       <thead><tr><th>구분</th><th>수요일 50분 + 50분</th><th>목요일 50분</th></tr></thead>
       <tbody>
         <tr><td><b>성격</b></td><td><b>실습</b></td><td><b>이론</b></td></tr>
-        <tr><td><b>구성</b></td><td><b>1팀 17 → 2팀 17 → 3팀 16 → 제작 실습 50</b></td><td><b>논문 2편(20+20) 또는 책 40 → 전체 보기 10</b></td></tr>
+        <tr><td><b>구성</b></td><td><b>도시 사례 발표 → 제작 실습</b></td><td><b>논문 2편(20+20) 또는 책 40 → 전체 보기 10</b></td></tr>
         <tr><td><b>합계</b></td><td><b>100분</b> · 학생발표 50 + 실습 50</td><td><b>50분</b> · 이론 40 + 전체 보기 10</td></tr>
         <tr><td><b>주간</b></td><td colspan="2"><b>150분(3시수) = 수 실습 100분 + 목 이론 50분</b></td></tr>
       </tbody>
@@ -482,5 +883,128 @@ td{padding:10px;border-bottom:1px solid var(--line);font-size:12.8px;vertical-al
 </section>
 
 </div>
+<script>
+/* 출석부 — 칸을 누르면 상태가 돌고, 값은 이 브라우저에만 저장된다. */
+(function () {
+  var KEY = 'stn-attend-v1';
+  var ORDER = ['', 'o', 'l', 'x', 'j'];
+  var MARK = { o: '\u25cb', l: '\uc9c0', x: '\uacb0', j: '\u2013' };
+  var table = document.getElementById('atTable');
+  if (!table) return;
+  var msg = document.getElementById('atMsg') || {};
+  var data = {};
+
+  try { data = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { data = {}; }
+
+  function cells() { return Array.prototype.slice.call(table.querySelectorAll('td.at')); }
+  function idOf(td) { return td.parentNode.dataset.n + '|' + td.dataset.k; }
+
+  function paint(td) {
+    var v = data[idOf(td)] || '';
+    td.className = td.className.replace(/\s*s-[olxj]/g, '');
+    td.textContent = v ? MARK[v] : '';
+    if (v) td.className += ' s-' + v;
+  }
+
+  function totals() {
+    /* 학생별 출석 수(출석 + 지각) */
+    Array.prototype.slice.call(table.querySelectorAll('tbody tr')).forEach(function (tr) {
+      var n = 0;
+      Array.prototype.slice.call(tr.querySelectorAll('td.at')).forEach(function (td) {
+        var v = data[idOf(td)];
+        if (v === 'o' || v === 'l') n++;
+      });
+      tr.querySelector('td.sm').textContent = n;
+    });
+    /* 회차별 출석 · 결석 */
+    Array.prototype.slice.call(table.querySelectorAll('tfoot td.ft')).forEach(function (td) {
+      var k = td.dataset.k, o = 0, x = 0, held = false;
+      Array.prototype.slice.call(table.querySelectorAll('tbody tr')).forEach(function (tr) {
+        var v = data[tr.dataset.n + '|' + k];
+        if (v === 'o' || v === 'l') { o++; held = true; }
+        else if (v === 'x') { x++; held = true; }
+        else if (v === 'j') x++;   /* \uacf5\uacb0\uc740 \uacb0\uc11d \uc218\uc5d0\ub9cc \ub123\uace0, \uadf8\uac83\ub9cc\uc73c\ub85c\ub294 \u300c\uc5f4\ub9b0 \ud68c\ucc28\u300d\ub85c \ubcf4\uc9c0 \uc54a\ub294\ub2e4 */
+      });
+      td.textContent = held ? (o + ' \u00b7 ' + x) : '';
+    });
+  }
+
+  function save(note) {
+    try { localStorage.setItem(KEY, JSON.stringify(data)); }
+    catch (e) { msg.textContent = '\uc800\uc7a5\ud558\uc9c0 \ubabb\ud588\uc2b5\ub2c8\ub2e4(\ube0c\ub77c\uc6b0\uc800 \uc800\uc7a5\uacf5\uac04 \ucc28\ub2e8).'; return; }
+    if (note) msg.textContent = note;
+  }
+
+  function cycle(td) {
+    var id = idOf(td);
+    var i = ORDER.indexOf(data[id] || '');
+    var v = ORDER[(i + 1) % ORDER.length];
+    if (v) data[id] = v; else delete data[id];
+    paint(td); totals(); save('\uc800\uc7a5\ub428');
+  }
+
+  table.addEventListener('click', function (e) {
+    var td = e.target.closest ? e.target.closest('td.at') : null;
+    if (td && !td.dataset.lock) cycle(td);
+  });
+  table.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('at') && !e.target.dataset.lock) {
+      e.preventDefault(); cycle(e.target);
+    }
+  });
+
+  window.atToday = function () {
+    var td = table.querySelector('td.at.td');
+    if (td) { td.scrollIntoView({ block: 'nearest', inline: 'center' }); td.focus(); }
+    else { msg.textContent = '\uc624\ub298\uc740 \uc218\uc5c5\uc77c\uc774 \uc544\ub2d9\ub2c8\ub2e4.'; }
+  };
+  window.atFill = function () {
+    var list = table.querySelectorAll('td.at.td');
+    if (!list.length) { msg.textContent = '\uc624\ub298\uc740 \uc218\uc5c5\uc77c\uc774 \uc544\ub2d9\ub2c8\ub2e4.'; return; }
+    Array.prototype.slice.call(list).forEach(function (td) {
+      if (td.dataset.lock) return;
+      data[idOf(td)] = 'o'; paint(td);
+    });
+    totals(); save('\uc624\ub298 \ud68c\ucc28\ub97c \ubaa8\ub450 \ucd9c\uc11d\uc73c\ub85c \ud588\uc2b5\ub2c8\ub2e4.');
+  };
+  window.atClear = function () {
+    if (!window.confirm('\ud45c\uc2dc\ud55c \ucd9c\uacb0\uc744 \uc804\ubd80 \uc9c0\uc6b8\uae4c\uc694?')) return;
+    data = {};
+    cells().forEach(function (td) {
+      if (td.dataset.lock) data[idOf(td)] = td.dataset.lock;
+      else if (td.dataset.v) data[idOf(td)] = td.dataset.v;
+    });
+    cells().forEach(paint); totals();
+    save('\ube0c\ub77c\uc6b0\uc800\uc5d0 \ub123\uc740 \ud45c\uc2dc\ub97c \uc9c0\uc6e0\uc2b5\ub2c8\ub2e4 \u2014 \ud398\uc774\uc9c0\uc5d0 \uc801\ud78c \uae30\ub85d\uc740 \ub0a8\uc2b5\ub2c8\ub2e4.');
+  };
+  window.atCopy = function () {
+    var out = [];
+    Array.prototype.slice.call(table.querySelectorAll('tr')).forEach(function (tr) {
+      var row = Array.prototype.slice.call(tr.children).map(function (c) {
+        return (c.textContent || '').replace(/\s+/g, ' ').trim();
+      });
+      out.push(row.join('\t'));
+    });
+    var text = out.join('\n');
+    function done() { msg.textContent = '\ubcf5\uc0ac\ud588\uc2b5\ub2c8\ub2e4 \u2014 \ubd99\uc5ec\ub123\uae30\ud558\uc138\uc694.'; }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, function () { window.prompt('\ubcf5\uc0ac\ud558\uc138\uc694', text); });
+    } else { window.prompt('\ubcf5\uc0ac\ud558\uc138\uc694', text); }
+  };
+
+  /* HTML \uc5d0 \ubc15\ud600 \uc788\ub294 \uac12(data-v)\uc740 \uae30\ubcf8\uac12 \u2014 \uc774 \ube0c\ub77c\uc6b0\uc800\uc5d0\uc11c \ub204\ub978 \uac12\uc774 \uc788\uc73c\uba74 \uadf8\ucabd\uc774 \uc774\uae34\ub2e4. */
+  cells().forEach(function (td) {
+    var id = idOf(td);
+    /* \uace0\uc815 \uce78(data-lock)\uc740 \ube0c\ub77c\uc6b0\uc800\uc5d0 \ubb50\uac00 \uc800\uc7a5\ub3fc \uc788\ub4e0 \ud56d\uc0c1 \uadf8 \uac12\uc774\ub2e4. */
+    if (td.dataset.lock) data[id] = td.dataset.lock;
+    /* 페이지에 적어 둔 회차(data-v)는 기록이므로 브라우저에 눌러 둔 값보다 앞선다 —
+       그렇지 않으면 한 번 눌러 본 기기에서만 다른 숫자가 보인다(2026-09-23). */
+    else if (td.dataset.v) data[id] = td.dataset.v;
+  });
+
+  cells().forEach(paint);
+  totals();
+})();
+</script>
 </body>
 </html>
