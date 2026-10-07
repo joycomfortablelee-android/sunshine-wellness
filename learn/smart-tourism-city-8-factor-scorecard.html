@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>도시 8요인 점수표</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
+<style>
+  :root { --ink: #14243A; --ink-2: #44566B; --ink-3: #7C8A99; --line: #DBE4EE; --navy: #17365D; --sky: #e8f1fb;
+    --a: #c0392b; --a-soft: rgba(192,57,43,.16); --b: #1f6fb2; --b-soft: rgba(31,111,178,.14); --gold: #FFF3B0; --ground: #F4F7FB; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--ground); color: var(--ink); font-family: 'Noto Sans KR', system-ui, sans-serif; font-size: 14px; line-height: 1.6; }
+  .sheet { max-width: 1140px; margin: 0 auto; padding: 24px 16px 48px; display: grid; gap: 22px; }
+  .eyebrow { display: inline-block; background: var(--gold); color: var(--navy); font-size: 11px; font-weight: 700; padding: 2px 10px; border-radius: 999px; }
+  h1 { margin: 6px 0 4px; font-size: clamp(21px, 3vw, 27px); }
+  .lede { margin: 0; color: var(--ink-2); }
+  h2 { margin: 0 0 8px; font-size: 16px; border-left: 4px solid var(--navy); padding-left: 10px; }
+
+  /* ── PT 한 장 (16:9) ── */
+  .slide-wrap { overflow-x: auto; }
+  .slide { width: 1100px; aspect-ratio: 16 / 9; background: #fff; border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 8px 28px -18px rgba(20,36,58,.45);
+    padding: 22px 26px 16px; display: grid; grid-template-rows: auto 1fr auto; gap: 12px; }
+  .s-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; border-bottom: 3px solid var(--navy); padding-bottom: 8px; }
+  .s-head .t { font-size: 21px; font-weight: 800; }
+  .s-head input { font: inherit; font-size: 19px; font-weight: 800; width: 120px; border: 0; border-bottom: 2px dashed; padding: 0 4px; background: transparent; text-align: center; }
+  .s-head input.a { color: var(--a); border-color: var(--a); }
+  .s-head input.b { color: var(--b); border-color: var(--b); }
+  .s-head .who { margin-left: auto; font-size: 12px; color: var(--ink-3); }
+  .s-head .who input { font-size: 13px; font-weight: 600; width: 90px; color: var(--ink); border-color: var(--line); }
+  .s-body { display: grid; grid-template-columns: 1fr 330px; gap: 16px; min-height: 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  th, td { border-bottom: 1px solid var(--line); padding: 4px 6px; text-align: left; vertical-align: middle; }
+  thead th { background: var(--sky); font-size: 11px; color: var(--navy); }
+  td.f b { display: block; font-size: 12.5px; }
+  td.f small { color: var(--ink-3); font-size: 10px; }
+  td.m { color: var(--ink-2); font-size: 11px; width: 210px; }
+  td.e input { width: 100%; font: inherit; font-size: 11.5px; border: 1px solid var(--line); border-radius: 5px; padding: 3px 6px; }
+  th.sc .hc { display: block; width: 52px; margin: 2px auto 0; font: inherit; font-size: 12px; font-weight: 800; text-align: center; border: 0; border-bottom: 1.5px dashed; background: transparent; padding: 0 2px; }
+  th.sc .hc.a { color: var(--a); border-color: var(--a); } th.sc .hc.b { color: var(--b); border-color: var(--b); }
+  th.sc, td.sc { width: 54px; text-align: center; }
+  td.sc select { font: inherit; font-weight: 800; font-size: 13px; padding: 1px 2px; border-radius: 5px; border: 1.5px solid; width: 46px; text-align: center; }
+  td.sc.a select { color: var(--a); border-color: var(--a); background: #fff6f5; }
+  td.sc.b select { color: var(--b); border-color: var(--b); background: #f3f8fd; }
+  tfoot td { font-weight: 800; border-bottom: 0; padding-top: 6px; }
+  tfoot td.sc.a { color: var(--a); } tfoot td.sc.b { color: var(--b); }
+  .side { display: grid; grid-template-rows: auto 1fr; gap: 8px; min-height: 0; }
+  .radar { border: 1px solid var(--line); border-radius: 10px; padding: 4px; }
+  .radar svg { width: 100%; height: auto; display: block; }
+  .legend { display: flex; gap: 12px; justify-content: center; font-size: 11.5px; font-weight: 700; margin-top: -2px; }
+  .legend .a { color: var(--a); } .legend .b { color: var(--b); }
+  .say { display: grid; gap: 6px; }
+  .say label { display: grid; grid-template-columns: 74px 1fr; gap: 6px; align-items: center; font-size: 11.5px; font-weight: 700; }
+  .say label span { padding: 2px 0; border-radius: 6px; text-align: center; }
+  .say .good span { background: #e3f4ea; color: #1f5a3f; }
+  .say .weak span { background: #fdecea; color: #a12b1f; }
+  .say .fix span { background: var(--gold); color: #7a5300; }
+  .say input { font: inherit; font-size: 11.5px; border: 1px solid var(--line); border-radius: 5px; padding: 4px 6px; width: 100%; }
+  .s-foot { font-size: 10px; color: var(--ink-3); display: flex; justify-content: space-between; gap: 10px; border-top: 1px solid var(--line); padding-top: 5px; }
+
+  /* ── 아래 안내 ── */
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+  .card h3 { margin: 0 0 6px; font-size: 13.5px; color: var(--navy); }
+  .card ol, .card ul { margin: 0; padding-left: 18px; font-size: 12.5px; color: var(--ink-2); }
+  .rub { width: 100%; font-size: 12.5px; }
+  .rub td:first-child { font-weight: 800; width: 34px; text-align: center; color: var(--navy); }
+  .pairs th, .pairs td { font-size: 12.5px; padding: 6px 8px; }
+  .pairs td.a { color: var(--a); font-weight: 700; } .pairs td.b { color: var(--b); font-weight: 700; }
+  .pairs button { font: inherit; font-size: 11.5px; border: 1px solid var(--navy); color: var(--navy); background: #fff; border-radius: 999px; padding: 1px 10px; cursor: pointer; }
+  .pairs button:hover { background: var(--sky); }
+  .note { font-size: 12px; color: var(--ink-3); margin: 6px 0 0; }
+  @media (max-width: 860px) { .grid3 { grid-template-columns: 1fr; } }
+  @media print { body { background: #fff; } .sheet > :not(.slide-wrap) { display: none; } .slide { box-shadow: none; } }
+</style>
+</head>
+<body>
+<main class="sheet">
+  <header>
+    <span class="eyebrow">스마트관광 · 발표 도시 평가</span>
+    <h1>내 도시는 잘하고 있나 — 8요인 점수표 (PT 한 장)</h1>
+    <p class="lede">「잘한다 · 못한다」를 느낌이 아니라 <b>여덟 요인 × 1~5점</b>으로 매기고, <b>비교 도시</b>와 나란히 놓아 봅니다. 아래 칸을 채우면 오른쪽 그림이 바로 그려집니다 — 그대로 캡처해 PT 한 장으로 쓰십시오.</p>
+  </header>
+
+  <div class="slide-wrap">
+    <section class="slide" aria-label="PT 한 장 양식">
+      <div class="s-head">
+        <input class="a" id="cityA" value="내 도시" aria-label="내 발표 도시">
+        <span class="t">vs</span>
+        <input class="b" id="cityB" value="비교 도시" aria-label="비교 도시">
+        <span class="t">— 스마트관광 8요인 점수표</span>
+        <span class="who">발표자 <input id="who" placeholder="이름"></span>
+      </div>
+      <div class="s-body">
+        <table>
+          <thead><tr><th>요인</th><th>무엇을 보나</th><th>증거 — 앱 · 서비스 · 사진 이름</th><th class="sc">내 도시<input class="hc a" id="hA" aria-label="내 도시 이름"></th><th class="sc">비교<input class="hc b" id="hB" aria-label="비교 도시 이름"></th></tr></thead>
+          <tbody id="rows"></tbody>
+          <tfoot><tr><td colspan="3" style="text-align:right">합계 (40점 만점)</td><td class="sc a" id="sumA">–</td><td class="sc b" id="sumB">–</td></tr></tfoot>
+        </table>
+        <div class="side">
+          <div class="radar"><svg id="radar" viewBox="0 0 320 290" role="img" aria-label="8요인 비교 그림"></svg>
+            <div class="legend"><span class="a" id="lgA">● 내 도시</span><span class="b" id="lgB">● 비교 도시</span></div></div>
+          <div class="say">
+            <label class="good"><span>잘하는 것</span><input placeholder="예) 정보성 — 실시간 관광안내 앱"></label>
+            <label class="weak"><span>부족한 것</span><input placeholder="예) 개인화 — 맞춤 추천이 없다"></label>
+            <label class="fix"><span>개선 제안</span><input placeholder="예) 비교 도시의 ○○처럼 …"></label>
+          </div>
+        </div>
+      </div>
+      <div class="s-foot"><span>점수 기준 5 = 실제 서비스 + 사진 증거 · 3 = 일부 · 시범 · 1 = 찾을 수 없음</span><span>요인 — 스마트관광 척도개발 연구 다섯 편(박소영 외, 2024)의 8요인</span></div>
+    </section>
+  </div>
+
+  <section>
+    <h2>어떻게 쓰나 — 세 단계</h2>
+    <div class="grid3">
+      <div class="card"><h3>① 두 도시를 정한다</h3><ol><li><b>내 도시</b> = 내가 발표한 도시</li><li><b>비교 도시</b> = 남은 발표 도시, 또는 「잘한다」고 알려진 도시(서울 · 부산 · 해외 사례)</li></ol></div>
+      <div class="card"><h3>② 증거부터 적는다</h3><ol><li>요인마다 <b>앱 · 서비스 · 시설 이름</b>을 하나씩</li><li>못 찾으면 비워 둡니다 — 그것이 1점의 근거입니다</li><li>점수는 증거를 적은 <b>다음에</b> 매깁니다</li></ol></div>
+      <div class="card"><h3>③ 그림을 읽고 한 줄씩</h3><ol><li>빨강이 파랑보다 <b>안쪽으로 들어간 곳</b> = 부족한 요인</li><li>잘하는 것 · 부족한 것 · 개선 제안을 한 줄씩</li><li>개선 제안은 <b>비교 도시가 실제로 하는 것</b>에서 가져옵니다</li></ol></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>채점 기준 — 1 ~ 5점</h2>
+    <div class="card">
+      <table class="rub">
+        <tr><td>5</td><td>그 도시가 <b>실제로 운영</b>하는 서비스가 있고, 화면 · 사진으로 보여줄 수 있다</td></tr>
+        <tr><td>4</td><td>서비스는 있으나 일부 기능 · 일부 장소에서만 된다</td></tr>
+        <tr><td>3</td><td>시범사업 · 계획 단계이거나, 민간 앱(네이버 · 카카오 등)에 기대고 있다</td></tr>
+        <tr><td>2</td><td>보도 · 계획서에 언급만 있고 실제로 찾기 어렵다</td></tr>
+        <tr><td>1</td><td>찾을 수 없다</td></tr>
+      </table>
+      <p class="note">점수보다 <b>증거 칸</b>이 중요합니다. 같은 3점이라도 「무엇을 보고 3점인지」를 말할 수 있어야 발표가 됩니다.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>우리 반 짝 — 발표 도시 vs 남은 도시</h2>
+    <div class="card" style="overflow-x:auto">
+      <table class="pairs">
+        <thead><tr><th>학생</th><th>내 도시 (발표한 도시)</th><th>비교 도시 (남은 도시)</th><th></th></tr></thead>
+        <tbody id="pairs"></tbody>
+      </table>
+      <p class="note">비교 도시는 바꿔도 됩니다. 버튼을 누르면 위 양식에 두 도시 이름이 들어갑니다.</p>
+    </div>
+  </section>
+</main>
+<script>
+const F = [
+  ['기술통합성', 'Technology Integration', '여러 기술이 서비스 과정에 연결 · 통합되는 정도'],
+  ['편의성', 'Convenience', '쉽고 빠르며 원활하게 서비스를 이용하는 정도'],
+  ['정보성', 'Informativeness', '필요한 정보를 정확하고 적시에 얻는 정도'],
+  ['스마트인프라', 'Smart Infrastructure', '키오스크 · 앱 · IoT 등 시스템 기반이 구축된 정도'],
+  ['신뢰성', 'Reliability', '정보 · 예약 · 서비스 시스템을 믿을 수 있는 정도'],
+  ['개인화', 'Personalization', '선호 · 이력에 맞는 맞춤형 서비스를 제공하는 정도'],
+  ['상호작용성', 'Interactivity', '실시간 소통과 반응 · 피드백이 가능한 정도'],
+  ['보안성', 'Security', '개인정보 · 결제 · 여행정보가 안전하게 보호되는 정도']
+];
+const P = [['심태섭','청주','용인'],['정연승','양양','인제'],['김윤서','인천','수원'],['전승예','여수','경주'],['박상준','통영','대구'],['서효원','경주','울산'],['김준호','양양','남원']];
+const opt = '<option value="">–</option>' + [5,4,3,2,1].map(n => `<option>${n}</option>`).join('');
+document.getElementById('rows').innerHTML = F.map(([k, e, m], i) =>
+  `<tr><td class="f"><b>${k}</b><small>${e}</small></td><td class="m">${m}</td><td class="e"><input aria-label="${k} 증거"></td>` +
+  `<td class="sc a"><select data-i="${i}" data-c="a" aria-label="${k} 내 도시 점수">${opt}</select></td><td class="sc b"><select data-i="${i}" data-c="b" aria-label="${k} 비교 도시 점수">${opt}</select></td></tr>`).join('');
+document.getElementById('pairs').innerHTML = P.map(([n, a, b]) =>
+  `<tr><td>${n}</td><td class="a">${a}</td><td class="b">${b}</td><td><button type="button" data-a="${a}" data-b="${b}" data-n="${n}">양식에 넣기 ↑</button></td></tr>`).join('');
+
+const cx = 160, cy = 140, R = 100;
+const pt = (i, v) => { const t = -Math.PI / 2 + i * 2 * Math.PI / 8; return [cx + Math.cos(t) * R * v / 5, cy + Math.sin(t) * R * v / 5]; };
+function draw() {
+  const v = { a: [], b: [] };
+  document.querySelectorAll('td.sc select').forEach(s => v[s.dataset.c][s.dataset.i] = +s.value || 0);
+  let g = '';
+  for (let r = 1; r <= 5; r++) g += `<polygon points="${F.map((_, i) => pt(i, r).join(',')).join(' ')}" fill="none" stroke="#DBE4EE"/>`;
+  F.forEach(([k], i) => { const [x, y] = pt(i, 5), [lx, ly] = pt(i, 6.15);
+    g += `<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="#DBE4EE"/><text x="${lx}" y="${ly + 4}" text-anchor="middle" font-size="11" font-weight="700" fill="#44566B">${k}</text>`; });
+  for (const [c, col, soft] of [['b', '#1f6fb2', 'rgba(31,111,178,.14)'], ['a', '#c0392b', 'rgba(192,57,43,.16)']]) {
+    if (!v[c].some(x => x)) continue;
+    g += `<polygon points="${F.map((_, i) => pt(i, v[c][i] || 0).join(',')).join(' ')}" fill="${soft}" stroke="${col}" stroke-width="2"/>`;
+    F.forEach((_, i) => { if (v[c][i]) { const [x, y] = pt(i, v[c][i]); g += `<circle cx="${x}" cy="${y}" r="3" fill="${col}"/>`; } });
+  }
+  document.getElementById('radar').innerHTML = g;
+  const sum = a => a.some(x => x) ? a.reduce((p, q) => p + (q || 0), 0) : '–';
+  document.getElementById('sumA').textContent = sum(v.a);
+  document.getElementById('sumB').textContent = sum(v.b);
+  for (const [h, c] of [['hA', 'cityA'], ['hB', 'cityB']]) { const he = document.getElementById(h), ce = document.getElementById(c);
+    if (document.activeElement === he) ce.value = he.value; else he.value = ce.value; }
+  document.getElementById('lgA').textContent = '● ' + document.getElementById('cityA').value;
+  document.getElementById('lgB').textContent = '● ' + document.getElementById('cityB').value;
+}
+document.addEventListener('input', draw);
+document.getElementById('pairs').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  document.getElementById('cityA').value = b.dataset.a; document.getElementById('cityB').value = b.dataset.b;
+  document.getElementById('who').value = b.dataset.n; draw(); window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+draw();
+</script>
+</body>
+</html>

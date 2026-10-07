@@ -572,7 +572,7 @@
     }
 
     /* ===== 척도개발 덱 =====
-       파트 06 이론 슬라이드와 같은 부품(.deck)이다. 움직임은 같은 스크립트가 맡고
+       파트 02 이론 슬라이드와 같은 부품(.deck)이다. 움직임은 같은 스크립트가 맡고
        (id 대신 .deck 을 순회한다) 여기서는 슬라이드 속살만 입힌다. */
     .learn-article .deck.sc-deck { margin: 10px 0 26px; }
     .learn-article .deck.sc-deck .kwlist.sc-dk { margin: 12px 0 0; padding: 0; list-style: none; }
@@ -855,7 +855,7 @@
     .learn-article .learn-part:target { scroll-margin-top: 78px; }
     .learn-article .task-box .tb-t:target { scroll-margin-top: 78px; }
     .learn-article .syl-box:target { scroll-margin-top: 78px; }
-    /* 파트 06 네 갈래(06-1~06-4) — 파트 머리 바로 밑 첫 갈래는 위 여백 · 선을 줄인다 */
+    /* 파트 02 네 갈래(02-1~02-4) — 파트 머리 바로 밑 첫 갈래는 위 여백 · 선을 줄인다 */
     .learn-article .pt-part + .learn-part.pt-learn { margin-top: 14px; border-top: 0; padding-top: 4px; }
     /* 노란 작은 알약 — 아래 척도개발 상자와 같은 샛노랑이라 눌러서 닿는 곳이 보인다. */
     /* 매주 여는 알약 넷을 첫 줄로 올린다 — 아래 줄은 학기 전체를 가리키는 문서들. */
@@ -1227,7 +1227,6 @@
     .learn-article .prep-via.jf-box .jf-d { margin: 0 0 6px; }
     .learn-article .prep-via .pv-foot { margin: 6px 0 0; font-size: 12px; color: #6b5f3a; }
     /* 척도개발 01장 표 아래 장면 그림 — 슬라이드 9장과 같은 그림을 작게 (2026-09-30) */
-    .learn-article .sc-scene-mini { max-width: 420px; margin: 12px auto 0; }
     /* 산업별 적용 오각형 — 01장 표를 그림으로 (2026-10-01) */
     .learn-article .sc-penta { max-width: 560px; margin: 18px auto 0; padding: 12px 14px 10px; border: 1px solid #ecdca6; border-radius: 12px; background: #fffdf4; }
     .learn-article .sc-penta .sp-t { margin: 0 0 4px; text-align: center; font-size: 15px; font-weight: 800; color: #3a3416; }
@@ -1301,8 +1300,9 @@
     .learn-article .res4 a.r4-file { margin-left: 4px; font-size: 11.5px; font-weight: 700; color: #44566b; text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 2px; }
     @media (max-width: 640px) { .learn-article .res4 { grid-template-columns: 1fr; } }
     /* 스마트관광 5대 요소(한국관광공사 2020) 표 — 척도 장면 그림 아래 (2026-10-07) */
+    .learn-article .sc-sub { margin: 18px 0 6px; text-align: center; font-size: 15px; font-weight: 800; color: #3a3416; }
     .learn-article .kto5 { max-width: 980px; margin: 16px auto 0; }
-    .learn-article .kto5 .k5-t { margin: 0 0 8px; text-align: center; font-size: 14.5px; font-weight: 800; color: #17365d; }
+    .learn-article .kto5 .k5-t { margin: 0 0 8px; text-align: center; font-size: 15px; font-weight: 800; color: #3a3416; }
     .learn-article .kto5 .k5-t span { margin-left: 6px; font-size: 11.5px; font-weight: 700; color: #7c8a99; }
     .learn-article .kto5 .k5-t span a { color: #17365d; }
     .learn-article .kto5 table.k5-tb { width: 100%; border-collapse: collapse; font-size: 12.5px; line-height: 1.6; background: #fff; }
@@ -1311,8 +1311,44 @@
     .learn-article .kto5 table.k5-tb tbody th { color: #17365d; font-weight: 800; white-space: nowrap; }
     .learn-article .kto5 table.k5-tb td b { color: #1f6d52; }
     .learn-article .kto5 table.k5-tb td:nth-child(2), .learn-article .kto5 table.k5-tb td:nth-child(4) { white-space: nowrap; }
+    .learn-article .kto5 table.k5-tb tbody tr:nth-child(1) td, .learn-article .kto5 table.k5-tb tbody tr:nth-child(1) th { background: #f4eefc; }
+    .learn-article .kto5 table.k5-tb tbody tr:nth-child(1) th { color: #5b3596; box-shadow: inset 4px 0 0 #7b4fc0; }
+    .learn-article .kto5 table.k5-tb tbody tr:nth-child(2) td, .learn-article .kto5 table.k5-tb tbody tr:nth-child(2) th { background: #eaf6ef; }
+    .learn-article .kto5 table.k5-tb tbody tr:nth-child(2) th { color: #1f6d45; box-shadow: inset 4px 0 0 #2f9a62; }
+    .learn-article .kto5 table.k5-tb tbody tr:nth-child(3) td, .learn-article .kto5 table.k5-tb tbody tr:nth-child(3) th { background: #fff3e6; }
+    .learn-article .kto5 table.k5-tb tbody tr:nth-child(3) th { color: #a35a0e; box-shadow: inset 4px 0 0 #e08a2b; }
+    .learn-article .kto5 table.k5-tb tbody tr:nth-child(4) td, .learn-article .kto5 table.k5-tb tbody tr:nth-child(4) th { background: #e9f2fc; }
+    .learn-article .kto5 table.k5-tb tbody tr:nth-child(4) th { color: #1d5394; box-shadow: inset 4px 0 0 #2f74c0; }
+    .learn-article .kto5 table.k5-tb tbody tr:nth-child(5) td, .learn-article .kto5 table.k5-tb tbody tr:nth-child(5) th { background: #fdeef4; }
+    .learn-article .kto5 table.k5-tb tbody tr:nth-child(5) th { color: #9c2a5a; box-shadow: inset 4px 0 0 #d0477e; }
     .learn-article .kto5 .k5-foot { margin: 8px 0 0; font-size: 12.5px; color: #33475b; }
-    .learn-article .sc-scene-mini img { width: 100%; height: auto; border-radius: 8px; }
+    /* 척도 문항 25 → 19 — 빠진 문항은 연하게 (2026-10-07) */
+    .learn-article .s25 { max-width: 980px; margin: 16px auto 0; }
+    .learn-article .s25 .s25-t { margin: 0 0 4px; text-align: center; font-size: 15px; font-weight: 800; color: #3a3416; }
+    .learn-article .s25 .s25-t b { color: #b00020; }
+    .learn-article .s25 .s25-t span { display: block; font-size: 11.5px; font-weight: 600; color: #7c8a99; }
+    .learn-article .s25 .s25-flow { margin: 0 0 8px; text-align: center; font-size: 12.5px; color: #33475b; }
+    .learn-article .s25 .s25-flow b { color: #17365d; }
+    .learn-article .s25 table.s25-tb { width: 100%; border-collapse: collapse; font-size: 12.5px; line-height: 1.55; background: #fff; }
+    .learn-article .s25 table.s25-tb th, .learn-article .s25 table.s25-tb td { padding: 5px 9px; border-bottom: 1px solid #e8eef5; text-align: left; vertical-align: top; }
+    .learn-article .s25 table.s25-tb thead th { background: #e3eefa; color: #17365d; font-weight: 800; }
+    .learn-article .s25 table.s25-tb thead .lt { color: #a9b6c4; font-weight: 700; }
+    .learn-article .s25 table.s25-tb tbody th { width: 112px; background: #f6f9fc; color: #17365d; font-weight: 800; border-right: 1px solid #e1e9f2; }
+    .learn-article .s25 table.s25-tb tbody th small, .learn-article .s25 table.s25-tb thead th small { display: block; font-size: 11px; color: #7c8a99; font-weight: 700; }
+    .learn-article .s25 table.s25-tb td.id { width: 40px; color: #17365d; font-weight: 800; }
+    .learn-article .s25 table.s25-tb tr.drop td { color: #b4bfcb; }
+    .learn-article .s25 table.s25-tb tr.drop td.id { color: #c9d2db; }
+    .learn-article .s25 .s25-tag { margin-left: 4px; padding: 0 6px; border-radius: 4px; background: #f1f4f7; color: #9aa7b4; font-size: 10.5px; font-weight: 700; }
+    .learn-article .s25 .s25-tag { white-space: nowrap; }
+    .learn-article .s25 .s25-two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .learn-article .s25 .s25-h { margin: 0 0 5px; font-size: 13.5px; font-weight: 800; color: #14243a; }
+    .learn-article .s25 .s25-h b { color: #b00020; margin-left: 4px; }
+    .learn-article .s25 .s25-h span { margin-left: 8px; font-size: 11px; font-weight: 600; color: #7c8a99; }
+    .learn-article .s25 .s25-t .lt { font-style: normal; color: #a9b6c4; }
+    .learn-article .s25 table.s25-tb tbody th { width: 86px; }
+    .learn-article .s25 table.s25-tb td.id { width: 32px; }
+    @media (max-width: 760px) { .learn-article .s25 .s25-two { grid-template-columns: 1fr; } }
+    .learn-article .s25 .s25-foot { margin: 8px 0 0; font-size: 12.5px; line-height: 1.65; color: #33475b; }
     /* 「이제 아홉 곳을 하나씩」 앞 표지 알약 — 주간 운영 11주 알약과 같은 이름 (2026-09-30) */
     .learn-article .mini-note .pv-co { display: inline-block; margin: 0 6px 4px 0; padding: 3px 11px; border-radius: 999px; background: #ffe800; border: 1px solid #d8bb2a; color: #14120a; font-size: 12px; font-weight: 800; vertical-align: 1px; }
   </style>
@@ -1343,7 +1379,7 @@
             <li class="pc"><b>수 1 · 2교시</b><span class="tm">(09:00 – 10:50)</span><span class="rm">사회대 <strong>2106호</strong><em>PC실</em></span></li>
             <li class="mv"><b>목요일</b><span class="tm">(09:00 – 12:00)</span><span class="rm">사회대 <strong>3402호</strong><em>네 번 · 3시간</em></span></li>
           </ul>
-          <p class="rb-parts"><a href="#part01">01 국내 사례</a><a href="#part02">02 해외 사례</a><a href="#part03">03 공모전</a><a href="#part04">04 PBL</a><a href="#part05">05 책</a><a href="#part06">06 이론</a><a class="sc" href="#척도개발" title="척도개발 5편 복습 — 06-2 어떻게 재나">06-2 척도 ↓</a><a href="#part07">07 연구</a><a class="pp" href="smart-tourism-syllabus-15w-interactive.html" target="_blank" rel="noopener" title="15주 강의계획서 — KCI 논문 138편 · 14개 대주제 · 30회차">연구 주제 지도 ↗</a><a href="#part08">08 취업</a><a href="#part09">09 자료실</a><span class="rb-sep" aria-hidden="true"></span><a class="fin red" href="#과제2">최종결과물 1 · AX 응모신청서</a><a class="fin redo" href="gyeongbuk-ax-form-4-8.html" target="_blank" rel="noopener">응모신청서 4~8쪽 · 웹에서 바로 쓰기 ↗</a><a class="fin" href="#과제4">최종결과물 2 · 업무수행계획서</a></p>
+          <p class="rb-parts"><a href="#part01">01 국내 사례</a><a href="#part06">02 이론</a><a class="sc" href="#척도개발" title="척도개발 5편 복습 — 02-2 어떻게 재나">02-2 척도 ↓</a><a href="#part02">03 해외 사례</a><a href="#part03">04 공모전</a><a href="#part04">05 PBL</a><a href="#part05">06 책</a><a href="#part07">07 연구</a><a class="pp" href="smart-tourism-syllabus-15w-interactive.html" target="_blank" rel="noopener" title="15주 강의계획서 — KCI 논문 138편 · 14개 대주제 · 30회차">연구 주제 지도 ↗</a><a href="#part08">08 취업</a><a href="#part09">09 자료실</a><span class="rb-sep" aria-hidden="true"></span><a class="fin red" href="#과제2">최종결과물 1 · AX 응모신청서</a><a class="fin redo" href="gyeongbuk-ax-form-4-8.html" target="_blank" rel="noopener">응모신청서 4~8쪽 · 웹에서 바로 쓰기 ↗</a><a class="fin" href="#과제4">최종결과물 2 · 업무수행계획서</a></p>
           <p class="rb-thu"><b>목요일 수업</b><a class="rt-d" href="smart-tourism-presentation-status.html">9/3</a><a class="rt-d" href="smart-tourism-presentation-status.html">10/1</a><a class="rt-d" href="smart-tourism-presentation-status.html">10/29</a><a class="rt-d" href="smart-tourism-presentation-status.html">11/26</a><span class="rt-n">각 <b>3시간</b>(09:00 – 12:00) · 사회대 3402호</span></p>
         </div>
         <div class="syl-box">
@@ -1379,17 +1415,17 @@
         <div class="rm-col left">
           <p class="rm-cap">사례로 본다</p>
           <div class="rm-cell rm-kr"><span class="rm-t rm-pills"><a class="rm-pn" href="#part01">파트 01 ↓</a></span><strong>국내 사례</strong><em>스마트관광도시 12곳 · 용인 · 안동</em><span class="rm-task"><b>실습 1</b>도시 카드 — 내 도시를 세 갈래로<i class="rm-when">중간시험 전 · 수업 중 실습 → 바로 발표</i></span></div>
-          <div class="rm-cell rm-eu"><span class="rm-t rm-pills"><a class="rm-pn" href="#part02">파트 02 ↓</a></span><strong>해외 사례</strong><em>유럽 스마트관광 수도 · 사례집</em><span class="rm-task"><b>실습 2</b>유럽 도시 벤치마킹 발표</span></div>
+          <div class="rm-cell rm-eu"><span class="rm-t rm-pills"><a class="rm-pn" href="#part02">파트 03 ↓</a></span><strong>해외 사례</strong><em>유럽 스마트관광 수도 · 사례집</em><span class="rm-task"><b>실습 2</b>유럽 도시 벤치마킹 발표</span></div>
         </div>
         <div class="rm-arrow" aria-hidden="true"><span></span></div>
         <div class="rm-col mid">
           <p class="rm-cap">여기로 모인다</p>
-          <div class="rm-cell rm-do"><span class="rm-t rm-pills"><a class="rm-pn" href="#part03">파트 03 ↓</a><a class="rm-pn" href="#part04">파트 04 ↓</a></span><strong>취업 지원의 바탕을 만든다</strong><em>모의 연습 · 공모 지원 준비 · 제작 실습</em><span class="rm-task"><b class="fin">최종결과물 1</b>AX 응모신청서 쓰기<a class="rm-dl" href="assets/gyeongbuk-ax-2026-form1-application.docx" download="0714-양식1_응모신청서.docx" title="제출은 양식① · ② 두 장입니다 — ② 개인정보·저작권 동의서는 아래 기말발표 카드에서 받습니다.">양식① 응모신청서 ⤓</a></span><span class="rm-task tg"><b class="fin">최종결과물 2</b><span class="tx">지역문화재단 · 관광공사 · 연구원 업무수행계획서<i class="rm-when br">모의 PT</i></span></span><a class="rm-job" href="job-opportunities-board.html" target="_blank" rel="noopener">채용 기회 알림판 — 공공기관 · 연구원 · 재단 ↗</a></div>
+          <div class="rm-cell rm-do"><span class="rm-t rm-pills"><a class="rm-pn" href="#part03">파트 04 ↓</a><a class="rm-pn" href="#part04">파트 05 ↓</a></span><strong>취업 지원의 바탕을 만든다</strong><em>모의 연습 · 공모 지원 준비 · 제작 실습</em><span class="rm-task"><b class="fin">최종결과물 1</b>AX 응모신청서 쓰기<a class="rm-dl" href="assets/gyeongbuk-ax-2026-form1-application.docx" download="0714-양식1_응모신청서.docx" title="제출은 양식① · ② 두 장입니다 — ② 개인정보·저작권 동의서는 아래 기말발표 카드에서 받습니다.">양식① 응모신청서 ⤓</a></span><span class="rm-task tg"><b class="fin">최종결과물 2</b><span class="tx">지역문화재단 · 관광공사 · 연구원 업무수행계획서<i class="rm-when br">모의 PT</i></span></span><a class="rm-job" href="job-opportunities-board.html" target="_blank" rel="noopener">채용 기회 알림판 — 공공기관 · 연구원 · 재단 ↗</a></div>
         </div>
         <div class="rm-arrow flip" aria-hidden="true"><span></span></div>
         <div class="rm-col right">
           <p class="rm-cap">이론으로 받친다</p>
-          <div class="rm-cell rm-learn"><span class="rm-t rm-pills"><a class="rm-pn" href="#part05">파트 05 ↓</a><a class="rm-pn" href="#part06">파트 06 ↓</a></span><strong>개념 · 관점을 배운다</strong><em>책 · 이론 슬라이드</em><a class="rm-web" href="smart-tourism-syllabus-15w-interactive.html" target="_blank" rel="noopener">15주 논문 읽기 계획 ↗</a></div>
+          <div class="rm-cell rm-learn"><span class="rm-t rm-pills"><a class="rm-pn" href="#part06">파트 02 ↓</a><a class="rm-pn" href="#part05">파트 06 ↓</a></span><strong>개념 · 관점을 배운다</strong><em>이론 슬라이드 · 책</em><a class="rm-web" href="smart-tourism-syllabus-15w-interactive.html" target="_blank" rel="noopener">15주 논문 읽기 계획 ↗</a></div>
           <div class="rm-cell rm-cite"><span class="rm-t rm-pills"><a class="rm-pn" href="#part07">파트 07 ↓</a><a class="rm-pn" href="#part08">파트 08 ↓</a></span><strong>근거를 찾아 쓴다</strong><em>연구 논문 · 국내 자료실</em><a class="rm-web gold" href="smart-tourism-structure-full.html" target="_blank" rel="noopener">스마트관광 핵심 구조 ↗</a><a class="rm-web gold" href="https://www.kci.go.kr/kciportal/main.kci" target="_blank" rel="noopener">KCI 논문 검색 ↗</a></div>
         </div>
       </div>
@@ -1455,7 +1491,7 @@
 
 
 
-      <p class="learn-part pt-part pp-1" id="part01"><span class="pt"><i>파트</i><b>01</b></span><span class="pt-ti">국내 사례 먼저 보기</span><span class="pt-sub"><strong>벤치마킹</strong> → <strong>경북 지역 보기</strong> → <strong>공모전 양식</strong>(<a href="#ax2026">파트 03</a>) — 세 단계로 국내 현장을 먼저 봅니다</span><span class="pt-jump"><a href="#part01" class="on" aria-current="true">01 국내</a><a href="#part02">02 해외</a><a href="#part03">03 공모전</a><a href="#part04">04 PBL</a><a href="#part05">05 책</a><a href="#part06">06 이론</a><a href="#part07">07 연구</a><a href="#part08">08 취업</a><a href="#part09">09 자료실</a></span></p>
+      <p class="learn-part pt-part pp-1" id="part01"><span class="pt"><i>파트</i><b>01</b></span><span class="pt-ti">국내 사례 먼저 보기</span><span class="pt-sub"><strong>벤치마킹</strong> → <strong>경북 지역 보기</strong> → <strong>공모전 양식</strong>(<a href="#ax2026">파트 04</a>) — 세 단계로 국내 현장을 먼저 봅니다</span><span class="pt-jump"><a href="#part01" class="on" aria-current="true">01 국내</a><a href="#part06">02 이론</a><a href="#part02">03 해외</a><a href="#part03">04 공모전</a><a href="#part04">05 PBL</a><a href="#part05">06 책</a><a href="#part07">07 연구</a><a href="#part08">08 취업</a><a href="#part09">09 자료실</a></span></p>
       <ul class="reslist">
         <li class="hi box">
           <a href="https://korean.visitkorea.or.kr/smarttourcity/main/index.kto" target="_blank" rel="noopener">먼저 보기 · 스마트관광도시 공식 플랫폼 (한국관광공사) ↗</a>
@@ -1482,6 +1518,7 @@
           <li><b>① 장마다 사진</b><span>PT 장마다 <mark class="mt-hl">문제 개선(혁신 전 후) 사진</mark>을 넣습니다. 앱 · 웹 화면 캡처, 현장 사진, 안내판 · 키오스크.</span></li>
           <li><b>② 줄글 → 그림</b><span>줄글을 <strong>그림 · 사진으로</strong> 제시합니다 — 모든 단어를. <strong>전 · 후</strong>를 나란히 놓을 수 있으면 더 좋습니다. 문제 장면 → 해결 장면.</span></li>
           <li><b>③ 증거 연구</b><span>관련 <strong>연구</strong>를 근거로 넣습니다 — 이 문제가 실제로 있다는 것, 이 해결이 효과가 있다는 것을 논문으로 받칩니다.</span></li>
+          <li><b>④ 8요인 점수</b><span><strong>마지막 장</strong>에 내 도시가 잘하는지 못하는지 평가합니다 — 척도의 <strong>8요인 × 1~5점</strong>으로 매기고 <strong>비교 도시</strong>와 나란히 놓아, 잘하는 것 · 부족한 것 · 개선 제안을 한 줄씩 적습니다. <a class="mt-pill ro" href="smart-tourism-city-8-factor-scorecard.html" target="_blank" rel="noopener">도시 8요인 점수표 — PT 한 장 양식 ↗</a></span></li>
         </ol>
         <p class="mt-d"><strong>어떻게 — 두 번에 걸쳐, 국내외 스마트 관광 도시 사례를 <mark class="mt-kwp">플랫폼 · 연구 · 웹 · 앱 · 이미지 · 영상 · AI 등</mark>으로 심층 탐구합니다</strong>(목표 ②). 플랫폼에 접속하고 앱을 내려받고, 연구 · 웹 · 영상을 찾고 AI를 써서 사진과 연구를 모읍니다. 바로 아래 알약 넷이 이론의 틀입니다.</p>
         <p class="mt-d"><strong>제출 — 직접 PT를 제출합니다.</strong> 사진을 넣은 PT를 들고 옵니다. <strong>발표 — 강의 후반부에 이 PT로 발표합니다.</strong></p>
@@ -1519,19 +1556,19 @@
       </div>
 
       <div class="case-box flow" id="flow3">
-        <p class="cb-title">세 단계로 이어집니다 <span>보고 → 고르고 → 낸다 · 1 · 2는 이 아래, 3은 파트 03</span></p>
-        <p class="cb-lead">세 단계는 <strong>따로 읽는 자료가 아니라 한 줄로 이어지는 순서</strong>입니다. 용인에서 도시가 무엇을 만들었는지 보고(<strong>단계 1</strong>), 안동에서 내가 다룰 자리를 고른 뒤(<strong>단계 2</strong>) — 둘은 바로 아래에 있습니다 — 그 결과를 <a href="#ax2026"><strong>파트 03 공모전 양식</strong></a>에 옮겨 적으면(<strong>단계 3</strong>) 그대로 응모 원고가 됩니다. 학기 과제와 출품작이 같은 산출물이 되는 셈입니다.</p>
+        <p class="cb-title">세 단계로 이어집니다 <span>보고 → 고르고 → 낸다 · 1 · 2는 이 아래, 3은 파트 04</span></p>
+        <p class="cb-lead">세 단계는 <strong>따로 읽는 자료가 아니라 한 줄로 이어지는 순서</strong>입니다. 용인에서 도시가 무엇을 만들었는지 보고(<strong>단계 1</strong>), 안동에서 내가 다룰 자리를 고른 뒤(<strong>단계 2</strong>) — 둘은 바로 아래에 있습니다 — 그 결과를 <a href="#ax2026"><strong>파트 04 공모전 양식</strong></a>에 옮겨 적으면(<strong>단계 3</strong>) 그대로 응모 원고가 됩니다. 학기 과제와 출품작이 같은 산출물이 되는 셈입니다.</p>
         <ol class="steps3">
           <li><b class="s-t">벤치마킹</b><span class="s-d"><b>바로 아래</b> 용인 여섯 자료를 <b>플랫폼 · 연구 · 홍보</b> 세 갈래로 갈라 봅니다. 한 도시가 <em>무엇을 만들었고, 무엇을 근거로 삼았고, 어떻게 알렸는가</em> — 이 세 칸이 그대로 응모 원고의 뼈대가 됩니다.</span></li>
           <li><b class="s-t">경북 지역 보기<em>예: 안동</em></b><span class="s-d"><b>자기 고향이나 맡은 경북 시 · 군</b>을 하나 고릅니다 — 아래 자료는 <em>안동을 예시로</em> 든 것입니다. 그 시 · 군의 관광 포털과 공식블로그에서 <b>시가 밀고 있는 것</b>을 확인하고, <a href="andong-map-practice.html" target="_blank" rel="noopener">실습 페이지 ↗</a>에서 <b>담당 읍면동</b>의 관광자원 세 곳을 찍습니다. 「왜 골랐는가」가 핵심입니다.</span></li>
-          <li><b class="s-t">공모전 양식으로 결과 만들기<em>파트 03에서</em></b><span class="s-d">찍은 지도와 선정 이유를 <a href="#ax2026"><b>파트 03 공모전 카드</b></a>의 <b>양식① 응모신청서</b>에 옮겨 적고, <b>양식②</b>에 서명해 <b>PDF 두 장</b>으로 냅니다. 개발 완성물은 필요 없습니다.</span><span class="s-fin"><a href="#과제2">최종결과물 1 · AX 응모신청서</a><a href="#과제4">최종결과물 2 · 업무수행계획서</a></span></li>
+          <li><b class="s-t">공모전 양식으로 결과 만들기<em>파트 04에서</em></b><span class="s-d">찍은 지도와 선정 이유를 <a href="#ax2026"><b>파트 04 공모전 카드</b></a>의 <b>양식① 응모신청서</b>에 옮겨 적고, <b>양식②</b>에 서명해 <b>PDF 두 장</b>으로 냅니다. 개발 완성물은 필요 없습니다.</span><span class="s-fin"><a href="#과제2">최종결과물 1 · AX 응모신청서</a><a href="#과제4">최종결과물 2 · 업무수행계획서</a></span></li>
         </ol>
 
         <p class="f3-h">왜 이 순서인가</p>
         <ul class="f3-why">
           <li><b>먼저 만들게 하면</b> 무엇을 만들지 몰라 멈춥니다 <i>→</i> <strong>단계 1</strong>이 틀을 줍니다</li>
           <li><b>보기만 시키면</b> 남의 도시 요약으로 끝납니다 <i>→</i> <strong>단계 2</strong>가 손을 움직이게 합니다</li>
-          <li><b>만들고 끝내면</b> 학점으로만 남습니다 <i>→</i> <a href="#ax2026"><strong>단계 3</strong></a>(파트 03)이 밖으로 나가는 출구를 냅니다</li>
+          <li><b>만들고 끝내면</b> 학점으로만 남습니다 <i>→</i> <a href="#ax2026"><strong>단계 3</strong></a>(파트 04)가 밖으로 나가는 출구를 냅니다</li>
         </ul>
       </div>
 
@@ -1665,7 +1702,465 @@
       </div>
 
 
-      <p class="learn-part pt-part pp-2" id="part02"><span class="pt"><i>파트</i><b>02</b></span><span class="pt-ti">해외 사례 넓게 보기</span><span class="pt-sub">개념 → 한국어 보고서 → <strong>EU 공모 원본</strong> → 최신 회차, <strong>네 번 읽기</strong>로 유럽을 봅니다</span><span class="pt-jump"><a href="#part01">01 국내</a><a href="#part02" class="on" aria-current="true">02 해외</a><a href="#part03">03 공모전</a><a href="#part04">04 PBL</a><a href="#part05">05 책</a><a href="#part06">06 이론</a><a href="#part07">07 연구</a><a href="#part08">08 취업</a><a href="#part09">09 자료실</a></span></p>
+      <p class="learn-part pt-part pp-3" id="part06"><span class="pt"><i>파트</i><b>02</b></span><span class="pt-ti">이론 슬라이드</span><span class="pt-sub"><strong>네 갈래</strong>로 — 개념 → 측정 → 적용 → 수용</span><span class="pt-jump"><a href="#part01">01 국내</a><a href="#part06" class="on" aria-current="true">02 이론</a><a href="#part02">03 해외</a><a href="#part03">04 공모전</a><a href="#part04">05 PBL</a><a href="#part05">06 책</a><a href="#part07">07 연구</a><a href="#part08">08 취업</a><a href="#part09">09 자료실</a></span></p>
+      <p class="learn-part pt-learn" id="개념"><span class="pt">02-1</span>스마트 관광이란 — 무엇인가</p>
+      <p>좌우로 넘기며 다섯 장을 훑거나, 오른쪽 「전체 펼쳐 보기」로 한 번에 읽으십시오.</p>
+      <div class="deck" id="deck">
+        <div class="deck-bar">
+          <div class="deck-dots">
+            <button type="button" data-go="0" aria-current="true">01 정의</button>
+            <button type="button" data-go="1">02 네 기둥</button>
+            <button type="button" data-go="2">03 기술</button>
+            <button type="button" data-go="3">04 여정</button>
+            <button type="button" data-go="4">05 스마트 관광도시</button>
+          </div>
+          <button type="button" class="deck-toggle">전체 펼쳐 보기</button>
+        </div>
+        <div class="deck-stage">
+          <button type="button" class="deck-prev" aria-label="이전 슬라이드" disabled>←</button>
+        <div class="deck-view">
+          <section class="slide tint-sun compact def" aria-label="01 정의">
+        <p class="learn-part">01 · 스마트 관광이란</p>
+        <p>스마트 관광(Smart Tourism)은 <strong>ICT로 관광 자원·서비스·경험을 데이터로 잇고, 그 데이터로 더 나은 여행을 설계하는 관광</strong>입니다. 종이 지도가 앱이 되고, 안내소가 검색이 되고, 후기가 별점이 되는 변화입니다.</p>
+        <p>전자관광(e-Tourism)이 "온라인 예약"이었다면, 스마트 관광은 <strong>센서·모바일·AI가 실시간으로 상황을 읽고 반응</strong>합니다. 붐비는 해변을 피해 다른 곳을 추천하고, 외국인 여행자에게 즉시 번역을 건넵니다.</p>
+        <div class="logic">
+          <p class="neg">스마트 관광 <strong>=</strong> 관광객에게 <strong>앱을 제공하는 것</strong></p>
+          <p class="pos">스마트 관광 <strong>=</strong> 기술과 혁신으로 <strong>도시의 관광 발전 전체</strong>를 더 <strong>지속가능하고 · 접근 가능하고 · 효율적으로</strong> 관리하는 것</p>
+          <p class="chain">관광객 증가 <b>→</b> 경제적 기회 <b>→</b> 동시에 혼잡 · 환경 · 접근성 · 지역사회 문제 발생 <b>→</b> 기존 방식으로는 해결 어려움 <b>→</b> 데이터 · 디지털 기술 · 혁신 정책 <b>→</b> 관광객 경험만이 아니라 <b>도시 전체의 관광</b>을 더 잘 관리 <b>→</b> <strong>Smart Tourism</strong></p>
+          <p class="formula">SMART TOURISM = Technology × Sustainability × Accessibility × Local Creativity<span class="src">EC 기준</span></p>
+          <p class="aim">목표는 <strong>관광객만 편리한 도시</strong>가 아니라 <strong>관광을 더 잘 관리하는 도시</strong>입니다. 그래서 <strong class="hot-t">디지털화만 강조하면 EU의 개념보다 좁아집니다</strong> — 스마트 관광을 <em>AI · 앱 · 빅데이터 관광</em>으로만 설명하지 마십시오.</p>
+        </div>
+          </section>
+          <section class="slide tint-sun compact" aria-label="02 네 기둥">
+        <p class="learn-part">02 · 스마트 관광의 네 기둥</p>
+        <p>스마트 관광은 흔히 네 개의 층위로 설명됩니다.</p>
+        <h3>① 스마트 목적지 (Smart Destination)</h3>
+        <p>도시가 스스로 데이터를 모으고 관리하는 층. 스마트시티 인프라·공공 와이파이·실시간 교통/혼잡 정보가 여기에 속합니다.</p>
+        <h3>② 스마트 경험 (Smart Experience)</h3>
+        <p>여행자가 직접 만나는 층. 개인화 추천, 위치 기반 안내, AR 해설, 모바일 티켓처럼 "나에게 맞춰진" 경험입니다.</p>
+        <h3>③ 스마트 비즈니스 (Smart Business)</h3>
+        <p>여행사·숙박·플랫폼이 데이터로 상품을 만들고 파는 층. 동적 가격 책정, 수요 예측, 온라인 여행 플랫폼(OTA)이 이 층입니다.</p>
+        <h3>④ 스마트 거버넌스 (Smart Governance)</h3>
+        <p>공공이 데이터로 정책을 짜는 층. 관광 수요 분산, 오버투어리즘 관리, 재난·안전 대응이 여기서 이뤄집니다.</p>
+        <div class="sun-box">
+          <ul>
+          <li><strong>기기가 아니라 데이터의 흐름이다.</strong> 앱을 더 만드는 일이 아니라, 여행 전·중·후의 데이터를 <em>고리(loop)</em>로 잇는 일.</li>
+          <li><strong>층이 넷이다 — 목적지 · 경험 · 비즈니스 · 거버넌스.</strong> 사례를 보면 "몇 번째 층인가"부터 물으면 정리됩니다.</li>
+          <li><strong>유럽은 기술보다 접근성이 먼저다.</strong> EU 공모의 첫 심사 부문이 <em>접근성</em>이라는 사실이 방향을 말해 줍니다(파트 03).</li>
+          </ul>
+        </div>
+          </section>
+          <section class="slide tint-sun" aria-label="03 기술">
+        <p class="learn-part">03 · 스마트 관광을 떠받치는 기술</p>
+        <ul>
+          <li><strong>모바일·앱</strong> — 여행의 리모컨. 지도·예약·결제·번역이 손안에서 끝난다.</li>
+          <li><strong>위치기반서비스(LBS)·GPS</strong> — "지금 여기"를 아는 순간, 안내와 추천이 가능해진다.</li>
+          <li><strong>사물인터넷(IoT)</strong> — 비콘·센서가 혼잡도·대기·환경을 실시간으로 읽는다.</li>
+          <li><strong>빅데이터</strong> — 통신·카드·검색·후기 데이터가 관광 흐름을 그려낸다(다음 모듈 「빅데이터 분석」).</li>
+          <li><strong>인공지능(AI)</strong> — 챗봇 상담, 개인화 추천, 자동 번역·요약.</li>
+          <li><strong>AR/VR</strong> — 사라진 유적을 현장에 겹쳐 보여주고, 가 보기 전 미리 걷게 한다.</li>
+          <li><strong>QR·모바일 결제</strong> — 종이 없는 티켓·간편결제로 마찰을 없앤다.</li>
+        </ul>
+          </section>
+          <section class="slide tint-sun" aria-label="04 여정">
+        <p class="learn-part">04 · 여행자 여정으로 보는 스마트 관광</p>
+        <p>같은 기술도 여정의 어느 단계에 놓이느냐에 따라 다르게 쓰입니다.</p>
+        <ul>
+          <li><strong>여행 전</strong> — 검색·후기·가격 비교로 계획을 세우고, AI가 일정을 추천한다.</li>
+          <li><strong>이동 중</strong> — 실시간 교통·내비게이션·모바일 티켓으로 마찰 없이 이동한다.</li>
+          <li><strong>여행 중</strong> — 위치기반 안내, AR 해설, 즉석 번역으로 현장을 깊게 경험한다.</li>
+          <li><strong>여행 후</strong> — 후기·사진·평점을 남기고, 그 데이터가 다음 여행자의 계획이 된다.</li>
+        </ul>
+        <p>여행 후의 데이터가 다시 여행 전으로 순환한다는 점이 핵심입니다. 스마트 관광은 <strong>끝이 아니라 고리(loop)</strong>입니다.</p>
+          </section>
+          <section class="slide tint-sun" aria-label="05 스마트 관광도시">
+        <p class="learn-part">05 · 스마트 관광도시, 그리고 이 사이트에서</p>
+        <p><em>스마트 관광도시</em>는 한 도시의 관광을 통합 플랫폼·실시간 혼잡 정보·모바일 안내로 묶어 관리하는 사업입니다. 국내에서는 여러 도시가 대상지로 선정돼 각자의 방식으로 실행해 왔고, <strong>몰림이 심한 곳일수록 데이터 기반 분산</strong>이 중요해집니다 — 부산의 해운대·감천문화마을이 그런 곳입니다.</p>
+        <p>이 웹사이트 역시 작은 스마트 관광의 실습입니다 — <strong>다국어 자동 전환</strong>(도달), <strong>여행 이야기·후기 게시판</strong>(UGC 데이터), <strong>카카오 채널 상담</strong>(연결), 그리고 <strong>아트 컨시어지 아카이브</strong>(콘텐츠). 다음 모듈에서는 이 흐름의 연료인 <strong>데이터</strong> 자체를 다룹니다.</p>
+        <ul class="reslist">
+          <li class="hi tone box lc1">
+            <a href="https://korean.visitkorea.or.kr/smarttourcity/main/index.kto" target="_blank" rel="noopener">스마트 관광도시 — 공식 플랫폼 ↗</a>
+            <span class="desc">선정된 도시들이 무엇을 만들었는지 한자리에서 볼 수 있는 공식 창구. 도시마다 <strong>플랫폼 · 안내 · 결제 · 데이터</strong>를 어떻게 짰는지가 드러나므로, 이 장에서 배운 네 기둥이 실제로 어떻게 구현되는지 확인하기 좋습니다.</span>
+            <span class="meta">한국관광공사</span>
+          </li>
+        </ul>
+          </section>
+        </div>
+          <button type="button" class="deck-next" aria-label="다음 슬라이드">→</button>
+        </div>
+        <div class="deck-nav">
+          <span class="deck-count">01 / 05</span>
+        </div>
+      </div>
+
+      <p class="learn-part pt-learn" id="척도개발"><span class="pt">02-2</span>척도개발 5편 — 무엇으로 · 어디를 · 어떻게 재나</p>
+      <p>위 다섯 장이 <strong>스마트 관광이 무엇인가</strong>를 세웠다면, 아래 열 장은 <strong>그것을 어떻게 재는가</strong>로 넘어갑니다 — <strong>여행업 · 외식업 · 컨벤션 · 숙박업 · 항공산업</strong> 다섯 편의 척도개발 연구입니다. 좌우로 넘기며 훑거나, 오른쪽 「전체 펼쳐 보기」로 한 번에 읽으십시오.</p>
+      <p class="sc-sub">① 무엇으로 재나 — 다섯 산업의 여덟 요인</p>
+      <p class="dltags"><a class="mapl form y" href="smart-tourism-scale-slides.html" target="_blank" rel="noopener">슬라이드 11장 — 웹에서 넘겨 보기 ↗</a><a class="mapl form y" href="assets/smart-tourism-scale-development-review.docx" download="스마트관광_척도개발_복습노트_통합판.docx">척도개발 5편 복습 노트 ⤓ DOCX</a><a class="mapl form" href="assets/smart-tourism-scale-slides.pptx" download="스마트관광_척도개발_복습노트_슬라이드.pptx">같은 슬라이드 ⤓ PPTX</a><span class="dl-src">박소영 외(2024–2025) 다섯 편을 수업용으로 묶은 것입니다. <b>파트 07 연구</b>로 넘어가기 전에 펴 보십시오.<br /><b>셋은 같은 내용입니다</b> — <b>슬라이드</b>는 수업에서 띄우는 판(<b>← →</b> 로 넘기고 <b>F</b> 로 전체화면), <b>DOCX</b>는 읽고 인쇄하는 3쪽 노트, <b>PPTX</b>는 직접 고쳐 쓸 때 씁니다.</span></p>
+
+      <div class="deck sc-deck">
+        <div class="deck-bar">
+          <div class="deck-dots">
+            <button type="button" data-go="0" aria-current="true">01 요인 패턴</button>
+            <button type="button" data-go="1">02 장면으로</button>
+            <button type="button" data-go="2">03 요인 용어</button>
+            <button type="button" data-go="3">04 이것만은 · 복습 목표</button>
+            <button type="button" data-go="4">05 만드는 법</button>
+            <button type="button" data-go="5">06 산업 비교</button>
+            <button type="button" data-go="6">07 공통과 차이</button>
+            <button type="button" data-go="7">08 읽는 흐름</button>
+            <button type="button" data-go="8">09 기억할 3문장</button>
+            <button type="button" data-go="9">10 셀프체크 · 출처</button>
+          </div>
+          <button type="button" class="deck-toggle">전체 펼쳐 보기</button>
+        </div>
+        <div class="deck-stage">
+          <button type="button" class="deck-prev" aria-label="이전 슬라이드" disabled>←</button>
+        <div class="deck-view">
+
+          <section class="slide tint-sun compact" aria-label="01 5개 산업의 요인 패턴">
+            <p class="learn-part">01 · 5개 산업의 요인 패턴</p>
+            <p>요인별 포함 여부를 한눈에 확인합니다. <strong>●</strong> = 해당 산업의 최종 척도에 포함된 요인.</p>
+            <div class="tbl-wrap">
+              <table class="ref sc-tb sc-grid">
+                <thead><tr><th>요인</th><th>여행업</th><th>외식업</th><th>컨벤션</th><th>숙박업</th><th>항공</th></tr></thead>
+                <tbody>
+                  <tr class="all"><td><strong>편의성</strong> <i>Convenience</i></td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+                  <tr class="all"><td><strong>스마트인프라</strong> <i>Smart Infrastructure</i></td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+                  <tr><td><strong>정보성</strong> <i>Informativeness</i></td><td>●</td><td>●</td><td>●</td><td>●</td><td></td></tr>
+                  <tr><td><strong>기술통합성</strong> <i>Technology Integration</i></td><td>●</td><td>●</td><td>●</td><td></td><td></td></tr>
+                  <tr><td><strong>신뢰성</strong> <i>Reliability</i></td><td>●</td><td>●</td><td>●</td><td></td><td></td></tr>
+                  <tr><td><strong>개인화</strong> <i>Personalization</i></td><td></td><td></td><td></td><td>●</td><td>●</td></tr>
+                  <tr><td><strong>상호작용성</strong> <i>Interactivity</i></td><td></td><td></td><td></td><td>●</td><td>●</td></tr>
+                  <tr><td><strong>보안성</strong> <i>Security</i></td><td></td><td></td><td></td><td></td><td>●</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="logic">
+              <p class="aim"><strong>패턴</strong> — 5개 공통 <strong>2개</strong> 요인, 여행 · 외식 · 컨벤션 공통 <strong>3개</strong> 요인, 숙박 · 항공의 <strong>맞춤 · 소통</strong>, 항공의 <strong>보안</strong>.</p>
+            </div>
+          </section>
+          <section class="slide tint-sun compact" aria-label="02 핵심 요인별 장면으로 이해하기">
+            <p class="learn-part">02 · 핵심 요인별 장면으로 이해하기</p>
+            <p>여덟 요인을 <strong>관광객의 실제 서비스 장면</strong>과 연결해 기억합니다.</p>
+            <figure class="learn-fig">
+              <img loading="lazy" src="images/smart-tourism-scale-factors-scenes.webp" alt="스마트관광 핵심 요인 여덟을 장면 중심으로 정리한 그림 — 편의성 · 스마트인프라 · 정보성 · 기술통합성 · 신뢰성 · 개인화 · 상호작용성 · 보안성 각각이 실제 관광 장면에서 어떻게 나타나는지 그림과 한 줄 설명으로 짝지어 보여준다." width="1055" height="1491" />
+              <figcaption>① 편의성 ② 스마트인프라 ③ 정보성 ④ 기술통합성 ⑤ 신뢰성 ⑥ 개인화 ⑦ 상호작용성 ⑧ 보안성 — 원자료 p.5</figcaption>
+            </figure>
+            <div class="logic">
+              <p class="aim"><strong>핵심 메시지</strong> — 스마트관광은 기술 자체보다, <strong>기술을 통해 경험하는 가치와 서비스 품질</strong>을 측정합니다.</p>
+            </div>
+          </section>
+          <section class="slide tint-sun compact" aria-label="03 스마트관광 핵심 요인 용어 — 여덟">
+            <p class="learn-part">03 · 스마트관광 핵심 요인 용어 — 여덟</p>
+            <p>여덟 요인의 <strong>영어 원어와 한글 의미</strong>를 함께 기억합니다. 용어를 먼저 잡으면 <strong>뒤의 산업별 비교표(06장)</strong>와 <strong>공통과 차이(07장)</strong>가 훨씬 쉽게 읽힙니다.</p>
+            <ul class="kwlist sc-dk terms">
+              <li class="f1"><b>기술통합성</b> <i>(Technology Integration)</i> 여러 기술이 서비스 과정에 연결 · 통합되는 정도</li>
+              <li class="f2"><b>편의성</b> <i>(Convenience)</i> 쉽고 빠르며 원활하게 서비스를 이용하는 정도</li>
+              <li class="f3"><b>정보성</b> <i>(Informativeness)</i> 필요한 정보를 정확하고 적시에 얻는 정도</li>
+              <li class="f4"><b>스마트인프라</b> <i>(Smart Infrastructure)</i> 키오스크 · 앱 · IoT 등 시스템 기반이 구축된 정도</li>
+              <li class="f5"><b>신뢰성</b> <i>(Reliability)</i> 정보 · 예약 · 서비스 시스템을 믿을 수 있는 정도</li>
+              <li class="f6"><b>개인화</b> <i>(Personalization)</i> 선호 · 이력에 맞는 맞춤형 서비스를 제공하는 정도</li>
+              <li class="f7"><b>상호작용성</b> <i>(Interactivity)</i> 실시간 소통과 반응 · 피드백이 가능한 정도</li>
+              <li class="f8"><b>보안성</b> <i>(Security)</i> 개인정보 · 결제 · 여행정보가 안전하게 보호되는 정도</li>
+            </ul>
+          </section>
+          <section class="slide tint-sun compact" aria-label="04 이것만은 기억하자 — 복습 목표와 핵심 문장">
+            <p class="learn-part">04 · 이것만은 기억하자 — 복습 목표와 핵심 문장</p>
+            <p><strong>여행업 · 외식업 · 컨벤션 · 숙박업 · 항공산업</strong> 다섯 편의 척도개발 연구를 한자리에 겹쳐 놓은 복습 슬라이드입니다. 기술 자체가 아니라 <strong>기술을 통해 이용자가 경험하는 「스마트함」</strong>을 이해하는 것이 목표입니다 — 스마트관광을 <em>「최신기술 보유」</em>가 아니라 <strong>「경험되는 스마트함」</strong>으로 설명하는 것입니다.</p>
+            <div class="logic">
+              <p class="formula">개념 · 방법 · 비교 — 이 셋만 잡으면 다섯 편이 한 줄로 읽힙니다</p>
+            </div>
+            <ul class="kwlist sc-dk goal3">
+              <li><b>① 개념</b> 스마트관광을 기술의 수가 아니라 <strong>이용자 경험의 기준</strong>으로 설명한다.</li>
+              <li><b>② 방법</b> 척도개발의 흐름을 <strong>자료 → 검토 → 통계검증</strong>으로 설명한다.</li>
+              <li><b>③ 비교</b> 5개 산업의 <strong>공통요인과 산업별 강조요인</strong>을 구분한다.</li>
+            </ul>
+            <div class="logic">
+              <p class="neg">스마트관광 <strong>=</strong> 첨단기술의 <strong>보유 정도</strong></p>
+              <p class="pos">스마트관광 <strong>=</strong> 기술을 통해 이용자가 경험하는 <strong>「스마트함」을 측정하는 것</strong></p>
+              <p class="aim">즉, 기술이 여행과 서비스 과정에서 <strong>얼마나 편리하고 유용하며 신뢰롭게</strong> 작동하는지를 봅니다. 기준은 <strong>기술 보유</strong>가 아니라 <strong>이용자가 경험하는 가치</strong>입니다.</p>
+            </div>
+          </section>
+          <section class="slide tint-sun compact" aria-label="05 척도는 어떻게 만들어졌을까 — 여섯 걸음">
+            <p class="learn-part">05 · 척도는 어떻게 만들어졌을까 — 여섯 걸음</p>
+            <p>문헌 · 현장자료에서 시작해 <strong>전문가 검토와 통계검증</strong>을 거쳐 최종 문항이 확정됩니다.</p>
+            <ol class="kwlist sc-dk">
+              <li><b>1 현장자료</b><span>문헌 · 사례 · 후기 · 웹크롤링</span></li>
+              <li><b>2 질적분석</b><span>Nvivo · 군집분석으로 개념 묶기</span></li>
+              <li><b>3 후보문항</b><span>초기 요인과 문항 도출</span></li>
+              <li><b>4 내용검토</b><span>FGI + 전문가 — 중복 · 모호 문항 정제</span></li>
+              <li><b>5 양적분석</b><span>설문 + EFA로 요인구조 탐색</span></li>
+              <li><b>6 최종검증</b><span>CFA · 신뢰도 · 타당성 — 최종 척도 확정</span></li>
+            </ol>
+            <div class="logic">
+              <p class="chain">자료 수집 <b>→</b> 질적 정리 <b>→</b> 후보문항 <b>→</b> FGI · 전문가 <b>→</b> EFA <b>→</b> CFA</p>
+              <p class="aim"><strong>기억할 점</strong> — 척도개발은 <em>「연구자가 문항을 마음대로 만드는 과정」</em>이 아니라, 실제 자료 → 이용자 · 전문가 검토 → 통계검증을 거쳐 <strong>문항을 좁혀 가는 과정</strong>입니다.</p>
+            </div>
+          </section>
+          <section class="slide tint-sun compact" aria-label="06 산업별 핵심 비교">
+            <p class="learn-part">06 · 산업별 핵심 비교</p>
+            <p>같은 스마트관광이라도 <strong>서비스 여정이 달라지면 강조되는 경험이 달라집니다.</strong></p>
+            <div class="tbl-wrap">
+              <table class="ref sc-tb">
+                <colgroup><col class="c1" /><col class="c2" /><col class="c3" /><col class="c4" /><col class="c5" /></colgroup>
+                <thead><tr><th>산업</th><th>구성요인 다섯</th><th>최종 척도</th><th>특히 기억할 경험</th><th>기억 키워드</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>여행업</strong></td><td class="st">기술통합성 · 편의성 · 정보성 · 스마트인프라 · 신뢰성</td><td class="st">5요인 · 19문항</td><td class="st">탐색 → 예약 → 이동 → 체험</td><td class="st">통합 · 정보 · 예약 · 신뢰</td></tr>
+                  <tr><td><strong>외식업</strong></td><td class="st">기술통합성 · 편의성 · 정보성 · 스마트인프라 · 신뢰성</td><td class="st">5요인 · 20문항</td><td class="st">탐색 → 예약 → 주문 → 결제 → 리뷰</td><td class="st">주문 · 결제 · 정보 · 신뢰</td></tr>
+                  <tr><td><strong>컨벤션</strong></td><td class="st">기술통합성 · 편의성 · 정보성 · 스마트인프라 · 신뢰성</td><td class="st">5요인 · 15문항</td><td class="st">등록 → 입장 → 정보탐색 → 전시 → 네트워킹</td><td class="st">입장 · 정보 · 체험 · 운영</td></tr>
+                  <tr><td><strong>숙박업</strong></td><td class="st">정보성 · 스마트인프라 · 편의성 · <em>개인화</em> · <em>상호작용성</em></td><td class="st">5요인 · 19문항</td><td class="st">예약 → 체크인 → 객실 → 추천 → 소통</td><td class="st">체류 · 맞춤 · 상호작용</td></tr>
+                  <tr><td><strong>항공산업</strong></td><td class="st">스마트인프라 · 편의성 · <em>개인화</em> · <em>상호작용성</em> · <em>보안성</em></td><td class="st">5요인 · 17문항</td><td class="st">예약 → 공항 → 체크인 → 탑승 → 이동정보</td><td class="st">편의 · 맞춤 · 소통 · 보안</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="logic">
+              <p class="aim">여행 · 외식 · 컨벤션은 <strong>통합 · 정보 · 신뢰</strong>, 숙박 · 항공은 <strong>맞춤 · 소통</strong>, 항공은 <strong>보안</strong>이 핵심입니다.</p>
+            </div>
+          </section>
+          <section class="slide tint-sun compact" aria-label="07 공통요인과 산업별 차이">
+            <p class="learn-part">07 · 공통요인과 산업별 차이</p>
+            <p>다섯 편을 관통하는 <strong>공통 기반</strong>과 <strong>산업별 강조점</strong>을 분리해서 봅니다.</p>
+            <ul class="kwlist sc-dk">
+              <li class="g1"><b>ALL 5</b><span><strong>편의성 + 스마트인프라</strong> → 5개 산업 모두에서 확인</span></li>
+              <li class="g2"><b>여행 · 외식 · 컨벤션</b><span><strong>기술통합성 + 정보성 + 신뢰성</strong> → 세 산업에서 공통적으로 강조</span></li>
+              <li class="g3"><b>숙박 · 항공</b><span><strong>개인화 + 상호작용성</strong> → 맞춤서비스와 실시간 소통이 핵심</span></li>
+              <li class="g4"><b>항공만</b><span><strong>보안성</strong> → 개인정보 · 결제 · 여행정보 보호가 독립 요인으로 등장</span></li>
+            </ul>
+            <div class="logic">
+              <p class="chain">공통 기반(편의성 · 인프라) <b>+</b> 산업별 강조점(통합 · 정보 · 신뢰 <b>/</b> 맞춤 · 소통 <b>/</b> 보안)</p>
+            </div>
+          </section>
+          <section class="slide tint-sun compact" aria-label="08 이 표에서 읽어야 할 흐름">
+            <p class="learn-part">08 · 이 표에서 읽어야 할 흐름</p>
+            <p>요인 패턴은 <strong>「공통 기반 → 산업별 변화 → 항공의 고유성」</strong> 순서로 읽습니다.</p>
+            <h3>공통 기반</h3>
+            <p>편의성과 스마트인프라는 <strong>5개 산업에 모두 존재</strong>합니다. 즉 스마트관광은 먼저 <em>「쉽게 이용할 수 있는가」</em>와 <em>「기술 기반이 갖추어져 있는가」</em>를 공통적으로 봅니다.</p>
+            <h3>산업별 변화</h3>
+            <p>여행 · 외식 · 컨벤션은 <strong>기술통합성 · 정보성 · 신뢰성</strong>이 공통적으로 나타납니다. 반면 숙박과 항공에서는 <strong>개인화 · 상호작용성</strong>이 새롭게 강조됩니다.</p>
+            <h3>항공의 고유성</h3>
+            <p>항공에서는 <strong>보안성</strong>이 독립적인 요인으로 나타납니다. 개인정보 · 결제 · 여행정보 보호가 항공 스마트서비스의 중요한 경험 기준이 됩니다.</p>
+            <div class="logic">
+              <p class="aim"><strong>한 줄 결론</strong> — 같은 스마트관광이라도 <strong>산업의 서비스 여정이 달라지면 이용자가 경험하는 「스마트함」의 구성도 달라집니다.</strong></p>
+            </div>
+          </section>
+          <section class="slide tint-sun compact" aria-label="09 학생이 반드시 기억할 3문장">
+            <p class="learn-part">09 · 학생이 반드시 기억할 3문장</p>
+            <p>복습의 마지막 기준은 이 세 문장입니다.</p>
+            <ol class="kwlist sc-dk fin3">
+              <li><b>①</b><span>모든 산업에서 <strong>편의성과 스마트인프라</strong>는 공통적으로 중요하다.</span></li>
+              <li><b>②</b><span><strong>산업의 서비스 특성이 달라지면</strong> 스마트함을 구성하는 요인도 달라진다.</span></li>
+              <li><b>③</b><span>스마트관광은 기술 자체가 아니라, <strong>기술을 통해 경험하는 가치와 서비스 품질</strong>을 측정한다.</span></li>
+            </ol>
+            <div class="logic">
+              <p class="aim"><strong>정리</strong> — 기술의 존재보다 <strong>이용자 경험</strong>, <strong>산업별 서비스 여정</strong>, <strong>검증된 척도개발 절차</strong>를 함께 기억합니다.</p>
+            </div>
+          </section>
+          <section class="slide tint-sun compact" aria-label="10 30초 셀프체크와 수업자료 근거">
+            <p class="learn-part">10 · 30초 셀프체크와 수업자료 근거</p>
+            <p>질문으로 확인하고, 다섯 편의 척도개발 연구를 근거로 다시 연결합니다.</p>
+            <h3>30초 셀프체크</h3>
+            <ul class="f3-why">
+              <li>왜 스마트관광을 <em>「최신기술」</em>이라고만 말하면 부족한가?</li>
+              <li>5개 산업에 <strong>모두 포함된 두 요인</strong>은 무엇인가?</li>
+              <li><strong>숙박 · 항공에서 새롭게 강조되는 요인</strong>과 <strong>항공에서만 나타나는 요인</strong>은 무엇인가?</li>
+            </ul>
+            <h3>수업자료 근거 — 박소영 외 다섯 편</h3>
+            <ol class="kwlist sc-dk src5">
+              <li><b>여행업</b><span>박소영 · 고주희(2024) 「여행업을 중심으로 스마트관광의 척도개발」</span></li>
+              <li><b>외식업</b><span>박소영 · 이보연(2024) 「스마트관광 척도 개발: 외식업」</span></li>
+              <li><b>컨벤션</b><span>박소영(2024) 「스마트관광 척도개발: 컨벤션산업을 중심으로」</span></li>
+              <li><b>숙박업</b><span>박소영 · 이보연(2025) 「스마트관광 척도개발: 숙박업을 중심으로」</span></li>
+              <li><b>항공산업</b><span>박소영 · 윤한성(2025) 「스마트관광 척도개발: 항공산업을 중심으로」</span></li>
+            </ol>
+            <div class="logic">
+              <p class="aim"><strong>최종 결론</strong> — 같은 스마트관광이라도 <strong>산업의 서비스 여정이 달라지면, 이용자가 경험하는 「스마트함」의 구성도 달라진다.</strong></p>
+            </div>
+          </section>
+
+        </div>
+          <button type="button" class="deck-next" aria-label="다음 슬라이드">→</button>
+        </div>
+        <div class="deck-nav">
+          <span class="deck-count">01 / 10</span>
+        </div>
+      </div>
+
+
+      <div class="kto5" id="스마트관광5대요소">
+        <p class="k5-t">② 도시는 무엇을 갖추나 — 스마트관광 5대 요소 <span>한국관광공사(2020) · <a href="https://scholar.google.com/scholar?q=%EC%97%AC%ED%96%89%EC%97%85%EC%9D%84+%EC%A4%91%EC%8B%AC%EC%9C%BC%EB%A1%9C+%EC%8A%A4%EB%A7%88%ED%8A%B8%EA%B4%80%EA%B4%91%EC%9D%98+%EC%B2%99%EB%8F%84%EA%B0%9C%EB%B0%9C" target="_blank" rel="noopener">박소영 · 고주희(2024) 「여행업을 중심으로 스마트관광의 척도개발」 ↗</a> 재인용</span></p>
+        <div class="tbl-wrap">
+          <table class="k5-tb">
+            <thead><tr><th scope="col">5대 요소</th><th scope="col">연계 관광요소</th><th scope="col">연계 기술</th><th scope="col">핵심가치</th><th scope="col">무엇을 하나</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">스마트 경험</th><td>관광콘텐츠</td><td>AR · VR · MR · 홀로그램</td><td><b>관광매력 극대화</b></td><td>최신 기술로 자연 · 문화 · 역사 등 관광매력을 극대화</td></tr>
+              <tr><th scope="row">스마트 편의</th><td>관광인프라</td><td>O2O · 디지털 사이니지 등</td><td><b>관광일정 관리</b></td><td>편리한 체류를 위해 식당 · 체험 등을 실시간으로 알려 주고 예약 · 결제 지원</td></tr>
+              <tr><th scope="row">스마트 서비스</th><td>관광지원서비스</td><td>챗봇 · 로보틱스 등</td><td><b>관광품질 개선</b></td><td>다국어 · 불편신고 · 짐배송 등 관광지 현장의 불편에 신속 대응</td></tr>
+              <tr><th scope="row">스마트 모빌리티</th><td>관광교통</td><td>공유플랫폼 · 자율주행 · MaaS 등</td><td><b>방문범위 확대</b></td><td>공유자동차 · 수요대응형 자동차(도시 간) · 퍼스널 모빌리티(도시 안) 등 2차 교통수단</td></tr>
+              <tr><th scope="row">스마트 플랫폼</th><td>관광정보</td><td>AI · Data Analytics 등</td><td><b>관광정보 공유</b></td><td>스마트관광도시 안의 여러 서비스를 등록 · 이용하고, 그 기록을 모아 공유</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="k5-foot">위 척도 여덟 요인(편의성 · 스마트인프라 · 정보성 …)이 <b>관광객이 느끼는 품질</b>이라면, 5대 요소는 <b>도시가 갖추는 영역</b>입니다 — 아래 02-3 「적용」과 이어 보십시오.</p>
+      </div>
+
+
+
+      <div class="s25" id="문항25에서19">
+        <p class="s25-t">③ 문항은 어떻게 다듬나 — <b>여행업 25 → 19</b> · <b>외식업 28 → 25</b> <span>진한 글씨는 남은 문항, <i class="lt">연한 글씨</i>는 걸러진 문항</span></p>
+        <p class="s25-flow">Nvivo 내용분석(1차 문항) → FGI · 전문가 의견조사 → 남은 문항 → 신뢰도 · 타당도 검증 → 최종 척도</p>
+        <div class="s25-two">
+          <div class="s25-col">
+            <p class="s25-h">여행업 <b>25 → 19</b><span>박소영 · 고주희(2024) 〈표 2〉 → 〈표 4〉</span></p>
+            <div class="tbl-wrap"><table class="s25-tb"><thead><tr><th scope="col">요인 <small>1차 → 최종</small></th><th scope="col">번호</th><th scope="col">문항</th></tr></thead><tbody>
+                <tr class=""><th scope="rowgroup" rowspan="5">기술통합성<small>5 → 5</small></th><td class="id">x1</td><td>모바일앱은 교통 · 숙박 · 항공 · 식당 등을 이용하는 데 최적화되어 있다</td></tr>
+                <tr class=""><td class="id">x2</td><td>스마트폰이나 태블릿으로 관광지 정보 등을 손쉽게 확인할 수 있다</td></tr>
+                <tr class=""><td class="id">x3</td><td>모바일앱이나 태블릿으로 호텔 예약이 가능하다</td></tr>
+                <tr class=""><td class="id">x4</td><td>가상현실(VR) · 증강현실(AR)로 관광지 전반을 시각적으로 볼 수 있다</td></tr>
+                <tr class=""><td class="id">x5</td><td>모바일앱이나 태블릿으로 맞춤형 여행 패키지를 구성할 수 있다</td></tr>
+                <tr class=""><th scope="rowgroup" rowspan="4">편의성<small>4 → 4</small></th><td class="id">x6</td><td>스마트폰이나 태블릿으로 여행 정보를 검색하는 데 시간 제약 없이 쓸 수 있다</td></tr>
+                <tr class=""><td class="id">x7</td><td>스마트폰이나 태블릿으로 그 여행지가 제공하는 서비스를 쉽게 쓸 수 있다</td></tr>
+                <tr class=""><td class="id">x8</td><td>인터넷이 연결되면 여행업체의 스마트관광서비스(실시간 여행정보)에 접속하기 쉽다</td></tr>
+                <tr class=""><td class="id">x9</td><td>인터넷이 연결되면 여행업체의 스마트관광서비스(연락 · 문의 채팅 등)에 원활하게 접속된다</td></tr>
+                <tr class=""><th scope="rowgroup" rowspan="4">정보성<small>4 → 4</small></th><td class="id">x10</td><td>여행업체의 스마트관광서비스는 여행에 필요한 다양한 정보를 제공한다</td></tr>
+                <tr class=""><td class="id">x11</td><td>여행업체의 스마트관광서비스는 관광명소 등의 위치 찾기 정보를 제공한다</td></tr>
+                <tr class=""><td class="id">x12</td><td>여행업체의 스마트관광서비스는 실시간 정보(항공편 지연 · 날씨 · 교통)를 제공한다</td></tr>
+                <tr class=""><td class="id">x13</td><td>여행사의 스마트관광서비스는 그 여행지의 리뷰 등 정보를 제공한다</td></tr>
+                <tr class=""><th scope="rowgroup" rowspan="6">스마트인프라<small>6 → 3</small></th><td class="id">x14</td><td>온라인으로 항공편 · 호텔 · 렌터카 등을 예약 · 결제하는 시스템이 갖춰져 있다</td></tr>
+                <tr class=""><td class="id">x15</td><td>현재 위치를 파악해 주변 여행정보(관광명소 · 식당 · 숙박시설 등)를 확인하는 시스템이 갖춰져 있다</td></tr>
+                <tr class=""><td class="id">x16</td><td>여행업체가 제공한 여행 플랫폼에서 여행목적지를 미리 체험할 수 있는 시스템이 갖춰져 있다</td></tr>
+                <tr class="drop"><td class="id">C1</td><td>온라인에서 AR/VR로 여행목적지를 체험할 수 있다 <span class="s25-tag">빠짐</span></td></tr>
+                <tr class="drop"><td class="id">C2</td><td>여행업체가 제공한 여행정보는 모바일에서도 확인할 수 있다 <span class="s25-tag">빠짐</span></td></tr>
+                <tr class="drop"><td class="id">C3</td><td>항공편 · 호텔 · 렌터카 예약 · 결제 시스템은 언제 어디서든 쓸 수 있다 <span class="s25-tag">빠짐</span></td></tr>
+                <tr class=""><th scope="rowgroup" rowspan="6">신뢰성<small>6 → 3</small></th><td class="id">x17</td><td>여행업체에 제공한 내 개인정보는 안전하게 관리되고 있다고 확신한다</td></tr>
+                <tr class=""><td class="id">x18</td><td>여행업체가 제공하는 정보(여행일정 · 현지상황 · 호텔정보 등)는 정확하고 최신이다</td></tr>
+                <tr class=""><td class="id">x19</td><td>여행업체의 예약 시스템(항공편 · 호텔 · 여행일정 등)은 안정적이다</td></tr>
+                <tr class="drop"><td class="id">C4</td><td>여행업체가 제공하는 모든 서비스는 믿을 만하다 <span class="s25-tag">빠짐</span></td></tr>
+                <tr class="drop"><td class="id">C5</td><td>여행업체의 플랫폼은 안정적이다 <span class="s25-tag">빠짐</span></td></tr>
+                <tr class="drop"><td class="id">C6</td><td>여행업체가 제공하는 스마트서비스를 신뢰한다 <span class="s25-tag">빠짐</span></td></tr>
+              </tbody></table></div>
+          </div>
+          <div class="s25-col">
+            <p class="s25-h">외식업 <b>28 → 25</b><span>박소영 · 이보연(2024) 〈표 1〉 → 〈표 4〉</span></p>
+            <div class="tbl-wrap"><table class="s25-tb"><thead><tr><th scope="col">요인 <small>1차 → 최종</small></th><th scope="col">번호</th><th scope="col">문항</th></tr></thead><tbody>
+                <tr class=""><th scope="rowgroup" rowspan="7">기술통합성<small>7 → 7</small></th><td class="id">x1</td><td>외식업체의 위치를 찾고자 할 때 모바일이나 태블릿 이용이 가능하다</td></tr>
+                <tr class=""><td class="id">x2</td><td>메뉴, 가격, 예약 등은 모바일과 태블릿에서 가능하다</td></tr>
+                <tr class=""><td class="id">x3</td><td>식당방문 전 미리 메뉴예약과 주문을 위해 예약시스템으로 가능하다</td></tr>
+                <tr class=""><td class="id">x4</td><td>카드계산은 스마트폰이나 태블릿으로 가능하다</td></tr>
+                <tr class=""><td class="id">x5</td><td>주문과 결제는 키오스크로 가능하다</td></tr>
+                <tr class=""><td class="id">x6</td><td>이 식당의 특별한 내용에 대해 리뷰 작성은 모바일로 가능하다</td></tr>
+                <tr class=""><td class="id">x7</td><td>외식업체의 다양한 정보확인은 QR코드로 가능하다</td></tr>
+                <tr class=""><th scope="rowgroup" rowspan="5">편의성<small>5 → 4</small></th><td class="id">x8</td><td>외식업체를 검색하는데 시간적 제약 없이 사용할 수 있다</td></tr>
+                <tr class=""><td class="id">x9</td><td>외식업체에서 제공하는 서비스를 쉽게 사용할 수 있다</td></tr>
+                <tr class=""><td class="id">x10</td><td>외식업체에서 제공하는 스마트관광서비스에 접속하기 용이하다</td></tr>
+                <tr class=""><td class="id">x11</td><td>외식업체에서 제공하는 스마트관광서비스는 원활하게 접속이 된다</td></tr>
+                <tr class="drop"><td class="id"></td><td>외식업체에서의 스마트관광은 언제든지 이용할 수 있다 <span class="s25-tag">빠짐 · 전문가 이견</span></td></tr>
+                <tr class=""><th scope="rowgroup" rowspan="5">정보성<small>5 → 4</small></th><td class="id">x12</td><td>외식업체의 스마트관광서비스는 외식을 하는데 필요한 다양한 정보를 제공한다</td></tr>
+                <tr class=""><td class="id">x13</td><td>외식업체의 스마트관광서비스는 외식업체의 위치 찾기 정보를 제공한다</td></tr>
+                <tr class=""><td class="id">x14</td><td>외식업체의 스마트관광서비스는 메뉴, 가격 등의 정보를 제공한다</td></tr>
+                <tr class=""><td class="id">x15</td><td>외식업체의 스마트관광서비스는 해당 외식업체에 대한 리뷰 등을 제공한다</td></tr>
+                <tr class="drop"><td class="id"></td><td>외식업체의 스마트관광서비스는 외식업체의 위치는 정보검색에 잘 나타나 있다 <span class="s25-tag">빠짐 · 전문가 이견</span></td></tr>
+                <tr class=""><th scope="rowgroup" rowspan="5">스마트인프라<small>5 → 4</small></th><td class="id">x16</td><td>모바일앱은 예약, 주문, 결제를 하는데 최적화 되어 있다</td></tr>
+                <tr class=""><td class="id">x17</td><td>키오스크에서 주문한 내용은 완료시에 모바일로 알림설정이 되어있다</td></tr>
+                <tr class=""><td class="id">x18</td><td>키오스크에서 주문하여 결제까지 완료할 수 있는 시스템을 갖추고 있다</td></tr>
+                <tr class=""><td class="id">x19</td><td>AR, VR기술을 통해 메뉴를 시각적으로 볼 수 있는 시스템을 갖추고 있다</td></tr>
+                <tr class="drop"><td class="id"></td><td>AR, VR기술을 통해 메뉴의 맛을 짐작할 수 있는 시스템을 갖추고 있다 <span class="s25-tag">빠짐 · FGI 「애매」 6명 중 4명</span></td></tr>
+                <tr class=""><th scope="rowgroup" rowspan="6">신뢰성<small>6 → 6</small></th><td class="id">x20</td><td>외식업체를 이용하면서 제공한 나의 개인정보는 보안이 철저하다고 생각한다</td></tr>
+                <tr class=""><td class="id">x21</td><td>외식업체를 이용하면서 제공한 나의 결제정보는 유출되지 않는다고 확신한다</td></tr>
+                <tr class=""><td class="id">x22</td><td>외식업체에서 제공하는 예약시스템은 안정성과 일관성이 있다</td></tr>
+                <tr class=""><td class="id">x23</td><td>외식업체에서 제공한 리뷰는 투명하고 공정하다고 확신한다</td></tr>
+                <tr class=""><td class="id">x24</td><td>외식업체에서 제공하는 스마트주문 시스템은 안정성과 일관성이 있다</td></tr>
+                <tr class=""><td class="id">x25</td><td>외식업체에서 제공하는 결제시스템은 안정성과 일관성이 있다</td></tr>
+              </tbody></table></div>
+          </div>
+        </div>
+        <p class="s25-foot">여행업은 <b>스마트인프라 · 신뢰성</b>에서 셋씩, 외식업은 <b>편의성 · 정보성 · 스마트인프라</b>에서 하나씩 걸러졌습니다. <b>외식업은 논문이 이유를 적었습니다</b> — FGI에서 「AR · VR로 맛을 짐작」은 애매하다(6명 중 4명 동의), 전문가 라운드테이블에서 「언제든지 이용」 · 「위치는 정보검색에 잘 나타나 있다」에 이견, 다시 토론해 8인 모두 셋을 빼기로 했습니다(박소영 · 이보연, 2024, 67쪽). 이 25문항은 요인분석을 거쳐 최종 <b>20문항(5요인 × 4)</b>이 됩니다. 여행업의 여섯은 남은 문항과 겹치거나(C1 ↔ x4 · x16, C2 ↔ x2, C3 ↔ x14) 「믿을 만하다 · 신뢰한다」처럼 막연한 문장입니다(비교로 본 추정 — 논문 본문에서 확인하십시오). <b>척도개발은 문항을 늘리는 일이 아니라, 겹치는 것과 막연한 것을 빼서 재는 말을 또렷하게 만드는 일</b>입니다.</p>
+      </div>
+
+      <p class="learn-part pt-learn" id="적용"><span class="pt">02-3</span>적용 — 어디에 · 누구에게 · 어떤 기술로</p>
+      <figure class="learn-fig sc-penta" id="산업별적용">
+        <p class="sp-t">① 어느 산업에 — 다섯 산업을 오각형으로</p>
+        <svg viewBox="0 50 640 440" role="img" aria-labelledby="sp-title sp-desc">
+          <title id="sp-title">다섯 산업의 스마트관광 요인 오각형</title>
+          <desc id="sp-desc">꼭짓점은 여행업 · 숙박업 · 항공 · 컨벤션 · 외식업. 가운데는 다섯 산업 공통 요인 편의성과 스마트인프라. 여행 · 외식 · 컨벤션 쪽 면은 정보성 · 기술통합성 · 신뢰성, 숙박 · 항공 쪽 면은 개인화 · 상호작용성. 숙박업은 정보성, 항공은 보안성이 더 있다.</desc>
+          <polygon points="320,255 320,90 163,204 223,388" class="sp-a"/>
+          <polygon points="320,255 477,204 417,388" class="sp-b"/>
+          <polygon points="320,90 477,204 417,388 223,388 163,204" class="sp-edge"/>
+          <line x1="320" y1="255" x2="320" y2="90" class="sp-spoke"/><line x1="320" y1="255" x2="477" y2="204" class="sp-spoke"/><line x1="320" y1="255" x2="417" y2="388" class="sp-spoke"/><line x1="320" y1="255" x2="223" y2="388" class="sp-spoke"/><line x1="320" y1="255" x2="163" y2="204" class="sp-spoke"/>
+          <text x="222" y="236" class="sp-g a">정보성</text><text x="222" y="256" class="sp-g a">기술통합성</text><text x="222" y="276" class="sp-g a">신뢰성</text>
+          <text x="412" y="273" class="sp-g b">개인화</text><text x="412" y="293" class="sp-g b">상호작용성</text>
+          <circle cx="320" cy="255" r="52" class="sp-core"/>
+          <text x="320" y="247" class="sp-ct">다섯 공통</text><text x="320" y="265" class="sp-cv">편의성</text><text x="320" y="282" class="sp-cv">스마트인프라</text>
+          <circle cx="320" cy="90" r="7" class="sp-dot"/><text x="320" y="70" text-anchor="middle" class="sp-n">여행업</text><circle cx="477" cy="204" r="7" class="sp-dot"/><text x="495" y="208" text-anchor="start" class="sp-n">숙박업</text><text x="495" y="226" text-anchor="start" class="sp-x">+ 정보성</text><circle cx="417" cy="388" r="7" class="sp-dot"/><text x="435" y="418" text-anchor="start" class="sp-n">항공</text><text x="435" y="436" text-anchor="start" class="sp-x">+ 보안성</text><circle cx="223" cy="388" r="7" class="sp-dot"/><text x="205" y="418" text-anchor="end" class="sp-n">컨벤션</text><circle cx="163" cy="204" r="7" class="sp-dot"/><text x="145" y="208" text-anchor="end" class="sp-n">외식업</text>
+        </svg>
+        <figcaption>여행 · 외식 · 컨벤션은 <b>정보 · 기술통합 · 신뢰</b>로, 숙박 · 항공은 <b>개인화 · 상호작용</b>으로 기웁니다 — 가운데 <b>편의성 · 스마트인프라</b>는 다섯 산업 모두의 바닥. 숙박업은 정보성, 항공은 보안성이 하나씩 더 있습니다(박소영 외 2024~2025, 01장 표).</figcaption>
+      </figure>
+
+      <figure class="learn-fig sc-hepta" id="대상별적용">
+        <p class="sh-t">② 누구에게 — 일곱 대상을 칠각형으로</p>
+        <svg viewBox="0 70 900 480" role="img" aria-labelledby="sh-title sh-desc">
+          <title id="sh-title">일곱 대상의 스마트관광 적용 칠각형</title>
+          <desc id="sh-desc">꼭짓점은 외국인, 장애인 · 교통약자, 고령자, 디지털 취약계층, 가족 · 아동 동반, 반려동물 동반, 지역주민. 꼭짓점마다 불편과 스마트 서비스를 한 줄로 적었고, 가운데는 모두에게 공통인 접근성과 편의성. 지역주민은 관광객이 아니라 관광을 받는 쪽이라 색을 달리했다.</desc>
+          <polygon points="450,150 567,206 596,333 515,435 385,435 304,333 333,206" class="sh-face"/><line x1="450" y1="300" x2="450" y2="150" class="sh-spoke"/><line x1="450" y1="300" x2="567" y2="206" class="sh-spoke"/><line x1="450" y1="300" x2="596" y2="333" class="sh-spoke"/><line x1="450" y1="300" x2="515" y2="435" class="sh-spoke"/><line x1="450" y1="300" x2="385" y2="435" class="sh-spoke"/><line x1="450" y1="300" x2="304" y2="333" class="sh-spoke"/><line x1="450" y1="300" x2="333" y2="206" class="sh-spoke"/><polygon points="450,150 567,206 596,333 515,435 385,435 304,333 333,206" class="sh-edge"/><circle cx="450" cy="150" r="8" class="sh-dot a"/><text x="450" y="100" text-anchor="middle" class="sh-n a">외국인</text><text x="450" y="119" text-anchor="middle" class="sh-d">언어 · 결제 → 다국어 AI 안내 · 간편결제</text><circle cx="567" cy="206" r="8" class="sh-dot a"/><text x="589" y="189" text-anchor="start" class="sh-n a">장애인 · 교통약자</text><text x="589" y="208" text-anchor="start" class="sh-d">이동 경로 → 무장애 경로 · 음성 안내</text><circle cx="596" cy="333" r="8" class="sh-dot a"/><text x="624" y="340" text-anchor="start" class="sh-n a">고령자</text><text x="624" y="359" text-anchor="start" class="sh-d">작은 글씨 · 키오스크 → 큰 글씨 · 현장 도움</text><circle cx="515" cy="435" r="8" class="sh-dot a"/><text x="527" y="460" text-anchor="start" class="sh-n a">디지털 취약계층</text><text x="527" y="479" text-anchor="start" class="sh-d">앱 설치 · 가입 → 앱 없는 QR · 안내소 연계</text><circle cx="385" cy="435" r="8" class="sh-dot a"/><text x="373" y="460" text-anchor="end" class="sh-n a">가족 · 아동 동반</text><text x="373" y="479" text-anchor="end" class="sh-d">유모차 · 혼잡 → 혼잡도 예측 · 편의시설 지도</text><circle cx="304" cy="333" r="8" class="sh-dot a"/><text x="276" y="340" text-anchor="end" class="sh-n a">반려동물 동반</text><text x="276" y="359" text-anchor="end" class="sh-d">동반 가능 여부 → 동반 가능 장소 지도</text><circle cx="333" cy="206" r="8" class="sh-dot r"/><text x="311" y="189" text-anchor="end" class="sh-n r">지역주민</text><text x="311" y="208" text-anchor="end" class="sh-d">관광객 몰림 → 혼잡 분산 · 오버투어리즘 관리</text><circle cx="450" cy="300" r="58" class="sh-core"/><text x="450" y="290" class="sh-ct">모두의 바닥</text><text x="450" y="310" class="sh-cv">접근성</text><text x="450" y="329" class="sh-cv">편의성</text>
+        </svg>
+        <figcaption>위 오각형이 <b>어느 산업에</b>였다면, 이 칠각형은 <b>누구에게</b>입니다 — 같은 기술도 대상마다 푸는 불편이 다릅니다. 여섯은 관광객이고, <b class="sh-r">지역주민</b>은 관광을 <b>받는 쪽</b>이라 색을 달리했습니다. 분석 프롬프트 16 「접근성 분석」(장애인 · 고령자 · 외국인 · 디지털 취약계층)과 이어 쓰십시오.</figcaption>
+      </figure>
+
+      <div class="sc-tech" id="대상별기술">
+        <p class="st-t">③ 어떤 기술로 — <b>데이터</b>를 모으고 → <b>분석 · 기술</b>로 → <b>서비스</b>로 돌려준다</p>
+        <div class="tbl-wrap">
+          <table class="st-tb">
+            <thead><tr><th scope="col">대상</th><th scope="col">① 모으는 데이터</th><th scope="col">② 분석 · 기술</th><th scope="col">③ 돌려주는 서비스</th><th scope="col">이 페이지 사례</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">외국인</th><td>질문(음성 · 글) · 결제 요청</td><td>음성인식(STT) → 기계번역 · AI 챗봇(LLM) → 음성합성(TTS) · 해외 간편결제 QR을 결제 시스템(API)에 연동</td><td>자기 나라 말 안내 · 환전 없이 휴대폰 결제</td><td><a href="#문제해결기업">애프터워크 AI 챗봇 · 유디아이디 QR 결제 ↓</a></td></tr>
+              <tr><th scope="row">장애인 · 교통약자</th><td>길의 계단 · 경사 · 엘리베이터 · 단차, 실내 위치</td><td>지도 데이터(GIS)에 접근성 속성 · 길찾기 알고리즘이 계단 회피 · 실내 비콘(BLE) 측위</td><td>무장애 경로 · 위치 따라 읽어 주는 음성 안내</td><td><a href="#문제해결기업">다비오 축제 디지털 지도 ↓</a></td></tr>
+              <tr><th scope="row">고령자</th><td>화면 조작 · 말로 한 주문</td><td>큰 글씨 모드 · 음성 주문(음성인식) · 막히면 영상통화 원격 연결</td><td>쉬운 화면 · 말로 주문 · 현장 도움</td><td><span class="st-none">—</span></td></tr>
+              <tr><th scope="row">디지털 취약계층</th><td>앱 없이 찍는 QR</td><td>QR → 웹 페이지 바로 열기 · 안내소 · 키오스크가 같은 데이터 공유</td><td>설치 · 가입 없이 같은 정보</td><td><span class="st-none">—</span></td></tr>
+              <tr><th scope="row">가족 · 아동 동반</th><td>통신사 유동인구 · CCTV 인원 세기 · 와이파이 접속 수 · 시설 위치</td><td>머신러닝 시계열 예측(몇 시에 붐비나) · 공공데이터(수유실 · 유아차 대여소)를 지도에</td><td>혼잡도 예측 · 편의시설 지도</td><td><a href="#문제해결기업">피치에이아이 혼잡도 예측 ↓</a></td></tr>
+              <tr><th scope="row">반려동물 동반</th><td>장소마다 동반 가능 여부</td><td>장소 데이터베이스에 속성 · 위치기반 검색 필터</td><td>동반 가능 장소 지도</td><td><span class="st-none">—</span></td></tr>
+              <tr class="r"><th scope="row">지역주민</th><td>실시간 유동인구 · 예약</td><td>덜 붐비는 곳 추천(추천 알고리즘) · 시간대 예약제</td><td>혼잡 분산 · 오버투어리즘 관리</td><td><a href="#문제해결기업">피치에이아이 혼잡도 예측 ↓</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="st-foot">중간 과제 「문제 → 해결」을 쓸 때 <b>②의 기술 이름</b>까지 적으십시오 — 「앱을 만든다」가 아니라 「유동인구 데이터를 머신러닝으로 예측해 혼잡도를 보여 준다」처럼.</p>
+      </div>
+
+      <p class="learn-part pt-learn" id="기술수용"><span class="pt">02-4</span>기술수용 이론 — 왜 쓰고, 왜 안 쓰나</p>
+      <p class="mini-note" id="기술수용만화"><strong>기술수용 이론을 만화 네 장으로</strong> — <strong>TAM → TRAM → UTAUT2 → 혁신저항 · PAM · 서비스 디자인</strong>. <em>처음 수용 → 개인의 기술준비 → 통합적 수용 → 저항과 지속이용</em> 순서로 이어 읽으십시오.</p>
+
+      <div class="stcomic fit zoom">
+        <div class="stc-viewer" tabindex="0" aria-roledescription="캐러셀" aria-label="기술수용 이론 만화 — 네 장">
+          <div class="stc-track">
+            <section class="stc-slide" aria-label="1. 기술수용모델(TAM) 기초와 적용">
+              <p class="stc-head"><span class="stc-title">1. 기술수용모델(TAM) 기초와 적용</span><span class="stc-count">1 / 4</span></p>
+              <img src="images/tech-acceptance-comic-tam.webp" alt="기술수용모델(TAM) 기초와 적용 만화 — ① 새로운 관광 앱, 왜 쓰게 될까? TAM은 사람들이 새로운 기술을 수용하는 과정을 설명하는 이론. ② 지각된 유용성: 지도 · 일정관리 · 추천 명소처럼 기술이 나에게 도움을 준다고 느끼는 정도. ③ 지각된 사용용이성: 직관적인 화면 · 간단한 조작 · 처음 써도 쉽게 이해. ④ 전체 흐름: 지각된 유용성 + 지각된 사용용이성 → 사용태도/사용의도 → 실제사용. 핵심: 유용하고 쉬울수록 사용의도가 높아진다." />
+            </section>
+            <section class="stc-slide" aria-label="2. 확장 TAM · 기술준비수용모델(TRAM)">
+              <p class="stc-head"><span class="stc-title">2. 확장 TAM · 기술준비수용모델(TRAM)</span><span class="stc-count">2 / 4</span></p>
+              <img loading="lazy" src="images/tech-acceptance-comic-tram.webp" alt="확장 TAM · 기술준비수용모델(TRAM) 만화 — ① TRAM은 사람의 기술 준비도와 기술수용을 함께 본다(TAM + 기술준비도). ② 기술준비도의 긍정적 요인: 낙관성 · 혁신성. ③ 부정적 요인: 불편감 · 불안감(개인정보 · 오류 걱정). ④ 전체 흐름: 낙관성 · 혁신성은 수용을 높이고(+), 불편감 · 불안감은 낮춘다(−) → 지각된 유용성 · 사용용이성 → 사용의도. 핵심: 기술을 받아들이는 마음의 준비가 수용에 큰 영향을 준다." />
+            </section>
+            <section class="stc-slide" aria-label="3. UTAUT2와 통합기술수용 접근">
+              <p class="stc-head"><span class="stc-title">3. UTAUT2와 통합기술수용 접근</span><span class="stc-count">3 / 4</span></p>
+              <img loading="lazy" src="images/tech-acceptance-comic-utaut2.webp" alt="UTAUT2와 통합기술수용 접근 만화 — ① 새로운 관광 플랫폼, 왜 사람마다 다를까? UTAUT2는 여러 수용요인을 통합해 설명하는 모형. ② 핵심 수용요인: 성과기대 · 노력기대 · 사회적 영향. ③ 일상적 사용을 설명하는 추가 요인: 촉진조건 · 쾌락동기 · 가격가치 · 습관. ④ 일곱 요인 → 사용의도 → 실제사용. 핵심: 유용함, 쉬움, 주변 영향, 즐거움, 비용가치, 습관이 함께 사용을 설명한다." />
+            </section>
+            <section class="stc-slide" aria-label="4. 혁신저항 · 후기수용모형(PAM)과 서비스 디자인">
+              <p class="stc-head"><span class="stc-title">4. 혁신저항 · 후기수용모형(PAM)과 서비스 디자인</span><span class="stc-count">4 / 4</span></p>
+              <img loading="lazy" src="images/tech-acceptance-comic-pam.webp" alt="혁신저항 · 후기수용모형(PAM)과 서비스 디자인 만화 — ① 혁신저항: 복잡함 · 바꾸기 귀찮음 · 위험 걱정 · 기존 방식 선호. ② 수용 이후의 평가: 만족 · 유용성 확인. ③ 만족 + 유용성 확인 → 지속이용의도 → 재이용/추천. ④ 서비스 디자인과의 연계: 탐색 → 이용 → 문제발생 → 개선 → 재이용, 이용자 저항을 줄이고 만족을 높이도록 경험을 설계. 핵심: 저항은 줄이고, 만족과 경험개선은 높여야 지속이용이 생긴다." />
+            </section>
+          </div>
+          <button class="stc-nav stc-prev" type="button" aria-label="이전 그림">‹</button>
+          <button class="stc-nav stc-next" type="button" aria-label="다음 그림">›</button>
+        </div>
+        <p class="stc-dots">
+          <button class="stc-dot is-on" type="button" data-i="0" aria-label="1. 기술수용모델(TAM) 기초와 적용 보기"></button><button class="stc-dot" type="button" data-i="1" aria-label="2. 확장 TAM · 기술준비수용모델(TRAM) 보기"></button><button class="stc-dot" type="button" data-i="2" aria-label="3. UTAUT2와 통합기술수용 접근 보기"></button><button class="stc-dot" type="button" data-i="3" aria-label="4. 혁신저항 · 후기수용모형(PAM)과 서비스 디자인 보기"></button>
+        </p>
+        <p class="stc-hint">좌 · 우 버튼이나 아래 점을 누르고, 휴대폰에서는 화면을 옆으로 밉니다. <b>그림을 누르면 크게</b> 볼 수 있습니다.</p>
+      </div>
+
+      <p class="dltags"><a class="mapl form hot" href="tam-models-22-quiz.html" target="_blank" rel="noopener">기술수용모형 22문제 — 문제 풀고 정답 · 해설 보기 ↗</a><span class="dl-src"><b>만화로 흐름을 봤다면, 이제 문제로 확인합니다.</b> TAM · 확장 TAM · TRAM · UTAUT2 · 혁신저항 · PAM(ECM) — 여섯 모형을 상호작용 맵 · 변수 관계도 여섯으로 다시 짚고, <b>22문제</b>를 한 장씩 풀며 「정답 · 해설 보기」로 확인합니다. 참고문헌(Davis 1989 · Venkatesh 2012 · Ram &amp; Sheth 1989 · Bhattacherjee 2001 등)도 함께 실렸습니다.</span></p>
+
+
+      <p class="learn-part pt-part pp-2" id="part02"><span class="pt"><i>파트</i><b>03</b></span><span class="pt-ti">해외 사례 넓게 보기</span><span class="pt-sub">개념 → 한국어 보고서 → <strong>EU 공모 원본</strong> → 최신 회차, <strong>네 번 읽기</strong>로 유럽을 봅니다</span><span class="pt-jump"><a href="#part01">01 국내</a><a href="#part06">02 이론</a><a href="#part02" class="on" aria-current="true">03 해외</a><a href="#part03">04 공모전</a><a href="#part04">05 PBL</a><a href="#part05">06 책</a><a href="#part07">07 연구</a><a href="#part08">08 취업</a><a href="#part09">09 자료실</a></span></p>
       <p>국내 현장을 봤다면 이제 <strong>유럽</strong>입니다. 한국어 요약 보고서에서 출발해 → 유럽연합의 공식 공모 → 89쪽짜리 사례집 원본으로 이어집니다. 한국의 스마트관광도시 사업과 나란히 놓고 읽어 보세요. 같은 이름 아래 <strong>유럽이 무엇을 먼저 보는지</strong>가 드러납니다.</p>
       <p class="learn-part pt-step r1"><span class="pt">읽기 1</span>개념 잡기</p>
 
@@ -1747,7 +2242,7 @@
           <ol class="numlist">
             <li><strong>누가 받았나</strong> — <strong>스마트관광 수도 탐페레</strong>(핀란드), <strong>녹색 선도 도시 두브로브니크</strong>(크로아티아).</li>
             <li><a class="mapl" href="eu-shortlist-map-2026.html" target="_blank" rel="noopener">최종 후보 15곳 지도 ↗</a> <a class="mapl" href="eu-winners-2026.html" target="_blank" rel="noopener">2026 수상 도시 지도 · 탐페레 · 두브로브니크 ↗</a><br /><span class="secl cap">수도 부문 7곳</span><br /><span class="cities"><b>1</b> <strong class="hot-t">브라가</strong>(포르투갈) <b>2</b> <strong class="hot-t">브뤼헤</strong>(벨기에) <b>3</b> <strong class="hot-t">브뤼셀</strong>(벨기에) <b>4</b> <strong class="hot-t">제노바</strong>(이탈리아) <b>5</b> <strong class="hot-t">라이프치히</strong>(독일) <b>6</b> <strong class="hot-t">레겐스부르크</strong>(독일) <b>7</b> <strong class="hot-t">탐페레</strong>(핀란드, 수상)</span><br /><span class="secl grn">녹색 부문 8곳</span><br /><span class="cities grn"><b>1</b> <strong class="hot-t">두브로브니크</strong>(크로아티아, 수상) <b>2</b> <strong class="hot-t">게스트란트</strong>(독일) <b>3</b> <strong class="hot-t">이비자</strong>(스페인) <b>4</b> <strong class="hot-t">라오이스</strong>(아일랜드) <b>5</b> <strong class="hot-t">마리아게르피요르드</strong>(덴마크) <b>6</b> <strong class="hot-t">마르마리스</strong>(튀르키예) <b>7</b> <strong class="hot-t">리빌드</strong>(덴마크) <b>8</b> <strong class="hot-t">타르투</strong>(에스토니아)</span></li>
-            <li><strong>어떻게 뽑히나</strong> — 수도 <strong>12개국 32개 신청 중 7곳</strong>, 녹색 <strong>18개국 26개 신청 중 8곳</strong>. 2025년 11월 브뤼셀에서 <strong>직접 발표</strong>해 수상이 정해집니다 — <em>서류로 거르고 발표로 정하는</em> 구조가 국내 공모(파트 03)와 같습니다. <a class="dl-link" href="https://smart-tourism-capital.ec.europa.eu/press/news/european-commission-announces-shortlist-2026-european-capital-green-pioneer-smart-tourism-awards-2025-09-02_en" target="_blank" rel="noopener">최종 후보 발표 보도자료 ↗</a></li>
+            <li><strong>어떻게 뽑히나</strong> — 수도 <strong>12개국 32개 신청 중 7곳</strong>, 녹색 <strong>18개국 26개 신청 중 8곳</strong>. 2025년 11월 브뤼셀에서 <strong>직접 발표</strong>해 수상이 정해집니다 — <em>서류로 거르고 발표로 정하는</em> 구조가 국내 공모(파트 04)와 같습니다. <a class="dl-link" href="https://smart-tourism-capital.ec.europa.eu/press/news/european-commission-announces-shortlist-2026-european-capital-green-pioneer-smart-tourism-awards-2025-09-02_en" target="_blank" rel="noopener">최종 후보 발표 보도자료 ↗</a></li>
             <li><strong>담당자들의 말로 듣기</strong> — EU 공식 <strong>팟캐스트 약 20편</strong>. 수상 발표 편과 주제별 심화(지속가능 관광 · 스마트 모빌리티 · 문화유산 · 접근성 · <strong>온라인 리뷰의 신뢰</strong>). 문서가 <em>결과</em>라면 이쪽은 <strong>그 결정의 설명</strong> — 영어 듣기 자료로도 쓸 만합니다. <a class="dl-link" href="https://linktr.ee/smarttourism" target="_blank" rel="noopener">팟캐스트 ↗</a> <a href="https://smart-tourism-capital.ec.europa.eu/" target="_blank" rel="noopener">European Commission · smart-tourism-capital.ec.europa.eu ↗</a></li>
           </ol>
         </li>
@@ -1799,7 +2294,7 @@
 
 
 
-      <p class="learn-part pt-part pp-6" id="part03"><span class="pt"><i>파트</i><b>03</b></span><span class="pt-ti">직접 만들어 보기 · 공모전</span><span class="pt-sub">무엇을 향해 만드는지 먼저 봅니다 — <strong>공모전이 과녁</strong>입니다</span><span class="pt-jump"><a href="#part01">01 국내</a><a href="#part02">02 해외</a><a href="#part03" class="on" aria-current="true">03 공모전</a><a href="#part04">04 PBL</a><a href="#part05">05 책</a><a href="#part06">06 이론</a><a href="#part07">07 연구</a><a href="#part08">08 취업</a><a href="#part09">09 자료실</a></span></p>
+      <p class="learn-part pt-part pp-6" id="part03"><span class="pt"><i>파트</i><b>04</b></span><span class="pt-ti">직접 만들어 보기 · 공모전</span><span class="pt-sub">무엇을 향해 만드는지 먼저 봅니다 — <strong>공모전이 과녁</strong>입니다</span><span class="pt-jump"><a href="#part01">01 국내</a><a href="#part06">02 이론</a><a href="#part02">03 해외</a><a href="#part03" class="on" aria-current="true">04 공모전</a><a href="#part04">05 PBL</a><a href="#part05">06 책</a><a href="#part07">07 연구</a><a href="#part08">08 취업</a><a href="#part09">09 자료실</a></span></p>
       <p>스마트 관광은 <em>만들어 본 사람</em>과 <em>읽기만 한 사람</em>의 거리가 유난히 큰 분야입니다. 그래서 <strong>무엇을 향해 만드는지 먼저 봅니다</strong> — 아래 <strong>공모전</strong>이 그 과녁입니다. 이 모듈에서 배운 것을 그대로 출품작으로 바꿀 수 있는 자리이며, 공식 공고 주소로 바로 연결됩니다. 그다음이 <strong>제작 실습</strong>입니다. 과녁을 알고 만들면 무엇을 남겨야 할지가 달라집니다 — <strong>실습이 곧 응모의 모의 연습</strong>입니다.</p>
 
       <p class="learn-part pt-step s3"><span class="pt">단계 3</span>공모전 양식으로 결과 만들기</p>
@@ -1831,7 +2326,7 @@
           <li><b>[3] 문제</b><span>무엇이 불편한가 · <strong>누가 겪는가</strong> · 지금은 어떻게 하고 있나.</span></li>
           <li><b>[4] 해결</b><span>어떤 서비스이고 어떻게 작동하나.</span></li>
           <li><b>[5] 효과</b><span>도입 전과 후가 어떻게 다른가 · <strong>왜 경북에 맞나</strong> · 몇 명이 혜택을 보나.</span></li>
-          <li><b>[6] 실행</b><span>비슷한 사례 · 필요한 기술 · 예상되는 어려움. <em>비슷한 사례는 파트 02 유럽 사례집 44건</em>에서 고릅니다 — 홍보물이 아니라 <strong>심사용 문서</strong>라 인용의 무게가 다릅니다.</span></li>
+          <li><b>[6] 실행</b><span>비슷한 사례 · 필요한 기술 · 예상되는 어려움. <em>비슷한 사례는 파트 03 유럽 사례집 44건</em>에서 고릅니다 — 홍보물이 아니라 <strong>심사용 문서</strong>라 인용의 무게가 다릅니다.</span></li>
           <li><b>어려움은 솔직하게</b><span>[6]의 「예상되는 어려움」은 숨기지 않는 편이 유리합니다 — 실습에서 만난 <strong>줌 15 해상도 한계</strong>처럼 <strong class="hot-t">도구의 한계를 아는 사람이 쓴 글</strong>로 읽힙니다.</span></li>
         </ul>
         <p class="tb-tags"><a class="mapl form hot red" href="assets/gyeongbuk-ax-2026-form1-application.docx" download="0714-양식1_응모신청서.docx">양식① 응모신청서 ⤓</a><a class="mapl form redo" href="gyeongbuk-ax-form-4-8.html" target="_blank" rel="noopener">응모신청서 4~8쪽 · 웹에서 바로 쓰기 ↗</a><a class="mapl form" href="assets/gyeongbuk-ax-2026-form2-consent.docx" download="0714-양식2_개인정보저작권동의서.docx">양식② 동의서 ⤓</a><a class="mapl form" href="assets/gyeongbuk-ax-2026-notice.pdf" target="_blank" rel="noopener">공고문 원문 3쪽 ↗</a><span class="tb-src">두 양식을 <b>각각 PDF로 변환해 이메일 접수</b>합니다. 대학생은 <b>일반부</b>이고, 아이디어만으로 응모할 수 있어 개발 완성물은 필요 없습니다.</span></p>
@@ -1937,7 +2432,7 @@
           </li>
           <li>
             <a href="https://smart-tourism-capital.ec.europa.eu/" target="_blank" rel="noopener">European Capital / Green Pioneer of Smart Tourism (해외 · 도시 단위) ↗</a>
-            <span class="desc">파트 02의 <strong>수상 도시와 사례집이 나오는 공모</strong> 자체. <strong>도시가 신청</strong>하므로 학생이 직접 낼 수는 없지만, <strong>신청 서류가 무엇을 묻는지</strong> 보는 것만으로 공부가 됩니다 — <em>"내 도시가 낸다면 네 부문에 무엇을 쓸까"</em> 가 그대로 과제입니다.</span>
+            <span class="desc">파트 03의 <strong>수상 도시와 사례집이 나오는 공모</strong> 자체. <strong>도시가 신청</strong>하므로 학생이 직접 낼 수는 없지만, <strong>신청 서류가 무엇을 묻는지</strong> 보는 것만으로 공부가 됩니다 — <em>"내 도시가 낸다면 네 부문에 무엇을 쓸까"</em> 가 그대로 과제입니다.</span>
             <span class="meta">European Commission · smart-tourism-capital.ec.europa.eu · 영문</span>
           </li>
         </ul>
@@ -1975,7 +2470,7 @@
             <li><b>Section 1 — 무엇을</b><span>세 과제 중 하나를 골라 스마트기술을 접목한 해결 아이디어를 냅니다. 분야는 <strong>스마트 ESG · 스마트 안전 · 스마트 콘텐츠</strong>.</span></li>
             <li><b>아이디어만 낸다</b><span><strong class="hot-t">개발도 사업자등록도 필요 없습니다.</strong> <strong>3~5인 팀</strong>이면 됩니다 — 서류평가로 과제별 3개씩 <strong>총 9개</strong>를 뽑아 현장 발표.</span></li>
             <li><b>상금</b><span>총 <strong>600만원</strong> — 최우수 300 · 우수 200 · 장려 100.</span></li>
-            <li><b>왜 낯익은가</b><span>서류로 거른 뒤 현장 발표로 정하는 이 구조는 <strong>파트 01의 AX 경진대회, 파트 02의 EU 공모와 완전히 같습니다.</strong></span></li>
+            <li><b>왜 낯익은가</b><span>서류로 거른 뒤 현장 발표로 정하는 이 구조는 <strong>파트 01의 AX 경진대회, 파트 03의 EU 공모와 완전히 같습니다.</strong></span></li>
             <li><b>다음 회차를 겨냥</b><span>이 모듈의 <strong>안동 실습과 도시 카드</strong>가 그대로 Section 1 원고가 됩니다.</span></li>
           </ol>
           <span class="meta">문화체육관광부 · 한국관광공사 · 2024. 7. 17. ~ 7. 24. 접수 · 서울 · 대학(원)생 3~5인 팀 <a class="mapl" href="https://www.contestkorea.com/sub/view.php?int_gbn=1&amp;Txt_bcode=031410001&amp;str_no=202407120077" target="_blank" rel="noopener">콘테스트코리아 공고 ↗</a></span>
@@ -2002,7 +2497,7 @@
         </li>
       </ul>
 
-      <p class="learn-part pt-part pp-9" id="part04"><span class="pt"><i>파트</i><b>04</b></span><span class="pt-ti">PBL — 문제에서 출발한다</span><span class="pt-sub">해커톤에서 뽑혀 시범사업이 된 아이디어 — <strong>문제 두 줄 → 해결 두 줄</strong></span><span class="pt-jump"><a href="#part01">01 국내</a><a href="#part02">02 해외</a><a href="#part03">03 공모전</a><a href="#part04" class="on" aria-current="true">04 PBL</a><a href="#part05">05 책</a><a href="#part06">06 이론</a><a href="#part07">07 연구</a><a href="#part08">08 취업</a><a href="#part09">09 자료실</a></span></p>
+      <p class="learn-part pt-part pp-9" id="part04"><span class="pt"><i>파트</i><b>05</b></span><span class="pt-ti">PBL — 문제에서 출발한다</span><span class="pt-sub">해커톤에서 뽑혀 시범사업이 된 아이디어 — <strong>문제 두 줄 → 해결 두 줄</strong></span><span class="pt-jump"><a href="#part01">01 국내</a><a href="#part06">02 이론</a><a href="#part02">03 해외</a><a href="#part03">04 공모전</a><a href="#part04" class="on" aria-current="true">05 PBL</a><a href="#part05">06 책</a><a href="#part07">07 연구</a><a href="#part08">08 취업</a><a href="#part09">09 자료실</a></span></p>
       <p>앞의 공모전들이 <strong>낼 자리</strong>를 보여줬다면, 여기서는 <strong>그 아이디어가 실제로 무엇이 되었는지</strong>를 봅니다. 2024년 해커톤에서 뽑혀 시범사업이 된 <strong>아홉 곳</strong>이 전부 <strong class="hot-t">문제 두 줄 → 해결 두 줄</strong>로 적혀 있고, 그것이 이 수업이 자료를 배치한 방식이자 여러분의 과제가 가는 순서입니다.</p>
 
       <a class="pv-card" href="smart-tourism-city-pilot-projects.html" target="_blank" rel="noopener">
@@ -2217,7 +2712,7 @@
 
       <p class="dltags"><a class="mapl form hot" href="smart-tourism-company-urls.html" target="_blank" rel="noopener">기업 · 서비스 URL 한 장 정리 ↗</a><span class="dl-src">위 아홉 곳의 <b>공식 사이트 주소</b>를 스티키노트 한 장에 모았습니다 — 참고용 서비스 페이지(워치마일 · DSC · 페이앱)까지. <b>㈜시정은 확인 필요, ㈜애프터워크는 미확인</b>으로 표시해 두었습니다.</span></p>
 
-      <p class="learn-part pt-part pp-7" id="part05"><span class="pt"><i>파트</i><b>05</b></span><span class="pt-ti">책</span><span class="pt-sub"><strong>12개 장</strong> 마인드맵과 강의 슬라이드 견본</span><span class="pt-jump"><a href="#part01">01 국내</a><a href="#part02">02 해외</a><a href="#part03">03 공모전</a><a href="#part04">04 PBL</a><a href="#part05" class="on" aria-current="true">05 책</a><a href="#part06">06 이론</a><a href="#part07">07 연구</a><a href="#part08">08 취업</a><a href="#part09">09 자료실</a></span></p>
+      <p class="learn-part pt-part pp-7" id="part05"><span class="pt"><i>파트</i><b>06</b></span><span class="pt-ti">책</span><span class="pt-sub"><strong>12개 장</strong> 마인드맵과 강의 슬라이드 견본</span><span class="pt-jump"><a href="#part01">01 국내</a><a href="#part06">02 이론</a><a href="#part02">03 해외</a><a href="#part03">04 공모전</a><a href="#part04">05 PBL</a><a href="#part05" class="on" aria-current="true">06 책</a><a href="#part07">07 연구</a><a href="#part08">08 취업</a><a href="#part09">09 자료실</a></span></p>
       <p class="mini-note"><a class="dl-link" href="https://strc.khu.ac.kr/bbs/board.php?bo_table=06_01&amp;wr_id=21" target="_blank" rel="noopener">이 그림의 12개 장 · 강의 슬라이드 내려받기 ↗</a> — 아래 마인드맵과 <strong>같은 순서로 짜인 12개 장</strong>의 강의 슬라이드 견본(PDF). <span class="src-inline">경희대학교 스마트관광연구소</span></p>
 
       <div class="fig-solo">
@@ -2240,407 +2735,17 @@
         </li>
         <li>
           <a href="https://www.yes24.com/product/goods/101909953" target="_blank" rel="noopener">「디지털 뉴딜 시대의 스마트관광도시」 — 정남호 외 16인 지음 ↗</a>
-          <span class="desc">이 목록 첫 칸 「스마트 관광 도시」(2019)의 <strong>2년 뒤 확장판 격</strong>입니다. 한 사람이 쓴 개론에서 <strong class="hot-t">전문가 16인이 나눠 쓴 논집</strong>으로 커졌고, 코로나19 직후의 <em>디지털 뉴딜</em>이 배경입니다. 세 부로 나뉩니다 — <strong>Part 1</strong> 4차 산업혁명과 스마트관광도시의 가능성(디지털 트랜스포메이션·공유경제·빅데이터·인공지능), <strong>Part 2</strong> 변화 추이(온라인여행사·역사도시 현대화·정보격차·디자인 사이언스), <strong>Part 3</strong> 문제 해결과 솔루션(<strong>오버투어리즘 · 젠트리피케이션 · 재난 대응 · 인증제도</strong>).<br /><strong>이 모듈에서 쓸 곳</strong> — Part 3이 특히 그렇습니다. 파트 02에서 본 유럽의 <em>관광 흐름 분산</em>(피렌체·포르투)과 <em>관광세</em>(팔마)가 한국 맥락에서 어떻게 논의되는지가 여기 있어, 리포트에서 <strong>해외 사례와 국내 논의를 잇는 다리</strong>로 쓰기 좋습니다. 「정보격차」 장은 스마트관광이 놓치는 사람들을 다루므로 <strong>EU가 접근성을 첫 부문에 둔 이유</strong>와 바로 맞물립니다.</span>
+          <span class="desc">이 목록 첫 칸 「스마트 관광 도시」(2019)의 <strong>2년 뒤 확장판 격</strong>입니다. 한 사람이 쓴 개론에서 <strong class="hot-t">전문가 16인이 나눠 쓴 논집</strong>으로 커졌고, 코로나19 직후의 <em>디지털 뉴딜</em>이 배경입니다. 세 부로 나뉩니다 — <strong>Part 1</strong> 4차 산업혁명과 스마트관광도시의 가능성(디지털 트랜스포메이션·공유경제·빅데이터·인공지능), <strong>Part 2</strong> 변화 추이(온라인여행사·역사도시 현대화·정보격차·디자인 사이언스), <strong>Part 3</strong> 문제 해결과 솔루션(<strong>오버투어리즘 · 젠트리피케이션 · 재난 대응 · 인증제도</strong>).<br /><strong>이 모듈에서 쓸 곳</strong> — Part 3이 특히 그렇습니다. 파트 03에서 본 유럽의 <em>관광 흐름 분산</em>(피렌체·포르투)과 <em>관광세</em>(팔마)가 한국 맥락에서 어떻게 논의되는지가 여기 있어, 리포트에서 <strong>해외 사례와 국내 논의를 잇는 다리</strong>로 쓰기 좋습니다. 「정보격차」 장은 스마트관광이 놓치는 사람들을 다루므로 <strong>EU가 접근성을 첫 부문에 둔 이유</strong>와 바로 맞물립니다.</span>
           <span class="meta">정남호 외 · 경희대학교출판문화원 · 2021. 5. 31. · 368쪽 · 24,000원</span>
         </li>
         <li class="fresh">
           <a href="https://www.yes24.com/product/goods/169630287" target="_blank" rel="noopener">「스마트관광 대전환 — K-관광대국을 상상하다」 · 정남호 지음 ↗</a>
-          <span class="desc"><strong>네 권 중 가장 최근에 나온 책</strong>(2025. 12. 25.)이고, 앞의 세 권과 결정적으로 다른 지점이 있습니다 — <strong class="hot-t">AI 퍼스트 시대를 전제로 쓰였다</strong>는 것입니다. 저자는 기술 자체가 아니라 <em>“기술을 넘어 사람을 향한 경험으로”</em>를 내걸고, 빅데이터·인공지능이 관광산업을 바꾸는 국면에서 <strong>K-관광대국 전략</strong>을 제시합니다. 15개 Part 276쪽 — 관광 패러다임 대전환 · 스마트관광플랫폼 · <strong>스마트관광도시</strong> · 성숙도 모델 · 스마트모빌리티 · 경제적 파급력 · 스마트호텔 · <strong>스마트MICE</strong> · <strong>지속가능발전목표</strong> · 스마트공연예술 · 스마트레스토랑 · 스마트관광의 미래.<br /><strong>이 모듈과 겹치는 곳</strong> — Part 3 스마트관광도시가 <strong>파트 01의 국내 열두 도시</strong>와, Part 9 지속가능발전목표가 <strong>파트 02의 EU 네 부문</strong>과 바로 이어집니다. 저자 정남호는 「스마트관광」 제2판의 공저자이기도 해서, <strong>같은 연구실이 4년 사이 무엇을 바꿔 말하는지</strong>를 두 책을 나란히 놓고 볼 수 있습니다 — 리포트의 「최신 동향」 문단을 쓸 때 이만한 근거가 드뭅니다.</span>
+          <span class="desc"><strong>네 권 중 가장 최근에 나온 책</strong>(2025. 12. 25.)이고, 앞의 세 권과 결정적으로 다른 지점이 있습니다 — <strong class="hot-t">AI 퍼스트 시대를 전제로 쓰였다</strong>는 것입니다. 저자는 기술 자체가 아니라 <em>“기술을 넘어 사람을 향한 경험으로”</em>를 내걸고, 빅데이터·인공지능이 관광산업을 바꾸는 국면에서 <strong>K-관광대국 전략</strong>을 제시합니다. 15개 Part 276쪽 — 관광 패러다임 대전환 · 스마트관광플랫폼 · <strong>스마트관광도시</strong> · 성숙도 모델 · 스마트모빌리티 · 경제적 파급력 · 스마트호텔 · <strong>스마트MICE</strong> · <strong>지속가능발전목표</strong> · 스마트공연예술 · 스마트레스토랑 · 스마트관광의 미래.<br /><strong>이 모듈과 겹치는 곳</strong> — Part 3 스마트관광도시가 <strong>파트 01의 국내 열두 도시</strong>와, Part 9 지속가능발전목표가 <strong>파트 03의 EU 네 부문</strong>과 바로 이어집니다. 저자 정남호는 「스마트관광」 제2판의 공저자이기도 해서, <strong>같은 연구실이 4년 사이 무엇을 바꿔 말하는지</strong>를 두 책을 나란히 놓고 볼 수 있습니다 — 리포트의 「최신 동향」 문단을 쓸 때 이만한 근거가 드뭅니다.</span>
           <span class="meta">정남호(경희대 스마트관광원 교수 · 클래리베이트 세계 상위 1% 연구자 2025) · 경희대학교출판문화원 · 2025. 12. 25. · 276쪽 · 20,000원</span>
         </li>
       </ul>
 
-      <p class="learn-part pt-part pp-3" id="part06"><span class="pt"><i>파트</i><b>06</b></span><span class="pt-ti">이론 슬라이드</span><span class="pt-sub"><strong>네 갈래</strong>로 — 개념 → 측정 → 적용 → 수용</span><span class="pt-jump"><a href="#part01">01 국내</a><a href="#part02">02 해외</a><a href="#part03">03 공모전</a><a href="#part04">04 PBL</a><a href="#part05">05 책</a><a href="#part06" class="on" aria-current="true">06 이론</a><a href="#part07">07 연구</a><a href="#part08">08 취업</a><a href="#part09">09 자료실</a></span></p>
-      <p class="learn-part pt-learn" id="개념"><span class="pt">06-1</span>스마트 관광이란 — 무엇인가</p>
-      <p>좌우로 넘기며 다섯 장을 훑거나, 오른쪽 「전체 펼쳐 보기」로 한 번에 읽으십시오.</p>
-      <div class="deck" id="deck">
-        <div class="deck-bar">
-          <div class="deck-dots">
-            <button type="button" data-go="0" aria-current="true">01 정의</button>
-            <button type="button" data-go="1">02 네 기둥</button>
-            <button type="button" data-go="2">03 기술</button>
-            <button type="button" data-go="3">04 여정</button>
-            <button type="button" data-go="4">05 스마트 관광도시</button>
-          </div>
-          <button type="button" class="deck-toggle">전체 펼쳐 보기</button>
-        </div>
-        <div class="deck-stage">
-          <button type="button" class="deck-prev" aria-label="이전 슬라이드" disabled>←</button>
-        <div class="deck-view">
-          <section class="slide tint-sun compact def" aria-label="01 정의">
-        <p class="learn-part">01 · 스마트 관광이란</p>
-        <p>스마트 관광(Smart Tourism)은 <strong>ICT로 관광 자원·서비스·경험을 데이터로 잇고, 그 데이터로 더 나은 여행을 설계하는 관광</strong>입니다. 종이 지도가 앱이 되고, 안내소가 검색이 되고, 후기가 별점이 되는 변화입니다.</p>
-        <p>전자관광(e-Tourism)이 "온라인 예약"이었다면, 스마트 관광은 <strong>센서·모바일·AI가 실시간으로 상황을 읽고 반응</strong>합니다. 붐비는 해변을 피해 다른 곳을 추천하고, 외국인 여행자에게 즉시 번역을 건넵니다.</p>
-        <div class="logic">
-          <p class="neg">스마트 관광 <strong>=</strong> 관광객에게 <strong>앱을 제공하는 것</strong></p>
-          <p class="pos">스마트 관광 <strong>=</strong> 기술과 혁신으로 <strong>도시의 관광 발전 전체</strong>를 더 <strong>지속가능하고 · 접근 가능하고 · 효율적으로</strong> 관리하는 것</p>
-          <p class="chain">관광객 증가 <b>→</b> 경제적 기회 <b>→</b> 동시에 혼잡 · 환경 · 접근성 · 지역사회 문제 발생 <b>→</b> 기존 방식으로는 해결 어려움 <b>→</b> 데이터 · 디지털 기술 · 혁신 정책 <b>→</b> 관광객 경험만이 아니라 <b>도시 전체의 관광</b>을 더 잘 관리 <b>→</b> <strong>Smart Tourism</strong></p>
-          <p class="formula">SMART TOURISM = Technology × Sustainability × Accessibility × Local Creativity<span class="src">EC 기준</span></p>
-          <p class="aim">목표는 <strong>관광객만 편리한 도시</strong>가 아니라 <strong>관광을 더 잘 관리하는 도시</strong>입니다. 그래서 <strong class="hot-t">디지털화만 강조하면 EU의 개념보다 좁아집니다</strong> — 스마트 관광을 <em>AI · 앱 · 빅데이터 관광</em>으로만 설명하지 마십시오.</p>
-        </div>
-          </section>
-          <section class="slide tint-sun compact" aria-label="02 네 기둥">
-        <p class="learn-part">02 · 스마트 관광의 네 기둥</p>
-        <p>스마트 관광은 흔히 네 개의 층위로 설명됩니다.</p>
-        <h3>① 스마트 목적지 (Smart Destination)</h3>
-        <p>도시가 스스로 데이터를 모으고 관리하는 층. 스마트시티 인프라·공공 와이파이·실시간 교통/혼잡 정보가 여기에 속합니다.</p>
-        <h3>② 스마트 경험 (Smart Experience)</h3>
-        <p>여행자가 직접 만나는 층. 개인화 추천, 위치 기반 안내, AR 해설, 모바일 티켓처럼 "나에게 맞춰진" 경험입니다.</p>
-        <h3>③ 스마트 비즈니스 (Smart Business)</h3>
-        <p>여행사·숙박·플랫폼이 데이터로 상품을 만들고 파는 층. 동적 가격 책정, 수요 예측, 온라인 여행 플랫폼(OTA)이 이 층입니다.</p>
-        <h3>④ 스마트 거버넌스 (Smart Governance)</h3>
-        <p>공공이 데이터로 정책을 짜는 층. 관광 수요 분산, 오버투어리즘 관리, 재난·안전 대응이 여기서 이뤄집니다.</p>
-        <div class="sun-box">
-          <ul>
-          <li><strong>기기가 아니라 데이터의 흐름이다.</strong> 앱을 더 만드는 일이 아니라, 여행 전·중·후의 데이터를 <em>고리(loop)</em>로 잇는 일.</li>
-          <li><strong>층이 넷이다 — 목적지 · 경험 · 비즈니스 · 거버넌스.</strong> 사례를 보면 "몇 번째 층인가"부터 물으면 정리됩니다.</li>
-          <li><strong>유럽은 기술보다 접근성이 먼저다.</strong> EU 공모의 첫 심사 부문이 <em>접근성</em>이라는 사실이 방향을 말해 줍니다(파트 02).</li>
-          </ul>
-        </div>
-          </section>
-          <section class="slide tint-sun" aria-label="03 기술">
-        <p class="learn-part">03 · 스마트 관광을 떠받치는 기술</p>
-        <ul>
-          <li><strong>모바일·앱</strong> — 여행의 리모컨. 지도·예약·결제·번역이 손안에서 끝난다.</li>
-          <li><strong>위치기반서비스(LBS)·GPS</strong> — "지금 여기"를 아는 순간, 안내와 추천이 가능해진다.</li>
-          <li><strong>사물인터넷(IoT)</strong> — 비콘·센서가 혼잡도·대기·환경을 실시간으로 읽는다.</li>
-          <li><strong>빅데이터</strong> — 통신·카드·검색·후기 데이터가 관광 흐름을 그려낸다(다음 모듈 「빅데이터 분석」).</li>
-          <li><strong>인공지능(AI)</strong> — 챗봇 상담, 개인화 추천, 자동 번역·요약.</li>
-          <li><strong>AR/VR</strong> — 사라진 유적을 현장에 겹쳐 보여주고, 가 보기 전 미리 걷게 한다.</li>
-          <li><strong>QR·모바일 결제</strong> — 종이 없는 티켓·간편결제로 마찰을 없앤다.</li>
-        </ul>
-          </section>
-          <section class="slide tint-sun" aria-label="04 여정">
-        <p class="learn-part">04 · 여행자 여정으로 보는 스마트 관광</p>
-        <p>같은 기술도 여정의 어느 단계에 놓이느냐에 따라 다르게 쓰입니다.</p>
-        <ul>
-          <li><strong>여행 전</strong> — 검색·후기·가격 비교로 계획을 세우고, AI가 일정을 추천한다.</li>
-          <li><strong>이동 중</strong> — 실시간 교통·내비게이션·모바일 티켓으로 마찰 없이 이동한다.</li>
-          <li><strong>여행 중</strong> — 위치기반 안내, AR 해설, 즉석 번역으로 현장을 깊게 경험한다.</li>
-          <li><strong>여행 후</strong> — 후기·사진·평점을 남기고, 그 데이터가 다음 여행자의 계획이 된다.</li>
-        </ul>
-        <p>여행 후의 데이터가 다시 여행 전으로 순환한다는 점이 핵심입니다. 스마트 관광은 <strong>끝이 아니라 고리(loop)</strong>입니다.</p>
-          </section>
-          <section class="slide tint-sun" aria-label="05 스마트 관광도시">
-        <p class="learn-part">05 · 스마트 관광도시, 그리고 이 사이트에서</p>
-        <p><em>스마트 관광도시</em>는 한 도시의 관광을 통합 플랫폼·실시간 혼잡 정보·모바일 안내로 묶어 관리하는 사업입니다. 국내에서는 여러 도시가 대상지로 선정돼 각자의 방식으로 실행해 왔고, <strong>몰림이 심한 곳일수록 데이터 기반 분산</strong>이 중요해집니다 — 부산의 해운대·감천문화마을이 그런 곳입니다.</p>
-        <p>이 웹사이트 역시 작은 스마트 관광의 실습입니다 — <strong>다국어 자동 전환</strong>(도달), <strong>여행 이야기·후기 게시판</strong>(UGC 데이터), <strong>카카오 채널 상담</strong>(연결), 그리고 <strong>아트 컨시어지 아카이브</strong>(콘텐츠). 다음 모듈에서는 이 흐름의 연료인 <strong>데이터</strong> 자체를 다룹니다.</p>
-        <ul class="reslist">
-          <li class="hi tone box lc1">
-            <a href="https://korean.visitkorea.or.kr/smarttourcity/main/index.kto" target="_blank" rel="noopener">스마트 관광도시 — 공식 플랫폼 ↗</a>
-            <span class="desc">선정된 도시들이 무엇을 만들었는지 한자리에서 볼 수 있는 공식 창구. 도시마다 <strong>플랫폼 · 안내 · 결제 · 데이터</strong>를 어떻게 짰는지가 드러나므로, 이 장에서 배운 네 기둥이 실제로 어떻게 구현되는지 확인하기 좋습니다.</span>
-            <span class="meta">한국관광공사</span>
-          </li>
-        </ul>
-          </section>
-        </div>
-          <button type="button" class="deck-next" aria-label="다음 슬라이드">→</button>
-        </div>
-        <div class="deck-nav">
-          <span class="deck-count">01 / 05</span>
-        </div>
-      </div>
-
-      <p class="learn-part pt-learn" id="척도개발"><span class="pt">06-2</span>척도개발 5편 — 어떻게 재나</p>
-      <p>위 다섯 장이 <strong>스마트 관광이 무엇인가</strong>를 세웠다면, 아래 열 장은 <strong>그것을 어떻게 재는가</strong>로 넘어갑니다 — <strong>여행업 · 외식업 · 컨벤션 · 숙박업 · 항공산업</strong> 다섯 편의 척도개발 연구입니다. 좌우로 넘기며 훑거나, 오른쪽 「전체 펼쳐 보기」로 한 번에 읽으십시오.</p>
-      <p class="dltags"><a class="mapl form y" href="smart-tourism-scale-slides.html" target="_blank" rel="noopener">슬라이드 11장 — 웹에서 넘겨 보기 ↗</a><a class="mapl form y" href="assets/smart-tourism-scale-development-review.docx" download="스마트관광_척도개발_복습노트_통합판.docx">척도개발 5편 복습 노트 ⤓ DOCX</a><a class="mapl form" href="assets/smart-tourism-scale-slides.pptx" download="스마트관광_척도개발_복습노트_슬라이드.pptx">같은 슬라이드 ⤓ PPTX</a><span class="dl-src">박소영 외(2024–2025) 다섯 편을 수업용으로 묶은 것입니다. <b>파트 07 연구</b>로 넘어가기 전에 펴 보십시오.<br /><b>셋은 같은 내용입니다</b> — <b>슬라이드</b>는 수업에서 띄우는 판(<b>← →</b> 로 넘기고 <b>F</b> 로 전체화면), <b>DOCX</b>는 읽고 인쇄하는 3쪽 노트, <b>PPTX</b>는 직접 고쳐 쓸 때 씁니다.</span></p>
-
-      <div class="deck sc-deck">
-        <div class="deck-bar">
-          <div class="deck-dots">
-            <button type="button" data-go="0" aria-current="true">01 요인 패턴</button>
-            <button type="button" data-go="1">02 장면으로</button>
-            <button type="button" data-go="2">03 요인 용어</button>
-            <button type="button" data-go="3">04 이것만은 · 복습 목표</button>
-            <button type="button" data-go="4">05 만드는 법</button>
-            <button type="button" data-go="5">06 산업 비교</button>
-            <button type="button" data-go="6">07 공통과 차이</button>
-            <button type="button" data-go="7">08 읽는 흐름</button>
-            <button type="button" data-go="8">09 기억할 3문장</button>
-            <button type="button" data-go="9">10 셀프체크 · 출처</button>
-          </div>
-          <button type="button" class="deck-toggle">전체 펼쳐 보기</button>
-        </div>
-        <div class="deck-stage">
-          <button type="button" class="deck-prev" aria-label="이전 슬라이드" disabled>←</button>
-        <div class="deck-view">
-
-          <section class="slide tint-sun compact" aria-label="01 5개 산업의 요인 패턴">
-            <p class="learn-part">01 · 5개 산업의 요인 패턴</p>
-            <p>요인별 포함 여부를 한눈에 확인합니다. <strong>●</strong> = 해당 산업의 최종 척도에 포함된 요인.</p>
-            <div class="tbl-wrap">
-              <table class="ref sc-tb sc-grid">
-                <thead><tr><th>요인</th><th>여행업</th><th>외식업</th><th>컨벤션</th><th>숙박업</th><th>항공</th></tr></thead>
-                <tbody>
-                  <tr class="all"><td><strong>편의성</strong> <i>Convenience</i></td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
-                  <tr class="all"><td><strong>스마트인프라</strong> <i>Smart Infrastructure</i></td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
-                  <tr><td><strong>정보성</strong> <i>Informativeness</i></td><td>●</td><td>●</td><td>●</td><td>●</td><td></td></tr>
-                  <tr><td><strong>기술통합성</strong> <i>Technology Integration</i></td><td>●</td><td>●</td><td>●</td><td></td><td></td></tr>
-                  <tr><td><strong>신뢰성</strong> <i>Reliability</i></td><td>●</td><td>●</td><td>●</td><td></td><td></td></tr>
-                  <tr><td><strong>개인화</strong> <i>Personalization</i></td><td></td><td></td><td></td><td>●</td><td>●</td></tr>
-                  <tr><td><strong>상호작용성</strong> <i>Interactivity</i></td><td></td><td></td><td></td><td>●</td><td>●</td></tr>
-                  <tr><td><strong>보안성</strong> <i>Security</i></td><td></td><td></td><td></td><td></td><td>●</td></tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="logic">
-              <p class="aim"><strong>패턴</strong> — 5개 공통 <strong>2개</strong> 요인, 여행 · 외식 · 컨벤션 공통 <strong>3개</strong> 요인, 숙박 · 항공의 <strong>맞춤 · 소통</strong>, 항공의 <strong>보안</strong>.</p>
-            </div>
-          </section>
-          <section class="slide tint-sun compact" aria-label="02 핵심 요인별 장면으로 이해하기">
-            <p class="learn-part">02 · 핵심 요인별 장면으로 이해하기</p>
-            <p>여덟 요인을 <strong>관광객의 실제 서비스 장면</strong>과 연결해 기억합니다.</p>
-            <figure class="learn-fig">
-              <img loading="lazy" src="images/smart-tourism-scale-factors-scenes.webp" alt="스마트관광 핵심 요인 여덟을 장면 중심으로 정리한 그림 — 편의성 · 스마트인프라 · 정보성 · 기술통합성 · 신뢰성 · 개인화 · 상호작용성 · 보안성 각각이 실제 관광 장면에서 어떻게 나타나는지 그림과 한 줄 설명으로 짝지어 보여준다." width="1055" height="1491" />
-              <figcaption>① 편의성 ② 스마트인프라 ③ 정보성 ④ 기술통합성 ⑤ 신뢰성 ⑥ 개인화 ⑦ 상호작용성 ⑧ 보안성 — 원자료 p.5</figcaption>
-            </figure>
-            <div class="logic">
-              <p class="aim"><strong>핵심 메시지</strong> — 스마트관광은 기술 자체보다, <strong>기술을 통해 경험하는 가치와 서비스 품질</strong>을 측정합니다.</p>
-            </div>
-          </section>
-          <section class="slide tint-sun compact" aria-label="03 스마트관광 핵심 요인 용어 — 여덟">
-            <p class="learn-part">03 · 스마트관광 핵심 요인 용어 — 여덟</p>
-            <p>여덟 요인의 <strong>영어 원어와 한글 의미</strong>를 함께 기억합니다. 용어를 먼저 잡으면 <strong>뒤의 산업별 비교표(06장)</strong>와 <strong>공통과 차이(07장)</strong>가 훨씬 쉽게 읽힙니다.</p>
-            <ul class="kwlist sc-dk terms">
-              <li class="f1"><b>기술통합성</b> <i>(Technology Integration)</i> 여러 기술이 서비스 과정에 연결 · 통합되는 정도</li>
-              <li class="f2"><b>편의성</b> <i>(Convenience)</i> 쉽고 빠르며 원활하게 서비스를 이용하는 정도</li>
-              <li class="f3"><b>정보성</b> <i>(Informativeness)</i> 필요한 정보를 정확하고 적시에 얻는 정도</li>
-              <li class="f4"><b>스마트인프라</b> <i>(Smart Infrastructure)</i> 키오스크 · 앱 · IoT 등 시스템 기반이 구축된 정도</li>
-              <li class="f5"><b>신뢰성</b> <i>(Reliability)</i> 정보 · 예약 · 서비스 시스템을 믿을 수 있는 정도</li>
-              <li class="f6"><b>개인화</b> <i>(Personalization)</i> 선호 · 이력에 맞는 맞춤형 서비스를 제공하는 정도</li>
-              <li class="f7"><b>상호작용성</b> <i>(Interactivity)</i> 실시간 소통과 반응 · 피드백이 가능한 정도</li>
-              <li class="f8"><b>보안성</b> <i>(Security)</i> 개인정보 · 결제 · 여행정보가 안전하게 보호되는 정도</li>
-            </ul>
-          </section>
-          <section class="slide tint-sun compact" aria-label="04 이것만은 기억하자 — 복습 목표와 핵심 문장">
-            <p class="learn-part">04 · 이것만은 기억하자 — 복습 목표와 핵심 문장</p>
-            <p><strong>여행업 · 외식업 · 컨벤션 · 숙박업 · 항공산업</strong> 다섯 편의 척도개발 연구를 한자리에 겹쳐 놓은 복습 슬라이드입니다. 기술 자체가 아니라 <strong>기술을 통해 이용자가 경험하는 「스마트함」</strong>을 이해하는 것이 목표입니다 — 스마트관광을 <em>「최신기술 보유」</em>가 아니라 <strong>「경험되는 스마트함」</strong>으로 설명하는 것입니다.</p>
-            <div class="logic">
-              <p class="formula">개념 · 방법 · 비교 — 이 셋만 잡으면 다섯 편이 한 줄로 읽힙니다</p>
-            </div>
-            <ul class="kwlist sc-dk goal3">
-              <li><b>① 개념</b> 스마트관광을 기술의 수가 아니라 <strong>이용자 경험의 기준</strong>으로 설명한다.</li>
-              <li><b>② 방법</b> 척도개발의 흐름을 <strong>자료 → 검토 → 통계검증</strong>으로 설명한다.</li>
-              <li><b>③ 비교</b> 5개 산업의 <strong>공통요인과 산업별 강조요인</strong>을 구분한다.</li>
-            </ul>
-            <div class="logic">
-              <p class="neg">스마트관광 <strong>=</strong> 첨단기술의 <strong>보유 정도</strong></p>
-              <p class="pos">스마트관광 <strong>=</strong> 기술을 통해 이용자가 경험하는 <strong>「스마트함」을 측정하는 것</strong></p>
-              <p class="aim">즉, 기술이 여행과 서비스 과정에서 <strong>얼마나 편리하고 유용하며 신뢰롭게</strong> 작동하는지를 봅니다. 기준은 <strong>기술 보유</strong>가 아니라 <strong>이용자가 경험하는 가치</strong>입니다.</p>
-            </div>
-          </section>
-          <section class="slide tint-sun compact" aria-label="05 척도는 어떻게 만들어졌을까 — 여섯 걸음">
-            <p class="learn-part">05 · 척도는 어떻게 만들어졌을까 — 여섯 걸음</p>
-            <p>문헌 · 현장자료에서 시작해 <strong>전문가 검토와 통계검증</strong>을 거쳐 최종 문항이 확정됩니다.</p>
-            <ol class="kwlist sc-dk">
-              <li><b>1 현장자료</b><span>문헌 · 사례 · 후기 · 웹크롤링</span></li>
-              <li><b>2 질적분석</b><span>Nvivo · 군집분석으로 개념 묶기</span></li>
-              <li><b>3 후보문항</b><span>초기 요인과 문항 도출</span></li>
-              <li><b>4 내용검토</b><span>FGI + 전문가 — 중복 · 모호 문항 정제</span></li>
-              <li><b>5 양적분석</b><span>설문 + EFA로 요인구조 탐색</span></li>
-              <li><b>6 최종검증</b><span>CFA · 신뢰도 · 타당성 — 최종 척도 확정</span></li>
-            </ol>
-            <div class="logic">
-              <p class="chain">자료 수집 <b>→</b> 질적 정리 <b>→</b> 후보문항 <b>→</b> FGI · 전문가 <b>→</b> EFA <b>→</b> CFA</p>
-              <p class="aim"><strong>기억할 점</strong> — 척도개발은 <em>「연구자가 문항을 마음대로 만드는 과정」</em>이 아니라, 실제 자료 → 이용자 · 전문가 검토 → 통계검증을 거쳐 <strong>문항을 좁혀 가는 과정</strong>입니다.</p>
-            </div>
-          </section>
-          <section class="slide tint-sun compact" aria-label="06 산업별 핵심 비교">
-            <p class="learn-part">06 · 산업별 핵심 비교</p>
-            <p>같은 스마트관광이라도 <strong>서비스 여정이 달라지면 강조되는 경험이 달라집니다.</strong></p>
-            <div class="tbl-wrap">
-              <table class="ref sc-tb">
-                <colgroup><col class="c1" /><col class="c2" /><col class="c3" /><col class="c4" /><col class="c5" /></colgroup>
-                <thead><tr><th>산업</th><th>구성요인 다섯</th><th>최종 척도</th><th>특히 기억할 경험</th><th>기억 키워드</th></tr></thead>
-                <tbody>
-                  <tr><td><strong>여행업</strong></td><td class="st">기술통합성 · 편의성 · 정보성 · 스마트인프라 · 신뢰성</td><td class="st">5요인 · 19문항</td><td class="st">탐색 → 예약 → 이동 → 체험</td><td class="st">통합 · 정보 · 예약 · 신뢰</td></tr>
-                  <tr><td><strong>외식업</strong></td><td class="st">기술통합성 · 편의성 · 정보성 · 스마트인프라 · 신뢰성</td><td class="st">5요인 · 20문항</td><td class="st">탐색 → 예약 → 주문 → 결제 → 리뷰</td><td class="st">주문 · 결제 · 정보 · 신뢰</td></tr>
-                  <tr><td><strong>컨벤션</strong></td><td class="st">기술통합성 · 편의성 · 정보성 · 스마트인프라 · 신뢰성</td><td class="st">5요인 · 15문항</td><td class="st">등록 → 입장 → 정보탐색 → 전시 → 네트워킹</td><td class="st">입장 · 정보 · 체험 · 운영</td></tr>
-                  <tr><td><strong>숙박업</strong></td><td class="st">정보성 · 스마트인프라 · 편의성 · <em>개인화</em> · <em>상호작용성</em></td><td class="st">5요인 · 19문항</td><td class="st">예약 → 체크인 → 객실 → 추천 → 소통</td><td class="st">체류 · 맞춤 · 상호작용</td></tr>
-                  <tr><td><strong>항공산업</strong></td><td class="st">스마트인프라 · 편의성 · <em>개인화</em> · <em>상호작용성</em> · <em>보안성</em></td><td class="st">5요인 · 17문항</td><td class="st">예약 → 공항 → 체크인 → 탑승 → 이동정보</td><td class="st">편의 · 맞춤 · 소통 · 보안</td></tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="logic">
-              <p class="aim">여행 · 외식 · 컨벤션은 <strong>통합 · 정보 · 신뢰</strong>, 숙박 · 항공은 <strong>맞춤 · 소통</strong>, 항공은 <strong>보안</strong>이 핵심입니다.</p>
-            </div>
-          </section>
-          <section class="slide tint-sun compact" aria-label="07 공통요인과 산업별 차이">
-            <p class="learn-part">07 · 공통요인과 산업별 차이</p>
-            <p>다섯 편을 관통하는 <strong>공통 기반</strong>과 <strong>산업별 강조점</strong>을 분리해서 봅니다.</p>
-            <ul class="kwlist sc-dk">
-              <li class="g1"><b>ALL 5</b><span><strong>편의성 + 스마트인프라</strong> → 5개 산업 모두에서 확인</span></li>
-              <li class="g2"><b>여행 · 외식 · 컨벤션</b><span><strong>기술통합성 + 정보성 + 신뢰성</strong> → 세 산업에서 공통적으로 강조</span></li>
-              <li class="g3"><b>숙박 · 항공</b><span><strong>개인화 + 상호작용성</strong> → 맞춤서비스와 실시간 소통이 핵심</span></li>
-              <li class="g4"><b>항공만</b><span><strong>보안성</strong> → 개인정보 · 결제 · 여행정보 보호가 독립 요인으로 등장</span></li>
-            </ul>
-            <div class="logic">
-              <p class="chain">공통 기반(편의성 · 인프라) <b>+</b> 산업별 강조점(통합 · 정보 · 신뢰 <b>/</b> 맞춤 · 소통 <b>/</b> 보안)</p>
-            </div>
-          </section>
-          <section class="slide tint-sun compact" aria-label="08 이 표에서 읽어야 할 흐름">
-            <p class="learn-part">08 · 이 표에서 읽어야 할 흐름</p>
-            <p>요인 패턴은 <strong>「공통 기반 → 산업별 변화 → 항공의 고유성」</strong> 순서로 읽습니다.</p>
-            <h3>공통 기반</h3>
-            <p>편의성과 스마트인프라는 <strong>5개 산업에 모두 존재</strong>합니다. 즉 스마트관광은 먼저 <em>「쉽게 이용할 수 있는가」</em>와 <em>「기술 기반이 갖추어져 있는가」</em>를 공통적으로 봅니다.</p>
-            <h3>산업별 변화</h3>
-            <p>여행 · 외식 · 컨벤션은 <strong>기술통합성 · 정보성 · 신뢰성</strong>이 공통적으로 나타납니다. 반면 숙박과 항공에서는 <strong>개인화 · 상호작용성</strong>이 새롭게 강조됩니다.</p>
-            <h3>항공의 고유성</h3>
-            <p>항공에서는 <strong>보안성</strong>이 독립적인 요인으로 나타납니다. 개인정보 · 결제 · 여행정보 보호가 항공 스마트서비스의 중요한 경험 기준이 됩니다.</p>
-            <div class="logic">
-              <p class="aim"><strong>한 줄 결론</strong> — 같은 스마트관광이라도 <strong>산업의 서비스 여정이 달라지면 이용자가 경험하는 「스마트함」의 구성도 달라집니다.</strong></p>
-            </div>
-          </section>
-          <section class="slide tint-sun compact" aria-label="09 학생이 반드시 기억할 3문장">
-            <p class="learn-part">09 · 학생이 반드시 기억할 3문장</p>
-            <p>복습의 마지막 기준은 이 세 문장입니다.</p>
-            <ol class="kwlist sc-dk fin3">
-              <li><b>①</b><span>모든 산업에서 <strong>편의성과 스마트인프라</strong>는 공통적으로 중요하다.</span></li>
-              <li><b>②</b><span><strong>산업의 서비스 특성이 달라지면</strong> 스마트함을 구성하는 요인도 달라진다.</span></li>
-              <li><b>③</b><span>스마트관광은 기술 자체가 아니라, <strong>기술을 통해 경험하는 가치와 서비스 품질</strong>을 측정한다.</span></li>
-            </ol>
-            <div class="logic">
-              <p class="aim"><strong>정리</strong> — 기술의 존재보다 <strong>이용자 경험</strong>, <strong>산업별 서비스 여정</strong>, <strong>검증된 척도개발 절차</strong>를 함께 기억합니다.</p>
-            </div>
-          </section>
-          <section class="slide tint-sun compact" aria-label="10 30초 셀프체크와 수업자료 근거">
-            <p class="learn-part">10 · 30초 셀프체크와 수업자료 근거</p>
-            <p>질문으로 확인하고, 다섯 편의 척도개발 연구를 근거로 다시 연결합니다.</p>
-            <h3>30초 셀프체크</h3>
-            <ul class="f3-why">
-              <li>왜 스마트관광을 <em>「최신기술」</em>이라고만 말하면 부족한가?</li>
-              <li>5개 산업에 <strong>모두 포함된 두 요인</strong>은 무엇인가?</li>
-              <li><strong>숙박 · 항공에서 새롭게 강조되는 요인</strong>과 <strong>항공에서만 나타나는 요인</strong>은 무엇인가?</li>
-            </ul>
-            <h3>수업자료 근거 — 박소영 외 다섯 편</h3>
-            <ol class="kwlist sc-dk src5">
-              <li><b>여행업</b><span>박소영 · 고주희(2024) 「여행업을 중심으로 스마트관광의 척도개발」</span></li>
-              <li><b>외식업</b><span>박소영 · 이보연(2024) 「스마트관광 척도 개발: 외식업」</span></li>
-              <li><b>컨벤션</b><span>박소영(2024) 「스마트관광 척도개발: 컨벤션산업을 중심으로」</span></li>
-              <li><b>숙박업</b><span>박소영 · 이보연(2025) 「스마트관광 척도개발: 숙박업을 중심으로」</span></li>
-              <li><b>항공산업</b><span>박소영 · 윤한성(2025) 「스마트관광 척도개발: 항공산업을 중심으로」</span></li>
-            </ol>
-            <div class="logic">
-              <p class="aim"><strong>최종 결론</strong> — 같은 스마트관광이라도 <strong>산업의 서비스 여정이 달라지면, 이용자가 경험하는 「스마트함」의 구성도 달라진다.</strong></p>
-            </div>
-          </section>
-
-        </div>
-          <button type="button" class="deck-next" aria-label="다음 슬라이드">→</button>
-        </div>
-        <div class="deck-nav">
-          <span class="deck-count">01 / 10</span>
-        </div>
-      </div>
-
-      <figure class="learn-fig sc-scene-mini">
-        <a href="images/smart-tourism-scale-factors-scenes.webp" target="_blank" rel="noopener"><img loading="lazy" src="images/smart-tourism-scale-factors-scenes.webp" alt="척도개발 여덟 요인을 관광객의 실제 서비스 장면으로 정리한 그림 — 편의성 · 스마트인프라 · 정보성 · 기술통합성 · 신뢰성 · 개인화 · 상호작용성 · 보안성" width="1055" height="1491" /></a>
-        <figcaption>01장 표의 여덟 요인을 장면으로 — 복습 노트 슬라이드 9장과 같은 그림(원자료 p.5). 클릭하면 크게 열립니다.</figcaption>
-      </figure>
-
-      <div class="kto5" id="스마트관광5대요소">
-        <p class="k5-t">스마트관광 5대 요소 — 도시가 갖추는 다섯 영역 <span>한국관광공사(2020) · <a href="https://scholar.google.com/scholar?q=%EC%97%AC%ED%96%89%EC%97%85%EC%9D%84+%EC%A4%91%EC%8B%AC%EC%9C%BC%EB%A1%9C+%EC%8A%A4%EB%A7%88%ED%8A%B8%EA%B4%80%EA%B4%91%EC%9D%98+%EC%B2%99%EB%8F%84%EA%B0%9C%EB%B0%9C" target="_blank" rel="noopener">박소영 · 고주희(2024) 「여행업을 중심으로 스마트관광의 척도개발」 ↗</a> 재인용</span></p>
-        <div class="tbl-wrap">
-          <table class="k5-tb">
-            <thead><tr><th scope="col">5대 요소</th><th scope="col">연계 관광요소</th><th scope="col">연계 기술</th><th scope="col">핵심가치</th><th scope="col">무엇을 하나</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">스마트 경험</th><td>관광콘텐츠</td><td>AR · VR · MR · 홀로그램</td><td><b>관광매력 극대화</b></td><td>최신 기술로 자연 · 문화 · 역사 등 관광매력을 극대화</td></tr>
-              <tr><th scope="row">스마트 편의</th><td>관광인프라</td><td>O2O · 디지털 사이니지 등</td><td><b>관광일정 관리</b></td><td>편리한 체류를 위해 식당 · 체험 등을 실시간으로 알려 주고 예약 · 결제 지원</td></tr>
-              <tr><th scope="row">스마트 서비스</th><td>관광지원서비스</td><td>챗봇 · 로보틱스 등</td><td><b>관광품질 개선</b></td><td>다국어 · 불편신고 · 짐배송 등 관광지 현장의 불편에 신속 대응</td></tr>
-              <tr><th scope="row">스마트 모빌리티</th><td>관광교통</td><td>공유플랫폼 · 자율주행 · MaaS 등</td><td><b>방문범위 확대</b></td><td>공유자동차 · 수요대응형 자동차(도시 간) · 퍼스널 모빌리티(도시 안) 등 2차 교통수단</td></tr>
-              <tr><th scope="row">스마트 플랫폼</th><td>관광정보</td><td>AI · Data Analytics 등</td><td><b>관광정보 공유</b></td><td>스마트관광도시 안의 여러 서비스를 등록 · 이용하고, 그 기록을 모아 공유</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="k5-foot">위 척도 여덟 요인(편의성 · 스마트인프라 · 정보성 …)이 <b>관광객이 느끼는 품질</b>이라면, 5대 요소는 <b>도시가 갖추는 영역</b>입니다 — 아래 06-3 「적용」과 이어 보십시오.</p>
-      </div>
-
-
-      <p class="learn-part pt-learn" id="적용"><span class="pt">06-3</span>적용 — 어디에 · 누구에게 · 어떤 기술로</p>
-      <figure class="learn-fig sc-penta" id="산업별적용">
-        <p class="sp-t">① 어느 산업에 — 다섯 산업을 오각형으로</p>
-        <svg viewBox="0 50 640 440" role="img" aria-labelledby="sp-title sp-desc">
-          <title id="sp-title">다섯 산업의 스마트관광 요인 오각형</title>
-          <desc id="sp-desc">꼭짓점은 여행업 · 숙박업 · 항공 · 컨벤션 · 외식업. 가운데는 다섯 산업 공통 요인 편의성과 스마트인프라. 여행 · 외식 · 컨벤션 쪽 면은 정보성 · 기술통합성 · 신뢰성, 숙박 · 항공 쪽 면은 개인화 · 상호작용성. 숙박업은 정보성, 항공은 보안성이 더 있다.</desc>
-          <polygon points="320,255 320,90 163,204 223,388" class="sp-a"/>
-          <polygon points="320,255 477,204 417,388" class="sp-b"/>
-          <polygon points="320,90 477,204 417,388 223,388 163,204" class="sp-edge"/>
-          <line x1="320" y1="255" x2="320" y2="90" class="sp-spoke"/><line x1="320" y1="255" x2="477" y2="204" class="sp-spoke"/><line x1="320" y1="255" x2="417" y2="388" class="sp-spoke"/><line x1="320" y1="255" x2="223" y2="388" class="sp-spoke"/><line x1="320" y1="255" x2="163" y2="204" class="sp-spoke"/>
-          <text x="222" y="236" class="sp-g a">정보성</text><text x="222" y="256" class="sp-g a">기술통합성</text><text x="222" y="276" class="sp-g a">신뢰성</text>
-          <text x="412" y="273" class="sp-g b">개인화</text><text x="412" y="293" class="sp-g b">상호작용성</text>
-          <circle cx="320" cy="255" r="52" class="sp-core"/>
-          <text x="320" y="247" class="sp-ct">다섯 공통</text><text x="320" y="265" class="sp-cv">편의성</text><text x="320" y="282" class="sp-cv">스마트인프라</text>
-          <circle cx="320" cy="90" r="7" class="sp-dot"/><text x="320" y="70" text-anchor="middle" class="sp-n">여행업</text><circle cx="477" cy="204" r="7" class="sp-dot"/><text x="495" y="208" text-anchor="start" class="sp-n">숙박업</text><text x="495" y="226" text-anchor="start" class="sp-x">+ 정보성</text><circle cx="417" cy="388" r="7" class="sp-dot"/><text x="435" y="418" text-anchor="start" class="sp-n">항공</text><text x="435" y="436" text-anchor="start" class="sp-x">+ 보안성</text><circle cx="223" cy="388" r="7" class="sp-dot"/><text x="205" y="418" text-anchor="end" class="sp-n">컨벤션</text><circle cx="163" cy="204" r="7" class="sp-dot"/><text x="145" y="208" text-anchor="end" class="sp-n">외식업</text>
-        </svg>
-        <figcaption>여행 · 외식 · 컨벤션은 <b>정보 · 기술통합 · 신뢰</b>로, 숙박 · 항공은 <b>개인화 · 상호작용</b>으로 기웁니다 — 가운데 <b>편의성 · 스마트인프라</b>는 다섯 산업 모두의 바닥. 숙박업은 정보성, 항공은 보안성이 하나씩 더 있습니다(박소영 외 2024~2025, 01장 표).</figcaption>
-      </figure>
-
-      <figure class="learn-fig sc-hepta" id="대상별적용">
-        <p class="sh-t">② 누구에게 — 일곱 대상을 칠각형으로</p>
-        <svg viewBox="0 70 900 480" role="img" aria-labelledby="sh-title sh-desc">
-          <title id="sh-title">일곱 대상의 스마트관광 적용 칠각형</title>
-          <desc id="sh-desc">꼭짓점은 외국인, 장애인 · 교통약자, 고령자, 디지털 취약계층, 가족 · 아동 동반, 반려동물 동반, 지역주민. 꼭짓점마다 불편과 스마트 서비스를 한 줄로 적었고, 가운데는 모두에게 공통인 접근성과 편의성. 지역주민은 관광객이 아니라 관광을 받는 쪽이라 색을 달리했다.</desc>
-          <polygon points="450,150 567,206 596,333 515,435 385,435 304,333 333,206" class="sh-face"/><line x1="450" y1="300" x2="450" y2="150" class="sh-spoke"/><line x1="450" y1="300" x2="567" y2="206" class="sh-spoke"/><line x1="450" y1="300" x2="596" y2="333" class="sh-spoke"/><line x1="450" y1="300" x2="515" y2="435" class="sh-spoke"/><line x1="450" y1="300" x2="385" y2="435" class="sh-spoke"/><line x1="450" y1="300" x2="304" y2="333" class="sh-spoke"/><line x1="450" y1="300" x2="333" y2="206" class="sh-spoke"/><polygon points="450,150 567,206 596,333 515,435 385,435 304,333 333,206" class="sh-edge"/><circle cx="450" cy="150" r="8" class="sh-dot a"/><text x="450" y="100" text-anchor="middle" class="sh-n a">외국인</text><text x="450" y="119" text-anchor="middle" class="sh-d">언어 · 결제 → 다국어 AI 안내 · 간편결제</text><circle cx="567" cy="206" r="8" class="sh-dot a"/><text x="589" y="189" text-anchor="start" class="sh-n a">장애인 · 교통약자</text><text x="589" y="208" text-anchor="start" class="sh-d">이동 경로 → 무장애 경로 · 음성 안내</text><circle cx="596" cy="333" r="8" class="sh-dot a"/><text x="624" y="340" text-anchor="start" class="sh-n a">고령자</text><text x="624" y="359" text-anchor="start" class="sh-d">작은 글씨 · 키오스크 → 큰 글씨 · 현장 도움</text><circle cx="515" cy="435" r="8" class="sh-dot a"/><text x="527" y="460" text-anchor="start" class="sh-n a">디지털 취약계층</text><text x="527" y="479" text-anchor="start" class="sh-d">앱 설치 · 가입 → 앱 없는 QR · 안내소 연계</text><circle cx="385" cy="435" r="8" class="sh-dot a"/><text x="373" y="460" text-anchor="end" class="sh-n a">가족 · 아동 동반</text><text x="373" y="479" text-anchor="end" class="sh-d">유모차 · 혼잡 → 혼잡도 예측 · 편의시설 지도</text><circle cx="304" cy="333" r="8" class="sh-dot a"/><text x="276" y="340" text-anchor="end" class="sh-n a">반려동물 동반</text><text x="276" y="359" text-anchor="end" class="sh-d">동반 가능 여부 → 동반 가능 장소 지도</text><circle cx="333" cy="206" r="8" class="sh-dot r"/><text x="311" y="189" text-anchor="end" class="sh-n r">지역주민</text><text x="311" y="208" text-anchor="end" class="sh-d">관광객 몰림 → 혼잡 분산 · 오버투어리즘 관리</text><circle cx="450" cy="300" r="58" class="sh-core"/><text x="450" y="290" class="sh-ct">모두의 바닥</text><text x="450" y="310" class="sh-cv">접근성</text><text x="450" y="329" class="sh-cv">편의성</text>
-        </svg>
-        <figcaption>위 오각형이 <b>어느 산업에</b>였다면, 이 칠각형은 <b>누구에게</b>입니다 — 같은 기술도 대상마다 푸는 불편이 다릅니다. 여섯은 관광객이고, <b class="sh-r">지역주민</b>은 관광을 <b>받는 쪽</b>이라 색을 달리했습니다. 분석 프롬프트 16 「접근성 분석」(장애인 · 고령자 · 외국인 · 디지털 취약계층)과 이어 쓰십시오.</figcaption>
-      </figure>
-
-      <div class="sc-tech" id="대상별기술">
-        <p class="st-t">③ 어떤 기술로 — <b>데이터</b>를 모으고 → <b>분석 · 기술</b>로 → <b>서비스</b>로 돌려준다</p>
-        <div class="tbl-wrap">
-          <table class="st-tb">
-            <thead><tr><th scope="col">대상</th><th scope="col">① 모으는 데이터</th><th scope="col">② 분석 · 기술</th><th scope="col">③ 돌려주는 서비스</th><th scope="col">이 페이지 사례</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">외국인</th><td>질문(음성 · 글) · 결제 요청</td><td>음성인식(STT) → 기계번역 · AI 챗봇(LLM) → 음성합성(TTS) · 해외 간편결제 QR을 결제 시스템(API)에 연동</td><td>자기 나라 말 안내 · 환전 없이 휴대폰 결제</td><td><a href="#문제해결기업">애프터워크 AI 챗봇 · 유디아이디 QR 결제 ↓</a></td></tr>
-              <tr><th scope="row">장애인 · 교통약자</th><td>길의 계단 · 경사 · 엘리베이터 · 단차, 실내 위치</td><td>지도 데이터(GIS)에 접근성 속성 · 길찾기 알고리즘이 계단 회피 · 실내 비콘(BLE) 측위</td><td>무장애 경로 · 위치 따라 읽어 주는 음성 안내</td><td><a href="#문제해결기업">다비오 축제 디지털 지도 ↓</a></td></tr>
-              <tr><th scope="row">고령자</th><td>화면 조작 · 말로 한 주문</td><td>큰 글씨 모드 · 음성 주문(음성인식) · 막히면 영상통화 원격 연결</td><td>쉬운 화면 · 말로 주문 · 현장 도움</td><td><span class="st-none">—</span></td></tr>
-              <tr><th scope="row">디지털 취약계층</th><td>앱 없이 찍는 QR</td><td>QR → 웹 페이지 바로 열기 · 안내소 · 키오스크가 같은 데이터 공유</td><td>설치 · 가입 없이 같은 정보</td><td><span class="st-none">—</span></td></tr>
-              <tr><th scope="row">가족 · 아동 동반</th><td>통신사 유동인구 · CCTV 인원 세기 · 와이파이 접속 수 · 시설 위치</td><td>머신러닝 시계열 예측(몇 시에 붐비나) · 공공데이터(수유실 · 유아차 대여소)를 지도에</td><td>혼잡도 예측 · 편의시설 지도</td><td><a href="#문제해결기업">피치에이아이 혼잡도 예측 ↓</a></td></tr>
-              <tr><th scope="row">반려동물 동반</th><td>장소마다 동반 가능 여부</td><td>장소 데이터베이스에 속성 · 위치기반 검색 필터</td><td>동반 가능 장소 지도</td><td><span class="st-none">—</span></td></tr>
-              <tr class="r"><th scope="row">지역주민</th><td>실시간 유동인구 · 예약</td><td>덜 붐비는 곳 추천(추천 알고리즘) · 시간대 예약제</td><td>혼잡 분산 · 오버투어리즘 관리</td><td><a href="#문제해결기업">피치에이아이 혼잡도 예측 ↓</a></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="st-foot">중간 과제 「문제 → 해결」을 쓸 때 <b>②의 기술 이름</b>까지 적으십시오 — 「앱을 만든다」가 아니라 「유동인구 데이터를 머신러닝으로 예측해 혼잡도를 보여 준다」처럼.</p>
-      </div>
-
-      <p class="learn-part pt-learn" id="기술수용"><span class="pt">06-4</span>기술수용 이론 — 왜 쓰고, 왜 안 쓰나</p>
-      <p class="mini-note" id="기술수용만화"><strong>기술수용 이론을 만화 네 장으로</strong> — <strong>TAM → TRAM → UTAUT2 → 혁신저항 · PAM · 서비스 디자인</strong>. <em>처음 수용 → 개인의 기술준비 → 통합적 수용 → 저항과 지속이용</em> 순서로 이어 읽으십시오.</p>
-
-      <div class="stcomic fit zoom">
-        <div class="stc-viewer" tabindex="0" aria-roledescription="캐러셀" aria-label="기술수용 이론 만화 — 네 장">
-          <div class="stc-track">
-            <section class="stc-slide" aria-label="1. 기술수용모델(TAM) 기초와 적용">
-              <p class="stc-head"><span class="stc-title">1. 기술수용모델(TAM) 기초와 적용</span><span class="stc-count">1 / 4</span></p>
-              <img src="images/tech-acceptance-comic-tam.webp" alt="기술수용모델(TAM) 기초와 적용 만화 — ① 새로운 관광 앱, 왜 쓰게 될까? TAM은 사람들이 새로운 기술을 수용하는 과정을 설명하는 이론. ② 지각된 유용성: 지도 · 일정관리 · 추천 명소처럼 기술이 나에게 도움을 준다고 느끼는 정도. ③ 지각된 사용용이성: 직관적인 화면 · 간단한 조작 · 처음 써도 쉽게 이해. ④ 전체 흐름: 지각된 유용성 + 지각된 사용용이성 → 사용태도/사용의도 → 실제사용. 핵심: 유용하고 쉬울수록 사용의도가 높아진다." />
-            </section>
-            <section class="stc-slide" aria-label="2. 확장 TAM · 기술준비수용모델(TRAM)">
-              <p class="stc-head"><span class="stc-title">2. 확장 TAM · 기술준비수용모델(TRAM)</span><span class="stc-count">2 / 4</span></p>
-              <img loading="lazy" src="images/tech-acceptance-comic-tram.webp" alt="확장 TAM · 기술준비수용모델(TRAM) 만화 — ① TRAM은 사람의 기술 준비도와 기술수용을 함께 본다(TAM + 기술준비도). ② 기술준비도의 긍정적 요인: 낙관성 · 혁신성. ③ 부정적 요인: 불편감 · 불안감(개인정보 · 오류 걱정). ④ 전체 흐름: 낙관성 · 혁신성은 수용을 높이고(+), 불편감 · 불안감은 낮춘다(−) → 지각된 유용성 · 사용용이성 → 사용의도. 핵심: 기술을 받아들이는 마음의 준비가 수용에 큰 영향을 준다." />
-            </section>
-            <section class="stc-slide" aria-label="3. UTAUT2와 통합기술수용 접근">
-              <p class="stc-head"><span class="stc-title">3. UTAUT2와 통합기술수용 접근</span><span class="stc-count">3 / 4</span></p>
-              <img loading="lazy" src="images/tech-acceptance-comic-utaut2.webp" alt="UTAUT2와 통합기술수용 접근 만화 — ① 새로운 관광 플랫폼, 왜 사람마다 다를까? UTAUT2는 여러 수용요인을 통합해 설명하는 모형. ② 핵심 수용요인: 성과기대 · 노력기대 · 사회적 영향. ③ 일상적 사용을 설명하는 추가 요인: 촉진조건 · 쾌락동기 · 가격가치 · 습관. ④ 일곱 요인 → 사용의도 → 실제사용. 핵심: 유용함, 쉬움, 주변 영향, 즐거움, 비용가치, 습관이 함께 사용을 설명한다." />
-            </section>
-            <section class="stc-slide" aria-label="4. 혁신저항 · 후기수용모형(PAM)과 서비스 디자인">
-              <p class="stc-head"><span class="stc-title">4. 혁신저항 · 후기수용모형(PAM)과 서비스 디자인</span><span class="stc-count">4 / 4</span></p>
-              <img loading="lazy" src="images/tech-acceptance-comic-pam.webp" alt="혁신저항 · 후기수용모형(PAM)과 서비스 디자인 만화 — ① 혁신저항: 복잡함 · 바꾸기 귀찮음 · 위험 걱정 · 기존 방식 선호. ② 수용 이후의 평가: 만족 · 유용성 확인. ③ 만족 + 유용성 확인 → 지속이용의도 → 재이용/추천. ④ 서비스 디자인과의 연계: 탐색 → 이용 → 문제발생 → 개선 → 재이용, 이용자 저항을 줄이고 만족을 높이도록 경험을 설계. 핵심: 저항은 줄이고, 만족과 경험개선은 높여야 지속이용이 생긴다." />
-            </section>
-          </div>
-          <button class="stc-nav stc-prev" type="button" aria-label="이전 그림">‹</button>
-          <button class="stc-nav stc-next" type="button" aria-label="다음 그림">›</button>
-        </div>
-        <p class="stc-dots">
-          <button class="stc-dot is-on" type="button" data-i="0" aria-label="1. 기술수용모델(TAM) 기초와 적용 보기"></button><button class="stc-dot" type="button" data-i="1" aria-label="2. 확장 TAM · 기술준비수용모델(TRAM) 보기"></button><button class="stc-dot" type="button" data-i="2" aria-label="3. UTAUT2와 통합기술수용 접근 보기"></button><button class="stc-dot" type="button" data-i="3" aria-label="4. 혁신저항 · 후기수용모형(PAM)과 서비스 디자인 보기"></button>
-        </p>
-        <p class="stc-hint">좌 · 우 버튼이나 아래 점을 누르고, 휴대폰에서는 화면을 옆으로 밉니다. <b>그림을 누르면 크게</b> 볼 수 있습니다.</p>
-      </div>
-
-      <p class="dltags"><a class="mapl form hot" href="tam-models-22-quiz.html" target="_blank" rel="noopener">기술수용모형 22문제 — 문제 풀고 정답 · 해설 보기 ↗</a><span class="dl-src"><b>만화로 흐름을 봤다면, 이제 문제로 확인합니다.</b> TAM · 확장 TAM · TRAM · UTAUT2 · 혁신저항 · PAM(ECM) — 여섯 모형을 상호작용 맵 · 변수 관계도 여섯으로 다시 짚고, <b>22문제</b>를 한 장씩 풀며 「정답 · 해설 보기」로 확인합니다. 참고문헌(Davis 1989 · Venkatesh 2012 · Ram &amp; Sheth 1989 · Bhattacherjee 2001 등)도 함께 실렸습니다.</span></p>
-
-
-
-      <p class="learn-part pt-part pp-5" id="part07"><span class="pt"><i>파트</i><b>07</b></span><span class="pt-ti">연구</span><span class="pt-sub"><strong>국제(SSCI) · 국내 논문</strong>으로 근거를 세웁니다</span><span class="pt-jump"><a href="#part01">01 국내</a><a href="#part02">02 해외</a><a href="#part03">03 공모전</a><a href="#part04">04 PBL</a><a href="#part05">05 책</a><a href="#part06">06 이론</a><a href="#part07" class="on" aria-current="true">07 연구</a><a href="#part08">08 취업</a><a href="#part09">09 자료실</a></span></p>
+      <p class="learn-part pt-part pp-5" id="part07"><span class="pt"><i>파트</i><b>07</b></span><span class="pt-ti">연구</span><span class="pt-sub"><strong>국제(SSCI) · 국내 논문</strong>으로 근거를 세웁니다</span><span class="pt-jump"><a href="#part01">01 국내</a><a href="#part06">02 이론</a><a href="#part02">03 해외</a><a href="#part03">04 공모전</a><a href="#part04">05 PBL</a><a href="#part05">06 책</a><a href="#part07" class="on" aria-current="true">07 연구</a><a href="#part08">08 취업</a><a href="#part09">09 자료실</a></span></p>
       <p class="h3tag"><span>국제 연구 (SSCI)</span></p>
       <div class="fig-side vidside res">
       <figure class="learn-fig figleft">
@@ -2682,7 +2787,7 @@
             <tr>
               <td><a href="https://link.springer.com/article/10.1007/s12525-015-0196-8" target="_blank" rel="noopener">Gretzel, Sigala, Xiang &amp; Koo (2015)</a> — Smart tourism: foundations and developments<span class="ko">스마트 관광 — 토대와 전개</span><span class="jr">Electronic Markets 25, 179–188 · DOI 10.1007/s12525-015-0196-8</span></td>
               <td>스마트 관광을 <strong>학술적으로 정의한 출발점</strong>. <em>"관광 목적지와 산업, 관광객이 ICT에 점점 더 기대게 되면서 막대한 데이터가 가치 제안으로 바뀌는 현상"</em> 이라고 규정하고, 기술적·비즈니스적 토대와 함께 <strong>한계와 부작용</strong>까지 짚음.</td>
-              <td class="st"><strong>정의를 인용할 때는 이 논문</strong> — 공저자 <strong>Chulmo Koo(구철모)</strong>가 파트 05 「책」의 저자여서, 그림·슬라이드·책·논문이 한 갈래로 이어짐<span class="side both">공급자 · 수요자</span></td>
+              <td class="st"><strong>정의를 인용할 때는 이 논문</strong> — 공저자 <strong>Chulmo Koo(구철모)</strong>가 파트 06 「책」의 저자여서, 그림·슬라이드·책·논문이 한 갈래로 이어짐<span class="side both">공급자 · 수요자</span></td>
             </tr>
             <tr>
               <td><a href="https://research.polyu.edu.hk/en/publications/tourists-experiences-with-smart-tourism-technology-at-smart-desti/" target="_blank" rel="noopener">Jeong &amp; Shin (2020)</a> — Tourists’ Experiences with Smart Tourism Technology at Smart Destinations and Their Behavior Intentions<span class="ko">스마트 목적지에서 관광객이 겪는 스마트관광기술 경험과 행동 의도</span><span class="jr">Journal of Travel Research</span></td>
@@ -2738,7 +2843,7 @@
       <p class="h3tag"><span>국내 연구 (KCI)</span></p>
       <p>같은 주제를 <strong>한국의 맥락</strong>에서 다룬 논문들입니다. 국내 리포트라면 위 국제 논문으로 <em>개념</em>을 잡고, 아래로 <em>현장</em>을 채우는 조합이 좋습니다.</p>
 
-      <p class="dltags"><a class="mapl form y" href="#척도개발">척도개발 5편 복습 노트로 ↑</a><span class="dl-src">아래 표를 보기 전에, <b>파트 06-2 척도개발 상자</b>를 한 번 펴 보십시오 — <b>박소영 외(2024–2025) 다섯 편</b>을 산업별로 겹쳐 놓은 노트입니다. 논문 하나하나를 읽기 전에 <b>다섯 편이 무엇을 같이 말하고 무엇이 갈리는지</b>가 먼저 보입니다.</span></p>
+      <p class="dltags"><a class="mapl form y" href="#척도개발">척도개발 5편 복습 노트로 ↑</a><span class="dl-src">아래 표를 보기 전에, <b>파트 02-2 척도개발 상자</b>를 한 번 펴 보십시오 — <b>박소영 외(2024–2025) 다섯 편</b>을 산업별로 겹쳐 놓은 노트입니다. 논문 하나하나를 읽기 전에 <b>다섯 편이 무엇을 같이 말하고 무엇이 갈리는지</b>가 먼저 보입니다.</span></p>
       <div class="tbl-wrap">
         <table class="ref">
           <thead>
@@ -2770,11 +2875,11 @@
       </div>
       <p class="tbl-hint">네 편이 <strong>연구동향 → 도시 정책 → 데이터 실증 → 법·제도</strong> 순으로 놓여 있습니다. 위에서 아래로 읽으면 <em>무엇이 연구됐나 → 어떻게 적용되나 → 무엇으로 증명하나 → 무엇이 가로막나</em> 가 됩니다. KCI·DBpia는 <strong>초록까지 무료</strong>이고 원문은 소속 기관 로그인이 필요할 수 있습니다.</p>
 
-      <p class="learn-part pt-part pp-4" id="part08"><span class="pt"><i>파트</i><b>08</b></span><span class="pt-ti">취업 · 면접</span><span class="pt-sub"><strong>면접 질문 스무 문항</strong> · 채용 창구 · 실전 입사지원서</span><span class="pt-jump"><a href="#part01">01 국내</a><a href="#part02">02 해외</a><a href="#part03">03 공모전</a><a href="#part04">04 PBL</a><a href="#part05">05 책</a><a href="#part06">06 이론</a><a href="#part07">07 연구</a><a href="#part08" class="on" aria-current="true">08 취업</a><a href="#part09">09 자료실</a></span></p>
+      <p class="learn-part pt-part pp-4" id="part08"><span class="pt"><i>파트</i><b>08</b></span><span class="pt-ti">취업 · 면접</span><span class="pt-sub"><strong>면접 질문 스무 문항</strong> · 채용 창구 · 실전 입사지원서</span><span class="pt-jump"><a href="#part01">01 국내</a><a href="#part06">02 이론</a><a href="#part02">03 해외</a><a href="#part03">04 공모전</a><a href="#part04">05 PBL</a><a href="#part05">06 책</a><a href="#part07">07 연구</a><a href="#part08" class="on" aria-current="true">08 취업</a><a href="#part09">09 자료실</a></span></p>
 
       <div class="syl-box job" id="대비">
         <p class="syl-t"><a href="interview-personality-20.html" target="_blank" rel="noopener">기관 인성면접 예상 질문 20문 ↗</a><a class="sticky-pill" href="interview-personality-20.html" target="_blank" rel="noopener">노란 스티키노트 한 장 ↗</a><a class="doc-pill" href="assets/interview-personality-20.docx" download="기관_인성면접_예상질문_20문.docx">워드로 내려받기 ⤓ DOCX</a></p>
-        <p class="syl-d"><strong>파트 03이 취업 지원으로 모인다</strong>고 했습니다 — 그 마지막 칸이 면접입니다. 벤치마킹 발표와 업무 수행계획서로 <em>내가 무엇을 했는가</em>를 만들었다면, 면접은 그것을 <strong>말로 옮기는 자리</strong>입니다. 아래 스무 문항은 <strong>공공기관·공기업 인성면접</strong>에서 반복해서 나오는 질문들입니다.</p>
+        <p class="syl-d"><strong>파트 04가 취업 지원으로 모인다</strong>고 했습니다 — 그 마지막 칸이 면접입니다. 벤치마킹 발표와 업무 수행계획서로 <em>내가 무엇을 했는가</em>를 만들었다면, 면접은 그것을 <strong>말로 옮기는 자리</strong>입니다. 아래 스무 문항은 <strong>공공기관·공기업 인성면접</strong>에서 반복해서 나오는 질문들입니다.</p>
         <p class="syl-d"><strong>쓰는 법은 하나입니다 — 눈으로 읽지 말고 소리 내어 답하십시오.</strong> 한 문항당 <strong>40초~1분</strong>이 실제 면접의 길이입니다. 스무 장이 <em>자기소개 → 장·단점 → 극복 경험 → 협업과 갈등 → 원칙과 태도 → 마지막 한마디</em> 순으로 놓여 있어, 위에서부터 훑으면 <strong class="hot-t">면접 한 회차가 그대로 지나갑니다</strong>. 인쇄하면 A4에 4열로 떨어져 손에 들고 연습할 수 있습니다.</p>
         <div class="prep-via">
           <p class="pv-t"><span class="pv-badge">발표 준비</span>이 스무 문항으로 발표합니다 — 먼저 2번 「본인의 가장 큰 장점은 무엇입니까?」</p>
@@ -2804,7 +2909,7 @@
         </div>
               </div>
 
-      <p class="learn-part pt-part pp-8" id="part09"><span class="pt"><i>파트</i><b>09</b></span><span class="pt-ti">국내 자료실</span><span class="pt-sub">곁에 두고 볼 <strong>보고서와 게시판</strong></span><span class="pt-jump"><a href="#part01">01 국내</a><a href="#part02">02 해외</a><a href="#part03">03 공모전</a><a href="#part04">04 PBL</a><a href="#part05">05 책</a><a href="#part06">06 이론</a><a href="#part07">07 연구</a><a href="#part08">08 취업</a><a href="#part09" class="on" aria-current="true">09 자료실</a></span></p>
+      <p class="learn-part pt-part pp-8" id="part09"><span class="pt"><i>파트</i><b>09</b></span><span class="pt-ti">국내 자료실</span><span class="pt-sub">곁에 두고 볼 <strong>보고서와 게시판</strong></span><span class="pt-jump"><a href="#part01">01 국내</a><a href="#part06">02 이론</a><a href="#part02">03 해외</a><a href="#part03">04 공모전</a><a href="#part04">05 PBL</a><a href="#part05">06 책</a><a href="#part07">07 연구</a><a href="#part08">08 취업</a><a href="#part09" class="on" aria-current="true">09 자료실</a></span></p>
       <p>파트 01의 <strong>공식 플랫폼</strong>이 국내의 <em>현장</em>이라면, 여기는 <strong>한국에서 만들어진 문서</strong>입니다 — 곁에 두고 볼 보고서와 게시판.</p>
       <ul class="reslist tight">
         <li class="hi tone box lb1">
