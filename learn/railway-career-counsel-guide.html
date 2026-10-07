@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>관광전공 학생 철도·기관사·코레일 취업상담 종합 가이드</title>
+<style>
+:root{
+ --navy:#0f2747;--blue:#175fa8;--sky:#edf6ff;--ink:#1d2939;--muted:#667085;
+ --line:#d9e2ec;--bg:#f5f8fc;--green:#157a55;--g-bg:#eaf8f2;--orange:#b35c00;
+ --o-bg:#fff4e5;--red:#b42318;--r-bg:#fff1f0;--purple:#6941c6;--p-bg:#f4f0ff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);font-family:Pretendard,"Noto Sans KR","Malgun Gothic",sans-serif;color:var(--ink);line-height:1.65}
+header{background:linear-gradient(135deg,#0b2039,#123e68 55%,#186d9f);color:#fff;padding:50px 22px 42px}
+.wrap{max-width:1180px;margin:auto}
+.eyebrow{display:inline-block;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.1);padding:6px 12px;border-radius:999px;font-size:13px;font-weight:700}
+h1{font-size:38px;line-height:1.22;margin:15px 0 10px}
+.hero p{font-size:18px;max-width:900px;color:#e5eef8}
+.alert{margin-top:22px;padding:17px 18px;border-radius:14px;background:#fff;color:#8a1c13;border-left:6px solid #d92d20;font-weight:700}
+.hero-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:22px}
+.hero-card{padding:17px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);border-radius:14px}
+.hero-card b{display:block;font-size:17px;margin-bottom:3px}
+nav{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 2px 10px rgba(15,39,71,.06)}
+nav .wrap{display:flex;gap:4px;overflow-x:auto;padding:9px 14px}
+nav a{white-space:nowrap;text-decoration:none;color:var(--navy);font-weight:800;font-size:14px;padding:8px 10px;border-radius:8px}
+nav a:hover{background:var(--sky)}
+main{padding:26px 15px 60px}
+section{max-width:1180px;margin:0 auto 21px;background:#fff;border:1px solid var(--line);border-radius:19px;padding:27px;box-shadow:0 4px 18px rgba(15,39,71,.04)}
+.kicker{font-size:12px;letter-spacing:.09em;font-weight:900;color:var(--blue);text-transform:uppercase}
+h2{margin:2px 0 8px;color:var(--navy);font-size:27px}
+h3{color:var(--navy);margin-top:0}
+.lead{margin-top:0;color:var(--muted)}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{border:1px solid var(--line);border-radius:15px;padding:19px;background:#fff}
+.card.blue{border-top:5px solid var(--blue)}
+.card.green{border-top:5px solid var(--green)}
+.card.orange{border-top:5px solid #d97706}
+.card.purple{border-top:5px solid var(--purple)}
+.callout{padding:16px 18px;border-radius:13px;background:var(--sky);border-left:5px solid var(--blue);margin:16px 0}
+.callout.green{background:var(--g-bg);border-color:var(--green)}
+.callout.orange{background:var(--o-bg);border-color:#d97706}
+.callout.red{background:var(--r-bg);border-color:var(--red)}
+.pill{display:inline-block;font-size:12px;font-weight:850;padding:4px 9px;border-radius:999px;background:#eef2f6;color:#475467;margin:0 4px 5px 0}
+.pill.blue{background:#e9f3ff;color:#175fa8}.pill.green{background:#e8f7f0;color:#116344}.pill.orange{background:#fff1df;color:#8d4b08}.pill.purple{background:#f0ebff;color:#5925dc}
+table{width:100%;border-collapse:collapse;margin-top:13px;font-size:14px}
+th,td{border:1px solid var(--line);padding:10px;vertical-align:top}
+th{background:#eef4fa;color:var(--navy);text-align:left}
+tr.highlight td{background:#f4f9ff}
+.rank{font-weight:900;color:var(--blue)}
+.flow{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.step{flex:1 1 155px;border:1px solid var(--line);border-radius:14px;padding:15px;background:#fbfdff;position:relative}
+.step:not(:last-child):after{content:"→";position:absolute;right:-14px;top:34%;font-size:22px;color:var(--blue);font-weight:900}
+.num{width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;margin-bottom:7px}
+.linkcard{display:flex;gap:14px;align-items:flex-start;border:1px solid var(--line);border-radius:14px;padding:17px;margin:10px 0;background:#fff}
+.icon{min-width:42px;height:42px;border-radius:10px;background:var(--sky);display:flex;align-items:center;justify-content:center;font-weight:900;color:var(--blue)}
+.linkcard a{color:var(--blue);font-weight:850;text-decoration:none}
+.linkcard a:hover{text-decoration:underline}
+.small{font-size:13px;color:var(--muted)}
+.note{font-size:13px;color:#7a4c10;background:#fff9ed;border:1px solid #f5d99b;border-radius:10px;padding:11px 13px;margin-top:12px}
+.check label{display:block;margin:8px 0;border:1px solid var(--line);border-radius:10px;padding:11px 13px;cursor:pointer}
+.check input{margin-right:8px;transform:scale(1.1)}
+.result{margin-top:12px;background:#f5f8fb;border:1px solid var(--line);border-radius:11px;padding:14px;font-weight:800}
+footer{max-width:1180px;margin:0 auto 40px;color:var(--muted);font-size:13px;padding:0 14px}
+@media(max-width:850px){.grid2,.grid3,.hero-grid{grid-template-columns:1fr}h1{font-size:30px}.step:not(:last-child):after{display:none}}
+@media print{nav{display:none}body{background:white}section{box-shadow:none;break-inside:avoid}header{padding:30px 20px}}
+</style>
+</head>
+<body>
+<header>
+<div class="wrap hero">
+<span class="eyebrow">국립경국대학교 관광경영전공 학생 상담용 · 2026.10</span>
+<h1>철도기관사 · KORAIL · 도시철도 · 국가철도공단<br>취업 진로 종합 가이드</h1>
+<p>관광전공 학생이 철도분야로 진출할 때 선택할 수 있는 면허, 학점교류, 철도 관련 학과, 공기업 채용 경로를 한 화면에서 비교합니다.</p>
+<div class="alert">🚨 현재 확인 필요: 국가철도공단 2026년 제2차 신입직원·체험형 청년인턴 지원서 접수는 2026년 10월 7일 18:00 마감입니다.</div>
+<div class="hero-grid">
+ <div class="hero-card"><b>기관사가 목표라면</b>제2종 전기차량 운전면허를 중심으로 준비</div>
+ <div class="hero-card"><b>철도공기업이 목표라면</b>코레일뿐 아니라 국가철도공단·도시철도까지 범위 확대</div>
+ <div class="hero-card"><b>관광전공의 강점</b>철도관광·고객서비스·역 운영·지역관광·데이터 역량과 연결</div>
+</div>
+</div>
+</header>
+
+<nav><div class="wrap">
+<a href="#summary">핵심판단</a><a href="#credit">학점교류</a><a href="#schools">철도학과</a><a href="#csj">가톨릭상지대</a><a href="#woosong">우송대</a><a href="#kr">국가철도공단</a><a href="#routes">진로 3경로</a><a href="#plan">준비계획</a><a href="#links">공식링크</a>
+</div></nav>
+
+<main>
+<section id="summary">
+<div class="kicker">Key Counseling Point</div>
+<h2>먼저 “기관사”와 “철도회사 취업”을 구분해야 합니다</h2>
+<div class="grid3">
+ <div class="card blue"><span class="pill blue">기관사</span><h3>열차를 직접 운전하고 싶다</h3><p><b>제2종 전기차량 운전면허</b>가 핵심입니다. 철도학과 편입이 유일한 방법은 아니며 일반인 면허교육 경로도 검토할 수 있습니다.</p></div>
+ <div class="card green"><span class="pill green">공기업</span><h3>코레일·도시철도에서 일하고 싶다</h3><p>운전 외에도 사무·운송·역무·고객서비스·시설·전기·차량 등 직무가 다양합니다. 직무별 요구 자격은 공고를 기준으로 확인해야 합니다.</p></div>
+ <div class="card purple"><span class="pill purple">철도 전문화</span><h3>철도를 대학에서 더 공부하고 싶다</h3><p>철도운전·차량·전기·관제·인프라 관련 학과의 편입·진학을 비교합니다. 기관사만 목표라면 필수 경로는 아닙니다.</p></div>
+</div>
+<div class="callout"><b>교수 상담 멘트:</b> “철도가 좋다는 것과 기관사가 되고 싶다는 것은 조금 달라. 먼저 네가 직접 열차를 운전하고 싶은지, 아니면 코레일·도시철도 같은 철도기관에서 일하고 싶은지를 나눠서 보자.”</div>
+</section>
+
+<section id="credit">
+<div class="kicker">GKNU Credit Exchange</div>
+<h2>국립경국대학교 2026-1학기 타 대학 학점교류 활용</h2>
+<p class="lead">경국대 공지에서는 지원서류를 학과사무실에 제출하며, 반드시 <b>경국대 자체 신청기간</b> 내에 신청하도록 안내했습니다.</p>
+<table>
+<thead><tr><th>대학</th><th>철도 진로 관련성</th><th>상담 활용</th></tr></thead>
+<tbody>
+<tr class="highlight"><td><b>서울과학기술대학교</b></td><td><span class="rank">★★★★★</span></td><td>철도아카데미·철도전문대학원 등 철도 교육 인프라와 연계성이 가장 높아, 개설 교과목 중 교통·철도·안전·운송 관련 과목이 타교생에게 개방되는지 우선 확인</td></tr>
+<tr><td><b>충북대학교</b></td><td>★★★☆☆</td><td>교통공학·토목·인프라 계열을 통해 철도시설·교통시스템 이해에 간접 활용 가능</td></tr>
+<tr><td><b>국립공주대학교</b></td><td>★★★☆☆</td><td>교통·도시·토목·인프라 방향에 관심 있는 경우 검토</td></tr>
+<tr><td><b>국립금오공과대학교</b></td><td>★★☆☆☆</td><td>기계·전기·모빌리티 기술계열을 철도차량·기술직 관심과 간접 연계</td></tr>
+<tr><td>경북대·충남대·한양대·가천대 등</td><td>★~★★☆☆☆</td><td>공학·교통 관련 과목은 개별 확인할 수 있으나 기관사 준비 자체와의 직접성은 상대적으로 낮음</td></tr>
+</tbody>
+</table>
+<div class="callout orange"><b>중요:</b> 학점교류로 서울과기대에 간다고 해서 철도운전면허 교육을 자동으로 수강하는 것은 아닙니다. <b>정규 교과목 학점교류</b>와 <b>철도운전면허 교육훈련</b>은 별도 절차로 보아야 합니다.</div>
+<div class="small">경국대 공지일: 2026.1.14 · 2026-1학기 신청기간은 모두 종료된 과거 일정입니다. 다음 학기 학점교류 공고에서 같은 대학이 다시 포함되는지 확인하세요.</div>
+</section>
+
+<section id="schools">
+<div class="kicker">Railway Major Comparison</div>
+<h2>철도 관련 학과가 있는 주요 대학·전문대학 비교표</h2>
+<p class="lead">아래 표는 사용자가 수집한 AI 검색 결과를 상담용으로 정리한 것입니다. 대학 조직개편과 학과명 변경이 잦으므로 <b>지원 시점의 공식 모집요강을 최종 기준</b>으로 확인해야 합니다.</p>
+<table>
+<thead><tr><th>구분</th><th>학교</th><th>철도 관련 학과·전공 예시</th><th>기관사 관심 학생 관점</th></tr></thead>
+<tbody>
+<tr><td rowspan="6"><b>4년제</b></td><td><b>국립한국교통대학교</b><br>의왕캠퍼스</td><td>철도운전시스템공학과, 철도전기정보공학과, 철도차량시스템공학과 등</td><td><span class="pill green">매우 직접적</span> 철도 특화 교육을 체계적으로 받고 싶은 학생</td></tr>
+<tr><td><b>우송대학교</b></td><td>철도차량시스템학과, 철도전기시스템전공, 철도경영학과 등</td><td><span class="pill green">매우 직접적</span> 차량·전기·경영까지 철도 분야 선택 폭이 넓음</td></tr>
+<tr><td><b>동양대학교</b><br>영주캠퍼스</td><td>철도운전관제, 철도운전·전기신호, 철도차량 관련 전공</td><td><span class="pill green">직접적</span> 운전·관제·신호 분야 비교 가능</td></tr>
+<tr><td><b>송원대학교</b></td><td>철도운전시스템, 철도차량·전기시스템 관련 전공</td><td><span class="pill blue">직접적</span></td></tr>
+<tr><td><b>경일대학교</b></td><td>철도 차량·운전 관련 전공</td><td><span class="pill blue">확인 필요</span> 최신 학과명·모집단위 확인</td></tr>
+<tr><td><b>한라대학교</b></td><td>철도운전시스템 관련 전공</td><td><span class="pill blue">확인 필요</span> 최신 모집요강 확인</td></tr>
+<tr><td rowspan="5"><b>전문대</b></td><td><b>우송정보대학</b></td><td>철도차량운전·철도전기안전 관련 계열</td><td>실무·자격 준비 중심 비교</td></tr>
+<tr><td><b>경북전문대학교</b></td><td>철도전기·기관사 관련 계열</td><td>경북권에서 비교 가치</td></tr>
+<tr><td><b>가톨릭상지대학교</b></td><td><b>철도운전시스템과</b> 등</td><td><span class="pill green">안동 소재</span> 현재 경국대 학생에게 현장 정보 탐색 접근성이 특히 높음</td></tr>
+<tr><td><b>두원공과대학교</b></td><td>전기철도 관련 계열</td><td>전기·시설 분야 관심 시 비교</td></tr>
+<tr><td><b>대원대학교</b></td><td>철도운전·경영 관련 계열</td><td>운전·운영 분야 관심 시 최신 모집정보 확인</td></tr>
+</tbody>
+</table>
+<div class="note">※ 원 검색문에는 일부 표현 오류(예: ‘철도화학과’, ‘관광 차량 운전면허’)가 있어 상담자료에서는 의미를 바로잡아 ‘철도 관련 학과’, ‘철도차량 운전면허’로 정리했습니다.</div>
+</section>
+
+<section id="csj">
+<div class="kicker">Local Option · Andong</div>
+<h2>가톨릭상지대학교 철도운전시스템과 — 학생에게 특히 현실적인 탐색처</h2>
+<div class="grid2">
+<div class="card green">
+<h3>왜 볼 가치가 큰가?</h3>
+<ul>
+<li><b>안동 소재</b>라서 학교를 옮기지 않고도 학과 상담·진로 정보 탐색·교수진 문의 등 현장 접근이 쉽습니다.</li>
+<li>공식 학과 페이지에 <b>도시철도시스템일반, 운전이론일반, 철도관련법, 전기동차 구조 및 기능, 비상시조치, 철도관제, 전기동차운전실무</b> 등 기관사·철도운영과 직접 연결되는 교과가 확인됩니다.</li>
+<li>교수진 전공도 철도차량, 전기기관차, 철도관제, 열차운영, 철도차량 유지보수 등으로 구성되어 있습니다.</li>
+</ul>
+</div>
+<div class="card blue">
+<h3>관광전공 학생의 활용 방법</h3>
+<ol>
+<li>철도운전시스템과에 <b>비전공 학생의 면허 준비 경로</b>를 문의</li>
+<li>제2종 전기차량 운전면허 준비에 필요한 선행지식 확인</li>
+<li>현재 경국대 관광전공을 유지할 경우 어떤 준비가 가능한지 상담</li>
+<li>편입·복수전공보다 먼저 <b>진로 인터뷰·정보수집 장소</b>로 활용</li>
+</ol>
+</div>
+</div>
+<div class="callout green"><b>교수님 입장에서는 아주 좋은 자원입니다.</b> 같은 안동에 실제 철도운전 관련 학과가 있기 때문에, 이 학생에게 막연한 인터넷 정보만 주는 것보다 “가톨릭상지대 철도운전시스템과 교육과정과 교수진을 직접 확인해 보라”고 권할 수 있습니다.</div>
+</section>
+
+<section id="woosong">
+<div class="kicker">Woosong Railway Education</div>
+<h2>우송대학교 철도차량시스템학과 FAQ에서 확인되는 진로 구조</h2>
+<div class="grid2">
+<div class="card">
+<h3>기관사 준비</h3>
+<p>우송대 FAQ는 철도운전면허 교육훈련기관과 제2종 전기차량 운전면허 취득 경로를 설명하고 있습니다. 따라서 철도 관련 전공 + 면허교육이 결합된 사례를 학생에게 보여주기 좋습니다.</p>
+</div>
+<div class="card">
+<h3>졸업 후 진로</h3>
+<p>공식 FAQ에서 공무원, 도시철도, 한국철도 관련 기관, 철도차량·부품 산업체, 연구소·대학원 등 다양한 진출 방향을 제시합니다.</p>
+</div>
+</div>
+<table>
+<thead><tr><th>분야</th><th>우송대 FAQ에 제시된 진로 예시</th><th>관광전공 학생에게 주는 의미</th></tr></thead>
+<tbody>
+<tr><td>공공부문</td><td>도시철도공사, 중앙·지방정부 철도직·기계직 등</td><td>기관사 외 공공 철도직도 함께 탐색</td></tr>
+<tr><td>철도기관</td><td>한국철도공사, 철도시설 관련 기관 및 자회사</td><td>‘코레일만’ 보지 말고 기관 범위를 확대</td></tr>
+<tr><td>산업체</td><td>철도차량·부품·기계 관련 회사</td><td>기술직은 별도 공학 역량이 필요할 수 있음</td></tr>
+<tr><td>대학원·연구소</td><td>철도·기계·차량 관련 대학원 및 연구기관</td><td>향후 철도 연구·정책 관심 시 장기 경로</td></tr>
+</tbody>
+</table>
+<div class="note">우송대 FAQ에는 과거 기관명이나 오래된 사례가 일부 남아 있을 수 있으므로, 실제 지원·자격 판단은 반드시 2026년 현재 공식 채용공고와 최신 학사안내를 기준으로 해야 합니다.</div>
+</section>
+
+<section id="kr">
+<div class="kicker">Korea National Railway</div>
+<h2>국가철도공단도 반드시 취업 후보에 넣기</h2>
+<p class="lead">학생이 “철도 = 코레일 기관사”만 생각한다면 취업 지도를 너무 좁게 하는 셈입니다. 국가철도공단은 철도 건설·시설관리·해외사업 등을 수행하는 별도 공공기관입니다.</p>
+<div class="grid2">
+<div class="card orange">
+<h3>2026년 제2차 채용</h3>
+<p><b>신입직원 + 체험형 청년인턴</b> 채용 공고가 2026년 9월 23일 게시되었습니다.</p>
+<p><b>접수:</b> 2026.9.30. 09:00 ~ <b>2026.10.7. 18:00</b></p>
+<p><b>전형:</b> 서류 → 필기 → 면접 → 일부 신체검사 → 임용</p>
+</div>
+<div class="card blue">
+<h3>관광전공 학생이 볼 포인트</h3>
+<ul>
+<li>모든 직무가 기관사 면허를 요구하는 것이 아님</li>
+<li>신입 및 인턴의 <b>직무기술서</b>에서 비공학 계열 지원 가능 모집단위 확인</li>
+<li>NCS 기반 능력중심 채용이므로 NCS 준비 경험이 다른 철도 공기업 지원에도 활용 가능</li>
+<li>관광전공은 고객·서비스·경영·행정·데이터 관련 역량을 연결할 수 있음</li>
+</ul>
+</div>
+</div>
+<div class="callout red"><b>상담 시 구분:</b> 한국철도공사(KORAIL)는 열차 운영기관이고, <b>국가철도공단(KR)</b>은 철도 건설·시설관리 중심 공공기관입니다. 둘은 같은 기관이 아닙니다.</div>
+</section>
+
+<section id="routes">
+<div class="kicker">Three Career Routes</div>
+<h2>관광전공 학생에게 제안할 3가지 경로</h2>
+<div class="grid3">
+<div class="card green">
+<span class="pill green">A · 기관사 직행</span>
+<h3>관광학과 유지 + 운전면허</h3>
+<p>관광전공을 졸업하면서 일반인 대상 면허교육기관을 찾아 <b>제2종 전기차량 운전면허</b>를 준비하고 이후 승무·기관사 채용에 도전합니다.</p>
+<p><b>가장 적합:</b> “나는 반드시 열차를 운전하고 싶다.”</p>
+</div>
+<div class="card blue">
+<span class="pill blue">B · 철도공기업</span>
+<h3>코레일·도시철도·국가철도공단</h3>
+<p>NCS, 직무능력, 자격요건을 중심으로 사무·운송·고객서비스·역 운영·공기업 직무를 폭넓게 지원합니다.</p>
+<p><b>가장 적합:</b> “기관사 아니어도 철도산업에서 일하고 싶다.”</p>
+</div>
+<div class="card purple">
+<span class="pill purple">C · 전공 심화</span>
+<h3>철도학과 편입·추가 교육</h3>
+<p>운전·차량·전기·관제·시설을 전공 수준으로 배우고 싶다면 한국교통대·우송대·동양대·가톨릭상지대 등의 교육과정을 비교합니다.</p>
+<p><b>가장 적합:</b> “철도 시스템 자체를 전문적으로 공부하고 싶다.”</p>
+</div>
+</div>
+</section>
+
+<section id="driver">
+<div class="kicker">Driver Roadmap</div>
+<h2>기관사를 목표로 할 때의 기본 흐름</h2>
+<div class="flow">
+<div class="step"><span class="num">1</span><b>직무 적합성 확인</b><br>운전·안전책임·교대근무 확인</div>
+<div class="step"><span class="num">2</span><b>신체·적성 요건</b><br>면허 및 채용 기준 확인</div>
+<div class="step"><span class="num">3</span><b>면허교육</b><br>지정 교육훈련기관 모집 확인</div>
+<div class="step"><span class="num">4</span><b>제2종 면허</b><br>이론·기능시험 준비</div>
+<div class="step"><span class="num">5</span><b>NCS·채용</b><br>기관별 직무공고 대응</div>
+<div class="step"><span class="num">6</span><b>기관사 지원</b><br>코레일·도시철도 승무직 등</div>
+</div>
+</section>
+
+<section id="plan">
+<div class="kicker">Student Action Plan</div>
+<h2>이 학생에게 지금 시킬 일</h2>
+<div class="grid2">
+<div class="card">
+<h3>이번 주</h3>
+<ol>
+<li><b>기관사 vs 철도공기업</b> 중 1순위 목표 정하기</li>
+<li>가톨릭상지대 철도운전시스템과 홈페이지에서 교과목 읽어보기</li>
+<li>국가철도공단 직무기술서에서 본인이 지원 가능한 직무 찾아보기</li>
+<li>코레일·서울교통공사 최근 승무직 공고 1개씩 읽기</li>
+</ol>
+</div>
+<div class="card">
+<h3>이번 학기</h3>
+<ol>
+<li>NCS 기초 진단</li>
+<li>철도안전법·운전이론 등 기관사 기초 내용 맛보기</li>
+<li>다음 학점교류 공고에서 서울과기대 등 교통·철도 연관과목 확인</li>
+<li>관광학 전공 강점을 ‘철도관광·고객경험·역서비스·지역연계’로 포트폴리오화</li>
+</ol>
+</div>
+</div>
+<div class="callout"><b>관광전공을 약점으로만 볼 필요는 없습니다.</b> 기관사 직무에서는 면허와 운전·안전 역량이 핵심이지만, 철도공기업의 고객서비스·운송·관광상품·지역연계 분야에서는 관광학 전공이 오히려 명확한 차별점이 될 수 있습니다.</div>
+</section>
+
+<section id="selfcheck">
+<div class="kicker">Quick Check</div>
+<h2>상담 중 학생에게 체크시키기</h2>
+<div class="check">
+<label><input class="ck" type="checkbox" value="drive">나는 철도회사에 들어가는 것보다 <b>직접 열차를 운전</b>하는 것이 더 중요하다.</label>
+<label><input class="ck" type="checkbox" value="shift">주야간·교대근무를 감수할 수 있다.</label>
+<label><input class="ck" type="checkbox" value="license">운전면허 교육에 별도 시간과 비용을 투자할 수 있다.</label>
+<label><input class="ck" type="checkbox" value="public">기관사가 아니어도 코레일·도시철도·국가철도공단이면 좋다.</label>
+<label><input class="ck" type="checkbox" value="major">철도 시스템 자체를 전공 수준으로 공부해 보고 싶다.</label>
+</div>
+<div id="result" class="result">체크하면 추천 경로가 표시됩니다.</div>
+</section>
+
+<section id="links">
+<div class="kicker">Official Links</div>
+<h2>이번 상담자료에 포함한 링크</h2>
+
+<div class="linkcard">
+<div class="icon">GK</div><div><b>국립경국대학교 2026-1학기 타 대학 학점교류 신청 안내</b><br>
+<a href="https://www.gknu.ac.kr/main/board/view.do?menu_idx=68&manage_idx=1&search.category1=102&board_idx=228911" target="_blank">공식 공지 열기 ↗</a>
+<div class="small">학점교류 대학 및 경국대 신청기간 확인</div></div>
+</div>
+
+<div class="linkcard">
+<div class="icon">CSJ</div><div><b>가톨릭상지대학교 철도운전시스템과</b><br>
+<a href="https://train.csj.ac.kr/?menu_code=1011" target="_blank">학과 홈페이지 열기 ↗</a>
+<div class="small">철도운전·관제·전기동차·철도법 관련 교과 및 교수진 확인</div></div>
+</div>
+
+<div class="linkcard">
+<div class="icon">KR</div><div><b>국가철도공단 2026년 제2차 신입직원·체험형 청년인턴 채용</b><br>
+<a href="https://www.kr.or.kr/boardCnts/view.do?boardID=72&boardSeq=1122745" target="_blank">채용공고 열기 ↗</a>
+<div class="small">접수 2026.9.30.~10.7. 18:00 · NCS 기반 채용</div></div>
+</div>
+
+<div class="linkcard">
+<div class="icon">WSU</div><div><b>우송대학교 철도차량시스템학과 FAQ</b><br>
+<a href="https://rail.wsu.ac.kr/page/index.jsp?code=n_rail0202" target="_blank">FAQ 열기 ↗</a>
+<div class="small">기관사 준비, 면허교육, 취업분야, 철도 관련 자격 등에 관한 안내</div></div>
+</div>
+
+<div class="linkcard">
+<div class="icon">블로그</div><div><b>자초쌤 블로그 「한국교통대학교 입시준비 :: 철도기관사 1편」(2020. 9. 30.)</b><br>
+<a href="https://m.blog.naver.com/bonnieyjc/222103824188" target="_blank">원문 열기 ↗</a>
+<div class="small">면허 종류 · 한국교통대 철도운전시스템전공 교과 · 입시(2020년 기준) — 요약은 <a href="railway-driver-career-guide.html">철도 취업 안내 ↗</a></div></div>
+</div>
+
+<div class="callout orange"><b>자료 사용 원칙:</b> 학과명, 면허교육 일정, 채용 자격요건은 변경될 수 있으므로 학생이 실제 신청할 때에는 반드시 해당 연도 공식 모집요강·채용공고를 다시 확인합니다.</div>
+</section>
+</main>
+
+<footer>
+본 자료는 학생 취업상담을 위한 진로 탐색용 요약본입니다. 국가자격·철도차량 운전면허·채용 자격 여부의 최종 판단은 국토교통부, 한국교통안전공단, 각 철도운영기관 및 해당 대학의 최신 공식 공고를 기준으로 합니다.
+</footer>
+
+<script>
+function update(){
+ const v=[...document.querySelectorAll('.ck:checked')].map(x=>x.value);
+ let t='체크하면 추천 경로가 표시됩니다.';
+ if(v.includes('drive')&&v.includes('shift')&&v.includes('license')){
+   t='추천 A: 관광학과를 유지하면서 제2종 전기차량 운전면허 → 기관사·승무 채용 경로를 1순위로 검토하세요.';
+ }else if(v.includes('major')){
+   t='추천 C: 철도운전·차량·전기·관제 중 관심 분야를 정한 뒤 철도 관련 학과 편입·진학 또는 추가 교육을 비교하세요.';
+ }else if(v.includes('public')){
+   t='추천 B: 코레일뿐 아니라 도시철도 운영기관과 국가철도공단까지 범위를 넓혀 NCS·직무 중심으로 준비하세요.';
+ }else if(v.includes('drive')){
+   t='기관사 관심이 분명합니다. 다음 단계는 교대근무 적응 가능성과 제2종 전기차량 운전면허 취득 경로를 확인하는 것입니다.';
+ }
+ document.getElementById('result').textContent=t;
+}
+document.querySelectorAll('.ck').forEach(x=>x.addEventListener('change',update));
+</script>
+</body></html>
