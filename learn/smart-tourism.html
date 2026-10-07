@@ -1287,6 +1287,17 @@
     .learn-article .res4 .r4-d b { color: #14243a; }
     .learn-article .res4 a.r4-file { margin-left: 4px; font-size: 11.5px; font-weight: 700; color: #44566b; text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 2px; }
     @media (max-width: 640px) { .learn-article .res4 { grid-template-columns: 1fr; } }
+    /* 스마트관광 5대 요소(한국관광공사 2020) 표 — 척도 장면 그림 아래 (2026-10-07) */
+    .learn-article .kto5 { max-width: 980px; margin: 16px auto 0; }
+    .learn-article .kto5 .k5-t { margin: 0 0 8px; text-align: center; font-size: 14.5px; font-weight: 800; color: #17365d; }
+    .learn-article .kto5 .k5-t span { margin-left: 6px; font-size: 11.5px; font-weight: 700; color: #7c8a99; }
+    .learn-article .kto5 table.k5-tb { width: 100%; border-collapse: collapse; font-size: 12.5px; line-height: 1.6; background: #fff; }
+    .learn-article .kto5 table.k5-tb th, .learn-article .kto5 table.k5-tb td { padding: 7px 9px; border-bottom: 1px solid #e1e9f2; text-align: left; vertical-align: top; }
+    .learn-article .kto5 table.k5-tb thead th { background: #fff3b8; color: #3a3416; font-weight: 800; white-space: nowrap; }
+    .learn-article .kto5 table.k5-tb tbody th { color: #17365d; font-weight: 800; white-space: nowrap; }
+    .learn-article .kto5 table.k5-tb td b { color: #1f6d52; }
+    .learn-article .kto5 table.k5-tb td:nth-child(2), .learn-article .kto5 table.k5-tb td:nth-child(4) { white-space: nowrap; }
+    .learn-article .kto5 .k5-foot { margin: 8px 0 0; font-size: 12.5px; color: #33475b; }
     .learn-article .sc-scene-mini img { width: 100%; height: auto; border-radius: 8px; }
     /* 「이제 아홉 곳을 하나씩」 앞 표지 알약 — 주간 운영 11주 알약과 같은 이름 (2026-09-30) */
     .learn-article .mini-note .pv-co { display: inline-block; margin: 0 6px 4px 0; padding: 3px 11px; border-radius: 999px; background: #ffe800; border: 1px solid #d8bb2a; color: #14120a; font-size: 12px; font-weight: 800; vertical-align: 1px; }
@@ -2512,6 +2523,24 @@
         <a href="images/smart-tourism-scale-factors-scenes.webp" target="_blank" rel="noopener"><img loading="lazy" src="images/smart-tourism-scale-factors-scenes.webp" alt="척도개발 여덟 요인을 관광객의 실제 서비스 장면으로 정리한 그림 — 편의성 · 스마트인프라 · 정보성 · 기술통합성 · 신뢰성 · 개인화 · 상호작용성 · 보안성" width="1055" height="1491" /></a>
         <figcaption>01장 표의 여덟 요인을 장면으로 — 복습 노트 슬라이드 9장과 같은 그림(원자료 p.5). 클릭하면 크게 열립니다.</figcaption>
       </figure>
+
+      <div class="kto5" id="스마트관광5대요소">
+        <p class="k5-t">스마트관광 5대 요소 — 도시가 갖추는 다섯 영역 <span>한국관광공사(2020)</span></p>
+        <div class="tbl-wrap">
+          <table class="k5-tb">
+            <thead><tr><th scope="col">5대 요소</th><th scope="col">연계 관광요소</th><th scope="col">연계 기술</th><th scope="col">핵심가치</th><th scope="col">무엇을 하나</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">스마트 경험</th><td>관광콘텐츠</td><td>AR · VR · MR · 홀로그램</td><td><b>관광매력 극대화</b></td><td>최신 기술로 자연 · 문화 · 역사 등 관광매력을 극대화</td></tr>
+              <tr><th scope="row">스마트 편의</th><td>관광인프라</td><td>O2O · 디지털 사이니지 등</td><td><b>관광일정 관리</b></td><td>편리한 체류를 위해 식당 · 체험 등을 실시간으로 알려 주고 예약 · 결제 지원</td></tr>
+              <tr><th scope="row">스마트 서비스</th><td>관광지원서비스</td><td>챗봇 · 로보틱스 등</td><td><b>관광품질 개선</b></td><td>다국어 · 불편신고 · 짐배송 등 관광지 현장의 불편에 신속 대응</td></tr>
+              <tr><th scope="row">스마트 모빌리티</th><td>관광교통</td><td>공유플랫폼 · 자율주행 · MaaS 등</td><td><b>방문범위 확대</b></td><td>공유자동차 · 수요대응형 자동차(도시 간) · 퍼스널 모빌리티(도시 안) 등 2차 교통수단</td></tr>
+              <tr><th scope="row">스마트 플랫폼</th><td>관광정보</td><td>AI · Data Analytics 등</td><td><b>관광정보 공유</b></td><td>스마트관광도시 안의 여러 서비스를 등록 · 이용하고, 그 기록을 모아 공유</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="k5-foot">위 척도 여덟 요인(편의성 · 스마트인프라 · 정보성 …)이 <b>관광객이 느끼는 품질</b>이라면, 5대 요소는 <b>도시가 갖추는 영역</b>입니다 — 아래 06-3 「적용」과 이어 보십시오.</p>
+      </div>
+
 
       <p class="learn-part pt-learn" id="적용"><span class="pt">06-3</span>적용 — 어디에 · 누구에게 · 어떤 기술로</p>
       <figure class="learn-fig sc-penta" id="산업별적용">
