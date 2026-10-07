@@ -975,6 +975,19 @@
     /* 연한 파랑 알약 — 맨 아래 「주간 수업 운영 한 장」. 남색이 무겁다는 교수님 말에 옅게 (2026-09-30) */
     .learn-hero .syl-box .syl-tags a.mapl.lb { background: #e3f4ea; border-color: #9fd0b4; color: #1f5a3f; font-weight: 800; }
     .learn-hero .syl-box .syl-tags a.mapl.lb:hover { background: #c8ead6; border-color: #6fb38d; color: #12402b; }
+    /* 깜빡이는 초록 점 — 매주 여는 두 알약(출석 진도 · 15주 PLAN)에만. 「지금 진행 중」 신호(2026-10-07). */
+    .learn-hero .syl-box .syl-tags a.mapl.live::before {
+      content: ""; display: inline-block; width: 7px; height: 7px; margin: 0 6px 1px 0; vertical-align: middle;
+      border-radius: 50%; background: #2fd38a; box-shadow: 0 0 0 0 rgba(47,211,138,.7);
+      animation: live-dot 1.6s ease-in-out infinite;
+    }
+    .learn-hero .syl-box .syl-tags a.mapl.lb.live::before { background: #1f9d6a; }
+    @keyframes live-dot {
+      0%   { opacity: 1;  box-shadow: 0 0 0 0 rgba(47,211,138,.7); }
+      60%  { opacity: .35; box-shadow: 0 0 0 6px rgba(47,211,138,0); }
+      100% { opacity: 1;  box-shadow: 0 0 0 0 rgba(47,211,138,0); }
+    }
+    @media (prefers-reduced-motion: reduce) { .learn-hero .syl-box .syl-tags a.mapl.live::before { animation: none; } }
     /* 연한 하늘 알약 — 평가방식 · 이 페이지 읽는 법. 진한 남색이 무거워 연하게(2026-10-01). */
     .learn-hero .syl-box .syl-tags a.mapl.sky { background: #e3eefa; border-color: #a9c4e4; color: #17365d; font-weight: 700; }
     .learn-hero .syl-box .syl-tags a.mapl.sky:hover { background: #c9ddf3; border-color: #7fa6d3; color: #0e2a45; }
@@ -1341,7 +1354,7 @@
             <li><b>논문 읽는 표준</b><span>연구질문 · HOOK → 논문 · 사례영상 → 설계 · 핵심결과 → CONCEPT → LENS</span></li>
             <li><b>발표 흐름</b><span><strong>국내 도시 발표</strong> → <strong>중간고사</strong> → <strong>해외 도시 발표</strong> → <strong>종합 발표</strong>.</span></li>
           </ol>
-          <p class="syl-tags row1"><a class="mapl grn" href="smart-tourism-presentation-status.html" target="_blank" rel="noopener">출석 진도 ↗</a><a class="mapl lb" href="smart-tourism-weekly-plan.html" target="_blank" rel="noopener" title="주간 수업 운영 · 학생 발표 배정 — 1~15주차 한 장">▶ 15주 PLAN — 이론 · 발표 ↗</a><a class="mapl mini" href="smart-tourism-student-note.html" target="_blank" rel="noopener">학생 이해 노트 ↗</a><a class="mapl" href="academic-calendar-2026-2.html" target="_blank" rel="noopener">2학기 학사일정 달력 ↗</a></p>
+          <p class="syl-tags row1"><a class="mapl grn live" href="smart-tourism-presentation-status.html" target="_blank" rel="noopener">출석 진도 ↗</a><a class="mapl lb live" href="smart-tourism-weekly-plan.html" target="_blank" rel="noopener" title="주간 수업 운영 · 학생 발표 배정 — 1~15주차 한 장">▶ 15주 PLAN — 이론 · 발표 ↗</a><a class="mapl mini" href="smart-tourism-student-note.html" target="_blank" rel="noopener">학생 이해 노트 ↗</a><a class="mapl" href="academic-calendar-2026-2.html" target="_blank" rel="noopener">2학기 학사일정 달력 ↗</a></p>
           <p class="syl-tags"><a class="mapl memo" href="smart-tourism-sticky-memo.html" target="_blank" rel="noopener">짧은 수업 소개 ↗</a><a class="mapl sky" href="smart-tourism-how-to-read.html" target="_blank" rel="noopener" title="이 페이지 읽는 법 — 순서 · 기호 · 평가 기준">이 페이지 읽는 법 ↗</a><a class="mapl sky" href="#평가방식" title="15주 강의계획서 — 평가방식 1안 · 2안">평가방식 1안 · 2안 ↓</a></p>
           <p class="syl-tags"><a class="mapl mid" href="#중간과제">중간고사 대체 과제 ↓</a><a class="mapl fin2" href="#과제2">기말시험 대체 — 미리 알림 ↓</a></p>
         </div>
