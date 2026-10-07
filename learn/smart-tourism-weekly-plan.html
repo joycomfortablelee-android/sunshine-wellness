@@ -81,6 +81,13 @@ section{margin-top:28px}
 .team-box{background:var(--gold-soft);border:1px solid #e4cf80;border-radius:9px;padding:10px 12px;text-align:center;font-weight:900;color:#725700;font-size:13px}
 .one-team{grid-template-columns:1fr}
 .thu-stack{display:grid;gap:8px}
+/* 주간 운영표 — 수요일 두 칸 · 목요일 두 상자를 1행 2열로(2026-10-07) */
+.day.wed{display:grid;grid-template-columns:1fr 1fr;align-content:start}
+.day.wed>.day-head{grid-column:1/-1}
+.day.wed>.period{border-top:0}
+.day.wed>.period+.period{border-left:1px solid var(--line)}
+.day.thu .thu-stack{grid-template-columns:1fr 1fr}
+@media(max-width:600px){.day.wed{grid-template-columns:1fr}.day.wed>.period+.period{border-left:0;border-top:1px solid var(--line)}.day.thu .thu-stack{grid-template-columns:1fr}}
 .thu-two-col{grid-template-columns:1fr 1fr;align-items:stretch}
 .thu-box{border-radius:9px;padding:10px 12px;border:1px solid var(--line);font-size:12.8px}
 .thu-box.team3{background:var(--gold-soft);border-color:#e4cf80;color:#725700;font-weight:900}
