@@ -393,6 +393,23 @@
       padding: 12px 15px; border-radius: 0 10px 10px 0;
       font-size: 13.5px; line-height: 1.85; margin: 12px 0 18px;
     }
+    /* MVP 아래 — PoC(개념 증명) · 프로토타입 · MVP 셋을 견주는 칸 + PoC 다섯 단계(2026-10-12, Asana 가이드) */
+    .learn-article .poc-box { margin: 4px 0 18px; padding: 13px 15px 12px; border: 1px solid #cfe0f2; border-radius: 12px; background: #fff; }
+    .learn-article .poc-box .poc-t { margin: 0 0 9px; font-size: 14px; font-weight: 800; color: #17365d; }
+    .learn-article .poc-box .poc-three { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 0; padding: 0; list-style: none; }
+    .learn-article .poc-box .poc-three li { padding: 9px 11px; border-radius: 9px; background: #f4f9fd; border-top: 3px solid #9cc3e6; font-size: 12.5px; line-height: 1.65; color: #34495e; }
+    .learn-article .poc-box .poc-three li.on { background: #fff6e8; border-top-color: #e8a04a; }
+    .learn-article .poc-box .poc-three b { display: block; font-size: 13.5px; color: #17365d; }
+    .learn-article .poc-box .poc-three small { display: block; margin-top: 2px; font-size: 11.5px; color: #6b7f94; }
+    .learn-article .poc-box .poc-steps { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 0; margin: 11px 0 0; padding: 9px 0 0; border-top: 1px dashed #cfe0f2; list-style: none; font-size: 12.5px; font-weight: 700; color: #17365d; }
+    .learn-article .poc-box .poc-steps li { margin: 0; white-space: nowrap; font-size: 12.5px; line-height: 1.6; }
+    .learn-article .poc-box .poc-steps li + li::before { content: "→"; margin: 0 6px; color: #9cb3c9; font-weight: 500; }
+    .learn-article .poc-box .poc-steps li b { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; margin-right: 4px; border-radius: 50%; background: #e8a04a; color: #fff; font-size: 10.5px; }
+    .learn-article .poc-box .poc-steps .poc-lab { margin-right: 8px; padding: 1px 8px; border-radius: 999px; background: #17365d; color: #fff; font-size: 11px; }
+    .learn-article .poc-box .poc-steps .poc-lab + li::before { content: none; }
+    .learn-article .poc-box .poc-n { margin: 9px 0 0; font-size: 12px; line-height: 1.7; color: #4d5f74; }
+    .learn-article .poc-box .poc-n a { color: #2563a8; font-weight: 800; }
+    @media (max-width: 640px) { .learn-article .poc-box .poc-three { grid-template-columns: 1fr; } }
     .learn-article .fold-src { font-size: 11.5px; color: var(--muted); line-height: 1.7; margin: 10px 0 2px; }
     .learn-article .fold-src a { color: #2563a8; font-weight: 700; }
     .learn-article .lilac-box details.spec-fold { background: rgba(255,255,255,.75); }
@@ -2978,6 +2995,23 @@
       </div>
       <p>이 웹사이트 자체가 하나의 MVP입니다 — 큰 예산 없이 정적 사이트로 가치 제안을 세상에 먼저 내걸고, 후기와 문의로 반응을 확인하는 방식입니다.</p>
       <p class="mvp-note"><strong>MVP</strong>는 <strong>Minimum Viable Product</strong>, 우리말로 <strong>「최소 기능 제품」</strong>입니다. <em>Minimum</em>(최소)은 기능을 덜어낸다는 뜻이고, <em>Viable</em>(생존 가능한)은 그런데도 <strong>고객이 실제로 써 보고 값을 매길 수 있어야 한다</strong>는 뜻입니다. 그래서 MVP는 <em>덜 만든 제품</em>이 아니라 <strong>배우기 위해 만든 가장 작은 제품</strong>입니다 — 목적이 판매가 아니라 <strong>「사람들이 이걸 원하는가」에 대한 답</strong>을 얻는 데 있습니다.</p>
+      <div class="poc-box" id="poc">
+        <p class="poc-t">MVP 앞에 하나 더 — <b>PoC(개념 증명)</b> · 프로토타입 · MVP는 무엇이 다른가</p>
+        <ol class="poc-three">
+          <li class="on"><b>PoC · 개념 증명</b>「이게 <strong>되기는 하나</strong>」 — 실행 가능성을 확인한다<small>며칠~몇 주 · 우리 팀 · 투자자 · 협력처를 설득할 근거</small></li>
+          <li><b>프로토타입</b>「<strong>어떻게 생겼나</strong>」 — 만들 모습을 보여 준다<small>몇 주 · 화면 · 모형으로 · 자금 확보에 쓴다</small></li>
+          <li><b>MVP · 최소 기능 제품</b>「<strong>사람들이 쓰나</strong>」 — 실제 고객에게 내놓는다<small>몇 달 · 최종 사용자 · 시장에서 배운다</small></li>
+        </ol>
+        <ol class="poc-steps" aria-label="PoC 다섯 단계">
+          <li class="poc-lab">PoC 다섯 단계</li>
+          <li><b>1</b>아이디어 정의(문제 · 해결책)</li>
+          <li><b>2</b>성공 기준 정하기</li>
+          <li><b>3</b>작은 집단에 시험</li>
+          <li><b>4</b>지표 · 피드백 모으기</li>
+          <li><b>5</b>결과 발표</li>
+        </ol>
+        <p class="poc-n">관광벤처로 옮기면 — 투어 한 코스를 <strong>지인 10명에게 한 번 돌려 보고</strong>(PoC) → 예약 화면을 그려 보이고(프로토타입) → 실제 예약을 받는다(MVP). 아래 <b>B2B 55장</b>의 <b>POC</b>도 이 첫 단계입니다. <a href="https://asana.com/ko/resources/proof-of-concept" target="_blank" rel="noopener">Asana · 개념 증명(POC)이란? 예시와 작성 가이드 ↗</a></p>
+      </div>
       <div class="ir-row">
         <div class="ir-short side"><iframe src="https://www.youtube-nocookie.com/embed/RaPOMDHCU_k" title="아이디어로 창업하지 말라 — 정세주 눔 대표" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><p class="ir-cap"><b>「아이디어로 창업하지 말라」</b> — 정세주 눔(Noom) 대표 · World Knowledge Forum 쇼츠. 내 아이디어가 아니라 <strong>고객이 실제로 겪는 문제</strong>에서 출발하라는 말입니다.<br />— 만들기 전에 고객에게 먼저 묻는 위 <strong>「묻는다 · 고객 검증」</strong>과 같은 이야기를 IR 무대의 창업자가 합니다.</p></div>
       </div>
