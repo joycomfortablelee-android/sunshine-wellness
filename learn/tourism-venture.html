@@ -241,6 +241,10 @@
 
     .learn-article .quad.learnq .linkrow.tiny a.ylw98 { background: #ffe800; border: 1px solid #d8bb2a; color: #14120a; font-weight: 800; }
     .learn-article .quad.learnq .linkrow.tiny a.ylw98:hover { background: #14120a; border-color: #14120a; color: #ffe800; }
+    /* 깜빡이는 별표 — 주요 알약 표시 */
+    .learn-article .blink-star { display: inline-block; animation: blink-star 1.6s ease-in-out infinite; }
+    @keyframes blink-star { 0%, 100% { opacity: 1; } 50% { opacity: .25; } }
+    @media (prefers-reduced-motion: reduce) { .learn-article .blink-star { animation: none; } }
     /* 6차산업 표 상자 — 10장 스마트팜 삼각형 아래. 표는 좁으면 가로로 밀린다 */
     .learn-article .six-box { border: 1px solid #c9e2c0; background: #f7fbf4; border-radius: 12px; padding: 16px 18px; margin: 14px 0 20px; }
     .learn-article .six-box p { margin: 0 0 10px; font-size: 13.5px; line-height: 1.8; }
@@ -680,6 +684,7 @@
     }
     .learn-article #wk5-video .vid-pill a:hover { background: #14120a; color: #ffe800; }
     .learn-article #wk5-video .vid-pill span { display: block; margin-top: 5px; font-size: 11.5px; color: #6b7a86; }
+    .learn-article #wk5-video .vid-pill .kw { display: inline-block; margin: 6px 4px 0 0; font-size: 11.5px; font-weight: 800; color: #2f6db5; background: #eef4fb; border-radius: 999px; padding: 3px 10px; }
     .learn-article .psst-lead a.psst-dl:hover { background: #a8322a; border-color: #a8322a; color: #fff; }
     /* 수업 목표 — 7칸 그림 위. 최종 목표 한 줄 + 매주 채우는 세 단계 */
     .learn-article .cgoal { margin: 6px 0 22px; padding: 16px 18px 14px; border: 1px solid #c6d8d1; border-radius: 12px; background: #f7fbf9; }
@@ -2242,7 +2247,7 @@
             <li class="pc"><b>6교시</b><span class="tm">(14:00 – 14:50)</span><span class="rm">사회대 <strong>2106호</strong><em>PC실</em></span></li>
             <li class="mv"><b>7교시</b><span class="tm">(15:00 – 15:50)</span><span class="rm">사회대 <strong>3402호</strong></span></li>
           </ul>
-          <p class="rb-parts"><b>이 페이지는 여덟 파트</b><a class="p1" href="#part01">01 주차 실습</a><a class="p2" href="#part02">02 낼 것</a><a class="p3" href="#part03">03 흐름</a><a class="p4" href="#part04">04 어디에</a><a class="p5" href="#part05">05 업종</a><a class="p6" href="#part06">06 취업</a><a class="p7" href="#part07">07 책</a><a class="p8" href="#part08">08 곁들여</a><span class="rb-sep" aria-hidden="true"></span><a class="fin" href="#part02">최종결과물 · 사업계획서 한 부</a></p>
+          <p class="rb-parts"><b>이 페이지는 여덟 파트</b><a class="p1" href="#part01">01 주차 실습</a><a class="p2" href="#part02">02 낼 것</a><a class="p3" href="#part03">03 흐름</a><a class="p4" href="#part04">04 어디에</a><a class="p5" href="#part05">05 업종</a><a class="p6" href="#part06">06 취업</a><a class="p7" href="#part07">07 책</a><a class="p8" href="#part08">08 곁들여</a><span class="rb-sep" aria-hidden="true"></span><a class="fin" href="#과제1">과제</a><a class="fin" href="#part02">최종결과물 · 사업계획서 한 부</a></p>
         </div>
         <div class="syl-box cal">
           <p class="syl-t"><a href="academic-calendar-2026-2.html" target="_blank" rel="noopener">2학기 학사일정 달력 ↗</a></p>
@@ -2599,14 +2604,14 @@
           <iframe src="https://www.youtube-nocookie.com/embed/91EFUOtnAF4" title="0원에서 1100억까지, 아이디어스 '초고속 성장의 비밀' [Hyper Growth]" style="position:absolute;inset:0;width:100%;height:100%;border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
         </div>
         <figcaption style="text-align:center">5주차 영상 — 「0원에서 1100억까지, 아이디어스 '초고속 성장의 비밀' [Hyper Growth]」 · 채널 <a href="https://www.youtube.com/@eo_korea" target="_blank" rel="noopener">EO Korea ↗</a> · <a href="https://youtu.be/91EFUOtnAF4" target="_blank" rel="noopener">유튜브에서 보기 ↗</a></figcaption>
-        <p class="vid-pill"><a href="idus-hypergrowth-10slides.html" target="_blank" rel="noopener">✦ 아이디어스 Hyper Growth × 관광벤처창업론 · 열 장 좌우 넘김 ↗</a><span>영상 구간(시간)마다 아이디어스 사례 → 관광벤처 적용 → 학생 질문. 끝 장에 Exit Ticket 세 문항.</span></p>
+        <p class="vid-pill"><a href="idus-hypergrowth-10slides.html" target="_blank" rel="noopener">✦ 아이디어스 Hyper Growth × 관광벤처창업론 · 열두 장 좌우 넘김 ↗</a><span class="kw">#스토리텔링</span><span class="kw">#KPI</span><span>영상 구간(시간)마다 아이디어스 사례 → 관광벤처 적용 → 학생 질문. 끝 장에 Exit Ticket 세 문항.</span></p>
       </figure>
 
       <details class="wk-fold today next3" id="wk6" open>
         <summary><b class="wk-tag">6주차</b>10월 6일(화) 수업 — 누구에게 파는가<span class="wk-sub">시장 세분화 · 타겟팅 · 고객 한 사람 그리기</span></summary>
         <div class="tf-body">
           <p class="kw-tags"><span class="kw">#시장</span><span class="kw">#시장키워드</span><span class="kw">#STP</span><span class="kw">#타겟팅</span><span class="kw">#고객한사람</span></p>
-          <p class="nx-h">「관광객」을 지우고 한 사람을 적는 날</p>
+          <p class="nx-h">「관광객」을 지우고 시장 안의 한 사람을 적는 날</p>
 
           <p class="nx-jump"><a href="student-feedback-1006.html" target="_blank" rel="noopener">10/6 수업 통합 정리 ↗</a><span>그날 다룬 내용 전체를 한 페이지로 — 은서 · 상준 발표 정리, 평가기준 9가지(문제인식 · 시장성 · STP · 비즈니스모델 · 실현가능성 · 홍보판로 · 트렌드부합성 · 경쟁레퍼런스 · 창업자역량), 아이디어별 시장성 · 실현가능성 검토, 반복 강조 포인트, 다음 수업 전 준비할 것.</span></p>
 
@@ -2646,6 +2651,7 @@
 
           <p class="nx-lb">할 것 ③ — 숫자마다 출처를 달기</p>
           <p class="nx-d">발표에서는 넘어가던 숫자가 보고서에서는 <strong class="hot-t">근거를 요구받습니다</strong>. 9주차에 모은 자료로 <strong>(기관 · 연도 · 지표명)</strong>을 괄호에 답니다. 출처를 못 찾는 숫자는 <em>지우거나 「추정」이라고 밝힙니다</em> — 심사에서 가장 크게 깎이는 곳입니다.</p>
+          <p class="nx-jump"><a href="startup-research-sites-34.html" target="_blank" rel="noopener">창업정보 조사 사이트 34선 — 근거는 어디서 찾나 ↗</a><a class="sky" href="startup-research-sites-34-onepage.html" target="_blank" rel="noopener">같은 34곳 · 한 장 초콤팩트 — 인쇄용 ↗</a></p>
 
           <p class="nx-n">거꾸로도 씁니다 — <strong>보고서를 먼저 채운 사람은 발표가 쉬워집니다.</strong> 칸마다 한 문장씩만 뽑으면 그대로 슬라이드 한 장이 됩니다. 이날 이후로는 둘을 따로 만들지 말고 <strong>한 벌에서 두 모양으로</strong> 꺼내십시오.</p>
         </div>
@@ -2769,6 +2775,7 @@
           <p class="nx-d"><strong>PRISM 정책연구관리시스템</strong>(행정안전부)에는 그런 회사들이 실제로 수주한 <strong>정책연구용역과 결과보고서 원문</strong>이 모여 있습니다. 「관광」으로 검색하면 <strong>정부가 지금 무엇을 문제로 보고 어디에 예산을 쓰는지</strong>가 그대로 드러납니다. 02장의 문제 정의를 <em>혼자 상상하지 않고 근거 위에서</em> 하는 방법이고, 사업계획서에 인용할 통계와 정책 방향도 여기서 나옵니다.</p>
 
           <p class="nx-n">이 길은 대개 <strong>실무 경험을 쌓은 뒤에</strong> 열립니다. 재학 중에 할 일은 하나입니다 — <strong>연구용역 · 공모전 · 데이터 분석 결과물을 남겨 두는 것.</strong> 창업 아이템이 <em>정부 정책과 맞물리면</em> 지원사업 선정 가능성도 높아집니다.</p>
+          <p class="nx-jump"><a href="ai-space-code-workflow-5images.html" target="_blank" rel="noopener">경국대 AI Space로 시작하기 ↗</a><span>사업계획서의 <b>실현 가능성</b> 칸에 「어떻게 만들 것인가」를 적을 때 근거가 되는 자리 — <b>경국대 AI Space</b>(학교 제공 AI) → Roo Code → VS Code → GitHub → Vercel 다섯 단계입니다.</span></p>
         </div>
       </details>
 
@@ -2852,7 +2859,7 @@
         <p class="tb-tags sub"><a class="mapl form hot red soft" href="assets/preliminary-startup-package-business-plan-form-2026.docx" download="2026_예비창업패키지_사업계획서_양식.docx">2026 예비창업패키지 양식 ⤓ DOCX</a><span class="tb-src">관광이 아니어도 내는 <b>범부처 창업 공모</b>의 양식입니다 — 문제 · 해결 · 성장 · 팀(PSST)으로 묻는 뼈대가 위 HWP와 닮아, 써 둔 내용을 옮겨 쓰기 좋습니다.</span></p>
       </div>
       <div class="task-box vt3 y">
-        <p class="tb-t" id="과제3"><b class="tb-n">과제 3</b>EO Korea 벤처창업 사례연구 — 영상 두 편을 원전에 충실하게 읽고 발표용 HTML로 <span>제출 10/26(월) 중간시험까지</span></p>
+        <p class="tb-t" id="과제3"><b class="tb-n">과제 3</b>EO Korea 벤처창업 사례연구 — 영상 두 편을 원전에 충실하게 읽고 발표용 HTML로 <span>제출 11/3(월)까지</span></p>
         <ol class="kwlist tb-kw">
         <li><b>무엇을</b><span>실제 창업가 · 스타트업이 나오는 <strong>EO Korea 영상 2편</strong>을 골라, 영상의 메시지와 스토리를 먼저 충실히 이해한 뒤 <strong>문제 발견 → 아이디어 → 비즈니스 모델 → 실행 → 성장</strong>의 벤처창업 관점으로 잇습니다.</span></li>
         <li><b>순서가 핵심</b><span><strong class="hot-t">일반적 요약 → 핵심 메시지 → 실제 멘트 확인 → 벤처창업 분석</strong> — 창업 개념부터 대면 영상의 원래 맥락 · 인물의 생각 · 사건의 흐름이 빠집니다.</span></li>
@@ -2995,7 +3002,7 @@
       </div>
       <p class="dltags"><a class="mapl form hot" href="startup-research-sites-34.html" target="_blank" rel="noopener">창업정보 조사 사이트 34선 — 근거는 어디서 찾나 ↗</a><a class="mapl form lime" href="startup-research-sites-34-onepage.html" target="_blank" rel="noopener">같은 34곳 · 한 장 초콤팩트 — 인쇄용 ↗</a><span class="dl-src"><b>고객을 좁혔다면, 이제 「그 고객이 정말 있다」는 숫자를 가져올 차례입니다.</b> 사이트를 외우는 판이 아니라 <b>어느 질문에 답해 주는 사이트인가</b>로 묶은 판입니다 — <b>시장규모 · 고객 · 입지</b>(KOSIS · SGIS · 공공데이터포털) · <b>경쟁기업</b>(DART) · <b>소비자 관심</b>(Google Trends · 네이버 데이터랩) · <b>지원사업</b>(K-Startup · 기업마당) · <b>기술 · 특허 · 법</b>(NTIS · KIPRIS · 국가법령정보센터). <b>「외국인 대상 안동 전통문화 체험여행 플랫폼」</b> 하나로 열한 걸음을 따라가는 예와, 주소가 달린 <b>34곳 목록</b>이 있습니다(초록 알약은 그 34곳을 네 묶음 한 장에 모은 <b>인쇄용</b>). 주의 하나 — <b>검색량은 구매량이 아닙니다</b>(수요의 신호일 뿐). 관광 전용 근거(한국관광 데이터랩 · PRISM · 관광특화 통합검색)는 파트 08 에 따로 있습니다. <b>← →</b> 로 넘깁니다.</span></p>
       <p class="dltags"><a class="mapl form bm" href="business-model-revenue-flow-diagram.html" target="_blank" rel="noopener">사업모델 · 수익구조 도식화와 경쟁력 설명 ↗</a><a class="mapl form bm" href="bm-diagram-4types.html" target="_blank" rel="noopener">BM 도식 네 가지 예시 ↗</a><a class="mapl form bm" href="business-model-teaching-carousel.html" target="_blank" rel="noopener">✦ 사업모델 도식화 · 수업 진행 일곱 칸 ↗</a><span class="dl-src">위 셋 가운데 <b>「어떻게 버는가」를 그림으로</b> 옮기는 법입니다 — <b>가치는 실선, 돈은 점선</b>, 박스는 3~4개, 우리 박스 안에 <b>남기는 돈을 숫자로</b>. 수수료형 · 판매마진형 · 구독형 · 광고형 · B2B 솔루션형 다섯 가지를 눌러 비교하고, 끝에 <b>경쟁력 표를 도식의 화살표와 잇는 법</b>과 점검 질문 다섯이 있습니다. 예비창업패키지 사업계획서 <b>「2-2 사업모델」</b> 칸에 그대로 쓰입니다.<br /><b>노란 알약</b>은 같은 내용을 <b>수업 진행 순서</b>로 푼 일곱 칸입니다 — ① 사업모델을 <b>한 문장</b>으로 → ② 학생에게 던질 <b>다섯 질문</b> → ③ 문제에서 <b>경쟁력</b>까지 잇기 → ④ <b>네모 넷 + 화살표</b>로 도식화(예: 안동 외국인 로컬투어 — 외국인 관광객 · 우리 회사 · 지역 파트너 · OTA·플랫폼) → ⑤ <b>사업모델과 수익모델 구분</b> → ⑥ 경쟁력은 「우리가 잘한다」가 아니라 <b>비교로</b> → ⑦ 수업 활동 <b>세 단계</b>(문장으로 만들기 · 그림으로 바꾸기 · <b>돈 들어오는 곳에 ★</b>). <em>혼자 채울 때는 왼쪽 두 판, 같이 만들 때는 이 판입니다.</em><br /><b>그 옆 판은 「그래서 어떤 모양으로 그리나」에 답합니다</b> — 실제 사업계획서에 쓰인 <b>BM 도식 네 가지</b>를 한 장에 모아 놓고 하나씩 뜯습니다. <b>① 타겟별 수익모델형</b>(B2B · B2C · B2G로 고객을 먼저 나누고 각 고객에서 나오는 판매 · 대여 · 구독 · 수수료를 붙인다) · <b>② 기업 중심 연결형</b>(기업을 가운데 두고 양쪽 고객군과 제공 기능을 잇는다) · <b>③ B2G–B2B 공급구조형</b>(공공기관에 넣은 것이 기업 고객으로 어떻게 번져 가는지, 확보 실적까지) · <b>④ 복합 수익모델형</b>(판매 · 구독 · 렌탈 · 플랫폼 수수료 · 기술료 · 광고 · 데이터 판매를 한 장에). <b>첫 장이 네 가지를 비교한 인포그래픽</b>이고, 뒤로 넘기면 분류 · 원본 · 자리별 해설이 나옵니다. 관광벤처라면 <b>①과 ④를 겹쳐</b> 그리는 쪽이 잘 맞습니다 — 외국인 관광객(B2C) 투어 판매가 <b>주수익</b>, 숙박업체(B2B) 중개수수료와 지자체(B2G) 사업 수행비가 <b>부수익</b>이 되는 식입니다.</span></p>
-      <p class="dltags"><a class="mapl form bm" href="startup-business-planning-108p.html" target="_blank" rel="noopener">스타트업 비즈니스 기획론 · 108쪽 원본과 OCR ↗</a><a class="mapl form bm" href="business-model-17-types-p20-40.html" target="_blank" rel="noopener">그 20–40쪽 정리 · 비즈니스 모델 17가지 × 관광 적용 ↗</a><a class="mapl form bm" href="business-model-17-types-slides.html" target="_blank" rel="noopener">17가지 인포그래픽 ↗</a><span class="dl-src">POSTECH 서리빈 교수 학습자료 — <b>비즈니스 모델 설계와 수익성 분석</b>(비즈니스 모델 혁신 · 핵심 요소와 유형 · <b>고객 생애 가치(LTV)</b> · <b>고객 획득 비용(CAC)</b>). 위 도식에서 「남기는 돈」을 숫자로 적을 때 LTV · CAC 계산이 근거가 됩니다.<br /><b>초록 알약은 그 책의 20–40쪽을 다섯 탭으로 정리한 판입니다</b> — 「무료는 비즈니스 모델이 아니다」에서 시작해 <b>17가지 수익모델</b>(일회성 선지급 · 사용료 · 업셀링 · 광고 · 거래수수료 · 정액 · 프랜차이즈 …)마다 원자료 사례와 <b>관광 적용 예</b>를 나란히 두고, <b>한 상품이 여러 모델로 돈을 버는 결합형</b>(OTA형 · 패키지 원가표 · 무료 관광 앱 · 안동 한옥여행 여섯 갈래)과 <b>내 아이템에 17가지를 대입해 보는 프롬프트</b>로 끝납니다. 옆의 <b>인포그래픽 세 장</b>은 같은 17가지를 한 장에 여섯씩 — 모델마다 <b>뜻 한 줄 · 돈의 흐름 · 예시</b>만 남긴 복습용입니다.</span></p>
+      <p class="dltags"><a class="mapl form bm" href="startup-business-planning-108p.html" target="_blank" rel="noopener"><span class="blink-star">★</span> 스타트업 비즈니스 기획론 · 108쪽 원본과 OCR ↗</a><a class="mapl form bm" href="business-model-17-types-p20-40.html" target="_blank" rel="noopener">그 20–40쪽 정리 · 비즈니스 모델 17가지 × 관광 적용 ↗</a><a class="mapl form bm" href="business-model-17-types-slides.html" target="_blank" rel="noopener">17가지 인포그래픽 ↗</a><span class="dl-src">POSTECH 서리빈 교수 학습자료 — <b>비즈니스 모델 설계와 수익성 분석</b>(비즈니스 모델 혁신 · 핵심 요소와 유형 · <b>고객 생애 가치(LTV)</b> · <b>고객 획득 비용(CAC)</b>). 위 도식에서 「남기는 돈」을 숫자로 적을 때 LTV · CAC 계산이 근거가 됩니다.<br /><b>초록 알약은 그 책의 20–40쪽을 다섯 탭으로 정리한 판입니다</b> — 「무료는 비즈니스 모델이 아니다」에서 시작해 <b>17가지 수익모델</b>(일회성 선지급 · 사용료 · 업셀링 · 광고 · 거래수수료 · 정액 · 프랜차이즈 …)마다 원자료 사례와 <b>관광 적용 예</b>를 나란히 두고, <b>한 상품이 여러 모델로 돈을 버는 결합형</b>(OTA형 · 패키지 원가표 · 무료 관광 앱 · 안동 한옥여행 여섯 갈래)과 <b>내 아이템에 17가지를 대입해 보는 프롬프트</b>로 끝납니다. 옆의 <b>인포그래픽 세 장</b>은 같은 17가지를 한 장에 여섯씩 — 모델마다 <b>뜻 한 줄 · 돈의 흐름 · 예시</b>만 남긴 복습용입니다.</span></p>
       <p class="bm-jump"><a href="#agency-revenue">여행사 수익모델 · 기업 여섯과 BSP TOP10 ↓</a><span>여기까지가 <b>모델을 세우는 법</b>이라면, 그 아래는 <b>실제 회사들이 어떻게 벌고 있는가</b>입니다.</span></p>
 
       <p class="learn-part lp-core"><span class="num">04</span>만들기 전에 검증하라 — 린 스타트업<a class="poc-jump" href="#poc"><span class="poc-star" aria-hidden="true">✦</span>PoC · MVP 비교 ↓</a></p>
@@ -3007,7 +3014,7 @@
         <svg class="tri-line" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polygon points="50,3 97,97 3,97" /></svg>
         <ol class="vcards c3 steps tri3">
           <li class="t-blue"><span class="vt">만든다</span><span class="vh">MVP · 최소기능제품</span><span class="vd">핵심 가치만 담은 최소 버전으로 빠르게 시장에 묻는다.</span></li>
-          <li class="t-blue sky-solid"><span class="vt">묻는다</span><span class="vh">고객 검증</span><span class="vd">인터뷰·사전예약·랜딩페이지로 <em>"정말 돈을 낼까"</em>를 확인한다.</span></li>
+          <li class="t-blue sky-solid"><span class="vt">묻는다</span><span class="vh">★ 고객 검증</span><span class="vd">인터뷰·사전예약·랜딩페이지로 <em>"정말 돈을 낼까"</em>를 확인한다. <b>#POC #MVP</b></span></li>
           <li class="t-blue"><span class="vt">배운다</span><span class="vh">측정·학습</span><span class="vd">반응을 데이터로 읽고(02 「빅데이터 분석」), 방향을 유지하거나 바꾼다(피벗).</span></li>
         </ol>
         <span class="tri-hub">린 스타트업</span>
@@ -3094,7 +3101,7 @@
           <span class="grouptitle">사업계획서 · IR 피칭 배우기</span>
           <div class="linkrow tiny">
             <a href="https://blog.naver.com/772ryo" target="_blank" rel="noopener">이명신 IR피칭 멘토 ↗</a>
-            <a href="https://class101.net/ko/products/6350e49a4ba9e7000e7968ab?viewMode=svod" target="_blank" rel="noopener">CLASS101 · 예비창업패키지 ↗</a><a class="ylw98" href="gov-support-business-plan-98p.html" target="_blank" rel="noopener">사업계획서 합격 비법 · 98장 ↗</a>
+            <a href="https://class101.net/ko/products/6350e49a4ba9e7000e7968ab?viewMode=svod" target="_blank" rel="noopener">CLASS101 · 예비창업패키지 ↗</a><a class="ylw98" href="gov-support-business-plan-98p.html" target="_blank" rel="noopener"><span class="blink-star">★</span> 사업계획서 합격 비법 · 98장 ↗</a>
           </div>
           <span class="desc">02~04장의 문제 정의·비즈니스 모델·시장 검증을 실제 <strong>지원 서류</strong>로 옮기는 단계에서 곁에 둘 자료입니다.</span>
           <details class="fold">

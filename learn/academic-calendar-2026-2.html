@@ -159,6 +159,25 @@ header {
   display:inline-block; width:10px; height:10px; border-radius:3px; margin-right:6px; vertical-align:-1px;
 }
 .note {margin-left:auto!important; color:#7c8798!important}
+.att-log {max-width:1920px; margin:18px auto 0; padding:0 26px 40px}
+.att-log h2 {font-size:17px; color:var(--navy); margin:0 0 4px}
+.att-log .sub {font-size:11.5px; color:var(--muted); margin:0 0 12px}
+.att-log .sub a {color:var(--blue); text-decoration:none; font-weight:700}
+.att-wrap {overflow-x:auto; background:var(--card); border:1px solid var(--line); border-radius:14px}
+table.att-tbl {width:100%; border-collapse:collapse; min-width:980px; font-size:12.5px}
+table.att-tbl th {background:#eef4ff; color:var(--navy); text-align:left; padding:10px 12px; font-size:11.5px; font-weight:800; white-space:nowrap}
+table.att-tbl td {padding:10px 12px; border-top:1px solid var(--line); vertical-align:top}
+table.att-tbl td:first-child {font-weight:800; color:var(--navy); white-space:nowrap}
+table.att-tbl tbody tr:nth-child(odd) {background:#fafbfd}
+table.att-tbl .tag {display:inline-block; margin:0 3px 3px 0; padding:1px 7px; border-radius:999px; background:#eef4ff; color:var(--blue); font-size:10.5px; font-weight:700}
+table.att-tbl .sm {display:block; margin-top:3px; font-size:10.5px; color:var(--muted); line-height:1.5}
+table.att-tbl .dash {color:#aab3c0; text-align:center}
+table.att-tbl .pres strong {display:block; color:#6b3fa0}
+table.att-tbl .nm {white-space:nowrap}
+table.att-tbl .late {margin-left:2px; font-size:9.5px; font-weight:700; color:#a8681f}
+table.att-tbl .abs b {color:#b0383f}
+table.att-tbl .abs em {font-style:normal; color:#a08b4a}
+.att-log .foot {font-size:11px; color:var(--muted); margin:10px 2px 0; line-height:1.7}
 @media(max-width:1320px) {
   .grid {grid-template-columns:1fr}
   .week-strip {grid-template-columns:repeat(8,1fr)}
@@ -356,6 +375,63 @@ header {
 <span><i class="swatch" style="background:var(--smart)"></i>스마트관광의 이해</span>
 <span class="note">※ 대동체육대회 기간(9/16–9/18)에도 수업은 정상 진행으로 반영했습니다. 12/10은 목요일 스마트관광 보강으로 별도 표기했습니다.</span>
 </div>
+
+<section class="att-log">
+  <h2>관광빅데이터분석 — 수업 진행 기록</h2>
+  <p class="sub">회차별 내용 · 발표 · 출석 — 매 수업 뒤에 한 줄씩 더합니다. 자세히 보기: <a href="big-data-analytics.html#수업기록" target="_blank" rel="noopener">big-data-analytics.html ↗</a></p>
+  <div class="att-wrap">
+    <table class="att-tbl">
+      <thead><tr><th>날짜(회차)</th><th>이론 · 개념</th><th>발표</th><th>ADsP 문제 범위</th><th>출석</th><th>결석</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>9/7 (1회)</td>
+          <td><span class="tag">#과목소개</span><span class="tag">#빅데이터개념</span><span class="tag">#분석방법</span><span class="tag">#분석도구</span><span class="tag">#Orange설치</span><span class="sm">홈페이지 소개 · 교재 메일 발송</span></td>
+          <td class="dash">—</td>
+          <td><strong>시험 소개</strong><span class="sm">문제 풀이 전</span></td>
+          <td><span class="nm">고은서</span> · <span class="nm">김윤서</span> · <span class="nm">박상준</span> · <span class="nm">서효원</span> · <span class="nm">이영훈</span> · <span class="nm">장민주</span> · <span class="nm">정연승</span> <strong>(7명)</strong></td>
+          <td class="abs"><b>5명</b> — <span class="nm">김다애</span> · <span class="nm">김대호</span> · <span class="nm">김준호</span> · <span class="nm">임준혁</span> · <span class="nm">한솔</span></td>
+        </tr>
+        <tr>
+          <td>9/14 (2회)</td>
+          <td><span class="tag">#지도학습</span><span class="tag">#비지도학습</span><span class="tag">#군집분석</span><span class="tag">#빅데이터플랫폼</span><span class="sm">유아교사 공감능력 군집분석 사례 · 파트 04 사례 논문</span></td>
+          <td class="dash">—</td>
+          <td><strong>Q1~29</strong><span class="sm">데이터 · 정보, DB, 빅데이터 가치 · 영향, 비즈니스 모델, 위기요인 · 통제방안</span></td>
+          <td><span class="nm">고은서</span> · <span class="nm">김윤서</span> · <span class="nm">서효원</span> · <span class="nm">이영훈</span> · <span class="nm">임준혁</span> · <span class="nm">장민주</span> · <span class="nm">정연승</span> · <span class="nm">한솔</span> <strong>(8명)</strong></td>
+          <td class="abs"><b>4명</b> — <span class="nm">김다애</span> · <span class="nm">김대호</span> · <span class="nm">김준호</span> · <span class="nm">박상준</span></td>
+        </tr>
+        <tr>
+          <td>9/21 (3회)</td>
+          <td><span class="tag">#KOSIS</span><span class="tag">#시각화</span><span class="tag">#DIKW</span><span class="tag">#관광적용</span></td>
+          <td class="pres"><span class="sm">DIKW 관광 적용</span><strong><span class="nm">임준혁</span> · <span class="nm">김윤서</span> · <span class="nm">고은서</span> · <span class="nm">서효원</span> · <span class="nm">박상준</span></strong><span class="sm">9/28 예정 — <span class="nm">한솔</span> · <span class="nm">김준호</span> · <span class="nm">이영훈</span> · <span class="nm">정연승</span> · <span class="nm">장민주</span></span></td>
+          <td><strong>Q30~37</strong><span class="sm">ADsP 이력서 활용</span></td>
+          <td><span class="nm">고은서</span> · <span class="nm">김윤서</span> · <span class="nm">김준호</span> · <span class="nm">박상준</span> · <span class="nm">서효원</span> · <span class="nm">이영훈</span> · <span class="nm">임준혁</span> · <span class="nm">장민주</span> · <span class="nm">정연승</span> · <span class="nm">한솔</span> <strong>(10명)</strong></td>
+          <td class="abs"><b>2명</b> — <span class="nm">김다애</span> · <span class="nm">김대호</span></td>
+        </tr>
+        <tr>
+          <td>9/28 (4회)</td>
+          <td>
+            <span class="tag">#경진대회사례</span><span class="tag">#보행환경</span><span class="tag">#AI분석</span><span class="sm">2026 서울시 빅데이터 활용 경진대회 분석 부문 최우수상 「보행 소년단」 발표 영상 — AI가 걸어본 서울 관광지 보행환경 · 파트 06의 서울 캠퍼스 카드</span>
+            <span class="tag">#텍스트마이닝</span><span class="tag">#아리랑사례</span><span class="sm">밀양아리랑 · 정선아리랑 온라인 텍스트 비교 — 빈도분석 → 바이그램 → TF-IDF → LDA 토픽 · 파트 04 사례 논문</span>
+            <span class="tag">#네이버데이터랩API</span><span class="sm">검색어 트렌드 · 쇼핑인사이트를 무료 오픈 API로 — 최고 시점을 100으로 둔 상대값, 연령 · 성별 · 기기별 · 관련 링크</span>
+          </td>
+          <td class="pres"><span class="sm">DIKW 관광 적용 · 그 자리에서 피드백</span><strong><span class="nm">김준호</span> · <span class="nm">이영훈</span> · <span class="nm">장민주</span> · <span class="nm">정연승</span></strong><span class="sm">예정자 다섯 중 <b>한솔만 결석</b>해 발표가 남았습니다.</span></td>
+          <td><strong>1과목 50문항 중 1~10번</strong><span class="sm"><a href="adsp-subject1-50q-workbook.html" target="_blank" rel="noopener">1과목 50문항 실전훈련 판 ↗</a></span></td>
+          <td><span class="nm">고은서</span> · <span class="nm">김다애</span> · <span class="nm">김윤서</span> · <span class="nm">김준호</span> · <span class="nm">서효원</span> · <span class="nm">이영훈</span> · <span class="nm">임준혁</span> · <span class="nm">장민주</span> · <span class="nm">정연승</span><span class="late">(지각)</span> <strong>(9명)</strong><span class="sm">김다애는 이날 처음 나왔습니다.</span></td>
+          <td class="abs"><b>3명</b> — <span class="nm">김대호</span> · <span class="nm">박상준</span> · <span class="nm">한솔</span></td>
+        </tr>
+        <tr>
+          <td>10/12 (5회)</td>
+          <td class="dash">—</td>
+          <td class="dash">—</td>
+          <td class="dash">—</td>
+          <td><span class="nm">고은서</span><span class="late">(지각 · 15분)</span> · <span class="nm">김다애</span><span class="late">(지각 · 1차시 빠짐)</span> · <span class="nm">김윤서</span> · <span class="nm">박상준</span> · <span class="nm">서효원</span> · <span class="nm">이영훈</span> · <span class="nm">장민주</span> · <span class="nm">정연승</span><span class="late">(지각 · 출석 뒤 5분)</span> · <span class="nm">한솔</span><span class="late">(지각 · 15분)</span> <strong>(9명)</strong></td>
+          <td class="abs"><b>3명</b> — <span class="nm">김대호</span> · <span class="nm">김준호</span> · <span class="nm">임준혁</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="foot"><b>수강 인원은 12명</b>입니다 — 출석 + 결석이 12가 되는지로 검산합니다. 여기 적는 것은 그날 강의실에서 확인한 기록이고, 학사 시스템의 공식 출결과는 따로 봅니다.</p>
+</section>
 </div>
 <script>
 /* 학사일정은 세 과목에서 열린다 — 어디서 왔는지 모르므로, 같은 사이트에서 왔다면 뒤로,
