@@ -482,6 +482,8 @@
     /* 공고 마감(data-close) 뒤에는 is-closed가 붙어 「지난 공고」 문구로 바뀐다 */
     .learn-article .wb-why .wb-closed { display: none; }
     /* 인천연구원 「하는 일」 — 채용 기회 알림판과 같은 연한 빨강 줄 형광펜 (2026-09-30) */
+    /* 「이럴 땐 여기」 표 — KOSIS 줄 노란 형광펜(2026-10-12) */
+    .learn-article table.pm-q mark.pm-hl { background: linear-gradient(transparent 50%, #ffe45c 50%); color: inherit; padding: 0 2px; font-weight: 700; }
     .learn-article .wb-why mark.hl-red { background: linear-gradient(transparent 55%, #fbd0d0 55%); color: inherit; padding: 0 2px; font-weight: 700; }
     .learn-article .wb-why.is-closed .wb-closed { display: inline; }
     .learn-article .wb-why.is-closed .wb-open { display: none; }
@@ -593,7 +595,7 @@
     }
     .learn-article .what-box .wb-cube li {
       --c: #5b3f7a; --cd: #3d2a52; --cl: #f5f0fb;
-      min-height: 270px; display: flex; flex-direction: column; gap: 6px;
+      min-height: 180px; display: flex; flex-direction: column; gap: 6px;
       padding: 16px 16px 14px; border-radius: 10px; margin: 0;
       background: var(--cl); border: 2px solid var(--c);
       box-shadow: 6px 6px 0 var(--cd);
@@ -611,13 +613,17 @@
     .learn-article .what-box .wb-cube a.cb-ref:hover { background: var(--c); color: #fff; }
     .learn-article .ref-shelf .rs-why { margin: 9px 0 0; padding: 9px 12px; border-left: 3px solid #2563a8; background: #f6f9fd; font-size: 13px; line-height: 1.8; color: #34495e; }
     .learn-article .ref-shelf .rs-why b.rs-wt { color: #2563a8; font-weight: 900; }
-    /* 1번 네모 안 다섯 걸음 - 파트 03 육각형의 1~5번을 한 줄씩. 네모의 여백을 이 목록이 채운다. */
-    .learn-article .what-box .wb-cube ol.cb-steps { display: block; margin: 0; padding: 6px 0 0; border-top: 1px dashed #cdbde3; }
+    /* 1번 네모 안 다섯 걸음 - 파트 03 칠각형의 0 · 0.5 · 1~5번을 화살표 한 줄로(2026-10-12, 세로 목록 → 한 줄 · 공간 절약).
+       걸음마다의 설명(무엇을 알고 싶은가 등)은 title — 마우스를 올리면 보인다. 0 · 0.5는 준비 단계라 옅게. */
+    .learn-article .what-box .wb-cube ol.cb-steps { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 0; margin: 0; padding: 7px 0 0; border-top: 1px dashed #cdbde3; }
     .learn-article .what-box .wb-cube ol.cb-steps li {
-      min-height: 0; display: flex; flex-direction: row; align-items: center; gap: 6px; flex-wrap: nowrap; white-space: nowrap;
-      padding: 1px 0; margin: 0; border: 0; border-radius: 0; background: none; box-shadow: none;
-      font-size: 12.5px; font-weight: 700; color: #3d2a52;
+      min-height: 0; display: inline-flex; flex-direction: row; align-items: center; gap: 4px; flex-wrap: nowrap; white-space: nowrap;
+      padding: 0; margin: 0; border: 0; border-radius: 0; background: none; box-shadow: none;
+      font-size: 12.5px; font-weight: 700; color: #3d2a52; cursor: help;
     }
+    .learn-article .what-box .wb-cube ol.cb-steps li + li::before { content: "→"; margin: 0 5px; color: #a593bd; font-weight: 500; }
+    .learn-article .what-box .wb-cube ol.cb-steps li.pre { color: #2c6a9c; }
+    .learn-article .what-box .wb-cube ol.cb-steps li.pre b { background: #5aa7de; width: auto; min-width: 18px; padding: 0 4px; border-radius: 999px; }
     .learn-article .what-box .wb-cube ol.cb-steps li b {
       flex: none; width: 18px; height: 18px; border-radius: 50%; background: #5b3f7a; color: #fff;
       font-size: 10.5px; display: inline-flex; align-items: center; justify-content: center;
@@ -1370,12 +1376,14 @@
             <li class="thry">
               <p class="cb-h"><b class="cb-n">1</b><b class="cb-ti">이론</b><span class="cb-q">왜 · 어떻게</span></p>
               <p class="cb-d"><strong>빅데이터란</strong> 무엇인가<br /><strong>다섯 걸음</strong>으로 분석 설계</p>
-              <ol class="cb-steps">
-                <li><b>1</b><span class="cb-hl">문제 정의 <small>무엇을 알고 싶은가</small></span></li>
-                <li><b>2</b>수집 <small>데이터 모으기</small></li>
-                <li><b>3</b>정제 <small>결측 · 중복 · 오류 거르기</small></li>
-                <li><b>4</b>분석 <small>패턴 찾기</small></li>
-                <li><b>5</b>시각화 · 해석 <small>결정으로 잇기</small></li>
+              <ol class="cb-steps" aria-label="파트 03 칠각형의 순서">
+                <li class="pre" title="Reference — 수상작부터 연다"><b>0</b>수상작</li>
+                <li class="pre" title="데이터 출처 보기 — 수상작은 어디서 데이터를 받았나"><b>0.5</b>출처</li>
+                <li title="무엇을 알고 싶은가"><b>1</b><span class="cb-hl">문제 정의</span></li>
+                <li title="데이터 모으기"><b>2</b>수집</li>
+                <li title="결측 · 중복 · 오류 거르기"><b>3</b>정제</li>
+                <li title="패턴 찾기"><b>4</b>분석</li>
+                <li title="결정으로 잇기"><b>5</b>시각화 · 해석</li>
               </ol>
             </li>
             <li class="tech">
@@ -1673,7 +1681,7 @@
           <tbody>
             <tr><td>강릉의 7월 방문객 · 소비가 궁금하다</td><td><a href="#src-tour">한국관광 데이터랩</a><i>③</i></td></tr>
             <tr><td>관광지 주변 상권 매출을 보고 싶다</td><td><a href="#src-tour">소상공인365</a><i>③</i></td></tr>
-            <tr><td>시군구 인구 같은 공식 수치를 표로 받고 싶다</td><td><a href="#src-kosis">KOSIS</a><i>②</i></td></tr>
+            <tr class="hl"><td><mark class="pm-hl">시군구 인구 같은 공식 수치를 표로 받고 싶다</mark></td><td><a href="#src-kosis"><mark class="pm-hl">KOSIS</mark></a><i>②</i></td></tr>
             <tr><td>관광지 목록 원본 파일 · API가 필요하다</td><td><a href="#src-datago">공공데이터포털</a><i>①</i></td></tr>
             <tr><td>서울 한 동네의 생활인구 · 교통을 보고 싶다</td><td><a href="#src-seoul">서울 열린데이터광장</a><i>①</i></td></tr>
             <tr><td>사람들이 그 여행지를 언제 검색했나</td><td><a href="#naver-datalab">네이버 데이터랩</a><i>④ 민간</i></td></tr>
