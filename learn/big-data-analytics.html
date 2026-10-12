@@ -456,6 +456,8 @@
     }
     .learn-article .what-box .wb-aims > li .aim-w b { color: #2563a8; font-weight: 800; }
     .learn-article .what-box .wb-aims > li .aim-w small { margin-left: 3px; font-size: 10px; font-weight: 600; }
+    .learn-article .what-box .wb-aims > li .aim-hint { margin-left: 6px; font-size: 11.5px; color: #7d8ea0; font-weight: 600; }
+    .learn-article .what-box .wb-aims > li .aim-hint a.aim-go { font-weight: 700; }
     .learn-article .what-box .wb-aims-more { margin: -8px 0 12px 28px; font-size: 11.5px; color: #7d8ea0; }
     .learn-article .what-box .wb-aims-more b { color: #2563a8; }
     .learn-article .what-box .wb-aims-more a.aim-go { color: #2563a8; text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px; }
@@ -1270,10 +1272,10 @@
     }
     /* ── 수상작을 읽는 다섯 질문을 원으로 — 오각형 꼭짓점에 동그라미 다섯, 사이를 시계 방향 화살표로 잇는다.
        좌표는 SVG viewBox(1000×860) 기준 중심 (500,440) · 반지름 300, 꼭짓점 (500,140) (785,347) (676,683) (324,683) (215,347). ── */
-    .learn-article .qring-wrap { position: relative; max-width: 860px; margin: 10px auto 18px; aspect-ratio: 1000 / 860; }
+    .learn-article .qring-wrap { position: relative; max-width: 640px; margin: 10px auto 18px; aspect-ratio: 1000 / 860; }
     .learn-article .qring-wrap .qring-svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-    .learn-article .qring-svg .qr-c1 { font-size: 24px; font-weight: 700; fill: #6b7f94; }
-    .learn-article .qring-svg .qr-c2 { font-size: 34px; font-weight: 900; fill: #14456f; }
+    .learn-article .qring-svg .qr-c1 { font-size: 27px; font-weight: 700; fill: #6b7f94; }
+    .learn-article .qring-svg .qr-c2 { font-size: 38px; font-weight: 900; fill: #14456f; }
     .learn-article .vcards.qring { display: block; margin: 0; }
     .learn-article .vcards.qring > li {
       position: absolute; width: 26%; aspect-ratio: 1; transform: translate(-50%, -50%); word-break: keep-all;
@@ -1376,7 +1378,7 @@
         <p class="wb-t" id="what-title">이 수업은 무엇을 하나<span>빅데이터 분석 = <b>실전 감각 편</b> · 데이터 분석 = <b>이론 기초 편</b></span></p>
         <p class="wb-goal"><b class="wb-gt">수업 목표</b>넷입니다.</p>
         <ol class="wb-aims">
-          <li><span class="aim-w"><b>How</b><small>어떻게</small></span><b>빅데이터 분석을 할 줄 안다.</b></li>
+          <li><span class="aim-w"><b>How</b><small>어떻게</small></span><b>빅데이터 분석을 할 줄 안다.</b><span class="aim-hint">← 남들이 한 것을 본다 — <a class="aim-go" href="#수상작서가">reference를 유심히 본다 ↓</a></span></li>
           <li><span class="aim-w"><b>What</b><small>무엇을</small></span>빅데이터 분석 역량을 키우기 위해 <b><a class="aim-go" href="#p01">기초 개념 ↓</a> · 통계 용어</b>와 <b><a class="aim-go" href="#kmooc">공부법 ↓</a></b>을 익힌다.</li>
           <li><span class="aim-w"><b>Where</b><small>어디서</small></span>실전 감각을 기르기 위해 <b><a class="aim-go" href="#src-tour">빅데이터 플랫폼 ↓</a> · <a class="aim-go" href="#kosis-card">통계 지표 ↓</a> · <a class="aim-go" href="#수상작서가">공모전 수상작 ↓</a></b>을 직접 찾아본다.</li>
           <li><span class="aim-w"><b>Who</b><small>누구에게</small></span>빅데이터 분석과 이어지는, 접근 가능한 <b><a class="aim-go" href="#ADsP1과목지도">ADsP 자격증 ↓</a> 취득의 기초</b>를 다지고, 이를 <b><a class="aim-go" href="#ADsP취업연계">지원서의 근거 ↓</a></b>로 제시할 줄 안다.</li>
@@ -1840,13 +1842,13 @@
             <a href="https://kosis.kr/easyViewStatis/uccList.do" target="_blank" rel="noopener">내가 말하는 통계 · 역대 수상 영상 ↗</a>
           </div>
           <span class="desc">인구·경제·사회 등 다양한 분야의 공신력 있는 국가 공식 통계 지표를 검색·시각화·다운로드할 수 있는 통계 포털.<br />
-          <strong>통계시각화콘텐츠</strong> — 인구·물가 등 주요 지표를 차트·지도·웹툰 같은 그림으로 풀어 보여 주는 시각화 모음. 표를 읽기 전에 흐름부터 눈으로 잡을 때 좋습니다. <em>보는 곳.</em><br />
-          <strong>데이터 시각화 체험하기</strong> — 통계 데이터를 골라 차트·그래프를 직접 만들어 보는 체험 공간. 코딩 없이 「어떤 데이터에 어떤 그래프가 맞는가」를 손으로 익힐 수 있습니다. <em>만드는 곳.</em><br />
-          <strong>실습 예제</strong> — KOSIS 라인 차트 하나(경북 외국인등록인구 2016~2025)를 <strong>자료 → 정보 → 지식 → 지혜(DIKW)</strong>로 좌우 넘기며 읽습니다.<br />
-          <strong>해석 프롬프트</strong> — 내가 만든 그래프를 AI에게 보여 줄 때 쓰는 질문 틀. 원인을 단정하지 않고 <em>다음에 찾을 데이터</em>까지 묻게 합니다.<br />
-          <strong>내가 말하는 통계</strong> — KOSIS 통계로 만든 <strong>역대 수상 영상</strong>이 <strong>제1회(2014)부터 제13회(2026)까지</strong> 연도별로 쌓여 있습니다. 통계를 <em>남에게 보여 주는 형태</em>로 바꾼 실물이라, <strong>바로 아래 디지털콘텐츠 공모전</strong>을 준비할 때뿐 아니라 <em>발표 과제의 본보기</em>로도 봅니다.<br />
-          <strong>100대 지표 판</strong> — <strong>100개를 외우지 말고 10개 영역으로</strong> 먼저 봅니다(인구 15 · 보건복지 13 · 교육노동 12 · 소득소비 6 · <strong>여가 7</strong> · 주거교통 9 …). 같은 지표를 <strong>사람 · 이동 · 관광여가 · 소비 · 산업일자리 · 지속가능성</strong> 여섯 질문으로 바꿔 읽고, 마지막 장의 전체 표에서는 <strong class="hot-t">관광 · 여가와 이어지는 지표를 파랗게</strong> 표시해 두었습니다 — <em>외래관광객수 · 국내여행 경험률 · 해외여행 경험률 · 문화예술행사 관람률</em>뿐 아니라 <em>고령인구 · 1인가구 · 외국인등록인구 · 근로시간</em>처럼 <strong>분석으로 이어지는 것</strong>까지 함께 짚습니다. 「빅데이터 분석의 첫 단계는 <strong>어떤 데이터가 존재하는지 아는 것</strong>」이라는 말이 이 판의 요지입니다.<br />
-          <strong>발표자료(PPTX)</strong> — <strong>KOSIS 인구관계도</strong> 한 화면을 <strong>D → I → K → W</strong> 네 단계로 올려 보는 <strong>열 장</strong>. 인구 · 가구구조 변화에서 <strong>고령층 맞춤 · 1인 여행 · 체류형 관광</strong>이라는 관광 의사결정까지 내려옵니다. <strong>파트 01 5V</strong>와의 관계도 한 장 있습니다.</span>
+          <strong>1. 통계시각화콘텐츠</strong> — 인구·물가 등 주요 지표를 차트·지도·웹툰 같은 그림으로 풀어 보여 주는 시각화 모음. 표를 읽기 전에 흐름부터 눈으로 잡을 때 좋습니다. <em>보는 곳.</em><br />
+          <strong>2. 데이터 시각화 체험하기</strong> — 통계 데이터를 골라 차트·그래프를 직접 만들어 보는 체험 공간. 코딩 없이 「어떤 데이터에 어떤 그래프가 맞는가」를 손으로 익힐 수 있습니다. <em>만드는 곳.</em><br />
+          <strong>3. 실습 예제</strong> — KOSIS 라인 차트 하나(경북 외국인등록인구 2016~2025)를 <strong>자료 → 정보 → 지식 → 지혜(DIKW)</strong>로 좌우 넘기며 읽습니다.<br />
+          <strong>4. 해석 프롬프트</strong> — 내가 만든 그래프를 AI에게 보여 줄 때 쓰는 질문 틀. 원인을 단정하지 않고 <em>다음에 찾을 데이터</em>까지 묻게 합니다.<br />
+          <strong>5. 내가 말하는 통계</strong> — KOSIS 통계로 만든 <strong>역대 수상 영상</strong>이 <strong>제1회(2014)부터 제13회(2026)까지</strong> 연도별로 쌓여 있습니다. 통계를 <em>남에게 보여 주는 형태</em>로 바꾼 실물이라, <strong>바로 아래 디지털콘텐츠 공모전</strong>을 준비할 때뿐 아니라 <em>발표 과제의 본보기</em>로도 봅니다.<br />
+          <strong>6. 100대 지표 판</strong> — <strong>100개를 외우지 말고 10개 영역으로</strong> 먼저 봅니다(인구 15 · 보건복지 13 · 교육노동 12 · 소득소비 6 · <strong>여가 7</strong> · 주거교통 9 …). 같은 지표를 <strong>사람 · 이동 · 관광여가 · 소비 · 산업일자리 · 지속가능성</strong> 여섯 질문으로 바꿔 읽고, 마지막 장의 전체 표에서는 <strong class="hot-t">관광 · 여가와 이어지는 지표를 파랗게</strong> 표시해 두었습니다 — <em>외래관광객수 · 국내여행 경험률 · 해외여행 경험률 · 문화예술행사 관람률</em>뿐 아니라 <em>고령인구 · 1인가구 · 외국인등록인구 · 근로시간</em>처럼 <strong>분석으로 이어지는 것</strong>까지 함께 짚습니다. 「빅데이터 분석의 첫 단계는 <strong>어떤 데이터가 존재하는지 아는 것</strong>」이라는 말이 이 판의 요지입니다.<br />
+          <strong>7. 발표자료(PPTX)</strong> — <strong>KOSIS 인구관계도</strong> 한 화면을 <strong>D → I → K → W</strong> 네 단계로 올려 보는 <strong>열 장</strong>. 인구 · 가구구조 변화에서 <strong>고령층 맞춤 · 1인 여행 · 체류형 관광</strong>이라는 관광 의사결정까지 내려옵니다. <strong>파트 01 5V</strong>와의 관계도 한 장 있습니다.</span>
           <span class="meta">통계청 · 국가통계 · 시각화 보기 · 직접 만들기</span>
         </li>
       </ul>
@@ -1910,6 +1912,7 @@
 
       <h3>머신러닝 — 지도학습과 비지도학습</h3>
       <p>앞의 두 기법은 사실 <strong>머신러닝</strong>의 서로 다른 갈래에 놓입니다. 정답(레이블)을 미리 알려주고 학습시키는 것이 <strong>지도학습</strong> — <em>분류</em>와 <em>회귀</em>가 여기 속하고, <strong>④ 예측 분석</strong>이 그 예입니다. 정답 없이 데이터의 특징만 보고 비슷한 것끼리 스스로 묶게 하는 것이 <strong>비지도학습</strong> — <em>군집분석</em>과 <em>차원축소</em>가 여기 속하고, <strong>③ 군집 분석</strong>이 그 예입니다. 아래 영상에서 두 방식의 차이를 그림으로 짚습니다.</p>
+      <p class="dltags"><a class="mapl form hot" href="#textom">다음 주 수업 — 텍스트마이닝 ② 텍스톰 ↗</a><span class="dl-src">정제 → 빈도 · 워드클라우드 · N-gram → 의미연결망. <b>텍스톰(TEXTOM)</b> 카드로 미리 봅니다.</span></p>
       <div class="dm-figs" id="dm-figs">
         <p class="dm-q">데이터마이닝은 AI <b>안에</b> 있나, <b>옆에</b> 있나? — 그림마다 다르게 그립니다. 왜일까요?</p>
         <div class="dm-two">
