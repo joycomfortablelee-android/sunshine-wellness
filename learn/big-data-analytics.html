@@ -506,6 +506,37 @@
     .learn-article .wb-why .wb-parts a.wb-go.key { background: #17539b; border-color: #17539b; color: #fff; }
     .learn-article .wb-why .wb-wl li a.wb-go { margin: 4px 4px 0 0; }
     /* 공고 원문 과제 표 캡처 - 격자(wb-wl) 바깥, 흰 바탕에 작게 */
+    /* 데이터마이닝 · AI · 머신러닝 관계 그림 셋 — ① · ② 나란히, ③ 아래(2026-10-12) */
+    .learn-article .dm-figs { margin: 12px 0 14px; padding: 14px; border: 1px solid #dbe4ee; border-radius: 12px; background: #fff; }
+    .learn-article .dm-figs .dm-q { margin: 0 0 10px; text-align: center; font-size: 14.5px; font-weight: 800; color: #17365d; }
+    .learn-article .dm-figs .dm-two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .learn-article .dm-figs figure { margin: 0; }
+    .learn-article .dm-figs img { display: block; width: 100%; height: auto; border: 1px solid #e8eef5; border-radius: 8px; }
+    .learn-article .dm-figs figcaption { margin-top: 5px; font-size: 12px; line-height: 1.55; color: #44566b; }
+    .learn-article .dm-figs .dm-row2 { max-width: 640px; margin: 14px auto 0; align-items: start; }
+    .learn-article .dm-figs .dm-cite { display: block; margin-top: 2px; font-size: 11px; color: #7c8a99; }
+    .learn-article .dm-figs .dm-cite a { color: #5f7fa6; }
+    /* 그림 넷의 결론 상자(2026-10-12) */
+    .learn-article .dm-figs .dm-con { margin-top: 12px; padding: 14px 16px; border-radius: 10px; background: #f5f9fe; border: 1px solid #cfe0f3; }
+    .learn-article .dm-figs .dm-con-t { margin: 0 0 6px; font-size: 15.5px; font-weight: 800; color: #17365d; }
+    .learn-article .dm-figs .dm-con-t span { display: inline-block; margin-right: 8px; padding: 1px 10px; border-radius: 999px; background: #17365d; color: #fff; font-size: 12px; vertical-align: 2px; }
+    .learn-article .dm-figs .dm-con-q { margin: 0 0 10px; padding-left: 10px; border-left: 3px solid #a9c4e4; font-size: 13.5px; line-height: 1.7; color: #33475b; }
+    .learn-article .dm-figs table.dm-con-tb { width: 100%; border-collapse: collapse; font-size: 12.8px; line-height: 1.55; background: #fff; }
+    .learn-article .dm-figs table.dm-con-tb th, .learn-article .dm-figs table.dm-con-tb td { padding: 7px 9px; border-bottom: 1px solid #e3ecf6; text-align: left; vertical-align: top; }
+    .learn-article .dm-figs table.dm-con-tb thead th { background: #e3eefa; color: #17365d; font-size: 12px; }
+    .learn-article .dm-figs table.dm-con-tb tbody th { color: #17365d; white-space: nowrap; }
+    .learn-article .dm-figs table.dm-con-tb td:nth-of-type(1) { white-space: nowrap; }
+    .learn-article .dm-figs table.dm-con-tb tbody th small { font-weight: 600; color: #7c8a99; }
+    .learn-article .dm-figs table.dm-con-tb th.ex { background: #fff3c4; color: #6b4e00; }
+    .learn-article .dm-figs table.dm-con-tb td.ex { background: #fffbea; color: #4a3a0c; }
+    .learn-article .dm-figs .dm-why { display: block; margin-top: 3px; padding: 3px 8px; border-radius: 6px; background: #f2f7fd; color: #33475b; }
+    .learn-article .dm-figs .dm-why > b:first-child { margin-right: 4px; color: #17365d; }
+    .learn-article .dm-figs .dm-con-h { margin: 0 0 4px; font-size: 13px; font-weight: 800; color: #17365d; }
+    .learn-article .dm-figs .dm-con ul { margin: 0; padding-left: 18px; font-size: 12.8px; line-height: 1.65; color: #33475b; }
+    .learn-article .dm-figs .dm-con-check { margin: 10px 0 0; padding: 8px 12px; border-radius: 8px; background: #fff8d6; border: 1px solid #ecd27a; font-size: 13px; line-height: 1.6; color: #4a3a0c; }
+    .learn-article .dm-figs .dm-con-check span { margin-right: 6px; font-weight: 800; color: #8a6200; }
+    .learn-article .dm-figs .dm-src { margin: 8px 0 0; text-align: right; font-size: 11px; color: #7c8a99; }
+    @media (max-width: 640px) { .learn-article .dm-figs .dm-two { grid-template-columns: 1fr; } }
     .learn-article .wb-why .wb-shot { margin: 10px 0 0; max-width: 520px; padding: 8px; border: 1px solid #f3e4cc; border-radius: 8px; background: #fff; }
     .learn-article .wb-why .wb-shot img { display: block; width: 100%; height: auto; }
     .learn-article .wb-why .wb-shot figcaption { margin-top: 4px; font-size: 11px; color: #8a6a4a; }
@@ -1852,6 +1883,36 @@
 
       <h3>머신러닝 — 지도학습과 비지도학습</h3>
       <p>앞의 두 기법은 사실 <strong>머신러닝</strong>의 서로 다른 갈래에 놓입니다. 정답(레이블)을 미리 알려주고 학습시키는 것이 <strong>지도학습</strong> — <em>분류</em>와 <em>회귀</em>가 여기 속하고, <strong>④ 예측 분석</strong>이 그 예입니다. 정답 없이 데이터의 특징만 보고 비슷한 것끼리 스스로 묶게 하는 것이 <strong>비지도학습</strong> — <em>군집분석</em>과 <em>차원축소</em>가 여기 속하고, <strong>③ 군집 분석</strong>이 그 예입니다. 아래 영상에서 두 방식의 차이를 그림으로 짚습니다.</p>
+      <div class="dm-figs" id="dm-figs">
+        <p class="dm-q">데이터마이닝은 AI <b>안에</b> 있나, <b>옆에</b> 있나? — 그림마다 다르게 그립니다. 왜일까요?</p>
+        <div class="dm-two">
+          <figure><a href="images/dm-ai-ml-dl-nested.webp" target="_blank" rel="noopener"><img src="images/dm-ai-ml-dl-nested.webp" width="622" height="267" loading="lazy" alt="컴퓨터과학 안에 데이터과학, 그 안에 데이터마이닝 ⊃ 인공지능 ⊃ 머신러닝 ⊃ 딥러닝이 겹겹이 들어 있고, 통계가 데이터마이닝 안에, 빅데이터가 오른쪽에 걸쳐 있는 그림"></a>
+            <figcaption><b>① 포함으로 본 그림</b> — 데이터마이닝 ⊃ AI ⊃ 머신러닝 ⊃ 딥러닝. 오른쪽에 걸친 원이 <a href="#p01">파트 01 「빅데이터란」 ↑</a><span class="dm-why"><b>강조점</b> 데이터마이닝이 머신러닝 · AI 기법을 <b>빌려 쓴다</b>는 쪽</span><span class="dm-cite">출처 <a href="https://www.sciencedirect.com/topics/physics-and-astronomy/data-mining" target="_blank" rel="noopener">ScienceDirect · Data Mining ↗</a></span></figcaption></figure>
+          <figure><a href="images/dm-ai-ml-overlap.webp" target="_blank" rel="noopener"><img src="images/dm-ai-ml-overlap.webp" width="601" height="251" loading="lazy" alt="컴퓨터과학 안의 데이터과학에서 인공지능 · 머신러닝 · 데이터마이닝 세 원이 서로 겹치는 그림"></a>
+            <figcaption><b>② 겹침으로 본 그림</b> — AI · 머신러닝 · 데이터마이닝이 서로 일부만 겹친다.<span class="dm-why"><b>강조점</b> 셋의 <b>목적이 다르고 일부만 겹친다</b>는 쪽</span><span class="dm-cite">출처 <a href="https://www.geeksforgeeks.org/machine-learning/relationship-between-data-mining-and-machine-learning/" target="_blank" rel="noopener">GeeksforGeeks · Relationship between Data Mining and Machine Learning ↗</a></span></figcaption></figure>
+        </div>
+        <div class="dm-two dm-row2">
+          <figure><a href="images/dm-techniques-map.webp" target="_blank" rel="noopener"><img src="images/dm-techniques-map.webp" width="527" height="508" loading="lazy" alt="컴퓨터과학 안의 인공지능 옆에 데이터마이닝이 있고, 그 안에 분류 · 이상탐지 · 연관규칙 · 군집 · 회귀 · 요약 기법이 들어 있는 그림"></a>
+          <figcaption><b>③ 데이터마이닝 안의 기법</b> — 분류 · 회귀(지도학습 — 위 「예측 분석」 카드) · 군집(비지도학습 — 위 「군집 분석」 카드) · 연관규칙(ADsP 「맥주와 기저귀」) · 이상탐지 · 요약. 위 네 기법이 이 지도의 어느 칸인지 찾아보십시오.<span class="dm-why"><b>강조점</b> 경계 대신 데이터마이닝이 <b>실제로 하는 일</b>을 보여 준다</span><span class="dm-cite">출처 <a href="https://www.researchgate.net/figure/Machine-Learning-Data-Mining_fig1_334244465" target="_blank" rel="noopener">ResearchGate · Machine Learning &amp; Data Mining (fig. 1) ↗</a></span></figcaption></figure>
+          <figure><a href="images/dm-data-science-common-algorithms.webp" target="_blank" rel="noopener"><img src="images/dm-data-science-common-algorithms.webp" width="394" height="314" loading="lazy" alt="데이터과학 안에서 데이터 분석 ⊃ 데이터 애널리틱스 ⊃ 데이터마이닝이 겹겹이 있고, 머신러닝 · 인공지능 · 빅데이터 원이 겹치며, 데이터마이닝 · 머신러닝 · 빅데이터가 만나는 곳이 빨갛게 칠해진 공통 알고리즘인 그림"></a>
+            <figcaption><b>④ 공통 알고리즘으로 본 그림</b> — 데이터 분석 ⊃ 애널리틱스 ⊃ 데이터마이닝, 그 옆에 머신러닝 · AI · 빅데이터. <b>빨간 곳</b>이 데이터마이닝 · 머신러닝 · 빅데이터가 함께 쓰는 <b>공통 알고리즘</b> — 그래서 그림마다 경계가 달라 보입니다.<span class="dm-why"><b>강조점</b> 세 분야가 <b>같은 알고리즘을 함께 쓴다</b>는 쪽(빨간 곳)</span><span class="dm-cite">출처 <a href="https://www.sciencedirect.com/science/article/pii/S2452414X22000401#fig0002" target="_blank" rel="noopener">Seeger · Yahouni · Alpan(2022), <i>Journal of Industrial Information Integration</i> 28, 100371, Fig. 2 ↗</a></span></figcaption></figure>
+        </div>
+        <p class="dm-src">그림을 누르면 크게 열립니다</p>
+        <div class="dm-con">
+          <p class="dm-con-t"><span>결론</span>그림이 다른 것은 누가 틀려서가 아니라, <b>무엇을 강조하느냐</b>가 달라서다</p>
+          <p class="dm-con-q"><b>데이터마이닝</b>은 「무엇을 찾을까」, <b>머신러닝</b>은 「어떻게 배울까」, <b>빅데이터</b>는 「무엇으로」, <b>AI</b>는 「어디까지」 — 네 말은 같은 층의 상자가 아니라 서로 다른 질문에 대한 답이라, 그림마다 경계가 달라 보입니다.</p>
+          <table class="dm-con-tb">
+            <thead><tr><th>말</th><th>무엇에 대한 답인가</th><th>한 줄</th><th class="ex">관광 예 — 호텔 리뷰 10만 건</th></tr></thead>
+            <tbody>
+              <tr><th>데이터마이닝</th><td>목적 — 무엇을 <b>발견</b>하나</td><td>데이터 속 패턴 · 규칙 · 무리를 찾는다</td><td class="ex">「불만이 어떤 주제로 모이나」를 찾는 일(텍스트 마이닝)</td></tr>
+              <tr><th>머신러닝 <small>(딥러닝 포함)</small></th><td>방법 — 어떻게 <b>학습</b>시키나</td><td>데이터로 규칙을 스스로 배우는 알고리즘. 딥러닝은 그중 신경망을 깊게 쌓은 한 방법</td><td class="ex">그 주제를 묶는 LDA · 군집 알고리즘</td></tr>
+              <tr><th>빅데이터</th><td>재료 — <b>무엇으로</b></td><td>사람이 다 훑을 수 없는 양 · 속도 · 다양성(<a href="#p01">파트 01의 5V ↑</a>)</td><td class="ex">리뷰 10만 건</td></tr>
+              <tr><th>AI</th><td>목표 — <b>어디까지</b></td><td>사람처럼 판단 · 행동하는 시스템</td><td class="ex">찾아낸 불만에 자동으로 답하는 챗봇</td></tr>
+            </tbody>
+          </table>
+          <p class="dm-con-check"><span>확인 질문</span>「우리 도시 관광 앱 후기에서 불만 주제를 찾는다」 — 여기서 빅데이터 · 데이터마이닝 · 머신러닝 · AI는 각각 무엇인가?</p>
+        </div>
+      </div>
       <ul class="reslist">
         <li>
           <a class="pill-violet" href="https://video.golpoai.com/share/6798d5d2-6634-42f6-ac77-958b7f87c85a?version=0" target="_blank" rel="noopener">머신러닝 빅데이터 분석 — 지도학습·비지도학습 ↗</a>
