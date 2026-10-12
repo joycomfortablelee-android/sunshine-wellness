@@ -531,6 +531,24 @@
     .learn-article .dm-figs .dm-row2 { max-width: 640px; margin: 14px auto 0; align-items: start; }
     .learn-article .dm-figs .dm-cite { display: block; margin-top: 2px; font-size: 11px; color: #7c8a99; }
     .learn-article .dm-figs .dm-cite a { color: #5f7fa6; }
+    /* 군집분석 Q&A — 지도? 비지도?(2026-10-12) */
+    .learn-article .cl-qa { margin: 12px 0 16px; padding: 14px 16px; border: 1px solid #d9cbee; border-radius: 12px; background: #fbf8ff; }
+    .learn-article .cl-qa-t { margin: 0 0 10px; font-size: 15.5px; font-weight: 800; color: #4a2a72; }
+    .learn-article .cl-qa-t span { display: inline-block; margin-right: 8px; padding: 1px 10px; border-radius: 999px; background: #6b3fa0; color: #fff; font-size: 12px; vertical-align: 2px; }
+    .learn-article .cl-q { margin: 0 0 12px; padding: 10px 12px; border-radius: 10px; background: #fff; border: 1px solid #ece4f7; }
+    .learn-article .cl-q p, .learn-article .cl-q li { font-size: 13.2px; line-height: 1.7; color: #33475b; }
+    .learn-article .cl-q p { margin: 0 0 6px; }
+    .learn-article .cl-q ul { margin: 0 0 8px; padding-left: 18px; }
+    .learn-article .cl-qq { font-size: 14px !important; font-weight: 800; color: #4a2a72 !important; }
+    .learn-article .cl-a b { color: #6b3fa0; }
+    .learn-article .cl-h { font-weight: 800; color: #4a2a72 !important; margin-top: 8px !important; }
+    .learn-article table.cl-tb { width: 100%; border-collapse: collapse; margin: 4px 0 8px; font-size: 12.8px; line-height: 1.55; }
+    .learn-article table.cl-tb th, .learn-article table.cl-tb td { padding: 6px 9px; border-bottom: 1px solid #ece4f7; text-align: left; vertical-align: top; }
+    .learn-article table.cl-tb thead th { background: #f1eafa; color: #4a2a72; }
+    .learn-article table.cl-tb tbody th { color: #4a2a72; white-space: nowrap; }
+    .learn-article .cl-step { padding: 6px 10px; border-left: 3px solid #b79be0; background: #faf7ff; }
+    .learn-article .cl-ad span, .learn-article .cl-sum span { display: inline-block; margin-right: 6px; padding: 0 8px; border-radius: 999px; background: #ffe800; color: #14120a; font-size: 11.5px; font-weight: 800; }
+    .learn-article .cl-sum { margin: 0; padding: 8px 12px; border-radius: 8px; background: #fff8d6; border: 1px solid #ecd27a; font-size: 13.5px; line-height: 1.6; color: #3a3416; }
     /* 그림 넷의 결론 상자(2026-10-12) */
     .learn-article .dm-figs .dm-con { margin-top: 12px; padding: 14px 16px; border-radius: 10px; background: #f5f9fe; border: 1px solid #cfe0f3; }
     .learn-article .dm-figs .dm-con-t { margin: 0 0 6px; font-size: 15.5px; font-weight: 800; color: #17365d; }
@@ -1957,6 +1975,47 @@
           <p class="dm-con-check"><span>확인 질문</span>「우리 도시 관광 앱 후기에서 불만 주제를 찾는다」 — 여기서 빅데이터 · 데이터마이닝 · 머신러닝 · AI는 각각 무엇인가?</p>
         </div>
       </div>
+      <div class="cl-qa" id="cluster-qa">
+        <p class="cl-qa-t"><span>Q&amp;A</span>군집분석은 지도학습인가, 비지도학습인가?</p>
+        <div class="cl-q"><p class="cl-qq">Q1. 군집(Clustering) 분석은 지도인가 비지도인가? 계층적(위계적) 군집은?</p>
+          <p class="cl-a"><b>둘 다 비지도학습입니다.</b></p>
+          <p><b>① 군집분석 = 비지도학습</b> — 정답(레이블) 없이 데이터끼리 <b>얼마나 비슷한가</b>만으로 무리를 나눕니다. 지도학습은 「이 리뷰는 긍정」처럼 정답을 미리 알려 주고 배우게 하는 것(분류 · 회귀)이고, 군집분석은 「몇 가지 유형이 있을까?」를 데이터가 스스로 드러내게 합니다. <em>관광 예 — 여행자 지출 · 방문 빈도 · 목적으로 묶어 보니 미식형 · 휴양형 · 액티비티형이 나왔다. 이 이름은 묶은 <b>뒤에</b> 연구자가 붙입니다.</em></p>
+          <p><b>② 계층적 군집 = 이것도 비지도학습</b> — 군집을 만드는 <b>방식</b>만 다를 뿐, 정답 없이 묶는다는 점은 같습니다.</p>
+          <table class="cl-tb">
+            <thead><tr><th></th><th>계층적 군집</th><th>비계층적 군집(K-means 등)</th></tr></thead>
+            <tbody>
+              <tr><th>방식</th><td>가장 가까운 둘부터 하나씩 합쳐 나무(<b>덴드로그램</b>)를 만든다(병합형). 반대로 하나에서 쪼개는 분할형도 있다</td><td>군집 수 <b>k를 먼저 정하고</b> 중심점을 옮겨 가며 나눈다</td></tr>
+              <tr><th>군집 수</th><td>덴드로그램을 <b>어느 높이에서 자르느냐</b>로 나중에 정한다</td><td>시작 전에 정해야 한다</td></tr>
+              <tr><th>거리 기준</th><td>연결법 — 단일 · 완전 · 평균 · <b>Ward</b></td><td>중심점까지 거리</td></tr>
+              <tr><th>잘 맞는 자료</th><td>표본이 비교적 작을 때</td><td>표본이 클 때</td></tr>
+            </tbody>
+          </table>
+          <p class="cl-step"><b>오늘(10/12) 노경섭(SPSS) 방식의 흔한 순서</b> — ① <b>계층적 군집</b>의 덴드로그램 · 응집계수로 군집이 몇 개가 적당한지 본다 → ② 그 수로 <b>K-means</b>를 돌린다. 두 단계 모두 비지도입니다.</p>
+          <p class="cl-h">헷갈리기 쉬운 지점 둘</p>
+          <ul>
+            <li>군집 결과를 실제 정답과 맞춰 <b>평가</b>한다고 지도학습이 되지는 않습니다 — 학습할 때 정답을 쓰지 않았으니 비지도입니다.</li>
+            <li>군집으로 얻은 유형 이름을 정답으로 삼아 <b>분류 모델을 다시 학습</b>시키면(예: 새 여행자가 어느 유형인지 맞히는 모델), 그 두 번째 단계는 지도학습입니다. 실무에서 「군집 → 분류」로 이어 쓰는 경우가 많습니다.</li>
+          </ul>
+          <p class="cl-ad"><span>ADsP</span>「군집분석은 비지도학습」 · 「계층적(병합 · 분할 / 연결법 · 덴드로그램) vs 비계층적(K-means — k를 미리 지정)」 — 두 가지가 단골입니다.</p>
+        </div>
+        <div class="cl-q"><p class="cl-qq">Q2. 그럼 군집분석 중에도 지도학습은 없나?</p>
+          <p class="cl-a"><b>정확히 말하면 군집분석에는 지도학습이 없습니다.</b> 정의 자체가 「정답 없이 묶는 것」이라, 정답을 주고 나누면 그때부터는 <b>분류</b>라고 부릅니다. 다만 경계에 있는 것이 둘 있습니다.</p>
+          <ul>
+            <li><b>준지도(semi-supervised) 군집 — 정답을 「조금만」 쓰는 군집.</b> <em>제약 군집</em>: 「이 두 리뷰는 반드시 같은 무리(must-link)」 · 「이 둘은 절대 같은 무리가 아님(cannot-link)」처럼 몇 쌍만 정해 줍니다. <em>Seeded K-means</em>: 정답을 아는 몇 개를 처음 중심점(씨앗)으로 씁니다. 관광 예 — 리뷰 1만 건 중 50건에만 「교통 불만」 · 「청결 불만」 표시를 달고 나머지를 묶게 합니다. 연구에서는 쓰이지만 ADsP · 기본 수업 범위 밖입니다.</li>
+            <li><b>「지도 군집(supervised clustering)」이라는 말</b> — 논문에 가끔 나옵니다. 정답 범주가 한 무리에 순수하게 모이도록 묶는 방식이라 사실상 분류에 가깝습니다. 드물게 쓰는 말이라 시험 · 수업에서는 쓰지 않는 편이 안전합니다.</li>
+          </ul>
+          <p class="cl-h">가장 많이 헷갈리는 짝 — k가 들어간 두 기법</p>
+          <table class="cl-tb">
+            <thead><tr><th></th><th>K-means</th><th>k-NN(k-최근접 이웃)</th></tr></thead>
+            <tbody>
+              <tr><th>종류</th><td><b>군집 · 비지도</b></td><td><b>분류 · 지도</b></td></tr>
+              <tr><th>k의 뜻</th><td>만들 <b>무리의 수</b></td><td>참고할 <b>가까운 이웃의 수</b></td></tr>
+              <tr><th>정답</th><td>없음</td><td>이웃의 정답(레이블)을 보고 다수결</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="cl-sum"><span>한 줄 정리</span>정답 없이 묶으면 <b>군집(비지도)</b>, 정답을 주고 나누면 <b>분류(지도)</b>, 정답을 조금만 주고 묶으면 <b>준지도 군집</b>.</p>
+      </div>
       <ul class="reslist">
         <li>
           <a class="pill-violet" href="https://video.golpoai.com/share/6798d5d2-6634-42f6-ac77-958b7f87c85a?version=0" target="_blank" rel="noopener">머신러닝 빅데이터 분석 — 지도학습·비지도학습 ↗</a>
@@ -1967,6 +2026,11 @@
           <a class="pill-violet" href="data-mining-text-ml-dl-slides.html" target="_blank" rel="noopener">▶ 데이터 마이닝 · 텍스트 마이닝 · 머신러닝 · 딥러닝 — 무엇이 다른가 · 열여섯 장 좌우 넘김 ↗</a>
           <span class="desc"><strong>7주(10/19) 수업에서 봅니다.</strong> 네 말을 <em>「무엇을 발견하나(마이닝)」</em>와 <em>「어떻게 학습시키나(머신러닝 · 딥러닝)」</em>로 가르고, <strong>호텔 리뷰 10만 건</strong> 하나로 <strong>왜 이것은 텍스트 마이닝 · 머신러닝 · 딥러닝인가</strong>를 이유와 함께 짚습니다 — 단어 빈도 · TF-IDF는 텍스트 마이닝, 정답을 붙인 긍 · 부정 분류(Logistic · SVM)는 머신러닝, BERT 감성분석은 딥러닝, 관광객 K-means 군집은 비지도학습. <strong>「감성분석 = 딥러닝」이 아닙니다</strong> — 감성분석은 목적이고, 쓰는 방법에 따라 갈립니다. 끝에 한 장 압축표와 퀴즈 여섯 문항(누르면 바로 정답).</span>
           <span class="meta">선샤인 웰니스 자체 제작 · 좌우 넘김 16장 · 장마다 아래에 강의 대본 한 단 · ← → 키로 넘김 · ADsP 3과목(데이터 분석)과 이어짐</span>
+        </li>
+        <li id="dm-note">
+          <a class="pill-violet" href="data-mining-document-clustering-note.html" target="_blank" rel="noopener">📘 학술 지식노트 — 데이터 마이닝 · 텍스트 마이닝 · 문서 군집화 ↗</a>
+          <span class="desc"><strong>7주(10/19) 수업에서 봅니다.</strong> <strong>학습목표 넷(개념 · 분석 · 비교 · 적용)</strong>으로 시작해 정형 · 비정형 데이터, <em>TF-IDF · 임베딩 → K-means · DBSCAN → 군집 해석</em>, 두 군집 방법의 비교 그림, 관광 리뷰 적용 · 선행연구 · 키워드 퀴즈까지 열두 장으로 넘겨 봅니다. 위 그림 넷과 「열여섯 장」 다음에 펴면 됩니다.</span>
+          <span class="meta">관광빅데이터분석 · 학술연구 노트 001 · 2026.10.12 · 핵심 용어 여덟 · 주요 문헌 4편 · 인쇄 / PDF 저장</span>
         </li>
       </ul>
 

@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>관광벤처창업론 | EO Korea 벤처창업 사례연구 과제</title>
+<style>
+  :root{
+    --bg:#f4f7fb;
+    --card:#ffffff;
+    --text:#172033;
+    --muted:#5b667a;
+    --line:#d9e1ec;
+    --yellow:#fff3a8;
+    --yellow-deep:#d9a900;
+    --blue:#dff0ff;
+    --blue-deep:#1976d2;
+    --navy:#17324d;
+    --accent:#365b8c;
+    --shadow:0 14px 36px rgba(27,49,78,.10);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;height:100%;background:var(--bg);font-family:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif;color:var(--text);overflow:hidden;}
+  body{display:flex;flex-direction:column;}
+  .topbar{
+    height:58px;flex:0 0 58px;background:#fff;border-bottom:1px solid var(--line);
+    display:flex;align-items:center;justify-content:space-between;padding:0 18px 0 24px;
+    z-index:10;
+  }
+  .brand{font-size:15px;font-weight:800;color:var(--navy);letter-spacing:-.2px;}
+  .counter{font-size:13px;color:var(--muted);}
+  .deck{position:relative;flex:1;overflow:hidden;}
+  .track{
+    height:100%;display:flex;transition:transform .42s cubic-bezier(.2,.8,.2,1);
+    will-change:transform;
+  }
+  .slide{
+    min-width:100%;height:100%;padding:26px 72px 70px;overflow:auto;
+    display:flex;justify-content:center;align-items:flex-start;
+  }
+  .sheet{
+    width:min(1180px,100%);min-height:calc(100vh - 154px);background:var(--card);
+    border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);
+    padding:38px 44px 42px;
+  }
+  .cover .sheet{
+    display:flex;flex-direction:column;justify-content:center;min-height:calc(100vh - 150px);
+    background:linear-gradient(140deg,#ffffff 0%,#f6fbff 58%,#fffbe7 100%);
+  }
+  h1{font-size:42px;line-height:1.18;margin:0 0 14px;letter-spacing:-1.6px;color:var(--navy);}
+  h2{font-size:28px;line-height:1.28;margin:0 0 22px;color:var(--navy);letter-spacing:-.8px;}
+  h3{font-size:20px;margin:24px 0 10px;color:#263e59;}
+  p,li{font-size:16px;line-height:1.75;}
+  ul,ol{padding-left:22px;}
+  .subtitle{font-size:20px;color:var(--muted);margin-bottom:26px;line-height:1.6;}
+  .badge{
+    display:inline-block;padding:7px 12px;border-radius:999px;background:#eef3f9;color:#36506f;
+    font-size:13px;font-weight:800;margin-bottom:14px;
+  }
+  .flow{
+    display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:24px 0 8px;
+  }
+  .flow .step{
+    background:#f7f9fc;border:1px solid var(--line);padding:12px 14px;border-radius:14px;font-weight:700;
+  }
+  .arrow{color:#8a97aa;font-weight:900;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .card{
+    border:1px solid var(--line);border-radius:16px;padding:18px;background:#fbfcfe;
+  }
+  .card h3{margin-top:0;}
+  .yellow{background:var(--yellow);border-left:5px solid var(--yellow-deep);padding:3px 7px;border-radius:5px;font-weight:800;}
+  .blue{background:var(--blue);border-left:5px solid var(--blue-deep);padding:3px 7px;border-radius:5px;font-weight:800;}
+  .box{
+    border:1px solid var(--line);border-radius:16px;padding:18px 20px;background:#fbfcfe;margin:14px 0;
+  }
+  .prompt{
+    background:#111827;color:#f6f7fb;border-radius:16px;padding:18px 20px;white-space:pre-wrap;
+    font-size:14px;line-height:1.65;border:1px solid #263142;
+  }
+  .prompt strong{color:#fff5a5;}
+  .linkbox{
+    background:#f6faff;border:1px solid #cfe4ff;border-radius:14px;padding:14px 16px;margin:10px 0;
+    word-break:break-all;
+  }
+  .linkbox a{color:#0f63ad;font-weight:800;text-decoration:none;}
+  .linkbox a:hover{text-decoration:underline;}
+  table{width:100%;border-collapse:collapse;margin:12px 0 4px;font-size:14px;}
+  th,td{border:1px solid var(--line);padding:10px 11px;vertical-align:top;}
+  th{background:#f0f4f8;color:#253a54;}
+  .checklist{columns:2;column-gap:26px;}
+  .checklist div{break-inside:avoid;margin:8px 0;font-size:15px;line-height:1.55;}
+  .mini{font-size:13px;color:var(--muted);}
+  .footer-note{margin-top:20px;font-size:13px;color:var(--muted);}
+  .nav{
+    position:fixed;left:0;right:0;bottom:0;height:58px;background:rgba(255,255,255,.96);
+    border-top:1px solid var(--line);display:flex;align-items:center;justify-content:center;gap:12px;z-index:20;
+    backdrop-filter:blur(10px);
+  }
+  .nav button{
+    border:none;border-radius:12px;background:var(--navy);color:#fff;font-weight:800;
+    padding:10px 18px;cursor:pointer;font-size:14px;
+  }
+  .nav button:disabled{opacity:.35;cursor:default;}
+  .dots{display:flex;gap:5px;max-width:58vw;overflow:hidden;align-items:center;}
+  .dot{width:7px;height:7px;border-radius:50%;background:#cbd5e1;flex:0 0 auto;}
+  .dot.active{background:var(--accent);transform:scale(1.35);}
+  .kbd{font-size:12px;color:var(--muted);}
+  .toc{display:grid;grid-template-columns:1fr 1fr;gap:9px 24px;}
+  .toc div{padding:8px 10px;border-bottom:1px dashed var(--line);font-size:15px;}
+  .hero-rule{width:92px;height:5px;background:var(--navy);border-radius:999px;margin:0 0 20px;}
+  .quote{
+    border-left:5px solid var(--blue-deep);background:#f3f8ff;padding:14px 18px;border-radius:10px;
+    font-size:17px;font-weight:700;line-height:1.6;
+  }
+  .tag{
+    display:inline-block;padding:6px 10px;border:1px solid #dbe5ef;border-radius:999px;margin:4px 4px 4px 0;
+    background:#fff;font-size:13px;font-weight:700;
+  }
+  .big-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:20px;}
+  .big-flow div{
+    border:1px solid var(--line);padding:16px 10px;text-align:center;border-radius:14px;background:#fbfcfe;font-weight:800;font-size:14px;
+  }
+  .big-flow .y{background:var(--yellow);}
+  .big-flow .b{background:var(--blue);}
+  .warn{border-left:5px solid #e56b6f;background:#fff4f4;padding:12px 16px;border-radius:10px;}
+  @media(max-width:800px){
+    .slide{padding:18px 16px 68px;}
+    .sheet{padding:26px 22px 34px;border-radius:16px;}
+    h1{font-size:31px;}
+    h2{font-size:24px;}
+    .grid2,.grid3{grid-template-columns:1fr;}
+    .toc{grid-template-columns:1fr;}
+    .checklist{columns:1;}
+    .big-flow{grid-template-columns:1fr 1fr;}
+    .kbd{display:none;}
+  }
+  @media print{
+    html,body{overflow:visible;height:auto;background:#fff;}
+    .topbar,.nav{display:none;}
+    .deck,.track{display:block;height:auto;transform:none !important;}
+    .slide{display:block;height:auto;min-width:auto;padding:0;page-break-after:always;overflow:visible;}
+    .sheet{box-shadow:none;border:none;border-radius:0;min-height:auto;}
+  }
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand">관광벤처창업론 · EO Korea 벤처창업 사례연구 과제</div>
+    <div class="counter"><span id="current">1</span> / <span id="total"></span></div>
+  </div>
+
+  <main class="deck">
+    <div class="track" id="track">
+
+      <section class="slide cover">
+        <div class="sheet">
+          <div class="badge">관광벤처창업론 과제</div>
+          <div class="hero-rule"></div>
+          <h1>EO Korea<br>벤처창업 사례연구</h1>
+          <p class="subtitle">실제 창업가·스타트업 영상을 바탕으로<br><b>영상의 전체 메시지와 스토리를 충실히 이해한 뒤</b><br><b>문제 발견 → 아이디어 → 비즈니스 모델 → 실행 → 성장</b>의 벤처창업 관점으로 연결하고 발표용 HTML로 완성합니다.</p>
+          <div class="flow">
+            <span class="step">영상 2개 선정</span><span class="arrow">→</span>
+            <span class="step">Transcript 확보</span><span class="arrow">→</span>
+            <span class="step">ChatGPT 분석</span><span class="arrow">→</span>
+            <span class="step">HTML 발표자료</span>
+          </div>
+          <p class="footer-note">← → 방향키 또는 아래 버튼으로 이동</p>
+        </div>
+      </section>
+
+      <section class="slide">
+        <div class="sheet">
+          <h2>1. 과제 목적</h2>
+          <div class="quote"><b>먼저 영상 자체를 충분히 이해하고 자세히 요약한 뒤</b>, 그 내용을 <span class="yellow">벤처창업의 관점</span>으로 해석하는 것이 핵심입니다.</div>
+          <div class="box" style="margin-top:16px">
+            <b>중요:</b> 창업 관점만 먼저 적용하면 영상의 원래 메시지·맥락·인물의 생각·사건의 흐름이 빠질 수 있습니다.
+            따라서 <span class="blue">일반적 요약 → 핵심 메시지 → 실제 멘트 확인 → 벤처창업 분석</span> 순서로 진행합니다.
+          </div>
+          <div class="flow" style="margin-top:28px">
+            <span class="step">창업가</span><span class="arrow">→</span>
+            <span class="step">문제 발견</span><span class="arrow">→</span>
+            <span class="step">아이디어</span><span class="arrow">→</span>
+            <span class="step">고객</span><span class="arrow">→</span>
+            <span class="step">비즈니스 모델</span><span class="arrow">→</span>
+            <span class="step">실행</span><span class="arrow">→</span>
+            <span class="step">성장</span><span class="arrow">→</span>
+            <span class="step">성공·실패 요인</span>
+          </div>
+          <div class="grid2" style="margin-top:24px">
+            <div class="card">
+              <h3>학생이 해야 할 것</h3>
+              <ul>
+                <li>실제 창업 사례의 핵심 문제 찾기</li>
+                <li>제품·서비스와 고객 연결하기</li>
+                <li>성공과 실패의 이유 해석하기</li>
+                <li>수업에서 배운 창업 개념 적용하기</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>최종 결과물</h3>
+              <p><span class="blue">발표용 HTML 파일</span></p>
+              <p>좌우로 넘길 수 있는 프레젠테이션 형태로 제작합니다.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide">
+        <div class="sheet">
+          <h2>2. EO Korea 영상 찾기</h2>
+          <div class="linkbox"><b>EO Korea 전체 영상</b><br><a href="https://www.youtube.com/@eo_korea/videos" target="_blank">https://www.youtube.com/@eo_korea/videos</a></div>
+          <div class="linkbox"><b>EO Korea 재생목록</b><br><a href="https://www.youtube.com/@eo_korea/playlists" target="_blank">https://www.youtube.com/@eo_korea/playlists</a></div>
+
+          <h3>영상 선정 기준</h3>
+          <div>
+            <span class="tag">창업가 / 창업팀</span>
+            <span class="tag">스타트업</span>
+            <span class="tag">창업 아이디어</span>
+            <span class="tag">고객 문제</span>
+            <span class="tag">제품·서비스 개발</span>
+            <span class="tag">비즈니스 모델</span>
+            <span class="tag">시장 진입</span>
+            <span class="tag">투자</span>
+            <span class="tag">실패 경험</span>
+            <span class="tag">Pivot</span>
+            <span class="tag">성장 전략</span>
+            <span class="tag">Entrepreneurship</span>
+          </div>
+          <div class="warn" style="margin-top:24px"><b>두 영상 모두 반드시 벤처·창업과 직접 관련되어야 합니다.</b></div>
+        </div>
+      </section>
+
+      <section class="slide">
+        <div class="sheet">
+          <h2>3. STEP 1 · 영상 2개 선정하기</h2>
+          <div class="grid2">
+            <div class="card">
+              <h3>영상 1</h3>
+              <p>영상 제목:</p>
+              <p>기업 / 창업가:</p>
+              <p>영상 URL:</p>
+              <p>영상 길이:</p>
+              <p>선택 이유:</p>
+            </div>
+            <div class="card">
+              <h3>영상 2</h3>
+              <p>영상 제목:</p>
+              <p>기업 / 창업가:</p>
+              <p>영상 URL:</p>
+              <p>영상 길이:</p>
+              <p>선택 이유:</p>
+            </div>
+          </div>
+          <p class="footer-note">영상 제목과 URL은 최종 발표자료에도 반드시 포함하세요.</p>
+        </div>
+      </section>
+
+      <section class="slide">
+        <div class="sheet">
+          <h2>4. STEP 2 · YouTube 대화·자막 복사하기</h2>
+          <h3>방법 A · YouTube 기본 기능</h3>
+          <div class="big-flow">
+            <div>① EO Korea 영상 실행</div>
+            <div>② 영상 설명 열기</div>
+            <div>③ 「스크립트 표시」</div>
+            <div>④ 스크립트 확인</div>
+            <div>⑤ 복사 후 ChatGPT에 붙여넣기</div>
+          </div>
+          <div class="box" style="margin-top:28px">
+            <b>핵심:</b> 영상의 <span class="blue">Transcript(대본·자막)는 전체를 복사</span>하여 ChatGPT에 붙여넣습니다.
+            영상 내용을 충분히 이해하고 구간별로 정리하기 위해 가능하면 전체 대본을 사용하세요.
+          </div>
+          <div class="box">
+            <b>발표 시 영상 재생:</b> 발표에서는 영상 전체를 보여주는 것이 아니라,
+            분석 내용과 직접 관련된 <span class="yellow">핵심 장면만 일정 구간 재생</span>합니다.
+            예: 창업자의 문제 인식, 중요한 실패 경험, Pivot, 고객 반응, 핵심 메시지가 드러나는 장면.
+          </div>
+        </div>
+      </section>
+
+      <section class="slide">
+        <div class="sheet">
+          <h2>5. STEP 3 · Chrome 확장 프로그램 활용하기</h2>
+          <div class="grid2">
+            <div class="card">
+              <h3>추천 ① Copy Youtube Transcript</h3>
+              <ul>
+                <li>YouTube 전체 자막 복사</li>
+                <li>타임스탬프 포함 / 제외</li>
+                <li>텍스트 형태 복사</li>
+                <li>ChatGPT에 바로 붙여넣기</li>
+              </ul>
+              <p><b>Chrome 웹스토어에서</b><br><span class="blue">Copy Youtube Transcript</span> 검색</p>
+            </div>
+            <div class="card">
+              <h3>추천 ② YT Transcript</h3>
+              <ul>
+                <li>자막 패널 보기</li>
+                <li>필요한 부분 선택</li>
+                <li>텍스트 복사·저장</li>
+              </ul>
+              <p><b>Chrome 웹스토어에서</b><br><span class="blue">YT Transcript</span> 검색</p>
+            </div>
+          </div>
+          <div class="flow" style="margin-top:24px">
+            <span class="step">Chrome 웹스토어</span><span class="arrow">→</span>
+            <span class="step">확장 설치</span><span class="arrow">→</span>
+            <span class="step">EO 영상 실행</span><span class="arrow">→</span>
+            <span class="step">Transcript 복사</span><span class="arrow">→</span>
+            <span class="step">ChatGPT 붙여넣기</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide">
+        <div class="sheet">
+          <h2>6. 타임스탬프를 포함해서 복사하기</h2>
+          <div class="grid2">
+            <div class="card">
+              <h3>예시</h3>
+              <p><b>00:00</b><br>창업자는 처음에 어떤 문제를 발견했습니다.</p>
+              <p><b>03:25</b><br>첫 번째 제품을 개발했지만 고객 반응이 좋지 않았습니다.</p>
+              <p><b>07:40</b><br>고객 인터뷰 후 비즈니스 모델을 변경했습니다.</p>
+            </div>
+            <div class="card">
+              <h3>왜 필요한가?</h3>
+              <p>시간 정보가 있으면 ChatGPT가 영상 내용을 <span class="blue">구간별로 훨씬 정확하게 정리</span>할 수 있습니다.</p>
+              <p>또한 발표할 때 <span class="yellow">직접 보여줄 핵심 영상 구간</span>을 정확히 다시 찾을 수 있습니다.</p>
+              <p><b>대본은 전체 복사, 영상 재생은 핵심 구간만</b>이라는 원칙을 기억하세요.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide">
+        <div class="sheet">
+          <h2>7. STEP 4 · 시간 구간별로 아주 자세히 요약하기</h2>
+          <div class="quote">
+            원전 내용에 충실하려면 먼저 <b>시간 순서대로 아주 자세하게</b> 요약해야 합니다.
+            벤처창업 이론은 이 단계에서 아직 적용하지 않습니다.
+          </div>
+          <div class="grid2" style="margin-top:20px">
+            <div class="card">
+              <h3>기본 구간</h3>
+              <p><span class="blue">약 3~5분 단위</span>를 기본으로 합니다.</p>
+              <p>단, 이야기의 주제·사건·화자가 크게 바뀌는 경우 그 지점에서 자연스럽게 구분합니다.</p>
+              <p class="mini">예: 00:00~04:10 / 04:10~08:35 / 08:35~12:20 …</p>
+            </div>
+            <div class="card">
+              <h3>왜 3~5분 단위인가?</h3>
+              <ul>
+                <li>스토리 흐름과 맥락 손실을 줄일 수 있음</li>
+                <li>중요한 사건과 전환점을 놓치지 않음</li>
+                <li>실제 멘트의 위치를 다시 찾기 쉬움</li>
+                <li>나중에 발표용 핵심 영상 구간 선정이 쉬움</li>
+              </ul>
+            </div>
+          </div>
+          <div class="box" style="margin-top:20px">
+            <b>중요:</b> 각 구간을 한두 줄로 끝내지 말고, 나중에 원영상을 다시 보지 않아도 흐름을 이해할 수 있을 정도로
+            <span class="blue">충분한 문장과 맥락</span>을 포함합니다.
+          </div>
+        </div>
+      </section>
+
+
+      <section class="slide">
+        <div class="sheet">
+          <h2>8. 각 시간 구간에서 반드시 정리할 내용</h2>
+          <div class="quote">1단계에서는 <b>해석보다 원전 보존</b>이 우선입니다. 영상에서 실제로 말한 내용과 사건의 흐름을 최대한 충실하게 남깁니다.</div>
+
+          <div class="grid2" style="margin-top:20px">
+            <div class="card">
+              <h3>사실·맥락 정리</h3>
+              <ul>
+                <li>시간 구간</li>
+                <li>등장인물 / 화자</li>
+                <li>이 구간에서 실제로 일어난 일</li>
+                <li>사건의 배경과 맥락</li>
+                <li>중요한 회사명·제품명·수치·사례</li>
+                <li>문제·갈등·고민</li>
+                <li>인물이 한 선택과 행동</li>
+                <li>그 결과와 다음 이야기로의 연결</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>스토리·메시지 정리</h3>
+              <ul>
+                <li>이야기의 전환점</li>
+                <li>창업자 또는 출연자가 강조한 생각</li>
+                <li>해당 구간의 핵심 메시지</li>
+                <li>영상 전체 메시지와 연결되는 부분</li>
+                <li>중요한 실제 멘트 후보</li>
+                <li>실제 멘트의 타임스탬프</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="warn" style="margin-top:20px">
+            <b>금지:</b> 영상에 없는 내용을 추정하거나, ChatGPT가 만들어낸 표현을 실제 발언처럼 사용하지 않습니다.
+          </div>
+        </div>
+      </section>
+
+      <section class="slide">
+        <div class="sheet">
+          <h2>9. 영상 속 실제 멘트 찾기</h2>
+          <div class="grid2">
+            <div class="card">
+              <h3>무엇을 찾을까?</h3>
+              <ul>
+                <li>창업자가 자신의 문제를 설명하는 말</li>
+                <li>실패·위기·전환점을 설명하는 말</li>
+                <li>고객 또는 시장을 이해하게 된 계기</li>
+                <li>철학·가치관·기업가정신이 드러나는 말</li>
+                <li>영상의 핵심 메시지를 가장 잘 보여주는 말</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>발표자료에 넣는 방법</h3>
+              <p><span class="blue">실제 멘트</span>를 짧게 인용하고 반드시 <b>타임스탬프</b>를 함께 표시합니다.</p>
+              <p>예: <b>12:43</b> “고객이 원하는 것은 우리가 처음 생각했던 것과 달랐습니다.”</p>
+              <p class="mini">※ 문장을 임의로 만들지 말고 Transcript와 실제 영상에서 다시 확인합니다.</p>
+            </div>
+          </div>
+          <div class="warn" style="margin-top:20px">
+            <b>중요:</b> ChatGPT가 만들어낸 문장을 영상 속 실제 발언처럼 사용하면 안 됩니다.
+            인용문은 반드시 <b>원영상 또는 Transcript에서 직접 확인</b>하고, 가능한 경우 해당 시간 구간을 표시하세요.
+          </div>
+        </div>
+      </section>
+
+      <section class="slide">
+        <div class="sheet">
+          <h2>10. 원전 충실형 상세 요약 프롬프트</h2>
+          <div class="prompt">다음은 EO Korea 영상의 전체 Transcript입니다.
+
+아직 벤처창업 이론을 적용하지 말고, 먼저 원영상의 내용에 최대한 충실하게 시간 순서대로 아주 자세히 요약해주세요.
+
+약 3~5분 단위를 기본으로 하되, 이야기의 주제·사건·화자가 크게 바뀌는 지점에서는 자연스럽게 구간을 나누어주세요.
+
+각 구간마다 반드시 다음을 작성해주세요.
+
+1. 시간 구간
+2. 등장인물 또는 화자
+3. 해당 구간에서 실제로 일어난 일을 충분히 자세하게 설명
+4. 사건의 배경과 맥락
+5. 중요한 회사명·제품명·수치·사례
+6. 문제·갈등·고민
+7. 인물이 한 선택 또는 행동
+8. 그 결과와 다음 이야기로의 연결
+9. 이야기의 전환점
+10. 창업자 또는 출연자가 강조한 생각
+11. 해당 구간의 핵심 메시지
+12. 영상 전체 메시지와 연결되는 부분
+13. 발표자료에 사용할 만한 실제 멘트 후보와 타임스탬프
+14. 핵심 키워드
+
+중요:
+- 지나치게 압축하지 마세요.
+- 각 구간을 한두 줄로 끝내지 마세요.
+- 원영상의 이야기 흐름과 맥락을 최대한 보존해주세요.
+- 영상에 없는 사실이나 발언을 추가하지 마세요.
+- 실제 멘트는 Transcript에 있는 표현만 후보로 제시하세요.
+- 실제 인용문은 나중에 원영상에서 다시 확인할 수 있도록 타임스탬프를 함께 제시하세요.
+
+모든 구간의 상세 요약이 끝난 뒤에만 다음을 별도로 정리해주세요.
+
+A. 영상 전체의 핵심 메시지
+B. 창업자 또는 출연자의 핵심 철학·관점
+C. 영상 전체의 주요 전환점
+D. 영상 전체에서 반복되는 주제
+E. 발표에서 직접 보여주면 좋은 핵심 영상 구간 후보</div>
+        </div>
+      </section>
+
+      <section class="slide">
+        <div class="sheet">
+          <h2>11. 그다음 · 벤처창업 관점으로 연결하기</h2>
+          <div class="flow">
+            <span class="step">일반적 구간 요약</span><span class="arrow">→</span>
+            <span class="step">핵심 메시지</span><span class="arrow">→</span>
+            <span class="step">실제 멘트 확인</span><span class="arrow">→</span>
+            <span class="step">벤처창업 개념 연결</span>
+          </div>
+          <div class="grid2" style="margin-top:24px">
+            <div class="card">
+              <h3>영상 자체에서 먼저 찾기</h3>
+              <p>인물 · 사건 · 맥락 · 감정 · 선택 · 전환점 · 결과 · 핵심 메시지</p>
+            </div>
+            <div class="card">
+              <h3>그다음 창업 개념 연결</h3>
+              <p><span class="yellow">Customer Problem</span> · <span class="yellow">MVP</span> · <span class="yellow">Value Proposition</span> · <span class="yellow">Business Model</span> · <span class="yellow">Pivot</span> · <span class="yellow">Market Validation</span></p>
+            </div>
+          </div>
+          <div class="box" style="margin-top:20px">
+            <b>원칙:</b> 먼저 시간대별 상세 요약을 완성하고 영상 전체의 메시지를 파악한 뒤에만 벤처창업 분석을 시작합니다.
+            영상의 모든 내용을 억지로 창업 개념에 끼워 맞추지 않고, 관련성이 분명한 부분만 연결합니다.
+          </div>
+        </div>
+      </section>
+
+      <section class="slide">
+        <div class="sheet">
+          <h2>12. STEP 5 · ChatGPT에게 먼저 구간 나누게 하기</h2>
+          <div class="prompt">다음은 EO Korea 벤처창업 영상의 전체 스크립트입니다.
+
+타임스탬프를 기준으로 내용을 자연스럽게 구분해주세요.
+
+약 5~10분 단위로 구간을 나누되, 이야기의 주제가 바뀌는 지점을 우선하여 구분해주세요.
+
+각 구간마다 다음을 작성해주세요.
+
+1. 시간 구간
+2. 핵심 주제
+3. 핵심 내용
+4. 벤처창업 관련 키워드
+5. 중요하게 봐야 할 부분</div>
+        </div>
+      </section>
+
+      <section class="slide">
+        <div class="sheet">
+          <h2>13. STEP 6 · 구간별 내용 분석하기</h2>
+          <div class="prompt">다음 내용은 EO Korea의 벤처창업 관련 영상 스크립트입니다.
+
+내용을 빠뜨리지 않으면서 이해하기 쉽게 정리해주세요.
+
+다음 기준으로 분석해주세요.
+
+1. 구간별 핵심 내용
+2. 창업가가 발견한 문제
+3. 창업 아이디어
+4. 제품 또는 서비스
+5. 주요 고객
+6. 비즈니스 모델
+7. 창업 과정에서 발생한 문제
+8. 문제 해결 방법
+9. 성장 과정
+10. 실패 또는 위기
+11. 성공 요인
+12. 벤처창업론과 연결되는 개념
+13. 중요한 발언 또는 사례
+14. 핵심 키워드</div>
+        </div>
+      </section>
+
+      <section class="slide">
+        <div class="sheet">
+          <h2>14. STEP 7 · 전체 영상 통합 분석하기</h2>
+          <div class="prompt">지금까지 입력한 EO Korea 영상의 모든 구간을 통합하여 하나의 사례연구로 정리해주세요.
+
+먼저 ① 영상 전체의 스토리와 핵심 메시지를 충분히 설명하고,
+② 중요한 사건·전환점·실제 발언을 정리한 뒤,
+③ 마지막에 벤처창업 관점으로 분석해주세요.
+
+영상의 원래 메시지가 벤처창업 분석 때문에 사라지지 않도록 해주세요.
+
+벤처창업 분석에서는 다음 관점을 사용해주세요.
+
+- 창업자가 발견한 문제
+- Customer Pain Point
+- 창업 아이디어
+- Value Proposition
+- Target Customer
+- Product / Service
+- Business Model
+- MVP
+- 시장검증
+- 고객 피드백
+- Pivot
+- 경쟁우위
+- 투자 및 자금조달
+- 성장 전략
+- 위기와 실패
+- 성공 요인
+- 기업가정신
+- 이 사례에서 배울 수 있는 점
+
+영상 속 실제 사례와 벤처창업론의 개념을 연결해서 설명해주세요.</div>
+        </div>
+      </section>
+
+      <section class="slide">
+        <div class="sheet">
+          <h2>15. STEP 8 · 영상 2개 비교하기</h2>
+          <table>
+            <thead><tr><th>비교항목</th><th>사례 1</th><th>사례 2</th></tr></thead>
+            <tbody>
+              <tr><td>창업가</td><td></td><td></td></tr>
+              <tr><td>해결하려는 문제</td><td></td><td></td></tr>
+              <tr><td>창업 아이디어</td><td></td><td></td></tr>
+              <tr><td>주요 고객</td><td></td><td></td></tr>
+              <tr><td>제품·서비스</td><td></td><td></td></tr>
+              <tr><td>Value Proposition</td><td></td><td></td></tr>
+              <tr><td>Business Model</td><td></td><td></td></tr>
+              <tr><td>MVP / 시장검증</td><td></td><td></td></tr>
+              <tr><td>고객 피드백</td><td></td><td></td></tr>
+              <tr><td>경쟁우위</td><td></td><td></td></tr>
+              <tr><td>주요 위기·해결</td><td></td><td></td></tr>
+              <tr><td>성장 전략</td><td></td><td></td></tr>
+              <tr><td>성공 요인</td><td></td><td></td></tr>
+              <tr><td>배울 점</td><td></td><td></td></tr>
+            </tbody>
+          </table>
+          <p class="footer-note">마지막에는 두 사례의 가장 중요한 공통점과 차이점을 정리합니다.</p>
+        </div>
+      </section>
+
+      <section class="slide">
+        <div class="sheet">
+          <h2>16. STEP 9 · 발표용 HTML 만들기</h2>
+          <div class="prompt">지금까지 분석한 EO Korea 벤처창업 사례 2개를 이용하여 관광벤처창업론 수업 발표용 HTML 자료를 만들어주세요.
+
+단순 보고서가 아니라 프레젠테이션형 HTML로 만들어주세요.
+
+1. 좌우 버튼 또는 키보드 방향키로 페이지 이동
+2. 첫 화면에 제목과 발표자 이름 표시
+3. 목차 페이지 작성
+4. 두 영상 모두 3~5분 단위의 시간대별 상세 요약을 먼저 제시
+5. 각 시간 구간마다 등장인물, 사건, 배경, 갈등, 선택, 결과, 전환점, 핵심 메시지를 충분히 설명
+6. 각 구간을 한두 줄로 지나치게 압축하지 않기
+7. 중요한 실제 멘트는 타임스탬프와 함께 인용 카드로 제시
+8. 각 영상의 전체 핵심 메시지와 창업자의 철학을 별도 페이지로 정리
+9. 그 이후에만 벤처창업 개념으로 연결
+10. 중요한 벤처창업 개념은 노란색으로 강조
+11. 중요한 실제 기업 사례·데이터·발언은 파란색으로 강조
+12. 핵심 문장은 굵은 글씨
+13. 중요한 개념은 박스 형태로 제시
+14. 두 사례 비교표 포함
+15. 창업 과정을 화살표 또는 흐름도로 표현
+16. EO Korea 영상 제목과 YouTube 링크 포함
+17. 영상별 핵심 메시지 요약 슬라이드 포함
+18. 발표 마지막에 퀴즈 포함
+19. Conclusion에서 영상의 근본 메시지 + 벤처창업 관점의 배운 점을 함께 정리
+20. 대학 수업 발표자료처럼 깔끔하게 구성
+21. 한 개의 HTML 파일만 실행해도 발표 가능하도록 작성</div>
+        </div>
+      </section>
+
+      <section class="slide">
+        <div class="sheet">
+          <h2>17. 색깔 사용 원칙</h2>
+          <div class="grid2">
+            <div class="card" style="background:#fffbed">
+              <h3>🟨 노란색 = 벤처창업 핵심 개념</h3>
+              <p><span class="yellow">MVP</span></p>
+              <p><span class="yellow">Value Proposition</span></p>
+              <p><span class="yellow">Pivot</span></p>
+              <p><span class="yellow">Business Model</span></p>
+              <p><span class="yellow">Market Validation</span></p>
+              <p><span class="yellow">Entrepreneurship</span></p>
+            </div>
+            <div class="card" style="background:#f4faff">
+              <h3>🟦 파란색 = 영상에서 발견한 실제 사례</h3>
+              <p><span class="blue">기업의 실제 전략</span></p>
+              <p><span class="blue">창업자의 의사결정</span></p>
+              <p><span class="blue">고객 반응</span></p>
+              <p><span class="blue">투자</span></p>
+              <p><span class="blue">매출·시장진입</span></p>
+              <p><span class="blue">성장 과정</span></p>
+            </div>
+          </div>
+          <p class="quote" style="margin-top:22px">노란색 = 이론 · 파란색 = 실제 사례</p>
+        </div>
+      </section>
+
+      <section class="slide">
+        <div class="sheet">
+          <h2>18. 권장 목차</h2>
+          <div class="toc">
+            <div><b>01</b> Title</div>
+            <div><b>02</b> 영상 선정</div>
+            <div><b>03</b> 사례 1 소개</div>
+            <div><b>04</b> 사례 1 시간대별 아주 상세한 요약</div>
+            <div><b>05</b> 사례 1 핵심 메시지·실제 멘트·영상 구간</div>
+            <div><b>06</b> 사례 1 벤처창업 관점 분석</div>
+            <div><b>07</b> 사례 1 성장·위기·전환점</div>
+            <div><b>08</b> 사례 2 소개</div>
+            <div><b>09</b> 사례 2 시간대별 아주 상세한 요약</div>
+            <div><b>10</b> 사례 2 핵심 메시지·실제 멘트·영상 구간</div>
+            <div><b>11</b> 사례 2 벤처창업 관점 분석</div>
+            <div><b>12</b> 사례 2 성장·위기·전환점</div>
+            <div><b>13</b> 두 사례 비교</div>
+            <div><b>14</b> 공통 메시지와 차이점</div>
+            <div><b>15</b> 벤처창업 개념 연결</div>
+            <div><b>16</b> 우리가 배울 수 있는 점</div>
+            <div><b>17</b> QUIZ</div>
+            <div><b>18</b> Conclusion</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide">
+        <div class="sheet">
+          <h2>19. STEP 10 · 퀴즈 만들기</h2>
+          <div class="prompt">지금까지 분석한 EO Korea 벤처창업 사례 2개를 바탕으로 발표 마지막에 사용할 퀴즈 5개를 만들어주세요.
+
+객관식과 OX 문제를 섞어주세요.
+
+다음 내용을 이해했는지 확인할 수 있도록 만들어주세요.
+
+- 고객 문제
+- 창업 아이디어
+- MVP
+- 비즈니스 모델
+- Pivot
+- 성공 요인
+- 기업가정신
+
+각 문제에는 정답과 간단한 해설을 포함해주세요.</div>
+          <p class="footer-note">퀴즈는 단순 암기보다 “왜 이런 전략을 선택했는가?”를 확인하는 문제를 권장합니다.</p>
+        </div>
+      </section>
+
+      <section class="slide">
+        <div class="sheet">
+          <h2>20. STEP 11 · Conclusion 만들기</h2>
+          <div class="grid3">
+            <div class="card">
+              <h3>① 영상의 근본 메시지</h3>
+              <p>각 영상이 궁극적으로 <b>무엇을 말하고 있었는가?</b></p>
+            </div>
+            <div class="card">
+              <h3>② 성공·실패 요인</h3>
+              <p>창업 과정에서 <b>무엇이 결정적인 역할</b>을 했는가?</p>
+            </div>
+            <div class="card">
+              <h3>③ 내가 배운 점</h3>
+              <p>영상의 메시지와 벤처창업 관점에서 <b>무엇을 배웠는가?</b></p>
+            </div>
+          </div>
+          <div class="prompt" style="margin-top:22px">지금까지 분석한 두 개의 EO Korea 벤처창업 사례를 바탕으로 발표 마지막 Conclusion을 작성해주세요.
+
+1. 영상 1이 전달한 근본 메시지
+2. 영상 2가 전달한 근본 메시지
+3. 두 사례의 핵심 공통점
+4. 두 사례의 가장 중요한 차이점
+5. 벤처창업론 관점에서 우리가 배울 수 있는 점
+6. 발표 마지막에 기억해야 할 한 문장
+
+단순 요약이 아니라 영상 자체의 의미와 벤처창업 관점을 함께 살려주세요.</div>
+        </div>
+      </section>
+
+      <section class="slide">
+        <div class="sheet">
+          <h2>21. 최종 제출 전 체크리스트</h2>
+          <div class="checklist">
+            <div>☐ EO Korea 영상 2개를 선정했는가?</div>
+            <div>☐ 영상 제목과 URL을 제시했는가?</div>
+            <div>☐ YouTube Transcript 전체를 복사하여 분석했는가?</div>
+            <div>☐ 발표에서 직접 보여줄 핵심 영상 구간을 선정했는가?</div>
+            <div>☐ 각 영상을 3~5분 단위 중심으로 시간대별 아주 자세하게 정리했는가?</div>
+            <div>☐ 각 구간에 배경·사건·갈등·선택·결과·전환점이 충분히 포함되었는가?</div>
+            <div>☐ 각 영상의 근본 메시지를 설명했는가?</div>
+            <div>☐ 중요한 실제 멘트와 타임스탬프를 확인했는가?</div>
+            <div>☐ 실제 멘트를 임의로 만들어내지 않았는가?</div>
+            <div>☐ 단순 영상 요약에 그치지 않았는가?</div>
+            <div>☐ 창업자가 해결하려는 문제를 찾았는가?</div>
+            <div>☐ 주요 고객을 설명했는가?</div>
+            <div>☐ 제품·서비스를 설명했는가?</div>
+            <div>☐ 비즈니스 모델을 분석했는가?</div>
+            <div>☐ MVP·시장검증·고객피드백·Pivot 등을 적용했는가?</div>
+            <div>☐ 두 사례를 비교했는가?</div>
+            <div>☐ 중요한 개념을 노란색으로 표시했는가?</div>
+            <div>☐ 중요한 실제 사례를 파란색으로 표시했는가?</div>
+            <div>☐ 목차가 있는가?</div>
+            <div>☐ 퀴즈가 있는가?</div>
+            <div>☐ 결론 및 배운 점이 있는가?</div>
+            <div>☐ HTML 파일이 정상적으로 실행되는가?</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide">
+        <div class="sheet">
+          <h2>22. 제출 방법</h2>
+          <div class="grid2">
+            <div class="card">
+              <h3>제출물</h3>
+              <p><span class="blue">발표용 HTML 파일</span></p>
+              <h3>파일명</h3>
+              <p><b>이름(학번)_벤처창업_EO사례연구.html</b></p>
+              <p class="mini">예: 홍길동(20261234)_벤처창업_EO사례연구.html</p>
+            </div>
+            <div class="card">
+              <h3>제출 전 확인</h3>
+              <ul>
+                <li>글자가 정상적으로 보이는가?</li>
+                <li>좌우 페이지 이동이 가능한가?</li>
+                <li>표와 그림이 정상적으로 나타나는가?</li>
+                <li>YouTube 링크가 연결되는가?</li>
+                <li>내용이 화면 밖으로 지나치게 넘어가지 않는가?</li>
+                <li>발표할 때 글자가 충분히 크게 보이는가?</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide cover">
+        <div class="sheet">
+          <div class="badge">전체 과제 수행 흐름</div>
+          <h2 style="font-size:34px;margin-bottom:24px">영상 선정부터 HTML 제출까지</h2>
+          <div class="big-flow">
+            <div>EO Korea 영상 2개 선정</div>
+            <div class="b">전체 Transcript 확보</div>
+            <div>전체 대본 + 타임스탬프 복사</div>
+            <div class="b">ChatGPT 붙여넣기</div>
+            <div>3~5분 단위 시간대별 아주 상세한 요약</div>
+            <div class="b">영상 전체 핵심 메시지 파악</div>
+            <div class="b">실제 멘트·타임스탬프 확인</div>
+            <div class="y">Customer Problem</div>
+            <div class="y">MVP · Business Model</div>
+            <div class="y">Pivot · Market Validation</div>
+            <div>두 영상 비교</div>
+            <div class="b">발표용 HTML 제작</div>
+            <div class="y">노란색 = 이론</div>
+            <div class="b">파란색 = 실제 사례</div>
+            <div>QUIZ</div>
+            <div>Conclusion</div>
+            <div>HTML 최종 제출</div>
+          </div>
+          <div class="quote" style="margin-top:28px">
+            <b>핵심 원칙:</b> 전체 Transcript 복사 → 3~5분 단위 시간대별 아주 상세한 요약 → 실제 멘트·타임스탬프 확인 → 영상 전체 메시지 정리 → 벤처창업 분석 → 발표에서는 핵심 영상 구간만 재생
+          </div>
+          <div class="quote" style="margin-top:14px">최종 제출 파일명: <b>이름(학번)_벤처창업_EO사례연구.html</b></div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <div class="nav">
+    <button id="prev">← 이전</button>
+    <div class="dots" id="dots"></div>
+    <button id="next">다음 →</button>
+    <span class="kbd">키보드 ← → 사용 가능</span>
+  </div>
+
+<script>
+(function(){
+  const track = document.getElementById('track');
+  const slides = [...document.querySelectorAll('.slide')];
+  const prev = document.getElementById('prev');
+  const next = document.getElementById('next');
+  const current = document.getElementById('current');
+  const total = document.getElementById('total');
+  const dots = document.getElementById('dots');
+  let index = 0;
+
+  total.textContent = slides.length;
+
+  slides.forEach((_,i)=>{
+    const d=document.createElement('div');
+    d.className='dot'+(i===0?' active':'');
+    d.title=(i+1)+'페이지';
+    d.addEventListener('click',()=>go(i));
+    dots.appendChild(d);
+  });
+
+  function go(i){
+    index=Math.max(0,Math.min(slides.length-1,i));
+    track.style.transform=`translateX(-${index*100}%)`;
+    current.textContent=index+1;
+    prev.disabled=index===0;
+    next.disabled=index===slides.length-1;
+    [...dots.children].forEach((d,j)=>d.classList.toggle('active',j===index));
+    slides[index].scrollTop=0;
+  }
+
+  prev.addEventListener('click',()=>go(index-1));
+  next.addEventListener('click',()=>go(index+1));
+
+  document.addEventListener('keydown',(e)=>{
+    if(e.key==='ArrowRight' || e.key==='PageDown'){go(index+1);}
+    if(e.key==='ArrowLeft' || e.key==='PageUp'){go(index-1);}
+    if(e.key==='Home'){go(0);}
+    if(e.key==='End'){go(slides.length-1);}
+  });
+
+  let startX=null;
+  track.addEventListener('touchstart',e=>{startX=e.touches[0].clientX},{passive:true});
+  track.addEventListener('touchend',e=>{
+    if(startX===null)return;
+    const dx=e.changedTouches[0].clientX-startX;
+    if(Math.abs(dx)>60){dx<0?go(index+1):go(index-1);}
+    startX=null;
+  },{passive:true});
+
+  go(0);
+})();
+</script>
+</body>
+</html>
