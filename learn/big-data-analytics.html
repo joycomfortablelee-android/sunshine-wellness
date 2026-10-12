@@ -1329,6 +1329,10 @@
     /* 실전 입사지원서 목록 — 스마트관광의 발표 준비(VIA) 상자와 같은 연한 노랑 점선 상자 (2026-09-30) */
     .learn-article .jf-box { margin: 8px 0 12px; padding: 12px 14px 10px; border-radius: 10px; background: #fffbe0; border: 1.5px dashed #d8bb2a; }
     .learn-article .jf-box .jf-d { margin: 0 0 6px; }
+    /* 깜빡이는 별표 — 가장 먼저 볼 알약 표시 (2026-10-12) */
+    .learn-article .blink-star { display: inline-block; animation: blink-star 1.6s ease-in-out infinite; }
+    @keyframes blink-star { 0%, 100% { opacity: 1; } 50% { opacity: .25; } }
+    @media (prefers-reduced-motion: reduce) { .learn-article .blink-star { animation: none; } }
 </style>
 </head>
 <body class="mod-bigdata">
@@ -2025,7 +2029,7 @@
             <span class="desc"><strong>2026년 일곱 + 2025년 여섯</strong>, 모두 열세 작품에 <strong>발표자료 PDF</strong>와 <strong>대화형 시각화 체험 링크</strong>가 붙어 있습니다. <strong class="hot-t">얻는 것 — 발표자료의 목차와 분량.</strong> 몇 장으로 문제를 세우고 몇 장으로 결과를 보여 주는지 세어 보십시오. 참가신청서 · 발표 PPT 템플릿도 여기서 받습니다.</span>
             <div class="linkrow tiny">
               <a class="sky" href="https://www.youtube.com/watch?v=3vGNw3ApFk8&amp;t=430s" target="_blank" rel="noopener">▶ 분석 부문 최우수상 발표 · 7:10부터 ↗</a>
-              <a class="ylw" href="seoul-bigdata-2026-award-notes.html" target="_blank" rel="noopener">✦ 그 발표를 뜯어 본 연구노트 ↗</a>
+              <a class="ylw" href="seoul-bigdata-2026-award-notes.html" target="_blank" rel="noopener"><span class="blink-star">✦</span> 그 발표를 뜯어 본 연구노트 ↗</a>
             </div>
             <span class="meta">서울특별시 · 창업 · 분석 · 시각화 세 부문 · <a href="#서울시대회">대회 상자로 ↓</a></span>
           </li>
@@ -2034,7 +2038,7 @@
             <span class="desc"><strong>우수 활용사례(2024)</strong> — 대상 · 최우수 2 · 우수 2. <strong>담당자가 직접</strong> 문제 상황 · 해결 방법 · 성과를 말합니다. <strong class="hot-t">얻는 것 — 과정.</strong> 결과물만 보면 보이지 않는 「왜 이 데이터를 붙였나」가 말로 나옵니다. <strong>관광 데이터로 뽑힌 작품</strong>이라 이 수업에 가장 가깝습니다.</span>
             <div class="linkrow tiny">
               <a class="sky" href="https://datalab.visitkorea.or.kr/site/portal/ex/bbs/View.do?cbIdx=1129&amp;bcIdx=309896" target="_blank" rel="noopener">활용 우수사례집 PDF ⤓</a>
-              <a class="ylw" href="datalab-pm-safety-dikw-prompts.html" target="_blank" rel="noopener">✦ 대상 사례 PM 안전 · DIKW와 프롬프트 ↗</a>
+              <a class="ylw" href="datalab-pm-safety-dikw-prompts.html" target="_blank" rel="noopener"><span class="blink-star">✦</span> 대상 사례 PM 안전 · DIKW와 프롬프트 ↗</a>
             </div>
             <span class="meta">한국관광공사 · 관광 특화 데이터 · <a href="#데이터랩대회">대회 상자로 ↓</a></span>
           </li>
@@ -2087,12 +2091,12 @@
 
       <ul class="reslist under-box">
         <li class="wide boxed-green">
-          <a href="https://datalab.visitkorea.or.kr/datalab/portal/main/getMainForm.do" target="_blank" rel="noopener">한국관광 데이터랩 ★ ↗</a>
+          <a href="https://datalab.visitkorea.or.kr/datalab/portal/main/getMainForm.do" target="_blank" rel="noopener">한국관광 데이터랩 <span class="blink-star">★</span> ↗</a>
           <div class="linkrow tiny fill-green">
             <a href="https://datalab.visitkorea.or.kr/datalab/portal/loc/getTourLocalDataForm.do" target="_blank" rel="noopener">지역별 관광 현황 ↗</a>
             <a class="sky" href="https://datalab.visitkorea.or.kr/site/portal/ex/bbs/View.do?cbIdx=1129&amp;bcIdx=309896" target="_blank" rel="noopener">활용 우수사례집 PDF ⤓</a>
             <a class="sky" href="https://datalab.visitkorea.or.kr/html/interview4/interview01.jsp" target="_blank" rel="noopener">수상팀 인터뷰 5편 ↗</a>
-            <a class="ylw" href="datalab-pm-safety-dikw-prompts.html" target="_blank" rel="noopener">✦ 대상 사례 PM 안전 · DIKW와 프롬프트 ↗</a>
+            <a class="ylw" href="datalab-pm-safety-dikw-prompts.html" target="_blank" rel="noopener"><span class="blink-star">✦</span> 대상 사례 PM 안전 · DIKW와 프롬프트 ↗</a>
           </div>
           <span class="desc"><strong>이 모듈에서 가장 먼저 열 곳입니다.</strong> <strong>파트 02 「관광 데이터는 어디서 오는가」</strong>에서 본 통신 · 카드 · 내비게이션 · 관광지 방문객 데이터가 <strong>모두 여기 한 곳에</strong> 모여 있습니다. 공공데이터포털이 전 분야를 모은 창고라면, 이쪽은 <strong class="hot-t">관광만 골라 정리해 둔 곳</strong>입니다 — 지역별 · 월별 방문자와 소비를 바로 비교하고 그림과 표로 내려받습니다.<br /><strong>알약 셋(①~③)과 위 상자의 「공고 원문」(④)은 이 순서로 씁니다.</strong><br /><strong>① 지역별 관광 현황</strong> — 시 · 군을 골라 <strong>방문자 수 · 체류 시간 · 소비 · 이동</strong>을 한 화면에서 봅니다. 배정받은 도시나 내 고향을 넣어 보는 것이 <em>파트 03 다섯 걸음</em>의 첫 걸음입니다.<br /><strong>② 활용 우수사례집 PDF</strong> — <em>「데이터로 만드는 관광 — Next Tourism Playbook」</em>(한국관광공사 관광데이터전략팀, 2025. 11.). <strong>남들이 이 데이터로 무엇을 만들었는지</strong>가 사례로 들어 있습니다. 공공누리 4유형이라 <strong>출처를 밝히고</strong> 쓰되 상업적 이용은 안 됩니다.<br /><strong>③ 수상팀 인터뷰 5편</strong> — <em>우수 활용사례(2024)</em> 코너입니다. 대상 · 최우수 2 · 우수 2, <strong>담당자가 직접 문제 상황 · 해결 방법 · 성과</strong>를 말합니다. 대상은 <em>「데이터로 잡은 전동 킥보드 사고 사각지대」</em>(한국도로교통공단 · 강원랜드) — <strong>관광 빅데이터와 교통사고 통계를 붙인</strong> 분석입니다. 사례집이 결과라면 인터뷰는 <strong class="hot-t">과정</strong>입니다.<br /><strong>노란 알약 · 대상 사례 PM 안전</strong> — 그 대상 사례를 <strong>문제 → 데이터 셋(데이터랩 · TAAS · 공유 PM) → 분석방법 다섯 → DIKW → 정책 → 성과</strong>로 뜯어 본 판입니다. 끝에 <strong>그대로 복사해 쓰는 프롬프트</strong>와 상관 · 인과를 가르는 <em>비판적 분석 프롬프트</em>가 붙어 있습니다.<br /><strong>④ 활용 경진대회</strong>(위 상자 「공고 원문 · 한국관광 데이터랩」 알약) — <strong>9월 30일 마감</strong>(총상금 2,000만원 · 문화체육관광부 장관상). ①로 보고 ②③으로 배운 것을 내는 자리입니다.</span>
           <span class="meta">한국관광공사 · 관광 특화 데이터 · 지역별 방문자 · 소비 · 이동</span>
@@ -2108,7 +2112,7 @@
           <li><b>자격과 시상</b><span>제한 없음 · 개인 또는 <strong>최대 5인 팀</strong>. 창업 8팀 1,150만원 · 분석 7팀 600만원 · 시각화 7팀 600만원 — <strong>모두 22팀 2,350만원</strong>.</span></li>
           <li><b>먼저 볼 것</b><span>요강보다 <strong class="hot-t">수상작</strong>입니다. 시각화 부문 페이지에 <strong>2026년 일곱 작품 + 2025년 여섯 작품</strong>이 발표자료 PDF · 대화형 체험 링크와 함께 걸려 있고, <strong>참가신청서 · 발표 PPT 템플릿</strong>도 거기서 받습니다. 요강은 <em>무엇을 내라</em>지만 수상작은 <strong>어느 수준으로 내라</strong>를 보여 줍니다.</span></li>
         </ol>
-        <p class="tb-tags"><a class="mapl form hot" href="https://news.seoul.go.kr/gov/archives/576001" target="_blank" rel="noopener">2026 공고 원문 · 내 손안에 서울 ↗</a><a class="mapl form ylw" href="https://data.seoul.go.kr/bsp/wgs/contest26.do" target="_blank" rel="noopener">★ 수상작 · 양식 · 서울 데이터 허브 ↗</a><a class="mapl form vid sky-line" href="https://www.youtube.com/watch?v=3vGNw3ApFk8&amp;t=430s" target="_blank" rel="noopener">▶ 분석 부문 최우수상 발표 · 7:10부터 ↗</a><a class="mapl form" href="bigdata-ai-competitions-2026.html" target="_blank" rel="noopener">공모전 여섯 한눈에 ↗</a><a class="mapl form to-shelf" href="#수상작서가">★ 수상작 서가에서 나란히 보기 ↑</a><span class="tb-src"><b>지금 할 일은 하나입니다</b> — 수상작 열셋을 열어 보고 <b>「이 정도면 되는구나」를 눈에 넣어 두는 것</b>. <b>분석 부문 최우수상 발표 영상</b>은 <b>바로 아래 빅데이터 캠퍼스 카드</b>에 걸어 두었습니다(7분 10초부터) — 문제를 어떻게 잡고 <b>몇 분 만에 어떻게 보여 주는지</b>가 그대로 나옵니다. 아래 부산 대회(9/18)에 내는 결과물을 그 기준에 맞춰 만들면, 2027년 3월에는 <b>다듬어 내기만 하면 됩니다</b>. 세부 요강은 주최 측 공고로 반드시 확인하십시오.</span></p>
+        <p class="tb-tags"><a class="mapl form hot" href="https://news.seoul.go.kr/gov/archives/576001" target="_blank" rel="noopener">2026 공고 원문 · 내 손안에 서울 ↗</a><a class="mapl form ylw" href="https://data.seoul.go.kr/bsp/wgs/contest26.do" target="_blank" rel="noopener"><span class="blink-star">★</span> 수상작 · 양식 · 서울 데이터 허브 ↗</a><a class="mapl form vid sky-line" href="https://www.youtube.com/watch?v=3vGNw3ApFk8&amp;t=430s" target="_blank" rel="noopener">▶ 분석 부문 최우수상 발표 · 7:10부터 ↗</a><a class="mapl form" href="bigdata-ai-competitions-2026.html" target="_blank" rel="noopener">공모전 여섯 한눈에 ↗</a><a class="mapl form to-shelf" href="#수상작서가">★ 수상작 서가에서 나란히 보기 ↑</a><span class="tb-src"><b>지금 할 일은 하나입니다</b> — 수상작 열셋을 열어 보고 <b>「이 정도면 되는구나」를 눈에 넣어 두는 것</b>. <b>분석 부문 최우수상 발표 영상</b>은 <b>바로 아래 빅데이터 캠퍼스 카드</b>에 걸어 두었습니다(7분 10초부터) — 문제를 어떻게 잡고 <b>몇 분 만에 어떻게 보여 주는지</b>가 그대로 나옵니다. 아래 부산 대회(9/18)에 내는 결과물을 그 기준에 맞춰 만들면, 2027년 3월에는 <b>다듬어 내기만 하면 됩니다</b>. 세부 요강은 주최 측 공고로 반드시 확인하십시오.</span></p>
       </div>
 
       <ul class="reslist under-box">
@@ -2118,7 +2122,7 @@
         <div class="vidwrap">
           <iframe src="https://www.youtube-nocookie.com/embed/3vGNw3ApFk8?start=430" title="2026 서울시 빅데이터 활용 경진대회 분석 부문 최우수상 발표" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           <p class="vw-n"><b>분석 부문 최우수상 「보행 소년단」 발표</b> — 7분 10초부터 시작합니다. <b>AI가 걸어본 서울 관광지 보행환경</b>을 주제로, 로드뷰 이미지를 멀티모달 AI에 보여 주고 쾌적성 · 보행편의성 · 안전성을 평가하게 한 연구입니다.</p>
-          <p class="tb-tags vw-tags"><a class="mapl form hot" href="seoul-bigdata-2026-award-notes.html" target="_blank" rel="noopener">이 발표를 뜯어 본 연구노트 ↗</a><span class="tb-src">영상은 <b>결과</b>를 보여 주지만, 연구노트는 <b>어떻게 거기까지 갔는지</b>를 적었습니다 — 관광지 <b>44곳</b> 선정, 로드뷰 수집, <b>멀티모달 AI(MLLM)</b> 평가, 신뢰도 검증, 키워드 · 토픽 분석, 정책 우선순위, 지도 시각화까지 <b>일곱 걸음</b>. 「관광객은 주민과 달리 낯선 공간을 탐색하며 이동한다」는 한 문장에서 출발해 <b>지하철역에서 관광지까지의 길도 관광 경험</b>이라는 문제 정의로 이어집니다. <b>파트 03 다섯 걸음이 실제로 어떻게 돌아가는지</b> 보는 자리입니다.</span></p>
+          <p class="tb-tags vw-tags"><a class="mapl form hot" href="seoul-bigdata-2026-award-notes.html" target="_blank" rel="noopener"><span class="blink-star">✦</span> 이 발표를 뜯어 본 연구노트 ↗</a><span class="tb-src">영상은 <b>결과</b>를 보여 주지만, 연구노트는 <b>어떻게 거기까지 갔는지</b>를 적었습니다 — 관광지 <b>44곳</b> 선정, 로드뷰 수집, <b>멀티모달 AI(MLLM)</b> 평가, 신뢰도 검증, 키워드 · 토픽 분석, 정책 우선순위, 지도 시각화까지 <b>일곱 걸음</b>. 「관광객은 주민과 달리 낯선 공간을 탐색하며 이동한다」는 한 문장에서 출발해 <b>지하철역에서 관광지까지의 길도 관광 경험</b>이라는 문제 정의로 이어집니다. <b>파트 03 다섯 걸음이 실제로 어떻게 돌아가는지</b> 보는 자리입니다.</span></p>
         </div>
           <span class="meta">서울특별시 디지털도시국 데이터전략과 · 수상작 열셋과 제출 양식</span>
         </li>
