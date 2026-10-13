@@ -1213,6 +1213,17 @@
       border-top: 1px dashed #c7ddef; font-size: 13px; line-height: 1.75; color: #2a3a4a;
     }
     .learn-article .ref-shelf .rs-tn { flex: none; padding: 2px 9px; border-radius: 999px; background: #5aa7de; color: #fff; font-size: 11px; font-weight: 800; }
+    /* 과제 줄 바로 아래 「좌우 넘김 8장」 알약 — .dltags에 맞는 스타일이 없어 민짜 링크로 보이다 방문 후 색이 묻혀 사라진 듯 보이던 것을 바로잡음(2026-10-13) */
+    .learn-article .ref-shelf .dltags { margin: 10px 0 0; display: block; }
+    .learn-article .ref-shelf .dltags a.mapl.form.hot {
+      display: inline-block; padding: 5px 12px; border-radius: 999px;
+      background: #14456f; border: 1px solid #14456f; color: #eaf4fd;
+      font-size: 12.5px; font-weight: 800; text-decoration: none;
+    }
+    .learn-article .ref-shelf .dltags a.mapl.form.hot:hover,
+    .learn-article .ref-shelf .dltags a.mapl.form.hot:visited { color: #eaf4fd; }
+    .learn-article .ref-shelf .dltags a.mapl.form.hot:hover { background: #0c3252; border-color: #0c3252; }
+    .learn-article .ref-shelf .dl-src { display: block; margin-top: 6px; font-size: 11.5px; color: #4f7394; line-height: 1.6; }
     /* 대회 상자 · 카드에서 서가로 올라가는 작은 알약 */
     .learn-article a.to-shelf { font-weight: 800; }
     /* ── 파트 03 다섯 걸음을 칠각형으로 — 0번 꼭짓점이 Reference(수상작 서가), 0.5번이 데이터 출처 보기, 1~5번이 다섯 걸음.
@@ -1928,22 +1939,22 @@
         </li>
         <li class="t-violet case-tone" id="empathy-case">
           <a href="assets/ha-2025-empathy-cluster-types.pdf" target="_blank" rel="noopener">사례 논문 · <b class="mth">군집 분석</b> · 유아교사의 공감능력 군집유형에 따른 창의적 인성과 놀이지원효능감의 차이 ⤓ PDF</a>
-          <span class="desc"><strong>아래 통합 강의자료가 사례로 쓰는 원논문입니다.</strong> 유아교사 <strong>241명</strong>(2024년 2~3월, 서울·경기·경상)의 공감능력을 <strong>하위요인 넷</strong>(관점 취하기 · 상상하기 · 공감적 관심 · 개인적 고통)으로 나눈 뒤, <strong>위계적 군집분석으로 군집 수를 잡고 K-means로 확정</strong>하는 <em>두 방법을 이어 쓰는</em> 전형을 보여 줍니다. 그렇게 나온 네 유형이 <strong>균형형 · 정서적 소진형 · 이상적 공감형 · 인지-정서 불균형</strong>이고, 유형별 차이는 <strong>일원분산분석(ANOVA)</strong>으로 검정합니다 — <em>묶는 것은 군집분석, 묶은 뒤 차이를 따지는 것은 ANOVA</em>라는 역할 분담이 한눈에 보입니다. 관광에서도 똑같이 씁니다: 여행자를 「만족도 몇 점」 하나로 보지 않고 여러 항목의 <strong>조합</strong>으로 묶어 유형을 만든 뒤, 유형별로 소비·체류가 다른지 검정하는 순서입니다.</span>
+          <span class="desc"><strong>③-1 군집 분석의 원논문 사례입니다</strong> — 아래 통합 강의자료가 이 논문을 사례로 씁니다. 유아교사 <strong>241명</strong>(2024년 2~3월, 서울·경기·경상)의 공감능력을 <strong>하위요인 넷</strong>(관점 취하기 · 상상하기 · 공감적 관심 · 개인적 고통)으로 나눈 뒤, <strong>위계적 군집분석으로 군집 수를 잡고 K-means로 확정</strong>하는 <em>두 방법을 이어 쓰는</em> 전형을 보여 줍니다. 그렇게 나온 네 유형이 <strong>균형형 · 정서적 소진형 · 이상적 공감형 · 인지-정서 불균형</strong>이고, 유형별 차이는 <strong>일원분산분석(ANOVA)</strong>으로 검정합니다 — <em>묶는 것은 군집분석, 묶은 뒤 차이를 따지는 것은 ANOVA</em>라는 역할 분담이 한눈에 보입니다. 관광에서도 똑같이 씁니다: 여행자를 「만족도 몇 점」 하나로 보지 않고 여러 항목의 <strong>조합</strong>으로 묶어 유형을 만든 뒤, 유형별로 소비·체류가 다른지 검정하는 순서입니다.</span>
           <span class="meta">하연수(2025) · 콘텐츠와산업 7(2), 83–89 · <a href="https://doi.org/10.55387/JCI.2025.07.02.14" target="_blank" rel="noopener">doi.org/10.55387/JCI.2025.07.02.14 ↗</a></span>
         </li>
         <li class="t-violet case-tone">
           <a href="cluster-analysis-orange-guide.html" target="_blank" rel="noopener">군집분석 · ANOVA · Orange — 학생 설명용 통합 강의자료 ↗</a>
-          <span class="desc"><strong>③ 군집 분석을 수업에서 어떻게 설명하는지 한 문서로 묶은 판입니다.</strong> <em>바로 위 논문을 사례로 씁니다.</em> 시작은 한 문장입니다 — <em>「공감능력 80점인 두 사람은 같은 사람일까?」</em> 같은 총점이어도 <strong>하위요인의 조합</strong>이 다르면 다른 유형이라는 것, 그것이 군집 분석이 필요한 이유입니다. 이어 <strong>K-means · 위계적 군집분석 · 요인분석 · ANOVA 넷을 한 표로 구분</strong>하고(무엇을 묶는가 · 언제 쓰는가), <strong>비지도학습</strong>이라는 갈래에서 <strong>SPSS와 Orange</strong>가 각각 어디에 강한지, 관광빅데이터 수업에서는 왜 Orange를 쓰는지까지 갑니다. 위 <strong>④ 예측(지도학습)</strong>과 짝을 이루는 자리이고, <strong>파트 05 도구</strong>의 Orange 설명으로 그대로 이어집니다.</span>
+          <span class="desc"><strong>③-2 군집 분석을 수업에서 어떻게 설명하는지 한 문서로 묶은 판입니다.</strong> <em>바로 위 ③-1 논문을 사례로 씁니다.</em> 시작은 한 문장입니다 — <em>「공감능력 80점인 두 사람은 같은 사람일까?」</em> 같은 총점이어도 <strong>하위요인의 조합</strong>이 다르면 다른 유형이라는 것, 그것이 군집 분석이 필요한 이유입니다. 이어 <strong>K-means · 위계적 군집분석 · 요인분석 · ANOVA 넷을 한 표로 구분</strong>하고(무엇을 묶는가 · 언제 쓰는가), <strong>비지도학습</strong>이라는 갈래에서 <strong>SPSS와 Orange</strong>가 각각 어디에 강한지, 관광빅데이터 수업에서는 왜 Orange를 쓰는지까지 갑니다. 위 <strong>④ 예측(지도학습)</strong>과 짝을 이루는 자리이고, <strong>파트 05 도구</strong>의 Orange 설명으로 그대로 이어집니다.</span>
           <span class="meta">선샤인 웰니스 자체 제작 · 수업 설명용 통합본 · 시각자료 3종 포함</span>
         </li>
         <li class="t-violet case-tone" id="dm-cluster-note">
           <a href="data-mining-clustering-note.html" target="_blank" rel="noopener">학술 지식노트 · <b class="mth">문서 군집화</b> · 데이터 마이닝과 문서 군집화 — K-means vs DBSCAN ↗</a>
-          <span class="desc"><strong>④ 군집 분석을 글(리뷰)에 쓰면 무엇이 달라지나.</strong> 텍스트는 먼저 <strong>수치 벡터(TF-IDF · 임베딩)</strong>로 바꿔야 군집화할 수 있습니다. 중심점 거리로 묶는 <strong>K-means</strong>(군집 수 K를 미리 정함)와 밀도로 묶고 이상치(Noise)를 따로 가려내는 <strong>DBSCAN</strong>(ε · MinPts)을 그림과 표로 견주고, 관광 리뷰 3건 → 500건 강의 예시 · 확인 문제 · 선행연구 4편(관광 리뷰 DBSCAN 포함)까지 한 장씩 넘겨 봅니다.</span>
+          <span class="desc"><strong>③-3 군집 분석을 글(리뷰)에 쓰면 무엇이 달라지나.</strong> 텍스트는 먼저 <strong>수치 벡터(TF-IDF · 임베딩)</strong>로 바꿔야 군집화할 수 있습니다. 중심점 거리로 묶는 <strong>K-means</strong>(군집 수 K를 미리 정함)와 밀도로 묶고 이상치(Noise)를 따로 가려내는 <strong>DBSCAN</strong>(ε · MinPts)을 그림과 표로 견주고, 관광 리뷰 3건 → 500건 강의 예시 · 확인 문제 · 선행연구 4편(관광 리뷰 DBSCAN 포함)까지 한 장씩 넘겨 봅니다.</span>
           <span class="meta">관광빅데이터분석 학술연구 노트 001 · 2026.10.12 · 핵심 용어 8개 · 주요 문헌 4편 · 위 <a href="#arirang-case">텍스트 마이닝 사례</a>와 이어 읽기</span>
         </li>
       </ul>
 
-      <h3>머신러닝 — 지도학습과 비지도학습</h3>
+      <h3>데이터 마이닝과 머신러닝 — 지도학습 · 비지도학습</h3>
       <p>앞의 두 기법은 사실 <strong>머신러닝</strong>의 서로 다른 갈래에 놓입니다. 정답(레이블)을 미리 알려주고 학습시키는 것이 <strong>지도학습</strong> — <em>분류</em>와 <em>회귀</em>가 여기 속하고, <strong>④ 예측 분석</strong>이 그 예입니다. 정답 없이 데이터의 특징만 보고 비슷한 것끼리 스스로 묶게 하는 것이 <strong>비지도학습</strong> — <em>군집분석</em>과 <em>차원축소</em>가 여기 속하고, <strong>③ 군집 분석</strong>이 그 예입니다. 아래 영상에서 두 방식의 차이를 그림으로 짚습니다.</p>
       <p class="dltags"><a class="mapl form hot" href="#textom">다음 주 수업 — 텍스트마이닝 ② 텍스톰 ↗</a><a class="mapl form hot" href="#dm-cluster-note">학술 지식노트 · 문서 군집화 — K-means vs DBSCAN ↗</a><a class="mapl form hot" href="#cluster-qa">Q&amp;A — 군집분석은 지도학습인가, 비지도학습인가? ↗</a><a class="mapl form hot" href="#dm-tm-ml-dl">데이터 마이닝 · 텍스트 마이닝 · 머신러닝 · 딥러닝 — 열여섯 장 ↗</a><a class="mapl form hot" href="#dm-note">📘 학술 지식노트 — 데이터 마이닝 · 텍스트 마이닝 · 문서 군집화 ↗</a><span class="dl-src">정제 → 빈도 · 워드클라우드 · N-gram → 의미연결망. <b>텍스톰(TEXTOM)</b> 카드로 미리 보고, 아래 네 알약으로 <b>군집화 · K-means vs DBSCAN · 지도/비지도 구분</b>까지 미리 훑습니다.</span></p>
       <div class="dm-figs" id="dm-figs">
