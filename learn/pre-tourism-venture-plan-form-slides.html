@@ -79,6 +79,44 @@ ul.ask li::before{content:"◦";position:absolute;left:4px;color:var(--blue);fon
   .grid2{grid-template-columns:1fr}
   .nav{right:12px;top:10px} .hint{display:none}
 }
+.fill{display:block;width:100%;border:1.6px dashed var(--blue);border-radius:10px;background:#fbfdff;
+  padding:10px 12px;font-size:15px;line-height:1.7;font-family:inherit;color:var(--text);resize:vertical;
+  margin-top:8px}
+.fill:focus{outline:none;border-color:var(--navy);border-style:solid;background:#fff;
+  box-shadow:0 0 0 3px rgba(37,99,168,.14)}
+.fill::placeholder{color:#9fb0c2}
+.fill-label{display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:900;color:var(--blue);margin:16px 0 0}
+.fill-label::before{content:"✍️"}
+table input.cf,table textarea.cf,table select.cf{width:100%;border:0;border-bottom:1.5px dashed var(--blue);
+  background:transparent;font:inherit;color:inherit;padding:4px 2px;resize:vertical}
+table input.cf:focus,table textarea.cf:focus,table select.cf:focus{outline:none;border-bottom-style:solid;
+  border-color:var(--navy);background:#fef9e8}
+table input.cf::placeholder,table textarea.cf::placeholder{color:#9fb0c2;font-weight:400}
+.month-grid td.mo{text-align:center}
+.month-grid input[type=checkbox]{width:18px;height:18px;cursor:pointer;accent-color:var(--navy)}
+ul.check-ask{list-style:none;margin:10px 0 0;padding:0}
+ul.check-ask li{display:flex;align-items:flex-start;gap:10px;padding:8px 0;font-size:15px;line-height:1.6;
+  border-bottom:1px solid var(--line)}
+ul.check-ask li:last-child{border-bottom:0}
+ul.check-ask input[type=checkbox]{width:19px;height:19px;margin-top:2px;flex:0 0 auto;cursor:pointer;
+  accent-color:var(--green)}
+ul.check-ask label{cursor:pointer}
+ul.check-ask li.done label{color:var(--muted);text-decoration:line-through}
+.savebar{position:fixed;left:20px;bottom:14px;z-index:98;font-size:12px;color:var(--muted);
+  display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.92);padding:6px 10px;
+  border-radius:999px;border:1px solid var(--line)}
+.savebar button{border:1px solid var(--line);background:#fff;color:var(--navy);font-weight:800;
+  font-size:12px;padding:5px 11px;border-radius:999px;cursor:pointer}
+.savebar button:hover{background:#eef5fc}
+#saveState{font-weight:800;color:var(--green)}
+@media(max-width:820px){.savebar{left:12px;right:12px;bottom:56px;font-size:11px;flex-wrap:wrap}}
+@media print{
+  .nav,.dots,.hint,.savebar{display:none!important}
+  body{overflow:visible;background:#fff}
+  .deck{display:block;overflow:visible;height:auto;width:auto}
+  .slide{flex:none;height:auto;page-break-after:always;overflow:visible}
+  .fill,table input.cf,table textarea.cf,table select.cf{border-color:#8a96a4!important}
+}
 </style>
 </head>
 <body>
@@ -96,6 +134,8 @@ ul.ask li::before{content:"◦";position:absolute;left:4px;color:var(--blue);fon
     각 장 아래의 <span class="blue">파란 글씨</span>가 공고의 <b>작성요령 원문</b>이고, 그 아래가 내가 채울 자리입니다.</p>
     <div class="tip"><b>한 문장으로</b> — 이 서식은 「무엇을 팔 것인가」를 묻지 않습니다.
     <b>누구의 어떤 문제를, 어떤 근거로, 어떻게 풀어 얼마를 벌 것인가</b>를 묻습니다.</div>
+    <div class="tip"><b>이 화면에서 바로 연습하기</b> — 점선 테두리 칸에 직접 입력할 수 있습니다.
+    입력한 내용은 <b>이 브라우저에만 자동 저장</b>되며(서버로 전송되지 않습니다), 실제 제출 서식(.hwp/.pdf)에는 내용을 옮겨 적어야 합니다.</div>
     <p class="small">한국관광공사 예비관광벤처 부문 사업계획서 양식을 수업용으로 정리한 판입니다. 실제 제출 시에는 <b>해당 회차 공고의 원본 서식</b>을 내려받아 쓰십시오.</p>
     <div class="pg">1 / 16</div>
   </div></section>
@@ -119,19 +159,26 @@ ul.ask li::before{content:"◦";position:absolute;left:4px;color:var(--blue);fon
     <div class="kicker">표지 앞</div>
     <h2>일반현황 — 한 표로 끝나지만 가볍지 않습니다</h2>
     <table>
-      <tr><td class="k">대표자 성명</td><td></td><td class="k">생년월일</td><td></td><td class="k">성별</td><td>남 / 여</td></tr>
-      <tr><td class="k">기업(예정)명</td><td colspan="5"></td></tr>
-      <tr><td class="k">본사 소재지</td><td colspan="5"></td></tr>
-      <tr><td class="k">사업자 번호</td><td colspan="3"></td><td class="k">개업연월일</td><td></td></tr>
-      <tr><td class="k">신청유형 <b>(택 1)</b></td><td colspan="5"><b>관광체험서비스</b> · <b>실감형관광콘텐츠</b> · <b>관광인프라</b> · <b>관광딥테크</b></td></tr>
-      <tr><td class="k">서비스(상품)명</td><td colspan="5">20자 내외</td></tr>
-      <tr><td class="k">한줄설명</td><td colspan="5">50자 내외</td></tr>
+      <tr><td class="k">대표자 성명</td><td><input class="cf" type="text" placeholder="성명" data-save="s3-name"></td><td class="k">생년월일</td><td><input class="cf" type="text" placeholder="0000.00.00" data-save="s3-birth"></td><td class="k">성별</td><td><select class="cf" data-save="s3-gender"><option value="">선택</option><option>남</option><option>여</option></select></td></tr>
+      <tr><td class="k">기업(예정)명</td><td colspan="5"><input class="cf" type="text" placeholder="기업(예정)명" data-save="s3-company"></td></tr>
+      <tr><td class="k">본사 소재지</td><td colspan="5"><input class="cf" type="text" placeholder="본사 소재지" data-save="s3-address"></td></tr>
+      <tr><td class="k">사업자 번호</td><td colspan="3"><input class="cf" type="text" placeholder="사업자 번호" data-save="s3-bizno"></td><td class="k">개업연월일</td><td><input class="cf" type="text" placeholder="0000.00.00" data-save="s3-openday"></td></tr>
+      <tr><td class="k">신청유형 <b>(택 1)</b></td><td colspan="5"><b>관광체험서비스</b> · <b>실감형관광콘텐츠</b> · <b>관광인프라</b> · <b>관광딥테크</b>
+        <select class="cf" style="margin-top:6px;max-width:280px" data-save="s3-type">
+          <option value="">▸ 택 1 — 선택하세요</option>
+          <option>관광체험서비스</option><option>실감형관광콘텐츠</option><option>관광인프라</option><option>관광딥테크</option>
+        </select></td></tr>
+      <tr><td class="k">서비스(상품)명</td><td colspan="5"><input class="cf" type="text" maxlength="20" placeholder="20자 내외" data-save="s3-service"></td></tr>
+      <tr><td class="k">한줄설명</td><td colspan="5"><input class="cf" type="text" maxlength="50" placeholder="50자 내외" data-save="s3-oneline"></td></tr>
     </table>
     <h3>협약목표 (협약기간 내)</h3>
     <table>
-      <tr><td class="k">성과지표(KPI)</td><td>상품서비스 개시(00건) · 아이템 검증(00회) · 고객확보(00명) · 홍보마케팅(00건) · 모바일 앱 개발(00개) 등</td></tr>
-      <tr><td class="k">매출 (백만원)</td><td></td><td class="k">관광매출 (%)</td><td></td></tr>
-      <tr><td class="k">투자유치 (백만원)</td><td></td><td class="k">신규고용 (명)</td><td></td></tr>
+      <tr><td class="k">성과지표(KPI)</td><td>
+        <p class="small" style="margin:0 0 5px">예시 — 상품서비스 개시(00건) · 아이템 검증(00회) · 고객확보(00명) · 홍보마케팅(00건) · 모바일 앱 개발(00개) 등</p>
+        <textarea class="fill" rows="2" placeholder="우리 팀의 KPI를 숫자로 적으세요" data-save="s3-kpi"></textarea>
+      </td></tr>
+      <tr><td class="k">매출 (백만원)</td><td><input class="cf" type="number" placeholder="0" data-save="s3-revenue"></td><td class="k">관광매출 (%)</td><td><input class="cf" type="number" placeholder="0" data-save="s3-tourism-pct"></td></tr>
+      <tr><td class="k">투자유치 (백만원)</td><td><input class="cf" type="number" placeholder="0" data-save="s3-invest"></td><td class="k">신규고용 (명)</td><td><input class="cf" type="number" placeholder="0" data-save="s3-jobs"></td></tr>
     </table>
     <div class="tip"><b>여기서 정한 숫자가 끝까지 따라옵니다</b> — 협약목표의 KPI와 매출은 <b>3-5 Scale-up</b>, <b>6-1 KPI 달성 현실성</b>에서 다시 나옵니다. 앞뒤가 어긋나면 바로 보입니다.</div>
     <div class="pg">3 / 16</div>
@@ -143,7 +190,7 @@ ul.ask li::before{content:"◦";position:absolute;left:4px;color:var(--blue);fon
     <h2>사업요약 — 이것만 읽고도 설득되어야 합니다</h2>
     <p class="lead">본문을 <b>단순 편집해 붙이지 말라</b>고 공고가 못 박습니다. 요약본만으로 <b>사업의 당위성</b>이 서야 합니다.</p>
     <table>
-      <tr><td class="k">사업명</td><td></td></tr>
+      <tr><td class="k">사업명</td><td><input class="cf" type="text" placeholder="사업(아이템)명" data-save="s4-name"></td></tr>
       <tr><td class="k">사업개요</td><td>개발의 <b>필요성</b>과 해결하려는 과제 · 문제 정의와 <b>발생 원인·배경</b> · 문제의 영향을 받는 <b>구체적 대상</b>(고객 · 사용자 · 시장) · 해결 방법의 <b>현실성과 차별성</b></td></tr>
       <tr><td class="k">시장성</td><td>국내외 목표시장과 고객 · 사업모델 · <b>리스크 대응방안</b></td></tr>
       <tr><td class="k">사업화역량<br>및 실현가능성</td><td>상품·서비스·인프라 개발 계획 · 홍보와 판로개척 · <b>자금조달과 집행계획</b> · 일정계획과 <b>Scale-up</b></td></tr>
@@ -152,6 +199,8 @@ ul.ask li::before{content:"◦";position:absolute;left:4px;color:var(--blue);fon
       <tr><td class="k">기업가 정신·태도</td><td>KPI 달성 계획의 현실성 · <b>「관광벤처 지원사업」의 필요성</b> · 사업참여 적극성</td></tr>
       <tr><td class="k">이미지 (해당 시)</td><td>서비스(제품) 특징을 보이는 참고사진 · 설계도 — <b>제목을 반드시</b> 답니다</td></tr>
     </table>
+    <div class="fill-label">사업요약 초안 작성 — 위 일곱 항목을 한 호흡으로 엮어 씁니다</div>
+    <textarea class="fill" rows="7" placeholder="사업개요 · 시장성 · 사업화역량 및 실현가능성 · 관광산업 트렌드 부합성 · 팀빌딩 및 역량 · 기업가 정신을 담아 사업요약을 작성합니다." data-save="s4-summary"></textarea>
     <div class="pg">4 / 16</div>
   </div></section>
 
@@ -169,6 +218,8 @@ ul.ask li::before{content:"◦";position:absolute;left:4px;color:var(--blue);fon
     <div class="tip"><b>여기서 갈립니다</b> — 「관광객이 불편하다」는 문제가 아닙니다.
     <b>「부산을 처음 찾는 외국인 개별 여행자는 언어 장벽으로 로컬 경험에 닿지 못한다」</b>처럼
     <b>누가 · 무엇이 · 왜 지금</b>이 한 문장에 있어야 합니다.</div>
+    <div class="fill-label">내 아이템의 문제 정의 — 네 가지 질문에 답해 한 문단으로 씁니다</div>
+    <textarea class="fill" rows="6" placeholder="(1) 구체적인 문제 (2) 발생 원인과 배경 (3) 영향 받는 구체적 대상 (4) 해결 방법의 현실성과 차별성 — 이 순서로 적어 보세요." data-save="s5-problem"></textarea>
     <div class="pg">5 / 16</div>
   </div></section>
 
@@ -178,8 +229,10 @@ ul.ask li::before{content:"◦";position:absolute;left:4px;color:var(--blue);fon
     <h2>2-1. 시장현황 및 목표고객</h2>
     <p class="blue">(1) 관련 시장 현황과 향후 전망 제시 &nbsp;(2) 목표고객층과 그들에게 제공할 가치·솔루션 제시</p>
     <div class="grid2">
-      <div class="card"><b>시장 현황</b><p class="small">숫자마다 <b>(기관 · 연도 · 지표명)</b>을 답니다. 한국관광 데이터랩 · KOSIS · 공공데이터포털에서 가져오면 됩니다.</p></div>
-      <div class="card"><b>목표 고객</b><p class="small">「20대 여성」에서 멈추지 않습니다 — <b>지역 · 이동 · 시간 · 동행자 · 여행목적</b>으로 한 칸까지 좁힙니다.</p></div>
+      <div class="card"><b>시장 현황</b><p class="small">숫자마다 <b>(기관 · 연도 · 지표명)</b>을 답니다. 한국관광 데이터랩 · KOSIS · 공공데이터포털에서 가져오면 됩니다.</p>
+        <textarea class="fill" rows="4" placeholder="(기관·연도·지표명)을 달아 시장 현황과 향후 전망을 적습니다." data-save="s6-market"></textarea></div>
+      <div class="card"><b>목표 고객</b><p class="small">「20대 여성」에서 멈추지 않습니다 — <b>지역 · 이동 · 시간 · 동행자 · 여행목적</b>으로 한 칸까지 좁힙니다.</p>
+        <textarea class="fill" rows="4" placeholder="지역·이동·시간·동행자·여행목적까지 좁혀 목표 고객과 제공할 가치·솔루션을 적습니다." data-save="s6-customer"></textarea></div>
     </div>
     <div class="warn"><b>자주 깎이는 곳</b> — 전체 시장(TAM)만 크게 적고 <b>내가 가져올 몫</b>을 안 적는 경우. 3년 안에 닿을 범위까지 좁혀 쓰십시오.</div>
     <div class="pg">6 / 16</div>
@@ -252,6 +305,8 @@ ul.ask li::before{content:"◦";position:absolute;left:4px;color:var(--blue);fon
     </div>
     <a class="rm-more" href="business-model-revenue-flow-diagram.html" target="_blank" rel="noopener">다섯 모델 근거·출처까지 자세히 ↗</a>
     <p class="small"><b>계산식</b> — 거래건수 × 평균 거래금액 × 수수료율 = 월 예상 수익. 숫자는 근거와 함께 적습니다.</p>
+    <div class="fill-label">우리 사업모델 설명 — 박스 3~4개 · 가치(실선) · 돈(점선) · ★ 표시를 말로 풀어 씁니다</div>
+    <textarea class="fill" rows="4" placeholder="예: 여행자가 우리 플랫폼에 10만원 결제 → 숙소에 8만 5천원 지급 → 우리는 1만 5천원을 남긴다(판매마진형)." data-save="s7-model"></textarea>
     <div class="pg">7 / 16</div>
   </div></section>
 
@@ -261,10 +316,14 @@ ul.ask li::before{content:"◦";position:absolute;left:4px;color:var(--blue);fon
     <h2>2-3. 잠재리스크 및 대응방안</h2>
     <p class="blue">사업운영과정에서 예상되는 잠재리스크를 제시하고, 이에 대한 대응방안 서술</p>
     <div class="grid2">
-      <div class="card"><b>수요 리스크</b><p class="small">비수기 · 날씨 · 유행 변화로 손님이 줄 때</p></div>
-      <div class="card"><b>공급·운영 리스크</b><p class="small">파트너 이탈 · 인력 부족 · 안전사고</p></div>
-      <div class="card"><b>규제 리스크</b><p class="small">등록 요건 · 보험 · 개인정보 · 안전 기준</p></div>
-      <div class="card"><b>자금 리스크</b><p class="small">초기 고정비 · 입금 지연 · 투자 불발</p></div>
+      <div class="card"><b>수요 리스크</b><p class="small">비수기 · 날씨 · 유행 변화로 손님이 줄 때</p>
+        <textarea class="fill" rows="2" placeholder="A가 일어나면 B를 한다" data-save="s8-demand"></textarea></div>
+      <div class="card"><b>공급·운영 리스크</b><p class="small">파트너 이탈 · 인력 부족 · 안전사고</p>
+        <textarea class="fill" rows="2" placeholder="A가 일어나면 B를 한다" data-save="s8-supply"></textarea></div>
+      <div class="card"><b>규제 리스크</b><p class="small">등록 요건 · 보험 · 개인정보 · 안전 기준</p>
+        <textarea class="fill" rows="2" placeholder="A가 일어나면 B를 한다" data-save="s8-regulation"></textarea></div>
+      <div class="card"><b>자금 리스크</b><p class="small">초기 고정비 · 입금 지연 · 투자 불발</p>
+        <textarea class="fill" rows="2" placeholder="A가 일어나면 B를 한다" data-save="s8-fund"></textarea></div>
     </div>
     <div class="tip"><b>쓰는 법</b> — 「최선을 다하겠다」가 아니라 <b>「A가 일어나면 B를 한다」</b>로 씁니다. 대응이 구체적일수록 리스크를 안다는 신호가 됩니다.</div>
     <div class="pg">8 / 16</div>
@@ -277,8 +336,10 @@ ul.ask li::before{content:"◦";position:absolute;left:4px;color:var(--blue);fon
     <p class="blue">3-1 사업화에 필요한 상품·서비스·인프라(시설, IT플랫폼 등) 개발 계획을 구체적으로 서술</p>
     <p class="blue">3-2 구체적인 <b>방법 및 일정계획</b>을 포함하여 작성</p>
     <div class="grid2">
-      <div class="card"><b>개발 계획</b><p class="small">무엇을 · 언제까지 · 누가 만드는가. <b>MVP(최소 기능)</b>부터 적으면 현실성이 올라갑니다.</p></div>
-      <div class="card"><b>홍보 · 판로</b><p class="small">채널을 <b>이름으로</b> 적습니다 — 어느 플랫폼 · 어느 제휴처 · 어느 행사. 「SNS 마케팅」만으로는 부족합니다.</p></div>
+      <div class="card"><b>개발 계획</b><p class="small">무엇을 · 언제까지 · 누가 만드는가. <b>MVP(최소 기능)</b>부터 적으면 현실성이 올라갑니다.</p>
+        <textarea class="fill" rows="3" placeholder="무엇을·언제까지·누가 만드는가 (MVP부터)" data-save="s9-dev"></textarea></div>
+      <div class="card"><b>홍보 · 판로</b><p class="small">채널을 <b>이름으로</b> 적습니다 — 어느 플랫폼 · 어느 제휴처 · 어느 행사. 「SNS 마케팅」만으로는 부족합니다.</p>
+        <textarea class="fill" rows="3" placeholder="채널 이름 · 제휴처 · 행사명을 구체적으로" data-save="s9-promo"></textarea></div>
     </div>
     <div class="pg">9 / 16</div>
   </div></section>
@@ -291,14 +352,14 @@ ul.ask li::before{content:"◦";position:absolute;left:4px;color:var(--blue);fon
     <h3>[표1] 자금집행계획 <span class="small">— 정부지원금 <b>7천만원 한도</b> 내</span></h3>
     <table>
       <tr><th>조달방법</th><th>용도</th><th>산출근거</th><th>금액(천원)</th></tr>
-      <tr><td class="k">투자</td><td>대표 인건비</td><td></td><td></td></tr>
-      <tr><td class="k">매출</td><td>업무용 차량구매</td><td></td><td></td></tr>
-      <tr><td class="k">차입</td><td></td><td></td><td></td></tr>
-      <tr><td class="k">자기자금</td><td></td><td></td><td></td></tr>
-      <tr><td class="k" rowspan="3">정부지원금</td><td>신규고용</td><td></td><td></td></tr>
-      <tr><td>홈페이지 제작</td><td></td><td></td></tr>
-      <tr><td>사무실 임차</td><td></td><td></td></tr>
-      <tr><th colspan="3">합계</th><th></th></tr>
+      <tr><td class="k">투자</td><td><input class="cf" type="text" value="대표 인건비" data-save="s10-r1-use"></td><td><input class="cf" type="text" placeholder="산출근거" data-save="s10-r1-basis"></td><td><input class="cf" type="number" placeholder="0" data-save="s10-r1-amt"></td></tr>
+      <tr><td class="k">매출</td><td><input class="cf" type="text" value="업무용 차량구매" data-save="s10-r2-use"></td><td><input class="cf" type="text" placeholder="산출근거" data-save="s10-r2-basis"></td><td><input class="cf" type="number" placeholder="0" data-save="s10-r2-amt"></td></tr>
+      <tr><td class="k">차입</td><td><input class="cf" type="text" placeholder="용도" data-save="s10-r3-use"></td><td><input class="cf" type="text" placeholder="산출근거" data-save="s10-r3-basis"></td><td><input class="cf" type="number" placeholder="0" data-save="s10-r3-amt"></td></tr>
+      <tr><td class="k">자기자금</td><td><input class="cf" type="text" placeholder="용도" data-save="s10-r4-use"></td><td><input class="cf" type="text" placeholder="산출근거" data-save="s10-r4-basis"></td><td><input class="cf" type="number" placeholder="0" data-save="s10-r4-amt"></td></tr>
+      <tr><td class="k" rowspan="3">정부지원금</td><td><input class="cf" type="text" value="신규고용" data-save="s10-r5-use"></td><td><input class="cf" type="text" placeholder="산출근거" data-save="s10-r5-basis"></td><td><input class="cf" type="number" placeholder="0" data-save="s10-r5-amt"></td></tr>
+      <tr><td><input class="cf" type="text" value="홈페이지 제작" data-save="s10-r6-use"></td><td><input class="cf" type="text" placeholder="산출근거" data-save="s10-r6-basis"></td><td><input class="cf" type="number" placeholder="0" data-save="s10-r6-amt"></td></tr>
+      <tr><td><input class="cf" type="text" value="사무실 임차" data-save="s10-r7-use"></td><td><input class="cf" type="text" placeholder="산출근거" data-save="s10-r7-basis"></td><td><input class="cf" type="number" placeholder="0" data-save="s10-r7-amt"></td></tr>
+      <tr><th colspan="3">합계</th><th><input class="cf" type="number" placeholder="0" style="font-weight:800" data-save="s10-total"></th></tr>
     </table>
     <p class="small">표는 예시이므로 <b>사업 특성에 맞게 가감</b>합니다. 산출근거 칸이 비면 금액은 신뢰를 잃습니다.</p>
     <div class="pg">10 / 16</div>
@@ -312,16 +373,32 @@ ul.ask li::before{content:"◦";position:absolute;left:4px;color:var(--blue);fon
     <h3>[표2] 사업추진 일정 — 전체 단계</h3>
     <table>
       <tr><th>추진기간</th><th>추진내용</th><th>세부내용</th></tr>
-      <tr><td class="k">00년 00월 ~ 00년 00월</td><td></td><td></td></tr>
-      <tr><td class="k"></td><td></td><td></td></tr>
+      <tr><td class="k"><input class="cf" type="text" placeholder="00년 00월 ~ 00년 00월" data-save="s11-p1-period"></td><td><input class="cf" type="text" placeholder="추진내용" data-save="s11-p1-title"></td><td><input class="cf" type="text" placeholder="세부내용" data-save="s11-p1-detail"></td></tr>
+      <tr><td class="k"><input class="cf" type="text" placeholder="00년 00월 ~ 00년 00월" data-save="s11-p2-period"></td><td><input class="cf" type="text" placeholder="추진내용" data-save="s11-p2-title"></td><td><input class="cf" type="text" placeholder="세부내용" data-save="s11-p2-detail"></td></tr>
     </table>
     <h3>[표3] 사업추진 일정 — 협약기간 내(2026년)</h3>
-    <table>
+    <table class="month-grid">
       <tr><th>추진내용</th><th>5월</th><th>6월</th><th>7월</th><th>8월</th><th>9월</th><th>10월</th><th>11월</th></tr>
-      <tr><td class="k">상품·서비스 개발</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-      <tr><td class="k">홍보·판로개척</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-      <tr><td class="k">창업·업종 추가 계획</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-      <tr><td class="k">인력·조직 수립, 개발</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="k">상품·서비스 개발</td>
+        <td class="mo"><input type="checkbox" data-save="s11-m1-5"></td><td class="mo"><input type="checkbox" data-save="s11-m1-6"></td>
+        <td class="mo"><input type="checkbox" data-save="s11-m1-7"></td><td class="mo"><input type="checkbox" data-save="s11-m1-8"></td>
+        <td class="mo"><input type="checkbox" data-save="s11-m1-9"></td><td class="mo"><input type="checkbox" data-save="s11-m1-10"></td>
+        <td class="mo"><input type="checkbox" data-save="s11-m1-11"></td></tr>
+      <tr><td class="k">홍보·판로개척</td>
+        <td class="mo"><input type="checkbox" data-save="s11-m2-5"></td><td class="mo"><input type="checkbox" data-save="s11-m2-6"></td>
+        <td class="mo"><input type="checkbox" data-save="s11-m2-7"></td><td class="mo"><input type="checkbox" data-save="s11-m2-8"></td>
+        <td class="mo"><input type="checkbox" data-save="s11-m2-9"></td><td class="mo"><input type="checkbox" data-save="s11-m2-10"></td>
+        <td class="mo"><input type="checkbox" data-save="s11-m2-11"></td></tr>
+      <tr><td class="k">창업·업종 추가 계획</td>
+        <td class="mo"><input type="checkbox" data-save="s11-m3-5"></td><td class="mo"><input type="checkbox" data-save="s11-m3-6"></td>
+        <td class="mo"><input type="checkbox" data-save="s11-m3-7"></td><td class="mo"><input type="checkbox" data-save="s11-m3-8"></td>
+        <td class="mo"><input type="checkbox" data-save="s11-m3-9"></td><td class="mo"><input type="checkbox" data-save="s11-m3-10"></td>
+        <td class="mo"><input type="checkbox" data-save="s11-m3-11"></td></tr>
+      <tr><td class="k">인력·조직 수립, 개발</td>
+        <td class="mo"><input type="checkbox" data-save="s11-m4-5"></td><td class="mo"><input type="checkbox" data-save="s11-m4-6"></td>
+        <td class="mo"><input type="checkbox" data-save="s11-m4-7"></td><td class="mo"><input type="checkbox" data-save="s11-m4-8"></td>
+        <td class="mo"><input type="checkbox" data-save="s11-m4-9"></td><td class="mo"><input type="checkbox" data-save="s11-m4-10"></td>
+        <td class="mo"><input type="checkbox" data-save="s11-m4-11"></td></tr>
     </table>
     <div class="pg">11 / 16</div>
   </div></section>
@@ -334,11 +411,11 @@ ul.ask li::before{content:"◦";position:absolute;left:4px;color:var(--blue);fon
     <h3>[표4] Scale-up 계획</h3>
     <table>
       <tr><th>구분</th><th>2027년</th><th>2028년</th><th>2029년</th><th>근거</th></tr>
-      <tr><td class="k">1. 매출액(백만원)</td><td></td><td></td><td></td><td></td></tr>
-      <tr><td class="k">2. 투자유치(백만원)</td><td></td><td></td><td></td><td></td></tr>
-      <tr><td class="k">3. 신규고용(명)</td><td></td><td></td><td></td><td></td></tr>
-      <tr><td class="k">4. 입점업체(개)</td><td></td><td></td><td></td><td></td></tr>
-      <tr><td class="k">5. 서비스이용자(명)</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="k">1. 매출액(백만원)</td><td><input class="cf" type="number" data-save="s12-r1-27"></td><td><input class="cf" type="number" data-save="s12-r1-28"></td><td><input class="cf" type="number" data-save="s12-r1-29"></td><td><input class="cf" type="text" placeholder="근거" data-save="s12-r1-basis"></td></tr>
+      <tr><td class="k">2. 투자유치(백만원)</td><td><input class="cf" type="number" data-save="s12-r2-27"></td><td><input class="cf" type="number" data-save="s12-r2-28"></td><td><input class="cf" type="number" data-save="s12-r2-29"></td><td><input class="cf" type="text" placeholder="근거" data-save="s12-r2-basis"></td></tr>
+      <tr><td class="k">3. 신규고용(명)</td><td><input class="cf" type="number" data-save="s12-r3-27"></td><td><input class="cf" type="number" data-save="s12-r3-28"></td><td><input class="cf" type="number" data-save="s12-r3-29"></td><td><input class="cf" type="text" placeholder="근거" data-save="s12-r3-basis"></td></tr>
+      <tr><td class="k">4. 입점업체(개)</td><td><input class="cf" type="number" data-save="s12-r4-27"></td><td><input class="cf" type="number" data-save="s12-r4-28"></td><td><input class="cf" type="number" data-save="s12-r4-29"></td><td><input class="cf" type="text" placeholder="근거" data-save="s12-r4-basis"></td></tr>
+      <tr><td class="k">5. 서비스이용자(명)</td><td><input class="cf" type="number" data-save="s12-r5-27"></td><td><input class="cf" type="number" data-save="s12-r5-28"></td><td><input class="cf" type="number" data-save="s12-r5-29"></td><td><input class="cf" type="text" placeholder="근거" data-save="s12-r5-basis"></td></tr>
     </table>
     <div class="warn"><b>근거 칸이 본체입니다</b> — 숫자는 누구나 적습니다. <b>「가동률 몇 %, 객단가 얼마, 회차 몇 번」</b>처럼 계산식이 보이게 쓰십시오.</div>
     <div class="pg">12 / 16</div>
@@ -352,6 +429,8 @@ ul.ask li::before{content:"◦";position:absolute;left:4px;color:var(--blue);fon
     <p class="blue">4-2 아이템과 관광산업의 <b>연관성</b>과, 관광산업 발전에 <b>어떻게 기여</b>할 수 있는지 설명</p>
     <div class="tip"><b>이 절이 관광벤처 공모의 관문입니다</b> — 좋은 아이템이어도 <b>관광과의 연결</b>이 약하면 다른 부처 공모로 가라는 말을 듣습니다.
     <b>방문 · 체류 · 소비</b> 가운데 내 아이템이 무엇을 늘리는지 한 문장으로 적으십시오.</div>
+    <div class="fill-label">관광시장 이해 · 아이템과의 연관성 — 방문·체류·소비 가운데 무엇을 늘리는지 밝혀 씁니다</div>
+    <textarea class="fill" rows="5" placeholder="4-1 관광산업 및 시장 트렌드 / 4-2 아이템과 관광산업의 연관성, 관광산업 발전에 기여하는 방법" data-save="s13-tourism"></textarea>
     <div class="pg">13 / 16</div>
   </div></section>
 
@@ -365,8 +444,27 @@ ul.ask li::before{content:"◦";position:absolute;left:4px;color:var(--blue);fon
     <h3>[표5] 팀 구성 현황</h3>
     <table>
       <tr><th>성명</th><th>직위</th><th>담당업무</th><th>보유역량(경력/학력 등)</th><th>구성상태</th></tr>
-      <tr><td>000</td><td>00</td><td></td><td></td><td>완료</td></tr>
-      <tr><td>000</td><td>00</td><td></td><td></td><td>예정(’00.00)</td></tr>
+      <tr>
+        <td><input class="cf" type="text" placeholder="성명" data-save="s14-r1-name"></td>
+        <td><input class="cf" type="text" placeholder="직위" data-save="s14-r1-role"></td>
+        <td><input class="cf" type="text" placeholder="담당업무" data-save="s14-r1-task"></td>
+        <td><input class="cf" type="text" placeholder="보유역량" data-save="s14-r1-skill"></td>
+        <td><select class="cf" data-save="s14-r1-status"><option value="">선택</option><option>완료</option><option>예정</option></select></td>
+      </tr>
+      <tr>
+        <td><input class="cf" type="text" placeholder="성명" data-save="s14-r2-name"></td>
+        <td><input class="cf" type="text" placeholder="직위" data-save="s14-r2-role"></td>
+        <td><input class="cf" type="text" placeholder="담당업무" data-save="s14-r2-task"></td>
+        <td><input class="cf" type="text" placeholder="보유역량" data-save="s14-r2-skill"></td>
+        <td><select class="cf" data-save="s14-r2-status"><option value="">선택</option><option>완료</option><option>예정</option></select></td>
+      </tr>
+      <tr>
+        <td><input class="cf" type="text" placeholder="성명" data-save="s14-r3-name"></td>
+        <td><input class="cf" type="text" placeholder="직위" data-save="s14-r3-role"></td>
+        <td><input class="cf" type="text" placeholder="담당업무" data-save="s14-r3-task"></td>
+        <td><input class="cf" type="text" placeholder="보유역량" data-save="s14-r3-skill"></td>
+        <td><select class="cf" data-save="s14-r3-status"><option value="">선택</option><option>완료</option><option>예정</option></select></td>
+      </tr>
     </table>
     <div class="tip"><b>없는 역량을 감추지 마십시오</b> — 「못한다」가 아니라 <b>「누구와 함께 한다」</b>로 씁니다. 실제로 물어본 흔적(자문 · 협의 · 견적)이 있으면 더 강해집니다.</div>
     <div class="pg">14 / 16</div>
@@ -380,6 +478,10 @@ ul.ask li::before{content:"◦";position:absolute;left:4px;color:var(--blue);fon
     <p class="blue"><b>사업 참여 적극성</b> — 창업자로서 생각하는 기업가 정신과 태도를 포함해, 본 사업에 <b>얼마나 적극적으로 참여</b>해 발전시켜 나갈 계획인지 제시</p>
     <div class="tip"><b>앞의 숫자와 맞물려야 합니다</b> — 일반현황의 협약목표 KPI, [표4] Scale-up과 <b>같은 숫자</b>여야 합니다.
     그리고 <b>「왜 이 지원사업이어야 하는가」</b>에 답해야 합니다 — 돈이 아니라 <b>무엇이 없어서 못 하고 있는가</b>를 적으십시오.</div>
+    <div class="fill-label">KPI 달성 현실성 — 보유 네트워크·파트너십·예상 매출처를 구체적으로</div>
+    <textarea class="fill" rows="4" placeholder="협약목표 KPI([표4] Scale-up과 같은 숫자)를 어떻게 달성할지, 왜 이 지원사업이 필요한지 적습니다." data-save="s15-kpi"></textarea>
+    <div class="fill-label">사업 참여 적극성 — 기업가 정신과 태도</div>
+    <textarea class="fill" rows="4" placeholder="창업자로서의 기업가 정신과, 이 사업에 얼마나 적극적으로 참여해 발전시킬 계획인지 적습니다." data-save="s15-attitude"></textarea>
     <h3>KPI란</h3>
     <p>핵심 성과 지표(Key Performance Indicator) — 조직이나 개인이 정한 목표를 향해 <b>얼마나 잘 가고 있는지 숫자로</b> 재는 기준입니다. <b>① 방향 확인</b>(지금 가는 길이 맞는지) <b>② 정량화</b>(추상적 목표가 아니라 숫자로 나타낼 수 있어야 함) <b>③ 업무별로 다름</b>(무엇이 중요한 지표인지가 업무마다 갈림) — 이 세 가지가 핵심입니다.</p>
     <div class="grid2">
@@ -405,16 +507,16 @@ ul.ask li::before{content:"◦";position:absolute;left:4px;color:var(--blue);fon
       <tr><td class="k">5. 팀 빌딩</td><td>2장 이내</td><td>이 사람들이 할 수 있는가</td></tr>
       <tr><td class="k">6. 기업가 정신</td><td>1장 이내</td><td>KPI가 현실적인가 · 왜 이 지원이 필요한가</td></tr>
     </table>
-    <h3>제출 전 여덟 줄</h3>
-    <ul class="ask">
-      <li>본문이 <b>13페이지 이내</b>인가 (표지 · 요약 · 별첨 제외)</li>
-      <li><b>PDF</b>로 변환했는가 · 맑은고딕 11pt · 줄 간격 160 · <b>검정 글씨</b></li>
-      <li><span class="blue">파란 글씨 작성요령·예시</span>를 <b>모두 지웠는가</b></li>
-      <li>빈 항목 없이 <b>전부 채웠는가</b> (해당 없으면 공란 유지)</li>
-      <li>숫자마다 <b>출처 또는 산출근거</b>가 있는가</li>
-      <li>협약목표 KPI와 [표4] Scale-up의 숫자가 <b>서로 맞는가</b></li>
-      <li>이미지에 <b>제목</b>을 달았는가</li>
-      <li>사업요약 1매만 읽어도 <b>설득되는가</b></li>
+    <h3>제출 전 여덟 줄 <span class="small">— 체크하며 점검하세요</span></h3>
+    <ul class="check-ask">
+      <li><input type="checkbox" id="chk1" data-save="s16-chk1"><label for="chk1">본문이 <b>13페이지 이내</b>인가 (표지 · 요약 · 별첨 제외)</label></li>
+      <li><input type="checkbox" id="chk2" data-save="s16-chk2"><label for="chk2"><b>PDF</b>로 변환했는가 · 맑은고딕 11pt · 줄 간격 160 · <b>검정 글씨</b></label></li>
+      <li><input type="checkbox" id="chk3" data-save="s16-chk3"><label for="chk3"><span class="blue">파란 글씨 작성요령·예시</span>를 <b>모두 지웠는가</b></label></li>
+      <li><input type="checkbox" id="chk4" data-save="s16-chk4"><label for="chk4">빈 항목 없이 <b>전부 채웠는가</b> (해당 없으면 공란 유지)</label></li>
+      <li><input type="checkbox" id="chk5" data-save="s16-chk5"><label for="chk5">숫자마다 <b>출처 또는 산출근거</b>가 있는가</label></li>
+      <li><input type="checkbox" id="chk6" data-save="s16-chk6"><label for="chk6">협약목표 KPI와 [표4] Scale-up의 숫자가 <b>서로 맞는가</b></label></li>
+      <li><input type="checkbox" id="chk7" data-save="s16-chk7"><label for="chk7">이미지에 <b>제목</b>을 달았는가</label></li>
+      <li><input type="checkbox" id="chk8" data-save="s16-chk8"><label for="chk8">사업요약 1매만 읽어도 <b>설득되는가</b></label></li>
     </ul>
     <div class="pg">16 / 16</div>
   </div></section>
@@ -422,6 +524,12 @@ ul.ask li::before{content:"◦";position:absolute;left:4px;color:var(--blue);fon
 </div>
 
 <div class="dots" id="dots"></div>
+<div class="savebar" id="savebar">
+  <span>✍️ 작성 내용은 이 브라우저에 자동 저장</span>
+  <span id="saveState"></span>
+  <button id="resetBtn" type="button">전체 지우기</button>
+  <button id="printBtn" type="button">인쇄</button>
+</div>
 
 <script>
 const deck = document.getElementById('deck');
@@ -450,6 +558,50 @@ document.addEventListener('keydown', e => {
 });
 window.addEventListener('resize', () => go(idx()));
 mark();
+
+// ---- 학생 작성칸 자동 저장 (이 브라우저에만 저장됩니다) ----
+const STORE_PREFIX = 'ptv-form::';
+const saveState = document.getElementById('saveState');
+let saveTimer = null;
+function flashSaved(){
+  if (!saveState) return;
+  saveState.textContent = '저장됨 ✓';
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(() => { saveState.textContent = ''; }, 1500);
+}
+function wireAutosave(){
+  document.querySelectorAll('[data-save]').forEach(el => {
+    const key = STORE_PREFIX + el.dataset.save;
+    let saved = null;
+    try { saved = localStorage.getItem(key); } catch (e) {}
+    if (saved !== null) {
+      if (el.type === 'checkbox') el.checked = saved === '1';
+      else el.value = saved;
+    }
+    if (el.type === 'checkbox' && el.closest('li')) {
+      el.closest('li').classList.toggle('done', el.checked);
+    }
+    const evt = (el.tagName === 'SELECT' || el.type === 'checkbox') ? 'change' : 'input';
+    el.addEventListener(evt, () => {
+      try { localStorage.setItem(key, el.type === 'checkbox' ? (el.checked ? '1' : '0') : el.value); } catch (e) {}
+      if (el.type === 'checkbox' && el.closest('li')) {
+        el.closest('li').classList.toggle('done', el.checked);
+      }
+      flashSaved();
+    });
+  });
+}
+wireAutosave();
+const resetBtn = document.getElementById('resetBtn');
+if (resetBtn) resetBtn.onclick = () => {
+  if (!confirm('작성한 모든 내용을 지웁니다. 계속할까요?')) return;
+  try {
+    Object.keys(localStorage).filter(k => k.startsWith(STORE_PREFIX)).forEach(k => localStorage.removeItem(k));
+  } catch (e) {}
+  location.reload();
+};
+const printBtn = document.getElementById('printBtn');
+if (printBtn) printBtn.onclick = () => window.print();
 </script>
 </body>
 </html>
