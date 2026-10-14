@@ -1102,6 +1102,12 @@
     .learn-article .ps-penta .sp-dot { fill: #2a1405; }
     .learn-article .ps-penta .sp-n { font-size: 16px; font-weight: 900; fill: #2a1405; }
     .learn-article .ps-penta .sp-x { font-size: 11.5px; font-weight: 700; fill: #a8681f; }
+    /* 오각형 바깥에 겹쳐지는 희미한 확장 선 — 안전성 · 사회적 영향(ESG) 두 점 (2026-10-14) */
+    .learn-article .ps-penta .sp-edge2 { fill: #e07a24; fill-opacity: .07; stroke: #e07a24; stroke-opacity: .4; stroke-width: 1.5; stroke-dasharray: 4 4; }
+    .learn-article .ps-penta .sp-spoke2 { stroke: #e07a24; stroke-opacity: .35; stroke-width: 1; stroke-dasharray: 2 3; }
+    .learn-article .ps-penta .sp-dot2 { fill: #e07a24; opacity: .55; }
+    .learn-article .ps-penta .sp-n2 { font-size: 13.5px; font-weight: 800; fill: #b8560c; opacity: .75; }
+    .learn-article .ps-penta .sp-x2 { font-size: 10.5px; font-weight: 700; fill: #a8681f; opacity: .65; }
     .learn-article .ps-penta figcaption { text-align: left; font-size: 12.5px; line-height: 1.75; color: #5a4428; }
     .learn-article .tri-wrap.hub-x .tri-hx .vx b::before { content: "★ "; color: #d62d20; }
     /* 네모(사각형) — 2 × 2 카드, 가운데 허브. 체험·서비스형(① 관광체험서비스)이 넷째 칸. */
@@ -2997,23 +3003,25 @@
       </div>
       <p>좋은 문제 정의는 이미 절반의 해답입니다. 이 사이트의 출발점도 "친절한 로컬 가이드와 여행자를 잇는다"는 한 문장이었습니다.</p>
       <figure class="learn-fig ps-penta" id="problem-statement-5">
-        <p class="sp-t">내 Problem Statement, 일곱 기준으로 본다</p>
+        <p class="sp-t">내 Problem Statement, 다섯 기준으로 본다</p>
         <svg viewBox="0 40 640 450" role="img" aria-labelledby="ps-title ps-desc">
-          <title id="ps-title">좋은 문제 정의(Problem Statement)를 가르는 일곱 기준 칠각형</title>
-          <desc id="ps-desc">꼭짓점은 구체성 · 현실성 · 시장성(시장가치) · 필요성 · 차별성 · 안전성 · 사회적 영향(ESG) 일곱 기준이며, 가운데는 Problem Statement.</desc>
-          <polygon points="320,90 449,152 481,292 392,404 248,404 159,292 191,152" class="sp-edge"/>
-          <line x1="320" y1="255" x2="320" y2="90" class="sp-spoke"/><line x1="320" y1="255" x2="449" y2="152" class="sp-spoke"/><line x1="320" y1="255" x2="481" y2="292" class="sp-spoke"/><line x1="320" y1="255" x2="392" y2="404" class="sp-spoke"/><line x1="320" y1="255" x2="248" y2="404" class="sp-spoke"/><line x1="320" y1="255" x2="159" y2="292" class="sp-spoke"/><line x1="320" y1="255" x2="191" y2="152" class="sp-spoke"/>
+          <title id="ps-title">좋은 문제 정의(Problem Statement)를 가르는 다섯 기준 오각형 — 바깥의 희미한 선은 더 생각해볼 두 기준</title>
+          <desc id="ps-desc">가운데 오각형의 다섯 꼭짓점은 구체성 · 현실성 · 시장성(시장가치) · 필요성 · 차별성. 바깥으로 겹쳐진 희미한 선이 두 점(안전성 · 사회적 영향 ESG)을 더해 보여 준다. 가운데는 Problem Statement.</desc>
+          <polygon points="320,90 477,204 506,315 417,388 223,388 135,315 163,204" class="sp-edge2"/>
+          <line x1="320" y1="255" x2="506" y2="315" class="sp-spoke2"/><line x1="320" y1="255" x2="135" y2="315" class="sp-spoke2"/>
+          <polygon points="320,90 477,204 417,388 223,388 163,204" class="sp-edge"/>
+          <line x1="320" y1="255" x2="320" y2="90" class="sp-spoke"/><line x1="320" y1="255" x2="477" y2="204" class="sp-spoke"/><line x1="320" y1="255" x2="417" y2="388" class="sp-spoke"/><line x1="320" y1="255" x2="223" y2="388" class="sp-spoke"/><line x1="320" y1="255" x2="163" y2="204" class="sp-spoke"/>
           <circle cx="320" cy="255" r="52" class="sp-core"/>
-          <text x="320" y="247" class="sp-ct">7가지 기준</text><text x="320" y="265" class="sp-cv">Problem</text><text x="320" y="282" class="sp-cv">Statement</text>
+          <text x="320" y="247" class="sp-ct">5가지 기준</text><text x="320" y="265" class="sp-cv">Problem</text><text x="320" y="282" class="sp-cv">Statement</text>
           <circle cx="320" cy="90" r="7" class="sp-dot"/><text x="320" y="76" text-anchor="middle" class="sp-n">① 구체성</text><text x="320" y="58" text-anchor="middle" class="sp-x">Specificity</text>
-          <circle cx="449" cy="152" r="7" class="sp-dot"/><text x="467" y="148" text-anchor="start" class="sp-n">② 현실성</text><text x="467" y="130" text-anchor="start" class="sp-x">Feasibility</text>
-          <circle cx="481" cy="292" r="7" class="sp-dot"/><text x="499" y="296" text-anchor="start" class="sp-n">③ 시장성</text><text x="499" y="314" text-anchor="start" class="sp-x">Market Value</text>
-          <circle cx="392" cy="404" r="7" class="sp-dot"/><text x="392" y="428" text-anchor="middle" class="sp-n">④ 필요성</text><text x="392" y="446" text-anchor="middle" class="sp-x">Necessity</text>
-          <circle cx="248" cy="404" r="7" class="sp-dot"/><text x="248" y="428" text-anchor="middle" class="sp-n">⑤ 차별성</text><text x="248" y="446" text-anchor="middle" class="sp-x">Differentiation</text>
-          <circle cx="159" cy="292" r="7" class="sp-dot"/><text x="141" y="296" text-anchor="end" class="sp-n">⑥ 안전성</text><text x="141" y="314" text-anchor="end" class="sp-x">Safety</text>
-          <circle cx="191" cy="152" r="7" class="sp-dot"/><text x="173" y="148" text-anchor="end" class="sp-n">⑦ 사회적 영향</text><text x="173" y="130" text-anchor="end" class="sp-x">Social Impact · ESG</text>
+          <circle cx="477" cy="204" r="7" class="sp-dot"/><text x="495" y="200" text-anchor="start" class="sp-n">② 현실성</text><text x="495" y="218" text-anchor="start" class="sp-x">Feasibility</text>
+          <circle cx="417" cy="388" r="7" class="sp-dot"/><text x="435" y="412" text-anchor="start" class="sp-n">③ 시장성</text><text x="435" y="430" text-anchor="start" class="sp-x">Market Value</text>
+          <circle cx="223" cy="388" r="7" class="sp-dot"/><text x="205" y="412" text-anchor="end" class="sp-n">④ 필요성</text><text x="205" y="430" text-anchor="end" class="sp-x">Necessity</text>
+          <circle cx="163" cy="204" r="7" class="sp-dot"/><text x="145" y="200" text-anchor="end" class="sp-n">⑤ 차별성</text><text x="145" y="218" text-anchor="end" class="sp-x">Differentiation</text>
+          <circle cx="506" cy="315" r="6" class="sp-dot2"/><text x="524" y="320" text-anchor="start" class="sp-n2">⑥ 안전성</text><text x="524" y="336" text-anchor="start" class="sp-x2">Safety</text>
+          <circle cx="135" cy="315" r="6" class="sp-dot2"/><text x="117" y="320" text-anchor="end" class="sp-n2">⑦ 사회적 영향</text><text x="117" y="336" text-anchor="end" class="sp-x2">Social Impact · ESG</text>
         </svg>
-        <figcaption><b>① 구체성</b> 누구의 어떤 문제인지 숫자 · 장면으로 짚었는가. <b>② 현실성</b> 지금 실제로 일어나고 있고 확인할 수 있는 문제인가. <b>③ 시장성(시장가치)</b> 그 문제를 풀어 주면 돈을 낼 사람이 있는가. <b>④ 필요성</b> 지금 반드시 풀어야 하는 문제인가 — 위 <b>WHY NOW</b>와 같은 물음. <b>⑤ 차별성</b> 기존 해결책 · 대체재가 못 하는 지점을 짚었는가. <b>⑥ 안전성</b> 고객 · 지역사회에 위험하거나 해롭지 않은가(법규 · 안전기준을 충족하는가). <b>⑦ 사회적 영향(ESG)</b> 환경 · 사회 · 지배구조 측면에서 해롭지 않고, 가능하면 긍정적인가.</figcaption>
+        <figcaption><b>① 구체성</b> 누구의 어떤 문제인지 숫자 · 장면으로 짚었는가. <b>② 현실성</b> 지금 실제로 일어나고 있고 확인할 수 있는 문제인가. <b>③ 시장성(시장가치)</b> 그 문제를 풀어 주면 돈을 낼 사람이 있는가. <b>④ 필요성</b> 지금 반드시 풀어야 하는 문제인가 — 위 <b>WHY NOW</b>와 같은 물음. <b>⑤ 차별성</b> 기존 해결책 · 대체재가 못 하는 지점을 짚었는가.<br /><em>바깥의 희미한 선 — 더 생각해볼 두 기준.</em> <b>⑥ 안전성</b> 고객 · 지역사회에 위험하거나 해롭지 않은가(법규 · 안전기준을 충족하는가). <b>⑦ 사회적 영향(ESG)</b> 환경 · 사회 · 지배구조 측면에서 해롭지 않고, 가능하면 긍정적인가.</figcaption>
       </figure>
       <div class="pill-notes">
         <p class="pn-lead"><b>WHO 칸을 「관광객」에서 멈추지 않게 하는 판 여섯입니다.</b></p>
