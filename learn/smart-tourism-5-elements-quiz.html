@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>스마트관광 5대 요소 퀴즈</title>
+<style>
+:root{
+  --bg:#f4f7fb; --card:#fff; --ink:#1b2a3b; --muted:#5c6b7d; --line:#dfe6ee;
+  --accent:#1c5fae; --accent-soft:#eaf1fb; --good:#1f8a4c; --good-bg:#e9f8ee;
+  --bad:#b4393a; --bad-bg:#fdecec;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR","Apple SD Gothic Neo",Pretendard,Arial,sans-serif;line-height:1.6}
+.wrap{max-width:720px;margin:0 auto;padding:28px 18px 60px}
+header{margin-bottom:22px}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.08em;color:var(--accent);text-transform:uppercase}
+h1{font-size:clamp(22px,4vw,28px);margin:8px 0 10px;line-height:1.35}
+header p{color:var(--muted);font-size:14.5px;margin:0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px 22px;margin:16px 0;box-shadow:0 8px 22px rgba(30,50,80,.05)}
+.q-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;font-size:13px;margin-right:8px;flex:0 0 auto}
+.q-title{font-size:16px;font-weight:800;margin:0 0 12px;display:flex;align-items:flex-start;gap:0}
+.opts{display:grid;gap:8px}
+.opt{display:flex;align-items:flex-start;gap:9px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;cursor:pointer;font-size:14.5px;background:#fafcfe}
+.opt:hover{background:var(--accent-soft)}
+.opt input{margin-top:3px;flex:0 0 auto;accent-color:var(--accent)}
+.card.graded .opt{cursor:default}
+.card.graded .opt:hover{background:#fafcfe}
+.card.graded .opt.correct{background:var(--good-bg);border-color:var(--good);color:#1a5c33}
+.card.graded .opt.wrong{background:var(--bad-bg);border-color:var(--bad);color:#8c2a2b}
+.explain{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);font-size:13px;color:var(--muted);display:none}
+.card.graded .explain{display:block}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+button{font:inherit;font-weight:800;font-size:14.5px;border:0;border-radius:10px;padding:12px 20px;cursor:pointer;background:var(--accent);color:#fff}
+button.ghost{background:var(--accent-soft);color:var(--accent)}
+button:active{transform:translateY(1px)}
+.result{margin-top:16px;display:none}
+.result.show{display:block}
+.score-line{font-size:15px;font-weight:800;padding:12px 14px;border-radius:10px;margin-bottom:12px}
+.score-line.ok{background:var(--good-bg);color:var(--good)}
+.score-line.warn{background:var(--bad-bg);color:var(--bad)}
+.footnote{font-size:12.5px;color:var(--muted);margin-top:26px;text-align:center}
+.footnote a{color:var(--accent);text-decoration:none;font-weight:700}
+@media(max-width:480px){.card{padding:16px 15px 18px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">스마트관광 5대 요소 · 객관식 퀴즈</div>
+    <h1>도시가 갖추는 다섯 영역 — 요소 · 기술 · 핵심가치를 잇기</h1>
+    <p>각 문항에서 하나씩 골라 보세요. 「채점하기」를 누르면 맞은 것은 초록, 틀린 것은 빨강으로 바로 보여주고 짧은 해설을 붙입니다.</p>
+  </header>
+
+  <div class="card" data-q="0">
+    <p class="q-title"><span class="q-num">1</span>스마트관광 5대 요소는 모두 몇 가지입니까?</p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q0" value="0">3가지</label>
+      <label class="opt"><input type="radio" name="q0" value="1">4가지</label>
+      <label class="opt"><input type="radio" name="q0" value="2">5가지</label>
+      <label class="opt"><input type="radio" name="q0" value="3">7가지</label>
+    </div>
+    <p class="explain">스마트 경험 · 스마트 편의 · 스마트 서비스 · 스마트 모빌리티 · 스마트 플랫폼, 모두 5가지입니다.</p>
+  </div>
+
+  <div class="card" data-q="1">
+    <p class="q-title"><span class="q-num">2</span>「관광콘텐츠」와 연계되고, <b>AR · VR · MR · 홀로그램</b>으로 자연 · 문화 · 역사의 관광매력을 극대화하는 요소는?</p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q1" value="0">① 스마트 경험</label>
+      <label class="opt"><input type="radio" name="q1" value="1">② 스마트 편의</label>
+      <label class="opt"><input type="radio" name="q1" value="2">③ 스마트 서비스</label>
+      <label class="opt"><input type="radio" name="q1" value="3">⑤ 스마트 플랫폼</label>
+    </div>
+    <p class="explain">① 스마트 경험 — 관광콘텐츠 → 관광매력 극대화, 핵심 기술은 AR · VR · MR · 홀로그램.</p>
+  </div>
+
+  <div class="card" data-q="2">
+    <p class="q-title"><span class="q-num">3</span><b>O2O · 디지털 사이니지</b> 기술로 식당 · 체험 등을 실시간으로 알려 주고 예약 · 결제를 지원하는, 핵심가치가 「관광일정 관리」인 요소는?</p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q2" value="0">① 스마트 경험</label>
+      <label class="opt"><input type="radio" name="q2" value="1">② 스마트 편의</label>
+      <label class="opt"><input type="radio" name="q2" value="2">④ 스마트 모빌리티</label>
+      <label class="opt"><input type="radio" name="q2" value="3">⑤ 스마트 플랫폼</label>
+    </div>
+    <p class="explain">② 스마트 편의 — 관광인프라 → 관광일정 관리, 핵심 기술은 O2O · 디지털 사이니지.</p>
+  </div>
+
+  <div class="card" data-q="3">
+    <p class="q-title"><span class="q-num">4</span><b>챗봇 · 로보틱스</b>로 다국어 · 불편신고 · 짐배송 등 관광지 현장의 불편에 신속히 대응하는, 핵심가치가 「관광품질 개선」인 요소는?</p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q3" value="0">① 스마트 경험</label>
+      <label class="opt"><input type="radio" name="q3" value="1">③ 스마트 서비스</label>
+      <label class="opt"><input type="radio" name="q3" value="2">④ 스마트 모빌리티</label>
+      <label class="opt"><input type="radio" name="q3" value="3">⑤ 스마트 플랫폼</label>
+    </div>
+    <p class="explain">③ 스마트 서비스 — 관광지원서비스 → 관광품질 개선, 핵심 기술은 챗봇 · 로보틱스.</p>
+  </div>
+
+  <div class="card" data-q="4">
+    <p class="q-title"><span class="q-num">5</span><b>공유플랫폼 · 자율주행 · MaaS</b> 등 2차 교통수단으로 핵심가치가 「방문범위 확대」인 요소는?</p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q4" value="0">② 스마트 편의</label>
+      <label class="opt"><input type="radio" name="q4" value="1">③ 스마트 서비스</label>
+      <label class="opt"><input type="radio" name="q4" value="2">④ 스마트 모빌리티</label>
+      <label class="opt"><input type="radio" name="q4" value="3">⑤ 스마트 플랫폼</label>
+    </div>
+    <p class="explain">④ 스마트 모빌리티 — 관광교통 → 방문범위 확대. 싱가포르 · 서울 · 헬싱키 · 부산 에코델타 비교자료로 바로 연결되는 요소이기도 합니다.</p>
+  </div>
+
+  <div class="card" data-q="5">
+    <p class="q-title"><span class="q-num">6</span><b>AI · Data Analytics</b>로 도시 안의 여러 서비스를 등록 · 이용하고 그 기록을 모아 공유하는, 핵심가치가 「관광정보 공유」인 요소는?</p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q5" value="0">① 스마트 경험</label>
+      <label class="opt"><input type="radio" name="q5" value="1">② 스마트 편의</label>
+      <label class="opt"><input type="radio" name="q5" value="2">④ 스마트 모빌리티</label>
+      <label class="opt"><input type="radio" name="q5" value="3">⑤ 스마트 플랫폼</label>
+    </div>
+    <p class="explain">⑤ 스마트 플랫폼 — 관광정보 → 관광정보 공유, 핵심 기술은 AI · Data Analytics.</p>
+  </div>
+
+  <div class="card" data-q="6">
+    <p class="q-title"><span class="q-num">7</span>오각형 그림에서 누르면 <b>싱가포르 · 서울 · 헬싱키 · 부산 에코델타</b> 비교자료로 바로 이동하는 꼭짓점은?</p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q6" value="0">① 스마트 경험</label>
+      <label class="opt"><input type="radio" name="q6" value="1">② 스마트 편의</label>
+      <label class="opt"><input type="radio" name="q6" value="2">③ 스마트 서비스</label>
+      <label class="opt"><input type="radio" name="q6" value="3">④ 스마트 모빌리티</label>
+    </div>
+    <p class="explain">④ 스마트 모빌리티 박스를 누르면 도시 간 비교자료로 이동합니다.</p>
+  </div>
+
+  <div class="card" data-q="7">
+    <p class="q-title"><span class="q-num">8</span>이 「스마트관광 5대 요소」표(2020년 발표)의 출처는 어디입니까?</p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q7" value="0">문화체육관광부</label>
+      <label class="opt"><input type="radio" name="q7" value="1">한국관광공사</label>
+      <label class="opt"><input type="radio" name="q7" value="2">한국문화관광연구원</label>
+      <label class="opt"><input type="radio" name="q7" value="3">유럽연합(EC)</label>
+    </div>
+    <p class="explain">한국관광공사(2020) 자료입니다. (EC 기준은 「SMART TOURISM = Technology × Sustainability × Accessibility × Local Creativity」 쪽 — 혼동하지 않도록 주의.)</p>
+  </div>
+
+  <div class="card" data-q="8">
+    <p class="q-title"><span class="q-num">9</span>02-2 산업별 척도의 「여덟 요인」과 이 「5대 요소」는 어떻게 다릅니까?</p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q8" value="0">여덟 요인은 도시가 갖추는 영역, 5대 요소는 관광객이 느끼는 품질이다</label>
+      <label class="opt"><input type="radio" name="q8" value="1">여덟 요인은 관광객이 느끼는 품질, 5대 요소는 도시가 갖추는 영역이다</label>
+      <label class="opt"><input type="radio" name="q8" value="2">둘 다 같은 것을 다른 말로 부른 것뿐이다</label>
+      <label class="opt"><input type="radio" name="q8" value="3">여덟 요인은 국내, 5대 요소는 해외 기준이다</label>
+    </div>
+    <p class="explain">여덟 요인(편의성 · 스마트인프라 · 정보성 등)은 관광객이 느끼는 품질, 5대 요소는 도시가 갖추는 영역입니다.</p>
+  </div>
+
+  <div class="actions">
+    <button id="gradeBtn">채점하기</button>
+    <button class="ghost" id="resetBtn">다시 풀기</button>
+  </div>
+
+  <div class="result" id="result">
+    <div class="score-line" id="scoreLine"></div>
+  </div>
+
+  <p class="footnote">표 · 오각형 본문은 <a href="smart-tourism.html#스마트관광5대요소" target="_blank" rel="noopener">스마트관광 5대 요소 ↗</a>, 내 도시 평가는 <a href="smart-tourism-city-5-elements-scorecard.html" target="_blank" rel="noopener">5대 요소 점수표 ↗</a> 참고.</p>
+</div>
+
+<script>
+const ANSWERS = [2,0,1,1,2,3,3,1,1];
+const TOTAL = ANSWERS.length;
+
+document.getElementById('gradeBtn').addEventListener('click', () => {
+  let score = 0;
+  document.querySelectorAll('.card[data-q]').forEach(card => {
+    const qi = Number(card.dataset.q);
+    const name = 'q' + qi;
+    const picked = card.querySelector(`input[name="${name}"]:checked`);
+    const correctIdx = ANSWERS[qi];
+    card.classList.add('graded');
+    card.querySelectorAll('.opt').forEach((opt, idx) => {
+      opt.classList.remove('correct', 'wrong');
+      if (idx === correctIdx) opt.classList.add('correct');
+      else if (picked && Number(picked.value) === idx) opt.classList.add('wrong');
+    });
+    if (picked && Number(picked.value) === correctIdx) score++;
+  });
+
+  const result = document.getElementById('result');
+  result.classList.add('show');
+  const scoreLine = document.getElementById('scoreLine');
+  scoreLine.className = 'score-line ' + (score === TOTAL ? 'ok' : 'warn');
+  scoreLine.textContent = `${score} / ${TOTAL}문항 맞음`;
+  result.scrollIntoView({behavior:'smooth', block:'nearest'});
+});
+
+document.getElementById('resetBtn').addEventListener('click', () => {
+  document.querySelectorAll('.card[data-q]').forEach(card => {
+    card.classList.remove('graded');
+    card.querySelectorAll('input[type=radio]').forEach(r => r.checked = false);
+    card.querySelectorAll('.opt').forEach(opt => opt.classList.remove('correct', 'wrong'));
+  });
+  document.getElementById('result').classList.remove('show');
+  window.scrollTo({top:0, behavior:'smooth'});
+});
+</script>
+</body>
+</html>

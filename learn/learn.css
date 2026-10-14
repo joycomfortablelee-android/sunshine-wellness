@@ -1372,6 +1372,25 @@ body.mod-smart .learn-article .lw > p.mini-note { max-width: 820px; }
 }
 .learn-article .logic .formula .src { display: block; margin-top: 4px; font-size: 10.5px; font-weight: 700; letter-spacing: .06em; color: rgba(255,255,255,.72); }
 .learn-article .logic .aim { font-size: 12.5px; color: var(--muted); }
+/* SMART TOURISM = 네 기둥 — 정사각형 아이콘 뱃지(EC 기준) */
+.learn-article .logic .pillar-sq {
+  margin: 4px auto 10px; max-width: 480px;
+  display: flex; flex-direction: column; background: #5c4610; border-radius: 14px; padding: 12px 14px 10px; color: #fff;
+}
+.learn-article .logic .pillar-sq .ps-head { text-align: center; font-size: 12.5px; font-weight: 900; letter-spacing: .08em; margin: 0 0 9px; color: #fde9b0; }
+.learn-article .logic .pillar-sq .ps-grid { display: flex; align-items: center; justify-content: center; gap: 4px; flex-wrap: nowrap; }
+.learn-article .logic .pillar-sq .ps-cell {
+  flex: 1 1 0; min-width: 0; max-width: 68px; aspect-ratio: 1;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
+  border-radius: 10px; padding: 4px; text-align: center; font-size: 9.5px; font-weight: 800; line-height: 1.2;
+}
+.learn-article .logic .pillar-sq .ps-ico { font-size: 18px; line-height: 1; }
+.learn-article .logic .pillar-sq .ps-cell.t { background: #1f4e86; }
+.learn-article .logic .pillar-sq .ps-cell.s { background: #2f6e52; }
+.learn-article .logic .pillar-sq .ps-cell.a { background: #17395f; }
+.learn-article .logic .pillar-sq .ps-cell.l { background: #b9710c; }
+.learn-article .logic .pillar-sq .ps-x { flex: 0 0 auto; font-weight: 900; font-size: 15px; color: #fde9b0; }
+.learn-article .logic .pillar-sq .ps-src { text-align: center; font-size: 10.5px; font-weight: 700; letter-spacing: .06em; color: rgba(255,255,255,.72); margin: 9px 0 0; }
 /* 01 정의 슬라이드 — 본문·논리 블록 글자 크기를 12.5px 하나로 통일 */
 .learn-article .slide.def p,
 .learn-article .slide.def .logic p,
@@ -1382,7 +1401,7 @@ body.mod-smart .learn-article .lw > p.mini-note { max-width: 820px; }
 .learn-article .slide.def .logic .aim { font-size: 12.5px; }
 .learn-article .slide.def p { line-height: 1.78; }
 
-@media (max-width: 620px) { .learn-article .logic .formula { font-size: 11.5px; } }
+@media (max-width: 620px) { .learn-article .logic .formula { font-size: 11.5px; } .learn-article .logic .pillar-sq .ps-grid { gap: 3px; } .learn-article .logic .pillar-sq .ps-cell { max-width: 56px; font-size: 8px; padding: 3px; } .learn-article .logic .pillar-sq .ps-ico { font-size: 15px; } .learn-article .logic .pillar-sq .ps-x { font-size: 12px; } }
 
 /* 노랑 바탕 요약 상자 — 덱 밖에서 독립으로 쓰는 블록 */
 .learn-article .sun-box {

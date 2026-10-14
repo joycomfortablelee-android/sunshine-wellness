@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>5개 산업 요인 패턴 퀴즈</title>
+<style>
+:root{
+  --bg:#f4f7fb; --card:#fff; --ink:#1b2a3b; --muted:#5c6b7d; --line:#dfe6ee;
+  --accent:#1c5fae; --accent-soft:#eaf1fb; --good:#1f8a4c; --good-bg:#e9f8ee;
+  --bad:#b4393a; --bad-bg:#fdecec; --dot:#1c5fae;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR","Apple SD Gothic Neo",Pretendard,Arial,sans-serif;line-height:1.6}
+.wrap{max-width:760px;margin:0 auto;padding:28px 18px 60px}
+header{margin-bottom:22px}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.08em;color:var(--accent);text-transform:uppercase}
+h1{font-size:clamp(22px,4vw,28px);margin:8px 0 10px;line-height:1.35}
+header p{color:var(--muted);font-size:14.5px;margin:0}
+
+.ref-wrap{margin:18px 0 24px;overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+table.ref-tb{width:100%;border-collapse:collapse;font-size:13.5px;min-width:480px}
+table.ref-tb th,table.ref-tb td{padding:9px 10px;text-align:center;border-bottom:1px solid var(--line)}
+table.ref-tb th{background:var(--accent-soft);color:var(--accent);font-weight:800}
+table.ref-tb td:first-child,table.ref-tb th:first-child{text-align:left}
+table.ref-tb .dot{color:var(--dot);font-size:16px;font-weight:900}
+table.ref-tb tr:last-child td{border-bottom:0}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px 22px;margin:16px 0;box-shadow:0 8px 22px rgba(30,50,80,.05)}
+.q-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;font-size:13px;margin-right:8px;flex:0 0 auto}
+.q-title{font-size:16px;font-weight:800;margin:0 0 12px;display:flex;align-items:flex-start;gap:0}
+.opts{display:grid;gap:8px}
+.opt{display:flex;align-items:flex-start;gap:9px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;cursor:pointer;font-size:14.5px;background:#fafcfe}
+.opt:hover{background:var(--accent-soft)}
+.opt input{margin-top:3px;flex:0 0 auto;accent-color:var(--accent)}
+.opt .dot{color:var(--dot);font-weight:900}
+.card.graded .opt{cursor:default}
+.card.graded .opt:hover{background:#fafcfe}
+.card.graded .opt.correct{background:var(--good-bg);border-color:var(--good);color:#1a5c33}
+.card.graded .opt.wrong{background:var(--bad-bg);border-color:var(--bad);color:#8c2a2b}
+.explain{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);font-size:13px;color:var(--muted);display:none}
+.card.graded .explain{display:block}
+.explain .dot{color:var(--dot);font-weight:900}
+
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+button{font:inherit;font-weight:800;font-size:14.5px;border:0;border-radius:10px;padding:12px 20px;cursor:pointer;background:var(--accent);color:#fff}
+button.ghost{background:var(--accent-soft);color:var(--accent)}
+button:active{transform:translateY(1px)}
+.result{margin-top:16px;display:none}
+.result.show{display:block}
+.score-line{font-size:15px;font-weight:800;padding:12px 14px;border-radius:10px;margin-bottom:12px}
+.score-line.ok{background:var(--good-bg);color:var(--good)}
+.score-line.warn{background:var(--bad-bg);color:var(--bad)}
+.footnote{font-size:12.5px;color:var(--muted);margin-top:26px;text-align:center}
+.footnote a{color:var(--accent);text-decoration:none;font-weight:700}
+@media(max-width:480px){.card{padding:16px 15px 18px}table.ref-tb{font-size:12.5px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">스마트관광 척도개발 5편 · 객관식 퀴즈</div>
+    <h1>여행업 · 외식업 · 컨벤션 · 숙박업 · 항공 — 요인 패턴 퀴즈</h1>
+    <p>다섯 산업의 최종 척도에 어떤 요인이 포함되는지 그 패턴을 묻습니다. 각 문항에서 하나씩 고른 뒤 「채점하기」를 누르세요.</p>
+  </header>
+
+  <div class="ref-wrap">
+    <table class="ref-tb">
+      <thead><tr><th>요인</th><th>여행업</th><th>외식업</th><th>컨벤션</th><th>숙박업</th><th>항공</th></tr></thead>
+      <tbody>
+        <tr><td>편의성</td><td class="dot">●</td><td class="dot">●</td><td class="dot">●</td><td class="dot">●</td><td class="dot">●</td></tr>
+        <tr><td>스마트인프라</td><td class="dot">●</td><td class="dot">●</td><td class="dot">●</td><td class="dot">●</td><td class="dot">●</td></tr>
+        <tr><td>정보성</td><td class="dot">●</td><td class="dot">●</td><td class="dot">●</td><td class="dot">●</td><td></td></tr>
+        <tr><td>기술통합성</td><td class="dot">●</td><td class="dot">●</td><td class="dot">●</td><td></td><td></td></tr>
+        <tr><td>신뢰성</td><td class="dot">●</td><td class="dot">●</td><td class="dot">●</td><td></td><td></td></tr>
+        <tr><td>개인화</td><td></td><td></td><td></td><td class="dot">●</td><td class="dot">●</td></tr>
+        <tr><td>상호작용성</td><td></td><td></td><td></td><td class="dot">●</td><td class="dot">●</td></tr>
+        <tr><td>보안성</td><td></td><td></td><td></td><td></td><td class="dot">●</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" data-q="0">
+    <p class="q-title"><span class="q-num">1</span>5개 산업 <b>모두</b>에 <span class="dot">●</span> 표시된 요인은 몇 가지입니까?</p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q0" value="0">1가지</label>
+      <label class="opt"><input type="radio" name="q0" value="1">2가지</label>
+      <label class="opt"><input type="radio" name="q0" value="2">3가지</label>
+      <label class="opt"><input type="radio" name="q0" value="3">4가지</label>
+    </div>
+    <p class="explain"><b>편의성</b>과 <b>스마트인프라</b> 두 요인만 다섯 산업 전체에 <span class="dot">●</span> — 가장 보편적인 두 요인입니다.</p>
+  </div>
+
+  <div class="card" data-q="1">
+    <p class="q-title"><span class="q-num">2</span>다음 중 <b>항공</b> 칸에 <span class="dot">●</span>가 <b>없는</b> 요인은?</p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q1" value="0">편의성</label>
+      <label class="opt"><input type="radio" name="q1" value="1">개인화</label>
+      <label class="opt"><input type="radio" name="q1" value="2">정보성</label>
+      <label class="opt"><input type="radio" name="q1" value="3">보안성</label>
+    </div>
+    <p class="explain"><b>정보성</b>은 여행업 · 외식업 · 컨벤션 · 숙박업까지만 <span class="dot">●</span>이고 항공은 빈칸입니다.</p>
+  </div>
+
+  <div class="card" data-q="2">
+    <p class="q-title"><span class="q-num">3</span><b>여행업 · 외식업 · 컨벤션</b> 세 산업에만 공통으로 <span class="dot">●</span> 표시된 요인은 모두 몇 개입니까?</p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q2" value="0">1개</label>
+      <label class="opt"><input type="radio" name="q2" value="1">2개</label>
+      <label class="opt"><input type="radio" name="q2" value="2">3개</label>
+      <label class="opt"><input type="radio" name="q2" value="3">4개</label>
+    </div>
+    <p class="explain"><b>기술통합성</b>과 <b>신뢰성</b> 두 요인이 이 세 산업에만 <span class="dot">●</span>이고, 숙박업 · 항공은 빈칸입니다.</p>
+  </div>
+
+  <div class="card" data-q="3">
+    <p class="q-title"><span class="q-num">4</span><b>개인화</b>(맞춤)와 <b>상호작용성</b>(소통)이 공통으로 <span class="dot">●</span> 표시된 두 산업은?</p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q3" value="0">여행업 · 외식업</label>
+      <label class="opt"><input type="radio" name="q3" value="1">외식업 · 컨벤션</label>
+      <label class="opt"><input type="radio" name="q3" value="2">숙박업 · 항공</label>
+      <label class="opt"><input type="radio" name="q3" value="3">컨벤션 · 숙박업</label>
+    </div>
+    <p class="explain"><b>숙박업 · 항공</b>에서만 새롭게 강조되는 요인입니다 — 숙박은 「맞춤」, 항공은 「소통」.</p>
+  </div>
+
+  <div class="card" data-q="4">
+    <p class="q-title"><span class="q-num">5</span><b>보안성</b>(Security) 요인이 <span class="dot">●</span> 표시된 산업은 어디입니까?</p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q4" value="0">여행업</label>
+      <label class="opt"><input type="radio" name="q4" value="1">외식업</label>
+      <label class="opt"><input type="radio" name="q4" value="2">숙박업</label>
+      <label class="opt"><input type="radio" name="q4" value="3">항공</label>
+    </div>
+    <p class="explain"><b>항공</b>에서만 나타나는, 가장 산업 특화된 요인입니다.</p>
+  </div>
+
+  <div class="card" data-q="5">
+    <p class="q-title"><span class="q-num">6</span>다음 중 <span class="dot">●</span> 표시된 산업 수가 <b>가장 적은(가장 특수한)</b> 요인은?</p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q5" value="0">정보성</label>
+      <label class="opt"><input type="radio" name="q5" value="1">기술통합성</label>
+      <label class="opt"><input type="radio" name="q5" value="2">개인화</label>
+      <label class="opt"><input type="radio" name="q5" value="3">보안성</label>
+    </div>
+    <p class="explain"><b>보안성</b>은 항공 1개 산업에만 <span class="dot">●</span> — 표에서 가장 좁은 요인입니다.</p>
+  </div>
+
+  <div class="actions">
+    <button id="gradeBtn">채점하기</button>
+    <button class="ghost" id="resetBtn">다시 풀기</button>
+  </div>
+
+  <div class="result" id="result">
+    <div class="score-line" id="scoreLine"></div>
+  </div>
+
+  <p class="footnote">원래 척도개발 다섯 편 요약은 <a href="smart-tourism.html#척도개발" target="_blank" rel="noopener">스마트관광의 이해 ↗</a> 참고.</p>
+</div>
+
+<script>
+const ANSWERS = [1, 2, 1, 2, 3, 3];
+
+function grade(){
+  let score = 0;
+  document.querySelectorAll('.card[data-q]').forEach(card => {
+    const qi = Number(card.dataset.q);
+    const chosen = card.querySelector('input[name="q' + qi + '"]:checked');
+    const chosenVal = chosen ? Number(chosen.value) : -1;
+    const correctVal = ANSWERS[qi];
+    card.classList.add('graded');
+    card.querySelectorAll('.opt').forEach((opt, i) => {
+      opt.classList.remove('correct','wrong');
+      if (i === correctVal) opt.classList.add('correct');
+      else if (i === chosenVal) opt.classList.add('wrong');
+    });
+    if (chosenVal === correctVal) score++;
+  });
+  const result = document.getElementById('result');
+  result.classList.add('show');
+  const scoreLine = document.getElementById('scoreLine');
+  scoreLine.className = 'score-line ' + (score === ANSWERS.length ? 'ok' : 'warn');
+  scoreLine.textContent = `${score} / ${ANSWERS.length} 문제 맞음`;
+  result.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+document.getElementById('gradeBtn').addEventListener('click', grade);
+document.getElementById('resetBtn').addEventListener('click', () => {
+  document.querySelectorAll('input[type=radio]').forEach(r => r.checked = false);
+  document.querySelectorAll('.card').forEach(c => c.classList.remove('graded'));
+  document.getElementById('result').classList.remove('show');
+  window.scrollTo({top:0, behavior:'smooth'});
+});
+</script>
+</body>
+</html>
