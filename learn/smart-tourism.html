@@ -1256,6 +1256,15 @@
       font-size: 12px; font-weight: 800; text-decoration: none;
     }
     .learn-article .sc-quiz-pill a:hover { background: #7a6417; color: #fff; }
+    .learn-article .quiz-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 15px; height: 15px; border-radius: 50%; background: #fff; color: #7a6417;
+      font-size: 9.5px; font-weight: 900; margin-right: 3px; vertical-align: -1px;
+      box-shadow: inset 0 0 0 1.4px currentColor;
+    }
+    .learn-article .sc-quiz-pill a:hover .quiz-badge { background: transparent; color: #fff; }
+    /* 흰 글자 알약(res4) 안에서는 배지도 알약 색(남색)으로 — 흰 배경에 흰 글자가 묻히지 않게 */
+    .learn-article .res4 a.r4-pill .quiz-badge { color: #17365d; }
     .learn-article .sc-penta .sp-t { margin: 0 0 4px; text-align: center; font-size: 15px; font-weight: 800; color: #3a3416; }
     .learn-article .sc-penta svg { width: 100%; height: auto; display: block; }
     .learn-article .sc-penta .sp-a { fill: #fff3b8; }
@@ -1598,7 +1607,7 @@
         </div>
         <div class="r4 g2">
           <p class="r4-h"><b>무엇을 · 어떻게</b><span>도시별</span></p>
-          <p class="r4-p"><a class="r4-pill g2" href="smart-tourism-12-cities-lecture-note.html" target="_blank" rel="noopener" title="WHY · WHERE · PLATFORM · SMART · EXPERIENCE · VALUE · LIMIT 일곱 질문 · 16장 좌우 넘김 · 발표자 렌즈 · 한눈에 비교표">학생 12도시 발표 강의노트 ↗</a><a class="r4-pill g2 sm" href="smart-tourism-12-cities-quiz.html" target="_blank" rel="noopener" title="몇 곳인지 · 어디인지 직접 적어 채점하는 주관식 퀴즈">✦ 12곳 암기 퀴즈 ↗</a></p>
+          <p class="r4-p"><a class="r4-pill g2" href="smart-tourism-12-cities-lecture-note.html" target="_blank" rel="noopener" title="WHY · WHERE · PLATFORM · SMART · EXPERIENCE · VALUE · LIMIT 일곱 질문 · 16장 좌우 넘김 · 발표자 렌즈 · 한눈에 비교표">학생 12도시 발표 강의노트 ↗</a><a class="r4-pill g2 sm" href="smart-tourism-12-cities-quiz.html" target="_blank" rel="noopener" title="몇 곳인지 · 어디인지 직접 적어 채점하는 주관식 퀴즈"><span class="quiz-badge">퀴</span>12곳 암기 퀴즈 ↗</a></p>
           <p class="r4-d">「어디」 「언제 · 얼마로」 다음은 <b>「무엇을 · 어떻게」</b> — 열두 도시를 <b>WHY · WHERE · PLATFORM · SMART · EXPERIENCE · VALUE · LIMIT</b> 일곱 질문 한 틀로 — 16장. 도시마다 「발표자 렌즈」, 끝에 한눈에 비교표. <a class="r4-file" href="assets/smart-tourism-12-cities-comparison-note.docx" download="국내_스마트관광도시_12곳_비교형_강의노트.docx">⤓ DOCX</a> 외운 게 맞는지는 옆 <b>주관식 퀴즈</b>로 바로 확인.</p>
         </div>
         <div class="r4 g3">
@@ -1933,7 +1942,7 @@
             <div class="logic">
               <p class="aim"><strong>패턴</strong> — 5개 공통 <strong>2개</strong> 요인, 여행 · 외식 · 컨벤션 공통 <strong>3개</strong> 요인, 숙박 · 항공의 <strong>맞춤 · 소통</strong>, 항공의 <strong>보안</strong>.</p>
             </div>
-            <p class="sc-quiz-pill"><a href="smart-tourism-5-industry-factors-quiz.html" target="_blank" rel="noopener">✦ 이 패턴 퀴즈로 바로 확인 ↗</a></p>
+            <p class="sc-quiz-pill"><a href="smart-tourism-5-industry-factors-quiz.html" target="_blank" rel="noopener"><span class="quiz-badge">퀴</span>이 패턴 퀴즈로 바로 확인 ↗</a></p>
           </section>
           <section class="slide tint-sun compact" aria-label="02 핵심 요인별 장면으로 이해하기">
             <p class="learn-part">02 · 핵심 요인별 장면으로 이해하기</p>
