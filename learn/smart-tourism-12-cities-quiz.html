@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>스마트관광도시 12곳 주관식 퀴즈</title>
+<style>
+:root{
+  --bg:#f4f7fb; --card:#fff; --ink:#1b2a3b; --muted:#5c6b7d; --line:#dfe6ee;
+  --accent:#1c5fae; --accent-soft:#eaf1fb; --good:#1f8a4c; --good-bg:#e9f8ee;
+  --bad:#b4393a; --bad-bg:#fdecec;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR","Apple SD Gothic Neo",Pretendard,Arial,sans-serif;line-height:1.6}
+.wrap{max-width:720px;margin:0 auto;padding:28px 18px 60px}
+header{margin-bottom:22px}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.08em;color:var(--accent);text-transform:uppercase}
+h1{font-size:clamp(22px,4vw,28px);margin:8px 0 10px;line-height:1.35}
+header p{color:var(--muted);font-size:14.5px;margin:0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 22px 24px;margin:18px 0;box-shadow:0 8px 22px rgba(30,50,80,.05)}
+.q-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;font-size:13px;margin-right:8px}
+.q-title{font-size:16.5px;font-weight:800;margin:0 0 6px;display:flex;align-items:center}
+.q-hint{font-size:13px;color:var(--muted);margin:0 0 14px}
+input[type="number"]{width:120px;font-size:17px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;font:inherit}
+textarea{width:100%;min-height:150px;font-size:15px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;font:inherit;resize:vertical;line-height:1.7}
+textarea:focus,input:focus{outline:2px solid var(--accent-soft);border-color:var(--accent)}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+button{font:inherit;font-weight:800;font-size:14.5px;border:0;border-radius:10px;padding:12px 20px;cursor:pointer;background:var(--accent);color:#fff}
+button.ghost{background:var(--accent-soft);color:var(--accent)}
+button:active{transform:translateY(1px)}
+.result{margin-top:16px;display:none}
+.result.show{display:block}
+.score-line{font-size:15px;font-weight:800;padding:12px 14px;border-radius:10px;margin-bottom:12px}
+.score-line.ok{background:var(--good-bg);color:var(--good)}
+.score-line.warn{background:var(--bad-bg);color:var(--bad)}
+.chip-row{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0}
+.chip{display:inline-flex;align-items:center;gap:5px;padding:6px 11px;border-radius:999px;font-size:13px;font-weight:700}
+.chip.good{background:var(--good-bg);color:var(--good)}
+.chip.bad{background:var(--bad-bg);color:var(--bad)}
+.chip.miss{background:#f1f3f6;color:var(--muted);border:1px dashed #c7cfdb}
+.section-label{font-size:12.5px;font-weight:800;color:var(--muted);margin:14px 0 6px}
+.answer-reveal{margin-top:10px;border-top:1px dashed var(--line);padding-top:14px;display:none}
+.answer-reveal.show{display:block}
+.answer-reveal ul{margin:6px 0;padding-left:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px}
+.answer-reveal li{background:var(--accent-soft);color:var(--accent);border-radius:9px;padding:9px 11px;font-size:14px;font-weight:700;text-align:center}
+.footnote{font-size:12.5px;color:var(--muted);margin-top:26px;text-align:center}
+.footnote a{color:var(--accent);text-decoration:none;font-weight:700}
+@media(max-width:480px){.card{padding:18px 16px 20px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">스마트관광도시 · 주관식 퀴즈</div>
+    <h1>전국 스마트관광도시, 몇 곳이고 어디일까?</h1>
+    <p>정답을 외워서 적어 보세요. 입력 후 「채점하기」를 누르면 맞은 곳 · 놓친 곳을 바로 보여줍니다.</p>
+  </header>
+
+  <div class="card">
+    <p class="q-title"><span class="q-num">1</span>전국 스마트관광도시는 모두 몇 곳입니까?</p>
+    <p class="q-hint">숫자만 입력하세요.</p>
+    <input type="number" id="q1" placeholder="예: 12" inputmode="numeric">
+  </div>
+
+  <div class="card">
+    <p class="q-title"><span class="q-num">2</span>그 도시들을 모두 적어 보세요.</p>
+    <p class="q-hint">한 줄에 하나씩, 또는 쉼표(,)나 가운뎃점(·)으로 구분해 적어도 됩니다. 순서는 상관없습니다. (예: 통영, 용인 …)</p>
+    <textarea id="q2" placeholder="예시&#10;통영&#10;용인&#10;인제&#10;..."></textarea>
+  </div>
+
+  <div class="actions">
+    <button id="gradeBtn">채점하기</button>
+    <button class="ghost" id="resetBtn">다시 풀기</button>
+  </div>
+
+  <div class="result" id="result">
+    <div class="score-line" id="scoreLine"></div>
+
+    <div class="section-label" id="goodLabel" style="display:none">맞게 적은 도시</div>
+    <div class="chip-row" id="goodChips"></div>
+
+    <div class="section-label" id="badLabel" style="display:none">목록에 없는 입력(오타·중복 확인)</div>
+    <div class="chip-row" id="badChips"></div>
+
+    <div class="section-label" id="missLabel" style="display:none">놓친 도시</div>
+    <div class="chip-row" id="missChips"></div>
+
+    <button class="ghost" id="revealBtn" style="margin-top:14px">정답 12곳 전체 보기</button>
+    <div class="answer-reveal" id="answerReveal">
+      <ul id="answerList"></ul>
+    </div>
+  </div>
+
+  <p class="footnote">도시별 내용 복습은 <a href="smart-tourism-12-cities-lecture-note.html" target="_blank" rel="noopener">학생 12도시 발표 강의노트 ↗</a> 참고.</p>
+</div>
+
+<script>
+const ANSWERS = ['울산','인천','수원','양양','경주','대구','여수','청주','남원','통영','인제','용인'];
+const TOTAL = ANSWERS.length;
+
+function norm(s){
+  return s.trim()
+    .replace(/\s+/g,'')
+    .replace(/(광역시|특별자치시|특별자치도|특별시)$/,'')
+    .replace(/(시|군|구)$/,'');
+}
+
+function splitInput(raw){
+  return raw.split(/[\n,·\/、]+/).map(s=>s.trim()).filter(Boolean);
+}
+
+document.getElementById('gradeBtn').addEventListener('click', () => {
+  const q1 = document.getElementById('q1').value.trim();
+  const rawItems = splitInput(document.getElementById('q2').value);
+
+  const answerSet = new Set(ANSWERS);
+  const foundCities = new Set();
+  const badInputs = [];
+
+  rawItems.forEach(item => {
+    const n = norm(item);
+    const hit = ANSWERS.find(a => norm(a) === n);
+    if (hit) foundCities.add(hit);
+    else badInputs.push(item);
+  });
+
+  const missing = ANSWERS.filter(a => !foundCities.has(a));
+  const q1ok = q1 !== '' && Number(q1) === TOTAL;
+
+  const result = document.getElementById('result');
+  result.classList.add('show');
+
+  const scoreLine = document.getElementById('scoreLine');
+  const cityScore = foundCities.size;
+  scoreLine.className = 'score-line ' + (cityScore === TOTAL && q1ok ? 'ok' : 'warn');
+  scoreLine.textContent = `① 개수: ${q1ok ? '정답 (' + TOTAL + '곳)' : (q1 === '' ? '입력 안 함' : q1 + '곳 — 오답, 정답은 ' + TOTAL + '곳')}  ·  ② 도시: ${cityScore} / ${TOTAL}곳 맞음`;
+
+  const goodChips = document.getElementById('goodChips');
+  const badChips = document.getElementById('badChips');
+  const missChips = document.getElementById('missChips');
+  goodChips.innerHTML = ''; badChips.innerHTML = ''; missChips.innerHTML = '';
+
+  document.getElementById('goodLabel').style.display = foundCities.size ? '' : 'none';
+  ANSWERS.filter(a => foundCities.has(a)).forEach(a => {
+    const c = document.createElement('span'); c.className = 'chip good'; c.textContent = '✓ ' + a; goodChips.appendChild(c);
+  });
+
+  document.getElementById('badLabel').style.display = badInputs.length ? '' : 'none';
+  badInputs.forEach(b => {
+    const c = document.createElement('span'); c.className = 'chip bad'; c.textContent = '✕ ' + b; badChips.appendChild(c);
+  });
+
+  document.getElementById('missLabel').style.display = missing.length ? '' : 'none';
+  missing.forEach(m => {
+    const c = document.createElement('span'); c.className = 'chip miss'; c.textContent = '? ' + m; missChips.appendChild(c);
+  });
+
+  result.scrollIntoView({behavior:'smooth', block:'nearest'});
+});
+
+document.getElementById('resetBtn').addEventListener('click', () => {
+  document.getElementById('q1').value = '';
+  document.getElementById('q2').value = '';
+  document.getElementById('result').classList.remove('show');
+  document.getElementById('answerReveal').classList.remove('show');
+});
+
+document.getElementById('revealBtn').addEventListener('click', () => {
+  const reveal = document.getElementById('answerReveal');
+  const list = document.getElementById('answerList');
+  if (!reveal.classList.contains('show')) {
+    list.innerHTML = ANSWERS.map(a => `<li>${a}</li>`).join('');
+  }
+  reveal.classList.toggle('show');
+});
+</script>
+</body>
+</html>
