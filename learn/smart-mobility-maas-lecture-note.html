@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="MaaS(Mobility as a Service)의 개념, 관광 적용 사례, 통합 단계 및 관광교통경영론 강의용 설명자료"/>
+<title>MaaS 이해와 관광교통경영론 활용 | 강의자료</title>
+<style>
+:root{--navy:#12213b;--blue:#2563eb;--indigo:#4338ca;--teal:#078979;--ink:#22304a;--muted:#52647c;--bg:#f3f6fc;--border:#dce4ef;--white:#fff;--light:#eaf1ff;--gold:#e9a23b;--shadow:0 12px 28px rgba(15,30,64,.075)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);font-family: 'Pretendard','Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;color:var(--ink);line-height:1.75;word-break:keep-all}a{color:#1859ce}button{font:inherit;cursor:pointer}button:focus-visible,a:focus-visible{outline:3px solid #f59e0b;outline-offset:3px}.container{max-width:1120px;margin:0 auto;padding:0 25px}.masthead{color:#fff;background:linear-gradient(125deg,#0c1c36 0%,#183e75 52%,#115f74 100%);position:relative;overflow:hidden}.masthead:before,.masthead:after{content:"";position:absolute;border:1px solid rgba(255,255,255,.13);border-radius:100%;width:450px;height:450px;right:-130px;top:-215px}.masthead:after{width:570px;height:570px;right:-185px;top:-273px}.hero{position:relative;padding:63px 0 57px}.eyebrow{font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:#c6eafc;font-weight:800}.hero h1{font-size:clamp(2.4rem,5.6vw,4.15rem);line-height:1.2;letter-spacing:-.045em;margin:13px 0 8px}.hero .subtitle{font-size:clamp(1.03rem,2.4vw,1.35rem);color:#e3eeff;font-weight:600}.hero .intro{max-width:730px;font-size:1.07rem;margin:22px 0 0;color:#edf4ff}.hero strong{color:#fff}.hero .meta{display:flex;flex-wrap:wrap;gap:9px;margin-top:25px}.pill{border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.13);color:white;padding:6px 13px;border-radius:100px;font-weight:600;font-size:.86rem}.toptools{display:flex;gap:8px;flex-wrap:wrap;justify-content:space-between;align-items:center;margin:23px auto 13px}.toptools nav{display:flex;gap:8px;flex-wrap:wrap}.toptools a,.printBtn{border:1px solid var(--border);background:white;border-radius:9px;padding:7px 12px;font-size:.88rem;font-weight:700;color:#324968;text-decoration:none}.printBtn:hover,.toptools a:hover{background:var(--light)}.section{background:#fff;border:1px solid var(--border);border-radius:17px;box-shadow:var(--shadow);margin:23px auto;padding:33px 37px}.sec-head{display:flex;align-items:center;gap:15px;margin-bottom:13px}.secno{width:39px;height:39px;border-radius:12px;color:#fff;background:var(--navy);font-size:1rem;font-weight:800;display:grid;place-items:center;flex:none}h2{font-size:1.55rem;letter-spacing:-.035em;line-height:1.45;margin:0;color:var(--navy)}h3{font-size:1.16rem;letter-spacing:-.025em;margin:25px 0 10px;color:#142e56}p{margin:10px 0}.lead{font-size:1.035rem;color:#334b6c}.key{background:linear-gradient(110deg,#eef5ff,#effafa);border:1px solid #ccddf1;border-left:5px solid #2966cf;border-radius:12px;padding:16px 18px;font-weight:650;line-height:1.85;margin:19px 0}.mark{color:#0d55be;font-weight:800}.diagram{border:1px solid #d9e5f2;border-radius:15px;padding:21px;background:linear-gradient(#fcfeff,#f8fbff);margin:18px 0}.diagram-title{text-align:center;font-weight:800;font-size:1.15rem;color:#23365d;margin-bottom:15px}.modes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;max-width:680px;margin:auto}.mode{background:#fff;border:1px solid #d8e2f0;border-radius:12px;display:flex;flex-direction:column;gap:4px;align-items:center;text-align:center;padding:13px 7px 12px;box-shadow:0 3px 9px rgba(28,56,86,.04)}.mode .emoji{font-size:1.65rem;line-height:1.3}.mode span:last-child{font-size:.94rem;font-weight:750}.arrow{font-size:2.1rem;text-align:center;color:#6e8ab3;height:41px;line-height:41px}.app{max-width:680px;margin:auto;border:2px solid #8daeff;background:#edf3ff;border-radius:16px;text-align:center;padding:19px}.app-title{font-size:1.28rem;font-weight:850;color:#113e8c}.app-title span{font-size:1.4rem;margin-right:8px}.app .steps{display:flex;justify-content:center;flex-wrap:wrap;gap:7px;margin-top:10px}.app .step{background:white;padding:5px 10px;border-radius:100px;font-size:.83rem;color:#24508f;border:1px solid #d6e4ff;font-weight:700}.destination{text-align:center;font-size:1.04rem;font-weight:800;color:#086a65}.note{font-size:.84rem;color:var(--muted);margin-top:9px}.tablewrap{width:100%;overflow-x:auto;margin:16px 0;border:1px solid var(--border);border-radius:12px}table{border-collapse:collapse;width:100%;min-width:610px;font-size:.93rem}thead th{background:#203a61;color:white;text-align:left;font-weight:800;padding:13px 15px}th,td{border-bottom:1px solid #e2e9f3;padding:13px 15px;text-align:left;vertical-align:top}tbody tr:nth-child(even){background:#f8faff}tbody tr:last-child td{border-bottom:none}td:first-child{font-weight:700;color:#263b5a;white-space:nowrap}.compare strong{color:#1559bd}.smallnote{font-size:.84rem;color:#56657b;background:#f5f8fc;border-radius:9px;padding:12px 14px;margin:13px 0}.levels{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:21px 0 12px}.leveltab{padding:14px 7px;border:1px solid #cbd9ec;border-radius:10px;background:#f7faff;text-align:center;color:#3c4e67;font-weight:800;transition:.16s}.leveltab .lno{display:block;font-size:1.2rem}.leveltab[aria-selected="true"]{background:#174c9c;color:#fff;border-color:#174c9c;box-shadow:0 6px 13px rgba(20,70,140,.16)}.level-panel{background:#f5f9ff;border:1px solid #d4e4f7;border-radius:11px;padding:16px 20px;min-height:118px}.level-panel h3{margin:0 0 5px;font-size:1.05rem}.level-panel p{margin:4px 0}.level-panel .ex{font-weight:650;color:#1858a9}.path{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:22px 0}.path .node{padding:12px 15px;background:#f1f6ff;border:1px solid #cadef8;color:#164d92;font-weight:800;border-radius:12px;flex:1 1 160px;text-align:center}.path .connector{color:#486a98;font-size:1.2rem;font-weight:900}.course{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin:20px 0}.course-card{background:#fafcff;border:1px solid var(--border);border-radius:13px;padding:17px}.course-card h3{margin:0 0 8px}.course-card p{margin:0}.takeaway{background:linear-gradient(110deg,#153b6b,#135b7a);border-radius:13px;color:white;padding:20px 23px;margin-top:22px}.takeaway strong{color:#b8f0ff}.practice{background:#fcfdff;border:1px solid #d7e4f3;border-radius:13px;padding:19px;margin-top:22px}.practice h3{margin-top:0}.practice p{margin-bottom:9px}.showAnswer{border:none;border-radius:8px;background:#1b5fbb;color:#fff;font-size:.9rem;font-weight:700;padding:9px 15px}.answer{display:none;margin-top:13px;padding:13px 15px;background:#e8f5ef;border:1px solid #bbddcf;border-radius:10px}.answer.open{display:block}.footer{padding:22px 0 45px;color:#637186;font-size:.82rem;text-align:center}.footer strong{color:#31486b}@media(max-width:720px){.container{padding:0 13px}.hero{padding:45px 3px}.section{padding:22px 17px;margin:15px auto}.sec-head{align-items:flex-start}.modes{grid-template-columns:repeat(2,minmax(0,1fr))}.levels{grid-template-columns:repeat(2,minmax(0,1fr))}.course{grid-template-columns:1fr}.path{flex-direction:column}.path .node{flex:auto;width:100%}.path .connector{transform:rotate(90deg)}}@media print{body{background:#fff;color:#111;font-size:10pt}.masthead{print-color-adjust:exact;-webkit-print-color-adjust:exact}.hero{padding:30px 0}.toptools,.practice button{display:none!important}.section{box-shadow:none;border:1px solid #ddd;padding:19px;margin:15px auto;break-inside:avoid}.levels{display:none}.level-panel{display:block!important}.printall{display:block!important}.tablewrap{overflow:visible}table{min-width:0;font-size:9pt}th,td{padding:7px 8px}.answer{display:block!important}.footer{padding-bottom:5px}@page{size:A4;margin:14mm}}
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="container hero">
+    <div class="eyebrow">Tourism Transportation Management · Lecture Notes</div>
+    <h1>MaaS, 관광의 이동을 연결하다</h1>
+    <div class="subtitle">Mobility as a Service | 서비스형 모빌리티 · 통합교통서비스</div>
+    <p class="intro"><strong>버스·지하철·철도·택시·공유자전거</strong> 등 다양한 교통수단을 하나의 서비스처럼 연결해, <strong>검색·예약·결제</strong>를 통합하는 모빌리티 모델입니다.</p>
+    <div class="meta"><span class="pill">관광교통경영론</span><span class="pill">스마트관광</span><span class="pill">관광 MaaS</span></div>
+  </div>
+</header>
+<div class="container">
+  <div class="toptools">
+    <nav aria-label="문서 내 목차"><a href="#concept">① MaaS 개념</a><a href="#tourism">② 관광 적용</a><a href="#levels">③ 통합 수준</a><a href="#lecture">④ 강의 활용</a></nav>
+    <button class="printBtn" type="button" onclick="window.print()">🖨️ 인쇄 / PDF 저장</button>
+  </div>
+  <main>
+    <section class="section" id="concept" aria-labelledby="t1">
+      <div class="sec-head"><div class="secno">01</div><h2 id="t1">MaaS란 무엇인가?</h2></div>
+      <p class="lead"><strong>MaaS(Mobility as a Service)</strong>는 여러 교통수단의 정보를 모으는 데 그치지 않고, 가능한 경우 여행 전 과정을 하나의 서비스로 이용하도록 연결합니다.</p>
+      <div class="diagram" role="img" aria-label="버스, 철도, 택시, 공유자전거, 공유자동차, 도보가 통합 모빌리티 앱에 연결되고 목적지 이동으로 이어지는 구조">
+        <div class="diagram-title">다양한 교통수단의 통합</div>
+        <div class="modes">
+          <div class="mode"><span class="emoji">🚌</span><span>버스</span></div>
+          <div class="mode"><span class="emoji">🚆</span><span>철도·지하철</span></div>
+          <div class="mode"><span class="emoji">🚕</span><span>택시</span></div>
+          <div class="mode"><span class="emoji">🚲</span><span>공유자전거</span></div>
+          <div class="mode"><span class="emoji">🚙</span><span>공유자동차</span></div>
+          <div class="mode"><span class="emoji">🚶</span><span>도보</span></div>
+        </div>
+        <div class="arrow" aria-hidden="true">↓</div>
+        <div class="app"><div class="app-title"><span aria-hidden="true">📱</span>하나의 통합 모빌리티 앱</div><div class="steps"><span class="step">경로 검색</span><span class="step">교통수단 비교</span><span class="step">예약</span><span class="step">결제</span></div></div>
+        <div class="arrow" aria-hidden="true">↓</div><div class="destination">📍 목적지까지 끊김 없는 이동 경험</div>
+      </div>
+      <div class="key">핵심은 <span class="mark">교통수단 자체를 하나로 만드는 것</span>이 아니라, <span class="mark">여러 교통수단을 하나의 서비스처럼 연결</span>하는 데 있습니다.</div>
+    </section>
+    <section class="section" id="tourism" aria-labelledby="t2">
+      <div class="sec-head"><div class="secno">02</div><h2 id="t2">관광에서는 MaaS를 어떻게 활용할까?</h2></div>
+      <p class="lead"><strong>서울에서 안동 하회마을로 여행한다면?</strong> 각 이동 수단과 관광정보를 별도 앱에서 처리하는 기존 방식과 통합형 관광 MaaS를 비교할 수 있습니다.</p>
+      <div class="tablewrap"><table class="compare"><thead><tr><th scope="col" style="width:18%">구분</th><th scope="col">기존 방식</th><th scope="col">관광 MaaS 방식</th></tr></thead><tbody>
+      <tr><td>철도</td><td>철도 앱에서 검색·예매</td><td><strong>통합 앱에서 교통편 연결</strong></td></tr>
+      <tr><td>지역버스</td><td>별도 노선 및 시간 확인</td><td>열차 도착시간과 연계해 이동편 추천</td></tr>
+      <tr><td>관광택시</td><td>업체 검색·별도 예약</td><td>이동경로에 포함하여 예약</td></tr>
+      <tr><td>관광지</td><td>관광정보 별도 검색</td><td>관광지 정보와 이동정보 연계</td></tr>
+      <tr><td>결제</td><td>교통수단별 별도 결제</td><td><strong>통합 결제 가능</strong></td></tr>
+      </tbody></table></div>
+      <p class="smallnote">※ <strong>가상 시나리오</strong>입니다. 안동에서 위의 모든 MaaS 기능이 실제 제공된다는 뜻은 아닙니다. 개별 기능의 제공 여부는 서비스 및 지역에 따라 다릅니다.</p>
+    </section>
+    <section class="section" id="levels" aria-labelledby="t3">
+      <div class="sec-head"><div class="secno">03</div><h2 id="t3">일반 교통 앱과 MaaS는 무엇이 다른가?</h2></div>
+      <p>길 찾기 정보만 제공하는 앱과 MaaS는 통합 수준에서 차이가 있습니다. 아래 단계 버튼을 누르면 각 수준의 기능과 예시를 확인할 수 있습니다.</p>
+      <div class="tablewrap"><table><thead><tr><th scope="col" style="width:17%">수준</th><th scope="col" style="width:34%">통합 기능</th><th scope="col">예시</th></tr></thead><tbody>
+      <tr><td>Level 1</td><td>교통정보 통합</td><td>버스·철도·택시 경로 비교</td></tr>
+      <tr><td>Level 2</td><td>예약·결제 통합</td><td>한 앱에서 여러 교통편 구매</td></tr>
+      <tr><td>Level 3</td><td>서비스 상품 통합</td><td>버스·자전거 등이 포함된 통합 이용권</td></tr>
+      <tr><td>Level 4</td><td>사회적 목표까지 통합</td><td>대중교통 활성화·지속가능한 이동 유도</td></tr>
+      </tbody></table></div>
+      <div class="levels" role="tablist" aria-label="MaaS 통합 단계 선택">
+        <button type="button" class="leveltab" role="tab" id="tab1" aria-controls="level-panel" aria-selected="true" data-level="1"><span class="lno">Level 1</span>정보 통합</button>
+        <button type="button" class="leveltab" role="tab" id="tab2" aria-controls="level-panel" aria-selected="false" data-level="2"><span class="lno">Level 2</span>예약·결제 통합</button>
+        <button type="button" class="leveltab" role="tab" id="tab3" aria-controls="level-panel" aria-selected="false" data-level="3"><span class="lno">Level 3</span>서비스 상품 통합</button>
+        <button type="button" class="leveltab" role="tab" id="tab4" aria-controls="level-panel" aria-selected="false" data-level="4"><span class="lno">Level 4</span>사회적 목표 통합</button>
+      </div>
+      <div class="level-panel" id="level-panel" role="tabpanel" aria-labelledby="tab1" aria-live="polite">
+        <h3>Level 1 · 교통정보 통합</h3>
+        <p>교통수단별 정보를 비교하여 최적 이동 경로를 탐색합니다.</p>
+        <p class="ex">예: 버스·철도·택시의 경로와 소요시간을 한 화면에서 비교</p>
+      </div>
+      <p class="note">학술적 구분을 이해하기 위한 대표적인 4단계 설명입니다. 모든 MaaS 서비스가 이 단계를 순차적으로 구현하는 것은 아닙니다.</p>
+      <div class="key">따라서 <span class="mark">길 안내를 제공하는 앱이 곧 완전한 MaaS는 아닙니다.</span> 정보 통합에서 예약·결제 및 서비스 상품 통합으로 발전할수록 제공 범위가 넓어집니다.</div>
+      <div class="printall" style="display:none" aria-hidden="true"><p><strong>Level 2:</strong> 복수 교통수단의 예약 및 결제를 하나의 앱에서 처리합니다.</p><p><strong>Level 3:</strong> 통합 이용권이나 구독형 서비스를 제공합니다.</p><p><strong>Level 4:</strong> 대중교통 활성화 등 사회적·정책적 목표까지 서비스에 반영합니다.</p></div>
+    </section>
+    <section class="section" id="lecture" aria-labelledby="t4">
+      <div class="sec-head"><div class="secno">04</div><h2 id="t4">「관광교통경영론」에서 왜 중요한가?</h2></div>
+      <p>MaaS는 전통적인 관광교통 수단에 관한 학습을 <strong>스마트관광과 플랫폼 경영</strong>의 영역으로 확장할 수 있게 합니다.</p>
+      <div class="path" aria-label="전통적 관광교통 관리에서 스마트 모빌리티, 관광 MaaS, 관광교통 플랫폼 비즈니스로 이어지는 학습 흐름"><div class="node">전통적 관광교통 관리</div><div class="connector" aria-hidden="true">→</div><div class="node">스마트 모빌리티</div><div class="connector" aria-hidden="true">→</div><div class="node">관광 MaaS</div><div class="connector" aria-hidden="true">→</div><div class="node">플랫폼 비즈니스</div></div>
+      <div class="course">
+        <div class="course-card"><h3>🧭 관광객 경험</h3><p>이동 편의성 개선, 환승 부담 감소, 목적지 접근성 향상</p></div>
+        <div class="course-card"><h3>💼 경영과 수익모델</h3><p>통합 예약·결제, 플랫폼 사업모델, 서비스 품질 관리</p></div>
+        <div class="course-card"><h3>🤝 지역 협력</h3><p>철도·버스·택시·공유모빌리티 운영자와 관광사업자의 연계</p></div>
+        <div class="course-card"><h3>🌱 지속가능성</h3><p>대중교통 연계, 이동 효율화, 지역관광 교통정책 검토</p></div>
+      </div>
+      <div class="takeaway"><strong>최종 정리</strong><br/>스마트 모빌리티가 미래 교통기술과 이동서비스 전반을 뜻한다면, <strong>MaaS</strong>는 여러 이동서비스를 관광객이 <strong>하나의 서비스처럼 이용하도록 연결하는 플랫폼 모델</strong>입니다. 관광교통경영론에서 핵심적인 한 주차의 학습 주제로 다루기 적합합니다.</div>
+      <div class="practice">
+        <h3>💬 강의 토론 질문</h3>
+        <p>Q. 안동 관광객이 열차를 타고 도착한 뒤 지역버스·관광택시·관광지를 편리하게 연결하려면, MaaS는 어떤 기능부터 제공해야 할까요?</p>
+        <button type="button" class="showAnswer" id="answer-btn" aria-expanded="false" aria-controls="answer">논의 방향 보기</button>
+        <div class="answer" id="answer"><strong>논의 방향:</strong> ① 통합 교통정보 및 환승 연계 → ② 예약·결제 연동 → ③ 교통·관광 패스 구성 → ④ 지역 이동 약자와 친환경 교통을 고려한 운영으로 발전시키는 방안을 토의할 수 있습니다. 이는 수업용 제안이며 지역의 현재 서비스 구현 수준을 뜻하지 않습니다.</div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><strong>MaaS 이해와 관광교통경영론 활용</strong> · 기존 답변을 기반으로 제작한 오프라인 열람 가능 단일 HTML 강의자료<br/>개념 설명과 사례 비교는 교육용이며, 사업자별 서비스 제공 범위는 달라질 수 있습니다.</footer>
+</div>
+<script>
+(function(){
+ const data={
+ '1':{title:'Level 1 · 교통정보 통합',detail:'교통수단별 정보를 비교하여 최적 이동 경로를 탐색합니다.',example:'예: 버스·철도·택시의 경로와 소요시간을 한 화면에서 비교'},
+ '2':{title:'Level 2 · 예약·결제 통합',detail:'여러 교통수단의 예약과 결제를 하나의 접점에서 처리합니다.',example:'예: 철도와 택시를 연계해 한 앱에서 구매'},
+ '3':{title:'Level 3 · 서비스 상품 통합',detail:'여러 교통서비스를 묶어 하나의 상품, 이용권 또는 구독형 서비스로 제공합니다.',example:'예: 지역버스와 공유자전거를 포함한 관광 통합 이용권'},
+ '4':{title:'Level 4 · 사회적 목표 통합',detail:'개별 이용자의 이동 편의를 넘어 정책·사회적 목표를 서비스에 반영합니다.',example:'예: 대중교통 이용 장려와 지속가능한 관광객 이동 유도'}
+ };
+ const tabs=Array.from(document.querySelectorAll('.leveltab'));
+ const panel=document.getElementById('level-panel');
+ tabs.forEach((tab,i)=>{
+ tab.addEventListener('click',()=>{const d=data[tab.dataset.level];tabs.forEach(x=>x.setAttribute('aria-selected','false'));tab.setAttribute('aria-selected','true');panel.setAttribute('aria-labelledby',tab.id);panel.innerHTML='<h3>'+d.title+'</h3><p>'+d.detail+'</p><p class="ex">'+d.example+'</p>';});
+ tab.addEventListener('keydown',e=>{let j;if(e.key==='ArrowRight')j=(i+1)%tabs.length;else if(e.key==='ArrowLeft')j=(i-1+tabs.length)%tabs.length;else if(e.key==='Home')j=0;else if(e.key==='End')j=tabs.length-1;else return;e.preventDefault();tabs[j].focus();tabs[j].click();});
+ });
+ const btn=document.getElementById('answer-btn'),answer=document.getElementById('answer');btn.addEventListener('click',()=>{const open=!answer.classList.contains('open');answer.classList.toggle('open',open);btn.setAttribute('aria-expanded',String(open));btn.textContent=open?'논의 방향 닫기':'논의 방향 보기';});
+})();
+</script>
+</body>
+</html>
