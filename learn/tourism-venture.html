@@ -1485,6 +1485,17 @@
 
     /* 과제 2 본문 — 과제 1(샛노랑)과 같은 짙기로. 기본 회색(#777)은 노란 상자 옆에서 옅어 보인다. */
     .learn-article mark.hl-y { background: linear-gradient(transparent 50%, #ffe45c 50%); color: inherit; padding: 0 2px; }
+    .learn-hero .syl-tags.docs a small, .learn-article .syl-tags.docs a small { margin-left: 4px; font-size: .82em; font-weight: 700; opacity: .8; }
+    /* 05_관광벤처창업론 그림 여섯 — 장 · 파트 안내판(2026-10-16) */
+    .learn-article .tv-map { max-width: 520px; margin: 16px auto 22px; text-align: center; }
+    .learn-article .tv-map.narrow { max-width: 340px; }
+    .learn-article .tv-map img { display: block; width: 100%; height: auto; border-radius: 10px; border: 1px solid #e3e9f0; cursor: zoom-in; transition: box-shadow .15s; }
+    .learn-article .tv-map a:hover img { box-shadow: 0 6px 20px -10px rgba(20,36,58,.5); }
+    .tv-zoom { position: fixed; inset: 0; z-index: 9999; display: none; align-items: center; justify-content: center; padding: 20px; background: rgba(15,23,35,.82); cursor: zoom-out; }
+    .tv-zoom.on { display: flex; }
+    .tv-zoom img { max-width: 100%; max-height: 100%; border-radius: 10px; background: #fff; box-shadow: 0 10px 40px rgba(0,0,0,.5); }
+    .tv-zoom span { position: fixed; top: 14px; right: 18px; color: #fff; font-size: 13px; font-weight: 700; opacity: .85; }
+    .learn-article .tv-map figcaption { margin-top: 7px; font-size: 13px; line-height: 1.6; color: #44566b; }
     /* 출석부 위 — 제18회 관광벤처사업 공모 포스터(투어라즈, 2026-10-16) */
     .learn-article .tz-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: start; max-width: 980px; margin: 18px auto 20px; }
     .learn-article .tz-row .tz-poster { max-width: none; margin: 0; }
@@ -2319,7 +2330,7 @@
           <p class="syl-t"><a href="academic-calendar-venture.html" target="_blank" rel="noopener">2학기 학사일정 달력 ↗</a></p>
           <p class="syl-d"><strong>관광벤처창업론은 화요일 5·6·7교시</strong>입니다.</p>
           <p class="syl-tags"><a class="mapl" href="academic-calendar-venture.html" target="_blank" rel="noopener">9~12월 달력 · 출석 열기 ↗</a><a class="mapl mini" href="tourism-venture-student-note.html" target="_blank" rel="noopener">학생 이해 노트 ↗</a><span class="syl-src">개강 9/1 · 중간시험 8주 · 기말시험 16주 · 보강일 포함</span></p>
-          <p class="syl-tags docs"><b class="dt-h">안내서</b><a class="mapl stu" href="assets/tourism-venture-reading-guide.docx" download="관광벤처창업론_이_페이지를_읽는_법.docx">학생용 · 「이 페이지를 읽는 법」 ⤓</a><a class="mapl prof" href="assets/tourism-venture-class-intro-tree.docx" download="관광벤처창업론_홈페이지소개_가지치기트리_전체답변.docx">교수자용 · 「가지치기 트리」 ⤓</a></p>
+          <p class="syl-tags docs"><b class="dt-h">안내서</b><a class="mapl stu" href="assets/tourism-venture-reading-guide.docx" download="관광벤처창업론_이_페이지를_읽는_법.docx">⬇ 학생용 · 「이 페이지를 읽는 법」 <small>Word · 다운받기</small></a><a class="mapl prof" href="assets/tourism-venture-class-intro-tree.docx" download="관광벤처창업론_홈페이지소개_가지치기트리_전체답변.docx">⬇ 교수자용 · 「가지치기 트리」 <small>Word 1.2MB · 다운받기</small></a></p>
         </div>
       </div>
     </div>
@@ -2415,6 +2426,10 @@
         <p>관광의 아이디어를 벤처로 세우는 법 — 문제 정의부터 비즈니스 모델, 시장 검증까지 살펴봅니다.</p>
       </div>
 
+      <figure class="tv-map narrow" id="tv-summary">
+        <a href="images/tv-06-summary.webp" target="_blank" rel="noopener"><img src="images/tv-06-summary.webp" width="1400" height="1050" loading="lazy" alt="관광벤처가 뭐지? — ① 관광의 문제를 해결하는 사업 → ② 누구의 어떤 문제 → ③ 가치제안 · 고객 · 수익모델 → ④ MVP로 작게 검증 → ⑤ 실제 기업(비건부산 · 성심당 · 어반리즘하우스) → 지원처(관광벤처 · 관광데이터 · 지역공모 · 정부 R&amp;D) → 경주 · 경북 · 안동 → 로컬크리에이터 → 관광전공에서 배운 것을 사업 · 공모 · 취업 · 창업으로 연결"></a>
+        <figcaption><b>이 페이지를 한 장으로</b> — 문제 → 가치제안 · 고객 · 수익모델 → MVP → 실제 기업 → 지원처 → 지역 → 로컬크리에이터, 그리고 <b>사업 · 공모 · 취업 · 창업</b>으로.</figcaption>
+      </figure>
       <p class="learn-part pt-part pp-1" id="part01"><span class="pt"><i>파트</i><b>01</b></span><span class="pt-ti">주차별 실습 목표</span><span class="pt-sub">매주 무엇을 손에 남기고 나가는가 — 그날의 목표를 한 칸씩 적었습니다. <b>이번 주 것만 펼쳐 두고</b> 나머지는 접어 두십시오.</span></p>
 
       <figure class="grow-fig">
@@ -2682,6 +2697,8 @@
           <p class="nx-d">표로 본 차이를 <strong>이야기로</strong> 옮깁니다 — 내가 왜 이 문제를 보게 됐는지, 그 고객이 어떤 장면에서 불편한지, 내 서비스가 그 장면을 어떻게 바꾸는지.</p>
           <p class="nx-lb">이날 한 것 ② — 기업명 정하기</p>
           <p class="nx-d">서비스명(20자)과 함께 <strong>회사 이름</strong>을 정했습니다. 레퍼런스 업체들과 겹치지 않는지, 이야기와 이어지는지 확인합니다.</p>
+          <p class="nx-lb">이날 한 것 ③ — 레퍼런스 업체 찾기</p>
+          <p class="nx-d">위 「할 것」대로 <strong>레퍼런스(선행 · 참고 · 벤치마킹) 업체</strong>를 실제로 찾아 비교표에 올렸습니다 — 무엇을 파나 · 누구에게 · 어떻게 버나, 그리고 <strong>내 것과 다른 점 한 문장</strong>.</p>
 
         </div>
       </details>
@@ -3008,6 +3025,10 @@
 
 
       <p class="learn-part pt-part pp-3" id="part03"><span class="pt"><i>파트</i><b>03</b></span><span class="pt-ti">창업의 흐름</span><span class="pt-sub">문제 정의에서 시작해 모델 · 검증 · 지원까지 여섯 장으로 잇습니다. 이 여섯 장이 그대로 <strong>과제 1 사업계획서의 칸</strong>이 됩니다.</span></p>
+      <figure class="tv-map narrow" id="tv-home-flow">
+        <a href="images/tv-02-home-flow.webp" target="_blank" rel="noopener"><img src="images/tv-02-home-flow.webp" width="1024" height="1536" loading="lazy" alt="관광벤처창업론 HOME 흐름도 — 01 관광벤처란 · 02 아이디어는 문제에서 나온다 · 03 비즈니스 모델 · 04 만들기 전에 검증하라(Lean Startup) · 05 혼자 하지 않는다(창업 생태계와 지원) · 06 이 사이트를 창업 사례로 읽기"></a>
+        <figcaption><b>파트 03 여섯 장 지도</b> — 01 관광벤처란 → 02 문제 → 03 비즈니스 모델 → 04 검증 → 05 지원 → 06 이 사이트를 사례로.</figcaption>
+      </figure>
 
       <p class="learn-part lp-core"><span class="num">01</span>관광벤처란</p>
       <p>관광벤처란 <strong>ICT·콘텐츠·새로운 서비스 방식으로 관광의 문제를 푸는 혁신형 창업</strong>을 말합니다. 전통적인 여행사·숙박업과 달리, 기술과 아이디어로 기존 방식을 바꾸려 한다는 점이 다릅니다.</p>
@@ -3051,6 +3072,10 @@
         </figure>
       </div>
 
+      <figure class="tv-map" id="tv-idea-tree">
+        <a href="images/tv-01-idea-tree.webp" target="_blank" rel="noopener"><img src="images/tv-01-idea-tree.webp" width="1400" height="1050" loading="lazy" alt="관광벤처란 무엇인가 — 관광에서 어떤 문제를 발견했는가(여행자 · 지역 · 산업) → 어떻게 해결할까(서비스 · 콘텐츠 · 공간) · 무엇을 활용할까(AI · 데이터 · 지역자원) → 관광벤처 아이템(누구에게 · 무엇을 · 어떻게 돈을 벌까) → 실제 관광벤처 사례 → 나의 아이디어 → 관광벤처 아이디어 한 문장"></a>
+        <figcaption><b>아이디어 한 문장까지</b> — 어떤 문제 → 어떻게 · 무엇으로 → 누구에게 · 무엇을 · 어떻게 돈을 → 「<b>누구의 어떤 문제를 어떤 방식으로 해결한다.</b>」</figcaption>
+      </figure>
       <p class="learn-part lp-core" id="ch02"><span class="num">02</span>아이디어는 문제에서 나온다</p>
       <p>초보 창업이 가장 자주 넘어지는 지점은 "내가 만들고 싶은 것"에서 시작한다는 것입니다. 순서를 뒤집어야 합니다.</p>
       <div class="tri-wrap tri-warm hub-gap">
@@ -3281,7 +3306,15 @@
 
       <p class="mini-note"><strong>01~06장</strong>이 <em>창업의 흐름</em>(문제 → 모델 → 검증 → 지원)을 다뤘다면, <strong>07~11장</strong>은 이를 <strong>구체적인 관광 업종</strong>에 적용합니다. 즉, <strong class="hot-t">아이템이 정해진 뒤 업종별 사업 구조를 살펴보는 단계</strong>입니다.</p>
 
+      <figure class="tv-map" id="tv-real-cases">
+        <a href="images/tv-03-real-cases.webp" target="_blank" rel="noopener"><img src="images/tv-03-real-cases.webp" width="1400" height="933" loading="lazy" alt="이론을 배웠다면 실제로 누가 이렇게 했을까 — 서비스 창업 비건부산(Busan Vegan Discovery) · 로컬 브랜드 성심당 · 전공 활용 창업 어반리즘 하우스 → 문제 정의 → 근거 기반 정보 → MVP 배포"></a>
+        <figcaption><b>이론을 현실로</b> — 비건부산 · 성심당 · 어반리즘 하우스가 밟은 문제 정의 → 근거 → MVP.</figcaption>
+      </figure>
       <p class="learn-part pt-part pp-4" id="part04"><span class="pt"><i>파트</i><b>04</b></span><span class="pt-ti">어디에 내는가</span><span class="pt-sub">낼 곳은 하나가 아닙니다 — <strong>관광벤처(문체부 · 관광공사)</strong> · <strong>지자체 관광 스타트업</strong> · <strong>로컬크리에이터(중기부)</strong> 세 갈래이고, 같은 아이템으로 셋 다 낼 수 있습니다. 로컬크리에이터는 업종으로 다루므로 <a href="#local-creator">파트 05의 12장</a>에 있습니다.</span></p>
+      <figure class="tv-map" id="tv-where">
+        <a href="images/tv-04-where-to-apply.webp" target="_blank" rel="noopener"><img src="images/tv-04-where-to-apply.webp" width="1400" height="1050" loading="lazy" alt="그러면 우리가 실제로 참여할 곳은 — 관광 창업 공모(예비관광벤처 사업공모) · 작품 · 서비스 공모(관광데이터 활용 공모전, TourAPI) · 정부 R&amp;D(문화체육관광 R&amp;D, AI 관광혁신) → 지역으로 내려가 보면 경주(황오동 관광스타트업) · 경북(원도심 공모전) · 안동(청년 스타트업 관광기업)"></a>
+        <figcaption><b>참여할 곳</b> — 창업 공모 · 작품 · 서비스 공모 · 정부 R&amp;D, 지역으로는 경주 · 경북 · 안동.</figcaption>
+      </figure>
 
       <p class="learn-part lp-call" id="예비관광벤처공모"><span class="ptag">공모</span>예비관광벤처 사업공모<span class="ptag-out"><b>★</b>외부의 기회들</span></p>
       <p>'공공 지원'이 실제로 어떻게 작동하는지, 한국관광공사의 대표 사업인 <strong>예비관광벤처 사업공모</strong>를 예로 살펴봅니다. 아직 사업자등록을 하지 않은 <em>예비창업자</em>가 아이디어를 실제 사업으로 세울 수 있도록 자금과 프로그램을 지원하는, 관광 창업의 대표적 진입로입니다.</p>
@@ -3646,6 +3679,10 @@
       </ul>
 
       <p class="learn-part lp-core" id="local-creator"><span class="num">12</span>Ⓛ 「로컬크리에이터」 — 지역을 아이템으로 삼는 창업 트랙</p>
+      <figure class="tv-map" id="tv-local">
+        <a href="images/tv-05-local-demand.webp" target="_blank" rel="noopener"><img src="images/tv-05-local-demand.webp" width="1400" height="1050" loading="lazy" alt="관광벤처만 찾으면 되는가 — NO, 지역에서 관광 수요가 생기는 곳을 보자: 구미(축제 · 도시재생, 금리단길 · 상생팩토리) · 포항(체험 · 문화관광, 구룡 For You) → 사람이 모이기 시작한다 → 먹고 · 자고 · 체험할 것이 필요하다 → 창업 기회 발생 → 로컬크리에이터 → 지역특화관광 · 로컬푸드 · 디지털 문화체험"></a>
+        <figcaption><b>관광벤처만이 아니다</b> — 지역에 사람이 모이면 먹고 · 자고 · 체험할 것이 필요해지고, 그 자리가 <b>로컬크리에이터</b>입니다.</figcaption>
+      </figure>
       <div class="lilac-box">
       <p>앞의 공모들에서 <strong>로컬 크리에이터</strong>라는 말이 여러 번 스쳤습니다. 분위기 있는 수식어가 아니라 <strong>정부 지원사업의 공식 용어</strong>입니다. 중소벤처기업부는 2020년부터 「로컬크리에이터 육성사업」을 운영하며 <em>지역의 문화·자연 자산을 창의적으로 사업화하는 창업자</em>를 이 이름으로 묶어 왔고, 지자체들도 같은 이름을 받아 지역판 공모를 엽니다. 정부 문서의 공식 표기는 <strong>「지역가치 창업가(로컬크리에이터)」</strong>입니다 — 공고를 검색할 때 두 단어를 모두 써 보십시오. 관광 전공자에게 중요한 이유는 <strong>지원 분야 자체가 관광과 겹치기 때문</strong>입니다.</p>
       <details class="spec-fold violet">
@@ -4043,5 +4080,18 @@
       });
     });
   </script>
+<script>
+/* 05_관광벤처창업론 그림 — 누르면 화면 가득 크게, 다시 누르거나 Esc로 닫기(2026-10-16) */
+(function(){
+  var box=document.createElement('div');box.className='tv-zoom';
+  var im=document.createElement('img');im.alt='';var x=document.createElement('span');x.textContent='닫기 ✕ (Esc)';
+  box.appendChild(im);box.appendChild(x);document.body.appendChild(box);
+  document.querySelectorAll('.tv-map > a').forEach(function(a){
+    a.addEventListener('click',function(e){e.preventDefault();var t=a.querySelector('img');im.src=a.href;im.alt=t?t.alt:'';box.classList.add('on');});
+  });
+  box.addEventListener('click',function(){box.classList.remove('on');});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')box.classList.remove('on');});
+})();
+</script>
 </body>
 </html>
