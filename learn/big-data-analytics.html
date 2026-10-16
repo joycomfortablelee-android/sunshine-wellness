@@ -548,6 +548,15 @@
     .learn-article table.cl-tb tbody th { color: #4a2a72; white-space: nowrap; }
     .learn-article .cl-step { padding: 6px 10px; border-left: 3px solid #b79be0; background: #faf7ff; }
     .learn-article .cl-ad span, .learn-article .cl-sum span { display: inline-block; margin-right: 6px; padding: 0 8px; border-radius: 999px; background: #ffe800; color: #14120a; font-size: 11.5px; font-weight: 800; }
+    .learn-article .cl-deck { margin: 0 0 10px; }
+    .learn-article .cl-deck a { display: inline-block; padding: 5px 14px; border-radius: 999px; background: #6b3fa0; color: #fff; font-size: 13px; font-weight: 800; text-decoration: none; }
+    .learn-article .cl-deck a:hover { background: #4a2a72; }
+    .learn-article .cl-deck span { display: block; margin-top: 4px; font-size: 12px; color: #5b4a73; }
+    .learn-article .cl-scroll { overflow-x: auto; }
+    .learn-article table.cl-types { min-width: 860px; font-size: 12.3px; }
+    .learn-article table.cl-types th.g2 { background: #f1eafa; text-align: center; vertical-align: middle; }
+    .learn-article table.cl-types td.c { text-align: center; color: #6b3fa0; font-weight: 800; }
+    .learn-article .cl-qq small { font-weight: 600; color: #7c6a99; }
     .learn-article .cl-sum { margin: 0; padding: 8px 12px; border-radius: 8px; background: #fff8d6; border: 1px solid #ecd27a; font-size: 13.5px; line-height: 1.6; color: #3a3416; }
     /* 그림 넷의 결론 상자(2026-10-12) */
     .learn-article .dm-figs .dm-con { margin-top: 12px; padding: 14px 16px; border-radius: 10px; background: #f5f9fe; border: 1px solid #cfe0f3; }
@@ -1929,6 +1938,7 @@
       </div>
       <div class="cl-qa" id="cluster-qa">
         <p class="cl-qa-t"><span>Q&amp;A</span>군집분석은 지도학습인가, 비지도학습인가?</p>
+        <p class="cl-deck"><a href="cluster-z-standardization-37.html" target="_blank" rel="noopener">▶ 군집분석 × Z점수 표준화 — 학생용 37장 · 퀴즈 8문항 ↗</a><span>왜 표준화해야 거리가 공정해지나 — SPSS Z점수 저장 · 관광객 A · B 거리 계산 · 표준화 전후 그림 · 퀴즈</span></p>
         <div class="cl-q"><p class="cl-qq">Q1. 군집(Clustering) 분석은 지도인가 비지도인가? 계층적(위계적) 군집은?</p>
           <p class="cl-a"><b>둘 다 비지도학습입니다.</b></p>
           <p><b>① 군집분석 = 비지도학습</b> — 정답(레이블) 없이 데이터끼리 <b>얼마나 비슷한가</b>만으로 무리를 나눕니다. 지도학습은 「이 리뷰는 긍정」처럼 정답을 미리 알려 주고 배우게 하는 것(분류 · 회귀)이고, 군집분석은 「몇 가지 유형이 있을까?」를 데이터가 스스로 드러내게 합니다. <em>관광 예 — 여행자 지출 · 방문 빈도 · 목적으로 묶어 보니 미식형 · 휴양형 · 액티비티형이 나왔다. 이 이름은 묶은 <b>뒤에</b> 연구자가 붙입니다.</em></p>
@@ -1965,6 +1975,32 @@
               <tr><th>정답</th><td>없음</td><td>이웃의 정답(레이블)을 보고 다수결</td></tr>
             </tbody>
           </table>
+        </div>
+        <div class="cl-q"><p class="cl-qq">Q3. 군집분석의 유형은 몇 가지인가? — 한눈에 보기 <small>(모두 비지도학습)</small></p>
+          <div class="cl-scroll"><table class="cl-tb cl-types">
+            <thead><tr><th>기본 2분류</th><th>유형</th><th>대표 기법</th><th>묶는 기준</th><th>군집 수</th><th>이상치</th><th>관광 예</th><th>ADsP</th><th>교과서 5분류</th></tr></thead>
+            <tbody>
+              <tr><th class="g2">계층적</th><th>① 계층적</th><td>병합형 · 분할형, 연결법(최단 · 최장 · 평균 · 중심 · <b>Ward</b>)</td><td>가까운 것부터 차례로 합쳐 <b>덴드로그램</b></td><td>나무를 <b>자르는 높이</b>로 나중에</td><td>약함</td><td>관광지 20곳을 이용객 특성으로 나무 모양으로 묶기</td><td class="c">●</td><td class="c">●</td></tr>
+              <tr><th class="g2" rowspan="5">비계층적</th><th>② 분할적</th><td><b>K-means</b> · K-medoids · K-modes</td><td>중심점과의 거리</td><td><b>k를 먼저</b> 정함</td><td>약함</td><td>여행자 1만 명을 미식 · 휴양 · 액티비티형 셋으로</td><td class="c">●</td><td class="c">●</td></tr>
+              <tr><th>③ 밀도 기반</th><td><b>DBSCAN</b> · OPTICS · HDBSCAN</td><td>점이 <b>빽빽한 곳</b>을 한 무리로</td><td>자동(반경 · 최소 점 수로)</td><td><b>강함</b>(노이즈로 따로 뺌)</td><td>관광객 GPS 점으로 핫플레이스 찾기</td><td class="c">●<small>(요즘 출제)</small></td><td class="c">●</td></tr>
+              <tr><th>④ 모형(분포) 기반</th><td><b>혼합분포군집</b>(가우시안 혼합 · <b>EM</b>) · 잠재계층분석</td><td>몇 개의 <b>확률분포</b>에서 나왔다고 보고 확률로 소속</td><td>미리 정하거나 정보기준(BIC)으로</td><td>보통</td><td>「이 여행자는 휴양형일 확률 70%」</td><td class="c">●</td><td class="c">●</td></tr>
+              <tr><th>⑤ 신경망 기반</th><td><b>SOM</b>(자기조직화지도)</td><td>비슷한 것끼리 <b>2차원 지도</b> 위 가까운 칸에</td><td>지도 칸 수로</td><td>보통</td><td>관광 상품 유형을 한 장의 지도로 펼치기</td><td class="c">●</td><td class="c"><small>(따로 세면 6분류)</small></td></tr>
+              <tr><th>⑥ 격자 기반</th><td>STING · CLIQUE</td><td>공간을 <b>칸(격자)</b>으로 나눠 칸끼리 묶음</td><td>칸 크기로</td><td>보통</td><td>대규모 위치 데이터를 빠르게 요약</td><td class="c">—</td><td class="c">●</td></tr>
+            </tbody>
+          </table></div>
+          <p class="cl-h">몇 가지라고 답하나</p>
+          <ul>
+            <li><b>기본 2가지</b> — 계층적 · 비계층적. SPSS · 노경섭 · 사회과학 논문이 이 틀입니다.</li>
+            <li><b>ADsP 4가지</b> — ① 계층적 · ② K-means · ④ 혼합분포 · ⑤ SOM. ③ DBSCAN도 요즘 함께 나옵니다.</li>
+            <li><b>교과서 5가지</b> — ① · ② · ③ · ④ · ⑥. ⑤ SOM을 따로 세면 6가지입니다.</li>
+          </ul>
+          <p class="cl-h">함께 알아 둘 것</p>
+          <ul>
+            <li><b>하드 / 소프트</b> — ①②③은 한 무리에만 속합니다(하드). ④와 Fuzzy C-means는 확률 · 정도로 여러 무리에 속합니다(소프트).</li>
+            <li><b>SPSS 2단계 군집(TwoStep)</b> — 숫자형 · 범주형이 섞인 자료용이고, 군집 수를 자동으로 제안합니다.</li>
+            <li><b>수업 자료의 위치</b> — 노경섭 방식(① → ②)은 「기본 2가지」 안에 있고, 7주 학술 지식노트(K-means vs DBSCAN)는 ② vs ③ 비교입니다.</li>
+          </ul>
+          <p class="cl-step"><b>한 줄 정리</b> — 가까운 순서로 합치면 <b>계층적</b>, 개수를 정해 나누면 <b>K-means</b>, 빽빽한 곳을 찾으면 <b>DBSCAN</b>, 확률로 나누면 <b>혼합분포</b>, 지도로 펼치면 <b>SOM</b>.</p>
         </div>
         <p class="cl-sum"><span>한 줄 정리</span>정답 없이 묶으면 <b>군집(비지도)</b>, 정답을 주고 나누면 <b>분류(지도)</b>, 정답을 조금만 주고 묶으면 <b>준지도 군집</b>.</p>
       </div>
