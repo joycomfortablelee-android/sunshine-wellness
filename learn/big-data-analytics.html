@@ -528,10 +528,16 @@
     .learn-article .dm-figs figure { margin: 0; }
     .learn-article .dm-figs img { display: block; width: 100%; height: auto; border: 1px solid #e8eef5; border-radius: 8px; }
     .learn-article .dm-figs figcaption { margin-top: 5px; font-size: 12px; line-height: 1.55; color: #44566b; }
-    .learn-article .dm-figs .dm-row2 { max-width: 640px; margin: 14px auto 0; align-items: start; }
+    .learn-article .dm-figs .dm-row2 { margin: 14px 0 0; align-items: start; }
+    .learn-article .dm-figs .dm-row2 figure > a { display: block; max-width: 310px; margin: 0 auto; }
     .learn-article .dm-figs .dm-cite { display: block; margin-top: 2px; font-size: 11px; color: #7c8a99; }
     .learn-article .dm-figs .dm-cite a { color: #5f7fa6; }
     /* 군집분석 Q&A — 지도? 비지도?(2026-10-12) */
+    /* ③ 군집 분석 일곱 걸음 앞 구분선 — 점선 가운데 특수기호(2026-10-16) */
+    .learn-article .dmx-div { position: relative; margin: 30px 0 18px; text-align: center; height: 14px; }
+    .learn-article .dmx-div::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; border-top: 2px dashed #b9c8d8; }
+    .learn-article .dmx-div span { position: relative; padding: 0 14px; background: #fff; color: #6b3fa0; font-size: 14px; letter-spacing: 4px; }
+    .learn-article b.pg-n { display: inline-block; margin: 0 2px; padding: 0 6px; border-radius: 999px; background: #ffe800; color: #14120a; font-size: .85em; font-weight: 800; }
     .learn-article .cl-qa { margin: 12px 0 16px; padding: 14px 16px; border: 1px solid #d9cbee; border-radius: 12px; background: #fbf8ff; }
     .learn-article .cl-qa-t { margin: 0 0 10px; font-size: 15.5px; font-weight: 800; color: #4a2a72; }
     .learn-article .cl-qa-t span { display: inline-block; margin-right: 8px; padding: 1px 10px; border-radius: 999px; background: #6b3fa0; color: #fff; font-size: 12px; vertical-align: 2px; }
@@ -575,6 +581,7 @@
     .learn-article .cl-qq small { font-weight: 600; color: #7c6a99; }
     .learn-article .cl-sum { margin: 0; padding: 8px 12px; border-radius: 8px; background: #fff8d6; border: 1px solid #ecd27a; font-size: 13.5px; line-height: 1.6; color: #3a3416; }
     /* 그림 넷의 결론 상자(2026-10-12) */
+    .learn-article .dm-con-top { padding: 0; border: 0; background: none; margin: 12px 0 14px; }
     .learn-article .dm-figs .dm-con { margin-top: 12px; padding: 14px 16px; border-radius: 10px; background: #f5f9fe; border: 1px solid #cfe0f3; }
     .learn-article .dm-figs .dm-con-t { margin: 0 0 6px; font-size: 15.5px; font-weight: 800; color: #17365d; }
     .learn-article .dm-figs .dm-con-t span { display: inline-block; margin-right: 8px; padding: 1px 10px; border-radius: 999px; background: #17365d; color: #fff; font-size: 12px; vertical-align: 2px; }
@@ -1488,14 +1495,9 @@
                 <td class="wb-l"><a class="wb-go" href="#p01">파트 01 빅데이터란</a><a class="wb-go" href="#p02">파트 02 창구들</a><a class="wb-go" href="#p10">파트 10 데이터셋</a></td>
               </tr>
               <tr>
-                <th scope="row"><span class="wb-hl"><b>수상작을 뜯어보고</b>, <b>내 분석을 설계한다</b></span><span class="wb-tags"><b class="wb-tag thry">이론</b></span><span class="wg-d"><strong>다섯 질문으로 읽기</strong>(무엇을 물었나 → 어떤 데이터 → 어떻게 맞췄나 → 어떤 기법 → 무엇을 제안했나)<br /><strong>다섯 걸음으로 짜기</strong>(문제 정의 → 수집 → 정제 → 분석 → 시각화·해석)</span><span class="wg-k"><b>수업에서 쓴 개념</b>분석 방법, 오픈 API 수집, 경진대회 분석 흐름(보행 소년단)</span></th>
-                <td class="wb-p"><span>이론적 배경 · 연구 설계 · 방법론</span></td>
-                <td class="wb-l"><a class="wb-go" href="#p03">파트 03 다섯 걸음</a><a class="wb-go" href="#수상작서가">수상작 서가</a></td>
-              </tr>
-              <tr>
-                <th scope="row"><span class="wb-hl">현장의 물음을 <b>연구 문제로 세운다</b></span><span class="wb-tags"><b class="wb-tag prac">실전 감각</b></span><span class="wg-d">무엇을 알고 싶은가 — 그 바탕은 <strong>이론적 관점</strong>과 각 분야의 <strong>도메인 지식</strong></span><span class="wg-k"><b>수업에서 쓴 개념</b>DIKW 관광 적용, 보행환경(경진대회 사례), 아리랑 비교(밀양 · 정선)</span></th>
-                <td class="wb-p"><span>서론 · 기존 한계 · 필요성 · 문제 정의</span></td>
-                <td class="wb-l"><a class="wb-go" href="#p03">파트 03 문제 정의</a><a class="wb-go" href="#수상작서가">수상작 서가</a></td>
+                <th scope="row"><span class="wb-hl">현장의 물음을 <b>연구 문제로 세우고</b>, 수상작을 뜯어보며 <b>내 분석을 설계한다</b></span><span class="wb-tags"><b class="wb-tag thry">이론</b><b class="wb-tag prac">실전 감각</b></span><span class="wg-d">무엇을 알고 싶은가 — 그 바탕은 <strong>이론적 관점</strong>과 각 분야의 <strong>도메인 지식</strong><br /><strong>다섯 질문으로 읽기</strong>(무엇을 물었나 → 어떤 데이터 → 어떻게 맞췄나 → 어떤 기법 → 무엇을 제안했나)<br /><strong>다섯 걸음으로 짜기</strong>(문제 정의 → 수집 → 정제 → 분석 → 시각화·해석)</span><span class="wg-k"><b>수업에서 쓴 개념</b>DIKW 관광 적용, 보행환경(경진대회 사례), 아리랑 비교(밀양 · 정선), 분석 방법, 오픈 API 수집, 경진대회 분석 흐름(보행 소년단)</span></th>
+                <td class="wb-p"><span>서론 · 기존 한계 · 필요성 · 문제 정의 → 이론적 배경 · 연구 설계 · 방법론</span></td>
+                <td class="wb-l"><a class="wb-go" href="#p03">파트 03 문제 정의</a><a class="wb-go" href="#p03">파트 03 다섯 걸음</a><a class="wb-go" href="#수상작서가">수상작 서가</a></td>
               </tr>
               <tr>
                 <th scope="row"><b>프로그램 도구</b>를 <b>직접 돌린다</b><span class="wb-tags"><b class="wb-tag tech">기술</b></span><span class="wg-d">기술 통계·시각화 · 텍스트 마이닝·감성 분석 · 군집 분석 · 예측 분석<br />Orange · 빅카인즈 · <strong>SPSS</strong>(PC실 가능) · 파이썬 · R</span><span class="wg-k"><b>수업에서 쓴 개념</b>지도학습, 비지도학습, 군집분석, 텍스트마이닝, 빈도분석, 바이그램, TF-IDF, LDA 토픽, AI 분석, Orange 설치</span></th>
@@ -1890,6 +1892,22 @@
 
       <h2 class="learn-part pt-part pp-4" id="p04"><span class="pt"><i>파트</i><b>04</b></span><span class="pt-ti">대표 분석 기법</span><span class="pt-sub">기술 통계 · <strong>텍스트 마이닝</strong> · <strong>군집 분석</strong> · 예측 분석 넷을 보고, 그 아래 <em>실제 사례</em>로 잇습니다.</span></h2>
       <p class="dltags"><a class="mapl form hot" href="#dmx-1">① 큰 그림 — 네 말의 관계 ↓</a><a class="mapl form hot" href="#p04-tech">네 기법 ↓</a><a class="mapl form hot" href="#dmx-2">② 지도 vs 비지도 ↓</a><a class="mapl form hot" href="#dmx-3">③ 군집 분석 일곱 걸음 ↓</a><a class="mapl form hot" href="#dmx-4">④ 더 볼 자료 ↓</a><a class="mapl form hot" href="#textom">다음 시간 — 텍스트마이닝 ② 텍스톰 ↗</a><span class="dl-src">네 말의 관계 → 네 기법 → 지도 · 비지도 → 군집 분석 일곱 걸음(군1~군7) → 넘겨 보는 자료. 다음 시간에는 <b>텍스톰(TEXTOM)</b>으로 정제 → 빈도 · 워드클라우드 · N-gram → 의미연결망을 해 봅니다.</span></p>
+      <div class="dm-figs dm-con-top">
+  <div class="dm-con">
+        <p class="dm-con-t"><span>결론</span>그림이 다른 것은 누가 틀려서가 아니라, <b>무엇을 강조하느냐</b>가 달라서다</p>
+        <p class="dm-con-q"><b>데이터마이닝</b>은 「무엇을 찾을까」, <b>머신러닝</b>은 「어떻게 배울까」, <b>빅데이터</b>는 「무엇으로」, <b>AI</b>는 「어디까지」 — 네 말은 같은 층의 상자가 아니라 서로 다른 질문에 대한 답이라, 그림마다 경계가 달라 보입니다.</p>
+        <table class="dm-con-tb">
+          <thead><tr><th>말</th><th>무엇에 대한 답인가</th><th>한 줄</th><th class="ex">관광 예 — 호텔 리뷰 10만 건</th></tr></thead>
+          <tbody>
+            <tr><th>데이터마이닝</th><td>목적 — 무엇을 <b>발견</b>하나</td><td>데이터 속 패턴 · 규칙 · 무리를 찾는다</td><td class="ex">「불만이 어떤 주제로 모이나」를 찾는 일(텍스트 마이닝)</td></tr>
+            <tr><th>머신러닝 <small>(딥러닝 포함)</small></th><td>방법 — 어떻게 <b>학습</b>시키나</td><td>데이터로 규칙을 스스로 배우는 알고리즘. 딥러닝은 그중 신경망을 깊게 쌓은 한 방법</td><td class="ex">그 주제를 묶는 LDA · 군집 알고리즘</td></tr>
+            <tr><th>빅데이터</th><td>재료 — <b>무엇으로</b></td><td>사람이 다 훑을 수 없는 양 · 속도 · 다양성(<a href="#p01">파트 01의 5V ↑</a>)</td><td class="ex">리뷰 10만 건</td></tr>
+            <tr><th>AI</th><td>목표 — <b>어디까지</b></td><td>사람처럼 판단 · 행동하는 시스템</td><td class="ex">찾아낸 불만에 자동으로 답하는 챗봇</td></tr>
+          </tbody>
+        </table>
+        <p class="dm-con-check"><span>확인 질문</span>「우리 도시 관광 앱 후기에서 불만 주제를 찾는다」 — 여기서 빅데이터 · 데이터마이닝 · 머신러닝 · AI는 각각 무엇인가?</p>
+      </div>
+      </div>
       <p class="dmx-h" id="dmx-1"><span>①</span>큰 그림 — 데이터마이닝 · 머신러닝 · 빅데이터 · AI</p>
       <div class="dm-figs" id="dm-figs">
         <p class="dm-q">데이터마이닝은 AI <b>안에</b> 있나, <b>옆에</b> 있나? — 그림마다 다르게 그립니다. 왜일까요?</p>
@@ -1906,21 +1924,25 @@
             <figcaption><b>④ 공통 알고리즘으로 본 그림</b> — 데이터 분석 ⊃ 애널리틱스 ⊃ 데이터마이닝, 그 옆에 머신러닝 · AI · 빅데이터. <b>빨간 곳</b>이 데이터마이닝 · 머신러닝 · 빅데이터가 함께 쓰는 <b>공통 알고리즘</b> — 그래서 그림마다 경계가 달라 보입니다.<span class="dm-why"><b>강조점</b> 세 분야가 <b>같은 알고리즘을 함께 쓴다</b>는 쪽(빨간 곳)</span><span class="dm-cite">출처 <a href="https://www.sciencedirect.com/science/article/pii/S2452414X22000401#fig0002" target="_blank" rel="noopener">Seeger · Yahouni · Alpan(2022), <i>Journal of Industrial Information Integration</i> 28, 100371, Fig. 2 ↗</a></span></figcaption></figure>
         </div>
         <p class="dm-src">그림을 누르면 크게 열립니다</p>
-        <div class="dm-con">
-          <p class="dm-con-t"><span>결론</span>그림이 다른 것은 누가 틀려서가 아니라, <b>무엇을 강조하느냐</b>가 달라서다</p>
-          <p class="dm-con-q"><b>데이터마이닝</b>은 「무엇을 찾을까」, <b>머신러닝</b>은 「어떻게 배울까」, <b>빅데이터</b>는 「무엇으로」, <b>AI</b>는 「어디까지」 — 네 말은 같은 층의 상자가 아니라 서로 다른 질문에 대한 답이라, 그림마다 경계가 달라 보입니다.</p>
-          <table class="dm-con-tb">
-            <thead><tr><th>말</th><th>무엇에 대한 답인가</th><th>한 줄</th><th class="ex">관광 예 — 호텔 리뷰 10만 건</th></tr></thead>
-            <tbody>
-              <tr><th>데이터마이닝</th><td>목적 — 무엇을 <b>발견</b>하나</td><td>데이터 속 패턴 · 규칙 · 무리를 찾는다</td><td class="ex">「불만이 어떤 주제로 모이나」를 찾는 일(텍스트 마이닝)</td></tr>
-              <tr><th>머신러닝 <small>(딥러닝 포함)</small></th><td>방법 — 어떻게 <b>학습</b>시키나</td><td>데이터로 규칙을 스스로 배우는 알고리즘. 딥러닝은 그중 신경망을 깊게 쌓은 한 방법</td><td class="ex">그 주제를 묶는 LDA · 군집 알고리즘</td></tr>
-              <tr><th>빅데이터</th><td>재료 — <b>무엇으로</b></td><td>사람이 다 훑을 수 없는 양 · 속도 · 다양성(<a href="#p01">파트 01의 5V ↑</a>)</td><td class="ex">리뷰 10만 건</td></tr>
-              <tr><th>AI</th><td>목표 — <b>어디까지</b></td><td>사람처럼 판단 · 행동하는 시스템</td><td class="ex">찾아낸 불만에 자동으로 답하는 챗봇</td></tr>
-            </tbody>
-          </table>
-          <p class="dm-con-check"><span>확인 질문</span>「우리 도시 관광 앱 후기에서 불만 주제를 찾는다」 — 여기서 빅데이터 · 데이터마이닝 · 머신러닝 · AI는 각각 무엇인가?</p>
-        </div>
       </div>
+      <p class="dmx-h" id="dmx-4"><span>④</span>더 볼 자료 — 열여섯 장</p>
+      <ul class="reslist">
+        <li id="dm-tm-ml-dl">
+          <a class="pill-violet" href="data-mining-text-ml-dl-slides.html" target="_blank" rel="noopener">▶ 데이터 마이닝 · 텍스트 마이닝 · 머신러닝 · 딥러닝 — 무엇이 다른가 · 좌우 넘김 <b class="pg-n">(16장)</b> ↗</a>
+          <span class="desc"><strong>다음 시간에 봅니다.</strong> 네 말을 <em>「무엇을 발견하나(마이닝)」</em>와 <em>「어떻게 학습시키나(머신러닝 · 딥러닝)」</em>로 가르고, <strong>호텔 리뷰 10만 건</strong> 하나로 <strong>왜 이것은 텍스트 마이닝 · 머신러닝 · 딥러닝인가</strong>를 이유와 함께 짚습니다 — 단어 빈도 · TF-IDF는 텍스트 마이닝, 정답을 붙인 긍 · 부정 분류(Logistic · SVM)는 머신러닝, BERT 감성분석은 딥러닝, 관광객 K-means 군집은 비지도학습. <strong>「감성분석 = 딥러닝」이 아닙니다</strong> — 감성분석은 목적이고, 쓰는 방법에 따라 갈립니다. 끝에 한 장 압축표와 퀴즈 여섯 문항(누르면 바로 정답).</span>
+          <span class="meta">선샤인 웰니스 자체 제작 · 좌우 넘김 16장 · 장마다 아래에 강의 대본 한 단 · ← → 키로 넘김 · ADsP 3과목(데이터 분석)과 이어짐</span>
+        </li>
+      </ul>
+      <h3>데이터 마이닝과 머신러닝 — 지도학습 · 비지도학습</h3>
+      <p class="dmx-h" id="dmx-2"><span>②</span>지도 vs 비지도 — 정답을 주느냐, 안 주느냐</p>
+      <p>아래 네 기법 가운데 <strong>③ 군집 분석</strong>과 <strong>④ 예측 분석</strong>은 사실 <strong>머신러닝</strong>의 서로 다른 갈래에 놓입니다. 정답(레이블)을 미리 알려주고 학습시키는 것이 <strong>지도학습</strong> — <em>분류</em>와 <em>회귀</em>가 여기 속하고, <strong>④ 예측 분석</strong>이 그 예입니다. 정답 없이 데이터의 특징만 보고 비슷한 것끼리 스스로 묶게 하는 것이 <strong>비지도학습</strong> — <em>군집분석</em>과 <em>차원축소</em>가 여기 속하고, <strong>③ 군집 분석</strong>이 그 예입니다. 이 영상에서 두 방식의 차이를 그림으로 짚습니다.</p>
+      <ul class="reslist">
+        <li>
+          <a class="pill-violet" href="https://video.golpoai.com/share/6798d5d2-6634-42f6-ac77-958b7f87c85a?version=0" target="_blank" rel="noopener">머신러닝 빅데이터 분석 — 지도학습·비지도학습 ↗</a>
+          <span class="desc">인공지능·머신러닝·딥러닝의 관계에서 출발해, 사람이 규칙을 정하는 전통적 프로그램과 데이터로 규칙을 학습하는 머신러닝의 차이를 짚습니다. 이어 지도학습과 비지도학습의 장단점, 분류와 회귀의 구분(범주를 맞히면 분류, 숫자를 예측하면 회귀), 그리고 모델 학습에서 나타나는 과소적합·과대적합과 그 개선 방법까지 차례로 다룹니다.</span>
+          <span class="meta">선샤인 웰니스 자체 제작 · 강의 영상</span>
+        </li>
+      </ul>
       <ol class="vcards c4 steps" id="p04-tech">
         <li class="t-blue"><span class="vh">기술 통계·시각화</span><span class="vd">평균·분포·추세를 요약하고 지도·그래프로 보여주기. <em>가장 먼저, 가장 자주 쓰인다.</em></span></li>
         <li class="t-rose solid flame"><span class="vh">텍스트 마이닝·감성 분석</span><span class="vd">후기와 SNS의 단어를 세고(워드클라우드), 긍정/부정을 판정해 "무엇이 만족을 만드는가"를 읽는다.</span></li>
@@ -1937,16 +1959,7 @@
       </ul>
       <p class="dmx-jump"><a href="#dmx-3">③ 군집 분석 — 원논문(군4) · 통합 강의자료(군5) · 문서 군집화 노트(군6)는 아래 「군집 분석 일곱 걸음」에 모았습니다 ↓</a></p>
 
-      <h3>데이터 마이닝과 머신러닝 — 지도학습 · 비지도학습</h3>
-      <p class="dmx-h" id="dmx-2"><span>②</span>지도 vs 비지도 — 정답을 주느냐, 안 주느냐</p>
-      <p>위 사례 가운데 <strong>③ 군집 분석</strong>과 <strong>④ 예측 분석</strong>은 사실 <strong>머신러닝</strong>의 서로 다른 갈래에 놓입니다. 정답(레이블)을 미리 알려주고 학습시키는 것이 <strong>지도학습</strong> — <em>분류</em>와 <em>회귀</em>가 여기 속하고, <strong>④ 예측 분석</strong>이 그 예입니다. 정답 없이 데이터의 특징만 보고 비슷한 것끼리 스스로 묶게 하는 것이 <strong>비지도학습</strong> — <em>군집분석</em>과 <em>차원축소</em>가 여기 속하고, <strong>③ 군집 분석</strong>이 그 예입니다. 이 영상에서 두 방식의 차이를 그림으로 짚습니다.</p>
-      <ul class="reslist">
-        <li>
-          <a class="pill-violet" href="https://video.golpoai.com/share/6798d5d2-6634-42f6-ac77-958b7f87c85a?version=0" target="_blank" rel="noopener">머신러닝 빅데이터 분석 — 지도학습·비지도학습 ↗</a>
-          <span class="desc">인공지능·머신러닝·딥러닝의 관계에서 출발해, 사람이 규칙을 정하는 전통적 프로그램과 데이터로 규칙을 학습하는 머신러닝의 차이를 짚습니다. 이어 지도학습과 비지도학습의 장단점, 분류와 회귀의 구분(범주를 맞히면 분류, 숫자를 예측하면 회귀), 그리고 모델 학습에서 나타나는 과소적합·과대적합과 그 개선 방법까지 차례로 다룹니다.</span>
-          <span class="meta">선샤인 웰니스 자체 제작 · 강의 영상</span>
-        </li>
-      </ul>
+
       <div class="cl-qa" id="cluster-qa">
         <p class="cl-qa-t"><span>Q&amp;A</span><i class="cl-badge">군</i><b class="cl-no">1</b>군집분석은 지도학습인가, 비지도학습인가?</p>
         <div class="cl-q"><p class="cl-qq">Q1. 군집(Clustering) 분석은 지도인가 비지도인가? 계층적(위계적) 군집은?</p>
@@ -1989,11 +2002,12 @@
         <p class="cl-sum"><span>한 줄 정리</span>정답 없이 묶으면 <b>군집(비지도)</b>, 정답을 주고 나누면 <b>분류(지도)</b>, 정답을 조금만 주고 묶으면 <b>준지도 군집</b>.</p>
       </div>
 
+      <p class="dmx-div" aria-hidden="true"><span>✦ ◆ ✦</span></p>
       <p class="dmx-h" id="dmx-3"><span>③</span>군집 분석 일곱 걸음 <small>— 갈래 → 유형 → 준비 → 사례 → 설명 → 글에 적용 → 넓혀 보기</small></p>
       <ol class="cl-road">
         <li><a href="#cluster-qa"><i class="cl-badge">군</i><b class="cl-no">1</b>갈래</a>지도인가 비지도인가 — 비지도 (위 Q&amp;A)</li>
         <li><a href="#cluster-types"><i class="cl-badge">군</i><b class="cl-no">2</b>유형</a>계층적 · K-means · DBSCAN · 혼합분포 · SOM — 몇 가지인가</li>
-        <li><a href="#cluster-z37"><i class="cl-badge">군</i><b class="cl-no">3</b>준비</a>거리를 재기 전 Z점수 표준화 · 37장</li>
+        <li><a href="#cluster-z37"><i class="cl-badge">군</i><b class="cl-no">3</b>준비</a>거리를 재기 전 Z점수 표준화 <b class="pg-n">(37장)</b></li>
         <li><a href="#empathy-case"><i class="cl-badge">군</i><b class="cl-no">4</b>사례</a>계층적 → K-means → ANOVA를 이어 쓴 원논문</li>
         <li><a href="#cl-orange"><i class="cl-badge">군</i><b class="cl-no">5</b>설명</a>같은 논문으로 푼 통합 강의자료 · SPSS vs Orange</li>
         <li class="lv2"><a href="#dm-cluster-note"><i class="cl-badge">군</i><b class="cl-no">6</b>글에 적용</a>리뷰를 벡터로 바꿔 K-means vs DBSCAN</li>
@@ -2030,7 +2044,7 @@
       </div>
       <div class="cl-qa" id="cluster-z37">
         <p class="cl-qa-t"><span>준비</span><i class="cl-badge">군</i><b class="cl-no">3</b>거리를 재기 전에 — 단위를 맞춘다</p>
-        <p class="cl-deck" style="margin:0"><a href="cluster-z-standardization-37.html" target="_blank" rel="noopener"><i class="cl-badge">군</i><b class="cl-no">3</b>▶ 군집분석 × Z점수 표준화 — 학생용 37장 · 퀴즈 8문항 ↗</a><span>왜 표준화해야 거리가 공정해지나 — SPSS Z점수 저장 · 관광객 A · B 거리 계산 · 표준화 전후 그림 · 퀴즈</span></p>
+        <p class="cl-deck" style="margin:0"><a href="cluster-z-standardization-28.html" target="_blank" rel="noopener"><i class="cl-badge">군</i><b class="cl-no">3</b>▶ 군집분석 × Z점수 표준화 — 핵심 문구 노란 하이라이트 <b class="pg-n">(28장)</b> ↗</a> <a href="cluster-z-standardization-37.html" target="_blank" rel="noopener"><i class="cl-badge">군</i><b class="cl-no">3</b>▶ 군집분석 × Z점수 표준화 — 학생용 · 퀴즈 8문항 <b class="pg-n">(37장)</b> ↗</a><span>왜 표준화해야 거리가 공정해지나 — SPSS Z점수 저장 · 관광객 A · B 거리 계산 · 표준화 전후 그림 · 퀴즈</span></p>
       </div>
       <ul class="reslist cl-cards">
         <li class="t-violet case-tone" id="empathy-case">
@@ -2054,14 +2068,7 @@
           <span class="meta">관광빅데이터분석 · 학술연구 노트 001 · 2026.10.12 · 핵심 용어 여덟 · 주요 문헌 4편 · 인쇄 / PDF 저장</span>
         </li>
       </ul>
-      <p class="dmx-h" id="dmx-4"><span>④</span>더 볼 자료 — 열여섯 장</p>
-      <ul class="reslist">
-        <li id="dm-tm-ml-dl">
-          <a class="pill-violet" href="data-mining-text-ml-dl-slides.html" target="_blank" rel="noopener">▶ 데이터 마이닝 · 텍스트 마이닝 · 머신러닝 · 딥러닝 — 무엇이 다른가 · 열여섯 장 좌우 넘김 ↗</a>
-          <span class="desc"><strong>다음 시간에 봅니다.</strong> 네 말을 <em>「무엇을 발견하나(마이닝)」</em>와 <em>「어떻게 학습시키나(머신러닝 · 딥러닝)」</em>로 가르고, <strong>호텔 리뷰 10만 건</strong> 하나로 <strong>왜 이것은 텍스트 마이닝 · 머신러닝 · 딥러닝인가</strong>를 이유와 함께 짚습니다 — 단어 빈도 · TF-IDF는 텍스트 마이닝, 정답을 붙인 긍 · 부정 분류(Logistic · SVM)는 머신러닝, BERT 감성분석은 딥러닝, 관광객 K-means 군집은 비지도학습. <strong>「감성분석 = 딥러닝」이 아닙니다</strong> — 감성분석은 목적이고, 쓰는 방법에 따라 갈립니다. 끝에 한 장 압축표와 퀴즈 여섯 문항(누르면 바로 정답).</span>
-          <span class="meta">선샤인 웰니스 자체 제작 · 좌우 넘김 16장 · 장마다 아래에 강의 대본 한 단 · ← → 키로 넘김 · ADsP 3과목(데이터 분석)과 이어짐</span>
-        </li>
-      </ul>
+
 
       <h2 class="learn-part pt-part pp-5" id="p05"><span class="pt"><i>파트</i><b>05</b></span><span class="pt-ti">분석에 쓰는 도구·프로그램</span><span class="pt-sub">앞의 기법들은 결국 <strong>도구</strong>로 실행됩니다. 관광 데이터 분석에서 자주 쓰는 프로그램을 친숙한 것부터 봅니다.</span></h2>
       <div class="gtable-wrap" id="도구표">

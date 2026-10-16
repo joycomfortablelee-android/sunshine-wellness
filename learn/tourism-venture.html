@@ -1274,6 +1274,23 @@
     .learn-article .tri-wrap.tri-warm .tri-hub { background: #8a4f14; box-shadow: 0 4px 14px rgba(138,79,20,.3); }
 
     /* 알약 + 특징 한 줄 목록 — 02장 타겟팅 판 여섯. 넓은 화면은 왼쪽 알약 · 오른쪽 설명, 폰은 위아래. */
+    /* Problem Statement 일곱 기준 — 오각형 아래 왼쪽 정렬 · 행 폭 목록(2026-10-16) */
+    .learn-article .ps-crit { margin: 12px 0 18px; }
+    .learn-article .ps-crit ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+    .learn-article .ps-crit li { display: grid; grid-template-columns: 26px 128px 1fr; gap: 10px; align-items: baseline; font-size: 13px; line-height: 1.65; color: #4d5f74; text-align: left; }
+    .learn-article .ps-crit li .n { font-size: 16px; font-weight: 900; color: #b8560c; }
+    .learn-article .ps-crit li > b { color: #7a2f04; }
+    .learn-article .ps-crit li span b { color: #1f382f; }
+    .learn-article .ps-penta .sp-t small { font-size: 12.5px; font-weight: 700; color: #b8560c; }
+    .learn-article .ps-penta .sp-t .sp-sol { display: inline-block; margin-left: 4px; padding: 0 10px; border-radius: 999px; background: #e07a24; color: #fff; font-size: 13px; text-decoration: none; }
+    .learn-article .ps-penta .sp-t .sp-sol:hover { background: #7a2f04; }
+    .learn-article .ps-penta .sp-t .sp-sub { display: block; margin-top: 2px; font-size: 12px; font-weight: 700; color: #9a7a62; }
+    .learn-article .ps-crit .ps-next { margin: 12px 0 0; padding: 6px 12px; border-left: 3px solid #e07a24; background: #fff7ee; font-size: 13px; color: #4d5f74; }
+    .learn-article .ps-crit .ps-next b { color: #7a2f04; }
+    .learn-article .ps-crit .ps-crit-h { margin: 10px 0 6px; font-size: 12px; font-style: italic; color: #9a7a62; }
+    .learn-article .ps-crit li.far { color: #8a98a8; }
+    .learn-article .ps-crit li.far .n, .learn-article .ps-crit li.far > b { color: #c9925e; }
+    @media (max-width: 560px) { .learn-article .ps-crit li { grid-template-columns: 22px 1fr; } .learn-article .ps-crit li > span:last-child { grid-column: 2; } }
     .learn-article .pill-notes { margin: 14px 0 20px; }
     .learn-article .pill-notes .pn-lead { margin: 0 0 8px; font-size: 13px; color: #1f382f; }
     .learn-article .pill-notes ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
@@ -3043,7 +3060,7 @@
       </div>
       <p>좋은 문제 정의는 이미 절반의 해답입니다. 이 사이트의 출발점도 "친절한 로컬 가이드와 여행자를 잇는다"는 한 문장이었습니다.</p>
       <figure class="learn-fig ps-penta" id="problem-statement-5">
-        <p class="sp-t">내 Problem Statement, 다섯 기준으로 본다</p>
+        <p class="sp-t">내 Problem Statement <small>= Customer Pain Point</small> <a class="sp-sol" href="#ch03">→ Solution</a><span class="sp-sub">다섯 기준으로 본다</span></p>
         <svg viewBox="0 40 640 450" role="img" aria-labelledby="ps-title ps-desc">
           <title id="ps-title">좋은 문제 정의(Problem Statement)를 가르는 다섯 기준 오각형 — 바깥의 희미한 선은 더 생각해볼 두 기준</title>
           <desc id="ps-desc">가운데 오각형의 다섯 꼭짓점은 구체성 · 현실성 · 시장성(시장가치) · 필요성 · 차별성. 바깥으로 겹쳐진 희미한 선이 두 점(안전성 · 사회적 영향 ESG)을 더해 보여 준다. 가운데는 Problem Statement.</desc>
@@ -3061,8 +3078,22 @@
           <circle cx="506" cy="315" r="6" class="sp-dot2"/><text x="524" y="320" text-anchor="start" class="sp-n2">⑥ 안전성</text><text x="524" y="336" text-anchor="start" class="sp-x2">Safety</text>
           <circle cx="135" cy="315" r="6" class="sp-dot2"/><text x="117" y="320" text-anchor="end" class="sp-n2">⑦ 사회적 영향</text><text x="117" y="336" text-anchor="end" class="sp-x2">Social Impact · ESG</text>
         </svg>
-        <figcaption><b>① 구체성</b> 누구의 어떤 문제인지 숫자 · 장면으로 짚었는가. <b>② 현실성</b> 지금 실제로 일어나고 있고 확인할 수 있는 문제인가. <b>③ 시장성(시장가치)</b> 그 문제를 풀어 주면 돈을 낼 사람이 있는가. <b>④ 필요성</b> 지금 반드시 풀어야 하는 문제인가 — 위 <b>WHY NOW</b>와 같은 물음. <b>⑤ 차별성</b> 기존 해결책 · 대체재가 못 하는 지점을 짚었는가.<br /><em>바깥의 희미한 선 — 더 생각해볼 두 기준.</em> <b>⑥ 안전성</b> 고객 · 지역사회에 위험하거나 해롭지 않은가(법규 · 안전기준을 충족하는가). <b>⑦ 사회적 영향(ESG)</b> 환경 · 사회 · 지배구조 측면에서 해롭지 않고, 가능하면 긍정적인가.</figcaption>
       </figure>
+      <div class="ps-crit">
+        <ol>
+          <li><span class="n">①</span><b>구체성</b><span>누구의 어떤 문제인지 숫자 · 장면으로 짚었는가.</span></li>
+          <li><span class="n">②</span><b>현실성</b><span>지금 실제로 일어나고 있고 확인할 수 있는 문제인가.</span></li>
+          <li><span class="n">③</span><b>시장성(시장가치)</b><span>그 문제를 풀어 주면 돈을 낼 사람이 있는가.</span></li>
+          <li><span class="n">④</span><b>필요성</b><span>지금 반드시 풀어야 하는 문제인가 — 위 <b>WHY NOW</b>와 같은 물음.</span></li>
+          <li><span class="n">⑤</span><b>차별성</b><span>기존 해결책 · 대체재가 못 하는 지점을 짚었는가.</span></li>
+        </ol>
+        <p class="ps-crit-h">바깥의 희미한 선 — 더 생각해볼 두 기준</p>
+        <ol>
+          <li class="far"><span class="n">⑥</span><b>안전성</b><span>고객 · 지역사회에 위험하거나 해롭지 않은가(법규 · 안전기준을 충족하는가).</span></li>
+          <li class="far"><span class="n">⑦</span><b>사회적 영향(ESG)</b><span>환경 · 사회 · 지배구조 측면에서 해롭지 않고, 가능하면 긍정적인가.</span></li>
+        </ol>
+        <p class="ps-next">다음 → <b>Solution</b> — 이 문제를 어떻게 푸는가 · <a href="#ch03">03 비즈니스 모델 ↓</a></p>
+      </div>
       <div class="pill-notes">
         <p class="pn-lead"><b>WHO 칸을 「관광객」에서 멈추지 않게 하는 판 여섯입니다.</b></p>
         <ol>
