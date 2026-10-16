@@ -123,6 +123,7 @@ tr:nth-child(even) td{background:#fbfdff}
   h2{break-before:page}
   .figure,.table-wrap{break-inside:avoid}
 }
+.yl{background:linear-gradient(transparent 58%,#ffe46b 58%);font-weight:700;padding:0 2px}
 </style>
 </head>
 <body>
@@ -221,7 +222,7 @@ tr:nth-child(even) td{background:#fbfdff}
 <blockquote>“비지도학습(Unsupervised Learning) = 정답(label, target)을 미리 주지 않고 데이터 속 구조나 패턴을 찾는 방식”</blockquote>
 <p>예를 들어 유아교사 241명의 공감능력 점수만 주고 “이 교사들이 어떤 유형으로 나뉘는지 찾아봐.”라고 하는 것이 비지도학습입니다. 정답으로 “이 교사는 유형 1”이라는 라벨을 미리 주지 않고, 군집분석을 통해 유형을 발견합니다.</p>
 <h3>3-1. SPSS와 Orange의 차이</h3>
-<div class="table-wrap"><table><tr><th>구분</th><th>SPSS</th><th>Orange</th></tr><tr><td>성격</td><td>전통 통계분석 중심</td><td>데이터마이닝·머신러닝 워크플로 중심</td></tr><tr><td>비지도분석 가능?</td><td>가능</td><td>가능</td></tr><tr><td>K-means</td><td>가능</td><td>가능</td></tr><tr><td>위계적 군집분석</td><td>가능</td><td>가능</td></tr><tr><td>결과 표현</td><td>표·통계량 중심</td><td>시각적 워크플로·그래프 중심</td></tr><tr><td>수업 느낌</td><td>“통계분석을 한다”</td><td>“데이터에서 패턴을 발견한다”</td></tr></table></div>
+<div class="table-wrap"><table><tr><th>구분</th><th>SPSS</th><th>Orange</th></tr><tr><td>성격</td><td>전통 통계분석 중심</td><td>데이터마이닝·머신러닝 워크플로 중심</td></tr><tr><td>비지도분석 가능?</td><td>가능</td><td>가능</td></tr><tr><td>K-means</td><td>가능</td><td>가능</td></tr><tr><td>위계적 군집분석</td><td>가능</td><td>가능</td></tr><tr class="yl-row"><td><span class="yl">결과 표현</span></td><td><span class="yl">표·통계량 중심</span></td><td><span class="yl">시각적 워크플로·그래프 중심</span></td></tr><tr><td>수업 느낌</td><td>“통계분석을 한다”</td><td>“데이터에서 패턴을 발견한다”</td></tr></table></div>
 <blockquote>“같은 K-means를 SPSS로 돌려도 비지도학습이고, Orange로 돌려도 비지도학습이다.”</blockquote>
 <p>차이는 분석 프로그램이 아니라 정답을 주느냐 안 주느냐입니다.</p>
 <h3>3-2. 마라톤 논문으로 보는 SPSS의 비지도 군집분석</h3>
