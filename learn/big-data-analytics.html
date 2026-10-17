@@ -1064,6 +1064,12 @@
     .learn-article .task-box.bd-now .tb-d strong { color: #14120a; }
     .learn-article .task-box.bd-now .hot-t { color: #b00020; }
     .learn-article .task-box.bd-now .tb-t { color: #14120a; }
+    /* 접는 공모 상자 — 제목 줄만 보이고 누르면 펼친다 (2026-10-17) */
+    .learn-article details.task-box.tb-fold > summary.tb-t { cursor: pointer; list-style: none; margin-bottom: 0; }
+    .learn-article details.task-box.tb-fold > summary.tb-t::-webkit-details-marker { display: none; }
+    .learn-article details.task-box.tb-fold > summary.tb-t::after { content: "＋펼치기"; margin-left: 8px; font-size: 12px; font-weight: 700; color: #8a6d1c; white-space: nowrap; }
+    .learn-article details.task-box.tb-fold[open] > summary.tb-t { margin-bottom: 10px; }
+    .learn-article details.task-box.tb-fold[open] > summary.tb-t::after { content: "－접기"; }
     .learn-article .task-box.bd-now .tb-t span.when.hot { background: #c0392b; border-color: #c0392b; color: #fff; }
     .learn-article .task-box.bd-now .tb-n { background: #5c4a12; color: #faf3e3; }
     /* 공모 상자의 「분야 이름」 - 무엇을 내는 자리인지가 한눈에 걸리도록 선명한 파랑으로 세운다. */
@@ -1870,8 +1876,8 @@
         </li>
       </ul>
 
-      <div class="task-box bd-later" id="통계콘텐츠공모전">
-        <p class="tb-t"><b class="tb-n">2027년 대비</b>국가승인통계 활용 디지털콘텐츠 공모전 — 국가데이터처 <span class="when">2026년(제13회)은 7월 12일 마감 · 끝났습니다</span></p>
+      <details class="task-box bd-later tb-fold" id="통계콘텐츠공모전">
+        <summary class="tb-t"><b class="tb-n">2027년 대비</b>국가승인통계 활용 디지털콘텐츠 공모전 — 국가데이터처 <span class="when">2026년(제13회)은 7월 12일 마감 · 끝났습니다</span></summary>
         <p class="tb-d"><strong>분석 대회가 아니라 콘텐츠 대회입니다.</strong> KOSIS의 <strong>국가승인통계</strong>를 써서 우리 사회의 모습 · 문화 · 일상의 경험을 <strong>2분 이내 동영상</strong>으로 만들어 내는 자리입니다. 통계를 <em>읽는</em> 데서 끝내지 않고 <strong>남에게 보여 주는 형태로 바꾸는</strong> 연습이라, <strong>바로 위 KOSIS 카드와 차트 퀴즈</strong>에서 익힌 것이 그대로 재료가 됩니다 — 그래프 한 장이 영상의 출발점입니다.</p>
         <ol class="kwlist bd-kw">
           <li><b>무엇을 내나</b><span><strong>동영상 한 편</strong>. 유튜브에 올릴 수 있는 형식(mp4 등) · <strong>720×480 이상</strong> · <strong>2분 이내 권장</strong>. 참가 자격은 <strong>제한 없음</strong>(개인 · 팀 · 단체).</span></li>
@@ -1891,7 +1897,7 @@
         </table>
         <span class="yrnote"><b>2026 · 2025는 공고에서 확인한 날짜</b>이고, <b>2024 · 2023은 교차 확인 전</b>이라 그대로 믿지 마십시오. 상 이름이 <b>통계청장상(2025) → 국가데이터처장상(2026)</b>으로 바뀐 점도 함께 봅니다.</span>
         <p class="tb-tags"><a class="mapl form hot" href="https://kosis.kr/contest/index.do" target="_blank" rel="noopener">공모전 누리집 · 요강과 응모신청서 ↗</a><a class="mapl form sky" href="https://kosis.kr/easyViewStatis/uccList.do" target="_blank" rel="noopener">역대 수상작 모음 · 제1회(2014)~제13회(2026) ↗</a><a class="mapl form sky" href="https://kosis.kr/easyViewStatis/uccDetail.do?uccYear=2025&amp;boardIdx=71" target="_blank" rel="noopener">수상작 한 편 · 「KOSIS와 함께하는 스마트한 창업방법」 ↗</a><a class="mapl form to-shelf" href="#수상작서가">★ 수상작 서가에서 나란히 보기 ↓</a><span class="tb-src"><b>요강보다 수상작을 먼저 여십시오</b> — <b>2분 영상이 실제로 어느 정도 만듦새인지</b> 보고 나면 준비할 것이 분명해집니다. 수상작 모음(「내가 말하는 통계」)에는 <b>2014년부터 열세 해치</b>가 연도별로 쌓여 있습니다. 그중 <b>2025년 우수상 「KOSIS와 함께하는 스마트한 창업방법」</b>(환민진 연구소 · 전진호 · 이환준 · 황민우)을 따로 걸어 둡니다 — 창업을 준비하는 청년이 <b>음식점별 20대 고객 현황 · 개업 투자비용 · 연간 매출액 · 영업 이익률</b>을 KOSIS에서 찾아 일식당 창업으로 잇는 이야기라, <b>파트 03 다섯 걸음</b>과 <b>관광벤처창업론의 사업계획서</b>가 영상 한 편 안에 그대로 들어 있습니다.</span></p>
-      </div>
+      </details>
 
 
       <h2 class="learn-part pt-part pp-4" id="p04"><span class="pt"><i>파트</i><b>04</b></span><span class="pt-ti">대표 분석 기법</span><span class="pt-sub">기술 통계 · <strong>텍스트 마이닝</strong> · <strong>군집 분석</strong> · 예측 분석 넷을 보고, 그 아래 <em>실제 사례</em>로 잇습니다.</span></h2>
@@ -2549,6 +2555,17 @@
       if (Date.now() >= Date.parse(box.getAttribute('data-close'))) box.classList.add('is-closed');
     });
   })();
+</script>
+<script>
+/* 주소의 #앵커가 접힌 상자(details)이면 열어 준다 — 파트 05 「파트 03 상자로 ↑」 링크 등 */
+(function () {
+  function openTarget() {
+    var id = decodeURIComponent(location.hash.slice(1)); if (!id) return;
+    var el = document.getElementById(id);
+    if (el && el.tagName === 'DETAILS') el.open = true;
+  }
+  openTarget(); window.addEventListener('hashchange', openTarget);
+})();
 </script>
 </body>
 </html>
