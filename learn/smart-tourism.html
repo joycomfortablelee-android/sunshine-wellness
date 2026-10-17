@@ -1145,6 +1145,19 @@
       .learn-article .learn-fig.hk-poster.side > a { grid-column: 1; width: 100%; }
       .learn-article .learn-fig.hk-poster.side figcaption.cap-side { grid-column: 1; }
     }
+    /* 작은 포스터 + 옆에 틀 설명 — 02-1 APEC 워크숍. 썸네일만 작게 두고 누르면 크게 (2026-10-17) */
+    .learn-article .learn-fig.hk-poster.side.mini { grid-template-columns: 150px minmax(0, 1fr); margin: 18px 0 26px; padding: 14px 16px; border: 1px solid #d9e3ee; border-radius: 10px; background: #f7fafd; }
+    .learn-article .learn-fig.hk-poster.side.mini > a { grid-column: 1; width: 150px; max-width: 150px; }
+    .learn-article .learn-fig.hk-poster.side.mini figcaption.cap-side { grid-column: 2; text-align: left; font-size: 13px; line-height: 1.75; }
+    .learn-article .learn-fig.hk-poster.side.mini .apec-3 { margin: 6px 0 4px; padding-left: 0; list-style: none; }
+    .learn-article .learn-fig.hk-poster.side.mini .apec-3 li { margin: 3px 0; }
+    .learn-article .learn-fig.hk-poster.side.mini .apec-3 b { display: inline-block; min-width: 2.6em; color: #c0392b; }
+    .learn-article .learn-fig.hk-poster.side.mini .past { display: inline-block; font-size: 11px; padding: 1px 8px; border-radius: 999px; background: #e8edf3; color: #55657a; margin-left: 4px; vertical-align: 1px; }
+    @media (max-width: 760px) {
+      .learn-article .learn-fig.hk-poster.side.mini { grid-template-columns: 1fr; }
+      .learn-article .learn-fig.hk-poster.side.mini > a { grid-column: 1; width: 150px; }
+      .learn-article .learn-fig.hk-poster.side.mini figcaption.cap-side { grid-column: 1; }
+    }
     .learn-article .learn-fig.ax-form { margin: 16px 0 22px; padding: 0; border: 0; border-radius: 0; background: transparent; }
     .learn-article .learn-fig.ax-form img { border-radius: 8px; }
     /* 붉은 줄글 링크 — 알약으로 만들면 형제 알약에 묻힌다. 글자만 붉게 세운다 (2026-09-24) */
@@ -1876,6 +1889,18 @@
           <span class="deck-count">01 / 05</span>
         </div>
       </div>
+
+      <figure class="learn-fig hk-poster side mini" id="apec틀">
+        <a href="images/apec-smart-tourism-city-workshop-2024-poster.webp" target="_blank" rel="noopener"><img src="images/apec-smart-tourism-city-workshop-2024-poster.webp" alt="APEC 스마트 관광도시 교육 워크숍 포스터 — 2024. 4. 23.(화) 14:30~17:30, 주제 「지속 가능한 관광을 위한 스마트 관광도시의 역할」. 1부 기술과 데이터의 융복합을 통한 관광 편의 증진(양양군 · 싱가포르 센토사), 2부 스마트 기술로 확장되는 관광 경험의 미래(경주시 · 호주 · 페루 리마), 3부 협력으로 구현되는 관광생태계의 지속가능성. 주최 · 주관 APEC · 문화체육관광부 · 한국관광공사" loading="lazy" /></a>
+        <figcaption class="cap-side"><strong>국제기구는 스마트 관광도시를 세 층으로 본다</strong> <span class="past">지난 행사 · 2024</span><br />
+        APEC 스마트 관광도시 교육 워크숍은 「지속 가능한 관광을 위한 스마트 관광도시의 역할」을 세 부로 나눴습니다.
+        <ul class="apec-3">
+          <li><b>1부</b>기술 · 데이터 → <strong>관광 편의</strong> <span class="meta">양양 · 싱가포르 센토사</span></li>
+          <li><b>2부</b>스마트 기술 → <strong>관광 경험</strong> <span class="meta">경주 · 호주 · 페루 리마</span></li>
+          <li><b>3부</b>지역 · 민간 협력 → <strong>관광생태계의 지속가능성</strong></li>
+        </ul>
+        <span class="meta">그림을 누르면 크게 보입니다 · 출처 APEC · 문화체육관광부 · 한국관광공사</span></figcaption>
+      </figure>
 
       <p class="learn-part pt-learn" id="척도개발"><span class="pt">02-2</span>척도개발 5편 — 무엇으로 · 어디를 · 어떻게 재나</p>
       <p>위 다섯 장이 <strong>스마트 관광이 무엇인가</strong>를 세웠다면, 아래 열 장은 <strong>그것을 어떻게 재는가</strong>로 넘어갑니다 — <strong>여행업 · 외식업 · 컨벤션 · 숙박업 · 항공산업</strong> 다섯 편의 척도개발 연구입니다. 좌우로 넘기며 훑거나, 오른쪽 「전체 펼쳐 보기」로 한 번에 읽으십시오.</p>
