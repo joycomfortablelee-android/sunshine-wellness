@@ -33,6 +33,7 @@
     }
     /* 파트 머리글(pp-1~pp-8)과 같은 색을 연한 바탕으로 옮겼다.
        --rc 강조 · --rb 바탕 · --rl 테두리 · --rd 글자. 변수가 없으면 위 기본값으로 떨어진다. */
+    .learn-hero .room-bar .rb-parts a.p0 { --rc:#66788a; --rb:#f2f5f8; --rl:#d3dce4; --rd:#3f4d5a; }
     .learn-hero .room-bar .rb-parts a.p1 { --rc:#c0392b; --rb:#fbeeec; --rl:#eec9c3; --rd:#8c3b30; }
     .learn-hero .room-bar .rb-parts a.p2 { --rc:#17365d; --rb:#eef3f9; --rl:#c3d2e2; --rd:#123054; }
     .learn-hero .room-bar .rb-parts a.p3 { --rc:#3B6259; --rb:#eef4f1; --rl:#c6d8d1; --rd:#234b41; }
@@ -70,6 +71,8 @@
     .learn-article .learn-part.pt-part .pt b {
       font-size: 26px; font-weight: 800; letter-spacing: -.02em;
     }
+    /* 파트 00 한눈에 보기 — 스마트관광 페이지의 pp-x 와 같은 회청 (2026-10-17) */
+    .learn-article .learn-part.pt-part.pp-x { --pp-ac:#66788a; --pp-bg:#f2f5f8; --pp-dk:#3f4d5a; --pp-ln:#d3dce4; }
     .learn-article .learn-part.pt-part.pp-1   { --pp-ac:#c0392b; --pp-bg:#fbeeec; --pp-dk:#8c3b30; --pp-ln:#eec9c3; }
     .learn-article .learn-part.pt-part.pp-2 { --pp-ac:#17365d; --pp-bg:#eef3f9; --pp-dk:#123054; --pp-ln:#c3d2e2; }
     .learn-article .learn-part.pt-part.pp-3 { --pp-ac:#3B6259; --pp-bg:#eef4f1; --pp-dk:#234b41; --pp-ln:#c6d8d1; }
@@ -2366,7 +2369,7 @@
             <li class="pc"><b>6교시</b><span class="tm">(14:00 – 14:50)</span><span class="rm">사회대 <strong>2106호</strong><em>PC실</em></span></li>
             <li class="mv"><b>7교시</b><span class="tm">(15:00 – 15:50)</span><span class="rm">사회대 <strong>3402호</strong></span></li>
           </ul>
-          <p class="rb-parts"><b>이 페이지는 여덟 파트</b><a class="p1" href="#part01">01 주차 실습</a><a class="p2" href="#part02">02 낼 것</a><a class="p3" href="#part03">03 흐름</a><a class="p4" href="#part04">04 어디에</a><a class="p5" href="#part05">05 업종</a><a class="p6" href="#part06">06 취업</a><a class="p7" href="#part07">07 책</a><a class="p8" href="#part08">08 곁들여</a><span class="rb-sep" aria-hidden="true"></span><a class="fin" href="#과제3">과제 — 11월 2일(월) 24시까지</a><a class="fin" href="#part02">최종결과물 · 사업계획서 한 부 — 10월 20일 화요일까지</a></p>
+          <p class="rb-parts"><b>이 페이지는 여덟 파트</b><a class="p0" href="#part00">00 한눈에</a><a class="p1" href="#part01">01 주차 실습</a><a class="p2" href="#part02">02 낼 것</a><a class="p3" href="#part03">03 흐름</a><a class="p4" href="#part04">04 어디에</a><a class="p5" href="#part05">05 업종</a><a class="p6" href="#part06">06 취업</a><a class="p7" href="#part07">07 책</a><a class="p8" href="#part08">08 곁들여</a><span class="rb-sep" aria-hidden="true"></span><a class="fin" href="#과제3">과제 — 11월 2일(월) 24시까지</a><a class="fin" href="#part02">최종결과물 · 사업계획서 한 부 — 10월 20일 화요일까지</a></p>
         </div>
         <div class="syl-box cal">
           <p class="syl-t"><a href="academic-calendar-venture.html" target="_blank" rel="noopener">2학기 학사일정 달력 ↗</a></p>
@@ -2381,12 +2384,14 @@
   <main class="learn-article">
     <div class="lw">
 
+      <p class="learn-part pt-part pp-x" id="part00"><span class="pt"><i>파트</i><b>00</b></span><span class="pt-ti">한눈에 보기</span><span class="pt-sub"><strong>읽는 법</strong> · <strong>수업 목표</strong> · <strong>공모 한눈에</strong> · <strong>출석부</strong> · <strong>여덟 파트 지도</strong> — 파트 01에 들어가기 전에 전체 그림부터 봅니다</span></p>
+
       <!-- 이 페이지를 읽는 법 — 여덟 파트의 구성(무엇이 어디에 · 어떻게 이어지나). 과목 · 홈페이지 소개는 Word(assets/tourism-venture-reading-guide.docx)로 따로. 맨 위 「안내서」 줄의 📖 알약이 이 상자를 연다 (2026-10-17) -->
       <details class="rg-box" id="읽는법">
         <summary><b class="rg-tag">📖 처음 왔다면</b>이 페이지를 읽는 법<span class="rg-sub">여덟 파트의 구성 — 무엇이 어디에 있고 어떻게 이어지나</span></summary>
         <div class="rg-body">
 
-          <p>이 페이지는 처음부터 끝까지 읽는 글이 아니라, <strong>필요한 파트를 골라 여는 자료실</strong>입니다. 모두 <strong>여덟 파트</strong>이고, 맨 위 「이 페이지는 여덟 파트」 줄이나 파트 지도의 카드를 누르면 해당 파트로 바로 이동합니다. 파트마다 제목 옆에 다른 파트로 건너가는 알약 줄이 붙어 있어, 어디서든 다시 옮겨 갈 수 있습니다.</p>
+          <p>이 페이지는 처음부터 끝까지 읽는 글이 아니라, <strong>필요한 파트를 골라 여는 자료실</strong>입니다. 모두 <strong>여덟 파트</strong>이고, 맨 위 「이 페이지는 여덟 파트」 줄이나 파트 00 맨 아래 「여덟 파트」 지도의 카드를 누르면 해당 파트로 바로 이동합니다.</p>
           <p>여덟 파트는 <strong>위에서 아래로 「할 일 → 이론 → 낼 곳 → 업종 → 진로 → 참고」</strong> 순서로 놓였습니다. 앞의 두 파트는 매주 손에 남길 것과 제출물이고, 가운데 세 파트는 사업계획서를 채우는 내용이며, 뒤의 세 파트는 진로 · 교재 · 사례처럼 곁에 두고 보는 자료입니다.</p>
           <h3 class="rg-h">파트별로 무엇이 들어 있나</h3>
           <div class="rg-scroll"><table class="rg-tbl">
