@@ -1514,6 +1514,21 @@
     .learn-article mark.hl-y { background: linear-gradient(transparent 50%, #ffe45c 50%); color: inherit; padding: 0 2px; }
     .learn-hero .syl-tags.docs a small, .learn-article .syl-tags.docs a small { margin-left: 4px; font-size: .82em; font-weight: 700; opacity: .8; }
     /* 05_관광벤처창업론 그림 여섯 — 장 · 파트 안내판(2026-10-16) */
+    /* 맨 위 — 여덟 파트 지도(2026-10-17, 옛 「관광벤처가 뭐지?」 그림 대신) */
+    .learn-article .pmap { max-width: 900px; margin: 16px auto 24px; }
+    .learn-article .pmap-t { margin: 0 0 10px; text-align: center; font-size: 15px; color: #14243a; }
+    .learn-article .pmap-t span { display: block; margin-top: 3px; font-size: 12.3px; line-height: 1.7; color: #5d6d7e; }
+    .learn-article .pmap-t span b { color: #14243a; }
+    .learn-article .pmap-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; counter-reset: none; }
+    .learn-article .pmap-grid > li { margin: 0; padding: 0; }
+    .learn-article .pmap-grid > li::before { content: none; }
+    .learn-article .pmap-grid a { display: flex; flex-direction: column; gap: 3px; height: 100%; box-sizing: border-box; padding: 10px 12px 11px; border-radius: 10px; border: 1px solid color-mix(in srgb, var(--ac) 28%, #fff); border-top: 4px solid var(--ac); background: var(--bg); text-decoration: none; color: #33475b; transition: transform .12s, box-shadow .12s; }
+    .learn-article .pmap-grid a:hover { transform: translateY(-2px); box-shadow: 0 6px 16px -10px rgba(20,36,58,.45); }
+    .learn-article .pmap-grid .pm-n { font-size: 11px; font-weight: 900; color: var(--ac); letter-spacing: .5px; }
+    .learn-article .pmap-grid .pm-n::before { content: "파트 "; font-weight: 700; }
+    .learn-article .pmap-grid .pm-t { font-size: 14.5px; font-weight: 800; color: #14243a; line-height: 1.35; }
+    .learn-article .pmap-grid .pm-d { font-size: 11.8px; line-height: 1.55; color: #5d6d7e; }
+    @media (max-width: 760px) { .learn-article .pmap-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
     .learn-article .tv-map { max-width: 520px; margin: 16px auto 22px; text-align: center; }
     .learn-article .tv-map.narrow { max-width: 340px; }
     .learn-article .tv-map img { display: block; width: 100%; height: auto; border-radius: 10px; border: 1px solid #e3e9f0; cursor: zoom-in; transition: box-shadow .15s; }
@@ -2665,9 +2680,18 @@
         <p>관광의 아이디어를 벤처로 세우는 법 — 문제 정의부터 비즈니스 모델, 시장 검증까지 살펴봅니다.</p>
       </div>
 
-      <figure class="tv-map narrow" id="tv-summary">
-        <a href="images/tv-06-summary.webp" target="_blank" rel="noopener"><img src="images/tv-06-summary.webp" width="1400" height="1050" loading="lazy" alt="관광벤처가 뭐지? — ① 관광의 문제를 해결하는 사업 → ② 누구의 어떤 문제 → ③ 가치제안 · 고객 · 수익모델 → ④ MVP로 작게 검증 → ⑤ 실제 기업(비건부산 · 성심당 · 어반리즘하우스) → 지원처(관광벤처 · 관광데이터 · 지역공모 · 정부 R&amp;D) → 경주 · 경북 · 안동 → 로컬크리에이터 → 관광전공에서 배운 것을 사업 · 공모 · 취업 · 창업으로 연결"></a>
-        <figcaption><b>이 페이지를 한 장으로</b> — 문제 → 가치제안 · 고객 · 수익모델 → MVP → 실제 기업 → 지원처 → 지역 → 로컬크리에이터, 그리고 <b>사업 · 공모 · 취업 · 창업</b>으로.</figcaption>
+      <figure class="pmap" id="tv-summary">
+        <figcaption class="pmap-t"><b>이 페이지를 한 장으로</b> — 여덟 파트 <span>누르면 그 파트로 갑니다. <b>창업의 흐름(03)</b>으로 틀을 세우고, <b>업종(05)</b>으로 들어가, <b>낼 곳(04)</b>에 <b>낼 것(02)</b>을 냅니다 — 창업하지 않아도 <b>취업(06)</b>에 그대로 쓰입니다.</span></figcaption>
+        <ol class="pmap-grid">
+          <li style="--ac:#c0392b;--bg:#fbeeec"><a href="#part01"><b class="pm-n">01</b><span class="pm-t">주차별 실습 목표</span><span class="pm-d">매주 손에 남길 것 한 칸씩 · 1~16주 성장 막대</span></a></li>
+          <li style="--ac:#17365d;--bg:#eef3f9"><a href="#part02"><b class="pm-n">02</b><span class="pm-t">낼 것을 먼저 본다</span><span class="pm-d">리포트가 아니라 실제로 낼 사업계획서 한 부</span></a></li>
+          <li style="--ac:#3B6259;--bg:#eef4f1"><a href="#part03"><b class="pm-n">03</b><span class="pm-t">창업의 흐름</span><span class="pm-d">01~06장 — 문제 → 비즈니스 모델 → 검증(MVP) → 지원</span></a></li>
+          <li style="--ac:#2563a8;--bg:#eff5fa"><a href="#part04"><b class="pm-n">04</b><span class="pm-t">어디에 내는가</span><span class="pm-d">관광벤처 · 지자체 관광 스타트업 · 로컬크리에이터</span></a></li>
+          <li style="--ac:#8a5a17;--bg:#fdf6ea"><a href="#part05"><b class="pm-n">05</b><span class="pm-t">업종별로 들어가기</span><span class="pm-d">07~12장 — 여행업 · 외식(성심당) · 농어촌 · 스마트팜 · 연구용역(어반리즘) · 로컬크리에이터</span></a></li>
+          <li style="--ac:#5b3f7a;--bg:#f4eff8"><a href="#part06"><b class="pm-n">06</b><span class="pm-t">창업하지 않아도 쓰인다</span><span class="pm-d">관광기업이 뽑을 때 보는 것 = 공모가 보는 것</span></a></li>
+          <li style="--ac:#7a6417;--bg:#fdf8e8"><a href="#part07"><b class="pm-n">07</b><span class="pm-t">책 — 교재 두 권</span><span class="pm-d">지금 읽는 대목이 전체의 어디쯤인지</span></a></li>
+          <li style="--ac:#1f6a73;--bg:#eaf5f4"><a href="#part08"><b class="pm-n">08</b><span class="pm-t">곁들여 보기 · 링크</span><span class="pm-d">비건부산 · 구미 · 포항 · 공모 찾는 창구</span></a></li>
+        </ol>
       </figure>
       <p class="learn-part pt-part pp-1" id="part01"><span class="pt"><i>파트</i><b>01</b></span><span class="pt-ti">주차별 실습 목표</span><span class="pt-sub">매주 무엇을 손에 남기고 나가는가 — 그날의 목표를 한 칸씩 적었습니다. <b>이번 주 것만 펼쳐 두고</b> 나머지는 접어 두십시오.</span></p>
 
@@ -3265,6 +3289,10 @@
 
 
       <p class="learn-part pt-part pp-3" id="part03"><span class="pt"><i>파트</i><b>03</b></span><span class="pt-ti">창업의 흐름</span><span class="pt-sub">문제 정의에서 시작해 모델 · 검증 · 지원까지 여섯 장으로 잇습니다. 이 여섯 장이 그대로 <strong>과제 1 사업계획서의 칸</strong>이 됩니다.</span></p>
+      <figure class="tv-map narrow" id="tv-flow-summary">
+        <a href="images/tv-06-summary.webp" target="_blank" rel="noopener"><img src="images/tv-06-summary.webp" width="1400" height="1050" loading="lazy" alt="관광벤처가 뭐지? — ① 관광의 문제를 해결하는 사업 → ② 누구의 어떤 문제 → ③ 가치제안 · 고객 · 수익모델 → ④ MVP로 작게 검증 → ⑤ 실제 기업(비건부산 · 성심당 · 어반리즘하우스) → 지원처(관광벤처 · 관광데이터 · 지역공모 · 정부 R&amp;D) → 경주 · 경북 · 안동 → 로컬크리에이터 → 관광전공에서 배운 것을 사업 · 공모 · 취업 · 창업으로 연결"></a>
+        <figcaption><b>창업의 흐름을 한 장으로</b> — 관광의 문제 → 누구의 어떤 문제 → 가치제안 · 고객 · 수익모델 → MVP로 작게 검증 → 실제 기업 → 지원처 → 지역 · 로컬크리에이터. 처음 만든 요약 그림이라 <b>실제 기업 셋은 지금 파트 05(성심당 08장 · 어반리즘하우스 11장)와 파트 08(비건부산)</b>에 있습니다.</figcaption>
+      </figure>
       <figure class="tv-map narrow" id="tv-home-flow">
         <a href="images/tv-02-home-flow.webp" target="_blank" rel="noopener"><img src="images/tv-02-home-flow.webp" width="1024" height="1536" loading="lazy" alt="관광벤처창업론 HOME 흐름도 — 01 관광벤처란 · 02 아이디어는 문제에서 나온다 · 03 비즈니스 모델 · 04 만들기 전에 검증하라(Lean Startup) · 05 혼자 하지 않는다(창업 생태계와 지원) · 06 이 사이트를 창업 사례로 읽기"></a>
         <figcaption><b>파트 03 여섯 장 지도</b> — 01 관광벤처란 → 02 문제 → 03 비즈니스 모델 → 04 검증 → 05 지원 → 06 이 사이트를 사례로.</figcaption>
