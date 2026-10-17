@@ -1391,6 +1391,27 @@
     .learn-hero .syl-box .syl-tags.docs a.mapl.stu:hover { background: #1f382f; border-color: #1f382f; }
     .learn-hero .syl-box .syl-tags.docs a.mapl.prof { background: #a8681f; border-color: #a8681f; }
     .learn-hero .syl-box .syl-tags.docs a.mapl.prof:hover { background: #8a4f14; border-color: #8a4f14; }
+    .learn-hero .syl-box .syl-tags.docs a.mapl.rg { background: #fff; border-color: #2f5148; color: #2f5148; }
+    .learn-hero .syl-box .syl-tags.docs a.mapl.rg:hover { background: #e6f0ec; }
+    /* 처음 온 학생용 읽는 법 상자 — 학생용 안내서와 같은 짙은 초록 계열 (2026-10-17) */
+    .learn-article .rg-box { margin: 0 0 26px; border: 1.5px solid #2f5148; border-radius: 12px; background: #f6faf8; scroll-margin-top: 78px; }
+    .learn-article .rg-box > summary { cursor: pointer; list-style: none; padding: 12px 16px; font-weight: 800; font-size: 15.5px; color: #1f382f; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+    .learn-article .rg-box > summary::-webkit-details-marker { display: none; }
+    .learn-article .rg-box > summary::after { content: "펼치기 ▾"; margin-left: auto; font-size: 12px; color: #2f5148; }
+    .learn-article .rg-box[open] > summary::after { content: "접기 ▴"; }
+    .learn-article .rg-box .rg-tag { background: #2f5148; color: #fff; padding: 2px 10px; border-radius: 999px; font-size: 12.5px; }
+    .learn-article .rg-box .rg-sub { font-size: 12.5px; font-weight: 600; color: #5b7068; }
+    .learn-article .rg-body { padding: 4px 20px 18px; border-top: 1px dashed #b9cfc6; }
+    .learn-article .rg-body p { line-height: 1.85; }
+    .learn-article .rg-h { margin: 22px 0 8px; font-size: 16.5px; color: #1f382f; border-left: 4px solid #2f5148; padding-left: 10px; }
+    .learn-article .rg-scroll { overflow-x: auto; margin: 8px 0 14px; }
+    .learn-article .rg-tbl { width: 100%; border-collapse: collapse; font-size: 13.5px; background: #fff; min-width: 520px; }
+    .learn-article .rg-tbl th { background: #2f5148; color: #fff; font-weight: 700; padding: 7px 9px; text-align: left; white-space: nowrap; }
+    .learn-article .rg-tbl td { border-bottom: 1px solid #dfe8e4; padding: 7px 9px; vertical-align: top; line-height: 1.6; }
+    .learn-article .rg-tbl td.c, .learn-article .rg-tbl th.c { text-align: center; white-space: nowrap; }
+    .learn-article .rg-tbl tr.hl td { background: #fff4d6; }
+    .learn-article .rg-key { margin: 6px 0 4px; padding: 9px 13px; background: #fff; border-left: 4px solid #a8681f; font-weight: 700; }
+    .learn-article .rg-blk { margin: 16px 0 2px; font-weight: 800; color: #2f5148; }
     @media (max-width: 900px) {
       .learn-hero .hero-row { grid-template-columns: 1fr; }
     }
@@ -2336,7 +2357,7 @@
           <p class="syl-t"><a href="academic-calendar-venture.html" target="_blank" rel="noopener">2학기 학사일정 달력 ↗</a></p>
           <p class="syl-d"><strong>관광벤처창업론은 화요일 5·6·7교시</strong>입니다.</p>
           <p class="syl-tags"><a class="mapl" href="academic-calendar-venture.html" target="_blank" rel="noopener">9~12월 달력 · 출석 열기 ↗</a><a class="mapl mini" href="tourism-venture-student-note.html" target="_blank" rel="noopener">학생 이해 노트 ↗</a><span class="syl-src">개강 9/1 · 중간시험 8주 · 기말시험 16주 · 보강일 포함</span></p>
-          <p class="syl-tags docs"><b class="dt-h">안내서</b><a class="mapl stu" href="assets/tourism-venture-reading-guide.docx" download="관광벤처창업론_이_페이지를_읽는_법.docx">⬇ 학생용 · 「이 페이지를 읽는 법」 <small>Word · 다운받기</small></a><a class="mapl prof" href="assets/tourism-venture-class-intro-tree.docx" download="관광벤처창업론_홈페이지소개_가지치기트리_전체답변.docx">⬇ 교수자용 · 「가지치기 트리」 <small>Word 1.2MB · 다운받기</small></a></p>
+          <p class="syl-tags docs"><b class="dt-h">안내서</b><a class="mapl stu" href="assets/tourism-venture-reading-guide.docx" download="관광벤처창업론_이_페이지를_읽는_법.docx">⬇ 학생용 · 「이 페이지를 읽는 법」 <small>Word · 다운받기</small></a><a class="mapl prof" href="assets/tourism-venture-class-intro-tree.docx" download="관광벤처창업론_홈페이지소개_가지치기트리_전체답변.docx">⬇ 교수자용 · 「가지치기 트리」 <small>Word 1.2MB · 다운받기</small></a><a class="mapl rg" href="#읽는법">📖 처음 왔다면 · 쉬운 말로 읽기 ↓</a></p>
         </div>
       </div>
     </div>
@@ -2344,6 +2365,134 @@
 
   <main class="learn-article">
     <div class="lw">
+
+      <!-- 처음 온 학생용 읽는 법 — 초등생 눈높이로 문단 + 표. 맨 위 「안내서」 줄의 📖 알약이 이 상자를 연다 (2026-10-17) -->
+      <details class="rg-box" id="읽는법">
+        <summary><b class="rg-tag">📖 처음 왔다면</b>이 페이지, 이렇게 읽어요<span class="rg-sub">쉬운 말로 · 5분이면 읽습니다</span></summary>
+        <div class="rg-body">
+
+          <h3 class="rg-h">첫째 · 이 페이지는 큰 도서관이에요</h3>
+          <p>이 페이지를 처음 열면 너무 길어서 깜짝 놀랄 거예요. 내려도 내려도 끝이 없지요. 그래도 걱정하지 않아도 돼요. 이 페이지는 소설책처럼 첫 줄부터 끝까지 읽는 글이 아니에요. <strong>필요한 책만 꺼내 보는 도서관</strong>이에요. 도서관에서는 책을 다 읽지 않지요. 입구 안내판을 보고 내가 찾는 칸으로 곧장 가요. 이 페이지도 똑같아요.</p>
+          <p>이 도서관에는 서랍이 <strong>여덟 개</strong> 있어요. 맨 위 「이 페이지는 여덟 파트」 줄의 숫자 알약(01 · 02 · 03 …)을 누르면 그 서랍으로 바로 내려가요.</p>
+          <div class="rg-scroll"><table class="rg-tbl">
+            <thead><tr><th>서랍</th><th>이름</th><th>안에 든 것</th><th>이럴 때 열어요</th></tr></thead>
+            <tbody>
+              <tr><td class="c"><b>01</b></td><td>주차별 실습 목표</td><td>매주 수업에서 한 일과 할 일</td><td>「이번 주에 뭐 하지?」</td></tr>
+              <tr><td class="c"><b>02</b></td><td>낼 것을 먼저 본다</td><td>과제 안내</td><td>「무엇을 언제까지 내지?」</td></tr>
+              <tr><td class="c"><b>03</b></td><td>창업의 흐름</td><td>창업 이론 여섯 장</td><td>「창업이 뭔지 차근차근 알고 싶어」</td></tr>
+              <tr><td class="c"><b>04</b></td><td>어디에 내는가</td><td>계획서를 낼 수 있는 공모전</td><td>「내 계획서를 어디에 내지?」</td></tr>
+              <tr><td class="c"><b>05</b></td><td>업종별로 들어가기</td><td>여행사 · 숙박 · 로컬 같은 업종 이야기</td><td>「내 아이템은 어느 업종이지?」</td></tr>
+              <tr><td class="c"><b>06</b></td><td>창업하지 않아도 쓰인다</td><td>취업에 쓰는 법</td><td>「나는 창업 말고 취업할 건데?」</td></tr>
+              <tr><td class="c"><b>07</b></td><td>책</td><td>교재 두 권</td><td>「교재 어디를 읽지?」</td></tr>
+              <tr><td class="c"><b>08</b></td><td>곁들여 보기 · 링크</td><td>더 볼 사례와 사이트 모음</td><td>「더 찾아보고 싶어」</td></tr>
+            </tbody>
+          </table></div>
+          <p>서랍 순서에는 비밀이 하나 있어요. <strong>위로 갈수록 「오늘 할 일」이고, 아래로 갈수록 「더 깊은 공부」</strong>예요. 바쁜 날에는 01과 02만 보고 닫아도 괜찮아요.</p>
+
+          <h3 class="rg-h">둘째 · 접혀 있는 상자와 길잡이 표시</h3>
+          <p>서랍 01을 열면 「1주차, 2주차, 3주차…」 상자가 줄지어 있는데, 대부분 <strong>닫혀</strong> 있어요. 고장 난 게 아니에요. 한꺼번에 다 펼치면 너무 길어서 일부러 접어 둔 거예요. <strong>이번 주 상자만 열어 보고, 나머지는 닫아 두세요.</strong> 제목 줄을 누르면 열리고, 다시 누르면 닫혀요.</p>
+          <p>서랍 01 위에는 <strong>계단처럼 올라가는 막대그래프</strong>가 있어요. 막대 하나가 한 주예요. 막대 높이는 「그 주까지 내 손에 쌓인 결과물 개수」예요. 1주에 1개로 시작해서 14주에는 20개가 돼요. 막대를 누르면 그 주 상자가 바로 열려요.</p>
+          <p>페이지 곳곳에 붙은 작은 <strong>표시</strong>만 알아도 누를지 말지 금방 정할 수 있어요.</p>
+          <div class="rg-scroll"><table class="rg-tbl">
+            <thead><tr><th>표시</th><th>뜻</th><th>누르면</th></tr></thead>
+            <tbody>
+              <tr><td class="c"><b>↗</b></td><td>다른 페이지로 가요</td><td>새 창이 열려요. 지금 페이지는 그대로 있어요</td></tr>
+              <tr><td class="c"><b>⬇ ⤓</b></td><td>파일을 받아요</td><td>Word · PPT · 한글 파일이 내 컴퓨터에 저장돼요</td></tr>
+              <tr><td class="c"><b>↓</b></td><td>같은 페이지 아래로 가요</td><td>이 페이지 안에서 그 자리로 내려가요</td></tr>
+              <tr><td class="c"><b>✦</b></td><td>우리 수업에서 직접 만든 자료예요</td><td>다른 데서는 볼 수 없는 수업용 자료예요</td></tr>
+              <tr><td class="c"><b>●</b> 깜빡임</td><td>꼭 봐야 할 것이에요</td><td>깜빡이는 알약은 놓치지 마세요</td></tr>
+            </tbody>
+          </table></div>
+
+          <h3 class="rg-h">셋째 · 맨 위 「안내서」 두 장</h3>
+          <p>맨 위 수업 정보 칸에 「<strong>안내서</strong>」 줄이 있고 알약이 붙어 있어요. 「⬇」 알약 둘은 Word 파일이라 누르면 컴퓨터에 저장돼요. 이 두 장은 <strong>도서관 입구에 붙은 안내 지도</strong>라고 생각하면 돼요.</p>
+          <p><strong>학생용 「이 페이지를 읽는 법」</strong>은 학생에게 주는 <strong>길 찾기 지도</strong>예요. 지금 내 상황에 맞는 문이 어디인지 알려 줘요.</p>
+          <div class="rg-scroll"><table class="rg-tbl">
+            <thead><tr><th>지금 내 상황</th><th>들어갈 문</th><th>걸리는 시간</th></tr></thead>
+            <tbody>
+              <tr><td>과제나 시험 때문에 왔어요</td><td>서랍 02 과제 → 서랍 03 이론 01~06장 순서대로 → 성심당 · 비건부산 사례</td><td class="c">약 20분</td></tr>
+              <tr><td>계획서를 낼 곳을 찾고 있어요</td><td>서랍 04 공모전 → 서랍 08 공모 사이트(투어라즈 등)</td><td class="c">약 15분</td></tr>
+              <tr><td>아직 아이디어가 없어요</td><td>서랍 08 구미 · 포항 사례 → 서랍 04 경주 황오동 → 로컬크리에이터 7대 분야 → 다시 02장 「문제 정의」</td><td class="c">약 25분</td></tr>
+            </tbody>
+          </table></div>
+          <p>안내서 끝에는 「<strong>오늘 바로 할 일 세 가지</strong>」도 있어요. ① 공모전 접수 사이트 <strong>투어라즈</strong>(touraz.kr)에 가입하기, ② 우리 동네 공고가 올라오는 곳(시청 공지사항 · 도시재생지원센터 · 지역 창업포털) 세 군데 즐겨찾기 하기, ③ 내 아이디어를 「누구의 / 어떤 문제를 / 왜 지금」 한 문장으로 써 보기예요.</p>
+          <p><strong>교수자용 「가지치기 트리」</strong>는 선생님이 수업에서 쓰는 <strong>설명 순서표</strong>예요. 나무 줄기가 가지로 갈라지듯 생각을 이어 가요. 「여행하면서 무엇이 불편했지?」에서 시작해 「누구의 불편이지?」 → 「어떻게 풀까?」 → 「실제로 푼 회사는 어디지?」를 거쳐 「<strong>그럼 나는 무엇을 만들까?</strong>」에 도착해요. 학생이 읽어도 좋아요. 페이지 전체가 어떤 이야기로 이어지는지 한눈에 보여요.</p>
+          <p class="rg-key">학생용은 「어디부터 읽을까」, 교수자용은 「어떤 순서로 설명할까」를 알려 주는 지도예요.</p>
+
+          <h3 class="rg-h">넷째 · 그래서 이 수업은 무엇을 하나요?</h3>
+          <p>이 수업은 「<strong>여행에서 불편한 점을 찾아서, 그걸 풀어 주는 작은 회사를 만들어 보는</strong>」 수업이에요. 예를 들어 볼게요. 숙소를 예약했는데 갑자기 못 가게 됐어요. 그런데 환불이 안 돼요. 속상하지요. 이 불편을 풀려고 「캔슬마켓」이라는 회사가 생겼어요. 못 가게 된 사람의 예약을, 싸게 가고 싶은 다른 사람에게 넘겨 주는 회사예요. 이렇게 <strong>불편 하나가 회사 하나가 되는 것</strong>, 그게 관광벤처예요.</p>
+          <p>학기가 끝나면 손에 <strong>사업계획서 한 부</strong>가 남아요. 사업계획서는 「제 회사는 이런 문제를 이렇게 풀고, 이렇게 돈을 벌 거예요」라고 정부에 내는 설명서예요. 이 수업의 계획서는 실제 정부 공모전(예비관광벤처)에 그대로 낼 수 있게 만들어요. 사업계획서에는 칸이 네 개 있어요.</p>
+          <div class="rg-scroll"><table class="rg-tbl">
+            <thead><tr><th>칸</th><th>영어</th><th>묻는 것</th><th>쉽게 말하면</th></tr></thead>
+            <tbody>
+              <tr><td class="c"><b>P</b></td><td>Problem</td><td>누가, 무엇이 불편한가요?</td><td>「이게 문제예요」</td></tr>
+              <tr><td class="c"><b>S</b></td><td>Solution</td><td>그걸 어떻게 풀어 주나요?</td><td>「이렇게 고쳐요」</td></tr>
+              <tr><td class="c"><b>S</b></td><td>Scale-up</td><td>손님은 몇 명이고, 어떻게 키우나요?</td><td>「이만큼 커져요」</td></tr>
+              <tr><td class="c"><b>T</b></td><td>Team</td><td>누가 하나요?</td><td>「제가, 이 사람들과 해요」</td></tr>
+            </tbody>
+          </table></div>
+          <p>이 네 칸을 한 번에 다 쓰지 않아요. <strong>매주 조금씩 채우고, 발표하고, 선생님 말씀을 듣고 고쳐요.</strong> 그렇게 고친 글을 마지막에 공모전 양식에 옮겨 담아요. 쓰고 → 고치고 → 옮겨 내는 세 걸음이에요.</p>
+
+          <h3 class="rg-h">다섯째 · 한 학기 동안 걸어온 길</h3>
+          <p>한 학기는 크게 <strong>네 덩어리</strong>예요. 처음에는 틀을 잡고, 다음에는 내 것으로 좁혀요. 그다음 진짜 손님이 있는지 숫자로 증명하고, 마지막에 한 부로 묶어요.</p>
+          <p>사업계획서는 칸이 아주 많아서 한꺼번에 쓰면 숨이 차요. 그래서 이 수업은 <strong>중간시험까지 세 칸만</strong> 먼저 완성해요. 양식에서 가장 먼저 읽히고 가장 크게 점수가 매겨지는 칸들이에요. 이 세 칸이 튼튼하면 나머지 칸은 그 위에 쌓기만 하면 돼요.</p>
+          <div class="rg-scroll"><table class="rg-tbl">
+            <thead><tr><th>칸 번호</th><th>양식의 이름</th><th>쉽게 말하면</th><th>준비한 주</th></tr></thead>
+            <tbody>
+              <tr><td class="c"><b>1-1</b></td><td>문제 인식의 구체성 및 현실성</td><td>「누가, 무엇이 불편한가요? 그 불편이 진짜라는 증거는요?」</td><td class="c">1~5주</td></tr>
+              <tr><td class="c"><b>2-1</b></td><td>시장현황 및 목표고객</td><td>「내 손님은 정확히 누구고, 몇 명이나 있나요?」</td><td class="c">6주</td></tr>
+              <tr><td class="c"><b>4-1</b></td><td>관광시장 이해도 · 트렌드</td><td>「요즘 여행 흐름과 내 아이템이 맞나요?」</td><td class="c">7주</td></tr>
+            </tbody>
+          </table></div>
+          <p>세 칸을 숙제에 비유하면 <strong>1-1은 「왜 하나요?」, 2-1은 「누구를 위해 하나요?」, 4-1은 「지금 하기 좋은 때인가요?」</strong>예요. 4-1을 쓸 때는 1주차 상자의 깜빡이 알약 「● 2026 관광 트렌드」를 열어 보세요.</p>
+          <p>중간시험 뒤에는 <strong>과제 3</strong>이 기다려요. EO Korea 유튜브 영상 두 편을 골라, 실제 창업가가 어떻게 문제를 찾고 넘어지고 다시 일어섰는지 읽어요. 그리고 좌우로 넘기는 발표용 HTML로 만들어 내요. 마감은 <strong>11월 2일(월) 밤 12시</strong>예요.</p>
+
+          <p class="rg-blk">① 틀을 잡는다 · 1~3주</p>
+          <div class="rg-scroll"><table class="rg-tbl wk">
+            <thead><tr><th>주</th><th>날짜</th><th>이날의 이야기</th><th>손에 남는 것</th></tr></thead>
+            <tbody>
+              <tr><td class="c">1</td><td class="c">9/1</td><td>사업계획서는 네 칸이에요(P · S · S · T). 공고문을 요약 말고 원문 그대로 읽어 봐요</td><td>네 칸의 틀</td></tr>
+              <tr><td class="c">2</td><td class="c">9/8</td><td>투어라즈에 가입해요. 실제 관광 회사 한 곳을 골라 발표하고, 내 아이템이 어느 분야인지 찾아봐요</td><td>내 분야 · 따라 볼 회사</td></tr>
+              <tr><td class="c">3</td><td class="c">9/15</td><td>「대략 이런 걸 하고 싶어요」를 말로 꺼내 봐요. 여행사는 어떻게 차리는지도 봐요</td><td>첫 아이디어</td></tr>
+            </tbody>
+          </table></div>
+          <p class="rg-blk">② 내 것으로 좁힌다 · 4~7주 — 중간의 세 칸을 채우는 시간</p>
+          <div class="rg-scroll"><table class="rg-tbl wk">
+            <thead><tr><th>주</th><th>날짜</th><th>이날의 이야기</th><th>손에 남는 것</th><th>칸</th></tr></thead>
+            <tbody>
+              <tr><td class="c">4</td><td class="c">9/22</td><td>말로 한 아이디어를 컴퓨터로 한 문장으로 써요. 막히면 ChatGPT가 되묻게 해요</td><td>아이템 한 문장</td><td class="c">1-1</td></tr>
+              <tr><td class="c">5</td><td class="c">9/29</td><td>비슷한 회사 셋을 찾아 나란히 놓아요. 회사 이름을 짓고, 왜 이 일을 하는지 이야기로 풀어요</td><td>이름 · 이야기 · 비교표</td><td class="c">1-1</td></tr>
+              <tr><td class="c">6</td><td class="c">10/6</td><td>「관광객」이라고 뭉뚱그리지 않고, 내 손님 <strong>한 사람</strong>을 골라 그려 봐요</td><td>내 손님 한 사람</td><td class="c">2-1</td></tr>
+              <tr><td class="c">7</td><td class="c">10/13</td><td>발표 슬라이드를 보고서 문장으로 옮기고, 숫자마다 출처를 달아요. 요즘 여행 흐름과도 맞춰 봐요</td><td>계획서 초안</td><td class="c">4-1</td></tr>
+              <tr class="hl"><td class="c"><b>8</b></td><td class="c"><b>10/20</b></td><td><b>중간시험 · 1-1 · 2-1 · 4-1 세 칸 제출</b></td><td><b>사업계획서 첫 세 칸</b></td><td class="c">✔</td></tr>
+            </tbody>
+          </table></div>
+          <p class="rg-blk">③ 시장에서 증명한다 · 9~13주</p>
+          <div class="rg-scroll"><table class="rg-tbl wk">
+            <thead><tr><th>주</th><th>날짜</th><th>이날의 이야기</th><th>손에 남는 것</th></tr></thead>
+            <tbody>
+              <tr><td class="c">9</td><td class="c">10/27</td><td>내 손님이 정말 몇 명 있는지 숫자로 찾아요. 경쟁 회사도 이름을 대고 비교해요</td><td>시장 크기 · 경쟁 비교</td></tr>
+              <tr class="hl"><td class="c">—</td><td class="c"><b>11/2(월)</b></td><td><b>과제 3 마감 (밤 12시)</b> · EO Korea 영상 두 편 사례연구 HTML</td><td><b>과제 3</b></td></tr>
+              <tr><td class="c">10</td><td class="c">11/3</td><td>돈이 어떻게 들어오는지 네모와 화살표로 그려요. 한 달에 얼마 버는지도 계산해 봐요</td><td>돈이 도는 그림</td></tr>
+              <tr><td class="c">11</td><td class="c">11/10</td><td>도시는 손님이 많은 곳으로 가고, 지역은 가진 것으로 손님을 불러요. 로컬크리에이터 분야를 골라요</td><td>로컬 분야</td></tr>
+              <tr><td class="c">12</td><td class="c">11/17</td><td>농산물과 빈 공간으로 하는 사업을 배워요. 방이 몇 개냐보다 「1년에 며칠 차느냐」가 중요해요</td><td>자원 사업 · 가동률</td></tr>
+              <tr><td class="c">13</td><td class="c">11/24</td><td>공부한 것 자체를 시청이나 공사에 파는 창업을 배워요. 과제 2 입사 제안서를 내요</td><td>입사 제안서</td></tr>
+            </tbody>
+          </table></div>
+          <p class="rg-blk">④ 한 부로 묶는다 · 14~16주</p>
+          <div class="rg-scroll"><table class="rg-tbl wk">
+            <thead><tr><th>주</th><th>날짜</th><th>이날의 이야기</th><th>손에 남는 것</th></tr></thead>
+            <tbody>
+              <tr><td class="c">14</td><td class="c">12/1</td><td>팀 칸을 채우고, 진짜 심사처럼 8분 발표하고 4분 질문받아요</td><td>발표 자료</td></tr>
+              <tr><td class="c">15</td><td class="c">12/8</td><td>보강 주간이라 수업이 없어요. 계획서를 다듬고 상담해요</td><td>—</td></tr>
+              <tr class="hl"><td class="c"><b>16</b></td><td class="c"><b>12/15</b></td><td><b>기말</b> — 중간에 낸 세 칸에 나머지 칸을 더한 사업계획서 완성본과 발표 자료를 내요</td><td><b>사업계획서 한 부</b></td></tr>
+            </tbody>
+          </table></div>
+
+          <h3 class="rg-h">마지막 · 기억할 한 문장</h3>
+          <p>이 페이지는 <strong>읽는 자료가 아니라 쓰는 자료</strong>예요. 서랍 03의 이론(문제 찾기 → 돈 버는 그림 → 작게 먼저 시험하기)을 따라가면 그 순서가 그대로 사업계획서가 되고, 그 사업계획서는 서랍 04의 공모전에 낼 수 있어요. 그러니까 <strong>이 페이지를 따라 읽는 것이 곧 공모전 준비</strong>예요. 길을 잃으면 이 상자를 다시 열고, 이번 주 상자 하나만 펼치면 돼요.</p>
+        </div>
+      </details>
 
       <section class="cgoal" id="course-goal" aria-labelledby="cg-title">
         <p class="cg-h" id="cg-title">수업 목표</p>
