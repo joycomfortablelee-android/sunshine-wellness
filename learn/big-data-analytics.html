@@ -533,7 +533,7 @@
     .learn-article .dm-figs .dm-cite { display: block; margin-top: 2px; font-size: 11px; color: #7c8a99; }
     .learn-article .dm-figs .dm-cite a { color: #5f7fa6; }
     /* 군집분석 Q&A — 지도? 비지도?(2026-10-12) */
-    /* ③ 군집 분석 일곱 걸음 앞 구분선 — 점선 가운데 특수기호(2026-10-16) */
+    /* ④ 군집 분석 일곱 걸음 앞 구분선 — 점선 가운데 특수기호(2026-10-16) */
     .learn-article .dmx-div { position: relative; margin: 30px 0 18px; text-align: center; height: 14px; }
     .learn-article .dmx-div::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; border-top: 2px dashed #b9c8d8; }
     .learn-article .dmx-div span { position: relative; padding: 0 14px; background: #fff; color: #6b3fa0; font-size: 14px; letter-spacing: 4px; }
@@ -1891,10 +1891,10 @@
 
 
       <h2 class="learn-part pt-part pp-4" id="p04"><span class="pt"><i>파트</i><b>04</b></span><span class="pt-ti">대표 분석 기법</span><span class="pt-sub">기술 통계 · <strong>텍스트 마이닝</strong> · <strong>군집 분석</strong> · 예측 분석 넷을 보고, 그 아래 <em>실제 사례</em>로 잇습니다.</span></h2>
-      <p class="dltags"><a class="mapl form hot" href="#dmx-1">① 큰 그림 — 네 말의 관계 ↓</a><a class="mapl form hot" href="#p04-tech">네 기법 ↓</a><a class="mapl form hot" href="#dmx-2">② 지도 vs 비지도 ↓</a><a class="mapl form hot" href="#dmx-3">③ 군집 분석 일곱 걸음 ↓</a><a class="mapl form hot" href="#dmx-4">④ 더 볼 자료 ↓</a><a class="mapl form hot" href="#textom">다음 시간 — 텍스트마이닝 ② 텍스톰 ↗</a><span class="dl-src">네 말의 관계 → 네 기법 → 지도 · 비지도 → 군집 분석 일곱 걸음(군1~군7) → 넘겨 보는 자료. 다음 시간에는 <b>텍스톰(TEXTOM)</b>으로 정제 → 빈도 · 워드클라우드 · N-gram → 의미연결망을 해 봅니다.</span></p>
+      <p class="dltags"><a class="mapl form hot" href="#dmx-1">① 큰 그림 — 네 말의 관계 ↓</a><a class="mapl form hot" href="#dmx-2">② 더 볼 자료 ↓</a><a class="mapl form hot" href="#dmx-3">③ 지도 vs 비지도 ↓</a><a class="mapl form hot" href="#p04-tech">네 기법 ↓</a><a class="mapl form hot" href="#dmx-4">④ 군집 분석 일곱 걸음 ↓</a><a class="mapl form hot" href="#textom">다음 시간 — 텍스트마이닝 ② 텍스톰 ↗</a><span class="dl-src">네 말의 관계 → 넘겨 보는 자료 → 지도 · 비지도 → 네 기법 → 군집 분석 일곱 걸음(군1~군7). 다음 시간에는 <b>텍스톰(TEXTOM)</b>으로 정제 → 빈도 · 워드클라우드 · N-gram → 의미연결망을 해 봅니다.</span></p>
       <div class="dm-figs dm-con-top">
   <div class="dm-con">
-        <p class="dm-con-t"><span>결론</span>그림이 다른 것은 누가 틀려서가 아니라, <b>무엇을 강조하느냐</b>가 달라서다</p>
+        <p class="dm-con-t"><span>핵심</span>그림이 다른 것은 누가 틀려서가 아니라, <b>무엇을 강조하느냐</b>가 달라서다</p>
         <p class="dm-con-q"><b>데이터마이닝</b>은 「무엇을 찾을까」, <b>머신러닝</b>은 「어떻게 배울까」, <b>빅데이터</b>는 「무엇으로」, <b>AI</b>는 「어디까지」 — 네 말은 같은 층의 상자가 아니라 서로 다른 질문에 대한 답이라, 그림마다 경계가 달라 보입니다.</p>
         <table class="dm-con-tb">
           <thead><tr><th>말</th><th>무엇에 대한 답인가</th><th>한 줄</th><th class="ex">관광 예 — 호텔 리뷰 10만 건</th></tr></thead>
@@ -1925,7 +1925,7 @@
         </div>
         <p class="dm-src">그림을 누르면 크게 열립니다</p>
       </div>
-      <p class="dmx-h" id="dmx-4"><span>④</span>더 볼 자료 — 열여섯 장</p>
+      <p class="dmx-h" id="dmx-2"><span>②</span>더 볼 자료 — 열여섯 장</p>
       <ul class="reslist">
         <li id="dm-tm-ml-dl">
           <a class="pill-violet" href="data-mining-text-ml-dl-slides.html" target="_blank" rel="noopener">▶ 데이터 마이닝 · 텍스트 마이닝 · 머신러닝 · 딥러닝 — 무엇이 다른가 · 좌우 넘김 <b class="pg-n">(16장)</b> ↗</a>
@@ -1934,7 +1934,7 @@
         </li>
       </ul>
       <h3>데이터 마이닝과 머신러닝 — 지도학습 · 비지도학습</h3>
-      <p class="dmx-h" id="dmx-2"><span>②</span>지도 vs 비지도 — 정답을 주느냐, 안 주느냐</p>
+      <p class="dmx-h" id="dmx-3"><span>③</span>지도 vs 비지도 — 정답을 주느냐, 안 주느냐</p>
       <p>아래 네 기법 가운데 <strong>③ 군집 분석</strong>과 <strong>④ 예측 분석</strong>은 사실 <strong>머신러닝</strong>의 서로 다른 갈래에 놓입니다. 정답(레이블)을 미리 알려주고 학습시키는 것이 <strong>지도학습</strong> — <em>분류</em>와 <em>회귀</em>가 여기 속하고, <strong>④ 예측 분석</strong>이 그 예입니다. 정답 없이 데이터의 특징만 보고 비슷한 것끼리 스스로 묶게 하는 것이 <strong>비지도학습</strong> — <em>군집분석</em>과 <em>차원축소</em>가 여기 속하고, <strong>③ 군집 분석</strong>이 그 예입니다. 이 영상에서 두 방식의 차이를 그림으로 짚습니다.</p>
       <ul class="reslist">
         <li>
@@ -1957,7 +1957,7 @@
           <span class="meta">이유안 · 국립경국대학교 · 네이버 검색 API · 데이터랩 · 텍스트마이닝</span>
         </li>
       </ul>
-      <p class="dmx-jump"><a href="#dmx-3">③ 군집 분석 — 원논문(군4) · 통합 강의자료(군5) · 문서 군집화 노트(군6)는 아래 「군집 분석 일곱 걸음」에 모았습니다 ↓</a></p>
+      <p class="dmx-jump"><a href="#dmx-4">④ 군집 분석 — 원논문(군4) · 통합 강의자료(군5) · 문서 군집화 노트(군6)는 아래 「군집 분석 일곱 걸음」에 모았습니다 ↓</a></p>
 
 
       <div class="cl-qa" id="cluster-qa">
@@ -2003,7 +2003,7 @@
       </div>
 
       <p class="dmx-div" aria-hidden="true"><span>✦ ◆ ✦</span></p>
-      <p class="dmx-h" id="dmx-3"><span>③</span>군집 분석 일곱 걸음 <small>— 갈래 → 유형 → 준비 → 사례 → 설명 → 글에 적용 → 넓혀 보기</small></p>
+      <p class="dmx-h" id="dmx-4"><span>④</span>군집 분석 일곱 걸음 <small>— 갈래 → 유형 → 준비 → 사례 → 설명 → 글에 적용 → 넓혀 보기</small></p>
       <ol class="cl-road">
         <li><a href="#cluster-qa"><i class="cl-badge">군</i><b class="cl-no">1</b>갈래</a>지도인가 비지도인가 — 비지도 (위 Q&amp;A)</li>
         <li><a href="#cluster-types"><i class="cl-badge">군</i><b class="cl-no">2</b>유형</a>계층적 · K-means · DBSCAN · 혼합분포 · SOM — 몇 가지인가</li>
