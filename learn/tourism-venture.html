@@ -1417,6 +1417,9 @@
     .learn-article .rg-tbl td { border-bottom: 1px solid #dfe8e4; padding: 7px 9px; vertical-align: top; line-height: 1.6; }
     .learn-article .rg-tbl td.c, .learn-article .rg-tbl th.c { text-align: center; white-space: nowrap; }
     .learn-article .rg-tbl tr.hl td { background: #fff4d6; }
+    /* 파트별 표 — 홀짝 줄 연한 색 번갈아(2026-10-17) */
+    .learn-article .rg-tbl.rg-zebra tbody tr:nth-child(odd) td { background: #ffffff; }
+    .learn-article .rg-tbl.rg-zebra tbody tr:nth-child(even) td { background: #f1f6f4; }
     .learn-article .rg-key { margin: 6px 0 4px; padding: 9px 13px; background: #fff; border-left: 4px solid #a8681f; font-weight: 700; }
     .learn-article .rg-sym { font-size: 12.5px; color: #5b7068; }
     .learn-article .rg-blk { margin: 16px 0 2px; font-weight: 800; color: #2f5148; }
@@ -2421,7 +2424,7 @@
           <p>이 페이지는 처음부터 끝까지 읽는 글이 아니라, <strong>필요한 파트를 골라 여는 자료실</strong>입니다. 모두 <strong>여덟 파트</strong>이고, 맨 위 「이 페이지는 여덟 파트」 줄이나 바로 위 「여덟 파트」 지도의 카드를 누르면 해당 파트로 바로 이동합니다.</p>
           <p>여덟 파트는 <strong>위에서 아래로 「할 일 → 이론 → 낼 곳 → 업종 → 진로 → 참고」</strong> 순서로 놓였습니다. 앞의 두 파트는 매주 손에 남길 것과 제출물이고, 가운데 세 파트는 사업계획서를 채우는 내용이며, 뒤의 세 파트는 진로 · 교재 · 사례처럼 곁에 두고 보는 자료입니다.</p>
           <h3 class="rg-h">파트별로 무엇이 들어 있나</h3>
-          <div class="rg-scroll"><table class="rg-tbl">
+          <div class="rg-scroll"><table class="rg-tbl rg-zebra">
             <thead><tr><th>파트</th><th>무엇을 다루나</th><th>안에 든 것</th></tr></thead>
             <tbody>
               <tr><td><b>01 주차별 실습 목표</b></td><td>매주 무엇을 손에 남기는가</td><td>한 학기 성장 막대 · 1~16주 주차 상자(그날의 목표 · 한 것 · 자료)</td></tr>
