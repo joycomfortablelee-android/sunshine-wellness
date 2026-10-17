@@ -1402,6 +1402,10 @@
     .learn-article .rg-box > summary::-webkit-details-marker { display: none; }
     .learn-article .rg-box > summary::after { content: "펼치기 ▾"; margin-left: auto; font-size: 12px; color: #2f5148; }
     .learn-article .rg-box[open] > summary::after { content: "접기 ▴"; }
+    /* 흰 바탕에 펼친 판 — 파트 00 맨 위 지도 바로 아래 (2026-10-17) */
+    .learn-article .rg-box.rg-flat { background: #fff; border: 0; border-top: 2px solid #2f5148; border-radius: 0; margin: 4px 0 30px; }
+    .learn-article .rg-flat .rg-title { margin: 0; padding: 12px 2px 4px; font-weight: 800; font-size: 15.5px; color: #1f382f; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+    .learn-article .rg-flat .rg-body { border-top: 0; padding: 0 2px 4px; }
     .learn-article .rg-box .rg-tag { background: #2f5148; color: #fff; padding: 2px 10px; border-radius: 999px; font-size: 12.5px; }
     .learn-article .rg-box .rg-sub { font-size: 12.5px; font-weight: 600; color: #5b7068; }
     .learn-article .rg-body { padding: 4px 20px 18px; border-top: 1px dashed #b9cfc6; }
@@ -2385,14 +2389,36 @@
   <main class="learn-article">
     <div class="lw">
 
-      <p class="learn-part pt-part pp-x" id="part00"><span class="pt"><i>파트</i><b>00</b></span><span class="pt-ti">한눈에 보기</span><span class="pt-sub"><strong>읽는 법</strong> · <strong>수업 목표</strong> · <strong>공모 한눈에</strong> · <strong>출석부</strong> · <strong>여덟 파트 지도</strong> — 파트 01에 들어가기 전에 전체 그림부터 봅니다</span></p>
+      <p class="learn-part pt-part pp-x" id="part00"><span class="pt"><i>파트</i><b>00</b></span><span class="pt-ti">한눈에 보기</span><span class="pt-sub"><strong>여덟 파트 지도</strong> · <strong>읽는 법</strong> · <strong>수업 목표</strong> · <strong>공모 한눈에</strong> · <strong>출석부</strong> — 파트 01에 들어가기 전에 전체 그림부터 봅니다</span></p>
+
+      <div class="lead-lines">
+        <p>창업은 "좋은 아이템을 파는 일"이 아니라 <strong>"누군가의 불편을 반복 가능한 방식으로 푸는 일"</strong>입니다.</p>
+        <p>관광벤처는 그 불편이 여행의 여정 어딘가에 있는 사업입니다.</p>
+        <p>좋은 자원, 깊은 해설, 똑똑한 데이터가 있어도 그것을 "지속되는 사업"으로 묶지 못하면 여행은 취미로 남습니다.</p>
+        <p>관광의 아이디어를 벤처로 세우는 법 — 문제 정의부터 비즈니스 모델, 시장 검증까지 살펴봅니다.</p>
+      </div>
+
+      <figure class="pmap" id="tv-summary">
+        <figcaption class="pmap-t"><b>이 페이지를 한 장으로</b> — 여덟 파트 <span>누르면 그 파트로 갑니다. <b>창업의 흐름(03)</b>으로 틀을 세우고, <b>업종(05)</b>으로 들어가, <b>낼 곳(04)</b>에 <b>낼 것(02)</b>을 냅니다 — 창업하지 않아도 <b>취업(06)</b>에 그대로 쓰입니다.</span></figcaption>
+        <ol class="pmap-grid">
+          <li style="--ac:#c0392b;--bg:#fbeeec"><a href="#part01"><b class="pm-n">01</b><span class="pm-t">주차별 실습 목표</span><span class="pm-d">매주 손에 남길 것 한 칸씩 · 1~16주 성장 막대</span></a></li>
+          <li style="--ac:#17365d;--bg:#eef3f9"><a href="#part02"><b class="pm-n">02</b><span class="pm-t">낼 것을 먼저 본다</span><span class="pm-d">리포트가 아니라 실제로 낼 사업계획서 한 부</span></a></li>
+          <li style="--ac:#3B6259;--bg:#eef4f1"><a href="#part03"><b class="pm-n">03</b><span class="pm-t">창업의 흐름</span><span class="pm-d">01~06장 — 문제 → 비즈니스 모델 → 검증(MVP) → 지원</span></a></li>
+          <li style="--ac:#2563a8;--bg:#eff5fa"><a href="#part04"><b class="pm-n">04</b><span class="pm-t">어디에 내는가</span><span class="pm-d">관광벤처 · 지자체 관광 스타트업 · 로컬크리에이터</span></a></li>
+          <li style="--ac:#8a5a17;--bg:#fdf6ea"><a href="#part05"><b class="pm-n">05</b><span class="pm-t">업종별로 들어가기</span><span class="pm-d">07~12장 — 여행업 · 외식(성심당) · 농어촌 · 스마트팜 · 연구용역(어반리즘) · 로컬크리에이터</span></a></li>
+          <li style="--ac:#5b3f7a;--bg:#f4eff8"><a href="#part06"><b class="pm-n">06</b><span class="pm-t">창업하지 않아도 쓰인다</span><span class="pm-d">관광기업이 뽑을 때 보는 것 = 공모가 보는 것</span></a></li>
+          <li style="--ac:#7a6417;--bg:#fdf8e8"><a href="#part07"><b class="pm-n">07</b><span class="pm-t">책 — 교재 두 권</span><span class="pm-d">지금 읽는 대목이 전체의 어디쯤인지</span></a></li>
+          <li style="--ac:#1f6a73;--bg:#eaf5f4"><a href="#part08"><b class="pm-n">08</b><span class="pm-t">곁들여 보기 · 링크</span><span class="pm-d">비건부산 · 구미 · 포항 · 공모 찾는 창구</span></a></li>
+        </ol>
+      </figure>
+
 
       <!-- 이 페이지를 읽는 법 — 여덟 파트의 구성(무엇이 어디에 · 어떻게 이어지나). 과목 · 홈페이지 소개는 Word(assets/tourism-venture-reading-guide.docx)로 따로. 맨 위 「안내서」 줄의 📖 알약이 이 상자를 연다 (2026-10-17) -->
-      <details class="rg-box" id="읽는법">
-        <summary><b class="rg-tag">📖 처음 왔다면</b>이 페이지를 읽는 법<span class="rg-sub">여덟 파트의 구성 — 무엇이 어디에 있고 어떻게 이어지나</span></summary>
+      <section class="rg-box rg-flat" id="읽는법" aria-labelledby="rg-title">
+        <p class="rg-title" id="rg-title"><b class="rg-tag">📖 처음 왔다면</b>이 페이지를 읽는 법<span class="rg-sub">여덟 파트의 구성 — 무엇이 어디에 있고 어떻게 이어지나</span></p>
         <div class="rg-body">
 
-          <p>이 페이지는 처음부터 끝까지 읽는 글이 아니라, <strong>필요한 파트를 골라 여는 자료실</strong>입니다. 모두 <strong>여덟 파트</strong>이고, 맨 위 「이 페이지는 여덟 파트」 줄이나 파트 00 맨 아래 「여덟 파트」 지도의 카드를 누르면 해당 파트로 바로 이동합니다.</p>
+          <p>이 페이지는 처음부터 끝까지 읽는 글이 아니라, <strong>필요한 파트를 골라 여는 자료실</strong>입니다. 모두 <strong>여덟 파트</strong>이고, 맨 위 「이 페이지는 여덟 파트」 줄이나 바로 위 「여덟 파트」 지도의 카드를 누르면 해당 파트로 바로 이동합니다.</p>
           <p>여덟 파트는 <strong>위에서 아래로 「할 일 → 이론 → 낼 곳 → 업종 → 진로 → 참고」</strong> 순서로 놓였습니다. 앞의 두 파트는 매주 손에 남길 것과 제출물이고, 가운데 세 파트는 사업계획서를 채우는 내용이며, 뒤의 세 파트는 진로 · 교재 · 사례처럼 곁에 두고 보는 자료입니다.</p>
           <h3 class="rg-h">파트별로 무엇이 들어 있나</h3>
           <div class="rg-scroll"><table class="rg-tbl">
@@ -2414,7 +2440,7 @@
           <p><strong>이번 주 수업</strong> → 파트 01의 그 주 상자 하나 · <strong>과제</strong> → 파트 02 → 03 · <strong>낼 곳</strong> → 파트 04 → 08 창구</p>
           <p class="rg-sym">↗ 새 창 · ⬇ 내려받기 · ↓ 페이지 안 이동 · ✦ 직접 만든 자료 · ● 꼭 볼 것</p>
         </div>
-      </details>
+      </section>
 
       <section class="cgoal" id="course-goal" aria-labelledby="cg-title">
         <p class="cg-h" id="cg-title">수업 목표</p>
@@ -2496,26 +2522,6 @@
         <figcaption><b>한눈에 보기</b> 이 페이지의 <strong>여덟 파트</strong>가 가운데 한 문장 — <em>「여행의 불편을 반복 가능한 방식으로 푸는 일」</em>에서 뻗어 나갑니다. <span class="zoom-hint">누르면 크게 보입니다</span></figcaption>
       </figure>
 
-      <div class="lead-lines">
-        <p>창업은 "좋은 아이템을 파는 일"이 아니라 <strong>"누군가의 불편을 반복 가능한 방식으로 푸는 일"</strong>입니다.</p>
-        <p>관광벤처는 그 불편이 여행의 여정 어딘가에 있는 사업입니다.</p>
-        <p>좋은 자원, 깊은 해설, 똑똑한 데이터가 있어도 그것을 "지속되는 사업"으로 묶지 못하면 여행은 취미로 남습니다.</p>
-        <p>관광의 아이디어를 벤처로 세우는 법 — 문제 정의부터 비즈니스 모델, 시장 검증까지 살펴봅니다.</p>
-      </div>
-
-      <figure class="pmap" id="tv-summary">
-        <figcaption class="pmap-t"><b>이 페이지를 한 장으로</b> — 여덟 파트 <span>누르면 그 파트로 갑니다. <b>창업의 흐름(03)</b>으로 틀을 세우고, <b>업종(05)</b>으로 들어가, <b>낼 곳(04)</b>에 <b>낼 것(02)</b>을 냅니다 — 창업하지 않아도 <b>취업(06)</b>에 그대로 쓰입니다.</span></figcaption>
-        <ol class="pmap-grid">
-          <li style="--ac:#c0392b;--bg:#fbeeec"><a href="#part01"><b class="pm-n">01</b><span class="pm-t">주차별 실습 목표</span><span class="pm-d">매주 손에 남길 것 한 칸씩 · 1~16주 성장 막대</span></a></li>
-          <li style="--ac:#17365d;--bg:#eef3f9"><a href="#part02"><b class="pm-n">02</b><span class="pm-t">낼 것을 먼저 본다</span><span class="pm-d">리포트가 아니라 실제로 낼 사업계획서 한 부</span></a></li>
-          <li style="--ac:#3B6259;--bg:#eef4f1"><a href="#part03"><b class="pm-n">03</b><span class="pm-t">창업의 흐름</span><span class="pm-d">01~06장 — 문제 → 비즈니스 모델 → 검증(MVP) → 지원</span></a></li>
-          <li style="--ac:#2563a8;--bg:#eff5fa"><a href="#part04"><b class="pm-n">04</b><span class="pm-t">어디에 내는가</span><span class="pm-d">관광벤처 · 지자체 관광 스타트업 · 로컬크리에이터</span></a></li>
-          <li style="--ac:#8a5a17;--bg:#fdf6ea"><a href="#part05"><b class="pm-n">05</b><span class="pm-t">업종별로 들어가기</span><span class="pm-d">07~12장 — 여행업 · 외식(성심당) · 농어촌 · 스마트팜 · 연구용역(어반리즘) · 로컬크리에이터</span></a></li>
-          <li style="--ac:#5b3f7a;--bg:#f4eff8"><a href="#part06"><b class="pm-n">06</b><span class="pm-t">창업하지 않아도 쓰인다</span><span class="pm-d">관광기업이 뽑을 때 보는 것 = 공모가 보는 것</span></a></li>
-          <li style="--ac:#7a6417;--bg:#fdf8e8"><a href="#part07"><b class="pm-n">07</b><span class="pm-t">책 — 교재 두 권</span><span class="pm-d">지금 읽는 대목이 전체의 어디쯤인지</span></a></li>
-          <li style="--ac:#1f6a73;--bg:#eaf5f4"><a href="#part08"><b class="pm-n">08</b><span class="pm-t">곁들여 보기 · 링크</span><span class="pm-d">비건부산 · 구미 · 포항 · 공모 찾는 창구</span></a></li>
-        </ol>
-      </figure>
       <p class="learn-part pt-part pp-1" id="part01"><span class="pt"><i>파트</i><b>01</b></span><span class="pt-ti">주차별 실습 목표</span><span class="pt-sub">매주 무엇을 손에 남기고 나가는가 — 그날의 목표를 한 칸씩 적었습니다. <b>이번 주 것만 펼쳐 두고</b> 나머지는 접어 두십시오.</span></p>
 
       <figure class="grow-fig">
