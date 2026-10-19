@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>의사결정나무 분석 · 개념 그림 + 기출문제 통합 학습 HTML</title>
+<style>
+:root {
+  --navy:#14385f; --navy2:#1e527f; --blue:#2c6cab; --teal:#1c8f8b;
+  --gold:#c69a3b; --bg:#eef4fa; --line:#d9e3ed; --text:#1f2d3d; --muted:#687b8e; --green:#0f766e;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:"Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",Arial,sans-serif;background:linear-gradient(180deg,#eaf2fb,#f8fbff);color:var(--text)}
+body{overflow-x:hidden}
+.app{min-height:100vh}
+.header{position:sticky;top:0;z-index:30;background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:15px 22px 13px;box-shadow:0 5px 18px rgba(10,40,70,.16)}
+.header-inner{max-width:1280px;margin:auto;display:flex;justify-content:space-between;gap:18px;align-items:center}
+.header h1{font-size:23px;margin:0 0 4px;line-height:1.25}
+.header p{margin:0;font-size:13px;opacity:.9}
+.header-badge{font-size:12px;font-weight:800;white-space:nowrap;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:7px 10px}
+.stage{display:grid;grid-template-columns:62px minmax(0,1280px) 62px;gap:12px;justify-content:center;align-items:start;padding:18px 14px 12px}
+.nav-btn{position:sticky;top:48vh;width:54px;height:54px;border:0;border-radius:50%;background:var(--navy);color:white;font-size:28px;font-weight:900;cursor:pointer;box-shadow:0 8px 20px rgba(20,56,95,.2)}
+.nav-btn:hover{transform:translateY(-2px)}
+.nav-btn:disabled{opacity:.28;cursor:not-allowed;transform:none}
+.viewer{min-width:0}
+.slide{display:none}
+.slide.active{display:block}
+.slide-head{background:#fff;border:1px solid var(--line);border-radius:18px 18px 0 0;padding:15px 20px;display:flex;justify-content:space-between;align-items:center}
+.eyebrow{font-size:11px;font-weight:900;letter-spacing:.12em;color:var(--blue)}
+.slide-head h2{margin:3px 0 0;font-size:23px;color:var(--navy)}
+.count{background:#f1f6fb;color:#5f7285;border:1px solid #dce6ef;border-radius:999px;padding:6px 10px;font-size:13px;font-weight:800}
+.visual-card{background:#fff;border-left:1px solid var(--line);border-right:1px solid var(--line);padding:22px 22px 14px}
+.connection{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;background:#fff;border-left:1px solid var(--line);border-right:1px solid var(--line);padding:12px 22px 16px}
+.connection .line{height:1px;background:#d8e3ec}
+.connection-pill{background:#eef6ff;border:1px solid #c9ddf1;color:var(--navy);font-size:14px;font-weight:900;border-radius:999px;padding:8px 14px;text-align:center}
+.question-card{background:#fff;border:1px solid var(--line);border-radius:0 0 18px 18px;padding:24px 26px 27px;box-shadow:0 14px 34px rgba(20,56,95,.08);margin-bottom:16px}
+.question-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;padding-bottom:15px;border-bottom:2px solid #edf3f8;margin-bottom:19px}
+.qnum{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
+.question-head h3{font-size:24px;margin:4px 0 0;color:var(--navy)}
+.source{font-size:12px;font-weight:800;background:#f4f7fa;border:1px solid #dde6ee;color:#647689;border-radius:999px;padding:7px 10px;white-space:nowrap}
+.label{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
+.question{font-size:19px;line-height:1.62;font-weight:800;margin:7px 0 16px}
+.option{font-size:16px;line-height:1.5;padding:11px 14px;border:1px solid #e0e8ef;background:#fafcfe;border-radius:11px;margin:8px 0}
+.subbox{background:#f8fafc;border-left:5px solid var(--gold);padding:15px 17px;border-radius:10px;margin:15px 0;line-height:1.65}
+.answer-btn{margin-top:18px;border:0;border-radius:11px;background:var(--navy);color:white;font-size:14px;font-weight:900;padding:11px 17px;cursor:pointer}
+.answer{display:none;margin-top:13px;background:#eef8f6;border:1px solid #c7e6df;border-radius:13px;padding:16px 17px;line-height:1.65}
+.answer-title{font-weight:800}
+.answer strong{font-size:23px;color:var(--green)}
+.answer p{margin:8px 0 11px}
+.memory{background:#fff8e7;border:1px solid #f0ddb0;border-radius:10px;padding:11px 13px;font-weight:800}
+.bottom-nav{max-width:1280px;margin:0 auto 28px;display:flex;justify-content:center;align-items:center;gap:12px;padding:0 12px}
+.dots{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.dot{width:12px;height:12px;border:0;border-radius:50%;background:#bdccda;cursor:pointer;padding:0}
+.dot.active{background:var(--blue);transform:scale(1.2)}
+.help{font-size:12px;color:#718397;text-align:center;margin:0 0 22px}
+
+.d-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.d-card{background:#f7fafd;border:1px solid var(--line);border-radius:12px;padding:14px}
+.d-card b{display:block;color:var(--navy);font-size:14px;margin-bottom:4px}
+.d-card span{font-size:12.5px;color:var(--muted);line-height:1.5}
+.d-note{margin-top:10px;font-size:12.5px;color:var(--muted);text-align:center}
+table.d-table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:6px}
+table.d-table th,table.d-table td{border:1px solid var(--line);padding:8px 9px;text-align:center}
+table.d-table th{background:#edf3f8;color:var(--navy)}
+.tree-wrap{display:flex;justify-content:center;padding:8px 0}
+svg.tree{width:100%;max-width:360px;height:180px}
+
+@media(max-width:850px){
+  .stage{grid-template-columns:1fr;padding:10px}
+  .nav-btn{position:fixed;z-index:40;bottom:20px;top:auto;width:48px;height:48px}
+  #prevBtn{left:12px} #nextBtn{right:12px}
+  .header-inner{align-items:flex-start}
+  .header-badge{display:none}
+  .question-card{padding:19px 17px 22px}
+  .question{font-size:17px}
+  .question-head h3{font-size:21px}
+}
+@media print{
+  .header,.nav-btn,.bottom-nav,.help{display:none!important}
+  .slide{display:block!important;page-break-after:always}
+  .question-card{box-shadow:none}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="header-inner">
+      <div>
+        <h1>5장 3절 의사결정나무 분석</h1>
+        <p>각 화면에서 개념 그림을 먼저 보고, 바로 아래 연결된 기출문제를 풀어보세요.</p>
+      </div>
+      <div class="header-badge">← → 방향키 지원</div>
+    </div>
+  </header>
+
+  <main class="stage">
+    <button class="nav-btn" id="prevBtn" onclick="goPrev()" aria-label="이전 화면">‹</button>
+    <div class="viewer">
+
+    <section class="slide active" data-index="0">
+      <div class="slide-head">
+        <div><div class="eyebrow">CONCEPT 01</div><h2>의사결정나무의 구조</h2></div>
+        <div class="count">1 / 3</div>
+      </div>
+      <div class="visual-card">
+        <div class="tree-wrap">
+          <svg class="tree" viewBox="0 0 360 180">
+            <circle cx="180" cy="25" r="20" fill="#14385f"/><text x="180" y="30" text-anchor="middle" font-size="10" fill="#fff">루트</text>
+            <line x1="180" y1="45" x2="100" y2="85" stroke="#bfd6ec" stroke-width="2"/>
+            <line x1="180" y1="45" x2="260" y2="85" stroke="#bfd6ec" stroke-width="2"/>
+            <circle cx="100" cy="100" r="17" fill="#2c6cab"/><text x="100" y="104" text-anchor="middle" font-size="9" fill="#fff">중간</text>
+            <circle cx="260" cy="100" r="17" fill="#2c6cab"/><text x="260" y="104" text-anchor="middle" font-size="9" fill="#fff">중간</text>
+            <line x1="100" y1="117" x2="60" y2="155" stroke="#bfd6ec" stroke-width="2"/>
+            <line x1="100" y1="117" x2="140" y2="155" stroke="#bfd6ec" stroke-width="2"/>
+            <line x1="260" y1="117" x2="220" y2="155" stroke="#bfd6ec" stroke-width="2"/>
+            <line x1="260" y1="117" x2="300" y2="155" stroke="#bfd6ec" stroke-width="2"/>
+            <circle cx="60" cy="165" r="14" fill="#c69a3b"/><circle cx="140" cy="165" r="14" fill="#c69a3b"/>
+            <circle cx="220" cy="165" r="14" fill="#c69a3b"/><circle cx="300" cy="165" r="14" fill="#c69a3b"/>
+          </svg>
+        </div>
+        <table class="d-table">
+          <thead><tr><th>구성요소</th><th>의미</th></tr></thead>
+          <tbody>
+            <tr><td>뿌리마디(Root)</td><td>시작되는 마디로 전체 자료 포함</td></tr>
+            <tr><td>중간마디(Internal)</td><td>부모·자식마디가 모두 있는 마디</td></tr>
+            <tr><td>끝마디(Terminal)</td><td>자식마디가 없는 마디</td></tr>
+            <tr><td>깊이(Depth)</td><td>뿌리마디부터 끝마디까지 중간마디 수</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 1번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head">
+          <div><div class="qnum">QUESTION 01</div><h3>의사결정나무와 가장 관련 없는 것</h3></div>
+          <div class="source">40회 기출</div>
+        </div>
+        <div class="label">관련 문제</div>
+        <div class="question">다음 중 의사결정나무와 가장 관련 없는 내용은 무엇인가?</div>
+        <div class="options">
+          <div class="option">① 지니 지수</div><div class="option">② 결정 정지</div><div class="option">③ 분기 기준</div><div class="option">④ 가지 치기</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>②</strong></div>
+          <p>의사결정나무는 데이터를 분류하거나 예측할 때 분기 기준을 사용하며, 가지 치기(pruning)를 통해 과적합을 방지한다. 지니 지수는 CART 알고리즘에서 불순도를 측정하는 기준으로 사용되므로 의사결정나무와 관련이 있다. 반면 "결정 정지"는 의사결정 과정을 멈추는 행위를 뜻하며, 이는 특정 알고리즘이나 프로세스에서 사용될 뿐 의사결정나무의 핵심 용어와는 관련이 적다.</p>
+          <div class="memory">핵심 암기 · 지니지수·엔트로피·카이제곱(분리기준) + 가지치기 = 의사결정나무 핵심 4종</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="1">
+      <div class="slide-head">
+        <div><div class="eyebrow">CONCEPT 02</div><h2>분리기준 — 지니지수·엔트로피·카이제곱</h2></div>
+        <div class="count">2 / 3</div>
+      </div>
+      <div class="visual-card">
+        <table class="d-table">
+          <thead><tr><th>기준값</th><th>선택 방식</th></tr></thead>
+          <tbody>
+            <tr><td>카이제곱 통계량 p값</td><td>p값이 가장 작은 예측변수와 그때의 최적분리로 자식마디 형성</td></tr>
+            <tr><td>지니 지수</td><td>지니 지수를 가장 많이 감소시켜주는 예측변수로 선택</td></tr>
+            <tr><td>엔트로피 지수</td><td>엔트로피 지수가 가장 작은 예측변수로 선택</td></tr>
+          </tbody>
+        </table>
+        <p class="d-note">불순도는 자료들의 범주가 한 그룹 안에 얼마나 섞여 있는지 나타내는 측도 — 하나의 범주로만 구성되어 있으면 불순도 값은 작고, 다양한 범주로 구성되면 불순도 값은 크다.</p>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 2번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head">
+          <div><div class="qnum">QUESTION 02</div><h3>의사결정나무 모형 설명으로 부적절한 것</h3></div>
+          <div class="source">34회 기출</div>
+        </div>
+        <div class="label">관련 문제</div>
+        <div class="question">의사결정나무 모형에 대한 설명 중 적절하지 않은 것은?</div>
+        <div class="options">
+          <div class="option">① 의사결정나무 모형은 지도학습 모형으로 상향식의 의사결정 흐름을 가지고 있다는 특징을 가지고 있다.</div>
+          <div class="option">② 이익도표나 교차 타당성 같은 평가 기법을 사용해 모델의 성능을 평가할 수 있다.</div>
+          <div class="option">③ 가지치기는 과적합 방지를 위해 불필요한 분류 규칙을 제거하는 작업이다.</div>
+          <div class="option">④ 대출 신용 평가, 의료 진단, 수요 불이행 예측 등 다양한 분야에서 활용될 수 있다.</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>①</strong></div>
+          <p>의사결정나무 모형은 지도학습 모형이 맞지만, 상향식이 아니라 하향식(top-down) 방식으로 데이터를 분류한다. 즉, 루트 노드에서 시작하여 리프 노드로 내려가는 방식이다. 나머지 선택지는 모델 성능 평가 도구, 가지치기의 정의, 활용 범위를 정확히 설명하고 있다.</p>
+          <div class="memory">핵심 암기 · 의사결정나무는 루트에서 리프로 "하향식(Top-Down)"</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="2">
+      <div class="slide-head">
+        <div><div class="eyebrow">CONCEPT 03</div><h2>가지치기(Pruning)</h2></div>
+        <div class="count">3 / 3</div>
+      </div>
+      <div class="visual-card">
+        <div class="d-cards">
+          <div class="d-card"><b>왜 필요한가</b><span>나무가 너무 커지면 학습 데이터에만 맞춰져 과대적합(Overfitting) 발생</span></div>
+          <div class="d-card"><b>무엇을 하는가</b><span>오차를 크게 할 위험이 높거나 부적절한 추론규칙을 가진 가지·불필요한 가지를 제거</span></div>
+          <div class="d-card"><b>랜덤포레스트와 차이</b><span>랜덤포레스트는 앙상블 기법으로 과대적합 방지에 효과적이지만 "단일" 의사결정나무엔 적용 안 됨</span></div>
+        </div>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 3번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head">
+          <div><div class="qnum">QUESTION 03</div><h3>과대적합 방지를 위한 방법</h3></div>
+          <div class="source">15회 기출</div>
+        </div>
+        <div class="label">관련 문제</div>
+        <div class="question">다음 중 의사결정 나무 모형에서 과대적합되어 현실 문제에 적용할 수 있는 적절한 규칙이 나오지 않는 현상을 방지하기 위해 사용되는 방법으로 가장 적절한 것은?</div>
+        <div class="options">
+          <div class="option">① 가지치기(Pruning)</div><div class="option">② 스테밍(Stemming)</div><div class="option">③ 정지규칙(Stopping rule)</div><div class="option">④ 랜덤포레스트(Random forest)</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>①</strong></div>
+          <p>가지치기는 의사결정나무의 과대적합을 방지하기 위해 불필요한 분기를 제거하는 작업이다. 정지 규칙은 의사결정 나무의 성장을 멈추는 규칙으로, 과대적합 방지에 일부 도움을 주나 가지치기보다 효과가 약할 수 있으며, 랜덤 포레스트는 앙상블 기법으로 과대적합 방지에 효과적이지만 단일 의사결정 나무에는 적용되지 않는다. 스테밍은 자연어 처리 분야에서 단어의 어간을 추출하는 기법으로 의사결정 나무와 관련이 없다.</p>
+          <div class="memory">핵심 암기 · 과대적합 방지의 대표 정답 = "가지치기"</div>
+        </div>
+      </article>
+    </section>
+
+    </div>
+    <button class="nav-btn" id="nextBtn" onclick="goNext()" aria-label="다음 화면">›</button>
+  </main>
+
+  <div class="bottom-nav"><div class="dots">
+    <button class="dot active" onclick="showSlide(0)" aria-label="1번 화면"></button>
+    <button class="dot" onclick="showSlide(1)" aria-label="2번 화면"></button>
+    <button class="dot" onclick="showSlide(2)" aria-label="3번 화면"></button>
+  </div></div>
+  <div class="help">좌우 버튼 · 키보드 ← → · 하단 점을 눌러 화면을 이동할 수 있습니다.</div>
+</div>
+
+<script>
+let current = 0;
+const slides = [...document.querySelectorAll('.slide')];
+const dots = [...document.querySelectorAll('.dot')];
+function showSlide(i){
+  if(i < 0 || i >= slides.length) return;
+  current = i;
+  slides.forEach((s,idx)=>s.classList.toggle('active', idx===i));
+  dots.forEach((d,idx)=>d.classList.toggle('active', idx===i));
+  document.getElementById('prevBtn').disabled = i===0;
+  document.getElementById('nextBtn').disabled = i===slides.length-1;
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function goPrev(){ showSlide(current-1); }
+function goNext(){ showSlide(current+1); }
+function toggleAnswer(btn){
+  const box = btn.nextElementSibling;
+  const open = box.style.display === 'block';
+  box.style.display = open ? 'none' : 'block';
+  btn.textContent = open ? '정답 · 해설 확인' : '정답 · 해설 닫기';
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowLeft') goPrev();
+  if(e.key==='ArrowRight') goNext();
+});
+showSlide(0);
+</script>
+</body>
+</html>

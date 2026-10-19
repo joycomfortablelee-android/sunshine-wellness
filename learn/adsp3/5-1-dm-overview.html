@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>데이터 마이닝의 개요 · 개념 그림 + 기출문제 통합 학습 HTML</title>
+<style>
+:root {
+  --navy:#14385f; --navy2:#1e527f; --blue:#2c6cab; --teal:#1c8f8b;
+  --gold:#c69a3b; --bg:#eef4fa; --line:#d9e3ed; --text:#1f2d3d; --muted:#687b8e; --green:#0f766e;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:"Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",Arial,sans-serif;background:linear-gradient(180deg,#eaf2fb,#f8fbff);color:var(--text)}
+body{overflow-x:hidden}
+.app{min-height:100vh}
+.header{position:sticky;top:0;z-index:30;background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:15px 22px 13px;box-shadow:0 5px 18px rgba(10,40,70,.16)}
+.header-inner{max-width:1280px;margin:auto;display:flex;justify-content:space-between;gap:18px;align-items:center}
+.header h1{font-size:23px;margin:0 0 4px;line-height:1.25}
+.header p{margin:0;font-size:13px;opacity:.9}
+.header-badge{font-size:12px;font-weight:800;white-space:nowrap;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:7px 10px}
+.stage{display:grid;grid-template-columns:62px minmax(0,1280px) 62px;gap:12px;justify-content:center;align-items:start;padding:18px 14px 12px}
+.nav-btn{position:sticky;top:48vh;width:54px;height:54px;border:0;border-radius:50%;background:var(--navy);color:white;font-size:28px;font-weight:900;cursor:pointer;box-shadow:0 8px 20px rgba(20,56,95,.2)}
+.nav-btn:hover{transform:translateY(-2px)}
+.nav-btn:disabled{opacity:.28;cursor:not-allowed;transform:none}
+.viewer{min-width:0}
+.slide{display:none}
+.slide.active{display:block}
+.slide-head{background:#fff;border:1px solid var(--line);border-radius:18px 18px 0 0;padding:15px 20px;display:flex;justify-content:space-between;align-items:center}
+.eyebrow{font-size:11px;font-weight:900;letter-spacing:.12em;color:var(--blue)}
+.slide-head h2{margin:3px 0 0;font-size:23px;color:var(--navy)}
+.count{background:#f1f6fb;color:#5f7285;border:1px solid #dce6ef;border-radius:999px;padding:6px 10px;font-size:13px;font-weight:800}
+.visual-card{background:#fff;border-left:1px solid var(--line);border-right:1px solid var(--line);padding:22px 22px 14px}
+.connection{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;background:#fff;border-left:1px solid var(--line);border-right:1px solid var(--line);padding:12px 22px 16px}
+.connection .line{height:1px;background:#d8e3ec}
+.connection-pill{background:#eef6ff;border:1px solid #c9ddf1;color:var(--navy);font-size:14px;font-weight:900;border-radius:999px;padding:8px 14px;text-align:center}
+.question-card{background:#fff;border:1px solid var(--line);border-radius:0 0 18px 18px;padding:24px 26px 27px;box-shadow:0 14px 34px rgba(20,56,95,.08);margin-bottom:16px}
+.question-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;padding-bottom:15px;border-bottom:2px solid #edf3f8;margin-bottom:19px}
+.qnum{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
+.question-head h3{font-size:24px;margin:4px 0 0;color:var(--navy)}
+.source{font-size:12px;font-weight:800;background:#f4f7fa;border:1px solid #dde6ee;color:#647689;border-radius:999px;padding:7px 10px;white-space:nowrap}
+.label{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
+.question{font-size:19px;line-height:1.62;font-weight:800;margin:7px 0 16px}
+.option{font-size:16px;line-height:1.5;padding:11px 14px;border:1px solid #e0e8ef;background:#fafcfe;border-radius:11px;margin:8px 0}
+.subbox{background:#f8fafc;border-left:5px solid var(--gold);padding:15px 17px;border-radius:10px;margin:15px 0;line-height:1.65}
+.answer-btn{margin-top:18px;border:0;border-radius:11px;background:var(--navy);color:white;font-size:14px;font-weight:900;padding:11px 17px;cursor:pointer}
+.answer{display:none;margin-top:13px;background:#eef8f6;border:1px solid #c7e6df;border-radius:13px;padding:16px 17px;line-height:1.65}
+.answer-title{font-weight:800}
+.answer strong{font-size:23px;color:var(--green)}
+.answer p{margin:8px 0 11px}
+.memory{background:#fff8e7;border:1px solid #f0ddb0;border-radius:10px;padding:11px 13px;font-weight:800}
+.bottom-nav{max-width:1280px;margin:0 auto 28px;display:flex;justify-content:center;align-items:center;gap:12px;padding:0 12px}
+.dots{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.dot{width:12px;height:12px;border:0;border-radius:50%;background:#bdccda;cursor:pointer;padding:0}
+.dot.active{background:var(--blue);transform:scale(1.2)}
+.help{font-size:12px;color:#718397;text-align:center;margin:0 0 22px}
+
+.d-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.d-card{background:#f7fafd;border:1px solid var(--line);border-radius:12px;padding:14px}
+.d-card b{display:block;color:var(--navy);font-size:14px;margin-bottom:4px}
+.d-card span{font-size:12.5px;color:var(--muted);line-height:1.5}
+.d-note{margin-top:10px;font-size:12.5px;color:var(--muted);text-align:center}
+.d-flow{display:flex;flex-wrap:wrap;align-items:stretch;justify-content:center;gap:10px}
+.d-box{flex:1 1 130px;min-width:110px;background:#f3f8fd;border:1.5px solid #bfd6ec;border-radius:12px;padding:12px 10px;text-align:center;font-weight:800;color:var(--navy);font-size:13.5px;display:flex;flex-direction:column;justify-content:center;gap:4px}
+.d-box small{display:block;font-weight:600;color:var(--muted);font-size:11px}
+.d-arrow{align-self:center;font-size:20px;font-weight:900;color:var(--gold);flex:0 0 auto}
+table.d-table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:6px}
+table.d-table th,table.d-table td{border:1px solid var(--line);padding:8px 9px;text-align:center}
+table.d-table th{background:#edf3f8;color:var(--navy)}
+
+@media(max-width:850px){
+  .stage{grid-template-columns:1fr;padding:10px}
+  .nav-btn{position:fixed;z-index:40;bottom:20px;top:auto;width:48px;height:48px}
+  #prevBtn{left:12px} #nextBtn{right:12px}
+  .header-inner{align-items:flex-start}
+  .header-badge{display:none}
+  .question-card{padding:19px 17px 22px}
+  .question{font-size:17px}
+  .question-head h3{font-size:21px}
+  .d-flow{flex-direction:column}
+  .d-arrow{transform:rotate(90deg)}
+}
+@media print{
+  .header,.nav-btn,.bottom-nav,.help{display:none!important}
+  .slide{display:block!important;page-break-after:always}
+  .question-card{box-shadow:none}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="header-inner">
+      <div>
+        <h1>5장 1절 데이터 마이닝의 개요</h1>
+        <p>각 화면에서 개념 그림을 먼저 보고, 바로 아래 연결된 기출문제를 풀어보세요.</p>
+      </div>
+      <div class="header-badge">← → 방향키 지원</div>
+    </div>
+  </header>
+
+  <main class="stage">
+    <button class="nav-btn" id="prevBtn" onclick="goPrev()" aria-label="이전 화면">‹</button>
+    <div class="viewer">
+
+    <section class="slide active" data-index="0">
+      <div class="slide-head">
+        <div><div class="eyebrow">CONCEPT 01</div><h2>데이터 마이닝의 분류기법</h2></div>
+        <div class="count">1 / 4</div>
+      </div>
+      <div class="visual-card">
+        <div class="d-cards">
+          <div class="d-card"><b>지도학습</b><span>정답(레이블)이 있는 데이터로 학습 — 분류·예측</span></div>
+          <div class="d-card"><b>비지도학습</b><span>정답 없이 구조·패턴을 발견 — 군집·연관분석</span></div>
+        </div>
+        <p class="d-note">통계분석은 가설·가정에 따른 분석·검증인 반면, 데이터 마이닝은 다양한 수리 알고리즘으로 데이터베이스에서 의미있는 정보를 찾아내는 방법을 통칭한다. 뿌리는 머신러닝에 있다.</p>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 1번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head">
+          <div><div class="qnum">QUESTION 01</div><h3>진화를 모방한 최적화 탐색 알고리즘</h3></div>
+          <div class="source">38회 기출</div>
+        </div>
+        <div class="label">관련 문제</div>
+        <div class="question">다음 중 생물 진화의 과정을 모방하여 근삿값에 가까운 해답을 도출하는 최적화 탐색 분류 분석 알고리즘은 무엇인가?</div>
+        <div class="options">
+          <div class="option">① 유전자 알고리즘(Genetic Algorithm)</div>
+          <div class="option">② 심층 신경망(Deep Neural Network)</div>
+          <div class="option">③ 의사결정나무(Decision Tree)</div>
+          <div class="option">④ 랜덤 포레스트(Random Forest)</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>①</strong></div>
+          <p>유전자 알고리즘은 자연 선택과 유전 법칙을 모방하여 최적화 문제를 해결하는 탐색 알고리즘이다. 심층 신경망은 복잡한 데이터 표현을 학습하는 데 사용되며, 의사결정나무와 랜덤 포레스트는 분류와 회귀 문제에 활용되지만 생물 진화 과정을 모방하지 않는다.</p>
+          <div class="memory">핵심 암기 · "생물 진화 모방"이라는 표현이 나오면 유전자 알고리즘</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="1">
+      <div class="slide-head">
+        <div><div class="eyebrow">CONCEPT 02</div><h2>데이터 분할 — 학습·검증·시험</h2></div>
+        <div class="count">2 / 4</div>
+      </div>
+      <div class="visual-card">
+        <div class="d-flow">
+          <div class="d-box">학습용<small>Training 50%<br>모형 생성</small></div>
+          <div class="d-arrow">→</div>
+          <div class="d-box">검증용<small>Validation 30%<br>과적합 확인·조정</small></div>
+          <div class="d-arrow">→</div>
+          <div class="d-box">시험용<small>Test 20%<br>최종 성능 평가</small></div>
+        </div>
+        <table class="d-table" style="margin-top:14px">
+          <thead><tr><th>홀드아웃(Hold-Out)</th><th>k-fold 교차분석</th></tr></thead>
+          <tbody><tr><td>데이터를 랜덤하게 두 집단(학습·시험)으로 구분</td><td>k개 하위집단으로 나눠 k-1개는 학습용, 나머지는 검증용으로 k번 반복·평균</td></tr></tbody>
+        </table>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 2번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head">
+          <div><div class="qnum">QUESTION 02</div><h3>데이터 분할 설명으로 부적절한 것</h3></div>
+          <div class="source">38회 기출</div>
+        </div>
+        <div class="label">관련 문제</div>
+        <div class="question">데이터 분할에 대한 설명 중 가장 부적절한 것은 무엇인가?</div>
+        <div class="options">
+          <div class="option">① 테스트용 데이터와 학습용 데이터는 섞여서는 안된다.</div>
+          <div class="option">② 학습용 데이터는 모델의 가중치를 조정하는 데 사용된다.</div>
+          <div class="option">③ 테스트용 데이터는 모델 훈련 중간 모델의 성능 평가에 사용된다.</div>
+          <div class="option">④ 데이터가 제한적인 경우, K-Fold 교차검증을 통해 다양한 학습-평가 조합을 활용한다.</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>③</strong></div>
+          <p>테스트 데이터는 모델의 최종 평가에 사용되며 성능 평가에 사용되는 데이터는 학습 중간에 사용하는 검증용 데이터이다. 학습용 데이터는 모델 훈련에 사용되고, K-Fold 교차검증은 데이터가 제한적일 때 유용하다.</p>
+          <div class="memory">핵심 암기 · 학습 "도중" 평가 = 검증용 / 학습 "다 끝난 뒤" 최종 평가 = 시험용</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="2">
+      <div class="slide-head">
+        <div><div class="eyebrow">CONCEPT 03</div><h2>오분류표(Confusion Matrix)</h2></div>
+        <div class="count">3 / 4</div>
+      </div>
+      <div class="visual-card">
+        <table class="d-table">
+          <thead><tr><th>지표</th><th>의미</th></tr></thead>
+          <tbody>
+            <tr><td>민감도(Sensitivity) = 재현율(Recall)</td><td>실제 양성 중 양성으로 맞춘 비율</td></tr>
+            <tr><td>특이도(Specificity)</td><td>실제 음성 중 음성으로 맞춘 비율</td></tr>
+            <tr><td>정밀도(Precision)</td><td>양성으로 예측한 것 중 실제 양성 비율</td></tr>
+            <tr><td>F1 지표</td><td>정밀도와 재현율의 조화평균</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 3번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head">
+          <div><div class="qnum">QUESTION 03</div><h3>민감도와 동일한 지표</h3></div>
+          <div class="source">19회 기출</div>
+        </div>
+        <div class="label">관련 문제</div>
+        <div class="question">오분류표(Confusion Matrix)를 사용하여 계산할 수 있는 평가 지표 중 민감도와 동일하며 모형의 완전성(Completeness)을 평가하는 지표는?</div>
+        <div class="options">
+          <div class="option">① F1 지표</div><div class="option">② 정밀도(Precision)</div><div class="option">③ 특이도(Specificity)</div><div class="option">④ 재현율(Recall)</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>④</strong></div>
+          <p>재현율은 실제로 양성인 데이터 중에서 모델이 양성으로 올바르게 예측한 비율로, 민감도와 동일한 개념이다. 정밀도는 양성으로 예측한 데이터 중에서 실제로 양성인 비율을 나타내며, F1 지표는 정밀도와 재현율의 조화 평균이다. 특이도는 음성인 데이터를 올바르게 음성으로 예측한 비율이다.</p>
+          <div class="memory">핵심 암기 · 민감도 = 재현율(Recall) — 이름이 둘이라 혼동 주의</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="3">
+      <div class="slide-head">
+        <div><div class="eyebrow">CONCEPT 04</div><h2>ROC 곡선과 AUC</h2></div>
+        <div class="count">4 / 4</div>
+      </div>
+      <div class="visual-card">
+        <div class="d-note" style="margin-top:0">가로축 FPR(1−특이도), 세로축 TPR(민감도)로 그린 곡선 — 왼쪽 상단에 가까울수록(AUC가 1에 가까울수록) 좋은 모델</div>
+        <table class="d-table" style="margin-top:10px">
+          <thead><tr><th></th><th>예측치 TRUE</th><th>예측치 FALSE</th><th>합계</th></tr></thead>
+          <tbody>
+            <tr><td>실제값 TRUE</td><td>30</td><td>70</td><td>100</td></tr>
+            <tr><td>실제값 FALSE</td><td>60</td><td>40</td><td>100</td></tr>
+            <tr><td>합계</td><td>90</td><td>110</td><td>200</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 4번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head">
+          <div><div class="qnum">QUESTION 04</div><h3>오분류표로 특이도 계산</h3></div>
+          <div class="source">22회 기출</div>
+        </div>
+        <div class="label">관련 문제</div>
+        <div class="question">아래는 오분류표를 나타낸 것이다. 다음 중 특이도(Specificity)는 얼마인가?</div>
+        <div class="subbox">실제값 TRUE: 예측 TRUE 30 / 예측 FALSE 70 (합계 100)<br>실제값 FALSE: 예측 TRUE 60 / 예측 FALSE 40 (합계 100)</div>
+        <div class="options">
+          <div class="option">① 3/10</div><div class="option">② 4/10</div><div class="option">③ 13/20</div><div class="option">④ 7/11</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>②</strong></div>
+          <p>특이도는 실제 음성(FALSE) 중에서 올바르게 FALSE로 예측한 비율이다. 실제값이 FALSE인 100명 중 모델이 FALSE로 예측한 경우는 40명이므로, 특이도 = 40/100 = 4/10이다.</p>
+          <div class="memory">핵심 암기 · 특이도 = 실제 FALSE행에서 "FALSE로 맞춘 비율"</div>
+        </div>
+      </article>
+    </section>
+
+    </div>
+    <button class="nav-btn" id="nextBtn" onclick="goNext()" aria-label="다음 화면">›</button>
+  </main>
+
+  <div class="bottom-nav"><div class="dots">
+    <button class="dot active" onclick="showSlide(0)" aria-label="1번 화면"></button>
+    <button class="dot" onclick="showSlide(1)" aria-label="2번 화면"></button>
+    <button class="dot" onclick="showSlide(2)" aria-label="3번 화면"></button>
+    <button class="dot" onclick="showSlide(3)" aria-label="4번 화면"></button>
+  </div></div>
+  <div class="help">좌우 버튼 · 키보드 ← → · 하단 점을 눌러 화면을 이동할 수 있습니다.</div>
+</div>
+
+<script>
+let current = 0;
+const slides = [...document.querySelectorAll('.slide')];
+const dots = [...document.querySelectorAll('.dot')];
+function showSlide(i){
+  if(i < 0 || i >= slides.length) return;
+  current = i;
+  slides.forEach((s,idx)=>s.classList.toggle('active', idx===i));
+  dots.forEach((d,idx)=>d.classList.toggle('active', idx===i));
+  document.getElementById('prevBtn').disabled = i===0;
+  document.getElementById('nextBtn').disabled = i===slides.length-1;
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function goPrev(){ showSlide(current-1); }
+function goNext(){ showSlide(current+1); }
+function toggleAnswer(btn){
+  const box = btn.nextElementSibling;
+  const open = box.style.display === 'block';
+  box.style.display = open ? 'none' : 'block';
+  btn.textContent = open ? '정답 · 해설 확인' : '정답 · 해설 닫기';
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowLeft') goPrev();
+  if(e.key==='ArrowRight') goNext();
+});
+showSlide(0);
+</script>
+</body>
+</html>
