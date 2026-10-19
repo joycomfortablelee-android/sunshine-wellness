@@ -916,8 +916,7 @@ DATA.forEach(group=>{
     card.className = 'card';
     card.id = 'card'+gi;
     let optsHtml = item.opts.map((o,oi)=>{
-      const n = ['①','②','③','④'][oi];
-      return `<label class="opt" id="opt${gi}_${oi}"><input type="radio" name="q${gi}" value="${oi}" onchange="markAnswered(${gi})">${n} ${o}</label>`;
+      return `<label class="opt" id="opt${gi}_${oi}"><input type="radio" name="q${gi}" value="${oi}" onchange="markAnswered(${gi})">${o}</label>`;
     }).join('');
     card.innerHTML = `
       <div class="qtop">

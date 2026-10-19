@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3과목 5장 정형 데이터 마이닝 예상문제 21문항 · 자동채점</title>
+<style>
+:root{
+  --navy:#14385f; --navy2:#1e527f; --blue:#2c6cab; --gold:#c69a3b;
+  --line:#d9e3ed; --text:#1f2d3d; --muted:#687b8e; --green:#0f766e; --red:#b3413a;
+}
+*{box-sizing:border-box}
+html,body{margin:0;font-family:"Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",Arial,sans-serif;background:linear-gradient(180deg,#eaf2fb,#f8fbff);color:var(--text)}
+.header{position:sticky;top:0;z-index:20;background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:16px 20px}
+.header h1{margin:0 0 4px;font-size:21px}
+.header p{margin:0;font-size:13px;opacity:.9}
+.scorebar{display:flex;gap:10px;align-items:center;margin-top:10px;flex-wrap:wrap}
+.scorebar .pill{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:6px 12px;font-size:12.5px;font-weight:800}
+.gradebtn{border:0;border-radius:10px;background:var(--gold);color:#3a2b05;font-weight:900;padding:10px 18px;cursor:pointer;font-size:14px}
+.gradebtn:hover{filter:brightness(1.05)}
+.wrap{max-width:860px;margin:0 auto;padding:18px 16px 60px}
+.chap{margin:26px 0 12px;font-size:15px;font-weight:900;color:var(--navy);display:flex;align-items:center;gap:10px}
+.chap span{background:var(--navy);color:#fff;border-radius:7px;padding:3px 9px;font-size:12.5px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:14px;box-shadow:0 6px 18px rgba(20,56,95,.06)}
+.card.correct{border-color:#9bd3bd;background:#f3fbf8}
+.card.wrong{border-color:#eab3ac;background:#fff6f5}
+.qtop{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:8px}
+.qno{font-weight:900;color:var(--blue);font-size:13px}
+.src{font-size:11.5px;color:var(--muted);background:#f4f7fa;border:1px solid #e2e9ef;border-radius:999px;padding:3px 9px;white-space:nowrap}
+.qtext{font-weight:800;font-size:15.5px;line-height:1.55;margin:4px 0 12px}
+.codebox{background:#f8fafc;border-left:4px solid var(--gold);padding:10px 13px;border-radius:8px;margin:0 0 12px;font-size:13px;line-height:1.6;font-family:"Consolas","D2Coding",monospace;white-space:pre-wrap}
+.opt{display:flex;gap:9px;align-items:flex-start;padding:9px 11px;border:1px solid #e3eaf1;border-radius:9px;margin-bottom:6px;cursor:pointer;font-size:14px;line-height:1.5}
+.opt:hover{background:#f7fafd}
+.opt input{margin-top:3px}
+.opt.right{border-color:#73c2a0;background:#eafbf3;font-weight:800}
+.opt.chosen-wrong{border-color:var(--red);background:#fdeceb;font-weight:800}
+.explain-btn{margin-top:14px;border:1px solid var(--navy);border-radius:9px;background:#fff;color:var(--navy);font-size:12.5px;font-weight:800;padding:7px 13px;cursor:pointer}
+.explain-btn:hover{background:#eef6ff}
+.explain{display:none;margin-top:12px;background:#eef8f6;border:1px solid #c7e6df;border-radius:11px;padding:13px 15px;font-size:13.5px;line-height:1.65}
+.explain b{color:var(--green)}
+.result-tag{font-size:12px;font-weight:900;border-radius:999px;padding:3px 10px;display:none}
+.card.correct .result-tag.r-ok{display:inline-block;background:#dff3ea;color:var(--green)}
+.card.wrong .result-tag.r-no{display:inline-block;background:#fbe3e0;color:var(--red)}
+.footer-grade{text-align:center;margin:28px 0}
+.summary{display:none;max-width:860px;margin:0 auto;padding:0 16px}
+.summary.show{display:block}
+.summary-box{background:#fff;border:2px solid var(--gold);border-radius:16px;padding:20px 22px;text-align:center;margin-top:10px}
+.summary-box .num{font-size:38px;font-weight:900;color:var(--navy)}
+.summary-box .sub{font-size:13px;color:var(--muted)}
+@media(max-width:600px){ .qtext{font-size:14.5px} }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>3과목 데이터 분석 · 5장 정형 데이터 마이닝 예상문제 21문항</h1>
+  <p>정형 데이터 마이닝 1~7절 전체 · 21문항</p>
+  <div class="scorebar">
+    <button class="gradebtn" onclick="gradeAll()">전체 채점하기</button>
+    <span class="pill" id="progressPill">0 / 21 응답</span>
+  </div>
+</div>
+
+<div class="summary" id="summary">
+  <div class="summary-box">
+    <div class="num" id="scoreNum">0 / 21</div>
+    <div class="sub">틀린 문제는 카드 안의 해설을 바로 확인하세요.</div>
+  </div>
+</div>
+
+<div class="wrap" id="quizWrap"></div>
+
+<script>
+const DATA =[
+   {
+      "chap" : "5장 1절 · 데이터 마이닝의 개요",
+      "items" : [
+         {
+            "explain" : "유전자 알고리즘은 자연 선택과 유전 법칙을 모방하여 최적화 문제를 해결하는 탐색 알고리즘이다. 심층 신경망은 복잡한 데이터 표현을 학습하는 데 사용되며, 의사결정나무와 랜덤 포레스트는 분류와 회귀 문제에 활용되지만 생물 진화 과정을 모방하지 않는다.",
+            "answer" : 0,
+            "opts" : [
+               "① 유전자 알고리즘(Genetic Algorithm)",
+               "② 심층 신경망(Deep Neural Network)",
+               "③ 의사결정나무(Decision Tree)",
+               "④ 랜덤 포레스트(Random Forest)"
+            ],
+            "src" : "38회 기출",
+            "q" : "다음 중 생물 진화의 과정을 모방하여 근삿값에 가까운 해답을 도출하는 최적화 탐색 분류 분석 알고리즘은 무엇인가?"
+         },
+         {
+            "src" : "38회 기출",
+            "q" : "데이터 분할에 대한 설명 중 가장 부적절한 것은 무엇인가?",
+            "answer" : 2,
+            "opts" : [
+               "① 테스트용 데이터와 학습용 데이터는 섞여서는 안된다.",
+               "② 학습용 데이터는 모델의 가중치를 조정하는 데 사용된다.",
+               "③ 테스트용 데이터는 모델 훈련 중간 모델의 성능 평가에 사용된다.",
+               "④ 데이터가 제한적인 경우, K-Fold 교차검증을 통해 다양한 학습-평가 조합을 활용한다."
+            ],
+            "explain" : "테스트 데이터는 모델의 최종 평가에 사용되며 성능 평가에 사용되는 데이터는 학습 중간에 사용하는 검증용 데이터이다. 학습용 데이터는 모델 훈련에 사용되고, K-Fold 교차검증은 데이터가 제한적일 때 유용하다."
+         },
+         {
+            "answer" : 3,
+            "opts" : [
+               "① F1 지표",
+               "② 정밀도(Precision)",
+               "③ 특이도(Specificity)",
+               "④ 재현율(Recall)"
+            ],
+            "q" : "오분류표(Confusion Matrix)를 사용하여 계산할 수 있는 평가 지표 중 민감도와 동일하며 모형의 완전성(Completeness)을 평가하는 지표는?",
+            "src" : "19회 기출",
+            "explain" : "재현율은 실제로 양성인 데이터 중에서 모델이 양성으로 올바르게 예측한 비율로, 민감도와 동일한 개념이다. 정밀도는 양성으로 예측한 데이터 중에서 실제로 양성인 비율을 나타내며, F1 지표는 정밀도와 재현율의 조화 평균이다. 특이도는 음성인 데이터를 올바르게 음성으로 예측한 비율이다."
+         },
+         {
+            "answer" : 1,
+            "sub" : "실제값 TRUE: 예측 TRUE 30 / 예측 FALSE 70 (합계 100)\n실제값 FALSE: 예측 TRUE 60 / 예측 FALSE 40 (합계 100)",
+            "explain" : "특이도는 실제 음성(FALSE) 중에서 올바르게 FALSE로 예측한 비율이다. 실제값이 FALSE인 100명 중 모델이 FALSE로 예측한 경우는 40명이므로, 특이도 = 40/100 = 4/10이다.",
+            "src" : "22회 기출",
+            "q" : "아래는 오분류표를 나타낸 것이다. 다음 중 특이도(Specificity)는 얼마인가?",
+            "opts" : [
+               "① 3/10",
+               "② 4/10",
+               "③ 13/20",
+               "④ 7/11"
+            ]
+         }
+      ]
+   },
+   {
+      "chap" : "5장 2절 · 분류분석",
+      "items" : [
+         {
+            "sub" : "로지스틱 회귀모형에서 e^β₁의 의미는 X₁,…,Xₚ이 주어질 때, X₁이 한 단위 증가할 때마다 성공(y=1)의 ( )이/가 증가하는지를 나타낸다.",
+            "answer" : 1,
+            "explain" : "e^β는 로지스틱 회귀모형에서 독립변수가 한 단위 증가할 때 성공(y=1)의 오즈가 얼마나 증가하는지를 나타낸다. 오즈는 사건이 발생할 확률과 발생하지 않을 확률의 비율이며, 확률이나 로그 오즈와는 구분된다.",
+            "opts" : [
+               "① 확률 (Probability)",
+               "② 오즈 (Odds)",
+               "③ 로그 오즈 (Log Odds)",
+               "④ 오즈비 (Odds Ratio)"
+            ],
+            "src" : "39회 기출",
+            "q" : "아래의 로지스틱회귀모형에 대한 설명에서 괄호 안에 들어갈 단어는?"
+         },
+         {
+            "src" : "25회 기출",
+            "q" : "10,000명의 신용카드 고객에 대한 체납 여부(default)와 학생여부(student), 카드 잔고(balance), 연봉(income)을 포함한 데이터로 체납 확률을 예측한 결과에 대한 설명으로 가장 부적절한 것은?",
+            "answer" : 2,
+            "opts" : [
+               "① 로지스틱 회귀모형을 사용한 결과이다.",
+               "② 세 설명변수 모두가 체납확률을 예측하는데 유의한 영향이 있지는 않다.",
+               "③ 카드 잔고와 연봉이 동일한 수준일 때, 학생(studentYes)이 학생이 아닌 고객보다 체납확률이 높다.",
+               "④ 해당 분석 결과에 대한 분산분석표를 확인하기 위해서는 anova(model)를 실행하면 된다."
+            ],
+            "explain" : "위 모델은 로지스틱 회귀모형이다. p-value를 살펴보면 studentYes와 balance는 유의수준 5% 내에서 체납여부에 유의미한 영향을 미친다. 특히, balance는 p-value&lt;2e-16으로 매우 유의미하며 체납확률에 중요한 영향을 미치는 변수임을 나타낸다. 또한 studentYes의 계수가 −6.468e-01로 음수이므로, 학생이 학생이 아닌 고객보다 체납확률이 낮음을 의미한다."
+         },
+         {
+            "src" : "29회 기출",
+            "q" : "다음 중 K-Nearest-Neighbor의 단점 중 옳지 않은 것은?",
+            "answer" : 1,
+            "opts" : [
+               "① k 값을 구하기 어렵다.",
+               "② 수치형 데이터만 분석이 가능하다.",
+               "③ 이상치에 영향을 많이 받는다.",
+               "④ 차원의 크기가 크면 계산량이 많아진다."
+            ],
+            "explain" : "KNN은 수치형 데이터뿐만 아니라 범주형 데이터에도 적용 가능하다. 예를 들어, 범주형 데이터는 원핫 인코딩 후 해밍거리와 같은 거리 측도를 활용하여 적용할 수 있다. 나머지 선택지들은 실제 단점으로, k값 설정이 어렵고, 이상치에 민감하며, 차원이 커질수록 계산량이 증가하는 문제가 있다."
+         },
+         {
+            "src" : "20회 기출",
+            "q" : "SVM(Support Vector Machine)에서 커널 함수의 역할은 무엇인가?",
+            "opts" : [
+               "① 데이터의 차원을 축소한다.",
+               "② 데이터의 차원을 증가시킨다.",
+               "③ 데이터의 노이즈를 제거한다.",
+               "④ 데이터의 분포를 균등하게 만든다."
+            ],
+            "answer" : 1,
+            "explain" : "커널 함수는 데이터를 고차원 공간으로 변환하여 선형적으로 구분되지 않는 데이터를 선형적으로 분리 가능하게 만든다. 이는 차원을 축소하는 것이 아니라 차원을 확장하여 데이터 간의 패턴을 더 잘 찾을 수 있도록 돕는 역할을 한다."
+         }
+      ]
+   },
+   {
+      "items" : [
+         {
+            "explain" : "의사결정나무는 데이터를 분류하거나 예측할 때 분기 기준을 사용하며, 가지 치기(pruning)를 통해 과적합을 방지한다. 지니 지수는 CART 알고리즘에서 불순도를 측정하는 기준으로 사용되므로 의사결정나무와 관련이 있다. 반면 \"결정 정지\"는 의사결정 과정을 멈추는 행위를 뜻하며, 이는 특정 알고리즘이나 프로세스에서 사용될 뿐 의사결정나무의 핵심 용어와는 관련이 적다.",
+            "opts" : [
+               "① 지니 지수",
+               "② 결정 정지",
+               "③ 분기 기준",
+               "④ 가지 치기"
+            ],
+            "answer" : 1,
+            "src" : "40회 기출",
+            "q" : "다음 중 의사결정나무와 가장 관련 없는 내용은 무엇인가?"
+         },
+         {
+            "explain" : "의사결정나무 모형은 지도학습 모형이 맞지만, 상향식이 아니라 하향식(top-down) 방식으로 데이터를 분류한다. 즉, 루트 노드에서 시작하여 리프 노드로 내려가는 방식이다. 나머지 선택지는 모델 성능 평가 도구, 가지치기의 정의, 활용 범위를 정확히 설명하고 있다.",
+            "answer" : 0,
+            "opts" : [
+               "① 의사결정나무 모형은 지도학습 모형으로 상향식의 의사결정 흐름을 가지고 있다는 특징을 가지고 있다.",
+               "② 이익도표나 교차 타당성 같은 평가 기법을 사용해 모델의 성능을 평가할 수 있다.",
+               "③ 가지치기는 과적합 방지를 위해 불필요한 분류 규칙을 제거하는 작업이다.",
+               "④ 대출 신용 평가, 의료 진단, 수요 불이행 예측 등 다양한 분야에서 활용될 수 있다."
+            ],
+            "src" : "34회 기출",
+            "q" : "의사결정나무 모형에 대한 설명 중 적절하지 않은 것은?"
+         },
+         {
+            "explain" : "가지치기는 의사결정나무의 과대적합을 방지하기 위해 불필요한 분기를 제거하는 작업이다. 정지 규칙은 의사결정 나무의 성장을 멈추는 규칙으로, 과대적합 방지에 일부 도움을 주나 가지치기보다 효과가 약할 수 있으며, 랜덤 포레스트는 앙상블 기법으로 과대적합 방지에 효과적이지만 단일 의사결정 나무에는 적용되지 않는다. 스테밍은 자연어 처리 분야에서 단어의 어간을 추출하는 기법으로 의사결정 나무와 관련이 없다.",
+            "answer" : 0,
+            "opts" : [
+               "① 가지치기(Pruning)",
+               "② 스테밍(Stemming)",
+               "③ 정지규칙(Stopping rule)",
+               "④ 랜덤포레스트(Random forest)"
+            ],
+            "src" : "15회 기출",
+            "q" : "다음 중 의사결정 나무 모형에서 과대적합되어 현실 문제에 적용할 수 있는 적절한 규칙이 나오지 않는 현상을 방지하기 위해 사용되는 방법으로 가장 적절한 것은?"
+         }
+      ],
+      "chap" : "5장 3절 · 의사결정나무 분석"
+   },
+   {
+      "items" : [
+         {
+            "explain" : "앙상블 모형에서는 각 모형이 독립적일수록(상호 연관성이 낮을수록) 예측 성능이 향상된다. 상호 연관성이 높을 경우 모형 간의 다변성이 부족해 앙상블의 이점을 살릴 수 없다. 나머지 선택지들은 앙상블 모형의 일반적인 특징을 정확히 설명하고 있다.",
+            "src" : "36회 기출",
+            "q" : "다음 중 앙상블 모형의 특징으로 적절하지 않은 것은?",
+            "opts" : [
+               "① 여러 모델을 결합하기 때문에 원인 분석에는 적합하지 않다.",
+               "② 이상값에 대한 반응을 완화하여 대응력을 높일 수 있다.",
+               "③ 여러 모델의 결과를 종합하여 예측값의 변동성을 줄인다.",
+               "④ 각 모형의 상호 연관성이 높을수록 정확도가 향상된다."
+            ],
+            "answer" : 3
+         },
+         {
+            "src" : "43회 기출",
+            "q" : "앙상블(Ensemble) 모형에 대한 설명으로 가장 적절하지 않은 것은?",
+            "opts" : [
+               "① 랜덤 포레스트는 분할에 사용될 예측변수를 중요도에 따라 선택하고, 선택한 변수 내에서 최적의 분할을 만들어 나가는 방법이다.",
+               "② 부스팅은 분류가 잘못된 데이터에 더 큰 가중을 주어 추출하는 방식이다.",
+               "③ 배깅은 원 데이터 집합으로부터 크기가 같은 여러 개의 부트스트랩 표본을 생성하고, 각 부트스트랩 표본에 대해 분류기를 생성한 후 그 결과를 앙상블 하는 방법이다.",
+               "④ 스태킹은 동일한 타입의 모델을 조합하는 방법들과는 달리 다양한 학습 알고리즘을 통해 구성한 모델을 조합하는 방법이다."
+            ],
+            "answer" : 0,
+            "explain" : "랜덤 포레스트는 중요도를 기준으로 변수를 선택하는 것이 아니라, 무작위로 선택된 일부 변수들에서 최적의 분할을 찾는 방식으로 작동한다. 스태킹(Stacking)은 다양한 학습 알고리즘을 통해 구성한 모델을 조합하는 방법이고, 부스팅은 잘못 분류된 데이터에 더 큰 가중치를 부여하여 개선하는 방식이며, 배깅은 부트스트랩 표본을 생성하고 여러 모델을 학습시켜 결과를 앙상블하는 기법이다."
+         }
+      ],
+      "chap" : "5장 4절 · 앙상블 분석"
+   },
+   {
+      "chap" : "5장 5절 · 인공신경망 분석",
+      "items" : [
+         {
+            "answer" : 1,
+            "opts" : [
+               "① 데이터 차원 증대",
+               "② 입력 신호 강도 조절",
+               "③ 모형 복잡도 감소",
+               "④ 결과 데이터 크기 조절"
+            ],
+            "q" : "인공신경망 모형에서 가중치의 역할로 가장 적절한 것은?",
+            "src" : "43회 기출",
+            "explain" : "가중치는 입력 신호의 중요도를 학습하는 과정에서 조절되며, 각 입력 노드의 영향을 반영하여 결과를 도출하는 데 핵심적인 역할을 한다. 나머지 선택지들은 가중치의 역할과는 무관하며, 데이터 차원 증대나 모형 복잡도 감소는 다른 기법에 해당한다."
+         },
+         {
+            "src" : "38회 기출",
+            "q" : "전체 신경망 노드 중 무작위로 노드를 선정해 다수의 모형을 구성하여 학습하고 각 모형의 결과를 결합해 예측 및 분류하는 기법은?",
+            "opts" : [
+               "① 부스팅(Boosting) 기법",
+               "② 드롭아웃(Dropout) 기법",
+               "③ 결정 트리(Decision Tree) 기법",
+               "④ 아다부스팅(Adaboosting) 기법"
+            ],
+            "answer" : 1,
+            "explain" : "드롭아웃은 학습 과정에서 무작위로 일부 노드를 제거하여 과적합을 방지하고, 모델의 일반화 성능을 향상시키는 기법이다. 부스팅, 결정 트리, 아다부스팅은 양상블 학습 기법에 해당하며, 드롭아웃과는 다른 방식이다."
+         }
+      ]
+   },
+   {
+      "chap" : "5장 6절 · 군집분석",
+      "items" : [
+         {
+            "opts" : [
+               "① 회귀분석(Regression)",
+               "② 시계열분석(Time series Analysis)",
+               "③ 군집분석(Cluster Analysis)",
+               "④ 연관분석(Association Analysis)"
+            ],
+            "answer" : 2,
+            "q" : "150개의 식물 개체를 4개의 변수(꽃받침 길이, 꽃받침 폭, 꽃잎 길이, 꽃잎 폭)로 측정한 데이터를 사용하여 3개의 식물 군으로 구분하려 한다. 이때 사용 가능한 분석 방법으로 적절한 것은?",
+            "src" : "12회 기출",
+            "explain" : "군집분석은 사전 레이블이 없는 데이터를 유사성을 기반으로 그룹화하는 비지도 학습 기법이다. 회귀분석은 연속형 종속변수를 예측할 때 사용되고, 시계열분석은 시간적 순서를 고려한 데이터를 분석하며, 연관분석은 항목 간의 관계를 탐색한다."
+         },
+         {
+            "opts" : [
+               "① 최단연결법 (Single Linkage)",
+               "② 최장연결법 (Complete Linkage)",
+               "③ 평균연결법 (Average Linkage)",
+               "④ 중심연결법 (Centroid Linkage)"
+            ],
+            "answer" : 1,
+            "src" : "38회 기출",
+            "q" : "다음 중 군집 간 거리를 군집에 속한 개체 간의 거리 중 가장 먼 거리로 정의하는 군집분석의 연결법은 무엇인가?",
+            "explain" : "최장연결법은 두 군집 내의 가장 먼 개체 간의 거리를 기준으로 군집 간 거리를 정의한다. 최단연결법은 가장 가까운 개체 간의 거리를, 평균연결법은 모든 개체 간의 평균 거리를, 중심연결법은 군집의 중심 간의 거리를 기준으로 한다."
+         },
+         {
+            "explain" : "덴드로그램은 계층적 군집 분석 결과를 시각화한 그림으로, 각 데이터 포인트 간의 유사성을 나타내는 트리 구조이다. 덴드로그램에서 높이 60의 수평선을 그어보면, 이 선과 만나는 수직선의 개수가 그 높이에서 생성되는 군집의 수를 의미한다. 높이 60의 수평선을 그었을 때, 총 3개의 수직선과 만나게 된다.",
+            "opts" : [
+               "① 2",
+               "② 3",
+               "③ 4",
+               "④ 5"
+            ],
+            "answer" : 1,
+            "q" : "계층적 군집분석 결과를 덴드로그램으로 시각화하였다고 할 때, Tree의 높이(height)가 60일 경우 나타나는 군집의 수는 몇 개인가?",
+            "src" : "33회 기출"
+         },
+         {
+            "answer" : 3,
+            "opts" : [
+               "① K-means 군집분석은 원하는 군집의 개수를 초기에 정하고 seed 중심으로 군집을 형성한다.",
+               "② K-means 군집분석은 각 개체를 가장 가까운 seed가 있는 군집으로 분류한다.",
+               "③ 군집으로 분류된 개체들의 정보를 활용하여 새로운 seed를 계산하면서 개체의 적용에 따른 seed의 변화를 관찰한다.",
+               "④ 95% 이상의 개체가 seed에 할당 되면 seed의 조정을 멈춘다."
+            ],
+            "q" : "K-means 군집분석에 대한 설명으로 틀린 것은?",
+            "src" : "15회 기출",
+            "explain" : "K-means 군집분석에서는 수렴 기준에 도달하거나 군집 중심의 변화가 없을 때까지 반복되며, 특정 비율 이상의 개체가 할당되었다고 조정을 멈추지 않는다. 나머지 선택지는 K-means 군집분석의 원리를 정확히 설명한다."
+         }
+      ]
+   },
+   {
+      "items" : [
+         {
+            "explain" : "지지도는 전체 데이터에서 특정 항목 집합이 동시에 발생하는 빈도를 나타내는 값으로, 데이터 전체 건수 대비 발생 빈도로 계산된다. 신뢰도는 조건부 확률을 의미하며, 향상도는 규칙의 유용성을 측정하는 비율이다. 민감도는 주로 분류 문제에서 사용되는 평가 지표이다.",
+            "opts" : [
+               "① 지지도",
+               "② 신뢰도",
+               "③ 향상도",
+               "④ 민감도"
+            ],
+            "src" : "31회 기출",
+            "q" : "연관성 분석에서 특정 규칙의 중요도를 평가하기 위해 사용하는 측도(criterion) 중, 아래 설명에 해당하는 것으로 가장 적절한 것은?",
+            "sub" : "데이터 전체에서 항목 A와 항목 B가 동시에 발생하는 빈도를 데이터 전체 건수로 나누어 계산한 값",
+            "answer" : 0
+         },
+         {
+            "q" : "아래의 거래 데이터를 바탕으로 연관 규칙 A→B의 향상도를 계산하시오.",
+            "src" : "31회 기출",
+            "opts" : [
+               "① 33%",
+               "② 50%",
+               "③ 83%",
+               "④ 93%"
+            ],
+            "explain" : "향상도는 특정 항목(A)을 구매했을 때 다른 항목(B)을 구매할 확률이 얼마나 증가했는지를 나타내는 지표이다. 향상도는 P(B|A) / P(B)로 계산하며, 문제에서 P(B|A)는 A를 구매했을 때 B를 구매할 확률, P(B)는 전체 데이터에서 B를 구매할 확률을 나타낸다. 따라서 정답은 약 83%가 된다.",
+            "sub" : "{A}:100 · {B,C}:100 · {C}:100 · {A,B,C,D}:50 · {B,D}:200 · {A,B,D}:250 · {A,C}:200",
+            "answer" : 2
+         }
+      ],
+      "chap" : "5장 7절 · 연관분석"
+   }
+]
+;
+
+const wrap = document.getElementById('quizWrap');
+let flatIdx = 0;
+const flat = [];
+DATA.forEach(group=>{
+  const h = document.createElement('div');
+  h.className = 'chap';
+  h.innerHTML = '<span>' + group.chap.slice(0,2) + '</span>' + group.chap;
+  wrap.appendChild(h);
+  group.items.forEach(item=>{
+    const gi = flatIdx++;
+    flat.push(item);
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.id = 'card'+gi;
+    let optsHtml = item.opts.map((o,oi)=>{
+      return `<label class="opt" id="opt${gi}_${oi}"><input type="radio" name="q${gi}" value="${oi}" onchange="markAnswered(${gi})">${o}</label>`;
+    }).join('');
+    card.innerHTML = `
+      <div class="qtop">
+        <span class="qno">Q${gi+1}</span>
+        <span class="src">${item.src}</span>
+      </div>
+      <div class="qtext">${item.q}</div>
+      ${item.sub ? `<div class="codebox">${item.sub}</div>` : ''}
+      ${item.code ? `<div class="codebox">${item.code}</div>` : ''}
+      ${optsHtml}
+      <span class="result-tag r-ok">정답</span><span class="result-tag r-no">오답</span>
+      <button class="explain-btn" id="ebtn${gi}" onclick="toggleExplain(${gi})">해설 보기</button>
+      <div class="explain" id="explain${gi}"><b>정답 ${['①','②','③','④'][item.answer]}</b> &nbsp;${item.explain}</div>
+    `;
+    wrap.appendChild(card);
+  });
+});
+
+function toggleExplain(i){
+  const box = document.getElementById('explain'+i);
+  const btn = document.getElementById('ebtn'+i);
+  const open = box.style.display === 'block';
+  box.style.display = open ? 'none' : 'block';
+  btn.textContent = open ? '해설 보기' : '해설 닫기';
+}
+
+function markAnswered(){
+  const answered = flat.filter((_,i)=>document.querySelector(`input[name="q${i}"]:checked`)).length;
+  document.getElementById('progressPill').textContent = answered + ' / ' + flat.length + ' 응답';
+}
+
+function gradeAll(){
+  let score = 0;
+  flat.forEach((item,i)=>{
+    const checked = document.querySelector(`input[name="q${i}"]:checked`);
+    const card = document.getElementById('card'+i);
+    const explain = document.getElementById('explain'+i);
+    document.getElementById(`opt${i}_${item.answer}`).classList.add('right');
+    explain.style.display = 'block';
+    document.getElementById('ebtn'+i).textContent = '해설 닫기';
+    if(checked){
+      const val = parseInt(checked.value,10);
+      if(val === item.answer){
+        card.classList.add('correct'); card.classList.remove('wrong');
+        score++;
+      } else {
+        card.classList.add('wrong'); card.classList.remove('correct');
+        document.getElementById(`opt${i}_${val}`).classList.add('chosen-wrong');
+      }
+    } else {
+      card.classList.add('wrong'); card.classList.remove('correct');
+    }
+  });
+  document.getElementById('summary').classList.add('show');
+  document.getElementById('scoreNum').textContent = score + ' / ' + flat.length;
+  document.getElementById('summary').scrollIntoView({behavior:'smooth'});
+}
+markAnswered();
+</script>
+</body>
+</html>
