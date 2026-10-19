@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>기초 통계분석 — 기술통계 · 개념 그림 + 기출문제 통합 학습 HTML</title>
+<style>
+:root {
+  --navy:#14385f; --navy2:#1e527f; --blue:#2c6cab; --teal:#1c8f8b;
+  --gold:#c69a3b; --bg:#eef4fa; --line:#d9e3ed; --text:#1f2d3d; --muted:#687b8e; --green:#0f766e;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:"Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",Arial,sans-serif;background:linear-gradient(180deg,#eaf2fb,#f8fbff);color:var(--text)}
+body{overflow-x:hidden}
+.app{min-height:100vh}
+.header{position:sticky;top:0;z-index:30;background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:15px 22px 13px;box-shadow:0 5px 18px rgba(10,40,70,.16)}
+.header-inner{max-width:1280px;margin:auto;display:flex;justify-content:space-between;gap:18px;align-items:center}
+.header h1{font-size:23px;margin:0 0 4px;line-height:1.25}
+.header p{margin:0;font-size:13px;opacity:.9}
+.header-badge{font-size:12px;font-weight:800;white-space:nowrap;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:7px 10px}
+.stage{display:grid;grid-template-columns:62px minmax(0,1280px) 62px;gap:12px;justify-content:center;align-items:start;padding:18px 14px 12px}
+.nav-btn{position:sticky;top:48vh;width:54px;height:54px;border:0;border-radius:50%;background:var(--navy);color:white;font-size:28px;font-weight:900;cursor:pointer;box-shadow:0 8px 20px rgba(20,56,95,.2)}
+.nav-btn:hover{transform:translateY(-2px)}
+.nav-btn:disabled{opacity:.28;cursor:not-allowed;transform:none}
+.viewer{min-width:0}
+.slide{display:none}
+.slide.active{display:block}
+.slide-head{background:#fff;border:1px solid var(--line);border-radius:18px 18px 0 0;padding:15px 20px;display:flex;justify-content:space-between;align-items:center}
+.eyebrow{font-size:11px;font-weight:900;letter-spacing:.12em;color:var(--blue)}
+.slide-head h2{margin:3px 0 0;font-size:23px;color:var(--navy)}
+.count{background:#f1f6fb;color:#5f7285;border:1px solid #dce6ef;border-radius:999px;padding:6px 10px;font-size:13px;font-weight:800}
+.visual-card{background:#fff;border-left:1px solid var(--line);border-right:1px solid var(--line);padding:22px 22px 14px}
+.connection{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;background:#fff;border-left:1px solid var(--line);border-right:1px solid var(--line);padding:12px 22px 16px}
+.connection .line{height:1px;background:#d8e3ec}
+.connection-pill{background:#eef6ff;border:1px solid #c9ddf1;color:var(--navy);font-size:14px;font-weight:900;border-radius:999px;padding:8px 14px;text-align:center}
+.question-card{background:#fff;border:1px solid var(--line);border-radius:0 0 18px 18px;padding:24px 26px 27px;box-shadow:0 14px 34px rgba(20,56,95,.08);margin-bottom:16px}
+.question-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;padding-bottom:15px;border-bottom:2px solid #edf3f8;margin-bottom:19px}
+.qnum{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
+.question-head h3{font-size:24px;margin:4px 0 0;color:var(--navy)}
+.source{font-size:12px;font-weight:800;background:#f4f7fa;border:1px solid #dde6ee;color:#647689;border-radius:999px;padding:7px 10px;white-space:nowrap}
+.label{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
+.question{font-size:19px;line-height:1.62;font-weight:800;margin:7px 0 16px}
+.option{font-size:16px;line-height:1.5;padding:11px 14px;border:1px solid #e0e8ef;background:#fafcfe;border-radius:11px;margin:8px 0}
+.subbox{background:#f8fafc;border-left:5px solid var(--gold);padding:15px 17px;border-radius:10px;margin:15px 0;line-height:1.65}
+.answer-btn{margin-top:18px;border:0;border-radius:11px;background:var(--navy);color:white;font-size:14px;font-weight:900;padding:11px 17px;cursor:pointer}
+.answer{display:none;margin-top:13px;background:#eef8f6;border:1px solid #c7e6df;border-radius:13px;padding:16px 17px;line-height:1.65}
+.answer-title{font-weight:800}
+.answer strong{font-size:23px;color:var(--green)}
+.answer p{margin:8px 0 11px}
+.memory{background:#fff8e7;border:1px solid #f0ddb0;border-radius:10px;padding:11px 13px;font-weight:800}
+.bottom-nav{max-width:1280px;margin:0 auto 28px;display:flex;justify-content:center;align-items:center;gap:12px;padding:0 12px}
+.dots{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.dot{width:12px;height:12px;border:0;border-radius:50%;background:#bdccda;cursor:pointer;padding:0}
+.dot.active{background:var(--blue);transform:scale(1.2)}
+.help{font-size:12px;color:#718397;text-align:center;margin:0 0 22px}
+
+.d-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.d-card{background:#f7fafd;border:1px solid var(--line);border-radius:12px;padding:14px}
+.d-card b{display:block;color:var(--navy);font-size:14px;margin-bottom:4px}
+.d-card span{font-size:12.5px;color:var(--muted);line-height:1.5}
+.d-note{margin-top:10px;font-size:12.5px;color:var(--muted);text-align:center}
+table.d-table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:6px}
+table.d-table th,table.d-table td{border:1px solid var(--line);padding:8px 9px;text-align:center}
+table.d-table th{background:#edf3f8;color:var(--navy)}
+.bars{display:flex;align-items:flex-end;gap:6px;height:110px;padding:6px 0;justify-content:center}
+.bar{width:22px;background:#2c6cab;border-radius:4px 4px 0 0}
+.code-ex{background:#f8fafc;border-left:5px solid var(--gold);padding:12px 15px;border-radius:9px;font-family:"Consolas","D2Coding",monospace;font-size:13px;line-height:1.7;white-space:pre-wrap}
+
+@media(max-width:850px){
+  .stage{grid-template-columns:1fr;padding:10px}
+  .nav-btn{position:fixed;z-index:40;bottom:20px;top:auto;width:48px;height:48px}
+  #prevBtn{left:12px} #nextBtn{right:12px}
+  .header-inner{align-items:flex-start}
+  .header-badge{display:none}
+  .question-card{padding:19px 17px 22px}
+  .question{font-size:17px}
+  .question-head h3{font-size:21px}
+}
+@media print{
+  .header,.nav-btn,.bottom-nav,.help{display:none!important}
+  .slide{display:block!important;page-break-after:always}
+  .question-card{box-shadow:none}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="header-inner">
+      <div>
+        <h1>4장 2절 기초 통계분석 (1) 기술통계</h1>
+        <p>각 화면에서 개념 그림을 먼저 보고, 바로 아래 연결된 기출문제를 풀어보세요.</p>
+      </div>
+      <div class="header-badge">← → 방향키 지원</div>
+    </div>
+  </header>
+
+  <main class="stage">
+    <button class="nav-btn" id="prevBtn" onclick="goPrev()" aria-label="이전 화면">‹</button>
+    <div class="viewer">
+
+    <section class="slide active" data-index="0">
+      <div class="slide-head">
+        <div><div class="eyebrow">CONCEPT 01</div><h2>기술통계의 기초 통계량</h2></div>
+        <div class="count">1 / 3</div>
+      </div>
+      <div class="visual-card">
+        <table class="d-table">
+          <thead><tr><th>위치 척도</th><th>퍼짐 척도</th><th>형태 척도</th></tr></thead>
+          <tbody>
+            <tr><td>평균 · 중앙값 · 최빈값</td><td>표준편차 · 분산 · 범위 · 사분위범위</td><td>왜도 · 첨도</td></tr>
+          </tbody>
+        </table>
+        <p class="d-note">데이터 분석에 앞서 대략적인 통계 수치를 계산해 두면, 데이터에 대한 이해와 앞으로의 분석 방향에 대한 통찰을 얻기 유리하다.</p>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 1번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head">
+          <div><div class="qnum">QUESTION 01</div><h3>히스토그램 설명</h3></div>
+          <div class="source">17회 기출</div>
+        </div>
+        <div class="label">관련 문제</div>
+        <div class="question">히스토그램은 표로 되어 있는 도수분포표를 그래프로 나타낸 것이다. 다음 중 히스토그램에 대한 설명으로 부적절한 것은?</div>
+        <div class="options">
+          <div class="option">① 히스토그램에는 가로축이 계급, 세로축이 도수를 나타낸다. 계급은 보통 변수의 구간이며, 서로 겹치지 않는다.</div>
+          <div class="option">② 히스토그램은 표본의 크기가 작아도 각 막대의 높이가 데이터 분포의 형상을 잘 표현해낸다.</div>
+          <div class="option">③ 그래프의 모양이 치우쳐있거나 봉우리가 여러 개 있는 그래프는 비정규 데이터일 수 있다.</div>
+          <div class="option">④ 봉우리가 여러 개 있는 데이터는 일반적으로 2개 이상의 공정이나 조건에서 데이터가 수집되는 경우 발생한다.</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>②</strong></div>
+          <p>히스토그램은 표본 크기가 충분히 커야 데이터의 분포를 신뢰성 있게 나타낼 수 있으며 표본 크기가 작을 경우 분포의 형상을 왜곡할 가능성이 크다. 나머지 선택지는 히스토그램의 기본 구성 요소와 관찰 가능한 데이터 특성을 정확히 설명하고 있다.</p>
+          <div class="memory">핵심 암기 · 표본이 작으면 히스토그램 모양을 믿지 말 것</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="1">
+      <div class="slide-head">
+        <div><div class="eyebrow">CONCEPT 02</div><h2>그래프를 이용한 자료 정리</h2></div>
+        <div class="count">2 / 3</div>
+      </div>
+      <div class="visual-card">
+        <div class="bars">
+          <div class="bar" style="height:30%"></div><div class="bar" style="height:55%"></div><div class="bar" style="height:90%"></div><div class="bar" style="height:70%"></div><div class="bar" style="height:40%"></div>
+        </div>
+        <div class="d-cards">
+          <div class="d-card"><b>줄기-잎 그림</b><span>원자료를 그대로 보존하며 분포 모양도 확인</span></div>
+          <div class="d-card"><b>히스토그램</b><span>계급별 도수를 막대로, 연속형 변수에 사용</span></div>
+          <div class="d-card"><b>상자수염그림</b><span>중앙값·사분위수·이상치를 한눈에</span></div>
+          <div class="d-card"><b>도넛차트</b><span>범주형 변수의 비율 비교</span></div>
+        </div>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 2번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head">
+          <div><div class="qnum">QUESTION 02</div><h3>분포 파악용 R 함수</h3></div>
+          <div class="source">16회 기출</div>
+        </div>
+        <div class="label">관련 문제</div>
+        <div class="question">다음 중 연속형 변수의 경우 4분위수, 최솟값, 최댓값, 중앙값, 평균 등을 출력하고 범주형 변수의 경우 각 범주에 대한 빈도수를 출력하여 데이터의 분포를 파악할 수 있게 하는 함수로 적절한 것은?</div>
+        <div class="options">
+          <div class="option">① summary 함수</div><div class="option">② ddply 함수</div><div class="option">③ cast 함수</div><div class="option">④ aggregate 함수</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>①</strong></div>
+          <p>summary 함수는 연속형 변수의 경우 최솟값, 최댓값, 중앙값, 평균, 4분위수를 제공하며, 범주형 변수의 경우 각 범주의 빈도수를 출력하여 데이터의 분포를 파악하는 데 유용하다. ddply는 그룹별 요약, cast는 데이터의 재구조화, aggregate는 요약 통계 변환에 쓰이지만 summary처럼 한 번에 여러 정보를 주지는 않는다.</p>
+          <div class="memory">핵심 암기 · 변수 하나 빠르게 훑을 때는 summary()부터</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="2">
+      <div class="slide-head">
+        <div><div class="eyebrow">CONCEPT 03</div><h2>상자수염그림(Box Plot) 읽는 법</h2></div>
+        <div class="count">3 / 3</div>
+      </div>
+      <div class="visual-card">
+        <div class="code-ex">상단 수염  ─┬─         ← Q3 + 1.5×IQR 이내 최댓값
+            │
+         ┌──┴──┐      ← Q3 (제3사분위수, 상위 25%)
+         │ ─── │      ← 중앙값(Median) ≠ 평균
+         └──┬──┘      ← Q1 (제1사분위수, 하위 25%)
+            │
+하단 수염  ─┴─         ← Q1 − 1.5×IQR 이내 최솟값</div>
+        <p class="d-note">박스 가운데 선은 "평균"이 아니라 "중앙값(Median)"이다 — 가장 흔히 틀리는 포인트.</p>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 3번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head">
+          <div><div class="qnum">QUESTION 03</div><h3>Box Plot 설명</h3></div>
+          <div class="source">28회 기출</div>
+        </div>
+        <div class="label">관련 문제</div>
+        <div class="question">아래의 box plot에 대한 설명 중 적절한 것은 무엇인가?</div>
+        <div class="options">
+          <div class="option">① box plot에서 나타나는 가운데 선은 평균이다.</div>
+          <div class="option">② box plot의 네모박스 내의 가장 아래와 위는 각각 Q3, Q2이다.</div>
+          <div class="option">③ box plot의 상단 수염을 벗어나는 값이 Q3 + 1.5×IQR 보다 작으면 이상치라고 할 수 있다.</div>
+          <div class="option">④ box plot에서 약 0.5 이후 값들은 데이터의 50%이다.</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>④</strong></div>
+          <p>박스 플롯에서 중앙값 이후 값들은 데이터의 상위 50%를 나타내고 가운데 선은 평균이 아니라 중앙값(Median)을 나타내며 박스의 하단은 1사분위(Q1), 상단은 3사분위(Q3)를 나타낸다. 이상치는 Box plot 상단 수염을 벗어나는 값으로 Q3 + 1.5×IQR(사분위범위)보다 큰 값이다.</p>
+          <div class="memory">핵심 암기 · 박스 하단=Q1, 상단=Q3, 가운데 선=중앙값(평균 아님)</div>
+        </div>
+      </article>
+    </section>
+
+    </div>
+    <button class="nav-btn" id="nextBtn" onclick="goNext()" aria-label="다음 화면">›</button>
+  </main>
+
+  <div class="bottom-nav"><div class="dots">
+    <button class="dot active" onclick="showSlide(0)" aria-label="1번 화면"></button>
+    <button class="dot" onclick="showSlide(1)" aria-label="2번 화면"></button>
+    <button class="dot" onclick="showSlide(2)" aria-label="3번 화면"></button>
+  </div></div>
+  <div class="help">좌우 버튼 · 키보드 ← → · 하단 점을 눌러 화면을 이동할 수 있습니다.</div>
+</div>
+
+<script>
+let current = 0;
+const slides = [...document.querySelectorAll('.slide')];
+const dots = [...document.querySelectorAll('.dot')];
+function showSlide(i){
+  if(i < 0 || i >= slides.length) return;
+  current = i;
+  slides.forEach((s,idx)=>s.classList.toggle('active', idx===i));
+  dots.forEach((d,idx)=>d.classList.toggle('active', idx===i));
+  document.getElementById('prevBtn').disabled = i===0;
+  document.getElementById('nextBtn').disabled = i===slides.length-1;
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function goPrev(){ showSlide(current-1); }
+function goNext(){ showSlide(current+1); }
+function toggleAnswer(btn){
+  const box = btn.nextElementSibling;
+  const open = box.style.display === 'block';
+  box.style.display = open ? 'none' : 'block';
+  btn.textContent = open ? '정답 · 해설 확인' : '정답 · 해설 닫기';
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowLeft') goPrev();
+  if(e.key==='ArrowRight') goNext();
+});
+showSlide(0);
+</script>
+</body>
+</html>
