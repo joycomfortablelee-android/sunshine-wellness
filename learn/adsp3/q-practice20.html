@@ -34,6 +34,8 @@ html,body{margin:0;font-family:"Noto Sans KR","Malgun Gothic","Apple SD Gothic N
 .opt input{margin-top:3px}
 .opt.right{border-color:#73c2a0;background:#eafbf3;font-weight:800}
 .opt.chosen-wrong{border-color:var(--red);background:#fdeceb;font-weight:800}
+.explain-btn{margin-top:14px;border:1px solid var(--navy);border-radius:9px;background:#fff;color:var(--navy);font-size:12.5px;font-weight:800;padding:7px 13px;cursor:pointer}
+.explain-btn:hover{background:#eef6ff}
 .explain{display:none;margin-top:12px;background:#eef8f6;border:1px solid #c7e6df;border-radius:11px;padding:13px 15px;font-size:13.5px;line-height:1.65}
 .explain b{color:var(--green)}
 .result-tag{font-size:12px;font-weight:900;border-radius:999px;padding:3px 10px;display:none}
@@ -211,11 +213,20 @@ DATA.forEach(group=>{
       ${item.code ? `<div class="codebox">${item.code}</div>` : ''}
       ${optsHtml}
       <span class="result-tag r-ok">정답</span><span class="result-tag r-no">오답</span>
+      <button class="explain-btn" id="ebtn${gi}" onclick="toggleExplain(${gi})">해설 보기</button>
       <div class="explain" id="explain${gi}"><b>정답 ${['①','②','③','④'][item.answer]}</b> &nbsp;${item.explain}</div>
     `;
     wrap.appendChild(card);
   });
 });
+
+function toggleExplain(i){
+  const box = document.getElementById('explain'+i);
+  const btn = document.getElementById('ebtn'+i);
+  const open = box.style.display === 'block';
+  box.style.display = open ? 'none' : 'block';
+  btn.textContent = open ? '해설 보기' : '해설 닫기';
+}
 
 function markAnswered(){
   const answered = flat.filter((_,i)=>document.querySelector(`input[name="q${i}"]:checked`)).length;
@@ -230,6 +241,7 @@ function gradeAll(){
     const explain = document.getElementById('explain'+i);
     document.getElementById(`opt${i}_${item.answer}`).classList.add('right');
     explain.style.display = 'block';
+    document.getElementById('ebtn'+i).textContent = '해설 닫기';
     if(checked){
       const val = parseInt(checked.value,10);
       if(val === item.answer){
