@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>5장 정형 데이터 마이닝 | 군집분석 (교재 쪽수 표시)</title>
+<style>
+:root{--navy:#10263b;--navy2:#17394e;--mint:#087f8c;--teal:#0b8693;--blue:#3769c5;--violet:#8156ba;--amber:#c07a13;--cream:#f4f8fa;--white:#fff;--line:#dce7ed;--ink:#1a3544;--sub:#526b78;--red:#b64945;--shadow:0 10px 35px rgba(15,51,73,.08)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#eef5f7;color:var(--ink);font-family:Pretendard,'Apple SD Gothic Neo','Malgun Gothic',Arial,sans-serif;line-height:1.65}a{color:inherit;text-decoration:none}button,select{font:inherit}button{cursor:pointer}.page{max-width:1270px;margin:auto;background:#f9fbfc;min-height:100vh;box-shadow:0 6px 35px rgba(0,0,0,.05)}.topbar{background:var(--navy);color:#fff;padding:18px 44px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{font-size:13px;color:#bddee4;letter-spacing:.09em;font-weight:800}.topbar .meta{font-size:12px;color:#cbdae3}.hero{background:radial-gradient(circle at 82% 26%,rgba(58,178,186,.3),transparent 30%),linear-gradient(122deg,#122a40,#1b4457 64%,#123345);color:white;padding:46px 44px 40px;position:relative;overflow:hidden}.hero-layout{display:grid;grid-template-columns:1.12fr .88fr;align-items:center;gap:30px}.eyebrow{font-weight:800;letter-spacing:.12em;font-size:12px;color:#95e4dc}.hero h1{font-size:clamp(30px,4vw,49px);margin:8px 0 13px;line-height:1.18;letter-spacing:-.04em}.hero .desc{font-size:16px;color:#d7eaf0;max-width:650px;margin:0}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}.chip{font-size:12px;border:1px solid #7094a4;color:#e1f8f7;border-radius:999px;padding:5px 12px}.hero-graphic{padding:20px;background:rgba(255,255,255,.06);border:1px solid rgba(210,242,244,.22);border-radius:20px}.hero-graphic svg{display:block;width:100%;height:auto}.hero-graphic .cap{font-size:12px;color:#d9edef;text-align:center;margin-top:8px}.menu{display:flex;gap:7px;padding:12px 40px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:12;flex-wrap:wrap;box-shadow:0 3px 8px rgba(17,50,70,.03)}.menu a{padding:7px 11px;border-radius:9px;color:#365565;font-size:12px;font-weight:800}.menu a:hover,.menu a:focus{background:#e8f5f5;color:#096c74}.content{padding:30px 44px 66px}.section{margin-top:36px;scroll-margin-top:90px}.section-head{display:flex;align-items:center;gap:13px;margin-bottom:16px}.number{background:#e3f0f4;color:#08727d;border-radius:10px;padding:7px 10px;font-size:13px;font-weight:900;white-space:nowrap}.section h2{font-size:24px;letter-spacing:-.035em;line-height:1.25;margin:0}.section-head p{margin:3px 0 0;color:var(--sub);font-size:13px}.callout{padding:22px 24px;background:#e8f6f4;border-left:5px solid #16a09e;border-radius:0 15px 15px 0;font-size:17px;font-weight:800;line-height:1.7}.subcap{font-size:12px;color:#60808f;margin-top:7px}.grid{display:grid;gap:15px}.three{grid-template-columns:repeat(3,minmax(0,1fr))}.two{grid-template-columns:repeat(2,minmax(0,1fr))}.card{background:var(--white);border:1px solid var(--line);border-radius:17px;padding:21px;box-shadow:var(--shadow)}.card h3{font-size:17px;margin:7px 0 10px;line-height:1.4}.card p{margin:0;color:#4d6774;font-size:13px}.card .icon{display:flex;width:42px;height:42px;align-items:center;justify-content:center;border-radius:13px;background:#e5f4f4;font-size:21px}.minihead{font-size:11px;letter-spacing:.06em;color:#477787;font-weight:900}.strong{color:#046c76;font-weight:850}.muted{font-size:12px;color:#758997}.flow{display:flex;align-items:stretch;gap:11px}.flow .step{flex:1;background:#fff;border:1px solid var(--line);border-radius:15px;padding:20px 16px;text-align:center;min-width:0}.flow .big{font-size:26px;font-weight:900;color:#07818a}.flow .step strong{display:block;font-size:15px;margin-top:5px}.flow .step p{font-size:12px;color:#55707d;margin:5px 0 0}.arrow{align-self:center;font-size:24px;color:#0a8793;font-weight:900}.tablebox{overflow-x:auto;background:white;border:1px solid var(--line);border-radius:15px;box-shadow:var(--shadow)}table{border-collapse:collapse;width:100%;min-width:690px;text-align:left}th{background:#153b50;color:#fff;padding:14px 16px;font-size:13px;white-space:nowrap}td{padding:14px 16px;border-bottom:1px solid #e2edf1;font-size:13px;vertical-align:top;line-height:1.55}tr:last-child td{border-bottom:none}tr:nth-child(even) td{background:#f6fafb}.table-main{font-weight:900;color:#0b6170}.method-visual{display:grid;grid-template-columns:1fr 1fr;gap:16px}.method{border:1px solid var(--line);background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}.method-title{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:10px;align-items:center}.method-title strong{font-size:18px}.method-title span{font-size:11px;background:#edf5f8;padding:4px 9px;border-radius:20px;color:#47717d;font-weight:800}.method-inner{padding:15px 20px 20px}.method svg{max-height:155px;width:100%;display:block}.method p{margin:8px 0 0;font-size:13px;color:#526b78}.method .tagline{background:#e9f6f5;color:#066e76;padding:10px 12px;border-radius:10px;font-weight:800;font-size:13px;margin-top:13px}.lab{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow)}.lab-header{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap}.lab-header h3{margin:0;font-size:19px}.lab-header p{margin:5px 0;color:var(--sub);font-size:13px}.controls{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.btn{border:none;background:#0d7784;color:#fff;padding:10px 15px;border-radius:10px;font-size:13px;font-weight:850}.btn:hover{background:#095e69}.btn.secondary{background:#edf4f7;color:#275366;border:1px solid #d5e5eb}.btn.secondary:hover{background:#daeaf0}.kgroup{display:flex;background:#eaf2f5;padding:3px;border-radius:12px}.kbtn{border:0;background:transparent;border-radius:8px;font-size:12px;font-weight:900;color:#5b7782;padding:7px 12px}.kbtn.active{background:#fff;color:#0b707b;box-shadow:0 1px 5px #c9dbde}.lab-main{display:grid;grid-template-columns:1.35fr .65fr;gap:23px;margin-top:18px;align-items:center}.plotframe{background:#f6fafb;border:1px solid #d9e7ec;border-radius:14px;overflow:hidden}.plotframe svg{display:block;width:100%;height:auto}.statbox{background:#f3f8fa;border-radius:13px;padding:17px}.statbox .big-number{font-size:31px;line-height:1.15;font-weight:900;color:#087a85}.statbox h4{margin:0 0 8px;font-size:13px}.statbox ul{margin:12px 0 0;padding:0;list-style:none;font-size:13px}.statbox li{display:flex;gap:8px;align-items:center;margin:6px 0}.dot{width:10px;height:10px;border-radius:50%;display:inline-block}.note{font-size:12px;color:#647e8a;margin-top:12px}.roadmap{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.road{background:#fff;border:1px solid var(--line);border-radius:13px;padding:15px}.road b{display:block;font-size:13px;margin:3px 0 8px}.road div{font-size:12px;color:#536e7a;line-height:1.8}.road .n{display:inline-block;font-size:11px;font-weight:900;color:#0a818b;background:#e6f5f3;border-radius:7px;padding:2px 7px}.quiz{background:white;border:1px solid #dbe7ec;border-radius:17px;padding:23px;box-shadow:var(--shadow);margin-bottom:15px}.quiz-head{display:flex;justify-content:space-between;align-items:center;gap:10px}.quiz .qnum{font-size:12px;font-weight:900;color:#087b88}.quiz .from{font-size:12px;color:#758a94}.quiz h3{font-size:16px;line-height:1.75;margin:11px 0 15px}.choices{display:grid;gap:9px}.choice{display:flex;align-items:flex-start;gap:11px;padding:12px 15px;border:1px solid #dce8ec;border-radius:10px;font-size:13px;line-height:1.55;cursor:pointer}.choice:hover{background:#f2f9fa}.choice input{margin-top:4px;accent-color:#0b8290}.choice:has(input:checked){background:#eaf8f6;border-color:#58b2b4}.qactions{display:flex;align-items:center;gap:13px;flex-wrap:wrap;margin-top:14px}.feedback{display:none;border-radius:12px;padding:14px 16px;font-size:13px;line-height:1.7}.feedback.show{display:block}.feedback.correct{background:#e6f6ef;border:1px solid #b1e0c6}.feedback.wrong{background:#fff4ec;border:1px solid #f0d1b4}.examtip{display:grid;grid-template-columns:1fr 1fr;gap:15px}.tip{padding:17px 19px;border-radius:13px;background:#eef5fb;border:1px solid #d8e8f6}.tip:nth-child(2){background:#fdf5e9;border-color:#f4e5c6}.tip h4{font-size:14px;margin:0 0 7px}.tip p{font-size:13px;color:#4f6977;margin:0}.footer{background:#102a3e;color:#c6dae2;padding:26px 44px;font-size:12px;line-height:1.8}.footer b{color:#fff}.floating{display:flex;position:fixed;bottom:22px;right:22px;gap:7px;z-index:20}.float-btn{background:#123c52;color:white;border:0;border-radius:10px;box-shadow:0 5px 20px #102d3950;padding:10px 13px;font-size:12px;font-weight:800}.hl{background:linear-gradient(transparent 63%,#d7f4da 63%)}
+@media(max-width:850px){.topbar,.hero,.content,.footer{padding-left:22px;padding-right:22px}.menu{padding:9px 16px}.hero-layout{grid-template-columns:1fr}.hero-graphic{display:none}.three,.roadmap{grid-template-columns:repeat(2,minmax(0,1fr))}.method-visual,.lab-main{grid-template-columns:1fr}.flow{gap:5px}.flow .step{padding:12px 7px}.flow .big{font-size:21px}}
+@media(max-width:540px){.three,.two,.method-visual,.roadmap,.examtip{grid-template-columns:1fr}.section h2{font-size:21px}.content{padding-top:21px}.flow{flex-direction:column}.flow .arrow{transform:rotate(90deg);line-height:1}.flow .step{padding:14px}.topbar .meta{display:none}.hero{padding-top:35px}.hero h1{font-size:31px}.floating{right:10px;bottom:10px}}
+@media print{body{background:white}.page{box-shadow:none;max-width:none}.menu,.floating,.controls,.qactions{display:none!important}.hero{print-color-adjust:exact;-webkit-print-color-adjust:exact}.section,.card,.method,.quiz,.callout{break-inside:avoid}.content{padding:20px}th{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+
+/* 교재 인쇄쪽수 안내: 웹 화면 및 인쇄물에 동일하게 표시 */
+.source-guide{margin:20px 0 2px;padding:11px 15px;border:1px solid #c7e0e8;background:#f0f8fa;border-radius:12px;font-size:12px;color:#365f6b;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.source-guide b{color:#095f75}
+.page-ref{margin-left:auto;display:inline-flex;align-items:center;gap:5px;border:1px solid #a7cddd;background:#eaf6fb;color:#135d73;border-radius:30px;padding:5px 11px;font-size:12px;font-weight:900;line-height:1.5;white-space:nowrap}
+.page-ref:before{content:'📖';font-size:13px}
+.page-inline{display:inline-block;border-radius:7px;background:#edf6fa;border:1px solid #d5e7ef;color:#216279;font-weight:800;font-size:11px;padding:2px 8px;margin:0 0 10px}
+.page-chip{display:inline-block;background:#e6f5fb;border:1px solid #c5e2ed;color:#0d627b;border-radius:7px;font-size:11px;font-weight:800;padding:2px 8px;white-space:nowrap}
+.road .page-chip{margin:3px 0 7px}
+.quiz-head .quiz-page{font-size:11px;color:#145e77;background:#eaf6fa;border:1px solid #cee5ee;border-radius:30px;padding:3px 9px;font-weight:800;margin-left:auto}
+.menu .nav-page{font-size:10px;opacity:.83;margin-left:4px;font-weight:700}
+@media(max-width:700px){.section-head{flex-wrap:wrap}.section-head>.page-ref{margin-left:0}.menu .nav-page{display:none}.source-guide{line-height:1.6}}
+@media print{.page-ref,.page-chip,.page-inline,.quiz-page,.source-guide{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="topbar"><div class="brand">PART 03 · 데이터분석 / CHAPTER 05</div><div class="meta">정형 데이터 마이닝 · 군집분석 · 교재 446–466쪽</div></div>
+  <header class="hero">
+    <div class="hero-layout">
+      <div>
+        <div class="eyebrow">UNSUPERVISED LEARNING · 비지도학습</div>
+        <h1>군집분석<br><span style="color:#a3e9e0">Cluster Analysis</span></h1>
+        <p class="desc">정답 집단을 미리 알려주지 않아도, 데이터의 <b>유사성</b>을 바탕으로 비슷한 대상을 묶는 방법을 배웁니다.</p>
+        <div class="chips"><span class="chip">#유사도·거리</span><span class="chip">#계층적 군집</span><span class="chip">#k-Means</span><span class="chip">#덴드로그램</span><span class="chip">#기출문제</span></div>
+      </div>
+      <div class="hero-graphic" aria-label="군집분석 개념도: 흩어진 점을 특징에 따라 세 개의 군집으로 표시">
+        <svg id="heroSvg" viewBox="0 0 450 225" role="img" aria-label="점이 세 그룹으로 묶인 산점도"></svg>
+        <div class="cap">색상이 같은 점 = 특성이 상대적으로 유사한 대상</div>
+      </div>
+    </div>
+  </header>
+  <nav class="menu" aria-label="본문 바로가기"><a href="#essence">① 핵심 개념 <span class="nav-page">446–447쪽</span></a><a href="#comparison">② 분석 비교 <span class="nav-page">447쪽</span></a><a href="#methods">③ 군집 유형 <span class="nav-page">446·452–458쪽</span></a><a href="#lab">④ 군집 실습 <span class="nav-page">457–458쪽</span></a><a href="#roadmap">⑤ 핵심 용어 <span class="nav-page">449–466쪽</span></a><a href="#quiz">⑥ 기출문제 <span class="nav-page">448쪽</span></a></nav>
+  <main class="content">
+    <div class="source-guide" role="note"><b>교재 원문 쪽수 안내</b> 이 HTML의 쪽수는 교재에 인쇄된 쪽수입니다. (첨부 PDF에서는 <b>교재 446쪽 = PDF 69페이지</b>, 교재 466쪽 = PDF 89페이지)</div>
+    <section id="essence" class="section" style="margin-top:7px">
+      <div class="section-head"><span class="number">01 / CONCEPT</span><div><h2>군집분석, 한 문장으로 이해하기</h2><p>분류 기준(정답 레이블)이 없는 상태에서 비슷한 개체끼리 묶는다.</p></div><span class="page-ref">교재 446–447쪽</span></div>
+      <div class="callout">군집분석 = <span class="hl">군집 내부는 서로 비슷하게</span>, <span class="hl">서로 다른 군집끼리는 다르게</span> 나누는 분석 방법</div>
+      <div class="grid three" style="margin-top:16px">
+        <article class="card"><div class="icon">🧭</div><h3>무엇을 기준으로?</h3><p><b>거리(Distance)</b> 또는 <b>유사도(Similarity)</b>를 이용합니다. 가까운 관측치가 같은 군집에 배치되도록 합니다.</p></article>
+        <article class="card"><div class="icon">🧩</div><h3>무엇을 얻나?</h3><p>데이터에 숨어 있는 <b>집단 구조</b>와 집단별 특성을 발견합니다. 군집의 결과는 알고리즘과 설정에 따라 달라집니다.</p></article>
+        <article class="card"><div class="icon">🎯</div><h3>어디에 쓰나?</h3><p>마케팅의 <b>고객 세분화</b>, 소비자 행동·라이프스타일 유형화, 생물 개체의 탐색적 분류 등에 활용합니다.</p></article>
+      </div>
+      <div class="section-head" style="margin-top:27px"><span class="number">WORKFLOW</span><div><h2 style="font-size:19px">군집이 만들어지는 흐름</h2></div><span class="page-ref">교재 447쪽 기반 · 설명도</span></div>
+      <div class="flow" aria-label="특성 측정에서 군집 해석까지의 흐름">
+        <div class="step"><div class="big">①</div><strong>대상 관측</strong><p>사람·상품·식물 등</p></div><span class="arrow">→</span>
+        <div class="step"><div class="big">②</div><strong>특성 비교</strong><p>크기·행동·선호 등</p></div><span class="arrow">→</span>
+        <div class="step"><div class="big">③</div><strong>유사한 대상 묶기</strong><p>거리·유사도 계산</p></div><span class="arrow">→</span>
+        <div class="step"><div class="big">④</div><strong>군집 해석</strong><p>각 집단 특징과 차이</p></div>
+      </div>
+      <div class="subcap">※ 군집은 사전 정답 없이 생성됩니다. 생성된 군집이 의미 있는지는 별도로 평가해야 합니다.</div>
+    </section>
+    <section id="comparison" class="section">
+      <div class="section-head"><span class="number">02 / DIFFERENCE</span><div><h2>군집분석 vs 요인분석 vs 판별분석</h2><p>시험에서 혼동하기 쉬운 분석 목적의 차이</p></div><span class="page-ref">교재 447쪽</span></div>
+      <div class="tablebox"><table>
+        <thead><tr><th>구분</th><th>무엇을 묶거나 구분?</th><th>사전 집단 정보</th><th>핵심 목적</th><th>예시</th></tr></thead>
+        <tbody>
+          <tr><td class="table-main">군집분석<br><small>Cluster Analysis</small></td><td><b>대상(개체)</b>을 묶음</td><td>필요 없음</td><td>비슷한 고객을 새로운 유형으로 발견</td><td>소비자 300명을 성향에 따라 유형화</td></tr>
+          <tr><td class="table-main">요인분석<br><small>Factor Analysis</small></td><td><b>변수(문항)</b> 사이의 공통 구조를 찾음</td><td>집단 레이블은 불필요</td><td>상관된 변수의 공통 요인 파악</td><td>20개 만족도 문항에서 공통 차원 추출</td></tr>
+          <tr><td class="table-main">판별분석<br><small>Discriminant Analysis</small></td><td>기존에 정해진 <b>집단</b>으로 개체를 분류</td><td><b>필요함</b></td><td>알려진 집단의 구분 규칙 학습·할당</td><td>기존 고객등급 자료로 신규 고객 등급 판별</td></tr>
+        </tbody></table></div>
+      <div class="grid two" style="margin-top:15px">
+        <div class="tip"><h4>💡 한 번에 구별하는 질문</h4><p><b>“누가 누구와 비슷한가?”</b> → 군집분석<br><b>“어떤 변수끼리 공통 성격이 있는가?”</b> → 요인분석</p></div>
+        <div class="tip"><h4>💡 판별분석과 가장 중요한 차이</h4><p><b>집단이 이미 정해져 있다</b> → 판별분석<br><b>집단을 데이터에서 탐색한다</b> → 군집분석</p></div>
+      </div>
+    </section>
+    <section id="methods" class="section">
+      <div class="section-head"><span class="number">03 / METHODS</span><div><h2>계층적 군집 vs 비계층적 군집</h2><p>‘언제 군집 수를 정하는가’를 중심으로 비교</p></div><span class="page-ref">교재 446, 452–458쪽</span></div>
+      <div class="method-visual">
+        <article class="method"><div class="method-title"><strong>🌳 계층적 군집분석</strong><span>Hierarchical Clustering</span></div><div class="method-inner">
+          <div class="page-inline">교재 446, 452–455쪽 · 계층적 군집</div>
+          <svg viewBox="0 0 420 160" role="img" aria-label="덴드로그램의 나무 구조">
+            <rect x="2" y="2" width="416" height="156" rx="12" fill="#f7fafb"/>
+            <g stroke="#238f99" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M48 129V97H95V129M72 97V65H158V129M245 129V104H298V129M272 104V79H360V129M115 65V33H316V79"/></g>
+            <g fill="#126b77" font-size="12" text-anchor="middle" font-weight="700"><text x="48" y="146">A</text><text x="95" y="146">B</text><text x="158" y="146">C</text><text x="245" y="146">D</text><text x="298" y="146">E</text><text x="360" y="146">F</text></g>
+            <path d="M18 88H396" stroke="#dc8e41" stroke-width="2" stroke-dasharray="5 5"/><text x="293" y="22" font-size="11" fill="#6d8692">연결 높이·절단선</text>
+          </svg>
+          <p>가까운 개체·집단을 <b>차례로 합치거나</b>(응집형), 큰 집단을 <b>나눕니다</b>(분할형). <b>덴드로그램</b>을 보고 절단 위치에 따라 군집 수를 선택할 수 있습니다.</p>
+          <div class="tagline">핵심: 먼저 계층 구조를 만들고 → 군집 수 결정 가능</div>
+        </div></article>
+        <article class="method"><div class="method-title"><strong>🎯 비계층적 군집분석</strong><span>Non-hierarchical Clustering</span></div><div class="method-inner">
+          <div class="page-inline">교재 446, 456–458쪽 · k-Means</div>
+          <svg viewBox="0 0 420 160" role="img" aria-label="k-means로 세 집단에 할당한 산점도" id="methodDots"></svg>
+          <p>대표적인 <b>k-Means</b>는 군집의 개수 <b>k를 먼저 정한 뒤</b> 개체를 할당하고 중심을 갱신합니다. 여러 k를 시도하여 결과를 비교합니다.</p>
+          <div class="tagline">핵심: 먼저 군집 수 k 지정 → 할당·중심 갱신</div>
+        </div></article>
+      </div>
+      <div class="tablebox" style="margin-top:15px"><table><thead><tr><th>비교 포인트</th><th>계층적 군집분석</th><th>비계층적 군집분석 (k-Means 중심)</th></tr></thead><tbody>
+        <tr><td class="table-main">구조</td><td>군집 간 포함·연결 관계를 계층적으로 표현</td><td>군집 간 계층 관계를 만들지 않음</td></tr>
+        <tr><td class="table-main">군집 수</td><td>계층 구조를 확인한 뒤 결정 가능</td><td>k-Means는 분석 전에 k 지정</td></tr>
+        <tr><td class="table-main">대표 결과</td><td>덴드로그램(Dendrogram)</td><td>군집별 소속 및 중심(Centroid)</td></tr>
+        <tr><td class="table-main">대표 방법</td><td>최단·최장·평균·Ward 연결법</td><td>k-Means, PAM 등 (서로 원리는 다름)</td></tr>
+      </tbody></table></div>
+      <div class="note">주의: ‘비계층적’이라는 명칭 아래의 모든 알고리즘이 반드시 군집 수를 미리 요구하는 것은 아닙니다. ‘k를 먼저 정한다’는 설명은 <b>k-Means</b>에 정확히 해당합니다.</div>
+    </section>
+    <section id="lab" class="section">
+      <div class="section-head"><span class="number">04 / PRACTICE</span><div><h2>직접 보는 k-Means 원리</h2><p>군집 수를 바꾸면 같은 데이터도 다르게 묶일 수 있습니다.</p></div><span class="page-ref">교재 457–458쪽 · 학습용 실습</span></div>
+      <div class="lab"><div class="lab-header"><div><h3>150개 점을 몇 개 그룹으로 나눌까요?</h3><p>아래의 학습용 가상 데이터를 사용합니다. 실제 식물(iris) 데이터 분석 결과가 아닙니다.</p></div><div class="controls"><div class="kgroup" role="group" aria-label="군집 수 선택"><button type="button" class="kbtn" data-k="2">k=2</button><button type="button" class="kbtn active" data-k="3">k=3</button><button type="button" class="kbtn" data-k="4">k=4</button></div><button type="button" id="runCluster" class="btn">▶ 군집화 실행</button><button type="button" id="resetCluster" class="btn secondary">↺ 초기화</button></div></div>
+        <div class="lab-main"><div class="plotframe"><svg id="plot" viewBox="0 0 670 350" aria-label="군집을 보여주는 학습용 산점도" role="img"><rect width="670" height="350" fill="#f8fcfc"/></svg></div>
+        <div class="statbox"><div class="minihead">K-MEANS CONCEPT</div><div class="big-number" id="kValue">k = 3</div><h4 id="labState">실행 전 · 아직 군집이 정해지지 않았어요.</h4><div class="muted" id="labExplain">군집 수를 고른 뒤 ‘군집화 실행’을 누르세요.</div><ul id="clusterCounts"><li><span class="dot" style="background:#aebfc6"></span>150개 점 · 미분류</li></ul></div></div>
+        <div class="note">이 도식은 k-Means의 직관을 보여주기 위한 시뮬레이션입니다. 실제 분석에서는 변수의 단위·척도, 초기값, 군집 수 선정, 결과의 타당성 등을 함께 검토합니다.</div>
+      </div>
+      <div class="flow" style="margin-top:15px"><div class="step"><div class="big">1</div><strong>k 지정</strong><p>군집 수를 먼저 선택</p></div><span class="arrow">→</span><div class="step"><div class="big">2</div><strong>가까운 중심에 할당</strong><p>각 점의 소속 결정</p></div><span class="arrow">→</span><div class="step"><div class="big">3</div><strong>중심 다시 계산</strong><p>반복하여 수렴</p></div><span class="arrow">→</span><div class="step"><div class="big">4</div><strong>군집 해석·평가</strong><p>집단 특징과 분리 정도</p></div></div>
+    </section>
+    <section id="roadmap" class="section">
+      <div class="section-head"><span class="number">05 / KEYWORDS</span><div><h2>핵심 용어 미리보기</h2><p>446쪽의 핵심어를 출발점으로, 자세한 설명이 나오는 교재 쪽수를 표시했습니다.</p></div><span class="page-ref">교재 449–466쪽</span></div>
+      <div class="roadmap">
+        <div class="road"><span class="n">거리·유사도</span><b>Distance / Similarity</b><span class="page-chip">교재 449–450쪽</span><div>유클리드 거리: 직선거리<br>맨해튼 거리: 축별 절댓값 차이의 합<br>민코프스키 거리: 거리 함수의 일반형<br>마할라노비스 거리: 변수 간 공분산 고려</div></div>
+        <div class="road"><span class="n">계층적 분석</span><b>Hierarchical</b><span class="page-chip">교재 452–454쪽</span><div>최단 연결법: 가장 가까운 쌍 기준<br>최장 연결법: 가장 먼 쌍 기준<br>Ward 연결법: 군집 내 제곱합 증가 최소화<br>덴드로그램: 병합 구조의 나무 그림</div></div>
+        <div class="road"><span class="n">기타 군집 기법</span><b>Algorithms</b><span class="page-chip">교재 459–465쪽</span><div>PAM: 대표 실제 관측치(메도이드) 기반<br>혼합분포·EM: 확률모형과 반복 추정<br>SOM: 경쟁학습 기반 자기조직화지도<br>밀도 기반: 밀집한 점의 영역 탐색</div></div>
+        <div class="road"><span class="n">결과 평가</span><b>Cluster Validation</b><span class="page-chip">교재 448, 466쪽</span><div>실루엣계수: 군집 내 응집도와 군집 간 분리도를 함께 평가<br>안정성 검토: 표본을 바꿔도 결과가 비슷한지 점검<br>군집의 의미: 해석 가능성 확인</div></div>
+      </div>
+      <div class="note">※ 핵심어는 446쪽에 제시되어 있으며, 각 카드의 쪽수는 첨부 교재에서 해당 내용이 설명되는 위치입니다. 요약 문장은 학습용으로 작성했습니다.</div>
+    </section>
+    <section id="quiz" class="section">
+      <div class="section-head"><span class="number">06 / EXAM</span><div><h2>기출문제 풀어보기</h2><p>교재 제시 문제 37·38번 · 선택 후 해설 확인</p></div><span class="page-ref">교재 448쪽</span></div>
+      <article class="quiz" data-answer="3"><div class="quiz-head"><span class="qnum">QUESTION 37 · 12회 기출</span><span class="quiz-page">교재 448쪽</span><span class="from">정답 ③</span></div><h3>150개의 식물 개체를 4개의 변수(꽃받침 길이, 꽃받침 폭, 꽃잎 길이, 꽃잎 폭)로 측정한 데이터를 사용하여 3개의 식물 군으로 구분하려 한다. 이때 사용 가능한 분석 방법으로 적절한 것은?</h3><div class="choices">
+        <label class="choice"><input type="radio" name="q37" value="1">① 회귀분석 (Regression)</label>
+        <label class="choice"><input type="radio" name="q37" value="2">② 시계열분석 (Time Series Analysis)</label>
+        <label class="choice"><input type="radio" name="q37" value="3">③ 군집분석 (Cluster Analysis)</label>
+        <label class="choice"><input type="radio" name="q37" value="4">④ 연관분석 (Association Analysis)</label>
+      </div><div class="qactions"><button class="btn check" type="button">정답 확인</button><span class="muted">핵심 단서: 정해진 그룹을 예측하는 것이 아니라 유사한 개체끼리 그룹화</span></div><div class="feedback" aria-live="polite"></div></article>
+      <article class="quiz" data-answer="1"><div class="quiz-head"><span class="qnum">QUESTION 38 · 17회 기출</span><span class="quiz-page">교재 448쪽</span><span class="from">정답 ①</span></div><h3>군집분석은 비지도학습 기법 중 하나로 사전 정보 없이 자료를 유사한 대상끼리 묶는 방법이다. 다음 중 군집분석에 대한 설명으로 <u>부적절한 것</u>은?</h3><div class="choices">
+        <label class="choice"><input type="radio" name="q38" value="1">① 군집분석에서는 군집의 개수나 구조에 대한 가정 없이 다변량 데이터로부터 거리 기준에 의한 자발적인 군집화를 유도하지 않는다.</label>
+        <label class="choice"><input type="radio" name="q38" value="2">② 데이터를 두 집단으로 나누어 각각 군집분석을 수행한 결과와 전체 데이터의 군집분석 결과를 비교하여 군집의 안정성을 검토할 수 있다.</label>
+        <label class="choice"><input type="radio" name="q38" value="3">③ 군집의 분리가 논리적인지 살펴보기 위해 군집 간 변동의 크기 차이를 검토할 수 있다.</label>
+        <label class="choice"><input type="radio" name="q38" value="4">④ 개체를 분류하기 위한 명확한 기준이 존재하지 않거나 밝혀지지 않은 상태에서 유용하게 이용할 수 있다.</label>
+      </div><div class="qactions"><button class="btn check" type="button">정답 확인</button><span class="muted">핵심 단서: “유도하지 않는다”라는 부정 표현</span></div><div class="feedback" aria-live="polite"></div></article>
+      <div class="examtip"><div class="tip"><h4>⭐ 시험 직전 핵심 1</h4><p>군집분석은 <b>비지도 학습</b>. 개체 사이의 <b>유사성</b>을 측정하여 집단을 찾는다.</p></div><div class="tip"><h4>⭐ 시험 직전 핵심 2</h4><p><b>k-Means</b>는 k를 먼저 정하고, <b>계층적 군집</b>은 덴드로그램을 보고 군집 수를 정할 수 있다.</p></div></div>
+    </section>
+  </main>
+  <footer class="footer"><b>5장 정형 데이터 마이닝 — 군집분석</b><br>자료 범위: 첨부 교재 군집분석 단원 446–466쪽(핵심 개요 446–448쪽, 상세 용어 449–466쪽). 쪽수는 교재 인쇄 기준입니다. 학습 편의를 위한 설명과 시뮬레이션을 추가했습니다. 출제 횟수 정보는 원문에 제시된 설명으로, 별도 검증 자료가 아닙니다.<br>화면에서 읽기 · 브라우저 인쇄(PDF 저장 가능) · 인터넷 연결 없이 퀴즈와 그림 사용 가능</footer>
+</div>
+<div class="floating"><button class="float-btn" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ 맨 위로</button><button class="float-btn" type="button" onclick="window.print()">⎙ 인쇄</button></div>
+<script>
+(function(){
+  'use strict';
+  const NS='http://www.w3.org/2000/svg';
+  const colors=['#168996','#e49b36','#8263c5','#d75f72','#4f91d2'];
+  const rand=(function(){let seed=38421;return ()=>{seed=(1664525*seed+1013904223)>>>0;return seed/4294967296}})();
+  function gaussian(){return Math.sqrt(-2*Math.log(Math.max(.000001,rand())))*Math.cos(2*Math.PI*rand())}
+  const centers=[[.24,.66],[.53,.26],[.78,.66]];
+  const data=[];
+  centers.forEach((c,g)=>{for(let i=0;i<50;i++){const x=Math.min(.97,Math.max(.03,c[0]+gaussian()*.079)),y=Math.min(.96,Math.max(.04,c[1]+gaussian()*.10));data.push({x,y,g})}});
+  function el(tag,attrs,parent){const node=document.createElementNS(NS,tag);for(const k in attrs)node.setAttribute(k,attrs[k]);parent.appendChild(node);return node}
+  function hero(){const svg=document.getElementById('heroSvg');el('rect',{x:0,y:0,width:450,height:225,rx:12,fill:'#173c50'},svg);for(const p of data){el('circle',{cx:(p.x*415+18).toFixed(1),cy:(p.y*200+12).toFixed(1),r:3.9,fill:colors[p.g],opacity:.95},svg)}for(let i=0;i<3;i++){el('circle',{cx:centers[i][0]*415+18,cy:centers[i][1]*200+12,r:11,fill:'none',stroke:'#ffffff', 'stroke-width':1.7,opacity:.8},svg)}}
+  function method(){const svg=document.getElementById('methodDots');el('rect',{x:2,y:2,width:416,height:156,rx:12,fill:'#f7fafb'},svg);for(const p of data.filter((_,i)=>i%2===0)){el('circle',{cx:12+p.x*394,cy:7+p.y*145,r:3.2,fill:colors[p.g],opacity:.92},svg)}centers.forEach((c,i)=>{el('text',{x:12+c[0]*394,y:7+c[1]*145,'font-size':17,fill:'#123d4b','font-weight':'bold','text-anchor':'middle'},svg).textContent='×'})}
+  hero();method();
+  let k=3,assigned=null,currentCentroids=[];
+  const plot=document.getElementById('plot');
+  const svgCircle=(p,idx)=>el('circle',{cx:(45+p.x*570).toFixed(1),cy:(24+p.y*290).toFixed(1),r:4.4,fill:assigned?colors[assigned[idx]]:'#98aeb9',opacity:.89,stroke:'#fff','stroke-width':.7},plot);
+  function render(){while(plot.firstChild)plot.removeChild(plot.firstChild);el('rect',{width:670,height:350,fill:'#f8fcfc'},plot);for(let n=1;n<5;n++){el('line',{x1:45+n*114,y1:20,x2:45+n*114,y2:314,stroke:'#e1ebef','stroke-width':1},plot)}for(let n=1;n<4;n++){el('line',{x1:40,y1:24+n*72.5,x2:635,y2:24+n*72.5,stroke:'#e1ebef','stroke-width':1},plot)}el('line',{x1:39,y1:315,x2:638,y2:315,stroke:'#8da7b4','stroke-width':1.5},plot);el('line',{x1:40,y1:20,x2:40,y2:315,stroke:'#8da7b4','stroke-width':1.5},plot);data.forEach(svgCircle);if(assigned){currentCentroids.forEach((p,j)=>{const x=45+p[0]*570,y=24+p[1]*290;el('circle',{cx:x,cy:y,r:13,fill:'#fff',stroke:colors[j],'stroke-width':2.5},plot);el('text',{x,y:y+6,'text-anchor':'middle','font-size':17,'font-weight':900,fill:colors[j]},plot).textContent='×'})}el('text',{x:335,y:340,'text-anchor':'middle',fill:'#6b8994','font-size':11},plot).textContent='특성 A →';el('text',{x:14,y:177,'text-anchor':'middle',fill:'#6b8994','font-size':11,transform:'rotate(-90 14 177)'},plot).textContent='특성 B →'}
+  function run(){let means=[];const picks=k===2?[4,101]:k===3?[12,69,121]:[11,55,104,143];for(let j=0;j<k;j++)means.push([data[picks[j]].x,data[picks[j]].y]);let prev=[];for(let t=0;t<80;t++){let assign=data.map(p=>{let best=0,dist=Infinity;for(let j=0;j<k;j++){let d=(p.x-means[j][0])**2+(p.y-means[j][1])**2;if(d<dist){dist=d;best=j}}return best});const next=means.map((m,j)=>{const a=data.filter((p,i)=>assign[i]===j);return a.length?[a.reduce((s,p)=>s+p.x,0)/a.length,a.reduce((s,p)=>s+p.y,0)/a.length]:m});if(assign.every((g,i)=>g===prev[i])){prev=assign;means=next;break}prev=assign;means=next}assigned=prev;currentCentroids=means;document.getElementById('labState').textContent='군집화 완료 · 중심(×) 및 소속 표시';document.getElementById('labExplain').textContent='k='+k+'로 설정한 경우의 한 가지 군집화 결과입니다.';document.getElementById('clusterCounts').innerHTML=means.map((_,j)=>`<li><span class="dot" style="background:${colors[j]}"></span>군집 ${j+1} : ${assigned.filter(a=>a===j).length}개 점</li>`).join('');render()}
+  document.querySelectorAll('.kbtn').forEach(btn=>btn.addEventListener('click',()=>{k=Number(btn.dataset.k);document.querySelectorAll('.kbtn').forEach(b=>b.classList.toggle('active',b===btn));document.getElementById('kValue').textContent='k = '+k;assigned=null;currentCentroids=[];document.getElementById('labState').textContent='k가 변경되었습니다.';document.getElementById('labExplain').textContent='‘군집화 실행’으로 '+k+'개 군집을 만들어 보세요.';document.getElementById('clusterCounts').innerHTML='<li><span class="dot" style="background:#aebfc6"></span>150개 점 · 미분류</li>';render()}));
+  document.getElementById('runCluster').addEventListener('click',run);
+  document.getElementById('resetCluster').addEventListener('click',()=>{assigned=null;currentCentroids=[];document.getElementById('labState').textContent='실행 전 · 아직 군집이 정해지지 않았어요.';document.getElementById('labExplain').textContent='군집 수를 고른 뒤 ‘군집화 실행’을 누르세요.';document.getElementById('clusterCounts').innerHTML='<li><span class="dot" style="background:#aebfc6"></span>150개 점 · 미분류</li>';render()});render();
+  document.querySelectorAll('.quiz').forEach((q,idx)=>{q.querySelector('.check').addEventListener('click',()=>{let select=q.querySelector('input:checked');const result=q.querySelector('.feedback');result.className='feedback show';if(!select){result.classList.add('wrong');result.innerHTML='답을 하나 선택한 후 확인해 주세요.';return}let correct=select.value===q.dataset.answer;result.classList.add(correct?'correct':'wrong');result.innerHTML=(correct?'<b>✅ 정답입니다!</b>':'<b>🔎 다시 확인해 보세요. 정답은 '+(idx===0?'③':'①')+'입니다.</b>')+'<div style="margin-top:5px">'+(idx===0?'군집분석은 미리 알려진 집단 레이블이 없어도 4개의 특성을 바탕으로 비슷한 식물 개체를 그룹화할 수 있습니다. 회귀는 연속형 값 예측, 시계열은 시간적 순서, 연관분석은 항목 간 관계 탐색에 적합합니다.':'①은 군집분석이 데이터에서 자발적으로 군집화를 <b>유도하지 않는다</b>고 서술하므로 부적절합니다. 다만 방법에 따라 군집 수(k) 등 특정 설정이나 모형 가정이 필요할 수 있다는 점도 구분하세요.')+'</div>'})})
+})();
+</script>
+</body>
+</html>

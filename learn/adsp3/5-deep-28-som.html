@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PART 03 · 자기조직화지도(SOM) · 교재 462–463쪽</title>
+<style>
+:root{--bg:#eef4fb;--paper:#ffffff;--ink:#17243a;--sub:#52647b;--line:#d9e5f1;--blue:#2664bf;--lightblue:#eaf3ff;--mint:#047d69;--lightmint:#e6f7f1;--violet:#694ac3;--lightviolet:#f2efff;--orange:#b96315;--lightorange:#fff3e7;--red:#ad3a4c;--lightred:#fff1f3;--shadow:0 12px 30px rgba(29,58,95,.07)}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;color:var(--ink);background:var(--bg)}body{overflow:hidden}button,input{font:inherit}button{cursor:pointer}.app{height:100dvh;display:flex;flex-direction:column;gap:10px;padding:12px clamp(12px,2vw,26px)}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:52px;background:var(--paper);border:1px solid var(--line);border-radius:17px;padding:9px 18px;box-shadow:var(--shadow)}.brand{font-size:clamp(15px,1.2vw,19px);font-weight:850;letter-spacing:-.4px;white-space:nowrap}.brand small{font-size:.7em;color:var(--sub);font-weight:600;margin-left:10px}.topnav{display:flex;gap:6px;overflow:auto;max-width:75%;scrollbar-width:none}.topnav::-webkit-scrollbar{display:none}.tab{border:0;background:#f1f5fa;color:#53647a;font-size:12px;font-weight:750;padding:9px 11px;border-radius:10px;white-space:nowrap}.tab.active{background:var(--lightblue);color:var(--blue);box-shadow:inset 0 0 0 1px #bcdaff}.stage{flex:1;min-height:0;position:relative}.slide{display:none;height:100%;overflow:auto;scrollbar-width:thin;scrollbar-color:#c1d0e2 transparent;background:linear-gradient(140deg,#fff 0%,#fff 67%,#f8fbff 100%);border:1px solid var(--line);border-radius:22px;padding:clamp(18px,2.6vh,29px) clamp(20px,3.1vw,44px);box-shadow:var(--shadow)}.slide.active{display:flex;flex-direction:column}.eyebrow{font-size:11px;font-weight:850;letter-spacing:1.3px;color:var(--blue);margin:0 0 6px}.slide-title{font-size:clamp(25px,2.5vw,38px);letter-spacing:-1.35px;line-height:1.2;margin:0 0 7px}.subtitle{font-size:clamp(12px,.99vw,15px);color:var(--sub);line-height:1.55;margin:0 0 clamp(12px,1.8vh,21px)}.cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;min-height:0;flex:1}.cols.wide-right{grid-template-columns:.88fr 1.12fr}.cols.wide-left{grid-template-columns:1.09fr .91fr}.stack{display:flex;flex-direction:column;gap:13px;min-height:0}.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:clamp(14px,1.7vw,23px);box-shadow:0 4px 13px rgba(39,76,116,.035)}.card.softblue{background:#f6faff}.card.softmint{background:#f4fbf8}.card.softviolet{background:#f9f7ff}.card.softorange{background:#fffaf4}.card-title{display:flex;gap:9px;align-items:center;font-weight:850;font-size:clamp(15px,1.25vw,19px);letter-spacing:-.4px;margin:0 0 12px}.pill{display:inline-flex;align-items:center;padding:5px 9px;border-radius:8px;background:var(--lightblue);color:var(--blue);font-size:11px;font-weight:800;line-height:1.1}.pill.mint{background:var(--lightmint);color:var(--mint)}.pill.violet{background:var(--lightviolet);color:var(--violet)}.pill.orange{background:var(--lightorange);color:var(--orange)}.pill.red{background:var(--lightred);color:var(--red)}p{margin:0;line-height:1.65;font-size:clamp(12.5px,1.03vw,16px)}.tight p{font-size:clamp(12px,.96vw,14px)}.key{color:var(--blue);font-weight:850}.purple{color:var(--violet);font-weight:850}.green{color:var(--mint);font-weight:850}.orange{color:var(--orange);font-weight:850}.muted{color:var(--sub)}.bullets{margin:0;padding-left:1.15em;display:grid;gap:8px;font-size:clamp(12px,1.03vw,15px);line-height:1.58}.bullets li::marker{color:#72a1d6}.mini{font-size:clamp(11px,.82vw,12.5px);color:var(--sub);line-height:1.52}.info{padding:10px 13px;border-radius:11px;border-left:4px solid #4b8cce;background:#eef6ff;font-size:clamp(11px,.89vw,13px);line-height:1.55}.info.orange-box{border-left-color:#d78f48;background:#fff6eb}.info.green-box{border-left-color:#38a88e;background:#f0faf5}.bigline{font-size:clamp(17px,1.6vw,24px);font-weight:900;line-height:1.46;letter-spacing:-.7px}.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;flex:1;min-height:0}.hero-panel{border-radius:20px;padding:clamp(18px,3vw,44px);background:linear-gradient(135deg,#f5faff,#eaf3ff);border:1px solid #d8e8fa;display:flex;flex-direction:column;justify-content:center}.hero h1{font-size:clamp(32px,4vw,58px);line-height:1.17;letter-spacing:-2.5px;margin:12px 0 12px}.hero .lead{font-size:clamp(14px,1.45vw,21px);line-height:1.6;color:#405470}.hero .strap{display:flex;flex-wrap:wrap;gap:7px;margin-top:19px}.toc{display:grid;grid-template-columns:1fr 1fr;gap:11px;align-content:center}.toc-item{display:flex;gap:10px;align-items:flex-start;text-align:left;border:1px solid var(--line);background:#fff;border-radius:13px;padding:15px;color:inherit;min-height:88px;transition:.15s}.toc-item:hover{transform:translateY(-2px);border-color:#8bb8ec;background:#f9fcff}.toc-n{font-size:20px;font-weight:900;color:var(--blue)}.toc-text{font-size:15px;font-weight:850;line-height:1.3}.toc-text small{display:block;font-size:11px;color:var(--sub);font-weight:500;margin-top:5px}.diagram{width:100%;max-height:270px;display:block}.diagram text{font-family:inherit}.flow-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.flow-step{text-align:center;background:#f5f9ff;border:1px solid #dae7f6;border-radius:11px;padding:13px 8px;font-size:12px;font-weight:760;line-height:1.55;position:relative}.step-number{display:inline-block;background:#dceafd;color:var(--blue);border-radius:50%;width:24px;height:24px;line-height:24px;margin-bottom:5px}.process{display:grid;gap:10px}.process-row{display:grid;grid-template-columns:37px 1fr;gap:10px;align-items:start}.process-index{width:35px;height:35px;border-radius:10px;background:#e7f0ff;color:var(--blue);display:grid;place-items:center;font-weight:900}.process-text strong{display:block;font-size:clamp(13px,1.06vw,16px);margin-bottom:2px}.process-text span{color:var(--sub);font-size:clamp(11.5px,.88vw,13.5px);line-height:1.47;display:block}.chips{display:flex;flex-wrap:wrap;gap:7px}.chip{display:inline-block;border-radius:10px;padding:8px 11px;background:#eef5ff;color:#315c98;font-size:12px;font-weight:800}.chip.mint{background:#e9f8f3;color:#117a65}.chip.purple{background:#f2effe;color:#6244ba}.sample-bar{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 9px}.sample-button{padding:8px 11px;border-radius:10px;background:#f0f5fd;border:1px solid #cdddec;font-size:12px;color:#345579;font-weight:800}.sample-button.active{border-color:#2273cf;background:#e2f0ff;color:#1b5bad}.grid-demo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.75fr);gap:14px;align-items:center}.som-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:5px auto;width:min(100%,320px)}.neuron{aspect-ratio:1;min-width:0;border:2px solid #d3e1ef;background:#f5f8fb;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#6b7c91;font-size:11px;font-weight:800;transition:background .2s,transform .2s,border-color .2s}.neuron.neighbor{border-color:#8fcdbb;background:#e5f8ef;color:#1c8064}.neuron.winner{border-color:#2d79d2;background:#dceeff;color:#1558b0;transform:scale(1.08);box-shadow:0 3px 9px #afcde999}.metric{background:#f5f9fe;border:1px solid #e0eaf4;border-radius:10px;padding:9px 11px;margin-bottom:8px}.metric small{display:block;color:#697c92;font-size:11px}.metric strong{font-size:16px;color:#215fad}.train-button{background:#2566b9;color:white;border:0;border-radius:10px;padding:10px 14px;font-size:12px;font-weight:850;width:100%}.train-button:hover{background:#174f9d}.reset-button{background:#fff;color:var(--sub);border:1px solid var(--line);border-radius:10px;padding:8px 13px;font-size:12px;font-weight:750}.legend{display:flex;gap:13px;flex-wrap:wrap;font-size:11px;color:var(--sub)}.legend i{width:12px;height:12px;display:inline-block;border-radius:4px;margin-right:4px;vertical-align:-1px}.tbl{border-collapse:collapse;width:100%;font-size:clamp(11.5px,.95vw,14px);line-height:1.48}.tbl td,.tbl th{border-bottom:1px solid #e1eaf3;padding:11px 9px;text-align:left;vertical-align:top}.tbl th{color:#2b567f;background:#f3f8ff;font-weight:850}.tbl td:first-child{font-weight:750}.tbl tr:last-child td{border-bottom:0}.compare{display:grid;grid-template-columns:1fr 1fr;gap:12px}.comparison{background:#f6faff;border:1px solid #d9e7f6;border-radius:15px;padding:15px}.comparison:nth-child(2){background:#f7fbf8;border-color:#d8ede5}.compare-head{font-weight:900;font-size:19px;margin-bottom:9px}.fact{display:grid;grid-template-columns:25px 1fr;gap:8px;font-size:clamp(12px,.98vw,14px);line-height:1.5;margin:11px 0}.fact strong{color:var(--blue)}.formula{font-size:clamp(13px,1.1vw,16px);color:#25549a;font-weight:850;text-align:center;background:#f0f6ff;border:1px solid #dce9f8;padding:11px;border-radius:12px}.two-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}.point{display:flex;align-items:flex-start;gap:9px;font-size:clamp(12.5px,1.02vw,15px);line-height:1.55;margin-bottom:12px}.point b{font-size:18px;line-height:1.1}.point .good{color:var(--mint)}.point .bad{color:var(--red)}.exam-card{display:flex;flex-direction:column;gap:11px}.exam-question{font-weight:850;line-height:1.6;font-size:clamp(13px,1.15vw,17px)}.options{display:grid;gap:7px}.option{display:flex;align-items:center;gap:9px;padding:9px 11px;background:#f7f9fc;border:1px solid #dfe7f2;border-radius:10px;font-size:clamp(11.8px,.97vw,14px);cursor:pointer;line-height:1.3}.option:hover{background:#eef6ff}.option:has(input:checked){border-color:#699fea;background:#edf5ff}.option input{accent-color:var(--blue);width:15px;height:15px;flex-shrink:0}.exam-check{display:flex;align-items:center;gap:10px;margin-top:auto}.check-button{background:#2369c7;color:white;border:0;border-radius:10px;padding:10px 15px;font-size:13px;font-weight:850}.result{display:none;border-radius:10px;padding:11px 12px;background:#edf8f2;color:#255e4f;font-size:clamp(11px,.9vw,13px);line-height:1.5}.result.wrong{background:#fff3f0;color:#914725}.result.visible{display:block}.keyword-strip{border:1px solid #d9e7f6;border-radius:14px;background:#f4f8fd;padding:14px 17px;font-weight:900;display:flex;align-items:center;justify-content:space-between;gap:12px;color:#315b8b}.foot{display:flex;align-items:center;justify-content:space-between;gap:15px;background:white;border:1px solid var(--line);border-radius:15px;min-height:54px;padding:7px 13px;box-shadow:var(--shadow)}.foot-meta{display:flex;align-items:center;gap:12px;color:var(--sub);font-size:12px;font-weight:700}.progress-track{width:120px;height:7px;border-radius:20px;background:#e3ebf4;overflow:hidden}.progress-fill{width:14.28%;height:100%;background:var(--blue);transition:width .2s}.controls{display:flex;gap:7px}.navbtn{border-radius:10px;padding:9px 17px;border:1px solid #cfddee;background:#fff;color:#2c537c;font-size:13px;font-weight:850}.navbtn.primary{background:#276ac2;color:white;border-color:#276ac2}.navbtn:disabled{opacity:.35;cursor:not-allowed}.reference{font-size:11px;color:#72839a}.grid-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.summary-cell{border:1px solid #e0e9f3;background:#fafcff;border-radius:12px;padding:14px}.summary-cell .number{font-size:23px;font-weight:900;color:#2b68bb}.summary-cell b{display:block;font-size:14px;margin:4px 0}.summary-cell span{font-size:12px;color:var(--sub);line-height:1.4;display:block}.footer-note{margin-top:auto;font-size:11px;color:#748499}.spaced{margin-top:12px}.flex1{flex:1}.small-separator{height:1px;background:#e0eaf4;margin:4px 0 12px}.tag-row{display:flex;gap:8px;flex-wrap:wrap}.quick-note{font-size:12px;line-height:1.55;background:#f6faff;padding:10px 12px;border-radius:10px;color:#526783}.save-btn{background:transparent;border:1px solid #c4d9ee;color:#315f99;padding:8px 11px;border-radius:9px;font-size:12px;font-weight:800}.save-btn:hover{background:#eef6ff}
+@media(max-height:760px){.slide{padding:16px 23px}.slide-title{font-size:27px}.subtitle{margin-bottom:11px}.card{padding:13px}.card-title{margin-bottom:8px}.bullets{gap:5px}.flow-step{padding:7px 5px}.topbar{min-height:45px}.app{padding:8px;gap:7px}.foot{min-height:44px}.point{margin-bottom:7px}.som-grid{gap:5px;max-width:260px}.neuron{border-radius:9px}.tbl td,.tbl th{padding:7px}}
+@media(max-width:900px){body{overflow:auto}.app{min-height:100dvh;height:auto}.topbar{flex-wrap:wrap}.topnav{max-width:100%;width:100%}.stage{min-height:570px}.slide{min-height:570px;height:auto;overflow:visible}.cols,.hero,.cols.wide-right,.cols.wide-left{grid-template-columns:1fr}.grid-summary{grid-template-columns:1fr 1fr}.hero-panel{min-height:260px}.diagram{max-height:250px}}
+@media(max-width:560px){.slide{padding:17px}.toc{grid-template-columns:1fr}.cols,.two-list,.compare,.grid-demo,.grid-summary{grid-template-columns:1fr}.flow-steps{grid-template-columns:1fr 1fr}.foot-meta{gap:5px}.progress-track{width:55px}.tab{font-size:11px}.hero h1{font-size:34px}.exam-card{gap:8px}}
+@media print{body{overflow:visible;background:white}.app{height:auto;padding:0}.topbar,.foot,.train-button,.reset-button,.sample-bar,.check-button{display:none!important}.stage{height:auto}.slide{display:flex!important;overflow:visible;break-after:page;page-break-after:always;min-height:700px;height:95vh;border:0;border-radius:0;box-shadow:none;padding:25px 30px}.result{display:block!important}.cols,.hero{grid-template-columns:1fr 1fr!important}.toc{grid-template-columns:1fr 1fr!important}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="topbar">
+  <div class="brand">PART 03 <span style="color:#8b9db0">/</span> 5장 정형 데이터 마이닝 <small>SOM · pp. 462–463</small></div>
+  <nav class="topnav" aria-label="강의 목차">
+   <button class="tab active" data-page="0">목차</button><button class="tab" data-page="1">개념·구성</button><button class="tab" data-page="2">학습 과정</button><button class="tab" data-page="3">특징·비교</button><button class="tab" data-page="4">장단점</button><button class="tab" data-page="5">기출 48·49</button><button class="tab" data-page="6">최종 암기</button>
+  </nav>
+</header>
+<main class="stage" id="slides">
+<!-- 1: cover -->
+<section class="slide active" data-index="0" aria-label="SOM 목차">
+  <p class="eyebrow">이론 정복 강의 · ADsP · 교재 462–463쪽</p>
+  <div class="hero">
+   <div class="hero-panel">
+    <span class="pill">군집분석 · 비지도학습</span>
+    <h1>자기조직화지도<br><span style="color:#2664bf">SOM</span></h1>
+    <p class="lead"><strong>Self-Organizing Map</strong><br>셀프 오거나이징 맵 · 코호넨 맵(Kohonen Map)</p>
+    <div class="strap"><span class="chip">격자(Grid)</span><span class="chip mint">승자 뉴런(BMU)</span><span class="chip purple">이웃 학습(Neighborhood)</span><span class="chip">시각화(Visualization)</span></div>
+    <p style="margin-top:23px;color:#60738d;font-size:13px">출제포인트: 교재 기준 2025년 2문제 · 비교·선택형 개념 이해</p>
+    <p class="mini spaced"><strong>학습목표</strong> : SOM의 구조를 설명하고, 경쟁학습 과정과 일반적인 역전파 신경망의 차이를 구분한다.</p>
+   </div>
+   <div class="toc">
+    <button class="toc-item" data-page="1"><span class="toc-n">01</span><span class="toc-text">개요 · 입력층과 경쟁층<small>코호넨, 고차원→2차원, 완전 연결 | p.462</small></span></button>
+    <button class="toc-item" data-page="2"><span class="toc-n">02</span><span class="toc-text">BMU · 4단계 학습<small>승자 선택, 이웃 뉴런 가중치 갱신 | p.462</small></span></button>
+    <button class="toc-item" data-page="3"><span class="toc-n">03</span><span class="toc-text">주요 특징과 비교<small>위상 보존, 경쟁학습 vs 오차역전파 | p.463</small></span></button>
+    <button class="toc-item" data-page="4"><span class="toc-n">04</span><span class="toc-text">장점과 주의점<small>해석성, 초기값 민감성, 격자 크기 | p.463</small></span></button>
+    <button class="toc-item" data-page="5"><span class="toc-n">05</span><span class="toc-text">11회 · 30회 기출<small>48번 · 49번 선택 후 즉시 정답 확인</small></span></button>
+    <button class="toc-item" data-page="6"><span class="toc-n">06</span><span class="toc-text">시험 직전 30초 암기<small>핵심 연결 구조·오답 함정 최종 점검</small></span></button>
+   </div>
+  </div>
+</section>
+<!-- 2: overview -->
+<section class="slide" data-index="1" aria-label="SOM 개요와 구성">
+  <p class="eyebrow">교재 p.462 · 01 개요와 구성</p>
+  <h2 class="slide-title">고차원 데이터를 <span class="key">2차원 지도</span> 위에 배열한다</h2>
+  <p class="subtitle">SOM(Self-Organizing Map)은 <strong>Teuvo Kohonen(코호넨)</strong>이 개발한 비지도 신경망이다. 유사한 입력값을 지도에서 대체로 가까운 위치에 나타내도록 학습한다.</p>
+  <div class="cols wide-right">
+   <div class="stack">
+    <div class="card softblue">
+     <h3 class="card-title"><span class="pill">정의</span> 자기조직화지도란?</h3>
+     <p class="bigline"><span class="key">고차원 데이터</span> → <span class="purple">저차원 격자 지도</span></p>
+     <p class="spaced">정답 레이블 없이 데이터의 <strong>유사 패턴</strong>을 학습하여, 군집 구조를 <strong>공간적으로 시각화</strong>한다.</p>
+    </div>
+    <div class="card">
+     <h3 class="card-title"><span class="pill mint">입력층</span> Input Layer <small class="muted">(인풋 레이어)</small></h3>
+     <ul class="bullets">
+      <li>하나의 입력 벡터를 이루는 <strong>특성(변수)</strong>을 받는다.</li>
+      <li>뉴런(입력 노드) 수는 일반적으로 <strong>입력 변수 수</strong>와 같다.</li>
+      <li>입력 차원이 경쟁층의 각 뉴런과 연결된다.</li>
+     </ul>
+    </div>
+    <div class="card">
+     <h3 class="card-title"><span class="pill violet">경쟁층</span> Competitive Layer <small class="muted">(컴페티티브 레이어)</small></h3>
+     <ul class="bullets">
+      <li>보통 <strong>2차원 격자(Grid)</strong>에 배치된 뉴런들로 구성.</li>
+      <li>각 뉴런은 입력과 비교하는 <strong>가중치 벡터</strong>를 보유.</li>
+      <li>가장 비슷한 뉴런을 <strong>BMU</strong>로 선택한다.</li>
+     </ul>
+    </div>
+   </div>
+   <div class="stack">
+    <div class="card flex1" style="display:flex;flex-direction:column">
+     <h3 class="card-title">SOM 신경망 구조 <span class="pill">개념도</span></h3>
+     <svg class="diagram" viewBox="0 0 620 290" role="img" aria-label="입력층 4개 노드가 2차원 격자의 모든 경쟁 뉴런과 연결되는 SOM 구조 개념도">
+      <defs><marker id="ar1" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0L7 3.5L0 7" fill="none" stroke="#92afd0" stroke-width="1"/></marker></defs>
+      <rect x="15" y="25" width="205" height="226" rx="16" fill="#eef6ff" stroke="#d0e4f8"/>
+      <rect x="320" y="25" width="282" height="226" rx="16" fill="#f0fbf7" stroke="#d5eee5"/>
+      <text x="116" y="47" fill="#285fac" font-size="14" text-anchor="middle" font-weight="800">입력층 · Input</text>
+      <text x="460" y="47" fill="#13836c" font-size="14" text-anchor="middle" font-weight="800">경쟁층 · 2D Grid</text>
+      <g fill="#fff" stroke="#548ed3" stroke-width="2">
+       <circle cx="58" cy="96" r="19"/><circle cx="115" cy="96" r="19"/><circle cx="172" cy="96" r="19"/><circle cx="115" cy="166" r="19"/>
+      </g>
+      <g fill="#285fac" font-size="13" font-weight="800" text-anchor="middle"><text x="58" y="101">x₁</text><text x="115" y="101">x₂</text><text x="172" y="101">x₃</text><text x="115" y="171">x₄</text></g>
+      <g stroke="#b6c9df" stroke-width="1.3" stroke-dasharray="4 5" opacity=".85">
+       <line x1="66" y1="118" x2="363" y2="88"/><line x1="115" y1="119" x2="426" y2="145"/><line x1="172" y1="118" x2="550" y2="205"/><line x1="127" y1="178" x2="485" y2="86"/><line x1="58" y1="115" x2="549" y2="144"/><line x1="172" y1="114" x2="364" y2="205"/><line x1="115" y1="186" x2="546" y2="88"/>
+      </g>
+      <g fill="none" stroke="#d4e7de" stroke-width="2"><path d="M364 87H550M364 144H550M364 201H550M364 87V201M426 87V201M488 87V201M550 87V201"/></g>
+      <g fill="#e7f5ed" stroke="#2b9e7e" stroke-width="2"><circle cx="364" cy="87" r="12"/><circle cx="426" cy="87" r="12"/><circle cx="488" cy="87" r="12"/><circle cx="550" cy="87" r="12"/><circle cx="364" cy="144" r="12"/><circle cx="426" cy="144" r="12"/><circle cx="488" cy="144" r="12"/><circle cx="550" cy="144" r="12"/><circle cx="364" cy="201" r="12"/><circle cx="426" cy="201" r="12"/><circle cx="488" cy="201" r="12"/><circle cx="550" cy="201" r="12"/></g>
+      <circle cx="488" cy="144" r="15" fill="#cfe2ff" stroke="#246dc9" stroke-width="3"/>
+      <text x="309" y="276" text-anchor="middle" fill="#71839a" font-size="13">입력 변수 ↔ 모든 경쟁층 뉴런 연결 · BMU는 입력에 가장 유사한 뉴런</text>
+     </svg>
+     <div class="two-list spaced">
+      <div class="info"><strong>Fully Connected</strong><br>풀리 커넥티드 · 입력 차원마다 경쟁층의 모든 뉴런과 가중치 연결</div>
+      <div class="info green-box"><strong>Topological Map</strong><br>토폴로지컬 맵 · 비슷한 패턴이 지도상에 이웃하도록 학습</div>
+     </div>
+     <p class="mini spaced">※ 그림의 입력 노드 4개는 구조 설명을 위한 예시입니다. 실제 노드 수는 데이터의 특성 수에 따라 달라집니다.</p>
+    </div>
+   </div>
+  </div>
+</section>
+<!-- 3: training -->
+<section class="slide" data-index="2" aria-label="SOM 학습 과정과 BMU 체험">
+ <p class="eyebrow">교재 p.462 · 02 학습 과정 · 인터랙티브 연습</p>
+ <h2 class="slide-title">가장 가까운 뉴런을 고른 뒤 <span class="green">이웃까지 함께 학습</span>한다</h2>
+ <p class="subtitle">학습의 핵심은 <strong>BMU(Best Matching Unit, 최적 일치 단위)</strong>와 그 주변 격자 뉴런의 가중치를 입력벡터 쪽으로 갱신하는 것이다.</p>
+ <div class="cols wide-left">
+  <div class="stack">
+   <div class="card">
+    <h3 class="card-title">SOM의 4단계 학습 <span class="pill">암기 순서</span></h3>
+    <div class="process">
+     <div class="process-row"><span class="process-index">1</span><div class="process-text"><strong>초기화 · Initialize (이니셜라이즈)</strong><span>경쟁층 뉴런별 연결 가중치 <strong>w</strong> 설정.</span></div></div>
+     <div class="process-row"><span class="process-index">2</span><div class="process-text"><strong>거리 계산 · Competition (컴피티션)</strong><span>입력벡터 <strong>x</strong>와 각 뉴런의 가중치 벡터 사이 거리 계산 → <strong>BMU</strong> 선택.</span></div></div>
+     <div class="process-row"><span class="process-index">3</span><div class="process-text"><strong>이웃 갱신 · Cooperation &amp; Adaptation</strong><span>승자와 인접한 뉴런들의 가중치를 <strong>입력벡터에 가깝게</strong> 조정.</span></div></div>
+     <div class="process-row"><span class="process-index">4</span><div class="process-text"><strong>반복 · Iterate (이터레이트)</strong><span>다른 입력벡터에 대해 2~3단계를 되풀이하고 학습률·이웃 범위를 보통 점차 축소.</span></div></div>
+    </div>
+   </div>
+   <div class="card softblue">
+    <h3 class="card-title">수식으로 한 번만 이해</h3>
+    <div class="formula">BMU = arg min<sub>j</sub> ‖ x − w<sub>j</sub> ‖</div>
+    <p class="mini spaced">입력 <strong>x</strong>와 가중치 <strong>w<sub>j</sub></strong> 사이 거리가 가장 작은 <strong>j번째 뉴런</strong>을 승자로 선택한다.</p>
+    <p class="mini spaced">선택 후 BMU와 이웃 뉴런의 가중치를 갱신한다. <strong>승자만 학습하는 방식이 아니다.</strong></p>
+   </div>
+   <div class="info orange-box"><strong>시험 함정</strong> : 경쟁학습의 '승자 독점'은 <strong>승자를 선택하는 규칙</strong>을 말한다. 전형적인 SOM에서는 <strong>주변 뉴런도 업데이트</strong>한다.</div>
+  </div>
+  <div class="stack">
+   <div class="card flex1">
+    <h3 class="card-title">직접 확인하는 SOM 격자 <span class="pill mint">체험</span></h3>
+    <p class="mini">아래 예시 입력을 선택하면, 각 뉴런의 2차원 가중치와 거리를 비교하여 BMU를 표시합니다.</p>
+    <div class="sample-bar spaced" id="sampleControls"><button class="sample-button active" data-sample="0">A · 활동성 낮음</button><button class="sample-button" data-sample="1">B · 문화선호 높음</button><button class="sample-button" data-sample="2">C · 활동성 높음</button><button class="sample-button" data-sample="3">D · 둘 다 높음</button></div>
+    <div class="grid-demo">
+     <div><div class="som-grid" id="somGrid" aria-label="5열 4행 SOM 경쟁층 격자" role="img"></div><div class="legend"><span><i style="background:#dceeff;border:1px solid #2d79d2"></i>BMU(승자)</span><span><i style="background:#e5f8ef;border:1px solid #8fcdbb"></i>이웃 뉴런</span></div></div>
+     <div>
+      <div class="metric"><small>입력벡터 · Input</small><strong id="inputValue">(0.12, 0.14)</strong></div>
+      <div class="metric"><small>최적 일치 뉴런 · BMU</small><strong id="bmuValue">-</strong></div>
+      <div class="metric"><small>BMU와 입력 간 거리</small><strong id="distanceValue">-</strong></div>
+      <div class="metric"><small>학습 횟수</small><strong id="trainedValue">0회</strong></div>
+      <button class="train-button" id="trainBtn">이웃까지 1회 학습 ↗</button><button class="reset-button" id="resetBtn" style="margin-top:7px;width:100%">초기 상태로</button>
+     </div>
+    </div>
+    <p class="mini spaced" id="demoFeedback" aria-live="polite">입력을 고르면 가장 유사한 뉴런이 파란색, 격자상의 가까운 이웃이 초록색으로 표시됩니다.</p>
+   </div>
+   <div class="info green-box"><strong>구분 핵심</strong> : <strong>입력공간에서의 거리</strong>로 승자(BMU)를 선택하지만, <strong>격자상 위치</strong>로 어느 이웃 뉴런까지 가중치를 조정할지 정한다.</div>
+  </div>
+ </div>
+</section>
+<!-- 4: feature comparison -->
+<section class="slide" data-index="3" aria-label="SOM 특징과 신경망 비교">
+ <p class="eyebrow">교재 p.463 · 03 특징과 차이점</p>
+ <h2 class="slide-title">SOM을 구별하는 3가지 특징</h2>
+ <p class="subtitle"><strong>비지도학습 · 이웃 관계의 대략적 보존 · 경쟁학습</strong>이 다른 신경망 접근법과 구분되는 기준이다.</p>
+ <div class="cols">
+  <div class="stack">
+   <div class="card softblue">
+    <h3 class="card-title">① <span class="key">저차원 시각화</span> · Visualization</h3>
+    <p>여러 특성을 가진 데이터를 보통 <strong>2차원 격자</strong>에 나타내므로, 패턴과 군집 경향을 한눈에 파악할 수 있다.</p>
+   </div>
+   <div class="card softmint">
+    <h3 class="card-title">② <span class="green">위상 관계</span> · Topology</h3>
+    <p>입력공간에서 유사한 관측값은 지도 위에서도 <strong>대체로 가까운 곳</strong>에 대응하도록 학습한다.</p>
+    <p class="mini spaced">※ 유사성이 항상 완벽히 보존된다는 뜻은 아닙니다.</p>
+   </div>
+   <div class="card softviolet">
+    <h3 class="card-title">③ <span class="purple">경쟁학습</span> · Competitive Learning</h3>
+    <p>오차의 역전파 대신 <strong>BMU 선택 → 이웃 가중치 갱신</strong>을 반복하는 대표적인 비지도 신경망이다.</p>
+   </div>
+  </div>
+  <div class="stack">
+   <div class="card flex1">
+    <h3 class="card-title">SOM vs 일반적인 역전파 신경망 <span class="pill orange">빈출 비교</span></h3>
+    <table class="tbl">
+     <thead><tr><th style="width:24%">구분</th><th style="width:38%">SOM</th><th>오차역전파 신경망 예시</th></tr></thead>
+     <tbody>
+      <tr><td>학습방식</td><td><strong class="green">경쟁·이웃학습</strong></td><td>손실 최소화를 위한 오차역전파</td></tr>
+      <tr><td>구성</td><td>입력층 + <strong>2차원 경쟁층</strong></td><td>입력층 + 은닉층 + 출력층</td></tr>
+      <tr><td>학습 유형</td><td><strong class="green">비지도학습</strong></td><td>교재 비교대상의 전형적 예는 <strong>지도학습</strong></td></tr>
+      <tr><td>학습 기준</td><td>유사도·거리, BMU, 격자상의 이웃</td><td>정답 레이블 및 예측오차</td></tr>
+      <tr><td>대표 목적</td><td>패턴 발견·시각화·군집 탐색</td><td>분류·회귀·예측 등</td></tr>
+     </tbody>
+    </table>
+    <div class="info orange-box spaced"><strong>정확한 해석</strong> : 모든 신경망이 지도학습인 것은 아니며, 표는 <strong>SOM과 교재에서 비교한 전형적인 역전파 기반 지도학습 신경망</strong>을 대비합니다.</div>
+   </div>
+   <div class="keyword-strip"><span>문제 키워드 세트</span><span>격자 · 위상 · BMU · 비지도</span></div>
+  </div>
+ </div>
+</section>
+<!-- 5: pros cons -->
+<section class="slide" data-index="4" aria-label="SOM 장단점">
+ <p class="eyebrow">교재 p.463 · 04 장점·단점과 출제포인트</p>
+ <h2 class="slide-title">SOM의 장단점은 <span class="key">해석 용이성</span>과 <span class="orange">설정 민감성</span>으로 정리</h2>
+ <p class="subtitle">군집의 전반적인 형태를 보는 데 유용하지만 격자 수와 가중치 초기화에 따라 학습 결과가 달라질 수 있다.</p>
+ <div class="cols">
+  <div class="card softmint">
+   <h3 class="card-title" style="color:var(--mint)">✓ 장점 · Strengths (스트렝스)</h3>
+   <div class="point"><b class="good">✓</b><span><strong>고차원 데이터 시각화</strong><br>복잡한 데이터를 2차원 지도로 표시해 이해하기 쉽다.</span></div>
+   <div class="point"><b class="good">✓</b><span><strong>패턴 발견</strong><br>비슷한 관측값의 분포와 잠재 군집 구조를 탐색한다.</span></div>
+   <div class="point"><b class="good">✓</b><span><strong>레이블 없이 학습</strong><br>정답이 없어도 자료의 구조를 스스로 조직화한다.</span></div>
+   <div class="point"><b class="good">✓</b><span><strong>역전파 불필요</strong><br>경쟁학습과 국소적 이웃 갱신으로 학습할 수 있다.</span></div>
+   <div class="info green-box spaced"><strong>활용 예시</strong> : 관광객의 선호·활동성·소비성향 등을 기반으로 서로 비슷한 관광객 유형을 지도상에 표시.</div>
+  </div>
+  <div class="card softorange">
+   <h3 class="card-title" style="color:var(--orange)">! 단점 · Limitations (리미테이션스)</h3>
+   <div class="point"><b class="bad">!</b><span><strong>초기값 영향</strong><br>초기 가중치와 초기 학습률에 따라 결과 차이가 나타날 수 있다.</span></div>
+   <div class="point"><b class="bad">!</b><span><strong>격자 크기 선정</strong><br>경쟁층의 적절한 뉴런 수와 배열을 결정하기 어렵다.</span></div>
+   <div class="point"><b class="bad">!</b><span><strong>설정 조정 필요</strong><br>학습률·이웃 범위·학습 반복 횟수에 따라 품질이 달라진다.</span></div>
+   <div class="point"><b class="bad">!</b><span><strong>거리·구조 왜곡 가능</strong><br>입력공간의 관계를 저차원에 완벽히 보존하지는 못한다.</span></div>
+   <div class="info orange-box spaced"><strong>교재 문장 보완</strong> : 역전파를 사용하지 않아 상대적으로 간단하지만, 모든 상황에서 학습 속도나 실시간 처리가 보장되는 것은 아닙니다.</div>
+  </div>
+ </div>
+ <div class="keyword-strip spaced"><span>암기 한 줄</span><span>“보이기 쉽지만, 시작값과 격자 설정이 중요하다.”</span></div>
+</section>
+<!-- 6: exam -->
+<section class="slide" data-index="5" aria-label="11회와 30회 기출문제">
+ <p class="eyebrow">교재 p.463 · 05 핵심개념체크 · 실제 제공된 기출 2문항</p>
+ <h2 class="slide-title">기출문제 48 · 49 <span class="key">직접 선택해 정답 확인</span></h2>
+ <p class="subtitle">문항별 선택지를 하나 고른 후 <strong>정답 확인</strong>을 눌러 보세요. 정답과 해설은 버튼을 누르기 전까지 숨겨집니다.</p>
+ <div class="cols">
+  <div class="card exam-card">
+   <h3 class="card-title"><span class="pill">11회 기출 · 48번</span> 클러스터링 방법</h3>
+   <p class="exam-question">고차원 데이터를 이해하기 쉬운 저차원의 뉴런으로 정렬하여 지도의 형태로 형상화하는 클러스터링 방법으로 적절한 것은?</p>
+   <div class="options" role="radiogroup" aria-label="48번 답안">
+    <label class="option"><input type="radio" name="q48" value="1">① 의사결정나무 (Decision Tree)</label>
+    <label class="option"><input type="radio" name="q48" value="2">② 연관규칙 (Association Rule)</label>
+    <label class="option"><input type="radio" name="q48" value="3">③ 랜덤포레스트 (Random Forest)</label>
+    <label class="option"><input type="radio" name="q48" value="4">④ 자기조직화지도 (SOM)</label>
+   </div>
+   <div class="exam-check"><button class="check-button" data-question="q48" data-answer="4">48번 정답 확인</button><span class="mini">힌트: 고차원 → 저차원 지도</span></div>
+   <div class="result" id="result-q48" aria-live="polite"></div>
+  </div>
+  <div class="card exam-card">
+   <h3 class="card-title"><span class="pill violet">30회 기출 · 49번</span> 경쟁층의 역할</h3>
+   <p class="exam-question">SOM은 비지도 신경망으로 고차원 데이터를 저차원의 뉴런으로 정렬한다. 입력벡터의 특성에 따라 벡터가 한 점으로 클러스터링되는 층은?</p>
+   <div class="options" role="radiogroup" aria-label="49번 답안">
+    <label class="option"><input type="radio" name="q49" value="1">① 경쟁층 (Competitive Layer)</label>
+    <label class="option"><input type="radio" name="q49" value="2">② 입력층 (Input Layer)</label>
+    <label class="option"><input type="radio" name="q49" value="3">③ 은닉층 (Hidden Layer)</label>
+    <label class="option"><input type="radio" name="q49" value="4">④ 출력층 (Output Layer)</label>
+   </div>
+   <div class="exam-check"><button class="check-button" data-question="q49" data-answer="1">49번 정답 확인</button><span class="mini">힌트: 2차원 격자</span></div>
+   <div class="result" id="result-q49" aria-live="polite"></div>
+  </div>
+ </div>
+ <div class="info spaced"><strong>해설 포인트</strong> : SOM = 저차원 지도 시각화 + 2차원 격자 경쟁층. 의사결정나무·랜덤포레스트는 일반적으로 지도학습에 활용되는 기법이며, 연관규칙은 항목 간의 공출현 관계를 탐색한다.</div>
+</section>
+<!-- 7 summary -->
+<section class="slide" data-index="6" aria-label="SOM 핵심요약과 최종암기">
+ <p class="eyebrow">교재 462–463쪽 · 06 30초 암기</p>
+ <h2 class="slide-title">SOM 시험 직전 <span class="key">최종 요약</span></h2>
+ <p class="subtitle">비지도학습의 대표적인 신경망으로, <strong>경쟁층 2차원 격자 → BMU 선택 → 이웃 가중치 갱신</strong> 순서가 핵심입니다.</p>
+ <div class="grid-summary">
+  <div class="summary-cell"><div class="number">01</div><b>학습방법</b><span>비지도학습<br>경쟁학습(Competitive Learning)</span></div>
+  <div class="summary-cell"><div class="number">02</div><b>구조</b><span>입력층 + 2차원 격자 경쟁층<br>코호넨 맵</span></div>
+  <div class="summary-cell"><div class="number">03</div><b>핵심 절차</b><span>초기화 → BMU 선택 → 이웃 갱신 → 반복</span></div>
+  <div class="summary-cell"><div class="number">04</div><b>목적</b><span>고차원 패턴을 저차원 지도에 표현 · 군집 탐색</span></div>
+ </div>
+ <div class="cols spaced">
+  <div class="stack">
+   <div class="card">
+    <h3 class="card-title">암기 공식</h3>
+    <div class="flow-steps">
+     <div class="flow-step"><span class="step-number">1</span><br>가중치<br>초기화</div>
+     <div class="flow-step"><span class="step-number">2</span><br>거리 계산<br>BMU 선정</div>
+     <div class="flow-step"><span class="step-number">3</span><br>승자·이웃<br>가중치 갱신</div>
+     <div class="flow-step"><span class="step-number">4</span><br>다음 자료<br>반복 학습</div>
+    </div>
+   </div>
+   <div class="card softblue">
+    <h3 class="card-title">한 문장 정의</h3>
+    <p class="bigline" style="font-size:clamp(16px,1.5vw,22px)">“<span class="key">유사한 데이터</span>를 2차원 <span class="green">격자상 가까이</span> 배열하도록 학습하는 <span class="purple">비지도 신경망</span>.”</p>
+   </div>
+  </div>
+  <div class="stack">
+   <div class="card softorange">
+    <h3 class="card-title">틀리기 쉬운 문장 판별</h3>
+    <table class="tbl">
+     <thead><tr><th>문장</th><th style="width:9%">판정</th></tr></thead>
+     <tbody>
+      <tr><td>SOM은 일반적으로 2차원 경쟁층을 사용한다.</td><td style="color:var(--mint);font-weight:900">○</td></tr>
+      <tr><td>정답 레이블을 이용한 오차역전파가 필수이다.</td><td style="color:var(--red);font-weight:900">×</td></tr>
+      <tr><td>BMU의 이웃 뉴런도 가중치를 갱신할 수 있다.</td><td style="color:var(--mint);font-weight:900">○</td></tr>
+      <tr><td>고차원의 모든 거리·관계를 100% 보존한다.</td><td style="color:var(--red);font-weight:900">×</td></tr>
+      <tr><td>격자 뉴런 수와 초기 가중치는 결과에 영향을 준다.</td><td style="color:var(--mint);font-weight:900">○</td></tr>
+     </tbody>
+    </table>
+   </div>
+   <div class="info green-box"><strong>기출 정답</strong> : 11회 48번 <strong>④ SOM</strong> · 30회 49번 <strong>① 경쟁층</strong></div>
+  </div>
+ </div>
+ <p class="footer-note">학습자료 범위: PART 03 데이터분석 / 5장 정형 데이터 마이닝 / SOM, 교재 pp.462–463. 제공된 텍스트를 교육용으로 정리했으며 과도한 일반화 표현은 일부 보완했습니다.</p>
+</section>
+</main>
+<footer class="foot">
+ <div class="foot-meta"><span id="counter">01 / 07</span><div class="progress-track" role="progressbar" aria-label="강의 진행률" aria-valuemin="1" aria-valuemax="7" aria-valuenow="1" id="progressTrack"><div class="progress-fill" id="progressFill"></div></div><span id="footTitle">강의 목차</span></div>
+ <div class="controls"><button class="save-btn" id="printBtn" title="전체 슬라이드 인쇄 또는 PDF 저장">인쇄·PDF</button><button class="navbtn" id="prevBtn" disabled>← 이전</button><button class="navbtn primary" id="nextBtn">다음 →</button></div>
+</footer>
+</div>
+<script>
+(()=>{
+ const slides=[...document.querySelectorAll('.slide')],tabs=[...document.querySelectorAll('.tab')];
+ const titles=['강의 목차','개요·구성','BMU·학습 과정','특징·비교','장단점','11·30회 기출','최종 암기'];
+ let current=0;
+ function show(n){current=Math.max(0,Math.min(n,slides.length-1));slides.forEach((s,i)=>{s.classList.toggle('active',i===current);s.scrollTop=0});tabs.forEach((t,i)=>{t.classList.toggle('active',i===current);t.setAttribute('aria-current',i===current?'page':'false')});document.getElementById('counter').textContent=String(current+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0');document.getElementById('footTitle').textContent=titles[current];document.getElementById('progressFill').style.width=((current+1)/slides.length*100)+'%';document.getElementById('progressTrack').setAttribute('aria-valuenow',current+1);document.getElementById('prevBtn').disabled=current===0;document.getElementById('nextBtn').disabled=current===slides.length-1;document.getElementById('nextBtn').textContent=current===slides.length-1?'학습 완료':'다음 →';}
+ document.querySelectorAll('[data-page]').forEach(btn=>btn.addEventListener('click',()=>show(Number(btn.dataset.page))));
+ document.getElementById('prevBtn').addEventListener('click',()=>show(current-1));document.getElementById('nextBtn').addEventListener('click',()=>show(current+1));document.getElementById('printBtn').addEventListener('click',()=>window.print());
+ document.addEventListener('keydown',e=>{const el=document.activeElement;if(el && (/^(INPUT|TEXTAREA|SELECT|BUTTON)$/.test(el.tagName)))return;if(e.key==='ArrowRight'||e.key==='PageDown'){e.preventDefault();show(current+1)}else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();show(current-1)}});
+ const answers={q48:{right:4,desc:'④ 자기조직화지도(SOM). 비지도 신경망으로 고차원 데이터를 저차원 격자에 배열하여 군집·패턴을 시각화한다.'},q49:{right:1,desc:'① 경쟁층(Competitive Layer). 2차원 격자 경쟁층의 뉴런이 입력과 비교되고 BMU가 선택된다.'}};
+ document.querySelectorAll('.check-button').forEach(btn=>btn.addEventListener('click',()=>{const q=btn.dataset.question;const sel=document.querySelector('input[name="'+q+'"]:checked');const box=document.getElementById('result-'+q);box.classList.add('visible');box.classList.remove('wrong');if(!sel){box.classList.add('wrong');box.textContent='답안을 먼저 선택해 주세요.';return}const correct=Number(sel.value)===answers[q].right;if(!correct)box.classList.add('wrong');box.innerHTML='<strong>'+(correct?'정답입니다!':'다시 확인해 보세요.')+'</strong> 정답은 '+(q==='q48'?'④':'①')+'입니다.<br>'+answers[q].desc;}));
+ const pts=[[.12,.14],[.27,.81],[.8,.2],[.83,.83]];const sampleNames=['A · 활동성 낮음','B · 문화선호 높음','C · 활동성 높음','D · 두 특성 높음'];
+ let sample=0,round=0,weights=[];const W=5,H=4;const grid=document.getElementById('somGrid');
+ function init(){weights=[];for(let y=0;y<H;y++)for(let x=0;x<W;x++){const wiggle=.028*Math.sin((x+1)*2.3+(y+2)*1.7);weights.push([.08+.84*x/(W-1)+wiggle,.08+.84*y/(H-1)-wiggle])}round=0;render()}
+ function getBMU(){const p=pts[sample];let best=0,min=Infinity;weights.forEach((w,i)=>{let d=Math.hypot(w[0]-p[0],w[1]-p[1]);if(d<min){min=d;best=i}});return {best,min}}
+ function render(){const b=getBMU();grid.replaceChildren();for(let i=0;i<W*H;i++){const x=i%W,y=Math.floor(i/W),bx=b.best%W,by=Math.floor(b.best/W),delta=Math.hypot(x-bx,y-by);const cell=document.createElement('div');cell.className='neuron'+(i===b.best?' winner':delta<=1.05?' neighbor':'');cell.textContent=i===b.best?'BMU':String(i+1);cell.title='뉴런 '+(i+1)+' / 가중치 ('+weights[i][0].toFixed(2)+', '+weights[i][1].toFixed(2)+')';grid.append(cell)}document.getElementById('inputValue').textContent='('+pts[sample][0].toFixed(2)+', '+pts[sample][1].toFixed(2)+')';document.getElementById('bmuValue').textContent='뉴런 '+(b.best+1)+' ('+(b.best%W+1)+'열 '+(Math.floor(b.best/W)+1)+'행)';document.getElementById('distanceValue').textContent=b.min.toFixed(3);document.getElementById('trainedValue').textContent=round+'회';document.querySelectorAll('.sample-button').forEach((t,i)=>t.classList.toggle('active',i===sample));}
+ document.querySelectorAll('.sample-button').forEach(t=>t.addEventListener('click',()=>{sample=Number(t.dataset.sample);render();document.getElementById('demoFeedback').textContent=sampleNames[sample]+' 입력의 BMU와 주변 이웃을 확인하세요.'}));
+ document.getElementById('trainBtn').addEventListener('click',()=>{const {best}=getBMU();const bX=best%W,bY=Math.floor(best/W),p=pts[sample],eta=.23,sigma=1;weights=weights.map((w,i)=>{const d2=Math.pow(i%W-bX,2)+Math.pow(Math.floor(i/W)-bY,2);const h=Math.exp(-d2/(2*sigma*sigma));return w.map((v,j)=>v+eta*h*(p[j]-v))});round++;render();document.getElementById('demoFeedback').textContent='학습 '+round+'회 완료: 선택된 승자뿐 아니라 가까운 격자 이웃도 입력쪽으로 이동했습니다.'});
+ document.getElementById('resetBtn').addEventListener('click',()=>{init();document.getElementById('demoFeedback').textContent='가중치를 처음 상태로 되돌렸습니다.'});init();show(0);
+})();
+</script>
+</body>
+</html>
