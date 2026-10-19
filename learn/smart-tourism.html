@@ -1224,10 +1224,8 @@
     .learn-article a.live8::before { content: ""; display: inline-block; width: 7px; height: 7px; margin: 0 6px 1px 0; vertical-align: middle; border-radius: 50%; background: #1f9d6a; animation: live-dot2 1.6s ease-in-out infinite; }
     @keyframes live-dot2 { 0% { opacity: 1; box-shadow: 0 0 0 0 rgba(31,157,106,.6); } 60% { opacity: .35; box-shadow: 0 0 0 6px rgba(31,157,106,0); } 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(31,157,106,0); } }
     @media (prefers-reduced-motion: reduce) { .learn-article a.live8::before { animation: none; } }
-    /* 도시 8요인 점수표 알약 — 번지는 고리 대신 또렷한 ● 하나가 깜빡임(2026-10-17) */
-    .learn-article a.live8c::before { content: "●"; display: inline-block; margin-right: 5px; color: #1f9d6a; font-size: 1em; line-height: 1; animation: live-dotc 1.4s ease-in-out infinite; }
-    @keyframes live-dotc { 0%, 100% { opacity: 1; } 50% { opacity: .2; } }
-    @media (prefers-reduced-motion: reduce) { .learn-article a.live8c::before { animation: none; } }
+    /* 도시 8요인 점수표 알약 — 깜빡이지 않는 참고 동그라미(2026-10-19) */
+    .learn-article a.live8c::before { content: "●"; display: inline-block; margin-right: 5px; color: #1f9d6a; font-size: 1em; line-height: 1; }
     /* 깜빡이는 보라 점 — 도시 심층탐색 · 평가 워크북 알약(2026-10-17, 주간 운영 표와 같은 점) */
     .learn-article a.livep::before { content: ""; display: inline-block; width: 7px; height: 7px; margin: 0 6px 1px 0; vertical-align: middle; border-radius: 50%; background: #7c3aed; animation: live-dotp 1.6s ease-in-out infinite; }
     @keyframes live-dotp { 0% { opacity: 1; box-shadow: 0 0 0 0 rgba(124,58,237,.6); } 60% { opacity: .35; box-shadow: 0 0 0 6px rgba(124,58,237,0); } 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(124,58,237,0); } }
