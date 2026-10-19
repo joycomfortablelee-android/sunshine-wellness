@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>데이터 탐색 · 개념 그림 + 기출문제 통합 학습 HTML</title>
+<style>
+:root {
+  --navy:#14385f; --navy2:#1e527f; --blue:#2c6cab; --teal:#1c8f8b;
+  --gold:#c69a3b; --bg:#eef4fa; --line:#d9e3ed; --text:#1f2d3d; --muted:#687b8e; --green:#0f766e;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:"Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",Arial,sans-serif;background:linear-gradient(180deg,#eaf2fb,#f8fbff);color:var(--text)}
+body{overflow-x:hidden}
+.app{min-height:100vh}
+.header{position:sticky;top:0;z-index:30;background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:15px 22px 13px;box-shadow:0 5px 18px rgba(10,40,70,.16)}
+.header-inner{max-width:1280px;margin:auto;display:flex;justify-content:space-between;gap:18px;align-items:center}
+.header h1{font-size:23px;margin:0 0 4px;line-height:1.25}
+.header p{margin:0;font-size:13px;opacity:.9}
+.header-badge{font-size:12px;font-weight:800;white-space:nowrap;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:7px 10px}
+.stage{display:grid;grid-template-columns:62px minmax(0,1280px) 62px;gap:12px;justify-content:center;align-items:start;padding:18px 14px 12px}
+.nav-btn{position:sticky;top:48vh;width:54px;height:54px;border:0;border-radius:50%;background:var(--navy);color:white;font-size:28px;font-weight:900;cursor:pointer;box-shadow:0 8px 20px rgba(20,56,95,.2)}
+.nav-btn:hover{transform:translateY(-2px)}
+.nav-btn:disabled{opacity:.28;cursor:not-allowed;transform:none}
+.viewer{min-width:0}
+.slide{display:none}
+.slide.active{display:block}
+.slide-head{background:#fff;border:1px solid var(--line);border-radius:18px 18px 0 0;padding:15px 20px;display:flex;justify-content:space-between;align-items:center}
+.eyebrow{font-size:11px;font-weight:900;letter-spacing:.12em;color:var(--blue)}
+.slide-head h2{margin:3px 0 0;font-size:23px;color:var(--navy)}
+.count{background:#f1f6fb;color:#5f7285;border:1px solid #dce6ef;border-radius:999px;padding:6px 10px;font-size:13px;font-weight:800}
+.visual-card{background:#fff;border-left:1px solid var(--line);border-right:1px solid var(--line);padding:22px 22px 14px}
+.connection{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;background:#fff;border-left:1px solid var(--line);border-right:1px solid var(--line);padding:12px 22px 16px}
+.connection .line{height:1px;background:#d8e3ec}
+.connection-pill{background:#eef6ff;border:1px solid #c9ddf1;color:var(--navy);font-size:14px;font-weight:900;border-radius:999px;padding:8px 14px;text-align:center}
+.question-card{background:#fff;border:1px solid var(--line);border-radius:0 0 18px 18px;padding:24px 26px 27px;box-shadow:0 14px 34px rgba(20,56,95,.08);margin-bottom:16px}
+.question-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;padding-bottom:15px;border-bottom:2px solid #edf3f8;margin-bottom:19px}
+.qnum{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
+.question-head h3{font-size:24px;margin:4px 0 0;color:var(--navy)}
+.source{font-size:12px;font-weight:800;background:#f4f7fa;border:1px solid #dde6ee;color:#647689;border-radius:999px;padding:7px 10px;white-space:nowrap}
+.label{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
+.question{font-size:19px;line-height:1.62;font-weight:800;margin:7px 0 16px}
+.option{font-size:16px;line-height:1.5;padding:11px 14px;border:1px solid #e0e8ef;background:#fafcfe;border-radius:11px;margin:8px 0}
+.subbox{background:#f8fafc;border-left:5px solid var(--gold);padding:15px 17px;border-radius:10px;margin:15px 0;line-height:1.65}
+.answer-btn{margin-top:18px;border:0;border-radius:11px;background:var(--navy);color:white;font-size:14px;font-weight:900;padding:11px 17px;cursor:pointer}
+.answer{display:none;margin-top:13px;background:#eef8f6;border:1px solid #c7e6df;border-radius:13px;padding:16px 17px;line-height:1.65}
+.answer-title{font-weight:800}
+.answer strong{font-size:23px;color:var(--green)}
+.answer p{margin:8px 0 11px}
+.memory{background:#fff8e7;border:1px solid #f0ddb0;border-radius:10px;padding:11px 13px;font-weight:800}
+.bottom-nav{max-width:1280px;margin:0 auto 28px;display:flex;justify-content:center;align-items:center;gap:12px;padding:0 12px}
+.dots{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.dot{width:12px;height:12px;border:0;border-radius:50%;background:#bdccda;cursor:pointer;padding:0}
+.dot.active{background:var(--blue);transform:scale(1.2)}
+.help{font-size:12px;color:#718397;text-align:center;margin:0 0 22px}
+
+.d-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.d-card{background:#f7fafd;border:1px solid var(--line);border-radius:12px;padding:14px}
+.d-card b{display:block;color:var(--navy);font-size:14px;margin-bottom:4px}
+.d-card span{font-size:12.5px;color:var(--muted);line-height:1.5}
+.d-note{margin-top:10px;font-size:12.5px;color:var(--muted);text-align:center}
+.boxplot-wrap{display:flex;justify-content:center;padding:10px 0}
+.boxplot{position:relative;width:70px;height:220px}
+.bp-whisker{position:absolute;left:35px;width:0;border-left:2px dashed #8aa3bd}
+.bp-cap{position:absolute;left:20px;width:30px;height:2px;background:#8aa3bd}
+.bp-box{position:absolute;left:5px;width:60px;background:#dcecff;border:2px solid var(--blue);border-radius:3px}
+.bp-median{position:absolute;left:5px;width:60px;height:2px;background:var(--navy)}
+.bp-dot{position:absolute;left:31px;width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.bp-label{position:absolute;left:78px;font-size:11px;color:var(--muted);white-space:nowrap}
+
+@media(max-width:850px){
+  .stage{grid-template-columns:1fr;padding:10px}
+  .nav-btn{position:fixed;z-index:40;bottom:20px;top:auto;width:48px;height:48px}
+  #prevBtn{left:12px} #nextBtn{right:12px}
+  .header-inner{align-items:flex-start}
+  .header-badge{display:none}
+  .question-card{padding:19px 17px 22px}
+  .question{font-size:17px}
+  .question-head h3{font-size:21px}
+}
+@media print{
+  .header,.nav-btn,.bottom-nav,.help{display:none!important}
+  .slide{display:block!important;page-break-after:always}
+  .question-card{box-shadow:none}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="header-inner">
+      <div>
+        <h1>3과목 데이터 분석 · 3장 2절 데이터 탐색</h1>
+        <p>결측값·이상값은 3장에서 매년 1회 이상 꾸준히 출제되는 영역입니다.</p>
+      </div>
+      <div class="header-badge">← → 방향키 지원</div>
+    </div>
+  </header>
+
+  <main class="stage">
+    <button class="nav-btn" id="prevBtn" onclick="goPrev()" aria-label="이전 화면">‹</button>
+    <div class="viewer">
+
+    <section class="slide active" data-index="0">
+      <div class="slide-head">
+        <div><div class="eyebrow">CONCEPT 01</div><h2>결측값(Missing Value)</h2></div>
+        <div class="count">1 / 2</div>
+      </div>
+      <div class="visual-card">
+        <div class="d-cards">
+          <div class="d-card"><b>결측값이란</b><span>입력이 누락되어 값이 없는 상태. NA · 999999 · "" · Unknown · NULL 등으로 표시된다.</span></div>
+          <div class="d-card"><b>단순 대치법</b><span>Complete Case(결측 행 삭제) · 평균대치법(비조건부/조건부) · 단순확률대치법(Hot deck 등)</span></div>
+          <div class="d-card"><b>다중 대치법</b><span>대치(Imputation)→분석(Analysis)→결합(Combination) 3단계로 m개의 가상 완전자료를 만든 뒤 결합</span></div>
+        </div>
+        <p class="d-note">R에서는 complete.cases()(레코드별 결측 여부, 결측이면 FALSE)와 is.na()(원소별 결측 여부, 결측이면 TRUE)로 확인한다.</p>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head">
+          <div><div class="qnum">QUESTION 01</div><h3>R의 결측값 표기</h3></div>
+          <div class="source">9회 기출</div>
+        </div>
+        <div class="label">관련 문제</div>
+        <div class="question">R에서 결측값을 가리키는 것으로 가장 적절한 것은?</div>
+        <div class="options">
+          <div class="option">① Inf</div><div class="option">② NaN</div><div class="option">③ NA</div><div class="option">④ dim</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>③</strong></div>
+          <p>NA는 결측값을 나타내는 R의 전용 기호이다. NaN은 "숫자가 아님"을, Inf는 무한대를 나타내며 dim은 행과 열의 수를 한번에 반환해주는 함수이다.</p>
+          <div class="memory">핵심 암기 · NA=결측 / NaN=숫자아님 / Inf=무한대</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="1">
+      <div class="slide-head">
+        <div><div class="eyebrow">CONCEPT 02</div><h2>이상값(Outlier)과 상자그림</h2></div>
+        <div class="count">2 / 2</div>
+      </div>
+      <div class="visual-card">
+        <div class="boxplot-wrap">
+          <div class="boxplot">
+            <div class="bp-dot" style="top:0"></div>
+            <div class="bp-label" style="top:-4px">이상치(Outlier)</div>
+            <div class="bp-whisker" style="top:14px;height:40px"></div>
+            <div class="bp-cap" style="top:14px"></div>
+            <div class="bp-label" style="top:24px">1.5×IQR</div>
+            <div class="bp-box" style="top:54px;height:90px"></div>
+            <div class="bp-median" style="top:95px"></div>
+            <div class="bp-label" style="top:52px">Q3(제3사분위수)</div>
+            <div class="bp-label" style="top:90px">중앙값(Median)</div>
+            <div class="bp-label" style="top:138px">Q1(제1사분위수)</div>
+            <div class="bp-whisker" style="top:144px;height:40px"></div>
+            <div class="bp-cap" style="top:184px"></div>
+            <div class="bp-label" style="top:190px">1.5×IQR</div>
+          </div>
+        </div>
+        <p class="d-note">이상치 판별은 상자그림(Boxplot)으로 확인 — 보통 Q1-1.5×IQR 미만 또는 Q3+1.5×IQR 초과 값을 이상치로 간주. ESD(평균에서 3표준편차)도 많이 쓰인다.</p>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head">
+          <div><div class="qnum">QUESTION 02</div><h3>상자수염 그림 읽기</h3></div>
+          <div class="source">32회 기출</div>
+        </div>
+        <div class="label">관련 문제</div>
+        <div class="question">아래의 상자수염 그림을 보고 옳지 않은 것을 고르시오.</div>
+        <div class="options">
+          <div class="option">① 평균의 위치를 알 수 있다.</div>
+          <div class="option">② 중앙값의 위치를 알 수 있다.</div>
+          <div class="option">③ 이상값이 존재한다.</div>
+          <div class="option">④ 상자 안 가운데에 그어진 선이 중앙값이다.</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>①</strong></div>
+          <p>상자수염 그림(Box Plot)은 데이터의 분포를 시각적으로 나타내는 도구로, 중앙값(Median), 사분위수(Q1, Q3), 이상값(Outlier) 등을 확인할 수 있다. 그러나 평균(Mean)의 위치는 상자수염 그림에 표시되지 않으므로 이를 알 수 없다.</p>
+          <div class="memory">핵심 암기 · 상자그림은 중앙값·사분위수·이상값은 보여줘도 "평균"은 보여주지 않는다</div>
+        </div>
+      </article>
+    </section>
+
+    </div>
+    <button class="nav-btn" id="nextBtn" onclick="goNext()" aria-label="다음 화면">›</button>
+  </main>
+
+  <div class="bottom-nav"><div class="dots">
+    <button class="dot active" onclick="showSlide(0)" aria-label="1번 화면"></button>
+    <button class="dot" onclick="showSlide(1)" aria-label="2번 화면"></button>
+  </div></div>
+  <div class="help">좌우 버튼 · 키보드 ← → · 하단 점을 눌러 화면을 이동할 수 있습니다.</div>
+</div>
+
+<script>
+let current = 0;
+const slides = [...document.querySelectorAll('.slide')];
+const dots = [...document.querySelectorAll('.dot')];
+function showSlide(i){
+  if(i < 0 || i >= slides.length) return;
+  current = i;
+  slides.forEach((s,idx)=>s.classList.toggle('active', idx===i));
+  dots.forEach((d,idx)=>d.classList.toggle('active', idx===i));
+  document.getElementById('prevBtn').disabled = i===0;
+  document.getElementById('nextBtn').disabled = i===slides.length-1;
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function goPrev(){ showSlide(current-1); }
+function goNext(){ showSlide(current+1); }
+function toggleAnswer(btn){
+  const box = btn.nextElementSibling;
+  const open = box.style.display === 'block';
+  box.style.display = open ? 'none' : 'block';
+  btn.textContent = open ? '정답 · 해설 확인' : '정답 · 해설 닫기';
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowLeft') goPrev();
+  if(e.key==='ArrowRight') goNext();
+});
+showSlide(0);
+</script>
+</body>
+</html>
