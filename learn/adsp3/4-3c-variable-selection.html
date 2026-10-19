@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>회귀분석 — 변수선택법과 정규화 회귀 · 개념 그림 + 기출문제 통합 학습 HTML</title>
+<style>
+:root {
+  --navy:#14385f; --navy2:#1e527f; --blue:#2c6cab; --teal:#1c8f8b;
+  --gold:#c69a3b; --bg:#eef4fa; --line:#d9e3ed; --text:#1f2d3d; --muted:#687b8e; --green:#0f766e;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:"Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",Arial,sans-serif;background:linear-gradient(180deg,#eaf2fb,#f8fbff);color:var(--text)}
+body{overflow-x:hidden}
+.app{min-height:100vh}
+.header{position:sticky;top:0;z-index:30;background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:15px 22px 13px;box-shadow:0 5px 18px rgba(10,40,70,.16)}
+.header-inner{max-width:1280px;margin:auto;display:flex;justify-content:space-between;gap:18px;align-items:center}
+.header h1{font-size:23px;margin:0 0 4px;line-height:1.25}
+.header p{margin:0;font-size:13px;opacity:.9}
+.header-badge{font-size:12px;font-weight:800;white-space:nowrap;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:7px 10px}
+.stage{display:grid;grid-template-columns:62px minmax(0,1280px) 62px;gap:12px;justify-content:center;align-items:start;padding:18px 14px 12px}
+.nav-btn{position:sticky;top:48vh;width:54px;height:54px;border:0;border-radius:50%;background:var(--navy);color:white;font-size:28px;font-weight:900;cursor:pointer;box-shadow:0 8px 20px rgba(20,56,95,.2)}
+.nav-btn:hover{transform:translateY(-2px)}
+.nav-btn:disabled{opacity:.28;cursor:not-allowed;transform:none}
+.viewer{min-width:0}
+.slide{display:none}
+.slide.active{display:block}
+.slide-head{background:#fff;border:1px solid var(--line);border-radius:18px 18px 0 0;padding:15px 20px;display:flex;justify-content:space-between;align-items:center}
+.eyebrow{font-size:11px;font-weight:900;letter-spacing:.12em;color:var(--blue)}
+.slide-head h2{margin:3px 0 0;font-size:23px;color:var(--navy)}
+.count{background:#f1f6fb;color:#5f7285;border:1px solid #dce6ef;border-radius:999px;padding:6px 10px;font-size:13px;font-weight:800}
+.visual-card{background:#fff;border-left:1px solid var(--line);border-right:1px solid var(--line);padding:22px 22px 14px}
+.connection{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;background:#fff;border-left:1px solid var(--line);border-right:1px solid var(--line);padding:12px 22px 16px}
+.connection .line{height:1px;background:#d8e3ec}
+.connection-pill{background:#eef6ff;border:1px solid #c9ddf1;color:var(--navy);font-size:14px;font-weight:900;border-radius:999px;padding:8px 14px;text-align:center}
+.question-card{background:#fff;border:1px solid var(--line);border-radius:0 0 18px 18px;padding:24px 26px 27px;box-shadow:0 14px 34px rgba(20,56,95,.08);margin-bottom:16px}
+.question-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;padding-bottom:15px;border-bottom:2px solid #edf3f8;margin-bottom:19px}
+.qnum{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
+.question-head h3{font-size:24px;margin:4px 0 0;color:var(--navy)}
+.source{font-size:12px;font-weight:800;background:#f4f7fa;border:1px solid #dde6ee;color:#647689;border-radius:999px;padding:7px 10px;white-space:nowrap}
+.label{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
+.question{font-size:19px;line-height:1.62;font-weight:800;margin:7px 0 16px}
+.option{font-size:16px;line-height:1.5;padding:11px 14px;border:1px solid #e0e8ef;background:#fafcfe;border-radius:11px;margin:8px 0}
+.subbox{background:#f8fafc;border-left:5px solid var(--gold);padding:15px 17px;border-radius:10px;margin:15px 0;line-height:1.65}
+.answer-btn{margin-top:18px;border:0;border-radius:11px;background:var(--navy);color:white;font-size:14px;font-weight:900;padding:11px 17px;cursor:pointer}
+.answer{display:none;margin-top:13px;background:#eef8f6;border:1px solid #c7e6df;border-radius:13px;padding:16px 17px;line-height:1.65}
+.answer-title{font-weight:800}
+.answer strong{font-size:23px;color:var(--green)}
+.answer p{margin:8px 0 11px}
+.memory{background:#fff8e7;border:1px solid #f0ddb0;border-radius:10px;padding:11px 13px;font-weight:800}
+.bottom-nav{max-width:1280px;margin:0 auto 28px;display:flex;justify-content:center;align-items:center;gap:12px;padding:0 12px}
+.dots{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.dot{width:12px;height:12px;border:0;border-radius:50%;background:#bdccda;cursor:pointer;padding:0}
+.dot.active{background:var(--blue);transform:scale(1.2)}
+.help{font-size:12px;color:#718397;text-align:center;margin:0 0 22px}
+
+.d-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.d-card{background:#f7fafd;border:1px solid var(--line);border-radius:12px;padding:14px}
+.d-card b{display:block;color:var(--navy);font-size:14px;margin-bottom:4px}
+.d-card span{font-size:12.5px;color:var(--muted);line-height:1.5}
+.d-note{margin-top:10px;font-size:12.5px;color:var(--muted);text-align:center}
+.d-flow{display:flex;flex-wrap:wrap;align-items:stretch;justify-content:center;gap:10px}
+.d-box{flex:1 1 150px;min-width:120px;background:#f3f8fd;border:1.5px solid #bfd6ec;border-radius:12px;padding:14px 12px;text-align:center;font-weight:800;color:var(--navy);font-size:14px;display:flex;flex-direction:column;justify-content:center;gap:4px}
+.d-box small{display:block;font-weight:600;color:var(--muted);font-size:11.5px}
+.d-arrow{align-self:center;font-size:22px;font-weight:900;color:var(--gold);flex:0 0 auto}
+.code-ex{background:#f8fafc;border-left:5px solid var(--gold);padding:12px 15px;border-radius:9px;font-family:"Consolas","D2Coding",monospace;font-size:12px;line-height:1.65;white-space:pre-wrap}
+
+@media(max-width:850px){
+  .stage{grid-template-columns:1fr;padding:10px}
+  .nav-btn{position:fixed;z-index:40;bottom:20px;top:auto;width:48px;height:48px}
+  #prevBtn{left:12px} #nextBtn{right:12px}
+  .header-inner{align-items:flex-start}
+  .header-badge{display:none}
+  .question-card{padding:19px 17px 22px}
+  .question{font-size:17px}
+  .question-head h3{font-size:21px}
+  .d-flow{flex-direction:column}
+  .d-arrow{transform:rotate(90deg)}
+}
+@media print{
+  .header,.nav-btn,.bottom-nav,.help{display:none!important}
+  .slide{display:block!important;page-break-after:always}
+  .question-card{box-shadow:none}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="header-inner">
+      <div>
+        <h1>4장 3절 회귀분석 (3) 변수선택법과 정규화 회귀</h1>
+        <p>각 화면에서 개념 그림을 먼저 보고, 바로 아래 연결된 기출문제를 풀어보세요.</p>
+      </div>
+      <div class="header-badge">← → 방향키 지원</div>
+    </div>
+  </header>
+
+  <main class="stage">
+    <button class="nav-btn" id="prevBtn" onclick="goPrev()" aria-label="이전 화면">‹</button>
+    <div class="viewer">
+
+    <section class="slide active" data-index="0">
+      <div class="slide-head">
+        <div><div class="eyebrow">CONCEPT 01</div><h2>단계적 변수선택법 3가지</h2></div>
+        <div class="count">1 / 4</div>
+      </div>
+      <div class="visual-card">
+        <div class="d-cards">
+          <div class="d-card"><b>전진선택법</b><span>절편만 있는 모형에서 시작해 중요한 변수부터 차례로 추가</span></div>
+          <div class="d-card"><b>후진제거법</b><span>모든 변수를 넣은 모형에서 가장 영향이 적은 변수부터 하나씩 제거</span></div>
+          <div class="d-card"><b>단계선택법</b><span>전진선택을 하며 기존 변수의 중요도가 약화되면 제거도 함께 수행</span></div>
+        </div>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 1번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head">
+          <div><div class="qnum">QUESTION 01</div><h3>변수 선택법 설명으로 부적절한 것</h3></div>
+          <div class="source">33회 기출</div>
+        </div>
+        <div class="label">관련 문제</div>
+        <div class="question">회귀분석에서 변수 선택법은 모델의 성능을 향상시키는 데 중요한 역할을 한다. 다음 중 변수 선택법에 대한 설명으로 부적절한 것은?</div>
+        <div class="options">
+          <div class="option">① 전진 선택법은 중요하다고 판단되는 설명 변수를 하나씩 추가하는 방식이다.</div>
+          <div class="option">② 전진 선택법으로 변수를 추가할 때 기존 선택된 변수들의 중요도에 영향을 받지 않는다.</div>
+          <div class="option">③ 후진 제거법은 설명 변수의 개수가 많을 경우 사용이 까다로울 수 있다.</div>
+          <div class="option">④ 전진 선택법은 입력 변수의 작은 변동에도 민감하여 결과가 크게 달라질 수 있다.</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>②</strong></div>
+          <p>전진 선택법은 기존에 선택된 변수와 새로 추가되는 변수의 관계를 고려하여 변수를 추가한다. 기존 변수들의 중요도가 추가 변수 선택에 영향을 미친다. 나머지 선택지는 전진 선택법과 후진 제거법의 특징을 올바르게 설명하고 있다.</p>
+          <div class="memory">핵심 암기 · 전진선택법도 "기존 변수와의 관계"를 고려한다 — 독립적이지 않음</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="1">
+      <div class="slide-head">
+        <div><div class="eyebrow">CONCEPT 02</div><h2>벌점화된 선택 기준 — AIC · BIC · Cp</h2></div>
+        <div class="count">2 / 4</div>
+      </div>
+      <div class="visual-card">
+        <div class="d-flow">
+          <div class="d-box">모델 복잡도<small>변수가 많을수록 ↑</small></div>
+          <div class="d-arrow">+</div>
+          <div class="d-box">벌점(penalty)<small>AIC · BIC</small></div>
+          <div class="d-arrow">=</div>
+          <div class="d-box">값이 최소인 모델<small>선택</small></div>
+        </div>
+        <p class="d-note">AIC·BIC는 값이 작을수록 좋은 모델. Cp값이 변수 개수(p)와 비슷하면 편향이 작은 우수한 모델을 의미한다.</p>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 2번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head">
+          <div><div class="qnum">QUESTION 02</div><h3>변수 선택법 설명으로 부적절한 것</h3></div>
+          <div class="source">5회 기출</div>
+        </div>
+        <div class="label">관련 문제</div>
+        <div class="question">회귀분석에서 변수 선택법에 대한 설명으로 가장 부적절한 것은?</div>
+        <div class="options">
+          <div class="option">① 전진선택법은 중요하다고 생각되는 설명변수부터 차례로 선택하는 방법이다.</div>
+          <div class="option">② 전진선택법과 후진선택법의 결과가 항상 동일하지는 않다.</div>
+          <div class="option">③ 모든 가능한 회귀모형은 독립변수들의 조합으로 이루어진 회귀모형 중 가장 적합하게 나타난 모형을 선택하는 방법이다.</div>
+          <div class="option">④ 전진선택법으로 변수를 추가할 때 기존 변수들의 중요도는 영향을 받지 않는다.</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>④</strong></div>
+          <p>전진선택법은 변수를 하나씩 추가하며 모형의 적합도를 평가하는 방법으로, 새 변수를 추가할 때 기존 변수들의 중요도나 설명력은 변동될 수 있다. 기존 변수의 중요도가 변경될 가능성을 고려하지 않는 것은 오류를 유발할 수 있다. 1번과 2번 선택지는 전진선택법과 후진선택법의 개념을 정확히 설명하고 있으며, 3번 선택지는 회귀모형을 검토하는 방법에 대한 정의를 적절히 기술하고 있다.</p>
+          <div class="memory">핵심 암기 · 변수를 추가하면 "기존 변수의 중요도도" 함께 바뀔 수 있다</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="2">
+      <div class="slide-head">
+        <div><div class="eyebrow">CONCEPT 03</div><h2>R의 lm() 결과 읽기 실전</h2></div>
+        <div class="count">3 / 4</div>
+      </div>
+      <div class="visual-card">
+        <div class="code-ex">&gt; summary(lm(Chick$weight~Chick$Time),data=Chick)
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept)    24.4654     6.7279   3.636  0.00456 **
+Chick$Time      7.9879     0.5236  15.255  2.97e-08 ***
+---
+Residual standard error: 12.29 on 10 degrees of freedom
+Multiple R-squared: 0.9588, Adjusted R-squared: 0.9547
+F-statistic: 232.7 on 1 and 10 DF,  p-value: 2.974e-08</div>
+        <p class="d-note">기울기(Time 계수) p-value(2.97e-08) ≪ 0.05 → 매우 유의. F-statistic의 p-value도 ≪ 0.05 → 모형 전체가 통계적으로 유의. Intercept의 p-value(0.00456)도 0.05보다는 작아 유의하지만 0.001보다는 커서 "0.1% 이하로 매우 유의"는 과장된 해석.</p>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 3번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head">
+          <div><div class="qnum">QUESTION 03</div><h3>코드 실행 결과 해석</h3></div>
+          <div class="source">36회 기출</div>
+        </div>
+        <div class="label">관련 문제</div>
+        <div class="question">다음 중 아래 코드 실행 결과에 대한 설명으로 가장 적절한 것은?</div>
+        <div class="code-ex">&gt; summary(lm(Chick$weight~Chick$Time),data=Chick)
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept)    24.4654     6.7279   3.636  0.00456 **
+Chick$Time      7.9879     0.5236  15.255  2.97e-08 ***
+---
+Residual standard error: 12.29 on 10 degrees of freedom
+Multiple R-squared: 0.9588, Adjusted R-squared: 0.9547
+F-statistic: 232.7 on 1 and 10 DF,  p-value: 2.974e-08</div>
+        <div class="options">
+          <div class="option">① 위의 모델은 단순 선형 회귀가 아닌 다항 회귀 모델이다.</div>
+          <div class="option">② 추정된 회귀식의 기울기는 7.98790이지만, Time 변수의 계수는 유의하지 않으며 모델 설명력에 큰 영향을 주지 않는다.</div>
+          <div class="option">③ 회귀모형은 유의수준 5% 하에서 통계적으로 유의미하다.</div>
+          <div class="option">④ Intercept의 p-value가 유의수준 0.1% 이하이므로 매우 유의미한 값이다.</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>③</strong></div>
+          <p>주어진 코드는 단순 선형 회귀 모델로, 독립 변수로 Chick$Time만 사용하고 있으며 F-statistic 값이 232.70이며, p-value가 0.05보다 작으므로 5% 유의수준에서 회귀모형이 통계적으로 유의미하다는 것을 나타낸다. Chick$Time의 p-value는 0.05보다 작아 통계적으로 매우 유의하다. Intercept의 p-value는 0.00456으로 0.001보다 크므로 유의수준 0.1%이하에서 통계적으로 유의하지 않다.</p>
+          <div class="memory">핵심 암기 · 별표(***) 개수가 많을수록 더 유의 — Pr(&gt;|t|) 값이 작을수록 유의</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="3">
+      <div class="slide-head">
+        <div><div class="eyebrow">CONCEPT 04</div><h2>정규화 회귀 — Ridge · Lasso</h2></div>
+        <div class="count">4 / 4</div>
+      </div>
+      <div class="visual-card">
+        <div class="d-cards">
+          <div class="d-card"><b>Ridge 회귀</b><span>가중치 제곱합을 최소화하는 제약(L2 규제) — 계수를 0에 가깝게, 완전히 0으로 만들진 않음</span></div>
+          <div class="d-card"><b>Lasso 회귀</b><span>가중치 절댓값 합을 최소화하는 제약(L1 규제) — 불필요한 변수의 계수를 0으로 만들어 변수 선택 효과</span></div>
+          <div class="d-card"><b>ElasticNet</b><span>Ridge와 Lasso를 절충한 모델</span></div>
+        </div>
+        <p class="d-note">정규화 회귀는 계수에 제약을 추가해 과적합(Overfitting)을 막는 방법 — 학습데이터 설명력을 조금 포기하고 미래 데이터에 안정적인 결과를 낸다.</p>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 4번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head">
+          <div><div class="qnum">QUESTION 04</div><h3>Lasso 회귀모형 설명</h3></div>
+          <div class="source">35회 기출</div>
+        </div>
+        <div class="label">관련 문제</div>
+        <div class="question">다음 중 Lasso 회귀모형에 대한 설명으로 부적절한 것은?</div>
+        <div class="options">
+          <div class="option">① 회귀계수에 비례하여 가중치를 부여하는 방식이다.</div>
+          <div class="option">② 중요한 변수를 선택하고 불필요한 변수를 제거하는 효과가 있다.</div>
+          <div class="option">③ penalty 조정 파라미터가 존재한다.</div>
+          <div class="option">④ L2 penalty를 사용한다.</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>④</strong></div>
+          <p>Lasso 회귀모형은 L1 penalty를 사용하여 가중치를 조정하며, 불필요한 변수를 제거하고 중요한 변수를 선택하는 데 효과적이다. L2 penalty는 Ridge 회귀모형에서 사용된다.</p>
+          <div class="memory">핵심 암기 · Lasso = L1(절댓값, 변수선택 가능) / Ridge = L2(제곱, 0은 안 됨)</div>
+        </div>
+      </article>
+    </section>
+
+    </div>
+    <button class="nav-btn" id="nextBtn" onclick="goNext()" aria-label="다음 화면">›</button>
+  </main>
+
+  <div class="bottom-nav"><div class="dots">
+    <button class="dot active" onclick="showSlide(0)" aria-label="1번 화면"></button>
+    <button class="dot" onclick="showSlide(1)" aria-label="2번 화면"></button>
+    <button class="dot" onclick="showSlide(2)" aria-label="3번 화면"></button>
+    <button class="dot" onclick="showSlide(3)" aria-label="4번 화면"></button>
+  </div></div>
+  <div class="help">좌우 버튼 · 키보드 ← → · 하단 점을 눌러 화면을 이동할 수 있습니다.</div>
+</div>
+
+<script>
+let current = 0;
+const slides = [...document.querySelectorAll('.slide')];
+const dots = [...document.querySelectorAll('.dot')];
+function showSlide(i){
+  if(i < 0 || i >= slides.length) return;
+  current = i;
+  slides.forEach((s,idx)=>s.classList.toggle('active', idx===i));
+  dots.forEach((d,idx)=>d.classList.toggle('active', idx===i));
+  document.getElementById('prevBtn').disabled = i===0;
+  document.getElementById('nextBtn').disabled = i===slides.length-1;
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function goPrev(){ showSlide(current-1); }
+function goNext(){ showSlide(current+1); }
+function toggleAnswer(btn){
+  const box = btn.nextElementSibling;
+  const open = box.style.display === 'block';
+  box.style.display = open ? 'none' : 'block';
+  btn.textContent = open ? '정답 · 해설 확인' : '정답 · 해설 닫기';
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowLeft') goPrev();
+  if(e.key==='ArrowRight') goNext();
+});
+showSlide(0);
+</script>
+</body>
+</html>
