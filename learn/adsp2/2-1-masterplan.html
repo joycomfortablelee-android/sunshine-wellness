@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>마스터 플랜 수립 프레임워크 · 이론 + 기출문제 통합 학습</title>
+<style>
+:root {
+  --navy:#14385f; --navy2:#1e527f; --blue:#2c6cab; --teal:#1c8f8b;
+  --gold:#c69a3b; --bg:#eef4fa; --line:#d9e3ed; --text:#1f2d3d; --muted:#687b8e; --green:#0f766e;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:"Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",Arial,sans-serif;background:linear-gradient(180deg,#eaf2fb,#f8fbff);color:var(--text)}
+body{overflow-x:hidden}
+.app{min-height:100vh}
+.header{position:sticky;top:0;z-index:30;background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:15px 22px 13px;box-shadow:0 5px 18px rgba(10,40,70,.16)}
+.header-inner{max-width:1280px;margin:auto;display:flex;justify-content:space-between;gap:18px;align-items:center}
+.header h1{font-size:22px;margin:0 0 4px;line-height:1.25}
+.header p{margin:0;font-size:13px;opacity:.9}
+.header-badge{font-size:12px;font-weight:800;white-space:nowrap;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:7px 10px}
+.stage{display:grid;grid-template-columns:62px minmax(0,1280px) 62px;gap:12px;justify-content:center;align-items:start;padding:18px 14px 12px}
+.nav-btn{position:sticky;top:48vh;width:54px;height:54px;border:0;border-radius:50%;background:var(--navy);color:white;font-size:28px;font-weight:900;cursor:pointer;box-shadow:0 8px 20px rgba(20,56,95,.2)}
+.nav-btn:hover{transform:translateY(-2px)}
+.nav-btn:disabled{opacity:.28;cursor:not-allowed;transform:none}
+.viewer{min-width:0}
+.slide{display:none}
+.slide.active{display:block}
+.slide-head{background:#fff;border:1px solid var(--line);border-radius:18px 18px 0 0;padding:15px 20px;display:flex;justify-content:space-between;align-items:center}
+.eyebrow{font-size:11px;font-weight:900;letter-spacing:.1em;color:var(--blue)}
+.slide-head h2{margin:3px 0 0;font-size:22px;color:var(--navy)}
+.count{background:#f1f6fb;color:#5f7285;border:1px solid #dce6ef;border-radius:999px;padding:6px 10px;font-size:13px;font-weight:800;white-space:nowrap}
+.visual-card{background:#fff;border-left:1px solid var(--line);border-right:1px solid var(--line);padding:20px 22px 10px}
+.theory-box{background:#f8fafc;border:1px solid #e2eaf1;border-radius:14px;padding:16px 18px;margin-bottom:16px;line-height:1.6;font-size:15px}
+.theory-box b{color:var(--navy)}
+.terms{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
+.term{border-radius:12px;padding:13px 14px;border:1px solid var(--line);background:#fafcfe;font-size:13.5px}
+.term b{display:block;color:var(--navy);font-size:14px;margin-bottom:3px}
+.term.not{background:#fdeeee;border-color:#f0c9c9}
+.term.not b{color:#9a3a3a}
+.vbox{display:flex;align-items:center;justify-content:center;gap:10px;margin:16px 0;flex-wrap:wrap}
+.vcard{background:#dde7f0;color:#4a5a6b;border-radius:14px;padding:16px 18px;text-align:center;font-weight:900;min-width:96px}
+.vcard.hit{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff}
+.vplus{font-size:22px;color:var(--blue);font-weight:900}
+.cmp2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.cmp2 .c{border-radius:14px;padding:14px;border:1px solid var(--line);background:#fafcfe}
+.cmp2 .c b{display:block;color:var(--navy);font-size:14px;margin-bottom:6px}
+.connection{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;background:#fff;border-left:1px solid var(--line);border-right:1px solid var(--line);padding:12px 22px 16px}
+.connection .line{height:1px;background:#d8e3ec}
+.connection-pill{background:#eef6ff;border:1px solid #c9ddf1;color:var(--navy);font-size:14px;font-weight:900;border-radius:999px;padding:8px 14px;text-align:center}
+.question-card{background:#fff;border:1px solid var(--line);border-radius:0 0 18px 18px;padding:24px 26px 27px;box-shadow:0 14px 34px rgba(20,56,95,.08);margin-bottom:16px}
+.question-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;padding-bottom:15px;border-bottom:2px solid #edf3f8;margin-bottom:19px}
+.qnum{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
+.question-head h3{font-size:22px;margin:4px 0 0;color:var(--navy)}
+.source{font-size:12px;font-weight:800;background:#f4f7fa;border:1px solid #dde6ee;color:#647689;border-radius:999px;padding:7px 10px;white-space:nowrap}
+.label{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
+.question{font-size:18px;line-height:1.62;font-weight:800;margin:7px 0 16px}
+.option{font-size:16px;line-height:1.5;padding:11px 14px;border:1px solid #e0e8ef;background:#fafcfe;border-radius:11px;margin:8px 0}
+.subbox{background:#f8fafc;border-left:5px solid var(--gold);padding:13px 15px;border-radius:10px;margin:0 0 16px;line-height:1.6;font-weight:700}
+.answer-btn{margin-top:18px;border:0;border-radius:11px;background:var(--navy);color:white;font-size:14px;font-weight:900;padding:11px 17px;cursor:pointer}
+.answer{display:none;margin-top:13px;background:#eef8f6;border:1px solid #c7e6df;border-radius:13px;padding:16px 17px;line-height:1.65}
+.answer-title{font-weight:800}
+.answer strong{font-size:22px;color:var(--green)}
+.answer p{margin:8px 0 11px}
+.memory{background:#fff8e7;border:1px solid #f0ddb0;border-radius:10px;padding:11px 13px;font-weight:800}
+.bottom-nav{max-width:1280px;margin:0 auto 28px;display:flex;justify-content:center;align-items:center;gap:12px;padding:0 12px}
+.dots{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.dot{width:12px;height:12px;border:0;border-radius:50%;background:#bdccda;cursor:pointer;padding:0}
+.dot.active{background:var(--blue);transform:scale(1.2)}
+.help{font-size:12px;color:#718397;text-align:center;margin:0 0 22px}
+@media(max-width:850px){
+  .stage{grid-template-columns:1fr;padding:10px}
+  .nav-btn{position:fixed;z-index:40;bottom:20px;top:auto;width:48px;height:48px}
+  #prevBtn{left:12px} #nextBtn{right:12px}
+  .header-inner{align-items:flex-start}
+  .header-badge{display:none}
+  .question-card{padding:19px 17px 22px}
+  .question{font-size:16.5px}
+  .question-head h3{font-size:19px}
+  .terms,.cmp2{grid-template-columns:1fr}
+}
+@media print{
+  .header,.nav-btn,.bottom-nav,.help{display:none!important}
+  .slide{display:block!important;page-break-after:always}
+  .question-card{box-shadow:none}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="header-inner">
+      <div>
+        <h1>2과목 2장 1절 · 마스터 플랜 수립 프레임워크</h1>
+        <p>이론을 먼저 보고, 바로 아래 연결된 기출문제를 풀어보세요. (교재 p.146–152)</p>
+      </div>
+      <div class="header-badge">← → 방향키 지원</div>
+    </div>
+  </header>
+
+  <main class="stage">
+    <button class="nav-btn" id="prevBtn" onclick="goPrev()" aria-label="이전 화면">‹</button>
+    <div class="viewer">
+
+    <section class="slide active" data-index="0">
+      <div class="slide-head"><div><div class="eyebrow">THEORY 01 · 마스터플랜 적용 범위</div><h2>적용 범위 및 방식의 고려요소</h2></div><div class="count">1 / 4</div></div>
+      <div class="visual-card">
+        <div class="theory-box">분석 마스터 플랜은 과제를 어떤 순서·방식으로 추진할지에 대한 가이드라인을 제공한다. 적용 범위 및 방식은 <b>기술</b>, <b>업무 내재화</b>, <b>분석 데이터</b>의 활용 수준에 초점을 맞추며, 투입 비용 수준은 별도의 <b>예산 관리</b> 영역으로 다룬다.</div>
+        <div class="terms">
+          <div class="term"><b>기술 적용 수준</b>어느 수준까지 분석 기술을 적용할지</div>
+          <div class="term"><b>업무 내재화 적용 수준</b>조직 업무에 분석을 얼마나 내재화할지</div>
+          <div class="term"><b>분석 데이터 적용 수준</b>어떤 범위의 데이터까지 분석에 활용할지</div>
+        </div>
+        <div class="theory-box not" style="background:#fdeeee;border-color:#f0c9c9;margin-bottom:0"><b style="color:#9a3a3a">투입 비용 수준</b>은 적용 범위·방식이 아니라 예산 관리의 영역이다.</div>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 19번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head"><div><div class="qnum">QUESTION 19</div><h3>적용 범위 및 방식의 고려요소</h3></div><div class="source">36회 기출</div></div>
+        <div class="label">관련 문제</div>
+        <div class="question">데이터 분석 프로젝트를 설계할 때, 분석 마스터 플랜은 중요한 가이드라인을 제공한다. 다음 중, 적용 범위 및 방식에 대한 고려요소로 적절하지 않은 것은?</div>
+        <div class="options">
+          <div class="option">① 기술 적용 수준</div>
+          <div class="option">② 업무 내재화 적용 수준</div>
+          <div class="option">③ 분석 데이터 적용 수준</div>
+          <div class="option">④ 투입 비용 수준</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>④</strong></div>
+          <p>분석 마스터 플랜의 적용 범위 및 방식은 기술, 업무 내재화, 분석 데이터의 활용 수준에 초점이 맞춰지며, 투입 비용 수준은 예산 관리의 영역으로 고려된다.</p>
+          <div class="memory">핵심 암기 · 적용범위·방식 = 기술·업무내재화·데이터 수준 / 비용은 별도 예산관리</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="1">
+      <div class="slide-head"><div><div class="eyebrow">THEORY 02 · 중장기 로드맵</div><h2>ISP (Information Strategy Planning)</h2></div><div class="count">2 / 4</div></div>
+      <div class="visual-card">
+        <div class="theory-box">기업 및 공공기관은 시스템의 중장기 로드맵을 정의하기 위해 <b>ISP(정보전략계획)</b>를 수행한다. 정보 기술 또는 정보시스템을 전략적으로 활용하기 위해 조직 내·외부 환경을 분석해 기회나 문제점을 도출하고, 사용자 요구사항을 분석해 시스템 구축 우선순위를 결정하는 등 중장기 마스터 플랜을 수립하는 절차다.</div>
+        <div class="terms">
+          <div class="term hit" style="background:#eef8f6;border-color:#c7e6df"><b style="color:var(--green)">ISP</b>정보 기술·시스템을 전략적으로 활용하기 위한 중장기 계획 수립 과정</div>
+          <div class="term"><b>BPR</b>프로세스 재설계 (Business Process Reengineering)</div>
+          <div class="term"><b>BPM / ERP</b>프로세스 관리 / 전사적 자원관리 시스템</div>
+        </div>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 20번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head"><div><div class="qnum">QUESTION 20</div><h3>중장기 로드맵 수립 절차 용어</h3></div><div class="source">37회 기출</div></div>
+        <div class="label">관련 문제</div>
+        <div class="question">다음 설명에 맞는 용어는 무엇인가?</div>
+        <div class="subbox">기업 및 공공기관에서는 시스템의 중장기 로드맵을 정의하기 위한 ( )을(를) 수행한다. ( )은(는) 정보 기술 또는 정보시스템을 전략적으로 활용하기 위하여 조직 내·외부 환경을 분석하여 기회나 문제점을 도출하고 사용자의 요구사항을 분석하여 시스템 구축 우선순위를 결정하는 등 중장기 마스터 플랜을 수립하는 절차이다.</div>
+        <div class="options">
+          <div class="option">① BPR(Business Process Reengineering)</div>
+          <div class="option">② ISP(Information Strategy Planning)</div>
+          <div class="option">③ BPM(Business Process Management)</div>
+          <div class="option">④ ERP(Enterprise Resource Planning)</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>②</strong></div>
+          <p>ISP는 정보 기술과 시스템을 전략적으로 활용하기 위한 중장기 계획을 수립하는 과정이다. BPR은 프로세스 재설계, BPM은 프로세스 관리, ERP는 자원 관리 시스템이다.</p>
+          <div class="memory">핵심 암기 · ISP = 중장기 "정보전략" 로드맵 수립 절차</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="2">
+      <div class="slide-head"><div><div class="eyebrow">THEORY 03 · ROI 관점의 빅데이터 특징</div><h2>3V + Value</h2></div><div class="count">3 / 4</div></div>
+      <div class="visual-card">
+        <div class="theory-box">ROI(투자 수익) 관점에서 빅데이터의 핵심 특징은 투입 요소인 <b>3V(Volume·Variety·Velocity)</b>와 산출(효과) 요소인 <b>Value</b>로 나뉜다. 4V 중 효과(Return)와 가장 밀접하게 관련된 요소는 Value다.</div>
+        <div class="vbox">
+          <div class="vcard">Volume<br><span style="font-weight:700;font-size:11px">양</span></div>
+          <div class="vplus">+</div>
+          <div class="vcard">Variety<br><span style="font-weight:700;font-size:11px">다양성</span></div>
+          <div class="vplus">+</div>
+          <div class="vcard">Velocity<br><span style="font-weight:700;font-size:11px">속도</span></div>
+          <div class="vplus">→</div>
+          <div class="vcard hit">Value<br><span style="font-weight:700;font-size:11px">효과·투자(Investment)</span></div>
+        </div>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 21번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head"><div><div class="qnum">QUESTION 21</div><h3>4V 특성과 효과(Return)</h3></div><div class="source">39회 기출</div></div>
+        <div class="label">관련 문제</div>
+        <div class="question">다음 빅데이터의 4V 특성 중에서 효과(return)와 가장 관련이 깊은 요소는?</div>
+        <div class="options">
+          <div class="option">① Volume</div>
+          <div class="option">② Variety</div>
+          <div class="option">③ Velocity</div>
+          <div class="option">④ Value</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>④</strong></div>
+          <p>빅데이터의 4V 중 Value(가치)는 데이터를 활용하여 얻을 수 있는 효과나 결과와 가장 밀접하게 관련이 있다. Volume은 데이터의 양, Variety는 데이터의 다양한 유형, Velocity는 데이터가 생성되고 처리되는 속도를 각각 의미한다.</p>
+          <div class="memory">핵심 암기 · Volume·Variety·Velocity = 투입(3V) / Value = 산출(효과·Return)</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="3">
+      <div class="slide-head"><div><div class="eyebrow">THEORY 04 · 과제 우선순위</div><h2>분석 ROI와 우선순위 평가기준</h2></div><div class="count">4 / 4</div></div>
+      <div class="visual-card">
+        <div class="theory-box">분석 과제의 우선순위는 <b>시급성</b>과 <b>난이도</b> 두 축으로 평가한다. 시급성이 높다고 해서 난이도와 무관하게 우선순위가 무조건 낮아지는 것은 아니며, 최종 우선순위는 의사결정권자의 판단에 따라 조정될 수 있다.</div>
+        <div class="cmp2">
+          <div class="c"><b>시급성 (전략적 중요도)</b>현재 관점의 전략적 중요도를 기준으로 평가</div>
+          <div class="c"><b>난이도 (복잡성·수준)</b>데이터 준비도·분석 성숙도를 평가한 결과에 따라 결정</div>
+        </div>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 22번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head"><div><div class="qnum">QUESTION 22</div><h3>분석 ROI 요소와 우선순위 평가기준</h3></div><div class="source">33회 기출</div></div>
+        <div class="label">관련 문제</div>
+        <div class="question">분석 ROI와 분석 우선순위 설정은 빅데이터 활용에서 중요한 과정이다. 다음 중 분석 ROI 요소와 우선순위 평가기준에 대한 설명으로 가장 부적절한 것은?</div>
+        <div class="options">
+          <div class="option">① 분석 과제의 시급성은 전략적 중요도를 기준으로 평가하며, 난이도는 분석 복잡성과 수준을 기준으로 평가한다.</div>
+          <div class="option">② 분석 난이도는 조직의 데이터 준비도와 분석 성숙도를 평가한 결과에 따라 결정된다.</div>
+          <div class="option">③ 시급성이 높은 동시에 난이도가 높은 과제는 의사결정권자의 판단에 따라 우선순위가 변경될 수 있다.</div>
+          <div class="option">④ 시급성이 높은 과제는 난이도와 상관없이 항상 우선순위가 낮아진다.</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>④</strong></div>
+          <p>분석 과제의 시급성은 전략적 중요도를 고려하여 평가된다. 이는 시급한 과제가 전략적으로 얼마나 중요하고 분석 목표에 얼마나 부합하는지 종합적으로 판단하는 과정이다. 난이도와 상관없이 항상 우선순위가 낮아진다는 설명은 빅데이터 분석의 일반적인 우선순위 설정 원칙에 맞지 않는다.</p>
+          <div class="memory">핵심 암기 · "항상 ~하다"처럼 예외 없이 단정하는 선지는 오답일 가능성이 높다</div>
+        </div>
+      </article>
+    </section>
+
+    </div>
+    <button class="nav-btn" id="nextBtn" onclick="goNext()" aria-label="다음 화면">›</button>
+  </main>
+
+  <div class="bottom-nav"><div class="dots">
+    <button class="dot active" onclick="showSlide(0)" aria-label="1번 화면"></button>
+    <button class="dot" onclick="showSlide(1)" aria-label="2번 화면"></button>
+    <button class="dot" onclick="showSlide(2)" aria-label="3번 화면"></button>
+    <button class="dot" onclick="showSlide(3)" aria-label="4번 화면"></button>
+  </div></div>
+  <div class="help">좌우 버튼 · 키보드 ← → · 하단 점을 눌러 화면을 이동할 수 있습니다.</div>
+</div>
+
+<script>
+let current = 0;
+const slides = [...document.querySelectorAll('.slide')];
+const dots = [...document.querySelectorAll('.dot')];
+function showSlide(i){
+  if(i < 0 || i >= slides.length) return;
+  current = i;
+  slides.forEach((s,idx)=>s.classList.toggle('active', idx===i));
+  dots.forEach((d,idx)=>d.classList.toggle('active', idx===i));
+  document.getElementById('prevBtn').disabled = i===0;
+  document.getElementById('nextBtn').disabled = i===slides.length-1;
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function goPrev(){ showSlide(current-1); }
+function goNext(){ showSlide(current+1); }
+function toggleAnswer(btn){
+  const box = btn.nextElementSibling;
+  const open = box.style.display === 'block';
+  box.style.display = open ? 'none' : 'block';
+  btn.textContent = open ? '정답 · 해설 확인' : '정답 · 해설 닫기';
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowLeft') goPrev();
+  if(e.key==='ArrowRight') goNext();
+});
+showSlide(0);
+</script>
+</body>
+</html>

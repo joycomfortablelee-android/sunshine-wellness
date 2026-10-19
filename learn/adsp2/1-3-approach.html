@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>분석 과제 발굴 · 이론 + 기출문제 통합 학습</title>
+<style>
+:root {
+  --navy:#14385f; --navy2:#1e527f; --blue:#2c6cab; --teal:#1c8f8b;
+  --gold:#c69a3b; --bg:#eef4fa; --line:#d9e3ed; --text:#1f2d3d; --muted:#687b8e; --green:#0f766e;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:"Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",Arial,sans-serif;background:linear-gradient(180deg,#eaf2fb,#f8fbff);color:var(--text)}
+body{overflow-x:hidden}
+.app{min-height:100vh}
+.header{position:sticky;top:0;z-index:30;background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:15px 22px 13px;box-shadow:0 5px 18px rgba(10,40,70,.16)}
+.header-inner{max-width:1280px;margin:auto;display:flex;justify-content:space-between;gap:18px;align-items:center}
+.header h1{font-size:22px;margin:0 0 4px;line-height:1.25}
+.header p{margin:0;font-size:13px;opacity:.9}
+.header-badge{font-size:12px;font-weight:800;white-space:nowrap;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:7px 10px}
+.stage{display:grid;grid-template-columns:62px minmax(0,1280px) 62px;gap:12px;justify-content:center;align-items:start;padding:18px 14px 12px}
+.nav-btn{position:sticky;top:48vh;width:54px;height:54px;border:0;border-radius:50%;background:var(--navy);color:white;font-size:28px;font-weight:900;cursor:pointer;box-shadow:0 8px 20px rgba(20,56,95,.2)}
+.nav-btn:hover{transform:translateY(-2px)}
+.nav-btn:disabled{opacity:.28;cursor:not-allowed;transform:none}
+.viewer{min-width:0}
+.slide{display:none}
+.slide.active{display:block}
+.slide-head{background:#fff;border:1px solid var(--line);border-radius:18px 18px 0 0;padding:15px 20px;display:flex;justify-content:space-between;align-items:center}
+.eyebrow{font-size:11px;font-weight:900;letter-spacing:.1em;color:var(--blue)}
+.slide-head h2{margin:3px 0 0;font-size:22px;color:var(--navy)}
+.count{background:#f1f6fb;color:#5f7285;border:1px solid #dce6ef;border-radius:999px;padding:6px 10px;font-size:13px;font-weight:800;white-space:nowrap}
+.visual-card{background:#fff;border-left:1px solid var(--line);border-right:1px solid var(--line);padding:20px 22px 10px}
+.theory-box{background:#f8fafc;border:1px solid #e2eaf1;border-radius:14px;padding:16px 18px;margin-bottom:16px;line-height:1.6;font-size:15px}
+.theory-box b{color:var(--navy)}
+.cmp2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.cmp2 .c{border-radius:14px;padding:14px;border:1px solid var(--line);background:#fafcfe}
+.cmp2 .c b{display:block;color:var(--navy);font-size:14px;margin-bottom:6px}
+.cmp2 .c.hit{background:#eef8f6;border-color:#c7e6df}
+.cmp2 .c.hit b{color:var(--green)}
+.flow{display:flex;align-items:stretch;gap:6px;margin:14px 0;flex-wrap:wrap}
+.flow-step{flex:1;min-width:88px;background:#dde7f0;color:#4a5a6b;border-radius:10px;padding:12px 8px;text-align:center;font-weight:900;font-size:13px}
+.flow-step.hit{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff}
+.flow-arrow{align-self:center;color:#9fb0c0;font-weight:900}
+.terms{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:14px 0}
+.term{border-radius:12px;padding:13px 14px;border:1px solid var(--line);background:#fafcfe}
+.term b{display:block;color:var(--navy);font-size:14px;margin-bottom:3px}
+.term.hit{background:#eef8f6;border-color:#c7e6df}
+.term.hit b{color:var(--green)}
+.steep{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:14px 0}
+.steep div{background:#eef6ff;border:1px solid #c9ddf1;border-radius:10px;padding:10px 6px;text-align:center;font-weight:800;font-size:12.5px;color:var(--navy)}
+.steep div.not{background:#fdeeee;border-color:#f0c9c9;color:#9a3a3a}
+.bmc{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}
+.bmc div{background:#fafcfe;border:1px solid var(--line);border-radius:10px;padding:10px 6px;text-align:center;font-weight:800;font-size:12.5px}
+.bmc div.not{background:#fdeeee;border-color:#f0c9c9;color:#9a3a3a}
+.penta{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0;justify-content:center}
+.penta div{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;border-radius:999px;padding:10px 16px;font-weight:800;font-size:13px}
+.connection{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;background:#fff;border-left:1px solid var(--line);border-right:1px solid var(--line);padding:12px 22px 16px}
+.connection .line{height:1px;background:#d8e3ec}
+.connection-pill{background:#eef6ff;border:1px solid #c9ddf1;color:var(--navy);font-size:14px;font-weight:900;border-radius:999px;padding:8px 14px;text-align:center}
+.question-card{background:#fff;border:1px solid var(--line);border-radius:0 0 18px 18px;padding:24px 26px 27px;box-shadow:0 14px 34px rgba(20,56,95,.08);margin-bottom:16px}
+.question-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;padding-bottom:15px;border-bottom:2px solid #edf3f8;margin-bottom:19px}
+.qnum{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
+.question-head h3{font-size:22px;margin:4px 0 0;color:var(--navy)}
+.source{font-size:12px;font-weight:800;background:#f4f7fa;border:1px solid #dde6ee;color:#647689;border-radius:999px;padding:7px 10px;white-space:nowrap}
+.label{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
+.question{font-size:18px;line-height:1.62;font-weight:800;margin:7px 0 16px}
+.option{font-size:16px;line-height:1.5;padding:11px 14px;border:1px solid #e0e8ef;background:#fafcfe;border-radius:11px;margin:8px 0}
+.subbox{background:#f8fafc;border-left:5px solid var(--gold);padding:13px 15px;border-radius:10px;margin:0 0 16px;line-height:1.6;font-weight:700}
+.answer-btn{margin-top:18px;border:0;border-radius:11px;background:var(--navy);color:white;font-size:14px;font-weight:900;padding:11px 17px;cursor:pointer}
+.answer{display:none;margin-top:13px;background:#eef8f6;border:1px solid #c7e6df;border-radius:13px;padding:16px 17px;line-height:1.65}
+.answer-title{font-weight:800}
+.answer strong{font-size:22px;color:var(--green)}
+.answer p{margin:8px 0 11px}
+.memory{background:#fff8e7;border:1px solid #f0ddb0;border-radius:10px;padding:11px 13px;font-weight:800}
+.bottom-nav{max-width:1280px;margin:0 auto 28px;display:flex;justify-content:center;align-items:center;gap:12px;padding:0 12px}
+.dots{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.dot{width:12px;height:12px;border:0;border-radius:50%;background:#bdccda;cursor:pointer;padding:0}
+.dot.active{background:var(--blue);transform:scale(1.2)}
+.help{font-size:12px;color:#718397;text-align:center;margin:0 0 22px}
+@media(max-width:850px){
+  .stage{grid-template-columns:1fr;padding:10px}
+  .nav-btn{position:fixed;z-index:40;bottom:20px;top:auto;width:48px;height:48px}
+  #prevBtn{left:12px} #nextBtn{right:12px}
+  .header-inner{align-items:flex-start}
+  .header-badge{display:none}
+  .question-card{padding:19px 17px 22px}
+  .question{font-size:16.5px}
+  .question-head h3{font-size:19px}
+  .cmp2,.terms{grid-template-columns:1fr}
+  .flow{flex-direction:column}
+  .steep,.bmc{grid-template-columns:repeat(2,1fr)}
+}
+@media print{
+  .header,.nav-btn,.bottom-nav,.help{display:none!important}
+  .slide{display:block!important;page-break-after:always}
+  .question-card{box-shadow:none}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="header-inner">
+      <div>
+        <h1>2과목 1장 3절 · 분석 과제 발굴</h1>
+        <p>이론을 먼저 보고, 바로 아래 연결된 기출문제를 풀어보세요. (교재 p.124–139)</p>
+      </div>
+      <div class="header-badge">← → 방향키 지원</div>
+    </div>
+  </header>
+
+  <main class="stage">
+    <button class="nav-btn" id="prevBtn" onclick="goPrev()" aria-label="이전 화면">‹</button>
+    <div class="viewer">
+
+    <section class="slide active" data-index="0">
+      <div class="slide-head"><div><div class="eyebrow">THEORY 01 · 접근법 선택 기준</div><h2>하향식 vs 상향식 접근법</h2></div><div class="count">1 / 7</div></div>
+      <div class="visual-card">
+        <div class="theory-box">분석 과제를 발굴하는 방식은 <b>대상이 명확한지</b>에 따라 달라진다. 대상이 명확하면 체계적으로 문제를 분석하는 <b>하향식</b>, 대상이 불명확하면 데이터를 탐색해 통찰을 끌어내는 <b>상향식</b>이 적합하다.</div>
+        <div class="cmp2">
+          <div class="c hit"><b>하향식 접근법 (Top-Down)</b>조직의 비즈니스 목표를 기준으로 분석 과제를 도출하고, 이에 필요한 데이터를 준비하는 방식. 분석 대상이 명확할 때 적합하다.</div>
+          <div class="c"><b>상향식 접근법 (Bottom-Up)</b>분석 대상이 명확하지 않을 때, 데이터를 기반으로 가능한 모든 방법을 활용해 통찰을 도출하는 방식. Design Thinking 등이 활용된다.</div>
+        </div>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 9번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head"><div><div class="qnum">QUESTION 09</div><h3>분석 과제 발굴 설명</h3></div><div class="source">37회 기출</div></div>
+        <div class="label">관련 문제</div>
+        <div class="question">분석 과제 발굴에 대한 설명으로 틀린 것은?</div>
+        <div class="options">
+          <div class="option">① 분석해야 할 대상이 명확하다면 상향식 접근 방식이 적절하다.</div>
+          <div class="option">② 하향식 접근법은 조직의 비즈니스 목표를 기준으로 분석 과제를 도출하고, 이에 필요한 데이터를 준비하는 방식이다.</div>
+          <div class="option">③ 비즈니스 목표와 데이터의 연계성을 파악하여 실질적인 가치를 창출할 수 있는 문제를 정의하는 것이 중요하다.</div>
+          <div class="option">④ 분석 과제는 과거 데이터를 활용한 패턴 분석과 미래 예측을 통해 조직의 의사결정을 지원하는 방향으로 발굴된다.</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>①</strong></div>
+          <p>분석해야 할 대상이 명확하다면 하향식 접근 방식이 더 적합하다. 상향식 접근 방식은 데이터 중심으로 과제를 발굴하는 경우에 적합하다. 나머지 선택지들은 분석 과제 발굴에 대한 적절한 내용이다.</p>
+          <div class="memory">핵심 암기 · 대상 Known → 하향식 / 대상 Un-known → 상향식</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="1">
+      <div class="slide-head"><div><div class="eyebrow">THEORY 02 · 하향식 접근법 ①</div><h2>하향식 접근법의 4단계</h2></div><div class="count">2 / 7</div></div>
+      <div class="visual-card">
+        <div class="theory-box">하향식 접근법(Top-Down Approach)은 문제를 체계적으로 분석하기 위한 기획 프로세스다. <b>문제 탐색 → 문제 정의 → 해결방안 탐색 → 타당성 검토</b>의 4단계로 진행된다.</div>
+        <div class="flow">
+          <div class="flow-step hit">문제 탐색<br><span style="font-weight:700;font-size:11px">Problem Discovery</span></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step hit">문제 정의<br><span style="font-weight:700;font-size:11px">Problem Definition</span></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step hit">해결방안 탐색<br><span style="font-weight:700;font-size:11px">Solution Search</span></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step hit">타당성 검토<br><span style="font-weight:700;font-size:11px">Feasibility Study</span></div>
+        </div>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 10번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head"><div><div class="qnum">QUESTION 10</div><h3>데이터 분석 기획의 단계 순서</h3></div><div class="source">33회 기출</div></div>
+        <div class="label">관련 문제</div>
+        <div class="question">하향식 접근법(Top Down Approach)은 문제를 체계적으로 분석하기 위한 기획 프로세스이다. 다음 중 데이터 분석 기획의 단계를 올바른 순서로 나열한 것은?</div>
+        <div class="subbox">가. 문제 정의(Problem Definition) &nbsp; 나. 문제 탐색(Problem Discovery)<br>다. 해결방안 탐색(Solution Search) &nbsp; 라. 타당성 검토(Feasibility Study)</div>
+        <div class="options">
+          <div class="option">① 나 → 가 → 라 → 다</div>
+          <div class="option">② 가 → 나 → 다 → 라</div>
+          <div class="option">③ 가 → 나 → 라 → 다</div>
+          <div class="option">④ 나 → 가 → 다 → 라</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>④</strong></div>
+          <p>하향식 접근법은 문제 탐색(나) → 문제 정의(가) → 해결방안 탐색(다) → 타당성 검토(라)의 순서로 체계적으로 문제를 분석한다.</p>
+          <div class="memory">핵심 암기 · 탐색 → 정의 → 해결방안 → 타당성 ("탐·정·해·타")</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="2">
+      <div class="slide-head"><div><div class="eyebrow">THEORY 03 · 하향식 접근법 ②</div><h2>체계적 문제 해결 방식이라는 것</h2></div><div class="count">3 / 7</div></div>
+      <div class="visual-card">
+        <div class="theory-box">하향식 접근법은 <b>각 과정을 체계적으로 단계화</b>하여 주어진 문제에 대한 해법을 찾는 분석 과제 발굴 방식이다. "체계적 문제 해결", "목표 기반 접근법", "점진적 분석 접근법" 같은 표현은 교재가 쓰는 공식 용어가 아니라 하향식 접근법의 속성을 풀어쓴 보기일 뿐이므로 혼동하지 않아야 한다.</div>
+        <div class="terms">
+          <div class="term hit"><b>하향식 접근법</b>문제를 체계적으로 정의하고 단계별로 해결하는 공식 분석 과제 발굴 방식</div>
+          <div class="term"><b>상향식 접근법</b>데이터에서 출발해 통찰을 끌어내는 방식 (구조화된 방법론의 이름이 아님)</div>
+        </div>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 11번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head"><div><div class="qnum">QUESTION 11</div><h3>체계적 분석 과제 발굴 방식</h3></div><div class="source">35회 기출</div></div>
+        <div class="label">관련 문제</div>
+        <div class="question">주어진 문제에 대한 해법을 찾기 위해 각 과정이 체계적으로 단계화되어 수행하는 분석 과제 발굴 방식은?</div>
+        <div class="options">
+          <div class="option">① 하향식 접근 방식 (Top-Down Approach)</div>
+          <div class="option">② 체계적 문제 해결 (Systematic Problem Solving)</div>
+          <div class="option">③ 목표 기반 접근법 (Goal-Oriented Approach)</div>
+          <div class="option">④ 점진적 분석 접근법 (Incremental Analysis Approach)</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>①</strong></div>
+          <p>하향식 접근 방식은 문제를 체계적으로 정의하고 해결하는 데 사용된다. 체계적 문제 해결은 구조화된 방법론을 적용하는 문제 해결법이며 목표 기반 접근법은 명확한 목표를 달성하기 위해 작업을 수행하는 방법이다. 점진적 분석 접근법은 분석을 점진적으로 수행해 결과를 축적하는 방식이다.</p>
+          <div class="memory">핵심 암기 · "체계적으로 단계화된 분석 과제 발굴"이라는 표현 = 하향식 접근법</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="3">
+      <div class="slide-head"><div><div class="eyebrow">THEORY 04 · 하향식 접근법 ③</div><h2>각 단계의 정확한 정의</h2></div><div class="count">4 / 7</div></div>
+      <div class="visual-card">
+        <div class="theory-box">하향식 4단계는 각각 분명한 역할을 가진다. 특히 <b>문제 탐색</b>과 <b>문제 정의</b>를 혼동하기 쉬우므로 주의한다.</div>
+        <div class="terms">
+          <div class="term"><b>문제 탐색 (Problem Exploration)</b>비즈니스 문제를 폭넓게 식별하는 초기 단계</div>
+          <div class="term hit"><b>문제 정의 (Problem Definition)</b>식별된 비즈니스 문제를 데이터의 문제로 변환하여 명확히 정의하는 단계</div>
+          <div class="term"><b>해결방안 탐색 (Solution Exploration)</b>문제를 해결할 분석 방법·기법을 탐색하는 단계</div>
+          <div class="term"><b>타당성 검토 (Feasibility Check)</b>경제적·기술적 타당성을 확인하는 마지막 단계</div>
+        </div>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 12번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head"><div><div class="qnum">QUESTION 12</div><h3>단계별 정의 매칭</h3></div><div class="source">34회 기출</div></div>
+        <div class="label">관련 문제</div>
+        <div class="question">다음 설명에 맞는 (가)에 해당하는 단계는 무엇인가?</div>
+        <div class="subbox">(가)는 식별된 비즈니스 문제를 데이터의 문제로 변환하여 정의하는 단계</div>
+        <div class="options">
+          <div class="option">① 문제 탐색 (Problem Exploration)</div>
+          <div class="option">② 문제 정의 (Problem Definition)</div>
+          <div class="option">③ 해결방안 탐색 (Solution Exploration)</div>
+          <div class="option">④ 타당성 검토 (Feasibility Check)</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>②</strong></div>
+          <p>문제 정의는 비즈니스 문제를 데이터 문제로 변환하여 명확히 정의하는 단계다. 문제 탐색은 문제를 식별하고 탐색하는 초기 단계이며, 해결방안 탐색과 타당성 검토는 이후의 단계다.</p>
+          <div class="memory">핵심 암기 · "데이터 문제로 바꿔 정의" = 문제 정의 단계</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="4">
+      <div class="slide-head"><div><div class="eyebrow">THEORY 05 · 문제 탐색 범위 확장</div><h2>거시적 관점의 메가트렌드 (STEEP)</h2></div><div class="count">5 / 7</div></div>
+      <div class="visual-card">
+        <div class="theory-box">문제 탐색 범위를 넓힐 때는 경영전략 방향성, 거시적 관점, 경쟁자, 시장 트렌드 등을 함께 살핀다. 거시적 관점은 조직·산업에 중장기적으로 영향을 주는 <b>메가트렌드</b>로, <b>STEEP</b> 다섯 영역으로 요약된다.</div>
+        <div class="steep">
+          <div>Social<br>사회</div>
+          <div>Technological<br>기술</div>
+          <div>Economic<br>경제</div>
+          <div>Environmental<br>환경</div>
+          <div>Political<br>정치</div>
+        </div>
+        <div class="theory-box" style="margin-bottom:0">채널(Channel)은 마케팅·유통 경로 개념으로, 거시적 관점의 메가트렌드에는 포함되지 않는다.</div>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 13번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head"><div><div class="qnum">QUESTION 13</div><h3>거시적 관점의 메가트렌드</h3></div><div class="source">32회 기출</div></div>
+        <div class="label">관련 문제</div>
+        <div class="question">다음 중 거시적 관점의 메가트렌드에 해당하지 않는 것은?</div>
+        <div class="options">
+          <div class="option">① 사회(Social)</div>
+          <div class="option">② 기술(Technological)</div>
+          <div class="option">③ 환경(Environmental)</div>
+          <div class="option">④ 채널(Channel)</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>④</strong></div>
+          <p>메가트렌드는 사회(Social), 기술(Technological), 환경(Environmental)과 같은 광범위하고 장기적인 변화를 포함한다. 채널(Channel)은 마케팅이나 유통 경로와 관련된 개념으로, 메가트렌드와 같은 거시적 관점의 변화와는 거리가 있다.</p>
+          <div class="memory">핵심 암기 · 메가트렌드 = STEEP (Social·Technological·Economic·Environmental·Political)</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="5">
+      <div class="slide-head"><div><div class="eyebrow">THEORY 06 · 외부 참조 모델</div><h2>비즈니스 모델 캔버스</h2></div><div class="count">6 / 7</div></div>
+      <div class="visual-card">
+        <div class="theory-box">비즈니스 모델 캔버스(BMC)는 사업모델을 구성하는 구체적 요소들로 과제를 발굴하는 외부 참조 모델이다. <b>혁신</b>은 BMC의 영역이 아니라 더 포괄적인 전략적 방향성에 속한다.</div>
+        <div class="bmc">
+          <div>고객 세분화</div>
+          <div>가치 제안</div>
+          <div>채널</div>
+          <div>고객 관계</div>
+          <div>수익원</div>
+          <div>핵심 자원</div>
+          <div>핵심 활동</div>
+          <div>핵심 파트너십</div>
+          <div>비용 구조</div>
+          <div class="not">혁신 (×)</div>
+        </div>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 14번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head"><div><div class="qnum">QUESTION 14</div><h3>비즈니스 모델 캔버스 영역</h3></div><div class="source">38회 기출</div></div>
+        <div class="label">관련 문제</div>
+        <div class="question">다음 중 비즈니스 모델 캔버스를 활용한 과제 발굴의 영역으로 적절하지 않은 것은?</div>
+        <div class="options">
+          <div class="option">① 혁신</div>
+          <div class="option">② 가치 제안</div>
+          <div class="option">③ 비용 구조</div>
+          <div class="option">④ 고객 세분화</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>①</strong></div>
+          <p>비즈니스 모델 캔버스는 가치 제안, 비용 구조, 고객 세분화 등 비즈니스 모델을 구성하는 구체적 요소들을 다룬다. 혁신은 비즈니스 모델 캔버스의 영역이 아니라 보다 포괄적인 전략적 방향성에 속한다.</p>
+          <div class="memory">핵심 암기 · BMC 9블록 안에 "혁신"은 없다</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="6">
+      <div class="slide-head"><div><div class="eyebrow">THEORY 07 · 상향식 + 하향식의 결합</div><h2>디자인 씽킹 (Design Thinking)</h2></div><div class="count">7 / 7</div></div>
+      <div class="visual-card">
+        <div class="theory-box">디자인 씽킹은 상향식 접근방식의 <b>발산 단계</b>와 하향식 접근방식의 <b>수렴 단계</b>를 반복하여 창의적이고 실질적인 해결책을 도출하는 접근 방식이다.</div>
+        <div class="penta">
+          <div>Empathize</div><div>Define</div><div>Ideate</div><div>Prototype</div><div>Test</div>
+        </div>
+        <div class="theory-box" style="margin:10px 0 0">브레인스토밍은 아이디어 발산에만 중점을 두고, 통합 접근방식·분석적 문제 해결 방법은 체계적인 분석 과정에만 초점이 맞춰져 있어 "발산+수렴 반복"과는 다르다.</div>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 15번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head"><div><div class="qnum">QUESTION 15</div><h3>발산·수렴을 반복하는 과제 발굴법</h3></div><div class="source">38회 기출</div></div>
+        <div class="label">관련 문제</div>
+        <div class="question">다음 중 상향식 접근방식의 발산단계와 하향식 접근방식의 수렴단계를 반복하여 과제를 발굴하는 방법은 무엇인가?</div>
+        <div class="options">
+          <div class="option">① 디자인씽킹 (Design Thinking)</div>
+          <div class="option">② 브레인스토밍 (Brainstorming)</div>
+          <div class="option">③ 통합 접근방식 (Integrated Approach)</div>
+          <div class="option">④ 분석적 문제 해결 방법 (Analytical Problem-Solving Method)</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>①</strong></div>
+          <p>디자인씽킹은 상향식 발산과 하향식 수렴 단계를 반복하여 창의적이고 실질적인 해결책을 도출하는 접근 방식이다. 브레인스토밍은 아이디어 발산에 중점을 두며, 통합 접근방식과 분석적 문제 해결 방법은 체계적인 분석 과정에 초점이 맞춰져 있다.</p>
+          <div class="memory">핵심 암기 · 디자인씽킹 = 상향식(발산) ⇄ 하향식(수렴) 반복</div>
+        </div>
+      </article>
+    </section>
+
+    </div>
+    <button class="nav-btn" id="nextBtn" onclick="goNext()" aria-label="다음 화면">›</button>
+  </main>
+
+  <div class="bottom-nav"><div class="dots">
+    <button class="dot active" onclick="showSlide(0)" aria-label="1번 화면"></button>
+    <button class="dot" onclick="showSlide(1)" aria-label="2번 화면"></button>
+    <button class="dot" onclick="showSlide(2)" aria-label="3번 화면"></button>
+    <button class="dot" onclick="showSlide(3)" aria-label="4번 화면"></button>
+    <button class="dot" onclick="showSlide(4)" aria-label="5번 화면"></button>
+    <button class="dot" onclick="showSlide(5)" aria-label="6번 화면"></button>
+    <button class="dot" onclick="showSlide(6)" aria-label="7번 화면"></button>
+  </div></div>
+  <div class="help">좌우 버튼 · 키보드 ← → · 하단 점을 눌러 화면을 이동할 수 있습니다.</div>
+</div>
+
+<script>
+let current = 0;
+const slides = [...document.querySelectorAll('.slide')];
+const dots = [...document.querySelectorAll('.dot')];
+function showSlide(i){
+  if(i < 0 || i >= slides.length) return;
+  current = i;
+  slides.forEach((s,idx)=>s.classList.toggle('active', idx===i));
+  dots.forEach((d,idx)=>d.classList.toggle('active', idx===i));
+  document.getElementById('prevBtn').disabled = i===0;
+  document.getElementById('nextBtn').disabled = i===slides.length-1;
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function goPrev(){ showSlide(current-1); }
+function goNext(){ showSlide(current+1); }
+function toggleAnswer(btn){
+  const box = btn.nextElementSibling;
+  const open = box.style.display === 'block';
+  box.style.display = open ? 'none' : 'block';
+  btn.textContent = open ? '정답 · 해설 확인' : '정답 · 해설 닫기';
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowLeft') goPrev();
+  if(e.key==='ArrowRight') goNext();
+});
+showSlide(0);
+</script>
+</body>
+</html>

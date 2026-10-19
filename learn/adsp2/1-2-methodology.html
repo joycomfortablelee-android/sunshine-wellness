@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>분석 방법론 · 이론 + 기출문제 통합 학습</title>
+<style>
+:root {
+  --navy:#14385f; --navy2:#1e527f; --blue:#2c6cab; --teal:#1c8f8b;
+  --gold:#c69a3b; --bg:#eef4fa; --line:#d9e3ed; --text:#1f2d3d; --muted:#687b8e; --green:#0f766e;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:"Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",Arial,sans-serif;background:linear-gradient(180deg,#eaf2fb,#f8fbff);color:var(--text)}
+body{overflow-x:hidden}
+.app{min-height:100vh}
+.header{position:sticky;top:0;z-index:30;background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:15px 22px 13px;box-shadow:0 5px 18px rgba(10,40,70,.16)}
+.header-inner{max-width:1280px;margin:auto;display:flex;justify-content:space-between;gap:18px;align-items:center}
+.header h1{font-size:22px;margin:0 0 4px;line-height:1.25}
+.header p{margin:0;font-size:13px;opacity:.9}
+.header-badge{font-size:12px;font-weight:800;white-space:nowrap;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:7px 10px}
+.stage{display:grid;grid-template-columns:62px minmax(0,1280px) 62px;gap:12px;justify-content:center;align-items:start;padding:18px 14px 12px}
+.nav-btn{position:sticky;top:48vh;width:54px;height:54px;border:0;border-radius:50%;background:var(--navy);color:white;font-size:28px;font-weight:900;cursor:pointer;box-shadow:0 8px 20px rgba(20,56,95,.2)}
+.nav-btn:hover{transform:translateY(-2px)}
+.nav-btn:disabled{opacity:.28;cursor:not-allowed;transform:none}
+.viewer{min-width:0}
+.slide{display:none}
+.slide.active{display:block}
+.slide-head{background:#fff;border:1px solid var(--line);border-radius:18px 18px 0 0;padding:15px 20px;display:flex;justify-content:space-between;align-items:center}
+.eyebrow{font-size:11px;font-weight:900;letter-spacing:.1em;color:var(--blue)}
+.slide-head h2{margin:3px 0 0;font-size:22px;color:var(--navy)}
+.count{background:#f1f6fb;color:#5f7285;border:1px solid #dce6ef;border-radius:999px;padding:6px 10px;font-size:13px;font-weight:800;white-space:nowrap}
+.visual-card{background:#fff;border-left:1px solid var(--line);border-right:1px solid var(--line);padding:20px 22px 10px}
+.theory-box{background:#f8fafc;border:1px solid #e2eaf1;border-radius:14px;padding:16px 18px;margin-bottom:16px;line-height:1.6;font-size:15px}
+.theory-box b{color:var(--navy)}
+.chip-row{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+.chip{background:#eef6ff;border:1px solid #c9ddf1;border-radius:12px;padding:10px 14px;font-size:13px;font-weight:800;color:var(--navy)}
+.terms{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:14px 0}
+.term{border-radius:12px;padding:13px 14px;border:1px solid var(--line);background:#fafcfe}
+.term b{display:block;color:var(--navy);font-size:14px;margin-bottom:3px}
+.term.hit{background:#eef8f6;border-color:#c7e6df}
+.term.hit b{color:var(--green)}
+.model3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
+.model-card{border-radius:14px;padding:14px;border:1px solid var(--line);background:#fafcfe}
+.model-card b{display:block;color:var(--navy);font-size:14px;margin-bottom:6px}
+.model-card.hit{background:#eef8f6;border-color:#c7e6df}
+.model-card.hit b{color:var(--green)}
+.flow{display:flex;align-items:stretch;gap:6px;margin:14px 0;flex-wrap:wrap}
+.flow-step{flex:1;min-width:88px;background:#dde7f0;color:#4a5a6b;border-radius:10px;padding:12px 8px;text-align:center;font-weight:900;font-size:13px}
+.flow-step.hit{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff}
+.flow-arrow{align-self:center;color:#9fb0c0;font-weight:900}
+.arrow-wide{text-align:center;font-size:22px;color:var(--blue);margin:6px 0;font-weight:900}
+.barrier3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
+.barrier{background:#fff3e6;border:1px solid #f0d6ad;border-radius:12px;padding:13px 10px;text-align:center}
+.barrier b{display:block;color:#9a6a1a;font-size:14px;margin-bottom:4px}
+.sublist{margin:10px 0 0;padding-left:0;list-style:none;font-size:14px;line-height:1.7}
+.sublist li{padding:6px 10px;background:#fafcfe;border:1px solid var(--line);border-radius:8px;margin-bottom:6px}
+.connection{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;background:#fff;border-left:1px solid var(--line);border-right:1px solid var(--line);padding:12px 22px 16px}
+.connection .line{height:1px;background:#d8e3ec}
+.connection-pill{background:#eef6ff;border:1px solid #c9ddf1;color:var(--navy);font-size:14px;font-weight:900;border-radius:999px;padding:8px 14px;text-align:center}
+.question-card{background:#fff;border:1px solid var(--line);border-radius:0 0 18px 18px;padding:24px 26px 27px;box-shadow:0 14px 34px rgba(20,56,95,.08);margin-bottom:16px}
+.question-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;padding-bottom:15px;border-bottom:2px solid #edf3f8;margin-bottom:19px}
+.qnum{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
+.question-head h3{font-size:22px;margin:4px 0 0;color:var(--navy)}
+.source{font-size:12px;font-weight:800;background:#f4f7fa;border:1px solid #dde6ee;color:#647689;border-radius:999px;padding:7px 10px;white-space:nowrap}
+.label{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
+.question{font-size:18px;line-height:1.62;font-weight:800;margin:7px 0 16px}
+.option{font-size:16px;line-height:1.5;padding:11px 14px;border:1px solid #e0e8ef;background:#fafcfe;border-radius:11px;margin:8px 0}
+.subbox{background:#f8fafc;border-left:5px solid var(--gold);padding:13px 15px;border-radius:10px;margin:0 0 16px;line-height:1.6;font-weight:700}
+.answer-btn{margin-top:18px;border:0;border-radius:11px;background:var(--navy);color:white;font-size:14px;font-weight:900;padding:11px 17px;cursor:pointer}
+.answer{display:none;margin-top:13px;background:#eef8f6;border:1px solid #c7e6df;border-radius:13px;padding:16px 17px;line-height:1.65}
+.answer-title{font-weight:800}
+.answer strong{font-size:22px;color:var(--green)}
+.answer p{margin:8px 0 11px}
+.memory{background:#fff8e7;border:1px solid #f0ddb0;border-radius:10px;padding:11px 13px;font-weight:800}
+.bottom-nav{max-width:1280px;margin:0 auto 28px;display:flex;justify-content:center;align-items:center;gap:12px;padding:0 12px}
+.dots{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.dot{width:12px;height:12px;border:0;border-radius:50%;background:#bdccda;cursor:pointer;padding:0}
+.dot.active{background:var(--blue);transform:scale(1.2)}
+.help{font-size:12px;color:#718397;text-align:center;margin:0 0 22px}
+@media(max-width:850px){
+  .stage{grid-template-columns:1fr;padding:10px}
+  .nav-btn{position:fixed;z-index:40;bottom:20px;top:auto;width:48px;height:48px}
+  #prevBtn{left:12px} #nextBtn{right:12px}
+  .header-inner{align-items:flex-start}
+  .header-badge{display:none}
+  .question-card{padding:19px 17px 22px}
+  .question{font-size:16.5px}
+  .question-head h3{font-size:19px}
+  .terms,.model3,.barrier3{grid-template-columns:1fr}
+  .flow{flex-direction:column}
+}
+@media print{
+  .header,.nav-btn,.bottom-nav,.help{display:none!important}
+  .slide{display:block!important;page-break-after:always}
+  .question-card{box-shadow:none}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="header-inner">
+      <div>
+        <h1>2과목 1장 2절 · 분석 방법론</h1>
+        <p>이론을 먼저 보고, 바로 아래 연결된 기출문제를 풀어보세요. (교재 p.110–123)</p>
+      </div>
+      <div class="header-badge">← → 방향키 지원</div>
+    </div>
+  </header>
+
+  <main class="stage">
+    <button class="nav-btn" id="prevBtn" onclick="goPrev()" aria-label="이전 화면">‹</button>
+    <div class="viewer">
+
+    <section class="slide active" data-index="0">
+      <div class="slide-head">
+        <div><div class="eyebrow">THEORY 01 · 방법론의 구성</div><h2>방법론의 구성과 문서</h2></div>
+        <div class="count">1 / 5</div>
+      </div>
+      <div class="visual-card">
+        <div class="theory-box">방법론은 상세한 <b>절차(Procedures)</b>, <b>방법(Methods)</b>, <b>도구와 기법(Tools&amp;Techniques)</b>, <b>템플릿과 산출물(Templates&amp;Outputs)</b>로 구성된다. 프로젝트는 <b>단계 → 태스크 → 스텝</b>의 위계로 세분화되어 관리된다.</div>
+        <div class="flow">
+          <div class="flow-step">단계<br><span style="font-weight:700;font-size:11px">Phase</span></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">태스크<br><span style="font-weight:700;font-size:11px">Task</span></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">스텝<br><span style="font-weight:700;font-size:11px">Step</span></div>
+        </div>
+        <div class="terms">
+          <div class="term"><b>WBS (Work Breakdown Structure)</b>개발·분석의 전체 과정을 수십~수천개의 작은 업무 단위로 세분화하여 담당자·기간을 정리한 문서</div>
+          <div class="term hit"><b>SoW (Statement of Work)</b>프로젝트의 목적, 범위, 일정 등을 문서화한 공식 문서 — 작업 기술서</div>
+          <div class="term"><b>ERD (Entity Relationship Diagram)</b>데이터베이스 설계에 쓰이는 개체-관계 다이어그램</div>
+          <div class="term"><b>Gantt Chart</b>프로젝트 일정을 막대 형태로 관리하는 도구</div>
+        </div>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 4번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head"><div><div class="qnum">QUESTION 04</div><h3>프로젝트 산출물 문서</h3></div><div class="source">32회 기출</div></div>
+        <div class="label">관련 문제</div>
+        <div class="question">다음 중 프로젝트의 목적, 범위, 일정 등을 문서화한 산출물로 가장 적합한 것은 무엇인가?</div>
+        <div class="options">
+          <div class="option">① WBS(Work Breakdown Structure)</div>
+          <div class="option">② SoW(Statement of Works)</div>
+          <div class="option">③ ERD(Entity Relationship Diagram)</div>
+          <div class="option">④ Gantt Chart</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>②</strong></div>
+          <p>SoW는 프로젝트의 목적, 범위, 일정 등을 문서화한 공식 문서이다. WBS는 작업 분해 구조, ERD는 데이터베이스 설계 도구, Gantt Chart는 프로젝트 일정 관리 도구이다.</p>
+          <div class="memory">핵심 암기 · SoW=문서(목적·범위·일정) / WBS=업무 쪼개기 / ERD=DB설계 / Gantt=일정 막대그래프</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="1">
+      <div class="slide-head">
+        <div><div class="eyebrow">THEORY 02 · 업무 특성별 모델</div><h2>폭포수 · 프로토타입 · 나선형 모델</h2></div>
+        <div class="count">2 / 5</div>
+      </div>
+      <div class="visual-card">
+        <div class="theory-box">업무 특성에 따라 방법론 적용 모델이 달라진다. 세 모델 모두 반복에서 비롯된 ‘진화적 프로세스 모델’ 계열이며, 피드백·개선 방식이 각각 다르다.</div>
+        <div class="model3">
+          <div class="model-card"><b>가. 폭포수 모델 (Waterfall)</b>단계를 순차적으로 진행 — 이전 단계가 끝나야 다음 단계로 진행. 문제 발견 시 피드백 과정 수행 (기존 SW 개발 방식)</div>
+          <div class="model-card hit"><b>나. 프로토타입 모델 (Prototype)</b>일부분을 우선 개발해 사용자에게 제공 → 시험 사용 후 요구를 분석·점검·평가 → 그 결과로 개선 작업을 반복</div>
+          <div class="model-card"><b>다. 나선형 모델 (Spiral)</b>반복을 통해 점진적으로 개발. 처음 시도하는 프로젝트에 적용 용이하나, 관리 체계 미흡 시 복잡도 상승</div>
+        </div>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 5번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head"><div><div class="qnum">QUESTION 05</div><h3>분석 방법론 적용 모델</h3></div><div class="source">37회 기출</div></div>
+        <div class="label">관련 문제</div>
+        <div class="question">다음 설명에 맞는 데이터 분석 방법론 적용 모델은 무엇인가?</div>
+        <div class="subbox">진화적 프로세스 모델의 하나로 일부분을 먼저 개발하여 제공한 후 그 결과를 통해 개선하는 모델</div>
+        <div class="options">
+          <div class="option">① 프로토타입 모델</div>
+          <div class="option">② 폭포수 모델</div>
+          <div class="option">③ 나선형 모델</div>
+          <div class="option">④ 애자일 모델</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>①</strong></div>
+          <p>프로토타입 모델은 시스템의 일부분을 먼저 개발하여 제공하고, 사용자의 피드백을 통해 점진적으로 개선하는 진화적 프로세스 모델이다. 폭포수 모델은 선형적, 나선형 모델은 점진적 위험 관리, 애자일 모델은 유연하고 반복적인 개발 방식이다.</p>
+          <div class="memory">핵심 암기 · 폭포수=순차/되돌리기 어려움, 프로토타입=일부 먼저+피드백 개선, 나선형=반복+위험분석</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="2">
+      <div class="slide-head">
+        <div><div class="eyebrow">THEORY 03 · 의사결정의 장애요소</div><h2>데이터 기반 의사결정</h2></div>
+        <div class="count">3 / 5</div>
+      </div>
+      <div class="visual-card">
+        <div class="theory-box">데이터가 효과적으로 기업에 정착하려면 체계화된 방법론이 필요하다. 의사결정 방식도 <b>경험과 감</b>에서 <b>데이터 기반</b>으로 이동해야 하지만, 다음 3가지가 합리적 의사결정을 가로막는 장애요소다.</div>
+        <div class="arrow-wide">경험과 감에 따른 의사결정 → 데이터 기반의 의사결정</div>
+        <div class="barrier3">
+          <div class="barrier"><b>고정관념</b>Stereotype</div>
+          <div class="barrier"><b>편향된 생각</b>Bias</div>
+          <div class="barrier" style="background:#eef8f6;border-color:#c7e6df"><b style="color:var(--green)">프레이밍 효과</b>Framing Effect</div>
+        </div>
+        <div class="theory-box" style="margin:10px 0 0"><b>프레이밍 효과</b>란 문제의 표현 방식에 따라 동일한 사건·상황임에도 개인의 판단이나 선택이 달라질 수 있는 현상이다.</div>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 6번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head"><div><div class="qnum">QUESTION 06</div><h3>합리적 의사결정의 장애요소</h3></div><div class="source">40회 기출</div></div>
+        <div class="label">관련 문제</div>
+        <div class="question">다음 설명에 맞는 현상은 무엇인가?</div>
+        <div class="subbox">합리적 의사결정을 방해하는 요소로 표현방식 및 발표자에 따라 동일한 사실(Fact)에도 판단을 달리하는 현상</div>
+        <div class="options">
+          <div class="option">① 프레이밍 효과 (Framing Effect)</div>
+          <div class="option">② 확증 편향 (Confirmation Bias)</div>
+          <div class="option">③ 대표성 휴리스틱 (Representativeness Heuristic)</div>
+          <div class="option">④ 가용성 휴리스틱 (Availability Heuristic)</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>①</strong></div>
+          <p>프레이밍 효과는 정보가 제시되는 방식에 따라 동일한 사실도 다르게 인식·판단하게 되는 현상이다. 확증 편향은 기존 믿음을 강화하는 정보를 선호하는 경향, 대표성 휴리스틱은 특정 사례를 전체로 일반화하려는 경향, 가용성 휴리스틱은 쉽게 떠오르는 정보를 기준으로 판단하는 경향이다.</p>
+          <div class="memory">핵심 암기 · 프레이밍 효과 = "어떻게 표현하느냐"에 따라 판단이 바뀌는 현상</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="3">
+      <div class="slide-head">
+        <div><div class="eyebrow">THEORY 04 · 빅데이터 분석 방법론 ①</div><h2>5단계 중 ‘분석 기획’ 단계</h2></div>
+        <div class="count">4 / 5</div>
+      </div>
+      <div class="visual-card">
+        <div class="theory-box">빅데이터 분석 방법론은 <b>분석기획 → 데이터준비 → 데이터분석 → 시스템구현 → 평가및전개</b>의 5단계로 진행되며, 각 단계는 다시 여러 태스크로 구성된다.</div>
+        <div class="flow">
+          <div class="flow-step hit">분석기획<br><span style="font-weight:700;font-size:11px">Planning</span></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">데이터준비</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">데이터분석</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">시스템구현</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">평가및전개</div>
+        </div>
+        <ul class="sublist">
+          <li><b>분석 기획</b>의 주요 태스크 — 비즈니스 이해 및 범위 설정 · 프로젝트 정의 및 계획 수립 · 프로젝트 위험 계획 수립</li>
+          <li>데이터 준비 — 필요 데이터 정의 · 데이터 스토어 설계 · 데이터 수집 및 정합성 점검</li>
+          <li>데이터 분석 — 분석용 데이터 준비 · 텍스트 분석 · 탐색적 분석 · 모델링 · 모델 평가/검증</li>
+        </ul>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 7번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head"><div><div class="qnum">QUESTION 07</div><h3>분석 기획 단계의 주요 작업</h3></div><div class="source">40회 기출</div></div>
+        <div class="label">관련 문제</div>
+        <div class="question">빅데이터 분석의 분석 기획 단계에서 수행하는 주요 작업은 무엇인가?</div>
+        <div class="options">
+          <div class="option">① 비즈니스의 이해 및 범위 설정</div>
+          <div class="option">② 모델 성능 평가</div>
+          <div class="option">③ 데이터 통합</div>
+          <div class="option">④ 데이터 시각화</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>①</strong></div>
+          <p>분석 기획 단계에서는 비즈니스 문제를 명확히 정의하고 범위를 설정하며, 프로젝트의 방향성을 결정한다. 모델 성능 평가나 데이터 통합, 시각화는 분석 실행 또는 후속 단계에서 수행된다.</p>
+          <div class="memory">핵심 암기 · 분석기획 = "무엇을·왜" 정하는 단계, 데이터를 만지는 작업은 이후 단계</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="4">
+      <div class="slide-head">
+        <div><div class="eyebrow">THEORY 05 · 빅데이터 분석 방법론 ②</div><h2>5단계 전체 순서</h2></div>
+        <div class="count">5 / 5</div>
+      </div>
+      <div class="visual-card">
+        <div class="theory-box">빅데이터 분석은 <b>분석기획</b>으로 시작해 <b>데이터 준비</b>, <b>데이터 분석</b>을 거쳐 <b>시스템 구현</b>과 <b>평가 및 전개</b>를 통해 결과를 활용·확산한다. 순서를 바꿔 묻는 선지에 특히 주의해야 한다.</div>
+        <div class="flow">
+          <div class="flow-step hit">① 분석기획</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step hit">② 데이터준비</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step hit">③ 데이터분석</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step hit">④ 시스템구현</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step hit">⑤ 평가및전개</div>
+        </div>
+        <div class="theory-box" style="margin-bottom:0">평가 및 전개 단계는 <b>모델 발전 계획 수립</b>과 <b>프로젝트 성과 평가 및 보고(종료)</b>로 마무리되며, 전체 프로세스는 반복·순환될 수 있다.</div>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 8번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head"><div><div class="qnum">QUESTION 08</div><h3>빅데이터 분석 절차의 순서</h3></div><div class="source">32회 기출</div></div>
+        <div class="label">관련 문제</div>
+        <div class="question">다음 중 빅데이터 분석 절차의 올바른 순서로 나열된 것은 무엇인가?</div>
+        <div class="options">
+          <div class="option">① 분석 기획 → 데이터 준비 → 데이터 분석 → 시스템 구현 → 평가 및 전개</div>
+          <div class="option">② 데이터 준비 → 데이터 분석 → 시스템 구현 → 평가 및 전개 → 분석 기획</div>
+          <div class="option">③ 데이터 수집 → 데이터 분석 → 시스템 구현 → 평가 및 전개 → 분석 기획</div>
+          <div class="option">④ 분석 기획 → 데이터 모델링 → 데이터 준비 → 시스템 구현 → 평가 및 전개</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>①</strong></div>
+          <p>빅데이터 분석은 분석 기획으로 시작하여 데이터를 준비하고, 분석을 수행한 후 시스템 구현과 평가 및 전개를 통해 결과를 활용한다.</p>
+          <div class="memory">핵심 암기 · 분석기획 → 데이터준비 → 데이터분석 → 시스템구현 → 평가및전개 (앞글자 "기·준·분·구·평")</div>
+        </div>
+      </article>
+    </section>
+
+    </div>
+    <button class="nav-btn" id="nextBtn" onclick="goNext()" aria-label="다음 화면">›</button>
+  </main>
+
+  <div class="bottom-nav"><div class="dots">
+    <button class="dot active" onclick="showSlide(0)" aria-label="1번 화면"></button>
+    <button class="dot" onclick="showSlide(1)" aria-label="2번 화면"></button>
+    <button class="dot" onclick="showSlide(2)" aria-label="3번 화면"></button>
+    <button class="dot" onclick="showSlide(3)" aria-label="4번 화면"></button>
+    <button class="dot" onclick="showSlide(4)" aria-label="5번 화면"></button>
+  </div></div>
+  <div class="help">좌우 버튼 · 키보드 ← → · 하단 점을 눌러 화면을 이동할 수 있습니다.</div>
+</div>
+
+<script>
+let current = 0;
+const slides = [...document.querySelectorAll('.slide')];
+const dots = [...document.querySelectorAll('.dot')];
+function showSlide(i){
+  if(i < 0 || i >= slides.length) return;
+  current = i;
+  slides.forEach((s,idx)=>s.classList.toggle('active', idx===i));
+  dots.forEach((d,idx)=>d.classList.toggle('active', idx===i));
+  document.getElementById('prevBtn').disabled = i===0;
+  document.getElementById('nextBtn').disabled = i===slides.length-1;
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function goPrev(){ showSlide(current-1); }
+function goNext(){ showSlide(current+1); }
+function toggleAnswer(btn){
+  const box = btn.nextElementSibling;
+  const open = box.style.display === 'block';
+  box.style.display = open ? 'none' : 'block';
+  btn.textContent = open ? '정답 · 해설 확인' : '정답 · 해설 닫기';
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowLeft') goPrev();
+  if(e.key==='ArrowRight') goNext();
+});
+showSlide(0);
+</script>
+</body>
+</html>

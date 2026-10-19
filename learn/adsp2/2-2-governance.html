@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>분석 거버넌스 체계 수립 · 이론 + 기출문제 통합 학습</title>
+<style>
+:root {
+  --navy:#14385f; --navy2:#1e527f; --blue:#2c6cab; --teal:#1c8f8b;
+  --gold:#c69a3b; --bg:#eef4fa; --line:#d9e3ed; --text:#1f2d3d; --muted:#687b8e; --green:#0f766e;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:"Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",Arial,sans-serif;background:linear-gradient(180deg,#eaf2fb,#f8fbff);color:var(--text)}
+body{overflow-x:hidden}
+.app{min-height:100vh}
+.header{position:sticky;top:0;z-index:30;background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:15px 22px 13px;box-shadow:0 5px 18px rgba(10,40,70,.16)}
+.header-inner{max-width:1280px;margin:auto;display:flex;justify-content:space-between;gap:18px;align-items:center}
+.header h1{font-size:22px;margin:0 0 4px;line-height:1.25}
+.header p{margin:0;font-size:13px;opacity:.9}
+.header-badge{font-size:12px;font-weight:800;white-space:nowrap;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:7px 10px}
+.stage{display:grid;grid-template-columns:62px minmax(0,1280px) 62px;gap:12px;justify-content:center;align-items:start;padding:18px 14px 12px}
+.nav-btn{position:sticky;top:48vh;width:54px;height:54px;border:0;border-radius:50%;background:var(--navy);color:white;font-size:28px;font-weight:900;cursor:pointer;box-shadow:0 8px 20px rgba(20,56,95,.2)}
+.nav-btn:hover{transform:translateY(-2px)}
+.nav-btn:disabled{opacity:.28;cursor:not-allowed;transform:none}
+.viewer{min-width:0}
+.slide{display:none}
+.slide.active{display:block}
+.slide-head{background:#fff;border:1px solid var(--line);border-radius:18px 18px 0 0;padding:15px 20px;display:flex;justify-content:space-between;align-items:center}
+.eyebrow{font-size:11px;font-weight:900;letter-spacing:.1em;color:var(--blue)}
+.slide-head h2{margin:3px 0 0;font-size:22px;color:var(--navy)}
+.count{background:#f1f6fb;color:#5f7285;border:1px solid #dce6ef;border-radius:999px;padding:6px 10px;font-size:13px;font-weight:800;white-space:nowrap}
+.visual-card{background:#fff;border-left:1px solid var(--line);border-right:1px solid var(--line);padding:20px 22px 10px}
+.theory-box{background:#f8fafc;border:1px solid #e2eaf1;border-radius:14px;padding:16px 18px;margin-bottom:16px;line-height:1.6;font-size:15px}
+.theory-box b{color:var(--navy)}
+.terms{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
+.term{border-radius:12px;padding:13px 14px;border:1px solid var(--line);background:#fafcfe;font-size:13.5px}
+.term b{display:block;color:var(--navy);font-size:14px;margin-bottom:3px}
+.term.not{background:#fdeeee;border-color:#f0c9c9}
+.term.not b{color:#9a3a3a}
+.term.hit{background:#eef8f6;border-color:#c7e6df}
+.term.hit b{color:var(--green)}
+.flow{display:flex;align-items:stretch;gap:6px;margin:14px 0;flex-wrap:wrap}
+.flow-step{flex:1;min-width:88px;background:#dde7f0;color:#4a5a6b;border-radius:10px;padding:12px 8px;text-align:center;font-weight:900;font-size:13px}
+.flow-step.hit{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff}
+.flow-arrow{align-self:center;color:#9fb0c0;font-weight:900}
+.connection{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;background:#fff;border-left:1px solid var(--line);border-right:1px solid var(--line);padding:12px 22px 16px}
+.connection .line{height:1px;background:#d8e3ec}
+.connection-pill{background:#eef6ff;border:1px solid #c9ddf1;color:var(--navy);font-size:14px;font-weight:900;border-radius:999px;padding:8px 14px;text-align:center}
+.question-card{background:#fff;border:1px solid var(--line);border-radius:0 0 18px 18px;padding:24px 26px 27px;box-shadow:0 14px 34px rgba(20,56,95,.08);margin-bottom:16px}
+.question-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;padding-bottom:15px;border-bottom:2px solid #edf3f8;margin-bottom:19px}
+.qnum{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
+.question-head h3{font-size:22px;margin:4px 0 0;color:var(--navy)}
+.source{font-size:12px;font-weight:800;background:#f4f7fa;border:1px solid #dde6ee;color:#647689;border-radius:999px;padding:7px 10px;white-space:nowrap}
+.label{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
+.question{font-size:18px;line-height:1.62;font-weight:800;margin:7px 0 16px}
+.option{font-size:16px;line-height:1.5;padding:11px 14px;border:1px solid #e0e8ef;background:#fafcfe;border-radius:11px;margin:8px 0}
+.subbox{background:#f8fafc;border-left:5px solid var(--gold);padding:13px 15px;border-radius:10px;margin:0 0 16px;line-height:1.6;font-weight:700}
+.answer-btn{margin-top:18px;border:0;border-radius:11px;background:var(--navy);color:white;font-size:14px;font-weight:900;padding:11px 17px;cursor:pointer}
+.answer{display:none;margin-top:13px;background:#eef8f6;border:1px solid #c7e6df;border-radius:13px;padding:16px 17px;line-height:1.65}
+.answer-title{font-weight:800}
+.answer strong{font-size:22px;color:var(--green)}
+.answer p{margin:8px 0 11px}
+.memory{background:#fff8e7;border:1px solid #f0ddb0;border-radius:10px;padding:11px 13px;font-weight:800}
+.bottom-nav{max-width:1280px;margin:0 auto 28px;display:flex;justify-content:center;align-items:center;gap:12px;padding:0 12px}
+.dots{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.dot{width:12px;height:12px;border:0;border-radius:50%;background:#bdccda;cursor:pointer;padding:0}
+.dot.active{background:var(--blue);transform:scale(1.2)}
+.help{font-size:12px;color:#718397;text-align:center;margin:0 0 22px}
+@media(max-width:850px){
+  .stage{grid-template-columns:1fr;padding:10px}
+  .nav-btn{position:fixed;z-index:40;bottom:20px;top:auto;width:48px;height:48px}
+  #prevBtn{left:12px} #nextBtn{right:12px}
+  .header-inner{align-items:flex-start}
+  .header-badge{display:none}
+  .question-card{padding:19px 17px 22px}
+  .question{font-size:16.5px}
+  .question-head h3{font-size:19px}
+  .terms{grid-template-columns:1fr}
+  .flow{flex-direction:column}
+}
+@media print{
+  .header,.nav-btn,.bottom-nav,.help{display:none!important}
+  .slide{display:block!important;page-break-after:always}
+  .question-card{box-shadow:none}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="header-inner">
+      <div>
+        <h1>2과목 2장 2절 · 분석 거버넌스 체계 수립</h1>
+        <p>이론을 먼저 보고, 바로 아래 연결된 기출문제를 풀어보세요. (교재 p.153–167)</p>
+      </div>
+      <div class="header-badge">← → 방향키 지원</div>
+    </div>
+  </header>
+
+  <main class="stage">
+    <button class="nav-btn" id="prevBtn" onclick="goPrev()" aria-label="이전 화면">‹</button>
+    <div class="viewer">
+
+    <section class="slide active" data-index="0">
+      <div class="slide-head"><div><div class="eyebrow">THEORY 01 · 데이터 거버넌스 체계</div><h2>데이터 관리 체계가 다루는 항목</h2></div><div class="count">1 / 10</div></div>
+      <div class="visual-card">
+        <div class="theory-box">데이터 거버넌스 체계에서 데이터 정합성 및 활용의 효율성을 위해 <b>메타데이터(Meta Data)</b>와 <b>데이터 사전(Data Dictionary)</b>의 관리 원칙을 수립하고, <b>데이터 생명주기 관리</b> 방안도 함께 수립한다. 이를 하지 않으면 데이터 가용성·관리비용 문제에 직면할 수 있다.</div>
+        <div class="terms">
+          <div class="term hit"><b>데이터 관리 체계</b>메타데이터 관리 + 데이터 사전 관리 + 데이터 생명주기 관리</div>
+          <div class="term"><b>데이터 표준화</b>용어·형식을 통일하는 별도의 활동</div>
+          <div class="term"><b>데이터 저장소 관리</b>Repository 구축·운영에 초점</div>
+        </div>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 23번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head"><div><div class="qnum">QUESTION 23</div><h3>데이터 거버넌스 체계가 설명하는 항목</h3></div><div class="source">25회 기출</div></div>
+        <div class="label">관련 문제</div>
+        <div class="question">다음 중 아래의 데이터 거버넌스 체계가 설명하는 항목은?</div>
+        <div class="subbox">메타데이터 관리, 데이터 사전관리, 데이터 생명주기 관리</div>
+        <div class="options">
+          <div class="option">① 데이터 표준화</div>
+          <div class="option">② 데이터 관리 체계</div>
+          <div class="option">③ 데이터 저장소 관리</div>
+          <div class="option">④ 표준화 활동</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>②</strong></div>
+          <p>데이터 관리 체계에서 데이터 정합성 및 활용의 효율성을 위하여 표준 데이터를 포함한 메타 데이터(Meta Data)와 데이터 사전(Data Dictionary)의 관리 원칙을 수립한다. 데이터의 생명 주기 관리방안을 함께 수립하지 않으면 데이터 가용성 및 관리비용 증대 문제에 직면하게 될 수 있다.</p>
+          <div class="memory">핵심 암기 · 메타데이터+데이터사전+생명주기 관리 = "데이터 관리 체계"</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="1">
+      <div class="slide-head"><div><div class="eyebrow">THEORY 02 · 분석 성숙도 진단 ①</div><h2>진단 대상 3부문</h2></div><div class="count">2 / 10</div></div>
+      <div class="visual-card">
+        <div class="theory-box">기업의 데이터 분석 성숙도를 평가·진단할 때는 <b>IT 부문</b>, <b>비즈니스 부문</b>, <b>조직·역량 부문</b>에 중점을 둔다. 서비스 부문은 성숙도 평가보다는 고객 서비스나 제품 관리에 중점을 두는 영역이다.</div>
+        <div class="terms">
+          <div class="term hit"><b>IT 부문</b>분석 인프라·기술 수준</div>
+          <div class="term hit"><b>비즈니스 부문</b>분석의 업무 활용 수준</div>
+          <div class="term hit"><b>조직·역량 부문</b>분석 조직·인력의 역량 수준</div>
+        </div>
+        <div class="theory-box not" style="background:#fdeeee;border-color:#f0c9c9;margin-bottom:0"><b style="color:#9a3a3a">서비스 부문</b>은 성숙도 진단의 공식 대상이 아니다.</div>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 24번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head"><div><div class="qnum">QUESTION 24</div><h3>분석 성숙도 진단 대상</h3></div><div class="source">37회 기출</div></div>
+        <div class="label">관련 문제</div>
+        <div class="question">기업의 데이터 분석 성숙도를 평가하고 진단하는 과정에서, 분석 성숙도를 측정할 수 있는 주요 기준들이 있다. 다음 중 가장 적절하지 않은 진단 대상은?</div>
+        <div class="options">
+          <div class="option">① IT 부문</div>
+          <div class="option">② 비즈니스 부문</div>
+          <div class="option">③ 조직·역량 부문</div>
+          <div class="option">④ 서비스 부문</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>④</strong></div>
+          <p>분석 성숙도 진단은 IT, 비즈니스, 조직·역량 부문에 중점을 두며, 서비스 부문은 성숙도 평가보다는 고객 서비스나 제품 관리에 중점을 둔다.</p>
+          <div class="memory">핵심 암기 · 성숙도 진단 3부문 = IT · 비즈니스 · 조직&역량</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="2">
+      <div class="slide-head"><div><div class="eyebrow">THEORY 03 · 분석 성숙도 진단 ②</div><h2>최적화 단계 = 혁신·성과의 완성형</h2></div><div class="count">3 / 10</div></div>
+      <div class="visual-card">
+        <div class="theory-box">분석 성숙도 모델은 일반적으로 <b>도입 → 활용 → 확산 → 최적화</b>의 4단계로 구성된다. <b>최적화 단계</b>는 분석이 조직의 의사결정 및 프로세스에 깊이 통합되어 지속적인 개선과 혁신을 이끌어내는 가장 높은 수준의 단계다.</div>
+        <div class="flow">
+          <div class="flow-step">도입</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">활용</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">확산</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step hit">최적화</div>
+        </div>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 25번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head"><div><div class="qnum">QUESTION 25</div><h3>혁신·성과 향상에 기여하는 단계</h3></div><div class="source">42회 기출</div></div>
+        <div class="label">관련 문제</div>
+        <div class="question">분석 성숙도 단계에서 분석 결과를 활용하고, 내재화하여 혁신 및 성과 향상에 기여하는 단계는 무엇인가?</div>
+        <div class="options">
+          <div class="option">① 도입 단계</div>
+          <div class="option">② 활용 단계</div>
+          <div class="option">③ 확산 단계</div>
+          <div class="option">④ 최적화 단계</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>④</strong></div>
+          <p>분석 성숙도 모델은 일반적으로 도입, 활용, 확산, 최적화의 4단계로 구성되어 있으며, 최적화 단계는 분석이 조직의 의사결정 및 프로세스에 깊이 통합되어 지속적인 개선과 혁신을 이끌어내는 가장 높은 수준의 단계다. 따라서 분석 결과를 조직 전반에 걸쳐 활용·내재화하여 궁극적으로 혁신 및 성과 향상에 기여하는 단계는 최적화 단계다.</p>
+          <div class="memory">핵심 암기 · 도입→활용→확산→최적화, 최적화=혁신·성과의 완성 단계</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="3">
+      <div class="slide-head"><div><div class="eyebrow">THEORY 04 · 분석 성숙도 진단 ③</div><h2>성숙도 단계 포지셔닝 순서</h2></div><div class="count">4 / 10</div></div>
+      <div class="visual-card">
+        <div class="theory-box">분석적 기업으로 도약하려면 조직의 분석 도입 여부와 활용 수준에 대한 명확한 진단이 필요하다. 분석 수준 진단 방법 중 조직의 분석 및 활용을 위한 역량 수준을 파악하기 위해 <b>'도입 → 활용 → 확산 → 최적화'</b>의 포지셔닝을 확인한다.</div>
+        <div class="flow">
+          <div class="flow-step hit">① 도입</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step hit">② 활용</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step hit">③ 확산</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step hit">④ 최적화</div>
+        </div>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 26번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head"><div><div class="qnum">QUESTION 26</div><h3>빈칸에 들어갈 성숙도 단계</h3></div><div class="source">32회 기출</div></div>
+        <div class="label">관련 문제</div>
+        <div class="question">다음 설명에 맞는 (㉠)에 들어갈 용어는 무엇인가?</div>
+        <div class="subbox">분석적 기업으로 도약하기 위해서는 가장 먼저 조직의 분석(Analytics) 도입 여부 및 활용 수준에 대한 명확한 진단이 요구된다. 특히 분석 수준 진단 방법 중 조직의 분석 및 활용을 위한 역량 수준을 파악하기 위해 '도입 → (㉠) → 확산 → 최적화'의 분석 성숙도(Maturity) 단계 포지셔닝을 파악한다.</div>
+        <div class="options">
+          <div class="option">① 실행 (Execution)</div>
+          <div class="option">② 활용(Utilization)</div>
+          <div class="option">③ 평가 (Assessment)</div>
+          <div class="option">④ 통합 (Integration)</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>②</strong></div>
+          <p>분석 성숙도 단계는 일반적으로 도입 → 활용 → 확산 → 최적화의 순서를 따르며, 조직의 분석 역량을 단계별로 파악하는 데 사용된다. 실행, 평가, 통합은 다른 맥락에서 사용될 수 있는 용어이다.</p>
+          <div class="memory">핵심 암기 · 도입 → 활용 → 확산 → 최적화 (빈칸은 항상 "활용")</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="4">
+      <div class="slide-head"><div><div class="eyebrow">THEORY 05 · 데이터 거버넌스 관리대상</div><h2>마스터데이터 · 메타데이터 · 데이터사전</h2></div><div class="count">5 / 10</div></div>
+      <div class="visual-card">
+        <div class="theory-box">데이터 거버넌스란 전사 차원의 모든 데이터에 대하여 정책 및 지침, 표준화, 운용조직 및 책임 등의 표준화된 관리체계를 수립하고 운영을 위한 프레임워크 및 저장소를 구축하는 것을 말한다. <b>마스터 데이터</b>, <b>메타 데이터</b>, <b>데이터 사전</b>이 중요한 관리 대상이다.</div>
+        <div class="terms">
+          <div class="term hit"><b>마스터 데이터</b>조직이 공통으로 사용하는 핵심 기준 데이터</div>
+          <div class="term hit"><b>메타 데이터</b>데이터에 대한 데이터(정의·속성 정보)</div>
+          <div class="term hit"><b>데이터 사전</b>데이터 항목의 정의를 모아놓은 참조 문서</div>
+        </div>
+        <div class="theory-box not" style="background:#fdeeee;border-color:#f0c9c9;margin-bottom:0"><b style="color:#9a3a3a">데이터 마트</b>는 데이터 웨어하우스의 하위 집합으로, 특정 사용자 그룹을 위한 작은 저장소일 뿐 거버넌스의 직접 관리 대상은 아니다.</div>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 27번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head"><div><div class="qnum">QUESTION 27</div><h3>데이터 거버넌스의 관리 대상</h3></div><div class="source">30회 기출</div></div>
+        <div class="label">관련 문제</div>
+        <div class="question">아래의 (a), (b), (c)에 들어갈 수 있는 단어가 아닌 것은?</div>
+        <div class="subbox">데이터 거버넌스란 전사차원의 모든 데이터에 대하여 정책 및 지침, 표준화, 운용조직 및 책임 등의 표준화된 관리체계를 수립하고 운영을 위한 프레임워크 및 저장소를 구축하는 것을 말한다. 특히 (a), (b), (c)는 데이터 거버넌스의 중요한 관리 대상이다.</div>
+        <div class="options">
+          <div class="option">① 마스터 데이터</div>
+          <div class="option">② 메타 데이터</div>
+          <div class="option">③ 데이터 사전</div>
+          <div class="option">④ 데이터 마트</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>④</strong></div>
+          <p>데이터 거버넌스의 관리 대상은 마스터 데이터, 메타 데이터, 데이터 사전이다. 데이터 마트는 데이터 웨어하우스의 하위 집합으로, 특정 사용자 그룹이 관심을 갖는 데이터를 제공하기 위해 구성된 작은 규모의 데이터 저장소를 말한다.</p>
+          <div class="memory">핵심 암기 · 거버넌스 관리대상 = 마스터데이터·메타데이터·데이터사전 (데이터마트는 ×)</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="5">
+      <div class="slide-head"><div><div class="eyebrow">THEORY 06 · 데이터 거버넌스 구성요소</div><h2>원칙 · 조직 · 프로세스</h2></div><div class="count">6 / 10</div></div>
+      <div class="visual-card">
+        <div class="theory-box">데이터 거버넌스의 구성요소인 <b>원칙(Principle)</b>, <b>조직(Organization)</b>, <b>프로세스(Process)</b>는 유기적으로 결합되고 효과적으로 운영되어야 데이터의 유효한 품질과 통합 수준을 확보·적용할 수 있다. 분석방법(Method)은 거버넌스의 구성요소가 아니다.</div>
+        <div class="terms">
+          <div class="term hit"><b>원칙 (Principle)</b>데이터를 유지·관리하기 위한 지침과 가이드</div>
+          <div class="term hit"><b>조직 (Organization)</b>데이터를 관리할 책임을 갖는 조직·역할</div>
+          <div class="term hit"><b>프로세스 (Process)</b>데이터 관리를 위한 활동·체계</div>
+        </div>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 28번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head"><div><div class="qnum">QUESTION 28</div><h3>데이터 거버넌스 구성요소</h3></div><div class="source">30회 기출</div></div>
+        <div class="label">관련 문제</div>
+        <div class="question">다음 중 데이터 거버넌스를 구성하는 요소로 적합하지 않은 것은?</div>
+        <div class="options">
+          <div class="option">① 원칙(Principle)</div>
+          <div class="option">② 조직(Organization)</div>
+          <div class="option">③ 분석방법(Method)</div>
+          <div class="option">④ 절차(Process)</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>③</strong></div>
+          <p>데이터 거버넌스는 데이터 관리 원칙, 조직, 절차와 같은 요소로 구성되며, 분석방법은 데이터 거버넌스의 요소가 아니다.</p>
+          <div class="memory">핵심 암기 · 거버넌스 3요소 = 원칙·조직·프로세스 (분석방법은 ×)</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="6">
+      <div class="slide-head"><div><div class="eyebrow">THEORY 07 · 데이터 거버넌스 정의</div><h2>전사적 데이터 관리 체계</h2></div><div class="count">7 / 10</div></div>
+      <div class="visual-card">
+        <div class="theory-box"><b>데이터 거버넌스</b>는 전사적 데이터 관리를 위해 정책, 지침, 표준화를 포함한 관리 체계를 수립하고 운영하는 것을 일컫는다. 데이터 웨어하우스·데이터 마이닝·데이터 마트는 각각 저장·분석·소규모 저장소를 가리키는 다른 개념이다.</div>
+        <div class="terms">
+          <div class="term"><b>데이터 웨어하우스</b>전사 데이터를 통합 저장하는 대규모 저장소</div>
+          <div class="term"><b>데이터 마이닝</b>데이터에서 패턴·지식을 찾아내는 분석 기법</div>
+          <div class="term hit"><b>데이터 거버넌스</b>정책·지침·표준화된 관리체계의 수립과 운영</div>
+        </div>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 29번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head"><div><div class="qnum">QUESTION 29</div><h3>전사적 데이터 관리 체계를 가리키는 용어</h3></div><div class="source">32회 기출</div></div>
+        <div class="label">관련 문제</div>
+        <div class="question">다음 중 전사적 데이터 관리를 위해 정책, 지침, 표준화를 포함한 관리 체계를 수립하고 운영하는 것을 일컫는 용어는 무엇인가?</div>
+        <div class="options">
+          <div class="option">① 데이터 웨어하우스</div>
+          <div class="option">② 데이터 마이닝</div>
+          <div class="option">③ 데이터 마트</div>
+          <div class="option">④ 데이터 거버넌스</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>④</strong></div>
+          <p>데이터 거버넌스는 데이터 관리와 운영에 대한 정책, 지침, 표준화된 체계를 수립하고 운영하는 것을 말한다.</p>
+          <div class="memory">핵심 암기 · "정책+지침+표준화 관리체계"라는 표현 = 데이터 거버넌스</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="7">
+      <div class="slide-head"><div><div class="eyebrow">THEORY 08 · 분석 조직 구조</div><h2>집중 · 기능 · 분산 구조</h2></div><div class="count">8 / 10</div></div>
+      <div class="visual-card">
+        <div class="theory-box">데이터 분석 조직 구조는 분석 업무를 별도의 분석전담 조직에서 담당하는 <b>집중구조</b>, 별도 조직 없이 각 부서에서 분석을 수행하는 <b>기능 구조</b>, 분석 조직이 존재하나 해당 인력을 현업 부서로 직접 배치하는 <b>분산 구조</b>로 나뉜다. 사업 구조는 해당되지 않는다.</div>
+        <div class="terms">
+          <div class="term hit"><b>집중 구조</b>별도 분석전담 조직이 전사 분석 업무를 담당</div>
+          <div class="term hit"><b>기능 구조</b>별도 조직 없이 각 부서가 자체적으로 분석 수행</div>
+          <div class="term hit"><b>분산 구조</b>분석 조직은 있으나 인력을 현업 부서에 직접 배치</div>
+        </div>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 30번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head"><div><div class="qnum">QUESTION 30</div><h3>데이터 분석 조직 구조</h3></div><div class="source">39회 기출</div></div>
+        <div class="label">관련 문제</div>
+        <div class="question">다음 중 데이터 분석을 위한 조직 구조로 가장 적절하지 않은 것은?</div>
+        <div class="options">
+          <div class="option">① 집중 구조</div>
+          <div class="option">② 사업 구조</div>
+          <div class="option">③ 분산 구조</div>
+          <div class="option">④ 기능 구조</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>②</strong></div>
+          <p>데이터 분석 조직 구조는 분석 업무를 별도의 분석전담 조직에서 담당하는 집중구조, 별도 조직 없이 각 부서에서 분석을 수행하는 기능 구조, 분석 조직이 존재하나 해당 인력들을 현업 부서로 직접 배치하여 업무를 수행하는 분산 구조가 있다.</p>
+          <div class="memory">핵심 암기 · 분석 조직 구조 3가지 = 집중·기능·분산 (사업구조는 ×)</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="8">
+      <div class="slide-head"><div><div class="eyebrow">THEORY 09 · 분석 과제 관리</div><h2>분석 과제 관리 프로세스</h2></div><div class="count">9 / 10</div></div>
+      <div class="visual-card">
+        <div class="theory-box">분석 아이디어를 발굴하고 이를 과제화하여 <b>분석 과제 풀(Pool)</b>로 관리하면서 분석 프로젝트를 선정하는 작업을 수행한다. <b>확정된</b> 분석 과제는 과제 추진팀을 구성해 실행하고, <b>확정되지 않은</b> 분석 과제들은 지속적인 모니터링과 결과 공유를 통해 개선하는 절차를 거친다.</div>
+        <div class="flow">
+          <div class="flow-step">아이디어 수집<br><span style="font-weight:700;font-size:11px">초기 단계</span></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step hit">과제 풀(Pool)<br><span style="font-weight:700;font-size:11px">확정 전 과제 관리</span></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">실행 단계<br><span style="font-weight:700;font-size:11px">팀구성·수집·검토</span></div>
+        </div>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 31번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head"><div><div class="qnum">QUESTION 31</div><h3>분석 과제 관리 과정</h3></div><div class="source">39회 기출</div></div>
+        <div class="label">관련 문제</div>
+        <div class="question">데이터 분석 과제를 효과적으로 관리하기 위해 단계별 프로세스를 설정한다. 다음 중 분석 과제 관리 과정에 대한 설명으로 부적절한 것은?</div>
+        <div class="options">
+          <div class="option">① 분석 아이디어 수집과 과제 후보군 제안은 초기 단계에서 이루어진다.</div>
+          <div class="option">② 확정된 분석 과제는 풀(pool)로 관리한다.</div>
+          <div class="option">③ 분석 수행 과정에서 도출된 주요 시사점은 지속적으로 저장하고 조직에 공유된다.</div>
+          <div class="option">④ 실행 단계에서는 팀원 구성, 데이터 수집 및 처리, 결과 검토 프로세스가 포함된다.</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>②</strong></div>
+          <p>분석 아이디어를 발굴하고 이를 과제화하여 분석 과제 풀로 관리하면서 분석 프로젝트를 선정하는 작업을 수행한다. 확정된 분석 과제는 과제 추진팀을 구성해서 분석과제를 실행하고, 확정되지 않은 분석 과제들은 지속적인 모니터링과 과제 결과를 공유하면서 개선하는 절차를 수행한다.</p>
+          <div class="memory">핵심 암기 · 풀(Pool)로 관리하는 건 "확정 전" 후보 과제, "확정된" 과제가 아니다</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="9">
+      <div class="slide-head"><div><div class="eyebrow">THEORY 10 · 분석 교육과 변화 관리</div><h2>중장기적 대응 방안</h2></div><div class="count">10 / 10</div></div>
+      <div class="visual-card">
+        <div class="theory-box">빅데이터를 활용한 비즈니스는 기업에 많은 변화를 가져온다. 장기적 대응 방안은 <b>조직의 분석 역량 강화를 위한 체계적인 계획</b>, <b>데이터 기반의 의사결정 문화 정착</b>, <b>분석 조직 및 인력에 대한 교육</b> 등을 포함한다. 단순한 <b>도구(tool) 기반 교육</b>만으로는 부족하다.</div>
+        <div class="terms">
+          <div class="term hit"><b>분석 조직·인력 교육</b>지속적인 교육과 훈련</div>
+          <div class="term hit"><b>데이터 기반 의사결정 문화 정착</b>Fact-Based 의사결정 문화</div>
+          <div class="term hit"><b>체계적인 역량 강화 계획</b>분석역량 강화를 위한 계획·시행</div>
+        </div>
+        <div class="theory-box not" style="background:#fdeeee;border-color:#f0c9c9;margin-bottom:0"><b style="color:#9a3a3a">도구 기반 교육만</b>으로는 단기적·기술 중심에 그쳐, 장기적 분석 역량 강화나 문화 변화로 이어지기 어렵다.</div>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 32번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head"><div><div class="qnum">QUESTION 32</div><h3>변화 수용을 위한 중장기 대응 방안</h3></div><div class="source">15회 기출</div></div>
+        <div class="label">관련 문제</div>
+        <div class="question">빅데이터를 활용한 비즈니스는 기업에 많은 변화를 가져오고 있다. 다음 중 기업에서 이러한 변화를 수용하기 위한 중장기적 대응 방안으로 가장 거리가 먼 것은?</div>
+        <div class="options">
+          <div class="option">① 분석 조직 및 인력에 대한 교육과 훈련</div>
+          <div class="option">② 데이터 기반의 의사결정문화 정착</div>
+          <div class="option">③ 데이터 분석 도구 기반의 교육</div>
+          <div class="option">④ 분석역량 강화를 위한 체계적인 계획 및 시행</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>③</strong></div>
+          <p>장기적 대응 방안은 조직의 분석 역량 강화를 위한 체계적인 계획, 데이터 기반의 의사결정 문화 정착, 분석 조직 및 인력 교육 등이 포함된다. 반면, 데이터 분석 도구 기반의 교육은 단기적이고 도구 중심의 기술 교육에 그치며, 조직의 장기적 분석 역량 강화나 문화 변화와는 거리가 있다.</p>
+          <div class="memory">핵심 암기 · "툴(도구) 교육"만으로는 부족 — 역량·문화·조직 관점의 변화관리가 핵심</div>
+        </div>
+      </article>
+    </section>
+
+    </div>
+    <button class="nav-btn" id="nextBtn" onclick="goNext()" aria-label="다음 화면">›</button>
+  </main>
+
+  <div class="bottom-nav"><div class="dots">
+    <button class="dot active" onclick="showSlide(0)" aria-label="1번 화면"></button>
+    <button class="dot" onclick="showSlide(1)" aria-label="2번 화면"></button>
+    <button class="dot" onclick="showSlide(2)" aria-label="3번 화면"></button>
+    <button class="dot" onclick="showSlide(3)" aria-label="4번 화면"></button>
+    <button class="dot" onclick="showSlide(4)" aria-label="5번 화면"></button>
+    <button class="dot" onclick="showSlide(5)" aria-label="6번 화면"></button>
+    <button class="dot" onclick="showSlide(6)" aria-label="7번 화면"></button>
+    <button class="dot" onclick="showSlide(7)" aria-label="8번 화면"></button>
+    <button class="dot" onclick="showSlide(8)" aria-label="9번 화면"></button>
+    <button class="dot" onclick="showSlide(9)" aria-label="10번 화면"></button>
+  </div></div>
+  <div class="help">좌우 버튼 · 키보드 ← → · 하단 점을 눌러 화면을 이동할 수 있습니다.</div>
+</div>
+
+<script>
+let current = 0;
+const slides = [...document.querySelectorAll('.slide')];
+const dots = [...document.querySelectorAll('.dot')];
+function showSlide(i){
+  if(i < 0 || i >= slides.length) return;
+  current = i;
+  slides.forEach((s,idx)=>s.classList.toggle('active', idx===i));
+  dots.forEach((d,idx)=>d.classList.toggle('active', idx===i));
+  document.getElementById('prevBtn').disabled = i===0;
+  document.getElementById('nextBtn').disabled = i===slides.length-1;
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function goPrev(){ showSlide(current-1); }
+function goNext(){ showSlide(current+1); }
+function toggleAnswer(btn){
+  const box = btn.nextElementSibling;
+  const open = box.style.display === 'block';
+  box.style.display = open ? 'none' : 'block';
+  btn.textContent = open ? '정답 · 해설 확인' : '정답 · 해설 닫기';
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowLeft') goPrev();
+  if(e.key==='ArrowRight') goNext();
+});
+showSlide(0);
+</script>
+</body>
+</html>
