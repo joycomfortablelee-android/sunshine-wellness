@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>주성분분석(PCA) · 개념 그림 + 기출문제 통합 학습 HTML</title>
+<style>
+:root {
+  --navy:#14385f; --navy2:#1e527f; --blue:#2c6cab; --teal:#1c8f8b;
+  --gold:#c69a3b; --bg:#eef4fa; --line:#d9e3ed; --text:#1f2d3d; --muted:#687b8e; --green:#0f766e;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:"Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",Arial,sans-serif;background:linear-gradient(180deg,#eaf2fb,#f8fbff);color:var(--text)}
+body{overflow-x:hidden}
+.app{min-height:100vh}
+.header{position:sticky;top:0;z-index:30;background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:15px 22px 13px;box-shadow:0 5px 18px rgba(10,40,70,.16)}
+.header-inner{max-width:1280px;margin:auto;display:flex;justify-content:space-between;gap:18px;align-items:center}
+.header h1{font-size:23px;margin:0 0 4px;line-height:1.25}
+.header p{margin:0;font-size:13px;opacity:.9}
+.header-badge{font-size:12px;font-weight:800;white-space:nowrap;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:7px 10px}
+.stage{display:grid;grid-template-columns:62px minmax(0,1280px) 62px;gap:12px;justify-content:center;align-items:start;padding:18px 14px 12px}
+.nav-btn{position:sticky;top:48vh;width:54px;height:54px;border:0;border-radius:50%;background:var(--navy);color:white;font-size:28px;font-weight:900;cursor:pointer;box-shadow:0 8px 20px rgba(20,56,95,.2)}
+.nav-btn:hover{transform:translateY(-2px)}
+.nav-btn:disabled{opacity:.28;cursor:not-allowed;transform:none}
+.viewer{min-width:0}
+.slide{display:none}
+.slide.active{display:block}
+.slide-head{background:#fff;border:1px solid var(--line);border-radius:18px 18px 0 0;padding:15px 20px;display:flex;justify-content:space-between;align-items:center}
+.eyebrow{font-size:11px;font-weight:900;letter-spacing:.12em;color:var(--blue)}
+.slide-head h2{margin:3px 0 0;font-size:23px;color:var(--navy)}
+.count{background:#f1f6fb;color:#5f7285;border:1px solid #dce6ef;border-radius:999px;padding:6px 10px;font-size:13px;font-weight:800}
+.visual-card{background:#fff;border-left:1px solid var(--line);border-right:1px solid var(--line);padding:22px 22px 14px}
+.connection{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;background:#fff;border-left:1px solid var(--line);border-right:1px solid var(--line);padding:12px 22px 16px}
+.connection .line{height:1px;background:#d8e3ec}
+.connection-pill{background:#eef6ff;border:1px solid #c9ddf1;color:var(--navy);font-size:14px;font-weight:900;border-radius:999px;padding:8px 14px;text-align:center}
+.question-card{background:#fff;border:1px solid var(--line);border-radius:0 0 18px 18px;padding:24px 26px 27px;box-shadow:0 14px 34px rgba(20,56,95,.08);margin-bottom:16px}
+.question-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;padding-bottom:15px;border-bottom:2px solid #edf3f8;margin-bottom:19px}
+.qnum{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
+.question-head h3{font-size:24px;margin:4px 0 0;color:var(--navy)}
+.source{font-size:12px;font-weight:800;background:#f4f7fa;border:1px solid #dde6ee;color:#647689;border-radius:999px;padding:7px 10px;white-space:nowrap}
+.label{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
+.question{font-size:19px;line-height:1.62;font-weight:800;margin:7px 0 16px}
+.option{font-size:16px;line-height:1.5;padding:11px 14px;border:1px solid #e0e8ef;background:#fafcfe;border-radius:11px;margin:8px 0}
+.subbox{background:#f8fafc;border-left:5px solid var(--gold);padding:15px 17px;border-radius:10px;margin:15px 0;line-height:1.65}
+.answer-btn{margin-top:18px;border:0;border-radius:11px;background:var(--navy);color:white;font-size:14px;font-weight:900;padding:11px 17px;cursor:pointer}
+.answer{display:none;margin-top:13px;background:#eef8f6;border:1px solid #c7e6df;border-radius:13px;padding:16px 17px;line-height:1.65}
+.answer-title{font-weight:800}
+.answer strong{font-size:23px;color:var(--green)}
+.answer p{margin:8px 0 11px}
+.memory{background:#fff8e7;border:1px solid #f0ddb0;border-radius:10px;padding:11px 13px;font-weight:800}
+.bottom-nav{max-width:1280px;margin:0 auto 28px;display:flex;justify-content:center;align-items:center;gap:12px;padding:0 12px}
+.dots{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.dot{width:12px;height:12px;border:0;border-radius:50%;background:#bdccda;cursor:pointer;padding:0}
+.dot.active{background:var(--blue);transform:scale(1.2)}
+.help{font-size:12px;color:#718397;text-align:center;margin:0 0 22px}
+
+.d-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.d-card{background:#f7fafd;border:1px solid var(--line);border-radius:12px;padding:14px}
+.d-card b{display:block;color:var(--navy);font-size:14px;margin-bottom:4px}
+.d-card span{font-size:12.5px;color:var(--muted);line-height:1.5}
+.d-note{margin-top:10px;font-size:12.5px;color:var(--muted);text-align:center}
+.scree-wrap{display:flex;justify-content:center;padding:6px 0}
+svg.scree{width:100%;max-width:340px;height:160px}
+table.d-table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:6px}
+table.d-table th,table.d-table td{border:1px solid var(--line);padding:8px 9px;text-align:center}
+table.d-table th{background:#edf3f8;color:var(--navy)}
+
+@media(max-width:850px){
+  .stage{grid-template-columns:1fr;padding:10px}
+  .nav-btn{position:fixed;z-index:40;bottom:20px;top:auto;width:48px;height:48px}
+  #prevBtn{left:12px} #nextBtn{right:12px}
+  .header-inner{align-items:flex-start}
+  .header-badge{display:none}
+  .question-card{padding:19px 17px 22px}
+  .question{font-size:17px}
+  .question-head h3{font-size:21px}
+}
+@media print{
+  .header,.nav-btn,.bottom-nav,.help{display:none!important}
+  .slide{display:block!important;page-break-after:always}
+  .question-card{box-shadow:none}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="header-inner">
+      <div>
+        <h1>4장 6절 주성분분석(PCA)</h1>
+        <p>각 화면에서 개념 그림을 먼저 보고, 바로 아래 연결된 기출문제를 풀어보세요.</p>
+      </div>
+      <div class="header-badge">← → 방향키 지원</div>
+    </div>
+  </header>
+
+  <main class="stage">
+    <button class="nav-btn" id="prevBtn" onclick="goPrev()" aria-label="이전 화면">‹</button>
+    <div class="viewer">
+
+    <section class="slide active" data-index="0">
+      <div class="slide-head">
+        <div><div class="eyebrow">CONCEPT 01</div><h2>주성분분석이란</h2></div>
+        <div class="count">1 / 4</div>
+      </div>
+      <div class="visual-card">
+        <div class="d-cards">
+          <div class="d-card"><b>목적</b><span>상관성 높은 변수들을 "주성분"이라는 선형결합으로 요약·축소</span></div>
+          <div class="d-card"><b>제1주성분</b><span>전체 변동을 가장 많이 설명하도록 구성</span></div>
+          <div class="d-card"><b>제2주성분</b><span>1주성분과 상관성 없이(독립적으로), 나머지 변동을 가장 많이 설명</span></div>
+        </div>
+        <p class="d-note">PCA로 만든 주성분은 원본 변수와는 "독립적인" 새 변수이지만, 원 변수들로부터 유도된 것이라 완전히 독립적이지는 않다 — 함정 포인트.</p>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 1번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head">
+          <div><div class="qnum">QUESTION 01</div><h3>주성분분석 설명으로 적절하지 않은 것</h3></div>
+          <div class="source">34회 기출</div>
+        </div>
+        <div class="label">관련 문제</div>
+        <div class="question">주성분분석에 대한 설명 중 적절하지 않은 것은 무엇인가?</div>
+        <div class="options">
+          <div class="option">① 주성분분석은 데이터의 차원을 축소하여 변수 간 상관관계를 시각적으로 확인할 수 있는 방법이다.</div>
+          <div class="option">② 주성분분석은 원래 변수들이 설명하는 총 변동의 대부분을 보존하는 새로운 주성분들을 생성한다.</div>
+          <div class="option">③ 주성분분석을 통해 얻은 주성분은 원본 변수들과는 독립적인 새로운 변수로, 데이터의 구조를 단순화하는 데 유용하다.</div>
+          <div class="option">④ p개의 변수를 중요한 m(&lt;p)개의 주성분으로 요약하여 전체 변동 대부분을 설명할 수 있다.</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>③</strong></div>
+          <p>PCA를 통해 생성된 주성분은 원래 변수들의 선형 결합으로 구성되며, 원래 변수와는 완전히 독립적인 관계가 아니다. 주성분 분석은 원 변수 간의 상관관계를 줄이거나 제거하지만, 변수들로부터 유도된 새로운 변수라는 점에서 완전히 독립적이지 않다.</p>
+          <div class="memory">핵심 암기 · 주성분 = 원변수의 "선형결합" — 완전히 "독립"은 과장된 설명</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="1">
+      <div class="slide-head">
+        <div><div class="eyebrow">CONCEPT 02</div><h2>차원 축소 기법 구분</h2></div>
+        <div class="count">2 / 4</div>
+      </div>
+      <div class="visual-card">
+        <table class="d-table">
+          <thead><tr><th>기법</th><th>목적</th></tr></thead>
+          <tbody>
+            <tr style="background:#eef6ff"><td><b>주성분 분석(PCA)</b></td><td>변수 축소 + 정보 손실 최소화 + 새 변수(주성분) 생성</td></tr>
+            <tr><td>군집 분석</td><td>개체를 그룹으로 분류</td></tr>
+            <tr><td>회귀 분석</td><td>독립변수로 종속변수를 예측</td></tr>
+            <tr><td>판별 분석</td><td>그룹을 구분하는 기준(함수)을 찾음</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 2번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head">
+          <div><div class="qnum">QUESTION 02</div><h3>설명에 해당하는 분석 기법</h3></div>
+          <div class="source">38회 기출</div>
+        </div>
+        <div class="label">관련 문제</div>
+        <div class="question">다음은 특정 통계 분석 방법에 대한 설명이다. 이를 가장 잘 설명하는 기법은 무엇인가?</div>
+        <div class="subbox">— 데이터의 변수를 축소하면서도 정보의 손실을 최소화하는 방법<br>— 기존 변수들의 선형 결합을 통해 새로운 변수들을 생성함<br>— 축소된 차원으로도 주요한 패턴이나 특성을 유지하며 분석이 가능함</div>
+        <div class="options">
+          <div class="option">① 군집 분석</div><div class="option">② 회귀 분석</div><div class="option">③ 주성분 분석</div><div class="option">④ 판별 분석</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>③</strong></div>
+          <p>주성분 분석은 데이터의 차원을 줄이면서 정보 손실을 최소화하는 방법으로, 여러 변수를 선형 결합해 새로운 변수(주성분)를 생성하는 기법이다. 이를 통해 변수 축소와 차원 감소에 효과적으로 활용할 수 있다. 반면, 군집 분석, 회귀 분석, 판별 분석은 각각 서로 다른 분석 목적을 가진 별도의 통계 분석 기법이다.</p>
+          <div class="memory">핵심 암기 · "변수 축소 + 선형결합 + 새 변수 생성" = PCA</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="2">
+      <div class="slide-head">
+        <div><div class="eyebrow">CONCEPT 03</div><h2>주성분 개수 선택 — Scree Plot</h2></div>
+        <div class="count">3 / 4</div>
+      </div>
+      <div class="visual-card">
+        <div class="scree-wrap">
+          <svg class="scree" viewBox="0 0 340 160">
+            <line x1="30" y1="140" x2="320" y2="140" stroke="#bfd6ec" stroke-width="2"/>
+            <line x1="30" y1="140" x2="30" y2="20" stroke="#bfd6ec" stroke-width="2"/>
+            <polyline points="50,30 110,65 170,100 230,120 290,130" fill="none" stroke="#2c6cab" stroke-width="2.5"/>
+            <circle cx="50" cy="30" r="4" fill="#14385f"/><circle cx="110" cy="65" r="4" fill="#14385f"/>
+            <circle cx="170" cy="100" r="4" fill="#14385f"/><circle cx="230" cy="120" r="4" fill="#14385f"/><circle cx="290" cy="130" r="4" fill="#14385f"/>
+            <line x1="140" y1="150" x2="140" y2="30" stroke="#c69a3b" stroke-width="2" stroke-dasharray="4 3"/>
+            <text x="140" y="20" text-anchor="middle" font-size="11" fill="#c69a3b">완만해지는 지점(elbow)</text>
+            <text x="175" y="153" text-anchor="middle" font-size="11" fill="#687b8e">주성분 개수 →</text>
+          </svg>
+        </div>
+        <p class="d-note">고윳값(Eigenvalue) 기준 — 급격히 감소하다가 완만해지는 지점(elbow) 직전까지를 주성분 개수로 선택. 누적기여율 85% 이상 기준도 함께 쓴다.</p>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 3번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head">
+          <div><div class="qnum">QUESTION 03</div><h3>주성분의 중요도 판단 기준</h3></div>
+          <div class="source">30회 기출</div>
+        </div>
+        <div class="label">관련 문제</div>
+        <div class="question">다음 중 주성분분석(PCA)에서 각 주성분의 중요도를 판단하는 기준으로 가장 적절한 것은?</div>
+        <div class="options">
+          <div class="option">① 고윳값(Eigenvalue)</div>
+          <div class="option">② 주성분의 평균값(Mean of Principal Components)</div>
+          <div class="option">③ 데이터의 표준편차(Standard Deviation of Variables)</div>
+          <div class="option">④ 특이값(Singular Value)</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>①</strong></div>
+          <p>주성분분석(PCA)에서 각 주성분의 중요도는 고윳값(Eigenvalue)을 기준으로 판단한다. 고윳값은 해당 주성분이 데이터의 총 분산에서 차지하는 비율을 나타내며, 값이 클수록 중요도가 높다. 평균값, 표준편차, 특이값은 중요도를 직접적으로 판단하는 기준이 아니다.</p>
+          <div class="memory">핵심 암기 · 주성분의 중요도 = 고윳값(Eigenvalue) 크기</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="3">
+      <div class="slide-head">
+        <div><div class="eyebrow">CONCEPT 04</div><h2>R의 biplot 결과 읽기</h2></div>
+        <div class="count">4 / 4</div>
+      </div>
+      <div class="visual-card">
+        <div class="d-cards">
+          <div class="d-card"><b>Comp.1, Comp.2</b><span>누적 분산 비율(Cumulative Proportion)로 몇 개의 주성분이면 충분한지 판단</span></div>
+          <div class="d-card"><b>Loadings</b><span>각 원변수가 주성분에 기여하는 정도(부호·크기)</span></div>
+        </div>
+        <p class="d-note">누적분산비율이 1.0000(100%)에 도달하면 "주성분 전체"로는 데이터 분산을 모두 설명할 수 있다는 뜻 — 다만 어느 특정 주성분 하나가 "다른 원변수와 꼭 양의 상관관계"를 갖는다고 단정할 수는 없다.</p>
+      </div>
+      <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 4번 연결 &nbsp; ↓</div><div class="line"></div></div>
+      <article class="question-card">
+        <div class="question-head">
+          <div><div class="qnum">QUESTION 04</div><h3>headsize 데이터 PCA 결과 해석</h3></div>
+          <div class="source">25회 기출</div>
+        </div>
+        <div class="label">관련 문제</div>
+        <div class="question">headsize 데이터는 25개 가구에서 첫 번째와 두 번째 성인 아들의 머리길이(head)와 머리 폭(breadth)을 보여준다. 이에 대한 설명 중 가장 부적절한 것은?</div>
+        <div class="code-ex" style="background:#f8fafc;border-left:5px solid #c69a3b;padding:12px 15px;border-radius:9px;font-family:Consolas,monospace;font-size:12px;white-space:pre-wrap">Importance of components:
+               Comp.1 Comp.2 Comp.3 Comp.4
+Std deviation   15.1   5.42   4.12   3.000
+Prop. of Var.   0.8    0.10   0.06   0.032
+Cumulative      0.8    0.91   0.97   1.000</div>
+        <div class="options">
+          <div class="option">① 주성분 분석의 결과를 보여준다.</div>
+          <div class="option">② 첫 두 개의 주성분으로 전체 데이터 분산의 91%를 설명할 수 있다.</div>
+          <div class="option">③ 두 번째 주성분은 네 개의 원변수와 양의 상관관계를 가진다.</div>
+          <div class="option">④ 네 개의 주성분을 사용하면 전체 데이터 분산을 모두 설명할 수 있다.</div>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>③</strong></div>
+          <p>주성분 분석에서 두 번째 주성분은 보통 첫 번째 주성분과 직교하며, 원변수와의 상관관계가 양의 값만 가진다고 단정할 수 없다. 제시된 결과는 주성분 분석을 수행하여 도출된 데이터의 특성을 보여주며, Comp.2의 누적 분산 비율이 0.91이므로 두 개의 주성분으로 90%의 분산을 설명할 수 있다. Comp.4 또한 누적 분산 비율이 1.0000이므로, 전체 데이터의 분산을 모두 설명할 수 있다.</p>
+          <div class="memory">핵심 암기 · Loadings의 부호(+/−)는 주성분마다 다르다 — "항상 양"은 함정</div>
+        </div>
+      </article>
+    </section>
+
+    </div>
+    <button class="nav-btn" id="nextBtn" onclick="goNext()" aria-label="다음 화면">›</button>
+  </main>
+
+  <div class="bottom-nav"><div class="dots">
+    <button class="dot active" onclick="showSlide(0)" aria-label="1번 화면"></button>
+    <button class="dot" onclick="showSlide(1)" aria-label="2번 화면"></button>
+    <button class="dot" onclick="showSlide(2)" aria-label="3번 화면"></button>
+    <button class="dot" onclick="showSlide(3)" aria-label="4번 화면"></button>
+  </div></div>
+  <div class="help">좌우 버튼 · 키보드 ← → · 하단 점을 눌러 화면을 이동할 수 있습니다.</div>
+</div>
+
+<script>
+let current = 0;
+const slides = [...document.querySelectorAll('.slide')];
+const dots = [...document.querySelectorAll('.dot')];
+function showSlide(i){
+  if(i < 0 || i >= slides.length) return;
+  current = i;
+  slides.forEach((s,idx)=>s.classList.toggle('active', idx===i));
+  dots.forEach((d,idx)=>d.classList.toggle('active', idx===i));
+  document.getElementById('prevBtn').disabled = i===0;
+  document.getElementById('nextBtn').disabled = i===slides.length-1;
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function goPrev(){ showSlide(current-1); }
+function goNext(){ showSlide(current+1); }
+function toggleAnswer(btn){
+  const box = btn.nextElementSibling;
+  const open = box.style.display === 'block';
+  box.style.display = open ? 'none' : 'block';
+  btn.textContent = open ? '정답 · 해설 확인' : '정답 · 해설 닫기';
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowLeft') goPrev();
+  if(e.key==='ArrowRight') goNext();
+});
+showSlide(0);
+</script>
+</body>
+</html>
