@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>베네치아 스마트관광: 문제·기술·효과·출처</title>
+<style>
+  :root{
+    --navy:#0b2f57;
+    --blue:#1c64b5;
+    --blue2:#3a7cc7;
+    --sky:#eef6ff;
+    --line:#cfe0f2;
+    --text:#17212b;
+    --muted:#5c6977;
+    --bg:#f6f9fc;
+    --card:#ffffff;
+    --gold:#b9892f;
+    --green:#2e7d64;
+    --red:#b54545;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif;
+    background:linear-gradient(180deg,#eef5fb 0,#f8fafc 280px,#f6f9fc 100%);
+    color:var(--text);
+    line-height:1.55;
+  }
+  .wrap{max-width:1240px;margin:0 auto;padding:34px 28px 60px}
+  .hero{
+    background:linear-gradient(135deg,#0b2f57,#174d82 62%,#246da8);
+    color:white;border-radius:24px;padding:34px 38px 30px;box-shadow:0 18px 50px rgba(11,47,87,.18);
+  }
+  .eyebrow{font-size:13px;font-weight:800;letter-spacing:.14em;opacity:.82;text-transform:uppercase}
+  h1{font-size:34px;margin:8px 0 9px;line-height:1.25;letter-spacing:-.04em}
+  .subtitle{font-size:17px;opacity:.93;margin:0 0 22px}
+  .hero-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .stat{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:13px 14px}
+  .stat b{display:block;font-size:21px;line-height:1.15}
+  .stat span{font-size:12px;opacity:.84}
+
+  .logic{margin:24px 0 10px;display:grid;grid-template-columns:1fr 46px 1fr 46px 1fr 46px 1fr;align-items:stretch}
+  .logic .box{background:white;border:1px solid var(--line);border-radius:15px;padding:16px;min-height:104px;box-shadow:0 6px 20px rgba(28,100,181,.06)}
+  .logic .box small{display:block;color:var(--blue);font-weight:800;margin-bottom:5px}
+  .logic .box b{font-size:17px;color:var(--navy)}
+  .arrow{display:flex;align-items:center;justify-content:center;color:var(--blue);font-weight:900;font-size:24px}
+
+  .section-title{display:flex;align-items:end;justify-content:space-between;gap:20px;margin:38px 0 14px}
+  .section-title h2{margin:0;color:var(--navy);font-size:26px;letter-spacing:-.035em}
+  .section-title p{margin:0;color:var(--muted);font-size:13px}
+
+  .case-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .case{background:var(--card);border:1px solid var(--line);border-radius:19px;padding:22px 22px 18px;box-shadow:0 7px 24px rgba(26,58,91,.06);position:relative;overflow:hidden}
+  .case:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--blue)}
+  .case[data-type="sustain"]:before{background:var(--green)}
+  .case[data-type="digital"]:before{background:#6b5ab3}
+  .case[data-type="heritage"]:before{background:var(--gold)}
+  .tagrow{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:10px}
+  .tag{font-size:11px;font-weight:800;border-radius:999px;padding:5px 9px;background:var(--sky);color:var(--blue);border:1px solid #d9e9fa}
+  .tag.primary{background:#eaf7f1;color:#28735c;border-color:#cce9dc}
+  .tag.warn{background:#fff4df;color:#8b641e;border-color:#f0ddb5}
+  .case h3{margin:4px 0 14px;font-size:22px;color:var(--navy);letter-spacing:-.035em}
+  .rows{display:grid;gap:10px}
+  .row{display:grid;grid-template-columns:88px 1fr;gap:12px;padding:10px 12px;border-radius:12px;background:#f9fbfd;border:1px solid #edf2f6}
+  .row .label{font-weight:900;color:var(--navy);font-size:13px}
+  .row .content{font-size:14px}
+  .row.problem{background:#fff9f8;border-color:#f2ddda}
+  .row.problem .label{color:var(--red)}
+  .row.effect{background:#f3faf7;border-color:#dcefe7}
+  .row.effect .label{color:var(--green)}
+  .source-btns{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px}
+  a.btn{display:inline-flex;align-items:center;gap:5px;text-decoration:none;font-size:12px;font-weight:800;padding:7px 10px;border-radius:9px;background:#edf5ff;color:var(--blue);border:1px solid #d5e7fa}
+  a.btn:hover{background:#deecfb}
+
+  .source-box{background:white;border:1px solid var(--line);border-radius:19px;padding:22px;box-shadow:0 7px 24px rgba(26,58,91,.05)}
+  .source-flow{display:grid;grid-template-columns:1.15fr 40px 1fr 40px .95fr;align-items:center;gap:5px}
+  .src{min-height:142px;border-radius:15px;padding:16px;border:1px solid var(--line);background:#f9fbfd}
+  .src.primary{background:#eef7ff;border-color:#bfd8ef}
+  .src.secondary{background:#fffaf0;border-color:#edd9ae}
+  .src.teaching{background:#f6f3fb;border-color:#d9d0ed}
+  .src .kicker{font-size:11px;font-weight:900;letter-spacing:.08em;color:var(--blue);margin-bottom:5px}
+  .src.secondary .kicker{color:#8b641e}
+  .src.teaching .kicker{color:#6651a6}
+  .src b{display:block;color:var(--navy);font-size:16px;margin-bottom:7px}
+  .src p{font-size:12.5px;color:var(--muted);margin:0}
+  .src a{font-size:12px;display:inline-block;margin-top:10px;color:var(--blue);font-weight:800;text-decoration:none}
+
+  .notice{margin-top:16px;background:#fff6e8;border:1px solid #edd4a9;border-radius:14px;padding:14px 16px;font-size:13px;color:#5d4a2b}
+  .notice b{color:#7a561b}
+
+  table{width:100%;border-collapse:separate;border-spacing:0;background:white;border:1px solid var(--line);border-radius:16px;overflow:hidden;font-size:13px}
+  th,td{padding:12px 13px;border-bottom:1px solid #e7eef5;vertical-align:top}
+  th{background:#eef5fb;color:var(--navy);font-size:12px;text-align:left}
+  tr:last-child td{border-bottom:none}
+  td a{color:var(--blue);font-weight:700;text-decoration:none}
+  .level{font-weight:900;white-space:nowrap}
+  .lv1{color:var(--green)} .lv2{color:var(--blue)} .lv3{color:#7d65b1} .lv4{color:#9a6c24}
+
+  .video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .video{background:white;border:1px solid var(--line);border-radius:14px;padding:15px}
+  .video b{display:block;color:var(--navy);font-size:14px;margin-bottom:6px}
+  .video p{font-size:12px;color:var(--muted);margin:0 0 10px}
+  .video a{font-size:12px;color:var(--blue);font-weight:800;text-decoration:none}
+
+  .footer{margin-top:24px;padding-top:18px;border-top:1px solid #d6e2ee;color:#718090;font-size:11.5px}
+
+  @media(max-width:900px){
+    .hero-grid{grid-template-columns:1fr 1fr}
+    .logic{grid-template-columns:1fr;gap:8px}.arrow{transform:rotate(90deg);height:28px}
+    .case-grid{grid-template-columns:1fr}
+    .source-flow{grid-template-columns:1fr;gap:8px}.source-flow>.arrow{transform:rotate(90deg)}
+    .video-grid{grid-template-columns:1fr}
+  }
+  @media print{
+    body{background:white}.wrap{max-width:none;padding:10mm}.hero,.case,.source-box{box-shadow:none}
+    a.btn{color:#173f6d}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section class="hero">
+    <div class="eyebrow">European Smart Tourism Case · Venice 2022 Shortlist</div>
+    <h1>베네치아는 어떤 문제를 기술과 서비스로 해결했는가?</h1>
+    <p class="subtitle">PPT의 핵심 내용을 <b>문제 → 기술·서비스 → 효과 → 출처</b> 흐름으로 정리한 수업용 한 페이지</p>
+    <div class="hero-grid">
+      <div class="stat"><b>118</b><span>작은 섬 · Small islands</span></div>
+      <div class="stat"><b>400+</b><span>역사적 다리 · Historic bridges</span></div>
+      <div class="stat"><b>70%+</b><span>구시가지 장애인 접근 가능</span></div>
+      <div class="stat"><b>Smart Control Room</b><span>실시간 도시·관광 흐름 통합 관리</span></div>
+    </div>
+  </section>
+
+  <div class="logic">
+    <div class="box"><small>STEP 1 · 문제</small><b>역사도시의 물리적 제약 · 홍수 · 과잉관광 · 전통문화 전달</b></div>
+    <div class="arrow">→</div>
+    <div class="box"><small>STEP 2 · 기술·서비스</small><b>무장애 경로 · 전기충전 · 데이터 통합 · 디지털 문화해석</b></div>
+    <div class="arrow">→</div>
+    <div class="box"><small>STEP 3 · 운영 변화</small><b>더 쉽게 이동하고, 더 지속가능하게 관리하고, 더 빠르게 대응</b></div>
+    <div class="arrow">→</div>
+    <div class="box"><small>STEP 4 · 관광 효과</small><b>포용성 · 회복력 · 혼잡 완화 · 방문객 경험 향상</b></div>
+  </div>
+
+  <div class="section-title">
+    <h2>01. 문제 → 기술·서비스 → 해결 효과</h2>
+    <p>PPT 4~8장의 내용을 근거 중심으로 압축</p>
+  </div>
+
+  <section class="case-grid">
+    <article class="case" data-type="access">
+      <div class="tagrow"><span class="tag">ACCESSIBILITY</span><span class="tag primary">EU 공식 확인</span></div>
+      <h3>① 다리와 수로 때문에 이동약자가 관광하기 어렵다</h3>
+      <div class="rows">
+        <div class="row problem"><div class="label">문제</div><div class="content">118개 섬과 400개 이상의 역사적 다리, 계단식 구조는 휠체어 이용자와 이동약자에게 물리적 장벽이 됩니다.</div></div>
+        <div class="row"><div class="label">기술·서비스</div><div class="content"><b>Barrier-free itineraries</b> 무장애 경로, 접근 가능한 다리(손잡이·완화된 경사), 장애인·동반자 대중교통 요금, 접근 가능한 페리, 맞춤형 박물관 프로그램을 결합했습니다.</div></div>
+        <div class="row effect"><div class="label">효과</div><div class="content">EU 소개 페이지는 구시가지 면적의 <b>70% 이상이 장애인에게 접근 가능</b>하다고 설명합니다. 접근성을 ‘특정 집단의 편의’가 아니라 도시 전체 관광경험의 설계로 확장했습니다.</div></div>
+      </div>
+      <div class="source-btns">
+        <a class="btn" href="https://smart-tourism-capital.ec.europa.eu/venice-shortlisted-2022-competition_en" target="_blank">EU Venice 공식 페이지 ↗</a>
+        <a class="btn" href="https://www.comune.venezia.it/it/content/venezia-accessibile-itinerari-senza-barriere" target="_blank">베네치아시 무장애 경로 ↗</a>
+      </div>
+    </article>
+
+    <article class="case" data-type="sustain">
+      <div class="tagrow"><span class="tag">SUSTAINABILITY</span><span class="tag primary">EU 공식 확인</span></div>
+      <h3>② 홍수·극한기상·해양관광의 환경 부담이 크다</h3>
+      <div class="rows">
+        <div class="row problem"><div class="label">문제</div><div class="content">석호와 본토에 걸친 베네치아는 홍수와 극한기상에 노출되고, 크루즈·페리 중심 해양관광은 에너지·배출 문제를 동반합니다.</div></div>
+        <div class="row"><div class="label">기술·서비스</div><div class="content"><b>Plastic Smart City</b>, 선박 전기충전 인프라를 위한 <b>E-dock</b>, 지속가능 에너지 행동계획, 약 164km의 16개 자전거 노선, 그리고 별도 EU 우수사례 보고서의 <b>MOSE 홍수방어 시스템</b>이 대응 사례로 제시됩니다.</div></div>
+        <div class="row effect"><div class="label">효과</div><div class="content">플라스틱·대기오염 저감, 해양교통의 전기화, 저탄소 방문객 이동, 도시 회복력 강화로 연결됩니다. MOSE는 고조위·해수면 상승 위험에 대응하는 도시 보호 기술입니다.</div></div>
+      </div>
+      <div class="source-btns">
+        <a class="btn" href="https://smart-tourism-capital.ec.europa.eu/venice-shortlisted-2022-competition_en" target="_blank">EU Venice 공식 페이지 ↗</a>
+        <a class="btn" href="https://smart-tourism-capital.ec.europa.eu/system/files/2022-05/Best%20Practice%20Report_2022_Update.pdf" target="_blank">EU Best Practices PDF ↗</a>
+        <a class="btn" href="https://www.mosevenezia.eu/project/?lang=en" target="_blank">MOSE 공식 사이트 ↗</a>
+      </div>
+    </article>
+
+    <article class="case" data-type="digital">
+      <div class="tagrow"><span class="tag">DIGITALISATION</span><span class="tag primary">EU 공식 확인</span></div>
+      <h3>③ 관광객 집중과 도시서비스 데이터가 분산되어 있다</h3>
+      <div class="rows">
+        <div class="row problem"><div class="label">문제</div><div class="content">관광객 흐름, 수상·도로교통, 보행자 이동, 도시서비스가 따로 관리되면 혼잡·과잉관광·긴급상황에 즉각 대응하기 어렵습니다.</div></div>
+        <div class="row"><div class="label">기술·서비스</div><div class="content"><b>Smart Control Room (SCR)</b>이 기존 운영망과 외부 시스템의 데이터를 통합하고, 수상·도로교통과 보행자 흐름, 방문객 수를 실시간으로 모니터링합니다.</div></div>
+        <div class="row effect"><div class="label">효과</div><div class="content">관광객 흐름을 실시간으로 파악해 혼잡을 분산하고, 과잉관광 영향을 줄이며, 비상상황에 더 빠르게 대응하고, 수집 데이터를 향후 도시계획에 활용할 수 있습니다.</div></div>
+      </div>
+      <div class="source-btns">
+        <a class="btn" href="https://smart-tourism-capital.ec.europa.eu/venice-shortlisted-2022-competition_en" target="_blank">EU Venice 공식 페이지 ↗</a>
+        <a class="btn" href="https://smart-tourism-capital.ec.europa.eu/system/files/2022-05/Best%20Practice%20Report_2022_Update.pdf" target="_blank">EU 보고서 p.51 ↗</a>
+        <a class="btn" href="https://www.venis.it/index.php/it/node/1048" target="_blank">Smart Control Room 관련 ↗</a>
+      </div>
+    </article>
+
+    <article class="case" data-type="heritage">
+      <div class="tagrow"><span class="tag">CULTURAL HERITAGE & CREATIVITY</span><span class="tag primary">EU 공식 확인</span></div>
+      <h3>④ 1,600년의 역사문화가 ‘보존’에만 머물 수 있다</h3>
+      <div class="rows">
+        <div class="row problem"><div class="label">문제</div><div class="content">역사문화가 풍부해도 방문객에게 현재적 의미로 전달되지 않으면 문화유산은 수동적인 관람 대상에 머물 수 있습니다.</div></div>
+        <div class="row"><div class="label">기술·서비스</div><div class="content">2021년 도시 창립 1600주년을 계기로 박물관·시티투어·컨퍼런스·전시를 21세기 방식으로 운영하고, 공공·민간 기관과 시민이 행사 아이디어를 제안하도록 참여 구조를 만들었습니다.</div></div>
+        <div class="row effect"><div class="label">효과</div><div class="content">전통을 디지털·참여형 스토리텔링과 결합해 도시 이야기를 새롭게 전달하고, 문화유산을 ‘살아 있는 관광경험’으로 확장했습니다.</div></div>
+      </div>
+      <div class="source-btns">
+        <a class="btn" href="https://smart-tourism-capital.ec.europa.eu/venice-shortlisted-2022-competition_en" target="_blank">EU Venice 공식 페이지 ↗</a>
+        <a class="btn" href="https://www.veneziaunica.it" target="_blank">Venezia Unica ↗</a>
+      </div>
+    </article>
+  </section>
+
+  <div class="section-title">
+    <h2>02. 출처는 어떻게 봐야 하는가?</h2>
+    <p>베네치아 사례는 ‘출처의 역할’을 구분해야 정확합니다.</p>
+  </div>
+
+  <section class="source-box">
+    <div class="source-flow">
+      <div class="src primary">
+        <div class="kicker">1차 근거 · PRIMARY</div>
+        <b>European Commission — Venice 2022 Shortlist</b>
+        <p>접근성, Plastic Smart City, E-dock, Smart Control Room, 1600주년 문화프로그램 등 PPT의 베네치아 핵심 내용이 직접 서술된 공식 페이지입니다.</p>
+        <a href="https://smart-tourism-capital.ec.europa.eu/venice-shortlisted-2022-competition_en" target="_blank">공식 페이지 열기 ↗</a>
+      </div>
+      <div class="arrow">→</div>
+      <div class="src primary">
+        <div class="kicker">1차 보강 · OFFICIAL REPORT</div>
+        <b>2022 EU Smart Tourism Best Practices Report</b>
+        <p>베네치아 무장애 경로·접근 가능한 다리, MOSE, Smart Control Room 등 세부 사례를 다른 도시와 함께 비교할 수 있는 EU 공식 우수사례 보고서입니다.</p>
+        <a href="https://smart-tourism-capital.ec.europa.eu/system/files/2022-05/Best%20Practice%20Report_2022_Update.pdf" target="_blank">EU PDF 열기 ↗</a>
+      </div>
+      <div class="arrow">→</div>
+      <div class="src secondary">
+        <div class="kicker">2차 맥락 · SECONDARY</div>
+        <b>한국관광 데이터랩 2022 심화리포트</b>
+        <p>유럽 스마트관광 추진방식과 한국 적용 시사점을 이해하는 데 유용하지만, 보고서 본문은 보르도·발렌시아 중심입니다. 베네치아의 세부 사실을 직접 입증하는 주출처로 쓰기보다는 보조 출처로 두는 것이 정확합니다.</p>
+        <a href="https://datalab.visitkorea.or.kr/site/portal/ex/bbs/View.do?bcIdx=302260&cbIdx=1132" target="_blank">한국관광 데이터랩 ↗</a>
+      </div>
+    </div>
+    <div class="notice"><b>출처 정합성 핵심:</b> PPT의 베네치아 고유 주장(70% 접근성, E-dock, Smart Control Room 등)은 <b>EU Venice 공식 페이지</b>를 우선 인용하고, 한국관광 데이터랩 보고서는 <b>유럽 스마트관광의 배경·한국 시사점</b>을 설명할 때 사용하는 편이 가장 안전합니다.</div>
+  </section>
+
+  <div class="section-title">
+    <h2>03. PPT 내용과 출처 대응표</h2>
+    <p>수업 자료에서 바로 출처를 붙일 수 있도록 정리</p>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>PPT 핵심 내용</th><th>근거 수준</th><th>권장 출처</th><th>비고</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>118개 섬 · 400개 이상 다리 · 구시가지 70%+ 접근 가능</td><td class="level lv1">1차 공식</td><td><a href="https://smart-tourism-capital.ec.europa.eu/venice-shortlisted-2022-competition_en" target="_blank">EU Venice 2022</a></td><td>베네치아 접근성 소개의 직접 근거</td></tr>
+      <tr><td>무장애 경로 · 접근 가능한 다리</td><td class="level lv1">1차 공식</td><td><a href="https://smart-tourism-capital.ec.europa.eu/system/files/2022-05/Best%20Practice%20Report_2022_Update.pdf" target="_blank">EU Best Practices Report, pp.11·14</a></td><td>‘Itinerary without barriers’, accessible bridges</td></tr>
+      <tr><td>Plastic Smart City · E-dock · 164km 자전거 네트워크</td><td class="level lv1">1차 공식</td><td><a href="https://smart-tourism-capital.ec.europa.eu/venice-shortlisted-2022-competition_en" target="_blank">EU Venice 2022</a></td><td>지속가능성 관련 직접 서술</td></tr>
+      <tr><td>MOSE 홍수방어 시스템</td><td class="level lv1">1차 공식</td><td><a href="https://smart-tourism-capital.ec.europa.eu/system/files/2022-05/Best%20Practice%20Report_2022_Update.pdf" target="_blank">EU Best Practices Report, pp.42–43</a></td><td>홍수·고조위 대응 기술</td></tr>
+      <tr><td>Smart Control Room · 실시간 관광객 흐름 관리</td><td class="level lv1">1차 공식</td><td><a href="https://smart-tourism-capital.ec.europa.eu/system/files/2022-05/Best%20Practice%20Report_2022_Update.pdf" target="_blank">EU Best Practices Report, p.51</a></td><td>혼잡·과잉관광·비상대응 근거</td></tr>
+      <tr><td>1600주년 · 전통과 기술 · 시민·이해관계자 참여</td><td class="level lv1">1차 공식</td><td><a href="https://smart-tourism-capital.ec.europa.eu/venice-shortlisted-2022-competition_en" target="_blank">EU Venice 2022</a></td><td>문화유산·창의성 사례</td></tr>
+      <tr><td>유럽 스마트관광 정책의 한국 적용 시사점</td><td class="level lv4">2차 보조</td><td><a href="https://datalab.visitkorea.or.kr/site/portal/ex/bbs/View.do?bcIdx=302260&cbIdx=1132" target="_blank">한국관광 데이터랩, 2022.12.16</a></td><td>보르도·발렌시아 중심 심화리포트</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-title">
+    <h2>04. 수업용 영상 링크</h2>
+    <p>영상은 ‘정책 근거’가 아니라 실제 이용 장면을 보여주는 보조 시각자료</p>
+  </div>
+  <div class="video-grid">
+    <div class="video"><b>실제 휠체어 여행 경험</b><p>도시 동선·다리·접근가능 경로를 실제 여행자 관점에서 관찰</p><a href="https://www.youtube.com/watch?v=qCpAhnlSrKI" target="_blank">YouTube 열기 ↗</a></div>
+    <div class="video"><b>Vaporetto 휠체어 승하선</b><p>수상교통 접근성을 짧게 보여주기에 적합</p><a href="https://www.youtube.com/watch?v=CfscFpHyYww" target="_blank">YouTube 열기 ↗</a></div>
+    <div class="video"><b>EU Smart Tourism 개념 영상</b><p>접근성·지속가능성·디지털화·문화유산의 4개 관점을 연결</p><a href="https://www.youtube.com/watch?v=LFHqZ7v9rfY" target="_blank">YouTube 열기 ↗</a></div>
+  </div>
+
+  <div class="footer">
+    수업용 정리 원칙: “기술을 소개하는 것”보다 “어떤 도시 문제를 어떤 기술·서비스가 해결했는가”를 먼저 제시합니다. 베네치아 사례의 직접 사실은 European Commission 원자료를 우선 근거로 사용했습니다.
+  </div>
+</div>
+</body>
+</html>
