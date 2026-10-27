@@ -26,6 +26,7 @@
     .learn-hero .room-bar .rb-parts a {
       display: inline-block; padding: 3px 9px; border-radius: 999px;
       background: var(--rb, #fff); border: 1px solid var(--rl, #b9cade); color: var(--rd, #17365d);
+      font-family: 'Noto Sans KR', sans-serif;
       font-size: 11px; font-weight: 700; text-decoration: none; letter-spacing: -.2px;
     }
     .learn-hero .room-bar .rb-parts a:hover {
@@ -1557,11 +1558,14 @@
     .learn-hero .syl-tags.docs a small, .learn-article .syl-tags.docs a small { margin-left: 4px; font-size: .82em; font-weight: 700; opacity: .8; }
     /* 05_관광벤처창업론 그림 여섯 — 장 · 파트 안내판(2026-10-16) */
     /* 맨 위 — 여덟 파트 지도(2026-10-17, 옛 「관광벤처가 뭐지?」 그림 대신) */
-    .learn-article .pmap { max-width: 980px; margin: 16px auto 24px; display: flex; gap: 22px; align-items: flex-start; }
-    .learn-article .pmap-t { flex: 0 0 180px; margin: 0; text-align: left; font-size: 12.5px; color: #14243a; }
-    .learn-article .pmap-t span { display: block; margin-top: 6px; font-size: 11.3px; line-height: 1.65; color: #5d6d7e; }
+    .learn-article .rg-overview-row { display: flex; gap: 22px; align-items: flex-start; flex-wrap: wrap; margin: 16px 0 24px; }
+    .learn-article .rg-overview-row > .pmap { flex: 1 1 320px; min-width: 0; }
+    .learn-article .rg-overview-row > .rg-overview-table { flex: 1 1 380px; min-width: 0; }
+    .learn-article .pmap { margin: 0; }
+    .learn-article .pmap-t { margin: 0 0 10px; text-align: left; font-size: 12.5px; color: #14243a; }
+    .learn-article .pmap-t span { display: block; margin-top: 5px; font-size: 11.3px; line-height: 1.6; color: #5d6d7e; }
     .learn-article .pmap-t span b { color: #14243a; }
-    .learn-article .pmap-grid { flex: 1; min-width: 0; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; counter-reset: none; }
+    .learn-article .pmap-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; counter-reset: none; }
     .learn-article .pmap-grid > li { margin: 0; padding: 0; }
     .learn-article .pmap-grid > li::before { content: none; }
     .learn-article .pmap-grid a { display: flex; flex-direction: column; gap: 3px; height: 100%; box-sizing: border-box; padding: 10px 12px 11px; border-radius: 10px; border: 1px solid color-mix(in srgb, var(--ac) 28%, #fff); border-top: 4px solid var(--ac); background: var(--bg); text-decoration: none; color: #33475b; transition: transform .12s, box-shadow .12s; }
@@ -1570,11 +1574,8 @@
     .learn-article .pmap-grid .pm-n::before { content: "파트 "; font-weight: 700; }
     .learn-article .pmap-grid .pm-t { font-size: 14.5px; font-weight: 800; color: #14243a; line-height: 1.35; }
     .learn-article .pmap-grid .pm-d { font-size: 11.8px; line-height: 1.55; color: #5d6d7e; }
-    @media (max-width: 760px) {
-      .learn-article .pmap { flex-direction: column; gap: 10px; }
-      .learn-article .pmap-t { flex: 0 0 auto; text-align: center; }
-      .learn-article .pmap-t span { text-align: left; }
-      .learn-article .pmap-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    @media (max-width: 900px) {
+      .learn-article .rg-overview-row { flex-direction: column; }
     }
     .learn-article .tv-map { max-width: 520px; margin: 16px auto 22px; text-align: center; }
     .learn-article .tv-map.narrow { max-width: 340px; }
@@ -2439,42 +2440,46 @@
         <p>관광의 아이디어를 벤처로 세우는 법 — 문제 정의부터 비즈니스 모델, 시장 검증까지 살펴봅니다.</p>
       </div>
 
-      <figure class="pmap" id="tv-summary">
-        <figcaption class="pmap-t"><b>이 페이지를 한 장으로</b> — 아홉 파트 <span>누르면 그 파트로 갑니다. <b>창업의 흐름(03)</b>으로 틀을 세우고, <b>업종(05)</b>으로 들어가, <b>낼 곳(04)</b>에 <b>평가 기준과 결과물(02)</b>을 냅니다 — 창업하지 않아도 <b>취업(06)</b>에 그대로 쓰입니다.</span></figcaption>
-        <ol class="pmap-grid">
-          <li style="--ac:#c0392b;--bg:#fbeeec"><a href="#part01"><b class="pm-n">01</b><span class="pm-t">주차별 실습 목표</span><span class="pm-d">매주 손에 남길 것 한 칸씩 · 1~16주 성장 막대</span></a></li>
-          <li style="--ac:#17365d;--bg:#eef3f9"><a href="#part02"><b class="pm-n">02</b><span class="pm-t">평가 기준과 결과물</span><span class="pm-d">리포트가 아니라 실제로 낼 사업계획서 한 부</span></a></li>
-          <li style="--ac:#3B6259;--bg:#eef4f1"><a href="#part03"><b class="pm-n">03</b><span class="pm-t">창업의 흐름</span><span class="pm-d">01~06장 — 문제 → 비즈니스 모델 → 검증(MVP) → 지원</span></a></li>
-          <li style="--ac:#2563a8;--bg:#eff5fa"><a href="#part04"><b class="pm-n">04</b><span class="pm-t">어디에 내는가</span><span class="pm-d">관광벤처 · 지자체 관광 스타트업 · 로컬크리에이터</span></a></li>
-          <li style="--ac:#8a5a17;--bg:#fdf6ea"><a href="#part05"><b class="pm-n">05</b><span class="pm-t">업종별로 들어가기</span><span class="pm-d">07~12장 — 여행업 · 외식(성심당) · 농어촌 · 스마트팜 · 연구용역(어반리즘) · 로컬크리에이터</span></a></li>
-          <li style="--ac:#5b3f7a;--bg:#f4eff8"><a href="#part06"><b class="pm-n">06</b><span class="pm-t">창업하지 않아도 쓰인다</span><span class="pm-d">관광기업이 뽑을 때 보는 것 = 공모가 보는 것</span></a></li>
-          <li style="--ac:#7a6417;--bg:#fdf8e8"><a href="#part07"><b class="pm-n">07</b><span class="pm-t">책 — 교재 두 권</span><span class="pm-d">지금 읽는 대목이 전체의 어디쯤인지</span></a></li>
-          <li style="--ac:#a8431f;--bg:#fbeee6"><a href="#part08"><b class="pm-n">08</b><span class="pm-t">기업가 정신</span><span class="pm-d">정진선 강사 강의교안 · 슬라이드 221장</span></a></li>
-          <li style="--ac:#1f6a73;--bg:#eaf5f4"><a href="#part09"><b class="pm-n">09</b><span class="pm-t">곁들여 보기 · 링크</span><span class="pm-d">비건부산 · 구미 · 포항 · 공모 찾는 창구</span></a></li>
-        </ol>
-      </figure>
-
-
-      <!-- 이 페이지를 읽는 법 — 여덟 파트의 구성(무엇이 어디에 · 어떻게 이어지나). 과목 · 홈페이지 소개는 Word(assets/tourism-venture-reading-guide.docx)로 따로. 맨 위 「안내서」 줄의 📖 알약이 이 상자를 연다 (2026-10-17) -->
+      <!-- 이 페이지를 읽는 법 — 아홉 파트 그림(왼쪽)과 상세 표(오른쪽)를 나란히. 과목 · 홈페이지 소개는 Word(assets/tourism-venture-reading-guide.docx)로 따로. 맨 위 「안내서」 줄의 📖 알약이 이 상자를 연다 (2026-10-17) -->
       <section class="rg-box rg-flat" id="읽는법" aria-labelledby="rg-title">
         <p class="rg-title" id="rg-title"><b class="rg-tag">📖 처음 왔다면</b>이 페이지를 읽는 법<span class="rg-sub">아홉 파트의 구성 — 무엇이 어디에 있고 어떻게 이어지나</span></p>
         <div class="rg-body">
 
-          <h3 class="rg-h">파트별로 무엇이 들어 있나</h3>
-          <div class="rg-scroll"><table class="rg-tbl rg-zebra">
-            <thead><tr><th>파트</th><th>안에 든 것</th></tr></thead>
-            <tbody>
-              <tr><td style="background:#fbeeec"><b style="color:#c0392b">01 주차별 실습 목표</b></td><td style="background:#fbeeec">한 학기 성장 막대 · 1~16주 주차 상자(그날의 목표 · 한 것 · 자료)</td></tr>
-              <tr><td style="background:#eef3f9"><b style="color:#17365d">02 평가 기준과 결과물</b></td><td style="background:#eef3f9">과제 1 예비관광벤처 사업계획서(제18회 공식 양식 · 워크북 16시트) · 과제 3 EO Korea 사례연구(11/9(월) 24시)</td></tr>
-              <tr><td style="background:#eef4f1"><b style="color:#3B6259">03 창업의 흐름</b></td><td style="background:#eef4f1">01 관광벤처란 · 02 아이디어는 문제에서 · 03 비즈니스 모델 · 04 린 스타트업 · 05 창업 생태계와 지원 · 06 이 사이트를 사례로 읽기<br /><small>이 여섯 장이 그대로 과제 1 사업계획서의 칸이 됩니다. 낼 곳은 파트 04에, 로컬크리에이터만 업종으로 묶여 파트 05의 12장에 있습니다. 파트 06은 같은 계획서 뼈대로 입사 제안서를 씁니다.</small></td></tr>
-              <tr><td style="background:#eff5fa"><b style="color:#2563a8">04 어디에 내는가</b></td><td style="background:#eff5fa">관광벤처(문체부 · 관광공사) · 지자체 관광 스타트업(경북 · 안동 · 경주 황오동) · 관광데이터 공모전 · 정부 R&amp;D</td></tr>
-              <tr><td style="background:#fdf6ea"><b style="color:#8a5a17">05 업종별로 들어가기</b></td><td style="background:#fdf6ea">07 여행업 · 08 외식(성심당) · 09 농어촌 민박 · 한옥 · 10 스마트팜 · 11 연구용역(어반리즘 하우스) · 12 로컬크리에이터</td></tr>
-              <tr><td style="background:#f4eff8"><b style="color:#5b3f7a">06 창업하지 않아도 쓰인다</b></td><td style="background:#f4eff8">과제 2 관광기업 입사 제안서(A4 1장 · 모의 면접) · 면접 질문과 채용 창구</td></tr>
-              <tr><td style="background:#fdf8e8"><b style="color:#7a6417">07 책</b></td><td style="background:#fdf8e8">「관광벤처창업론」(이론 · 실무 19장) · 「관광창업론」(업종별 15장)과 이 페이지 장의 대응</td></tr>
-              <tr><td style="background:#fbeee6"><b style="color:#a8431f">08 기업가 정신</b></td><td style="background:#fbeee6">창업가 DNA · 고객 · 전략 · 제품 · 성장 5부 · 슬라이드 221장</td></tr>
-              <tr><td style="background:#eaf5f4"><b style="color:#1f6a73">09 곁들여 보기 · 링크</b></td><td style="background:#eaf5f4">비건부산(해커톤 → 서비스) · 구미 · 포항(도시가 관광 창업에 투자하는 이유) · 공모 창구 모음</td></tr>
-            </tbody>
-          </table></div>
+          <div class="rg-overview-row">
+            <figure class="pmap" id="tv-summary">
+              <figcaption class="pmap-t"><b>이 페이지를 한 장으로</b> — 아홉 파트 <span>누르면 그 파트로 갑니다. <b>창업의 흐름(03)</b>으로 틀을 세우고, <b>업종(05)</b>으로 들어가, <b>낼 곳(04)</b>에 <b>평가 기준과 결과물(02)</b>을 냅니다 — 창업하지 않아도 <b>취업(06)</b>에 그대로 쓰입니다.</span></figcaption>
+              <ol class="pmap-grid">
+                <li style="--ac:#c0392b;--bg:#fbeeec"><a href="#part01"><b class="pm-n">01</b><span class="pm-t">주차별 실습 목표</span><span class="pm-d">매주 손에 남길 것 한 칸씩 · 1~16주 성장 막대</span></a></li>
+                <li style="--ac:#17365d;--bg:#eef3f9"><a href="#part02"><b class="pm-n">02</b><span class="pm-t">평가 기준과 결과물</span><span class="pm-d">리포트가 아니라 실제로 낼 사업계획서 한 부</span></a></li>
+                <li style="--ac:#3B6259;--bg:#eef4f1"><a href="#part03"><b class="pm-n">03</b><span class="pm-t">창업의 흐름</span><span class="pm-d">01~06장 — 문제 → 비즈니스 모델 → 검증(MVP) → 지원</span></a></li>
+                <li style="--ac:#2563a8;--bg:#eff5fa"><a href="#part04"><b class="pm-n">04</b><span class="pm-t">어디에 내는가</span><span class="pm-d">관광벤처 · 지자체 관광 스타트업 · 로컬크리에이터</span></a></li>
+                <li style="--ac:#8a5a17;--bg:#fdf6ea"><a href="#part05"><b class="pm-n">05</b><span class="pm-t">업종별로 들어가기</span><span class="pm-d">07~12장 — 여행업 · 외식(성심당) · 농어촌 · 스마트팜 · 연구용역(어반리즘) · 로컬크리에이터</span></a></li>
+                <li style="--ac:#5b3f7a;--bg:#f4eff8"><a href="#part06"><b class="pm-n">06</b><span class="pm-t">창업하지 않아도 쓰인다</span><span class="pm-d">관광기업이 뽑을 때 보는 것 = 공모가 보는 것</span></a></li>
+                <li style="--ac:#7a6417;--bg:#fdf8e8"><a href="#part07"><b class="pm-n">07</b><span class="pm-t">책 — 교재 두 권</span><span class="pm-d">지금 읽는 대목이 전체의 어디쯤인지</span></a></li>
+                <li style="--ac:#a8431f;--bg:#fbeee6"><a href="#part08"><b class="pm-n">08</b><span class="pm-t">기업가 정신</span><span class="pm-d">정진선 강사 강의교안 · 슬라이드 221장</span></a></li>
+                <li style="--ac:#1f6a73;--bg:#eaf5f4"><a href="#part09"><b class="pm-n">09</b><span class="pm-t">곁들여 보기 · 링크</span><span class="pm-d">비건부산 · 구미 · 포항 · 공모 찾는 창구</span></a></li>
+              </ol>
+            </figure>
+
+            <div class="rg-overview-table">
+              <h3 class="rg-h">파트별로 무엇이 들어 있나</h3>
+              <div class="rg-scroll"><table class="rg-tbl rg-zebra">
+                <thead><tr><th>파트</th><th>안에 든 것</th></tr></thead>
+                <tbody>
+                  <tr><td style="background:#fbeeec"><b style="color:#c0392b">01 주차별 실습 목표</b></td><td style="background:#fbeeec">한 학기 성장 막대 · 1~16주 주차 상자(그날의 목표 · 한 것 · 자료)</td></tr>
+                  <tr><td style="background:#eef3f9"><b style="color:#17365d">02 평가 기준과 결과물</b></td><td style="background:#eef3f9">과제 1 예비관광벤처 사업계획서(제18회 공식 양식 · 워크북 16시트) · 과제 3 EO Korea 사례연구(11/9(월) 24시)</td></tr>
+                  <tr><td style="background:#eef4f1"><b style="color:#3B6259">03 창업의 흐름</b></td><td style="background:#eef4f1">01 관광벤처란 · 02 아이디어는 문제에서 · 03 비즈니스 모델 · 04 린 스타트업 · 05 창업 생태계와 지원 · 06 이 사이트를 사례로 읽기<br /><small>이 여섯 장이 그대로 과제 1 사업계획서의 칸이 됩니다. 낼 곳은 파트 04에, 로컬크리에이터만 업종으로 묶여 파트 05의 12장에 있습니다. 파트 06은 같은 계획서 뼈대로 입사 제안서를 씁니다.</small></td></tr>
+                  <tr><td style="background:#eff5fa"><b style="color:#2563a8">04 어디에 내는가</b></td><td style="background:#eff5fa">관광벤처(문체부 · 관광공사) · 지자체 관광 스타트업(경북 · 안동 · 경주 황오동) · 관광데이터 공모전 · 정부 R&amp;D</td></tr>
+                  <tr><td style="background:#fdf6ea"><b style="color:#8a5a17">05 업종별로 들어가기</b></td><td style="background:#fdf6ea">07 여행업 · 08 외식(성심당) · 09 농어촌 민박 · 한옥 · 10 스마트팜 · 11 연구용역(어반리즘 하우스) · 12 로컬크리에이터</td></tr>
+                  <tr><td style="background:#f4eff8"><b style="color:#5b3f7a">06 창업하지 않아도 쓰인다</b></td><td style="background:#f4eff8">과제 2 관광기업 입사 제안서(A4 1장 · 모의 면접) · 면접 질문과 채용 창구</td></tr>
+                  <tr><td style="background:#fdf8e8"><b style="color:#7a6417">07 책</b></td><td style="background:#fdf8e8">「관광벤처창업론」(이론 · 실무 19장) · 「관광창업론」(업종별 15장)과 이 페이지 장의 대응</td></tr>
+                  <tr><td style="background:#fbeee6"><b style="color:#a8431f">08 기업가 정신</b></td><td style="background:#fbeee6">창업가 DNA · 고객 · 전략 · 제품 · 성장 5부 · 슬라이드 221장</td></tr>
+                  <tr><td style="background:#eaf5f4"><b style="color:#1f6a73">09 곁들여 보기 · 링크</b></td><td style="background:#eaf5f4">비건부산(해커톤 → 서비스) · 구미 · 포항(도시가 관광 창업에 투자하는 이유) · 공모 창구 모음</td></tr>
+                </tbody>
+              </table></div>
+            </div>
+          </div>
+
           <p class="rg-sym">↗ 새 창 · ⬇ 내려받기 · ↓ 페이지 안 이동 · ✦ 직접 만든 자료 · ● 꼭 볼 것<a href="assets/tourism-venture-reading-guide.docx" download="관광벤처창업론_안내서.docx" style="margin-left:8px;color:#2f5148;text-decoration:underline;">⬇ 안내서 Word 다운받기</a></p>
         </div>
       </section>
@@ -4058,8 +4063,8 @@
 
       <p class="learn-part lp-book"><span class="ptag">퀴즈</span>세부 파트 · 퀴즈 모음</p>
       <p class="mini-note">이 페이지와 교재에 흩어진 퀴즈를 한곳에 모았습니다. 각자 다루는 범위가 다르니 겹치는 것을 걱정하지 말고 전부 풀어 보십시오.</p>
-      <p class="dltags"><a class="mapl form" href="tourism-startup-textbook-15chapter-quiz-illustrated.html" target="_blank" rel="noopener">그림 2 「관광창업론」 15개 장 통합 교안 · 원본 그림 21개 · 퀴즈 88문항 ↗</a><span class="dl-src">방통대 워크북 15개 장 각각의 세부목차 · 핵심 메시지 · 교재 원본 그림(클릭 확대) · 15주 강의계획 · 원문 연습문제와 정답 · 해설.</span></p>
-      <p class="dltags" style="margin:6px 0 0;"><a class="mapl form" href="tourism-startup-textbook-15chapter-quiz.html" target="_blank" rel="noopener">같은 88문항 · 「엄격 선별 39문항」 필터 보기 ↗</a><span class="dl-src">전체 88문항과, 교재 내용상 이의 제기 가능성이 낮은 39문항만 골라 보는 화면을 전환해 볼 수 있습니다(실제 출제 전 최종 검토 권장). 그림은 없고 가볍습니다.</span></p>
+      <p class="dltags"><a class="mapl form" href="tourism-startup-textbook-15chapter-quiz-illustrated.html" target="_blank" rel="noopener">「관광창업론」 15개 장 통합 교안 · 그림판 ↗</a><span class="dl-src">방통대 워크북 15개 장 각각의 세부목차 · 핵심 메시지 · 교재 원본 그림 21개(클릭 확대) · 15주 강의계획 · 원문 연습문제 88문항과 정답 · 해설.</span></p>
+      <p class="dltags" style="margin:6px 0 0;"><a class="mapl form" href="tourism-startup-textbook-15chapter-quiz.html" target="_blank" rel="noopener">「관광창업론」 퀴즈 · 엄격 선별 39문항 보기 ↗</a><span class="dl-src">같은 88문항 중 교재 내용상 이의 제기 가능성이 낮은 39문항만 따로 골라 보는 화면으로 전환할 수 있습니다(실제 출제 전 최종 검토 권장). 그림은 없고 가볍습니다.</span></p>
       <p class="dltags" style="margin:6px 0 0;"><a class="mapl form" href="tourism-venture-ox-mc-quiz.html" target="_blank" rel="noopener">OX · 4지선다 자가진단 퀴즈 ↗</a><span class="dl-src">PSST · 문제정의 · 비즈니스 모델 · 린 스타트업 · 여행업 · 연구용역 · 농촌 융복합산업 중심(8주차에도 연결).</span></p>
       <p class="dltags" style="margin:6px 0 0;"><a class="mapl form ylw" href="startup-terms-92-quiz.html" target="_blank" rel="noopener"><span class="blink-star" aria-hidden="true">●</span> 스타트업 핵심 용어 92 · 퀴즈 ↗</a><span class="dl-src">영어 용어 · 한글 발음 · 뜻 · 관광 예시 2열 슬라이드 + 퀴즈 15문항(05장 창업지원 절에도 연결).</span></p>
 
