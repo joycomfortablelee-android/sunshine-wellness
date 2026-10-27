@@ -42,6 +42,7 @@
     .learn-hero .room-bar .rb-parts a.p6 { --rc:#5b3f7a; --rb:#f4eff8; --rl:#d8cbe6; --rd:#4a3363; }
     .learn-hero .room-bar .rb-parts a.p7 { --rc:#7a6417; --rb:#fdf8e8; --rl:#e3d79a; --rd:#5c4a10; }
     .learn-hero .room-bar .rb-parts a.p8 { --rc:#1f6a73; --rb:#eaf5f4; --rl:#b9dcd9; --rd:#175057; }
+    .learn-hero .room-bar .rb-parts a.p9 { --rc:#a8431f; --rb:#fbeee6; --rl:#eecab2; --rd:#853418; }
     .learn-hero .room-bar .rb-parts .rb-sep { width: 1px; height: 14px; margin: 0 4px; background: #c3d2e2; }
     .learn-hero .room-bar .rb-parts a.fin { background: #c0392b; border-color: #c0392b; color: #fff; font-weight: 800; }
     .learn-hero .room-bar .rb-parts a.fin:hover { background: #98291d; border-color: #98291d; color: #fff; }
@@ -85,6 +86,7 @@
     .learn-article .learn-part.pt-part.pp-6  { --pp-ac:#5b3f7a; --pp-bg:#f4eff8; --pp-dk:#4a3363; --pp-ln:#d8cbe6; }
     .learn-article .learn-part.pt-part.pp-7 { --pp-ac:#7a6417; --pp-bg:#fdf8e8; --pp-dk:#5c4a10; --pp-ln:#e3d79a; }
     .learn-article .learn-part.pt-part.pp-8 { --pp-ac:#1f6a73; --pp-bg:#eaf5f4; --pp-dk:#175057; --pp-ln:#b9dcd9; }
+    .learn-article .learn-part.pt-part.pp-9 { --pp-ac:#a8431f; --pp-bg:#fbeee6; --pp-dk:#853418; --pp-ln:#eecab2; }
     /* 머리말을 제목 옆 작은 글씨로 — 문단 하나를 줄이고 제목과 한 덩이로 읽힌다. */
     .learn-article .learn-part.pt-part .pt-ti {
       grid-column: 2; grid-row: 1;
@@ -2254,6 +2256,8 @@
       border: 1px dashed #c3d0cb; border-bottom: 0;
     }
     .learn-article .grow-bars .gb-v { margin-top: -17px; font-size: 11px; font-weight: 800; color: #2f5148; }
+    /* 16주 「제출」 — 막대가 가득 차 있으니 띄우지 않고 막대 안쪽 위에 흰 글자로 박아 둔다 */
+    .learn-article .grow-bars > li.gb-fin .gb-v { margin-top: 10px; color: #fff; }
     .learn-article .grow-bars .gb-wk { display: block; margin-top: 5px; font-size: 10.5px; font-weight: 800; text-align: center; color: #4d5f74; }
     .learn-article .grow-bars .gb-dt { display: block; font-size: 9.5px; text-align: center; color: #9aa6b2; }
     .learn-article .grow-bars > li.gb-done .gb-wk { color: #2f5148; }
@@ -2406,7 +2410,7 @@
             <li class="pc"><b>6교시</b><span class="tm">(14:00 – 14:50)</span><span class="rm">사회대 <strong>2106호</strong><em>PC실</em></span></li>
             <li class="mv"><b>7교시</b><span class="tm">(15:00 – 15:50)</span><span class="rm">사회대 <strong>3402호</strong></span></li>
           </ul>
-          <p class="rb-parts"><b>이 페이지는 여덟 파트</b><a class="p0" href="#part00">00 한눈에</a><a class="p1" href="#part01">01 주차 실습</a><a class="p2" href="#part02">02 낼 것</a><a class="p3" href="#part03">03 흐름</a><a class="p3 sub" href="#ch01">01 관광벤처란</a><a class="p3 sub" href="#ch02">02 문제정의</a><a class="p3 sub" href="#ch03">03 비즈니스모델</a><a class="p3 sub" href="#ch04">04 린스타트업</a><a class="p3 sub" href="#ch05">05 창업지원</a><a class="p3 sub" href="#ch06">06 사이트사례</a><a class="p4" href="#part04">04 어디에</a><a class="p5" href="#part05">05 업종</a><a class="p6" href="#part06">06 취업</a><a class="p7" href="#part07">07 책</a><a class="p8" href="#part08">08 곁들여</a><span class="rb-sep" aria-hidden="true"></span><a class="fin" href="#과제3">과제 — EO Korea 사례연구 · 11월 9일(월) 24시까지</a><a class="fin" href="#part02">사업계획서 다시 제출 — 11월 2일(월) 자정까지</a></p>
+          <p class="rb-parts"><b>이 페이지는 아홉 파트</b><a class="p0" href="#part00">00 한눈에</a><a class="p1" href="#part01">01 주차 실습</a><a class="p2" href="#part02">02 낼 것</a><a class="p3" href="#part03">03 흐름</a><a class="p3 sub" href="#ch01">01 관광벤처란</a><a class="p3 sub" href="#ch02">02 문제정의</a><a class="p3 sub" href="#ch03">03 비즈니스모델</a><a class="p3 sub" href="#ch04">04 린스타트업</a><a class="p3 sub" href="#ch05">05 창업지원</a><a class="p3 sub" href="#ch06">06 사이트사례</a><a class="p4" href="#part04">04 어디에</a><a class="p5" href="#part05">05 업종</a><a class="p6" href="#part06">06 취업</a><a class="p7" href="#part07">07 책</a><a class="p8" href="#part08">08 곁들여</a><a class="p9" href="#part09">09 창업가DNA</a><span class="rb-sep" aria-hidden="true"></span><a class="fin" href="#과제3">과제 — EO Korea 사례연구 · 11월 9일(월) 24시까지</a><a class="fin" href="#part02">사업계획서 다시 제출 — 11월 1일(일) 자정까지</a></p>
         </div>
         <div class="syl-box cal">
           <p class="syl-t"><a href="academic-calendar-venture.html" target="_blank" rel="noopener">2학기 학사일정 달력 ↗</a></p>
@@ -2421,7 +2425,7 @@
   <main class="learn-article">
     <div class="lw">
 
-      <p class="learn-part pt-part pp-x" id="part00"><span class="pt"><i>파트</i><b>00</b></span><span class="pt-ti">한눈에 보기</span><span class="pt-sub"><strong>여덟 파트 지도</strong> · <strong>읽는 법</strong> · <strong>수업 목표</strong> · <strong>공모 한눈에</strong> · <strong>출석부</strong> — 파트 01에 들어가기 전에 전체 그림부터 봅니다</span></p>
+      <p class="learn-part pt-part pp-x" id="part00"><span class="pt"><i>파트</i><b>00</b></span><span class="pt-ti">한눈에 보기</span><span class="pt-sub"><strong>아홉 파트 지도</strong> · <strong>읽는 법</strong> · <strong>수업 목표</strong> · <strong>공모 한눈에</strong> · <strong>출석부</strong> — 파트 01에 들어가기 전에 전체 그림부터 봅니다</span></p>
 
       <div class="lead-lines">
         <p>창업은 "좋은 아이템을 파는 일"이 아니라 <strong>"누군가의 불편을 반복 가능한 방식으로 푸는 일"</strong>입니다.</p>
@@ -2431,7 +2435,7 @@
       </div>
 
       <figure class="pmap" id="tv-summary">
-        <figcaption class="pmap-t"><b>이 페이지를 한 장으로</b> — 여덟 파트 <span>누르면 그 파트로 갑니다. <b>창업의 흐름(03)</b>으로 틀을 세우고, <b>업종(05)</b>으로 들어가, <b>낼 곳(04)</b>에 <b>낼 것(02)</b>을 냅니다 — 창업하지 않아도 <b>취업(06)</b>에 그대로 쓰입니다.</span></figcaption>
+        <figcaption class="pmap-t"><b>이 페이지를 한 장으로</b> — 아홉 파트 <span>누르면 그 파트로 갑니다. <b>창업의 흐름(03)</b>으로 틀을 세우고, <b>업종(05)</b>으로 들어가, <b>낼 곳(04)</b>에 <b>낼 것(02)</b>을 냅니다 — 창업하지 않아도 <b>취업(06)</b>에 그대로 쓰입니다.</span></figcaption>
         <ol class="pmap-grid">
           <li style="--ac:#c0392b;--bg:#fbeeec"><a href="#part01"><b class="pm-n">01</b><span class="pm-t">주차별 실습 목표</span><span class="pm-d">매주 손에 남길 것 한 칸씩 · 1~16주 성장 막대</span></a></li>
           <li style="--ac:#17365d;--bg:#eef3f9"><a href="#part02"><b class="pm-n">02</b><span class="pm-t">낼 것을 먼저 본다</span><span class="pm-d">리포트가 아니라 실제로 낼 사업계획서 한 부</span></a></li>
@@ -2441,13 +2445,14 @@
           <li style="--ac:#5b3f7a;--bg:#f4eff8"><a href="#part06"><b class="pm-n">06</b><span class="pm-t">창업하지 않아도 쓰인다</span><span class="pm-d">관광기업이 뽑을 때 보는 것 = 공모가 보는 것</span></a></li>
           <li style="--ac:#7a6417;--bg:#fdf8e8"><a href="#part07"><b class="pm-n">07</b><span class="pm-t">책 — 교재 두 권</span><span class="pm-d">지금 읽는 대목이 전체의 어디쯤인지</span></a></li>
           <li style="--ac:#1f6a73;--bg:#eaf5f4"><a href="#part08"><b class="pm-n">08</b><span class="pm-t">곁들여 보기 · 링크</span><span class="pm-d">비건부산 · 구미 · 포항 · 공모 찾는 창구</span></a></li>
+          <li style="--ac:#a8431f;--bg:#fbeee6"><a href="#part09"><b class="pm-n">09</b><span class="pm-t">스타트업 창업가 DNA</span><span class="pm-d">정진선 강사 강의교안 · 슬라이드 221장</span></a></li>
         </ol>
       </figure>
 
 
       <!-- 이 페이지를 읽는 법 — 여덟 파트의 구성(무엇이 어디에 · 어떻게 이어지나). 과목 · 홈페이지 소개는 Word(assets/tourism-venture-reading-guide.docx)로 따로. 맨 위 「안내서」 줄의 📖 알약이 이 상자를 연다 (2026-10-17) -->
       <section class="rg-box rg-flat" id="읽는법" aria-labelledby="rg-title">
-        <p class="rg-title" id="rg-title"><b class="rg-tag">📖 처음 왔다면</b>이 페이지를 읽는 법<span class="rg-sub">여덟 파트의 구성 — 무엇이 어디에 있고 어떻게 이어지나</span></p>
+        <p class="rg-title" id="rg-title"><b class="rg-tag">📖 처음 왔다면</b>이 페이지를 읽는 법<span class="rg-sub">아홉 파트의 구성 — 무엇이 어디에 있고 어떻게 이어지나</span></p>
         <div class="rg-body">
 
           <h3 class="rg-h">파트별로 무엇이 들어 있나</h3>
@@ -2462,6 +2467,7 @@
               <tr><td><b>06 창업하지 않아도 쓰인다</b></td><td>같은 역량을 취업으로</td><td>과제 2 관광기업 입사 제안서(A4 1장 · 모의 면접) · 면접 질문과 채용 창구</td></tr>
               <tr><td><b>07 책</b></td><td>교재 두 권</td><td>「관광벤처창업론」(이론 · 실무 19장) · 「관광창업론」(업종별 15장)과 이 페이지 장의 대응</td></tr>
               <tr><td><b>08 곁들여 보기 · 링크</b></td><td>사례와 공고 창구</td><td>비건부산(해커톤 → 서비스) · 구미 · 포항(도시가 관광 창업에 투자하는 이유) · 공모 창구 모음</td></tr>
+              <tr><td><b>09 스타트업 창업가 DNA</b></td><td>정진선 강사 강의교안</td><td>창업가 DNA · 고객 · 전략 · 제품 · 성장 5부 · 슬라이드 221장</td></tr>
             </tbody>
           </table></div>
           <h3 class="rg-h">어디부터 열면 되나</h3>
@@ -2836,7 +2842,7 @@
         <p class="vid-pill"><a href="idus-hypergrowth-10slides.html" target="_blank" rel="noopener">✦ 아이디어스 Hyper Growth × 관광벤처창업론 · 열두 장 좌우 넘김 ↗</a><span class="kw">#스토리텔링</span><span class="kw">#KPI</span><span>영상 구간(시간)마다 아이디어스 사례 → 관광벤처 적용 → 학생 질문. 끝 장에 Exit Ticket 세 문항.</span></p>
       </figure>
 
-      <details class="wk-fold today next3" id="wk6" open>
+      <details class="wk-fold today next3" id="wk6">
         <summary><b class="wk-tag">6주차</b>10월 6일(화) 수업 — 누구에게 파는가<span class="wk-sub">시장 세분화 · 타겟팅 · 고객 한 사람 그리기</span></summary>
         <div class="tf-body">
           <p class="kw-tags"><span class="kw">#시장</span><span class="kw">#시장키워드</span><span class="kw">#STP</span><span class="kw">#타겟팅</span><span class="kw">#고객한사람</span></p>
@@ -2860,7 +2866,7 @@
         </div>
       </details>
 
-      <details class="wk-fold key" id="wk7" open>
+      <details class="wk-fold key" id="wk7">
         <summary><b class="wk-tag">7주차</b>10월 13일(화) 수업 — 발표를 보고서로 옮긴다<span class="wk-sub">슬라이드 한 장 = 서식 한 칸 · 말을 문장으로 · 근거에 출처 달기</span></summary>
         <div class="tf-body">
           <p class="nx-lb">복습 — 내 Problem Statement, 다섯 기준으로 다시 보기</p>
@@ -2900,7 +2906,7 @@
 
           <p class="nx-lb">중간과제 피드백 — 작성 방식 보완 안내</p>
           <p class="nx-d">제출된 과제 중 일부는 설명이 긴 줄글로 이어져 문제·목표고객·해결 방안·차별성이 한눈에 잡히지 않았습니다. 내용을 줄이는 것이 아니라, <strong>공식 문항 번호(1-1, 2-1...)는 그대로 두고 문항 안의 내용만 가. 나. 다. → ① ② ③ 순서로 통일</strong>해 다시 정리하십시오.</p>
-          <p class="nx-d"><strong class="hot-t">다음주 월요일(11/2) 자정까지 재제출</strong> — 번호 체계뿐 아니라 <strong>항목 정렬(① ② ③ 순서로 줄맞춤)</strong>과 <strong>핵심 키워드 강조</strong>까지 반영해 다시 올려 주십시오.</p>
+          <p class="nx-d"><strong class="hot-t">다음주 일요일(11/1) 자정까지 재제출</strong> — 번호 체계뿐 아니라 <strong>항목 정렬(① ② ③ 순서로 줄맞춤)</strong>과 <strong>핵심 키워드 강조</strong>까지 반영해 다시 올려 주십시오.</p>
           <p class="dltags"><a class="mapl form" href="tourism-venture-midterm-writing-guide.html" target="_blank" rel="noopener">✍️ 중간과제 사업계획서 작성 가이드 ↗</a><span class="dl-src">번호 체계(가나다 → 동그라미 숫자) · 작성 전·후 비교 · 제출용 예시 · 제출 전 체크리스트가 한 화면에 있습니다.</span></p>
           <p class="dltags" style="margin:6px 0 0;"><a class="mapl form" href="tourism-venture-midterm-item-review.html" target="_blank" rel="noopener" style="background:#fff3d6;color:#a8681f;border-color:#e0a106;">📝 학생별 통합 평가표 · 세부 평가기준 보기 ↗</a><span class="dl-src">①~⑧ 평가 근거 88개 항목 · 표절률 확인사항까지 전부 공개합니다.</span></p>
 
@@ -4200,6 +4206,9 @@
           <span class="meta">선샤인 웰니스 · 자체 제작 자료</span>
         </li>
       </ul>
+      <p class="learn-part pt-part pp-9" id="part09"><span class="pt"><i>파트</i><b>09</b></span><span class="pt-ti">스타트업 창업가 DNA</span><span class="pt-sub"><strong>정진선 강사</strong>의 창업가 DNA 강의교안 — 창업가 DNA · 고객 · 전략 · 제품 · 성장 5부, 슬라이드 221장 전체를 그대로 옮겼습니다.</span></p>
+      <p class="dltags"><a class="mapl form" href="startup-founder-dna/" target="_blank" rel="noopener">🧬 스타트업 창업가 DNA 강의교안 전체 보기 ↗</a><span class="dl-src">제1부 창업가 DNA(49장) · 제2부 고객(43장) · 제3부 전략(46장) · 제4부 제품(51장) · 제5부 성장(32장).</span></p>
+
       <p class="mod-home"><a href="./">← 교육자료 목차로 돌아가기</a></p>
       <nav class="mod-nav">
         <a class="nav-prev" href="big-data-analytics.html"><span class="nav-label">← 이전 모듈</span>02 · 빅데이터 분석</a>
