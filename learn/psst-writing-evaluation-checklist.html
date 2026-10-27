@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PSST 작성·평가 체크리스트 | 선샤인 웰니스 교육자료</title>
+<meta name="description" content="PSST(문제인식·실현가능성·성장전략·팀구성) 사업계획서를 쓸 때와 평가할 때 함께 쓰는 통합 체크리스트. 칸별 작성 규칙과 체크 항목을 한 화면에서 확인·점검." />
+<link rel="canonical" href="https://www.sunshinewellness.co.kr/learn/psst-writing-evaluation-checklist.html" />
+<style>
+  :root { --navy:#1e3650; --blue:#275a86; --pale:#edf3f8; --text:#202a35; --muted:#5c6977; --line:#dce3e9; --yellow:#fff0a7; --success:#23866b; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin:0; color:var(--text); background:#f3f5f7; font-family:"맑은 고딕","Malgun Gothic","Apple SD Gothic Neo",sans-serif; font-size:10pt; line-height:1.6; word-break:keep-all; }
+  .page { max-width:1080px; margin:28px auto 48px; background:#fff; padding:42px 52px 55px; box-shadow:0 8px 30px rgba(30,54,80,.08); border-radius:16px; }
+  .eyebrow {font-size:9pt; color:var(--blue); font-weight:700; letter-spacing:.1em;}
+  h1 { font-size:21pt; line-height:1.35; color:var(--navy); margin:7px 0 18px; letter-spacing:-.05em; }
+  h2 { font-size:14pt; color:var(--navy); margin:38px 0 13px; padding-bottom:9px; border-bottom:2px solid var(--navy); letter-spacing:-.025em; }
+  p { margin:7px 0 11px; text-indent:1em; }
+  .lead { font-size:10.5pt; line-height:1.85; color:#2c3744; border-left:4px solid var(--blue); padding:13px 18px; margin:0 0 19px; background:var(--pale); text-indent:0; border-radius:0 8px 8px 0; }
+  .key { background:linear-gradient(transparent 45%,var(--yellow) 45%); font-weight:700; }
+  .toc {display:flex;flex-wrap:wrap;gap:7px;margin:20px 0 8px;}
+  .toc a {text-decoration:none; color:var(--blue); background:#f1f5f9; border:1px solid var(--line); padding:6px 11px; border-radius:24px; font-weight:700;}
+  .toc a:hover,.toc a:focus-visible {background:#dceaf5;outline:2px solid #81a6c5;outline-offset:1px;}
+  .table-wrap { overflow-x:auto; border:1px solid var(--line); border-radius:10px; }
+  table { width:100%; border-collapse:collapse; border-spacing:0; line-height:1.6; }
+  th, td { text-align:left; vertical-align:top; padding:11px 12px; border-bottom:1px solid var(--line); }
+  thead th {background:var(--navy);color:#fff;font-weight:700;}
+  tbody tr:nth-child(even) { background:#f7f9fb; }
+  tbody tr:last-child td {border-bottom:0;}
+  td:first-child {color:var(--navy); font-weight:700;}
+  .small { font-size:9pt; color:var(--muted); }
+  .rule-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+  .rule { border:1px solid var(--line); border-radius:10px; padding:17px 17px 16px; background:#fff; }
+  .rule h3 { font-size:11pt; color:var(--navy); margin:0 0 7px; }
+  .rule h3::before { content:'✓'; color:var(--success); font-weight:900; display:inline-block; margin-right:9px; }
+  .rule p { margin:0; text-indent:0; }
+  .notice {margin-top:14px;background:#fffaf0;border-left:4px solid #d4aa31;padding:12px 16px;border-radius:0 7px 7px 0;text-indent:0;}
+  .toolbar { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; background:#edf3f8; border:1px solid var(--line); padding:12px 15px; border-radius:10px 10px 0 0; }
+  .toolbar strong {color:var(--navy);}
+  .progressbox { display:flex; align-items:center; gap:10px; flex:1 1 150px; max-width:400px; }
+  .track { height:8px; border-radius:8px; overflow:hidden; background:#d8e0e8; flex:1; }
+  .bar { height:100%; width:0%; background:var(--success); transition:width .2s ease; }
+  .count { font-weight:700; min-width:78px; color:var(--navy); text-align:right; }
+  .check-panel {border:1px solid var(--line);border-top:0;border-radius:0 0 10px 10px;overflow:hidden;}
+  .check-item { display:flex; align-items:flex-start; padding:10px 15px; gap:12px; border-top:1px solid var(--line); cursor:pointer; }
+  .check-item:first-child {border-top:0;}
+  .check-item:nth-child(even) {background:#fafbfc;}
+  .check-item:hover { background:#f0f7fc; }
+  .check-item input {margin-top:5px; accent-color:var(--success); width:16px; height:16px; flex:0 0 auto; cursor:pointer;}
+  .check-item span {flex:1;}
+  .check-item input:checked + span {color:#536574;}
+  .button-row {display:flex;flex-wrap:wrap;gap:8px;margin-top:13px;}
+  button {font-family:inherit;font-size:9.5pt;font-weight:700;border:1px solid #bcc9d5; background:#fff; color:var(--navy); border-radius:7px; padding:9px 13px; cursor:pointer;}
+  button.primary {color:#fff;background:var(--blue);border-color:var(--blue);}
+  button:hover {filter:brightness(.94);}
+  button:focus-visible {outline:3px solid #8fb5d3;outline-offset:2px;}
+  .status {font-size:9pt;color:var(--success);align-self:center;min-height:1.4em;}
+  .flow {display:flex; flex-wrap:wrap; gap:8px; align-items:center; justify-content:center; background:var(--pale);border-radius:10px;padding:16px 10px;margin-top:20px;}
+  .step {background:white;border:1px solid #c9d6e1;border-radius:7px;padding:7px 11px;font-weight:700;color:var(--navy);text-align:center;}
+  .arrow {color:var(--blue); font-size:14pt;font-weight:700;}
+  .conclusion { border-top:1px solid var(--line); margin-top:25px; padding-top:15px; color:var(--navy); font-weight:700; text-indent:0; font-size:10.5pt; }
+  footer { margin-top:30px;color:#6b7680;font-size:8pt;border-top:1px solid var(--line);padding-top:10px; }
+  @media(max-width:700px){.page{margin:0;padding:24px 16px;border-radius:0}.rule-grid{grid-template-columns:1fr}h1{font-size:18pt}table{min-width:650px}.flow{justify-content:flex-start}.arrow{font-size:12pt;}}
+  @media print { @page {size:A4; margin:16mm 14mm;} body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact;} .page{margin:0;max-width:none;padding:0;box-shadow:none;border-radius:0;} .toc,.button-row,.status{display:none !important;} h2{break-after:avoid;} .rule, tr, .check-item {break-inside:avoid;} .table-wrap {overflow:visible;} table {font-size:9pt;} th,td {padding:7px 8px;} .rule-grid {gap:8px;} .rule{padding:10px;} }
+</style>
+</head>
+<body>
+<main class="page">
+  <div class="eyebrow">PSST BUSINESS PLAN · WRITING & EVALUATION · <a href="tourism-venture.html" style="color:inherit;text-decoration:underline;">← 관광벤처창업론으로</a></div>
+  <h1>PSST 사업계획서 작성·평가 통합 체크리스트</h1>
+  <p class="lead">사업계획서의 핵심 평가 방향은 <strong>문제의 구체성, 해결 방안의 실현 가능성, 시장성의 객관적 근거, 경쟁업체와의 기능적 차별성, 창업 동기의 설득력, 문서의 완성도</strong>입니다. 학생들이 제출 전 스스로 확인할 수 있도록 평가 질문 중심으로 정리했습니다.</p>
+  <nav class="toc" aria-label="문서 목차">
+    <a href="#content">1. 내용 평가</a><a href="#format">2. 문서·가독성</a><a href="#principles">3. 평가 원칙</a><a href="#checklist">4. 제출 전 자기점검</a>
+  </nav>
+
+  <section id="content">
+    <h2>1. 사업계획서 내용 평가</h2>
+    <div class="table-wrap"><table>
+      <colgroup><col style="width:18%"><col style="width:34%"><col></colgroup>
+      <thead><tr><th scope="col">구분</th><th scope="col">핵심 점검 질문</th><th scope="col">구체적인 확인 사항</th></tr></thead>
+      <tbody>
+        <tr><td>① 핵심 전달력</td><td><strong>중복 표현 없이 핵심을 전달하는가?</strong></td><td>불필요한 수식어·반복 문장을 줄이고, 핵심 메시지를 간결하고 명확하게 제시</td></tr>
+        <tr><td>② 문제의 구체성</td><td><strong>해결하려는 문제가 구체적인가?</strong></td><td>누가, 어떤 상황에서, 얼마나 자주, 어떤 불편을 겪는지 명시</td></tr>
+        <tr><td>③ 문제의 정량화</td><td><strong>문제를 숫자로 설명하는가?</strong></td><td>고객 수, 불편 경험률, 시간·비용, 설문 결과 등 객관적 수치 활용</td></tr>
+        <tr><td>④ 해결 방안의 현실성</td><td><strong>제시한 해결 방안은 실제 구현 가능한가?</strong></td><td>기술·인력·예산·운영 방식·실행 단계의 구체성 검토</td></tr>
+        <tr><td>⑤ 시장성 및 확장성</td><td><strong>시장 규모와 성장 가능성을 그림으로 제시하는가?</strong></td><td>시장 규모, 성장률, TAM–SAM–SOM 등을 그래프·도식으로 표현하고 출처 제시</td></tr>
+        <tr><td>⑥ 경쟁업체 차별성</td><td><strong>기존 업체와의 차이를 기능 중심으로 비교하는가?</strong></td><td>경쟁업체별 주요 기능, 가격, 서비스 방식, 고객 편익을 비교표로 제시</td></tr>
+        <tr><td>⑦ 창업 동기</td><td><strong>내적·외적 동기를 구체적인 근거로 설명하는가?</strong></td><td>내적 동기(관심·경험·역량)와 외적 동기(시장 수요·고객 불편·사업 기회)를 구분하고 가능한 항목은 수치화</td></tr>
+        <tr><td>⑧ 근거의 신뢰성</td><td><strong>주요 주장에 객관적인 근거가 있는가?</strong></td><td>통계·시장조사·고객 인터뷰·선행 사례의 출처와 조사 시점 표시</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="format">
+    <h2>2. 문서 작성 및 가독성 평가</h2>
+    <div class="table-wrap"><table>
+      <colgroup><col style="width:21%"><col style="width:25%"><col></colgroup>
+      <thead><tr><th scope="col">구분</th><th scope="col">작성 기준</th><th scope="col">확인 사항</th></tr></thead>
+      <tbody>
+        <tr><td>글꼴 및 크기</td><td><strong>맑은 고딕 10pt</strong></td><td>본문 글꼴과 글자 크기 통일</td></tr>
+        <tr><td>줄간격</td><td><strong>160%</strong></td><td>본문 전체 줄간격 일관성</td></tr>
+        <tr><td>문단 형식</td><td><strong>들여쓰기 적용</strong></td><td>본문 문단의 첫 줄 들여쓰기 등 지정 양식 준수</td></tr>
+        <tr><td>핵심어 강조</td><td><strong>Bold(굵게)</strong></td><td>중요한 개념·수치·차별성·핵심 주장 강조</td></tr>
+        <tr><td>시각자료</td><td><strong>표·그래프·도식 활용</strong></td><td>시장성과 경쟁업체 비교 등 복잡한 정보를 시각적으로 전달</td></tr>
+        <tr><td>가독성</td><td><strong>일관된 문서 양식</strong></td><td>제목 체계, 문단 길이, 문장 정렬, 표 구성, 여백 등 통일</td></tr>
+        <tr><td>표현의 정확성</td><td><strong>간결하고 객관적인 문장</strong></td><td>중복 어휘, 추상적 표현, 맞춤법·띄어쓰기 오류 점검</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="principles">
+    <h2>3. 학생에게 특히 강조할 평가 원칙</h2>
+    <div class="rule-grid">
+      <article class="rule"><h3><span class="key">추상적 설명보다 구체적 근거</span></h3><p>‘고객이 불편하다’보다 <strong>누가 어떤 불편을 얼마나 경험하는지</strong> 설명해야 합니다.</p></article>
+      <article class="rule"><h3><span class="key">주관적 주장보다 객관적인 수치</span></h3><p>‘시장이 성장하고 있다’보다 <strong>시장 규모, 성장률, 출처</strong>를 제시해야 합니다.</p></article>
+      <article class="rule"><h3><span class="key">막연한 차별성보다 기능 비교</span></h3><p>‘기존 업체보다 우수하다’보다 <strong>어떤 기능이 어떻게 다른지</strong> 비교표로 보여주어야 합니다.</p></article>
+      <article class="rule"><h3><span class="key">아이디어의 참신성보다 실행 가능성</span></h3><p><strong>예산, 인력, 기술, 운영방식</strong>을 고려한 현실적인 해결 방안을 제시해야 합니다.</p></article>
+    </div>
+    <p class="notice"><strong>창업 동기 평가 시 유의:</strong> 내적 동기 자체를 무리하게 수치화할 필요는 없습니다. 창업 경험 연수, 관련 활동 횟수, 고객 조사 인원, 시장 수요 등 <strong>객관적으로 측정 가능한 근거</strong>를 활용하는 것이 적절합니다.</p>
+  </section>
+
+  <section id="checklist">
+    <h2>4. 제출 전 최종 자기점검</h2>
+    <div class="toolbar"><strong>사업계획서 제출 전 확인표</strong><div class="progressbox"><div class="track" role="progressbar" aria-label="점검 완료율" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0" id="progress"><div class="bar" id="bar"></div></div><span class="count" id="count">0/10개 완료</span></div></div>
+    <div class="check-panel" id="check-panel">
+      <label class="check-item"><input type="checkbox" /><span>중복 어휘와 불필요한 문장을 줄였는가?</span></label>
+      <label class="check-item"><input type="checkbox" /><span>고객의 문제를 구체적으로 설명했는가?</span></label>
+      <label class="check-item"><input type="checkbox" /><span>문제의 규모와 심각성을 수치로 제시했는가?</span></label>
+      <label class="check-item"><input type="checkbox" /><span>해결 방안의 실행 가능성을 설명했는가?</span></label>
+      <label class="check-item"><input type="checkbox" /><span>시장 규모와 성장 가능성을 시각화했는가?</span></label>
+      <label class="check-item"><input type="checkbox" /><span>경쟁업체와 기능별 차별성을 표로 비교했는가?</span></label>
+      <label class="check-item"><input type="checkbox" /><span>내적·외적 창업 동기를 근거와 함께 설명했는가?</span></label>
+      <label class="check-item"><input type="checkbox" /><span>통계와 주요 주장에 출처를 표시했는가?</span></label>
+      <label class="check-item"><input type="checkbox" /><span>맑은 고딕 10pt·줄간격 160%·들여쓰기 등 지정 양식을 지켰는가?</span></label>
+      <label class="check-item"><input type="checkbox" /><span>핵심 키워드 Bold 및 문서의 가독성을 점검했는가?</span></label>
+    </div>
+    <div class="button-row"><button type="button" class="primary" id="copy">☷ 점검표 복사</button><button type="button" id="reset">↻ 초기화</button><button type="button" id="print">⎙ 인쇄 / PDF 저장</button><span id="status" class="status" aria-live="polite"></span></div>
+  </section>
+
+  <div class="flow" role="img" aria-label="사업계획서의 핵심 논리: 고객의 문제, 객관적 근거, 현실적 해결 방안, 시장성, 경쟁우위, 실행 가능성">
+    <span class="step">고객의 문제</span><span class="arrow" aria-hidden="true">→</span>
+    <span class="step">객관적 근거</span><span class="arrow" aria-hidden="true">→</span>
+    <span class="step">현실적 해결 방안</span><span class="arrow" aria-hidden="true">→</span>
+    <span class="step">시장성</span><span class="arrow" aria-hidden="true">→</span>
+    <span class="step">경쟁우위</span><span class="arrow" aria-hidden="true">→</span>
+    <span class="step">실행 가능성</span>
+  </div>
+  <p class="conclusion">최종 평가의 핵심: 사업계획서는 단순히 많은 내용을 작성하는 문서가 아니라, <span class="key">고객의 문제 → 객관적 근거 → 현실적 해결 방안 → 시장성 → 경쟁우위 → 실행 가능성</span>이 논리적으로 연결된 문서여야 합니다.</p>
+  <footer>PSST 사업계획서 작성·평가 가이드 · 학생 자기점검용 · 본문 형식: 맑은 고딕 10pt, 줄간격 160%</footer>
+</main>
+<script>
+(function(){
+  const boxes=[...document.querySelectorAll('#check-panel input[type=checkbox]')];
+  const count=document.getElementById('count'); const bar=document.getElementById('bar');
+  const progress=document.getElementById('progress'); const status=document.getElementById('status');
+  function refresh(){const n=boxes.filter(e=>e.checked).length;count.textContent=n+'/'+boxes.length+'개 완료';bar.style.width=(100*n/boxes.length)+'%';progress.setAttribute('aria-valuenow',n);}
+  boxes.forEach(b=>b.addEventListener('change',()=>{status.textContent='';refresh();}));
+  document.getElementById('reset').addEventListener('click',()=>{boxes.forEach(b=>b.checked=false);status.textContent='점검 상태를 초기화했습니다.';refresh();});
+  document.getElementById('print').addEventListener('click',()=>window.print());
+  document.getElementById('copy').addEventListener('click',async()=>{
+    const str=boxes.map((b,i)=>(b.checked?'☑':'☐')+' '+(i+1)+'. '+b.nextElementSibling.textContent).join('\n');
+    try { await navigator.clipboard.writeText(str); status.textContent='점검표를 복사했습니다.'; }
+    catch(err){
+      const ta=document.createElement('textarea');ta.value=str;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.left='-9999px';document.body.appendChild(ta);ta.select();
+      try{status.textContent=document.execCommand('copy')?'점검표를 복사했습니다.':'자동 복사가 지원되지 않습니다.';}catch(e){status.textContent='자동 복사가 지원되지 않습니다.';}
+      ta.remove();
+    }
+  });
+  refresh();
+})();
+</script>
+</body>
+</html>
