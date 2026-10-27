@@ -1557,11 +1557,11 @@
     .learn-hero .syl-tags.docs a small, .learn-article .syl-tags.docs a small { margin-left: 4px; font-size: .82em; font-weight: 700; opacity: .8; }
     /* 05_관광벤처창업론 그림 여섯 — 장 · 파트 안내판(2026-10-16) */
     /* 맨 위 — 여덟 파트 지도(2026-10-17, 옛 「관광벤처가 뭐지?」 그림 대신) */
-    .learn-article .pmap { max-width: 900px; margin: 16px auto 24px; }
-    .learn-article .pmap-t { margin: 0 0 10px; text-align: center; font-size: 15px; color: #14243a; }
-    .learn-article .pmap-t span { display: block; margin-top: 3px; font-size: 12.3px; line-height: 1.7; color: #5d6d7e; }
+    .learn-article .pmap { max-width: 980px; margin: 16px auto 24px; display: flex; gap: 22px; align-items: flex-start; }
+    .learn-article .pmap-t { flex: 0 0 180px; margin: 0; text-align: left; font-size: 12.5px; color: #14243a; }
+    .learn-article .pmap-t span { display: block; margin-top: 6px; font-size: 11.3px; line-height: 1.65; color: #5d6d7e; }
     .learn-article .pmap-t span b { color: #14243a; }
-    .learn-article .pmap-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; counter-reset: none; }
+    .learn-article .pmap-grid { flex: 1; min-width: 0; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; counter-reset: none; }
     .learn-article .pmap-grid > li { margin: 0; padding: 0; }
     .learn-article .pmap-grid > li::before { content: none; }
     .learn-article .pmap-grid a { display: flex; flex-direction: column; gap: 3px; height: 100%; box-sizing: border-box; padding: 10px 12px 11px; border-radius: 10px; border: 1px solid color-mix(in srgb, var(--ac) 28%, #fff); border-top: 4px solid var(--ac); background: var(--bg); text-decoration: none; color: #33475b; transition: transform .12s, box-shadow .12s; }
@@ -1570,7 +1570,12 @@
     .learn-article .pmap-grid .pm-n::before { content: "파트 "; font-weight: 700; }
     .learn-article .pmap-grid .pm-t { font-size: 14.5px; font-weight: 800; color: #14243a; line-height: 1.35; }
     .learn-article .pmap-grid .pm-d { font-size: 11.8px; line-height: 1.55; color: #5d6d7e; }
-    @media (max-width: 760px) { .learn-article .pmap-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 760px) {
+      .learn-article .pmap { flex-direction: column; gap: 10px; }
+      .learn-article .pmap-t { flex: 0 0 auto; text-align: center; }
+      .learn-article .pmap-t span { text-align: left; }
+      .learn-article .pmap-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
     .learn-article .tv-map { max-width: 520px; margin: 16px auto 22px; text-align: center; }
     .learn-article .tv-map.narrow { max-width: 340px; }
     .learn-article .tv-map img { display: block; width: 100%; height: auto; border-radius: 10px; border: 1px solid #e3e9f0; cursor: zoom-in; transition: box-shadow .15s; }
@@ -2410,7 +2415,7 @@
             <li class="pc"><b>6교시</b><span class="tm">(14:00 – 14:50)</span><span class="rm">사회대 <strong>2106호</strong><em>PC실</em></span></li>
             <li class="mv"><b>7교시</b><span class="tm">(15:00 – 15:50)</span><span class="rm">사회대 <strong>3402호</strong></span></li>
           </ul>
-          <p class="rb-parts"><b>이 페이지는 아홉 파트</b><a class="p0" href="#part00">00 한눈에</a><a class="p1" href="#part01">01 주차 실습</a><a class="p2" href="#part02">02 평가기준</a><a class="p3" href="#part03">03 흐름</a><a class="p3 sub" href="#ch01">01 관광벤처란</a><a class="p3 sub" href="#ch02">02 문제정의</a><a class="p3 sub" href="#ch03">03 비즈니스모델</a><a class="p3 sub" href="#ch04">04 린스타트업</a><a class="p3 sub" href="#ch05">05 창업지원</a><a class="p3 sub" href="#ch06">06 사이트사례</a><a class="p4" href="#part04">04 어디에</a><a class="p5" href="#part05">05 업종</a><a class="p6" href="#part06">06 취업</a><a class="p7" href="#part07">07 책</a><a class="p8" href="#part08">08 기업가정신</a><a class="p9" href="#part09">09 곁들여</a><span class="rb-sep" aria-hidden="true"></span><a class="fin" href="#과제3">과제 — EO Korea 사례연구 · 11월 9일(월) 24시까지</a><a class="fin sub" href="#part02">중간고사 대체과제물 재제출 — 11월 1일(일) 자정까지</a></p>
+          <p class="rb-parts"><b>이 페이지는 아홉 파트</b><a class="p0" href="#part00">00 한눈에</a><a class="p1" href="#part01">01 주차 실습</a><a class="p2" href="#part02">02 평가기준</a><a class="p3" href="#part03">03 흐름</a><a class="p3 sub" href="#ch01">01 관광벤처란</a><a class="p3 sub" href="#ch02">02 문제정의</a><a class="p3 sub" href="#ch03">03 비즈니스모델</a><a class="p3 sub" href="#ch04">04 린스타트업</a><a class="p3 sub" href="#ch05">05 창업지원</a><a class="p3 sub" href="#ch06">06 사이트사례</a><a class="p4" href="#part04">04 어디에</a><a class="p5" href="#part05">05 업종</a><a class="p6" href="#part06">06 취업</a><a class="p7" href="#part07">07 책</a><a class="p8" href="#part08">08 기업가정신</a><a class="p9" href="#part09">09 곁들여</a><span class="rb-sep" aria-hidden="true"></span><a class="fin" href="#과제3">과제 — EO Korea 사례연구 · 11월 9일(월) 24시까지</a><a class="fin" href="#part02">중간고사 대체과제물 재제출 — 11월 1일(일) 자정까지</a></p>
         </div>
         <div class="syl-box cal">
           <p class="syl-t"><a href="academic-calendar-venture.html" target="_blank" rel="noopener">2학기 학사일정 달력 ↗</a></p>
@@ -2457,17 +2462,17 @@
 
           <h3 class="rg-h">파트별로 무엇이 들어 있나</h3>
           <div class="rg-scroll"><table class="rg-tbl rg-zebra">
-            <thead><tr><th>파트</th><th>무엇을 다루나</th><th>안에 든 것</th></tr></thead>
+            <thead><tr><th>파트</th><th>안에 든 것</th></tr></thead>
             <tbody>
-              <tr><td style="background:#fbeeec"><b style="color:#c0392b">01 주차별 실습 목표</b></td><td style="background:#fbeeec">매주 무엇을 손에 남기는가</td><td style="background:#fbeeec">한 학기 성장 막대 · 1~16주 주차 상자(그날의 목표 · 한 것 · 자료)</td></tr>
-              <tr><td style="background:#eef3f9"><b style="color:#17365d">02 평가 기준과 결과물</b></td><td style="background:#eef3f9">이 수업의 제출물</td><td style="background:#eef3f9">과제 1 예비관광벤처 사업계획서(제18회 공식 양식 · 워크북 16시트) · 과제 3 EO Korea 사례연구(11/9(월) 24시)</td></tr>
-              <tr><td style="background:#eef4f1"><b style="color:#3B6259">03 창업의 흐름</b></td><td style="background:#eef4f1">사업계획서의 칸이 되는 이론 여섯 장</td><td style="background:#eef4f1">01 관광벤처란 · 02 아이디어는 문제에서 · 03 비즈니스 모델 · 04 린 스타트업 · 05 창업 생태계와 지원 · 06 이 사이트를 사례로 읽기<br /><small>이 여섯 장이 그대로 과제 1 사업계획서의 칸이 됩니다. 낼 곳은 파트 04에, 로컬크리에이터만 업종으로 묶여 파트 05의 12장에 있습니다. 파트 06은 같은 계획서 뼈대로 입사 제안서를 씁니다.</small></td></tr>
-              <tr><td style="background:#eff5fa"><b style="color:#2563a8">04 어디에 내는가</b></td><td style="background:#eff5fa">계획서를 낼 수 있는 곳</td><td style="background:#eff5fa">관광벤처(문체부 · 관광공사) · 지자체 관광 스타트업(경북 · 안동 · 경주 황오동) · 관광데이터 공모전 · 정부 R&amp;D</td></tr>
-              <tr><td style="background:#fdf6ea"><b style="color:#8a5a17">05 업종별로 들어가기</b></td><td style="background:#fdf6ea">아이템이 정해진 뒤 그 업의 구조와 규칙</td><td style="background:#fdf6ea">07 여행업 · 08 외식(성심당) · 09 농어촌 민박 · 한옥 · 10 스마트팜 · 11 연구용역(어반리즘 하우스) · 12 로컬크리에이터</td></tr>
-              <tr><td style="background:#f4eff8"><b style="color:#5b3f7a">06 창업하지 않아도 쓰인다</b></td><td style="background:#f4eff8">같은 역량을 취업으로</td><td style="background:#f4eff8">과제 2 관광기업 입사 제안서(A4 1장 · 모의 면접) · 면접 질문과 채용 창구</td></tr>
-              <tr><td style="background:#fdf8e8"><b style="color:#7a6417">07 책</b></td><td style="background:#fdf8e8">교재 두 권</td><td style="background:#fdf8e8">「관광벤처창업론」(이론 · 실무 19장) · 「관광창업론」(업종별 15장)과 이 페이지 장의 대응</td></tr>
-              <tr><td style="background:#fbeee6"><b style="color:#a8431f">08 기업가 정신</b></td><td style="background:#fbeee6">정진선 강사 강의교안</td><td style="background:#fbeee6">창업가 DNA · 고객 · 전략 · 제품 · 성장 5부 · 슬라이드 221장</td></tr>
-              <tr><td style="background:#eaf5f4"><b style="color:#1f6a73">09 곁들여 보기 · 링크</b></td><td style="background:#eaf5f4">사례와 공고 창구</td><td style="background:#eaf5f4">비건부산(해커톤 → 서비스) · 구미 · 포항(도시가 관광 창업에 투자하는 이유) · 공모 창구 모음</td></tr>
+              <tr><td style="background:#fbeeec"><b style="color:#c0392b">01 주차별 실습 목표</b></td><td style="background:#fbeeec">한 학기 성장 막대 · 1~16주 주차 상자(그날의 목표 · 한 것 · 자료)</td></tr>
+              <tr><td style="background:#eef3f9"><b style="color:#17365d">02 평가 기준과 결과물</b></td><td style="background:#eef3f9">과제 1 예비관광벤처 사업계획서(제18회 공식 양식 · 워크북 16시트) · 과제 3 EO Korea 사례연구(11/9(월) 24시)</td></tr>
+              <tr><td style="background:#eef4f1"><b style="color:#3B6259">03 창업의 흐름</b></td><td style="background:#eef4f1">01 관광벤처란 · 02 아이디어는 문제에서 · 03 비즈니스 모델 · 04 린 스타트업 · 05 창업 생태계와 지원 · 06 이 사이트를 사례로 읽기<br /><small>이 여섯 장이 그대로 과제 1 사업계획서의 칸이 됩니다. 낼 곳은 파트 04에, 로컬크리에이터만 업종으로 묶여 파트 05의 12장에 있습니다. 파트 06은 같은 계획서 뼈대로 입사 제안서를 씁니다.</small></td></tr>
+              <tr><td style="background:#eff5fa"><b style="color:#2563a8">04 어디에 내는가</b></td><td style="background:#eff5fa">관광벤처(문체부 · 관광공사) · 지자체 관광 스타트업(경북 · 안동 · 경주 황오동) · 관광데이터 공모전 · 정부 R&amp;D</td></tr>
+              <tr><td style="background:#fdf6ea"><b style="color:#8a5a17">05 업종별로 들어가기</b></td><td style="background:#fdf6ea">07 여행업 · 08 외식(성심당) · 09 농어촌 민박 · 한옥 · 10 스마트팜 · 11 연구용역(어반리즘 하우스) · 12 로컬크리에이터</td></tr>
+              <tr><td style="background:#f4eff8"><b style="color:#5b3f7a">06 창업하지 않아도 쓰인다</b></td><td style="background:#f4eff8">과제 2 관광기업 입사 제안서(A4 1장 · 모의 면접) · 면접 질문과 채용 창구</td></tr>
+              <tr><td style="background:#fdf8e8"><b style="color:#7a6417">07 책</b></td><td style="background:#fdf8e8">「관광벤처창업론」(이론 · 실무 19장) · 「관광창업론」(업종별 15장)과 이 페이지 장의 대응</td></tr>
+              <tr><td style="background:#fbeee6"><b style="color:#a8431f">08 기업가 정신</b></td><td style="background:#fbeee6">창업가 DNA · 고객 · 전략 · 제품 · 성장 5부 · 슬라이드 221장</td></tr>
+              <tr><td style="background:#eaf5f4"><b style="color:#1f6a73">09 곁들여 보기 · 링크</b></td><td style="background:#eaf5f4">비건부산(해커톤 → 서비스) · 구미 · 포항(도시가 관광 창업에 투자하는 이유) · 공모 창구 모음</td></tr>
             </tbody>
           </table></div>
           <p class="rg-sym">↗ 새 창 · ⬇ 내려받기 · ↓ 페이지 안 이동 · ✦ 직접 만든 자료 · ● 꼭 볼 것<a href="assets/tourism-venture-reading-guide.docx" download="관광벤처창업론_안내서.docx" style="margin-left:8px;color:#2f5148;text-decoration:underline;">⬇ 안내서 Word 다운받기</a></p>
