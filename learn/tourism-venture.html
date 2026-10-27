@@ -309,6 +309,21 @@
     .learn-article .six-box.wood table.six-tbl td b { color: #8a5a17; }
     .learn-article .six-box.wood table.six-tbl tr.hl td { background: #fbefd8; }
     .learn-article .six-box.wood table.six-tbl tr.hl td b { color: #b8862c; }
+    /* 한옥체험업 창업 프로세스 5단계 — 가로 파이프라인 시각화 */
+    .learn-article .step-flow { display: flex; flex-wrap: wrap; align-items: stretch; gap: 4px; margin: 4px 0 16px; }
+    .learn-article .step-flow .sf-step {
+      flex: 1 1 110px; min-width: 100px; background: #fff; border: 1px solid #e9dbb7;
+      border-radius: 12px; padding: 14px 8px 12px; text-align: center; box-shadow: 0 2px 6px rgba(138,90,23,.06);
+    }
+    .learn-article .step-flow .sf-n { display: block; font-size: 22px; font-weight: 900; color: #8a5a17; line-height: 1.1; }
+    .learn-article .step-flow .sf-t { display: block; font-size: 13.5px; font-weight: 800; color: #5a3c10; margin-top: 5px; }
+    .learn-article .step-flow .sf-d { display: block; font-size: 11px; color: #8a7050; margin-top: 4px; line-height: 1.45; }
+    .learn-article .step-flow .sf-arrow { display: flex; align-items: center; justify-content: center; flex: 0 0 18px; color: #d8ad5c; font-size: 20px; font-weight: 900; }
+    @media (max-width: 680px) {
+      .learn-article .step-flow { flex-direction: column; }
+      .learn-article .step-flow .sf-step { flex: 1 1 auto; }
+      .learn-article .step-flow .sf-arrow { flex: 0 0 auto; transform: rotate(90deg); padding: 2px 0; }
+    }
     /* 사업계획서 · IR 피칭 칸 아래 세로 쇼츠 — 9:16, 칸을 다 채우지 않게 */
     /* IR 영상 둘 — 사분면 그리드 바깥, 그 아래 한 줄로. 좁으면 세로로 쌓는다 */
     .learn-article .ir-row { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 18px; margin: 16px 0 8px; }
@@ -3741,13 +3756,17 @@
 
       <div class="six-box wood">
         <p class="six-h">한옥체험업 창업 프로세스 5단계</p>
-        <ol class="six-steps">
-          <li><span class="n">① 매물</span>매물 확보 및 건축물대장 확인</li>
-          <li><span class="n">② 시설</span>리모델링 및 소방 · 위생 시설 세팅</li>
-          <li><span class="n">③ 등록</span>지자체 관광과 「한옥체험업 등록」 신청 (현장 실사)</li>
-          <li><span class="n">④ 사업자</span>세무서 「사업자등록」 신청 (면세 · 과세 여부 확인)</li>
-          <li><span class="n">⑤ 운영</span>에어비앤비 등 플랫폼 등록 및 운영 시작</li>
-        </ol>
+        <div class="step-flow">
+          <div class="sf-step"><span class="sf-n">①</span><span class="sf-t">매물</span><span class="sf-d">확보 · 건축물대장 확인</span></div>
+          <span class="sf-arrow">→</span>
+          <div class="sf-step"><span class="sf-n">②</span><span class="sf-t">시설</span><span class="sf-d">리모델링 · 소방·위생 세팅</span></div>
+          <span class="sf-arrow">→</span>
+          <div class="sf-step"><span class="sf-n">③</span><span class="sf-t">등록</span><span class="sf-d">「한옥체험업 등록」 신청 · 현장 실사</span></div>
+          <span class="sf-arrow">→</span>
+          <div class="sf-step"><span class="sf-n">④</span><span class="sf-t">사업자</span><span class="sf-d">세무서 「사업자등록」 · 면세·과세 확인</span></div>
+          <span class="sf-arrow">→</span>
+          <div class="sf-step"><span class="sf-n">⑤</span><span class="sf-t">운영</span><span class="sf-d">플랫폼 등록 · 운영 시작</span></div>
+        </div>
         <p class="six-note"><strong>① 건축물대장 확인</strong> — 매입 또는 임차하려는 건물의 건축물대장상 용도가 <em>단독주택</em>이나 <em>한옥</em> 등으로 되어 있는지 확인하고, <strong>위반건축물(불법 증축 등) 표시가 없어야</strong> 합니다.<br />
         <strong>③ 지자체 등록 신청</strong> — 준비서류(신청서 · 사업계획서 · 시설 배치도 · 임대차계약서 등)를 지참해 시 · 군 · 구청의 관광과(또는 문화관광과)에 접수합니다. 담당 공무원이 <strong>현장 실사</strong>로 소방 · 시설 기준을 점검한 뒤 「한옥체험업 등록증」을 발급합니다.<br />
         <strong>④ 사업자등록</strong> — 등록증을 들고 세무서에서 사업자등록을 합니다(업태: <strong>숙박업</strong> / 종목: <strong>한옥체험업</strong>).</p>
