@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="light" />
+<title>정규화 회귀 수업목표·핵심 키워드·개념풀이·쪽수 | Ridge·Lasso·Elastic Net | 개념 시각화·각 섹션 4컷 만화·기출 48번</title>
+<style>
+:root{--ink:#132642;--sub:#485f7e;--muted:#667b95;--blue:#2563eb;--pale:#eaf2ff;--sky:#dbeafe;--purple:#7448df;--orange:#d66a28;--teal:#087f73;--red:#c33c47;--yellow:#fff0a8;--card:#fff;--bg:#f2f6fb;--line:#dfe7f1;--shadow:0 18px 44px rgba(30,53,95,.07)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Pretendard,"Noto Sans KR","Apple SD Gothic Neo",-apple-system,BlinkMacSystemFont,"Malgun Gothic",sans-serif;font-size:16px;line-height:1.72;letter-spacing:-.017em}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible{outline:3px solid #f0b55e;outline-offset:3px}.wrap{max-width:1300px;margin:auto;padding:18px 24px 70px}.top{position:sticky;top:0;z-index:10;background:rgba(248,251,255,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}.bar-inner{max-width:1300px;padding:10px 24px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{font-weight:900;color:#173153;white-space:nowrap;font-size:14px;letter-spacing:.01em}.pager{display:flex;align-items:center;gap:10px}.pageinfo{font-size:13px;font-weight:800;color:var(--sub);white-space:nowrap}.navbtn{background:#fff;border:1px solid #c8d7ea;border-radius:11px;color:#1f436d;padding:7px 14px;font-size:14px;font-weight:800}.navbtn:hover{background:#eef5ff}.navbtn:disabled{opacity:.32;cursor:not-allowed}.progress{display:grid;grid-template-columns:repeat(10,1fr);gap:4px;max-width:1300px;margin:auto;padding:0 24px 8px}.progress button{height:5px;border:0;border-radius:9px;background:#d5e0ef;padding:0}.progress button.active{background:var(--blue)}.slide{display:none;animation:fade .23s ease}.slide.active{display:block}@keyframes fade{from{opacity:.45;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}.eyebrow{font-weight:850;color:var(--blue);font-size:13px;letter-spacing:.10em;margin-bottom:7px}.slidehead{padding:22px 2px 17px;display:flex;align-items:flex-end;justify-content:space-between;gap:12px}.slidehead h1{font-size:clamp(25px,3vw,40px);margin:0;line-height:1.29;letter-spacing:-.047em}.slidehead p{color:var(--sub);margin:10px 0 0;max-width:900px}.pg{border:1px solid #c9d8ed;border-radius:100px;color:#526b87;background:white;padding:4px 12px;font-size:13px;font-weight:850;white-space:nowrap}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:17px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.panel{border:1px solid var(--line);background:var(--card);border-radius:19px;padding:23px;box-shadow:var(--shadow);min-width:0}.panel h2{font-size:23px;margin:0 0 11px;line-height:1.38;letter-spacing:-.035em}.panel h3{font-size:18px;margin:0 0 7px;letter-spacing:-.027em}.panel p{margin:7px 0 10px}.panel ul{padding-left:21px;margin:8px 0}.panel li{margin:5px 0}.muted{color:var(--sub)}.small{font-size:14px}.xs{font-size:12.5px}.em{background:linear-gradient(transparent 43%,var(--yellow) 43%,var(--yellow) 93%,transparent 93%);padding:0 3px;font-weight:850}.key{color:var(--blue);font-weight:900}.tag{display:inline-flex;padding:4px 10px;border-radius:100px;font-size:12px;font-weight:900;background:var(--pale);color:#2354a1;margin-bottom:9px}.tag.org{background:#fff1e7;color:#b6571a}.tag.green{background:#e3f7f1;color:#007d71}.tag.purple{background:#f2ecff;color:#6742c4}.big{font-size:27px;font-weight:900;letter-spacing:-.045em}.callout{border-radius:13px;padding:12px 15px;background:#eef5ff;border-left:5px solid var(--blue);color:#25476b;margin:13px 0;font-weight:650}.callout.orange{background:#fff4ea;border-color:var(--orange)}.callout.green{background:#e9f8f4;border-color:var(--teal)}.callout.yellow{background:#fff9dc;border-color:#d9a50b}.formula{border-radius:13px;background:#f1f5fb;border:1px solid #dce6f3;padding:12px 15px;overflow-x:auto;font-family:"Cambria Math","Times New Roman",serif;font-size:clamp(17px,1.8vw,22px);letter-spacing:0;line-height:1.65;white-space:nowrap}.formula + .xs{margin-top:8px}.svgbox{border:1px solid #e5edf7;background:linear-gradient(180deg,#fff,#f8fbff);padding:9px;border-radius:15px}.svgbox svg{width:100%;display:block;height:auto}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.metric{border:1px solid #e0e8f3;border-radius:12px;padding:11px;background:#f9fbff}.metric b{font-size:22px;color:var(--blue);display:block;line-height:1.4}.metric span{font-size:13px;color:var(--sub)}.pipeline{display:flex;gap:11px;align-items:stretch;flex-wrap:wrap;margin:16px 0}.pillstep{border:1px solid #d8e4f3;background:white;border-radius:13px;padding:11px 14px;font-weight:800;flex:1;min-width:140px;text-align:center}.arrow{align-self:center;font-size:25px;color:#7a99bd;font-weight:900}.controls{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:15px 0;background:#edf4ff;border:1px solid #d7e5f8;padding:12px 16px;border-radius:13px}.controls label{font-weight:900}.controls input[type=range]{flex:1;min-width:180px;accent-color:#295fde}.controls output{background:#fff;color:#164eb6;border:1px solid #cbdaf3;font-size:17px;font-weight:900;border-radius:9px;padding:4px 12px;min-width:74px;text-align:center}.barlist{display:grid;gap:9px;margin:14px 0}.coef-row{display:grid;grid-template-columns:55px 1fr 75px;gap:10px;align-items:center;font-size:14px}.coef-label{font-weight:850;color:#44597b}.track{height:16px;background:linear-gradient(90deg,#edf2f8,#e7eff9);position:relative;border-radius:4px;overflow:hidden}.track::before{content:'';position:absolute;left:50%;top:0;height:100%;width:1px;background:#9aabc3;z-index:1}.track .stick{position:absolute;top:2px;height:12px;border-radius:3px;min-width:0;transition:width .15s,left .15s;background:var(--blue)}.coef-value{text-align:right;font-variant-numeric:tabular-nums;font-weight:750}.cols-compare{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.mini-chart{border:1px solid #e4ebf4;background:#fff;border-radius:15px;padding:14px;min-width:0}.mini-chart h3{display:flex;justify-content:space-between;align-items:center;font-size:17px}.mini-chart .tag{margin:0}.note{font-size:13px;color:#586b88;line-height:1.6}.frow{display:grid;grid-template-columns:1fr 1fr;gap:15px}.shape{text-align:center}.shape strong{display:block;font-size:18px}.shape span{color:var(--sub);font-size:14px}.shape svg{max-width:330px;width:100%;margin:auto;display:block}.summarytable{width:100%;border-collapse:collapse;font-size:14px}.summarytable th{background:#eaf1fb;color:#15365c;text-align:left;padding:10px 12px;border-bottom:2px solid #becfe5}.summarytable td{padding:10px 12px;border-bottom:1px solid #e0e8f3;vertical-align:top}.summarytable tr:nth-child(even) td{background:#fbfdff}.comics{display:grid;grid-template-columns:1fr 1fr;gap:17px}.comic{border:2px solid #d7e4f2;border-radius:20px;padding:15px;background:#fff;overflow:hidden}.comic:nth-child(2){background:#fff9ec}.comic:nth-child(3){background:#f6f9ff}.comic:nth-child(4){background:#edfbf7}.comichead{display:flex;gap:10px;align-items:center;margin-bottom:10px}.comicnum{background:#204fbb;color:#fff;border-radius:50%;width:29px;height:29px;display:grid;place-items:center;font-size:14px;font-weight:900}.comichead h3{margin:0;font-size:19px}.comic svg{display:block;width:100%;height:auto;max-height:174px}.bubble{border-radius:13px;background:#fff;border:2px solid #bdcee6;padding:9px 12px;font-weight:750;font-size:14px;margin-top:9px}.question{background:#f7faff;border:1px solid #dfeaf8;border-radius:15px;padding:17px}.question h2{margin:4px 0 12px;font-size:23px}.options{display:grid;gap:10px}.option{width:100%;border:1.5px solid #d6e2f0;border-radius:13px;background:#fff;text-align:left;padding:13px 15px;display:flex;gap:11px;align-items:flex-start;color:#1e344f;transition:background .12s}.option:hover{border-color:#7ea3e3;background:#f6faff}.option .num{border:1px solid #bdcfe5;color:#38608c;background:#f5f8ff;border-radius:50%;width:30px;height:30px;flex-shrink:0;text-align:center;line-height:29px;font-weight:900}.option strong{font-weight:750}.option.correct{background:#e8faf4;border-color:#0e987a}.option.correct .num{background:#07846e;color:#fff;border-color:#07846e}.option.wrong{background:#fff1f0;border-color:#d95a58}.feedback{border-radius:13px;padding:13px 15px;background:#e9f5ff;border:1px solid #bddefa;display:none;margin-top:15px}.feedback.show{display:block}.feedback strong{font-size:19px}.reveal{border:0;background:#174dbc;color:#fff;padding:10px 18px;border-radius:10px;font-weight:850}.choice-explain{display:grid;gap:10px;margin-top:14px}.explain{display:flex;gap:10px;border:1px solid #e4ebf4;border-radius:11px;padding:11px 13px;background:#fff}.explain .mark{flex-shrink:0;font-weight:900;color:var(--blue)}.quote{font-weight:850;color:#0f3867}.takeaway{background:#15345d;color:white;border-radius:18px;padding:20px}.takeaway b{color:#ffe680}.takeaway h2{margin:0 0 12px}.closing{margin:25px 0;display:flex;justify-content:space-between;align-items:center;gap:20px}.closing .navbtn{padding:11px 22px}.footer{text-align:center;color:#6b7d97;font-size:12px;margin:23px auto 2px}.codeword{font-family:ui-monospace,"SFMono-Regular",Consolas,monospace;font-size:14px}.ref{font-size:12px;color:#74849b}.hint{margin-top:10px;color:#516a8c}.score-panel{padding:16px;border-radius:14px;background:#f8fbff;border:1px solid #dae8f9}.quizgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.qmini{border-radius:12px;background:#fff;border:1px solid #dbe5f4;padding:14px}.qmini p{margin:0 0 9px;font-weight:700}.qmini button{border:1px solid #c7d8ed;background:#f7faff;color:#1c528e;padding:7px 12px;margin-right:5px;margin-bottom:5px;border-radius:9px;font-weight:800}.qmini button.selected{border-color:#1d63c5;background:#e5f0ff}.qmini .result{margin-top:5px;min-height:24px;color:#365c82;font-size:13px;font-weight:800}.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;font-weight:750}.legend span::before{content:"";display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;background:var(--ink)}.legend .a::before{background:var(--blue)}.legend .b::before{background:var(--orange)}.legend .c::before{background:var(--teal)}.legend .d::before{background:#7e55cb}.caption{font-size:12px;color:#586f90;text-align:center;margin-top:8px}.mathnote{font-size:13px;color:#576e87;border-left:3px solid #b6c9e2;padding:5px 0 5px 12px;margin-top:10px}.tight p{margin:5px 0}@media(max-width:950px){.grid2,.grid3,.cols-compare,.frow,.comics{grid-template-columns:1fr}.wrap{padding:12px 15px 65px}.bar-inner{padding:8px 15px}.progress{padding:0 15px 7px}.panel{padding:19px}.slidehead{align-items:flex-start}.slidehead h1{font-size:29px}.pg{font-size:11px}.quizgrid{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(3,1fr)}}@media(max-width:520px){.brand{max-width:150px;overflow:hidden;text-overflow:ellipsis}.pager{gap:5px}.navbtn{padding:6px 9px}.pageinfo{font-size:11px}.panel{padding:15px}.metrics{grid-template-columns:1fr}.formula{font-size:16px}.pillstep{min-width:120px}.arrow{display:none}.slidehead h1{font-size:25px}.coef-row{grid-template-columns:44px 1fr 65px;gap:5px}}
+@media print{body{background:white;font-size:12px}.top,.closing,.navbtn{display:none!important}.wrap{max-width:none;padding:0}.slide{display:block!important;page-break-after:always;animation:none!important;padding:10px 4px}.panel{box-shadow:none;padding:12px;border:1px solid #b8c8df}.slidehead h1{font-size:26px}.grid2,.comics{grid-template-columns:1fr 1fr}.cols-compare,.grid3{grid-template-columns:repeat(3,1fr)}.question{break-inside:avoid}.panel,.comic{break-inside:avoid}.feedback{display:block}.slide:not(.active){opacity:1}}
+
+/* Each theoretical section now finishes with its own four-panel comic. */
+.story-wrap{margin:20px 0 2px;padding:19px;border-radius:21px;border:1px solid #d4e3f7;background:linear-gradient(145deg,#f5faff,#fffdf7)}
+.story-heading{display:flex;align-items:flex-end;gap:14px;justify-content:space-between;margin:0 1px 15px}.story-heading h2{font-size:clamp(19px,2.15vw,26px);margin:1px 0 0;letter-spacing:-.04em;line-height:1.35}.story-heading p{font-size:13px;color:#5e728f;margin:0}.story-mini-label{font-size:12px;color:#2563eb;font-weight:900;letter-spacing:.09em}
+.story-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.story-panel{border:2px solid #cdddf0;background:white;border-radius:17px;padding:13px;min-width:0;display:flex;flex-direction:column;box-shadow:0 6px 16px rgba(25,53,96,.04)}
+.story-panel:nth-child(2){border-color:#f0d9a5}.story-panel:nth-child(3){border-color:#b8ddc9}.story-panel:nth-child(4){border-color:#dbc7ef}.story-head{display:flex;gap:10px;align-items:center;margin-bottom:7px;min-height:32px}.story-head h3{font-size:17px;line-height:1.35;letter-spacing:-.025em;margin:0}.story-badge{display:grid;place-items:center;flex:none;width:28px;height:28px;border-radius:50%;color:white;background:#265fc1;font-size:14px;font-weight:900}.story-panel:nth-child(2) .story-badge{background:#c87d26}.story-panel:nth-child(3) .story-badge{background:#15816b}.story-panel:nth-child(4) .story-badge{background:#9167bc}
+.story-art{width:100%;max-height:179px;display:block;border-radius:12px}.story-talk{background:#fffaf0;border:1px solid #e5d8ac;color:#553d23;border-radius:12px;padding:10px 11px;font-weight:800;font-size:14px;margin:9px 0 6px;line-height:1.5}.story-lesson{font-size:14px;color:#344a68;line-height:1.6;margin:3px 0 0!important}.story-lesson strong{display:inline-block;background:#fff0aa;border-radius:6px;padding:0 5px;margin-right:4px;color:#4f452e}
+@media(max-width:760px){.story-grid{grid-template-columns:1fr}.story-heading{display:block}.story-heading p{margin-top:5px}.story-wrap{padding:11px}.story-head h3{font-size:16px}.story-art{max-height:none}}
+@media print{.story-wrap{break-before:auto;page-break-inside:auto}.story-panel{break-inside:avoid;page-break-inside:avoid}.story-grid{grid-template-columns:1fr 1fr}.story-heading p{display:none}}
+
+/* Opening slide, keyword dictionary, page labels */
+.lesson-lead{background:linear-gradient(118deg,#153b76,#3279c8);border:0;color:white;border-radius:19px;padding:23px 27px;margin:2px 0 17px;display:grid;grid-template-columns:1.45fr 1fr;gap:20px;align-items:center}
+.lesson-lead .lead-title{font-weight:900;font-size:clamp(20px,2.1vw,29px);line-height:1.43;letter-spacing:-.025em}
+.lesson-lead .lead-copy{font-size:14px;color:#e1edff;margin-top:7px}
+.lesson-lead .lead-path{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.lesson-lead .lead-path span{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.29);border-radius:12px;padding:12px 10px;text-align:center;font-weight:800;font-size:13px}
+.goal-items{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:11px 0 4px}
+.goal-item{display:flex;align-items:flex-start;gap:11px;background:#f6faff;border:1px solid #deebfa;border-radius:12px;padding:12px 13px;min-height:73px}
+.goal-item .goal-number{flex:none;display:grid;place-items:center;border-radius:9px;background:#285fc1;color:white;width:31px;height:31px;font-weight:900;font-size:14px}
+.goal-item b{color:#1c467c}.goal-item p{font-size:14px;line-height:1.54;margin:1px 0 0}
+.glossary-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
+.glossary-card{min-width:0;border:1px solid #dae6f5;background:#f9fbff;padding:12px 15px;border-radius:12px}
+.glossary-card .word{font-size:15px;font-weight:900;color:#163e79;line-height:1.42}
+.glossary-card .english{font-size:12px;color:#4270a0;font-weight:750;margin-left:5px}
+.glossary-card .definition{font-size:13.5px;margin:5px 0 0;color:#354f70;line-height:1.56}
+.glossary-card.accent{border-color:#eacb6a;background:#fff9e9}
+.opening-story{border:1px solid #d7e6f9;background:#fff;border-radius:18px;padding:20px;margin-top:17px}
+.opening-story h2{font-size:22px;letter-spacing:-.03em;margin:0 0 6px}
+.cover-comic-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px;margin-top:12px}
+.cover-comic{background:#f7faff;border:2px solid #d8e5f5;border-radius:14px;padding:11px;min-width:0}
+.cover-comic:nth-child(2){background:#fff7eb;border-color:#f0dfb9}
+.cover-comic:nth-child(3){background:#f4f0ff;border-color:#dbccf5}
+.cover-comic:nth-child(4){background:#ecf9f2;border-color:#bee8d0}
+.cover-comic .striphead{font-size:14px;color:#1d447f;font-weight:900;line-height:1.4;min-height:39px}
+.cover-comic svg{width:100%;height:130px;display:block;margin:7px auto;background:rgba(255,255,255,.7);border-radius:10px}
+.cover-comic .speech{font-size:13px;font-weight:850;color:#32445c;line-height:1.48;min-height:43px}
+.cover-comic .what{border-top:1px dashed #c8d7e9;margin-top:7px;padding-top:7px;font-size:12px;color:#506b88;line-height:1.5}
+.slide-footnote{margin:24px 0 7px;border-top:1px solid #d9e3f1;padding:10px 3px;display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:12px;color:#627895;font-weight:800}
+.slide-footnote .position{font-weight:900;color:#2453a4;background:#eaf2ff;border:1px solid #d0def3;padding:3px 11px;border-radius:20px;white-space:nowrap}
+.slide-footnote .source{font-weight:650;text-align:right}
+@media(max-width:950px){.lesson-lead{grid-template-columns:1fr}.cover-comic-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:660px){.glossary-grid,.goal-items,.cover-comic-grid{grid-template-columns:1fr}.lesson-lead{padding:17px}.cover-comic svg{height:110px}}
+@media print{.lesson-lead{background:#edf5ff;color:#183965;border:1px solid #bfcfe6}.lesson-lead .lead-copy{color:#324f78}.lesson-lead .lead-path span{border-color:#c9d8eb}.goal-items,.glossary-grid{grid-template-columns:1fr 1fr}.cover-comic-grid{grid-template-columns:repeat(4,1fr)}.cover-comic svg{height:100px}.slide-footnote{break-inside:avoid}}
+
+</style>
+</head>
+<body>
+<header class="top"><div class="bar-inner"><div class="brand">PART 03 · 통계분석 / 정규화 회귀</div><div class="pager"><button type="button" class="navbtn" id="prevTop" aria-label="이전 장">← 이전</button><span class="pageinfo" id="counter">01 / 10</span><button type="button" class="navbtn" id="nextTop" aria-label="다음 장">다음 →</button></div></div><nav class="progress" aria-label="교안 슬라이드 이동" id="progress"></nav></header>
+<main class="wrap">
+
+<!-- Opening: class objectives and keywords -->
+<section class="slide active" data-title="수업목표·핵심 키워드">
+ <div class="slidehead"><div><div class="eyebrow">01 · LESSON GUIDE</div>
+  <h1>수업목표와 <span class="em">핵심 키워드·개념 풀이</span></h1>
+  <p>정규화 회귀를 배우기 전에 이 수업에서 무엇을 이해하고, 어떤 개념을 구분해야 하는지 먼저 살펴봅니다.</p>
+ </div><span class="pg">교재 p.310 · 기출 48번</span></div>
+ <div class="lesson-lead">
+  <div><div class="lead-title">학습 데이터를 외우는 모형보다<br>새로운 데이터에도 잘 맞는 모형을 만들자!</div>
+   <div class="lead-copy">과적합 → 계수에 벌점 부여 → Ridge·Lasso 비교 → 새 자료에서 확인</div></div>
+  <div class="lead-path"><span>① 왜? <b>과적합</b> 방지</span><span>② 무엇을? <b>회귀계수</b> 조절</span><span>③ 어떻게? <b>L1 / L2</b></span><span>④ 결과는? <b>일반화</b> 확인</span></div>
+ </div>
+ <div class="panel">
+  <span class="tag">오늘의 수업목표 · Learning objectives</span>
+  <h2>수업을 마친 뒤 다음 5가지를 할 수 있습니다</h2>
+  <div class="goal-items">
+   <div class="goal-item"><span class="goal-number">1</span><p><b>과적합을 설명한다.</b> 학습 점에 지나치게 맞춘 선이 왜 새 데이터에서는 불리할 수 있는지 그림으로 설명한다.</p></div>
+   <div class="goal-item"><span class="goal-number">2</span><p><b>정규화 원리를 말한다.</b> 예측오차에 회귀계수의 벌점을 더하는 이유를 이해한다.</p></div>
+   <div class="goal-item"><span class="goal-number">3</span><p><b>λ의 역할을 설명한다.</b> 규제 강도를 올렸을 때 계수가 어떻게 변하는지 예측한다.</p></div>
+   <div class="goal-item"><span class="goal-number">4</span><p><b>Ridge와 Lasso를 구분한다.</b> L2는 계수 제곱합, L1은 계수 절대값합이라는 차이를 설명한다.</p></div>
+   <div class="goal-item"><span class="goal-number">5</span><p><b>문제를 해결한다.</b> 기출 48번에서 Lasso에 대한 올바른 설명과 틀린 설명을 구별한다.</p></div>
+   <div class="goal-item"><span class="goal-number">★</span><p><b>핵심 메시지</b> 정규화는 언제나 성능을 높이는 마법이 아니라, <span class="em">예측오차와 모델 복잡성 사이의 균형</span>을 찾는 방법이다.</p></div>
+  </div>
+ </div>
+ <div class="panel" style="margin-top:16px">
+  <span class="tag green">핵심 키워드 · Keywords</span><h2>용어를 쉬운 말로 먼저 이해하기</h2>
+  <p class="small muted">영어 원어와 한국어 뜻, 생활 속 비유를 함께 기억하세요.</p>
+  <div class="glossary-grid">
+   <article class="glossary-card"><div class="word">과적합 <span class="english">Overfitting</span></div><p class="definition">연습문제의 숫자와 정답까지 외워, 조금 다른 새 문제에는 약해진 상태.</p></article>
+   <article class="glossary-card"><div class="word">일반화 <span class="english">Generalization</span></div><p class="definition">처음 보는 문제나 자료에도 배운 규칙을 잘 적용하는 능력.</p></article>
+   <article class="glossary-card"><div class="word">정규화 회귀 <span class="english">Regularized Regression</span></div><p class="definition">회귀계수가 너무 커지지 않게 벌점을 주어 모형의 복잡성을 조절하는 방법.</p></article>
+   <article class="glossary-card"><div class="word">회귀계수 <span class="english">Coefficient · β</span></div><p class="definition">한 변수가 예측값에 얼마나, 어느 방향으로 관련되는지 나타내는 숫자.</p></article>
+   <article class="glossary-card"><div class="word">페널티 <span class="english">Penalty</span></div><p class="definition">모형이 너무 복잡해지지 않도록 큰 계수에 부과하는 ‘벌점’.</p></article>
+   <article class="glossary-card"><div class="word">규제 강도 λ <span class="english">Lambda</span></div><p class="definition">벌점의 세기를 조절하는 손잡이. 커질수록 계수를 더 강하게 줄이려 함.</p></article>
+   <article class="glossary-card accent"><div class="word">릿지 회귀 <span class="english">Ridge · L2</span></div><p class="definition">계수의 <b>제곱</b>을 합해 벌점. 대체로 계수를 모두 조금씩 줄임.</p></article>
+   <article class="glossary-card accent"><div class="word">라쏘 회귀 <span class="english">Lasso · L1</span></div><p class="definition">계수의 <b>절대값</b>을 합해 벌점. 불필요한 변수의 계수가 0이 될 수 있음.</p></article>
+   <article class="glossary-card"><div class="word">엘라스틱 넷 <span class="english">Elastic Net</span></div><p class="definition">L1과 L2를 함께 사용해 계수 축소와 변수 선택을 절충함.</p></article>
+   <article class="glossary-card"><div class="word">교차검증 <span class="english">Cross-validation</span></div><p class="definition">자료를 나누어 여러 번 시험하며 규제 강도와 예측 성능을 살펴봄.</p></article>
+  </div>
+  <div class="callout yellow small"><b>구별!</b> 여기서 ‘정규화’는 회귀계수에 벌점을 주는 <b>규제(Regularization)</b>입니다. 변수의 단위를 맞추는 <b>표준화(Standardization)</b>와는 다른 개념입니다.</div>
+ </div>
+ <div class="opening-story"><span class="tag purple">첫 장 4컷 만화 · 수업 전체 미리보기</span><h2>AI에게 새 시험을 보여주면?</h2>
+  <p class="small muted">① 외우기 → ② 새 문제에 당황 → ③ 규칙을 단순하게 → ④ 이해해서 풀기</p>
+  <div class="cover-comic-grid">
+   <article class="cover-comic"><div class="striphead">1컷 · 문제를 달달 외우기</div>
+    <svg viewBox="0 0 220 130" role="img" aria-label="훈련용 문제 답을 빼곡히 외운 AI"><rect x="35" y="13" width="144" height="103" rx="8" fill="#e5f0ff" stroke="#4873bf" stroke-width="3"/><rect x="51" y="29" width="112" height="15" rx="3" fill="#7eaae9"/><path d="M53 58h92 M53 71h92 M53 84h92" stroke="#8da9d5" stroke-width="4" stroke-linecap="round"/><text x="158" y="105" fill="#2459a3" font-size="27" font-weight="900">100!</text></svg>
+    <div class="speech">“연습문제 답은 전부 외웠어!”</div><div class="what"><b>과적합의 시작</b> · 외우기만 하면 위험할 수 있어요.</div></article>
+   <article class="cover-comic"><div class="striphead">2컷 · 처음 보는 문제가 등장</div>
+    <svg viewBox="0 0 220 130" role="img" aria-label="새 문제에 당황한 얼굴"><rect x="62" y="20" width="96" height="89" rx="24" fill="#ffe4bc" stroke="#d28639" stroke-width="3"/><circle cx="92" cy="56" r="7" fill="#88552b"/><circle cx="131" cy="56" r="7" fill="#88552b"/><path d="M90 91Q113 70 135 91" stroke="#975324" stroke-width="5" fill="none" stroke-linecap="round"/><text x="164" y="38" font-size="32" font-weight="900" fill="#c46c30">?</text></svg>
+    <div class="speech">“어? 숫자가 바뀌니까 모르겠어!”</div><div class="what"><b>일반화 실패</b> · 새 자료에 약한 모형이에요.</div></article>
+   <article class="cover-comic"><div class="striphead">3컷 · 규제 손잡이를 돌리기</div>
+    <svg viewBox="0 0 220 130" role="img" aria-label="람다 규제 강도 슬라이더"><text x="20" y="33" font-size="20" fill="#7448df" font-weight="900">λ</text><path d="M35 79H184" stroke="#b6a7e5" stroke-width="13" stroke-linecap="round"/><path d="M35 79H113" stroke="#835bd3" stroke-width="13" stroke-linecap="round"/><circle cx="113" cy="79" r="20" fill="#6742c4" stroke="white" stroke-width="6"/><text x="110" y="39" text-anchor="middle" font-size="14" fill="#6141a8" font-weight="800">적절한 강도</text></svg>
+    <div class="speech">“계수가 너무 커지지 않게 하자!”</div><div class="what"><b>정규화</b> · 너무 복잡한 규칙에 벌점을 줘요.</div></article>
+   <article class="cover-comic"><div class="striphead">4컷 · 새 문제에도 응용 성공</div>
+    <svg viewBox="0 0 220 130" role="img" aria-label="새 데이터에서도 규칙을 적용한 AI"><rect x="27" y="16" width="164" height="103" rx="13" fill="#e2f6e9" stroke="#429f71" stroke-width="3"/><path d="M45 90L77 63L106 75L151 38" stroke="#27976e" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M143 38H153V49" stroke="#27976e" stroke-width="5" fill="none"/><text x="158" y="101" font-size="29" font-weight="900" fill="#17915d">✓</text></svg>
+    <div class="speech">“이번엔 원리를 아니까 풀 수 있어!”</div><div class="what"><b>일반화 지향</b> · 새 데이터 성능을 확인해요.</div></article>
+  </div>
+ </div>
+<div class="slide-footnote" aria-label="교안 쪽수 및 교재 출처"><span class="position">교안 01 / 10</span><span class="source">교재 발췌 p.310 · 기출 48번</span></div></section>
+
+<!-- 1 -->
+<section class="slide" data-title="학습 지도"><div class="slidehead"><div><div class="eyebrow">02 · CONCEPT MAP</div><h1>정규화 회귀: <span class="em">너무 외우지 말고, 원리를 이해하기</span></h1><p>회귀모형이 학습 데이터를 지나치게 따라갈 때, 계수의 크기를 조절하여 새로운 데이터에 대한 성능을 개선하도록 돕는 방법입니다.</p></div><span class="pg">교재 p.310 · 발췌 내용</span></div>
+<div class="panel"><span class="tag">개념 점검</span><div class="grid2"><div><h2>앞장에서 배운 내용을 점검하는 4가지</h2><ul><li><b>과적합(Overfitting)</b>이 무엇인지 사례로 설명한다.</li><li><b>정규화(Regularization)</b>와 규제 강도 λ의 역할을 이해한다.</li><li><b>Ridge(L2)</b>와 <b>Lasso(L1)</b>의 차이를 구별한다.</li><li><b>기출 48번</b>의 정답과 오답 이유를 말할 수 있다.</li></ul></div><div class="svgbox"><svg viewBox="0 0 520 240" role="img" aria-label="과적합에서 규제를 거쳐 일반화 성능을 높이는 개념 흐름"><defs><marker id="arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0 L9 3 L0 6" fill="none" stroke="#6383a7" stroke-width="1.8"/></marker></defs><rect x="12" y="45" width="138" height="136" rx="16" fill="#fff1ed" stroke="#e0a391"/><text x="81" y="77" text-anchor="middle" font-size="19" fill="#a84440" font-weight="800">과적합</text><text x="81" y="101" text-anchor="middle" font-size="12" fill="#794b45">복잡한 규칙에</text><text x="81" y="119" text-anchor="middle" font-size="12" fill="#794b45">지나치게 맞춤</text><path d="M23 151Q39 89 56 143T87 139T118 143T138 129" stroke="#d66562" stroke-width="3" fill="none"/><line x1="156" y1="112" x2="185" y2="112" stroke="#6383a7" stroke-width="2.5" marker-end="url(#arrowhead)"/><rect x="190" y="45" width="138" height="136" rx="16" fill="#eaf2ff" stroke="#9ab9eb"/><text x="259" y="77" text-anchor="middle" font-size="19" fill="#2459b7" font-weight="800">정규화</text><text x="259" y="104" text-anchor="middle" font-size="15" fill="#36648c">손실 + λ × 규제</text><rect x="217" y="124" width="85" height="31" rx="9" fill="#2563eb"/><text x="259" y="146" text-anchor="middle" font-size="16" fill="white" font-weight="800">계수 제약</text><line x1="335" y1="112" x2="363" y2="112" stroke="#6383a7" stroke-width="2.5" marker-end="url(#arrowhead)"/><rect x="369" y="45" width="139" height="136" rx="16" fill="#e8f7f1" stroke="#93cbb6"/><text x="438" y="77" text-anchor="middle" font-size="19" fill="#087d68" font-weight="800">일반화</text><text x="438" y="103" text-anchor="middle" font-size="12" fill="#3d786e">새 자료에서도</text><text x="438" y="120" text-anchor="middle" font-size="12" fill="#3d786e">예측 안정성 추구</text><path d="M381 154Q438 102 495 154" fill="none" stroke="#14977e" stroke-width="3"/></svg></div></div><div class="callout yellow"><b>한 문장 핵심:</b> 학습자료를 100% 외우는 모형보다 <b>중요한 패턴을 적당히 익힌 모형</b>이 새로운 자료에 더 유리할 수 있습니다.</div></div>
+<div class="pipeline"><div class="pillstep">① 과적합 문제 발견</div><span class="arrow">→</span><div class="pillstep">② 계수에 페널티 부여</div><span class="arrow">→</span><div class="pillstep">③ L1·L2 규제 선택</div><span class="arrow">→</span><div class="pillstep">④ 새 데이터 성능 확인</div></div>
+<div class="story-wrap">
+    <div class="story-heading"><div><span class="story-mini-label">4-CUT CONCEPT COMIC · 01</span><h2>🖍️ 학습 이야기: 외우는 인공지능과 이해하는 인공지능</h2></div><p>왼쪽 위부터 오른쪽 아래로 읽으면 개념이 자연스럽게 이어집니다.</p></div>
+    <div class="story-grid"><article class="story-panel" aria-label="1컷: 모든 문제를 외우는 AI">
+          <div class="story-head"><span class="story-badge">1</span><h3>모든 문제를 외우는 AI</h3></div>
+          <svg class="story-art" viewBox="0 0 490 164" role="img" aria-label="cram 개념을 설명하는 인물과 그림">
+    <rect x="5" y="5" width="480" height="154" rx="16" fill="#edf5ff"/><ellipse cx="115" cy="149" rx="83" ry="9" fill="#c5d6e9" opacity=".5"/>
+    <path d="M47 131 Q42 105 67 103 L118 103 Q145 106 146 136 L146 150 L47 150Z" fill="#249d8e" stroke="#25446e" stroke-width="2"/>
+    <path d="M58 115 L37 140" stroke="#249d8e" stroke-width="13" stroke-linecap="round"/><path d="M130 113 L156 137" stroke="#249d8e" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="94" cy="68" r="42" fill="#ffdab2" stroke="#bb8771" stroke-width="2.2"/>
+    <path d="M56 71 Q47 27 81 24 Q112 12 130 42 L134 61 Q112 43 97 44 Q71 40 56 71" fill="#47384b"/>
+    <circle cx="80" cy="77" r="4" fill="#3b3e4d"/><circle cx="107" cy="77" r="4" fill="#3b3e4d"/>
+    <path d="M84 64 Q90 69 97 64" stroke="#724b46" stroke-width="2.3" fill="none"/><path d="M80 94 Q92 104 104 94" fill="none" stroke="#90564c" stroke-width="3" stroke-linecap="round"/><circle cx="67" cy="88" r="7" fill="#edab9c" opacity=".52"/><circle cx="120" cy="88" r="7" fill="#edab9c" opacity=".52"/>
+    <path d="M179 23 l8 -11 l8 11 l13 4 l-13 4 l-8 11 l-8 -11 l-13 -4Z" fill="#facd73" opacity=".9"/>
+    <rect x="255" y="29" width="125" height="104" rx="7" fill="white" stroke="#234568" stroke-width="2.4"/><line x1="269" y1="47" x2="361" y2="47" stroke="#b1c5e5" stroke-width="2" stroke-linecap="round"/><line x1="269" y1="61" x2="361" y2="61" stroke="#b1c5e5" stroke-width="2" stroke-linecap="round"/><line x1="269" y1="75" x2="361" y2="75" stroke="#b1c5e5" stroke-width="2" stroke-linecap="round"/><line x1="269" y1="89" x2="361" y2="89" stroke="#b1c5e5" stroke-width="2" stroke-linecap="round"/><line x1="269" y1="103" x2="361" y2="103" stroke="#b1c5e5" stroke-width="2" stroke-linecap="round"/><line x1="269" y1="117" x2="361" y2="117" stroke="#b1c5e5" stroke-width="2" stroke-linecap="round"/><text x="320" y="24" fill="#2b65c9" font-size="17" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">암기 노트</text><text x="416" y="79" fill="#cc5160" font-size="25" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">100%</text></svg>
+          <div class="story-talk"><span aria-hidden="true">💬</span> “훈련용 문제를 전부 외웠어!”</div>
+          <p class="story-lesson"><strong>개념 연결</strong> 암기만으로는 새로운 문제에 약할 수 있어요.</p>
+        </article><article class="story-panel" aria-label="2컷: 새 문제가 등장했어요">
+          <div class="story-head"><span class="story-badge">2</span><h3>새 문제가 등장했어요</h3></div>
+          <svg class="story-art" viewBox="0 0 490 164" role="img" aria-label="surprise 개념을 설명하는 인물과 그림">
+    <rect x="5" y="5" width="480" height="154" rx="16" fill="#fff1f0"/><ellipse cx="115" cy="149" rx="83" ry="9" fill="#c5d6e9" opacity=".5"/>
+    <path d="M47 131 Q42 105 67 103 L118 103 Q145 106 146 136 L146 150 L47 150Z" fill="#9b75d7" stroke="#25446e" stroke-width="2"/>
+    <path d="M58 115 L37 140" stroke="#9b75d7" stroke-width="13" stroke-linecap="round"/><path d="M130 113 L156 137" stroke="#9b75d7" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="94" cy="68" r="42" fill="#ffdab2" stroke="#bb8771" stroke-width="2.2"/>
+    <path d="M56 71 Q47 27 81 24 Q112 12 130 42 L134 61 Q112 43 97 44 Q71 40 56 71" fill="#47384b"/>
+    <circle cx="80" cy="77" r="4" fill="#3b3e4d"/><circle cx="107" cy="77" r="4" fill="#3b3e4d"/>
+    <path d="M83 66 L97 63" stroke="#724b46" stroke-width="2.4"/><path d="M82 101 Q91 91 102 101" fill="none" stroke="#90564c" stroke-width="3" stroke-linecap="round"/><circle cx="67" cy="88" r="7" fill="#edab9c" opacity=".52"/><circle cx="120" cy="88" r="7" fill="#edab9c" opacity=".52"/>
+    <path d="M179 23 l8 -11 l8 11 l13 4 l-13 4 l-8 11 l-8 -11 l-13 -4Z" fill="#facd73" opacity=".9"/>
+    <rect x="245" y="36" width="193" height="99" rx="7" fill="#fff" stroke="#abc8e6" stroke-width="2.4"/><text x="340" y="65" fill="#cc5160" font-size="19" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">처음 보는 문제?</text><text x="340" y="106" fill="#cc5160" font-size="41" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">???</text></svg>
+          <div class="story-talk"><span aria-hidden="true">💬</span> “어? 책에 없는 문제잖아!”</div>
+          <p class="story-lesson"><strong>개념 연결</strong> 이미 본 자료에만 잘 맞으면 과적합 위험이 있어요.</p>
+        </article><article class="story-panel" aria-label="3컷: 선생님이 알려준 비법">
+          <div class="story-head"><span class="story-badge">3</span><h3>선생님이 알려준 비법</h3></div>
+          <svg class="story-art" viewBox="0 0 490 164" role="img" aria-label="rules 개념을 설명하는 인물과 그림">
+    <rect x="5" y="5" width="480" height="154" rx="16" fill="#edf8f0"/><ellipse cx="115" cy="149" rx="83" ry="9" fill="#c5d6e9" opacity=".5"/>
+    <path d="M47 131 Q42 105 67 103 L118 103 Q145 106 146 136 L146 150 L47 150Z" fill="#4268bf" stroke="#25446e" stroke-width="2"/>
+    <path d="M58 115 L37 140" stroke="#4268bf" stroke-width="13" stroke-linecap="round"/><path d="M130 113 L156 137" stroke="#4268bf" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="94" cy="68" r="42" fill="#ffdab2" stroke="#bb8771" stroke-width="2.2"/>
+    <path d="M56 71 Q47 27 81 24 Q112 12 130 42 L134 61 Q112 43 97 44 Q71 40 56 71" fill="#47384b"/>
+    <circle cx="80" cy="77" r="4" fill="#3b3e4d"/><circle cx="107" cy="77" r="4" fill="#3b3e4d"/>
+    <path d="M84 64 Q90 69 97 64" stroke="#724b46" stroke-width="2.3" fill="none"/><path d="M80 94 Q92 104 104 94" fill="none" stroke="#90564c" stroke-width="3" stroke-linecap="round"/><circle cx="67" cy="88" r="7" fill="#edab9c" opacity=".52"/><circle cx="120" cy="88" r="7" fill="#edab9c" opacity=".52"/>
+    <path d="M179 23 l8 -11 l8 11 l13 4 l-13 4 l-8 11 l-8 -11 l-13 -4Z" fill="#facd73" opacity=".9"/>
+    <rect x="248" y="43" width="187" height="88" rx="7" fill="white" stroke="#a4c6aa" stroke-width="2.4"/><text x="341" y="77" fill="#16936f" font-size="19" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">중요한 규칙</text><path d="M275 105 L310 90 L340 98 L375 74 L410 80" fill="none" stroke="#16936f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="story-talk"><span aria-hidden="true">💬</span> “중요한 규칙만 잡아 보자.”</div>
+          <p class="story-lesson"><strong>개념 연결</strong> 정규화는 계수를 제한해 모형을 단순하게 만듭니다.</p>
+        </article><article class="story-panel" aria-label="4컷: 처음 보는 문제에도 도전">
+          <div class="story-head"><span class="story-badge">4</span><h3>처음 보는 문제에도 도전</h3></div>
+          <svg class="story-art" viewBox="0 0 490 164" role="img" aria-label="newexam 개념을 설명하는 인물과 그림">
+    <rect x="5" y="5" width="480" height="154" rx="16" fill="#fff9e6"/><ellipse cx="115" cy="149" rx="83" ry="9" fill="#c5d6e9" opacity=".5"/>
+    <path d="M47 131 Q42 105 67 103 L118 103 Q145 106 146 136 L146 150 L47 150Z" fill="#cc6e80" stroke="#25446e" stroke-width="2"/>
+    <path d="M58 115 L37 140" stroke="#cc6e80" stroke-width="13" stroke-linecap="round"/><path d="M130 113 L156 137" stroke="#cc6e80" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="94" cy="68" r="42" fill="#ffdab2" stroke="#bb8771" stroke-width="2.2"/>
+    <path d="M56 71 Q47 27 81 24 Q112 12 130 42 L134 61 Q112 43 97 44 Q71 40 56 71" fill="#47384b"/>
+    <circle cx="80" cy="77" r="4" fill="#3b3e4d"/><circle cx="107" cy="77" r="4" fill="#3b3e4d"/>
+    <path d="M84 64 Q90 69 97 64" stroke="#724b46" stroke-width="2.3" fill="none"/><path d="M80 94 Q92 104 104 94" fill="none" stroke="#90564c" stroke-width="3" stroke-linecap="round"/><circle cx="67" cy="88" r="7" fill="#edab9c" opacity=".52"/><circle cx="120" cy="88" r="7" fill="#edab9c" opacity=".52"/>
+    <path d="M179 23 l8 -11 l8 11 l13 4 l-13 4 l-8 11 l-8 -11 l-13 -4Z" fill="#facd73" opacity=".9"/>
+    <rect x="259" y="34" width="157" height="105" rx="7" fill="white" stroke="#b4d6ba" stroke-width="2.4"/><text x="337" y="59" fill="#2b65c9" font-size="16" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">새로운 문제</text><text x="338" y="106" fill="#16936f" font-size="46" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">✓</text></svg>
+          <div class="story-talk"><span aria-hidden="true">💬</span> “이젠 새로운 문제도 풀 수 있어!”</div>
+          <p class="story-lesson"><strong>개념 연결</strong> 목표는 학습 점수만이 아니라 새 데이터 예측이에요.</p>
+        </article></div>
+    </div><div class="slide-footnote" aria-label="교안 쪽수 및 교재 출처"><span class="position">교안 02 / 10</span><span class="source">교재 p.310 관련 이론</span></div></section>
+<!-- 2 -->
+<section class="slide" data-title="과적합 비교"><div class="slidehead"><div><div class="eyebrow">03 · WHY REGULARIZE?</div><h1>과적합(a)과 정규화(b): <span class="em">선을 비교해 보세요</span></h1><p>● 파란 점은 학습데이터입니다. 곡선이 점을 모두 통과하는 것이 항상 좋은 예측을 뜻하지는 않습니다.</p></div><span class="pg">교재 p.310</span></div>
+<div class="grid2"><div class="panel"><span class="tag org">(a) 과대적합 · Overfitting</span><h2>작은 차이까지 지나치게 학습</h2><div class="svgbox"><svg viewBox="0 0 540 280" aria-label="학습점 주변에서 심하게 출렁이는 과적합 곡선"><g stroke="#e3eaf4" stroke-width="1"><path d="M45 30V239H510 M45 73H510 M45 120H510 M45 167H510 M45 213H510" fill="none"/></g><text x="17" y="28" font-size="12" fill="#6e7f95">Y</text><text x="511" y="258" font-size="12" fill="#6e7f95">X</text><path d="M61 200 C86 25,114 250,140 178 S183 61,205 171 S248 251,282 111 S320 35,342 142 S391 243,413 115 S460 36,493 59" fill="none" stroke="#cf4953" stroke-width="4" stroke-linecap="round"/><g fill="#2563eb" stroke="white" stroke-width="2.5"><circle cx="61" cy="200" r="7"/><circle cx="140" cy="178" r="7"/><circle cx="205" cy="171" r="7"/><circle cx="282" cy="111" r="7"/><circle cx="342" cy="142" r="7"/><circle cx="413" cy="115" r="7"/><circle cx="493" cy="59" r="7"/></g><rect x="315" y="9" width="192" height="33" rx="8" fill="#fff2f1"/><text x="411" y="31" text-anchor="middle" fill="#ad3842" font-size="14" font-weight="800">매우 복잡한 곡선</text></svg></div><p><b>학습오차:</b> 작아 보임　<b>새 데이터 오차:</b> 커질 위험</p><div class="callout orange">시험문제를 답까지 통째로 외웠지만, 문제가 살짝 바뀌면 풀지 못하는 상황과 비슷합니다.</div></div><div class="panel"><span class="tag green">(b) 정규화 · Regularization</span><h2>큰 흐름을 중심으로 학습</h2><div class="svgbox"><svg viewBox="0 0 540 280" aria-label="같은 관측점의 전체 패턴을 부드럽게 통과하는 정규화 곡선"><g stroke="#e3eaf4" stroke-width="1"><path d="M45 30V239H510 M45 73H510 M45 120H510 M45 167H510 M45 213H510" fill="none"/></g><text x="17" y="28" font-size="12" fill="#6e7f95">Y</text><text x="511" y="258" font-size="12" fill="#6e7f95">X</text><path d="M61 207 C130 202,177 175,232 158 S357 125,413 102 S469 76,493 68" fill="none" stroke="#078a79" stroke-width="4.3" stroke-linecap="round"/><g fill="#2563eb" stroke="white" stroke-width="2.5"><circle cx="61" cy="200" r="7"/><circle cx="140" cy="178" r="7"/><circle cx="205" cy="171" r="7"/><circle cx="282" cy="111" r="7"/><circle cx="342" cy="142" r="7"/><circle cx="413" cy="115" r="7"/><circle cx="493" cy="59" r="7"/></g><rect x="315" y="9" width="192" height="33" rx="8" fill="#e3f7f1"/><text x="411" y="31" text-anchor="middle" fill="#057764" font-size="14" font-weight="800">완만한 추세 곡선</text></svg></div><p><b>학습오차:</b> 조금 커질 수 있음　<b>새 데이터 오차:</b> 줄어들 가능성</p><div class="callout green">규칙을 이해했기 때문에 처음 보는 응용문제에도 대응하는 상황과 비슷합니다.</div></div></div><div class="panel" style="margin-top:16px"><h3>그림에서 반드시 구별할 점</h3><p>정규화는 <b>변수의 회귀계수 크기</b>에 제약을 추가하여 복잡도를 조절합니다. 일반적으로 과적합 위험을 낮추는 데 도움을 주지만, <b>규제가 지나치게 강하면 과소적합(Underfitting)</b>이 생길 수 있습니다. 위 그림은 원리를 설명하는 개념도이며 특정 데이터에 대한 실제 적합 결과는 아닙니다.</p></div><div class="story-wrap">
+    <div class="story-heading"><div><span class="story-mini-label">4-CUT CONCEPT COMIC · 02</span><h2>🖍️ 그림 이야기: 구불구불한 선과 매끈한 선</h2></div><p>왼쪽 위부터 오른쪽 아래로 읽으면 개념이 자연스럽게 이어집니다.</p></div>
+    <div class="story-grid"><article class="story-panel" aria-label="1컷: 울퉁불퉁 외우는 선">
+          <div class="story-head"><span class="story-badge">1</span><h3>울퉁불퉁 외우는 선</h3></div>
+          <svg class="story-art" viewBox="0 0 490 164" role="img" aria-label="wiggle 개념을 설명하는 인물과 그림">
+    <rect x="5" y="5" width="480" height="154" rx="16" fill="#fff0f0"/><ellipse cx="115" cy="149" rx="83" ry="9" fill="#c5d6e9" opacity=".5"/>
+    <path d="M47 131 Q42 105 67 103 L118 103 Q145 106 146 136 L146 150 L47 150Z" fill="#9b75d7" stroke="#25446e" stroke-width="2"/>
+    <path d="M58 115 L37 140" stroke="#9b75d7" stroke-width="13" stroke-linecap="round"/><path d="M130 113 L156 137" stroke="#9b75d7" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="94" cy="68" r="42" fill="#ffdab2" stroke="#bb8771" stroke-width="2.2"/>
+    <path d="M56 71 Q47 27 81 24 Q112 12 130 42 L134 61 Q112 43 97 44 Q71 40 56 71" fill="#47384b"/>
+    <circle cx="80" cy="77" r="4" fill="#3b3e4d"/><circle cx="107" cy="77" r="4" fill="#3b3e4d"/>
+    <path d="M83 66 L97 63" stroke="#724b46" stroke-width="2.4"/><path d="M82 101 Q91 91 102 101" fill="none" stroke="#90564c" stroke-width="3" stroke-linecap="round"/><circle cx="67" cy="88" r="7" fill="#edab9c" opacity=".52"/><circle cx="120" cy="88" r="7" fill="#edab9c" opacity=".52"/>
+    <path d="M179 23 l8 -11 l8 11 l13 4 l-13 4 l-8 11 l-8 -11 l-13 -4Z" fill="#facd73" opacity=".9"/>
+    <line x1="245" y1="127" x2="462" y2="127" stroke="#8b9db4" stroke-width="2" stroke-linecap="round"/><path d="M250 105 C266 24 272 147 290 74 S322 127 334 51 S362 140 382 65 S414 126 432 36" fill="none" stroke="#cc5160" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="258" cy="96" r="5" fill="#2b65c9"/><circle cx="290" cy="71" r="5" fill="#2b65c9"/><circle cx="335" cy="52" r="5" fill="#2b65c9"/><circle cx="381" cy="62" r="5" fill="#2b65c9"/><circle cx="428" cy="43" r="5" fill="#2b65c9"/></svg>
+          <div class="story-talk"><span aria-hidden="true">💬</span> “점 하나하나를 다 지나가야 해!”</div>
+          <p class="story-lesson"><strong>개념 연결</strong> 복잡한 선은 훈련자료에 과도하게 맞을 수 있어요.</p>
+        </article><article class="story-panel" aria-label="2컷: 큰 흐름을 잡는 선">
+          <div class="story-head"><span class="story-badge">2</span><h3>큰 흐름을 잡는 선</h3></div>
+          <svg class="story-art" viewBox="0 0 490 164" role="img" aria-label="smooth 개념을 설명하는 인물과 그림">
+    <rect x="5" y="5" width="480" height="154" rx="16" fill="#eaf6ff"/><ellipse cx="115" cy="149" rx="83" ry="9" fill="#c5d6e9" opacity=".5"/>
+    <path d="M47 131 Q42 105 67 103 L118 103 Q145 106 146 136 L146 150 L47 150Z" fill="#4268bf" stroke="#25446e" stroke-width="2"/>
+    <path d="M58 115 L37 140" stroke="#4268bf" stroke-width="13" stroke-linecap="round"/><path d="M130 113 L156 137" stroke="#4268bf" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="94" cy="68" r="42" fill="#ffdab2" stroke="#bb8771" stroke-width="2.2"/>
+    <path d="M56 71 Q47 27 81 24 Q112 12 130 42 L134 61 Q112 43 97 44 Q71 40 56 71" fill="#47384b"/>
+    <circle cx="80" cy="77" r="4" fill="#3b3e4d"/><circle cx="107" cy="77" r="4" fill="#3b3e4d"/>
+    <path d="M84 64 Q90 69 97 64" stroke="#724b46" stroke-width="2.3" fill="none"/><path d="M80 94 Q92 104 104 94" fill="none" stroke="#90564c" stroke-width="3" stroke-linecap="round"/><circle cx="67" cy="88" r="7" fill="#edab9c" opacity=".52"/><circle cx="120" cy="88" r="7" fill="#edab9c" opacity=".52"/>
+    <path d="M179 23 l8 -11 l8 11 l13 4 l-13 4 l-8 11 l-8 -11 l-13 -4Z" fill="#facd73" opacity=".9"/>
+    <line x1="245" y1="127" x2="462" y2="127" stroke="#9aa8b9" stroke-width="2" stroke-linecap="round"/><path d="M250 116 Q325 100 350 71 T449 32" fill="none" stroke="#16936f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="260" cy="107" r="4.8" fill="#2b65c9"/><circle cx="286" cy="106" r="4.8" fill="#2b65c9"/><circle cx="315" cy="88" r="4.8" fill="#2b65c9"/><circle cx="343" cy="81" r="4.8" fill="#2b65c9"/><circle cx="376" cy="58" r="4.8" fill="#2b65c9"/><circle cx="405" cy="48" r="4.8" fill="#2b65c9"/><circle cx="435" cy="40" r="4.8" fill="#2b65c9"/></svg>
+          <div class="story-talk"><span aria-hidden="true">💬</span> “전체 흐름만 따라가 볼까?”</div>
+          <p class="story-lesson"><strong>개념 연결</strong> 정규화는 지나친 복잡도를 줄이는 데 도움이 돼요.</p>
+        </article><article class="story-panel" aria-label="3컷: 새로운 점을 만났을 때">
+          <div class="story-head"><span class="story-badge">3</span><h3>새로운 점을 만났을 때</h3></div>
+          <svg class="story-art" viewBox="0 0 490 164" role="img" aria-label="future 개념을 설명하는 인물과 그림">
+    <rect x="5" y="5" width="480" height="154" rx="16" fill="#ecfff2"/><ellipse cx="115" cy="149" rx="83" ry="9" fill="#c5d6e9" opacity=".5"/>
+    <path d="M47 131 Q42 105 67 103 L118 103 Q145 106 146 136 L146 150 L47 150Z" fill="#cc6e80" stroke="#25446e" stroke-width="2"/>
+    <path d="M58 115 L37 140" stroke="#cc6e80" stroke-width="13" stroke-linecap="round"/><path d="M130 113 L156 137" stroke="#cc6e80" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="94" cy="68" r="42" fill="#ffdab2" stroke="#bb8771" stroke-width="2.2"/>
+    <path d="M56 71 Q47 27 81 24 Q112 12 130 42 L134 61 Q112 43 97 44 Q71 40 56 71" fill="#47384b"/>
+    <circle cx="80" cy="77" r="4" fill="#3b3e4d"/><circle cx="107" cy="77" r="4" fill="#3b3e4d"/>
+    <path d="M84 64 Q90 69 97 64" stroke="#724b46" stroke-width="2.3" fill="none"/><path d="M80 94 Q92 104 104 94" fill="none" stroke="#90564c" stroke-width="3" stroke-linecap="round"/><circle cx="67" cy="88" r="7" fill="#edab9c" opacity=".52"/><circle cx="120" cy="88" r="7" fill="#edab9c" opacity=".52"/>
+    <path d="M179 23 l8 -11 l8 11 l13 4 l-13 4 l-8 11 l-8 -11 l-13 -4Z" fill="#facd73" opacity=".9"/>
+    <line x1="245" y1="133" x2="461" y2="133" stroke="#9aa8b9" stroke-width="2" stroke-linecap="round"/><path d="M250 111 Q336 91 451 37" fill="none" stroke="#16936f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M250 98 Q293 20 327 109 T379 31 T450 92" fill="none" stroke="#cc5160" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="372" cy="73" r="5" fill="#0c9171"/><circle cx="406" cy="59" r="5" fill="#0c9171"/><circle cx="436" cy="43" r="5" fill="#0c9171"/><text x="344" y="23" fill="#2b65c9" font-size="16" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">새 데이터</text></svg>
+          <div class="story-talk"><span aria-hidden="true">💬</span> “처음 보는 점도 맞혀 보자!”</div>
+          <p class="story-lesson"><strong>개념 연결</strong> 새 데이터에서는 더 단순한 곡선이 유리할 수 있어요.</p>
+        </article><article class="story-panel" aria-label="4컷: 너무 단순해도 문제!">
+          <div class="story-head"><span class="story-badge">4</span><h3>너무 단순해도 문제!</h3></div>
+          <svg class="story-art" viewBox="0 0 490 164" role="img" aria-label="too_simple 개념을 설명하는 인물과 그림">
+    <rect x="5" y="5" width="480" height="154" rx="16" fill="#fff9e4"/><ellipse cx="115" cy="149" rx="83" ry="9" fill="#c5d6e9" opacity=".5"/>
+    <path d="M47 131 Q42 105 67 103 L118 103 Q145 106 146 136 L146 150 L47 150Z" fill="#249d8e" stroke="#25446e" stroke-width="2"/>
+    <path d="M58 115 L37 140" stroke="#249d8e" stroke-width="13" stroke-linecap="round"/><path d="M130 113 L156 137" stroke="#249d8e" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="94" cy="68" r="42" fill="#ffdab2" stroke="#bb8771" stroke-width="2.2"/>
+    <path d="M56 71 Q47 27 81 24 Q112 12 130 42 L134 61 Q112 43 97 44 Q71 40 56 71" fill="#47384b"/>
+    <circle cx="80" cy="77" r="4" fill="#3b3e4d"/><circle cx="107" cy="77" r="4" fill="#3b3e4d"/>
+    <path d="M83 66 L97 63" stroke="#724b46" stroke-width="2.4"/><path d="M82 101 Q91 91 102 101" fill="none" stroke="#90564c" stroke-width="3" stroke-linecap="round"/><circle cx="67" cy="88" r="7" fill="#edab9c" opacity=".52"/><circle cx="120" cy="88" r="7" fill="#edab9c" opacity=".52"/>
+    <path d="M179 23 l8 -11 l8 11 l13 4 l-13 4 l-8 11 l-8 -11 l-13 -4Z" fill="#facd73" opacity=".9"/>
+    <line x1="244" y1="133" x2="464" y2="133" stroke="#91a4bc" stroke-width="2" stroke-linecap="round"/><path d="M248 117 Q338 110 452 46" fill="none" stroke="#16936f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M250 102 L452 91" fill="none" stroke="#cc5160" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><text x="349" y="26" fill="#cc5160" font-size="20" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">너무 단순!</text></svg>
+          <div class="story-talk"><span aria-hidden="true">💬</span> “직선만 고집하면 어떡해?”</div>
+          <p class="story-lesson"><strong>개념 연결</strong> 규제가 너무 강하면 과소적합이 될 수도 있어요.</p>
+        </article></div>
+    </div><div class="slide-footnote" aria-label="교안 쪽수 및 교재 출처"><span class="position">교안 03 / 10</span><span class="source">교재 p.310 관련 이론</span></div></section>
+<!-- 3 -->
+<section class="slide" data-title="손실과 λ"><div class="slidehead"><div><div class="eyebrow">04 · OBJECTIVE FUNCTION</div><h1>정규화의 계산 원리: <span class="em">오차 + 벌점</span></h1><p>정규화는 손실을 작게 만드는 동시에 회귀계수가 과도하게 커지는 것을 억제합니다.</p></div><span class="pg">교재 p.310</span></div><div class="grid2"><div class="panel"><span class="tag">최소화 문제</span><h2>일반 회귀 → 정규화 회귀</h2><p><b>일반 최소제곱:</b> 예측오차의 제곱합을 작게 합니다.</p><div class="formula">Loss = (1 / 2n) Σ (yᵢ − ŷᵢ)²</div><p><b>정규화:</b> 여기에 계수의 크기에 따른 벌점을 더합니다.</p><div class="formula">Objective = Loss + <span style="color:#235dcd;font-weight:bold">λ</span> × Penalty</div><div class="callout"><b>λ (람다)</b>는 규제 강도입니다. λ가 0이면 규제하지 않고, 커질수록 작은 계수를 선호합니다.</div><p class="mathnote">통상 절편 β₀는 벌점 대상에서 제외합니다. 서로 다른 단위의 변수를 함께 사용할 때는 입력변수를 표준화한 뒤 적용하는 것이 일반적입니다.</p></div><div class="panel"><span class="tag purple">직접 조절</span><h2>λ를 움직이면 계수는 어떻게 바뀔까?</h2><div class="controls"><label for="lambdaIntro">규제 강도 λ</label><input type="range" class="lambdaSlider" id="lambdaIntro" min="0" max="2.4" step="0.05" value="0.75" aria-label="규제 강도"><output class="lambdaOut">0.75</output></div><div class="metrics"><div class="metric"><b id="metricRidge">–</b><span>Ridge |β| 합계</span></div><div class="metric"><b id="metricLasso">–</b><span>Lasso |β| 합계</span></div><div class="metric"><b id="metricZero">–</b><span>Lasso에서 0인 계수</span></div></div><div class="callout yellow" id="lambdaMessage">λ의 효과를 계산 중입니다.</div><p class="small muted">아래의 네 계수는 <b>설명을 위해 만든 예시</b>입니다. 표준화되고 서로 직교하는 설명변수(<span class="codeword">XᵀX/n = I</span>)를 가정해 실제 공식대로 계산합니다.</p><div class="svgbox"><svg viewBox="0 0 500 110" role="img" aria-label="람다의 크기별 규제 강도 개념도"><rect x="20" y="20" width="460" height="18" rx="9" fill="#dce9fa"/><rect id="lambdaFill" x="20" y="20" width="144" height="18" rx="9" fill="#2563eb"/><text x="20" y="66" fill="#527395" font-size="15" font-weight="750">λ=0 규제 없음</text><text x="480" y="66" fill="#527395" text-anchor="end" font-size="15" font-weight="750">λ↑ 규제 강해짐</text><text x="250" y="96" fill="#123e70" text-anchor="middle" font-size="16" font-weight="800">규제가 지나치면 과소적합 위험!</text></svg></div></div></div><div class="story-wrap">
+    <div class="story-heading"><div><span class="story-mini-label">4-CUT CONCEPT COMIC · 03</span><h2>🖍️ 계산 이야기: 오차와 벌점 사이의 균형</h2></div><p>왼쪽 위부터 오른쪽 아래로 읽으면 개념이 자연스럽게 이어집니다.</p></div>
+    <div class="story-grid"><article class="story-panel" aria-label="1컷: 틀린 만큼 오차가 생겨요">
+          <div class="story-head"><span class="story-badge">1</span><h3>틀린 만큼 오차가 생겨요</h3></div>
+          <svg class="story-art" viewBox="0 0 490 164" role="img" aria-label="error 개념을 설명하는 인물과 그림">
+    <rect x="5" y="5" width="480" height="154" rx="16" fill="#eef5ff"/><ellipse cx="115" cy="149" rx="83" ry="9" fill="#c5d6e9" opacity=".5"/>
+    <path d="M47 131 Q42 105 67 103 L118 103 Q145 106 146 136 L146 150 L47 150Z" fill="#4268bf" stroke="#25446e" stroke-width="2"/>
+    <path d="M58 115 L37 140" stroke="#4268bf" stroke-width="13" stroke-linecap="round"/><path d="M130 113 L156 137" stroke="#4268bf" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="94" cy="68" r="42" fill="#ffdab2" stroke="#bb8771" stroke-width="2.2"/>
+    <path d="M56 71 Q47 27 81 24 Q112 12 130 42 L134 61 Q112 43 97 44 Q71 40 56 71" fill="#47384b"/>
+    <circle cx="80" cy="77" r="4" fill="#3b3e4d"/><circle cx="107" cy="77" r="4" fill="#3b3e4d"/>
+    <path d="M83 66 L97 63" stroke="#724b46" stroke-width="2.4"/><path d="M82 101 Q91 91 102 101" fill="none" stroke="#90564c" stroke-width="3" stroke-linecap="round"/><circle cx="67" cy="88" r="7" fill="#edab9c" opacity=".52"/><circle cx="120" cy="88" r="7" fill="#edab9c" opacity=".52"/>
+    <path d="M179 23 l8 -11 l8 11 l13 4 l-13 4 l-8 11 l-8 -11 l-13 -4Z" fill="#facd73" opacity=".9"/>
+    <rect x="248" y="35" width="193" height="105" rx="7" fill="#fff" stroke="#234568" stroke-width="2.4"/><text x="344" y="59" fill="#2b65c9" font-size="17" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">예측값과 정답</text><line x1="279" y1="91" x2="405" y2="91" stroke="#94aac4" stroke-width="3" stroke-linecap="round"/><path d="M283 108 L320 90 L357 70 L407 55" fill="none" stroke="#16936f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="357" cy="99" r="8" fill="#cc5160"/><line x1="357" y1="70" x2="357" y2="99" stroke="#cc5160" stroke-width="3" stroke-linecap="round"/></svg>
+          <div class="story-talk"><span aria-hidden="true">💬</span> “예측이 정답과 다르네.”</div>
+          <p class="story-lesson"><strong>개념 연결</strong> 손실(Loss)은 예측이 얼마나 틀렸는지 나타내요.</p>
+        </article><article class="story-panel" aria-label="2컷: 계수가 크면 벌점도">
+          <div class="story-head"><span class="story-badge">2</span><h3>계수가 크면 벌점도</h3></div>
+          <svg class="story-art" viewBox="0 0 490 164" role="img" aria-label="penalty 개념을 설명하는 인물과 그림">
+    <rect x="5" y="5" width="480" height="154" rx="16" fill="#fff0f0"/><ellipse cx="115" cy="149" rx="83" ry="9" fill="#c5d6e9" opacity=".5"/>
+    <path d="M47 131 Q42 105 67 103 L118 103 Q145 106 146 136 L146 150 L47 150Z" fill="#cc6e80" stroke="#25446e" stroke-width="2"/>
+    <path d="M58 115 L37 140" stroke="#cc6e80" stroke-width="13" stroke-linecap="round"/><path d="M130 113 L156 137" stroke="#cc6e80" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="94" cy="68" r="42" fill="#ffdab2" stroke="#bb8771" stroke-width="2.2"/>
+    <path d="M56 71 Q47 27 81 24 Q112 12 130 42 L134 61 Q112 43 97 44 Q71 40 56 71" fill="#47384b"/>
+    <circle cx="80" cy="77" r="4" fill="#3b3e4d"/><circle cx="107" cy="77" r="4" fill="#3b3e4d"/>
+    <path d="M83 66 L97 63" stroke="#724b46" stroke-width="2.4"/><path d="M82 101 Q91 91 102 101" fill="none" stroke="#90564c" stroke-width="3" stroke-linecap="round"/><circle cx="67" cy="88" r="7" fill="#edab9c" opacity=".52"/><circle cx="120" cy="88" r="7" fill="#edab9c" opacity=".52"/>
+    <path d="M179 23 l8 -11 l8 11 l13 4 l-13 4 l-8 11 l-8 -11 l-13 -4Z" fill="#facd73" opacity=".9"/>
+    <rect x="264" y="46" width="27" height="80" fill="#2b65c9" rx="4"/><rect x="311" y="69" width="27" height="57" fill="#4e85dc" rx="4"/><rect x="358" y="91" width="27" height="35" fill="#7aa4e2" rx="4"/><rect x="405" y="106" width="27" height="20" fill="#a9c3ea" rx="4"/><text x="354" y="31" fill="#cc5160" font-size="16" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">계수가 크면 벌점</text></svg>
+          <div class="story-talk"><span aria-hidden="true">💬</span> “이 숫자가 너무 커졌어!”</div>
+          <p class="story-lesson"><strong>개념 연결</strong> 정규화는 회귀계수의 크기에 벌점을 붙여요.</p>
+        </article><article class="story-panel" aria-label="3컷: 람다는 규제 조절기">
+          <div class="story-head"><span class="story-badge">3</span><h3>람다는 규제 조절기</h3></div>
+          <svg class="story-art" viewBox="0 0 490 164" role="img" aria-label="dial_low 개념을 설명하는 인물과 그림">
+    <rect x="5" y="5" width="480" height="154" rx="16" fill="#e9f7ff"/><ellipse cx="115" cy="149" rx="83" ry="9" fill="#c5d6e9" opacity=".5"/>
+    <path d="M47 131 Q42 105 67 103 L118 103 Q145 106 146 136 L146 150 L47 150Z" fill="#249d8e" stroke="#25446e" stroke-width="2"/>
+    <path d="M58 115 L37 140" stroke="#249d8e" stroke-width="13" stroke-linecap="round"/><path d="M130 113 L156 137" stroke="#249d8e" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="94" cy="68" r="42" fill="#ffdab2" stroke="#bb8771" stroke-width="2.2"/>
+    <path d="M56 71 Q47 27 81 24 Q112 12 130 42 L134 61 Q112 43 97 44 Q71 40 56 71" fill="#47384b"/>
+    <circle cx="80" cy="77" r="4" fill="#3b3e4d"/><circle cx="107" cy="77" r="4" fill="#3b3e4d"/>
+    <path d="M84 64 Q90 69 97 64" stroke="#724b46" stroke-width="2.3" fill="none"/><path d="M80 94 Q92 104 104 94" fill="none" stroke="#90564c" stroke-width="3" stroke-linecap="round"/><circle cx="67" cy="88" r="7" fill="#edab9c" opacity=".52"/><circle cx="120" cy="88" r="7" fill="#edab9c" opacity=".52"/>
+    <path d="M179 23 l8 -11 l8 11 l13 4 l-13 4 l-8 11 l-8 -11 l-13 -4Z" fill="#facd73" opacity=".9"/>
+    <circle cx="345" cy="83" r="57" fill="white" stroke="#abc4e8" stroke-width="7"/><path d="M315 105 L344 83 L373 50" fill="none" stroke="#16936f" stroke-width="7" stroke-linecap="round"/><text x="344" y="90" fill="#2b65c9" font-size="34" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">λ</text><text x="344" y="151" fill="#2b65c9" font-size="16" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">규제 약하게</text></svg>
+          <div class="story-talk"><span aria-hidden="true">💬</span> “λ가 작으면 벌점이 약해.”</div>
+          <p class="story-lesson"><strong>개념 연결</strong> λ는 오차와 규제 사이의 무게를 정해요.</p>
+        </article><article class="story-panel" aria-label="4컷: 중간 지점을 찾아요">
+          <div class="story-head"><span class="story-badge">4</span><h3>중간 지점을 찾아요</h3></div>
+          <svg class="story-art" viewBox="0 0 490 164" role="img" aria-label="dial_mid 개념을 설명하는 인물과 그림">
+    <rect x="5" y="5" width="480" height="154" rx="16" fill="#f0fff2"/><ellipse cx="115" cy="149" rx="83" ry="9" fill="#c5d6e9" opacity=".5"/>
+    <path d="M47 131 Q42 105 67 103 L118 103 Q145 106 146 136 L146 150 L47 150Z" fill="#9b75d7" stroke="#25446e" stroke-width="2"/>
+    <path d="M58 115 L37 140" stroke="#9b75d7" stroke-width="13" stroke-linecap="round"/><path d="M130 113 L156 137" stroke="#9b75d7" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="94" cy="68" r="42" fill="#ffdab2" stroke="#bb8771" stroke-width="2.2"/>
+    <path d="M56 71 Q47 27 81 24 Q112 12 130 42 L134 61 Q112 43 97 44 Q71 40 56 71" fill="#47384b"/>
+    <circle cx="80" cy="77" r="4" fill="#3b3e4d"/><circle cx="107" cy="77" r="4" fill="#3b3e4d"/>
+    <path d="M84 64 Q90 69 97 64" stroke="#724b46" stroke-width="2.3" fill="none"/><path d="M80 94 Q92 104 104 94" fill="none" stroke="#90564c" stroke-width="3" stroke-linecap="round"/><circle cx="67" cy="88" r="7" fill="#edab9c" opacity=".52"/><circle cx="120" cy="88" r="7" fill="#edab9c" opacity=".52"/>
+    <path d="M179 23 l8 -11 l8 11 l13 4 l-13 4 l-8 11 l-8 -11 l-13 -4Z" fill="#facd73" opacity=".9"/>
+    <circle cx="345" cy="83" r="57" fill="white" stroke="#abc4e8" stroke-width="7"/><path d="M311 113 L345 81 L388 108" fill="none" stroke="#f1a337" stroke-width="7" stroke-linecap="round"/><text x="344" y="90" fill="#2b65c9" font-size="34" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">λ</text><text x="344" y="151" fill="#16936f" font-size="15" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">적절한 강도 찾기</text></svg>
+          <div class="story-talk"><span aria-hidden="true">💬</span> “적당하게 조절해야지!”</div>
+          <p class="story-lesson"><strong>개념 연결</strong> λ는 교차검증으로 선택하는 것이 일반적이에요.</p>
+        </article></div>
+    </div><div class="slide-footnote" aria-label="교안 쪽수 및 교재 출처"><span class="position">교안 04 / 10</span><span class="source">교재 p.310 관련 이론</span></div></section>
+<!-- 4 -->
+<section class="slide" data-title="Ridge (L2)"><div class="slidehead"><div><div class="eyebrow">05 · RIDGE REGRESSION</div><h1>Ridge 회귀 = <span class="em">L2: 제곱해서 벌점</span></h1><p>계수가 클수록 제곱 벌점이 빠르게 커집니다. 일반적으로 모든 계수를 0에 가깝게 줄이지만 정확히 0으로 만들지는 않습니다.</p></div><span class="pg">교재 p.310</span></div><div class="grid2"><div class="panel"><span class="tag">L2 Penalty</span><h2>제곱합을 줄이는 규제</h2><div class="formula">minβ [ Loss + (λ / 2) Σ βⱼ² ]</div><div class="callout">예를 들어 계수가 3이면 제곱 벌점은 9, 계수가 1이면 1입니다. <b>큰 계수에 더 강한 불이익</b>을 줍니다.</div><div class="svgbox"><svg viewBox="0 0 470 250" role="img" aria-label="L2 규제의 원형 제약 영역"><g stroke="#d6e2ef" stroke-width="1"><path d="M62 125H406 M235 20V229"/></g><circle cx="235" cy="125" r="83" fill="#e1ebff" fill-opacity=".85" stroke="#2563eb" stroke-width="4"/><circle cx="291" cy="64" r="7" fill="#e1693a" stroke="white" stroke-width="2"/><path d="M305 51 L360 34" stroke="#cf6c35" stroke-width="1.5"/><text x="365" y="32" fill="#a95629" font-weight="800" font-size="15">계수 조합</text><text x="241" y="20" fill="#38587a" font-size="14">β₂</text><text x="408" y="118" fill="#38587a" font-size="14">β₁</text><text x="235" y="247" text-anchor="middle" fill="#2d548c" font-size="15" font-weight="800">L2 제약: β₁² + β₂² ≤ t</text></svg></div><p class="note">원이 매끈하므로 최적점이 한 축 위(계수 0)에 정확히 놓이도록 유도하는 경향은 상대적으로 약합니다.</p></div><div class="panel"><span class="tag green">계수의 변화</span><h2>Ridge는 전체 계수를 함께 축소</h2><div class="controls"><label for="lambdaRidge">규제 강도 λ</label><input type="range" class="lambdaSlider" id="lambdaRidge" min="0" max="2.4" step="0.05" value="0.75"><output class="lambdaOut">0.75</output></div><div class="mini-chart"><h3>최소제곱 계수(규제 없음) <span class="tag">OLS</span></h3><div class="barlist" id="barsOLS"></div></div><div class="mini-chart" style="margin-top:12px"><h3>Ridge 적용 후 <span class="tag">L2</span></h3><div class="barlist" id="barsRidge"></div></div><div class="callout green" id="ridgeNarrative">Ridge는 큰 계수까지 함께 줄입니다.</div><p class="small muted">위의 직교·표준화 가정에서 β̂ⱼ(Ridge) = β̂ⱼ(OLS)/(1+λ)입니다.</p></div></div><div class="story-wrap">
+    <div class="story-heading"><div><span class="story-mini-label">4-CUT CONCEPT COMIC · 04</span><h2>🖍️ Ridge 이야기: 모든 친구가 짐을 조금씩 줄여요</h2></div><p>왼쪽 위부터 오른쪽 아래로 읽으면 개념이 자연스럽게 이어집니다.</p></div>
+    <div class="story-grid"><article class="story-panel" aria-label="1컷: 서로 다른 크기의 짐">
+          <div class="story-head"><span class="story-badge">1</span><h3>서로 다른 크기의 짐</h3></div>
+          <svg class="story-art" viewBox="0 0 490 164" role="img" aria-label="weights 개념을 설명하는 인물과 그림">
+    <rect x="5" y="5" width="480" height="154" rx="16" fill="#e9f3ff"/><ellipse cx="115" cy="149" rx="83" ry="9" fill="#c5d6e9" opacity=".5"/>
+    <path d="M47 131 Q42 105 67 103 L118 103 Q145 106 146 136 L146 150 L47 150Z" fill="#cc6e80" stroke="#25446e" stroke-width="2"/>
+    <path d="M58 115 L37 140" stroke="#cc6e80" stroke-width="13" stroke-linecap="round"/><path d="M130 113 L156 137" stroke="#cc6e80" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="94" cy="68" r="42" fill="#ffdab2" stroke="#bb8771" stroke-width="2.2"/>
+    <path d="M56 71 Q47 27 81 24 Q112 12 130 42 L134 61 Q112 43 97 44 Q71 40 56 71" fill="#47384b"/>
+    <circle cx="80" cy="77" r="4" fill="#3b3e4d"/><circle cx="107" cy="77" r="4" fill="#3b3e4d"/>
+    <path d="M84 64 Q90 69 97 64" stroke="#724b46" stroke-width="2.3" fill="none"/><path d="M80 94 Q92 104 104 94" fill="none" stroke="#90564c" stroke-width="3" stroke-linecap="round"/><circle cx="67" cy="88" r="7" fill="#edab9c" opacity=".52"/><circle cx="120" cy="88" r="7" fill="#edab9c" opacity=".52"/>
+    <path d="M179 23 l8 -11 l8 11 l13 4 l-13 4 l-8 11 l-8 -11 l-13 -4Z" fill="#facd73" opacity=".9"/>
+    <rect x="253" y="42" width="31" height="86" fill="#2b65c9" opacity="1.0" rx="5"/><rect x="298" y="66" width="31" height="62" fill="#2b65c9" opacity="0.87" rx="5"/><rect x="343" y="84" width="31" height="44" fill="#2b65c9" opacity="0.74" rx="5"/><rect x="388" y="102" width="31" height="26" fill="#2b65c9" opacity="0.61" rx="5"/><text x="343" y="27" fill="#234568" font-size="17" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">β₁  β₂  β₃  β₄</text></svg>
+          <div class="story-talk"><span aria-hidden="true">💬</span> “큰 짐도, 작은 짐도 있네.”</div>
+          <p class="story-lesson"><strong>개념 연결</strong> 막대의 높이는 각 회귀계수의 크기를 뜻해요.</p>
+        </article><article class="story-panel" aria-label="2컷: 큰 짐에 벌점이 더 커요">
+          <div class="story-head"><span class="story-badge">2</span><h3>큰 짐에 벌점이 더 커요</h3></div>
+          <svg class="story-art" viewBox="0 0 490 164" role="img" aria-label="square 개념을 설명하는 인물과 그림">
+    <rect x="5" y="5" width="480" height="154" rx="16" fill="#fff4e9"/><ellipse cx="115" cy="149" rx="83" ry="9" fill="#c5d6e9" opacity=".5"/>
+    <path d="M47 131 Q42 105 67 103 L118 103 Q145 106 146 136 L146 150 L47 150Z" fill="#249d8e" stroke="#25446e" stroke-width="2"/>
+    <path d="M58 115 L37 140" stroke="#249d8e" stroke-width="13" stroke-linecap="round"/><path d="M130 113 L156 137" stroke="#249d8e" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="94" cy="68" r="42" fill="#ffdab2" stroke="#bb8771" stroke-width="2.2"/>
+    <path d="M56 71 Q47 27 81 24 Q112 12 130 42 L134 61 Q112 43 97 44 Q71 40 56 71" fill="#47384b"/>
+    <circle cx="80" cy="77" r="4" fill="#3b3e4d"/><circle cx="107" cy="77" r="4" fill="#3b3e4d"/>
+    <path d="M83 66 L97 63" stroke="#724b46" stroke-width="2.4"/><path d="M82 101 Q91 91 102 101" fill="none" stroke="#90564c" stroke-width="3" stroke-linecap="round"/><circle cx="67" cy="88" r="7" fill="#edab9c" opacity=".52"/><circle cx="120" cy="88" r="7" fill="#edab9c" opacity=".52"/>
+    <path d="M179 23 l8 -11 l8 11 l13 4 l-13 4 l-8 11 l-8 -11 l-13 -4Z" fill="#facd73" opacity=".9"/>
+    <rect x="259" y="45" width="167" height="86" rx="7" fill="white" stroke="#234568" stroke-width="2.4"/><text x="341" y="79" fill="#2b65c9" font-size="34" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">β²</text><text x="342" y="108" fill="#cc5160" font-size="15" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">큰 수에 더 큰 벌점</text></svg>
+          <div class="story-talk"><span aria-hidden="true">💬</span> “제곱하면 큰 수가 더 커져!”</div>
+          <p class="story-lesson"><strong>개념 연결</strong> Ridge는 회귀계수 제곱합인 L2 벌점을 써요.</p>
+        </article><article class="story-panel" aria-label="3컷: 다 같이 조금씩 줄여요">
+          <div class="story-head"><span class="story-badge">3</span><h3>다 같이 조금씩 줄여요</h3></div>
+          <svg class="story-art" viewBox="0 0 490 164" role="img" aria-label="shrink_all 개념을 설명하는 인물과 그림">
+    <rect x="5" y="5" width="480" height="154" rx="16" fill="#eef8ff"/><ellipse cx="115" cy="149" rx="83" ry="9" fill="#c5d6e9" opacity=".5"/>
+    <path d="M47 131 Q42 105 67 103 L118 103 Q145 106 146 136 L146 150 L47 150Z" fill="#9b75d7" stroke="#25446e" stroke-width="2"/>
+    <path d="M58 115 L37 140" stroke="#9b75d7" stroke-width="13" stroke-linecap="round"/><path d="M130 113 L156 137" stroke="#9b75d7" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="94" cy="68" r="42" fill="#ffdab2" stroke="#bb8771" stroke-width="2.2"/>
+    <path d="M56 71 Q47 27 81 24 Q112 12 130 42 L134 61 Q112 43 97 44 Q71 40 56 71" fill="#47384b"/>
+    <circle cx="80" cy="77" r="4" fill="#3b3e4d"/><circle cx="107" cy="77" r="4" fill="#3b3e4d"/>
+    <path d="M84 64 Q90 69 97 64" stroke="#724b46" stroke-width="2.3" fill="none"/><path d="M80 94 Q92 104 104 94" fill="none" stroke="#90564c" stroke-width="3" stroke-linecap="round"/><circle cx="67" cy="88" r="7" fill="#edab9c" opacity=".52"/><circle cx="120" cy="88" r="7" fill="#edab9c" opacity=".52"/>
+    <path d="M179 23 l8 -11 l8 11 l13 4 l-13 4 l-8 11 l-8 -11 l-13 -4Z" fill="#facd73" opacity=".9"/>
+    <rect x="249" y="70" width="30" height="62" rx="4" fill="#2b65c9"/><rect x="297" y="84" width="30" height="48" rx="4" fill="#2b65c9"/><rect x="345" y="98" width="30" height="34" rx="4" fill="#2b65c9"/><rect x="393" y="112" width="30" height="20" rx="4" fill="#2b65c9"/><path d="M259 33 L287 60 M307 42 L331 65 M353 51 L381 81 M402 64 L423 94" fill="none" stroke="#16936f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><text x="345" y="23" fill="#16936f" font-size="18" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">전부 조금씩</text></svg>
+          <div class="story-talk"><span aria-hidden="true">💬</span> “모두 짐을 조금 덜자!”</div>
+          <p class="story-lesson"><strong>개념 연결</strong> 일반적으로 모든 회귀계수가 줄어듭니다.</p>
+        </article><article class="story-panel" aria-label="4컷: 아주 작은 짐도 남아요">
+          <div class="story-head"><span class="story-badge">4</span><h3>아주 작은 짐도 남아요</h3></div>
+          <svg class="story-art" viewBox="0 0 490 164" role="img" aria-label="remain 개념을 설명하는 인물과 그림">
+    <rect x="5" y="5" width="480" height="154" rx="16" fill="#eef9ed"/><ellipse cx="115" cy="149" rx="83" ry="9" fill="#c5d6e9" opacity=".5"/>
+    <path d="M47 131 Q42 105 67 103 L118 103 Q145 106 146 136 L146 150 L47 150Z" fill="#4268bf" stroke="#25446e" stroke-width="2"/>
+    <path d="M58 115 L37 140" stroke="#4268bf" stroke-width="13" stroke-linecap="round"/><path d="M130 113 L156 137" stroke="#4268bf" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="94" cy="68" r="42" fill="#ffdab2" stroke="#bb8771" stroke-width="2.2"/>
+    <path d="M56 71 Q47 27 81 24 Q112 12 130 42 L134 61 Q112 43 97 44 Q71 40 56 71" fill="#47384b"/>
+    <circle cx="80" cy="77" r="4" fill="#3b3e4d"/><circle cx="107" cy="77" r="4" fill="#3b3e4d"/>
+    <path d="M84 64 Q90 69 97 64" stroke="#724b46" stroke-width="2.3" fill="none"/><path d="M80 94 Q92 104 104 94" fill="none" stroke="#90564c" stroke-width="3" stroke-linecap="round"/><circle cx="67" cy="88" r="7" fill="#edab9c" opacity=".52"/><circle cx="120" cy="88" r="7" fill="#edab9c" opacity=".52"/>
+    <path d="M179 23 l8 -11 l8 11 l13 4 l-13 4 l-8 11 l-8 -11 l-13 -4Z" fill="#facd73" opacity=".9"/>
+    <rect x="253" y="74" width="31" height="57" fill="#16936f" rx="4"/><rect x="299" y="92" width="31" height="39" fill="#16936f" rx="4"/><rect x="345" y="103" width="31" height="28" fill="#16936f" rx="4"/><rect x="391" y="117" width="31" height="14" fill="#16936f" rx="4"/><text x="344" y="29" fill="#2b65c9" font-size="17" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">0은 아니야</text></svg>
+          <div class="story-talk"><span aria-hidden="true">💬</span> “작아져도 보통 0은 아니야.”</div>
+          <p class="story-lesson"><strong>개념 연결</strong> Ridge는 보통 변수를 완전히 제거하지 않아요.</p>
+        </article></div>
+    </div><div class="slide-footnote" aria-label="교안 쪽수 및 교재 출처"><span class="position">교안 05 / 10</span><span class="source">교재 p.310 관련 이론</span></div></section>
+<!-- 5 -->
+<section class="slide" data-title="Lasso (L1)"><div class="slidehead"><div><div class="eyebrow">06 · LASSO REGRESSION</div><h1>Lasso 회귀 = <span class="em">L1: 절대값으로 벌점</span></h1><p>Lasso는 계수를 0으로 만들 수 있어 <b>변수 선택 효과</b>가 있습니다. 48번 문제의 핵심 개념입니다.</p></div><span class="pg">교재 p.310 및 기출 48번</span></div><div class="grid2"><div class="panel"><span class="tag org">L1 Penalty</span><h2>절대값 합을 줄이는 규제</h2><div class="formula">minβ [ Loss + λ Σ |βⱼ| ]</div><div class="callout orange">계수가 3이면 절대값 벌점은 3, 계수가 −1이면 1입니다. 부호와 관계없이 <b>크기</b>에 벌점을 줍니다.</div><div class="svgbox"><svg viewBox="0 0 470 250" role="img" aria-label="L1 규제의 마름모 제약 영역 및 축 위 꼭짓점"><g stroke="#d6e2ef" stroke-width="1"><path d="M62 125H406 M235 20V229"/></g><path d="M235 36 L324 125 L235 214 L146 125Z" fill="#fff0df" stroke="#d47a2a" stroke-width="4"/><circle cx="324" cy="125" r="8" fill="#c34e40" stroke="white" stroke-width="2"/><path d="M334 122 L359 105" stroke="#c34e40" stroke-width="1.5"/><text x="365" y="103" fill="#ad4639" font-weight="800" font-size="14">β₂ = 0</text><text x="241" y="20" fill="#38587a" font-size="14">β₂</text><text x="408" y="118" fill="#38587a" font-size="14">β₁</text><text x="235" y="247" text-anchor="middle" fill="#ab651d" font-size="15" font-weight="800">L1 제약: |β₁| + |β₂| ≤ t</text></svg></div><p class="note">마름모의 꼭짓점이 축 위에 있으므로 최적점이 꼭짓점에 닿아 일부 계수가 정확히 0이 되기 쉽습니다.</p></div><div class="panel"><span class="tag org">변수 선택 시각화</span><h2>작은 계수가 0이 되는 모습</h2><div class="controls"><label for="lambdaLasso">규제 강도 λ</label><input type="range" class="lambdaSlider" id="lambdaLasso" min="0" max="2.4" step="0.05" value="0.75"><output class="lambdaOut">0.75</output></div><div class="mini-chart"><h3>규제 전 <span class="tag">OLS</span></h3><div class="barlist" id="barsOLS2"></div></div><div class="mini-chart" style="margin-top:12px"><h3>규제 후 <span class="tag org">Lasso</span></h3><div class="barlist" id="barsLasso"></div></div><div class="callout yellow" id="lassoNarrative">Lasso는 일부 회귀계수를 정확히 0으로 만듭니다.</div><p class="small muted">위의 직교·표준화 가정에서 β̂ⱼ(Lasso) = sign(β̂ⱼ(OLS)) × max(|β̂ⱼ(OLS)| − λ, 0)입니다.</p></div></div><div class="story-wrap">
+    <div class="story-heading"><div><span class="story-mini-label">4-CUT CONCEPT COMIC · 05</span><h2>🖍️ Lasso 이야기: 꼭 필요한 친구만 남아요</h2></div><p>왼쪽 위부터 오른쪽 아래로 읽으면 개념이 자연스럽게 이어집니다.</p></div>
+    <div class="story-grid"><article class="story-panel" aria-label="1컷: 후보 친구 네 명">
+          <div class="story-head"><span class="story-badge">1</span><h3>후보 친구 네 명</h3></div>
+          <svg class="story-art" viewBox="0 0 490 164" role="img" aria-label="many 개념을 설명하는 인물과 그림">
+    <rect x="5" y="5" width="480" height="154" rx="16" fill="#edf4ff"/><ellipse cx="115" cy="149" rx="83" ry="9" fill="#c5d6e9" opacity=".5"/>
+    <path d="M47 131 Q42 105 67 103 L118 103 Q145 106 146 136 L146 150 L47 150Z" fill="#249d8e" stroke="#25446e" stroke-width="2"/>
+    <path d="M58 115 L37 140" stroke="#249d8e" stroke-width="13" stroke-linecap="round"/><path d="M130 113 L156 137" stroke="#249d8e" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="94" cy="68" r="42" fill="#ffdab2" stroke="#bb8771" stroke-width="2.2"/>
+    <path d="M56 71 Q47 27 81 24 Q112 12 130 42 L134 61 Q112 43 97 44 Q71 40 56 71" fill="#47384b"/>
+    <circle cx="80" cy="77" r="4" fill="#3b3e4d"/><circle cx="107" cy="77" r="4" fill="#3b3e4d"/>
+    <path d="M84 64 Q90 69 97 64" stroke="#724b46" stroke-width="2.3" fill="none"/><path d="M80 94 Q92 104 104 94" fill="none" stroke="#90564c" stroke-width="3" stroke-linecap="round"/><circle cx="67" cy="88" r="7" fill="#edab9c" opacity=".52"/><circle cx="120" cy="88" r="7" fill="#edab9c" opacity=".52"/>
+    <path d="M179 23 l8 -11 l8 11 l13 4 l-13 4 l-8 11 l-8 -11 l-13 -4Z" fill="#facd73" opacity=".9"/>
+    <rect x="248" y="63" width="38" height="63" rx="7" fill="#daecff" stroke="#acc6d8" stroke-width="2.4"/><text x="267" y="102" fill="#234568" font-size="17" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">X1</text><rect x="298" y="63" width="38" height="63" rx="7" fill="#e9f5ff" stroke="#acc6d8" stroke-width="2.4"/><text x="317" y="102" fill="#234568" font-size="17" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">X2</text><rect x="348" y="63" width="38" height="63" rx="7" fill="#def8f2" stroke="#acc6d8" stroke-width="2.4"/><text x="367" y="102" fill="#234568" font-size="17" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">X3</text><rect x="398" y="63" width="38" height="63" rx="7" fill="#fff2d7" stroke="#acc6d8" stroke-width="2.4"/><text x="417" y="102" fill="#234568" font-size="17" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">X4</text></svg>
+          <div class="story-talk"><span aria-hidden="true">💬</span> “모두가 꼭 필요할까?”</div>
+          <p class="story-lesson"><strong>개념 연결</strong> 회귀변수 중 일부는 예측에 도움이 적을 수 있어요.</p>
+        </article><article class="story-panel" aria-label="2컷: 절대값으로 벌점을 줘요">
+          <div class="story-head"><span class="story-badge">2</span><h3>절대값으로 벌점을 줘요</h3></div>
+          <svg class="story-art" viewBox="0 0 490 164" role="img" aria-label="absolute 개념을 설명하는 인물과 그림">
+    <rect x="5" y="5" width="480" height="154" rx="16" fill="#fff6ec"/><ellipse cx="115" cy="149" rx="83" ry="9" fill="#c5d6e9" opacity=".5"/>
+    <path d="M47 131 Q42 105 67 103 L118 103 Q145 106 146 136 L146 150 L47 150Z" fill="#9b75d7" stroke="#25446e" stroke-width="2"/>
+    <path d="M58 115 L37 140" stroke="#9b75d7" stroke-width="13" stroke-linecap="round"/><path d="M130 113 L156 137" stroke="#9b75d7" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="94" cy="68" r="42" fill="#ffdab2" stroke="#bb8771" stroke-width="2.2"/>
+    <path d="M56 71 Q47 27 81 24 Q112 12 130 42 L134 61 Q112 43 97 44 Q71 40 56 71" fill="#47384b"/>
+    <circle cx="80" cy="77" r="4" fill="#3b3e4d"/><circle cx="107" cy="77" r="4" fill="#3b3e4d"/>
+    <path d="M84 64 Q90 69 97 64" stroke="#724b46" stroke-width="2.3" fill="none"/><path d="M80 94 Q92 104 104 94" fill="none" stroke="#90564c" stroke-width="3" stroke-linecap="round"/><circle cx="67" cy="88" r="7" fill="#edab9c" opacity=".52"/><circle cx="120" cy="88" r="7" fill="#edab9c" opacity=".52"/>
+    <path d="M179 23 l8 -11 l8 11 l13 4 l-13 4 l-8 11 l-8 -11 l-13 -4Z" fill="#facd73" opacity=".9"/>
+    <rect x="249" y="41" width="183" height="94" rx="7" fill="white" stroke="#234568" stroke-width="2.4"/><text x="341" y="88" fill="#cc5160" font-size="35" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">| β |</text><text x="341" y="116" fill="#234568" font-size="15" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">절대값의 합</text></svg>
+          <div class="story-talk"><span aria-hidden="true">💬</span> “마이너스도 크기만 보자.”</div>
+          <p class="story-lesson"><strong>개념 연결</strong> Lasso의 L1 벌점은 계수 절대값의 합이에요.</p>
+        </article><article class="story-panel" aria-label="3컷: 작은 계수는 0으로">
+          <div class="story-head"><span class="story-badge">3</span><h3>작은 계수는 0으로</h3></div>
+          <svg class="story-art" viewBox="0 0 490 164" role="img" aria-label="drop 개념을 설명하는 인물과 그림">
+    <rect x="5" y="5" width="480" height="154" rx="16" fill="#fff1f0"/><ellipse cx="115" cy="149" rx="83" ry="9" fill="#c5d6e9" opacity=".5"/>
+    <path d="M47 131 Q42 105 67 103 L118 103 Q145 106 146 136 L146 150 L47 150Z" fill="#4268bf" stroke="#25446e" stroke-width="2"/>
+    <path d="M58 115 L37 140" stroke="#4268bf" stroke-width="13" stroke-linecap="round"/><path d="M130 113 L156 137" stroke="#4268bf" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="94" cy="68" r="42" fill="#ffdab2" stroke="#bb8771" stroke-width="2.2"/>
+    <path d="M56 71 Q47 27 81 24 Q112 12 130 42 L134 61 Q112 43 97 44 Q71 40 56 71" fill="#47384b"/>
+    <circle cx="80" cy="77" r="4" fill="#3b3e4d"/><circle cx="107" cy="77" r="4" fill="#3b3e4d"/>
+    <path d="M84 64 Q90 69 97 64" stroke="#724b46" stroke-width="2.3" fill="none"/><path d="M80 94 Q92 104 104 94" fill="none" stroke="#90564c" stroke-width="3" stroke-linecap="round"/><circle cx="67" cy="88" r="7" fill="#edab9c" opacity=".52"/><circle cx="120" cy="88" r="7" fill="#edab9c" opacity=".52"/>
+    <path d="M179 23 l8 -11 l8 11 l13 4 l-13 4 l-8 11 l-8 -11 l-13 -4Z" fill="#facd73" opacity=".9"/>
+    <rect x="252" y="71" width="35" height="54" rx="7" fill="#d9edfc" stroke="#adc3dc" stroke-width="2.4"/><text x="269" y="104" fill="#2b65c9" font-size="19" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">X1</text><rect x="300" y="71" width="35" height="54" rx="7" fill="#d9edfc" stroke="#adc3dc" stroke-width="2.4"/><text x="317" y="104" fill="#2b65c9" font-size="19" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">X2</text><rect x="348" y="71" width="35" height="54" rx="7" fill="white" stroke="#adc3dc" stroke-width="2.4"/><text x="365" y="104" fill="#cc5160" font-size="19" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">0</text><rect x="396" y="71" width="35" height="54" rx="7" fill="white" stroke="#adc3dc" stroke-width="2.4"/><text x="413" y="104" fill="#cc5160" font-size="19" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">0</text><text x="343" y="37" fill="#cc5160" font-size="17" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">작은 계수는 0</text></svg>
+          <div class="story-talk"><span aria-hidden="true">💬</span> “이 친구는 잠깐 쉬어도 돼.”</div>
+          <p class="story-lesson"><strong>개념 연결</strong> 일부 변수의 계수가 정확히 0이 될 수 있어요.</p>
+        </article><article class="story-panel" aria-label="4컷: 중요한 변수는 남아요">
+          <div class="story-head"><span class="story-badge">4</span><h3>중요한 변수는 남아요</h3></div>
+          <svg class="story-art" viewBox="0 0 490 164" role="img" aria-label="keep 개념을 설명하는 인물과 그림">
+    <rect x="5" y="5" width="480" height="154" rx="16" fill="#eafbf0"/><ellipse cx="115" cy="149" rx="83" ry="9" fill="#c5d6e9" opacity=".5"/>
+    <path d="M47 131 Q42 105 67 103 L118 103 Q145 106 146 136 L146 150 L47 150Z" fill="#cc6e80" stroke="#25446e" stroke-width="2"/>
+    <path d="M58 115 L37 140" stroke="#cc6e80" stroke-width="13" stroke-linecap="round"/><path d="M130 113 L156 137" stroke="#cc6e80" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="94" cy="68" r="42" fill="#ffdab2" stroke="#bb8771" stroke-width="2.2"/>
+    <path d="M56 71 Q47 27 81 24 Q112 12 130 42 L134 61 Q112 43 97 44 Q71 40 56 71" fill="#47384b"/>
+    <circle cx="80" cy="77" r="4" fill="#3b3e4d"/><circle cx="107" cy="77" r="4" fill="#3b3e4d"/>
+    <path d="M84 64 Q90 69 97 64" stroke="#724b46" stroke-width="2.3" fill="none"/><path d="M80 94 Q92 104 104 94" fill="none" stroke="#90564c" stroke-width="3" stroke-linecap="round"/><circle cx="67" cy="88" r="7" fill="#edab9c" opacity=".52"/><circle cx="120" cy="88" r="7" fill="#edab9c" opacity=".52"/>
+    <path d="M179 23 l8 -11 l8 11 l13 4 l-13 4 l-8 11 l-8 -11 l-13 -4Z" fill="#facd73" opacity=".9"/>
+    <rect x="266" y="50" width="73" height="72" rx="7" fill="#d9f9e6" stroke="#8bbda9" stroke-width="2.4"/><rect x="360" y="50" width="73" height="72" rx="7" fill="#d9f9e6" stroke="#8bbda9" stroke-width="2.4"/><text x="303" y="96" fill="#16936f" font-size="28" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">X₁</text><text x="396" y="96" fill="#16936f" font-size="28" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">X₂</text><text x="346" y="29" fill="#16936f" font-size="17" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">남길 변수!</text></svg>
+          <div class="story-talk"><span aria-hidden="true">💬</span> “필요한 친구는 계속 함께!”</div>
+          <p class="story-lesson"><strong>개념 연결</strong> 이것이 Lasso의 변수 선택 효과예요.</p>
+        </article></div>
+    </div><div class="slide-footnote" aria-label="교안 쪽수 및 교재 출처"><span class="position">교안 06 / 10</span><span class="source">교재 p.310 관련 이론</span></div></section>
+<!-- 6 -->
+<section class="slide" data-title="세 모형 비교"><div class="slidehead"><div><div class="eyebrow">07 · COMPARISON</div><h1>Ridge · Lasso · Elastic Net <span class="em">3종 비교</span></h1><p>세 모형 모두 오차에 페널티를 더합니다. 무엇을 페널티로 삼느냐가 핵심 차이입니다.</p></div><span class="pg">Ridge·Lasso: 교재 / Elastic Net: 보충</span></div><div class="panel"><div class="controls"><label for="lambdaCompare">모든 모형에 공통 적용하는 λ</label><input type="range" class="lambdaSlider" id="lambdaCompare" min="0" max="2.4" step="0.05" value="0.75"><output class="lambdaOut">0.75</output></div><div class="cols-compare"><div class="mini-chart"><h3>Ridge <span class="tag">L2</span></h3><div class="barlist" id="barsRidge2"></div><p class="small"><b>제곱합 규제</b> · 대부분의 계수를 남기고 크기를 줄임</p></div><div class="mini-chart"><h3>Lasso <span class="tag org">L1</span></h3><div class="barlist" id="barsLasso2"></div><p class="small"><b>절대값합 규제</b> · 일부 계수를 정확히 0으로 만듦</p></div><div class="mini-chart"><h3>Elastic Net <span class="tag purple">L1 + L2</span></h3><div class="barlist" id="barsElastic"></div><p class="small"><b>절충형 규제</b> · 변수 선택과 계수 안정성을 함께 고려</p></div></div><p class="caption">예시: 직교·표준화된 4개 변수와 OLS 계수 [2.20, −1.45, 0.90, 0.34]. Elastic Net의 L1 혼합 비율 α=0.6 고정.</p></div>
+<div class="panel" style="margin-top:15px"><h2>시험에 나오는 핵심 비교</h2><div style="overflow-x:auto"><table class="summarytable"><thead><tr><th>구분</th><th>Ridge</th><th>Lasso</th><th>Elastic Net</th></tr></thead><tbody><tr><td><b>규제 종류</b></td><td><span class="key">L2</span></td><td><b style="color:#c16c1c">L1</b></td><td>L1 + L2 혼합</td></tr><tr><td><b>벌점 항</b></td><td>Σβⱼ²</td><td>Σ|βⱼ|</td><td>αΣ|βⱼ| + (1−α)Σβⱼ²/2</td></tr><tr><td><b>계수가 0이 되나?</b></td><td>보통 정확히 0이 되지 않음</td><td><b>일부 정확히 0 가능</b></td><td>일부 정확히 0 가능</td></tr><tr><td><b>핵심 기능</b></td><td>계수 축소·안정화</td><td>계수 축소·변수 선택</td><td>두 규제의 장점 결합</td></tr><tr><td><b>조정 모수</b></td><td>λ</td><td>λ</td><td>λ와 혼합 비율 α</td></tr></tbody></table></div><p class="small muted">주의: Elastic Net의 L1·L2 항에 붙는 상수는 교재·소프트웨어의 정의에 따라 다르게 표기될 수 있습니다. 비교 목적상 동일한 손실 정규화 기준을 사용했습니다.</p></div><div class="story-wrap">
+    <div class="story-heading"><div><span class="story-mini-label">4-CUT CONCEPT COMIC · 06</span><h2>🖍️ 비교 이야기: 세 가지 정규화 도구를 고르면?</h2></div><p>왼쪽 위부터 오른쪽 아래로 읽으면 개념이 자연스럽게 이어집니다.</p></div>
+    <div class="story-grid"><article class="story-panel" aria-label="1컷: Ridge를 선택하면">
+          <div class="story-head"><span class="story-badge">1</span><h3>Ridge를 선택하면</h3></div>
+          <svg class="story-art" viewBox="0 0 490 164" role="img" aria-label="ridge_c 개념을 설명하는 인물과 그림">
+    <rect x="5" y="5" width="480" height="154" rx="16" fill="#eef4ff"/><ellipse cx="115" cy="149" rx="83" ry="9" fill="#c5d6e9" opacity=".5"/>
+    <path d="M47 131 Q42 105 67 103 L118 103 Q145 106 146 136 L146 150 L47 150Z" fill="#9b75d7" stroke="#25446e" stroke-width="2"/>
+    <path d="M58 115 L37 140" stroke="#9b75d7" stroke-width="13" stroke-linecap="round"/><path d="M130 113 L156 137" stroke="#9b75d7" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="94" cy="68" r="42" fill="#ffdab2" stroke="#bb8771" stroke-width="2.2"/>
+    <path d="M56 71 Q47 27 81 24 Q112 12 130 42 L134 61 Q112 43 97 44 Q71 40 56 71" fill="#47384b"/>
+    <circle cx="80" cy="77" r="4" fill="#3b3e4d"/><circle cx="107" cy="77" r="4" fill="#3b3e4d"/>
+    <path d="M84 64 Q90 69 97 64" stroke="#724b46" stroke-width="2.3" fill="none"/><path d="M80 94 Q92 104 104 94" fill="none" stroke="#90564c" stroke-width="3" stroke-linecap="round"/><circle cx="67" cy="88" r="7" fill="#edab9c" opacity=".52"/><circle cx="120" cy="88" r="7" fill="#edab9c" opacity=".52"/>
+    <path d="M179 23 l8 -11 l8 11 l13 4 l-13 4 l-8 11 l-8 -11 l-13 -4Z" fill="#facd73" opacity=".9"/>
+    <rect x="259" y="66" width="31" height="66" fill="#2b65c9" rx="4"/><rect x="304" y="84" width="31" height="48" fill="#2b65c9" rx="4"/><rect x="349" y="102" width="31" height="30" fill="#2b65c9" rx="4"/><rect x="394" y="116" width="31" height="16" fill="#2b65c9" rx="4"/><text x="342" y="31" fill="#2b65c9" font-size="25" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">L2</text></svg>
+          <div class="story-talk"><span aria-hidden="true">💬</span> “모두의 힘을 조금 줄여!”</div>
+          <p class="story-lesson"><strong>개념 연결</strong> L2는 보통 모든 회귀계수를 축소해요.</p>
+        </article><article class="story-panel" aria-label="2컷: Lasso를 선택하면">
+          <div class="story-head"><span class="story-badge">2</span><h3>Lasso를 선택하면</h3></div>
+          <svg class="story-art" viewBox="0 0 490 164" role="img" aria-label="lasso_c 개념을 설명하는 인물과 그림">
+    <rect x="5" y="5" width="480" height="154" rx="16" fill="#ebfaf1"/><ellipse cx="115" cy="149" rx="83" ry="9" fill="#c5d6e9" opacity=".5"/>
+    <path d="M47 131 Q42 105 67 103 L118 103 Q145 106 146 136 L146 150 L47 150Z" fill="#4268bf" stroke="#25446e" stroke-width="2"/>
+    <path d="M58 115 L37 140" stroke="#4268bf" stroke-width="13" stroke-linecap="round"/><path d="M130 113 L156 137" stroke="#4268bf" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="94" cy="68" r="42" fill="#ffdab2" stroke="#bb8771" stroke-width="2.2"/>
+    <path d="M56 71 Q47 27 81 24 Q112 12 130 42 L134 61 Q112 43 97 44 Q71 40 56 71" fill="#47384b"/>
+    <circle cx="80" cy="77" r="4" fill="#3b3e4d"/><circle cx="107" cy="77" r="4" fill="#3b3e4d"/>
+    <path d="M84 64 Q90 69 97 64" stroke="#724b46" stroke-width="2.3" fill="none"/><path d="M80 94 Q92 104 104 94" fill="none" stroke="#90564c" stroke-width="3" stroke-linecap="round"/><circle cx="67" cy="88" r="7" fill="#edab9c" opacity=".52"/><circle cx="120" cy="88" r="7" fill="#edab9c" opacity=".52"/>
+    <path d="M179 23 l8 -11 l8 11 l13 4 l-13 4 l-8 11 l-8 -11 l-13 -4Z" fill="#facd73" opacity=".9"/>
+    <rect x="259" y="65" width="32" height="67" fill="#16936f" rx="4"/><rect x="305" y="87" width="32" height="45" fill="#16936f" rx="4"/><text x="342" y="31" fill="#16936f" font-size="25" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">L1</text><text x="385" y="113" fill="#cc5160" font-size="17" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">0  0</text></svg>
+          <div class="story-talk"><span aria-hidden="true">💬</span> “작은 힘은 0으로 만들어!”</div>
+          <p class="story-lesson"><strong>개념 연결</strong> L1은 일부 변수를 제외할 수 있어요.</p>
+        </article><article class="story-panel" aria-label="3컷: Elastic Net을 선택하면">
+          <div class="story-head"><span class="story-badge">3</span><h3>Elastic Net을 선택하면</h3></div>
+          <svg class="story-art" viewBox="0 0 490 164" role="img" aria-label="mix 개념을 설명하는 인물과 그림">
+    <rect x="5" y="5" width="480" height="154" rx="16" fill="#f5edff"/><ellipse cx="115" cy="149" rx="83" ry="9" fill="#c5d6e9" opacity=".5"/>
+    <path d="M47 131 Q42 105 67 103 L118 103 Q145 106 146 136 L146 150 L47 150Z" fill="#cc6e80" stroke="#25446e" stroke-width="2"/>
+    <path d="M58 115 L37 140" stroke="#cc6e80" stroke-width="13" stroke-linecap="round"/><path d="M130 113 L156 137" stroke="#cc6e80" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="94" cy="68" r="42" fill="#ffdab2" stroke="#bb8771" stroke-width="2.2"/>
+    <path d="M56 71 Q47 27 81 24 Q112 12 130 42 L134 61 Q112 43 97 44 Q71 40 56 71" fill="#47384b"/>
+    <circle cx="80" cy="77" r="4" fill="#3b3e4d"/><circle cx="107" cy="77" r="4" fill="#3b3e4d"/>
+    <path d="M84 64 Q90 69 97 64" stroke="#724b46" stroke-width="2.3" fill="none"/><path d="M80 94 Q92 104 104 94" fill="none" stroke="#90564c" stroke-width="3" stroke-linecap="round"/><circle cx="67" cy="88" r="7" fill="#edab9c" opacity=".52"/><circle cx="120" cy="88" r="7" fill="#edab9c" opacity=".52"/>
+    <path d="M179 23 l8 -11 l8 11 l13 4 l-13 4 l-8 11 l-8 -11 l-13 -4Z" fill="#facd73" opacity=".9"/>
+    <rect x="250" y="48" width="73" height="73" rx="7" fill="#e4ecff" stroke="#a5bce2" stroke-width="2.4"/><rect x="362" y="48" width="73" height="73" rx="7" fill="#dcf8e8" stroke="#97ccb2" stroke-width="2.4"/><text x="286" y="94" fill="#2b65c9" font-size="28" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">L1</text><text x="399" y="94" fill="#16936f" font-size="28" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">L2</text><text x="341" y="31" fill="#cc5160" font-size="19" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">+  함께!</text></svg>
+          <div class="story-talk"><span aria-hidden="true">💬</span> “두 방법을 섞어 써 보자!”</div>
+          <p class="story-lesson"><strong>개념 연결</strong> Elastic Net은 L1과 L2 벌점을 결합해요.</p>
+        </article><article class="story-panel" aria-label="4컷: 어떤 게 제일 좋을까?">
+          <div class="story-head"><span class="story-badge">4</span><h3>어떤 게 제일 좋을까?</h3></div>
+          <svg class="story-art" viewBox="0 0 490 164" role="img" aria-label="compare 개념을 설명하는 인물과 그림">
+    <rect x="5" y="5" width="480" height="154" rx="16" fill="#fff8e8"/><ellipse cx="115" cy="149" rx="83" ry="9" fill="#c5d6e9" opacity=".5"/>
+    <path d="M47 131 Q42 105 67 103 L118 103 Q145 106 146 136 L146 150 L47 150Z" fill="#249d8e" stroke="#25446e" stroke-width="2"/>
+    <path d="M58 115 L37 140" stroke="#249d8e" stroke-width="13" stroke-linecap="round"/><path d="M130 113 L156 137" stroke="#249d8e" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="94" cy="68" r="42" fill="#ffdab2" stroke="#bb8771" stroke-width="2.2"/>
+    <path d="M56 71 Q47 27 81 24 Q112 12 130 42 L134 61 Q112 43 97 44 Q71 40 56 71" fill="#47384b"/>
+    <circle cx="80" cy="77" r="4" fill="#3b3e4d"/><circle cx="107" cy="77" r="4" fill="#3b3e4d"/>
+    <path d="M84 64 Q90 69 97 64" stroke="#724b46" stroke-width="2.3" fill="none"/><path d="M80 94 Q92 104 104 94" fill="none" stroke="#90564c" stroke-width="3" stroke-linecap="round"/><circle cx="67" cy="88" r="7" fill="#edab9c" opacity=".52"/><circle cx="120" cy="88" r="7" fill="#edab9c" opacity=".52"/>
+    <path d="M179 23 l8 -11 l8 11 l13 4 l-13 4 l-8 11 l-8 -11 l-13 -4Z" fill="#facd73" opacity=".9"/>
+    <rect x="249" y="30" width="192" height="110" rx="7" fill="white" stroke="#9ebedc" stroke-width="2.4"/><text x="346" y="57" fill="#2b65c9" font-size="19" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">교차검증</text><rect x="269" y="75" width="31" height="35" rx="3" fill="#a3bbdd"/><rect x="319" y="55" width="31" height="55" rx="3" fill="#16936f"/><rect x="369" y="67" width="31" height="43" rx="3" fill="#efae67"/><text x="347" y="129" fill="#234568" font-size="13" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">새 데이터로 비교</text></svg>
+          <div class="story-talk"><span aria-hidden="true">💬</span> “시험해 보고 결정하자!”</div>
+          <p class="story-lesson"><strong>개념 연결</strong> 교차검증으로 새 데이터 예측 성능을 비교해요.</p>
+        </article></div>
+    </div><div class="slide-footnote" aria-label="교안 쪽수 및 교재 출처"><span class="position">교안 07 / 10</span><span class="source">교재 p.310 · Elastic Net 추가 설명</span></div></section>
+<!-- 7 -->
+<section class="slide" data-title="4컷 개념 만화"><div class="slidehead"><div><div class="eyebrow">08 · FOUR-PANEL STORY</div><h1>4컷 이야기로 배우는 <span class="em">정규화 회귀</span></h1><p>복잡한 수식보다 먼저, 왜 규제를 하고 L1·L2가 어떤 일을 하는지 순서대로 기억해 보세요.</p></div><span class="pg">복습용 개념 만화</span></div><div class="story-wrap"><div class="story-heading"><div><span class="story-mini-label">4-CUT CONCEPT COMIC · 07</span><h2>🖍️ 정규화 회귀 전체 이야기</h2></div><p>① 과적합 → ② 규제 → ③ Ridge → ④ Lasso를 기억하세요.</p></div><div class="comics"><article class="comic"><div class="comichead"><span class="comicnum">1</span><h3>너무 열심히 외웠어!</h3></div><svg viewBox="0 0 500 150" role="img" aria-label="빽빽한 학습 데이터를 외우려는 캐릭터와 출렁이는 그래프"><rect x="10" y="8" width="480" height="133" rx="15" fill="#eaf2ff"/><rect x="24" y="22" width="275" height="100" rx="7" fill="white" stroke="#adc8eb"/><path d="M37 98Q54 24 71 99T106 78T145 91T183 64T226 80T279 34" stroke="#c94950" fill="none" stroke-width="4"/><g fill="#2961cf"><circle cx="37" cy="98" r="4"/><circle cx="106" cy="78" r="4"/><circle cx="183" cy="64" r="4"/><circle cx="279" cy="34" r="4"/></g><circle cx="384" cy="53" r="25" fill="#ffdfae" stroke="#a86e4f" stroke-width="2"/><circle cx="375" cy="48" r="3"/><circle cx="394" cy="48" r="3"/><path d="M373 64Q384 74 396 64" fill="none" stroke="#935d4a" stroke-width="2"/><path d="M351 85Q386 72 417 85L427 123H345Z" fill="#5b78ca"/><text x="385" y="116" fill="white" font-size="14" font-weight="800" text-anchor="middle">AI</text></svg><div class="bubble">“학습 점 하나도 놓치지 않겠어!” → 하지만 처음 보는 데이터에는 약할 수 있어요.</div></article><article class="comic"><div class="comichead"><span class="comicnum">2</span><h3>규칙을 조금 단순하게!</h3></div><svg viewBox="0 0 500 150" role="img" aria-label="규제 람다 레버와 매끈한 그래프"><rect x="10" y="8" width="480" height="133" rx="15" fill="#fff1d8"/><rect x="28" y="18" width="246" height="112" rx="8" fill="white" stroke="#e6bc7f"/><path d="M44 107C97 108 150 80 196 62S241 37 264 32" fill="none" stroke="#0b9b7e" stroke-width="5"/><circle cx="371" cy="47" r="25" fill="#ffdfae" stroke="#a86e4f" stroke-width="2"/><circle cx="362" cy="44" r="3"/><circle cx="380" cy="44" r="3"/><path d="M362 57Q372 65 382 57" fill="none" stroke="#935d4a" stroke-width="2"/><path d="M339 91H429" stroke="#b88935" stroke-width="8" stroke-linecap="round"/><circle cx="386" cy="91" r="14" fill="#2563eb"/><text x="386" y="127" font-size="16" fill="#885a14" text-anchor="middle" font-weight="900">λ 조절</text></svg><div class="bubble">“오차가 조금 남아도 좋아. 대신 계수를 너무 키우지 말자!”</div></article><article class="comic"><div class="comichead"><span class="comicnum">3</span><h3>Ridge: 모두 조금씩 낮춰!</h3></div><svg viewBox="0 0 500 150" role="img" aria-label="네 개 막대가 모두 줄어드는 Ridge의 효과"><rect x="10" y="8" width="480" height="133" rx="15" fill="#e7f0ff"/><line x1="34" y1="115" x2="466" y2="115" stroke="#9cb5d8" stroke-width="2"/><g fill="#b8cdeb"><rect x="62" y="29" width="34" height="86" rx="5"/><rect x="167" y="48" width="34" height="67" rx="5"/><rect x="270" y="65" width="34" height="50" rx="5"/><rect x="373" y="77" width="34" height="38" rx="5"/></g><g fill="#2365d3"><rect x="101" y="62" width="34" height="53" rx="5"/><rect x="206" y="75" width="34" height="40" rx="5"/><rect x="310" y="85" width="34" height="30" rx="5"/><rect x="413" y="91" width="34" height="24" rx="5"/></g><text x="250" y="25" font-weight="800" fill="#2455a1" text-anchor="middle" font-size="15">원래 계수 → 줄어든 계수</text></svg><div class="bubble">“큰 친구도 작은 친구도, 다 같이 줄어들자!” → <b>L2 제곱합</b> 규제</div></article><article class="comic"><div class="comichead"><span class="comicnum">4</span><h3>Lasso: 필요 없는 건 0!</h3></div><svg viewBox="0 0 500 150" role="img" aria-label="큰 계수는 남고 작은 계수는 0이 되는 Lasso의 효과"><rect x="10" y="8" width="480" height="133" rx="15" fill="#e3f8ef"/><line x1="34" y1="115" x2="466" y2="115" stroke="#9ecab7" stroke-width="2"/><g fill="#bfdccc"><rect x="62" y="29" width="34" height="86" rx="5"/><rect x="167" y="48" width="34" height="67" rx="5"/><rect x="270" y="65" width="34" height="50" rx="5"/><rect x="373" y="77" width="34" height="38" rx="5"/></g><g fill="#0d9474"><rect x="101" y="58" width="34" height="57" rx="5"/><rect x="206" y="79" width="34" height="36" rx="5"/><rect x="310" y="100" width="34" height="15" rx="5"/></g><text x="430" y="92" font-weight="900" fill="#c45336" font-size="24" text-anchor="middle">0!</text><text x="250" y="25" font-weight="800" fill="#1c856b" text-anchor="middle" font-size="15">작은 계수는 완전히 0</text></svg><div class="bubble">“이 변수는 없어도 되겠는데?” → <b>L1 절대값합</b> 규제와 변수 선택</div></article></div></div><div class="slide-footnote" aria-label="교안 쪽수 및 교재 출처"><span class="position">교안 08 / 10</span><span class="source">교재 p.310에 기초한 복습 설명</span></div></section>
+<!-- 8 -->
+<section class="slide" data-title="기출 48번"><div class="slidehead"><div><div class="eyebrow">09 · PAST EXAM Q48</div><h1>기출 48번: <span class="em">Lasso에 대한 부적절한 설명</span></h1><p>정답을 바로 보지 말고, 4개 선택지 각각이 L1과 L2 중 어디에 해당하는지 생각해 보세요.</p></div><span class="pg">제공된 기출 48번</span></div><div class="grid2"><div class="panel"><div class="question"><span class="tag org">문제 48 · 정답 하나 선택</span><h2>다음 중 Lasso 회귀모형에 대한 설명으로 <u>부적절한 것</u>은?</h2><div class="options" id="options"><button class="option" type="button" data-answer="1"><span class="num">①</span><strong>회귀계수에 비례하여 가중치를 부여하는 방식이다.</strong></button><button class="option" type="button" data-answer="2"><span class="num">②</span><strong>중요한 변수를 선택하고 불필요한 변수를 제거하는 효과가 있다.</strong></button><button class="option" type="button" data-answer="3"><span class="num">③</span><strong>penalty 조정 파라미터가 존재한다.</strong></button><button class="option" type="button" data-answer="4"><span class="num">④</span><strong>L2 penalty를 사용한다.</strong></button></div><div id="feedback" class="feedback" role="status" aria-live="polite"></div><p style="margin-top:14px"><button type="button" class="reveal" id="reveal">정답 및 선택지별 해설 보기</button></p></div></div><div class="panel"><span class="tag">문제 직결 이론</span><h2>두 규제를 먼저 그림으로 구분</h2><div class="grid2"><div class="shape"><svg viewBox="0 0 220 175" aria-label="L1 규제를 나타내는 마름모"><line x1="15" y1="90" x2="205" y2="90" stroke="#b5c6dc"/><line x1="110" y1="8" x2="110" y2="165" stroke="#b5c6dc"/><path d="M110 20L180 90L110 160L40 90Z" fill="#ffeddd" stroke="#cd7930" stroke-width="4"/></svg><strong style="color:#bb621b">L1 = Lasso</strong><span>절대값합 → 0 가능</span></div><div class="shape"><svg viewBox="0 0 220 175" aria-label="L2 규제를 나타내는 원"><line x1="15" y1="90" x2="205" y2="90" stroke="#b5c6dc"/><line x1="110" y1="8" x2="110" y2="165" stroke="#b5c6dc"/><circle cx="110" cy="90" r="70" fill="#e4edff" stroke="#2964ca" stroke-width="4"/></svg><strong style="color:#2861c1">L2 = Ridge</strong><span>제곱합 → 계수 축소</span></div></div><div class="formula" style="margin-top:13px">Lasso : Loss + λ Σ |βⱼ|</div><div class="formula" style="margin-top:9px">Ridge : Loss + (λ/2) Σ βⱼ²</div><div class="callout yellow"><b>기출 암기 공식:</b> <span class="em">라쏘 = L1 = 절대값 = 변수 선택</span> / 릿지 = L2 = 제곱 = 계수 축소</div></div></div><div class="panel" style="margin-top:15px" id="answerDetails"><h2>선택지별 해설 <span style="font-size:14px;color:#637c9a;font-weight:500">(정답 확인 버튼을 누르면 설명이 강조됩니다)</span></h2><div class="choice-explain"><div class="explain"><span class="mark">①</span><div><b>표현에 주의가 필요한 선택지</b> — Lasso의 벌점은 정확히 <b>회귀계수의 절대값에 비례</b>합니다. 원문 표현인 “회귀계수에 비례하여 가중치를 부여”는 엄밀한 정의가 아니므로 오해를 낳을 수 있습니다. 시험의 출제 취지에서는 적절한 것으로 취급합니다.</div></div><div class="explain"><span class="mark">②</span><div><b>적절</b> — L1 규제로 일부 계수를 정확히 0으로 만들어 변수 선택 효과가 있습니다.</div></div><div class="explain"><span class="mark">③</span><div><b>적절</b> — 벌점의 크기를 조절하는 하이퍼파라미터 <b>λ</b>가 있습니다.</div></div><div class="explain" style="border-color:#e7c4aa;background:#fff9f2"><span class="mark" style="color:#bc5b22">④</span><div><b>부적절 · 정답</b> — Lasso는 L1을 사용하며, <b>L2는 Ridge</b>가 사용합니다.</div></div></div><div class="callout orange"><b>정답은 ④.</b> 다만 ①도 기술 방식이 모호하므로 “회귀계수 <u>절대값에 비례하는 페널티를 부여</u>한다”로 고쳐 표현하는 것이 통계적으로 더 정확합니다.</div></div><div class="story-wrap">
+    <div class="story-heading"><div><span class="story-mini-label">4-CUT CONCEPT COMIC · 08</span><h2>🖍️ 문제 풀이 이야기: 48번의 함정을 찾아라</h2></div><p>왼쪽 위부터 오른쪽 아래로 읽으면 개념이 자연스럽게 이어집니다.</p></div>
+    <div class="story-grid"><article class="story-panel" aria-label="1컷: 문제를 먼저 읽어요">
+          <div class="story-head"><span class="story-badge">1</span><h3>문제를 먼저 읽어요</h3></div>
+          <svg class="story-art" viewBox="0 0 490 164" role="img" aria-label="question 개념을 설명하는 인물과 그림">
+    <rect x="5" y="5" width="480" height="154" rx="16" fill="#eef3ff"/><ellipse cx="115" cy="149" rx="83" ry="9" fill="#c5d6e9" opacity=".5"/>
+    <path d="M47 131 Q42 105 67 103 L118 103 Q145 106 146 136 L146 150 L47 150Z" fill="#cc6e80" stroke="#25446e" stroke-width="2"/>
+    <path d="M58 115 L37 140" stroke="#cc6e80" stroke-width="13" stroke-linecap="round"/><path d="M130 113 L156 137" stroke="#cc6e80" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="94" cy="68" r="42" fill="#ffdab2" stroke="#bb8771" stroke-width="2.2"/>
+    <path d="M56 71 Q47 27 81 24 Q112 12 130 42 L134 61 Q112 43 97 44 Q71 40 56 71" fill="#47384b"/>
+    <circle cx="80" cy="77" r="4" fill="#3b3e4d"/><circle cx="107" cy="77" r="4" fill="#3b3e4d"/>
+    <path d="M83 66 L97 63" stroke="#724b46" stroke-width="2.4"/><path d="M82 101 Q91 91 102 101" fill="none" stroke="#90564c" stroke-width="3" stroke-linecap="round"/><circle cx="67" cy="88" r="7" fill="#edab9c" opacity=".52"/><circle cx="120" cy="88" r="7" fill="#edab9c" opacity=".52"/>
+    <path d="M179 23 l8 -11 l8 11 l13 4 l-13 4 l-8 11 l-8 -11 l-13 -4Z" fill="#facd73" opacity=".9"/>
+    <rect x="248" y="40" width="196" height="92" rx="7" fill="white" stroke="#9fbbdf" stroke-width="2.4"/><text x="347" y="76" fill="#cc5160" font-size="18" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">부적절한 것은?</text><text x="347" y="112" fill="#2b65c9" font-size="20" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">①  ②  ③  ④</text></svg>
+          <div class="story-talk"><span aria-hidden="true">💬</span> “옳지 않은 것을 찾으래!”</div>
+          <p class="story-lesson"><strong>개념 연결</strong> 정답이 아니라 틀린 설명을 찾는 문제예요.</p>
+        </article><article class="story-panel" aria-label="2컷: Lasso의 단서를 떠올려요">
+          <div class="story-head"><span class="story-badge">2</span><h3>Lasso의 단서를 떠올려요</h3></div>
+          <svg class="story-art" viewBox="0 0 490 164" role="img" aria-label="l1 개념을 설명하는 인물과 그림">
+    <rect x="5" y="5" width="480" height="154" rx="16" fill="#eafaf0"/><ellipse cx="115" cy="149" rx="83" ry="9" fill="#c5d6e9" opacity=".5"/>
+    <path d="M47 131 Q42 105 67 103 L118 103 Q145 106 146 136 L146 150 L47 150Z" fill="#249d8e" stroke="#25446e" stroke-width="2"/>
+    <path d="M58 115 L37 140" stroke="#249d8e" stroke-width="13" stroke-linecap="round"/><path d="M130 113 L156 137" stroke="#249d8e" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="94" cy="68" r="42" fill="#ffdab2" stroke="#bb8771" stroke-width="2.2"/>
+    <path d="M56 71 Q47 27 81 24 Q112 12 130 42 L134 61 Q112 43 97 44 Q71 40 56 71" fill="#47384b"/>
+    <circle cx="80" cy="77" r="4" fill="#3b3e4d"/><circle cx="107" cy="77" r="4" fill="#3b3e4d"/>
+    <path d="M84 64 Q90 69 97 64" stroke="#724b46" stroke-width="2.3" fill="none"/><path d="M80 94 Q92 104 104 94" fill="none" stroke="#90564c" stroke-width="3" stroke-linecap="round"/><circle cx="67" cy="88" r="7" fill="#edab9c" opacity=".52"/><circle cx="120" cy="88" r="7" fill="#edab9c" opacity=".52"/>
+    <path d="M179 23 l8 -11 l8 11 l13 4 l-13 4 l-8 11 l-8 -11 l-13 -4Z" fill="#facd73" opacity=".9"/>
+    <rect x="265" y="36" width="160" height="102" rx="7" fill="white" stroke="#a9d4be" stroke-width="2.4"/><text x="345" y="78" fill="#16936f" font-size="26" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">Lasso</text><text x="345" y="114" fill="#16936f" font-size="25" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">L1 ✓</text></svg>
+          <div class="story-talk"><span aria-hidden="true">💬</span> “라쏘는 L1이지!”</div>
+          <p class="story-lesson"><strong>개념 연결</strong> L1은 절대값합이며 변수 선택에 도움이 돼요.</p>
+        </article><article class="story-panel" aria-label="3컷: 선택지를 하나씩 살펴요">
+          <div class="story-head"><span class="story-badge">3</span><h3>선택지를 하나씩 살펴요</h3></div>
+          <svg class="story-art" viewBox="0 0 490 164" role="img" aria-label="choices 개념을 설명하는 인물과 그림">
+    <rect x="5" y="5" width="480" height="154" rx="16" fill="#fff7e8"/><ellipse cx="115" cy="149" rx="83" ry="9" fill="#c5d6e9" opacity=".5"/>
+    <path d="M47 131 Q42 105 67 103 L118 103 Q145 106 146 136 L146 150 L47 150Z" fill="#9b75d7" stroke="#25446e" stroke-width="2"/>
+    <path d="M58 115 L37 140" stroke="#9b75d7" stroke-width="13" stroke-linecap="round"/><path d="M130 113 L156 137" stroke="#9b75d7" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="94" cy="68" r="42" fill="#ffdab2" stroke="#bb8771" stroke-width="2.2"/>
+    <path d="M56 71 Q47 27 81 24 Q112 12 130 42 L134 61 Q112 43 97 44 Q71 40 56 71" fill="#47384b"/>
+    <circle cx="80" cy="77" r="4" fill="#3b3e4d"/><circle cx="107" cy="77" r="4" fill="#3b3e4d"/>
+    <path d="M84 64 Q90 69 97 64" stroke="#724b46" stroke-width="2.3" fill="none"/><path d="M80 94 Q92 104 104 94" fill="none" stroke="#90564c" stroke-width="3" stroke-linecap="round"/><circle cx="67" cy="88" r="7" fill="#edab9c" opacity=".52"/><circle cx="120" cy="88" r="7" fill="#edab9c" opacity=".52"/>
+    <path d="M179 23 l8 -11 l8 11 l13 4 l-13 4 l-8 11 l-8 -11 l-13 -4Z" fill="#facd73" opacity=".9"/>
+    <rect x="249" y="32" width="192" height="114" rx="7" fill="white" stroke="#b6c8df" stroke-width="2.4"/><text x="293" y="69" fill="#16936f" font-size="20" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">① ✓</text><text x="389" y="69" fill="#16936f" font-size="20" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">② ✓</text><text x="293" y="114" fill="#16936f" font-size="20" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">③ ✓</text><text x="389" y="114" fill="#cc5160" font-size="20" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">④ ?</text></svg>
+          <div class="story-talk"><span aria-hidden="true">💬</span> “① ② ③을 비교해 보자.”</div>
+          <p class="story-lesson"><strong>개념 연결</strong> ② 변수 선택, ③ 벌점 조정 모수 λ는 적절해요.</p>
+        </article><article class="story-panel" aria-label="4컷: 함정을 발견했어요">
+          <div class="story-head"><span class="story-badge">4</span><h3>함정을 발견했어요</h3></div>
+          <svg class="story-art" viewBox="0 0 490 164" role="img" aria-label="answer 개념을 설명하는 인물과 그림">
+    <rect x="5" y="5" width="480" height="154" rx="16" fill="#fff1f0"/><ellipse cx="115" cy="149" rx="83" ry="9" fill="#c5d6e9" opacity=".5"/>
+    <path d="M47 131 Q42 105 67 103 L118 103 Q145 106 146 136 L146 150 L47 150Z" fill="#4268bf" stroke="#25446e" stroke-width="2"/>
+    <path d="M58 115 L37 140" stroke="#4268bf" stroke-width="13" stroke-linecap="round"/><path d="M130 113 L156 137" stroke="#4268bf" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="94" cy="68" r="42" fill="#ffdab2" stroke="#bb8771" stroke-width="2.2"/>
+    <path d="M56 71 Q47 27 81 24 Q112 12 130 42 L134 61 Q112 43 97 44 Q71 40 56 71" fill="#47384b"/>
+    <circle cx="80" cy="77" r="4" fill="#3b3e4d"/><circle cx="107" cy="77" r="4" fill="#3b3e4d"/>
+    <path d="M84 64 Q90 69 97 64" stroke="#724b46" stroke-width="2.3" fill="none"/><path d="M80 94 Q92 104 104 94" fill="none" stroke="#90564c" stroke-width="3" stroke-linecap="round"/><circle cx="67" cy="88" r="7" fill="#edab9c" opacity=".52"/><circle cx="120" cy="88" r="7" fill="#edab9c" opacity=".52"/>
+    <path d="M179 23 l8 -11 l8 11 l13 4 l-13 4 l-8 11 l-8 -11 l-13 -4Z" fill="#facd73" opacity=".9"/>
+    <rect x="263" y="39" width="161" height="98" rx="7" fill="#fff" stroke="#f0bda9" stroke-width="2.4"/><text x="344" y="83" fill="#cc5160" font-size="45" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">④</text><text x="345" y="117" fill="#cc5160" font-size="17" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">L2는 Ridge!</text></svg>
+          <div class="story-talk"><span aria-hidden="true">💬</span> “④ L2라고? 릿지잖아!”</div>
+          <p class="story-lesson"><strong>개념 연결</strong> 따라서 교재 기출 48번 정답은 ④예요.</p>
+        </article></div>
+    </div><div class="slide-footnote" aria-label="교안 쪽수 및 교재 출처"><span class="position">교안 09 / 10</span><span class="source">교재 발췌 p.310 · 기출 48번</span></div></section>
+<!-- 9 -->
+<section class="slide" data-title="복습·정리"><div class="slidehead"><div><div class="eyebrow">10 · REVIEW</div><h1>10초 핵심 정리 + <span class="em">확인 퀴즈</span></h1><p>두 개의 짧은 질문으로 개념을 확인하고, 모형을 선택할 때 무엇을 먼저 살펴볼지 정리합니다.</p></div><span class="pg">학습 마무리</span></div><div class="grid2"><div class="panel"><h2>시험 직전 떠올릴 표</h2><div style="overflow-x:auto"><table class="summarytable"><thead><tr><th>키워드</th><th>내용</th></tr></thead><tbody><tr><td><b>Overfitting</b></td><td>학습 데이터에 지나치게 맞춤</td></tr><tr><td><b>Regularization</b></td><td>오차 + 계수 규제</td></tr><tr><td><b>λ</b></td><td>규제 강도 조절값</td></tr><tr><td><b>Ridge</b></td><td>L2 · 계수 제곱합 · 계수 축소</td></tr><tr><td><b>Lasso</b></td><td>L1 · 계수 절대값합 · 변수 선택</td></tr><tr><td><b>Elastic Net</b></td><td>L1과 L2의 혼합</td></tr></tbody></table></div><div class="takeaway" style="margin-top:15px"><h2>암기 문장</h2><p style="margin:0"><b>라쏘는 L1이라 ‘변수를 남길지 말지’를 결정할 수 있고, 릿지는 L2라 ‘모든 변수의 힘’을 부드럽게 줄인다.</b></p></div></div><div class="panel"><h2>간단한 확인 문제</h2><div class="quizgrid"><div class="qmini" data-mini="1"><p>Q1. 일부 계수를 정확히 0으로 만들기 쉬운 방법은?</p><button type="button" data-val="r">Ridge</button><button type="button" data-val="l">Lasso</button><div class="result" role="status" aria-live="polite"></div></div><div class="qmini" data-mini="2"><p>Q2. λ가 지나치게 커지면 생길 수 있는 문제는?</p><button type="button" data-val="o">과소적합</button><button type="button" data-val="u">무조건 성능 향상</button><div class="result" role="status" aria-live="polite"></div></div></div><div class="callout"><b>실제 분석 실무:</b> Ridge/Lasso/Elastic Net 중 어떤 방법이 더 나은지는 <b>교차검증</b>으로 규제 강도와 예측 성능을 비교해 선택합니다. 모델 이름만으로 항상 우수한 방법을 정할 수는 없습니다.</div><h3>교재·시험 연결</h3><p>기출 48번의 출제 핵심은 <b>“Lasso = L1”</b>의 정확한 구분입니다. 문제를 풀 때 <b>④의 L2</b>를 즉시 찾아낼 수 있어야 합니다.</p></div></div><div class="story-wrap">
+    <div class="story-heading"><div><span class="story-mini-label">4-CUT CONCEPT COMIC · 09</span><h2>🖍️ 복습 이야기: 시험 직전 한 번 더</h2></div><p>왼쪽 위부터 오른쪽 아래로 읽으면 개념이 자연스럽게 이어집니다.</p></div>
+    <div class="story-grid"><article class="story-panel" aria-label="1컷: 왜 규제를 쓸까요?">
+          <div class="story-head"><span class="story-badge">1</span><h3>왜 규제를 쓸까요?</h3></div>
+          <svg class="story-art" viewBox="0 0 490 164" role="img" aria-label="remember 개념을 설명하는 인물과 그림">
+    <rect x="5" y="5" width="480" height="154" rx="16" fill="#eef6ff"/><ellipse cx="115" cy="149" rx="83" ry="9" fill="#c5d6e9" opacity=".5"/>
+    <path d="M47 131 Q42 105 67 103 L118 103 Q145 106 146 136 L146 150 L47 150Z" fill="#249d8e" stroke="#25446e" stroke-width="2"/>
+    <path d="M58 115 L37 140" stroke="#249d8e" stroke-width="13" stroke-linecap="round"/><path d="M130 113 L156 137" stroke="#249d8e" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="94" cy="68" r="42" fill="#ffdab2" stroke="#bb8771" stroke-width="2.2"/>
+    <path d="M56 71 Q47 27 81 24 Q112 12 130 42 L134 61 Q112 43 97 44 Q71 40 56 71" fill="#47384b"/>
+    <circle cx="80" cy="77" r="4" fill="#3b3e4d"/><circle cx="107" cy="77" r="4" fill="#3b3e4d"/>
+    <path d="M84 64 Q90 69 97 64" stroke="#724b46" stroke-width="2.3" fill="none"/><path d="M80 94 Q92 104 104 94" fill="none" stroke="#90564c" stroke-width="3" stroke-linecap="round"/><circle cx="67" cy="88" r="7" fill="#edab9c" opacity=".52"/><circle cx="120" cy="88" r="7" fill="#edab9c" opacity=".52"/>
+    <path d="M179 23 l8 -11 l8 11 l13 4 l-13 4 l-8 11 l-8 -11 l-13 -4Z" fill="#facd73" opacity=".9"/>
+    <rect x="247" y="35" width="194" height="103" rx="7" fill="white" stroke="#aac6e0" stroke-width="2.4"/><text x="345" y="68" fill="#2b65c9" font-size="18" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">과적합 방지</text><text x="345" y="104" fill="#16936f" font-size="21" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">규제 = 벌점</text></svg>
+          <div class="story-talk"><span aria-hidden="true">💬</span> “너무 외우면 새 문제에 약해.”</div>
+          <p class="story-lesson"><strong>개념 연결</strong> 정규화는 과적합 위험을 줄이는 방법이에요.</p>
+        </article><article class="story-panel" aria-label="2컷: 라쏘는 무엇을 하나요?">
+          <div class="story-head"><span class="story-badge">2</span><h3>라쏘는 무엇을 하나요?</h3></div>
+          <svg class="story-art" viewBox="0 0 490 164" role="img" aria-label="l1r 개념을 설명하는 인물과 그림">
+    <rect x="5" y="5" width="480" height="154" rx="16" fill="#e8faed"/><ellipse cx="115" cy="149" rx="83" ry="9" fill="#c5d6e9" opacity=".5"/>
+    <path d="M47 131 Q42 105 67 103 L118 103 Q145 106 146 136 L146 150 L47 150Z" fill="#9b75d7" stroke="#25446e" stroke-width="2"/>
+    <path d="M58 115 L37 140" stroke="#9b75d7" stroke-width="13" stroke-linecap="round"/><path d="M130 113 L156 137" stroke="#9b75d7" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="94" cy="68" r="42" fill="#ffdab2" stroke="#bb8771" stroke-width="2.2"/>
+    <path d="M56 71 Q47 27 81 24 Q112 12 130 42 L134 61 Q112 43 97 44 Q71 40 56 71" fill="#47384b"/>
+    <circle cx="80" cy="77" r="4" fill="#3b3e4d"/><circle cx="107" cy="77" r="4" fill="#3b3e4d"/>
+    <path d="M84 64 Q90 69 97 64" stroke="#724b46" stroke-width="2.3" fill="none"/><path d="M80 94 Q92 104 104 94" fill="none" stroke="#90564c" stroke-width="3" stroke-linecap="round"/><circle cx="67" cy="88" r="7" fill="#edab9c" opacity=".52"/><circle cx="120" cy="88" r="7" fill="#edab9c" opacity=".52"/>
+    <path d="M179 23 l8 -11 l8 11 l13 4 l-13 4 l-8 11 l-8 -11 l-13 -4Z" fill="#facd73" opacity=".9"/>
+    <rect x="260" y="39" width="164" height="100" rx="7" fill="#e5f9ed" stroke="#a2c8b5" stroke-width="2.4"/><text x="343" y="82" fill="#16936f" font-size="24" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">L1 = Lasso</text><text x="344" y="112" fill="#cc5160" font-size="16" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">0 · 변수 선택</text></svg>
+          <div class="story-talk"><span aria-hidden="true">💬</span> “L1, 그리고 0이 가능!”</div>
+          <p class="story-lesson"><strong>개념 연결</strong> Lasso = 절대값합 = 변수 선택 효과.</p>
+        </article><article class="story-panel" aria-label="3컷: 릿지는 무엇을 하나요?">
+          <div class="story-head"><span class="story-badge">3</span><h3>릿지는 무엇을 하나요?</h3></div>
+          <svg class="story-art" viewBox="0 0 490 164" role="img" aria-label="l2r 개념을 설명하는 인물과 그림">
+    <rect x="5" y="5" width="480" height="154" rx="16" fill="#eef4ff"/><ellipse cx="115" cy="149" rx="83" ry="9" fill="#c5d6e9" opacity=".5"/>
+    <path d="M47 131 Q42 105 67 103 L118 103 Q145 106 146 136 L146 150 L47 150Z" fill="#4268bf" stroke="#25446e" stroke-width="2"/>
+    <path d="M58 115 L37 140" stroke="#4268bf" stroke-width="13" stroke-linecap="round"/><path d="M130 113 L156 137" stroke="#4268bf" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="94" cy="68" r="42" fill="#ffdab2" stroke="#bb8771" stroke-width="2.2"/>
+    <path d="M56 71 Q47 27 81 24 Q112 12 130 42 L134 61 Q112 43 97 44 Q71 40 56 71" fill="#47384b"/>
+    <circle cx="80" cy="77" r="4" fill="#3b3e4d"/><circle cx="107" cy="77" r="4" fill="#3b3e4d"/>
+    <path d="M84 64 Q90 69 97 64" stroke="#724b46" stroke-width="2.3" fill="none"/><path d="M80 94 Q92 104 104 94" fill="none" stroke="#90564c" stroke-width="3" stroke-linecap="round"/><circle cx="67" cy="88" r="7" fill="#edab9c" opacity=".52"/><circle cx="120" cy="88" r="7" fill="#edab9c" opacity=".52"/>
+    <path d="M179 23 l8 -11 l8 11 l13 4 l-13 4 l-8 11 l-8 -11 l-13 -4Z" fill="#facd73" opacity=".9"/>
+    <rect x="260" y="39" width="164" height="100" rx="7" fill="#e6efff" stroke="#a2b5d2" stroke-width="2.4"/><text x="343" y="82" fill="#2b65c9" font-size="24" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">L2 = Ridge</text><text x="344" y="112" fill="#234568" font-size="17" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">모두 축소</text></svg>
+          <div class="story-talk"><span aria-hidden="true">💬</span> “L2, 함께 줄이는 거야!”</div>
+          <p class="story-lesson"><strong>개념 연결</strong> Ridge = 제곱합 = 계수 축소.</p>
+        </article><article class="story-panel" aria-label="4컷: 마지막 확인은?">
+          <div class="story-head"><span class="story-badge">4</span><h3>마지막 확인은?</h3></div>
+          <svg class="story-art" viewBox="0 0 490 164" role="img" aria-label="finish 개념을 설명하는 인물과 그림">
+    <rect x="5" y="5" width="480" height="154" rx="16" fill="#fff7e6"/><ellipse cx="115" cy="149" rx="83" ry="9" fill="#c5d6e9" opacity=".5"/>
+    <path d="M47 131 Q42 105 67 103 L118 103 Q145 106 146 136 L146 150 L47 150Z" fill="#cc6e80" stroke="#25446e" stroke-width="2"/>
+    <path d="M58 115 L37 140" stroke="#cc6e80" stroke-width="13" stroke-linecap="round"/><path d="M130 113 L156 137" stroke="#cc6e80" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="94" cy="68" r="42" fill="#ffdab2" stroke="#bb8771" stroke-width="2.2"/>
+    <path d="M56 71 Q47 27 81 24 Q112 12 130 42 L134 61 Q112 43 97 44 Q71 40 56 71" fill="#47384b"/>
+    <circle cx="80" cy="77" r="4" fill="#3b3e4d"/><circle cx="107" cy="77" r="4" fill="#3b3e4d"/>
+    <path d="M84 64 Q90 69 97 64" stroke="#724b46" stroke-width="2.3" fill="none"/><path d="M80 94 Q92 104 104 94" fill="none" stroke="#90564c" stroke-width="3" stroke-linecap="round"/><circle cx="67" cy="88" r="7" fill="#edab9c" opacity=".52"/><circle cx="120" cy="88" r="7" fill="#edab9c" opacity=".52"/>
+    <path d="M179 23 l8 -11 l8 11 l13 4 l-13 4 l-8 11 l-8 -11 l-13 -4Z" fill="#facd73" opacity=".9"/>
+    <rect x="259" y="39" width="164" height="99" rx="7" fill="white" stroke="#9cc5bc" stroke-width="2.4"/><text x="341" y="74" fill="#16936f" font-size="18" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">λ + 성능 비교</text><text x="342" y="116" fill="#16936f" font-size="39" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle">✓</text></svg>
+          <div class="story-talk"><span aria-hidden="true">💬</span> “람다도 조절하고 성능도 확인!”</div>
+          <p class="story-lesson"><strong>개념 연결</strong> 실제 자료에서는 교차검증과 적절한 표준화가 중요해요.</p>
+        </article></div>
+    </div><div class="slide-footnote" aria-label="교안 쪽수 및 교재 출처"><span class="position">교안 10 / 10</span><span class="source">교재 p.310에 기초한 복습 설명</span></div></section>
+<div class="closing"><button class="navbtn" id="prevBottom" type="button">← 이전 학습</button><span class="small muted">키보드 ← →로도 넘길 수 있습니다. · 교안 10장 · 실제 인쇄 용지 수는 설정에 따라 다를 수 있습니다.</span><button class="navbtn" id="nextBottom" type="button">다음 학습 →</button></div><footer class="footer">학습자료: 사용자 제공 교재 p.310 및 기출 48번 · 총 10개 섹션(각 4컷) · 일부 비교·계수 예시는 보충 및 교육용</footer>
+</main>
+<script>
+(()=>{
+'use strict';
+const slides=[...document.querySelectorAll('.slide')];let current=0;
+const progress=document.getElementById('progress'), count=document.getElementById('counter');
+slides.forEach((s,i)=>{const b=document.createElement('button');b.type='button';b.title=`${i+1}장: ${s.dataset.title}`;b.setAttribute('aria-label',`${i+1}장 ${s.dataset.title} 이동`);b.addEventListener('click',()=>go(i));progress.appendChild(b)});
+function go(i){current=Math.max(0,Math.min(slides.length-1,i));slides.forEach((s,k)=>{s.classList.toggle('active',k===current);s.setAttribute('aria-hidden',k===current?'false':'true')});[...progress.children].forEach((b,k)=>{b.classList.toggle('active',k===current);b.setAttribute('aria-current',k===current?'step':'false')});count.textContent=`${String(current+1).padStart(2,'0')} / ${String(slides.length).padStart(2,'0')}`;document.querySelectorAll('#prevTop,#prevBottom').forEach(b=>b.disabled=current===0);document.querySelectorAll('#nextTop,#nextBottom').forEach(b=>b.disabled=current===slides.length-1);window.scrollTo({top:0,behavior:'instant'})}
+document.getElementById('prevTop').onclick=()=>go(current-1);document.getElementById('prevBottom').onclick=()=>go(current-1);document.getElementById('nextTop').onclick=()=>go(current+1);document.getElementById('nextBottom').onclick=()=>go(current+1);
+window.addEventListener('keydown',e=>{const t=e.target.tagName.toLowerCase();if(['input','textarea','select','button'].includes(t)||e.altKey||e.ctrlKey||e.metaKey)return;if(e.key==='ArrowRight')go(current+1);if(e.key==='ArrowLeft')go(current-1)});
+const base=[2.2,-1.45,0.9,0.34], names=['X₁','X₂','X₃','X₄'];let lambda=.75;const alpha=.6;
+function soft(b,t){return Math.sign(b)*Math.max(0,Math.abs(b)-t)}
+function model(which){return base.map(b=>which==='OLS'?b:which==='Ridge'?b/(1+lambda):which==='Lasso'?soft(b,lambda):soft(b,alpha*lambda)/(1+(1-alpha)*lambda))}
+function barList(id,which){const el=document.getElementById(id);if(!el)return;const values=model(which),colors={OLS:'#a0aec6',Ridge:'#2863ce',Lasso:'#ce7829',Elastic:'#7b58ca'};el.innerHTML=values.map((b,i)=>{const pct=Math.abs(b)/2.4*49;const left=b>=0?50:50-pct;const isZero=Math.abs(b)<1e-10;return `<div class="coef-row"><span class="coef-label">${names[i]}</span><div class="track" role="img" aria-label="${names[i]}의 계수 ${b.toFixed(2)}"><span class="stick" style="left:${left}%;width:${isZero?0:pct}%;background:${colors[which]}"></span></div><span class="coef-value" style="color:${isZero?'#ca5c39':'#334967'}">${isZero?'0.00':b.toFixed(2)}</span></div>`}).join('')}
+const uses={barsOLS:'OLS',barsOLS2:'OLS',barsRidge:'Ridge',barsRidge2:'Ridge',barsLasso:'Lasso',barsLasso2:'Lasso',barsElastic:'Elastic'};
+function update(v){lambda=Math.min(2.4,Math.max(0,Number(v)));document.querySelectorAll('.lambdaSlider').forEach(x=>x.value=lambda);document.querySelectorAll('.lambdaOut').forEach(o=>o.textContent=lambda.toFixed(2));for(const [id,m]of Object.entries(uses))barList(id,m);
+const r=model('Ridge'),l=model('Lasso'), countZero=l.filter(v=>Math.abs(v)<1e-10).length;
+document.getElementById('metricRidge').textContent=r.reduce((a,b)=>a+Math.abs(b),0).toFixed(2);document.getElementById('metricLasso').textContent=l.reduce((a,b)=>a+Math.abs(b),0).toFixed(2);document.getElementById('metricZero').textContent=`${countZero}/4`;
+document.getElementById('lambdaFill').setAttribute('width',String(460*lambda/2.4));
+document.getElementById('lambdaMessage').innerHTML=lambda===0?'λ = 0이므로 두 모형 모두 규제가 없습니다. 원래 OLS 계수가 그대로 유지됩니다.':lambda>1.9?'λ가 매우 커졌습니다. 계수가 크게 축소되므로 실제 데이터에서는 과소적합 가능성을 확인해야 합니다.':`현재 λ = ${lambda.toFixed(2)}. Ridge는 4개 계수를 축소하고, Lasso는 ${countZero}개를 정확히 0으로 만듭니다.`;
+document.getElementById('ridgeNarrative').textContent=lambda===0?'규제를 적용하지 않아 기존 계수가 그대로 남습니다.':`λ=${lambda.toFixed(2)}에서 Ridge는 모든 계수를 ${ (1/(1+lambda)*100).toFixed(0)}% 수준으로 축소합니다(직교·표준화 예시).`;
+document.getElementById('lassoNarrative').textContent=`λ=${lambda.toFixed(2)}에서 Lasso는 총 ${countZero}개 계수를 정확히 0으로 만들었습니다. 다른 데이터에서는 결과가 달라질 수 있습니다.`;
+}
+document.querySelectorAll('.lambdaSlider').forEach(x=>x.addEventListener('input',()=>update(x.value)));
+function reveal(selected){const f=document.getElementById('feedback');f.classList.add('show');const correct=selected===4;if(selected===null){f.innerHTML='<strong>정답 ④ · Lasso에는 L1 규제</strong><p>L2 규제는 Ridge에 해당합니다. Lasso는 회귀계수의 절대값 합에 페널티를 부과해 일부 계수를 0으로 만들 수 있습니다.</p>'}else{f.innerHTML=correct?'<strong>정답입니다! ④는 부적절한 설명입니다.</strong><p>Lasso는 L1, Ridge는 L2 규제를 사용합니다.</p>':`<strong>${['','①','②','③','④'][selected]}을 선택했어요. 정답은 ④입니다.</strong><p>선택한 문장을 L1/L2 기준으로 다시 확인해 보세요. Lasso는 L1, Ridge는 L2입니다.</p>`}document.querySelectorAll('.option').forEach(b=>{const n=Number(b.dataset.answer);b.classList.toggle('correct',n===4);b.classList.toggle('wrong',selected!==null&&n===selected&&!correct)})}
+document.querySelectorAll('.option').forEach(b=>b.addEventListener('click',()=>reveal(Number(b.dataset.answer))));document.getElementById('reveal').addEventListener('click',()=>reveal(null));
+document.querySelectorAll('.qmini').forEach(q=>{q.querySelectorAll('button').forEach(b=>b.onclick=()=>{q.querySelectorAll('button').forEach(x=>x.classList.toggle('selected',x===b));const ok=(q.dataset.mini==='1'&&b.dataset.val==='l')||(q.dataset.mini==='2'&&b.dataset.val==='o');q.querySelector('.result').textContent=ok?'✓ 정답! 개념을 정확히 이해했습니다.':'다시 확인해 보세요. Lasso는 0 가능, 지나친 규제는 과소적합입니다.'})});
+update(.75);go(0);
+})();
+</script>
+</body></html>

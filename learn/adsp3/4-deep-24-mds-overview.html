@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="다차원척도법 MDS 통계 분석 교안: 수업 목표, 핵심 키워드와 개념 풀이, p.326 출처, 시각화, Stress 실습, 기출 및 연습문제, 좌우넘김">
+<title>다차원척도법(MDS) | 시각화·기출문제 좌우넘김 교안</title>
+<style>
+:root{--navy:#18314f;--ink:#20344e;--muted:#667b92;--teal:#067d85;--mint:#e4f5f2;--blue:#eaf2fb;--pale:#f5f8fc;--line:#dce6ee;--gold:#fff0a8;--yellow:#fce38a;--coral:#e76755;--white:#fff;--shadow:0 18px 48px rgba(27,52,83,.09)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#edf3f9;color:var(--ink);font-family:"Pretendard","SUIT","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;line-height:1.64;letter-spacing:-.02em}
+button,input{font:inherit}
+button{cursor:pointer}
+button:focus-visible,input:focus-visible{outline:3px solid #f6ad36;outline-offset:3px}
+.hero{padding:25px clamp(18px,3vw,45px) 20px;background:linear-gradient(110deg,#102e50,#125e70);color:#fff}
+.topline{max-width:1380px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.eyebrow{font-size:14px;letter-spacing:.1em;font-weight:900;color:#c8eff6}
+.hero h1{font-size:clamp(25px,2.7vw,41px);letter-spacing:-.055em;margin:6px 0 3px;line-height:1.22;font-weight:900}
+.hero p{font-size:clamp(13px,1.12vw,17px);color:#e0edf6;margin:4px 0}
+.hero-controls{display:flex;gap:9px;align-items:center}
+.hero-controls button{background:#ffffff1f;border:1px solid #bcdce478;color:#fff;border-radius:11px;padding:9px 14px;font-size:14px;font-weight:800}
+.page-indicator{border-radius:999px;border:1px solid #c6e8f0a0;padding:7px 15px;background:#ffffff16;font-size:14px;font-weight:900;white-space:nowrap}
+.shell{max-width:1450px;margin:0 auto;padding:19px clamp(13px,2.4vw,32px) 35px}
+.navtrack{display:flex;gap:6px;overflow-x:auto;padding:2px 0 15px;scrollbar-width:thin}
+.navtab{white-space:nowrap;padding:8px 14px;border-radius:100px;border:1px solid #d4e1ed;background:#fff;color:#58738e;font-size:13px;font-weight:800;transition:.2s}
+.navtab.active{background:var(--teal);border-color:var(--teal);color:#fff;box-shadow:0 5px 12px rgba(6,125,133,.18)}
+.progress{height:5px;background:#dbe5ef;border-radius:20px;overflow:hidden;margin-bottom:18px}
+.progress-inner{height:100%;width:10%;background:linear-gradient(90deg,#06a3a8,#f7c858);transition:width .3s}
+.slide{display:none;animation:enter .3s ease both;background:#fff;border:1px solid #e1e9f1;border-radius:23px;padding:clamp(18px,2.9vw,40px);box-shadow:var(--shadow);min-height:680px}
+.slide.active{display:block}
+@keyframes enter{from{opacity:.3;transform:translateY(8px)}to{opacity:1;transform:none}}
+.slide-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;border-bottom:1px solid var(--line);padding-bottom:15px;margin-bottom:20px}
+.unit{display:inline-flex;color:var(--teal);background:var(--mint);border-radius:7px;padding:3px 8px;font-size:12px;font-weight:950;letter-spacing:.07em}
+h2{font-size:clamp(23px,2.25vw,33px);line-height:1.3;letter-spacing:-.055em;margin:7px 0 4px}
+.lead{color:#59718b;font-size:clamp(15px,1.24vw,18px);font-weight:550;margin:0}
+.slide-meta{display:flex;align-items:flex-end;gap:6px;flex-wrap:wrap;justify-content:flex-end;max-width:320px}
+.slide-order{font-size:12px;font-weight:850;border-radius:8px;padding:7px 10px;background:#eaf5f6;color:#067d85;white-space:nowrap}
+.page-tag{font-size:13px;font-weight:850;padding:7px 11px;background:#f3f6fa;border-radius:8px;color:#6c8095;white-space:nowrap}
+.visual-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:18px;align-items:stretch}
+.panel{padding:clamp(15px,1.8vw,23px);border:1px solid var(--line);background:#fbfdff;border-radius:17px;min-width:0}
+.panel.blue{background:#f3f8fe}
+.panel.mint{background:#f0faf8}
+.panel.white{background:#fff}
+.panel h3{font-size:clamp(16px,1.4vw,20px);line-height:1.4;letter-spacing:-.045em;margin:0 0 12px;color:#153753}
+.panel p{margin:5px 0 9px;font-size:15px}
+.highlight{background:linear-gradient(transparent 42%,var(--gold) 42%);font-weight:850;padding:0 2px}
+.keymessage{margin:14px 0 0;background:#fff4ba;color:#3b4350;padding:13px 15px;border-radius:11px;font-weight:800;border-left:5px solid #e9ba31;font-size:clamp(14px,1.2vw,17px)}
+.bullet{margin:8px 0;padding-left:22px;font-size:clamp(14px,1.11vw,16px)}
+.bullet li{margin:5px 0}
+.bullet b{color:#0c6476}
+.english{font-size:12px;color:#577e96;font-weight:700;letter-spacing:0}
+.four-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:13px}
+.comic{background:#fff;border:1px solid #dbe7f0;border-radius:12px;text-align:center;padding:13px 8px;position:relative;min-height:136px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.comic:after{content:'›';font-size:25px;color:#f0bd45;font-weight:900;position:absolute;right:-12px;top:39%;z-index:2}
+.comic:last-child:after{display:none}
+.comic .emoji{font-size:34px;line-height:1.4}
+.comic strong{font-size:13px;line-height:1.4}
+.comic span{font-size:12px;color:#586a7d;line-height:1.35}
+.svgwrap{width:100%;min-height:190px;display:flex;align-items:center;justify-content:center}
+.svgwrap svg{width:100%;height:auto;max-height:270px;overflow:visible}
+.pill-line{display:flex;gap:7px;flex-wrap:wrap;margin:8px 0}
+.pill{padding:5px 9px;border-radius:8px;background:#e7f0f8;color:#294e74;font-weight:750;font-size:13px}
+.pill.primary{background:#d7f0ef;color:#096d77}
+.number-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:15px}
+.step{border-radius:11px;background:#f0f4fa;padding:11px 8px;text-align:center;font-size:13px;font-weight:800}
+.step b{display:block;color:#057780;font-size:23px}
+.tiny{font-size:12px!important;color:#647d92}
+.formula{font-family:Georgia,Times,serif;background:#e9f5f9;border:1px solid #c7e4ec;color:#145577;font-size:clamp(17px,1.55vw,24px);padding:15px 12px;border-radius:13px;text-align:center;letter-spacing:0}
+.matrix{border-collapse:collapse;width:100%;font-size:13px;background:#fff;border-radius:9px;overflow:hidden;text-align:center}
+.matrix th,.matrix td{padding:9px 8px;border:1px solid #dbe6ee;font-variant-numeric:tabular-nums}
+.matrix th{background:#e6f1f8;color:#285576}
+.matrix .diagonal{background:#edf6ef;font-weight:800;color:#16806e}
+.interact{border:1px dashed #b4d8df;border-radius:11px;background:#f6fdff;padding:12px 14px;margin-top:10px}
+.pair-btns{display:flex;gap:8px;flex-wrap:wrap}
+.pair-btns button{padding:8px 13px;background:#fff;border:1px solid #bfdae8;border-radius:9px;color:#21506c;font-weight:850}
+.pair-btns button.active{background:#007c84;color:#fff}
+.live-info{margin:9px 0 0;font-size:14px;font-weight:700}
+.compare-columns{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.compare-side{background:#fff;border:1px solid #dee7ed;border-radius:14px;padding:13px;min-width:0}
+.compare-side h4{margin:0 0 7px;font-size:15px;color:#126072}
+.compare-side svg{width:100%;height:auto;max-height:200px}
+.compare-side p{font-size:13px;margin:2px 0}
+.triplet{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.tri{border-radius:12px;text-align:center;border:1px solid #d9e5eb;background:#fff;padding:15px 8px}
+.tri strong{display:block;font-size:14px;color:#0b6d79}
+.tri span{font-size:12px}
+.distbars{margin-top:13px}
+.barline{display:grid;grid-template-columns:53px 1fr 40px;gap:10px;align-items:center;margin:11px 0;font-size:13px;font-weight:800}
+.bar{height:11px;background:#dce8ee;border-radius:10px;overflow:hidden}
+.bar div{height:100%;background:#1595a0;border-radius:10px}
+.barline.nonmetric .bar div{background:#edae4c}
+.slider-row{display:flex;gap:13px;align-items:center;flex-wrap:wrap;margin-top:9px}
+.slider-row input{width:min(100%,300px);accent-color:#087b88}
+.slider-value{font-weight:900;background:#e9f5f7;padding:5px 10px;border-radius:8px;color:#006f7a;font-variant-numeric:tabular-nums}
+.stressstat{display:flex;align-items:center;gap:11px;flex-wrap:wrap;margin:10px 0}
+.stressbig{font-size:31px;line-height:1.2;font-weight:950;letter-spacing:-.04em;color:#066f80;font-variant-numeric:tabular-nums}
+.stressmeter{height:13px;background:linear-gradient(90deg,#3ab29b 0%,#eed16c 53%,#e4796e 100%);border-radius:15px;position:relative;margin:9px 5px}
+.stressneedle{position:absolute;left:0%;top:-4px;height:21px;width:5px;background:#173a57;border:2px solid #fff;border-radius:4px;box-shadow:0 1px 4px #789;transition:left .2s}
+.stresslegend{display:flex;justify-content:space-between;color:#60778c;font-size:11px}
+.question-card{margin-top:18px;background:#f7f9fd;border:1px solid #dbe6ee;border-radius:18px;padding:clamp(15px,2vw,24px)}
+.question-top{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:8px}
+.question-top .label{background:#213e5d;color:#fff;font-size:12px;letter-spacing:.02em;padding:4px 9px;border-radius:6px;font-weight:850}
+.question-top .label.practice{background:#397c85}
+.question-top span:last-child{font-size:13px;color:#6c7e91;font-weight:700}
+.question-card h3{font-size:clamp(17px,1.43vw,21px);line-height:1.5;color:#1e354f;margin:0 0 11px;letter-spacing:-.035em}
+.answers{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.option{text-align:left;background:#fff;border:1px solid #d6e1ea;border-radius:10px;padding:11px 14px;font-size:clamp(13px,1.08vw,16px);line-height:1.45;color:#334d68;transition:.13s;min-height:51px}
+.option:hover{border-color:#65b8bf;background:#fbffff}
+.option.correct{background:#e4f7ed;border-color:#4cae89;color:#1b6650;font-weight:850}
+.option.incorrect{background:#fff0ed;border-color:#df9b8c;color:#954d43}
+.quiz-actions{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin-top:12px}
+.quiz-action{background:#fff;border:1px solid #b4d7e1;color:#096b79;padding:8px 13px;border-radius:9px;font-size:14px;font-weight:900}
+.quiz-hint{font-size:12px;color:#76869b}
+.explanation{display:none;background:#fff;border-left:4px solid #0d8a92;padding:13px 16px;margin-top:12px;border-radius:9px;font-size:14px;color:#2c435f}
+.question-card.revealed .explanation{display:block}
+.explanation strong{font-size:15px;color:#076f78}
+.footnav{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:18px 4px 3px}
+.navbutton{border:1px solid #bfd4e2;background:#fff;color:#254c69;padding:10px 20px;border-radius:11px;font-weight:900;font-size:15px}
+.navbutton.next{background:#097d85;color:#fff;border-color:#097d85}
+.navbutton:disabled{opacity:.32;cursor:default}
+.swipehint{text-align:center;color:#7389a0;font-size:13px;font-weight:650}
+.footer{padding:0 0 7px;text-align:center;color:#7b8ba0;font-size:12px}
+.note{background:#fff7dc;border-left:4px solid #e8b846;padding:9px 12px;border-radius:8px;font-size:13px;margin-top:8px}
+.alt{color:#5e7288;font-size:13px;font-weight:650}
+.recap{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.recap>div{background:#fff;padding:15px;border:1px solid #e2e7ef;border-radius:11px}
+.recap b{display:block;color:#0b7781;margin-bottom:5px}
+.bigword{font-weight:900;color:#0c7481}
+@media (max-width:980px){.visual-grid{grid-template-columns:1fr}.slide{min-height:0}.four-grid{grid-template-columns:repeat(2,1fr)}.comic:nth-child(2):after{display:none}.comic{min-height:108px}}
+@media (max-width:660px){.hero-controls{width:100%;justify-content:space-between}.slide-heading{flex-wrap:wrap}.answers{grid-template-columns:1fr}.compare-columns{grid-template-columns:1fr 1fr}.triplet{grid-template-columns:1fr}.number-steps{grid-template-columns:1fr 1fr}.recap{grid-template-columns:1fr}.slide{padding:16px}.shell{padding:10px 10px 23px}.panel{padding:14px}.pair-btns button{flex:1}.swipehint{font-size:11px}}
+
+/* Introduction: goals, definitions and steps */
+.intro-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:18px}
+.goal{display:flex;gap:12px;align-items:flex-start;background:#f5faff;border:1px solid #dce8f2;border-radius:15px;padding:15px;min-width:0}
+.goal-index{width:40px;height:40px;flex:0 0 40px;display:flex;align-items:center;justify-content:center;background:#d4f0ed;border-radius:12px;color:#087780;font-size:20px;font-weight:950}
+.goal strong{display:block;color:#193e5c;font-size:16px;line-height:1.4}
+.goal p{color:#58708a;font-size:13px;line-height:1.5;margin:4px 0 0}
+.intro-two{display:grid;grid-template-columns:1fr 1.16fr;gap:15px;align-items:stretch}
+.lesson-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:15px 0 8px}
+.lesson-flow .flow-stage{background:#fff;border:1px solid #d8e6ef;border-radius:11px;padding:10px 5px;position:relative;text-align:center;min-width:0}
+.lesson-flow .flow-stage:not(:last-child):after{content:'›';position:absolute;font-size:23px;right:-11px;top:30%;z-index:1;color:#b57f17;font-weight:900}
+.lesson-flow .flow-stage .flow-emoji{font-size:27px;display:block}
+.lesson-flow .flow-stage strong{display:block;font-size:12px;color:#195676;line-height:1.4}
+.lesson-flow .flow-stage small{display:block;font-size:11px;color:#627993}
+.keywords{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.keyword{background:white;border:1px solid #dbe6ed;border-radius:12px;padding:11px 13px;min-width:0}
+.keyword b{display:block;font-size:14px;color:#0a6f7a;line-height:1.35}
+.keyword .en{font-size:11px;font-weight:750;color:#54758b;letter-spacing:0}
+.keyword p{font-size:13px;line-height:1.46;margin:5px 0 0;color:#3e5269}
+.intro-source{display:flex;align-items:flex-start;gap:9px;background:#fff8e7;border:1px solid #f0ddb2;border-radius:11px;padding:11px 13px;margin-top:14px;font-size:13px;color:#645331}
+.intro-source b{color:#76500f}
+.section-mini{font-weight:900;color:#1f5a73;font-size:15px;margin:1px 0 11px}
+@media (max-width:1080px){.intro-two{grid-template-columns:1fr}.intro-strip{grid-template-columns:1fr 1fr 1fr}}
+@media (max-width:730px){.intro-strip{grid-template-columns:1fr}.intro-two{grid-template-columns:1fr}.keywords{grid-template-columns:1fr 1fr}.lesson-flow{grid-template-columns:repeat(2,minmax(0,1fr))}.lesson-flow .flow-stage:nth-child(2):after{content:none}}
+@media (max-width:450px){.keywords{grid-template-columns:1fr}.slide-meta{justify-content:flex-start}}
+@media print{body{background:#fff}.hero{background:#fff!important;color:#152d4f;padding:10px 0}.hero p,.eyebrow{color:#334c61}.hero-controls,.navtrack,.progress,.footnav,.swipehint{display:none!important}.shell{padding:0}.slide,.slide.active{display:block!important;box-shadow:none;break-inside:avoid;break-after:page;border:1px solid #dce7ee;min-height:auto;padding:20px;margin:10px 0}.question-card .explanation{display:block!important}.footer{display:none}button.option{print-color-adjust:exact}.comic:after{display:none}.visual-grid{grid-template-columns:1fr 1fr}.slide{page-break-after:always} }
+</style>
+</head>
+<body>
+<header class="hero">
+ <div class="topline">
+  <div><div class="eyebrow">PART 03 · 데이터 분석 / 4장 통계 분석 · 교재 p.326</div><h1>다차원척도법 <span style="color:#a7f2de">MDS</span></h1><p>수업 목표 · 핵심 키워드 · 이론 시각화 · 기출풀이 | 좌우넘김 학습 교안</p></div>
+  <div class="hero-controls"><button onclick="window.print()" title="인쇄하거나 PDF로 저장">🖨 전체 인쇄</button><span id="pageIndicator" class="page-indicator" aria-live="polite">1 / 10</span></div>
+ </div>
+</header>
+<main class="shell" id="lesson">
+ <nav class="navtrack" aria-label="학습 목차">
+  <button class="navtab active" type="button" data-page="0">01 수업 목표·키워드</button>
+  <button class="navtab" type="button" data-page="1">02 핵심 개념</button>
+  <button class="navtab" type="button" data-page="2">03 거리와 근접성</button>
+  <button class="navtab" type="button" data-page="3">04 차원 축소 과정</button>
+  <button class="navtab" type="button" data-page="4">05 군집분석 비교</button>
+  <button class="navtab" type="button" data-page="5">06 MDS 종류</button>
+  <button class="navtab" type="button" data-page="6">07 Stress 실습</button>
+  <button class="navtab" type="button" data-page="7">08 결과 해석</button>
+  <button class="navtab" type="button" data-page="8">09 기출 59번</button>
+  <button class="navtab" type="button" data-page="9">10 총정리</button>
+ </nav>
+ <div class="progress" aria-hidden="true"><div class="progress-inner" id="progress"></div></div>
+
+ <!-- slide 1: introductory learning goals + glossary -->
+ <article class="slide active" data-title="수업 목표와 핵심 키워드">
+  <div class="slide-heading">
+   <div><div class="unit">01 · LESSON OVERVIEW</div><h2>오늘의 수업 목표와 핵심 개념</h2><p class="lead">다차원척도법을 <span class="highlight">이해 → 비교 → 해석</span>하는 3가지 학습 목표</p></div>
+   <div class="slide-meta"><span class="page-tag">📖 교재 p.326 · 학습 도입</span><span class="slide-order">교안 01 / 10</span></div>
+  </div>
+  <div class="section-mini">🎯 수업이 끝나면 할 수 있어야 하는 것</div>
+  <div class="intro-strip">
+   <section class="goal"><span class="goal-index">1</span><div><strong>MDS의 목적 설명하기</strong><p>대상 사이의 유사성·거리 정보를 왜 2차원이나 3차원 점지도로 표현하는지 설명한다.</p></div></section>
+   <section class="goal"><span class="goal-index">2</span><div><strong>MDS와 군집분석 구별하기</strong><p>‘누가 누구와 가까운가?’와 ‘누가 같은 그룹인가?’라는 분석 목적의 차이를 말할 수 있다.</p></div></section>
+   <section class="goal"><span class="goal-index">3</span><div><strong>MDS 종류와 결과 해석하기</strong><p>계량·비계량 MDS의 차이를 구분하고, Stress 값으로 거리 표현의 적합도를 판단한다.</p></div></section>
+  </div>
+  <div class="intro-two">
+   <section class="panel blue"><h3>🧭 MDS 분석은 이렇게 생각하면 쉽습니다</h3>
+    <p>관광지마다 특징은 다양하지만, 각 관광지가 <span class="highlight">서로 얼마나 비슷한지</span>를 한 장의 지도에 표현할 수 있습니다.</p>
+    <div class="lesson-flow" aria-label="분석 흐름: 관광지 비교, 거리 산출, 점지도 배치, Stress 확인">
+     <div class="flow-stage"><span class="flow-emoji">🏖️</span><strong>① 대상</strong><small>관광지 비교</small></div>
+     <div class="flow-stage"><span class="flow-emoji">📏</span><strong>② 거리</strong><small>유사·비유사</small></div>
+     <div class="flow-stage"><span class="flow-emoji">📍</span><strong>③ MDS</strong><small>지도에 배치</small></div>
+     <div class="flow-stage"><span class="flow-emoji">📊</span><strong>④ 평가</strong><small>Stress 확인</small></div>
+    </div>
+    <div class="compare-columns" style="margin-top:12px">
+     <div class="compare-side"><h4>다차원척도법(MDS)</h4><p>“휴양지와 자연공원은 <b>가깝구나!</b>”</p><p class="tiny">대상을 점으로 배치해 관계를 보여줌</p></div>
+     <div class="compare-side"><h4>군집분석(Clustering)</h4><p>“두 관광지는 <b>같은 그룹</b>이구나!”</p><p class="tiny">비슷한 대상을 묶어 집단을 만듦</p></div>
+    </div>
+    <div class="keymessage">오늘의 한 문장: <b>“MDS는 거리 관계를 지도처럼 보여주는 방법이다.”</b></div>
+   </section>
+   <section class="panel mint"><h3>🔑 핵심 키워드 · 개념 풀이</h3>
+    <div class="keywords">
+     <div class="keyword"><b>MDS · 다차원척도법</b><span class="en">Multidimensional Scaling</span><p>대상 간의 가깝고 먼 관계를 <b>점의 위치</b>로 보여주는 분석</p></div>
+     <div class="keyword"><b>근접성 · 가까움</b><span class="en">Proximity</span><p>두 대상이 서로 얼마나 가까운 관계에 있는지 나타낸 정보</p></div>
+     <div class="keyword"><b>유사성 · 비유사성</b><span class="en">Similarity / Dissimilarity</span><p>서로 비슷한 정도 / 서로 다른 정도. 비유사성이 크면 더 다르다는 뜻</p></div>
+     <div class="keyword"><b>거리</b><span class="en">Distance</span><p>점 사이가 얼마나 떨어져 있는지 나타내는 값. 보통 짧을수록 비슷함</p></div>
+     <div class="keyword"><b>차원 축소</b><span class="en">Dimensionality Reduction</span><p>복잡한 여러 특성의 관계를 2차원이나 3차원으로 간단히 표현</p></div>
+     <div class="keyword"><b>군집분석</b><span class="en">Cluster Analysis</span><p>서로 비슷한 대상끼리 <b>그룹으로 묶는</b> 방법. MDS와 목적이 다름</p></div>
+     <div class="keyword"><b>계량 / 비계량 MDS</b><span class="en">Metric / Nonmetric MDS</span><p>거리의 <b>크기 관계</b>를 다루는 방식 / 거리의 <b>순서 관계</b>를 중시하는 방식</p></div>
+     <div class="keyword"><b>스트레스 · 부적합도</b><span class="en">Stress</span><p>점지도가 원래의 거리 관계를 얼마나 잘 표현하지 못했는지 나타내는 값. 일반적으로 작을수록 좋음</p></div>
+    </div>
+   </section>
+  </div>
+  <div class="intro-source"><span>📚</span><div><b>쪽수 안내</b> — 제공된 교재 내용의 확인 가능한 쪽수는 <b>p.326</b>입니다. 본 교안의 첫 장·핵심 정의·기출 59번은 p.326을 기준으로 하며, 나머지 예시와 세부 설명은 p.326 주제에 대한 <b>수업용 보충·확장 내용</b>입니다. ‘교안 01/10’은 교재 쪽수가 아니라 화면 순서입니다.</div></div>
+ </article>
+
+ <!-- slide 2 -->
+ <article class="slide" data-title="핵심 개념">
+  <div class="slide-heading"><div><div class="unit">02 · WHAT IS MDS?</div><h2>멀고 가까운 관계를 ‘지도’로 바꾸는 분석</h2><p class="lead">MDS = Multidimensional Scaling(다차원척도법)</p></div><div class="slide-meta"><span class="page-tag">📖 교재 p.326 · 핵심 정의</span><span class="slide-order">교안 02 / 10</span></div></div>
+  <div class="visual-grid">
+   <section class="panel blue"><h3>🗺️ 예: 관광지 네 곳을 관광객의 인식에 따라 배치하면?</h3>
+    <div class="svgwrap"><svg viewBox="0 0 600 280" role="img" aria-label="휴양지와 자연공원은 가깝고 비즈니스호텔과 테마파크가 다른 위치에 표시된 MDS 개념 지도">
+     <rect x="34" y="21" width="532" height="226" rx="12" fill="#fff" stroke="#d6e5ee"/><path d="M300 30 V241 M45 137 H555" stroke="#d8e2ed" stroke-dasharray="6 8"/><text x="301" y="269" fill="#637f93" font-size="14" text-anchor="middle">지도상의 거리는 ‘인식된 차이’를 표현</text>
+     <path d="M148 101 L240 141" stroke="#09a9ad" stroke-width="4" stroke-dasharray="8 7"/><path d="M148 101 L477 73" stroke="#e4ae5d" stroke-width="2" stroke-dasharray="5 7"/><g font-weight="800" font-size="16" text-anchor="middle"><circle cx="148" cy="101" r="26" fill="#a8ece2" stroke="#048d93" stroke-width="2"/><text x="148" y="107" fill="#175873">🏝</text><text x="148" y="65" fill="#254765">휴양지</text><circle cx="240" cy="141" r="26" fill="#a8ece2" stroke="#048d93" stroke-width="2"/><text x="240" y="147" fill="#175873">🌲</text><text x="240" y="185" fill="#254765">자연공원</text><circle cx="477" cy="73" r="26" fill="#ffe5ad" stroke="#d59736" stroke-width="2"/><text x="477" y="79">🎡</text><text x="477" y="37" fill="#254765">테마파크</text><circle cx="426" cy="205" r="26" fill="#d5e1fa" stroke="#6485bb" stroke-width="2"/><text x="426" y="211">🏨</text><text x="426" y="246" fill="#254765">비즈니스호텔</text></g></svg></div>
+    <p class="tiny">※ 위 배치는 원리를 설명하기 위한 가상의 예시이며, 실제 분석 결과가 아닙니다.</p>
+   </section>
+   <section class="panel mint"><h3>개념을 가장 짧게 이해하기</h3><p>① 대상들 사이의 <span class="highlight">유사성(Similarity)</span> 또는 <span class="highlight">비유사성(Dissimilarity)</span>을 구합니다.</p><p>② 그 관계를 <b>2차원·3차원 점의 위치</b>로 나타냅니다.</p><p>③ <b>비슷한 대상은 가깝게</b>, 다른 대상은 멀게 배치하려고 합니다.</p><div class="keymessage">MDS의 핵심 질문: “누구와 누가 얼마나 가깝게 느껴질까?”</div><div class="pill-line"><span class="pill primary">입력: 대상 간 거리·유사성</span><span class="pill">출력: 공간상의 점 배치</span></div></section>
+  </div>
+  <div class="four-grid" aria-label="MDS 이해를 위한 네 컷 그림 이야기"><div class="comic"><div class="emoji">👩‍🎓</div><strong>① 관광지를 조사해요</strong><span>“네 곳 중 어디가 비슷하지?”</span></div><div class="comic"><div class="emoji">📏</div><strong>② 차이를 측정해요</strong><span>“둘의 차이는 작네!”</span></div><div class="comic"><div class="emoji">🗺️</div><strong>③ 점을 찍어요</strong><span>“비슷한 곳은 가까이!”</span></div><div class="comic"><div class="emoji">💡</div><strong>④ 관계가 보이네요</strong><span>“아! 이런 인식 구조였구나.”</span></div></div>
+  <section class="question-card" data-answer="1"><div class="question-top"><span class="label practice">개념 연습 01 · 신규</span><span>핵심 목적 확인</span></div><h3>Q. 다차원척도법(MDS)의 가장 직접적인 목적은 무엇인가요?</h3><div class="answers"><button class="option">① 대상마다 평균값을 비교한다.</button><button class="option">② 대상 간 근접성을 저차원 공간에 시각화한다.</button><button class="option">③ 데이터의 인과관계를 확정한다.</button><button class="option">④ 변수 간 다중공선성을 제거한다.</button></div><div class="quiz-actions"><button class="quiz-action reveal" type="button">정답·해설 보기</button><span class="quiz-hint">답을 눌러도 해설이 열립니다.</span></div><div class="explanation"><strong>정답 ②</strong> — MDS의 목적은 대상 사이의 유사성·비유사성을 공간상 거리로 표현하는 것입니다. 공간의 가로축과 세로축 자체가 인과관계나 회귀계수를 의미하지는 않습니다.</div></section>
+ </article>
+
+ <!-- slide 3 -->
+ <article class="slide" data-title="거리와 근접성">
+  <div class="slide-heading"><div><div class="unit">03 · PROXIMITY</div><h2>두 점이 가까우면, 두 대상의 차이도 작다</h2><p class="lead">근접성(Proximity) · 비유사성(Dissimilarity) · 거리(Distance)</p></div><div class="slide-meta"><span class="page-tag">📖 교재 p.326 연계 · 확장</span><span class="slide-order">교안 03 / 10</span></div></div>
+  <div class="visual-grid">
+   <section class="panel blue"><h3>📍 점 A, B, C, D 사이에서 한 쌍을 선택해 보세요</h3><div class="svgwrap"><svg id="pairMap" viewBox="0 0 560 300" role="img" aria-label="네 점 중 선택한 두 점의 거리를 표시하는 그림"><rect x="14" y="10" width="532" height="275" fill="#fff" rx="12" stroke="#d8e5ed"/><path d="M45 245 L510 245 M45 245 L45 26" stroke="#c8d8e6" stroke-width="2"/><line id="pairLine" x1="110" y1="80" x2="195" y2="80" stroke="#ec9d43" stroke-width="5" stroke-dasharray="9 6"/><g font-size="18" font-weight="900" text-anchor="middle"><circle cx="110" cy="80" r="22" fill="#aae3e6" stroke="#09838a" stroke-width="3"/><text x="110" y="86" fill="#12425b">A</text><circle cx="195" cy="80" r="22" fill="#aae3e6" stroke="#09838a" stroke-width="3"/><text x="195" y="86" fill="#12425b">B</text><circle cx="110" cy="200" r="22" fill="#a9d8f1" stroke="#3481b8" stroke-width="3"/><text x="110" y="206" fill="#12425b">C</text><circle cx="450" cy="200" r="22" fill="#f4dcb1" stroke="#c99336" stroke-width="3"/><text x="450" y="206" fill="#12425b">D</text></g><rect id="pairTextBox" x="216" y="32" width="189" height="45" rx="12" fill="#fff0d7"/><text id="pairSVGText" x="310" y="59" text-anchor="middle" font-size="15" font-weight="900" fill="#8d5c15">A–B : 가까운 쌍</text></svg></div>
+    <div class="interact"><div class="pair-btns"><button class="active" data-pair="AB" type="button">A ↔ B</button><button data-pair="AD" type="button">A ↔ D</button><button data-pair="CD" type="button">C ↔ D</button></div><p class="live-info" id="pairInfo" aria-live="polite">A–B는 서로 가까워 비유사성이 작습니다.</p></div>
+   </section>
+   <section class="panel mint"><h3>거리표를 먼저 만들고 점을 배치합니다</h3><p>분석의 출발점은 각 대상의 점수 자체가 아니라 <span class="highlight">대상과 대상 사이의 차이</span>입니다.</p><table class="matrix" aria-label="MDS 대상 간 거리 행렬 예시"><thead><tr><th>거리</th><th>A</th><th>B</th><th>C</th><th>D</th></tr></thead><tbody><tr><th>A</th><td class="diagonal">0</td><td>1.0</td><td>3.0</td><td>5.0</td></tr><tr><th>B</th><td>1.0</td><td class="diagonal">0</td><td>3.2</td><td>4.2</td></tr><tr><th>C</th><td>3.0</td><td>3.2</td><td class="diagonal">0</td><td>4.0</td></tr><tr><th>D</th><td>5.0</td><td>4.2</td><td>4.0</td><td class="diagonal">0</td></tr></tbody></table><p class="tiny">교육용 행렬: A(0,0), B(1,0), C(0,3), D(4,3)에서 구한 거리의 반올림 값입니다. 위 그림은 도식화한 배치입니다.</p><div class="keymessage">거리 0에 가까울수록 ‘차이가 작다’는 뜻. 거리 5는 거리 1보다 비유사성이 큽니다.</div></section>
+  </div>
+  <section class="question-card" data-answer="2"><div class="question-top"><span class="label practice">개념 연습 02 · 신규</span><span>거리표 해석</span></div><h3>Q. 동일한 기준의 비유사성 거리에서 A–B=1, A–D=5라면 적절한 해석은?</h3><div class="answers"><button class="option">① A와 D가 A와 B보다 더 유사하다.</button><button class="option">② 두 쌍의 유사성이 반드시 같다.</button><button class="option">③ A와 B가 A와 D보다 더 유사하다.</button><button class="option">④ MDS에서는 대상 간 거리를 사용할 수 없다.</button></div><div class="quiz-actions"><button class="quiz-action reveal" type="button">정답·해설 보기</button><span class="quiz-hint">‘거리’와 ‘유사도’를 혼동하지 마세요.</span></div><div class="explanation"><strong>정답 ③</strong> — 비유사성으로 정의한 거리가 작으면 두 대상의 차이도 작습니다. 다만 ‘유사도 점수’가 입력이라면 적절한 비유사성 변환이 먼저 필요할 수 있습니다.</div></section>
+ </article>
+
+ <!-- slide 4 -->
+ <article class="slide" data-title="차원 축소 과정">
+  <div class="slide-heading"><div><div class="unit">04 · DIMENSION REDUCTION</div><h2>여러 특성의 관계를 2차원 한 장에 압축</h2><p class="lead">차원 축소(Dimensionality Reduction)의 의미를 단계별로 확인</p></div><div class="slide-meta"><span class="page-tag">📖 교재 p.326 연계 · 확장</span><span class="slide-order">교안 04 / 10</span></div></div>
+  <div class="visual-grid">
+   <section class="panel blue"><h3>원자료의 변수가 많아도, 결과는 2D 지도일 수 있어요</h3><div class="svgwrap"><svg viewBox="0 0 680 266" role="img" aria-label="가격 청결 교통 등 여러 특성에서 거리 행렬을 거쳐 이차원 MDS 점지도로 변환"><rect x="5" y="25" width="178" height="211" rx="15" fill="#fff" stroke="#cbdbe8"/><text x="94" y="49" font-size="16" font-weight="900" text-anchor="middle" fill="#174765">여러 기준의 데이터</text><g font-size="14" fill="#3a617e"><text x="24" y="83">💰 가격</text><text x="24" y="116">🛏️ 청결</text><text x="24" y="149">🚉 접근성</text><text x="24" y="182">🍀 편안함</text><text x="24" y="213">… 기타 특성</text></g><path d="M190 129 H247" stroke="#0b9a9f" stroke-width="5" stroke-linecap="round"/><path d="M232 115 L249 129 L232 143" stroke="#0b9a9f" fill="none" stroke-width="5" stroke-linejoin="round"/>
+     <rect x="256" y="25" width="170" height="211" rx="15" fill="#e8f5f3" stroke="#c2ddd9"/><text x="341" y="49" font-size="16" font-weight="900" text-anchor="middle" fill="#174765">개체 간 거리</text><g stroke="#cee5e7" fill="none" stroke-width="2"><path d="M276 83 H405 M276 120 H405 M276 157 H405 M276 194 H405 M278 72 V207 M322 72 V207 M365 72 V207 M408 72 V207"/></g><g font-size="13" fill="#175c77" font-weight="800"><text x="290" y="100">0</text><text x="338" y="100">2</text><text x="382" y="100">6</text><text x="293" y="140">2</text><text x="338" y="140">0</text><text x="382" y="140">4</text><text x="293" y="178">6</text><text x="338" y="178">4</text><text x="382" y="178">0</text></g><path d="M433 129 H485" stroke="#0b9a9f" stroke-width="5" stroke-linecap="round"/><path d="M470 115 L486 129 L470 143" stroke="#0b9a9f" fill="none" stroke-width="5"/>
+     <rect x="495" y="25" width="180" height="211" rx="15" fill="#fff" stroke="#cbdbe8"/><text x="584" y="49" font-size="16" font-weight="900" text-anchor="middle" fill="#174765">2차원 점 배치</text><path d="M518 209 V72 M518 209 H649" stroke="#a6bed1" stroke-width="2"/><circle cx="534" cy="94" r="14" fill="#18a2a7"/><circle cx="561" cy="113" r="14" fill="#18a2a7"/><circle cx="619" cy="166" r="14" fill="#e9ae4d"/><circle cx="585" cy="179" r="14" fill="#90a8d6"/><text x="584" y="260" fill="#637c8f" text-anchor="middle" font-size="13">보기 쉬운 공간</text></svg></div><div class="number-steps"><div class="step"><b>1</b>특성 수집</div><div class="step"><b>2</b>거리 계산</div><div class="step"><b>3</b>점 위치 탐색</div><div class="step"><b>4</b>적합도 확인</div></div></section>
+   <section class="panel mint"><h3>무엇을 최대한 보존할까요?</h3><p>원래 자료에서 A와 B가 가깝고 A와 D가 멀었다면, 축소 후 공간에서도 <b>A–B는 가깝고 A–D는 멀도록</b> 점을 배치합니다.</p><div class="formula">원래 거리 δ<sub>ij</sub> ↔ 지도 거리 d<sub>ij</sub></div><p>차원이 작아지면 정보를 한 화면에 보여주기 쉬워지지만, 거리 관계를 완벽하게 나타내지 못할 수 있습니다.</p><div class="note"><b>정확한 표현:</b> 차원 축소에 <b>항상</b> 거리 손실이 생기는 것은 아닙니다. 원래 거리 구조가 2차원에 정확히 표현 가능한 경우에는 왜곡 없이 배치할 수도 있습니다.</div><div class="keymessage">목적은 단순히 점을 적게 만드는 것이 아니라 <b>관계의 구조를 최대한 살리는 것</b>입니다.</div></section>
+  </div>
+  <section class="question-card" data-answer="0"><div class="question-top"><span class="label practice">개념 연습 03 · 신규</span><span>차원 축소 핵심</span></div><h3>Q. MDS에서 ‘저차원 공간에 배치한다’는 말의 의미로 가장 적절한 것은?</h3><div class="answers"><button class="option">① 대상 간 거리 관계를 가능한 한 유지하며 점으로 나타낸다.</button><button class="option">② 개체를 반드시 두 집단으로 나눈다.</button><button class="option">③ 모든 원래 변수를 삭제해 버린다.</button><button class="option">④ 분석 후 모든 점 사이의 거리가 동일해진다.</button></div><div class="quiz-actions"><button class="quiz-action reveal" type="button">정답·해설 보기</button><span class="quiz-hint">‘지도상의 점’이 중요한 이유를 생각하세요.</span></div><div class="explanation"><strong>정답 ①</strong> — MDS는 대상 사이의 거리 구조를 가능한 한 보존하는 저차원 공간 표현입니다. 군집 수를 강제로 정하거나 원래 변수를 삭제하는 기법을 뜻하지 않습니다.</div></section>
+ </article>
+
+ <!-- slide 5 -->
+ <article class="slide" data-title="군집분석 비교">
+  <div class="slide-heading"><div><div class="unit">05 · MDS vs CLUSTER ANALYSIS</div><h2>같은 거리 자료를 쓰더라도 ‘결과’가 다릅니다</h2><p class="lead">MDS는 ‘어디에 있는가?’ · 군집분석은 ‘어느 그룹인가?’</p></div><div class="slide-meta"><span class="page-tag">📖 교재 p.326 연계 · 확장</span><span class="slide-order">교안 05 / 10</span></div></div>
+  <div class="visual-grid">
+   <section class="panel blue"><h3>🧭 두 가지 분석의 산출물을 비교해 보세요</h3><div class="compare-columns"><div class="compare-side"><h4>① MDS · 상대적 위치</h4><svg viewBox="0 0 270 206" role="img" aria-label="MDS는 개체의 상대적 위치를 보여주는 점지도"><path d="M33 170 V24 M33 170 H246" stroke="#a5bbcf" stroke-width="2"/><g fill="#13979f"><circle cx="70" cy="51" r="12"/><circle cx="100" cy="74" r="12"/><circle cx="80" cy="100" r="12"/></g><g fill="#e6aa51"><circle cx="193" cy="132" r="12"/><circle cx="226" cy="151" r="12"/></g><g font-size="12" font-weight="800" fill="#43627d" text-anchor="middle"><text x="70" y="36">A</text><text x="100" y="59">B</text><text x="80" y="126">C</text><text x="193" y="111">D</text><text x="226" y="131">E</text></g></svg><p>대상이 <strong>어느 위치</strong>에 있는지, 거리와 방향을 봅니다.</p></div><div class="compare-side"><h4>② 군집 · 소속 집단</h4><svg viewBox="0 0 270 206" role="img" aria-label="군집분석은 A B C 집단과 D E 집단으로 묶는 그림"><ellipse cx="91" cy="76" rx="67" ry="64" fill="#cff1ee" stroke="#0b9e9f" stroke-width="2" stroke-dasharray="6 5"/><ellipse cx="205" cy="141" rx="54" ry="50" fill="#ffebc9" stroke="#d59a42" stroke-width="2" stroke-dasharray="6 5"/><g font-size="22" font-weight="900" fill="#15536c"><text x="70" y="67">A</text><text x="120" y="77">B</text><text x="86" y="108">C</text><text x="188" y="139">D</text><text x="223" y="158">E</text></g><text x="91" y="172" text-anchor="middle" font-size="12" fill="#007e80">군집 1</text><text x="207" y="198" text-anchor="middle" font-size="12" fill="#996320">군집 2</text></svg><p>개체를 <strong>어느 집단</strong>에 묶을지 결정합니다.</p></div></div></section>
+   <section class="panel mint"><h3>차이를 한 문장씩 외우기</h3><ul class="bullet"><li><b>MDS:</b> 개체들을 평면의 점으로 <span class="highlight">배치</span>하여 관계를 파악한다.</li><li><b>군집분석(Clustering):</b> 유사한 개체를 <span class="highlight">집단으로 묶는다</span>.</li><li><b>공통점:</b> 대상 사이의 유사성·비유사성 또는 거리 개념을 활용할 수 있다.</li><li><b>주의:</b> MDS 지도에서 가까운 점들이 보이더라도 그룹 경계나 군집 수를 자동 확정하지는 않는다.</li></ul><div class="keymessage">MDS = 위치 지도 / 군집분석 = 그룹 편성</div></section>
+  </div>
+  <section class="question-card" data-answer="1"><div class="question-top"><span class="label practice">개념 연습 04 · 신규</span><span>자주 헷갈리는 비교</span></div><h3>Q. MDS와 군집분석을 구별하는 설명으로 옳은 것은?</h3><div class="answers"><button class="option">① MDS는 반드시 군집 개수를 먼저 지정해야 한다.</button><button class="option">② MDS는 상대적 공간 배치에, 군집분석은 집단 분류에 초점을 둔다.</button><button class="option">③ 군집분석은 대상 사이의 거리 개념을 사용하지 않는다.</button><button class="option">④ 두 방법은 분석 결과가 항상 동일하다.</button></div><div class="quiz-actions"><button class="quiz-action reveal" type="button">정답·해설 보기</button><span class="quiz-hint">위치 표현과 집단 구분을 대비하세요.</span></div><div class="explanation"><strong>정답 ②</strong> — MDS의 주된 산출물은 좌표와 점의 배치이고 군집분석의 주된 산출물은 집단 분류입니다. MDS 결과를 후속 군집분석에 활용할 수는 있어도 둘은 같은 분석이 아닙니다.</div></section>
+ </article>
+
+ <!-- slide 6 -->
+ <article class="slide" data-title="MDS 종류">
+  <div class="slide-heading"><div><div class="unit">06 · METRIC / NONMETRIC</div><h2>MDS의 두 가지 접근: 거리의 ‘크기’와 ‘순서’</h2><p class="lead">계량 MDS(Metric MDS) vs 비계량 MDS(Nonmetric MDS)</p></div><div class="slide-meta"><span class="page-tag">📖 교재 p.326 연계 · 확장</span><span class="slide-order">교안 06 / 10</span></div></div>
+  <div class="visual-grid">
+   <section class="panel blue"><h3>같은 A–B, A–C, A–D 거리인데 무엇을 중요하게 볼까?</h3><div class="compare-columns"><div class="compare-side"><h4>계량 MDS · 크기 관계</h4><p>관측 거리: 1, 2, 4</p><div class="distbars"><div class="barline"><span>A–B</span><div class="bar"><div style="width:25%"></div></div><b>1</b></div><div class="barline"><span>A–C</span><div class="bar"><div style="width:50%"></div></div><b>2</b></div><div class="barline"><span>A–D</span><div class="bar"><div style="width:100%"></div></div><b>4</b></div></div><p class="tiny">거리의 수치적 크기 관계를 최대한 반영</p></div><div class="compare-side"><h4>비계량 MDS · 순서 관계</h4><p>거리 순서: 작음 → 중간 → 큼</p><div class="distbars"><div class="barline nonmetric"><span>A–B</span><div class="bar"><div style="width:25%"></div></div><b>1</b></div><div class="barline nonmetric"><span>A–C</span><div class="bar"><div style="width:63%"></div></div><b>2.5</b></div><div class="barline nonmetric"><span>A–D</span><div class="bar"><div style="width:88%"></div></div><b>3.5</b></div></div><p class="tiny">수치가 바뀌어도 작음·중간·큼의 순서 유지</p></div></div><div class="keymessage">계량 = 거리의 크기 관계 / 비계량 = 거리의 순위(순서)</div></section>
+   <section class="panel mint"><h3>구분 포인트</h3><div class="triplet"><div class="tri"><strong>계량 MDS</strong><span>거리의 수치적 관계</span></div><div class="tri"><strong>비계량 MDS</strong><span>거리의 서열 관계</span></div><div class="tri"><strong>공통 목표</strong><span>저차원 공간의 관계 표현</span></div></div><ul class="bullet"><li><b>계량(Metric):</b> 거리를 수치적인 수준에서 잘 표현하도록 점을 배치합니다.</li><li><b>비계량(Nonmetric):</b> 비유사성 값이 제시하는 <b>순서</b>가 지도상의 거리 순서와 가능한 한 일치하도록 합니다.</li><li>실제 세부 방법과 최적화 기준은 알고리즘에 따라 달라질 수 있습니다.</li></ul><div class="note">예시에서 비계량 MDS의 값 1·2.5·3.5는 ‘순서만 보존할 수 있다’는 의미를 보여주는 임의의 수치입니다.</div></section>
+  </div>
+  <section class="question-card" data-answer="2"><div class="question-top"><span class="label practice">개념 연습 05 · 신규</span><span>종류 구분</span></div><h3>Q. 비계량 다차원척도법(Nonmetric MDS)이 특히 중요하게 보존하려는 것은?</h3><div class="answers"><button class="option">① 변수의 평균값</button><button class="option">② 모든 대상의 정확한 절대좌표</button><button class="option">③ 대상 사이 비유사성의 순서 관계</button><button class="option">④ 회귀모형의 결정계수</button></div><div class="quiz-actions"><button class="quiz-action reveal" type="button">정답·해설 보기</button><span class="quiz-hint">Metric과 Nonmetric의 차이</span></div><div class="explanation"><strong>정답 ③</strong> — 비계량 MDS는 원래 비유사성의 순위(서열)를 가능한 한 보존하는 데 초점을 둡니다. 점 위치를 통해 나타난 거리의 수치 자체는 원래 입력값과 정확히 같을 필요가 없습니다.</div></section>
+ </article>
+
+ <!-- slide 7 -->
+ <article class="slide" data-title="Stress 실습">
+  <div class="slide-heading"><div><div class="unit">07 · STRESS &amp; FIT</div><h2>점 하나를 움직이면 ‘거리 왜곡’이 달라집니다</h2><p class="lead">스트레스(Stress)는 거리 구조의 표현 오차를 나타내는 적합도 지표</p></div><div class="slide-meta"><span class="page-tag">📖 교재 p.326 연계 · 확장</span><span class="slide-order">교안 07 / 10</span></div></div>
+  <div class="visual-grid">
+   <section class="panel blue"><h3>🎛️ D점 위치를 바꾸며 왜곡 정도를 관찰하세요</h3><div class="svgwrap"><svg id="stressMap" viewBox="0 0 560 270" role="img" aria-label="D점 위치를 조절하여 사각형 거리 구조가 왜곡되는 모습을 보여주는 인터랙티브 그래프"><rect x="8" y="7" width="544" height="248" rx="12" fill="#fff" stroke="#dce7ee"/><path d="M48 217 H514 M68 230 V27" stroke="#b5cddd" stroke-width="2"/><path d="M125 60 L275 60 L275 207 L125 207 Z" stroke="#c9d2dd" stroke-width="2" stroke-dasharray="7 6" fill="#ebf2f8" fill-opacity=".6"/><path id="stressPolygon" d="M125 60 L275 60 L275 207 L125 207 Z" fill="#dff3ee" fill-opacity=".7" stroke="#0a929b" stroke-width="3"/><g font-size="14" font-weight="900" text-anchor="middle"><circle cx="125" cy="60" r="19" fill="#d2e7f9" stroke="#4683b1" stroke-width="2"/><text x="125" y="66" fill="#19465f">A</text><circle cx="275" cy="60" r="19" fill="#d2e7f9" stroke="#4683b1" stroke-width="2"/><text x="275" y="66" fill="#19465f">B</text><circle cx="125" cy="207" r="19" fill="#d2e7f9" stroke="#4683b1" stroke-width="2"/><text x="125" y="213" fill="#19465f">C</text><circle id="stressD" cx="275" cy="207" r="21" fill="#fce6ae" stroke="#d8952c" stroke-width="3"/><text id="stressDlabel" x="275" y="213" fill="#704d17">D</text><text x="414" y="31" fill="#698096" font-size="13">점선 = 목표 위치</text></g></svg></div>
+    <div class="interact"><label for="distort" style="font-weight:900;color:#18536f">D점의 가로 위치 변경</label><div class="slider-row"><input id="distort" type="range" min="-1.6" max="2" step="0.1" value="0" aria-label="D점 가로 이동"><span id="distortValue" class="slider-value">변화 0.0</span><button id="stressReset" class="quiz-action" type="button">원래 위치</button></div><p class="tiny">목표 구조는 정사각형입니다. D만 이동하므로 나머지 점과의 거리가 달라집니다.</p></div>
+   </section>
+   <section class="panel mint"><h3>스트레스가 작을수록 거리 관계를 잘 나타냅니다</h3><div class="stressstat"><div><div class="english">시연용 고정 목표 거리의 Stress-1 형태</div><div id="stressValue" class="stressbig" aria-live="polite">0.000</div></div><span id="stressVerbal" class="pill primary">목표 거리와 일치</span></div><div class="stressmeter"><div id="stressNeedle" class="stressneedle"></div></div><div class="stresslegend"><span>0에 가까움 · 왜곡 작음</span><span>큼 · 왜곡 큼</span></div>
+     <p class="formula" style="font-size:17px">Stress = √[Σ(d<sub>ij</sub> − δ<sub>ij</sub>)² / Σd<sub>ij</sub>²]</p><div class="pill-line"><span class="pill">δ: 목표 거리</span><span class="pill">d: 지도 거리</span></div>
+     <p id="stressDetails" class="tiny" aria-live="polite">목표 B–D 2.00 → 지도 B–D 2.00</p><div class="note"><b>해석 주의:</b> 이 활동은 점 D를 이동하는 <b>학습용 거리 오차 실험</b>입니다. 실제 MDS는 여러 점을 최적화하며, 비계량 MDS에서는 목표 비유사성에 단조변환을 적용한 거리(Disparity)를 쓸 수 있습니다. Stress의 정의·정규화는 방법에 따라 다릅니다.</div><div class="keymessage">Stress가 작을수록 좋지만, 특정 수치만 보고 ‘무조건 우수’라고 단정하지는 않습니다.</div>
+   </section>
+  </div>
+  <section class="question-card" data-answer="0"><div class="question-top"><span class="label practice">개념 연습 06 · 신규</span><span>Stress 해석</span></div><h3>Q. 같은 데이터와 적합한 비교 조건에서 MDS의 Stress가 더 작아졌다는 뜻은?</h3><div class="answers"><button class="option">① 원래 비유사성 구조와 저차원 거리 사이의 불일치가 줄었다.</button><button class="option">② 차원의 수가 반드시 늘었다.</button><button class="option">③ 대상 사이의 거리 정보가 모두 삭제되었다.</button><button class="option">④ 회귀계수의 통계적 유의성이 증가했다.</button></div><div class="quiz-actions"><button class="quiz-action reveal" type="button">정답·해설 보기</button><span class="quiz-hint">작은 Stress = 상대적으로 좋은 적합</span></div><div class="explanation"><strong>정답 ①</strong> — Stress는 원래 비유사성 구조와 저차원 배치의 거리 간 불일치를 측정합니다. 비교 가능 조건에서 낮아지면 거리 구조를 더 잘 표현한다는 뜻입니다. 단, 차원 수나 자료 특성에 따라 값은 달라질 수 있습니다.</div></section>
+ </article>
+
+ <!-- slide 8 -->
+ <article class="slide" data-title="결과 해석">
+  <div class="slide-heading"><div><div class="unit">08 · HOW TO READ A MAP</div><h2>MDS 지도는 ‘절대좌표’보다 ‘점 사이의 거리’</h2><p class="lead">해석 원칙: 가까움·멀어짐 / 상대적 배치 / 축의 의미는 검토 필요</p></div><div class="slide-meta"><span class="page-tag">📖 교재 p.326 연계 · 확장</span><span class="slide-order">교안 08 / 10</span></div></div>
+  <div class="visual-grid">
+   <section class="panel blue"><h3>지도를 회전해도 점 사이 거리는 그대로예요</h3><div class="compare-columns"><div class="compare-side"><h4>배치 A</h4><svg viewBox="0 0 260 200" role="img" aria-label="세 점의 원래 배치"><path d="M30 174 H236 M30 174 V24" stroke="#adc1d3" stroke-width="2"/><path d="M77 70 L157 70 L157 145 L77 70" fill="#d7f5f1" fill-opacity=".7" stroke="#19989d" stroke-width="2"/><g font-size="16" font-weight="900"><circle cx="77" cy="70" r="12" fill="#1b9da1"/><text x="56" y="58" fill="#27566d">A</text><circle cx="157" cy="70" r="12" fill="#1b9da1"/><text x="167" y="59" fill="#27566d">B</text><circle cx="157" cy="145" r="12" fill="#e7b05a"/><text x="174" y="157" fill="#27566d">C</text></g></svg></div><div class="compare-side"><h4>전체를 회전한 배치 B</h4><svg viewBox="0 0 260 200" role="img" aria-label="동일한 거리의 세 점을 회전한 배치"><path d="M30 174 H236 M30 174 V24" stroke="#adc1d3" stroke-width="2"/><g transform="rotate(38 128 100)"><path d="M77 70 L157 70 L157 145 L77 70" fill="#d7f5f1" fill-opacity=".7" stroke="#19989d" stroke-width="2"/><circle cx="77" cy="70" r="12" fill="#1b9da1"/><circle cx="157" cy="70" r="12" fill="#1b9da1"/><circle cx="157" cy="145" r="12" fill="#e7b05a"/></g><text x="105" y="22" font-size="12" fill="#60798d" text-anchor="middle">거리 보존</text></svg></div></div><div class="keymessage">지도 방향을 바꿔도 관계의 의미가 유지될 수 있습니다. 중요한 것은 <b>점 사이의 거리 관계</b>입니다.</div></section>
+   <section class="panel mint"><h3>해석할 때 꼭 확인할 4가지</h3><ul class="bullet"><li><b>① 가까운 점:</b> 비유사성 기준으로 차이가 작은 개체일 가능성이 큽니다.</li><li><b>② 먼 점:</b> 비유사성 기준으로 차이가 큰 개체일 가능성이 큽니다.</li><li><b>③ 축의 이름:</b> x·y 축에 ‘가격’이나 ‘만족도’ 같은 의미가 자동으로 정해지지는 않습니다. 외부 정보로 해석해야 합니다.</li><li><b>④ Stress:</b> 2차원 지도가 원래 거리 관계를 얼마나 표현하는지 함께 살펴봅니다.</li></ul><div class="note">유사성을 어떻게 계산했는지와 점의 배치가 얼마나 잘 맞는지가 해석의 출발점입니다.</div></section>
+  </div>
+  <section class="question-card" data-answer="3"><div class="question-top"><span class="label practice">개념 연습 07 · 신규</span><span>지도 해석</span></div><h3>Q. MDS 결과 지도의 가로축(x축)에 관한 올바른 설명은?</h3><div class="answers"><button class="option">① 언제나 ‘소득’ 변수이다.</button><button class="option">② 언제나 제1주성분을 의미한다.</button><button class="option">③ x축의 수치가 회귀계수의 부호를 결정한다.</button><button class="option">④ 축의 내용은 자동으로 결정되지 않으며 별도 해석이 필요하다.</button></div><div class="quiz-actions"><button class="quiz-action reveal" type="button">정답·해설 보기</button><span class="quiz-hint">MDS 점지도의 방향은 회전할 수 있습니다.</span></div><div class="explanation"><strong>정답 ④</strong> — MDS는 보통 점 사이의 거리 관계가 핵심입니다. 축 회전·반사가 가능하여 결과 지도의 축에 고유한 이름이 자동으로 주어지지는 않습니다. 실제 자료와 외부 변수의 관계를 참고해 해석할 수 있습니다.</div></section>
+ </article>
+
+ <!-- slide 9 -->
+ <article class="slide" data-title="기출 59번">
+  <div class="slide-heading"><div><div class="unit">09 · EXAM QUESTION 59</div><h2>기출 59번: ‘완전히 보존’이라는 표현이 함정</h2><p class="lead">제공된 기출 원문을 그대로 제시하고 이론을 연결해 설명합니다.</p></div><div class="slide-meta"><span class="page-tag">📖 교재 p.326 · 기출 59번</span><span class="slide-order">교안 09 / 10</span></div></div>
+  <div class="visual-grid">
+   <section class="panel blue"><h3>⚖️ 두 상황을 비교하면 왜 ④가 틀렸는지 보입니다</h3><div class="compare-columns"><div class="compare-side"><h4>보존이 가능한 경우</h4><svg viewBox="0 0 250 182" role="img" aria-label="원래 2차원 거리 구조가 동일한 모양으로 보존"><rect x="7" y="12" width="235" height="156" rx="12" fill="#f3faf8" stroke="#cce1dc"/><path d="M62 48 L174 48 L174 133 L62 133 Z" fill="#cff1eb" stroke="#048d8b" stroke-width="3"/><g fill="#128d8b"><circle cx="62" cy="48" r="10"/><circle cx="174" cy="48" r="10"/><circle cx="174" cy="133" r="10"/><circle cx="62" cy="133" r="10"/></g><text x="124" y="91" font-size="20" fill="#076d6c" text-anchor="middle" font-weight="900">오차 0 가능</text><text x="125" y="157" fill="#568078" text-anchor="middle" font-size="12">저차원에 정확히 표현 가능</text></svg></div><div class="compare-side"><h4>왜곡이 생기는 경우</h4><svg viewBox="0 0 250 182" role="img" aria-label="목표 사각형과 변형된 점 배치가 다른 모습"><rect x="7" y="12" width="235" height="156" rx="12" fill="#fff9f1" stroke="#eadac8"/><path d="M62 48 L174 48 L174 133 L62 133 Z" fill="none" stroke="#c2cbd4" stroke-width="3" stroke-dasharray="7 5"/><path d="M62 48 L174 48 L218 133 L62 133 Z" fill="#fbe8c7" stroke="#df9c44" stroke-width="3"/><g fill="#dc9841"><circle cx="62" cy="48" r="10"/><circle cx="174" cy="48" r="10"/><circle cx="218" cy="133" r="10"/><circle cx="62" cy="133" r="10"/></g><text x="130" y="91" font-size="20" fill="#a16c27" text-anchor="middle" font-weight="900">거리 오차 발생</text><text x="125" y="157" fill="#947c5f" text-anchor="middle" font-size="12">점선 = 원래 거리 구조</text></svg></div></div></section>
+   <section class="panel mint"><h3>출제포인트: 절대적인 표현을 경계하세요</h3><ul class="bullet"><li><b>① 고차원 → 저차원:</b> 가능</li><li><b>② 거리/유사도 시각화:</b> 주요 목적</li><li><b>③ 거리 관계 보존 노력:</b> 핵심 원리</li><li><b>④ 모든 경우에 완벽한 보존 보장:</b> 틀림</li></ul><div class="keymessage">MDS는 거리를 <b>가능한 한</b> 보존합니다. <b>항상 완벽히</b> 보존한다고 보장할 수는 없습니다.</div><p class="tiny">과도한 일반화를 피하세요. 모든 차원 축소에서 반드시 왜곡이 생긴다는 주장도 정확하지 않습니다.</p></section>
+  </div>
+  <section class="question-card" data-answer="3"><div class="question-top"><span class="label">제공 원문 · 기출 59번</span><span>적절하지 않은 설명 선택</span></div><h3>59. 다차원척도법(MDS)에 대한 설명 중 적절하지 않은 것은 무엇인가?</h3><div class="answers"><button class="option">① 고차원 데이터를 저차원으로 축소할 수 있다.</button><button class="option">② 유사도 또는 거리 데이터를 시각적으로 표현한다.</button><button class="option">③ 데이터 간 상대적 거리를 보존하려 한다.</button><button class="option">④ 다차원척도법(MDS)은 상대적 거리를 실수의 범위에서 완전히 보존할 수 있는 분석 기법이다.</button></div><div class="quiz-actions"><button class="quiz-action reveal" type="button">정답·해설 보기</button><span class="quiz-hint">정답은 한 개입니다.</span></div><div class="explanation"><strong>정답 ④</strong> — ①~③은 MDS의 목적과 기능에 부합합니다. 그러나 ④는 거리의 완전한 보존을 일반적으로 보장하는 듯한 표현입니다. 주어진 비유사성 구조가 선택한 저차원 공간에 정확히 표현되지 않는다면 거리가 왜곡됩니다. MDS는 적합도가 좋은 배치를 찾는 것이지 언제나 왜곡 0을 보장하는 방법은 아닙니다. <b>단, 일부 거리 자료에서는 실제로 왜곡 0이 가능합니다.</b></div></section>
+ </article>
+
+ <!-- slide 10 -->
+ <article class="slide" data-title="총정리">
+  <div class="slide-heading"><div><div class="unit">10 · FINAL REVIEW</div><h2>시험 직전, 이 다섯 문장만 연결해 기억하세요</h2><p class="lead">MDS 목적 → 거리 → 군집과 차이 → 종류 → Stress</p></div><div class="slide-meta"><span class="page-tag">📖 교재 p.326 연계 · 확장</span><span class="slide-order">교안 10 / 10</span></div></div>
+  <div class="visual-grid">
+   <section class="panel blue"><h3>5개 핵심 키워드 흐름</h3><div class="recap"><div><b>① MDS</b>비유사성을 <span class="highlight">2차원·3차원 점지도</span>로 표현</div><div><b>② Distance</b>비유사성 거리가 작다 = 더 비슷하다</div><div><b>③ Clustering</b>MDS는 위치 배치, 군집분석은 집단 묶기</div><div><b>④ Metric / Nonmetric</b>거리 크기 관계 / 거리 순서 관계</div><div><b>⑤ Stress</b>거리 표현의 불일치. 작을수록 대체로 좋음</div><div><b>⑥ 한계와 해석</b>완벽한 거리 보존은 <span class="highlight">보장되지 않음</span></div></div></section>
+   <section class="panel mint"><h3>💬 수업에서 말로 설명해 보기</h3><div class="four-grid" style="grid-template-columns:repeat(2,1fr)"><div class="comic"><div class="emoji">🧭</div><strong>“누가 가깝지?”</strong><span>대상 간 거리 수집</span></div><div class="comic"><div class="emoji">📍</div><strong>“지도에 찍자!”</strong><span>MDS 점 배치</span></div><div class="comic"><div class="emoji">📊</div><strong>“잘 나타냈나?”</strong><span>Stress 확인</span></div><div class="comic"><div class="emoji">🎓</div><strong>“100% 보장은 아니야!”</strong><span>기출 함정 기억</span></div></div><div class="keymessage">암기 문장: <b>“MDS는 관계를 지도에, 군집은 개체를 그룹에, Stress는 거리 왜곡을 수치에!”</b></div></section>
+  </div>
+  <section class="question-card" data-answer="2"><div class="question-top"><span class="label practice">종합 점검 · 신규</span><span>개념 세 가지 결합</span></div><h3>Q. 다음 중 MDS에 관한 설명으로 가장 적절한 것은?</h3><div class="answers"><button class="option">① Stress가 높을수록 원래 거리를 더 잘 표현한다.</button><button class="option">② 비계량 MDS는 원래 거리의 정확한 숫자를 무조건 보존한다.</button><button class="option">③ MDS는 거리 관계를 점으로 표현하며, 표현 오차를 Stress 등으로 확인할 수 있다.</button><button class="option">④ MDS는 개체들을 반드시 정확히 세 군집으로 나눈다.</button></div><div class="quiz-actions"><button class="quiz-action reveal" type="button">정답·해설 보기</button><span class="quiz-hint">정답을 확인한 뒤 09 기출 59번으로 돌아가 보세요.</span></div><div class="explanation"><strong>정답 ③</strong> — MDS는 거리 기반 저차원 배치로 관계를 시각화합니다. Stress는 저차원 표현이 원래 거리 구조와 얼마나 불일치하는지를 판단하는 하나의 지표입니다. 일반적으로 작을수록 적합이 좋습니다.</div></section>
+ </article>
+
+ <div class="footnav"><button class="navbutton" id="prev" type="button">← 이전 이론</button><div class="swipehint">◀ ▶ 방향키 · 버튼 · 터치 좌우 스와이프<br>첫 장: 목표·키워드 | 이후: 시각화 → 핵심 이론 → 관련 문제</div><button class="navbutton next" id="next" type="button">다음 이론 →</button></div>
+ <p class="footer">교재 4장 통계 분석 p.326 기반 · 교재 미확인 쪽수는 표기하지 않음 · 보충 내용과 문제는 수업용 확장 · 도식·데이터는 교육용 예시</p>
+</main>
+<script>
+(function(){
+ 'use strict';
+ const slides=Array.from(document.querySelectorAll('.slide'));
+ const tabs=Array.from(document.querySelectorAll('.navtab'));
+ const prev=document.getElementById('prev');
+ const next=document.getElementById('next');
+ const progress=document.getElementById('progress');
+ const indicator=document.getElementById('pageIndicator');
+ let active=0;
+ function go(n){
+  if(n<0||n>=slides.length)return;
+  active=n;
+  slides.forEach((s,i)=>{const is=i===n;s.classList.toggle('active',is);s.setAttribute('aria-hidden',String(!is));});
+  tabs.forEach((t,i)=>{t.classList.toggle('active',i===n);t.setAttribute('aria-current',i===n?'step':'false')});
+  indicator.textContent=(n+1)+' / '+slides.length;
+  progress.style.width=((n+1)/slides.length*100)+'%';
+  prev.disabled=n===0;
+  next.disabled=n===slides.length-1;
+  next.textContent=n===slides.length-1?'학습 완료 ✓':'다음 이론 →';
+  tabs[n].scrollIntoView({behavior:'smooth',block:'nearest',inline:'nearest'});
+  window.scrollTo({top:0,behavior:'smooth'});
+ }
+ tabs.forEach((t,i)=>t.addEventListener('click',()=>go(i)));
+ prev.addEventListener('click',()=>go(active-1));
+ next.addEventListener('click',()=>go(active+1));
+ document.addEventListener('keydown',(e)=>{
+  const tag=e.target&&e.target.tagName;
+  if(tag==='INPUT'||tag==='TEXTAREA'||tag==='SELECT')return;
+  if(e.key==='ArrowRight'){e.preventDefault();go(active+1)}
+  if(e.key==='ArrowLeft'){e.preventDefault();go(active-1)}
+ });
+ let sx=null,sy=null;
+ document.getElementById('lesson').addEventListener('touchstart',e=>{if(e.touches.length===1){sx=e.touches[0].clientX;sy=e.touches[0].clientY;}},{passive:true});
+ document.getElementById('lesson').addEventListener('touchend',e=>{
+  if(sx===null||!e.changedTouches.length)return;
+  const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;
+  sx=null;sy=null;
+  if(Math.abs(dx)>85&&Math.abs(dx)>Math.abs(dy)*1.4){go(active+(dx<0?1:-1));}
+ },{passive:true});
+ // Problems: clicking an answer exposes one correct answer and optional red selected choice.
+ document.querySelectorAll('.question-card').forEach(card=>{
+  const answer=Number(card.dataset.answer);
+  const opts=Array.from(card.querySelectorAll('.option'));
+  const reveal=card.querySelector('.reveal');
+  function show(selected){card.classList.add('revealed');opts.forEach((o,i)=>{o.classList.toggle('correct',i===answer);o.classList.toggle('incorrect',selected!==null&&i===selected&&i!==answer);o.setAttribute('aria-pressed',String(i===selected));});reveal.textContent='정답과 해설 확인됨 ✓';}
+  opts.forEach((o,i)=>o.addEventListener('click',()=>show(i)));
+  reveal.addEventListener('click',()=>show(null));
+ });
+ // Pairwise distance map: diagram is schematic, matrix is derived from textual example.
+ const pairs={AB:{points:[[110,80],[195,80]],text:'A–B : 가장 가까운 쌍',info:'A–B의 거리 = 1.0. 가깝기 때문에 비유사성이 가장 작습니다.'},AD:{points:[[110,80],[450,200]],text:'A–D : 가장 먼 쌍',info:'A–D의 거리 = 5.0. A–B보다 훨씬 차이가 큽니다.'},CD:{points:[[110,200],[450,200]],text:'C–D : 비교적 먼 쌍',info:'C–D의 거리 = 4.0. 두 대상은 꽤 떨어져 있습니다.'}};
+ const pairLine=document.getElementById('pairLine');
+ const pairTxt=document.getElementById('pairSVGText');
+ const pairInfo=document.getElementById('pairInfo');
+ const pairBtn=Array.from(document.querySelectorAll('[data-pair]'));
+ pairBtn.forEach(btn=>btn.addEventListener('click',()=>{
+  pairBtn.forEach(b=>b.classList.toggle('active',b===btn));
+  const p=pairs[btn.dataset.pair];const [a,b]=p.points;
+  pairLine.setAttribute('x1',a[0]);pairLine.setAttribute('y1',a[1]);pairLine.setAttribute('x2',b[0]);pairLine.setAttribute('y2',b[1]);
+  pairTxt.textContent=p.text;pairInfo.textContent=p.info;
+ }));
+ // A closed-form stress demonstration on four points, fixed target distances; no MDS optimizer runs here.
+ const original=[[0,0],[2,0],[0,2],[2,2]];
+ const range=document.getElementById('distort');const reset=document.getElementById('stressReset');
+ const value=document.getElementById('distortValue');const stress=document.getElementById('stressValue');
+ const verbal=document.getElementById('stressVerbal');const needle=document.getElementById('stressNeedle');
+ const polygon=document.getElementById('stressPolygon');const circle=document.getElementById('stressD');const label=document.getElementById('stressDlabel');const details=document.getElementById('stressDetails');
+ function dist(a,b){return Math.hypot(a[0]-b[0],a[1]-b[1]);}
+ function updateStress(){
+  const offset=Number(range.value);
+  const coords=[[0,0],[2,0],[0,2],[2+offset,2]];
+  let numerator=0,denominator=0;
+  for(let i=0;i<4;i++)for(let j=i+1;j<4;j++){
+   const base=dist(original[i],original[j]);const fitted=dist(coords[i],coords[j]);
+   numerator+=(fitted-base)**2;denominator+=fitted**2;
+  }
+  const st=Math.sqrt(numerator/denominator);
+  const dx=275+offset*75;
+  polygon.setAttribute('d',`M125 60 L275 60 L${dx} 207 L125 207 Z`);
+  circle.setAttribute('cx',dx);label.setAttribute('x',dx);
+  value.textContent='변화 '+(offset>0?'+':'')+offset.toFixed(1);
+  stress.textContent=st.toFixed(3);
+  needle.style.left=Math.min(98,st/0.5*98)+'%';
+  verbal.textContent=st<.001?'목표 거리와 일치':st<.08?'왜곡이 비교적 작음':st<.2?'거리 차이 발생':'왜곡 증가';
+  details.textContent=`목표 B–D ${dist(original[1],original[3]).toFixed(2)} → 지도 B–D ${dist(coords[1],coords[3]).toFixed(2)} / 목표 C–D ${dist(original[2],original[3]).toFixed(2)} → 지도 C–D ${dist(coords[2],coords[3]).toFixed(2)}`;
+ }
+ range.addEventListener('input',updateStress);
+ reset.addEventListener('click',()=>{range.value=0;updateStress();});
+ updateStress();go(0);
+})();
+</script>
+</body>
+</html>
