@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<title>AI 시대의 회계 13주 요약노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
+<style>
+  :root { --ink:#14243A; --ink-2:#44566B; --ink-3:#7C8A99; --line:#DBE4EE; --navy:#17365D; --sky:#e8f1fb;
+    --gold:#FFF3B0; --ground:#F4F7FB; --ok:#1f5a3f; --ok-bg:#e3f4ea; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--ground); color:var(--ink); font-family:'Noto Sans KR',system-ui,sans-serif; font-size:14px; line-height:1.6; }
+  .sheet { max-width:1080px; margin:0 auto; padding:24px 16px 56px; display:grid; gap:20px; }
+  .eyebrow { display:inline-block; background:var(--gold); color:var(--navy); font-size:11px; font-weight:700; padding:2px 10px; border-radius:999px; }
+  h1 { margin:6px 0 4px; font-size:clamp(20px,3vw,26px); }
+  .lede { margin:0; color:var(--ink-2); }
+  .tools { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; align-items:center; }
+  .tools button { font:inherit; font-size:12px; font-weight:700; border:1px solid var(--navy); color:var(--navy); background:#fff; border-radius:999px; padding:3px 12px; cursor:pointer; }
+  .tools button:hover { background:var(--sky); }
+  .prog { margin-left:auto; font-size:12px; color:var(--ink-3); font-weight:700; }
+  .prog b { color:var(--navy); }
+
+  .grid-nav { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+  .grid-nav a { display:block; background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px 14px; text-decoration:none; color:var(--ink); border-top:3px solid var(--navy); }
+  .grid-nav a:hover { background:var(--sky); }
+  .grid-nav .n { font-size:11px; font-weight:800; color:var(--navy); }
+  .grid-nav .t { font-size:13px; font-weight:700; margin:3px 0 4px; }
+  .grid-nav .h { font-size:11px; color:var(--ink-3); }
+  @media (max-width:860px) { .grid-nav { grid-template-columns:repeat(2,1fr); } }
+
+  .jump { display:flex; flex-wrap:wrap; gap:5px; position:sticky; top:0; background:var(--ground); padding:8px 0; z-index:5; }
+  .jump a { font-size:11.5px; font-weight:700; color:var(--navy); background:#fff; border:1px solid var(--line); border-radius:7px; padding:4px 8px; text-decoration:none; }
+  .jump a:hover { background:var(--sky); }
+
+  .chap { background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 18px; scroll-margin-top:52px; }
+  .chap > .head { display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; border-bottom:2px solid var(--navy); padding-bottom:8px; margin-bottom:10px; }
+  .chap .num { font-size:20px; font-weight:800; color:var(--navy); }
+  .chap h2 { margin:0; font-size:16.5px; }
+  .chap .ov { margin:0 0 12px; font-size:12.5px; color:var(--ink-2); }
+
+  .block { margin-bottom:12px; }
+  .block h3 { margin:0 0 6px; font-size:12.5px; color:var(--navy); display:flex; align-items:center; gap:6px; }
+  .block h3::before { content:""; width:4px; height:4px; border-radius:50%; background:var(--navy); }
+
+  .outline { display:grid; gap:6px; }
+  .outline .sec { font-size:12.5px; }
+  .outline .sec b { color:var(--ink); }
+  .outline .sec ul { margin:3px 0 0; padding-left:16px; color:var(--ink-2); font-size:12px; }
+  .outline .sec li { margin:1px 0; }
+
+  .terms { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:7px; }
+  .term { background:var(--sky); border-radius:8px; padding:7px 10px; }
+  .term b { display:block; font-size:12px; color:var(--navy); }
+  .term span { font-size:11.5px; color:var(--ink-2); }
+
+  .checks { display:grid; gap:5px; }
+  .chk { display:flex; gap:7px; align-items:flex-start; font-size:12.5px; color:var(--ink-2); }
+  .chk input { margin-top:3px; transform:scale(1.1); flex-shrink:0; }
+  .chk.done span { color:var(--ok); text-decoration:line-through; text-decoration-color:var(--line); }
+
+  footer.note { font-size:11.5px; color:var(--ink-3); text-align:center; padding:6px 0 0; }
+
+  @media (max-width:860px) { .terms { grid-template-columns:1fr; } }
+  @media print { .jump, .tools, .grid-nav { display:none; } .chap { break-inside:avoid; } body { background:#fff; } }
+</style>
+</head>
+<body>
+<main class="sheet">
+  <header>
+    <span class="eyebrow">AI 시대의 회계 · 김용식 교수(한성대)</span>
+    <h1>AI 시대의 회계 13주 요약노트 — 핵심 구조 · 용어 · 셀프 체크</h1>
+    <p class="lede">ChatGPT를 활용한 스마트 재무분석 강의자료 13주차를 주차별로 핵심 구조 · 꼭 기억할 용어 · 셀프 체크리스트로 정리했습니다. 체크 표시는 이 브라우저에만 저장됩니다.</p>
+    <div class="tools">
+      <button type="button" onclick="window.print()">인쇄 / PDF</button>
+      <button type="button" id="resetAll">체크 전체 지우기</button>
+      <span class="prog">체크 <b id="progNum">0</b> / <span id="progMax">0</span></span>
+    </div>
+  </header>
+
+  <nav class="grid-nav" id="gridNav"></nav>
+
+  <nav class="jump" id="jump"></nav>
+
+  <div id="chapters"></div>
+
+  <footer class="note">김용식, 「AI 시대의 회계」(한성대) 강의자료 기반 학습용 요약 — 학내 자습용</footer>
+</main>
+
+<script>
+const CHAPTERS = [
+{num:1, title:"회계의 기초와 회계등식",
+  ov:"복식부기 회계의 출발점인 회계등식을 이해하고, 거래를 분개하는 원리와 ChatGPT를 활용한 회계처리 실습을 다룬다.",
+  outline:[
+    ["회계등식의 의의", ["재무상태표 등식: 자산 = 부채 + 자본", "손익계산서 등식: 수익 − 비용 = 당기순이익 또는 당기순손실", "확장된 회계등식: 자산 = 부채 + 자본 + 이익잉여금(수익 − 비용 − 배당금)"]],
+    ["계정과 분개", ["계정: 자산·부채·자본·수익·비용 거래를 세부적으로 구분해 기록하는 단위", "복식부기: 하나의 거래를 차변과 대변에 두 번 기록", "분개규칙: 자산·비용 증가는 차변, 부채·자본·수익 증가는 대변"]],
+    ["ChatGPT 활용 실습", ["거래 내용과 형식을 입력하면 ChatGPT가 분개 결과를 제시", "단기/장기차입금처럼 구분이 필요한 계정은 상환기간 등 필수 정보를 함께 입력해야 하며, 전문가 검토가 필수"]]
+  ],
+  terms:[
+    ["회계등식","자산 = 부채 + 자본"],
+    ["복식부기","하나의 거래를 차변·대변에 동시에 기록하는 방식"],
+    ["분개","거래를 차변/대변 계정과 금액으로 기록하는 것"],
+    ["확장된 회계등식","자산 = 부채 + 자본 + 이익잉여금(수익 − 비용 − 배당금)"]
+  ],
+  checks:["재무상태표 등식과 손익계산서 등식을 각각 설명할 수 있다","자산·부채·자본·수익·비용 증가 시 차변/대변 규칙을 적용할 수 있다","복식부기의 원리를 설명할 수 있다","ChatGPT로 회계처리를 할 때 유의할 점을 설명할 수 있다"]
+},
+{num:2, title:"총계정원장과 수정전 시산표",
+  ov:"분개한 거래를 총계정원장(T-계정)에 전기하여 계정잔액을 산출하고, 이를 집합한 수정전 시산표를 작성하는 과정을 다룬다.",
+  outline:[
+    ["전기와 계정잔액", ["분개한 거래를 각 계정의 총계정원장(T-계정)에 전기", "전기 후 차변·대변 합계의 차이로 각 계정의 잔액을 산출"]],
+    ["수정전 시산표", ["시산표: 총계정원장에서 산출된 각 계정의 잔액을 집합한 표", "작성 이유: 차변 합계와 대변 합계의 일치 여부를 확인해 오류를 최소화", "수정전 시산표: 수정분개를 반영하기 전 시산표"]],
+    ["ChatGPT 활용 실습", ["보유 양식에 맞춰 각 계정의 T-계정 잔액을 순차적으로 산출", "잔액들로 자산·부채·자본·수익·비용 순서의 수정전 시산표 작성"]]
+  ],
+  terms:[
+    ["총계정원장(T-계정)","각 계정의 증가·감소를 한눈에 모아보는 장부 형식"],
+    ["전기","분개장의 기록을 총계정원장의 해당 계정으로 옮기는 과정"],
+    ["시산표","총계정원장의 각 계정 잔액을 모아 차변·대변 합계가 일치하는지 확인하는 표"],
+    ["수정전 시산표","수정분개를 반영하기 전의 시산표"]
+  ],
+  checks:["분개에서 전기까지의 과정을 설명할 수 있다","T-계정을 이용해 계정 잔액을 산출할 수 있다","시산표를 작성하는 이유를 설명할 수 있다","수정전 시산표가 재무제표 작성에서 수행하는 역할을 설명할 수 있다"]
+},
+{num:3, title:"수정분개가 필요한 이유",
+  ov:"결산 시 발생주의 원칙에 따라 자산·부채·수익·비용을 올바른 금액으로 수정하는 6가지 수정분개 유형과 각각의 회계처리를 다룬다.",
+  outline:[
+    ["수정분개의 의의와 유형", ["수정분개: 결산 시 발생기준에 따라 인식해야 할 금액으로 수정하는 분개", "발생(accrual): 미수수익(자산)·미지급비용(부채) / 이연(deferral): 선수수익(부채)·선급비용(자산)"]],
+    ["수익·비용의 발생", ["미수수익: 수익은 발생했으나 미수취 → (차) 미수수익 (대) 수익", "미지급비용: 비용은 발생했으나 미지급 → (차) 비용 (대) 미지급비용"]],
+    ["수익·비용의 이연", ["선급비용: 현금 선지급 후 경과기간만큼 비용으로 대체 → (차) 비용 (대) 선급비용", "선수수익: 현금 선수취 후 경과기간만큼 수익으로 대체 → (차) 선수수익 (대) 수익", "소모품: 미사용분은 자산, 사용분은 소모품비(비용)로 대체", "감가상각: (차) 감가상각비 (대) 감가상각누계액"]]
+  ],
+  terms:[
+    ["수정분개","결산 시 발생기준에 따라 인식금액을 수정하는 분개"],
+    ["발생(accrual) vs 이연(deferral)","아직 기록 안 된 것을 인식 vs 이미 기록된 것을 재배분"],
+    ["미수수익 vs 미지급비용","발생한 수익의 자산 인식 vs 발생한 비용의 부채 인식"],
+    ["선급비용 vs 선수수익","선지급한 비용의 자산화 vs 선수취한 수익의 부채화"]
+  ],
+  checks:["수정분개가 필요한 이유를 설명할 수 있다","발생과 이연에 해당하는 4가지 유형(미수수익·미지급비용·선급비용·선수수익)을 구분할 수 있다","소모품과 감가상각의 수정분개를 각각 설명할 수 있다","수정분개가 자산·부채·수익·비용에 미치는 영향을 분개로 나타낼 수 있다"]
+},
+{num:4, title:"수정후 시산표 작성하기",
+  ov:"수정분개를 총계정원장에 반영하여 계정잔액을 재산출하고, 재무제표 작성의 기초가 되는 수정후 시산표를 작성하는 과정을 다룬다.",
+  outline:[
+    ["수정분개의 전기", ["6가지 수정분개(미수수익·미지급비용 2건·선급비용·선수수익·소모품·감가상각)를 각 T-계정에 전기", "전기 후 각 계정의 최종 잔액을 재산출"]],
+    ["수정후 시산표 작성", ["수정후 시산표: 수정분개를 반영한 후의 시산표", "작성 이유: 차변·대변 합계 일치 여부로 자기 오류 검증 → 효율적인 재무제표 작성의 기초"]]
+  ],
+  terms:[
+    ["수정후 시산표","수정분개 반영 후 작성하는 시산표"],
+    ["수정분개 6유형","미수수익·미지급비용·선급비용·선수수익·소모품·감가상각"],
+    ["자기 오류 검증","차변합계와 대변합계가 일치하는지로 분개·전기 오류를 발견하는 과정"],
+    ["재무제표 작성순서","수정후 시산표 → 손익계산서 → 재무상태표"]
+  ],
+  checks:["수정후 시산표와 수정전 시산표의 차이를 설명할 수 있다","6가지 수정분개를 총계정원장에 전기할 수 있다","수정후 시산표가 재무제표 작성의 기초가 되는 이유를 설명할 수 있다","수정후 시산표의 차변·대변 합계가 일치해야 하는 이유를 설명할 수 있다"]
+},
+{num:5, title:"손익계산서 작성하기",
+  ov:"일정 기간의 경영성과를 보고하는 손익계산서의 범주 구분과 비용의 성격별·기능별 분류법, 그리고 K-IFRS 양식에 따른 작성법을 다룬다.",
+  outline:[
+    ["손익계산서의 범주", ["총포괄손익 = 당기순손익 + 기타포괄손익", "5대 범주: 영업·투자·재무·법인세·중단영업 범주"]],
+    ["비용의 표시", ["성격별 분류법: 원재료비·종업원급여 등 경제적 자원의 성격별 분류", "기능별 분류법: 매출원가·연구개발비 등 활동별 분류"]],
+    ["작성 절차", ["수정후 시산표의 수익·비용 계정을 손익계산서 등식(수익−비용=당기순이익)에 따라 정리", "K-IFRS 양식은 영업이익 → 재무손익 및 법인세비용차감전이익 → 당기순이익 순으로 단계적 표시"]]
+  ],
+  terms:[
+    ["손익계산서","일정 기간 수익과 비용을 보고하는 재무제표(총포괄손익 중 당기순손익 부분)"],
+    ["손익계산서 5대 범주","영업·투자·재무·법인세·중단영업"],
+    ["성격별 분류법 vs 기능별 분류법","경제적 자원의 성격별 vs 활동(기능)별 비용 분류"],
+    ["영업이익","영업 범주로 분류된 모든 수익과 비용의 합"]
+  ],
+  checks:["총포괄손익과 당기순손익의 관계를 설명할 수 있다","손익계산서의 5대 범주를 열거할 수 있다","성격별 분류법과 기능별 분류법의 차이를 설명할 수 있다","수정후 시산표로부터 손익계산서를 작성할 수 있다"]
+},
+{num:6, title:"재무상태표 작성하기",
+  ov:"특정 시점의 재무상태를 보고하는 재무상태표의 유동·비유동 분류기준과 자본의 5가지 구성항목, 그리고 표시방법을 다룬다.",
+  outline:[
+    ["유동·비유동 분류", ["재무상태표: 자산·부채·자본에 대한 정보를 제공하는 재무제표", "유동자산/부채: 정상영업주기(통상 12개월) 내 실현/결제 예상", "표시방법 3가지: 유동·비유동 구분법 · 유동성배열법 · 혼합표시법"]],
+    ["자본의 구성", ["자본금·자본잉여금·자본조정·기타포괄손익누계액·이익잉여금의 5항목"]],
+    ["작성 절차", ["수정후 시산표에서 자산·부채·자본 계정을 유동성 기준으로 재배열"]]
+  ],
+  terms:[
+    ["재무상태표","특정 시점의 자산·부채·자본 정보를 제공하는 재무제표"],
+    ["유동자산/부채 판단기준","정상영업주기(보통 12개월) 내 실현/결제 여부"],
+    ["재무상태표 표시방법 3가지","유동·비유동 구분법 · 유동성배열법 · 혼합표시법"],
+    ["자본의 5항목","자본금·자본잉여금·자본조정·기타포괄손익누계액·이익잉여금"]
+  ],
+  checks:["재무상태표가 제공하는 3가지 정보(자산·부채·자본)를 설명할 수 있다","유동자산과 비유동자산을 구분하는 기준을 설명할 수 있다","재무상태표의 3가지 표시방법을 구분할 수 있다","자본의 5가지 구성항목을 열거할 수 있다"]
+},
+{num:7, title:"재고자산 알아보기",
+  ov:"재고자산의 유형과 선입선출법·후입선출법·평균법에 따른 원가결정방법의 차이를, 매출원가와 기말재고자산 계산을 통해 다룬다.",
+  outline:[
+    ["재고자산의 의의", ["재고자산: 정상영업활동에서 생산 또는 판매 목적으로 보유하는 자산", "상품·제품·재공품·원재료로 구분"]],
+    ["원가결정방법 3가지", ["선입선출법(FIFO): 먼저 매입한 것을 먼저 판매 가정 — 실물흐름과 일치, 당기순이익 과대보고 경향", "후입선출법(LIFO): 나중 매입분을 먼저 판매 가정 — K-IFRS는 사용 불허, 절세효과", "평균법: 가중평균 단가 적용(이동평균법·총평균법) — 임의조작이 어려워 실무상 선호"]]
+  ],
+  terms:[
+    ["FIFO(선입선출법)","먼저 매입한 재고를 먼저 판매한다고 가정하는 원가결정법"],
+    ["LIFO(후입선출법)","나중에 매입한 재고를 먼저 판매한다고 가정(K-IFRS 사용 불허)"],
+    ["평균법","기초재고와 당기매입원가를 가중평균하여 단위원가를 결정하는 방법"],
+    ["이동평균법 vs 총평균법","계속기록법의 평균법 vs 실지재고조사법의 평균법"]
+  ],
+  checks:["재고자산의 4가지 유형(상품·제품·재공품·원재료)을 구분할 수 있다","선입선출법·후입선출법·평균법의 장단점을 비교할 수 있다","주어진 매입·매출 자료로 매출원가와 기말재고자산을 계산할 수 있다","K-IFRS가 후입선출법을 허용하지 않는 이유를 설명할 수 있다"]
+},
+{num:8, title:"유형자산 알아보기",
+  ov:"유형자산의 정의와 분류, 감가상각의 4가지 결정요인, 그리고 정액법·정률법·연수합계법·생산량비례법에 따른 감가상각비 계산을 다룬다.",
+  outline:[
+    ["유형자산의 의의", ["물리적 형태가 있고 1년 초과 사용이 예상되는 자산 — 토지·건물·기계장치·건설중인자산", "감가상각은 원가의 배분과정(cost allocation)이지 자산의 평가과정이 아님"]],
+    ["감가상각의 결정요인", ["잔존가치·감가상각대상금액(취득원가−잔존가치)·내용연수·감가상각방법의 4요소"]],
+    ["감가상각방법 4가지", ["정액법: 매기 동일 금액 상각", "정률법: 기초장부금액×상각률(체감잔액법)", "연수합계법: 감가상각대상금액×잔여내용연수/내용연수합계(체감잔액법)", "생산량비례법: 실제사용량/추정총사용량 비례 — 천연자원 등에 적합"]]
+  ],
+  terms:[
+    ["유형자산","물리적 형태가 있고 1년을 초과해 사용하는 영업용 자산"],
+    ["감가상각","유형자산의 원가를 체계적으로 배분하는 과정(자산평가 아님)"],
+    ["감가상각 4대 결정요인","잔존가치·감가상각대상금액·내용연수·감가상각방법"],
+    ["체감잔액법","초기에 많이, 후기에 적게 상각하는 방법(정률법·연수합계법)"]
+  ],
+  checks:["감가상각이 원가배분 과정이지 자산평가 과정이 아닌 이유를 설명할 수 있다","감가상각의 4대 결정요인을 열거할 수 있다","정액법·정률법·연수합계법·생산량비례법의 계산방식을 구분할 수 있다","감가상각비의 회계처리(차변/대변)를 분개할 수 있다"]
+},
+{num:9, title:"은행계정조정표 알아보기",
+  ov:"현금 및 현금성자산의 범위와 당좌예금 거래의 회계처리, 그리고 회사측 잔액과 은행측 잔액의 차이를 조정하는 은행계정조정표 작성법을 다룬다.",
+  outline:[
+    ["현금 및 현금성자산", ["현금: 통화 + 통화대용증권 + 요구불예금(당좌예금·보통예금)", "현금성자산: 큰 거래비용 없이 현금화 가능하고 가치변동이 작은 자산(CD·CP·CMA·RP, 만기 3개월 이내 채권)"]],
+    ["은행계정조정표", ["당좌예금의 회사측 잔액과 은행측 잔액 불일치 원인 6가지 — 미기입예금·기발행미결제수표·미통지예금·부도수표·은행수수료·오류", "조정 방향: 각 원인에 따라 가산 또는 차감하여 양측 잔액을 일치"]]
+  ],
+  terms:[
+    ["현금성자산","큰 거래비용 없이 현금 전환이 쉽고 가치변동이 작은 자산(취득일로부터 만기 3개월 이내)"],
+    ["당좌예금","당좌수표를 발행할 수 있는 예금, 초과 인출 시 당좌차월(부채)로 처리"],
+    ["은행계정조정표","당좌예금의 회사측 잔액과 은행측 잔액을 일치시키기 위해 작성하는 표"],
+    ["기발행미결제수표","회사는 출금 처리했으나 은행에는 아직 제시되지 않은 수표(은행측 잔액에서 차감)"]
+  ],
+  checks:["현금과 현금성자산에 포함되는 항목을 구분할 수 있다","당좌차월이 재무상태표에 어떻게 표시되는지 설명할 수 있다","당좌예금 잔액 불일치의 6가지 원인을 열거할 수 있다","은행계정조정표를 작성하고 필요한 수정분개를 할 수 있다"]
+},
+{num:10, title:"사채 알아보기",
+  ov:"사채의 특성과 표시이자율·시장이자율의 관계에 따른 액면·할인·할증발행 금액의 계산, 그리고 발행 시 회계처리를 다룬다.",
+  outline:[
+    ["사채의 의의", ["사채: 장기 거액자금 조달을 위해 일반대중 대상으로 발행하는 유가증권", "차입금과 차이: 특정인·금융기관이 아닌 다수 일반대중으로부터 공개적으로 조달"]],
+    ["발행금액 결정", ["사채발행금액 = 이자의 현재가치 + 원금의 현재가치(시장이자율로 할인)", "표시이자율=시장이자율→액면발행 / 표시이자율<시장이자율→할인발행 / 표시이자율>시장이자율→할증발행"]],
+    ["발행 시 회계처리", ["액면발행: (차) 현금 (대) 사채", "할인발행: (차) 현금+사채할인발행차금 (대) 사채", "할증발행: (차) 현금 (대) 사채+사채할증발행차금"]]
+  ],
+  terms:[
+    ["사채","장기 거액자금 조달을 위해 일반대중 대상으로 발행하는 유가증권"],
+    ["시장이자율(유효이자율)","투자자의 최소 요구수익률이자 발행회사의 실질부담이자율"],
+    ["액면/할인/할증발행","표시이자율과 시장이자율의 대소관계에 따른 발행금액 결정"],
+    ["사채할인발행차금/사채할증발행차금","액면금액과 발행금액의 차이를 조정하는 계정"]
+  ],
+  checks:["사채와 차입금, 사채와 주식의 차이를 설명할 수 있다","표시이자율과 시장이자율의 관계로 발행유형(액면/할인/할증)을 판단할 수 있다","사채의 발행금액을 현재가치 계산으로 구할 수 있다","할인발행과 할증발행의 회계처리를 분개할 수 있다"]
+},
+{num:11, title:"자본 알아보기",
+  ov:"자본의 5가지 구성항목과 주식의 액면·할증·할인발행 회계처리, 이익잉여금의 처분, 그리고 자본변동표 작성을 다룬다.",
+  outline:[
+    ["자본의 구성", ["자본금·자본잉여금·자본조정·기타포괄손익누계액·이익잉여금의 5항목"]],
+    ["주식의 발행", ["액면발행(액면=발행금액) · 할증발행(발행>액면, 주식발행초과금) · 할인발행(발행<액면, 주식할인발행차금)", "주식발행비는 발행금액에서 차감"]],
+    ["이익잉여금의 처분과 자본변동표", ["법정적립금(이익준비금 등)과 임의적립금(감채기금적립금 등)으로 구분 적립", "임의적립금의 이입: 목적 달성 시 미처분이익잉여금으로 환원", "자본변동표: 한 회계기간 동안 자본 구성항목별 변동을 보여주는 재무제표"]]
+  ],
+  terms:[
+    ["자본의 5항목","자본금·자본잉여금·자본조정·기타포괄손익누계액·이익잉여금"],
+    ["주식발행초과금 vs 주식할인발행차금","할증발행 시 자본잉여금 vs 할인발행 시 자본조정"],
+    ["법정적립금 vs 임의적립금","법에 의한 강제 적립 vs 주주총회·정관에 의한 임의 적립"],
+    ["자본변동표","한 회계기간 동안 자본 각 항목의 변동 내역을 보여주는 재무제표"]
+  ],
+  checks:["자본의 5가지 구성항목을 열거할 수 있다","주식의 액면·할증·할인발행에 따른 회계처리를 분개할 수 있다","법정적립금과 임의적립금의 차이를 설명할 수 있다","자본변동표가 제공하는 정보를 설명할 수 있다"]
+},
+{num:12, title:"현금흐름표 작성하기",
+  ov:"영업·투자·재무활동으로 구분되는 현금흐름표의 구조와, 직접법·간접법에 따른 영업활동 현금흐름 작성방법의 차이를 다룬다.",
+  outline:[
+    ["활동별 현금흐름", ["영업활동: 주요 수익창출활동(판매·구입·급여·법인세 등)에서 발생", "투자활동: 유형·무형자산 및 금융상품의 취득·처분 관련 현금흐름", "재무활동: 자본조달(주식발행·차입) 및 상환 관련 현금흐름"]],
+    ["영업활동 현금흐름의 보고", ["직접법: 총현금유입·유출을 주요 항목별로 구분 표시(K-IFRS 권장)", "간접법: 당기순손익에 비현금항목·채권채무변동을 가감하여 표시"]],
+    ["작성 절차", ["비교재무상태표의 증감, 손익계산서, 추가자료(자산취득·처분, 배당, 차입 등)를 종합해 활동별로 현금흐름 산출"]]
+  ],
+  terms:[
+    ["현금흐름표","한 회계기간 동안 현금의 유입·유출 정보를 제공하는 재무제표"],
+    ["영업·투자·재무활동","현금흐름표의 3대 활동 구분"],
+    ["직접법","총현금유입과 총현금유출을 주요 항목별로 구분 표시하는 방법"],
+    ["간접법","당기순손익에 비현금항목과 채권·채무 변동을 조정하여 표시하는 방법"]
+  ],
+  checks:["현금흐름표의 3대 활동 구분(영업·투자·재무)을 설명할 수 있다","직접법과 간접법의 차이를 설명할 수 있다","간접법에서 자산 증가/감소, 부채 증가/감소를 가감하는 원리를 설명할 수 있다","비교재무상태표와 추가자료로 투자·재무활동 현금흐름을 계산할 수 있다"]
+},
+{num:13, title:"재무제표 분석하기",
+  ov:"재무비율을 활용해 기업의 수익성·활동성·안정성·성장성·배당을 평가하는 재무제표 분석의 주요 지표와 해석방법을 다룬다.",
+  outline:[
+    ["재무제표 분석의 의의", ["두 가지 이상의 회계수치로 재무비율을 산출하고, 과거·산업평균과 비교", "주가 등 재무제표 이외 정보도 함께 활용"]],
+    ["수익성·활동성 비율", ["수익성: 매출액순이익률(ROS)·자기자본순이익률(ROE)·주가이익비율(PER)", "활동성: 매출채권회전율·재고자산회전율·총자산회전율 — 회전율이 높을수록(회전기간이 짧을수록) 효율적"]],
+    ["안정성·성장성·배당비율", ["안정성: 유동비율·당좌비율·부채비율 — 단기·장기 채무상환능력", "성장성: 매출액증가율", "배당비율: 배당성향(순이익 대비 배당)·배당수익률(주가 대비 배당)"]]
+  ],
+  terms:[
+    ["ROE(자기자본순이익률)","당기순이익 ÷ 평균자기자본 × 100"],
+    ["매출채권회전율","순매출액 ÷ 평균매출채권 — 회수 속도를 나타냄"],
+    ["유동비율·당좌비율","유동자산(또는 당좌자산) ÷ 유동부채 × 100, 단기채무상환능력"],
+    ["배당성향","총배당액 ÷ 당기순이익 × 100"]
+  ],
+  checks:["수익성비율 3가지(ROS·ROE·PER)를 설명할 수 있다","매출채권회전율과 재고자산회전율이 의미하는 바를 설명할 수 있다","유동비율과 당좌비율의 차이를 설명할 수 있다","배당성향과 배당수익률을 계산하고 해석할 수 있다"]
+}
+];
+
+const $ = id => document.getElementById(id);
+
+$('gridNav').innerHTML = CHAPTERS.map(c => `
+  <a href="#c${c.num}">
+    <div class="n">${c.num}주차</div>
+    <div class="t">${c.title}</div>
+    <div class="h">${c.ov.slice(0, 30)}…</div>
+  </a>
+`).join('');
+
+$('jump').innerHTML = CHAPTERS.map(c => `<a href="#c${c.num}">${c.num}주차</a>`).join('');
+
+$('chapters').innerHTML = CHAPTERS.map(c => `
+  <section class="chap" id="c${c.num}">
+    <div class="head">
+      <span class="num">${c.num}주차</span>
+      <h2>${c.title}</h2>
+    </div>
+    <p class="ov">${c.ov}</p>
+    <div class="block">
+      <h3>핵심 구조</h3>
+      <div class="outline">
+        ${c.outline.map(([h, items]) => `<div class="sec"><b>${h}</b><ul>${items.map(i => `<li>${i}</li>`).join('')}</ul></div>`).join('')}
+      </div>
+    </div>
+    <div class="block">
+      <h3>꼭 기억할 용어</h3>
+      <div class="terms">
+        ${c.terms.map(([t, d]) => `<div class="term"><b>${t}</b><span>${d}</span></div>`).join('')}
+      </div>
+    </div>
+    <div class="block">
+      <h3>셀프 체크</h3>
+      <div class="checks">
+        ${c.checks.map((t, i) => `<label class="chk" data-id="c${c.num}_${i}"><input type="checkbox" class="cb"><span>${t}</span></label>`).join('')}
+      </div>
+    </div>
+  </section>
+`).join('');
+
+/* 체크 상태 — 이 브라우저에만(localStorage) */
+const KEY = 'aiAccountingWorkbook_v1';
+function allBoxes() { return [...document.querySelectorAll('.cb')]; }
+function save() {
+  try { localStorage.setItem(KEY, JSON.stringify(allBoxes().map(b => b.checked))); } catch (e) {}
+}
+function load() {
+  let d = null; try { d = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) {}
+  if (!Array.isArray(d)) return;
+  allBoxes().forEach((b, i) => { if (d[i]) b.checked = true; });
+}
+function refresh() {
+  const boxes = allBoxes();
+  const n = boxes.filter(b => b.checked).length;
+  $('progNum').textContent = n;
+  $('progMax').textContent = boxes.length;
+  boxes.forEach(b => b.closest('.chk').classList.toggle('done', b.checked));
+}
+document.addEventListener('change', e => { if (e.target.classList.contains('cb')) { refresh(); save(); } });
+$('resetAll').addEventListener('click', () => {
+  if (!confirm('체크한 내용을 모두 지울까요?')) return;
+  try { localStorage.removeItem(KEY); } catch (e) {}
+  allBoxes().forEach(b => b.checked = false);
+  refresh();
+});
+load(); refresh();
+</script>
+</body>
+</html>

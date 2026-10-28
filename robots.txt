@@ -7,5 +7,10 @@ Disallow: /learn/org-theory-14chapter-workbook.html
 Disallow: /learn/org-behavior-13chapter-workbook.html
 Disallow: /learn/entrepreneurship-14chapter-workbook.html
 Disallow: /learn/tourism-venture-entrepreneurship-workbook.html
+Disallow: /learn/cruise-management-12chapter-workbook.html
+Disallow: /learn/cruise-management-lecture-pack/
+Disallow: /learn/startup-founder-dna/
+Disallow: /learn/startup-founder-dna-5part-workbook.html
+Disallow: /learn/ai-accounting-13week-workbook.html
 
 Sitemap: https://www.sunshinewellness.co.kr/sitemap.xml
