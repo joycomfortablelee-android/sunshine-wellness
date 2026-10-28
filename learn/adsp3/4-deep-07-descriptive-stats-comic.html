@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="description" content="PART 03 데이터 분석 · 4장 기초 통계분석(255~263쪽) 시각화 교안 및 상호작용 퀴즈">
+<title>4장 기초 통계분석 | 시각화 교안 · 실전 퀴즈 (255~263쪽)</title>
+<style>
+:root{--ink:#16243a;--muted:#64748b;--navy:#132744;--blue:#2261c5;--blue-pale:#ebf3ff;--teal:#0b8987;--line:#e2e8f0;--page:#f5f7fb;--yellow:#fff0b7;--yellow-ink:#7a5105;--surface:#fff;--good:#147451;--bad:#b93947;--radius:18px;--shadow:0 10px 32px rgba(19,39,68,.055)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:96px}body{margin:0;background:var(--page);color:var(--ink);font-family:Pretendard,"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;font-size:15.5px;line-height:1.73;letter-spacing:-.025em}button,input{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}p{margin:.5rem 0 1rem}strong{font-weight:760}::selection{background:#f9e08b;color:#16243a}
+.topline{height:6px;background:linear-gradient(90deg,#1553aa,#1da5a5,#f1bb48)}.hero{color:#fff;background:linear-gradient(125deg,#10233d 0%,#173d72 67%,#1f6282 100%);padding:46px max(26px,calc((100vw - 1290px)/2)) 50px;position:relative;overflow:hidden}.hero:after{content:"σ";position:absolute;right:max(25px,calc((100vw - 1350px)/2));top:-90px;font-size:320px;font-family:Georgia,serif;color:#fff;opacity:.045;pointer-events:none}.eyebrow{color:#9cd8ff;font-size:.8rem;font-weight:800;letter-spacing:.17em;text-transform:uppercase}.hero h1{font-size:clamp(2rem,4.1vw,3.45rem);margin:.38rem 0 .4rem;letter-spacing:-.055em;line-height:1.2}.hero h1 small{font-weight:450;font-size:.48em;color:#c9d9ef;letter-spacing:-.02em;display:inline-block}.hero p{font-size:1.01rem;color:#d1deee;max-width:800px}.hero-meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}.hero-meta span{border:1px solid #ffffff3a;border-radius:100px;padding:5px 13px;font-size:.8rem;color:#ecf5ff;background:#ffffff12}.app-shell{max-width:1430px;margin:auto;display:grid;grid-template-columns:247px minmax(0,1fr);gap:27px;padding:30px 25px 80px}.sidebar{align-self:start;position:sticky;top:18px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);padding:21px 13px;border-radius:18px;max-height:calc(100vh - 36px);overflow:auto}.sidebar-title{font-weight:850;font-size:1rem;margin:2px 10px 8px}.side-label{color:var(--muted);font-size:.72rem;font-weight:850;letter-spacing:.08em;margin:20px 10px 7px}.toc{display:grid;gap:2px}.toc a{display:flex;align-items:start;gap:8px;padding:10px 9px;border-radius:10px;color:#536277;font-size:.88rem;line-height:1.42;transition:.2s}.toc a:hover,.toc a.active{background:var(--blue-pale);color:#154fa4;font-weight:800}.toc .page-mini{flex-shrink:0;font-size:.72rem;margin-top:3px;color:#7184a0;font-variant-numeric:tabular-nums}.side-tip{background:#f2f6fc;border-radius:12px;margin:21px 5px 5px;padding:12px 13px;font-size:.78rem;color:#52657d;line-height:1.65}.main{min-width:0;display:grid;grid-template-columns:minmax(0,1fr);gap:21px}.section{min-width:0;background:var(--surface);padding:29px clamp(18px,3.2vw,37px) 34px;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);scroll-margin-top:18px}.section-bar{display:flex;justify-content:space-between;align-items:start;gap:14px;margin-bottom:19px}.sec-heading{font-size:clamp(1.26rem,2.2vw,1.67rem);letter-spacing:-.04em;line-height:1.4;margin:3px 0 0}.kicker{color:var(--blue);letter-spacing:.08em;font-size:.74rem;font-weight:850;text-transform:uppercase}.page-tag{display:inline-flex;align-items:center;white-space:nowrap;color:#53667f;font-size:.77rem;border:1px solid #d6e2f0;border-radius:99px;padding:4px 11px;background:#f8fbff;font-weight:750}.lede{color:#4d617a;max-width:960px}.section h3{font-size:1.04rem;margin:21px 0 11px;letter-spacing:-.035em}.h-yellow{background:linear-gradient(transparent 45%,#ffec9c 45%);padding:0 .06em;font-weight:800}.key{color:#1761b4;font-weight:820}.muted{color:var(--muted)}.small{font-size:.83rem}.tiny{font-size:.76rem}.note{border-left:4px solid #cf9b31;background:#fffbec;padding:13px 15px;border-radius:0 11px 11px 0;color:#664d20;font-size:.87rem}.info{background:#eef6fd;border-left:4px solid #438cc4;padding:13px 15px;border-radius:0 11px 11px 0;color:#385f81;font-size:.88rem}.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.concept{border:1px solid var(--line);border-radius:14px;padding:18px;background:#fff;min-width:0}.concept.tint{background:#f6faff}.concept .num{font-size:.75rem;font-weight:900;color:var(--teal);letter-spacing:.07em}.concept strong{font-size:1.07rem;display:block;margin:4px 0}.concept p{margin:3px 0;font-size:.88rem;color:#58708a}.flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;align-items:center;gap:8px;margin:18px 0 24px}.flow .step{padding:13px 9px;border:1px solid #cddcf1;border-radius:12px;text-align:center;background:#eff6ff;font-weight:850;color:#174979;font-size:.9rem}.flow .step em{display:block;font-style:normal;font-size:.73rem;color:#6685a6;font-weight:600}.arrow{font-size:1.4rem;color:#75a1ca}.goals{display:grid;grid-template-columns:1fr 1fr;gap:9px 22px;padding:0;margin:12px 0 0;list-style:none}.goals li{display:flex;gap:9px;align-items:start;background:#f7f9fc;border-radius:10px;padding:11px 14px;font-size:.88rem}.goals li b{color:var(--teal)}.pill-row{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0 0}.pill{border-radius:60px;background:#eff4fa;color:#445a78;padding:4px 10px;font-size:.77rem;font-weight:750}.table-scroll{overflow:auto;border:1px solid var(--line);border-radius:12px;margin:13px 0 16px}.tbl{width:100%;border-collapse:collapse;text-align:left;font-size:.87rem;min-width:625px}.tbl th{background:#eef4fb;color:#314d6a;font-weight:800}.tbl td,.tbl th{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}.tbl tr:last-child td{border-bottom:0}.tbl code,.mono{font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace}.tbl code{color:#1656aa;font-size:.88rem}.formula{display:inline-block;background:#f1f6fe;color:#164c89;border:1px solid #dfebfa;border-radius:8px;padding:3px 9px;margin:1px 0;font-family:ui-monospace,Consolas,monospace;font-size:.86rem;letter-spacing:-.03em;white-space:nowrap}.stat-controls{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0}.chipbtn{border:1px solid #ccdaea;color:#3d5775;background:#fff;border-radius:10px;padding:8px 13px;font-weight:750;font-size:.84rem}.chipbtn:hover,.chipbtn.active{color:#fff;background:#1f5da4;border-color:#1f5da4}.stat-feature{padding:17px;border-radius:14px;background:linear-gradient(110deg,#eff6ff,#f9fcff);border:1px solid #dce8f6;display:grid;grid-template-columns:185px minmax(0,1fr);gap:12px;align-items:center}.stat-val{font-size:2.15rem;color:#164e95;font-weight:900;line-height:1.25;letter-spacing:-.05em}.stat-label{font-size:.82rem;color:#617890;font-weight:800}.stat-desc{font-size:.9rem;color:#445e7b}.data-strip{display:flex;flex-wrap:wrap;gap:6px;margin-top:13px}.data-strip span{min-width:33px;padding:3px 6px;border-radius:8px;text-align:center;background:#edf1f7;color:#375371;font-size:.75rem;font-weight:700}.data-strip span.mark{background:#fff0b9;color:#684b00;border:1px solid #e5c45b}.viz-card{border:1px solid var(--line);border-radius:14px;background:#fbfdff;padding:15px;min-width:0}.viz-card h4{margin:2px 0;font-size:.97rem}.viz-card p{font-size:.82rem;margin:2px 0;color:#65788e}.viz{width:100%;height:auto;display:block}.viz text{font-family:Pretendard,"Noto Sans KR",sans-serif}.svg-axis{stroke:#a0afc0;stroke-width:1.5}.dist-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}.dist-item{border:1px solid #deebf5;border-radius:13px;padding:13px;background:#fbfdff;text-align:center}.dist-item h4{font-size:.93rem;margin:0}.dist-item p{font-size:.78rem;color:#65778b;margin:0}.dist-item svg{max-width:100%;height:114px}.segmented{display:flex;flex-wrap:wrap;gap:6px;padding:4px;background:#eef3fa;border-radius:12px;width:fit-content;margin:12px 0}.segmented button{border:0;border-radius:9px;background:transparent;padding:8px 14px;font-size:.83rem;color:#5f7187;font-weight:800}.segmented button.active{color:#fff;background:#235aa0;box-shadow:0 2px 6px #1d46782b}.interact-area{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:13px 0}.interact-area input[type=range]{width:min(260px,100%);accent-color:#2760ac}.counter{background:#eaf1fa;border:1px solid #ccdbeb;color:#1d5494;font-weight:850;padding:4px 11px;border-radius:9px}.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.79rem;color:#65778e}.legend i{width:10px;height:10px;display:inline-block;border-radius:3px;margin-right:5px}.plot-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.bar-list{display:grid;gap:11px;margin-top:22px}.bar-item{display:grid;grid-template-columns:72px 1fr 35px;gap:7px;align-items:center;font-size:.78rem}.bar-track{height:27px;border-radius:0 6px 6px 0;background:#e8f0fa;overflow:hidden}.bar-track span{height:100%;display:block;background:linear-gradient(90deg,#448ce2,#1b64b9)}.hist-plot{height:180px;display:flex;align-items:end;gap:0;margin:16px 13px 0 0;border-left:1px solid #9caec4;border-bottom:1px solid #9caec4;padding-left:8px;position:relative}.hist-cell{flex:1;height:100%;display:flex;align-items:end;position:relative;min-width:0}.hist-column{width:100%;background:linear-gradient(0deg,#2377b8,#6ea9df);border:1px solid #fff2;min-height:0;transition:height .3s}.hist-count{position:absolute;top:calc(100% - var(--bar-height) - 23px);left:0;width:100%;text-align:center;font-weight:850;font-size:.75rem;color:#265779}.hist-ends{display:flex;justify-content:space-between;font-size:.75rem;color:#6a7c93;padding:6px 0 0 8px}.stem{display:grid;grid-template-columns:85px minmax(0,1fr);gap:0;margin:8px 0 5px;border:1px solid #dce5f0;border-radius:11px;overflow:hidden;font-family:ui-monospace,Consolas,monospace;font-size:.9rem}.stem div{padding:5px 14px;border-bottom:1px solid #edf1f5}.stem div:nth-child(odd){text-align:right;background:#eef5fc;border-right:1px solid #d4e0ec;font-weight:800;color:#235b9a}.stem div:nth-last-child(-n+2){border-bottom:0}.box-svg{width:100%;height:auto;display:block;max-height:210px}.fine-print{font-size:.78rem;color:#718096;line-height:1.66}.r-code{background:#102440;color:#dbe9fd;padding:22px;border-radius:12px;overflow:auto;font-size:.86rem;line-height:1.85;white-space:pre}.r-code .cm{color:#93bdc4}.section-break{text-align:center;padding:28px 15px 12px}.section-break span{letter-spacing:.16em;font-size:.78rem;font-weight:850;color:#2470b5}.section-break h2{font-size:1.72rem;letter-spacing:-.04em;margin:5px 0}.quiz-section{border:2px solid #b8d5f5}.quiz-toolbar{display:flex;justify-content:space-between;gap:9px;align-items:center;flex-wrap:wrap;margin:10px 0 18px}.progress-track{height:8px;border-radius:20px;background:#e7edf4;overflow:hidden}.progress-fill{height:100%;width:0;background:linear-gradient(90deg,#2a73c4,#1aa49a);transition:.25s}.quiz-steps{display:flex;gap:6px;flex-wrap:wrap;margin:17px 0}.quiz-step{width:34px;height:34px;padding:0;border-radius:9px;border:1px solid #d4dfeb;background:#fff;color:#58708e;font-size:.83rem;font-weight:800}.quiz-step.current{background:#1c5ea7;color:white;border-color:#1c5ea7}.quiz-step.done{background:#e7f6f0;color:#197b5b;border-color:#b9ddcc}.quiz-step.wrong{background:#fff0f1;color:#b33d47;border-color:#f1bbc0}.quiz-card{border-radius:15px;border:1px solid #dce5ef;padding:clamp(18px,3vw,28px);background:#fcfdff}.quiz-card h3{font-size:1.13rem;margin:14px 0 17px;line-height:1.66}.q-meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.q-meta b{color:#175ca8}.origin{font-size:.73rem;font-weight:800;padding:3px 8px;background:#eaf1ff;color:#2259ac;border-radius:6px}.origin.custom{background:#f0f2f6;color:#62728a}.options{display:grid;gap:9px}.opt{display:flex;gap:11px;align-items:start;border-radius:11px;border:1px solid #d9e4f0;background:#fff;text-align:left;padding:12px 14px;width:100%;color:#273b51;line-height:1.58;transition:.18s;font-size:.91rem}.opt:hover:not(:disabled){border-color:#79ace3;background:#f5faff}.opt .mark{flex:0 0 24px;height:24px;border:1px solid #d2deea;border-radius:50%;display:grid;place-items:center;color:#5e7895;font-size:.75rem;font-weight:850;line-height:1}.opt.selected{border-color:#2f79c5;background:#e9f4ff}.opt.selected .mark{color:#fff;background:#2877c3;border-color:#2877c3}.opt.right{border-color:#34a477;background:#ebf9f1}.opt.right .mark{background:#15915e;border-color:#15915e;color:#fff}.opt.incorrect{border-color:#e58c95;background:#fff0f1}.opt.incorrect .mark{background:#c94650;border-color:#c94650;color:#fff}.quiz-actions{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin:19px 0 0}.action-group{display:flex;gap:8px;flex-wrap:wrap}.btn{padding:10px 16px;border-radius:10px;border:1px solid #d6e2f0;background:#fff;color:#425e7d;font-weight:820;font-size:.86rem}.btn.primary{background:#1d62ae;border-color:#1d62ae;color:#fff}.btn.primary:hover{background:#164f90}.btn:disabled{opacity:.4;cursor:not-allowed}.feedback{margin-top:15px;border-radius:11px;padding:15px 17px;background:#ecf9f2;border:1px solid #b8dec9;color:#255940}.feedback.bad{background:#fff4f3;border:1px solid #f1c8c5;color:#86423d}.feedback strong{display:block;margin:0 0 5px}.feedback p{margin:0;font-size:.89rem}.scorebox{display:grid;grid-template-columns:1fr auto;gap:13px;align-items:center;border:1px solid #d6e9df;background:#f1fbf6;border-radius:14px;padding:18px;margin:17px 0}.scorebig{font-size:2.1rem;font-weight:900;color:#11704a}.source{border-top:1px solid var(--line);padding-top:16px;color:#6a7c90;font-size:.78rem}.footer{color:#64748b;padding:10px 0 0;text-align:center;font-size:.78rem}.desktop-only{display:block}.kurt-svg{height:auto;width:100%;display:block;max-height:225px}
+@media(max-width:1040px){.app-shell{grid-template-columns:210px minmax(0,1fr);gap:16px;padding:20px 15px 60px}.section{padding:22px 19px 27px}.plot-row{grid-template-columns:1fr}.sidebar{padding:17px 8px}}
+@media(max-width:740px){.hero{padding:32px 19px 38px}.hero h1 small{display:block;margin-top:6px}.app-shell{display:block;padding:14px 11px 40px}.sidebar{position:static;margin-bottom:15px;max-height:none;padding:11px}.sidebar-title{font-size:.85rem}.side-label,.side-tip{display:none}.toc{display:flex;overflow-x:auto;gap:3px;padding:5px 0;scrollbar-width:thin}.toc a{flex-shrink:0;white-space:nowrap;padding:8px}.toc .page-mini{display:none}.main{gap:14px}.section{padding:20px 16px;border-radius:14px}.section-bar{flex-wrap:wrap}.grid-2,.grid-3,.goals,.dist-grid,.plot-row{grid-template-columns:1fr}.flow{display:flex;flex-wrap:wrap;gap:5px}.flow .step{font-size:.75rem;padding:10px 6px;flex:1;min-width:112px}.flow .step em{font-size:.64rem}.flow .arrow{font-size:1rem}.stat-feature{grid-template-columns:1fr}.dist-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.dist-item{padding:8px 4px}.dist-item h4{font-size:.73rem}.dist-item p{font-size:.7rem}.dist-item svg{height:70px}.quiz-card{padding:15px}.scorebox{grid-template-columns:1fr}.desktop-only{display:none}}
+@media print{body{background:#fff}.hero{padding:20px;color:#132744;background:#fff}.hero p,.hero-meta span{color:#132744}.hero:after,.topline,.sidebar,.quiz-actions,.quiz-steps,.segmented,.stat-controls{display:none}.app-shell{display:block;padding:0}.main{gap:0}.section{box-shadow:none;border:0;border-bottom:1px solid #bbb;border-radius:0;page-break-inside:avoid}.quiz-section{border:0}.feedback{display:block}}
+
+/* 상세 정답풀이: 교재 본문과 함께 읽도록 설명 블록을 명료하게 구성 */
+.feedback.extended{padding:0;overflow:hidden;background:#fff;border:1px solid #cadfdb;color:var(--ink)}
+.feedback.extended.bad{border-color:#edc5c4;background:#fff;color:var(--ink)}
+.ex-result{padding:19px 22px;display:flex;justify-content:space-between;align-items:start;gap:12px;background:#ecf9f2;border-bottom:1px solid #cce8db}
+.feedback.extended.bad .ex-result{background:#fff1ef;border-color:#f0d0cb}
+.ex-result strong{display:block;color:#126b4b;font-size:1.06rem;letter-spacing:-.03em;margin:4px 0 5px}
+.feedback.extended.bad .ex-result strong{color:#a4433e}
+.ex-result p{font-size:.87rem;color:#456078;margin:0}
+.result-kicker{font-size:.72rem;letter-spacing:.1em;font-weight:900;color:#1b8564}
+.feedback.extended.bad .result-kicker{color:#ae5b50}
+.ex-result-badge{flex-shrink:0;border-radius:30px;padding:4px 9px;background:white;color:#58718b;border:1px solid #dfe7ef;font-weight:800;font-size:.73rem}
+.ex-block{padding:19px 22px;border-bottom:1px solid #e6edf4}
+.ex-block-title{display:flex;align-items:center;gap:9px;font-weight:900;font-size:.96rem;letter-spacing:-.035em;margin-bottom:10px;color:#173c6d}
+.ex-block-title span{display:inline-grid;place-items:center;background:#e8f1ff;color:#1d5ba6;min-width:31px;height:30px;padding:0 5px;border-radius:9px;font-size:.76rem}
+.feedback.extended .ex-block p{margin:0;font-size:.88rem;line-height:1.8;color:#42566c}
+.ex-steps{list-style:none;padding:0;margin:0;display:grid;gap:10px;counter-reset:step}
+.ex-steps li{display:flex;align-items:start;gap:11px;font-size:.88rem;color:#334a62;line-height:1.8}
+.ex-step-no{display:grid;place-items:center;flex:none;width:26px;height:26px;background:#eef3f9;border:1px solid #dce7f3;border-radius:50%;font-size:.73rem;font-weight:900;color:#2360a2;margin-top:2px}
+.choice-explain-list{display:grid;gap:8px}
+.choice-explain{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;border:1px solid #e0e8f2;padding:13px;border-radius:12px;background:#fbfcff}
+.choice-explain.is-correct{background:#eef9f2;border-color:#abd9bb}
+.choice-explain.is-my-wrong{background:#fff3f0;border-color:#f2c7c0}
+.choice-explain-num{font-size:1.18rem;line-height:1.1;font-weight:900;color:#50769b}
+.choice-explain.is-correct .choice-explain-num{color:#12804e}
+.choice-explain.is-my-wrong .choice-explain-num{color:#b54a45}
+.choice-explain b{font-size:.81rem;color:#2e4b65;display:block;line-height:1.4;margin-bottom:3px}
+.feedback.extended .choice-explain p{font-size:.84rem;color:#3b536a;line-height:1.75;margin:0}
+.ex-apply{background:#f4f8fe}
+.ex-memory{background:#fffae9}
+.ex-memory .ex-block-title{color:#8a6010}
+.ex-memory .ex-block-title span{background:#fff0bc;color:#885e08}
+.ex-caution{margin:13px 21px;background:#fff6ef;border-left:3px solid #e3a24a;border-radius:5px;padding:10px 15px;font-size:.84rem;color:#86521e}
+.ex-caution p{margin:2px 0!important;font-size:.82rem!important;color:#86521e!important}
+.ex-theory-link{padding:13px 22px;background:#f6f9fc;font-size:.83rem;color:#667990}
+.ex-theory-link a{color:#1759a8;text-decoration:underline;font-weight:850}
+@media(max-width:740px){.ex-result{padding:14px}.ex-block{padding:15px}.ex-caution{margin:11px 14px}.ex-theory-link{padding:11px 15px}}
+@media print {.ex-result,.ex-apply,.ex-memory,.choice-explain{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+
+/* 문제별 사전 이론 그림: 원문 문제보다 먼저 노출 */
+.quiz-card .q-theory{border:1px solid #ccdfef;background:linear-gradient(135deg,#f0f7ff 0%,#fcfeff 72%);border-radius:16px;padding:18px 18px 15px;margin:13px 0 21px;overflow:hidden}
+.q-theory-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.q-theory-head strong{font-size:.96rem;color:#174e89;display:flex;align-items:center;gap:9px}
+.q-theory-icon{display:grid;place-items:center;width:29px;height:29px;background:#d9eafb;color:#1b5696;border-radius:9px;font-size:1rem}
+.q-theory-head a{color:#376b9c;font-size:.79rem;text-decoration:underline;text-underline-offset:3px}
+.q-theory-title{font-size:1.12rem;font-weight:900;color:#1d3c61;margin:2px 0 4px;letter-spacing:-.04em}
+.q-theory-desc{font-size:.85rem;color:#55708c;line-height:1.75;margin:0 0 13px}
+.q-diagram-body{background:#fff;border:1px solid #dbe7f2;border-radius:13px;padding:14px;min-width:0}
+.q-svg{width:100%;height:auto;display:block;max-height:290px;overflow:visible}
+.q-svg text{font-family:Pretendard,'Noto Sans KR','Malgun Gothic',sans-serif}
+.q-svg .axis{stroke:#9db1c6;stroke-width:1.5}
+.q-svg .gridline{stroke:#e1e9f2;stroke-width:1}
+.q-svg .svgtick{fill:#637c94;font-size:13px}
+.q-theory-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.q-theory-grid .mini-panel{background:#fff;border:1px solid #dce8f4;border-radius:12px;padding:12px;min-width:0}
+.q-theory-grid .mini-panel>strong{font-size:.87rem;color:#2b527a}
+.q-theory-grid .mini-panel>p{font-size:.76rem;line-height:1.6;color:#607790;margin:2px 0 6px}
+.q-figcaption{font-size:.79rem;color:#58718a;margin:10px 0 1px;line-height:1.7}
+.q-figcaption b{color:#245a90}
+.q-theory-takeaway{display:flex;align-items:start;gap:10px;background:#fff6d8;border:1px solid #f0dfa5;border-radius:11px;padding:11px 13px;margin-top:11px;font-size:.85rem;color:#765a20;line-height:1.65}
+.q-theory-takeaway .lightbulb{font-size:1.04rem;flex-shrink:0;line-height:1.3}
+.q-theory-controls{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:11px}
+.q-theory-controls label{font-size:.81rem;color:#395b7a;font-weight:800}
+.q-theory-controls input[type=range]{accent-color:#246bb4;width:min(260px,65%)}
+.q-theory-controls output{font-size:.79rem;font-weight:850;color:#24578d;background:#e5effc;border-radius:7px;padding:3px 9px}
+.q-theory-btn{padding:6px 12px;border:1px solid #c9dcee;background:#f4f8ff;color:#355d84;border-radius:9px;font-weight:800;font-size:.79rem}
+.q-theory-btn.selected,.q-theory-btn[aria-pressed=true]{background:#205da4;border-color:#205da4;color:#fff}
+.q-flowcards{display:grid;grid-template-columns:minmax(0,1fr) 36px minmax(0,.7fr) 36px minmax(0,1.5fr);align-items:center;gap:9px;margin:8px 0 2px}
+.q-flowcard{border:1px solid #c6dcf2;border-radius:12px;padding:12px;background:#f4f9ff;text-align:center;min-height:103px;display:flex;flex-direction:column;justify-content:center;gap:5px}
+.q-flowcard.mid{background:#205fa7;color:#fff;border-color:#205fa7;font-size:1.02rem;font-weight:850}
+.q-flowcard small{font-size:.73rem;color:#6c839c;font-weight:750}
+.q-flowcard b{font-size:.9rem;line-height:1.4;color:#255178}
+.q-flowcard .sample{font-family:ui-monospace,Consolas,monospace;font-size:.8rem;color:#2f618c;overflow-wrap:anywhere}
+.q-flowcard.result{background:#ecf9f3;border-color:#b6dac6;text-align:left}
+.q-flowcard.result b{color:#1b7757}
+.q-flowcard.result .sample{line-height:1.55;color:#27654f}
+.q-flow-arrow{text-align:center;font-size:1.3rem;font-weight:900;color:#5383b4}
+.q-value-strip{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin:8px 0}
+.q-value-strip span{display:block;background:#e9f2fc;border-radius:8px;text-align:center;padding:9px 3px;font-weight:900;color:#2562a1;font-size:.85rem}
+.q-numbertiles{display:grid;grid-template-columns:repeat(15,minmax(0,1fr));gap:4px;margin:10px 0 14px}
+.q-numbertile{background:#e8f1fb;border:1px solid #d0dff0;color:#2b567f;border-radius:8px;padding:9px 1px;text-align:center;font-size:.76rem;position:relative;font-weight:850;min-width:0}
+.q-numbertile small{display:block;color:#8098b1;font-weight:650;font-size:.59rem}
+.q-numbertile.center{background:#ffe7a1;border-color:#e9ba4a;color:#76500c;box-shadow:0 0 0 2px #f3cb73 inset}
+.q-numbertile.outlier{background:#fff1e7;color:#a44e27;border-color:#f1c9ae}
+.q-numbertile.omitted{opacity:.5;text-decoration:line-through}
+.q-stat-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:9px}
+.q-stat-pair>div{background:#f0f6ff;border-radius:11px;padding:11px;text-align:center;border:1px solid #dce9f8}
+.q-stat-pair strong{display:block;font-size:1.38rem;color:#1e64af;line-height:1.4}
+.q-stat-pair small{font-size:.77rem;color:#58748e}
+.q-steps-arith{display:grid;grid-template-columns:minmax(0,1fr) 21px minmax(0,1fr) 21px minmax(0,1fr);gap:8px;align-items:center;margin-top:10px}
+.q-steps-arith .arith{min-height:90px;border:1px solid #cbdceb;border-radius:12px;background:#f2f8ff;padding:12px 6px;text-align:center;display:flex;flex-direction:column;justify-content:center}
+.q-steps-arith .arith:last-child{background:#eaf8f3;border-color:#b9dfd0}
+.q-steps-arith .arith strong{font-size:1.3rem;line-height:1.4;color:#1a5e9c}
+.q-steps-arith .arith:last-child strong{color:#167450}
+.q-steps-arith .arith small{font-size:.7rem;color:#617c98}
+.q-steps-arith .op{color:#718bab;text-align:center;font-size:1.1rem;font-weight:900}
+.q-skew-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.q-skew-graph{border:1px solid #dce7f4;background:#fff;border-radius:12px;padding:10px 8px;text-align:center}
+.q-skew-graph b{font-size:.82rem;color:#345775;display:block;margin-top:3px}
+.q-skew-graph p{font-size:.74rem;color:#648098;margin:0}
+.q-skew-graph svg{display:block;width:100%;height:auto}
+.q-compare-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.q-compare-grid .q-compare-col{border-radius:12px;background:#fff;border:1px solid #dbe7f2;padding:12px}
+.q-compare-grid .q-compare-col b{font-size:.86rem;color:#265681}
+.q-compare-grid .q-compare-col p{color:#637d92;font-size:.76rem;margin:2px 0 7px}
+.q-theory .q-smallbadge{display:inline-block;font-size:.72rem;letter-spacing:.02em;padding:3px 9px;background:#edf4fb;border-radius:99px;color:#5b7691;font-weight:850}
+.quiz-card #quizQuestion{border-top:1px dashed #cbdbe9;padding-top:17px;margin-top:15px}
+@media(max-width:840px){.q-numbertiles{grid-template-columns:repeat(8,minmax(0,1fr))}.q-flowcards{grid-template-columns:1fr 22px 1fr 22px 1.5fr;gap:4px}.q-flowcard{padding:10px 6px}}
+@media(max-width:550px){.quiz-card .q-theory{padding:12px 10px}.q-diagram-body{padding:9px}.q-theory-grid,.q-compare-grid{grid-template-columns:1fr}.q-flowcards{grid-template-columns:1fr;gap:4px}.q-flowcard{min-height:auto;padding:10px}.q-flow-arrow{transform:rotate(90deg);line-height:1}.q-skew-grid{grid-template-columns:1fr}.q-skew-graph svg{max-height:140px}.q-numbertiles{grid-template-columns:repeat(5,minmax(0,1fr))}.q-stat-pair{grid-template-columns:1fr 1fr}.q-steps-arith{grid-template-columns:1fr;gap:2px}.q-steps-arith .arith{min-height:auto;padding:7px}.q-steps-arith .op{transform:rotate(90deg);line-height:1}.q-theory-controls input[type=range]{width:150px}.q-theory-title{font-size:1rem}}
+@media print{.q-theory{break-inside:avoid;print-color-adjust:exact;-webkit-print-color-adjust:exact}.q-theory-controls button,.q-theory-controls input{display:none}.q-figcaption{font-size:10pt}}
+
+/* 자유도 n−1 : 쉽게 이해하는 4컷 + 체험형 보조 교안 */
+.df-lesson{margin:24px 0 29px;padding:22px 20px 23px;border:1px solid #cbdced;border-radius:19px;background:linear-gradient(160deg,#f5faff,#fff 65%);box-shadow:0 7px 26px rgba(24,72,126,.045)}
+.df-eyebrow{display:inline-flex;gap:7px;align-items:center;padding:5px 11px;background:#dcecff;color:#18518d;border-radius:999px;font-weight:850;font-size:.78rem;letter-spacing:.025em}
+.df-lesson h3{margin:11px 0 7px;font-size:1.45rem;letter-spacing:-.045em;color:#193a60}
+.df-lesson .df-intro{font-size:.92rem;line-height:1.85;color:#46607b;margin:0 0 17px}
+.df-comic{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin:13px 0 16px}
+.df-frame{border:2px solid #243d60;border-radius:16px;overflow:hidden;background:#fff;box-shadow:3px 4px 0 #c7d9eb;min-width:0}
+.df-frame-top{background:#edf5ff;display:flex;align-items:center;gap:9px;padding:9px 13px;border-bottom:1px solid #d6e4f1}
+.df-frame:nth-child(2) .df-frame-top{background:#fff3d6}.df-frame:nth-child(3) .df-frame-top{background:#edf8f3}.df-frame:nth-child(4) .df-frame-top{background:#f3efff}
+.df-panel-no{background:#284974;color:#fff;border-radius:8px;padding:3px 9px;font-size:.84rem;font-weight:900}
+.df-frame-top strong{font-size:.88rem;color:#243b5a;line-height:1.4}
+.df-scene{display:flex;align-items:center;gap:11px;padding:14px 15px;min-height:125px}
+.df-figures{display:flex;flex-wrap:wrap;gap:5px;align-items:center;justify-content:center;flex:0 0 38%;min-width:0}
+.df-character{font-size:2.15rem;line-height:1.5;filter:drop-shadow(0 2px 1px #b5c5d0);display:inline-block;transform:rotate(-5deg)}
+.df-character:nth-child(2){transform:rotate(5deg)}.df-character:nth-child(3){transform:rotate(-7deg)}
+.df-board{flex:1;min-width:0;padding:12px 10px;text-align:center;border-radius:12px;border:2px dashed #8eafce;background:#f8fbff;color:#174771}
+.df-board b{display:block;font-weight:950;font-size:clamp(1.02rem,1.8vw,1.42rem);line-height:1.4;letter-spacing:-.025em}
+.df-board small{display:block;color:#516f8a;font-size:.75rem;line-height:1.4;margin-top:4px}
+.df-frame:nth-child(2) .df-board{background:#fffaf0;border-color:#edcb7d;color:#855700}
+.df-frame:nth-child(3) .df-board{background:#effbf5;border-color:#8acdae;color:#147651}
+.df-frame:nth-child(4) .df-board{background:#f7f3ff;border-color:#b6a9e8;color:#6540a1}
+.df-speech{position:relative;margin:0 13px 11px;background:#fff;border:1px solid #b6cee1;border-radius:10px;padding:10px 12px;color:#243b58;font-size:.9rem;line-height:1.65;font-weight:650}
+.df-speech:before{content:"";position:absolute;left:25px;top:-8px;width:12px;height:12px;background:white;border-left:1px solid #b6cee1;border-top:1px solid #b6cee1;transform:rotate(45deg)}
+.df-caption{margin:0;padding:9px 13px 12px;background:#f7fafc;color:#506c82;font-size:.8rem;line-height:1.6;border-top:1px solid #e6edf5}
+.df-color-blue{color:#1765aa}.df-color-orange{color:#a76a09}.df-color-green{color:#178057}.df-color-purple{color:#633ca4}
+.df-experiment{padding:16px;border:1px solid #d6e4f1;border-radius:14px;background:#fff}
+.df-experiment-head{display:flex;gap:10px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.df-experiment h4{font-size:1.05rem;color:#224666;margin:0}
+.df-experiment .df-mini{font-size:.78rem;background:#fff2d5;color:#865f20;padding:5px 10px;border-radius:30px;font-weight:850}
+.df-control-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:14px 0}
+.df-control{border-radius:11px;padding:13px 12px;border:1px solid #d3e4f2;background:#f4f9fe;min-width:0;display:flex;flex-direction:column;gap:6px;align-items:center;text-align:center}
+.df-control.locked{background:#f7f1ff;border-color:#decdf5}
+.df-control label,.df-control .df-control-label{font-size:.8rem;font-weight:800;color:#41647d}
+.df-control output{font-weight:950;font-size:1.65rem;color:#1e69a8;line-height:1.3}
+.df-control.locked output{color:#764ab1}
+.df-control input[type=range]{width:100%;accent-color:#3179b8;cursor:pointer;margin:4px 0;min-width:0}
+.df-control .df-control-help{font-size:.73rem;color:#62758a;line-height:1.4}
+.df-results{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.df-result{padding:13px 15px;border-radius:12px;border:1px solid #d8e5f1;background:#f7fbff}
+.df-result.sample{background:#eaf5ff;border-color:#b3d5f2}
+.df-result .df-label{display:block;color:#466683;font-weight:850;font-size:.78rem}
+.df-result strong{display:block;font-size:clamp(1.1rem,2vw,1.45rem);color:#1c5485;margin:5px 0;line-height:1.3}
+.df-result p{margin:3px 0 0;font-size:.76rem;color:#4e6579;line-height:1.5}
+.df-footnote{margin-top:13px;padding:12px 13px;border-left:4px solid #2c7bb8;background:#f2f8ff;border-radius:0 10px 10px 0;font-size:.85rem;line-height:1.8;color:#354f69}
+.df-footnote p{margin:0 0 6px}.df-footnote p:last-child{margin:0}
+.df-highlight{background:#ffeb9b;border-radius:3px;padding:1px 3px;font-weight:850;color:#5c4315}
+.df-quiz-extra{margin-top:14px}.df-quiz-extra .df-comic{margin:11px 0}.df-quiz-extra .df-frame{box-shadow:2px 3px 0 #d1deea}
+.df-quiz-extra .df-scene{min-height:108px;padding:11px 13px}.df-quiz-extra .df-character{font-size:1.75rem}
+.df-exam-key{padding:12px 14px;background:#fff9e9;border:1px solid #f1d49a;border-radius:11px;margin:12px 0 4px;font-size:.84rem;line-height:1.75;color:#695027}
+.df-quick-link{display:inline-block;margin:10px 0 3px;color:#215f9d;font-weight:850;font-size:.84rem;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:780px){.df-lesson{padding:16px 13px}.df-comic{grid-template-columns:1fr}.df-lesson h3{font-size:1.3rem}.df-scene{min-height:102px}}
+@media(max-width:460px){.df-figures{flex-basis:36%;gap:1px}.df-character{font-size:1.65rem}.df-control-grid{gap:6px}.df-control{padding:10px 7px}.df-control output{font-size:1.33rem}.df-control label,.df-control .df-control-label{font-size:.72rem}.df-results{grid-template-columns:1fr}.df-board b{font-size:1rem}}
+@media print{.df-lesson,.df-frame,.df-result{print-color-adjust:exact;-webkit-print-color-adjust:exact}.df-control input{display:none}.df-frame{break-inside:avoid}}
+
+</style>
+</head>
+<body>
+<div class="topline"></div>
+<header class="hero" id="top">
+ <div class="eyebrow">PART 03 · 데이터 분석 / DATA ANALYSIS</div>
+ <h1>4장. 기초 통계분석 <small>시각화 교안 + 상호작용 문제</small></h1>
+ <p>개념을 <b>그림으로 이해</b>하고, 수치를 <b>직접 바꿔 보며</b>, 기출문제로 <b>확인</b>하는 학습 자료입니다. 상단은 이론, 하단은 문항별 이론 그림과 문제 풀이로 구성했습니다.</p>
+ <div class="hero-meta"><span>교재 255–263쪽</span><span>7개 이론 영역</span><span>문항별 이론 그림 8개</span><span>자유도 n−1 · 4컷 만화·조작 실습</span><span>기출 3문항 + 추가 연습 5문항</span><span>인터넷 없이 실행 가능</span></div>
+</header>
+<div class="app-shell">
+ <aside class="sidebar" aria-label="목차">
+  <div class="sidebar-title">목차 · 페이지 이동</div>
+  <div class="side-label">이론 · THEORY</div>
+  <nav class="toc">
+   <a href="#overview"><span class="page-mini">255–256</span>① 학습목표·기술통계</a>
+   <a href="#metrics"><span class="page-mini">257–258</span>② 기초 통계량</a>
+   <a href="#degrees-of-freedom"><span class="page-mini">257–258</span>└ 자유도 n−1 · 4컷 만화</a>
+   <a href="#shape"><span class="page-mini">258–259</span>③ 왜도·첨도</a>
+   <a href="#charts"><span class="page-mini">259–260</span>④ 히스토그램·막대</a>
+   <a href="#boxplot"><span class="page-mini">260</span>⑤ 줄기잎·상자그림</a>
+   <a href="#rcode"><span class="page-mini">261</span>⑥ R 기술통계 함수</a>
+   <a href="#summary"><span class="page-mini">255–261</span>⑦ 핵심정리</a>
+  </nav>
+  <div class="side-label">문제 · QUIZ</div>
+  <nav class="toc"><a href="#quiz"><span class="page-mini">262–263</span>⑧ 기출·연습 문제 풀기</a></nav>
+  <div class="side-tip">※ 교재 원문의 OCR 오류가 확인되는 수치·표기는 검산하여 정리했습니다. 기출 11–13번은 선택지를 원문 기준으로 유지했습니다.</div>
+ </aside>
+ <main class="main">
+  <section class="section" id="overview">
+   <div class="section-bar"><div><div class="kicker">01 · FOUNDATION</div><h2 class="sec-heading">기술통계는 데이터를 이해하는 첫 단계</h2></div><span class="page-tag">교재 p.255–256</span></div>
+   <p class="lede">기술통계(<span class="key">Descriptive Statistics</span>)는 수집된 자료를 <span class="h-yellow">표·그림·통계량으로 요약</span>하여 데이터의 특성을 파악하는 방법입니다. 반면 추론통계는 표본을 이용해 모집단의 특성을 추정하거나 가설을 검정합니다.</p>
+   <div class="flow" aria-label="데이터 분석 흐름">
+    <div class="step">자료 수집<em>Collect</em></div><div class="arrow">→</div><div class="step">기술통계<em>Describe</em></div><div class="arrow">→</div><div class="step">시각화<em>Visualize</em></div><div class="arrow">→</div><div class="step">추론·해석<em>Infer</em></div>
+   </div>
+   <div class="grid-2">
+    <div class="concept tint"><div class="num">DESCRIPTIVE</div><strong>기술통계</strong><p>이미 관측한 자료를 요약합니다. 평균·분산·사분위수, 히스토그램·상자그림 등이 대표적입니다.</p><div class="pill-row"><span class="pill">자료 요약</span><span class="pill">중심·산포·형태</span></div></div>
+    <div class="concept"><div class="num">INFERENTIAL</div><strong>추론통계</strong><p>표본으로 모집단을 추정하고 가설을 검정합니다. 점추정·구간추정·가설검정 등이 포함됩니다.</p><div class="pill-row"><span class="pill">모집단 추정</span><span class="pill">불확실성 평가</span></div></div>
+   </div>
+   <h3>교재의 학습목표</h3>
+   <ul class="goals"><li><b>01</b> 기술통계의 정의를 이해한다.</li><li><b>02</b> 통계량으로 자료를 정리하고 R에서 계산한다.</li><li><b>03</b> 그래프로 자료를 정리하고 R 활용 방법을 이해한다.</li><li><b>04</b> 상관관계 분석의 개념과 활용을 이해한다.</li></ul>
+   <div class="note" style="margin-top:17px"><b>해석 주의</b> · 성별·혈액형·전공처럼 범주를 단지 숫자로 코딩한 자료는, 코드의 평균이 실제 의미 있는 평균을 뜻하지 않습니다. 먼저 <strong>자료의 척도</strong>를 확인해야 합니다. 상관분석의 상세 이론은 제공된 255–263쪽 본문에 포함되지 않았습니다.</div>
+  </section>
+  <section class="section" id="metrics">
+   <div class="section-bar"><div><div class="kicker">02 · NUMERICAL SUMMARY</div><h2 class="sec-heading">중심위치·산포를 숫자로 요약하기</h2></div><span class="page-tag">교재 p.257–258</span></div>
+   <p>자료가 어디에 <span class="key">모여 있는지(중심)</span>, 얼마나 <span class="key">흩어져 있는지(산포)</span>를 함께 살펴야 분포의 특징을 정확히 설명할 수 있습니다.</p>
+   <div class="table-scroll"><table class="tbl"><thead><tr><th>구분</th><th>통계량 (영어)</th><th>계산·해석의 핵심</th></tr></thead><tbody>
+    <tr><td>중심</td><td><b>표본평균</b><br>Sample Mean</td><td><span class="formula">x̄ = Σxᵢ / n</span> · 모든 값의 산술평균</td></tr>
+    <tr><td>중심</td><td><b>중앙값</b><br>Median</td><td>정렬 후 가운데 값 · 이상치의 영향을 비교적 적게 받음</td></tr>
+    <tr><td>산포</td><td><b>표본분산</b><br>Sample Variance</td><td><span class="formula">s² = Σ(xᵢ − x̄)² / (n−1)</span></td></tr>
+    <tr><td>산포</td><td><b>표본표준편차</b><br>Standard Deviation</td><td><span class="formula">s = √s²</span> · 원자료와 같은 단위</td></tr>
+    <tr><td>위치·산포</td><td><b>사분위수·IQR</b><br>Quartile / Interquartile Range</td><td><span class="formula">IQR = Q3 − Q1</span> · 가운데 50% 범위</td></tr>
+    <tr><td>상대 산포</td><td><b>변동계수</b><br>Coefficient of Variation</td><td><span class="formula">CV = s / |x̄|</span> · 평균이 0에 가까우면 해석 주의</td></tr>
+    <tr><td>표본평균의 불확실성</td><td><b>표준오차</b><br>Standard Error</td><td><span class="formula">SE(x̄) = s / √n</span> · 평균 추정치의 변동성</td></tr>
+   </tbody></table></div>
+
+   <section class="df-lesson" id="degrees-of-freedom" aria-labelledby="dfLessonTitle">
+    <span class="df-eyebrow">개념 심화 · 표본분산 · 교재 p.257–258</span>
+    <h3 id="dfLessonTitle">왜 표본분산은 n이 아니라 n−1로 나눌까요?</h3>
+    <p class="df-intro">답은 <b>자유도(Degrees of Freedom)</b>에 있습니다. 어려워 보이지만 <span class="df-highlight">평균을 알면 마지막 숫자는 마음대로 정할 수 없다</span>는 뜻이에요. 3명의 점수로 4컷 이야기를 따라가 보세요.</p>
+    <div id="dfComicFull" aria-label="자유도 n 마이너스 1 이해를 위한 4컷 만화"></div>
+    <div class="df-experiment">
+     <div class="df-experiment-head"><h4>직접 숫자를 바꿔 보세요 · 평균 7점 유지하기</h4><span class="df-mini">움직이는 계산 실습</span></div>
+     <p class="small muted" style="margin:9px 0 0">첫 번째와 두 번째 점수는 자유롭게 움직여요. 그런데 <b>평균이 7점이라는 조건</b> 때문에 세 번째 점수는 자동으로 결정됩니다.</p>
+     <div class="df-control-grid">
+      <div class="df-control"><label for="dfFirst">🔓 첫 번째 학생 A</label><output id="dfAValue" for="dfFirst">5점</output><input type="range" id="dfFirst" min="3" max="9" step="1" value="5" aria-label="첫 번째 학생 점수"><span class="df-control-help">내가 정할 수 있어요</span></div>
+      <div class="df-control"><label for="dfSecond">🔓 두 번째 학생 B</label><output id="dfBValue" for="dfSecond">7점</output><input type="range" id="dfSecond" min="4" max="10" step="1" value="7" aria-label="두 번째 학생 점수"><span class="df-control-help">나도 정할 수 있어요</span></div>
+      <div class="df-control locked"><span class="df-control-label">🔒 세 번째 학생 C</span><output id="dfCValue">9점</output><span class="df-control-help">21−A−B로 자동 결정!</span></div>
+     </div>
+     <div class="df-results" aria-live="polite">
+      <div class="df-result"><span class="df-label">이야기 속 3명의 점수와 합계</span><strong id="dfSum">5 + 7 + 9 = 21점</strong><p>평균 = 21÷3 = 7점 · 자유롭게 움직이는 수는 2개</p></div>
+      <div class="df-result sample"><span class="df-label">표본분산 · 자유도 3−1 = 2</span><strong id="dfSampleVariance">8 ÷ 2 = 4.00</strong><p id="dfSumsq">편차 제곱합: 4 + 0 + 4 = 8</p></div>
+     </div>
+     <div class="df-footnote">
+      <p><b>그런데 왜 실제 계산에서는 n−1로 나눌까요?</b> 표본에서 계산한 평균은 표본 자료에 딱 맞춰지기 때문에, 그 평균을 기준으로 퍼짐을 재면 모집단의 퍼짐을 <b>평균적으로 작게 추정</b>하기 쉽습니다. 그래서 보통의 무작위 표본에서 모분산을 추정할 때는 <b>n−1로 나누어 이를 보정</b>합니다(베셀 보정, Bessel’s correction).</p>
+      <p><b>꼭 구별하기:</b> 이 세 점수가 우리가 관심 있는 <b>전체 모집단</b>의 점수라면 모분산은 <span id="dfPopulationVariance">8 ÷ 3 ≈ 2.67</span>입니다. <b>모집단의 분산을 추정하려고 뽑은 표본</b>이라면 표본분산은 <b id="dfSampleBrief">8 ÷ (3−1) = 4</b>입니다. 무엇을 구하는지에 따라 분모가 달라요.</p>
+     </div>
+    </div>
+   </section>
+
+   <h3>실습 예시 · 직원 15명의 출근 소요시간</h3>
+   <p class="small muted">원자료(분): 62, 55, 32, 42, 55, 35, 110, 64, 54, 67, 58, 62, 58, 26, 15</p>
+   <div class="stat-controls" id="statButtons" role="group" aria-label="통계량 선택">
+    <button class="chipbtn active" data-stat="mean">평균</button><button class="chipbtn" data-stat="median">중앙값</button><button class="chipbtn" data-stat="variance">분산</button><button class="chipbtn" data-stat="sd">표준편차</button><button class="chipbtn" data-stat="iqr">IQR</button><button class="chipbtn" data-stat="cv">변동계수</button><button class="chipbtn" data-stat="se">표준오차</button>
+   </div>
+   <div class="stat-feature" aria-live="polite"><div><div class="stat-label" id="statLabel">표본평균 (Sample Mean)</div><div class="stat-val" id="statValue">53분</div></div><div class="stat-desc" id="statExplain">총 795분 ÷ 15명 = 53분. 전체 출근시간의 중심을 보여줍니다.</div></div>
+   <div class="data-strip" id="sortedValues" aria-label="크기순 출근시간"></div>
+   <div class="info" style="margin-top:14px"><b>교재 예제 검산</b> · 평균 <b>53분</b>, 중앙값 <b>55분</b>, 분산 <b>489</b>, 표준편차 <b>22.11분</b>, 범위 <b>95분</b>, Q1 <b>35분</b>, Q3 <b>62분</b>, IQR <b>27분</b>, CV <b>0.417(41.7%)</b>, SE <b>5.71분</b>입니다.</div>
+  </section>
+  <section class="section" id="shape">
+   <div class="section-bar"><div><div class="kicker">03 · DISTRIBUTION SHAPE</div><h2 class="sec-heading">왜도와 첨도: 분포의 생김새 읽기</h2></div><span class="page-tag">교재 p.258–259</span></div>
+   <h3>왜도 (Skewness) · 어느 쪽 꼬리가 긴가?</h3>
+   <div class="dist-grid">
+    <div class="dist-item"><h4>음의 왜도 · −</h4><svg id="skewLeft" class="viz" role="img" aria-label="왼쪽으로 꼬리가 긴 분포" viewBox="0 0 240 115"></svg><p>왼쪽으로 긴 꼬리</p></div>
+    <div class="dist-item"><h4>왜도 0</h4><svg id="skewNormal" class="viz" role="img" aria-label="좌우 대칭 분포" viewBox="0 0 240 115"></svg><p>좌우 대칭</p></div>
+    <div class="dist-item"><h4>양의 왜도 · +</h4><svg id="skewRight" class="viz" role="img" aria-label="오른쪽으로 꼬리가 긴 분포" viewBox="0 0 240 115"></svg><p>오른쪽으로 긴 꼬리</p></div>
+   </div>
+   <p class="small muted">기억법: 왜도의 부호는 <b>꼬리가 길게 뻗은 방향</b>과 같습니다. 오른쪽에 극단적으로 큰 관측값이 있으면 양의 왜도가 나타나기 쉽습니다.</p>
+   <h3>첨도 (Kurtosis) · 꼬리와 극단값의 특성</h3>
+   <div class="viz-card"><svg id="kurtSvg" viewBox="0 0 640 225" class="kurt-svg" role="img" aria-label="정규분포와 다른 첨도의 개념적 곡선 비교"></svg><div class="legend"><span><i style="background:#1f68b9"></i>정규분포</span><span><i style="background:#ec9c42"></i>양의 초과첨도(두꺼운 꼬리 예시)</span><span><i style="background:#17a18e"></i>음의 초과첨도(얇은 꼬리 예시)</span></div></div>
+   <div class="note" style="margin-top:13px"><b>시험 표현과 통계적 엄밀성 구분</b> · 교재는 첨도를 ‘뾰족한 정도’로 설명하며 정규분포를 기준으로 <b>초과첨도 0</b>을 사용합니다. 엄밀하게 첨도는 분포의 <b>꼬리와 극단값에 대한 민감도</b>를 반영하므로 꼭짓점 높이만으로 단정하지 않습니다. 위 곡선은 개념도입니다.</div>
+  </section>
+  <section class="section" id="charts">
+   <div class="section-bar"><div><div class="kicker">04 · GRAPHICAL SUMMARY</div><h2 class="sec-heading">막대그래프 vs 히스토그램</h2></div><span class="page-tag">교재 p.259–260</span></div>
+   <p class="lede"><span class="h-yellow">X축이 범주형이면 막대그래프</span>, <span class="h-yellow">X축이 연속형의 구간이면 히스토그램</span>입니다. 히스토그램은 계급의 개수와 폭에 따라 모양이 달라집니다.</p>
+   <div class="plot-row">
+    <div class="viz-card"><h4>막대그래프 · Bar Chart</h4><p>예시 자료: 선호 점심메뉴(범주형)</p><div class="bar-list"><div class="bar-item"><b>한식</b><div class="bar-track"><span style="width:90%"></span></div>9명</div><div class="bar-item"><b>양식</b><div class="bar-track"><span style="width:60%"></span></div>6명</div><div class="bar-item"><b>중식</b><div class="bar-track"><span style="width:40%"></span></div>4명</div><div class="bar-item"><b>일식</b><div class="bar-track"><span style="width:30%"></span></div>3명</div></div><p class="fine-print" style="margin-top:17px">각 범주의 막대가 서로 떨어져 있습니다. 순서를 바꿔도 의미가 유지됩니다. (설명용 임의 자료)</p></div>
+    <div class="viz-card"><h4>히스토그램 · Histogram</h4><p>예시 자료: 출근시간(연속형, 15개 관측치)</p><div class="interact-area"><label for="binsRange" class="small"><b>계급 수:</b></label><input type="range" id="binsRange" min="3" max="8" step="1" value="5"><output class="counter" id="binsNum" for="binsRange">5개</output></div><div id="histogram" class="hist-plot" aria-label="계급 수를 바꿀 수 있는 히스토그램"></div><div class="hist-ends"><span>15분 (최솟값)</span><span>110분 (최댓값)</span></div><p class="fine-print" id="histNote">표본이 작으므로 히스토그램 모양만으로 모집단 분포를 확정하지 않습니다.</p></div>
+   </div>
+   <div class="grid-3" style="margin-top:13px"><div class="concept"><div class="num">STEP 1</div><strong>최솟값·최댓값</strong><p>자료의 범위(Range)를 확인</p></div><div class="concept"><div class="num">STEP 2</div><strong>계급 수 정하기</strong><p>구간 개수에 따라 모양이 달라짐</p></div><div class="concept"><div class="num">STEP 3</div><strong>각 구간 빈도 계산</strong><p>구간별 관측치 수로 높이 표시</p></div></div>
+   <p class="fine-print">교재의 계급 수 선정법(예: 2ᵏ ≥ n을 만족하는 최소 정수 k)은 간단한 경험적 규칙 중 하나입니다. 실제 분석에서는 자료 특성과 목적에 따라 계급 폭을 다르게 선택할 수 있습니다.</p>
+  </section>
+  <section class="section" id="boxplot">
+   <div class="section-bar"><div><div class="kicker">05 · OTHER PLOTS</div><h2 class="sec-heading">줄기–잎 그림과 상자그림</h2></div><span class="page-tag">교재 p.260</span></div>
+   <div class="grid-2">
+    <div class="viz-card"><h4>줄기–잎 그림 · Stem-and-Leaf</h4><p>원자료의 개별 숫자를 남기면서 분포를 보여줍니다.</p><div class="stem" aria-label="출근시간 데이터 줄기 잎 그림"><div>줄기</div><div>잎</div><div>1</div><div>5</div><div>2</div><div>6</div><div>3</div><div>2 5</div><div>4</div><div>2</div><div>5</div><div>4 5 5 8 8</div><div>6</div><div>2 2 4 7</div><div>11</div><div>0</div></div><p class="fine-print"><b>예:</b> 5 | 8 = 58분, 11 | 0 = 110분. 10의 자리(줄기)와 1의 자리(잎)로 정리했습니다.</p></div>
+    <div class="viz-card"><h4>상자그림 · Box Plot</h4><p>중앙값·사분위수·수염·이상치를 확인합니다.</p><svg id="boxSvg" class="box-svg" viewBox="0 0 620 240" role="img" aria-label="출근시간 중앙값 55 사분위수 35 62와 이상치 110을 표시한 상자그림"></svg><p class="fine-print">실제 수염은 기준 울타리 내의 <b>가장 바깥 관측값</b>까지 표시합니다. 따라서 최솟값·최댓값과 수염 끝이 항상 같지는 않습니다.</p></div>
+   </div>
+   <div class="grid-3" style="margin-top:12px"><div class="concept tint"><div class="num">MIDDLE 50%</div><strong>Q1~Q3 = 35~62분</strong><p>IQR = 62 − 35 = <b>27분</b></p></div><div class="concept"><div class="num">INNER FENCE</div><strong>−5.5 ~ 102.5분</strong><p>Q1 − 1.5×IQR, Q3 + 1.5×IQR</p></div><div class="concept"><div class="num">OUTLIER</div><strong>110분</strong><p>안쪽 울타리 밖, 바깥 울타리 안 → 보통 이상점</p></div></div>
+   <div class="note" style="margin-top:13px"><b>중요</b> · 상자 내부의 선은 <b>평균이 아니라 중앙값(Q2)</b>입니다. 상자의 아래·위 경계는 각각 <b>Q1·Q3</b>입니다. 바깥 울타리는 Q1−3×IQR, Q3+3×IQR이며, 관측치가 이 범위를 넘으면 극단 이상점으로 분류할 수 있습니다.</div>
+  </section>
+  <section class="section" id="rcode">
+   <div class="section-bar"><div><div class="kicker">06 · HANDS-ON R</div><h2 class="sec-heading">R에서 기술통계량 확인하기</h2></div><span class="page-tag">교재 p.261</span></div>
+   <div class="table-scroll"><table class="tbl"><thead><tr><th>R 함수</th><th>기능</th><th>활용 예시</th></tr></thead><tbody><tr><td><code>head()</code></td><td>첫 6행 출력(기본)</td><td><code>head(df)</code></td></tr><tr><td><code>head( , n)</code></td><td>첫 n행 출력</td><td><code>head(df, 10)</code></td></tr><tr><td><code>summary()</code></td><td>변수 유형에 따라 요약 통계·빈도 확인</td><td><code>summary(df)</code></td></tr><tr><td><code>mean()</code></td><td>평균</td><td><code>mean(df$time)</code></td></tr><tr><td><code>median()</code></td><td>중앙값</td><td><code>median(df$time)</code></td></tr><tr><td><code>sd()</code></td><td>표본표준편차</td><td><code>sd(df$time)</code></td></tr><tr><td><code>var()</code></td><td>표본분산</td><td><code>var(df$time)</code></td></tr><tr><td><code>quantile()</code></td><td>분위수</td><td><code>quantile(df$time)</code></td></tr></tbody></table></div>
+   <div class="quiz-toolbar"><b class="small">예제 데이터를 그대로 계산하는 R 코드</b><button class="btn" id="copyR" type="button">코드 복사</button></div>
+   <pre class="r-code" id="rCode"><span class="cm"># 교재 p.258: 직원 15명 출근시간</span>
+time &lt;- c(62,55,32,42,55,35,110,64,54,67,58,62,58,26,15)
+df &lt;- data.frame(time = time)
+
+head(df)
+summary(df)
+mean(df$time)       <span class="cm"># 53</span>
+median(df$time)     <span class="cm"># 55</span>
+var(df$time)        <span class="cm"># 489</span>
+sd(df$time)         <span class="cm"># 약 22.11</span>
+quantile(df$time)         <span class="cm"># R 기본값: Q1=38.5, Q2=55, Q3=62</span>
+quantile(df$time, type=2) <span class="cm"># 교재 방식: Q1=35, Q2=55, Q3=62</span>
+IQR(df$time, type=2)      <span class="cm"># 교재 방식: 27</span>
+sd(df$time) / sqrt(length(time)) <span class="cm"># 약 5.71</span></pre>
+   <p class="fine-print"><b>사분위수 산출법 주의:</b> R 기본 <code>quantile()</code>(type=7)은 이 데이터에서 <b>Q1=38.5</b>, Q3=62를 반환하며, 교재가 제시한 <b>Q1=35</b>와 다릅니다. 교재 결과를 재현할 때는 <code>quantile(df$time, type=2)</code> 및 <code>IQR(df$time, type=2)</code>를 사용하세요. <code>summary()</code>도 기본 방식의 1사분위수를 표시합니다.</p>
+  </section>
+  <section class="section" id="summary">
+   <div class="section-bar"><div><div class="kicker">07 · ONE-PAGE REVIEW</div><h2 class="sec-heading">시험 직전 핵심정리</h2></div><span class="page-tag">교재 p.255–261</span></div>
+   <div class="grid-3"><div class="concept tint"><div class="num">① 통계량</div><strong>평균 vs 중앙값</strong><p>평균은 전체 값의 영향을 받고, 중앙값은 정렬된 자료의 중앙 위치를 나타냅니다.</p></div><div class="concept tint"><div class="num">② 산포</div><strong>표준편차 vs 표준오차</strong><p>표준편차는 개별 관측값의 퍼짐, 표준오차는 표본평균의 추정 불확실성입니다.</p></div><div class="concept tint"><div class="num">③ 분포 형태</div><strong>왜도 ± / 첨도</strong><p>왜도는 긴 꼬리 방향, 첨도는 정규분포 대비 극단값·꼬리 특성을 함께 읽습니다.</p></div><div class="concept"><div class="num">④ 차트 구분</div><strong>범주 vs 연속</strong><p>막대그래프는 범주, 히스토그램은 연속형 변수의 구간별 도수를 표시합니다.</p></div><div class="concept"><div class="num">⑤ 상자그림</div><strong>중앙선 = Q2</strong><p>상자의 양 끝은 Q1·Q3, IQR과 1.5×IQR로 이상치 여부를 확인합니다.</p></div><div class="concept"><div class="num">⑥ R 함수</div><strong>summary()</strong><p>변수 유형에 맞는 기초 요약치를 한 번에 확인하는 대표 함수입니다.</p></div></div>
+   <p style="margin:16px 0 0"><span class="h-yellow">특히 기출문제에서는 ① 히스토그램의 표본 크기 ② R의 summary() ③ box plot의 중앙선과 50% 위치를 구분하는 것이 중요합니다.</span></p>
+  </section>
+  <div class="section-break"><span>PART 02 · CHECK YOUR UNDERSTANDING</span><h2>상호작용 문제 풀기</h2><p class="muted">문제별 이론 그림 확인 → 정답 선택 → 자세한 해설 → 다음 문제</p></div>
+  <section class="section quiz-section" id="quiz">
+   <div class="section-bar"><div><div class="kicker">08 · EXAM & PRACTICE</div><h2 class="sec-heading">기출 11~13번 + 개념 확인 문제</h2></div><span class="page-tag">기출 p.262–263</span></div>
+   <p class="lede">기출 3문항은 제공된 교재 문구를 바탕으로 수록했습니다. 추가 5문항은 이론 복습을 위해 별도로 제작한 문항으로 <b>‘추가 연습’</b>으로 표시했습니다. <span class="h-yellow">각 문제 위에서 <b>관련 이론 그림·계산 흐름·비교 도표</b>를 먼저 확인할 수 있습니다. 정답 확인 후 각 문제마다 ① 출제 의도 ② 단계별 풀이 ③ 선택지 4개 상세 해설 ④ 예시 ⑤ 암기 포인트</span>가 표시됩니다.</p>
+   <div class="quiz-toolbar"><span id="quizStatus" class="small"><b>0/8문항</b> 정답 확인 완료</span><span class="small" id="quizScoreStatus">현재 정답 0개</span></div><div class="progress-track" aria-label="퀴즈 진행률"><div id="quizProgress" class="progress-fill"></div></div>
+   <div id="quizSteps" class="quiz-steps" aria-label="문제 번호별 바로가기"></div>
+   <div class="quiz-card">
+    <div class="q-meta"><b id="quizNumber">11번</b><span class="origin" id="quizOrigin">기출</span><span class="page-tag" id="quizPage">교재 p.262</span></div>
+    <div class="q-theory" id="quizDiagramWrap" aria-label="문제 풀이 전 이론 그림">
+     <div class="q-theory-head"><strong><span class="q-theory-icon">◈</span> 문제를 풀기 전 · 그림으로 이론 이해</strong><a id="quizTheoryLink" href="#charts">관련 교재 이론 ↑</a></div>
+     <div id="quizDiagram"></div>
+    </div>
+    <h3 id="quizQuestion">문제 로딩 중</h3>
+    <div id="quizVisual"></div>
+    <div id="quizOptions" class="options" role="group" aria-label="정답 선택"></div>
+    <div id="quizFeedback" style="display:none" aria-live="polite"></div>
+    <div class="quiz-actions"><button class="btn" id="prevQuestion">← 이전 문제</button><div class="action-group"><button class="btn primary" id="checkAnswer">정답 확인</button><button class="btn" id="nextQuestion">다음 문제 →</button></div></div>
+   </div>
+   <div id="resultBlock" style="display:none" aria-live="polite"></div>
+   <div class="quiz-toolbar" style="margin-top:18px"><span class="small muted">문제를 풀고 정답을 확인하면 기록이 브라우저 화면에 반영됩니다.</span><button class="btn" id="resetQuiz">전체 다시 풀기</button></div>
+   <div class="source"><b>편집·출처 안내</b> · 학습 범위: 제공된 교재 텍스트 <b>Part 03 데이터 분석, 4장 「기초 통계분석」 p.255–263</b>. 255쪽 상단에 제시된 기존 5–10번 정답은 해당 문제 본문이 없어 여기서는 제외했습니다. 13번 기출의 원본 상자그림은 제공되지 않아, 질문 문장을 유지하고 해설에서 해석 조건을 명시했습니다. p.258 예제는 32분 및 합계 795분 기준으로 검산했습니다. 이 자료의 추가 도식과 연습문항은 교육용으로 새로 제작했습니다.</div>
+  </section>
+  <div class="footer">기초 통계분석 · 강의 및 자기주도 학습용 / 255–263쪽 · HTML 단일 파일</div>
+ </main>
+</div>
+<script>
+(()=>{
+'use strict';
+const commute=[62,55,32,42,55,35,110,64,54,67,58,62,58,26,15];
+const sorted=[...commute].sort((a,b)=>a-b);
+const stats={
+ mean:['표본평균 · Sample Mean','53분','795 ÷ 15 = 53분. 모든 출근시간을 합하여 사람 수로 나눈 값입니다.'],
+ median:['중앙값 · Median','55분','정렬 후 8번째 값입니다(n=15). 특이하게 큰 110분의 영향을 평균보다 적게 받습니다.'],
+ variance:['표본분산 · Sample Variance','489분²','편차 제곱합 6,846 ÷ (15−1) = 489. 표본분산은 n이 아닌 n−1로 나눕니다.'],
+ sd:['표본표준편차 · Standard Deviation','22.11분','표본분산 489의 제곱근입니다. 출근시간이 평균 주위에 얼마나 퍼져 있는지 나타냅니다.'],
+ iqr:['사분위수범위 · IQR','27분','Q1=35분, Q3=62분이므로 62−35=27분. 중간 50%의 범위를 의미합니다.'],
+ cv:['변동계수 · Coefficient of Variation','41.7%','22.11 ÷ 53 ≈ 0.417. 표준편차를 평균과 비교한 상대적 산포입니다.'],
+ se:['평균의 표준오차 · Standard Error','5.71분','22.11 ÷ √15 ≈ 5.71분. 표본평균으로 모집단 평균을 추정할 때의 불확실성을 나타냅니다.']
+};
+function $(id){return document.getElementById(id)}
+function showStat(name){const r=stats[name];$('statLabel').textContent=r[0];$('statValue').textContent=r[1];$('statExplain').textContent=r[2];document.querySelectorAll('[data-stat]').forEach(b=>b.classList.toggle('active',b.dataset.stat===name));document.querySelectorAll('#sortedValues span').forEach((el,i)=>el.classList.toggle('mark',name==='median'&&i===7||name==='iqr'&&(i===3||i===11)))}
+$('sortedValues').innerHTML=sorted.map(x=>`<span>${x}</span>`).join('');document.querySelectorAll('[data-stat]').forEach(b=>b.addEventListener('click',()=>showStat(b.dataset.stat)));showStat('mean');
+
+function dfComicPanels(){return `<div class="df-comic">
+ <article class="df-frame"><div class="df-frame-top"><span class="df-panel-no">1컷</span><strong>세 학생의 평균이 7점이에요!</strong></div><div class="df-scene"><div class="df-figures"><span class="df-character" aria-hidden="true">👧</span><span class="df-character" aria-hidden="true">🧒</span><span class="df-character" aria-hidden="true">👦</span></div><div class="df-board"><b>평균 = 7점</b><small>학생은 3명</small></div></div><div class="df-speech">“셋의 평균이 이미 7점이라고 알고 있다면?”</div><p class="df-caption">생각 실험: 평균값이 정해진 상황을 먼저 가정해요.</p></article>
+ <article class="df-frame"><div class="df-frame-top"><span class="df-panel-no">2컷</span><strong>세 점수를 모두 더하면 21점!</strong></div><div class="df-scene"><div class="df-figures"><span class="df-character" aria-hidden="true">👩‍🏫</span><span class="df-character" aria-hidden="true">🧮</span></div><div class="df-board"><b>7 × 3 = 21</b><small>점수의 총합은 21점</small></div></div><div class="df-speech">“평균이 7점이면 세 점수의 합계는 반드시 21점!”</div><p class="df-caption">평균 = 합계 ÷ 개수이므로 합계를 역으로 구할 수 있어요.</p></article>
+ <article class="df-frame"><div class="df-frame-top"><span class="df-panel-no">3컷</span><strong>두 명이 정하면, 마지막은 잠겨요</strong></div><div class="df-scene"><div class="df-figures"><span class="df-character" aria-hidden="true">🔓</span><span class="df-character" aria-hidden="true">🔓</span><span class="df-character" aria-hidden="true">🔒</span></div><div class="df-board"><b>5 + 7 + ? = 21</b><small>마지막 점수 = 9점</small></div></div><div class="df-speech">“어? 첫 두 점수를 골랐더니, 세 번째는 9점으로 정해졌네!”</div><p class="df-caption">마지막 편차는 앞의 편차에 맞춰 자동으로 결정돼요.</p></article>
+ <article class="df-frame"><div class="df-frame-top"><span class="df-panel-no">4컷</span><strong>자유롭게 움직이는 수는 2개</strong></div><div class="df-scene"><div class="df-figures"><span class="df-character" aria-hidden="true">💡</span><span class="df-character" aria-hidden="true">🎯</span></div><div class="df-board"><b>자유도 = 3−1 = 2</b><small>표본분산 = 8÷2 = 4</small></div></div><div class="df-speech">“아하! 평균을 계산한 뒤엔 편차 3개 중 2개만 자유롭구나!”</div><p class="df-caption">표본분산에서 n−1로 나누는 이유를 이해하는 핵심 그림이에요.</p></article>
+</div>`}
+function updateDfExperiment(){
+ const a=Number($('dfFirst').value),b=Number($('dfSecond').value),c=21-a-b;
+ const terms=[a,b,c].map(v=>(v-7)**2),ss=terms.reduce((p,q)=>p+q,0);
+ $('dfAValue').textContent=`${a}점`;$('dfBValue').textContent=`${b}점`;$('dfCValue').textContent=`${c}점`;
+ $('dfSum').textContent=`${a} + ${b} + ${c} = 21점`;
+ $('dfSampleVariance').textContent=`${ss} ÷ 2 = ${(ss/2).toFixed(2)}`;
+ $('dfSumsq').textContent=`편차 제곱합: ${terms.join(' + ')} = ${ss}`;
+ $('dfPopulationVariance').textContent=`${ss} ÷ 3 ≈ ${(ss/3).toFixed(2)}`;
+ $('dfSampleBrief').textContent=`${ss} ÷ (3−1) = ${(ss/2).toFixed(2)}`;
+}
+$('dfComicFull').innerHTML=dfComicPanels();
+$('dfFirst').addEventListener('input',updateDfExperiment);
+$('dfSecond').addEventListener('input',updateDfExperiment);
+updateDfExperiment();
+
+function pathFromFn(fn,W=240,H=115,pad=8){let p='',area='',max=0, vals=[];for(let i=0;i<=120;i++){const x=i/120,y=fn(x);vals.push([x,y]);max=Math.max(max,y)}for(let i=0;i<vals.length;i++){const [x,y]=vals[i];const px=pad+x*(W-2*pad),py=H-16-(y/max)*(H-37);p+=`${i?' L':'M'}${px.toFixed(1)},${py.toFixed(1)}`;}area=p+` L${W-pad},${H-16} L${pad},${H-16} Z`;return {p,area}}
+function drawSkew(id,type,color){const normal=x=>Math.exp(-.5*Math.pow((x-.5)/.14,2));const right=x=>x<.065?0:Math.pow((x-.065)*9,1.7)*Math.exp(-(x-.065)*14);const left=x=>right(1-x);const fn=type==='left'?left:type==='right'?right:normal;const path=pathFromFn(fn);$(id).innerHTML=`<path d="M8 99 H232" stroke="#bdcada" stroke-width="1.5"/><path d="${path.area}" fill="${color}" opacity=".15"/><path d="${path.p}" fill="none" stroke="${color}" stroke-width="3" stroke-linejoin="round"/>`}
+drawSkew('skewLeft','left','#2872ba');drawSkew('skewNormal','normal','#0f9a8a');drawSkew('skewRight','right','#d58a32');
+function drawKurt(){const W=640,H=225, paths=[];const g=(x,s)=>Math.exp(-.5*(x/s)**2)/(s*Math.sqrt(2*Math.PI));const lap=x=>Math.exp(-Math.sqrt(2)*Math.abs(x))/Math.sqrt(2);const uniform=x=>Math.abs(x)<1.72?.2887:0;const defs=[{fn:x=>g(x,1),c:'#1f68b9'},{fn:lap,c:'#ec9c42'},{fn:uniform,c:'#17a18e'}];for(const d of defs){let p='';for(let i=0;i<=260;i++){const x=-3.3+i/260*6.6;const y=d.fn(x);const px=33+(i/260)*574,py=199-y*246;p+=`${i?' L':'M'}${px.toFixed(1)},${py.toFixed(1)}`;}paths.push(`<path d="${p}" fill="none" stroke="${d.c}" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/>`)}$('kurtSvg').innerHTML=`<line x1="32" y1="199" x2="608" y2="199" stroke="#b8c6d6" stroke-width="1.4"/><line x1="320" y1="12" x2="320" y2="199" stroke="#d4dee9" stroke-dasharray="5 4"/><text x="36" y="17" font-size="13" fill="#66788a">상대 밀도(개념도)</text>${paths.join('')}<text x="315" y="218" font-size="12" fill="#73849a">중심</text>`}
+drawKurt();
+function drawHistogram(){const k=+$('binsRange').value;$('binsNum').textContent=k+'개';const min=15,max=110,range=max-min,counts=Array(k).fill(0);commute.forEach(x=>counts[Math.min(k-1,Math.floor((x-min)/range*k))]++);const peak=Math.max(...counts);$('histogram').innerHTML=counts.map((n,i)=>{const h=17+n/peak*145;const l=(min+i*range/k).toFixed(1),r=(min+(i+1)*range/k).toFixed(1);return `<div class="hist-cell" title="${l}~${r}분: ${n}명" aria-label="${l}에서 ${r}분 사이 ${n}명"><div class="hist-column" style="height:${h}px;--bar-height:${h}px"></div><span class="hist-count" style="--bar-height:${h}px">${n}</span></div>`}).join('');$('histNote').textContent=`계급 ${k}개 · 구간 폭 약 ${(range/k).toFixed(1)}분 · 전체 15개 관측치. 표본이 적으므로 분포 모양을 과도하게 해석하지 않습니다.`}
+$('binsRange').addEventListener('input',drawHistogram);drawHistogram();
+function drawBox(){const x=v=>45+(v/120)*545,y=127,q1=35,q2=55,q3=62;const xp=v=>x(v).toFixed(1);$('boxSvg').innerHTML=`<line x1="${xp(10)}" y1="195" x2="${xp(115)}" y2="195" stroke="#9aacc0" stroke-width="2"/>${[20,40,60,80,100].map(v=>`<line x1="${xp(v)}" y1="191" x2="${xp(v)}" y2="200" stroke="#9aacc0"/><text x="${xp(v)}" y="217" text-anchor="middle" font-size="14" fill="#6b7b8b">${v}</text>`).join('')}<line x1="${xp(15)}" y1="${y}" x2="${xp(67)}" y2="${y}" stroke="#5a7596" stroke-width="3"/><line x1="${xp(15)}" y1="94" x2="${xp(15)}" y2="160" stroke="#5a7596" stroke-width="3"/><line x1="${xp(67)}" y1="94" x2="${xp(67)}" y2="160" stroke="#5a7596" stroke-width="3"/><rect x="${xp(q1)}" y="76" width="${(x(q3)-x(q1)).toFixed(1)}" height="102" rx="4" fill="#d6e9ff" stroke="#2871bd" stroke-width="3"/><line x1="${xp(q2)}" y1="76" x2="${xp(q2)}" y2="178" stroke="#14539a" stroke-width="4"/><circle cx="${xp(110)}" cy="${y}" r="7" fill="#fff1c1" stroke="#ca8133" stroke-width="3"/><text x="${xp(15)}" y="56" text-anchor="middle" font-size="15" fill="#526b85">15</text><text x="${xp(35)}" y="55" text-anchor="middle" font-size="15" font-weight="800" fill="#1b5b9d">Q1 35</text><text x="${xp(55)}" y="35" text-anchor="middle" font-size="15" font-weight="800" fill="#1b5b9d">Q2 55</text><text x="${xp(73)}" y="56" text-anchor="middle" font-size="15" font-weight="800" fill="#1b5b9d">Q3 62</text><text x="${xp(110)}" y="95" text-anchor="middle" font-size="14" font-weight="800" fill="#b16a21">이상치</text><text x="${xp(110)}" y="113" text-anchor="middle" font-size="13" fill="#b16a21">110</text>`}
+drawBox();
+const items=[
+{n:11,origin:'기출 · 17회',page:'p.262',question:'히스토그램은 표로 되어 있는 도수분포표를 그래프로 나타낸 것이다. 다음 중 히스토그램에 대한 설명으로 부적절한 것은?',options:['히스토그램에서는 가로축이 계급, 세로축이 도수를 나타낸다. 계급은 보통 변수의 구간이며, 서로 겹치지 않는다.','히스토그램은 표본의 크기가 작아도 각 막대의 높이가 데이터 분포의 형상을 잘 표현해낸다.','그래프의 모양이 치우쳐있거나 봉우리가 여러 개 있는 그래프는 비정규 데이터일 수 있다.','봉우리가 여러 개 있는 데이터는 일반적으로 2개 이상의 공정이나 조건에서 데이터가 수집되는 경우 발생한다.'],answer:1,explain:'②가 부적절합니다. 관측치가 적으면 계급별 도수에 우연한 변동이 커져 전체 분포의 모양이 불안정할 수 있습니다. 여러 봉우리는 서로 다른 집단·공정이 섞였을 가능성을 시사하지만 반드시 그런 것은 아닙니다.'},
+{n:12,origin:'기출 · 16회',page:'p.262',question:'다음 중 연속형 변수의 경우 4분위수, 최솟값, 최댓값, 중앙값, 평균 등을 출력하고 범주형 변수의 경우 각 범주에 대한 빈도수를 출력하여 데이터의 분포를 파악할 수 있게 하는 함수로 적절한 것은?',options:['summary 함수','ddply 함수','cast 함수','aggregate 함수'],answer:0,explain:'① summary()가 정답입니다. 숫자형 자료에는 Min., 1st Qu., Median, Mean, 3rd Qu., Max. 같은 요약을, 요인형 범주 자료에는 각 수준의 빈도를 제공합니다.'},
+{n:13,origin:'기출 · 28회',page:'p.262–263',question:'아래의 box plot에 대한 설명 중 적절한 것은 무엇인가?',options:['box plot에서 나타나는 가운데 선은 평균이다.','box plot의 네모박스 내의 가장 아래와 위는 각각 Q3, Q2이다.','box plot의 상단 수염을 벗어나는 값이 Q3 + 1.5×IQR 보다 작으면 이상치라고 할 수 있다.','box plot에서 약 0.5 이후 값들은 데이터의 50%이다.'],answer:3,explain:'교재 정답은 ④입니다. 원본 도표의 중앙값이 약 0.5라는 전제라면, 그보다 큰 쪽에 자료의 약 50%가 있습니다. 상자 내부 선은 평균이 아니라 중앙값(Q2), 상자 아래·위는 Q1·Q3입니다. 원본 도표는 제공되지 않아 0.5 위치를 독립적으로 확인할 수 없습니다.',visual:true},
+{n:14,origin:'추가 연습',page:'관련 p.257–258',question:'직원 15명의 출근시간을 정렬했을 때 중앙값으로 올바른 것은?',options:['53분','55분','62분','110분'],answer:1,explain:'중앙값은 정렬된 15개 값 중 (15+1)/2=8번째 값입니다. 8번째 값은 55분이며, 평균은 53분입니다.'},
+{n:15,origin:'추가 연습',page:'관련 p.257–258',question:'표본분산 s²를 계산할 때 편차 제곱합을 나누는 값은?',options:['n+1','n','n−1','√n'],answer:2,explain:'표본분산은 편차 제곱합을 n−1로 나눕니다. 예제의 편차 제곱합은 6,846, 따라서 6,846 ÷ 14 = 489입니다.'},
+{n:16,origin:'추가 연습',page:'관련 p.258–259',question:'왜도가 양수(+)인 분포를 가장 적절하게 설명한 것은?',options:['오른쪽으로 긴 꼬리를 가진다.','왼쪽으로 긴 꼬리를 가진다.','반드시 정규분포이다.','모든 값이 동일하다.'],answer:0,explain:'왜도가 양수이면 대체로 오른쪽 꼬리가 길고, 음수이면 왼쪽 꼬리가 깁니다. 왜도의 부호를 꼬리 방향과 연결해 기억합니다.'},
+{n:17,origin:'추가 연습',page:'관련 p.259–260',question:'다음 중 막대그래프와 히스토그램을 구분하는 기준으로 가장 적절한 것은?',options:['막대그래프에서는 항상 값이 0보다 크다.','히스토그램은 범주 순서를 자유롭게 바꿀 수 있다.','막대그래프는 반드시 표본이 100개 이상 필요하다.','막대그래프는 범주형, 히스토그램은 연속형 변수의 구간을 나타낸다.'],answer:3,explain:'막대그래프는 범주별 값을 비교하는 데, 히스토그램은 연속형 자료를 계급으로 나누어 구간별 도수를 표현하는 데 사용합니다.'},
+{n:18,origin:'추가 연습',page:'관련 p.260',question:'출근시간 예제에서 Q1=35, Q3=62일 때 사분위수범위(IQR)는 얼마인가?',options:['17분','27분','53분','95분'],answer:1,explain:'IQR = Q3 − Q1 = 62 − 35 = 27분. 범위(Range)는 최댓값−최솟값 = 110−15 = 95분이므로 구분합니다.'}
+];
+const deepExplanations={"11":{"intent":"히스토그램이 무엇을 보여주는지와, 표본 수·계급 설정에 따라 분포 모양을 해석할 때 주의해야 한다는 점을 확인하는 문항입니다.","steps":["문제의 요구는 ‘올바른 설명’이 아니라 ‘부적절한 설명’을 고르는 것입니다. 먼저 부정 표현에 표시합니다.","①의 가로축=연속형 자료의 계급(구간), 세로축=도수라는 설명을 확인합니다. 일반적인 도수 히스토그램에 맞습니다.","②는 ‘표본의 크기가 작아도’ 분포 형상을 ‘잘 표현한다’고 단정합니다. 표본이 적으면 구간별 도수가 우연에 크게 흔들리므로 부적절합니다.","③·④는 관찰 결과로 생각할 수 있는 가능성을 말합니다. 치우침·복수 봉우리는 원인을 더 살펴볼 단서일 뿐, 단독으로 확정 진단할 수는 없습니다."],"choiceNotes":["적절한 설명. 가로축은 겹치지 않는 계급 구간, 세로축은 도수(또는 밀도)입니다. 단, 밀도 히스토그램에서는 세로축이 반드시 도수인 것은 아닙니다.","부적절한 설명 → 정답. 예를 들어 15개 관측치를 5개 구간과 12개 구간으로 그리면 막대 높이와 봉우리 수가 크게 달라질 수 있습니다. 적은 표본으로 분포 형태를 확정하면 위험합니다.","적절한 설명. 한쪽으로 치우치거나 봉우리가 여러 개인 경우 정규분포와 다를 가능성이 있습니다. 그러나 모양만으로 정규성 위반을 최종 확정하는 것은 아닙니다.","교재 취지에서 적절한 설명. 서로 다른 공정·집단·측정 조건이 섞이면 봉우리가 여러 개 나타날 수 있습니다. 단, 복수 봉우리의 원인은 다양하므로 ‘반드시 혼합집단’이라는 의미는 아닙니다."],"application":"출근시간 자료 15개를 4개 계급과 10개 계급으로 각각 그려 보세요. 같은 자료라도 막대 모양이 달라집니다. 위쪽 이론의 「히스토그램」 계급 수 슬라이더로 확인할 수 있습니다.","memory":"‘작은 표본이어도 항상 잘 보인다’와 같은 절대적 표현에 주의! 표본 크기와 계급 수가 그래프의 신뢰성에 영향을 줍니다.","theory":"그래프를 이용한 자료 정리 · 히스토그램","anchor":"#charts"},"12":{"intent":"R에서 변수 유형에 맞게 요약 통계량 또는 범주별 빈도를 한 번에 보여주는 함수가 무엇인지 묻습니다.","steps":["문제가 요구하는 출력 항목을 나눕니다: 숫자형=최솟값·1사분위수·중앙값·평균·3사분위수·최댓값, 범주형=범주별 빈도.","R의 summary()는 입력 객체나 변수의 자료형에 따라 요약 결과를 다르게 출력합니다.","숫자형 벡터에 summary()를 적용하면 기본적으로 Min., 1st Qu., Median, Mean, 3rd Qu., Max.가 나옵니다.","범주형 자료를 factor로 지정한 경우 summary()는 각 범주 수준의 빈도를 보여줍니다. 따라서 정답은 ①입니다."],"choiceNotes":["정답. summary(df)는 데이터프레임의 각 열을 자료형에 따라 요약하고, summary(df$age)는 해당 변수의 요약치를 보여줍니다.","오답. ddply()는 plyr 패키지의 함수로 그룹별로 데이터를 분할하고 집계·가공할 때 사용합니다. 요청된 자료형별 기본 요약을 제공하는 대표 함수가 아닙니다.","오답. cast 계열 함수는 데이터를 넓거나 긴 형태로 전환하는 작업(reshape)에 쓰입니다. 통계량과 범주별 빈도를 한 번에 출력하는 기본 함수가 아닙니다.","오답. aggregate()는 그룹별 평균·합계처럼 지정한 집계 함수를 적용합니다. group과 FUN을 지정해야 하며 summary()의 자동 자료형 요약과 목적이 다릅니다."],"application":"R 예시: summary(c(10, 20, 30))은 수치형 요약을, summary(factor(c(\"A\", \"B\", \"A\")))는 A=2, B=1이라는 빈도를 보여줍니다. 문자형(character) 그대로인 경우 factor와 출력이 다를 수 있습니다.","memory":"summary = 한눈에 기본 요약 / mean = 평균 / median = 중앙값 / sd = 표준편차 / var = 분산 / aggregate = 그룹별 집계.","theory":"R에서 기술통계량 확인하기","anchor":"#rcode"},"13":{"intent":"상자그림의 가운데 선·상자 경계·수염·이상치 기준을 알고, 중앙값을 기준으로 자료의 절반을 해석하는지 평가합니다.","steps":["상자 내부 가로선은 평균(Mean)이 아니라 중앙값(Median=Q2)입니다. 그러므로 ①은 틀립니다.","상자의 아래쪽 경계는 Q1(25백분위수), 위쪽 경계는 Q3(75백분위수)입니다. ②의 Q3·Q2 순서는 틀립니다.","표준적인 Tukey 상자그림에서는 상단 이상치의 기준이 Q3+1.5×IQR을 초과하는 값입니다. 그보다 작은 값을 단지 수염 밖에 있다고 이상치로 판단할 수는 없습니다. ③은 틀립니다.","교재가 제시한 도표에서 중앙값이 약 0.5라면, 0.5 부근을 기준으로 그 위쪽에 관측치의 약 절반이 위치합니다. 교재 정답은 ④입니다."],"choiceNotes":["오답. 상자 내부의 굵은 선은 중앙값(Q2)입니다. 일부 확장 상자그림에서 평균을 별도의 점으로 표시하기도 하지만, 기본 상자그림의 가운데 선을 평균이라고 보지 않습니다.","오답. 아래 경계=Q1, 안쪽 중앙선=Q2, 위 경계=Q3입니다. 박스 자체는 자료의 가운데 약 50%를 담습니다.","오답. 상단 안울타리 Q3+1.5×IQR을 ‘초과한’ 관측치가 통상 이상치 후보입니다. 실제 수염은 보통 안울타리 안에 있는 최댓값까지 이어집니다.","교재 정답. 원본 그림의 중앙값이 약 0.5라는 전제에서 중앙값보다 위쪽에 자료의 약 50%가 있습니다. 동일한 값이 많이 중복되면 엄밀한 ‘초과’ 관측치 비율은 정확히 50%가 아닐 수 있습니다."],"application":"예: Q1=35, Q3=62라면 IQR=27, 상단 안울타리는 62+1.5×27=102.5입니다. 110은 102.5보다 크므로 이상치 후보입니다. 상자 안의 중앙선 55가 평균 53과 다르다는 점도 확인하세요.","memory":"상자 하단 Q1 → 상자 중앙선 Q2(중앙값) → 상자 상단 Q3. 이상치 기준은 Q1−1.5×IQR 미만 또는 Q3+1.5×IQR 초과.","caution":"제공된 텍스트에는 13번의 실제 상자그림이 포함되지 않았습니다. 따라서 ‘중앙값 약 0.5’는 교재 해설에 따른 전제이며, 원본 그림을 독립적으로 검증한 것은 아닙니다.","theory":"상자그림 · 사분위수범위 · 이상치","anchor":"#boxplot"},"14":{"intent":"표본평균과 중앙값을 구별하고, 관측치가 홀수 개일 때 중앙 위치를 계산할 수 있는지 확인합니다.","steps":["자료를 작은 순서로 정렬합니다: 15, 26, 32, 35, 42, 54, 55, 55, 58, 58, 62, 62, 64, 67, 110.","자료 개수 n=15는 홀수이므로 중앙값 위치는 (n+1)÷2=(15+1)÷2=8번째입니다.","정렬 자료의 8번째 값은 55입니다. 따라서 정답은 ②, 55분입니다.","참고로 모든 자료의 합 795÷15=53분은 평균이므로 중앙값 55분과 구분해야 합니다."],"choiceNotes":["오답. 53분은 자료 15개를 합한 뒤 나눈 표본평균입니다. 중앙값은 정렬 자료의 중앙 위치입니다.","정답. 정렬된 15개 자료에서 8번째 값은 55분입니다.","오답. 62분은 자료 내 값이지만 중앙인 8번째 자리에 있지 않습니다.","오답. 110분은 최댓값이며 매우 큰 관측치입니다. 중앙값은 최댓값과 다릅니다."],"application":"만약 16개 관측치였다면 중앙값은 정렬된 8번째와 9번째 값의 평균을 계산합니다. 홀수와 짝수일 때 공식을 구분하세요.","memory":"홀수 n: (n+1)/2번째 값. 짝수 n: n/2번째 값과 (n/2+1)번째 값의 평균. 항상 먼저 정렬합니다.","theory":"중심위치의 측도 · 표본평균과 중앙값","anchor":"#metrics"},"15":{"intent":"표본분산의 n−1이 ‘무조건 외우는 공식’이 아니라, 표본평균을 계산한 뒤 남는 자유도와 모집단 분산의 추정 보정을 반영한다는 점을 이해하는지 평가합니다.","steps":["먼저 간단한 예를 봅니다. 세 명의 평균이 7점이면 합계는 7×3=21점입니다.","첫 두 점수가 5점과 7점이면 마지막 점수는 21−5−7=9점으로 정해집니다. 평균을 이미 알고 있을 때 자유롭게 정할 수 있는 편차는 2개뿐입니다. 그래서 자유도는 3−1=2입니다.","이는 평균으로부터의 편차를 모두 더하면 0이 되어야 한다는 조건, Σ(xᵢ−x̄)=0과 같습니다.","표본평균을 표본 자료로 계산하면 퍼짐을 과소평가하기 쉬우므로, 모분산을 추정할 때 자유도 n−1로 나눕니다. 이것을 베셀 보정이라고 합니다.","교재의 출근시간 자료는 직원 15명이라서 n=15, 분모는 15−1=14입니다. 편차 제곱합 6,846을 14로 나누어 s²=489(분²)입니다.","표본표준편차는 √489≈22.11분입니다. 분산·표준편차·표준오차의 공식을 혼동하지 마세요."],"choiceNotes":["오답. n+1은 표본분산의 분모가 아닙니다.","오답. n으로 나누는 식은 관측한 전체 집단을 모집단으로 취급한 모분산의 계산 형태와 관련됩니다. 일반적인 표본분산의 분모는 n−1입니다.","정답. 표본평균을 계산한 뒤 편차들의 합이 0이므로 자유롭게 변할 수 있는 편차가 n−1개이며, n−1로 나누는 것이 통상적인 무작위 표본에서 모분산의 편향을 보정합니다.","오답. √n은 표본평균의 표준오차 SE=s/√n을 계산할 때 등장하며 표본분산 분모와 다릅니다."],"application":"평균이 7점인 [5, 7, 9]에서 편차는 [−2, 0, +2], 편차 제곱합은 4+0+4=8입니다. 표본분산은 8÷(3−1)=4이지만, 이 3명이 바로 관심 있는 모집단 전체라면 모분산은 8÷3≈2.67입니다. 분모는 분석의 목적과 정의에 따라 결정됩니다.","memory":"① 평균 고정 → 마지막 편차는 자동 결정 → 자유도 n−1. ② 표본에서 모분산 추정 → s²=Σ(xᵢ−x̄)²/(n−1). ③ 모집단 전체의 분산 → σ²=Σ(xᵢ−μ)²/N. ④ n=15 → 자유도 14.","theory":"산포의 측도 · 표본분산·표준편차·표준오차","anchor":"#metrics"},"16":{"intent":"왜도 부호를 전체 값이 몰린 위치가 아니라 ‘긴 꼬리 방향’으로 판단하는지 확인합니다.","steps":["왜도(Skewness)는 분포의 좌우 비대칭 정도를 나타냅니다.","왜도가 양수이면 일반적으로 오른쪽(큰 값 방향) 꼬리가 깁니다.","문항에서 오른쪽으로 긴 꼬리라는 표현은 ①입니다.","왜도 0은 비대칭성이 없음을 나타내는 지표이지만, 반드시 정규분포라는 뜻은 아닙니다."],"choiceNotes":["정답. 양의 왜도는 큰 값이 일부 존재하면서 분포의 오른쪽 꼬리가 긴 경우에 흔히 나타납니다.","오답. 왼쪽으로 긴 꼬리는 음의 왜도(negative skewness)에 해당합니다.","오답. 왜도 부호 하나만으로 정규분포 여부를 확정할 수 없습니다. 정규분포는 대칭이지만 대칭분포가 모두 정규분포인 것은 아닙니다.","오답. 모든 관측값이 동일하면 분산이 0이어서 통상적인 표준화 왜도는 정의되지 않습니다."],"application":"예를 들어 다수 직장인의 출근시간이 30~60분이고 소수가 110분 걸린다면 오른쪽 꼬리가 늘어날 수 있습니다. 다만 해당 자료의 왜도를 실제 계산하지 않고 부호를 확정할 수는 없습니다.","memory":"양(+)의 왜도 → 오른쪽 긴 꼬리 / 음(−)의 왜도 → 왼쪽 긴 꼬리 / 0 → 비대칭성의 지표가 0이며 정규분포 확정은 아님.","theory":"분포 형태의 측도 · 왜도","anchor":"#shape"},"17":{"intent":"자료의 변수 유형에 따라 막대그래프와 히스토그램을 적절히 선택하는지 평가합니다.","steps":["막대그래프는 혈액형·전공·선호 메뉴처럼 범주로 구분되는 자료를 비교할 때 사용합니다.","히스토그램은 키·몸무게·출근시간처럼 수치형의 연속적 범위를 구간으로 나누어 도수(또는 밀도)를 그립니다.","막대그래프의 범주 순서는 해석 목적에 따라 바꿀 수 있지만, 히스토그램의 구간 순서는 실제 수치 순서를 따라야 합니다.","위 내용을 정확하게 설명하는 선택지는 ④입니다."],"choiceNotes":["오답. 막대그래프는 비교하는 값이나 코딩 방식에 따라 0·음수 등의 값을 나타낼 수도 있습니다. ‘항상 양수’는 구분 기준이 아닙니다.","오답. 히스토그램 계급은 연속된 숫자 구간이므로 순서를 임의로 변경하면 분포의 의미가 사라집니다.","오답. 막대그래프를 만들기 위한 고정된 최소 표본 크기 100개라는 규칙은 없습니다.","정답. 범주별 비교는 막대그래프, 연속형 자료의 구간별 도수 분포는 히스토그램입니다."],"application":"「선호하는 여행 유형(문화/자연/휴양)」은 막대그래프, 「여행객 1인당 지출액(만원)」은 히스토그램에 적합합니다. 숫자로 코딩된 성별은 여전히 범주형 변수이므로 코딩 값만 보고 히스토그램을 선택하면 안 됩니다.","memory":"가로축부터 보세요. 범주 이름=막대그래프 / 수치 구간=히스토그램. 히스토그램은 구간의 폭이 다르면 막대 높이를 밀도로 조정해야 합니다.","theory":"그래프를 이용한 자료 정리 · 막대그래프와 히스토그램","anchor":"#charts"},"18":{"intent":"IQR의 정의를 정확히 알고, 전체 범위·평균·중앙값과 혼동하지 않는지 확인합니다.","steps":["교재 계산 방식에 따른 제1사분위수 Q1=35분, 제3사분위수 Q3=62분을 확인합니다.","공식 IQR=Q3−Q1에 대입하면 62−35=27분입니다.","IQR은 정렬된 자료의 가운데 약 50%가 차지하는 폭을 나타냅니다.","전체 범위는 최댓값−최솟값=110−15=95분으로 IQR과 구별합니다."],"choiceNotes":["오답. 17분은 62−35의 계산 결과가 아닙니다.","정답. IQR=Q3−Q1=62−35=27분입니다.","오답. 53분은 출근시간의 표본평균이며 IQR이 아닙니다.","오답. 95분은 전체 자료의 범위(110−15)입니다. 이상치의 영향을 IQR보다 크게 받을 수 있습니다."],"application":"IQR=27이면 상단 안울타리=62+1.5×27=102.5분입니다. 110분은 그보다 크므로 이상치 후보로 표시됩니다. R의 기본 quantile(type=7)은 이 자료에서 Q1=38.5를 내므로, 교재식 결과를 재현할 때 type=2를 지정합니다.","memory":"IQR = Q3−Q1 / Range = Max−Min / 이상치 경계 = Q1−1.5×IQR, Q3+1.5×IQR. 사분위수 산출 방식에 따라 수치가 달라질 수 있습니다.","theory":"사분위수와 상자그림 · IQR과 울타리","anchor":"#boxplot"}};
+
+/* 문제별 자체 SVG 도식. 외부 이미지 없이 오프라인에서도 표시되며 교재 그림의 복제가 아닌 신규 제작 도식입니다. */
+const diagramSettings={11:{bins:5},12:{mode:'numeric'},14:{omit:false},18:{mode:'iqr'}};
+const diagramTitles={
+ 11:['히스토그램은 구간별 사람 수를 보여줘요','같은 출근시간 자료라도 구간(계급)을 몇 개로 나누느냐에 따라 그래프 모양이 달라집니다.','표본이 적으면 봉우리 모양만 보고 단정하지 마세요.'],
+ 12:['R의 summary()는 자료 종류에 맞춰 요약해요','숫자를 넣으면 중심·범위를, 범주형 factor를 넣으면 각 항목의 빈도를 보여줍니다.','숫자형 → 통계량 / 범주형 factor → 항목별 개수.'],
+ 13:['상자그림을 읽는 순서: Q1 → Q2 → Q3','상자 안의 선은 평균이 아니라 중앙값입니다. 상자 안에는 자료의 가운데 약 절반이 들어갑니다.','중앙선=Q2(50백분위수), 상자 아래=Q1, 상자 위=Q3.'],
+ 14:['15명을 작은 순서로 세우면 중앙은 8번째!','숫자 15개를 정렬하면 (15+1)÷2=8번째가 중앙값입니다. 평균과 서로 다를 수 있습니다.','평균은 합계÷개수, 중앙값은 정렬 후 가운데 자리.'],
+ 15:['표본분산은 왜 n−1로 나눌까?','직원 15명의 편차를 먼저 보고, 3명의 점수 만화로 자유도 n−1의 이유를 이해합니다.','평균 추정 → 편차의 합 0 → 자유도 n−1 → 표본분산 보정.'],
+ 16:['왜도 부호는 긴 꼬리의 방향으로 기억해요','대부분이 몰린 쪽이 아니라 길게 늘어진 꼬리 방향에 주목하세요.','왼쪽 꼬리(−) / 대칭(0의 대표 예) / 오른쪽 꼬리(+).'],
+ 17:['막대그래프와 히스토그램은 가로축부터 달라요','왼쪽은 여행 유형처럼 종류별 개수, 오른쪽은 출근시간처럼 숫자를 구간으로 나눈 도수입니다.','범주별 비교는 막대그래프, 연속값의 분포는 히스토그램.'],
+ 18:['전체 범위와 IQR, 그림으로 비교해요','전체 범위는 가장 작은 값부터 큰 값까지, IQR은 Q1에서 Q3까지 가운데 50%의 폭입니다.','IQR=Q3−Q1=62−35=27분.']
+};
+function svgWrap(body,label,box='0 0 700 250'){
+ return `<svg class="q-svg" viewBox="${box}" role="img" aria-label="${escText(label)}" xmlns="http://www.w3.org/2000/svg">${body}</svg>`;
+}
+function histogramSvg(num){
+ const axisX=48,endX=657,baseY=210,top=34,width=endX-axisX,counts=Array(num).fill(0),min=15,max=110;
+ commute.forEach(v=>counts[Math.min(num-1,Math.floor((v-min)/(max-min)*num))]++);
+ const peak=Math.max(...counts),bw=width/num;
+ let marks=[0,2,4,6,8].map(n=>{const y=baseY-n*20;return `<line x1="${axisX}" x2="${endX}" y1="${y}" y2="${y}" class="gridline"/><text x="36" y="${y+4}" text-anchor="end" class="svgtick">${n}</text>`}).join('');
+ marks+=counts.map((count,i)=>{let x=axisX+i*bw,y=baseY-count*20;return `<rect x="${x+.3}" y="${y}" width="${Math.max(1,bw-.6)}" height="${count*20}" fill="#4e94cb" stroke="#fbfdff" stroke-width="1"/><text x="${x+bw/2}" y="${y-6}" text-anchor="middle" fill="#1b5286" font-size="13" font-weight="900">${count||''}</text>`}).join('');
+ marks+=`<line x1="${axisX}" x2="${endX}" y1="${baseY}" y2="${baseY}" class="axis"/><text x="${axisX}" y="233" class="svgtick" text-anchor="start">15분</text><text x="${endX}" y="233" class="svgtick" text-anchor="end">110분</text><text x="${(endX+axisX)/2}" y="233" class="svgtick" text-anchor="middle">출근시간(분) →</text><text x="18" y="20" class="svgtick">도수(명)</text>`;
+ return svgWrap(marks,'직원 15명 출근시간의 '+num+'개 계급 히스토그램');
+}
+function draw11(){const num=diagramSettings[11].bins;return `<div class="q-theory-controls"><label for="qBinSlider">계급 수를 바꿔보세요</label><input id="qBinSlider" type="range" min="3" max="12" step="1" value="${num}"/><output id="qBinsOut">${num}개 구간</output></div><div class="q-diagram-body" id="qHistSvg">${histogramSvg(num)}</div><p class="q-figcaption">실제 교재의 출근시간 자료 <b>15개</b>로 그린 도수 히스토그램입니다. 막대가 <b>붙어</b> 있으며 구간의 순서는 바꿀 수 없습니다. 표본이 작으면 형태가 쉽게 변합니다.</p>`}
+function draw12(){const isN=diagramSettings[12].mode==='numeric';return `<div class="q-theory-controls"><button class="q-theory-btn ${isN?'selected':''}" type="button" data-summary="numeric" aria-pressed="${isN}">① 숫자형 자료 보기</button><button class="q-theory-btn ${!isN?'selected':''}" type="button" data-summary="factor" aria-pressed="${!isN}">② 범주형 자료 보기</button></div><div class="q-diagram-body"><div class="q-flowcards"><div class="q-flowcard"><small>INPUT · 자료 입력</small><b>${isN?'숫자형 numeric':'범주형 factor'}</b><span class="sample">${isN?'10, 20, 30, 40, 50':'A, B, A, C'}</span></div><span class="q-flow-arrow">→</span><div class="q-flowcard mid">summary()<small style="color:#e7f3ff">R 기본 함수</small></div><span class="q-flow-arrow">→</span><div class="q-flowcard result"><small>OUTPUT · 결과</small><b>${isN?'여섯 가지 대표 요약값':'각 범주의 빈도'}</b><span class="sample">${isN?'Min 10 · Q1 20<br>Median 30 · Mean 30<br>Q3 40 · Max 50':'A = 2건<br>B = 1건<br>C = 1건'}</span></div></div></div><p class="q-figcaption">숫자형 자료와 <b>factor로 지정한</b> 범주형 자료를 비교하세요. 원자료가 단순 문자형(character)이면 출력 형식이 다를 수 있습니다.</p>`}
+function boxConceptSvg(){
+ const x=v=>60+580*v,base=156,vals={min:.12,q1:.28,q2:.5,q3:.72,max:.91};
+ let el=`<line x1="${x(0)}" x2="${x(1)}" y1="221" y2="221" class="axis"/>`;
+ el+=`<line x1="${x(vals.min)}" x2="${x(vals.max)}" y1="${base}" y2="${base}" stroke="#627e9e" stroke-width="4"/>`;
+ for(const k of ['min','max']) el+=`<line x1="${x(vals[k])}" x2="${x(vals[k])}" y1="125" y2="188" stroke="#627e9e" stroke-width="4"/>`;
+ el+=`<rect x="${x(vals.q1)}" y="107" width="${x(vals.q3)-x(vals.q1)}" height="97" rx="4" fill="#dceeff" stroke="#2d74bc" stroke-width="3"/>`;
+ el+=`<line x1="${x(vals.q2)}" x2="${x(vals.q2)}" y1="107" y2="204" stroke="#df963d" stroke-width="6"/>`;
+ [['q1','Q1 (25%)'],['q2','Q2 (50%)'],['q3','Q3 (75%)']].forEach(([k,t])=>{el+=`<line x1="${x(vals[k])}" y1="${k==='q2'?65:81}" x2="${x(vals[k])}" y2="105" stroke="#9aaec4" stroke-dasharray="3 3"/><text x="${x(vals[k])}" y="${k==='q2'?46:68}" text-anchor="middle" font-size="16" fill="${k==='q2'?'#a56720':'#235c95'}" font-weight="900">${t}</text>`});
+ el+=`<text x="${x(vals.q2)}" y="26" text-anchor="middle" fill="#996428" font-weight="900" font-size="16">가운데 선은 중앙값, 평균이 아님</text>`;
+ el+=`<text x="${x(vals.min)}" y="245" text-anchor="middle" class="svgtick">아래 수염</text><text x="${x(vals.max)}" y="245" text-anchor="middle" class="svgtick">위 수염</text>`;
+ return svgWrap(el,'중앙값 0.5의 가상 상자그림, 제1사분위수, 중앙값, 제3사분위수 위치 및 수염','0 0 700 260');
+}
+function draw13(){return `<div class="q-diagram-body">${boxConceptSvg()}<div class="q-value-strip"><span>Q1 이전<br><small>약 25%</small></span><span>Q1~Q2<br><small>약 25%</small></span><span>Q2~Q3<br><small>약 25%</small></span><span>Q3 이후<br><small>약 25%</small></span><span style="background:#fff0ce;color:#97631b">상자 Q1~Q3<br><small>약 50%</small></span></div></div><p class="q-figcaption"><b>주의:</b> 원래 기출 13번의 상자그림 이미지가 제공되지 않았습니다. 위 그림은 <b>중앙값이 0.5라고 가정한 학습용 도식</b>이며 원본 시험 그래프가 아닙니다. 사분위수 구간마다 약 25%가 있다는 설명은 같은 값의 중복이 적은 일반적 사례를 전제합니다.</p>`}
+function draw14(){let omit=diagramSettings[14].omit,arr=omit?sorted.slice(0,-1):sorted,mean=omit?(685/14).toFixed(2):'53',vals=arr.map((n,i)=>`<div class="q-numbertile ${n===110?'outlier':''} ${omit?(i===6||i===7?'center':''):(i===7?'center':'')}" title="${i+1}번째 ${n}분"><small>${i+1}번째</small>${n}</div>`).join('');return `<div class="q-theory-controls"><button type="button" class="q-theory-btn ${!omit?'selected':''}" aria-pressed="${!omit}" data-outlier="include">15명 모두 포함</button><button type="button" class="q-theory-btn ${omit?'selected':''}" aria-pressed="${omit}" data-outlier="exclude">110분 1명 제외</button></div><div class="q-diagram-body"><div style="font-size:.8rem;color:#557a99;font-weight:850">작은 값 → 큰 값으로 정렬한 출근시간(분)</div><div class="q-numbertiles">${vals}</div><div class="q-stat-pair"><div><small>중앙값 Median</small><strong>55분</strong><small>${omit?'7·8번째 값의 평균':'(15+1)÷2 = 8번째 값'}</small></div><div><small>평균 Mean</small><strong>${mean}분</strong><small>${omit?'685÷14':'795÷15'}</small></div></div></div><p class="q-figcaption">주황색 칸이 중앙 위치입니다. <b>110분을 빼면 평균은 크게 움직이지만 중앙값은 그대로 55분</b>입니다. 극단값이 있을 때 두 중심값을 비교하세요.</p>`}
+function varianceSvg(){const x=v=>48+(v-10)/105*615,y0=145;let body=`<line x1="43" x2="667" y1="${y0+18}" y2="${y0+18}" class="axis"/><text x="50" y="213" class="svgtick">15분</text><text x="656" y="213" text-anchor="end" class="svgtick">110분</text>`;
+ const mx=x(53);body+=`<line x1="${mx}" x2="${mx}" y1="20" y2="178" stroke="#df9647" stroke-width="3" stroke-dasharray="7 5"/><rect x="${mx-52}" y="3" width="104" height="27" rx="7" fill="#fff2d8"/><text x="${mx}" y="22" font-size="14" text-anchor="middle" fill="#9b671e" font-weight="900">평균 53분</text>`;
+ const offsets={};for(let i=0;i<commute.length;i++){const v=commute[i],j=offsets[v]||0;offsets[v]=j+1;const px=x(v),py=y0-j*21;body+=`<line x1="${Math.min(px,mx)}" x2="${Math.max(px,mx)}" y1="${py}" y2="${py}" stroke="#aac9e6" stroke-width="2"/><circle cx="${px}" cy="${py}" r="6.5" fill="${v===110?'#e49c50':'#2879bd'}" stroke="#fff" stroke-width="1.5"/>`}
+ body+=`<text x="${x(110)}" y="115" text-anchor="middle" fill="#a46025" font-size="13" font-weight="900">110분</text>`;
+ return svgWrap(body,'출근시간 관측치 15개의 점과 평균 53분 기준 편차 거리','0 0 700 224');
+}
+function draw15(){return `<div class="q-diagram-body">${varianceSvg()}<div class="q-steps-arith"><div class="arith"><small>① 평균과의 차이를 제곱해 합산</small><strong>Σ(x−53)²<br>= 6,846</strong></div><span class="op">→</span><div class="arith"><small>② 표본 수 n=15 → 자유도 14</small><strong>÷ (15−1)</strong></div><span class="op">→</span><div class="arith"><small>③ 표본분산 s²</small><strong>489 분²</strong></div></div></div><p class="q-figcaption">점은 직원 한 명의 출근시간, 주황색 점선은 평균입니다. <b>원자료와의 거리(편차)</b>를 계산하고 제곱한 값을 모두 더한 뒤 <b>n−1=14</b>로 나눕니다. 표준편차는 √489≈22.11분입니다.</p><div class="df-quiz-extra"><h4 class="q-theory-title" style="margin:12px 0 6px">🎨 4컷 만화 · 왜 15명인데 14로 나눌까요?</h4><p class="q-theory-desc">3명만 있는 작은 예를 보고 같은 원리를 직원 15명에게 적용해 봅시다.</p>${dfComicPanels()}<div class="df-exam-key"><b>작은 예:</b> 평균 7점인 세 명 [5, 7, 9]의 편차는 [−2, 0, +2]이고, 제곱합은 4+0+4=8입니다. <b>표본분산 = 8÷(3−1)=4</b>입니다.<br><b>교재 예:</b> 직원 15명의 표본분산은 <b>6,846÷(15−1)=489</b>입니다.<br><b>기억:</b> 평균을 표본에서 구하면 편차들의 합은 0으로 묶입니다. n−1로 나누는 것은 모분산의 과소추정 경향을 보정하기 위해서입니다.</div><a class="df-quick-link" href="#degrees-of-freedom">↗ 세 학생 점수를 움직여 보는 실습으로 이동 (p.257~258)</a></div>`}
+function drawSkewMini(mode){const width=255,height=145,left=12,right=247,base=119;let ps=[],max=0;
+ for(let i=0;i<=120;i++){const v=i/120;let z; if(mode==='center')z=Math.exp(-.5*((v-.5)/.13)**2);else{const a=mode==='right'?v:1-v;const t=Math.max(0,a-.045);z=t>0?(t/.105)**1.7*Math.exp(-(t/.105)*1.23):0;}ps.push([v,z]);max=Math.max(max,z)}
+ let d=ps.map(([v,z],i)=>`${i?'L':'M'}${(left+v*(right-left)).toFixed(1)},${(base-(z/max)*90).toFixed(1)}`).join(' ');const c=mode==='right'?'#d58a35':mode==='center'?'#249782':'#397ebe';return `<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${mode==='right'?'오른쪽 꼬리 양의 왜도':mode==='left'?'왼쪽 꼬리 음의 왜도':'대칭분포'}"><line x1="12" x2="247" y1="119" y2="119" stroke="#a9bdcf" stroke-width="1.7"/><path d="${d} L247,119 L12,119 Z" fill="${c}" fill-opacity=".12"/><path d="${d}" fill="none" stroke="${c}" stroke-width="3.5" stroke-linecap="round"/><text x="${mode==='left'?50:mode==='right'?205:128}" y="139" text-anchor="middle" font-size="13" font-weight="900" fill="${c}">${mode==='right'?'긴 꼬리 →':mode==='left'?'← 긴 꼬리':'양쪽 균형'}</text></svg>`}
+function draw16(){const arr=[['left','음(−)의 왜도','왼쪽으로 긴 꼬리'],['center','대칭 분포','왜도 0의 대표적 예'],['right','양(+)의 왜도','오른쪽으로 긴 꼬리']];return `<div class="q-skew-grid">${arr.map(([m,t,desc])=>`<div class="q-skew-graph">${drawSkewMini(m)}<b>${t}</b><p>${desc}</p></div>`).join('')}</div><p class="q-figcaption">분포의 봉우리만 보지 말고 <b>꼬리가 어느 쪽으로 멀리 이어지는지</b> 관찰하세요. 왜도 0이라고 정규분포가 반드시 성립하는 것은 아닙니다.</p>`}
+function compareBarSvg(){const groups=[['문화',7],['자연',5],['휴양',3]],max=7,axis=160;let s=`<line x1="35" x2="344" y1="${axis}" y2="${axis}" class="axis"/>`;groups.forEach(([lbl,num],i)=>{let x=67+i*99,h=num/max*100;s+=`<rect x="${x}" y="${axis-h}" width="53" height="${h}" rx="4" fill="#397fbf"/><text x="${x+26}" y="${axis-h-8}" fill="#255e97" font-size="16" text-anchor="middle" font-weight="900">${num}</text><text x="${x+26}" y="185" fill="#5c7792" font-size="16" text-anchor="middle">${lbl}</text>`});return svgWrap(s,'여행 유형이라는 범주형 변수의 막대그래프: 문화 7 자연 5 휴양 3','0 0 380 200')}
+function compareHistSvg(){const counts=Array(6).fill(0),min=15,max=110;commute.forEach(n=>counts[Math.min(5,Math.floor((n-min)/(max-min)*6))]++);let s=`<line x1="23" x2="352" y1="160" y2="160" class="axis"/>`;counts.forEach((n,i)=>{const x=29+i*53,w=53,h=n*22;s+=`<rect x="${x}" y="${160-h}" width="${w}" height="${h}" fill="#32a4a1" stroke="#fff" stroke-width="1"/><text x="${x+w/2}" y="${160-h-6}" text-anchor="middle" font-size="15" font-weight="900" fill="#207a79">${n}</text>`});s+=`<text x="30" y="185" font-size="13" fill="#607991">15분</text><text x="348" y="185" text-anchor="end" font-size="13" fill="#607991">110분</text>`;return svgWrap(s,'출근시간 15명 연속형 자료 6개 구간의 히스토그램','0 0 380 200')}
+function draw17(){return `<div class="q-compare-grid"><div class="q-compare-col"><b>막대그래프 · Bar chart</b><p>여행 유형 (범주형 · 예시 자료)</p>${compareBarSvg()}<div class="q-smallbadge">막대 사이가 떨어짐 · 범주 순서 바꿀 수 있음</div></div><div class="q-compare-col"><b>히스토그램 · Histogram</b><p>출근시간 (수치형 · 교재 15명 자료)</p>${compareHistSvg()}<div class="q-smallbadge">막대가 붙음 · 숫자 구간 순서 유지</div></div></div><p class="q-figcaption"><b>시험에서 먼저 가로축을 확인!</b> 혈액형이 1·2·3으로 코딩됐어도 혈액형은 범주입니다. 수치 데이터 자체의 연속적인 구간을 표시할 때 히스토그램을 사용합니다.</p>`}
+function iqrSvg(mode){const x=v=>47+592*v/120,base=122,q1=x(35),q2=x(55),q3=x(62),min=x(15),max=x(110),isI=mode==='iqr',a=isI?q1:min,b=isI?q3:max;let s=`<line x1="${x(0)}" x2="${x(120)}" y1="${base}" y2="${base}" stroke="#b0c3d5" stroke-width="6" stroke-linecap="round"/><line x1="${a}" x2="${b}" y1="${base}" y2="${base}" stroke="${isI?'#2b86c2':'#d98c3e'}" stroke-width="13" stroke-linecap="round"/>`;
+ for(const [v,t] of [[15,'최솟값 15'],[35,'Q1 35'],[55,'Q2 55'],[62,'Q3 62'],[110,'최댓값 110']]){let px=x(v);let up=v===55?40:(v===35||v===62?72:13);s+=`<line x1="${px}" x2="${px}" y1="${up+15}" y2="${base-9}" stroke="#96b2cc" stroke-dasharray="4 4"/><circle cx="${px}" cy="${base}" r="6" fill="#fff" stroke="#2f6ba7" stroke-width="2"/><text x="${px+(v===62?21:0)}" y="${up}" text-anchor="middle" font-size="${v===55?14:13}" fill="#375f85" font-weight="850">${t}</text>`;}
+ s+=`<path d="M${a},153 V163 H${b} V153" stroke="${isI?'#2b86c2':'#d98c3e'}" stroke-width="3" fill="none"/><rect x="${(a+b)/2-90}" y="178" width="180" height="37" rx="11" fill="${isI?'#e4f1fc':'#fff1de'}"/><text x="${(a+b)/2}" y="203" fill="${isI?'#1f66a6':'#9e6724'}" text-anchor="middle" font-weight="900" font-size="19">${isI?'IQR = 27분':'전체 범위 = 95분'}</text>`;
+ return svgWrap(s,'출근시간 사분위수에서 '+(isI?'Q1 35부터 Q3 62까지 IQR 27분':'최솟값 15에서 최댓값 110까지 전체 범위 95분'),'0 0 700 237')
+}
+function draw18(){let mode=diagramSettings[18].mode;return `<div class="q-theory-controls"><button class="q-theory-btn ${mode==='iqr'?'selected':''}" data-iqr="iqr" aria-pressed="${mode==='iqr'}">IQR · 가운데 50%</button><button class="q-theory-btn ${mode==='range'?'selected':''}" data-iqr="range" aria-pressed="${mode==='range'}">전체 범위 · 최소~최대</button></div><div class="q-diagram-body">${iqrSvg(mode)}</div><p class="q-figcaption"><b>교재 계산 방식</b>으로 Q1=35, Q2=55, Q3=62입니다. R의 기본 사분위수 계산은 Q1=38.5가 될 수 있으므로, 교재와 비교할 때는 <code>quantile(..., type=2)</code>를 사용합니다.</p>`}
+const diagramBuilders={11:draw11,12:draw12,13:draw13,14:draw14,15:draw15,16:draw16,17:draw17,18:draw18};
+function drawQuestionDiagram(){const item=items[index],cfg=diagramTitles[item.n];$('quizDiagram').innerHTML=`<h4 class="q-theory-title">${cfg[0]}</h4><p class="q-theory-desc">${cfg[1]}</p>${diagramBuilders[item.n]()}<div class="q-theory-takeaway"><span class="lightbulb">💡</span><div><b>그림에서 기억할 핵심</b> · ${cfg[2]}</div></div>`;
+ $('quizTheoryLink').href=deepExplanations[item.n].anchor;
+ const slider=$('qBinSlider');if(slider)slider.addEventListener('input',e=>{diagramSettings[11].bins=+e.target.value;$('qBinsOut').textContent=e.target.value+'개 구간';$('qHistSvg').innerHTML=histogramSvg(+e.target.value)});
+ $('quizDiagram').querySelectorAll('[data-summary]').forEach(b=>b.addEventListener('click',()=>{diagramSettings[12].mode=b.dataset.summary;drawQuestionDiagram()}));
+ $('quizDiagram').querySelectorAll('[data-outlier]').forEach(b=>b.addEventListener('click',()=>{diagramSettings[14].omit=b.dataset.outlier==='exclude';drawQuestionDiagram()}));
+ $('quizDiagram').querySelectorAll('[data-iqr]').forEach(b=>b.addEventListener('click',()=>{diagramSettings[18].mode=b.dataset.iqr;drawQuestionDiagram()}));
+}
+
+let index=0;let state=items.map(()=>({choice:null,checked:false}));const numerals=['①','②','③','④'];
+function getScore(){return state.reduce((t,s,i)=>t+(s.checked&&s.choice===items[i].answer?1:0),0)}
+function escText(raw){return String(raw).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));}
+function renderDeepExplanation(item,s,ok){
+ const d=deepExplanations[item.n];
+ const steps=d.steps.map((v,i)=>`<li><span class="ex-step-no">${i+1}</span><span>${escText(v)}</span></li>`).join('');
+ const choices=d.choiceNotes.map((v,i)=>`<div class="choice-explain ${i===item.answer?'is-correct':''} ${i===s.choice&&i!==item.answer?'is-my-wrong':''}"><span class="choice-explain-num">${numerals[i]}</span><div><b>${i===item.answer?'정답 선택지':i===s.choice?'내가 선택한 오답':'다른 선택지'}</b><p>${escText(v)}</p></div></div>`).join('');
+ return `<div class="ex-result"><div><span class="result-kicker">${ok?'CORRECT · 정답':'REVIEW · 오답 분석'}</span><strong>${ok?'✓ 정확하게 판단했습니다.':'✕ 선택한 답을 다시 비교해 봅시다.'}</strong><p>정답 <b>${numerals[item.answer]}</b> · 내가 고른 답 <b>${numerals[s.choice]}</b></p></div><span class="ex-result-badge">${item.page}</span></div>
+ <div class="ex-block"><div class="ex-block-title"><span>01</span> 이 문제에서 평가하는 개념</div><p>${escText(d.intent)}</p></div>
+ <div class="ex-block"><div class="ex-block-title"><span>02</span> 단계별 풀이 과정</div><ol class="ex-steps">${steps}</ol></div>
+ <div class="ex-block"><div class="ex-block-title"><span>03</span> 선택지별 자세한 해설</div><div class="choice-explain-list">${choices}</div></div>
+ <div class="ex-block ex-apply"><div class="ex-block-title"><span>04</span> 숫자·사례로 이해하기</div><p>${escText(d.application)}</p></div>
+ <div class="ex-block ex-memory"><div class="ex-block-title"><span>★</span> 시험 직전 암기 포인트</div><p>${escText(d.memory)}</p></div>
+ ${d.caution?`<div class="ex-caution"><b>자료 확인 사항</b><p>${escText(d.caution)}</p></div>`:''}
+ <div class="ex-theory-link">관련 이론: <a href="${d.anchor}">${escText(d.theory)} · 본문 이동 ↑</a></div>`;
+}
+function renderQuiz(){const item=items[index],s=state[index];$('quizNumber').textContent=`${item.n}번 · ${index+1}/${items.length}`;$('quizOrigin').textContent=item.origin;$('quizOrigin').classList.toggle('custom',item.origin==='추가 연습');$('quizPage').textContent=item.page;$('quizQuestion').textContent=item.question;drawQuestionDiagram();$('quizVisual').innerHTML='';
+ $('quizOptions').innerHTML=item.options.map((opt,j)=>{const cls=['opt',s.choice===j?'selected':'',s.checked&&j===item.answer?'right':'',s.checked&&j===s.choice&&j!==item.answer?'incorrect':''].filter(Boolean).join(' ');return `<button type="button" class="${cls}" data-choice="${j}" aria-pressed="${s.choice===j}"><span class="mark">${numerals[j]}</span><span>${opt}</span></button>`}).join('');
+ document.querySelectorAll('[data-choice]').forEach(b=>b.addEventListener('click',()=>{if(state[index].checked)return;state[index].choice=+b.dataset.choice;renderQuiz()}));
+ $('checkAnswer').disabled=s.choice===null||s.checked;$('prevQuestion').disabled=index===0;$('nextQuestion').textContent=index===items.length-1?'결과 보기 ↗':'다음 문제 →';
+ if(s.checked){const ok=s.choice===item.answer;const el=$('quizFeedback');el.style.display='block';el.className='feedback extended'+(ok?'':' bad');el.innerHTML=renderDeepExplanation(item,s,ok);}else $('quizFeedback').style.display='none';
+ renderProgress();
+}
+function renderProgress(){const done=state.filter(s=>s.checked).length;$('quizStatus').innerHTML=`<b>${done}/${items.length}문항</b> 정답 확인 완료`;$('quizScoreStatus').textContent=`현재 정답 ${getScore()}개`;$('quizProgress').style.width=(done/items.length*100)+'%';$('quizSteps').innerHTML=items.map((item,i)=>{let cls='quiz-step';if(i===index)cls+=' current';else if(state[i].checked)cls+=state[i].choice===item.answer?' done':' wrong';return `<button class="${cls}" type="button" data-step="${i}" title="${item.n}번으로 이동" aria-label="${item.n}번 문제 이동">${item.n}</button>`}).join('');document.querySelectorAll('[data-step]').forEach(b=>b.addEventListener('click',()=>{index=+b.dataset.step;renderQuiz()}));
+ if(done===items.length){$('resultBlock').style.display='block';$('resultBlock').innerHTML=`<div class="scorebox"><div><div class="kicker">RESULT · 학습 결과</div><strong>전체 ${items.length}문항 중 ${getScore()}문항 정답</strong><div class="small muted">틀린 문항 번호를 눌러 해설을 다시 확인하세요.</div></div><div class="scorebig">${Math.round(getScore()/items.length*100)}점</div></div>`;}else $('resultBlock').style.display='none';}
+$('checkAnswer').addEventListener('click',()=>{if(state[index].choice===null)return;state[index].checked=true;renderQuiz()});$('prevQuestion').addEventListener('click',()=>{if(index>0)index--;renderQuiz()});$('nextQuestion').addEventListener('click',()=>{if(index<items.length-1){index++;renderQuiz()}else if(state.every(s=>s.checked)){$('resultBlock').scrollIntoView({behavior:'smooth',block:'center'})}else{const next=state.findIndex(s=>!s.checked);index=next;renderQuiz()}});$('resetQuiz').addEventListener('click',()=>{state=items.map(()=>({choice:null,checked:false}));index=0;renderQuiz()});renderQuiz();
+$('copyR').addEventListener('click',async()=>{const code=$('rCode').textContent.replace(/\u00a0/g,' ');try{await navigator.clipboard.writeText(code);$('copyR').textContent='복사 완료 ✓'}catch(e){const tmp=document.createElement('textarea');tmp.value=code;document.body.appendChild(tmp);tmp.select();const ok=document.execCommand('copy');tmp.remove();$('copyR').textContent=ok?'복사 완료 ✓':'드래그해 복사하세요'}});
+const tocLinks=[...document.querySelectorAll('.toc a')];if('IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>{const chosen=entries.filter(e=>e.isIntersecting).sort((a,b)=>a.boundingClientRect.top-b.boundingClientRect.top)[0];if(chosen){tocLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+chosen.target.id))}},{rootMargin:'-15% 0px -70% 0px'});tocLinks.forEach(a=>{const target=document.querySelector(a.getAttribute('href'));if(target)observer.observe(target)})}
+})();
+</script>
+</body>
+</html>
