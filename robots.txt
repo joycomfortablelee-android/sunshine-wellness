@@ -2,5 +2,7 @@ User-agent: *
 Allow: /
 # 작업일지 — 학생 이름 · 출결이 있어 검색 로봇을 막는다
 Disallow: /docs/
+# 교재 저작권 — 출판사 PPTX 요약이라 검색 노출을 막는다
+Disallow: /learn/org-theory-14chapter-workbook.html
 
 Sitemap: https://www.sunshinewellness.co.kr/sitemap.xml

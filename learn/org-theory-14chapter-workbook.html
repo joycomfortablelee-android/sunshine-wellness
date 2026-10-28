@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<title>조직론 14장 요약노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
+<style>
+  :root { --ink:#14243A; --ink-2:#44566B; --ink-3:#7C8A99; --line:#DBE4EE; --navy:#17365D; --sky:#e8f1fb;
+    --gold:#FFF3B0; --ground:#F4F7FB; --ok:#1f5a3f; --ok-bg:#e3f4ea; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--ground); color:var(--ink); font-family:'Noto Sans KR',system-ui,sans-serif; font-size:14px; line-height:1.6; }
+  .sheet { max-width:1080px; margin:0 auto; padding:24px 16px 56px; display:grid; gap:20px; }
+  .eyebrow { display:inline-block; background:var(--gold); color:var(--navy); font-size:11px; font-weight:700; padding:2px 10px; border-radius:999px; }
+  h1 { margin:6px 0 4px; font-size:clamp(20px,3vw,26px); }
+  .lede { margin:0; color:var(--ink-2); }
+  .tools { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; align-items:center; }
+  .tools button { font:inherit; font-size:12px; font-weight:700; border:1px solid var(--navy); color:var(--navy); background:#fff; border-radius:999px; padding:3px 12px; cursor:pointer; }
+  .tools button:hover { background:var(--sky); }
+  .prog { margin-left:auto; font-size:12px; color:var(--ink-3); font-weight:700; }
+  .prog b { color:var(--navy); }
+
+  /* 부 구성 */
+  .parts { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
+  .part { background:#fff; border:1px solid var(--line); border-left:4px solid var(--navy); border-radius:10px; padding:9px 11px; }
+  .part b { display:block; font-size:12.5px; color:var(--navy); }
+  .part span { font-size:11px; color:var(--ink-3); }
+
+  /* 장 점프 칩 */
+  .jump { display:flex; flex-wrap:wrap; gap:5px; position:sticky; top:0; background:var(--ground); padding:8px 0; z-index:5; }
+  .jump a { font-size:11.5px; font-weight:700; color:var(--navy); background:#fff; border:1px solid var(--line); border-radius:7px; padding:4px 8px; text-decoration:none; }
+  .jump a:hover { background:var(--sky); }
+
+  /* 장 카드 */
+  .chap { background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 18px; scroll-margin-top:52px; }
+  .chap > .head { display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; border-bottom:2px solid var(--navy); padding-bottom:8px; margin-bottom:10px; }
+  .chap .num { font-size:20px; font-weight:800; color:var(--navy); }
+  .chap h2 { margin:0; font-size:16.5px; }
+  .chap .partTag { margin-left:auto; font-size:11px; color:var(--ink-3); background:var(--sky); border-radius:999px; padding:2px 9px; }
+  .chap .ov { margin:0 0 12px; font-size:12.5px; color:var(--ink-2); }
+
+  .block { margin-bottom:12px; }
+  .block h3 { margin:0 0 6px; font-size:12.5px; color:var(--navy); display:flex; align-items:center; gap:6px; }
+  .block h3::before { content:""; width:4px; height:4px; border-radius:50%; background:var(--navy); }
+
+  .outline { display:grid; gap:6px; }
+  .outline .sec { font-size:12.5px; }
+  .outline .sec b { color:var(--ink); }
+  .outline .sec ul { margin:3px 0 0; padding-left:16px; color:var(--ink-2); font-size:12px; }
+  .outline .sec li { margin:1px 0; }
+
+  .terms { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:7px; }
+  .term { background:var(--sky); border-radius:8px; padding:7px 10px; }
+  .term b { display:block; font-size:12px; color:var(--navy); }
+  .term span { font-size:11.5px; color:var(--ink-2); }
+
+  .checks { display:grid; gap:5px; }
+  .chk { display:flex; gap:7px; align-items:flex-start; font-size:12.5px; color:var(--ink-2); }
+  .chk input { margin-top:3px; transform:scale(1.1); flex-shrink:0; }
+  .chk.done span { color:var(--ok); text-decoration:line-through; text-decoration-color:var(--line); }
+
+  footer.note { font-size:11.5px; color:var(--ink-3); text-align:center; padding:6px 0 0; }
+
+  @media (max-width:860px) { .parts { grid-template-columns:1fr 1fr; } .terms { grid-template-columns:1fr; } }
+  @media print { .jump, .tools { display:none; } .chap { break-inside:avoid; } body { background:#fff; } }
+</style>
+</head>
+<body>
+<main class="sheet">
+  <header>
+    <span class="eyebrow">인적자원관리론 · 조직론[제3판] 임창희 외</span>
+    <h1>조직론 14장 요약노트 — 핵심 구조 · 용어 · 셀프 체크</h1>
+    <p class="lede">교재 14개 장을 장별로 핵심 구조 · 꼭 기억할 용어 · 셀프 체크리스트로 정리했습니다. 체크 표시는 이 브라우저에만 저장됩니다.</p>
+    <div class="tools">
+      <button type="button" onclick="window.print()">인쇄 / PDF</button>
+      <button type="button" id="resetAll">체크 전체 지우기</button>
+      <span class="prog">체크 <b id="progNum">0</b> / <span id="progMax">0</span></span>
+    </div>
+  </header>
+
+  <div class="parts">
+    <div class="part"><b>1부 조직의 기초지식</b><span>1~2장</span></div>
+    <div class="part"><b>2부 조직시스템의 설계</b><span>3~5장</span></div>
+    <div class="part"><b>3부 조직의 환경</b><span>6~9장</span></div>
+    <div class="part"><b>4부 조직의 혁신과 개발</b><span>10~14장</span></div>
+  </div>
+
+  <nav class="jump" id="jump"></nav>
+
+  <div id="chapters"></div>
+
+  <footer class="note">임창희 외, 「조직론」(제3판) 강의자료 기반 학습용 요약 — 학내 자습용</footer>
+</main>
+
+<script>
+const CHAPTERS = [
+{num:1, part:"1부", title:"조직의 이해",
+  ov:"조직이란 무엇인지, 조직을 보는 관점이 어떻게 바뀌어 왔는지, 조직론이라는 학문이 어떤 위치에 있는지를 다룬다.",
+  outline:[
+    ["Ⅰ. 조직이해의 기초", ["조직이란 무엇인가 — 경영(계획·조직화·통제·조정)과 조직의 관계", "조직의 중요성 — 모든 시대는 '조직의 시대'"]],
+    ["Ⅱ. 조직을 바라보는 기본 관점", ["폐쇄체계 → 개방체계", "단순한 조직 → 다양한 조직", "조직 중심 → 인간 중심"]],
+    ["Ⅲ. 조직론의 발전", ["고전적 조직론 — 효율성 최우선, 일반 경영원칙", "현대의 조직론 — 참여·자율·정보공유·협력전략·유연문화"]],
+    ["Ⅳ. 학문으로서의 조직론", ["조직론 vs 조직행동론(조직 자체 vs 조직 속 인간행동)", "조직론 vs 조직화론(결과 vs 원인·과정·결과)", "조직론 vs 조직개발(연구 vs 설계)"]]
+  ],
+  terms:[
+    ["조직의 4가지 필수조건","사회적 실체 · 목표지향성 · 구조화된 활동체계 · 외부환경과의 연결"],
+    ["베버의 조직정의","목적 달성을 위한 합법적 상호작용의 협동집단 (합리적 조직관)"],
+    ["바나드의 조직정의","공동목표 달성 의욕을 지닌 2인 이상의 커뮤니케이션 집합체 (자연적 조직관)"],
+    ["카츠와 칸의 조직정의","내부 규제장치 + 외부 적응구조를 갖춘 개방체계로서의 인간집단"],
+    ["와익의 조직정의","조직은 환경탐색·해석·학습의 과정 그 자체"]
+  ],
+  checks:["조직의 4가지 필수조건을 말할 수 있다","베버·바나드·카츠&칸 정의의 관점 차이를 설명할 수 있다","고전적 조직론과 현대 조직론의 차이를 설명할 수 있다","조직론과 조직행동론·조직개발의 차이를 구분할 수 있다"]
+},
+{num:2, part:"1부", title:"조직관리의 기초",
+  ov:"조직을 어떤 기준으로 관리·평가하는지(조직 유효성), 조직을 구성·운영하는 기본 원칙, 그리고 조직구조의 기본 유형을 다룬다.",
+  outline:[
+    ["Ⅰ. 조직관리의 기준 : 조직 유효성", ["전략적 의사결정 — 환경분석(SWOT)과 능력평가", "조직목표 — 공언목표 vs 운영목표", "조직전략 — 목표 달성을 위한 how", "유효성 측정 — 투입(외부자원) · 내부과정 · 산출(기술) 접근법"]],
+    ["Ⅱ. 조직관리의 기본원칙", ["기본요소 — 직무배분 · 권한배분 · 책임배분", "운영원칙 — 명령일원화, 통제범위, 계층화, 권한이양, 전문화(POSDCRB), 책임에 따르는 권한, 부문간 조정"]],
+    ["Ⅲ. 조직의 구성요소와 영향요인", ["구조적 차원 — 공식화·분업화·권한위계·집권화·전문성·인력비율", "환경적 차원 — 환경·목표전략·규모·기술·문화"]],
+    ["Ⅳ. 조직구조의 다양한 형태", ["민츠버그 5부문 — 전략·전문기술·지원스태프·중간관리·일선운영", "5가지 기본유형 — 단순구조·기계적관료제·전문적관료제·사업부제·애드호크러시", "민츠버그의 효과적 조직 7가지 요구"]]
+  ],
+  terms:[
+    ["통제범위(span of control)","어윅 5~6명 · 왈라스 10~12명 · 페욜 5명 · 쿤츠&오도넬 상층 4~8/하층 8~15명"],
+    ["굴릭의 POSDCRB","계획(P)·조직(O)·인사(S)·지휘(D)·조정(C)·보고(R)·예산(B)"],
+    ["단순구조","중소기업·창업회사 등에서 보이는 단순하고 정교하지 않은 구조"],
+    ["애드호크러시","특정 임무를 위해 모였다가 완수 후 해체·재구성되는 프로젝트형 구조"]
+  ],
+  checks:["공언목표와 운영목표의 차이를 설명할 수 있다","명령일원화·통제범위·권한이양 원칙을 설명할 수 있다","민츠버그의 5가지 조직유형과 적합 상황을 짝지을 수 있다","구조적 차원과 환경적 차원의 변수를 구분할 수 있다"]
+},
+{num:3, part:"2부", title:"조직의 설계와 영향요인",
+  ov:"조직설계의 세 가지 기본 재료(분화-통합, 집권화-분권화, 표준화-상호조정)와, 조직구조에 영향을 주는 상황요인(상황결정론)을 다룬다.",
+  outline:[
+    ["Ⅰ. 조직설계의 기본요소", ["분화와 통합 — 지원·생산·유지보수·적응·관리기능 / 통합기법 6가지(권한위계·대면접촉·연결역할·태스크포스·팀제·통합역할부문)", "집권화와 분권화 — 각각의 장단점, 공존(모순경영)", "표준화와 상호조정 — 공식화(규정의 제도화), 사회화(규범의 습득)"]],
+    ["Ⅱ. 환경적합적 조직구조", ["공식조직과 비공식조직의 정합(fit)", "기계적 조직(안정적 환경) vs 유기적 조직(급변 환경)"]],
+    ["Ⅲ. 조직설계의 영향요인(상황결정론)", ["조직규모 · 조직연륜 · 조직환경(불확실성) · 조직전략 · 조직기술 · 조직목표 — 모두 변하면 조직구조도 변한다"]]
+  ],
+  terms:[
+    ["모순경영(paradox management)","변화·안정, 원가·품질처럼 대립하는 가치를 공존시키는 경영"],
+    ["공식화와 집권화","공식화가 높을수록 집권화도 높아지는 것이 일반적"],
+    ["환경 불확실성","의사결정자가 환경 변화를 예측할 수 없는 상태"]
+  ],
+  checks:["분화와 통합의 6가지 통합기법을 열거할 수 있다","집권화·분권화 각각의 장단점을 설명할 수 있다","공식화와 집권화의 관계를 설명할 수 있다","기계적 조직과 유기적 조직이 적합한 환경을 구분할 수 있다"]
+},
+{num:4, part:"2부", title:"권한과 통제",
+  ov:"주주·이사회부터 중간관리자까지 조직 권한의 위계 구조, 고층조직과 수평조직의 차이, 관료제의 원리를 다룬다.",
+  outline:[
+    ["Ⅰ. 최고경영층의 구조와 권한", ["주주 — 자원사용 최종 승인권, 경영권을 전문경영인에 위탁", "위탁경영층 — 이사회(필요적 독립기관), 사외이사", "전반관리층(top) · 부문관리층"]],
+    ["Ⅱ. 중간관리층의 배치와 관리", ["연결핀 역할 — 상하·부문 간 의사소통, 조정, 감시, 촉진자", "문제 — 동기부여 저하, 조직몰입·충성심 저하 → 크리에이터·미니사장·혁신리더로 전환 필요"]],
+    ["Ⅲ. 조직의 위계: 고층조직과 수평조직", ["위계의 출현 — 분업에서 기원", "고층조직의 문제 — 의사소통, 동기부여, 관리비용, 파킨슨 법칙, 통제한계"]],
+    ["Ⅳ. 관료제", ["베버의 6원칙 — 합법성·정실배제·분업화전문화·위계적구조·공식화·문서화", "장점(예측가능성·고용안정·공정성) vs 단점(의사결정지연·관리비용증가·인간성상실)"]],
+    ["Ⅴ. 수평조직", ["핵심요소 — 프로세스 중심, 수평화, 팀제, 팀 보상, 고객접촉 확대, 교육·정보공유"]]
+  ],
+  terms:[
+    ["베버의 3가지 지배유형","전통적 지배 · 카리스마적 지배 · 합리적(합법적) 지배"],
+    ["파킨슨 법칙","업무량과 무관하게 공무원 수가 계속 늘어나려는 경향"],
+    ["통제한계(span of control)","한 관리자가 효과적으로 관리할 수 있는 부하의 수"]
+  ],
+  checks:["주주·이사회·사외이사·전반관리층의 역할을 구분할 수 있다","중간관리자의 4가지 역할을 설명할 수 있다","관료제의 6가지 원칙을 열거할 수 있다","고층조직의 문제점을 설명할 수 있다"]
+},
+{num:5, part:"2부", title:"조직의 다양한 유형",
+  ov:"기능조직 · 사업부조직 · 매트릭스조직 · 네트워크조직이라는 네 가지 구조 유형의 장단점과, 조직현실에서 나타나는 구조적 문제를 다룬다.",
+  outline:[
+    ["Ⅰ. 기능조직", ["라인과 스태프 — 인사·생산·회계·재무 등 기능별 분화", "장점 — 규모의 경제, 전문성 교류, 행동통제 용이", "통제문제 — 부서이기주의, 의사소통 어려움, 공헌도 측정, 지역 간 통제, 고객욕구 충족, 중장기 전략수립"]],
+    ["Ⅱ. 사업부조직", ["수직·수평적 분화 증가, 통합 증가", "제품조직 · 지역조직 · 시장조직", "다중사업부조직 효과 — 유효성 증대, 통제 증가, 내부 노동시장"]],
+    ["Ⅲ. 매트릭스조직", ["장점 — 기능장벽 감소, 기술공유, 비용·품질 동시 고려", "단점 — 갈등 증가, 권한위계 불명확, 재집권화 경향"]],
+    ["Ⅳ. 네트워크조직과 하이브리드조직", ["네트워크조직 — 위계가 아닌 계약·동의로 조정되는 조직집단", "장점 — 비용감소, 관리비용 회피, 외부자원 접근 / 단점 — 조정문제, 신뢰 필요, 학습축적 어려움"]],
+    ["Ⅴ. 조직현실의 구조적 문제", ["구조적 결함 — 의사결정 지연, 적응문제, 목표불일치, 갈등"]]
+  ],
+  terms:[
+    ["라인 vs 스태프","라인은 핵심업무 수행, 스태프는 인사·재무·회계 등 라인을 지원"],
+    ["매트릭스조직","기능별 전문화 + 제품별 통합을 동시에 추구하는 이중 구조"],
+    ["네트워크조직","권한의 위계보다 계약·동의로 조정되는 서로 다른 조직의 집단"]
+  ],
+  checks:["기능조직의 장점과 통제문제를 구분할 수 있다","제품·지역·시장 사업부조직의 차이를 설명할 수 있다","매트릭스조직의 장단점을 설명할 수 있다","네트워크조직과 하이브리드조직의 차이를 설명할 수 있다"]
+},
+{num:6, part:"3부", title:"환경과 조직",
+  ov:"조직에 영향을 미치는 특수환경·일반환경과 환경 불확실성을 정의하고, 상황적합이론·자원의존이론·거래비용이론으로 환경 대응 방식을 설명한다.",
+  outline:[
+    ["Ⅰ. 조직환경에 대한 기본 지식", ["특수환경(과업환경) — 노조·공급자·유통자·경쟁사", "일반환경(홀의 7가지) — 기술·법·정치·경제·인구통계·생태·문화적 환경", "환경불확실성 — 안정성·복잡성·동태성·풍요성(희소성)"]],
+    ["Ⅱ. 상황적합이론", ["번즈와 스톨커 — 외부환경과 조직구조는 서로 관련됨", "전략적 선택이론 — 상황적합이론에 대한 비판"]],
+    ["Ⅲ. 자원의존이론", ["조직 생존의 핵심은 자원 획득·유지 능력", "협력적 전략 — 우호적 평판, 주요인물 영입, 전략적 제휴, 인수합병", "경쟁적 전략"]],
+    ["Ⅳ. 거래비용이론", ["거래비용의 원천 — 인적요인(제한된합리성·도덕적해이·기회주의), 환경적요인(불확실성·정보비대칭), 거래특성(거래특유자산·거래빈도)"]]
+  ],
+  terms:[
+    ["특수환경 vs 일반환경","과업과 직접 관계된 환경 vs 외부에서 포괄적으로 영향을 주는 환경"],
+    ["자원의존이론","조직은 생존을 위해 환경과 능동적으로 거래·전략을 수립한다는 이론"],
+    ["거래비용","불완전한 정보 하에 거래상대의 의도·행동을 다루기 위해 드는 비용"]
+  ],
+  checks:["특수환경과 일반환경을 구분해 예시를 들 수 있다","환경불확실성을 구성하는 요소를 설명할 수 있다","자원의존이론의 협력적·경쟁적 전략을 구분할 수 있다","거래비용의 3가지 원천을 열거할 수 있다"]
+},
+{num:7, part:"3부", title:"전략과 조직",
+  ov:"조직의 핵심역량과 경쟁우위 전략 유형, 그리고 기능부서 · 사업부 · 기업전체라는 세 가지 수준의 전략이 조직구조·문화와 맺는 관계를 다룬다.",
+  outline:[
+    ["Ⅰ. 조직의 전략", ["핵심역량의 원천 — 기능자원 + 조직자원 + 조정능력", "포터의 경쟁전략 — 원가우위·차별화·초점", "마일즈와 스노우의 전략 — 공격형·방어형·분석형·낙오형", "세 가지 수준 — 기능부서·사업부·기업전체 전략"]],
+    ["Ⅱ. 기능부서 수준의 전략", ["원가우위 또는 차별화를 위한 기능별 핵심역량 개발"]],
+    ["Ⅲ. 사업부 수준의 전략", ["조직영역 선택(원가우위/차별화) 및 확장전략(시장침투·신제품·다각화)"]],
+    ["Ⅳ. 기업전체 수준의 전략", ["수직적 통합 — 원가유리·품질통제·비용절감·차별화", "관련다각화 — 핵심역량 공유로 시너지 추구", "비관련다각화 — 독립채산 콘글로메리트 형태"]]
+  ],
+  terms:[
+    ["포터의 3가지 경쟁전략","원가우위전략 · 차별화전략 · 초점전략"],
+    ["마일즈&스노우 4유형","공격형(prospector) · 방어형(defender) · 분석형(analyzer) · 낙오형(reactor)"],
+    ["관련다각화 vs 비관련다각화","핵심역량을 공유한 시너지 추구 vs 사업부 간 독립적 운영"]
+  ],
+  checks:["기능자원과 조직자원의 차이를 설명할 수 있다","포터와 마일즈&스노우의 전략 유형을 각각 설명할 수 있다","기능부서·사업부·기업전체 세 수준의 전략을 구분할 수 있다","관련다각화와 비관련다각화의 차이를 설명할 수 있다"]
+},
+{num:8, part:"3부", title:"기술과 조직",
+  ov:"조직이 투입을 산출로 변환시키는 기술의 유형과 복잡성이 조직구조에 미치는 영향, 그리고 첨단생산기술·정보기술이 통제방식에 미치는 영향을 다룬다.",
+  outline:[
+    ["Ⅰ. 기술에 대한 이해", ["기술 — 투입을 산출로 변환시키는 스킬·지식·기법·활동", "개인·부서·조직 수준으로 분류"]],
+    ["Ⅱ. 조직의 핵심 생산기술", ["우드워드의 3가지 생산기술 — 단위소량·대량·연속공정 생산", "복잡성이 증가할수록 위계 수준·경영자 비율 증가", "기술결정론 — '기술이 구조를 결정한다'"]],
+    ["Ⅲ. 조직의 비핵심 부문 기술", ["과업다양성(예외의 수) · 과업분석가능성(탐색 필요 정도) → 일상적/비일상적 기술(퍼로우)"]],
+    ["Ⅳ. 부문 간 업무흐름의 상호의존성", ["중개형(집합적 의존) · 연속형(순차적 의존) · 집약형(상호의존)"]],
+    ["Ⅴ. 첨단 생산기술과 혁신", ["도구기술 — CAD·CAMM·JIT·유연생산·CIM / TQM(전사적 품질관리)"]],
+    ["Ⅵ. 정보기술과 통제", ["경영통제시스템 · BSC · 전사적 자원관리(ERP)"]]
+  ],
+  terms:[
+    ["우드워드의 3가지 생산기술","단위소량 생산 · 대량 생산 · 연속공정 생산"],
+    ["기술결정론","특정 기술을 쓰면 특정 조직구조가 더 효율적이라는 주장"],
+    ["톰슨의 상호의존성 3유형","중개형(집합적) · 연속형(순차적) · 집약형(상호의존)"]
+  ],
+  checks:["우드워드의 3가지 생산기술 유형을 구분할 수 있다","과업다양성과 과업분석가능성의 의미를 설명할 수 있다","중개형·연속형·집약형 기술의 차이를 설명할 수 있다","CAD·JIT·TQM·ERP 등 첨단기법의 목적을 설명할 수 있다"]
+},
+{num:9, part:"3부", title:"문화와 조직",
+  ov:"조직문화가 형성·전달되는 방식(조직사회화, 의례·일화·언어)과 조직문화의 원천, 그리고 조직문화가 윤리·사회적 책임·조직구조와 맺는 관계를 다룬다.",
+  outline:[
+    ["Ⅰ. 조직문화의 이해", ["궁극적 가치(최종목표) vs 수단적 가치(바람직한 행동형태)", "조직사회화 — 신참이 가치관·규범을 내부화하는 과정", "반 매넨&샤인 — 조직역할지향성(규범 복종) vs 개인역할지향성(창조적 변화)", "의례·일화·조직언어를 통한 문화 전달"]],
+    ["Ⅱ. 조직문화의 원천", ["구성원의 특성 — 시간이 지나며 유사해지면 타성(inertia) 증가", "조직윤리 — 도덕가치·신념·규칙"]],
+    ["Ⅲ. 조직문화와 조직구조", ["윤리적 행동의 장점 vs 비윤리적 행동의 원인(개인윤리 소멸·자기관심 추구·외부압력)", "기업의 사회적 책임 — 찬성론 vs 반대론", "기계적 조직(예측·안정 문화) vs 유기적 조직(창조·위험감수 문화)"]]
+  ],
+  terms:[
+    ["조직사회화","신참이 기존 구성원의 가치관·규범을 학습·내부화하는 과정"],
+    ["조직역할지향성 vs 개인역할지향성","규범에 복종·동조 vs 규범을 변화시키는 창조적 행동"],
+    ["기계적 vs 유기적 조직문화","예측성·안정성 중시 vs 창조성·위험감수 중시"]
+  ],
+  checks:["궁극적 가치와 수단적 가치를 구분할 수 있다","조직역할지향성과 개인역할지향성의 차이를 설명할 수 있다","비윤리적 행동의 원인을 열거할 수 있다","기계적 조직과 유기적 조직의 문화적 차이를 설명할 수 있다"]
+},
+{num:10, part:"4부", title:"조직규모와 조직쇠퇴",
+  ov:"대규모·소규모 조직의 특성, 조직수명주기와 그라이너의 성장모형, 그리고 조직쇠퇴의 유형과 원인을 다룬다.",
+  outline:[
+    ["Ⅰ. 조직규모", ["대규모조직 — 경쟁우위, 기계적 운영, '조직인간'", "소규모조직 — 환경변화에 유연, 수평화·유기적 구조"]],
+    ["Ⅱ. 조직과 조직수명주기", ["창업기 → 성장기 → 쇠퇴기 → 사망기", "그라이너의 조직성장모형 — 5단계마다 위기 발생 → 조직변혁으로 다음 단계 진입", "웨이첼과 존슨의 조직쇠퇴모형 — 5단계를 거쳐 쇠퇴"]],
+    ["Ⅲ. 조직쇠퇴의 의미와 유형", ["집중형 · 모험형 · 발명형 · 이완형 쇠퇴"]],
+    ["Ⅳ. 조직쇠퇴의 원인", ["환경부적응(셀즈닉의 적응적 사회구조) · 성공함정 · 무모한 확장 · 조직정신의 추락"]]
+  ],
+  terms:[
+    ["조직수명주기","창업기-성장기-쇠퇴기-사망기로 이어지는 조직의 순환 과정"],
+    ["그라이너의 성장모형","조직은 5단계를 거치며 성장하고, 각 단계마다 위기를 통해 다음 단계로 변혁"],
+    ["성공함정(success trap)","과거의 성공 전략에 집착해 오히려 실패에 빠지는 현상"]
+  ],
+  checks:["대규모조직과 소규모조직의 특성을 비교할 수 있다","그라이너 성장모형의 핵심 논리(단계-위기-변혁)를 설명할 수 있다","조직쇠퇴의 4가지 유형을 구분할 수 있다","조직쇠퇴의 원인을 열거할 수 있다"]
+},
+{num:11, part:"4부", title:"조직혁신과 변화관리",
+  ov:"계획적 조직변화의 네 가지 대상(인적자원·기능부서·기술능력·조직능력), 변화에 대한 조직·집단·개인 수준의 저항, 레빈의 장이론을 다룬다.",
+  outline:[
+    ["Ⅰ. 조직변화의 이해", ["자연적 변화 vs 계획적 변화(인적자원·기능부서자원·기술능력·조직능력)", "변화유형 — 점진적/혁명적 변화, 리엔지니어링(계층단순화), 리스트럭처링·다운사이징, 이노베이션"]],
+    ["Ⅱ. 조직변화에 대한 압력과 저항", ["조직수준 저항 — 이카루스 패러독스(과거 성공 전략에 대한 집착)", "집단수준 저항 — 집단규범·집단응집력·집단사고", "개인수준 저항 — 인지적편차·불확실성과 불안감·선택적지각", "레빈의 장이론 — 해빙 → 이동 → 재동결, 폐기학습(unlearning)"]],
+    ["Ⅲ. 조직혁신과 혁신과정의 관리", ["기술적 단절(technological discontinuities)", "혁신을 위한 다기능팀·프로젝트팀의 필요성"]]
+  ],
+  terms:[
+    ["리엔지니어링 vs 리스트럭처링","계층 단순화·비용 절감 vs 분화 축소·다운사이징을 통한 급격한 성과회복"],
+    ["이카루스 패러독스","과거의 성공 전략에 대한 집착이 오히려 해가 되는 현상"],
+    ["레빈의 장이론","해빙(unfreezing) → 이동(moving) → 재동결(refreezing)의 변화 3단계"]
+  ],
+  checks:["리엔지니어링과 리스트럭처링의 차이를 설명할 수 있다","조직·집단·개인 수준의 변화저항 요인을 각각 설명할 수 있다","레빈의 장이론 3단계를 설명할 수 있다","이카루스 패러독스의 의미를 설명할 수 있다"]
+},
+{num:12, part:"4부", title:"조직의사결정과 조직학습",
+  ov:"합리성모형과 제한된 합리성(카네기모형) 등 의사결정모형, 그리고 조직학습의 유형과 수준, 학습조직의 개념을 다룬다.",
+  outline:[
+    ["Ⅰ. 조직의사결정", ["정형화된 의사결정 vs 비정형화된 의사결정", "합리성모형(완전한 합리성) vs 제한된 합리성모형", "카네기모형 — 만족화(satisficing) + 연합집단(coalition)의 존재 중시", "점진적 의사결정모형 — 과거와 조금 다른 대안을 점진적으로 도입"]],
+    ["Ⅱ. 조직학습의 본질", ["계획된 의도적 학습 vs 자생적 학습", "학습 수준 — 개인·집단·조직·조직간(벤치마킹)", "조직학습에 영향을 주는 인지적 편차"]],
+    ["Ⅲ. 조직의사결정과 조직학습의 향상", ["최고경영자팀에 의한 조직학습", "학습조직 — 개인의 학습 열의를 공유해 지속적으로 학습하는 조직"]]
+  ],
+  terms:[
+    ["카네기모형","제한된 합리성 + 만족화 + 연합집단을 전제로 한 의사결정모형"],
+    ["점진적 의사결정모형","과거와 조금씩 다른 대안을 점진적으로 도입하는 방식"],
+    ["학습조직","개인 역량 계발과 학습 열의 공유를 통해 지속적으로 성장하는 조직"]
+  ],
+  checks:["정형화된 의사결정과 비정형화된 의사결정의 차이를 설명할 수 있다","합리성모형과 카네기모형(제한된 합리성)의 차이를 설명할 수 있다","조직학습의 4가지 수준을 열거할 수 있다","학습조직의 정의를 말할 수 있다"]
+},
+{num:13, part:"4부", title:"조직갈등, 조직권력, 조직정치",
+  ov:"갈등 수준과 조직성과의 관계, 폰디의 갈등모형과 해결전략, 그리고 조직권력의 원천과 조직정치의 관리를 다룬다.",
+  outline:[
+    ["Ⅰ. 조직갈등이란?", ["갈등은 너무 낮거나 높으면 성과가 떨어지고, 적정 수준일 때 성과가 가장 높다", "폰디의 5단계 갈등모형", "갈등해결전략 — 조직구조 변화 시도, 개인 태도 변화 시도"]],
+    ["Ⅱ. 조직권력의 이해", ["조직권력 — 저항을 극복하고 원하는 결과를 달성하는 능력", "조직권력의 원천"]],
+    ["Ⅲ. 조직정치의 이해", ["조직정치 — 공식적 권한 밖에서 자기이익을 위해 영향을 미치는 행동", "조직정치의 전술과 관리 — 선의의 경쟁 유도, 파벌 해체"]]
+  ],
+  terms:[
+    ["갈등-성과 관계(역U자)","갈등이 너무 낮거나 높으면 성과 저하, 적절한 수준에서 성과 최고"],
+    ["폰디의 갈등모형","갈등을 연속적인 5단계 과정으로 설명하는 모형"],
+    ["조직정치","공식적으로 부여된 행동 밖에서 자기 이득을 위해 영향력을 행사하는 행동"]
+  ],
+  checks:["갈등 수준과 성과의 관계(역U자)를 설명할 수 있다","갈등해결을 위한 구조적·태도적 접근을 구분할 수 있다","조직권력의 정의를 말할 수 있다","조직정치를 관리하는 방법을 설명할 수 있다"]
+},
+{num:14, part:"4부", title:"조직개발",
+  ov:"조직개발(OD)의 정의와 역사, 진입·진단·개입·종료로 이어지는 조직개발 과정, 그리고 다양한 개입·변화 프로그램 유형을 다룬다.",
+  outline:[
+    ["Ⅰ. 조직개발의 기초", ["조직개발 — 의도적·계획적 변화로 조직 유효성과 구성원 태도를 개선", "역사 — 실험실훈련 → 팀빌딩, 액션리서치, 서베이 피드백, 리커트의 참여관리·블레이크&머튼의 관리격자"]],
+    ["Ⅱ. 조직개발의 과정", ["진입과 계약 — 문제 명확화, 관련 고객 결정, 실행자 선정", "조직진단과 피드백 5단계 — 문제인식 → 자료수집 → 자료분석 → 종합결론 → 피드백", "변화의 실행계획과 개입", "평가·제도화·종료 — 레빈의 해빙-이동-재동결"]],
+    ["Ⅲ. 개입과 변화 프로그램", ["인적 프로세스 개입 — 프로세스 자문, 팀빌딩, 대면회의, 집단간 관계", "기술구조적 개입 — 다운사이징", "인적자원 개입 — 코칭, 경력개발, 인재관리, 스트레스 관리", "전략적 변화 개입 — 경쟁전략·협력전략, 조직변혁"]]
+  ],
+  terms:[
+    ["조직개발(OD)","행동과학 지식을 활용해 조직 유효성 향상을 위한 계획적 변화를 추구"],
+    ["조직진단 5단계","문제인식 → 자료수집 → 자료분석 → 종합결론 → 피드백"],
+    ["레빈의 변화 3단계","해빙 → 이동 → 재동결 (11장과 연결되는 개념)"]
+  ],
+  checks:["조직개발의 정의와 목적을 설명할 수 있다","조직진단의 5단계를 순서대로 열거할 수 있다","조직개발의 개입 유형을 구분할 수 있다","조직개발 과정의 마지막 단계(종료)의 의미를 설명할 수 있다"]
+}
+];
+
+const $ = id => document.getElementById(id);
+
+$('jump').innerHTML = CHAPTERS.map(c => `<a href="#c${c.num}">${c.num}장</a>`).join('');
+
+$('chapters').innerHTML = CHAPTERS.map(c => `
+  <section class="chap" id="c${c.num}">
+    <div class="head">
+      <span class="num">${c.num}장</span>
+      <h2>${c.title}</h2>
+      <span class="partTag">${c.part}</span>
+    </div>
+    <p class="ov">${c.ov}</p>
+    <div class="block">
+      <h3>핵심 구조</h3>
+      <div class="outline">
+        ${c.outline.map(([h, items]) => `<div class="sec"><b>${h}</b><ul>${items.map(i => `<li>${i}</li>`).join('')}</ul></div>`).join('')}
+      </div>
+    </div>
+    <div class="block">
+      <h3>꼭 기억할 용어</h3>
+      <div class="terms">
+        ${c.terms.map(([t, d]) => `<div class="term"><b>${t}</b><span>${d}</span></div>`).join('')}
+      </div>
+    </div>
+    <div class="block">
+      <h3>셀프 체크</h3>
+      <div class="checks">
+        ${c.checks.map((t, i) => `<label class="chk" data-id="c${c.num}_${i}"><input type="checkbox" class="cb"><span>${t}</span></label>`).join('')}
+      </div>
+    </div>
+  </section>
+`).join('');
+
+/* 체크 상태 — 이 브라우저에만(localStorage) */
+const KEY = 'orgTheoryWorkbook_v1';
+function allBoxes() { return [...document.querySelectorAll('.cb')]; }
+function save() {
+  try { localStorage.setItem(KEY, JSON.stringify(allBoxes().map(b => b.checked))); } catch (e) {}
+}
+function load() {
+  let d = null; try { d = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) {}
+  if (!Array.isArray(d)) return;
+  allBoxes().forEach((b, i) => { if (d[i]) b.checked = true; });
+}
+function refresh() {
+  const boxes = allBoxes();
+  const n = boxes.filter(b => b.checked).length;
+  $('progNum').textContent = n;
+  $('progMax').textContent = boxes.length;
+  boxes.forEach(b => b.closest('.chk').classList.toggle('done', b.checked));
+}
+document.addEventListener('change', e => { if (e.target.classList.contains('cb')) { refresh(); save(); } });
+$('resetAll').addEventListener('click', () => {
+  if (!confirm('체크한 내용을 모두 지울까요?')) return;
+  try { localStorage.removeItem(KEY); } catch (e) {}
+  allBoxes().forEach(b => b.checked = false);
+  refresh();
+});
+load(); refresh();
+</script>
+</body>
+</html>
