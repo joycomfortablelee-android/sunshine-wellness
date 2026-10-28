@@ -4,5 +4,6 @@ Allow: /
 Disallow: /docs/
 # 교재 저작권 — 출판사 PPTX 요약이라 검색 노출을 막는다
 Disallow: /learn/org-theory-14chapter-workbook.html
+Disallow: /learn/org-behavior-13chapter-workbook.html
 
 Sitemap: https://www.sunshinewellness.co.kr/sitemap.xml
