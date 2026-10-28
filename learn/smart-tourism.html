@@ -1450,6 +1450,16 @@
     .learn-article .s25 .s25-foot { margin: 8px 0 0; font-size: 12.5px; line-height: 1.65; color: #33475b; }
     /* 「이제 아홉 곳을 하나씩」 앞 표지 알약 — 주간 운영 11주 알약과 같은 이름 (2026-09-30) */
     .learn-article .mini-note .pv-co { display: inline-block; margin: 0 6px 4px 0; padding: 3px 11px; border-radius: 999px; background: #ffe800; border: 1px solid #d8bb2a; color: #14120a; font-size: 12px; font-weight: 800; vertical-align: 1px; }
+    /* 「스마트관광 대전환」 15Part 원저 목차 — 4열 그리드(공간절약) */
+    .learn-article .toc15-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px; margin: 10px 0 18px; }
+    .learn-article .toc15-card { border: 1px solid var(--line); border-radius: 9px; padding: 9px 11px; background: #fafaf9; }
+    .learn-article .toc15-card .t15-no { display: block; font-size: 10.5px; font-weight: 800; color: var(--gold); letter-spacing: .3px; }
+    .learn-article .toc15-card h4 { margin: 2px 0 6px; font-size: 12.8px; line-height: 1.35; color: var(--deep); }
+    .learn-article .toc15-card ol { margin: 0; padding-left: 15px; font-size: 11px; line-height: 1.55; color: var(--muted); }
+    .learn-article .toc15-card ol li { margin: 0 0 2px; }
+    .learn-article .toc15-card ol li b { color: #5b6b7d; font-weight: 600; }
+    @media (max-width: 900px) { .learn-article .toc15-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 520px) { .learn-article .toc15-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body class="mod-smart">
@@ -3191,27 +3201,22 @@
       <p class="mini-note">정남호 저 | 경희대학교출판문화원(경희대학교출판부) | 2025년 12월 25일 — 연말정산 <strong>도서공연비 소득공제</strong> 대상 도서입니다. 신용·체크카드나 현금(현금영수증 발급)으로 구매하면 공제 한도 안에서 추가 공제를 받을 수 있습니다.</p>
 
       <p class="mini-note">「스마트관광 대전환」 15개 Part의 원저 세부 목차와 시작 쪽수입니다. 리포트에서 특정 장을 인용할 때 쪽수를 바로 확인하십시오.</p>
-      <div class="tbl-wrap">
-        <table class="ref">
-          <thead><tr><th>PART</th><th>원저의 세부 목차 및 시작 페이지</th></tr></thead>
-          <tbody>
-            <tr><td>1. 관광 패러다임의 대전환</td><td>① AI 퍼스트 시대, 관광산업의 대응(17쪽) · ② AI 기반의 스마트관광으로(23쪽) · ③ 차별화된 경험을 제공하는 콘텐츠가 경쟁력!(31쪽)</td></tr>
-            <tr><td>2. 스마트관광플랫폼</td><td>① 스마트관광플랫폼이란?(41쪽) · ② 국내 사례(47쪽) · ③ 국외 사례(52쪽)</td></tr>
-            <tr><td>3. 스마트관광도시</td><td>① 스마트관광도시란?(59쪽) · ② 지속가능성 및 과제(65쪽) · ③ 글로벌 사례와 벤치마킹(67쪽)</td></tr>
-            <tr><td>4. 성숙도 모델</td><td>① 관광도시 평가의 필요성(73쪽) · ② 구축의 우선순위는?(77쪽) · ③ 성숙도 모델의 개발과 적용(82쪽)</td></tr>
-            <tr><td>5. 스마트모빌리티</td><td>① 스마트콘텐츠로서의 스마트모빌리티(89쪽) · ② 고객만족과 RECSA 모델(97쪽) · ③ 프리미엄 모빌리티 이용 경험과 CIT 분석(99쪽)</td></tr>
-            <tr><td>6. 경제적 파급력</td><td>① 경제적 파급력 측정(105쪽) · ② 경제적 파급효과 계산(109쪽) · ③ 경제적 파급효과의 요체(112쪽)</td></tr>
-            <tr><td>7. 스마트호텔</td><td>① 스마트호텔이란?(121쪽) · ② 국내 사례(125쪽) · ③ 국외 사례(130쪽)</td></tr>
-            <tr><td>8. 스마트호텔과 기억</td><td>① 디지털 기기는 종업원의 동료인가?(137쪽) · ② 고객의 경험을 향상할까?(142쪽) · ③ 상품·서비스 이상의 기억이 중요!(146쪽)</td></tr>
-            <tr><td>9. 스마트MICE</td><td>① 스마트MICE란?(153쪽) · ② 국내 사례(158쪽) · ③ 국외 사례(163쪽)</td></tr>
-            <tr><td>10. 스마트MICE와 SDGs</td><td>① 인프라 구축과 친환경 MICE의 필요성(171쪽) · ② 융합과 확장이 스마트MICE의 미래(177쪽) · ③ 지속가능발전목표의 달성(182쪽)</td></tr>
-            <tr><td>11. 스마트공연예술</td><td>① 스마트로 연결되는 새로운 관광콘텐츠의 시대(191쪽) · ② 스마트공연예술도 스마트관광이다(196쪽)</td></tr>
-            <tr><td>12. 스마트공연예술 동향</td><td>① 국내 사례(203쪽) · ② 해외 사례(208쪽)</td></tr>
-            <tr><td>13. 스마트공연예술의 전환</td><td>① 기술 기반의 도입과 융합 이슈(215쪽) · ② 관객의 수용성과 사회문화적 과제(220쪽) · ③ 제도적·산업적 기반 구축과 정책 과제(225쪽)</td></tr>
-            <tr><td>14. 스마트레스토랑</td><td>① 스마트레스토랑의 등장(233쪽) · ② 고객경험 디자인(237쪽) · ③ 사회적 함의와 노동의 재구성(239쪽) · ④ 지역관광콘텐츠로서의 스마트레스토랑(241쪽) · ⑤ 지속가능성과 전망(243쪽)</td></tr>
-            <tr><td>15. 스마트관광의 미래</td><td>① 스마트관광으로 도약의 기회를!(249쪽) · ② 스마트관광, 미래를 디자인하다(254쪽) · ③ 생각이 미래를 만든다(257쪽)</td></tr>
-          </tbody>
-        </table>
+      <div class="toc15-grid">
+        <div class="toc15-card"><span class="t15-no">PART 1</span><h4>관광 패러다임의 대전환</h4><ol><li><b>①</b> AI 퍼스트 시대, 관광산업의 대응(17쪽)</li><li><b>②</b> AI 기반의 스마트관광으로(23쪽)</li><li><b>③</b> 차별화된 경험을 제공하는 콘텐츠가 경쟁력!(31쪽)</li></ol></div>
+        <div class="toc15-card"><span class="t15-no">PART 2</span><h4>스마트관광플랫폼</h4><ol><li><b>①</b> 스마트관광플랫폼이란?(41쪽)</li><li><b>②</b> 국내 사례(47쪽)</li><li><b>③</b> 국외 사례(52쪽)</li></ol></div>
+        <div class="toc15-card"><span class="t15-no">PART 3</span><h4>스마트관광도시</h4><ol><li><b>①</b> 스마트관광도시란?(59쪽)</li><li><b>②</b> 지속가능성 및 과제(65쪽)</li><li><b>③</b> 글로벌 사례와 벤치마킹(67쪽)</li></ol></div>
+        <div class="toc15-card"><span class="t15-no">PART 4</span><h4>성숙도 모델</h4><ol><li><b>①</b> 관광도시 평가의 필요성(73쪽)</li><li><b>②</b> 구축의 우선순위는?(77쪽)</li><li><b>③</b> 성숙도 모델의 개발과 적용(82쪽)</li></ol></div>
+        <div class="toc15-card"><span class="t15-no">PART 5</span><h4>스마트모빌리티</h4><ol><li><b>①</b> 스마트콘텐츠로서의 스마트모빌리티(89쪽)</li><li><b>②</b> 고객만족과 RECSA 모델(97쪽)</li><li><b>③</b> 프리미엄 모빌리티 이용 경험과 CIT 분석(99쪽)</li></ol></div>
+        <div class="toc15-card"><span class="t15-no">PART 6</span><h4>경제적 파급력</h4><ol><li><b>①</b> 경제적 파급력 측정(105쪽)</li><li><b>②</b> 경제적 파급효과 계산(109쪽)</li><li><b>③</b> 경제적 파급효과의 요체(112쪽)</li></ol></div>
+        <div class="toc15-card"><span class="t15-no">PART 7</span><h4>스마트호텔</h4><ol><li><b>①</b> 스마트호텔이란?(121쪽)</li><li><b>②</b> 국내 사례(125쪽)</li><li><b>③</b> 국외 사례(130쪽)</li></ol></div>
+        <div class="toc15-card"><span class="t15-no">PART 8</span><h4>스마트호텔과 기억</h4><ol><li><b>①</b> 디지털 기기는 종업원의 동료인가?(137쪽)</li><li><b>②</b> 고객의 경험을 향상할까?(142쪽)</li><li><b>③</b> 상품·서비스 이상의 기억이 중요!(146쪽)</li></ol></div>
+        <div class="toc15-card"><span class="t15-no">PART 9</span><h4>스마트MICE</h4><ol><li><b>①</b> 스마트MICE란?(153쪽)</li><li><b>②</b> 국내 사례(158쪽)</li><li><b>③</b> 국외 사례(163쪽)</li></ol></div>
+        <div class="toc15-card"><span class="t15-no">PART 10</span><h4>스마트MICE와 SDGs</h4><ol><li><b>①</b> 인프라 구축과 친환경 MICE의 필요성(171쪽)</li><li><b>②</b> 융합과 확장이 스마트MICE의 미래(177쪽)</li><li><b>③</b> 지속가능발전목표의 달성(182쪽)</li></ol></div>
+        <div class="toc15-card"><span class="t15-no">PART 11</span><h4>스마트공연예술</h4><ol><li><b>①</b> 스마트로 연결되는 새로운 관광콘텐츠의 시대(191쪽)</li><li><b>②</b> 스마트공연예술도 스마트관광이다(196쪽)</li></ol></div>
+        <div class="toc15-card"><span class="t15-no">PART 12</span><h4>스마트공연예술 동향</h4><ol><li><b>①</b> 국내 사례(203쪽)</li><li><b>②</b> 해외 사례(208쪽)</li></ol></div>
+        <div class="toc15-card"><span class="t15-no">PART 13</span><h4>스마트공연예술의 전환</h4><ol><li><b>①</b> 기술 기반의 도입과 융합 이슈(215쪽)</li><li><b>②</b> 관객의 수용성과 사회문화적 과제(220쪽)</li><li><b>③</b> 제도적·산업적 기반 구축과 정책 과제(225쪽)</li></ol></div>
+        <div class="toc15-card"><span class="t15-no">PART 14</span><h4>스마트레스토랑</h4><ol><li><b>①</b> 스마트레스토랑의 등장(233쪽)</li><li><b>②</b> 고객경험 디자인(237쪽)</li><li><b>③</b> 사회적 함의와 노동의 재구성(239쪽)</li><li><b>④</b> 지역관광콘텐츠로서의 스마트레스토랑(241쪽)</li><li><b>⑤</b> 지속가능성과 전망(243쪽)</li></ol></div>
+        <div class="toc15-card"><span class="t15-no">PART 15</span><h4>스마트관광의 미래</h4><ol><li><b>①</b> 스마트관광으로 도약의 기회를!(249쪽)</li><li><b>②</b> 스마트관광, 미래를 디자인하다(254쪽)</li><li><b>③</b> 생각이 미래를 만든다(257쪽)</li></ol></div>
       </div>
 
       <p class="learn-part pt-part pp-4" id="part08"><span class="pt"><i>파트</i><b>08</b></span><span class="pt-ti">취업 · 면접</span><span class="pt-sub"><strong>면접 질문 스무 문항</strong> · 채용 창구 · 실전 입사지원서</span><span class="pt-jump"><a href="#part00">00 한눈에</a><a href="#part01">01 국내</a><a href="#part06">02 이론</a><a href="#part07">03 연구</a><a href="#part02">04 해외</a><a href="#part03">05 공모전</a><a href="#part04">06 PBL</a><a href="#part05">07 책</a><a href="#part08" class="on" aria-current="true">08 취업</a><a href="#part09">09 자료실</a><a href="#part10">10 AI</a></span></p>
