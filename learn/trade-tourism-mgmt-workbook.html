@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<title>경영학의 탐색 요약노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
+<style>
+  :root { --ink:#14243A; --ink-2:#44566B; --ink-3:#7C8A99; --line:#DBE4EE; --navy:#17365D; --sky:#e8f1fb;
+    --gold:#FFF3B0; --ground:#F4F7FB; --ok:#1f5a3f; --ok-bg:#e3f4ea; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--ground); color:var(--ink); font-family:'Noto Sans KR',system-ui,sans-serif; font-size:14px; line-height:1.6; }
+  .sheet { max-width:1120px; margin:0 auto; padding:24px 16px 56px; display:grid; gap:20px; }
+  .eyebrow { display:inline-block; background:var(--gold); color:var(--navy); font-size:11px; font-weight:700; padding:2px 10px; border-radius:999px; }
+  h1 { margin:6px 0 4px; font-size:clamp(20px,3vw,26px); }
+  .lede { margin:0; color:var(--ink-2); }
+  .tools { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; align-items:center; }
+  .tools button { font:inherit; font-size:12px; font-weight:700; border:1px solid var(--navy); color:var(--navy); background:#fff; border-radius:999px; padding:3px 12px; cursor:pointer; }
+  .tools button:hover { background:var(--sky); }
+  .prog { margin-left:auto; font-size:12px; color:var(--ink-3); font-weight:700; }
+  .prog b { color:var(--navy); }
+
+  .grid-nav { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+  .grid-nav a { display:block; background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px 14px; text-decoration:none; color:var(--ink); border-top:3px solid var(--navy); }
+  .grid-nav a:hover { background:var(--sky); }
+  .grid-nav .n { font-size:11px; font-weight:800; color:var(--navy); }
+  .grid-nav .t { font-size:13px; font-weight:700; margin:3px 0 4px; }
+  .grid-nav .h { font-size:11px; color:var(--ink-3); }
+  @media (max-width:860px) { .grid-nav { grid-template-columns:repeat(2,1fr); } }
+
+  .jump { display:flex; flex-wrap:wrap; gap:5px; position:sticky; top:0; background:var(--ground); padding:8px 0; z-index:5; }
+  .jump a { font-size:11.5px; font-weight:700; color:var(--navy); background:#fff; border:1px solid var(--line); border-radius:7px; padding:4px 8px; text-decoration:none; }
+  .jump a:hover { background:var(--sky); }
+
+  .chap { background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 18px; scroll-margin-top:52px; }
+  .chap > .head { display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; border-bottom:2px solid var(--navy); padding-bottom:8px; margin-bottom:10px; }
+  .chap .num { font-size:20px; font-weight:800; color:var(--navy); }
+  .chap h2 { margin:0; font-size:16.5px; }
+  .chap .ov { margin:0 0 12px; font-size:12.5px; color:var(--ink-2); }
+
+  .block { margin-bottom:12px; }
+  .block h3 { margin:0 0 6px; font-size:12.5px; color:var(--navy); display:flex; align-items:center; gap:6px; }
+  .block h3::before { content:""; width:4px; height:4px; border-radius:50%; background:var(--navy); }
+
+  .outline { display:grid; gap:6px; }
+  .outline .sec { font-size:12.5px; }
+  .outline .sec b { color:var(--ink); }
+  .outline .sec ul { margin:3px 0 0; padding-left:16px; color:var(--ink-2); font-size:12px; }
+  .outline .sec li { margin:1px 0; }
+
+  .terms { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:7px; }
+  .term { background:var(--sky); border-radius:8px; padding:7px 10px; }
+  .term b { display:block; font-size:12px; color:var(--navy); }
+  .term span { font-size:11.5px; color:var(--ink-2); }
+
+  .checks { display:grid; gap:5px; }
+  .chk { display:flex; gap:7px; align-items:flex-start; font-size:12.5px; color:var(--ink-2); }
+  .chk input { margin-top:3px; transform:scale(1.1); flex-shrink:0; }
+  .chk.done span { color:var(--ok); text-decoration:line-through; text-decoration-color:var(--line); }
+
+  footer.note { font-size:11.5px; color:var(--ink-3); text-align:center; padding:6px 0 0; }
+
+  @media (max-width:860px) { .terms { grid-template-columns:1fr; } }
+  @media print { .jump, .tools, .grid-nav { display:none; } .chap { break-inside:avoid; } body { background:#fff; } }
+</style>
+</head>
+<body>
+<main class="sheet">
+  <header>
+    <span class="eyebrow">무역과 관광 · 경영학의 탐색 박성환외</span>
+    <h1>경영학의 탐색 15장 요약노트 — 핵심 구조 · 용어 · 셀프 체크</h1>
+    <p class="lede">경영의 기초개념과 경영학의 발전사부터 기업형태·창업·전략경영·조직및인적자원관리·생산·마케팅·재무관리까지, 경영학 전반의 핵심을 15개 장으로 정리했습니다. 체크 표시는 이 브라우저에만 저장됩니다.</p>
+    <div class="tools">
+      <button type="button" onclick="window.print()">인쇄 / PDF</button>
+      <button type="button" id="resetAll">체크 전체 지우기</button>
+      <span class="prog">체크 <b id="progNum">0</b> / <span id="progMax">0</span></span>
+    </div>
+  </header>
+
+  <nav class="grid-nav" id="gridNav"></nav>
+
+  <nav class="jump" id="jump"></nav>
+
+  <div id="chapters"></div>
+
+  <footer class="note">박성환 외, 「경영학의 탐색」(5판) 강의자료 기반 학습용 요약 — 무역과 관광 보강자료 · 학내 자습용</footer>
+</main>
+
+<script>
+const CHAPTERS = [
+{num:1, title:"경영학의 기초",
+  ov:"경영의 개념(3차원)과 기업의 의의·특성, 기업시스템과 경영학의 3대 목표, 경영학의 학문적 특성과 연구방법을 다룬다.",
+  outline:[
+    ["경영과 기업의 개념", ["경영의 3차원 — 과정(계획·조직·지휘·통제)·기능(전반관리·부문관리)·수준(최고·중간·일선)", "기업의 특성 — 생산경제주체·영리추구주체·협동시스템·사회적 실체"]],
+    ["기업시스템과 경영학의 목표", ["기업의 3시스템 — 경제적 생산시스템·사회적 협동시스템·심리적 협동시스템", "경영학 3대 목표 — 경제성(효율성·생산성)·사회성(공정성·공공성)·생활성(만족성)"]],
+    ["경영학의 학문적 특성", ["이론경영학과 실천경영학, 과학이자 기술(art)로서의 경영학", "보편성과 상황성, 표준화와 다양화, 형평성과 수월성"]]
+  ],
+  terms:[
+    ["경영의 3차원","과정(계획·조직·지휘·통제)·기능(전반·부문관리)·수준(최고·중간·일선경영층)"],
+    ["기업시스템의 3유형","경제적 생산시스템·사회적 협동시스템·심리적 협동시스템"],
+    ["경영학의 3대 목표","경제성목표(효율성·생산성)·사회성목표(공정성·공공성)·생활성목표(만족성)"],
+    ["다원목표","이윤극대화를 넘어 이해관계자의 이해를 균형있게 고려하는 현대기업의 목표(경제적+사회적 목표)"]
+  ],
+  checks:["경영의 3차원(과정·기능·수준)을 설명할 수 있다","기업의 3시스템과 경영학의 3대 목표의 대응관계를 설명할 수 있다","단일목표와 다원목표의 차이를 설명할 수 있다","경영학이 과학이자 기술(art)인 이유를 설명할 수 있다"]
+},
+{num:2, title:"독일과 미국경영학의 발전",
+  ov:"독일 경영경제학의 형성과 발전(방법논쟁), 미국 경영관리론의 발전(표류관리→과학적관리법→인간관계론→조직 및 전반관리론→현대적 관리론)을 다룬다.",
+  outline:[
+    ["독일경영학", ["상업학 전사(1675년 이전)→확립(1675~1804)→경영경제학 형성(1900년대)→1~4차 방법논쟁을 거쳐 발전", "슈말렌바하(경험·실증) vs 니클리슈(윤리·규범) 학파"]],
+    ["미국경영학 — 전통적 관리론", ["표류관리(1860~1910)→과학적관리법(테일러)·포드시스템(3S)·일반관리론(페이욜 5기능)·관료제론(베버)"]],
+    ["미국경영학 — 현대적 관리론", ["인간관계론(호손실험)과 행동과학 → 조직 및 전반관리론(버나드·사이몬) → 상황적합이론·전략경영·역량중심이론"]]
+  ],
+  terms:[
+    ["테일러의 과학적 관리법","과업설정·직무표준화·작업자전문화·차별적 임금제도로 능률을 높이는 관리기법, 저노무비·고임금 철학"],
+    ["포드의 3S","단순화(simplification)·표준화(standardization)·전문화(specialization) — 대량생산의 기본조건"],
+    ["페이욜의 관리 5요소","예측(계획)·조직·명령·조정·통제 — 경영자의 관리적 활동 5기능"],
+    ["호손실험","메이요 등이 실시, 작업자의 감정과 비공식조직이 생산성에 영향을 미친다는 인간관계론의 토대가 된 실험"]
+  ],
+  checks:["독일경영학의 발전단계(상업학→경영경제학→방법논쟁)을 설명할 수 있다","테일러의 과학적관리법과 포드의 3S를 설명할 수 있다","페이욜의 관리 5요소와 관료제론을 설명할 수 있다","인간관계론이 호손실험을 통해 등장한 배경을 설명할 수 있다"]
+},
+{num:3, title:"한국경영학의 발전과 한국기업의 경영특성",
+  ov:"한국경영학의 발전지연 이유와 시대적 흐름, 한국기업경영의 일반적·구조적·전략적 특성(가부장제·연공제도·중기고용·외형성장전략 등)을 다룬다.",
+  outline:[
+    ["한국경영학의 발전", ["발전지연 이유 — 늦은 산업화·교육기관 주도 도입·상업 천시·비합리적 경향", "시대적 흐름 — 독일경영학(해방전)→미국경영학(해방후)→전통적관리론→인간관계론→조직및전반관리론→상황적합이론→지식·역량중심이론"]],
+    ["한국기업의 일반적·구조적 특성", ["가부장제·권위중시·형식중시·제한적집합중시·소유중시", "연공제도·중기고용제도(중핵·완충·주변 3중구조)·기업별 노동조합"]],
+    ["한국기업의 전략적 특성", ["외형성장전략(문어발식 다각화)·정부유착전략·단기성과전략(빨리빨리문화)"]]
+  ],
+  terms:[
+    ["중기고용제도","한국기업의 고용형태로 중핵·완충·주변의 3중구조(약 10:80:10)를 가짐 — 미국(단기), 일본(장기·2중구조)과 대비"],
+    ["가부장제 경영","유교문화의 영향으로 공식·비공식 인간관계를 통해 업무를 처리하는 한국기업 특유의 경영방식"],
+    ["외형성장전략","수익성보다 외형성장에 중점을 둔 비관련 다각화전략, 신규사업 리드타임 단축이 장점, 낮은 수익성이 단점"],
+    ["한미일 경영특성 비교","한국(중기고용·연고중심·합의적 의사결정) vs 미국(단기고용·실력중심·개인적 의사결정) vs 일본(종신고용·연고중심·집단적 의사결정)"]
+  ],
+  checks:["한국경영학 발전이 지연된 이유를 설명할 수 있다","한국기업경영의 일반적 특성(가부장제·권위중시 등)을 설명할 수 있다","한·미·일 기업의 고용형태(중기·단기·종신)의 차이를 설명할 수 있다","한국기업의 전략적 특성 3가지를 설명할 수 있다"]
+},
+{num:4, title:"현대기업의 경영자",
+  ov:"기업가정신(슘페터)과 경영자정신의 핵심요소(고객중심·경쟁우위·가치극대화), 경영자의 유형(소유·고용·전문경영자)과 기능·역할을 다룬다.",
+  outline:[
+    ["기업가정신과 경영자정신", ["슘페터의 기업가정신 — 혁신=신결합", "경영자정신의 핵심요소 — 고객중심정신·경쟁우위정신·가치극대화정신"]],
+    ["경영자의 유형", ["소유경영자→고용경영자→전문경영자로 발전", "소유와 경영의 분리(버얼·민즈 실증, 버어남의 경영자혁명론)"]],
+    ["경영자의 기능과 역할", ["전반관리자 vs 부문관리자, 최고·중간·일선경영층", "경영자의 3대 자질 — 개념적 능력·인간적 능력·기술적 능력"]]
+  ],
+  terms:[
+    ["슘페터의 혁신","기업가=혁신=신결합(new combination), 정태적 균형을 창조적으로 파괴하는 과정"],
+    ["경영자정신의 3요소","고객중심정신·경쟁우위정신·가치극대화정신"],
+    ["소유경영자·고용경영자·전문경영자","출자+경영의 기업가 / 제한적 기능수행 유급경영자 / 전문지식으로 경영을 위임받은 경영자"],
+    ["경영자의 3대 자질","개념적 능력(상황판단)·인간적 능력(대인관계)·기술적 능력(현장실무) — 계층에 따라 비중이 다름"]
+  ],
+  checks:["슘페터의 기업가정신과 혁신의 개념을 설명할 수 있다","경영자정신의 3가지 핵심요소를 설명할 수 있다","소유경영자·고용경영자·전문경영자의 차이를 설명할 수 있다","경영계층별로 요구되는 3대 자질의 비중 차이를 설명할 수 있다"]
+},
+{num:5, title:"기업환경과 지속가능경영",
+  ov:"기업환경의 변화(확장·복잡성·가속화)와 일반환경·과업환경, 거시경영의 수행방안, 지속가능경영의 3요소(경제·사회·환경)를 다룬다.",
+  outline:[
+    ["기업환경과 거시경영", ["일반환경(경제·기술·법률·정치·사회문화·국제환경) vs 과업환경(주주·노조·소비자·관계기업·지역사회·정부)", "거시경영의 수행방안 — 소비자주의·대중소기업 공생·지역사회발전·정부관계 정립"]],
+    ["지속가능경영", ["지속가능경영 = 경제적 수익성+사회적 책임성+환경적 건전성", "GRI 가이드라인 — 경제·사회·환경 성과지표"]]
+  ],
+  terms:[
+    ["과업경영환경","주주·노동조합·소비자·관계기업·지역사회·정부 — 기업과 직접 상호작용하는 환경"],
+    ["지속가능경영의 3요소","경제적 수익성·사회적 책임성·환경적 건전성"],
+    ["GRI(Global Reporting Initiative)","CERES와 UNEP이 만든 기업의 경제·환경·사회 성과에 대한 자발적 보고 가이드라인"],
+    ["에코 효율성","환경에 대한 부정적 영향을 최소화하면서 경제적 성과를 제고하는 환경경영의 핵심개념"]
+  ],
+  checks:["기업환경변화의 3가지 특징(확장·복잡성·가속화)을 설명할 수 있다","일반환경과 과업환경의 구성요소를 구분할 수 있다","지속가능경영의 3요소를 설명할 수 있다","GRI 가이드라인의 역할을 설명할 수 있다"]
+},
+{num:6, title:"기업의 형태",
+  ov:"개인기업부터 주식회사까지 기업형태의 분류, 주식회사의 특성(유한책임·자본증권화·중역제도)과 설립절차 및 기관을 다룬다.",
+  outline:[
+    ["기업형태의 분류", ["개인기업·소수공동기업(합명·합자·유한회사)·다수공동기업(주식회사·협동조합)", "공기업·공사공동기업·사회적기업"]],
+    ["주식회사", ["3대 특성 — 유한책임제도·자본증권화제도·중역제도", "설립절차 — 정관작성→자본불입→임원선임→설립등기", "3대 기관 — 주주총회·이사회·감사"]]
+  ],
+  terms:[
+    ["합명회사 vs 합자회사","전원 무한책임사원 구성 vs 무한책임사원+유한책임사원 구성"],
+    ["주식회사의 3대 특성","유한책임제도·자본증권화제도·중역제도(소유와 경영의 분리)"],
+    ["수권자본제","정관에 주식총수만 정하고 설립시 1/4 이상만 발행, 나머지는 이사회 결의로 발행하는 자본제도(한국 적용)"],
+    ["주식회사의 3대 기관","주주총회(최고의사결정)·이사회(업무집행)·감사(회계·업무감사)"]
+  ],
+  checks:["개인기업·합명회사·합자회사·유한회사의 책임형태 차이를 설명할 수 있다","주식회사의 3대 특성을 설명할 수 있다","주식회사의 설립절차 4단계를 설명할 수 있다","주식회사의 3대 기관의 역할을 설명할 수 있다"]
+},
+{num:7, title:"기업의 창업과 성장",
+  ov:"창업의 3요소와 과정(4단계), 기업성장전략(확대화·다각화)과 기업집중의 형태(카르텔·트러스트·콘체른), 국제기업과 다국적기업을 다룬다.",
+  outline:[
+    ["기업의 창업", ["창업 3요소 — 창업자·사업아이디어·자본", "창업과정 4단계 — 내외여건분석→품목선정→타당성분석→사업계획 수립·추진"]],
+    ["기업의 성장전략", ["앤소프의 발전전략 — 확대화(시장침투·시장개척·제품개발)·다각화(수평·수직·동심원·복합)", "M&A의 장단점"]],
+    ["기업집중과 국제화", ["카르텔·트러스트·콘체른·지주회사·콤비나트", "국제기업·다국적기업·조인트벤처"]]
+  ],
+  terms:[
+    ["창업의 3요소","창업자·사업아이디어·자본"],
+    ["카르텔·트러스트·콘체른","독립성 유지한 협약연합 / 시장독점을 위한 합병 / 주식소유·금융으로 결합된 기업결합(재벌)"],
+    ["다각화의 4유형","수평적·수직적·동심원형·복합적 다각화"],
+    ["다국적기업(MNC)","해외 여러 나라에 현지법인·자회사를 두고 국제적으로 사업을 전개하는 세계기업"]
+  ],
+  checks:["기업 창업의 3요소와 창업과정 4단계를 설명할 수 있다","확대화전략과 다각화전략의 유형을 구분할 수 있다","카르텔·트러스트·콘체른의 차이를 설명할 수 있다","다국적기업과 조인트벤처의 개념을 설명할 수 있다"]
+},
+{num:8, title:"경영관리의 과정",
+  ov:"페이욜의 관리5직능론과 쿤즈의 관리5과정론, 경영관리의 접근법(관리과정적·시스템적 등), 경영관리 4과정(계획·조직화·지휘·통제)의 순환을 다룬다.",
+  outline:[
+    ["경영관리론의 발전", ["페이욜의 관리 5요소(예측·조직·명령·조정·통제)→쿤즈의 관리 5과정론(계획·조직·충원·지휘·통제)", "주요접근법 — 관리과정적·시스템적·경험적·인간행동적·의사결정적·수리적·제도적 접근법"]],
+    ["경영관리과정의 순환", ["계획(Plan)→조직화(Organization)→통제(Control)의 관리순환", "수직적 기능(전반관리)과 수평적 기능(부문관리: 인사·생산·마케팅·재무)"]]
+  ],
+  terms:[
+    ["페이욜의 관리 5요소","예측(계획)·조직·명령·조정·통제"],
+    ["관리순환(management cycle)","계획→조직화→통제가 상호관련되며 연속적으로 순환하는 과정"],
+    ["시스템적 접근법","경영관리를 투입-변환-산출의 유기적 체제로 보는 접근법(베르탈란피)"],
+    ["수직적 기능과 수평적 기능","전반관리기능(계획·조직화·지휘·통제) vs 부문관리기능(인사·생산·마케팅·재무)"]
+  ],
+  checks:["페이욜의 관리5요소론과 쿤즈의 관리5과정론의 차이를 설명할 수 있다","경영관리의 주요 접근법들을 구분할 수 있다","관리순환(계획-조직화-통제)의 개념을 설명할 수 있다","수직적 기능과 수평적 기능의 차이를 설명할 수 있다"]
+},
+{num:9, title:"경영관리의 기능",
+  ov:"경영계획(목표관리·의사결정)·경영조직화(5과정·조직구조 유형)·경영지휘(리더십·동기부여·의사소통)·경영통제(유형·과정·방법)를 다룬다.",
+  outline:[
+    ["경영계획과 조직화", ["전략·전술·운영계획, 목표관리(MBO), 의사결정모형(완전합리성·제한적합리성)", "조직화 5과정 — 목표검토→활동결정→부서화→작업할당→전체조정, 기계적·유기적 조직구조"]],
+    ["경영지휘", ["리더십이론 — 특성·행동(관리격자·XY이론)·상황(피들러)·현대이론(거래적·변혁적 리더)", "동기부여이론 — 매슬로우 욕구단계·허츠버그 2요인·브룸 기대이론·아담스 공정성이론"]],
+    ["경영통제", ["사전·동시·사후통제, 통제과정(표준설정→측정→비교→수정)", "예산통제·비율분석·손익분기점분석·생산통제"]]
+  ],
+  terms:[
+    ["목표관리제도(MBO)","경영자와 부하가 합의하여 목표를 설정하고 함께 평가·통제하는 기법"],
+    ["거래적 리더 vs 변혁적 리더","조건적 보상으로 교환관계 형성 vs 비전제시로 조직 이익에 공헌하도록 고무"],
+    ["허츠버그의 2요인이론","동기요인(만족요인, 직무내용 관련)과 위생요인(불만족 예방, 직무환경 관련)"],
+    ["공정성이론(아담스)","투입(I)과 결과(O)의 비율을 타인과 비교하여 공정성을 지각하는 정도에 따라 동기부여가 결정"]
+  ],
+  checks:["전략·전술·운영계획의 차이와 MBO의 구성요소를 설명할 수 있다","기계적 조직과 유기적 조직의 차이, 조직화 5과정을 설명할 수 있다","리더십의 전통·상황·현대이론을 구분할 수 있다","동기부여의 주요 이론(욕구단계·2요인·기대·공정성)을 설명할 수 있다"]
+},
+{num:10, title:"전략경영과 경영전략",
+  ov:"전략경영의 수준(기업·사업부·기능별 전략)과 추진과정, SWOT·PPM 분석기법, 포터의 경쟁우위전략(원가우위·차별화·집중화)을 다룬다.",
+  outline:[
+    ["전략경영의 체계", ["전략경영(상위)과 경영전략(하위)의 관계, 전략경영의 3수준(기업전략·사업부전략·기능별전략)", "추진과정 — 기업사명·비전·전략목표→내외분석→전략수립→실행→평가"]],
+    ["전략적 상황분석과 경쟁전략", ["SWOT분석(강점·약점·기회·위협), PPM분석(시장성장률×시장점유율 — 슈퍼스타·붙박이별·방황하는별·별똥별)", "포터의 가치사슬과 3가지 경쟁전략(원가우위·차별화·집중화)"]]
+  ],
+  terms:[
+    ["SWOT분석","강점·약점(내부)과 기회·위협(외부)을 결합해 전략대안을 개발하는 분석도구"],
+    ["PPM(제품포트폴리오매트릭스)","시장성장률과 시장점유율로 사업을 슈퍼스타·붙박이별·방황하는별·별똥별로 분류"],
+    ["가치사슬(value chain)","포터가 제시한, 기업의 부가가치 창출과정을 세분화하여 경쟁우위의 원천을 분석하는 도구"],
+    ["포터의 3가지 경쟁전략","원가우위전략·차별화전략·집중화전략"]
+  ],
+  checks:["전략경영과 경영전략의 관계, 전략경영의 3수준을 설명할 수 있다","전략경영의 추진과정(사명→비전→목표→수립→실행→평가)을 설명할 수 있다","SWOT분석과 PPM분석의 활용법을 설명할 수 있다","포터의 3가지 경쟁전략을 구분할 수 있다"]
+},
+{num:11, title:"조직 및 인적자원관리",
+  ov:"조직설계(과업분화·권한배분·공식화)와 조직구조 유형, 인적자원관리의 전반(채용·평가·경력·배치승진·교육훈련·임금·복지후생·이직·노사관계)을 통합적으로 다룬다.",
+  outline:[
+    ["조직관리", ["과업의 수평적·수직적 분화, 권한의 집권화·분권화, 공식조직과 비공식조직", "조직문화의 3요소(상징물·사고와격식·상상과이미지), 조직변화(해빙-이동-재동결)"]],
+    ["인적자원관리 전반", ["인사관리(비용중심) vs 인적자원관리(자산중심)", "채용·평가·경력·배치승진·교육훈련·임금·복지후생·이직·노사관계관리 전체 흐름"]]
+  ],
+  terms:[
+    ["인사관리 vs 인적자원관리","종업원을 비용·생산요소로 보는 관점 vs 자원·자산·자본으로 보는 관점"],
+    ["조직변화의 3단계","해빙(unfreezing)→이동(moving)→재동결(refreezing)"],
+    ["권력과 조직정치","의존성에서 나오는 영향력(권력)과 특정 개인·부문의 이익을 위해 비공식적으로 권력을 행사하는 활동(조직정치)"],
+    ["개인역량·조직역량·핵심역량","개인의 지식·능력 / 조직지식·조직능력 / 경쟁우위의 원천이 되는 기업특유의 역량"]
+  ],
+  checks:["과업의 수평적·수직적 분화와 공식화의 개념을 설명할 수 있다","인사관리와 인적자원관리의 차이를 설명할 수 있다","조직변화의 3단계(해빙-이동-재동결)를 설명할 수 있다","인적자원관리의 전체 흐름(채용부터 노사관계까지)을 개괄할 수 있다"]
+},
+{num:12, title:"생산 및 서비스 관리",
+  ov:"생산시스템(투입-변환-산출)과 제조업의 생산활동(수요예측·제품설계·재고관리·품질관리), 서비스업의 특성과 기술경영을 다룬다.",
+  outline:[
+    ["생산시스템과 제조업 생산관리", ["생산시스템 모델 — 투입→변환→산출→피드백", "수요예측·제품설계·생산능력·공장입지·시설배치, 재고관리(EOQ)·MRP·ERP·JIT·SCM"]],
+    ["품질관리와 서비스업·기술경영", ["품질관리(QC)→품질경영(QM)→TQM→6시그마", "서비스의 특성(무형성·이질성·소멸성·비분리성)과 서비스믹스 유형", "기술경영의 의의와 '죽음의 계곡'"]]
+  ],
+  terms:[
+    ["생산시스템 모델","투입(원자재·노동력·에너지)→변환(생산공정)→산출(완제품·서비스)→피드백"],
+    ["JIT(적시생산)","필요한 양을 필요한 때에 생산·인도하여 재고를 최소화하는 도요타의 생산통제시스템"],
+    ["TQM(종합적 품질경영)","품질의 지속적 개선과 고객만족을 목표로 전사적으로 참여하는 품질경영 방식"],
+    ["서비스의 4대 특성","무형성·이질성·소멸성·비분리성(생산과 소비의 동시발생)"]
+  ],
+  checks:["생산시스템의 투입-변환-산출 모델을 설명할 수 있다","JIT·MRP·ERP·SCM의 차이를 설명할 수 있다","QC-QM-TQM-6시그마의 발전관계를 설명할 수 있다","서비스의 4대 특성과 서비스믹스 유형을 설명할 수 있다"]
+},
+{num:13, title:"마케팅관리",
+  ov:"마케팅개념의 변화(생산→제품→판매→마케팅→사회적 마케팅)와 STP(시장세분화·표적화·위치화), 마케팅믹스(4P)와 마케팅통제를 다룬다.",
+  outline:[
+    ["마케팅의 개념과 과정", ["마케팅개념의 변천 — 생산개념→제품개념→판매개념→마케팅개념→사회적 마케팅개념", "마케팅관리과정 — 계획(여건분석·목표·전략)→실시(마케팅믹스)→통제"]],
+    ["STP와 마케팅믹스", ["STP — 시장세분화(segmentation)·표적화(targeting)·위치화(positioning)", "마케팅믹스 4P — 제품·가격·유통·촉진(+7P: 프로세스·사람·물리적증거)"]],
+    ["마케팅통제", ["연간계획통제·수익성중심통제·효율성중심통제·전략성중심통제"]]
+  ],
+  terms:[
+    ["마케팅개념의 변천 5단계","생산개념→제품개념→판매개념→마케팅개념→사회적 마케팅개념"],
+    ["STP","시장세분화(Segmentation)·표적시장선정(Targeting)·위치선정(Positioning)"],
+    ["마케팅믹스 4P","제품(Product)·가격(Price)·유통(Place)·촉진(Promotion)"],
+    ["마케팅통제의 4유형","연간계획통제·수익성중심통제·효율성중심통제·전략성중심통제"]
+  ],
+  checks:["마케팅개념의 5단계 변천과정을 설명할 수 있다","STP(세분화-표적화-위치화)의 과정을 설명할 수 있다","마케팅믹스 4P(또는 7P)의 구성요소를 설명할 수 있다","마케팅통제의 4가지 유형을 구분할 수 있다"]
+},
+{num:14, title:"재무관리",
+  ov:"재무관리의 목표(기업가치·자기자본가치 극대화)와 기능(자본조달·운용·통제), 재무제표(재무상태표·손익계산서·현금흐름표)와 재무비율분석을 다룬다.",
+  outline:[
+    ["재무관리의 목표와 기능", ["기업가치 극대화 = f(수익×위험), 자기자본가치(주가) 극대화", "재무계획(자본조달)·재무실시(자본운용)·재무통제의 3기능"]],
+    ["재무제표와 자본조달·운용", ["재무상태표·포괄손익계산서·현금흐름표(영업·투자·재무활동)", "타인자본(은행차입·회사채)과 자기자본(주식발행) 조달, NPV법·IRR법에 의한 투자안 평가"]],
+    ["재무성과 분석", ["성장성·안정성(레버리지비율)·수익성(ROA·ROE)·유동성(유동비율)·활동성비율"]]
+  ],
+  terms:[
+    ["기업가치 극대화","V=f(수익×위험) — 미래수익이 클수록, 위험이 작을수록 기업가치가 커짐"],
+    ["순현재가치법(NPV)과 내부수익률법(IRR)","미래현금흐름을 현재가치로 환산해 비교 / 현금유입과 유출의 현재가치를 같게 하는 할인율로 평가"],
+    ["재무제표 3종","재무상태표(자산·부채·자본)·포괄손익계산서(수익·비용)·현금흐름표(영업·투자·재무활동)"],
+    ["ROA·ROE","총자산순이익률(당기순이익/총자산)·자기자본순이익률(당기순이익/자기자본)"]
+  ],
+  checks:["재무관리의 목표(기업가치 극대화)와 3대 기능을 설명할 수 있다","재무상태표·손익계산서·현금흐름표의 역할을 설명할 수 있다","NPV법과 IRR법에 의한 투자안 평가방법을 설명할 수 있다","성장성·안정성·수익성·유동성 비율을 각각 설명할 수 있다"]
+},
+{num:15, title:"기업경영의 바람직한 추진방향",
+  ov:"기업환경변화(세계화·지식정보화·다원화)에 대응하는 가치경영(EVA·생존부등식)과 혁신경영(구조조정·BPR), 학습조직을 다룬다.",
+  outline:[
+    ["기업환경변화와 가치경영", ["세계화·지식정보화·다원화 사회로의 변화, 3C(고객·경쟁·변화) 대응전략", "가치창조경영 — 생존부등식(고객가치>시장가격>원가>자본비용), 경제적 부가가치(EVA)"]],
+    ["혁신경영과 학습조직", ["구조조정의 4단계와 경영혁신이론(BPR, 프로세스 재설계)", "조직학습과 학습조직(센지) — 학습방법의 학습(learning to learn)"]]
+  ],
+  terms:[
+    ["생존부등식","상품고객가치 > 상품시장가격 > 상품원가 > 자본비용 — 기업 생존·성장의 핵심조건"],
+    ["경제적 부가가치(EVA)","세후영업이익에서 자본비용을 공제한 잔여이익, 투자자본 요구수익률 초과분"],
+    ["BPR(business process reengineering)","고객중심으로 업무방식을 근본적·급진적으로 재설계해 극적 성과향상을 이루는 경영혁신기법"],
+    ["학습조직","조직학습이 잘 이루어진 조직, 학습방법의 학습(learning to learn)을 통해 변화에 능숙하게 대응하는 조직(센지)"]
+  ],
+  checks:["기업환경변화의 3대 방향(세계화·지식정보화·다원화)을 설명할 수 있다","생존부등식과 경제적 부가가치(EVA)의 개념을 설명할 수 있다","BPR과 경영개선의 차이를 설명할 수 있다","학습조직의 개념과 특성을 설명할 수 있다"]
+}
+];
+
+const $ = id => document.getElementById(id);
+
+$('gridNav').innerHTML = CHAPTERS.map(c => `
+  <a href="#c${c.num}">
+    <div class="n">${c.num}장</div>
+    <div class="t">${c.title}</div>
+    <div class="h">${c.ov.slice(0, 30)}…</div>
+  </a>
+`).join('');
+
+$('jump').innerHTML = CHAPTERS.map(c => `<a href="#c${c.num}">${c.num}장</a>`).join('');
+
+$('chapters').innerHTML = CHAPTERS.map(c => `
+  <section class="chap" id="c${c.num}">
+    <div class="head">
+      <span class="num">${c.num}장</span>
+      <h2>${c.title}</h2>
+    </div>
+    <p class="ov">${c.ov}</p>
+    <div class="block">
+      <h3>핵심 구조</h3>
+      <div class="outline">
+        ${c.outline.map(([h, items]) => `<div class="sec"><b>${h}</b><ul>${items.map(i => `<li>${i}</li>`).join('')}</ul></div>`).join('')}
+      </div>
+    </div>
+    <div class="block">
+      <h3>꼭 기억할 용어</h3>
+      <div class="terms">
+        ${c.terms.map(([t, d]) => `<div class="term"><b>${t}</b><span>${d}</span></div>`).join('')}
+      </div>
+    </div>
+    <div class="block">
+      <h3>셀프 체크</h3>
+      <div class="checks">
+        ${c.checks.map((t, i) => `<label class="chk" data-id="c${c.num}_${i}"><input type="checkbox" class="cb"><span>${t}</span></label>`).join('')}
+      </div>
+    </div>
+  </section>
+`).join('');
+
+/* 체크 상태 — 이 브라우저에만(localStorage) */
+const KEY = 'tradeTourismMgmtWorkbook_v1';
+function allBoxes() { return [...document.querySelectorAll('.cb')]; }
+function save() {
+  try { localStorage.setItem(KEY, JSON.stringify(allBoxes().map(b => b.checked))); } catch (e) {}
+}
+function load() {
+  let d = null; try { d = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) {}
+  if (!Array.isArray(d)) return;
+  allBoxes().forEach((b, i) => { if (d[i]) b.checked = true; });
+}
+function refresh() {
+  const boxes = allBoxes();
+  const n = boxes.filter(b => b.checked).length;
+  $('progNum').textContent = n;
+  $('progMax').textContent = boxes.length;
+  boxes.forEach(b => b.closest('.chk').classList.toggle('done', b.checked));
+}
+document.addEventListener('change', e => { if (e.target.classList.contains('cb')) { refresh(); save(); } });
+$('resetAll').addEventListener('click', () => {
+  if (!confirm('체크한 내용을 모두 지울까요?')) return;
+  try { localStorage.removeItem(KEY); } catch (e) {}
+  allBoxes().forEach(b => b.checked = false);
+  refresh();
+});
+load(); refresh();
+</script>
+</body>
+</html>

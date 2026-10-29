@@ -12,5 +12,14 @@ Disallow: /learn/cruise-management-lecture-pack/
 Disallow: /learn/startup-founder-dna/
 Disallow: /learn/startup-founder-dna-5part-workbook.html
 Disallow: /learn/ai-accounting-13week-workbook.html
+Disallow: /learn/tourism-venture-ebusiness-workbook.html
+Disallow: /learn/hotel-mice-fnb-workbook.html
+Disallow: /learn/hotel-tourism-hrm-fnb-workbook.html
+Disallow: /learn/trade-tourism-fnb-workbook.html
+Disallow: /learn/mice-management-mis-workbook.html
+Disallow: /learn/trade-tourism-mis-workbook.html
+Disallow: /learn/hr-management-14chapter-workbook.html
+Disallow: /learn/trade-tourism-mgmt-workbook.html
+Disallow: /learn/mice-management-mgmt-workbook.html
 
 Sitemap: https://www.sunshinewellness.co.kr/sitemap.xml

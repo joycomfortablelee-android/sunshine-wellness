@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<title>인적자원관리 요약노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
+<style>
+  :root { --ink:#14243A; --ink-2:#44566B; --ink-3:#7C8A99; --line:#DBE4EE; --navy:#17365D; --sky:#e8f1fb;
+    --gold:#FFF3B0; --ground:#F4F7FB; --ok:#1f5a3f; --ok-bg:#e3f4ea; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--ground); color:var(--ink); font-family:'Noto Sans KR',system-ui,sans-serif; font-size:14px; line-height:1.6; }
+  .sheet { max-width:1120px; margin:0 auto; padding:24px 16px 56px; display:grid; gap:20px; }
+  .eyebrow { display:inline-block; background:var(--gold); color:var(--navy); font-size:11px; font-weight:700; padding:2px 10px; border-radius:999px; }
+  h1 { margin:6px 0 4px; font-size:clamp(20px,3vw,26px); }
+  .lede { margin:0; color:var(--ink-2); }
+  .tools { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; align-items:center; }
+  .tools button { font:inherit; font-size:12px; font-weight:700; border:1px solid var(--navy); color:var(--navy); background:#fff; border-radius:999px; padding:3px 12px; cursor:pointer; }
+  .tools button:hover { background:var(--sky); }
+  .prog { margin-left:auto; font-size:12px; color:var(--ink-3); font-weight:700; }
+  .prog b { color:var(--navy); }
+
+  .grid-nav { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+  .grid-nav a { display:block; background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px 14px; text-decoration:none; color:var(--ink); border-top:3px solid var(--navy); }
+  .grid-nav a:hover { background:var(--sky); }
+  .grid-nav .n { font-size:11px; font-weight:800; color:var(--navy); }
+  .grid-nav .t { font-size:13px; font-weight:700; margin:3px 0 4px; }
+  .grid-nav .h { font-size:11px; color:var(--ink-3); }
+  @media (max-width:860px) { .grid-nav { grid-template-columns:repeat(2,1fr); } }
+
+  .jump { display:flex; flex-wrap:wrap; gap:5px; position:sticky; top:0; background:var(--ground); padding:8px 0; z-index:5; }
+  .jump a { font-size:11.5px; font-weight:700; color:var(--navy); background:#fff; border:1px solid var(--line); border-radius:7px; padding:4px 8px; text-decoration:none; }
+  .jump a:hover { background:var(--sky); }
+
+  .chap { background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 18px; scroll-margin-top:52px; }
+  .chap > .head { display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; border-bottom:2px solid var(--navy); padding-bottom:8px; margin-bottom:10px; }
+  .chap .num { font-size:20px; font-weight:800; color:var(--navy); }
+  .chap h2 { margin:0; font-size:16.5px; }
+  .chap .ov { margin:0 0 12px; font-size:12.5px; color:var(--ink-2); }
+
+  .block { margin-bottom:12px; }
+  .block h3 { margin:0 0 6px; font-size:12.5px; color:var(--navy); display:flex; align-items:center; gap:6px; }
+  .block h3::before { content:""; width:4px; height:4px; border-radius:50%; background:var(--navy); }
+
+  .outline { display:grid; gap:6px; }
+  .outline .sec { font-size:12.5px; }
+  .outline .sec b { color:var(--ink); }
+  .outline .sec ul { margin:3px 0 0; padding-left:16px; color:var(--ink-2); font-size:12px; }
+  .outline .sec li { margin:1px 0; }
+
+  .terms { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:7px; }
+  .term { background:var(--sky); border-radius:8px; padding:7px 10px; }
+  .term b { display:block; font-size:12px; color:var(--navy); }
+  .term span { font-size:11.5px; color:var(--ink-2); }
+
+  .checks { display:grid; gap:5px; }
+  .chk { display:flex; gap:7px; align-items:flex-start; font-size:12.5px; color:var(--ink-2); }
+  .chk input { margin-top:3px; transform:scale(1.1); flex-shrink:0; }
+  .chk.done span { color:var(--ok); text-decoration:line-through; text-decoration-color:var(--line); }
+
+  footer.note { font-size:11.5px; color:var(--ink-3); text-align:center; padding:6px 0 0; }
+
+  @media (max-width:860px) { .terms { grid-template-columns:1fr; } }
+  @media print { .jump, .tools, .grid-nav { display:none; } .chap { break-inside:avoid; } body { background:#fff; } }
+</style>
+</head>
+<body>
+<main class="sheet">
+  <header>
+    <span class="eyebrow">인적자원관리론 · 인적자원관리[제4판] 박성환외</span>
+    <h1>인적자원관리 14장 요약노트 — 핵심 구조 · 용어 · 셀프 체크</h1>
+    <p class="lede">인적자원관리의 발전사부터 직무·채용·평가·경력·배치승진·교육훈련·임금·복지후생·이직·노사관계·전반관리까지, 인적자원관리론 전체 체계를 14개 장으로 정리했습니다. 체크 표시는 이 브라우저에만 저장됩니다.</p>
+    <div class="tools">
+      <button type="button" onclick="window.print()">인쇄 / PDF</button>
+      <button type="button" id="resetAll">체크 전체 지우기</button>
+      <span class="prog">체크 <b id="progNum">0</b> / <span id="progMax">0</span></span>
+    </div>
+  </header>
+
+  <nav class="grid-nav" id="gridNav"></nav>
+
+  <nav class="jump" id="jump"></nav>
+
+  <div id="chapters"></div>
+
+  <footer class="note">박성환 외, 「인적자원관리」(4판) 강의자료 기반 학습용 요약 — 인적자원관리론 자습용</footer>
+</main>
+
+<script>
+const CHAPTERS = [
+{num:1, title:"인적자원관리의 발전",
+  ov:"인적자원관리의 개념과 전략적 인적자원관리, 한국적 인적자원관리의 사상적 근원과 발전사, 인사담당자의 역할을 다룬다.",
+  outline:[
+    ["인적자원관리의 개념", ["인적자원관리 = 전략적 인적자원관리와 한국적 인적자원관리의 통합적 관리", "인적자본과 사회자본의 형성이 목표"]],
+    ["한국적 인적자원관리의 사상적 근원", ["유교(인의)사상과 성리학(이기론)·양명학에 바탕", "한국적 인적자원관리의 철학·목적·목표"]],
+    ["인적자원관리의 발전사", ["표류기→초기→후기→근대→현대 순으로 발전", "인사담당자의 역할과 역량이 확대"]]
+  ],
+  terms:[
+    ["전략적 인적자원관리","기업의 경영전략과 인적자원관리를 연계하여 경쟁우위를 확보하는 관리방식"],
+    ["인적자본과 사회자본","개인의 지식·능력(인적자본)과 협동·신뢰 네트워크(사회자본)"],
+    ["이기(理氣)사상","성리학의 핵심 개념으로 한국적 인적자원관리 철학의 사상적 근원"],
+    ["인사담당자의 역할","전략적 파트너·행정전문가·변화담당자·종업원옹호자 등 다면적 역할 수행"]
+  ],
+  checks:["인적자원관리의 개념과 목적을 설명할 수 있다","한국적 인적자원관리의 사상적 근원(유교·성리학·양명학)을 설명할 수 있다","인적자원관리의 발전단계를 순서대로 설명할 수 있다","인사담당자에게 요구되는 역할과 역량을 열거할 수 있다"]
+},
+{num:2, title:"인적자원의 역량관리",
+  ov:"역량의 개념(맥클러랜드·스펜서)과 개인·조직 차원의 역량관리, 핵심역량관리의 형성과정을 다룬다.",
+  outline:[
+    ["역량의 개념", ["맥클러랜드의 역량 개념 — 지식·기술을 넘어선 우수성과자의 내재적 특성", "스펜서&스펜서의 20개 역량모델"]],
+    ["개인·조직의 역량관리", ["개인역량 = 지식+능력", "조직역량 = 조직지식+조직능력"]],
+    ["핵심역량관리", ["프라할라드와 하멜의 핵심역량이론", "핵심역량 형성 4과정", "초일류기업의 인재상"]]
+  ],
+  terms:[
+    ["역량(competency)","우수성과자와 평균성과자를 구별짓는, 지식·기술을 넘어선 내재적 특성(맥클러랜드)"],
+    ["스펜서&스펜서 20개 역량","개인 역량을 유형화한 대표적 역량모델"],
+    ["핵심역량(core competency)","프라할라드와 하멜이 제시한, 경쟁우위의 원천이 되는 조직 고유의 역량"],
+    ["조직역량","조직지식과 조직능력으로 구성되는 집단 차원의 역량"]
+  ],
+  checks:["역량의 개념과 맥클러랜드의 정의를 설명할 수 있다","스펜서&스펜서의 20개 역량모델을 개략적으로 설명할 수 있다","개인역량과 조직역량의 구성요소를 구분할 수 있다","핵심역량의 형성과정 4단계를 설명할 수 있다"]
+},
+{num:3, title:"직무관리",
+  ov:"직무분석의 절차와 기법, 직무기술서·직무명세서, 직무분류, 직무설계의 발전단계, 직무평가의 방법을 다룬다.",
+  outline:[
+    ["직무분석", ["절차 — 조직정보파악→대표직위선정→직무내용파악→직무기술서→직무명세서", "기법 — 기능적직무분석법·직위분석설문지법·관리직무분석법"]],
+    ["직무설계의 발전", ["전통적(직무분화 3S: 단순화·표준화·전문화)→과도기(직무확대)→근대적(직무충실화·직무특성화·직무교차·준자율적)→현대적(경영혁신화·역량중심)"]],
+    ["직무평가", ["종합적평가(서열법·분류법) vs 분석적평가(점수법·요소비교법)", "직급체계 — 직군제도·직급제도"]]
+  ],
+  terms:[
+    ["직무기술서 vs 직무명세서","직무 내용·성격을 정리한 문서 vs 직무수행자의 자격요건을 정리한 문서"],
+    ["직무분화 3S","단순화·표준화·전문화 — 전통적 직무설계의 핵심원리"],
+    ["직무특성화모형","기술다양성·과업정체성·과업중요성이 작업의 의미를 결정한다는 모형"],
+    ["점수법","평가요소를 선정·가중치부여·점수화하여 직무가치를 평가하는 분석적 직무평가법"]
+  ],
+  checks:["직무분석의 5단계 절차를 설명할 수 있다","직무설계의 발전단계(전통적→근대적→현대적)를 구분할 수 있다","직무평가의 종합적 방법과 분석적 방법을 구분할 수 있다","직무기술서와 직무명세서의 차이를 설명할 수 있다"]
+},
+{num:4, title:"소요와 확보예측관리",
+  ov:"인력의 소요예측(질적·양적)과 확보예측(내부·외부노동시장)의 개념과 기법을 다룬다.",
+  outline:[
+    ["인력소요예측", ["질적예측 — 환경예측기법(거시)·자격요건분석기법(미시)", "양적예측 — 생산성비율분석·시계열분석·추세분석·회귀분석"]],
+    ["인력확보예측", ["내부노동시장 — 마코브분석·헤이어분석(전이행렬)", "외부노동시장 — 경제활동인구동향분석·직종별취업자동향분석"]]
+  ],
+  terms:[
+    ["인력양성전략 vs 인재구매전략","내부노동시장에서 양성(make) vs 외부노동시장에서 구매(buy)"],
+    ["마코브분석(Markov analysis)","전이행렬을 이용해 조직 내부이동에 따른 인력변화를 예측하는 기법"],
+    ["학습곡선(learning curve)","작업자의 숙련향상에 따른 생산성 변화를 반영하는 인력예측 도구"],
+    ["거시적 예측방법 vs 미시적 예측방법","하향적 인력산정(기업 전체→부서배정) vs 상향적 인력산정(부서별 집계→전체)"]
+  ],
+  checks:["인력소요예측의 질적 기법과 양적 기법을 구분할 수 있다","인력양성전략과 인재구매전략의 장단점을 설명할 수 있다","마코브분석과 전이행렬의 개념을 설명할 수 있다","거시적 예측방법과 미시적 예측방법의 차이를 설명할 수 있다"]
+},
+{num:5, title:"채용관리",
+  ov:"모집관리(내부·외부노동시장, 정규직·비정규직)와 선발관리(선발원칙·선발시험·선발면접·타당성)를 다룬다.",
+  outline:[
+    ["모집관리", ["내부노동시장형(사내공모제) vs 외부노동시장형", "정규직·비정규직·아웃소싱의 특성과 비용"]],
+    ["선발관리", ["선발3원칙 — 직무적합주의·경력중심주의·기업중심주의", "선발절차 — 서류전형→예비면접→선발시험→선발면접→경력조회→신체검사→선발결정"]],
+    ["선발의 평가", ["타당성(실증타당성·내용타당성)·신뢰성·효과성·합리성 평가"]]
+  ],
+  terms:[
+    ["사내공모제(job posting)","사내 게시판에 모집공고를 내어 자격요건을 갖춘 종업원이 지원하도록 유도하는 내부모집제도"],
+    ["선발3원칙","직무적합주의·경력중심주의·기업중심주의"],
+    ["실증타당성","선발도구 점수와 직무성과 측정치 간 연관을 통계적으로 검증하는 타당성"],
+    ["평가센터법","다수 지원자가 합숙하며 여러 선발도구를 동시 적용해 평가하는 기법, 비용은 높으나 정확도 높음"]
+  ],
+  checks:["내부노동시장형과 외부노동시장형 모집의 차이를 설명할 수 있다","선발의 3원칙(직무적합·경력중심·기업중심)을 구분할 수 있다","선발절차의 단계를 순서대로 설명할 수 있다","실증타당성과 내용타당성의 차이를 설명할 수 있다"]
+},
+{num:6, title:"평가관리",
+  ov:"인사고과의 목표와 요소(전문역량·태도역량·업적), 다면고과, 인사고과 기법(BARS·MBO·평가센터법), 집단평가관리를 다룬다.",
+  outline:[
+    ["인사고과관리", ["전통적(상사고과) vs 현대적(다면고과, 360도)", "고과요소 — 보유역량(전문역량+태도역량)과 발휘역량(업적)"]],
+    ["인사고과의 요건과 기법", ["타당성·신뢰성·수용성·실용성", "기법 — 서열법·평정척도법·BARS·MBO·평가센터법·주요사건기록법"]],
+    ["집단평가관리", ["책임센터(비용·이익·투자·관리·서비스센터)별 업적평가와 역량평가", "집단다기능화와 응집력 측정"]]
+  ],
+  terms:[
+    ["다면고과(360도 고과)","상사·본인·동료·부하·외부전문가·고객 등 다수가 참여하는 현대적 인사고과"],
+    ["행위기준고과법(BARS)","직무관련 구체적 행동을 기준으로 측정하는 현대적 고과기법"],
+    ["목표관리법(MBO)","상급자와 합의한 목표와 성과를 비교하여 평가하는 기법"],
+    ["책임센터","비용·이익·투자·관리·서비스센터로 분류되는 집단평가의 단위조직"]
+  ],
+  checks:["전통적 고과와 현대적(다면)고과의 차이를 설명할 수 있다","인사고과요소의 4대 구성요건(타당성·신뢰성·수용성·실용성)을 설명할 수 있다","BARS·MBO·평가센터법의 특징을 구분할 수 있다","집단평가의 책임센터 유형과 역량평가 요소를 설명할 수 있다"]
+},
+{num:7, title:"경력관리",
+  ov:"경력관리의 목표와 과정, 샤인의 경력닻, 경력경로의 종류(기능적·네트워크·이중·삼중경력), 경력관리지원시스템을 다룬다.",
+  outline:[
+    ["경력관리의 목표와 계획", ["개인 경력목표와 조직 경력목표의 통합", "샤인의 경력닻 8유형"]],
+    ["경력경로", ["기능적 경력경로·네트워크 경력경로·이중경력제도·삼중경력제도(다중경력)"]],
+    ["경력관리지원시스템", ["인사정보시스템·경력정보시스템·경력상담시스템·평생학습시스템"]]
+  ],
+  terms:[
+    ["경력닻(career anchors)","샤인이 제시한 개인의 경력지향 8가지 유형(관리자·기술기능·안전·창의·자율·봉사·도전·생활)"],
+    ["이중경력제도(dual-career path)","전문직 종업원 중 관리에 관심있는 사람을 관리직으로도 육성하는 제도"],
+    ["삼중경력제도(triple ladder)","이중경력제도에 프로젝트관리를 더해 초기술관리전문가를 양성하는 다중경력제도"],
+    ["경력경로(career path)","개인이 조직에서 차례로 담당할 수 있는 직무들의 배열"]
+  ],
+  checks:["개인 경력목표와 조직 경력목표의 통합과정을 설명할 수 있다","샤인의 경력닻 8가지 유형을 열거할 수 있다","기능적·네트워크·이중·삼중 경력경로의 차이를 구분할 수 있다","경력관리지원시스템의 4가지 구성요소를 설명할 수 있다"]
+},
+{num:8, title:"배치와 전환 및 승진관리",
+  ov:"배치·전환의 원칙과 유형, 승진관리의 원칙과 기본모형(연공·능력·절충), 승진제도(직계·자격·대용·특수승진)를 다룬다.",
+  outline:[
+    ["배치와 전환", ["직무적합·인재육성·인재-직무균형의 원칙", "순환근무·전문역량배양근무·교대근무·교정이동근무"]],
+    ["승진관리의 원칙과 모형", ["적정성·공정성·합리성의 원칙", "연공승진·능력승진·절충승진"]],
+    ["승진의 제도", ["연공승진제도·직계승진제도·자격승진제도·대용승진제도·조직변경승진제도·특수승진제도(고속승진·하향이동)"]]
+  ],
+  terms:[
+    ["직무적합의 원칙","직무·역량(적성)·시간 세 측면의 적합성을 극대화하는 배치전환 원칙"],
+    ["자격승진제도","연공(사람)과 능력(직무)을 절충한 자격기준으로 승진시키는 제도"],
+    ["대용승진제도","직무내용상 실질적 승진은 아니나 상징적으로 상위 명칭을 부여하는 승진제도"],
+    ["고속승진제도(fast track)","분야별 특출한 핵심인재를 빠르게 승진시켜 동기를 부여하는 특수승진제도"]
+  ],
+  checks:["배치·전환관리의 3가지 원칙을 설명할 수 있다","연공승진·능력승진·절충승진의 장단점을 비교할 수 있다","직계승진제도와 자격승진제도의 차이를 설명할 수 있다","대용승진제도와 조직변경승진제도의 특징을 설명할 수 있다"]
+},
+{num:9, title:"교육훈련관리",
+  ov:"교육·훈련·개발의 차이, 교육훈련의 필요성분석과 목표설정, 교육훈련기법(OJT·Off-JT·역할연기·행동학습법), 교육훈련의 평가(4차원·ROI)를 다룬다.",
+  outline:[
+    ["교육훈련의 개념과 계획", ["교육(지식)·훈련(기술)·개발(미래능력)의 차이", "필요성분석 — 조직·직무·개인 수준", "인적자원개발 포트폴리오 — 방황하는별·슈퍼스타·붙박이별·별똥별"]],
+    ["교육훈련의 실시방식과 기법", ["OJT(직무현장훈련)·Off-JT(직무현장외훈련)·SD(자기개발)", "관리층기법 — 인바스켓훈련·비즈니스게임·사례연구·행동학습법·감수성훈련·그리드훈련"]],
+    ["교육훈련의 평가", ["반응효과·학습효과·행동효과·결과효과(커크패트릭 4차원)+ROI(필립스 5차원)"]]
+  ],
+  terms:[
+    ["교육·훈련·개발","지식(일반개념) 향상 / 기술(특정업무) 향상 / 미래 직무능력 배양"],
+    ["OJT vs Off-JT","직무현장에서 상사·선배에게 지도받는 훈련 vs 직무현장 외에서 집합교육으로 받는 훈련"],
+    ["인적자원개발 포트폴리오","중요성·적용가능성 기준의 4분면(방황하는별·슈퍼스타·붙박이별·별똥별) 분석"],
+    ["커크패트릭의 4차원 평가","반응효과·학습효과·행동효과·결과효과 — 필립스는 ROI를 더해 5차원으로 확장"]
+  ],
+  checks:["교육·훈련·개발의 차이를 설명할 수 있다","교육훈련 필요성분석의 3수준(조직·직무·개인)을 설명할 수 있다","OJT와 Off-JT의 차이와 대표적 기법을 열거할 수 있다","교육훈련 평가의 4차원(반응·학습·행동·결과)과 ROI를 설명할 수 있다"]
+},
+{num:10, title:"임금관리",
+  ov:"임금관리의 체계(외부공정성·내부공정성)와 임금수준(상한선·하한선) 결정, 임금체계(직무급·연공급·직능급·역량급), 임금형태(성과급)와 특수임금제(연봉제·임금피크제)를 다룬다.",
+  outline:[
+    ["임금의 수준관리", ["상한선 — 시장시세임금·생산성임금제", "하한선 — 최저임금제·근로자생계비", "임금수준결정 3유형 — 고임금(선도)·시장임금(동행)·저임금(추종)전략"]],
+    ["임금의 체계관리", ["직무급(동일노동 동일임금)·연공급(근속연수)·직능급(직무수행능력)·역량급(기능·지식·능력)"]],
+    ["임금형태와 특수임금제", ["성과급(인센티브·메리트제도)", "연봉제(연공·직무·능력연봉제)·임금피크제(정년보장형·정년연장형)"]]
+  ],
+  terms:[
+    ["임금수준의 상한선·하한선","시장시세임금·생산성임금(상한) vs 최저임금·생계비(하한)"],
+    ["직무급","직무의 상대적 가치에 따라 임금을 결정하는, '동일노동 동일임금'의 가장 합리적인 임금체계"],
+    ["직능급","종업원의 직무수행능력(자격등급)에 따라 임금을 결정하는, 연공급과 직무급을 절충한 제도"],
+    ["임금피크제","정년을 조정하면서 일정시점을 피크임금으로 하여 그 이후 임금을 감소시키는 제도"]
+  ],
+  checks:["임금수준의 상한선과 하한선 결정요인을 설명할 수 있다","직무급·연공급·직능급·역량급의 차이를 비교할 수 있다","성과급의 장단점을 설명할 수 있다","연봉제와 임금피크제의 유형을 설명할 수 있다"]
+},
+{num:11, title:"복지후생관리",
+  ov:"법정복지후생(4대보험)과 비법정복지후생(표준형·카페테리아형·적정선택형)의 설계와 운영, 복지후생의 평가를 다룬다.",
+  outline:[
+    ["복지후생의 계획과 법정복지후생", ["복지후생전략 — 선행전략·동행전략·최소전략", "4대보험 — 국민연금·건강보험·고용보험·산재보험"]],
+    ["비법정복지후생의 유형", ["표준형(경제성)·카페테리아형(유연성)·적정선택형(효율성)"]],
+    ["복지후생의 평가", ["공정성·경제성·균형성·행동성·효율성 평가"]]
+  ],
+  terms:[
+    ["4대 보험","국민연금보험·건강보험·고용보험·산업재해보상보험"],
+    ["카페테리아형 복지후생제도","핵심품목 제공 후 종업원이 원하는 품목을 선택하게 하는 유연적 복지후생제도"],
+    ["적정선택형 복지후생제도","표준형의 경제성과 카페테리아형의 유연성을 절충한 효율적 복지후생제도"],
+    ["복지후생 선행전략·동행전략·최소전략","경쟁사보다 선도적으로/비슷한 수준으로/법정수준만 제공하는 3가지 복지후생전략"]
+  ],
+  checks:["4대 보험의 가입기준과 내용을 설명할 수 있다","표준형·카페테리아형·적정선택형 복지후생제도의 차이를 설명할 수 있다","복지후생전략 3유형(선행·동행·최소)을 구분할 수 있다","복지후생 평가의 5가지 차원을 설명할 수 있다"]
+},
+{num:12, title:"이직관리",
+  ov:"이직의 원인(기업요인·작업환경요인·개인요인)과 비용분석, 해고와 퇴직의 관리, 이직지원관리(아웃플레이스먼트)를 다룬다.",
+  outline:[
+    ["이직의 원인과 비용", ["기업요인(구조조정·리엔지니어링·다운사이징)·작업환경요인(상사리더십·동료관계)·개인요인(인구통계·직무태도)", "미시적 이직비용(이직비용+대체비용)과 거시적 이직비용"]],
+    ["해고와 퇴직의 관리", ["해고기준 — 연공기준·성과기준", "일시해고 vs 영구해고", "정년퇴직·조기퇴직·명예퇴직"]],
+    ["이직지원관리", ["아웃플레이스먼트(이직자지원)·인플레이스먼트(잔류자관리)"]]
+  ],
+  terms:[
+    ["구조조정(restructuring)","기업가치 극대화를 위해 경영 각 부문에 혁신을 가하는 방법들의 총합(리엔지니어링·다운사이징·린 등 포함)"],
+    ["이직비용과 대체비용","이직결정 후 발생하는 손실비용 vs 후임자 고용·훈련·적응에 드는 비용"],
+    ["아웃플레이스먼트(outplacement)","해고예정 종업원의 재취업을 지원하는 이직지원관리 프로그램"],
+    ["명예퇴직제도","정년 이전 자발적 퇴직자에게 명예퇴직금을 지급하여 퇴직시키는 제도"]
+  ],
+  checks:["이직의 3대 원인(기업·작업환경·개인요인)을 설명할 수 있다","미시적 이직비용과 거시적 이직비용의 차이를 설명할 수 있다","일시해고와 영구해고의 차이를 설명할 수 있다","아웃플레이스먼트와 인플레이스먼트의 개념을 설명할 수 있다"]
+},
+{num:13, title:"노사관계의 관리",
+  ov:"노동조합의 기능과 형태, 숍제도, 단체교섭(임금·근로시간)과 협약체결·노동쟁의의 조정·중재, 경영참여제도를 다룬다.",
+  outline:[
+    ["노동조합", ["노동3권(단결권·단체교섭권·단체행동권)", "숍제도 — 오픈숍·유니언숍·클로즈드숍", "노조형태 — 직업별·일반·산업별·기업별노조"]],
+    ["단체교섭과 노동쟁의", ["단체교섭 방식 — 기업별·통일적·대각선·집단적·공동적 교섭", "노동쟁의행위 — 파업·피케팅·직장폐쇄 / 조정과 중재"]],
+    ["경영참여제도", ["의사결정참여(공동결정제도·노사협의회)·성과참여(스캔론플랜·럭커플랜)·자본참여(종업원지주제도)"]]
+  ],
+  terms:[
+    ["노동3권","단결권·단체교섭권·단체행동권"],
+    ["유니언숍(Union Shop)","채용 후 반드시 노조에 가입하도록 하는 숍제도"],
+    ["공동결정제도","독일에서 창안된, 근로자대표가 경영의 전략적 의사결정에 참여하는 제도(감사역회·근로자평의회)"],
+    ["스캔론플랜·럭커플랜","제안제도 기반 성과배분제 vs 생산부가가치를 럭커표준으로 배분하는 성과참여제도"]
+  ],
+  checks:["노동3권의 내용을 설명할 수 있다","오픈숍·유니언숍·클로즈드숍의 차이를 구분할 수 있다","단체교섭의 5가지 방식을 설명할 수 있다","경영참여제도의 3유형(의사결정·성과·자본참여)을 설명할 수 있다"]
+},
+{num:14, title:"인적자원의 전반관리",
+  ov:"인적자원관리의 계획·조직화·통제 전과정과 인적자원 아키텍처모형, 인사감사, 고성과 작업시스템, 바람직한 인적자원관리 방향을 다룬다.",
+  outline:[
+    ["인적자원관리의 계획과 조직화", ["인사철학·인사방침에 기초한 인력계획(소요·확보·배치전환·개발·비용계획)", "조직중심 아키텍처(가치·특유성 기준 양성형·구매형·제휴형·계약형)와 기능중심 아키텍처(핵심-주변인력모형)"]],
+    ["인적자원관리의 통제", ["표준설정→실적측정→비교→편차수정의 통제과정", "인사감사 — 효율성감사(ABC감사)·사회성감사(GRI)"]],
+    ["고성과 작업시스템과 바람직한 방향", ["인사제도에 대한 종업원 지각이 조직성과에 미치는 영향", "실력(전문역량)과 품격(태도역량)의 조화를 갖춘 인재양성"]]
+  ],
+  terms:[
+    ["인적자원 아키텍처모형","인적자본의 가치와 특유성 기준으로 양성형·구매형·제휴형·계약형을 구분하는 고용방식 모형"],
+    ["핵심-주변 인력관리모형","핵심인력(정규직, 장기고용)과 주변인력(비정규직, 단기고용)으로 구분하는 기능중심 모형"],
+    ["ABC감사","내용감사(A)·예산감사(B)·효과감사(C)로 구성되는 인사 효율성감사"],
+    ["고성과 작업시스템","지식·기술·능력향상, 동기부여, 능력발휘기회 제공을 위한 인사제도들의 통합체계"]
+  ],
+  checks:["조직중심 인적자원 아키텍처모형의 4유형을 설명할 수 있다","핵심-주변 인력관리모형과 고용포트폴리오모형을 설명할 수 있다","인사감사의 ABC감사와 사회성감사를 구분할 수 있다","고성과 작업시스템이 조직성과에 영향을 미치는 과정을 설명할 수 있다"]
+}
+];
+
+const $ = id => document.getElementById(id);
+
+$('gridNav').innerHTML = CHAPTERS.map(c => `
+  <a href="#c${c.num}">
+    <div class="n">${c.num}장</div>
+    <div class="t">${c.title}</div>
+    <div class="h">${c.ov.slice(0, 30)}…</div>
+  </a>
+`).join('');
+
+$('jump').innerHTML = CHAPTERS.map(c => `<a href="#c${c.num}">${c.num}장</a>`).join('');
+
+$('chapters').innerHTML = CHAPTERS.map(c => `
+  <section class="chap" id="c${c.num}">
+    <div class="head">
+      <span class="num">${c.num}장</span>
+      <h2>${c.title}</h2>
+    </div>
+    <p class="ov">${c.ov}</p>
+    <div class="block">
+      <h3>핵심 구조</h3>
+      <div class="outline">
+        ${c.outline.map(([h, items]) => `<div class="sec"><b>${h}</b><ul>${items.map(i => `<li>${i}</li>`).join('')}</ul></div>`).join('')}
+      </div>
+    </div>
+    <div class="block">
+      <h3>꼭 기억할 용어</h3>
+      <div class="terms">
+        ${c.terms.map(([t, d]) => `<div class="term"><b>${t}</b><span>${d}</span></div>`).join('')}
+      </div>
+    </div>
+    <div class="block">
+      <h3>셀프 체크</h3>
+      <div class="checks">
+        ${c.checks.map((t, i) => `<label class="chk" data-id="c${c.num}_${i}"><input type="checkbox" class="cb"><span>${t}</span></label>`).join('')}
+      </div>
+    </div>
+  </section>
+`).join('');
+
+/* 체크 상태 — 이 브라우저에만(localStorage) */
+const KEY = 'hrManagementWorkbook_v1';
+function allBoxes() { return [...document.querySelectorAll('.cb')]; }
+function save() {
+  try { localStorage.setItem(KEY, JSON.stringify(allBoxes().map(b => b.checked))); } catch (e) {}
+}
+function load() {
+  let d = null; try { d = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) {}
+  if (!Array.isArray(d)) return;
+  allBoxes().forEach((b, i) => { if (d[i]) b.checked = true; });
+}
+function refresh() {
+  const boxes = allBoxes();
+  const n = boxes.filter(b => b.checked).length;
+  $('progNum').textContent = n;
+  $('progMax').textContent = boxes.length;
+  boxes.forEach(b => b.closest('.chk').classList.toggle('done', b.checked));
+}
+document.addEventListener('change', e => { if (e.target.classList.contains('cb')) { refresh(); save(); } });
+$('resetAll').addEventListener('click', () => {
+  if (!confirm('체크한 내용을 모두 지울까요?')) return;
+  try { localStorage.removeItem(KEY); } catch (e) {}
+  allBoxes().forEach(b => b.checked = false);
+  refresh();
+});
+load(); refresh();
+</script>
+</body>
+</html>

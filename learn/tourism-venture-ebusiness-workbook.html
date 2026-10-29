@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<title>e비즈니스와 e커머스 요약노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
+<style>
+  :root { --ink:#14243A; --ink-2:#44566B; --ink-3:#7C8A99; --line:#DBE4EE; --navy:#17365D; --sky:#e8f1fb;
+    --gold:#FFF3B0; --ground:#F4F7FB; --ok:#1f5a3f; --ok-bg:#e3f4ea; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--ground); color:var(--ink); font-family:'Noto Sans KR',system-ui,sans-serif; font-size:14px; line-height:1.6; }
+  .sheet { max-width:1120px; margin:0 auto; padding:24px 16px 56px; display:grid; gap:20px; }
+  .eyebrow { display:inline-block; background:var(--gold); color:var(--navy); font-size:11px; font-weight:700; padding:2px 10px; border-radius:999px; }
+  h1 { margin:6px 0 4px; font-size:clamp(20px,3vw,26px); }
+  .lede { margin:0; color:var(--ink-2); }
+  .tools { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; align-items:center; }
+  .tools button { font:inherit; font-size:12px; font-weight:700; border:1px solid var(--navy); color:var(--navy); background:#fff; border-radius:999px; padding:3px 12px; cursor:pointer; }
+  .tools button:hover { background:var(--sky); }
+  .prog { margin-left:auto; font-size:12px; color:var(--ink-3); font-weight:700; }
+  .prog b { color:var(--navy); }
+
+  .grid-nav { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+  .grid-nav a { display:block; background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px 14px; text-decoration:none; color:var(--ink); border-top:3px solid var(--navy); }
+  .grid-nav a:hover { background:var(--sky); }
+  .grid-nav .n { font-size:11px; font-weight:800; color:var(--navy); }
+  .grid-nav .t { font-size:13px; font-weight:700; margin:3px 0 4px; }
+  .grid-nav .h { font-size:11px; color:var(--ink-3); }
+  @media (max-width:860px) { .grid-nav { grid-template-columns:repeat(2,1fr); } }
+
+  .jump { display:flex; flex-wrap:wrap; gap:5px; position:sticky; top:0; background:var(--ground); padding:8px 0; z-index:5; }
+  .jump a { font-size:11.5px; font-weight:700; color:var(--navy); background:#fff; border:1px solid var(--line); border-radius:7px; padding:4px 8px; text-decoration:none; }
+  .jump a:hover { background:var(--sky); }
+
+  .chap { background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 18px; scroll-margin-top:52px; }
+  .chap > .head { display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; border-bottom:2px solid var(--navy); padding-bottom:8px; margin-bottom:10px; }
+  .chap .num { font-size:20px; font-weight:800; color:var(--navy); }
+  .chap h2 { margin:0; font-size:16.5px; }
+  .chap .ov { margin:0 0 12px; font-size:12.5px; color:var(--ink-2); }
+
+  .block { margin-bottom:12px; }
+  .block h3 { margin:0 0 6px; font-size:12.5px; color:var(--navy); display:flex; align-items:center; gap:6px; }
+  .block h3::before { content:""; width:4px; height:4px; border-radius:50%; background:var(--navy); }
+
+  .outline { display:grid; gap:6px; }
+  .outline .sec { font-size:12.5px; }
+  .outline .sec b { color:var(--ink); }
+  .outline .sec ul { margin:3px 0 0; padding-left:16px; color:var(--ink-2); font-size:12px; }
+  .outline .sec li { margin:1px 0; }
+
+  .terms { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:7px; }
+  .term { background:var(--sky); border-radius:8px; padding:7px 10px; }
+  .term b { display:block; font-size:12px; color:var(--navy); }
+  .term span { font-size:11.5px; color:var(--ink-2); }
+
+  .checks { display:grid; gap:5px; }
+  .chk { display:flex; gap:7px; align-items:flex-start; font-size:12.5px; color:var(--ink-2); }
+  .chk input { margin-top:3px; transform:scale(1.1); flex-shrink:0; }
+  .chk.done span { color:var(--ok); text-decoration:line-through; text-decoration-color:var(--line); }
+
+  footer.note { font-size:11.5px; color:var(--ink-3); text-align:center; padding:6px 0 0; }
+
+  @media (max-width:860px) { .terms { grid-template-columns:1fr; } }
+  @media print { .jump, .tools, .grid-nav { display:none; } .chap { break-inside:avoid; } body { background:#fff; } }
+</style>
+</head>
+<body>
+<main class="sheet">
+  <header>
+    <span class="eyebrow">관광벤처창업론 · e비즈니스와 e커머스 차훈상 외</span>
+    <h1>e비즈니스와 e커머스 12장 요약노트 — 핵심 구조 · 용어 · 셀프 체크</h1>
+    <p class="lede">디지털 경제·클라우드·빅데이터부터 B2C·B2B·공유경제·블록체인·핀테크까지, 플랫폼 기반 창업 아이템을 구상할 때 필요한 비즈니스 모델 지식을 12개 장으로 정리했습니다. 체크 표시는 이 브라우저에만 저장됩니다.</p>
+    <div class="tools">
+      <button type="button" onclick="window.print()">인쇄 / PDF</button>
+      <button type="button" id="resetAll">체크 전체 지우기</button>
+      <span class="prog">체크 <b id="progNum">0</b> / <span id="progMax">0</span></span>
+    </div>
+  </header>
+
+  <nav class="grid-nav" id="gridNav"></nav>
+
+  <nav class="jump" id="jump"></nav>
+
+  <div id="chapters"></div>
+
+  <footer class="note">차훈상 외, 「e비즈니스와 e커머스」(3판) 강의자료 기반 학습용 요약 — 관광벤처창업론 보강자료 · 학내 자습용</footer>
+</main>
+
+<script>
+const CHAPTERS = [
+{num:1, title:"인터넷과 정보화 사회",
+  ov:"정보혁명과 디지털 경제의 특징, 디지털 경제를 지배하는 3대 법칙, 그리고 인터넷의 기술적 작동원리와 웹 2.0의 개념을 다룬다.",
+  outline:[
+    ["정보화 사회와 디지털 경제", ["정보혁명 = 디지털혁명 = 인터넷혁명 — 생산·유통·소비 전 과정에서 정보가 중심이 되는 변혁", "디지털 경제의 특징 — 지식 · 디지털화 · 가상화 · 분자화 · 통합화/네트워크화 · 비중개화 · 융합화 · 생산소비일원화(prosumption) · 즉시성 · 글로벌화"]],
+    ["디지털 경제의 3대 법칙", ["메트칼프의 법칙 — 네트워크 효용은 사용자 수의 제곱에 비례", "무어의 법칙 — 반도체 성능 18개월마다 2배, 가격은 절반", "길더의 법칙 — 광섬유 정보전달 용량 12개월마다 3배"]],
+    ["정보재와 롱테일", ["정보재 = 고정비는 높고 한계비용은 0에 가까운 디지털화 가능한 모든 것", "가격전략 — 버전차별화 · 제한판 무상공급(잠금효과) · 롱테일(역파레토, 희귀 수요의 가치)"]],
+    ["인터넷의 작동원리와 웹 2.0", ["패킷교환방식과 TCP/IP 프로토콜이 인터넷의 기반", "웹 2.0 — 플랫폼으로서의 웹, 사용자 참여(UCC·집단지성·크라우드소싱), Open API를 통한 데이터 경쟁력"]]
+  ],
+  terms:[
+    ["메트칼프의 법칙","네트워크 효용은 네트워크 참여자 수의 제곱에 비례해 증가"],
+    ["정보재의 가격전략","버전차별화 · 제한판 무상공급(잠금효과) · 롱테일"],
+    ["비중개화(Disintermediation)","소비자와 생산자를 연결하던 중개자의 역할이 사라지는 현상"],
+    ["웹 2.0","사용자가 플랫폼 위에서 콘텐츠를 생산·공유하며 데이터가 핵심 경쟁력이 되는 웹"]
+  ],
+  checks:["정보혁명이 디지털혁명·인터넷혁명으로도 불리는 이유를 설명할 수 있다","디지털 경제의 3대 법칙(메트칼프·무어·길더)을 각각 설명할 수 있다","정보재의 가격결정이 어려운 이유와 대응 전략을 설명할 수 있다","웹 1.0과 웹 2.0의 수익모델 차이를 설명할 수 있다"]
+},
+{num:2, title:"클라우드 컴퓨팅",
+  ov:"클라우드 컴퓨팅의 5대 특징과 IaaS·PaaS·SaaS 서비스 모델, 공공·사설·하이브리드·커뮤니티 배포 모델, 그리고 도입 시 고려사항을 다룬다.",
+  outline:[
+    ["클라우드 컴퓨팅의 특징", ["자원의 공유(Resource Pooling) · 광범위한 네트워크 접속 · 빠른 탄력성 · 서비스 용량 측정 · 주문형 셀프서비스"]],
+    ["서비스 모델 3가지", ["IaaS(인프라, 아마존EC2) — 유연성은 높으나 직접 관리 필요", "SaaS(소프트웨어, 오피스온라인) — 협업과 최신버전 유지", "PaaS(플랫폼, 구글App Engine) — 개발환경 투자비 절감"]],
+    ["배포 모델 4가지", ["공공 클라우드(불특정다수) · 사설 클라우드(내부전용) · 하이브리드 클라우드(클라우드버스팅) · 커뮤니티 클라우드(유사기관)"]],
+    ["경제적 효과와 도입 고려사항", ["CAPEX(고정자본)를 OPEX(운영비)로 전환 — 스타트업의 진입장벽을 낮춤(PaaS·IaaS)", "효과적인 경우 — 규모/부하 변동이 큰 서비스, 단기 서비스 / 주의할 경우 — 레거시 시스템, 실시간 시스템, 보안·프라이버시 민감 데이터"]]
+  ],
+  terms:[
+    ["클라우드 5대 특징","자원공유 · 광범위접속 · 빠른탄력성 · 서비스용량측정 · 주문형셀프서비스"],
+    ["IaaS vs PaaS vs SaaS","인프라제공 vs 개발플랫폼제공 vs 완성된 소프트웨어 제공"],
+    ["클라우드 버스팅","평소 사설 클라우드를 쓰다 성수기에 공공 클라우드로 확장하는 전략"],
+    ["CAPEX→OPEX 전환","고정자본비용을 사용한 만큼 지불하는 운영비용으로 바꾸는 클라우드의 경제적 효과"]
+  ],
+  checks:["클라우드 컴퓨팅의 5가지 특징을 열거할 수 있다","IaaS·PaaS·SaaS의 차이를 사례와 함께 설명할 수 있다","4가지 배포 모델(공공·사설·하이브리드·커뮤니티)을 구분할 수 있다","클라우드 도입이 스타트업의 진입장벽을 낮추는 이유를 설명할 수 있다"]
+},
+{num:3, title:"인공지능과 빅데이터",
+  ov:"빅데이터의 3요소와 출현 배경, 빅데이터 기술 구성(인프라·분석·표현), 그리고 생성형 AI를 비롯한 인공지능과 빅데이터의 활용 사례를 다룬다.",
+  outline:[
+    ["빅데이터의 3요소", ["규모(Volume) · 다양성(Variety, 정형/비정형/반정형) · 속도(Velocity, 실시간 처리)", "비즈니스 데이터(RDBMS, 개별데이터 중요)와 달리 빅데이터는 NoSQL 기반, 데이터가 모여 새 정보를 전달"]],
+    ["기술 구성 3층", ["기반 인프라(하둡분산파일시스템·맵리듀스) → 분석(텍스트마이닝·평판분석·소셜네트워크분석·군집분석) → 표현(시각화)"]],
+    ["AI와 빅데이터의 활용", ["생성형 AI(텍스트·이미지·사운드·비디오 생성) — ChatGPT·미드저니·Sora 등", "자율주행(테슬라FSD), 헬스케어(InnerEye·Med-PaLM), 추천시스템(협업필터링), 사기방지시스템"]]
+  ],
+  terms:[
+    ["빅데이터 3요소(3V)","규모(Volume) · 다양성(Variety) · 속도(Velocity)"],
+    ["하둡분산파일시스템(HDFS)","저가 범용서버를 클러스터로 묶어 대용량 데이터를 저장하는 분산파일시스템"],
+    ["협업 필터링","유사한 취향의 사용자를 분석해 상품/콘텐츠를 추천하는 기법"],
+    ["생성형 AI","학습한 패턴을 바탕으로 새로운 콘텐츠(텍스트·이미지·사운드·영상)를 만들어내는 AI"]
+  ],
+  checks:["빅데이터의 3요소(3V)를 설명할 수 있다","비즈니스 데이터와 빅데이터의 차이를 설명할 수 있다","빅데이터 기술구성 3층(인프라·분석·표현)을 구분할 수 있다","생성형 AI 활용 시 주의해야 할 점을 설명할 수 있다"]
+},
+{num:4, title:"e-비즈니스의 개념과 모델",
+  ov:"e-비즈니스와 e-커머스의 차이, ERP·SCM·CRM 3대 지원시스템, 그리고 e-비즈니스 모델의 구성요소와 소매·중개·콘텐츠·커뮤니티 유형을 다룬다.",
+  outline:[
+    ["e-비즈니스의 정의", ["e-비즈니스(enhanced) = e-커머스를 포괄하는 광범한 개념 — 기업전반 가치활동(공급망·주문처리·CRM·인력관리)까지 포함", "e-비즈니스 3대 지원시스템 — ERP(전사적자원관리) · SCM(공급망관리) · CRM(고객관계관리)"]],
+    ["비즈니스 모델의 구성요소", ["가치명제(타겟고객·효익·차별적능력) → 판매대상 제품/서비스 → 자원시스템(자산·역량) → 수익모델"]],
+    ["e-비즈니스 모델 유형", ["소매 모델(온라인소매·온오프병행·직판) / 중개 모델(e마켓플레이스·경매중개·거래중개)", "콘텐츠 서비스 모델(포털·멀티미디어·온라인구독) / 커뮤니티 모델(소셜네트워크·협력플랫폼)"]]
+  ],
+  terms:[
+    ["e-비즈니스 vs e-커머스","기업전반 가치활동을 포괄 vs 전자매체 기반 상거래(e-비즈니스의 부분집합)"],
+    ["ERP·SCM·CRM","전사적자원관리 · 공급망관리 · 고객관계관리"],
+    ["가치명제(Value Proposition)","타겟고객·제공가치·차별적능력을 보여주는 제품 구매의 타당한 근거"],
+    ["Bullwhip Effect","수요변동이 공급망을 따라 올라갈수록 확대되는 현상"]
+  ],
+  checks:["e-비즈니스와 e-커머스의 관계를 설명할 수 있다","ERP·SCM·CRM 세 시스템의 역할을 구분할 수 있다","e-비즈니스 모델의 4가지 구성요소를 열거할 수 있다","소매·중개·콘텐츠·커뮤니티 모델의 차이를 사례로 설명할 수 있다"]
+},
+{num:5, title:"e-비즈니스 마케팅 전략",
+  ov:"온라인 STP 전략과 제품·가격·채널 전략의 구성, 그리고 온라인 광고의 유형과 CPM·CPC·CPA 등 효과측정 지표를 다룬다.",
+  outline:[
+    ["온라인 STP와 제품전략", ["세분화(행동·인구통계·심리·기술·상황·검색 변수) → 타겟팅 → 포지셔닝", "제품기능집합 — 핵심제품 · 유형제품 · 확장제품 / 브랜드자산이 지속적 경쟁우위를 구성"]],
+    ["가격전략과 채널전략", ["정보재 가격전략 — 프리미엄(Freemium) · 버전차별화 · 번들링 · 동적가격결정(경매·수율관리)", "채널갈등 — 신규 온라인채널이 기존 채널 반발을 부를 수 있음, 파트너십 모델로 해결(이든알렌 사례)"]],
+    ["온라인 광고와 효과측정", ["광고유형 — 이메일 · 디스플레이(배너/팝업) · 리치미디어 · 키워드 · 제휴 · 소셜미디어 · 모바일 · 인플루언서", "광고비 산정 — CPM(노출당) · CPC(클릭당) · CPA(행동당)", "효과지표 — 전환율 · 포기율 · 유지율 · 고착성(Stickiness)"]]
+  ],
+  terms:[
+    ["온라인 STP","세분화(Segmentation) · 타겟팅(Targeting) · 포지셔닝(Positioning)"],
+    ["Freemium 가격모델","무료(free)+프리미엄(premium) 결합 — 무료사용자를 유료고객으로 전환"],
+    ["CPM·CPC·CPA","노출당 · 클릭당 · 행동(전환)당 광고비 과금 방식"],
+    ["채널갈등","새로운 온라인 채널이 기존 판매채널의 반발을 부르는 현상"]
+  ],
+  checks:["온라인 STP 전략의 3단계를 설명할 수 있다","제품기능집합의 3층(핵심·유형·확장)을 구분할 수 있다","Freemium·번들링·동적가격결정의 차이를 설명할 수 있다","CPM·CPC·CPA의 차이와 적합한 광고유형을 설명할 수 있다"]
+},
+{num:6, title:"e-비즈니스 보안 전략",
+  ov:"e-비즈니스 보안의 5대 요건과 주요 보안위협 유형, 그리고 대칭키·공개키 암호화와 PKI 인증을 통한 보안기술을 다룬다.",
+  outline:[
+    ["보안의 5대 요건", ["기밀성(제3자 비공개) · 무결성(변조방지) · 가용성(정상운영) · 부인방지(거래사실 증명) · 인증(신원확인)"]],
+    ["보안 위협 유형", ["악성코드(바이러스·웜·트로이목마·봇·스파이웨어·애드웨어) · 피싱/스푸핑 · 해킹/크래킹 · 신용카드사기 · 서비스거부(DoS/DDoS)"]],
+    ["암호화와 인증기술", ["대칭키 암호화(빠르나 키전달 불편) vs 공개키 암호화(느리나 키분실위험 적음, RSA)", "전자서명+해시함수로 기밀성·무결성·부인방지·인증을 동시 확보", "PKI 인증 — 제3자 인증기관(CA)이 공개키 소유자의 신원을 보증", "HTTPS/SSL, 방화벽, 침입탐지시스템(IDS), 안티바이러스"]]
+  ],
+  terms:[
+    ["보안 5대 요건","기밀성 · 무결성 · 가용성 · 부인방지 · 인증"],
+    ["대칭키 vs 공개키 암호화","같은 비밀키 사용(빠름,키전달위험) vs 공개키/개인키 쌍 사용(느림,안전)"],
+    ["전자서명","개인키로 암호화해 서명자 신원과 서명사실을 증명하는 전자적 신호"],
+    ["PKI(공개키기반구조)","제3자 인증기관(CA)이 공개키 소유자의 신원을 확인·보증하는 체계"]
+  ],
+  checks:["e-비즈니스 보안의 5대 요건을 설명할 수 있다","대칭키 암호화와 공개키 암호화의 장단점을 비교할 수 있다","전자서명과 해시함수가 함께 보장하는 보안요건을 설명할 수 있다","PKI 인증에서 CA(인증기관)의 역할을 설명할 수 있다"]
+},
+{num:7, title:"e-커머스 개요",
+  ov:"e-커머스의 정의와 발전 단계, 거래주체별 유형(B2C·B2B·C2C 등), 그리고 e-커머스 기업의 가치창출 요인과 성과측정 모델을 다룬다.",
+  outline:[
+    ["e-커머스의 발전과 유형", ["태동기(1990s)→성장성숙기→닷컴버블 안정기→재성장기(모바일)→상승기(크로스보더·라이브커머스)", "거래주체별 유형 — B2C·B2B·B2G·C2C·C2B·G2C 등"]],
+    ["가치창출 4요인(Amit&Zott)", ["효율성(거래비용 절감) · 종속성(Lock-in, 전환비용) · 상호보완성(번들링) · 혁신(새로운 거래방식)"]],
+    ["성과측정", ["들론과 맥클린 모델 — 정보품질·시스템품질·서비스품질·시스템이용·사용자만족도·순효익"]]
+  ],
+  terms:[
+    ["e-커머스 거래주체 유형","B2C·B2B·B2G·C2C·C2B·G2C 등 판매자-구매자 조합"],
+    ["가치창출 4요인(Amit&Zott)","효율성 · 종속성(Lock-in) · 상호보완성 · 혁신"],
+    ["Lock-in 효과","전환비용·충성도프로그램 등으로 고객 이탈을 방지하는 효과"],
+    ["들론&맥클린 모델","정보/시스템/서비스품질 → 이용·만족도 → 순효익으로 이어지는 성과측정모델"]
+  ],
+  checks:["e-커머스 발전의 5단계를 순서대로 설명할 수 있다","거래주체별 e-커머스 유형(B2C·B2B·C2C 등)을 구분할 수 있다","가치창출 4요인을 사례와 함께 설명할 수 있다","들론과 맥클린의 성과측정 모델 구성요소를 열거할 수 있다"]
+},
+{num:8, title:"B2C e-커머스",
+  ov:"B2C e-커머스 시스템의 4C 구성요소와 성공요인(경영전략·신뢰·충성도·개인화), 그리고 오픈마켓·쇼핑몰·소셜커머스 유형과 운영전략을 다룬다.",
+  outline:[
+    ["B2C 시스템과 성공요인", ["4C — 콘텐츠(Content) · 커뮤니티(Community) · 고객서비스(Customer Service) · 상거래(Commerce)", "성공요인 — 경영전략 · 소비자신뢰 · 고객충성도(브랜드충성도+구매충성도) · 개인화(쿠키·공동여과)"]],
+    ["오픈마켓 vs 쇼핑몰", ["오픈마켓(높은수수료, 쉬운진입, 네트워크효과) vs 독립/임대형 쇼핑몰(수수료없음, 장기관계)", "소셜커머스 5유형 — 소셜쇼핑(공동구매)·소셜링크·소셜웹·F-Commerce·오프라인결합형(O2O)"]],
+    ["운영전략", ["웹트래픽 측정(방문자수·페이지뷰·체류시간·이동경로) → 검색엔진최적화·캠페인분석으로 매출 증대"]]
+  ],
+  terms:[
+    ["B2C의 4C","콘텐츠 · 커뮤니티 · 고객서비스 · 상거래"],
+    ["고객충성도","브랜드충성도(선호)와 구매충성도(재구매)로 구성되는 재구매 의도"],
+    ["공동여과(Collaborative Filtering)","유사 취향 고객군을 식별해 교차추천하는 개인화 기법"],
+    ["소셜커머스 5유형","소셜쇼핑 · 소셜링크 · 소셜웹 · F-Commerce · 오프라인결합형(O2O)"]
+  ],
+  checks:["B2C e-커머스의 4C를 열거할 수 있다","소비자 신뢰를 구축하는 방법을 설명할 수 있다","오픈마켓과 쇼핑몰의 장단점을 비교할 수 있다","소셜커머스의 5가지 유형을 구분할 수 있다"]
+},
+{num:9, title:"B2B e-커머스",
+  ov:"공급망관리(EOQ·JIT)의 기초 위에서 B2B e-커머스가 발전해 온 과정과, 판매자/구매자/중개자 중심형 모델 및 e-마켓플레이스 세부 유형을 다룬다.",
+  outline:[
+    ["공급망관리의 기초", ["경제적주문량(EOQ) — 주문비와 재고유지비의 트레이드오프", "적시생산체제(JIT) — 재고·낭비 최소화, 작은 주문량을 자주 배달"]],
+    ["B2B e-커머스 모델 3유형", ["판매자중심형(공급사이익대변) · 구매자중심형(구매기업이익대변, 월마트SCM) · 중개자중심형(e마켓플레이스, 가장 빠르게 성장)"]],
+    ["B2B e-마켓플레이스 세부유형", ["온라인유통자(e-Distributor, 즉석구매 MRO) · 온라인구매(e-Procurement, 장기계약) · 독립거래소(수수료 기반, 신뢰부족으로 실패사례多) · 산업컨소시엄(대형공급사 연합, 코비신트)"]]
+  ],
+  terms:[
+    ["EOQ(경제적주문량)","주문비와 재고유지비를 함께 고려한 최적 주문량"],
+    ["JIT(적시생산체제)","필요한 시점에 필요한 만큼만 생산해 재고와 낭비를 최소화"],
+    ["B2B 모델 3유형","판매자중심형 · 구매자중심형 · 중개자중심형"],
+    ["산업컨소시엄","대형 공급사들이 연합해 구축한 공급망 최적화 중심의 B2B 플랫폼(코비신트)"]
+  ],
+  checks:["EOQ와 JIT가 재고관리에서 추구하는 목표를 설명할 수 있다","B2B e-커머스 3가지 모델(판매자·구매자·중개자중심형)을 구분할 수 있다","온라인유통자와 온라인구매의 차이를 설명할 수 있다","독립거래소가 실패한 이유를 설명할 수 있다"]
+},
+{num:10, title:"공유경제 비즈니스",
+  ov:"공유경제의 정의와 네 가지 특징, 양면시장과 네트워크 효과의 원리, 그리고 노동·자산·공유OO형 비즈니스와 성공전략을 다룬다.",
+  outline:[
+    ["공유경제의 개념", ["유휴자산 + 수요자·공급자 + 중개 플랫폼의 3요소", "발전배경 — 기술발달 · 1인가구 증가 · 노동유연성 선호"]],
+    ["양면시장과 네트워크 효과", ["양면시장(Two-sided market) — 수요자 관점의 규모의 경제, 선형적 공급망과 대비", "동면 네트워크효과(같은편 신뢰) vs 이면 네트워크효과(다른편 선택권 확대, 우버 사례)"]],
+    ["비즈니스 유형과 전략", ["노동(재능)공유형(업워크) · 자산공유형(에어비앤비) · 공유OO형(따릉이, 일면시장)", "닭과달걀 문제 해결 — 단면우선 전략(Divide and Conquer)으로 임계점 도달"]]
+  ],
+  terms:[
+    ["공유경제의 3요소","유휴자산 · 수요자/공급자 · 중개 플랫폼"],
+    ["양면시장(Two-sided market)","공급자와 수요자가 모두 플랫폼의 고객인 시장구조"],
+    ["동면/이면 네트워크효과","같은편 참여자 간 효과 vs 반대편 참여자에게 주는 효과"],
+    ["단면우선 전략","공급자·수요자 중 끌어들이기 쉬운 쪽을 먼저 확보해 임계점에 도달하는 전략"]
+  ],
+  checks:["공유경제를 정의하는 3가지 요소를 설명할 수 있다","양면시장과 선형적 공급망의 차이를 설명할 수 있다","동면 네트워크효과와 이면 네트워크효과를 구분할 수 있다","닭과 달걀 문제를 해결하는 단면우선 전략을 설명할 수 있다"]
+},
+{num:11, title:"블록체인 비즈니스",
+  ov:"블록체인의 분산장부 구조와 작업증명 메커니즘, 개방형·폐쇄형 블록체인의 차이, 그리고 금융·공급망·의료 분야의 활용과 도입시 고려사항을 다룬다.",
+  outline:[
+    ["블록체인의 기술적 배경", ["공개키 암호화(기밀성+인증) + 해시함수(무결성)로 거래 인증", "작업증명(Proof of Work) — 채굴자가 논스값을 찾아 블록 생성권을 얻고 암호화폐로 보상(반감기)"]],
+    ["블록체인의 종류와 특징", ["개방형(공공블록체인, 비트코인·이더리움, 암호화폐 필요) vs 폐쇄형(사적/컨소시엄, 암호화폐 불필요)", "특징 — 신뢰성(위변조어려움) · 안정성(분산구조) · 탈중앙화"]],
+    ["활용과 도입 고려사항", ["금융(송금·지급결제) · 공급망관리(제품진위보장) · 의료서비스(불변기록) · AI/IoT 융합", "고려사항 — 대용량데이터 처리어려움 · 안정성(해킹사례) · 비용(채굴) · 비밀데이터처리 · 표준화"]]
+  ],
+  terms:[
+    ["작업증명(Proof of Work)","채굴자가 조건을 만족하는 논스값을 찾아 블록 생성권을 얻는 메커니즘"],
+    ["개방형 vs 폐쇄형 블록체인","누구나참여·암호화폐필요 vs 승인된참여자·암호화폐불필요"],
+    ["해시함수","입력 메시지를 일정 길이의 고유한 해시값으로 변환 — 메시지 무결성 검증에 사용"],
+    ["블록체인 3대 특징","신뢰성 · 안정성 · 탈중앙화"]
+  ],
+  checks:["공개키 암호화와 해시함수가 블록체인 거래 인증에서 하는 역할을 설명할 수 있다","작업증명(채굴) 메커니즘을 설명할 수 있다","개방형 블록체인과 폐쇄형 블록체인의 차이를 설명할 수 있다","블록체인 도입시 고려해야 할 사항(대용량데이터·안정성·비용 등)을 열거할 수 있다"]
+},
+{num:12, title:"핀테크 비즈니스",
+  ov:"핀테크의 정의와 4가지 서비스 유형(지급결제·금융데이터분석·금융소프트웨어·플랫폼), 간편결제·인터넷전문은행·로보어드바이저 사례, 그리고 핀테크 산업의 발전방향을 다룬다.",
+  outline:[
+    ["핀테크의 정의와 서비스 유형", ["핀테크 = 금융(Financial)+기술(Technology) — 금융소비자 편의성·즉시성 향상에 초점", "4대 유형 — 지급결제 · 금융데이터분석 · 금융소프트웨어 · 플랫폼(P2P대출 등)"]],
+    ["주요 서비스 사례", ["간편결제(NFC·MST·QR) · 간편송금(페어링·풀링·프리펀딩·블록체인)", "인터넷전문은행(케이뱅크·카카오뱅크·토스뱅크) — 시공간 확대, 비대면거래 불확실성 과제", "로보어드바이저 — AI가 고객맞춤형 포트폴리오를 자문/운용(4단계)"]],
+    ["핀테크 산업의 발전방향", ["금융혁신지원특별법·금융규제샌드박스로 혁신여건 조성", "기존 금융회사 서비스 고도화(오픈뱅킹), 신기술 융합(AI·블록체인), 금융혁신 리스크 관리(마이데이터 보안)"]]
+  ],
+  terms:[
+    ["핀테크 4대 서비스유형","지급결제 · 금융데이터분석 · 금융소프트웨어 · 플랫폼"],
+    ["로보어드바이저","AI가 빅데이터 분석으로 고객 맞춤형 자산관리를 자문·운용하는 서비스"],
+    ["금융규제 샌드박스","혁신금융서비스의 규제를 한시적으로 유예해 시장검증을 돕는 제도"],
+    ["인터넷전문은행","모든 서비스를 온라인으로만 제공하는 은행(케이뱅크·카카오뱅크·토스뱅크)"]
+  ],
+  checks:["핀테크의 4가지 서비스 유형을 열거할 수 있다","간편결제와 해외 간편송금 방식(페어링·풀링·프리펀딩)을 설명할 수 있다","로보어드바이저의 4단계 서비스 유형을 구분할 수 있다","금융규제 샌드박스 제도의 목적을 설명할 수 있다"]
+}
+];
+
+const $ = id => document.getElementById(id);
+
+$('gridNav').innerHTML = CHAPTERS.map(c => `
+  <a href="#c${c.num}">
+    <div class="n">${c.num}장</div>
+    <div class="t">${c.title}</div>
+    <div class="h">${c.ov.slice(0, 30)}…</div>
+  </a>
+`).join('');
+
+$('jump').innerHTML = CHAPTERS.map(c => `<a href="#c${c.num}">${c.num}장</a>`).join('');
+
+$('chapters').innerHTML = CHAPTERS.map(c => `
+  <section class="chap" id="c${c.num}">
+    <div class="head">
+      <span class="num">${c.num}장</span>
+      <h2>${c.title}</h2>
+    </div>
+    <p class="ov">${c.ov}</p>
+    <div class="block">
+      <h3>핵심 구조</h3>
+      <div class="outline">
+        ${c.outline.map(([h, items]) => `<div class="sec"><b>${h}</b><ul>${items.map(i => `<li>${i}</li>`).join('')}</ul></div>`).join('')}
+      </div>
+    </div>
+    <div class="block">
+      <h3>꼭 기억할 용어</h3>
+      <div class="terms">
+        ${c.terms.map(([t, d]) => `<div class="term"><b>${t}</b><span>${d}</span></div>`).join('')}
+      </div>
+    </div>
+    <div class="block">
+      <h3>셀프 체크</h3>
+      <div class="checks">
+        ${c.checks.map((t, i) => `<label class="chk" data-id="c${c.num}_${i}"><input type="checkbox" class="cb"><span>${t}</span></label>`).join('')}
+      </div>
+    </div>
+  </section>
+`).join('');
+
+/* 체크 상태 — 이 브라우저에만(localStorage) */
+const KEY = 'tourismVentureEbusinessWorkbook_v1';
+function allBoxes() { return [...document.querySelectorAll('.cb')]; }
+function save() {
+  try { localStorage.setItem(KEY, JSON.stringify(allBoxes().map(b => b.checked))); } catch (e) {}
+}
+function load() {
+  let d = null; try { d = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) {}
+  if (!Array.isArray(d)) return;
+  allBoxes().forEach((b, i) => { if (d[i]) b.checked = true; });
+}
+function refresh() {
+  const boxes = allBoxes();
+  const n = boxes.filter(b => b.checked).length;
+  $('progNum').textContent = n;
+  $('progMax').textContent = boxes.length;
+  boxes.forEach(b => b.closest('.chk').classList.toggle('done', b.checked));
+}
+document.addEventListener('change', e => { if (e.target.classList.contains('cb')) { refresh(); save(); } });
+$('resetAll').addEventListener('click', () => {
+  if (!confirm('체크한 내용을 모두 지울까요?')) return;
+  try { localStorage.removeItem(KEY); } catch (e) {}
+  allBoxes().forEach(b => b.checked = false);
+  refresh();
+});
+load(); refresh();
+</script>
+</body>
+</html>

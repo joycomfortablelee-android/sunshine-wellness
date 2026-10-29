@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<title>경영정보의 이해 요약노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
+<style>
+  :root { --ink:#14243A; --ink-2:#44566B; --ink-3:#7C8A99; --line:#DBE4EE; --navy:#17365D; --sky:#e8f1fb;
+    --gold:#FFF3B0; --ground:#F4F7FB; --ok:#1f5a3f; --ok-bg:#e3f4ea; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--ground); color:var(--ink); font-family:'Noto Sans KR',system-ui,sans-serif; font-size:14px; line-height:1.6; }
+  .sheet { max-width:1120px; margin:0 auto; padding:24px 16px 56px; display:grid; gap:20px; }
+  .eyebrow { display:inline-block; background:var(--gold); color:var(--navy); font-size:11px; font-weight:700; padding:2px 10px; border-radius:999px; }
+  h1 { margin:6px 0 4px; font-size:clamp(20px,3vw,26px); }
+  .lede { margin:0; color:var(--ink-2); }
+  .tools { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; align-items:center; }
+  .tools button { font:inherit; font-size:12px; font-weight:700; border:1px solid var(--navy); color:var(--navy); background:#fff; border-radius:999px; padding:3px 12px; cursor:pointer; }
+  .tools button:hover { background:var(--sky); }
+  .prog { margin-left:auto; font-size:12px; color:var(--ink-3); font-weight:700; }
+  .prog b { color:var(--navy); }
+
+  .grid-nav { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+  .grid-nav a { display:block; background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px 14px; text-decoration:none; color:var(--ink); border-top:3px solid var(--navy); }
+  .grid-nav a:hover { background:var(--sky); }
+  .grid-nav .n { font-size:11px; font-weight:800; color:var(--navy); }
+  .grid-nav .t { font-size:13px; font-weight:700; margin:3px 0 4px; }
+  .grid-nav .h { font-size:11px; color:var(--ink-3); }
+  @media (max-width:860px) { .grid-nav { grid-template-columns:repeat(2,1fr); } }
+
+  .jump { display:flex; flex-wrap:wrap; gap:5px; position:sticky; top:0; background:var(--ground); padding:8px 0; z-index:5; }
+  .jump a { font-size:11.5px; font-weight:700; color:var(--navy); background:#fff; border:1px solid var(--line); border-radius:7px; padding:4px 8px; text-decoration:none; }
+  .jump a:hover { background:var(--sky); }
+
+  .chap { background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 18px; scroll-margin-top:52px; }
+  .chap > .head { display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; border-bottom:2px solid var(--navy); padding-bottom:8px; margin-bottom:10px; }
+  .chap .num { font-size:20px; font-weight:800; color:var(--navy); }
+  .chap h2 { margin:0; font-size:16.5px; }
+  .chap .ov { margin:0 0 12px; font-size:12.5px; color:var(--ink-2); }
+
+  .block { margin-bottom:12px; }
+  .block h3 { margin:0 0 6px; font-size:12.5px; color:var(--navy); display:flex; align-items:center; gap:6px; }
+  .block h3::before { content:""; width:4px; height:4px; border-radius:50%; background:var(--navy); }
+
+  .outline { display:grid; gap:6px; }
+  .outline .sec { font-size:12.5px; }
+  .outline .sec b { color:var(--ink); }
+  .outline .sec ul { margin:3px 0 0; padding-left:16px; color:var(--ink-2); font-size:12px; }
+  .outline .sec li { margin:1px 0; }
+
+  .terms { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:7px; }
+  .term { background:var(--sky); border-radius:8px; padding:7px 10px; }
+  .term b { display:block; font-size:12px; color:var(--navy); }
+  .term span { font-size:11.5px; color:var(--ink-2); }
+
+  .checks { display:grid; gap:5px; }
+  .chk { display:flex; gap:7px; align-items:flex-start; font-size:12.5px; color:var(--ink-2); }
+  .chk input { margin-top:3px; transform:scale(1.1); flex-shrink:0; }
+  .chk.done span { color:var(--ok); text-decoration:line-through; text-decoration-color:var(--line); }
+
+  footer.note { font-size:11.5px; color:var(--ink-3); text-align:center; padding:6px 0 0; }
+
+  @media (max-width:860px) { .terms { grid-template-columns:1fr; } }
+  @media print { .jump, .tools, .grid-nav { display:none; } .chap { break-inside:avoid; } body { background:#fff; } }
+</style>
+</head>
+<body>
+<main class="sheet">
+  <header>
+    <span class="eyebrow">MICE 경영 · 경영정보의 이해 차훈상 외</span>
+    <h1>경영정보의 이해 10장 요약노트 — 핵심 구조 · 용어 · 셀프 체크</h1>
+    <p class="lede">디지털 혁명·4차 산업혁명·빅데이터·클라우드부터 공급망관리·CRM·보안까지, MICE 현장의 디지털 운영에 필요한 정보기술 기초를 10개 장으로 정리했습니다. 체크 표시는 이 브라우저에만 저장됩니다.</p>
+    <div class="tools">
+      <button type="button" onclick="window.print()">인쇄 / PDF</button>
+      <button type="button" id="resetAll">체크 전체 지우기</button>
+      <span class="prog">체크 <b id="progNum">0</b> / <span id="progMax">0</span></span>
+    </div>
+  </header>
+
+  <nav class="grid-nav" id="gridNav"></nav>
+
+  <nav class="jump" id="jump"></nav>
+
+  <div id="chapters"></div>
+
+  <footer class="note">차훈상 외, 「경영정보의 이해」(2판) 강의자료 기반 학습용 요약 — MICE 경영 보강자료 · 학내 자습용</footer>
+</main>
+
+<script>
+const CHAPTERS = [
+{num:1, title:"디지털 혁명과 정보기술",
+  ov:"디지털 혁명의 개념과 명암, 정보시스템이 기업에 미치는 7가지 영향, 그리고 정보시스템의 기본 개념을 다룬다.",
+  outline:[
+    ["디지털 혁명", ["아날로그에서 디지털로의 대규모 전환이 정보화 시대를 염", "긍정적 영향(연결·커뮤니케이션 확대) vs 부정적 영향(정보과부하·사이버범죄·생산성 저하)", "과제: 프라이버시·콘텐츠규제·저작권 이슈"]],
+    ["정보시스템이 기업에 미치는 영향", ["비즈니스 운영 최적화(월마트)·프로세스 혁신(포스코)·품질개선(세븐일레븐)·고객관계강화(만다린오리엔탈)", "의사결정질 개선(버라이즌)·경쟁우위창출(도요타)·출시기간단축(CAD/CAM) — 7가지 영향"]],
+    ["정보시스템의 개념", ["정보시스템 = 하드웨어+소프트웨어+통신망+데이터+사람+정책/절차를 포괄하는 시스템", "조직의 정보를 저장·조회·변환·전파하는 것이 목적"]]
+  ],
+  terms:[
+    ["디지털 혁명","아날로그 기술에서 디지털 기술로의 대규모 전환, 정보화 시대의 출발점"],
+    ["정보시스템","하드웨어·소프트웨어·네트워크·데이터·사람·정책을 포괄해 정보를 저장·전파하는 시스템"],
+    ["정보시스템의 7대 기업 영향","운영최적화·프로세스혁신·품질개선·고객관계강화·의사결정개선·경쟁우위창출·출시기간단축"],
+    ["경영압박요인","글로벌경쟁 심화·기술의 급속한 발전·지식기반경제의 부상"]
+  ],
+  checks:["디지털 혁명의 긍정적·부정적 영향을 각각 설명할 수 있다","정보시스템이 기업에 미치는 7가지 영향을 사례와 함께 설명할 수 있다","정보시스템의 구성요소를 열거할 수 있다","디지털 시대의 3대 과제(프라이버시·콘텐츠규제·저작권)를 설명할 수 있다"]
+},
+{num:2, title:"4차 산업혁명을 이끄는 지능정보기술",
+  ov:"1~4차 산업혁명의 역사적 흐름과, 4차 산업혁명을 이끄는 지능정보기술(AI+ICBM), 그리고 미래 변화의 4대 방향을 다룬다.",
+  outline:[
+    ["산업혁명의 역사", ["1차(증기기관,공장제)→2차(전력,대량생산)→3차(컴퓨터·인터넷,정보혁명)→4차(AI기반 초연결·지능화, 2016 다보스포럼)"]],
+    ["지능정보기술", ["AI — 머신러닝(1980s)→딥러닝(2010s, GPU활용, 알파고·챗GPT)", "ICBM — IoT(사물인터넷)·클라우드컴퓨팅(IaaS/PaaS/SaaS)·빅데이터(3Vs)·모바일"]],
+    ["4차산업혁명이 가져올 미래변화", ["스마트화(초연결·무인의사결정)·서비스화(제품+서비스, GE·테슬라)·친환경화·플랫폼화(우버·네스트랩)"]]
+  ],
+  terms:[
+    ["ICBM","IoT·클라우드컴퓨팅·빅데이터·모바일 — 4차 산업혁명의 핵심 정보기술 4요소"],
+    ["클라우드 서비스 3유형","IaaS(인프라)·PaaS(플랫폼)·SaaS(소프트웨어)"],
+    ["머신러닝 vs 딥러닝","자료기반 문제해결능력 향상 vs 심화인공신경망 기반 비약적 성능향상(GPU활용)"],
+    ["4차산업혁명 정의","AI 중심 파괴적 기술로 생산·유통·소비 전과정이 연결·지능화되는 사회경제적 현상"]
+  ],
+  checks:["1차~4차 산업혁명의 핵심 특징을 구분할 수 있다","ICBM이 의미하는 4가지 기술을 열거할 수 있다","클라우드 서비스의 3가지 유형(IaaS/PaaS/SaaS)을 구분할 수 있다","4차 산업혁명이 가져올 4대 미래변화를 사례와 함께 설명할 수 있다"]
+},
+{num:3, title:"빅데이터를 이용한 정보의 재발견",
+  ov:"빅데이터의 3요소와 출현배경, 빅데이터를 활용하기 위한 핵심기술(인프라·분석·표현), 그리고 다양한 활용사례를 다룬다.",
+  outline:[
+    ["빅데이터의 개념", ["3요소(3Vs) — 규모(Volume)·다양성(Variety)·속도(Velocity)", "출현배경 — 값싼 하드웨어 인프라·빅브라더(데이터트래킹)·대중의 데이터생산(UCC)·새로운 센서"]],
+    ["핵심기술 3단계", ["기반인프라(Fast Data) — 분산파일시스템·병렬처리(맵·셔플·리듀스)", "분석(Big Analytics) — 텍스트마이닝·평판분석·소셜네트워크분석·군집분석", "표현(Focused Services) — 시각화(시간/분포/관계 시각화, 인포그래픽)"]],
+    ["활용과 발전방향", ["활용사례 — 맞춤형추천(아마존 협업필터링)·구글트렌드·올빼미버스·구글번역·왓슨·ChatGPT·IoT(볼보)", "발전방향 — 데이터과학자 확보 필요·개인정보보호 대책(개인데이터은행)"]]
+  ],
+  terms:[
+    ["빅데이터 3요소(3V)","규모(Volume)·다양성(Variety)·속도(Velocity)"],
+    ["맵-셔플-리듀스","분산 병렬처리의 3단계 핵심 프로그램"],
+    ["협업필터링(Collaborative Filtering)","사용자집단 정보를 바탕으로 개인화 추천을 예측하는 기법(아마존 사례)"],
+    ["텍스트마이닝/평판분석/소셜네트워크분석/군집분석","빅데이터 분석(Big Analytics)의 4대 기법"]
+  ],
+  checks:["빅데이터의 3요소(3V)를 설명할 수 있다","빅데이터 활용을 위한 3단계 핵심기술(인프라·분석·표현)을 구분할 수 있다","맵-셔플-리듀스의 병렬처리 과정을 설명할 수 있다","빅데이터 활용사례를 산업별로 예시를 들어 설명할 수 있다"]
+},
+{num:4, title:"클라우드 컴퓨팅, IT 자원의 공유경제",
+  ov:"클라우드 컴퓨팅의 5대 특징, IaaS·PaaS·SaaS의 3가지 서비스 유형과 배포모델, 그리고 기업규모별 도입효과를 다룬다.",
+  outline:[
+    ["클라우드 컴퓨팅의 개념과 특징", ["필요한 만큼 빌려쓰고 사용한 만큼 지불", "5대특징 — 자원공유·네트워크접속·빠른탄력성·사용량과금·주문형셀프서비스"]],
+    ["서비스 유형과 배포모델", ["서비스유형 — IaaS(인프라)·PaaS(플랫폼)·SaaS(소프트웨어)", "배포모델 — 공공클라우드·사설클라우드·하이브리드클라우드(클라우드버스팅)"]],
+    ["효과와 도입 고려사항", ["기업규모별효과 — 스타트업(진입장벽↓)·중소기업(SaaS/ERP활용)·대기업(사설→공공 이전, 넷플릭스)", "효과적인 경우 vs 조심할 경우(레거시시스템·실시간시스템·보안중요)"]]
+  ],
+  terms:[
+    ["클라우드 5대 특징","자원공유·네트워크접속·빠른탄력성·사용량과금·주문형셀프서비스"],
+    ["IaaS/PaaS/SaaS","인프라제공/개발플랫폼제공/완성된 소프트웨어 제공"],
+    ["클라우드 버스팅","평상시 사설클라우드, 성수기에 공공클라우드로 확장하는 하이브리드 운용방식"],
+    ["가상사설클라우드(VPC)","사설클라우드 형식으로 운영되는 공공클라우드"]
+  ],
+  checks:["클라우드 컴퓨팅의 5대 특징을 열거할 수 있다","IaaS·PaaS·SaaS의 차이를 사례와 함께 설명할 수 있다","공공·사설·하이브리드 클라우드의 차이를 설명할 수 있다","클라우드 도입이 효과적인 경우와 조심해야 할 경우를 구분할 수 있다"]
+},
+{num:5, title:"소셜미디어가 만드는 세상",
+  ov:"소셜미디어의 개념과 특징, 전통미디어와의 차이, 가상커뮤니티와 SNS의 발전, 그리고 소셜미디어 마케팅의 장단점을 다룬다.",
+  outline:[
+    ["소셜미디어의 개념과 특징", ["가상커뮤니티를 통해 콘텐츠를 생성·공유하는 컴퓨터기반 기술", "3대특징 — 바이럴콘텐츠(구전확산)·모바일기기이용 증가·비즈니스응용(마케팅조사·고객소통)"]],
+    ["소셜미디어 vs 전통미디어", ["콘텐츠품질·접근성·사용성·즉시성·효과성에서 대비됨(불균일하지만 즉시·수정가능 vs 균일하지만 변경불가)"]],
+    ["가상커뮤니티와 SNS의 발전", ["가상커뮤니티(레인골드, 1993) — 페이스북·카카오톡·카페 등", "SNS 발전 — 프렌드스터→링크드인→페이스북/인스타그램, 국내 싸이월드→트위터"]],
+    ["소셜미디어 마케팅", ["고객관계관리·혁신(크라우드소싱)·지식관리(데이터마이닝)에 활용", "Facebook 광고 장점(저비용·타게팅·구전) vs 단점(관심획득 어려움·부정적댓글 확산위험)"]]
+  ],
+  terms:[
+    ["바이럴 콘텐츠","소셜네트워크를 통해 빠르게 전파되는 콘텐츠, 구전(WOM)을 가능케 함"],
+    ["가상 커뮤니티","특정 소셜미디어를 통해 공동목표를 추구하며 대화를 나누는 개인들의 모임(레인골드, 1993)"],
+    ["소셜미디어 vs 전통미디어","분산적·반복이용·즉시수정 가능 vs 중앙집중적·1회성·수정불가"],
+    ["UCC(간접데이터)","댓글·선호도·웹로그 등 다른 활동의 부산물로 생성되는 사용자 제작 콘텐츠"]
+  ],
+  checks:["소셜미디어의 3가지 특징을 설명할 수 있다","소셜미디어와 전통미디어의 차이를 속성별로 비교할 수 있다","가상커뮤니티의 개념과 SNS 발전사를 설명할 수 있다","소셜미디어 마케팅(광고)의 장단점을 설명할 수 있다"]
+},
+{num:6, title:"전사적 데이터관리",
+  ov:"부서단위 정보 비공유 문제를 해결하는 미들웨어(EAI)와 ERP의 개념, 그리고 전사적 시스템 도입의 효익과 과제를 다룬다.",
+  outline:[
+    ["정보 비공유 문제와 해법", ["부서단위 시스템은 정보공유가 안되어 신속한 대응이 어려움", "해법 2가지 — 미들웨어(EAI) 설치 vs 전사적 소프트웨어 패키지(ERP) 도입"]],
+    ["ERP의 개념과 가치", ["ERP = 전사 부서를 단일 DB·시스템으로 통합하는 소프트웨어(SAP R/3 등)", "비즈니스가치 — 재무/고객주문정보 통합·제조프로세스 표준화·재고감축·인적자원정보 표준화"]],
+    ["ERP의 장단점과 도입 과제", ["장점 — 시간/비용절감·정확한 의사결정·데이터 투명성", "단점 — 맞춤화 어려움·비즈니스프로세스 재설계 리스크·높은 통합비용", "도입과제 — 복잡한 모듈관리·업무방식 변화·높은 전환비용"]]
+  ],
+  terms:[
+    ["EAI(Enterprise Architecture Integration)","기존 애플리케이션 간 데이터·명령 변환을 담당하는 미들웨어, '통역사' 역할"],
+    ["ERP(Enterprise Resource Planning)","기업 전체 부서·기능을 단일 시스템/DB로 통합하는 소프트웨어"],
+    ["ERP의 3대 장점","시간·비용절감 / 정확한 의사결정 / 데이터 전사적 투명성"],
+    ["전사적시스템 도입 과제","복잡한 모듈관리 비용·업무방식의 근본적 변화·높은 전환비용"]
+  ],
+  checks:["부서단위 시스템의 정보비공유 문제를 설명할 수 있다","EAI와 ERP, 두 가지 통합 해법의 차이를 설명할 수 있다","ERP가 제공하는 비즈니스 가치를 열거할 수 있다","ERP 도입의 장점과 단점을 각각 설명할 수 있다"]
+},
+{num:7, title:"공급망관리와 고객관계관리",
+  ov:"공급망의 구성요소와 채찍효과 등 관리의 필요성, SCM 시스템의 기능, 그리고 CRM의 개념과 고객생애가치를 다룬다.",
+  outline:[
+    ["공급망관리(SCM)", ["구성요소 — 상류(공급업체)·내부(제조)·하류(유통→고객) 공급망", "필요성 — 부분최적화 문제·채찍효과(Bullwhip Effect, 수요변동이 위로 갈수록 확대)·맞춤형제품과 짧은 제품수명주기", "SCM 시스템 기능 — 공급망계획(수요예측·CPFR·VMI) + 공급망실행(RFID·역배송관리)"]],
+    ["고객관계관리(CRM)", ["개념 — 고객데이터를 통합분석해 고객접점에 활용하는 경영프로세스", "고객생애가치(LTV) — 상위20% 고객이 매출80% 차지, 신규고객확보비용은 기존고객유지비용의 6~10배", "CRM시스템 — 영업자동화(SFA)·고객서비스/지원·마케팅캠페인관리"]]
+  ],
+  terms:[
+    ["채찍효과(Bullwhip Effect)","고객수요 변동이 공급망을 따라 위로 갈수록 폭이 확대되는 현상"],
+    ["상류/내부/하류 공급망","공급업체 / 제조과정 / 유통-고객전달"],
+    ["고객생애가치(LTV)","한 고객이 기업에게 제공할 것으로 추정되는 전체 기간의 재무적 공헌도 합계"],
+    ["영업자동화(SFA)","통합고객정보조회·영업활동/실적관리를 지원하는 CRM 하위시스템"]
+  ],
+  checks:["공급망의 3가지 구성요소(상류·내부·하류)를 설명할 수 있다","채찍효과가 발생하는 원인과 SCM의 대응방법을 설명할 수 있다","고객생애가치(LTV)의 개념과 중요성을 설명할 수 있다","CRM 시스템의 주요 기능(SFA·고객서비스·캠페인관리)을 열거할 수 있다"]
+},
+{num:8, title:"지식자원의 관리",
+  ov:"지식기반경제의 개념과 추진동력, 명시적/암묵적 지식의 구분, 그리고 지식관리시스템(KMS)의 기술과 도입을 다룬다.",
+  outline:[
+    ["지식기반경제", ["피터드러커의 예견 — 지식이 기업의 가장 중요한 자원, 지식근로자의 역할 중요", "추진동력 — 글로벌화·정보기술(ICT)", "구글(무형자산 중심) vs GM(유형자산 중심) 시가총액 비교 사례"]],
+    ["지식의 유형", ["명시적지식(Explicit, Know-what) — 문서화되어 공유는 쉬우나 문제해결엔 한계", "암묵적지식(Tacit, Know-how) — 경험기반, 혁신에 중요하나 관리·전파가 어려움"]],
+    ["지식관리시스템(KMS)", ["조직학습·학습조직을 통해 지식자원 가치를 극대화하는 정보시스템", "기술 — 창출/획득(그룹웨어·전자회의·워크플로우) + 공유/교환(콘텐츠관리·문서관리·기업포털)", "CKO(최고지식경영자)가 지식중심 조직문화 조성 책임"]]
+  ],
+  terms:[
+    ["지식기반경제","제품·서비스 생산이 지식집약적 활동(R&D)에 기초하는 경제"],
+    ["명시적지식 vs 암묵적지식","문서화된 Know-what(공유쉬움) vs 경험기반 Know-how(관리어려움, 혁신에 중요)"],
+    ["지식관리시스템(KMS)","조직학습과 비즈니스 노하우를 체계적으로 관리하는 정보시스템"],
+    ["CKO(Chief Knowledge Officer)","지식관리기반 구축과 지식중심 조직문화 조성을 책임지는 최고지식경영자"]
+  ],
+  checks:["지식기반경제의 개념과 추진동력을 설명할 수 있다","명시적 지식과 암묵적 지식의 차이를 설명할 수 있다","지식관리시스템(KMS)의 목적과 기술을 설명할 수 있다","CKO의 역할을 설명할 수 있다"]
+},
+{num:9, title:"새로운 시대의 e-커머스",
+  ov:"e-커머스의 개념과 발전사, e-커머스의 특징, 그리고 B2C·B2B·C2C·G2C 등 대표 유형과 혁신 사례를 다룬다.",
+  outline:[
+    ["e-커머스의 개념과 발전", ["e-커머스(좁은의미: 온라인매매) vs e-비즈니스(광의: 기업 가치활동 전반)", "발전사 — 웹이전(EDI,1970s)→태동기(1990s초, 아마존)→성장/성숙기(닷컴버블)→안정기→모바일/소셜커머스기"]],
+    ["e-커머스의 특징", ["유통채널 단순화·비중개화 / 시공간제약 극복 / 구매행태 분석 용이(웹트래픽) / 1:1 마케팅 / 판매거점 불필요(낮은 진입장벽) / 번들링(수직/수평)"]],
+    ["대표 유형과 혁신", ["B2C(아마존)·B2B(전체의 약90%)·C2C(eBay)·G2C(전자정부)", "혁신사례 — 넷플릭스(신규서비스)·킨들(기기+컨텐츠 융합)·소셜커머스(쿠팡 등, 오픈마켓 전환)"]]
+  ],
+  terms:[
+    ["e-커머스 vs e-비즈니스","전자매체 기반 상거래 vs 공급망·인력관리 등 기업가치활동 전반을 포괄하는 광의개념"],
+    ["e-커머스 4대 유형","B2C·B2B·C2C·G2C"],
+    ["웹트래픽","방문자수·페이지뷰·체류시간 등 웹사이트 방문자 데이터 분석"],
+    ["번들링(수직/수평)","차량+보험처럼 관련상품 결합(수직) vs 커피메이커+머그잔처럼 보완상품 결합(수평)"]
+  ],
+  checks:["e-커머스와 e-비즈니스의 차이를 설명할 수 있다","e-커머스 발전의 주요 단계를 순서대로 설명할 수 있다","e-커머스의 4대 유형(B2C·B2B·C2C·G2C)을 구분할 수 있다","e-커머스를 통한 혁신 사례(넷플릭스·킨들 등)를 설명할 수 있다"]
+},
+{num:10, title:"컴퓨터 보안과 프라이버시",
+  ov:"정보시스템 보안의 개념과 시스템 취약점의 유형, 보안위협요인 3가지, 그리고 프라이버시 보호를 위한 사전동의·사후거부 제도를 다룬다.",
+  outline:[
+    ["보안과 시스템 취약점", ["정보시스템보안 = 비승인접근·변조·훼손으로부터 데이터/시스템을 보호", "취약점 유형 — 하드웨어·소프트웨어·네트워크(DoS/DDoS)·백도어"]],
+    ["보안위협요인 3가지", ["천재지변/인재사고(지진·화재 등)", "비의도적행위(인간오류·사회공학/피싱)", "의도적행위 — 해킹(비승인접근/변조/삭제, DoS)·악성코드(바이러스·웜·트로이목마·스파이웨어·애드웨어)·신분도용(4유형)"]],
+    ["프라이버시 보호", ["프라이버시 = 개인이 자신의 정보공개·사용을 통제할 수 있는 능력", "사전동의(opt-in, 수신자 권리중시) vs 사후거부(opt-out, 발송자 권리중시) — 국내는 전화/팩스=opt-in, 인터넷스팸=opt-out"]]
+  ],
+  terms:[
+    ["백도어(Backdoor)","정상 인증절차를 건너뛰고 탐지없이 시스템에 접근하는 보안취약점"],
+    ["보안위협요인 3가지","천재지변/인재사고·비의도적행위·의도적행위"],
+    ["악성코드 5유형","바이러스·웜·트로이목마·스파이웨어·애드웨어"],
+    ["사전동의(opt-in) vs 사후거부(opt-out)","수신자가 사전동의해야 발송가능 vs 거부의사 밝힐 때까지 발송가능"]
+  ],
+  checks:["정보시스템 보안의 개념과 필요성을 설명할 수 있다","시스템 취약점의 유형(하드웨어·소프트웨어·네트워크)을 구분할 수 있다","보안위협요인 3가지와 악성코드 5유형을 설명할 수 있다","사전동의제도와 사후거부제도의 차이를 설명할 수 있다"]
+}
+];
+
+const $ = id => document.getElementById(id);
+
+$('gridNav').innerHTML = CHAPTERS.map(c => `
+  <a href="#c${c.num}">
+    <div class="n">${c.num}장</div>
+    <div class="t">${c.title}</div>
+    <div class="h">${c.ov.slice(0, 30)}…</div>
+  </a>
+`).join('');
+
+$('jump').innerHTML = CHAPTERS.map(c => `<a href="#c${c.num}">${c.num}장</a>`).join('');
+
+$('chapters').innerHTML = CHAPTERS.map(c => `
+  <section class="chap" id="c${c.num}">
+    <div class="head">
+      <span class="num">${c.num}장</span>
+      <h2>${c.title}</h2>
+    </div>
+    <p class="ov">${c.ov}</p>
+    <div class="block">
+      <h3>핵심 구조</h3>
+      <div class="outline">
+        ${c.outline.map(([h, items]) => `<div class="sec"><b>${h}</b><ul>${items.map(i => `<li>${i}</li>`).join('')}</ul></div>`).join('')}
+      </div>
+    </div>
+    <div class="block">
+      <h3>꼭 기억할 용어</h3>
+      <div class="terms">
+        ${c.terms.map(([t, d]) => `<div class="term"><b>${t}</b><span>${d}</span></div>`).join('')}
+      </div>
+    </div>
+    <div class="block">
+      <h3>셀프 체크</h3>
+      <div class="checks">
+        ${c.checks.map((t, i) => `<label class="chk" data-id="c${c.num}_${i}"><input type="checkbox" class="cb"><span>${t}</span></label>`).join('')}
+      </div>
+    </div>
+  </section>
+`).join('');
+
+/* 체크 상태 — 이 브라우저에만(localStorage) */
+const KEY = 'miceManagementMisWorkbook_v1';
+function allBoxes() { return [...document.querySelectorAll('.cb')]; }
+function save() {
+  try { localStorage.setItem(KEY, JSON.stringify(allBoxes().map(b => b.checked))); } catch (e) {}
+}
+function load() {
+  let d = null; try { d = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) {}
+  if (!Array.isArray(d)) return;
+  allBoxes().forEach((b, i) => { if (d[i]) b.checked = true; });
+}
+function refresh() {
+  const boxes = allBoxes();
+  const n = boxes.filter(b => b.checked).length;
+  $('progNum').textContent = n;
+  $('progMax').textContent = boxes.length;
+  boxes.forEach(b => b.closest('.chk').classList.toggle('done', b.checked));
+}
+document.addEventListener('change', e => { if (e.target.classList.contains('cb')) { refresh(); save(); } });
+$('resetAll').addEventListener('click', () => {
+  if (!confirm('체크한 내용을 모두 지울까요?')) return;
+  try { localStorage.removeItem(KEY); } catch (e) {}
+  allBoxes().forEach(b => b.checked = false);
+  refresh();
+});
+load(); refresh();
+</script>
+</body>
+</html>

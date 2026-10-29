@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<title>호텔 식음료경영 요약노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
+<style>
+  :root { --ink:#14243A; --ink-2:#44566B; --ink-3:#7C8A99; --line:#DBE4EE; --navy:#17365D; --sky:#e8f1fb;
+    --gold:#FFF3B0; --ground:#F4F7FB; --ok:#1f5a3f; --ok-bg:#e3f4ea; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--ground); color:var(--ink); font-family:'Noto Sans KR',system-ui,sans-serif; font-size:14px; line-height:1.6; }
+  .sheet { max-width:1120px; margin:0 auto; padding:24px 16px 56px; display:grid; gap:20px; }
+  .eyebrow { display:inline-block; background:var(--gold); color:var(--navy); font-size:11px; font-weight:700; padding:2px 10px; border-radius:999px; }
+  h1 { margin:6px 0 4px; font-size:clamp(20px,3vw,26px); }
+  .lede { margin:0; color:var(--ink-2); }
+  .tools { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; align-items:center; }
+  .tools button { font:inherit; font-size:12px; font-weight:700; border:1px solid var(--navy); color:var(--navy); background:#fff; border-radius:999px; padding:3px 12px; cursor:pointer; }
+  .tools button:hover { background:var(--sky); }
+  .prog { margin-left:auto; font-size:12px; color:var(--ink-3); font-weight:700; }
+  .prog b { color:var(--navy); }
+
+  .grid-nav { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+  .grid-nav a { display:block; background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px 14px; text-decoration:none; color:var(--ink); border-top:3px solid var(--navy); }
+  .grid-nav a:hover { background:var(--sky); }
+  .grid-nav .n { font-size:11px; font-weight:800; color:var(--navy); }
+  .grid-nav .t { font-size:13px; font-weight:700; margin:3px 0 4px; }
+  .grid-nav .h { font-size:11px; color:var(--ink-3); }
+  @media (max-width:860px) { .grid-nav { grid-template-columns:repeat(2,1fr); } }
+
+  .jump { display:flex; flex-wrap:wrap; gap:5px; position:sticky; top:0; background:var(--ground); padding:8px 0; z-index:5; }
+  .jump a { font-size:11.5px; font-weight:700; color:var(--navy); background:#fff; border:1px solid var(--line); border-radius:7px; padding:4px 8px; text-decoration:none; }
+  .jump a:hover { background:var(--sky); }
+
+  .chap { background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 18px; scroll-margin-top:52px; }
+  .chap > .head { display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; border-bottom:2px solid var(--navy); padding-bottom:8px; margin-bottom:10px; }
+  .chap .num { font-size:20px; font-weight:800; color:var(--navy); }
+  .chap h2 { margin:0; font-size:16.5px; }
+  .chap .ov { margin:0 0 12px; font-size:12.5px; color:var(--ink-2); }
+
+  .block { margin-bottom:12px; }
+  .block h3 { margin:0 0 6px; font-size:12.5px; color:var(--navy); display:flex; align-items:center; gap:6px; }
+  .block h3::before { content:""; width:4px; height:4px; border-radius:50%; background:var(--navy); }
+
+  .outline { display:grid; gap:6px; }
+  .outline .sec { font-size:12.5px; }
+  .outline .sec b { color:var(--ink); }
+  .outline .sec ul { margin:3px 0 0; padding-left:16px; color:var(--ink-2); font-size:12px; }
+  .outline .sec li { margin:1px 0; }
+
+  .terms { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:7px; }
+  .term { background:var(--sky); border-radius:8px; padding:7px 10px; }
+  .term b { display:block; font-size:12px; color:var(--navy); }
+  .term span { font-size:11.5px; color:var(--ink-2); }
+
+  .checks { display:grid; gap:5px; }
+  .chk { display:flex; gap:7px; align-items:flex-start; font-size:12.5px; color:var(--ink-2); }
+  .chk input { margin-top:3px; transform:scale(1.1); flex-shrink:0; }
+  .chk.done span { color:var(--ok); text-decoration:line-through; text-decoration-color:var(--line); }
+
+  footer.note { font-size:11.5px; color:var(--ink-3); text-align:center; padding:6px 0 0; }
+
+  @media (max-width:860px) { .terms { grid-template-columns:1fr; } }
+  @media print { .jump, .tools, .grid-nav { display:none; } .chap { break-inside:avoid; } body { background:#fff; } }
+</style>
+</head>
+<body>
+<main class="sheet">
+  <header>
+    <span class="eyebrow">호텔인적자원관리 · 호텔 식음료경영 채신석 외</span>
+    <h1>호텔 식음료경영 13장 요약노트 — 호텔HRM 보강자료</h1>
+    <p class="lede">식음료부서의 조직·직무, 채용과 교육훈련, 인력운영 동향을 포함해 호텔 식음료 전반을 13개 장으로 정리했습니다. 체크 표시는 이 브라우저에만 저장됩니다.</p>
+    <div class="tools">
+      <button type="button" onclick="window.print()">인쇄 / PDF</button>
+      <button type="button" id="resetAll">체크 전체 지우기</button>
+      <span class="prog">체크 <b id="progNum">0</b> / <span id="progMax">0</span></span>
+    </div>
+  </header>
+
+  <nav class="grid-nav" id="gridNav"></nav>
+
+  <nav class="jump" id="jump"></nav>
+
+  <div id="chapters"></div>
+
+  <footer class="note">채신석 외, 「호텔 식음료경영」(2판) 강의자료 기반 학습용 요약 — 호텔인적자원관리 보강자료 · 학내 자습용</footer>
+</main>
+
+<script>
+const CHAPTERS = [
+{num:1, title:"호텔 식음료의 이해",
+  ov:"호텔의 개념과 식음료부서의 기능 및 중요성, 식음료 서비스의 4대 특성과 생산운영관리 6대 특성, 그리고 식당의 분류와 나라별 음식문화를 다룬다.",
+  outline:[
+    ["호텔과 식음료의 개요", ["호텔 = 숙박·식사·오락 서비스를 영리 목적으로 제공하는 환대사업체", "식음료(F&B)는 동적 상품으로, 최근 컨벤션·웨딩 등 연회행사로 객실 수입 대비 비중이 커짐"]],
+    ["식음료 서비스의 특성", ["4대 특성 — 무형성(경험 전 품질 확인 불가) · 소멸성(미판매 좌석은 소급 불가) · 이질성(비표준적, 매뉴얼로 표준화) · 동시성(생산과 소비가 동시 발생)", "생산운영관리 6대 특성 — 수요예측 어려움·인력의존성·위생필요성·환경적책임·매출불규칙성·서비스요구 다양성"]],
+    ["식당의 분류와 세계 음식문화", ["명칭별 분류 — 레스토랑·카페·그릴·런치카운터·인룸다이닝·델리숍", "프렌치·이탈리안·아메리칸·한국식·중국식(4대 지역요리)·일본식·이슬람(할랄/하람) 음식문화의 특징"]],
+    ["호텔 F&B 운영 전략의 진화", ["자체 브랜드 운영에서 브랜드제휴·콜라보레이션다이닝·라이선스브랜드·시그니처·팝업 레스토랑으로 확대"]]
+  ],
+  terms:[
+    ["식음료 서비스의 4대 특성","무형성·소멸성·이질성·동시성(생산과 판매의 동시성)"],
+    ["시그니처 레스토랑","호텔의 브랜드 정체성과 미식 철학을 상징하는 최고급 레스토랑"],
+    ["할랄(Halal)과 하람(Haram)","이슬람 율법상 허용 식품과 금지 식품"],
+    ["콜라보레이션 다이닝","미슐랭 셰프·주류 브랜드 등과 협업하는 한정 기간 미식 프로그램"]
+  ],
+  checks:["식음료 서비스의 4대 특성을 설명할 수 있다","생산운영관리의 6대 특성을 열거할 수 있다","호텔 레스토랑의 명칭별 분류를 구분할 수 있다","호텔 F&B의 브랜드 제휴·콜라보레이션·시그니처·팝업 전략의 차이를 설명할 수 있다"]
+},
+{num:2, title:"호텔 식음료부서의 조직과 직무",
+  ov:"호텔 식음료부서의 업장 구분과 조직체계, 직무별 역할, 그리고 셰프 드 랑·헤드 웨이터·스테이션 웨이터라는 세 가지 서비스 조직 시스템을 다룬다.",
+  outline:[
+    ["업장 구분과 조직체계", ["식당(Food)·음료(Beverage)·연회(Banquet) 3부문으로 구성", "F&B Manager → Outlet Manager → Captain → Waiter/Bartender → Bus Boy → Trainee 순의 위계"]],
+    ["직무별 역할", ["식음료 이사(전체 운영 총괄) → 차장/업장지배인(부서 감독) → 캡틴(현장 핵심) → 웨이터(실무 서비스)", "리셉셔니스트(예약·좌석배치) · 소믈리에(와인 전문가) · 바텐더 · 기물관리(Steward)"]],
+    ["서비스 형태별 조직", ["셰프 드 랑 시스템 — 팀 단위 운영, 고급식당에 적합, 가장 정중한 서비스", "헤드 웨이터 시스템 — 일반식당에 적합, 한 서버가 전체 고객 담당", "스테이션 웨이터 시스템 — 스테이션별 단독 담당, 패밀리레스토랑·나이트클럽에 적합, 팁 시스템과 잘 맞음"]]
+  ],
+  terms:[
+    ["식음료부서 3부문","식당(Food)·음료(Beverage)·연회(Banquet)"],
+    ["소믈리에","와인을 관리하고 고객 음식에 맞는 와인을 추천·서브하는 전문가"],
+    ["셰프 드 랑 시스템","조장-부조장-웨이터-보조웨이터가 팀을 이루는 고급식당형 서비스 조직"],
+    ["스테이션 웨이터 시스템","웨이터가 담당 테이블/스테이션을 단독으로 책임지는 서비스 조직"]
+  ],
+  checks:["식음료부서의 3대 업장 구분을 설명할 수 있다","F&B 이사부터 버스보이까지의 위계 구조를 설명할 수 있다","소믈리에와 바텐더의 역할 차이를 설명할 수 있다","셰프 드 랑·헤드 웨이터·스테이션 웨이터 시스템의 적합 업장을 구분할 수 있다"]
+},
+{num:3, title:"메뉴 관리",
+  ov:"메뉴의 정의와 중요성, 메뉴의 형태·시간대별 구분, 메뉴 디자인과 가격결정, 그리고 메뉴 엔지니어링 매트릭스와 디지털 메뉴 엔지니어링을 다룬다.",
+  outline:[
+    ["메뉴의 역할과 형태", ["메뉴 = 최초의 판매수단·마케팅도구·고객과의 약속·원가관리수단", "형태별 — 알라카르트(일품요리) · 따블도트(정식요리) · 콤비네이션 메뉴", "변화정도별 — 고정메뉴·순환메뉴·오늘의 메뉴"]],
+    ["메뉴 디자인과 가격", ["고객 시선 패턴(prime sweet spots)에 수익성 높은 품목 배치", "메뉴가격 결정 = 경쟁가격·이익·식재료원가·인건비·공헌이익을 함께 고려"]],
+    ["메뉴 엔지니어링", ["메뉴믹스(인기도) × 공헌이익(수익성)으로 품목을 평가", "4분면 매트릭스 — Star(인기·수익 모두 높음) · Plowhorse(인기높고 수익낮음) · Puzzle(수익높고 인기낮음) · Dog(모두낮음)"]],
+    ["디지털 메뉴 엔지니어링", ["AI·빅데이터·QR코드·모바일주문으로 실시간 메뉴 최적화 및 고객 맞춤 추천·탄력적 가격(Dynamic Pricing) 운영"]]
+  ],
+  terms:[
+    ["알라카르트 vs 따블도트","일품요리 개별선택 vs 코스 구성의 세트요리"],
+    ["메뉴 엔지니어링","메뉴믹스(인기도)와 공헌이익(수익성)을 평가해 메뉴를 의사결정하는 기법"],
+    ["메뉴 엔지니어링 4분면","Star · Plowhorse · Puzzle · Dog"],
+    ["디지털 메뉴 엔지니어링","AI·빅데이터·모바일 주문을 활용한 실시간 메뉴 최적화 기법"]
+  ],
+  checks:["메뉴의 4가지 역할(판매수단·마케팅도구·약속·원가관리)을 설명할 수 있다","알라카르트·따블도트·콤비네이션 메뉴의 차이를 설명할 수 있다","메뉴 엔지니어링 매트릭스의 4분면을 구분하고 각각의 대응전략을 설명할 수 있다","전통적 메뉴 엔지니어링과 디지털 메뉴 엔지니어링의 차이를 설명할 수 있다"]
+},
+{num:4, title:"양식 및 글로벌-한식 다이닝의 이해",
+  ov:"클래식·현대식 풀코스의 구조와 코스별 메뉴 특성, 쇠고기 부위별 특징과 등급, 소스·드레싱의 종류, 그리고 모던 한식 다이닝 코스를 다룬다.",
+  outline:[
+    ["풀코스의 구조", ["클래식 풀코스(12~15코스) → 현대식 풀코스(2~7코스)로 간소화", "코스 흐름 — 전채·수프(식욕자극) → 생선·소르베(입안정화) → 메인(절정) → 샐러드·치즈·디저트·음료(마무리)"]],
+    ["메인요리와 소스", ["쇠고기 부위 — 갈비스테이크·안심(샤토브리앙/포르느도/필레미뇽)·송아지고기·양고기", "USDA 등급 — Prime > Choice > Select > Standard~Canner", "5대 모체소스 — 베샤멜·데미글라스·벨루테·홀랜다이즈·토마토"]],
+    ["샐러드·드레싱·마무리 코스", ["드레싱 — 프렌치·이탈리안·사우전아일랜드·발사믹·시저", "치즈(연질~경질)·디저트(아이스크림·무스·푸딩)·음료로 식사 마무리"]],
+    ["모던 한식 다이닝", ["전통 식재료·조리법에 현대적 플레이팅·서비스를 접목한 8코스 구성", "한식-전통주 페어링 — 한우엔 증류식소주, 해산물엔 청주, 전/나물엔 막걸리"]]
+  ],
+  terms:[
+    ["안심 스테이크 3종","샤토브리앙·포르느도·필레미뇽"],
+    ["USDA 쇠고기 등급","Prime > Choice > Select > Standard~Canner"],
+    ["5대 모체소스","베샤멜·데미글라스·벨루테·홀랜다이즈·토마토"],
+    ["모던 한식 다이닝","전통 한식을 현대적 조리·플레이팅·페어링으로 재해석한 고급 한식 코스"]
+  ],
+  checks:["클래식 풀코스와 현대식 풀코스의 차이를 설명할 수 있다","쇠고기 부위별 명칭과 USDA 등급을 구분할 수 있다","5대 모체소스를 색깔·재료와 함께 설명할 수 있다","모던 한식 다이닝과 전통주 페어링의 원칙을 설명할 수 있다"]
+},
+{num:5, title:"식음료 서비스 기물과 비품",
+  ov:"은기물류·글라스류·도자기류의 종류와 취급법, 트롤리 등 서비스 비품, 그리고 린넨류의 종류와 냅킨 접는 법을 다룬다.",
+  outline:[
+    ["기물의 분류와 취급", ["은기물류(나이프·포크·스푼)·글라스류(텀블러/스템드)·도자기류(플레이트·볼)·린넨류로 구분", "글라스는 손잡이(stem)를, 플레이트는 테두리 안쪽에 손가락이 들어가지 않게 잡음"]],
+    ["서비스 비품(트롤리)", ["인룸다이닝·플람베·와인·바·디저트 트롤리로 구분", "안전수칙 — 무리한 이동 금지·충돌주의·화기안전·원위치 보관"]],
+    ["린넨류와 냅킨", ["테이블클로스·언더클로스·탑클로스·미팅클로스·냅킨·글라스타월로 구분", "냅킨 접기 — 주교모자형·부채형·장미형·왕관형"]]
+  ],
+  terms:[
+    ["은기물류(Silverware)","나이프·포크·스푼 등 직접 사용하는 금속 식기"],
+    ["스템드 글라스","손잡이(잔목)가 있어 음료의 향과 풍미를 살리는 잔"],
+    ["미장 플라스 관점의 비품 관리","사용 후 반드시 원위치, 목적 외 사용 금지가 안전수칙의 핵심"],
+    ["냅킨 접기 4가지","주교모자형·부채형·장미형·왕관형"]
+  ],
+  checks:["은기물류·글라스류·도자기류의 종류를 구분할 수 있다","글라스와 플레이트를 올바르게 잡는 법을 설명할 수 있다","트롤리의 5가지 종류와 안전수칙을 설명할 수 있다","린넨류의 종류와 냅킨 접는 방법을 설명할 수 있다"]
+},
+{num:6, title:"식음료 서비스의 실제",
+  ov:"식음료 서비스의 흐름과 미장 플라스 원칙, 고객 불만 대처법, 서비스 방법(러시안·프렌치·아메리칸 등)의 비교, 그리고 테이블 세팅의 기본 원칙을 다룬다.",
+  outline:[
+    ["서비스 흐름과 영업 준비", ["미장 플라스(Mise-en-Place) — 영업 전 도구·재료를 사전 준비·배치", "서비스 흐름 — 영접→착석→주문→코스별제공→계산→환송", "업셀링과 주문받는 요령(여자→남자→호스티스→호스트 순)"]],
+    ["불만 고객 응대", ["5단계 — 경청·확인 → 공감·감사 → 사과 → 설명·해결약속 → 감사한 마음 갖기"]],
+    ["서비스 방법 비교", ["러시안·프렌치(게리동, 셰프드랑) · 아메리칸(플레이트 서비스, 가장 보편적) · 카운터·셀프·뷔페·인룸다이닝 서비스"]],
+    ["테이블 세팅", ["표준 — 식탁높이 70~75cm, 쇼플레이트 중심, 나이프는 오른쪽·포크는 왼쪽", "글라스 배치 — 물잔은 디너나이프 위 1cm, 와인잔은 대각선, 다이아몬드형 배치"]]
+  ],
+  terms:[
+    ["미장 플라스(Mise-en-Place)","영업 전 서비스에 필요한 도구·재료를 사전 준비·배치하는 것"],
+    ["아메리칸 서비스","주방에서 미리 플레이팅한 요리를 제공하는 오늘날 가장 보편적인 서비스"],
+    ["커틀러리 에티켓","나이프·포크의 위치로 식사 상태를 전달하는 비언어적 의사소통"],
+    ["불만 고객 응대 5단계","경청·확인 → 공감 → 사과 → 설명·해결약속 → 감사"]
+  ],
+  checks:["미장 플라스의 의미와 중요성을 설명할 수 있다","불만 고객 응대의 5단계를 순서대로 설명할 수 있다","러시안·프렌치·아메리칸 서비스의 차이를 설명할 수 있다","테이블 세팅에서 글라스 배치의 기본 원칙을 설명할 수 있다"]
+},
+{num:7, title:"호텔 연회 서비스",
+  ov:"연회의 정의와 레스토랑과의 차이, 연회부서의 조직(예약·서비스·판촉)과 BEO의 역할, 연회 서비스의 종류, 그리고 회의장 레이아웃을 다룬다.",
+  outline:[
+    ["연회의 특성", ["연회 = 정해진 날짜·메뉴·가격으로 특정 그룹에 제공하는 격식 있는 서비스", "레스토랑과 차이 — 대규모 수용·사전예약 필수·동일메뉴·외부영업(출장연회) 가능", "Full-Service Hotel에서 연회가 식음료 매출의 약 39.2%로 최대 비중"]],
+    ["연회부서 조직", ["연회예약(BEO 작성) · 연회서비스(BEO대로 운영) · 연회판촉(신규고객개발)의 3조직"]],
+    ["BEO(연회행사지시서)", ["고객과 연회서비스 직원 모두의 가이드 — 세부일정·인원·보증인원(Guaranteed Number)·음식 포함", "식음료지배인·조리부·하우스키핑·보안팀 등에 배포, PMS/POS/ERP/CRM과 연계"]],
+    ["연회 서비스 종류와 레이아웃", ["정찬파티·칵테일파티·뷔페파티·티파티·출장파티", "회의장 레이아웃 — 클래스룸·U자형·극장식·보드룸·홀로스퀘어"]]
+  ],
+  terms:[
+    ["BEO(Banquet Event Order)","연회기획서. 행사 세부사항과 요구사항을 담은 포괄적 가이드"],
+    ["보증 인원(Guaranteed Number)","실제 참석 인원과 무관하게 비용을 지불하기로 합의한 최소 인원"],
+    ["연회부서 3조직","연회예약·연회서비스·연회판촉"],
+    ["극장식 레이아웃","스테이지를 향해 의자를 열로 배치, 많은 인원 수용에 적합"]
+  ],
+  checks:["연회와 레스토랑 영업의 차이를 설명할 수 있다","연회부서 3조직의 역할을 구분할 수 있다","BEO에 포함되어야 할 내용과 보증인원의 의미를 설명할 수 있다","회의장 레이아웃 유형별 적합한 상황을 설명할 수 있다"]
+},
+{num:8, title:"음료 서비스",
+  ov:"바의 개념과 유형, 호텔 바의 조직과 직무, 양조주·증류주·혼성주의 분류와 제조원리, 칵테일 조주기법, 그리고 커피 서비스를 다룬다.",
+  outline:[
+    ["바의 개념과 조직", ["음료원가율(15~25%)이 식재료원가율(30~35%)보다 낮아 호텔이 음료판매에 주력", "바 유형 — 펍·로비라운지바·메인바·스카이라운지바·연회바/디스펜스바"]],
+    ["술의 분류", ["양조주(발효) — 와인(화이트/레드/로제/주정강화)·맥주(보리·홉·효모·양조용수)", "증류주 — 위스키(스카치/버번/캐나디안/아이리쉬/일본)·브랜디·진·보드카·테킬라·럼", "혼성주 — 증류주에 설탕·과실·약초를 더한 술(침출법·증류법·향유혼합법·여과법)"]],
+    ["칵테일과 커피", ["조주기법 6가지 — 직접넣기·휘젓기·흔들기·띄우기·블렌딩·머들링", "커피 3대 원종 — 아라비카(최우수)·로부스타(병저항강함)·리베리카", "에스프레소 종류 — 도피오·리스트레토·룽고, 로스팅 8단계"]]
+  ],
+  terms:[
+    ["양조주·증류주·혼성주","발효주 / 발효 후 증류한 술 / 증류주에 향료를 더한 술"],
+    ["칵테일 조주기법 6가지","직접넣기·휘젓기·흔들기·띄우기·블렌딩·머들링"],
+    ["크레마(Crema)","에스프레소 표면의 적갈색 거품, 품질 지표"],
+    ["커피 3대 원종","아라비카·로부스타·리베리카"]
+  ],
+  checks:["음료원가율이 식재료원가율보다 낮은 이유와 경영적 의미를 설명할 수 있다","양조주·증류주·혼성주의 제조원리 차이를 설명할 수 있다","칵테일 조주기법 6가지를 예시와 함께 구분할 수 있다","커피의 3대 원종과 에스프레소 추출 종류를 설명할 수 있다"]
+},
+{num:9, title:"주방 및 식품 위생관리",
+  ov:"주방관리의 목적과 조리부 조직체계, 생산관리(표준산출량·표준조리표)와 서양요리 기초 조리법, 그리고 위생관리·HACCP·식중독과 ESG 환경경영을 다룬다.",
+  outline:[
+    ["주방 조직", ["총주방장(Executive Chef) → 부총주방장 → 단위주방장 → 조리장 → 조리사 순의 위계", "영업지원주방 — 메인(Hot)·콜드·부처·베이커리 키친"]],
+    ["생산관리", ["생산계획·표준산출량·표준조리표·표준정량의 흐름으로 원가 관리", "기초 조리법 — 보일링·블랜칭·포칭·시머링·스티밍(습식) / 프라이·그릴링·로스팅·브레이징(건식)"]],
+    ["위생관리와 HACCP", ["위생관리 3요소 — 음식물·개인위생·시설과 장비", "HACCP = 위해요소분석(HA) + 중요관리점(CCP)으로 식품안전을 사전 차단하는 과학적 시스템", "식중독 원인균 — 포도상구균·살모넬라균·비브리오균·콜레라균·O-157"]],
+    ["ESG 환경경영", ["에너지절감·물사용절감·음식물쓰레기감축·친환경식재료·일회용품감축·폐기물분리배출의 6대 실천영역"]]
+  ],
+  terms:[
+    ["HACCP","위해요소분석(HA)과 중요관리점(CCP)으로 식품안전을 관리하는 과학적 시스템"],
+    ["표준조리표(Standard Recipe)","메뉴별 식재료 필요량과 조리방법을 명시한 조리 일람표"],
+    ["부처 키친(Butcher Kitchen)","육류·생선·가금류를 손질해 공급, 전체 식자재 비용의 약 75% 차지"],
+    ["주방 위생관리 3요소","음식물·개인위생·시설과 장비"]
+  ],
+  checks:["조리부의 직위체계를 총주방장부터 순서대로 설명할 수 있다","표준산출량·표준조리표·표준정량의 관계를 설명할 수 있다","HACCP의 구성요소(HA, CCP)를 설명할 수 있다","식중독 주요 원인균과 증상을 구분할 수 있다"]
+},
+{num:10, title:"식음료 원가와 구매관리",
+  ov:"식음료 원가의 분류와 손익분기점 계산, 구매관리의 원칙과 흐름, 그리고 저장·출고(FIFO/LIFO)·재고관리(ABC기법, EOQ모델)를 다룬다.",
+  outline:[
+    ["원가의 분류", ["원가 3요소 — 재료비·노무비·경비", "고정비(매출과 무관) vs 변동비(매출에 비례) / 제조원가 vs 비제조원가"]],
+    ["손익분기점", ["손익분기점 = 고정비 ÷ (1 − 변동비/매출액)", "높은 매출이 반드시 높은 수익을 보장하지 않으므로 원가관리가 이익의 핵심"]],
+    ["구매·검수·저장·출고", ["구매 3원칙 — 가치분석및시장조사·납기관리준수·적정재고관리", "표준구매명세서로 품질·규격 기준 명시", "FIFO(선입선출, 표준) vs LIFO(후입선출, 베이킹 등 특수품목)"]],
+    ["재고관리 기법", ["ABC기법 — A(5~10%품목,70~80%금액,중점관리) · B(정량발주) · C(Two Bin/JIT)", "EOQ모델 — 유지비용과 주문비용이 교차하는 지점의 경제적 주문량"]]
+  ],
+  terms:[
+    ["손익분기점 공식","고정비 ÷ (1 − 변동비/매출액)"],
+    ["FIFO vs LIFO","선입선출(표준) vs 후입선출(베이킹 등 특수품목)"],
+    ["ABC 재고관리기법","품목을 사용금액 비중에 따라 A·B·C로 분류해 관리강도를 차등화"],
+    ["EOQ(경제적 주문량)","유지비용과 주문비용이 교차하는 최적 주문량"]
+  ],
+  checks:["원가의 3요소와 고정비·변동비의 차이를 설명할 수 있다","손익분기점을 공식으로 계산할 수 있다","FIFO와 LIFO가 각각 적합한 상황을 설명할 수 있다","ABC 재고관리기법과 EOQ 모델의 목적을 설명할 수 있다"]
+},
+{num:11, title:"식음료 마케팅",
+  ov:"식음료 마케팅의 STP 전략과 7P's 마케팅믹스, 내부마케팅의 개념, 그리고 관계마케팅·CRM과 디지털 CRM(POS·PMS 연계)을 다룬다.",
+  outline:[
+    ["마케팅 프로세스와 STP", ["프로세스 5단계 — 조사→STP→마케팅믹스→실행→관리", "STP — 세분화(Segmentation)·표적화(Targeting)·포지셔닝(Positioning)"]],
+    ["마케팅믹스 7P's", ["기본 4P — 상품·가격·유통경로·촉진", "확장 3P — 사람(People)·물리적증거(Physical Evidence)·프로세스(Process)"]],
+    ["내부마케팅", ["직원을 최초의 고객으로 보고 서비스마인드를 심어주는 활동", "실행요소 — 장기적비전제시·내부커뮤니케이션·공정한직무평가·동기부여와보상"]],
+    ["관계마케팅과 디지털 CRM", ["CRM 5단계 — 데이터수집→분석/세분화→유치/전환→가치제공/유지→성과측정", "파레토법칙(20/80) — 상위20% 고객이 이익의 80%를 창출", "POS-PMS 연계로 투숙객의 식음료 이용내역 통합관리"]]
+  ],
+  terms:[
+    ["STP 전략","세분화(Segmentation)·표적화(Targeting)·포지셔닝(Positioning)"],
+    ["마케팅믹스 7P's","상품·가격·유통경로·촉진(기본4P) + 사람·물리적증거·프로세스(확장3P)"],
+    ["내부마케팅","직원을 최초의 고객으로 보고 동기를 부여하는 마케팅 활동"],
+    ["고객평생가치(CLV)와 파레토법칙","상위 20% 고객이 이익의 80%를 창출한다는 원칙"]
+  ],
+  checks:["STP 전략의 3단계를 설명할 수 있다","마케팅믹스 7P's를 기본4P와 확장3P로 구분할 수 있다","내부마케팅이 외부마케팅보다 중요할 수 있는 이유를 설명할 수 있다","POS와 PMS 연계가 고객관리에 주는 효과를 설명할 수 있다"]
+},
+{num:12, title:"식음료 인적 자원관리",
+  ov:"식음료 인사관리의 개념과 직무기술서·직무명세서, 서비스 직원에게 필요한 자질, 채용 전후 활동, 그리고 최근 인력운영 동향(수요예측배치·크로스트레이닝)을 다룬다.",
+  outline:[
+    ["직무분석과 자질", ["직무기술서(직무의 내용·특성) vs 직무명세서(수행자의 인적요건)", "필요 자질 6가지 — 전문성·소셜카멜레온·의사소통·팀플레이어·세부사항주의·고객지향성"]],
+    ["채용 프로세스", ["채용 전 — 모집(내부/외부)→서류전형→인적성검사→면접(1차실무→2차부서→최종총지배인)→신원조회→신체검사", "채용 후 — 오리엔테이션→교육훈련(교육: 정신적개발 / 훈련: 기술적실습)"]],
+    ["최근 인력운영 동향", ["파트타임·외부인력의 전략적 활용(성수기 대응)", "수요예측 기반 인력배치(Demand-based Scheduling) — 객실점유율·예약현황 데이터 활용", "크로스트레이닝으로 멀티태스킹 인력 양성, 호텔 전사적 인력운영(Hotel-wide Workforce Management)"]]
+  ],
+  terms:[
+    ["직무기술서 vs 직무명세서","직무 자체의 내용 중심 vs 직무 수행자의 인적요건 중심"],
+    ["서비스 직원 필요 자질 6가지","전문성·소셜카멜레온·의사소통·팀플레이어·세부사항주의·고객지향성"],
+    ["수요예측 기반 인력배치","객실점유율·예약데이터를 분석해 인력을 탄력적으로 배치하는 방식"],
+    ["크로스트레이닝","여러 업무를 수행할 수 있도록 직원을 다기능으로 훈련시키는 것"]
+  ],
+  checks:["직무기술서와 직무명세서의 차이를 설명할 수 있다","식음료 서비스 직원에게 필요한 자질을 열거할 수 있다","채용 전 활동의 단계를 순서대로 설명할 수 있다","수요예측 기반 인력배치와 크로스트레이닝의 목적을 설명할 수 있다"]
+},
+{num:13, title:"4차 산업과 식음료 경영의 변화",
+  ov:"4차 산업혁명의 개념과 기술 범위, 푸드테크의 정의와 부상 배경, 주요 푸드테크 로봇 유형, 그리고 미래 식음료 경영 패러다임의 변화와 과제를 다룬다.",
+  outline:[
+    ["4차 산업혁명과 푸드테크", ["4차 산업혁명 = 초연결·초지능·융복합화를 기반으로 AI·IoT·빅데이터가 융합되는 혁명", "푸드테크 = 식품 가치사슬(생산~소비) 전반에 적용되는 기술과 산업", "부상 배경 — IT발달·비대면확산·친환경대체식품관심·건강안전성관심"]],
+    ["푸드테크 로봇 유형", ["조리로봇(커피·튀김 등 자동화) · 3D푸드프린팅(맞춤형 식품) · 서빙배달로봇 · 고객응대매장관리로봇", "인간-로봇 협업 — 로봇은 반복업무, 직원은 고부가가치 업무(고객응대·감성서비스) 담당"]],
+    ["미래 경영 패러다임", ["AI·빅데이터 기반 스마트경영 — 수요예측·재고관리·메뉴개발·가격전략에 활용", "ESG 중심 지속가능경영 — 친환경식재료·음식물쓰레기감축·에너지절약", "미래 과제 — 인간-AI협업강화·디지털전문인력양성·고객경험중심 서비스가치창출"]]
+  ],
+  terms:[
+    ["4차 산업혁명의 3대 특징","초연결화·초지능화·융복합화"],
+    ["푸드테크(Food Tech)","식품(Food)과 기술(Technology)의 합성어, 식품 가치사슬 전반에 적용되는 기술"],
+    ["인간-로봇 협업(Human-Robot Collaboration)","로봇이 반복업무를, 인간이 고부가가치 업무를 담당하는 협업 모델"],
+    ["초개인화(Hyper-personalization)","생성형AI·빅데이터·IoT로 고객 요구를 사전 예측하는 차세대 고객관리"]
+  ],
+  checks:["4차 산업혁명의 3대 특징(초연결·초지능·융복합화)을 설명할 수 있다","푸드테크가 부상하게 된 4가지 배경을 열거할 수 있다","주요 푸드테크 로봇 유형을 구분할 수 있다","미래 식음료 경영의 3가지 과제를 설명할 수 있다"]
+}
+];
+
+const $ = id => document.getElementById(id);
+
+$('gridNav').innerHTML = CHAPTERS.map(c => `
+  <a href="#c${c.num}">
+    <div class="n">${c.num}장</div>
+    <div class="t">${c.title}</div>
+    <div class="h">${c.ov.slice(0, 30)}…</div>
+  </a>
+`).join('');
+
+$('jump').innerHTML = CHAPTERS.map(c => `<a href="#c${c.num}">${c.num}장</a>`).join('');
+
+$('chapters').innerHTML = CHAPTERS.map(c => `
+  <section class="chap" id="c${c.num}">
+    <div class="head">
+      <span class="num">${c.num}장</span>
+      <h2>${c.title}</h2>
+    </div>
+    <p class="ov">${c.ov}</p>
+    <div class="block">
+      <h3>핵심 구조</h3>
+      <div class="outline">
+        ${c.outline.map(([h, items]) => `<div class="sec"><b>${h}</b><ul>${items.map(i => `<li>${i}</li>`).join('')}</ul></div>`).join('')}
+      </div>
+    </div>
+    <div class="block">
+      <h3>꼭 기억할 용어</h3>
+      <div class="terms">
+        ${c.terms.map(([t, d]) => `<div class="term"><b>${t}</b><span>${d}</span></div>`).join('')}
+      </div>
+    </div>
+    <div class="block">
+      <h3>셀프 체크</h3>
+      <div class="checks">
+        ${c.checks.map((t, i) => `<label class="chk" data-id="c${c.num}_${i}"><input type="checkbox" class="cb"><span>${t}</span></label>`).join('')}
+      </div>
+    </div>
+  </section>
+`).join('');
+
+/* 체크 상태 — 이 브라우저에만(localStorage) */
+const KEY = 'hotelTourismHrmFnbWorkbook_v1';
+function allBoxes() { return [...document.querySelectorAll('.cb')]; }
+function save() {
+  try { localStorage.setItem(KEY, JSON.stringify(allBoxes().map(b => b.checked))); } catch (e) {}
+}
+function load() {
+  let d = null; try { d = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) {}
+  if (!Array.isArray(d)) return;
+  allBoxes().forEach((b, i) => { if (d[i]) b.checked = true; });
+}
+function refresh() {
+  const boxes = allBoxes();
+  const n = boxes.filter(b => b.checked).length;
+  $('progNum').textContent = n;
+  $('progMax').textContent = boxes.length;
+  boxes.forEach(b => b.closest('.chk').classList.toggle('done', b.checked));
+}
+document.addEventListener('change', e => { if (e.target.classList.contains('cb')) { refresh(); save(); } });
+$('resetAll').addEventListener('click', () => {
+  if (!confirm('체크한 내용을 모두 지울까요?')) return;
+  try { localStorage.removeItem(KEY); } catch (e) {}
+  allBoxes().forEach(b => b.checked = false);
+  refresh();
+});
+load(); refresh();
+</script>
+</body>
+</html>
