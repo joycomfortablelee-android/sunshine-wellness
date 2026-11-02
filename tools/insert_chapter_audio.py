@@ -15,9 +15,16 @@ AUDIO_BOX = (
     '<div style="margin:14px 18px 10px;padding:12px 14px;background:#eef6ff;'
     'border:1px solid #c9ddf1;border-radius:10px;">'
     '<div style="font-weight:800;font-size:13px;color:#14385f;margin-bottom:6px;">'
-    '🔊 교수자 음성 강의 · 핵심 메시지 낭독 (약 2분)</div>'
+    '<span class="chap-audio-icon">🔊</span> 교수자 음성 강의 · 핵심 메시지 낭독 (약 2분)</div>'
     '<audio controls preload="none" style="width:100%;" src="assets/smart-tourism-city-coauthor-ch{cid}-script.mp3">'
     '브라우저가 오디오 재생을 지원하지 않습니다.</audio></div>\n'
+)
+
+# 각 페이지의 </style> 직전에 한 번만 넣는 깜박이 애니메이션 — insert_chapter_audio.py를
+# 새 파일에 처음 돌릴 때를 위해 남겨 둔다(이미 돌린 두 파일은 별도 1회성 스크립트로 추가함).
+BLINK_KEYFRAMES = (
+    "<style>@keyframes chapAudioBlink{0%,100%{opacity:1}50%{opacity:.25}}"
+    ".chap-audio-icon{display:inline-block;animation:chapAudioBlink 1.1s ease-in-out infinite}</style>\n"
 )
 
 # comic-1-8.html: slide 번호 -> 챕터 id
