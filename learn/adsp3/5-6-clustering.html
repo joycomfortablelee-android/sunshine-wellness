@@ -48,6 +48,13 @@ body{overflow-x:hidden}
 .answer strong{font-size:23px;color:var(--green)}
 .answer p{margin:8px 0 11px}
 .memory{background:#fff8e7;border:1px solid #f0ddb0;border-radius:10px;padding:11px 13px;font-weight:800}
+.choicecheck{margin:4px 0 11px;display:flex;flex-direction:column;gap:7px}
+.choicecheck .crow{padding:9px 12px;border-radius:10px;font-size:13.5px;line-height:1.55;background:#fff;border:1px solid #dbe8e3}
+.choicecheck .crow.ok{border-color:#9fd3b0;background:#f3fbf5}
+.choicecheck .crow.no{border-color:#f0d0b0;background:#fffaf2}
+.choicecheck .crow b{margin-right:4px}
+.choicecheck .crow.ok b{color:var(--green)}
+.choicecheck .crow.no b{color:#b3541e}
 .bottom-nav{max-width:1280px;margin:0 auto 28px;display:flex;justify-content:center;align-items:center;gap:12px;padding:0 12px}
 .dots{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
 .dot{width:12px;height:12px;border:0;border-radius:50%;background:#bdccda;cursor:pointer;padding:0}
@@ -126,6 +133,12 @@ svg.elbow{width:100%;max-width:320px;height:140px}
         <div class="answer">
           <div class="answer-title">정답 <strong>③</strong></div>
           <p>군집분석은 사전 레이블이 없는 데이터를 유사성을 기반으로 그룹화하는 비지도 학습 기법이다. 회귀분석은 연속형 종속변수를 예측할 때 사용되고, 시계열분석은 시간적 순서를 고려한 데이터를 분석하며, 연관분석은 항목 간의 관계를 탐색한다.</p>
+          <div class="choicecheck">
+            <div class="crow no"><b>① 오답</b>회귀분석은 <em>예측할 종속변수</em>가 있을 때 쓴다 — 이 문제엔 맞혀야 할 종속변수가 없다.</div>
+            <div class="crow no"><b>② 오답</b>시계열분석은 <em>시간 순서</em>가 있는 데이터를 다룬다 — 꽃받침·꽃잎 측정값에는 시간 요소가 없다.</div>
+            <div class="crow ok"><b>③ 정답</b>레이블(품종) 없이 측정값의 유사성만으로 3개 군으로 나누는 것이 바로 군집분석이다.</div>
+            <div class="crow no"><b>④ 오답</b>연관분석은 <em>동시 발생 규칙</em>(장바구니 분석 등)을 찾는 기법이다 — "군으로 나누기"와는 다른 목적이다.</div>
+          </div>
           <div class="memory">핵심 암기 · "몇 개의 군으로 나누자" → 군집분석(Cluster Analysis)</div>
         </div>
       </article>
@@ -162,6 +175,12 @@ svg.elbow{width:100%;max-width:320px;height:140px}
         <div class="answer">
           <div class="answer-title">정답 <strong>②</strong></div>
           <p>최장연결법은 두 군집 내의 가장 먼 개체 간의 거리를 기준으로 군집 간 거리를 정의한다. 최단연결법은 가장 가까운 개체 간의 거리를, 평균연결법은 모든 개체 간의 평균 거리를, 중심연결법은 군집의 중심 간의 거리를 기준으로 한다.</p>
+          <div class="choicecheck">
+            <div class="crow no"><b>① 오답</b>최단연결법은 <em>가장 가까운</em> 개체 간 거리를 기준으로 한다 — "가장 먼"과는 반대 기준이다.</div>
+            <div class="crow ok"><b>② 정답</b>최장연결법만 두 군집에서 가장 먼 개체 간의 거리를 기준으로 삼는다.</div>
+            <div class="crow no"><b>③ 오답</b>평균연결법은 모든 개체 쌍의 <em>평균</em> 거리를 쓴다 — 가장 먼 거리라는 극값 기준이 아니다.</div>
+            <div class="crow no"><b>④ 오답</b>중심연결법은 개체 간 거리가 아니라 두 군집의 <em>중심(centroid)</em> 간 거리를 기준으로 한다.</div>
+          </div>
           <div class="memory">핵심 암기 · 최단=가까운 둘 / 최장=먼 둘 / 평균=전체평균 / 중심=중심끼리</div>
         </div>
       </article>
@@ -206,6 +225,12 @@ svg.elbow{width:100%;max-width:320px;height:140px}
         <div class="answer">
           <div class="answer-title">정답 <strong>②</strong></div>
           <p>덴드로그램은 계층적 군집 분석 결과를 시각화한 그림으로, 각 데이터 포인트 간의 유사성을 나타내는 트리 구조이다. 덴드로그램에서 높이 60의 수평선을 그어보면, 이 선과 만나는 수직선의 개수가 그 높이에서 생성되는 군집의 수를 의미한다. 높이 60의 수평선을 그었을 때, 총 3개의 수직선과 만나게 된다.</p>
+          <div class="choicecheck">
+            <div class="crow no"><b>① 오답</b>2개는 height=60보다 <em>더 높은</em> 지점(군집이 더 많이 병합된 곳)에서 그은 수평선의 교차 수다.</div>
+            <div class="crow ok"><b>② 정답</b>height=60 수평선은 수직선 3개와 만난다 — 군집 3개.</div>
+            <div class="crow no"><b>③ 오답</b>4개는 height=60보다 <em>더 낮은</em> 지점(아직 덜 병합된, 더 세분화된 곳)의 교차 수다.</div>
+            <div class="crow no"><b>④ 오답</b>5개도 ③보다 한 단계 더 낮은, 더 세분화된 지점의 교차 수다 — height=60과는 다른 높이의 값이다.</div>
+          </div>
           <div class="memory">핵심 암기 · 덴드로그램 + 수평선 = 그 높이에서 만나는 선 개수가 군집 수</div>
         </div>
       </article>
@@ -247,6 +272,13 @@ svg.elbow{width:100%;max-width:320px;height:140px}
         <div class="answer">
           <div class="answer-title">정답 <strong>④</strong></div>
           <p>K-means 군집분석에서는 수렴 기준에 도달하거나 군집 중심의 변화가 없을 때까지 반복되며, 특정 비율 이상의 개체가 할당되었다고 조정을 멈추지 않는다. 나머지 선택지는 K-means 군집분석의 원리를 정확히 설명한다.</p>
+          <p style="margin:4px 0 0;font-size:13px;color:#647689;"><b>※ 이 문제는 "틀린 것"을 고르는 문제</b> — ①②③은 전부 맞는 설명이라 정답(오답 후보)이 아니고, 유일하게 틀린 설명인 ④가 정답으로 선택된다.</p>
+          <div class="choicecheck">
+            <div class="crow ok"><b>① 맞는 설명</b>군집 수 k를 미리 정하고 seed(초기 중심)를 기준으로 군집을 형성하는 것이 K-means의 출발점이다 — 틀린 설명이 아니므로 정답이 될 수 없다.</div>
+            <div class="crow ok"><b>② 맞는 설명</b>각 개체는 거리상 <em>가장 가까운 seed</em>가 속한 군집으로 분류된다 — 틀린 설명이 아니므로 정답이 될 수 없다.</div>
+            <div class="crow ok"><b>③ 맞는 설명</b>군집에 할당된 개체들의 평균으로 새 seed를 다시 계산하고, 그 변화를 관찰하며 반복한다 — 틀린 설명이 아니므로 정답이 될 수 없다.</div>
+            <div class="crow no"><b>④ 정답(틀린 설명)</b>K-means는 "95% 이상 할당"처럼 특정 비율을 멈춤 기준으로 쓰지 않는다 — 실제 멈춤 기준은 <em>seed 중심이 더 이상 움직이지 않을 때(수렴)</em>다.</div>
+          </div>
           <div class="memory">핵심 암기 · K-means는 "중심이 더 안 움직일 때까지" 반복 — 비율 기준 아님</div>
         </div>
       </article>
