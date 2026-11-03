@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="color-scheme" content="light" />
+<title>관광벤처 비즈니스 모델 수익화 시뮬레이터 | 신라대학교</title>
+<style>
+:root{--ink:#13283a;--muted:#5c6a75;--paper:#f4f7f8;--card:#ffffff;--border:#dce4e8;--navy:#123c52;--teal:#008779;--pale:#e6f4f0;--orange:#ba6c22;--red:#bf4c43;--shadow:0 9px 28px rgba(20,43,63,.055)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:var(--paper);font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;font-size:16px;line-height:1.6}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible{outline:3px solid #72c8bb;outline-offset:2px}
+header{background:linear-gradient(120deg,#0e3148 0%,#16586a 62%,#127a72 100%);color:#fff;padding:40px max(24px,calc((100vw - 1320px)/2)) 36px}header .eyebrow{font-size:13px;color:#b6e9e2;font-weight:800;letter-spacing:1.8px}header h1{font-weight:820;font-size:clamp(26px,3vw,40px);line-height:1.25;letter-spacing:-1.2px;margin:12px 0}header p{max-width:870px;margin:0;color:#d5e9eb;font-size:17px}header .head-foot{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}header .head-foot span{font-size:13px;padding:5px 12px;border:1px solid #ffffff52;border-radius:18px;color:#e4f6f4}
+main{max-width:1360px;margin:0 auto;padding:27px 20px 75px}.layout{display:grid;grid-template-columns:310px minmax(0,1fr);gap:19px;align-items:start}.side{position:sticky;top:15px}.surface{border:1px solid var(--border);border-radius:18px;background:var(--card);box-shadow:var(--shadow)}.side .surface{padding:19px}.side h2{font-size:17px;letter-spacing:-.4px;margin:2px 0 12px}.helper{color:var(--muted);font-size:13px;margin:3px 0 13px}.model-list{display:grid;gap:8px}.model-btn{width:100%;display:flex;align-items:center;gap:12px;padding:13px;text-align:left;background:#fff;color:var(--ink);border:1px solid var(--border);border-radius:12px;transition:.15s}.model-btn:hover{background:#f2f8f8}.model-btn.active{background:#e9f6f3;border:2px solid #158f80;padding:12px}.model-icon{font-size:24px;width:34px;flex:none;text-align:center}.model-btn strong{display:block;font-size:15px}.model-btn small{display:block;font-size:12px;color:#60717a;line-height:1.25;margin-top:3px}.aside-note{padding:14px;margin-top:14px;background:#f3f7f7;border-radius:12px;color:#4f626d;font-size:13px}.bodycontent{display:grid;gap:18px;min-width:0}.panel{padding:24px}.kicker{display:inline-block;font-size:12px;letter-spacing:1.1px;font-weight:850;color:var(--teal)}.section-head{display:flex;align-items:flex-start;gap:15px;justify-content:space-between;flex-wrap:wrap}.section-head h2{font-size:23px;letter-spacing:-.6px;margin:4px 0}.section-head p{color:var(--muted);margin:0;max-width:720px;font-size:14px}.btn{background:#fff;border:1px solid #b9cbd2;color:#234457;padding:8px 14px;border-radius:10px;font-weight:730;font-size:14px}.btn:hover{background:#f0f7f7}.btn.primary{color:white;background:#096e68;border-color:#096e68}.btn.primary:hover{background:#075f5a}.action-row{display:flex;flex-wrap:wrap;gap:8px}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:22px}.field{border:1px solid #e4ebee;background:#fbfcfd;padding:14px;border-radius:12px;min-width:0}.field label{font-size:14px;font-weight:790;display:block;margin-bottom:9px}.field .field-row{display:flex;gap:10px;align-items:center}.field input[type=number]{border:1px solid #c7d5dc;background:white;padding:10px 11px;border-radius:9px;width:100%;min-width:0;font-size:17px;font-weight:760;text-align:right;color:#12394d}.field .suffix{white-space:nowrap;font-size:13px;color:#5d6d78}.field .desc{font-size:12px;margin:6px 0 0;color:#6e7c84}.field input[type=range]{display:block;width:100%;accent-color:#0b8b7c;margin-top:11px}.group-title{grid-column:1/-1;border-bottom:1px solid var(--border);padding:8px 0 5px;font-size:14px;font-weight:820;color:var(--navy)}.formula{margin-top:16px;background:#edf6f6;color:#315362;padding:14px 17px;border-radius:11px;font-size:14px}.formula strong{color:#0b6f66}
+.metric-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;margin-top:20px}.metric{border:1px solid #deeaed;border-radius:13px;padding:17px 15px;background:#fbfdfd;min-width:0}.metric.highlight{background:#e7f6f1;border-color:#bedfd4}.metric.danger{background:#fff0ec;border-color:#f1cec5}.metric .name{font-size:12px;color:#596d77;font-weight:790}.metric .value{font-size:clamp(17px,1.8vw,26px);font-weight:850;line-height:1.4;margin-top:7px;letter-spacing:-.8px;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}.metric .small{font-size:12px;color:#607880;margin-top:3px}.metric.highlight .value{color:#077b6d}.metric.danger .value{color:#ba423a}.chart-note{font-size:12px;color:var(--muted);margin-top:15px}.money-chart{display:grid;gap:16px;margin-top:23px}.money-row{display:grid;grid-template-columns:105px minmax(0,1fr) 125px;align-items:center;gap:10px;font-size:13px}.money-row .bar-track{background:#edf1f3;height:18px;border-radius:5px;overflow:hidden}.money-row .bar{height:100%;border-radius:5px;transition:width .22s}.money-row b{text-align:right;font-size:13px;font-variant-numeric:tabular-nums}.bar.revenue{background:#247a8f}.bar.variable{background:#74aab1}.bar.fixed{background:#b5c7cf}.bar.profit{background:#009684}.bar.loss{background:#d47667}.statusline{margin-top:16px;font-size:14px;color:#375c63;background:#f3f8f8;padding:12px 16px;border-radius:10px}.statusline strong{color:#00776d}
+.scenarios{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:20px}.scenario{border:1px solid #dce7e9;border-radius:13px;padding:17px 15px}.scenario.central{border:2px solid #07867a;background:#f1faf7;padding:16px 14px}.scenario small{display:block;font-size:12px;color:var(--muted);font-weight:750}.scenario h3{font-size:17px;margin:4px 0 13px}.scenario .stat{color:#5b6c75;font-size:12px}.scenario .num{font-size:21px;font-weight:830;margin-bottom:9px;font-variant-numeric:tabular-nums}.scenario .num.positive{color:#007b6d}.scenario .num.negative{color:#c34f42}.scenario .sub{font-size:13px;color:#4e6069}.scenario .microbar{height:7px;background:#e6eded;margin-top:10px;border-radius:5px;overflow:hidden}.scenario .microbar i{display:block;height:100%;background:#55a49a}.mini-insight{padding:14px 16px;border-left:4px solid #289487;background:#f3f9f8;margin-top:18px;border-radius:0 9px 9px 0;color:#365a60;font-size:14px}.compare-table{overflow-x:auto;margin-top:16px}table{border-collapse:collapse;width:100%;font-size:14px;white-space:nowrap}th,td{padding:12px 11px;border-bottom:1px solid #e2e9ed;text-align:right}th:first-child,td:first-child{text-align:left}th{background:#f1f6f7;color:#355368;font-size:12px}td{font-variant-numeric:tabular-nums}.positive{color:#007d70}.negative{color:#b9433b}.delete{color:#ad4c42;border:1px solid #e8c9c5;background:#fff;padding:3px 8px;border-radius:7px;font-size:12px}.empty{color:#75858b;text-align:center;font-size:14px;padding:23px}footer{max-width:1360px;margin:0 auto 30px;padding:0 22px;color:#617480;font-size:12px}.notice{padding:18px;background:#fff9ee;border:1px solid #ebdbb7;border-radius:12px;margin-top:18px;color:#655535;font-size:13px}.notice strong{font-weight:810}.foot-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:19px}.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);z-index:100;background:#183d46;color:#fff;padding:11px 18px;border-radius:11px;box-shadow:0 6px 25px #0003;visibility:hidden;opacity:0;transition:.2s;max-width:90vw;text-align:center;font-size:14px}.toast.show{visibility:visible;opacity:1}
+@media(max-width:1050px){.layout{grid-template-columns:250px minmax(0,1fr)}.metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.scenarios{grid-template-columns:1fr}.scenario{display:grid;grid-template-columns:1fr 1fr;column-gap:15px}.scenario h3,.scenario small{grid-column:1/-1}.scenario .microbar{grid-column:1/-1}}
+@media(max-width:760px){header{padding:31px 20px}.layout{display:block}.side{position:static;margin-bottom:18px}.model-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.bodycontent{gap:14px}.panel{padding:18px}.form-grid{grid-template-columns:1fr}.metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.money-row{grid-template-columns:90px minmax(0,1fr) 105px;gap:6px}.money-row b{font-size:11px}.head-foot{gap:5px}}
+@media(max-width:440px){.model-list{grid-template-columns:1fr}.metric-grid{grid-template-columns:1fr}.money-row{grid-template-columns:80px minmax(0,1fr);gap:7px}.money-row b{grid-column:2;text-align:left;margin-top:-5px;margin-bottom:5px}.scenario{display:block}}
+@media print{body{background:white}header{-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:22px}.layout{display:block}main{padding:10px}.side,.action-row,.foot-actions,.toast,.delete{display:none!important}.surface{box-shadow:none;break-inside:avoid}.panel{padding:14px;margin-bottom:12px}.form-grid{grid-template-columns:repeat(3,1fr)}.field input[type=range]{display:none}.metric-grid{grid-template-columns:repeat(3,1fr)}.scenarios{grid-template-columns:repeat(3,1fr)}.scenario{display:block}}
+</style>
+</head>
+<body>
+<header>
+  <div class="eyebrow">SILLA UNIVERSITY · TOURISM VENTURE PRACTICE</div>
+  <h1>비즈니스 모델 수익화 시뮬레이터</h1>
+  <p>“고객은 얼마나 올까? 매출이 발생해도 이익이 남을까?” 5가지 관광·창업 비즈니스 모델을 선택하고, 가격·수요·비용을 바꾸며 <b>연매출, 공헌이익, 영업손익, 손익분기점</b>을 비교해 보세요.</p>
+  <div class="head-foot"><span>실시간 계산</span><span>5가지 수익모델</span><span>3가지 수요 시나리오</span><span>모델 비교 · CSV 저장</span><span>모든 수치는 가상 학습용</span></div>
+</header>
+<main>
+ <div class="layout">
+  <aside class="side">
+   <div class="surface">
+    <h2>① 수익모델 선택</h2><p class="helper">우리 사업은 어떤 방식으로 돈을 벌까요?</p>
+    <nav class="model-list" id="model-list" aria-label="비즈니스 모델 선택"></nav>
+    <div class="aside-note"><b>수업 활용 안내</b><br />모델을 바꿔도 각 모델의 입력값이 유지됩니다. 조건을 정한 뒤 ‘비교표에 추가’하여 모델별 결과를 대조해 보세요.</div>
+   </div>
+  </aside>
+  <div class="bodycontent">
+   <section class="surface panel">
+    <div class="section-head">
+     <div><span class="kicker">INPUT · 01</span><h2 id="input-title">숙박·펜션형</h2><p id="input-desc"></p></div>
+     <div class="action-row"><button class="btn" id="reset-btn" type="button">↺ 기본값 복원</button></div>
+    </div>
+    <div class="form-grid" id="fields"></div>
+    <div class="formula" id="formula"></div>
+   </section>
+   <section class="surface panel" id="results">
+    <div class="section-head">
+     <div><span class="kicker">RESULT · 02</span><h2>예상 수익성과 손익분기점</h2><p>입력값을 바꾸면 아래 값이 즉시 갱신됩니다. 금액은 반올림해 표시합니다.</p></div>
+     <div class="action-row"><button class="btn primary" type="button" id="pin-btn">＋ 비교표에 추가</button></div>
+    </div>
+    <div class="metric-grid" id="metrics" aria-live="polite"></div>
+    <div class="money-chart" id="money-chart" aria-label="연간 매출과 비용 비교 막대그래프"></div>
+    <div class="statusline" id="statusline"></div>
+   </section>
+   <section class="surface panel">
+    <div class="section-head"><div><span class="kicker">SCENARIO · 03</span><h2>수요 변화에 따른 3가지 시나리오</h2><p>다른 조건은 같다고 가정하고, 핵심 수요 변수만 현재보다 20% 감소/증가시킵니다. 비율형 변수의 상한은 100%입니다.</p></div></div>
+    <div class="scenarios" id="scenarios"></div><div class="mini-insight" id="insight"></div>
+   </section>
+   <section class="surface panel">
+    <div class="section-head"><div><span class="kicker">COMPARE · 04</span><h2>나의 비즈니스 모델 비교표</h2><p>같은 모델의 가격이나 수요를 바꿔 저장해도 됩니다. 최대 12개까지 추가할 수 있습니다.</p></div>
+    <div class="action-row"><button class="btn" id="csv-btn" type="button">↓ CSV 내려받기</button><button class="btn" id="clear-btn" type="button">비교표 비우기</button></div></div>
+    <div class="compare-table" id="comparison"></div>
+    <div class="foot-actions"><button class="btn" id="copy-btn" type="button">결과 요약 복사</button><button class="btn" id="print-btn" type="button">인쇄 · PDF 저장</button></div>
+    <div class="notice"><strong>학습용 가정 및 해석 범위</strong><br />① 연중 수요·가격이 일정하고 정상 운영된다고 가정합니다. ② 변동비는 <b>매출의 일정 비율</b>로 간소화했습니다. ③ 연간 고정비에는 임대료·인건비·광고비 등 사업의 반복 비용을 합산해 입력해야 하며, 같은 비용을 변동비에 중복 반영하지 마세요. ④ 영업손익은 교육용 단순 추정치로, 감가상각·이자·금융원리금·소득세·부가가치세·환불·성수기 변동·재고·플랫폼 수수료의 세부 회계 처리·법적 영업제한을 반영하지 않습니다. 플랫폼 모델의 ‘연매출’은 전체 거래액(GMV)이 아니라 <b>중개수수료 수입</b>입니다. ⑤ 초기투자비 회수기간은 투자비/연간 단순 운영이익으로 계산한 참고 지표일 뿐, 정식 투자수익률·현금흐름분석이 아닙니다. <b>실제 창업·투자 의사결정에는 사용하지 마세요.</b></div>
+   </section>
+  </div>
+ </div>
+</main>
+<footer>신라대학교 · 관광벤처창업론 실습형 학습자료 | 본 HTML 파일은 외부 서버·계정·인터넷 없이 실행됩니다. 학생 입력정보는 서버로 전송되지 않습니다. </footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+'use strict';
+const MODELS = {
+ lodging:{icon:'🏡',title:'숙박·펜션형',subtitle:'객실 × 숙박요금 × 가동률',description:'객실이 판매되는 횟수를 기반으로 매출을 계산하는 모델입니다. 펜션·게스트하우스·소형 숙박시설 사례에 적합합니다.',demand:'occupancy',demandLabel:'객실 가동률',demandUnit:'%',demandPercent:true,formula:'객실 수 × 연간 영업일 × 객실 가동률 × 평균 객실요금',fields:[['rooms','객실 수','개',2,1,1000,1,'실제 판매 가능한 객실 수'],['days','연간 영업일','일/년',365,1,366,1,'휴업·계절운영 기간을 제외'],['price','평균 숙박요금','원/객실·박',120000,0,10000000,1000,'고객이 지불하는 평균 객실 판매가격'],['occupancy','연평균 객실 가동률','%',45,0,100,1,'판매 객실박 수 ÷ 판매 가능 객실박 수']],common:{variable:25,fixed:18000000,investment:50000000}},
+ experience:{icon:'🎟️',title:'체험·투어형',subtitle:'회차 × 정원 × 예약률',description:'로컬 체험·가이드 투어·체험관광 프로그램처럼 참가자를 모집해 매출을 창출하는 모델입니다.',demand:'fill',demandLabel:'정원 충족률',demandUnit:'%',demandPercent:true,formula:'월 운영 회차 × 12개월 × 회당 정원 × 정원 충족률 × 1인당 참가비',fields:[['sessions','월 운영 회차','회/월',12,0,10000,1,'한 달 평균 실행 가능한 프로그램 횟수'],['capacity','회당 정원','명/회',12,1,10000,1,'프로그램 1회 최대 참가인원'],['ticket','1인당 참가비','원/명',50000,0,10000000,1000,'참여자 1인이 지불하는 가격'],['fill','평균 정원 충족률','%',55,0,100,1,'총 참가자 수 ÷ 총 모집가능 인원']],common:{variable:35,fixed:17000000,investment:20000000}},
+ retail:{icon:'🛍️',title:'상품·기념품 판매형',subtitle:'방문자 × 구매전환율 × 객단가',description:'지역특산품·기념품·온라인몰 등 방문자가 실제 주문으로 전환되는 정도를 측정합니다.',demand:'conversion',demandLabel:'구매전환율',demandUnit:'%',demandPercent:true,formula:'월 방문자 수 × 구매전환율 × 평균 주문금액 × 12개월',fields:[['visitors','월 방문자 수','명/월',1500,0,10000000,100,'오프라인 유효 방문자 또는 온라인 유입자'],['conversion','구매전환율','%',4,0,100,.5,'방문 1회당 구매(주문) 성사 비율'],['order','평균 주문금액','원/주문',48000,0,10000000,1000,'주문 한 건에서 발생하는 평균 매출']],common:{variable:35,fixed:12000000,investment:15000000}},
+ platform:{icon:'🔗',title:'예약·중개 플랫폼형',subtitle:'거래건수 × 거래액 × 수수료율',description:'체험예약 앱·관광 매칭 플랫폼처럼 전체 거래액 중 중개수수료를 매출로 얻는 모델입니다.',demand:'deals',demandLabel:'월 성사 거래건수',demandUnit:'건/월',demandPercent:false,formula:'월 성사 거래건수 × 평균 거래금액 × 중개수수료율 × 12개월',fields:[['deals','월 성사 거래건수','건/월',150,0,1000000,10,'단순 문의가 아닌 실제로 결제된 예약'],['gmv','평균 거래금액','원/건',180000,0,10000000,1000,'고객이 공급자에게 지불하는 전체 금액'],['commission','플랫폼 중개수수료율','%',12,0,100,.5,'플랫폼이 매 거래에서 확보하는 몫']],common:{variable:25,fixed:22000000,investment:50000000}},
+ subscription:{icon:'🔁',title:'정기구독·멤버십형',subtitle:'평균 회원수 × 구독료 × 12개월',description:'지역 여행패스·관광 멤버십·서비스 정기구독처럼 반복 결제 구조를 가진 모델입니다.',demand:'members',demandLabel:'월평균 유료회원 수',demandUnit:'명',demandPercent:false,formula:'월평균 유료회원 수 × 월 구독료 × 12개월',fields:[['members','월평균 유료회원 수','명',250,0,10000000,10,'가입자 총수가 아닌 월평균 실제 유료회원 수'],['fee','월 구독료','원/명·월',19000,0,10000000,1000,'1인당 월 기준 유료 이용료']],common:{variable:30,fixed:24000000,investment:40000000}}
+};
+const fieldCommon=[['variable','매출 대비 변동비 비율','%',null,0,100,1,'판매 또는 서비스 제공에 따라 발생하는 비용'],['fixed','연간 고정비','원/년',null,0,1000000000000,100000,'인건비·임차료·기본 관리비 등 연간 합계'],['investment','초기 투자비','원',null,0,1000000000000,100000,'간단한 회수기간 계산에만 사용']];
+const state={active:'lodging',values:{},saved:[]};
+for(const [id,m] of Object.entries(MODELS)){state.values[id]=Object.fromEntries(m.fields.map(f=>[f[0],f[3]]));Object.assign(state.values[id],m.common)}
+const el=id=>document.getElementById(id), won=n=>Number.isFinite(n)?Math.round(n).toLocaleString('ko-KR')+'원':'계산 불가',num=(n,d=0)=>Number.isFinite(n)?n.toLocaleString('ko-KR',{maximumFractionDigits:d,minimumFractionDigits:d}):'—',pct=n=>Number.isFinite(n)?num(n,1)+'%':'—';
+const safe=n=>Number.isFinite(n)&&n>=0?n:0;
+function toast(msg){const t=el('toast');t.textContent=msg;t.classList.add('show');clearTimeout(window._toastTimeout);window._toastTimeout=setTimeout(()=>t.classList.remove('show'),2800)}
+function calc(id,v){const m=MODELS[id];const variable=safe(v.variable)/100, fixed=safe(v.fixed),invest=safe(v.investment);let revenue=0,volume=0,unit=0,potential=0,breakeven=Infinity,unitLabel='',breakevenLabel='';
+ switch(id){
+ case 'lodging':volume=safe(v.rooms)*safe(v.days)*safe(v.occupancy)/100;unit=safe(v.price);potential=safe(v.rooms)*safe(v.days)*unit;revenue=volume*unit;unitLabel='연간 예상 판매 객실박';break;
+ case 'experience':volume=safe(v.sessions)*12*safe(v.capacity)*safe(v.fill)/100;unit=safe(v.ticket);potential=safe(v.sessions)*12*safe(v.capacity)*unit;revenue=volume*unit;unitLabel='연간 예상 참가자';break;
+ case 'retail':volume=safe(v.visitors)*12*safe(v.conversion)/100;unit=safe(v.order);potential=safe(v.visitors)*12*unit;revenue=volume*unit;unitLabel='연간 예상 주문';break;
+ case 'platform':volume=safe(v.deals)*12;unit=safe(v.gmv)*safe(v.commission)/100;potential=volume*unit;revenue=volume*unit;unitLabel='연간 예상 성사 거래';break;
+ case 'subscription':volume=safe(v.members)*12;unit=safe(v.fee);potential=volume*unit;revenue=volume*unit;unitLabel='연간 유료 회원·월';break;
+ }
+ const varCost=revenue*variable,contribution=revenue-varCost,profit=contribution-fixed,margin=revenue>0?profit/revenue*100:null,contributionRate=(1-variable)*100,payback=profit>0?invest/profit:null;
+ if(variable<1&&unit>0){
+ if(id==='lodging'){const den=safe(v.rooms)*safe(v.days)*unit*(1-variable);breakeven=den>0?fixed/den*100:Infinity;breakevenLabel='손익분기 객실 가동률'}
+ if(id==='experience'){const den=safe(v.sessions)*12*safe(v.capacity)*unit*(1-variable);breakeven=den>0?fixed/den*100:Infinity;breakevenLabel='손익분기 정원 충족률'}
+ if(id==='retail'){const den=safe(v.visitors)*12*unit*(1-variable);breakeven=den>0?fixed/den*100:Infinity;breakevenLabel='손익분기 구매전환율'}
+ if(id==='platform'){const den=12*unit*(1-variable);breakeven=den>0?fixed/den:Infinity;breakevenLabel='손익분기 월 거래건수'}
+ if(id==='subscription'){const den=12*unit*(1-variable);breakeven=den>0?fixed/den:Infinity;breakevenLabel='손익분기 월평균 유료회원'}
+ }else{breakevenLabel=({lodging:'손익분기 객실 가동률',experience:'손익분기 정원 충족률',retail:'손익분기 구매전환율',platform:'손익분기 월 거래건수',subscription:'손익분기 월평균 유료회원'})[id]}
+ return{revenue,varCost,contribution,profit,fixed,margin,contributionRate,payback,volume,unit,unitLabel,breakeven,breakevenLabel,invest,variable,gmv:id==='platform'?safe(v.deals)*12*safe(v.gmv):null};
+}
+function demandValue(id,val){return MODELS[id].demandPercent?pct(val):num(val,0)+MODELS[id].demandUnit}
+function fmtBreak(id,r){if(!Number.isFinite(r.breakeven))return'달성 불가';if(MODELS[id].demandPercent)return pct(r.breakeven)+(r.breakeven>100?' · 100% 초과':'');return num(Math.ceil(r.breakeven))+' '+MODELS[id].demandUnit}
+function createButton(id,m){const b=document.createElement('button');b.type='button';b.className='model-btn'+(id===state.active?' active':'');b.innerHTML=`<span class="model-icon">${m.icon}</span><span><strong>${m.title}</strong><small>${m.subtitle}</small></span>`;b.setAttribute('aria-pressed',String(id===state.active));b.addEventListener('click',()=>{state.active=id;render()});return b}
+function fieldEl(f,v){const [key,label,suffix,_default,min,max,step,desc]=f;const field=document.createElement('div');field.className='field';const isPct=suffix==='%';const current=v[key];const useSlider=isPct;field.innerHTML=`<label for="input-${key}">${label}</label><div class="field-row"><input type="number" id="input-${key}" min="${min}" max="${max}" step="${step}" value="${current}" inputmode="decimal" aria-label="${label}"><span class="suffix">${suffix}</span></div><p class="desc">${desc}</p>${useSlider?`<input aria-label="${label} 슬라이더" type="range" id="range-${key}" min="${min}" max="${max}" step="${step}" value="${current}">`:''}`;
+ const input=field.querySelector('input[type=number]');const range=field.querySelector('input[type=range]');
+ const update=raw=>{if(raw.trim()==='')return;let x=Number(raw);if(!Number.isFinite(x))return;x=Math.max(min,Math.min(max,x));state.values[state.active][key]=x;if(range)range.value=x;updateResults()};
+ input.addEventListener('input',()=>update(input.value));input.addEventListener('change',()=>{if(input.value.trim()===''){input.value=state.values[state.active][key];return;}input.value=state.values[state.active][key];updateResults()});if(range)range.addEventListener('input',()=>{input.value=range.value;update(range.value)});
+ return field;
+}
+function render(){const m=MODELS[state.active],v=state.values[state.active];el('model-list').replaceChildren(...Object.entries(MODELS).map(([id,m])=>createButton(id,m)));el('input-title').textContent=m.icon+' '+m.title;el('input-desc').textContent=m.description;
+ const grid=el('fields');grid.replaceChildren();const titleA=document.createElement('div');titleA.className='group-title';titleA.textContent='수요·가격: 매출을 만드는 핵심 변수';grid.appendChild(titleA);m.fields.forEach(f=>grid.appendChild(fieldEl(f,v)));const titleB=document.createElement('div');titleB.className='group-title';titleB.textContent='운영비용·초기투자: 이익과 회수기간 변수';grid.appendChild(titleB);fieldCommon.forEach(f=>grid.appendChild(fieldEl(f,v)));
+ el('formula').innerHTML=`<strong>계산 공식 · 예상 연매출</strong><div>${m.formula}</div><div style="font-size:12px;margin-top:6px">연간 단순 운영손익 = 연매출 × (1 − 변동비 비율) − 연간 고정비</div>`;updateResults()}
+function metric(label,value,hint,klass=''){return `<div class="metric ${klass}"><div class="name">${label}</div><div class="value">${value}</div><div class="small">${hint}</div></div>`}
+function updateResults(){const id=state.active,m=MODELS[id],v=state.values[id],r=calc(id,v),currentDemand=v[m.demand];
+ el('metrics').innerHTML=[
+ metric('예상 연매출',won(r.revenue),id==='platform'?'GMV가 아닌 수수료 매출':'12개월 기준 매출'),
+ metric('연간 변동비',won(r.varCost),`매출의 ${pct(v.variable)}`),
+ metric('연간 고정비',won(r.fixed),'연간 운영비용의 고정 부분'),
+ metric('연간 공헌이익',won(r.contribution),`공헌이익률 ${pct(r.contributionRate)}`),
+ metric('연간 단순 운영손익',won(r.profit),r.profit>=0?'연간 고정비 차감 후':'연간 고정비 회수 전 부족',r.profit>=0?'highlight':'danger'),
+ metric('단순 영업이익률',r.margin===null?'산정 불가':pct(r.margin),'운영손익 ÷ 매출'),
+ metric(r.breakevenLabel,fmtBreak(id,r),m.demandPercent?'비율이 100%를 넘으면 현재 구조로 어렵습니다':'양의 공헌이익을 전제로 반올림'),
+ metric('초기투자비 회수기간',r.payback===null?'회수 어려움':(r.invest===0?'0년':num(r.payback,1)+'년'),'세전 단순 운영손익 기준'),
+ metric(r.unitLabel,num(r.volume,1),id==='platform'?`전체 거래액(GMV): ${won(r.gmv)}`:`기준 ${m.demandLabel} ${demandValue(id,currentDemand)}`)
+ ].join('');
+ let maximum=Math.max(r.revenue,r.varCost,r.fixed,Math.abs(r.profit),1);
+ const bars=[['연매출',r.revenue,'revenue'],['변동비',r.varCost,'variable'],['고정비',r.fixed,'fixed'],[r.profit>=0?'운영이익':'운영손실',Math.abs(r.profit),r.profit>=0?'profit':'loss']];
+ el('money-chart').innerHTML=bars.map(([label,value,c])=>`<div class="money-row"><b>${label}</b><div class="bar-track"><div class="bar ${c}" style="width:${Math.max(0,Math.min(100,value/maximum*100))}%"></div></div><b>${won(value)}</b></div>`).join('');
+ const achieved=r.profit>=0;
+ el('statusline').innerHTML=`${achieved?'✅':'⚠️'} 현재 설정에서 ${achieved?'<strong>단순 운영손익이 흑자</strong>입니다.':'<strong>단순 운영손익이 적자</strong>입니다.'} ${Number.isFinite(r.breakeven)?`${m.demandLabel} 손익분기 기준은 <strong>${fmtBreak(id,r)}</strong>입니다.`:'현재 비용·수익 조건에서는 손익분기점을 계산할 수 없습니다.'}`;
+ renderScenarios(id,v,r);renderComparison();}
+function renderScenarios(id,v,r){const m=MODELS[id],cur=v[m.demand],mult=[.8,1,1.2],texts=['보수적','기준','낙관적'];const rows=mult.map((f,i)=>{const changed={...v};changed[m.demand]=m.demandPercent?Math.min(100,cur*f):cur*f;return{name:texts[i],value:changed[m.demand],res:calc(id,changed),factor:f}});const maxRev=Math.max(...rows.map(x=>x.res.revenue),1);
+ el('scenarios').innerHTML=rows.map((s,i)=>`<article class="scenario ${i===1?'central':''}"><small>${i===0?'수요 −20%':i===1?'현재 입력값':'수요 +20%'}</small><h3>${s.name} 시나리오</h3><div class="stat">${m.demandLabel} · ${demandValue(id,s.value)}</div><div class="stat" style="margin-top:11px">예상 연매출</div><div class="num">${won(s.res.revenue)}</div><div class="stat">연간 단순 운영손익</div><div class="num ${s.res.profit>=0?'positive':'negative'}">${won(s.res.profit)}</div><div class="sub">영업이익률 ${s.res.margin===null?'산정 불가':pct(s.res.margin)}</div><div class="microbar"><i style="width:${s.res.revenue/maxRev*100}%"></i></div></article>`).join('');
+ let insight='';if(rows[0].res.profit>=0)insight='수요가 20% 줄어드는 보수적 조건에서도 단순 운영손익이 흑자입니다. 다만 실제 수요의 계절성과 현금흐름을 별도로 검토하세요.';else if(rows[2].res.profit<0)insight='수요가 20% 늘어나는 낙관적 조건에서도 단순 운영손익이 적자입니다. 가격·원가·고정비·판매 규모를 함께 조정해 보세요.';else insight='수요 조건에 따라 흑자와 적자가 달라질 수 있습니다. 수요 확보 전략뿐 아니라 가격과 비용 구조의 안정성도 살펴보세요.';
+ el('insight').textContent='수업 토론 포인트 · '+insight;
+}
+function escapeHTML(str){return String(str).replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[x])}
+function snapshot(){const id=state.active,v={...state.values[id]},r=calc(id,v);return{id,label:MODELS[id].title,values:v,...r,time:new Date().toLocaleString('ko-KR')}}
+function renderComparison(){const saved=state.saved,wrap=el('comparison');if(!saved.length){wrap.innerHTML='<div class="empty">아직 저장된 비교 결과가 없습니다. 위에서 모델 조건을 조정한 다음 ‘비교표에 추가’를 눌러보세요.</div>';return}
+ wrap.innerHTML=`<table><thead><tr><th>모델 / 저장 순서</th><th>연매출</th><th>연간 운영손익</th><th>영업이익률</th><th>손익분기 기준</th><th>삭제</th></tr></thead><tbody>${saved.map((s,i)=>`<tr><td><b>${i+1}. ${escapeHTML(s.label)}</b></td><td>${won(s.revenue)}</td><td class="${s.profit>=0?'positive':'negative'}">${won(s.profit)}</td><td>${s.margin===null?'—':pct(s.margin)}</td><td>${fmtBreak(s.id,s)}</td><td><button class="delete" type="button" data-delete="${i}" aria-label="${i+1}번 비교 결과 삭제">삭제</button></td></tr>`).join('')}</tbody></table>`;
+ wrap.querySelectorAll('button[data-delete]').forEach(b=>b.addEventListener('click',()=>{state.saved.splice(Number(b.dataset.delete),1);renderComparison();toast('비교 결과를 삭제했습니다.')}));}
+function makeCsv(){const rows=[['순서','비즈니스 모델','설정값','예상 연매출(원)','연간 변동비(원)','연간 고정비(원)','공헌이익(원)','연간 단순 운영손익(원)','단순 영업이익률(%)','손익분기 기준','초기투자비(원)','단순 회수기간(년)']];let list=state.saved.length?state.saved:[snapshot()];list.forEach((s,i)=>{const desc=Object.entries(s.values).map(([k,val])=>k+'='+val).join('; ');rows.push([i+1,s.label,desc,Math.round(s.revenue),Math.round(s.varCost),Math.round(s.fixed),Math.round(s.contribution),Math.round(s.profit),s.margin===null?'':s.margin.toFixed(2),fmtBreak(s.id,s),Math.round(s.invest),s.payback===null?'':s.payback.toFixed(2)])});return '\ufeff'+rows.map(row=>row.map(x=>'"'+String(x??'').replace(/"/g,'""')+'"').join(',')).join('\r\n')}
+function copyText(){const s=snapshot(),summary=`[${s.label}] 관광벤처 수익화 시뮬레이터\n예상 연매출: ${won(s.revenue)}\n연간 변동비: ${won(s.varCost)}\n연간 고정비: ${won(s.fixed)}\n연간 공헌이익: ${won(s.contribution)}\n연간 단순 운영손익: ${won(s.profit)}\n단순 영업이익률: ${s.margin===null?'산정 불가':pct(s.margin)}\n${s.breakevenLabel}: ${fmtBreak(s.id,s)}\n초기투자비 회수기간: ${s.payback===null?'회수 어려움':num(s.payback,1)+'년'}\n* 학습용 가상 계산치, 세금·이자·감가상각 등 제외`;
+ if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(summary).then(()=>toast('현재 모델의 결과 요약을 복사했습니다.')).catch(()=>fallbackCopy(summary))}else fallbackCopy(summary)}
+function fallbackCopy(s){const txt=document.createElement('textarea');txt.value=s;txt.style.cssText='position:fixed;left:-10000px;top:0';document.body.append(txt);txt.select();let ok=false;try{ok=document.execCommand('copy')}catch(e){}txt.remove();toast(ok?'결과 요약을 복사했습니다.':'자동 복사가 지원되지 않는 브라우저입니다. CSV 내려받기를 사용하세요.')}
+el('reset-btn').addEventListener('click',()=>{const id=state.active,m=MODELS[id];state.values[id]=Object.fromEntries(m.fields.map(f=>[f[0],f[3]]));Object.assign(state.values[id],m.common);render();toast('현재 수익모델의 기본값을 복원했습니다.')});
+el('pin-btn').addEventListener('click',()=>{if(state.saved.length>=12){toast('비교 결과는 최대 12개까지 저장할 수 있습니다.');return}state.saved.push(snapshot());renderComparison();toast('현재 조건을 비교표에 추가했습니다.')});
+el('clear-btn').addEventListener('click',()=>{if(!state.saved.length){toast('비교표가 비어 있습니다.');return}if(window.confirm('저장된 비교 결과를 모두 비울까요?')){state.saved=[];renderComparison();toast('비교표를 비웠습니다.')}});
+el('csv-btn').addEventListener('click',()=>{const blob=new Blob([makeCsv()],{type:'text/csv;charset=utf-8;'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='관광벤처_비즈니스모델_수익성_비교.csv';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);toast(state.saved.length?'비교표를 CSV로 내려받았습니다.':'현재 모델의 결과를 CSV로 내려받았습니다.')});
+el('copy-btn').addEventListener('click',copyText);el('print-btn').addEventListener('click',()=>window.print());
+render();
+</script>
+</body>
+</html>
