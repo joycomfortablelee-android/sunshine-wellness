@@ -460,6 +460,22 @@
     .learn-article .tri-follow .ir-row { justify-content: flex-start; }
     .learn-article .tri-follow .dltags { margin: 0; }
     @media (max-width: 720px) { .learn-article .tri-follow { grid-template-columns: 1fr; } }
+    /* 04장 — 영상 둘은 가운데 한 줄씩 작게, 다섯 말 아래 ① · ③ · ④ 깊이 보기 세 칸 */
+    .learn-article .ir-row.solo { justify-content: center; margin: 10px 0; }
+    .learn-article .ir-row.solo .ir-short { flex: 0 1 320px; display: flex; flex-direction: column; align-items: center; }
+    .learn-article .ir-row.solo .ir-short.solo-c iframe { max-width: 200px; }
+    .learn-article .ir-row.solo .ir-cap { text-align: center; font-size: 11.5px; line-height: 1.6; color: #5c6b7a; }
+    .learn-article .vc5-deep { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; align-items: start; margin: 8px 0 16px; }
+    .learn-article .vc5-deep .vd-col { border: 1px solid #c3daee; border-top: 3px solid #2563a8; border-radius: 10px; background: #f7fbff; padding: 10px 12px; min-width: 0; }
+    .learn-article .vc5-deep .vd-h { margin: 0 0 8px; font-size: 13.5px; font-weight: 800; color: #1c4e8a; }
+    .learn-article .vc5-deep .vd-h b { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; margin-right: 6px; border-radius: 50%; background: #2563a8; color: #fff; font-size: 12px; }
+    .learn-article .vc5-deep p { font-size: 12.5px; line-height: 1.7; }
+    .learn-article .vc5-deep .dltags { margin: 6px 0 0; }
+    .learn-article .vc5-deep figure.tv-map { margin: 0; }
+    .learn-article .vc5-deep figure.tv-map img { width: 100%; height: auto; }
+    .learn-article .vc5-deep figure.tv-map figcaption { font-size: 12px; text-align: left; }
+    .learn-article .vc5-deep .ir-row { justify-content: flex-start; }
+    @media (max-width: 900px) { .learn-article .vc5-deep { grid-template-columns: 1fr; } }
     /* 한국부동산원 시리즈 한눈에 — 편 번호 알약 줄 */
     .learn-article .dltags.series-idx .si-h { font-size: 12px; font-weight: 800; color: #17365d; margin-right: 6px; }
     .learn-article .dltags.series-idx a { display: inline-block; margin: 0 4px 4px 0; padding: 3px 9px; border-radius: 999px; border: 1px solid #c3d2e2; background: #fff; color: #17365d; font-size: 11.5px; font-weight: 700; text-decoration: none; }
@@ -3551,6 +3567,7 @@
       <div class="flowbar">
         <b>작게 만들고</b><i>→</i><b>시장에 내고</b><i>→</i><b>배워서 고치기</b>
       </div>
+      <div class="ir-row solo"><div class="ir-short solo-c"><iframe src="https://www.youtube-nocookie.com/embed/RaPOMDHCU_k" title="아이디어로 창업하지 말라 — 정세주 눔 대표" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><p class="ir-cap"><b>「아이디어로 창업하지 말라」</b> — 정세주 눔(Noom) 대표 · World Knowledge Forum 쇼츠. 내 아이디어가 아니라 <strong>고객이 실제로 겪는 문제</strong>에서 출발하라는 말입니다.<br />— 만들기 전에 고객에게 먼저 묻는 아래 <mark class="hl-y"><strong>「묻는다 · 고객 검증」</strong></mark>과 같은 이야기를 IR 무대의 창업자가 합니다.</p></div></div>
       <div class="tri-wrap tri-blue">
         <svg class="tri-line" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polygon points="50,3 97,97 3,97" /></svg>
         <ol class="vcards c3 steps tri3">
@@ -3560,6 +3577,7 @@
         </ol>
         <span class="tri-hub">린 스타트업</span>
       </div>
+      <div class="ir-row solo" id="sr-09"><div class="ir-short mini"><iframe src="https://www.youtube-nocookie.com/embed/vN5PiDbksBE" title="[사업계획서작성] ⑨ 고객검증과정 반드시 해야한다" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><p class="ir-cap"><b>「⑨ 고객검증과정 반드시 해야한다」</b> — 한국부동산원 「사업계획서 작성」 시리즈. 위 쇼츠가 「고객의 문제에서 출발하라」라면, 이쪽은 <b>만들기 전에 고객에게 확인하는 과정</b>을 사업계획서에 어떻게 보여 주는가입니다.</p></div></div>
       <p>이 웹사이트 자체가 하나의 MVP입니다 — 큰 예산 없이 정적 사이트로 가치 제안을 세상에 먼저 내걸고, 후기와 문의로 반응을 확인하는 방식입니다.</p>
       <div class="vc5" id="poc">
         <p class="vc5-t">만들기 전에 검증하는 다섯 말 — <b>PoC → 프로토타입 → MVP → KPI → 피벗</b></p>
@@ -3571,23 +3589,18 @@
           <li id="kpi"><span class="vc5-n">4</span><b class="vc5-h">KPI</b><span class="vc5-en">Key Performance Indicator · 핵심성과지표</span><span class="vc5-q">「얼마나 가고 있나」</span><span class="vc5-d">목표를 향해 얼마나 왔는지 <b>숫자로</b> 보여 주는 지표</span><span class="vc5-ex"><i>관광 예</i>아래 「KPI 4가지 창업 사례」에서 목표 달성률을 계산해 본다</span></li>
           <li><span class="vc5-n">5</span><b class="vc5-h">피벗</b><span class="vc5-en">Pivot · 방향 전환</span><span class="vc5-q">「무엇을 바꾸나」</span><span class="vc5-d">KPI가 가설과 다르면 <b>비전은 두고</b> 고객 · 채널 · 수익모델 같은 전략만 바꾼다 — 처음부터 다시 시작하는 것이 아니다</span><span class="vc5-ex"><i>관광 예</i>KPI가 예상과 다르게 나왔을 때 무엇을 바꿀지 정한다</span></li>
         </ol>
-        <p class="vc5-a"><a href="tourism-venture-kpi-4-cases.html" target="_blank" rel="noopener">KPI 4가지 창업 사례 — 버스킹 · 친환경 용기 · 한지 · 커피 ↗</a><a href="b2b-startup-know-how-55-slides.html" target="_blank" rel="noopener">B2B 55장 — 첫 고객과 만든 POC ↗</a><a href="https://asana.com/ko/resources/proof-of-concept" target="_blank" rel="noopener">Asana · PoC 작성 가이드 ↗</a><span>KPI 사례에는 목표 달성률 계산기 · 아이템별 KPI 상세표 · 우리 팀 KPI 작성 실습이 있습니다.</span></p>
+        <p class="vc5-a"><a href="#deep-poc">① PoC 더 보기 ↓</a><a href="#deep-mvp">③ MVP 예시 ↓</a><a href="#kpi-sec">④ KPI · 협약목표 ↓</a><span>번호마다 아래 「깊이 보기」 칸으로 이어집니다.</span></p>
       </div>
-      <figure class="tv-map" id="tv-real-cases">
+      <p class="learn-part lp-sub" id="deep5"><span class="ptag">깊이 보기</span>다섯 말의 ① · ③ · ④를 자료로</p>
+      <div class="vc5-deep">
+        <div class="vd-col" id="deep-poc"><p class="vd-h"><b>①</b>PoC — 첫 고객과 개념 증명</p><p class="dltags"><a class="mapl form bm" href="b2b-startup-know-how-55-slides.html" target="_blank" rel="noopener">B2B 스타트업 성장전략 55장 ↗</a><a class="mapl form" href="https://asana.com/ko/resources/proof-of-concept" target="_blank" rel="noopener">Asana · PoC 작성 가이드 ↗</a><span class="dl-src">위 <b>MVP · 고객 검증</b>을 <b>B2B</b> 쪽에서 실제로 겪은 이야기입니다 — 미스터피자 같은 첫 고객을 잡아 <b>POC(개념 검증)</b>를 함께 만들고, 중간에 요구가 쏟아져도 끝까지 고쳐 낸 과정, 대기업 <b>오픈 이노베이션</b>으로 판로를 여는 법까지 55장. 관광벤처가 <b>지자체 · 관광재단에 용역을 내는 B2G</b> 구조와도 통하는 대목이 많습니다.</span></p></div>
+        <div class="vd-col" id="deep-mvp"><p class="vd-h"><b>③</b>MVP — 실제로 누가 먼저 내놓았나</p><figure class="tv-map" id="tv-real-cases">
         <a href="images/tv-03-real-cases.webp" target="_blank" rel="noopener"><img src="images/tv-03-real-cases.webp" width="1400" height="933" loading="lazy" alt="이론을 배웠다면 실제로 누가 이렇게 했을까 — 서비스 창업 비건부산(Busan Vegan Discovery) · 로컬 브랜드 성심당 · 전공 활용 창업 어반리즘 하우스 → 문제 정의 → 근거 기반 정보 → MVP 배포"></a>
         <figcaption><b>MVP 예시 — 실제로 누가 이렇게 했나</b> — <strong>비건부산</strong>(서비스 창업) · <strong>성심당</strong>(로컬 브랜드) · <strong>어반리즘 하우스</strong>(전공 활용 창업)가 밟은 <em>문제 정의 → 근거 기반 정보 → MVP 배포</em>. 위 ③ MVP 카드가 말하는 「배우기 위해 만든 가장 작은 제품」을 세 회사가 어떻게 먼저 내놓았는지 봅니다 — 자세한 이야기는 <a href="#part09">비건부산 · 파트 09</a> · <a href="#ch08">성심당 · 5-2</a> · <a href="#ch11">어반리즘 하우스 · 5-5</a>에.</figcaption>
-      </figure>
-      <div class="ir-row pair" id="sr-09">
-        <div class="ir-short"><iframe src="https://www.youtube-nocookie.com/embed/RaPOMDHCU_k" title="아이디어로 창업하지 말라 — 정세주 눔 대표" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><p class="ir-cap"><b>「아이디어로 창업하지 말라」</b> — 정세주 눔(Noom) 대표 · World Knowledge Forum 쇼츠. 내 아이디어가 아니라 <strong>고객이 실제로 겪는 문제</strong>에서 출발하라는 말입니다.<br />— 만들기 전에 고객에게 먼저 묻는 위 <mark class="hl-y"><strong>「묻는다 · 고객 검증」</strong></mark>과 같은 이야기를 IR 무대의 창업자가 합니다.</p></div>
-        <div class="ir-short mini"><iframe src="https://www.youtube-nocookie.com/embed/vN5PiDbksBE" title="[사업계획서작성] ⑨ 고객검증과정 반드시 해야한다" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><p class="ir-cap"><b>「⑨ 고객검증과정 반드시 해야한다」</b> — 한국부동산원 「사업계획서 작성」 시리즈. 왼쪽 쇼츠가 「고객의 문제에서 출발하라」라면, 이쪽은 <b>만들기 전에 고객에게 확인하는 과정</b>을 사업계획서에 어떻게 보여 주는가입니다.</p></div>
+      </figure></div>
+        <div class="vd-col" id="kpi-sec"><p class="vd-h"><b>④</b>KPI — 협약목표: 매출 · 투자 · 고용</p><p>위 다섯 말의 <strong>④ KPI</strong>가 사업계획서에서는 <strong>협약목표</strong>가 됩니다 — 선정되면 <strong class="hot-t">「1년 뒤 이만큼」을 약속하는 숫자</strong>(매출 · 투자 · 고용)이고, 01장 일반현황 표 맨 아래 칸입니다. 목표가 크면 좋은 것이 아니라 <b>근거로 닿을 수 있는 숫자</b>여야 합니다.</p><p class="dltags"><a class="mapl form hot" href="tourism-venture-kpi-4-cases.html" target="_blank" rel="noopener"><span class="blink-star">●</span> KPI 4가지 창업 사례 — 버스킹 · 친환경 용기 · 한지 · 커피 ↗</a><span class="dl-src">위 <strong>협약목표(KPI)</strong>가 실제로 무엇인지 — 목표 달성률 계산기 · 아이템별 KPI 상세표 · 우리 팀 KPI 작성 실습까지 한 페이지에 있습니다.</span></p><div class="ir-row" id="hire-proof" style="margin:8px 0 0"><div class="ir-short mini"><iframe src="https://www.youtube-nocookie.com/embed/hIG0-MBYrc8?start=67" title="[사업계획서 작성] ⑮ 사업계획서 고용은 어떻게 증명할까요?" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><p class="ir-cap"><b>「⑮ 사업계획서 고용은 어떻게 증명할까요?」</b> — 한국부동산원 · <strong>1분 7초부터</strong>. 위 협약목표의 <b>매출 · 투자 · 고용</b> 가운데 <b>고용</b>을 숫자와 증빙으로 약속하는 법 — 14주차 T 칸에서 채용 계획을 쓸 때 다시 봅니다.</p></div></div></div>
       </div>
-      <p class="dltags"><a class="mapl form bm" href="b2b-startup-know-how-55-slides.html" target="_blank" rel="noopener">B2B 스타트업 성장전략 55장 ↗</a><span class="dl-src">위 <b>MVP · 고객 검증</b>을 <b>B2B</b> 쪽에서 실제로 겪은 이야기입니다 — 미스터피자 같은 첫 고객을 잡아 <b>POC(개념 검증)</b>를 함께 만들고, 중간에 요구가 쏟아져도 끝까지 고쳐 낸 과정, 대기업 <b>오픈 이노베이션</b>으로 판로를 여는 법까지 55장. 관광벤처가 <b>지자체 · 관광재단에 용역을 내는 B2G</b> 구조와도 통하는 대목이 많습니다.</span></p>
-
-      <p class="learn-part lp-sub" id="kpi-sec"><span class="ptag">KPI</span>협약목표 — 매출 · 투자 · 고용을 숫자로 약속한다</p>
-      <p>위 다섯 말의 <strong>④ KPI</strong>가 사업계획서에서는 <strong>협약목표</strong>가 됩니다 — 선정되면 <strong class="hot-t">「1년 뒤 이만큼」을 약속하는 숫자</strong>(매출 · 투자 · 고용)이고, 01장 일반현황 표 맨 아래 칸입니다. 목표가 크면 좋은 것이 아니라 <b>근거로 닿을 수 있는 숫자</b>여야 합니다.</p>
-      <p class="dltags"><a class="mapl form hot" href="tourism-venture-kpi-4-cases.html" target="_blank" rel="noopener"><span class="blink-star">●</span> KPI 4가지 창업 사례 — 버스킹 · 친환경 용기 · 한지 · 커피 ↗</a><span class="dl-src">위 <strong>협약목표(KPI)</strong>가 실제로 무엇인지 — 목표 달성률 계산기 · 아이템별 KPI 상세표 · 우리 팀 KPI 작성 실습까지 한 페이지에 있습니다.</span></p>
-      <div class="ir-row" id="hire-proof"><div class="ir-short mini"><iframe src="https://www.youtube-nocookie.com/embed/hIG0-MBYrc8?start=67" title="[사업계획서 작성] ⑮ 사업계획서 고용은 어떻게 증명할까요?" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><p class="ir-cap"><b>「⑮ 사업계획서 고용은 어떻게 증명할까요?」</b> — 한국부동산원 · <strong>1분 7초부터</strong>. 위 협약목표의 <b>매출 · 투자 · 고용</b> 가운데 <b>고용</b>을 숫자와 증빙으로 약속하는 법 — 14주차 T 칸에서 채용 계획을 쓸 때 다시 봅니다.</p></div></div>
-
+      
       <p class="learn-part lp-core" id="ch05"><span class="num">05</span>창업 지원<span class="lp-sub">혼자 하지 않는다</span></p>
       <p>관광벤처는 공공 지원이 비교적 두터운 분야입니다. 아이디어 단계부터 활용할 수 있습니다.</p>
       <div class="ir-row" id="sr-14"><div class="ir-short mini"><iframe src="https://www.youtube-nocookie.com/embed/-ZUcBE9S5aY" title="[사업계획서 작성] ⑭ 투자 어떻게 시작할까요? 나의 단계를 파악하자!" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><p class="ir-cap"><b>「⑭ 투자 어떻게 시작할까요? 나의 단계를 파악하자!」</b> — 한국부동산원 「사업계획서 작성」 시리즈. 지원금 · 융자 · 투자 가운데 <b>지금 내 단계에 맞는 돈</b>이 무엇인지부터 봅니다.</p></div></div>
