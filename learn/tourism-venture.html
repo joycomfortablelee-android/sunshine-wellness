@@ -442,6 +442,19 @@
     .learn-article table.vt4 td.vt4-o { color: #4b6b21; font-weight: 800; white-space: nowrap; }
     .learn-article table.vt4 td em { font-style: normal; color: #6b7d8f; font-size: 11.5px; }
     .learn-article table.vt4 td.gap { background: #fffbe6; }
+    /* 유형 넷 표 + 신청유형 넷 그림 — 같은 행에서 시작(위 맞춤), 고르는 법은 표 아래 상자 */
+    .learn-article .vt4-row { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 14px; align-items: start; margin: 10px 0 14px; }
+    .learn-article .vt4-row .vt4-wrap { margin: 0; }
+    .learn-article .vt4-row figure { margin: 0; }
+    .learn-article .vt4-row figure img { display: block; width: 100%; height: auto; border-radius: 8px; border: 1px solid #e1e8ef; }
+    .learn-article .vt4-row figcaption { margin-top: 6px; font-size: 12px; line-height: 1.65; color: #4a5a68; }
+    @media (max-width: 900px) { .learn-article .vt4-row { grid-template-columns: 1fr; } }
+    .learn-article .vt4-row .pick-box { margin-top: 10px; padding: 10px 13px; border: 1px solid #d5e3c8; border-left: 4px solid #4b6b21; border-radius: 8px; background: #f8fbf4; }
+    .learn-article .vt4-row .pick-box p { margin: 2px 0; font-size: 12.5px; line-height: 1.6; }
+    .learn-article .vt4-row .pick-box p.pk-h { font-size: 13px; font-weight: 800; color: #2f4a17; margin-bottom: 4px; }
+    .learn-article .vt4-row .pick-box b { color: #2f4a17; margin-right: 6px; }
+    .learn-article .vt4-row .pick-box p.pk-n { margin-top: 6px; font-size: 11.5px; color: #6b7886; }
+    .learn-article .vt4-row .pick-box .pk-n b { margin: 0; color: #4a5a68; }
     .learn-article .tf-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; align-items: start; margin: 14px 0 6px; }
     .learn-article .tf-pair figure { margin: 0; }
     .learn-article .tf-pair img { width: 100%; height: auto; border-radius: 8px; border: 1px solid #e1e8ef; }
@@ -3494,7 +3507,8 @@
       <p class="learn-part lp-core" id="ch01"><span class="num">01</span>관광벤처란</p>
       <p>관광벤처란 <strong>ICT·콘텐츠·새로운 서비스 방식으로 관광의 문제를 푸는 혁신형 창업</strong>을 말합니다. 전통적인 여행사·숙박업과 달리, 기술과 아이디어로 기존 방식을 바꾸려 한다는 점이 다릅니다. 앞선 모듈의 <strong>스마트 관광·빅데이터</strong>가 곧 관광벤처의 도구가 됩니다.</p>
       <p id="tv-3types">유형은 대개 넷으로 나뉩니다. <a class="jump-in ylw" href="#안동온사람들"><b class="rstar">★</b> 실제 회사로 보기 · (주)안동온사람들 ↓</a></p>
-      <div class="vt4-wrap"><table class="vt4">
+      <div class="vt4-row">
+        <div class="vt4-col"><div class="vt4-wrap"><table class="vt4">
         <thead><tr><th>사업 모양</th><th>무엇을</th><th>신청유형(택 1)</th><th>(주)안동온사람들</th></tr></thead>
         <tbody>
           <tr><th>시설·공간형</th><td>숙박 · 복합공간 · 유휴공간</td><td class="vt4-o">③ 관광인프라</td><td>공유공간771(도산면 선성길)</td></tr>
@@ -3502,18 +3516,18 @@
           <tr><th>콘텐츠·미디어형</th><td>가이드 · 미디어 · AR · VR 실감 콘텐츠</td><td class="vt4-o">② 실감형관광콘텐츠</td><td class="gap">비어 있음 → <strong>확장 기회</strong><br />예: 도산서원 · 퇴계 이야기를 AR 해설로 — 남이 비워 둔 칸이 내가 들어갈 자리</td></tr>
           <tr><th>체험·서비스형</th><td>여행상품 · 테마코스 · 체험 프로그램</td><td class="vt4-o">① 관광체험서비스</td><td>관광체험프로그램(원데이 클래스 · 로컬 체험)<br />관광행사기획 <em>(기업 · 기관이 돈을 내는 B2B · B2G — 7대 분야로는 지역콘텐츠)</em><br />관광기념품(매화막걸리 · 사계엽서 · 디퓨저) <em>(신청유형 밖 — 7대 분야로는 로컬푸드 · 지역기반제조)</em></td></tr>
         </tbody>
-      </table></div>
+      </table></div><div class="pick-box"><p class="pk-h">어느 칸을 고르나 — 두 물음</p><p><b>누가 돈을 내나</b> 여행자 → ①②③ · 사업자 → ④</p><p><b>내 것은 무엇</b> 상품 ① · 콘텐츠 ② · 공간 ③ · 기술 ④</p><p class="pk-n">두 답이 곧 워크북 시트 1의 「고른 근거 한 문장」. 유형 이름은 양식 그대로, 풀이 · 예시는 수업용(2026 부산관광스타트업 모집요강 참고) — 지원 때는 <b>그 회차 공고문</b> 정의를 확인하십시오.</p></div></div>
+        <figure class="tf-b" id="apply-types-4">
+        <img src="images/pre-tourism-venture-application-types-four.svg" width="960" height="650" alt="예비관광벤처 신청유형 넷 — ① 관광체험서비스: 관광객이 직접 참여해 즐기는 여행상품·테마코스·체험 프로그램(스토리텔링 테마투어·맞춤형 프라이빗 투어·소규모 특화여행·단체 테마형 프로그램), ② 실감형관광콘텐츠: AR·VR·미디어아트처럼 보고 겪게 만드는 디지털 관광 콘텐츠(메타버스 체험·디지털 전시관·미디어아트 공간·다국어 실감 안내), ③ 관광인프라: 오프라인 시설·공간·자원을 새 콘셉트와 기술로 고도화하는 공간 기반 사업(유휴공간 체험형 관광공간·스마트 관광단지·체류형 복합공간), ④ 관광딥테크: 관광기업·지자체의 운영을 디지털화하는 데이터·SaaS·플랫폼 기반 B2B 솔루션(숙박 운영관리 PMS·POS·CRM·관광데이터 분석과 수요예측·OTA 연동과 정산 자동화)" loading="lazy" />
+        <figcaption><strong>신청유형(택 1) 넷</strong> — 사업계획서 「일반현황」의 신청유형 칸, 왼쪽 표 셋째 열입니다. 고르는 법은 표 아래에.</figcaption>
+      </figure>
+      </div>
       <div class="tf-pair">
         <figure class="tf-a">
         <img src="images/pre-tourism-venture-application-types.png" width="800" height="677" alt="예비관광벤처 사업계획서 양식 「일반현황」 표 — 대표자 성명 · 기업(예정)명 · 사업자 번호 · 신청유형(택 1: 관광체험서비스 · 실감형관광콘텐츠 · 관광인프라 · 관광딥테크) · 서비스(상품)명 20자 내외 · 한줄설명 50자 내외 · 협약목표(성과지표 KPI · 매출 · 관광매출 비율 · 투자유치 · 신규고용)" loading="lazy" />
         <figcaption>예비관광벤처 사업계획서 양식의 첫 표 <strong>「일반현황」</strong>. 위 표의 네 유형은 <em>사업의 모양</em>으로 나눈 것이고, 실제 신청서에서는 <strong class="hot-t">신청유형 넷 중 하나를 고릅니다(택 1)</strong> — <strong>관광체험서비스 · 실감형관광콘텐츠 · 관광인프라 · 관광딥테크</strong>. 그 아래 <strong>서비스명 20자 · 한줄설명 50자</strong>가 워크북 시트 1 의 칸이고, 맨 아래 <strong>협약목표</strong>(KPI · 매출 · 투자 · 고용)는 선정되면 약속하게 되는 숫자입니다.</figcaption>
       </figure>
-        <figure class="tf-b" id="apply-types-4">
-        <img src="images/pre-tourism-venture-application-types-four.svg" width="960" height="650" alt="예비관광벤처 신청유형 넷 — ① 관광체험서비스: 관광객이 직접 참여해 즐기는 여행상품·테마코스·체험 프로그램(스토리텔링 테마투어·맞춤형 프라이빗 투어·소규모 특화여행·단체 테마형 프로그램), ② 실감형관광콘텐츠: AR·VR·미디어아트처럼 보고 겪게 만드는 디지털 관광 콘텐츠(메타버스 체험·디지털 전시관·미디어아트 공간·다국어 실감 안내), ③ 관광인프라: 오프라인 시설·공간·자원을 새 콘셉트와 기술로 고도화하는 공간 기반 사업(유휴공간 체험형 관광공간·스마트 관광단지·체류형 복합공간), ④ 관광딥테크: 관광기업·지자체의 운영을 디지털화하는 데이터·SaaS·플랫폼 기반 B2B 솔루션(숙박 운영관리 PMS·POS·CRM·관광데이터 분석과 수요예측·OTA 연동과 정산 자동화)" loading="lazy" />
-        <figcaption><strong>신청유형(택 1) 넷</strong>을 한 장에 — 아래 일곱 줄이 이 그림의 설명입니다.</figcaption>
-      </figure>
       </div>
-      <p class="cap-list tf-notes"><span class="cl"><b class="k">이 그림</b> : 사업계획서 「일반현황」의 <strong>신청유형(택 1)</strong> 넷을 한 장에 편 것입니다.</span><span class="cl"><b class="k">고르는 기준 ①</b> : <strong>내 돈을 누가 내는가</strong> — 여행자가 내면 ①②③ 쪽, 사업자가 내면 <strong>④ 관광딥테크</strong>.</span><span class="cl"><b class="k">고르는 기준 ②</b> : <strong>내 것이 무엇인가</strong> — 상품인가 · 콘텐츠인가 · 공간인가 · 기술인가.</span><span class="cl"><b class="k">워크북 시트 1</b> : 「그 유형을 고른 근거 한 문장」은 위 두 물음에 답하면 그대로 써집니다.</span><span class="cl"><b class="k">유형 이름</b> : 사업계획서 양식 그대로입니다.</span><span class="cl"><b class="k">풀이와 예시</b> : <strong>수업용으로 붙인 것</strong>입니다 — 뜻이 가장 가까운 공식 문서인 <strong>2026 부산관광스타트업 공모전 모집요강</strong>의 모집유형 표(개념 · 예시)를 참고했습니다.</span><span class="cl note"><b class="k">주의</b> : 관광벤처 공고문 원문의 정의와 글자까지 같지는 않습니다. 실제로 지원할 때는 <strong>해당 회차 공고문의 유형 설명</strong>을 그대로 확인하십시오.</span></p>
       <p class="nx-jump"><a href="#kpi-sec">협약목표 KPI(매출 · 투자 · 고용) 자세히 — 04장 KPI ↓</a><span>KPI 4가지 창업 사례와 「고용은 어떻게 증명하나」 영상을 04장 KPI 칸에 모았습니다.</span></p>
       
       <div class="plat-box">
