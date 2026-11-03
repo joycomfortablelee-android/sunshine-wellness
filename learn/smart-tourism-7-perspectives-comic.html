@@ -22,7 +22,7 @@
     flex:0 0 auto; font-weight:800; background:#0c65aa; color:white; padding:8px 12px;
     border-radius:999px; min-width:70px; text-align:center;
   }
-  .stage { position:relative; flex:1; min-height:0; overflow:hidden; }
+  .stage { position:relative; flex:1; min-height:0; overflow:hidden; overflow:clip; }
   .track {
     height:100%; display:flex; transition:transform .38s cubic-bezier(.22,.8,.24,1);
   }
@@ -192,7 +192,8 @@
     currentEl.textContent = index + 1;
     thumbs.forEach((t, i) => t.classList.toggle('active', i === index));
     const active = thumbs[index];
-    if (active) active.scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
+    // 아래 번호 줄만 움직인다 — scrollIntoView는 슬라이드 무대(.stage)까지 옆으로 밀어 5~7번 그림이 가운데에서 벗어났다
+    if (active) { const bar = active.parentElement; bar.scrollTo({ left: active.offsetLeft - (bar.clientWidth - active.offsetWidth) / 2, behavior: 'smooth' }); }
   }
 
   function go(n) {
