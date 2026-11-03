@@ -433,6 +433,33 @@
       .learn-hero .room-bar .rb-row { grid-template-columns: 1fr; }
       .learn-hero .room-bar .rb-due a.fin .fin-l { margin-left: 0; }
     }
+    /* 01장 — 유형 넷 표 · 그림 두 장 나란히(공간 절약, 내용은 그대로) */
+    .learn-article .vt4-wrap { overflow-x: auto; margin: 10px 0 14px; }
+    .learn-article table.vt4 { width: 100%; border-collapse: collapse; font-size: 12.5px; line-height: 1.55; background: #fff; }
+    .learn-article table.vt4 th, .learn-article table.vt4 td { padding: 7px 10px; border: 1px solid #d5e3c8; text-align: left; vertical-align: top; }
+    .learn-article table.vt4 thead th { background: #eef5e6; color: #3c5a1f; font-weight: 800; white-space: nowrap; }
+    .learn-article table.vt4 tbody th { background: #f6faf1; color: #2f4a17; font-weight: 800; white-space: nowrap; }
+    .learn-article table.vt4 td.vt4-o { color: #4b6b21; font-weight: 800; white-space: nowrap; }
+    .learn-article table.vt4 td em { font-style: normal; color: #6b7d8f; font-size: 11.5px; }
+    .learn-article table.vt4 td.gap { background: #fffbe6; }
+    .learn-article .tf-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; align-items: start; margin: 14px 0 6px; }
+    .learn-article .tf-pair figure { margin: 0; }
+    .learn-article .tf-pair img { width: 100%; height: auto; border-radius: 8px; border: 1px solid #e1e8ef; }
+    .learn-article .tf-pair figcaption { margin-top: 6px; font-size: 12px; line-height: 1.65; color: #4a5a68; text-align: left; }
+    .learn-article p.cap-list.tf-notes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 18px; margin: 4px 0 10px; font-size: 12px; line-height: 1.6; color: #4a5a68; }
+    .learn-article p.cap-list.tf-notes .cl { display: block; }
+    @media (max-width: 720px) { .learn-article .tf-pair, .learn-article p.cap-list.tf-notes { grid-template-columns: 1fr; } }
+    /* 02장 삼각형 — 카드 안 바로가기 + 아래 두 칸(WHO 페르소나 영상 · WHAT 구체화 워크북) */
+    .learn-article .vcards > li .vlk { display: block; margin-top: 8px; }
+    .learn-article .vcards > li .vlk a { display: inline-block; padding: 3px 10px; border-radius: 999px; background: rgba(255,255,255,.92); color: #8a4f14; font-size: 11.5px; font-weight: 800; text-decoration: none; border: 0; }
+    .learn-article .vcards > li .vlk a:hover { background: #fff; color: #5c3209; }
+    .learn-article .tri-follow { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 16px; align-items: start; margin: 8px 0 14px; }
+    .learn-article .tri-follow .tf-col { border: 1px solid #f0d2b0; border-radius: 10px; background: #fffaf3; padding: 10px 12px; }
+    .learn-article .tri-follow .tf-h { margin: 0 0 8px; font-size: 13px; color: #8a4f14; }
+    .learn-article .tri-follow .tf-h b { display: inline-block; margin-right: 6px; padding: 1px 8px; border-radius: 999px; background: #8a4f14; color: #fff; font-size: 11px; }
+    .learn-article .tri-follow .ir-row { justify-content: flex-start; }
+    .learn-article .tri-follow .dltags { margin: 0; }
+    @media (max-width: 720px) { .learn-article .tri-follow { grid-template-columns: 1fr; } }
     /* 한국부동산원 시리즈 한눈에 — 편 번호 알약 줄 */
     .learn-article .dltags.series-idx .si-h { font-size: 12px; font-weight: 800; color: #17365d; margin-right: 6px; }
     .learn-article .dltags.series-idx a { display: inline-block; margin: 0 4px 4px 0; padding: 3px 9px; border-radius: 999px; border: 1px solid #c3d2e2; background: #fff; color: #17365d; font-size: 11.5px; font-weight: 700; text-decoration: none; }
@@ -3385,30 +3412,30 @@
       </figure>
 
       <p class="learn-part lp-core" id="ch01"><span class="num">01</span>관광벤처란</p>
-      <p>관광벤처란 <strong>ICT·콘텐츠·새로운 서비스 방식으로 관광의 문제를 푸는 혁신형 창업</strong>을 말합니다. 전통적인 여행사·숙박업과 달리, 기술과 아이디어로 기존 방식을 바꾸려 한다는 점이 다릅니다.</p>
+      <p>관광벤처란 <strong>ICT·콘텐츠·새로운 서비스 방식으로 관광의 문제를 푸는 혁신형 창업</strong>을 말합니다. 전통적인 여행사·숙박업과 달리, 기술과 아이디어로 기존 방식을 바꾸려 한다는 점이 다릅니다. 앞선 모듈의 <strong>스마트 관광·빅데이터</strong>가 곧 관광벤처의 도구가 됩니다.</p>
       <p id="tv-3types">유형은 대개 넷으로 나뉩니다. <a class="jump-in ylw" href="#안동온사람들"><b class="rstar">★</b> 실제 회사로 보기 · (주)안동온사람들 ↓</a></p>
-      <div class="tri-wrap hub-x sq4">
-        <svg class="tri-line" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polygon points="25,25 75,25 75,75 25,75" /></svg>
-        <ol class="vcards c3 steps tri3">
-          <li class="t-lime"><span class="vh">시설·공간형</span><span class="vd">숙박 · 복합공간 · 유휴공간</span><span class="vo">↔ ③ 관광인프라</span><span class="vx"><b>안동온</b>공유공간771(도산면 선성길)</span></li>
-          <li class="t-lime2"><span class="vh">플랫폼·중개형</span><span class="vd">예약 · 매칭 · 큐레이션 · 데이터 분석</span><span class="vo">↔ ④ 관광딥테크</span><span class="vx"><b>안동온</b>관광플랫폼 운영(지역 크리에이터 발굴 · 육성)</span></li>
-          <li class="t-lime3"><span class="vh">콘텐츠·미디어형</span><span class="vd">가이드 · 미디어 · AR · VR 실감 콘텐츠</span><span class="vo">↔ ② 실감형관광콘텐츠</span><span class="vx gap"><b>안동온</b>비어 있음 → <strong>확장 기회</strong><br />예: 도산서원 · 퇴계 이야기를 AR 해설로 — 남이 비워 둔 칸이 내가 들어갈 자리</span></li>
-          <li class="t-lime4"><span class="vh">체험·서비스형</span><span class="vd">여행상품 · 테마코스 · 체험 프로그램</span><span class="vo">↔ ① 관광체험서비스</span><span class="vx"><b>안동온</b>관광체험프로그램(원데이 클래스 · 로컬 체험)<br />관광행사기획 <em>(기업 · 기관이 돈을 내는 B2B · B2G — 7대 분야로는 지역콘텐츠)</em><br />관광기념품(매화막걸리 · 사계엽서 · 디퓨저) <em>(신청유형 밖 — 7대 분야로는 로컬푸드 · 지역기반제조)</em></span></li>
-        </ol>
-        <span class="tri-hub">관광벤처</span>
-      </div>
-      <p>앞선 모듈의 <strong>스마트 관광·빅데이터</strong>가 곧 관광벤처의 도구가 됩니다.</p>
-      <figure class="learn-fig">
+      <div class="vt4-wrap"><table class="vt4">
+        <thead><tr><th>사업 모양</th><th>무엇을</th><th>신청유형(택 1)</th><th>(주)안동온사람들</th></tr></thead>
+        <tbody>
+          <tr><th>시설·공간형</th><td>숙박 · 복합공간 · 유휴공간</td><td class="vt4-o">③ 관광인프라</td><td>공유공간771(도산면 선성길)</td></tr>
+          <tr><th>플랫폼·중개형</th><td>예약 · 매칭 · 큐레이션 · 데이터 분석</td><td class="vt4-o">④ 관광딥테크</td><td>관광플랫폼 운영(지역 크리에이터 발굴 · 육성)</td></tr>
+          <tr><th>콘텐츠·미디어형</th><td>가이드 · 미디어 · AR · VR 실감 콘텐츠</td><td class="vt4-o">② 실감형관광콘텐츠</td><td class="gap">비어 있음 → <strong>확장 기회</strong><br />예: 도산서원 · 퇴계 이야기를 AR 해설로 — 남이 비워 둔 칸이 내가 들어갈 자리</td></tr>
+          <tr><th>체험·서비스형</th><td>여행상품 · 테마코스 · 체험 프로그램</td><td class="vt4-o">① 관광체험서비스</td><td>관광체험프로그램(원데이 클래스 · 로컬 체험)<br />관광행사기획 <em>(기업 · 기관이 돈을 내는 B2B · B2G — 7대 분야로는 지역콘텐츠)</em><br />관광기념품(매화막걸리 · 사계엽서 · 디퓨저) <em>(신청유형 밖 — 7대 분야로는 로컬푸드 · 지역기반제조)</em></td></tr>
+        </tbody>
+      </table></div>
+      <div class="tf-pair">
+        <figure class="tf-a">
         <img src="images/pre-tourism-venture-application-types.png" width="800" height="677" alt="예비관광벤처 사업계획서 양식 「일반현황」 표 — 대표자 성명 · 기업(예정)명 · 사업자 번호 · 신청유형(택 1: 관광체험서비스 · 실감형관광콘텐츠 · 관광인프라 · 관광딥테크) · 서비스(상품)명 20자 내외 · 한줄설명 50자 내외 · 협약목표(성과지표 KPI · 매출 · 관광매출 비율 · 투자유치 · 신규고용)" loading="lazy" />
-        <figcaption>예비관광벤처 사업계획서 양식의 첫 표 <strong>「일반현황」</strong>. 위 세 유형은 <em>사업의 모양</em>으로 나눈 것이고, 실제 신청서에서는 <strong class="hot-t">신청유형 넷 중 하나를 고릅니다(택 1)</strong> — <strong>관광체험서비스 · 실감형관광콘텐츠 · 관광인프라 · 관광딥테크</strong>. 그 아래 <strong>서비스명 20자 · 한줄설명 50자</strong>가 워크북 시트 1 의 칸이고, 맨 아래 <strong>협약목표</strong>(KPI · 매출 · 투자 · 고용)는 선정되면 약속하게 되는 숫자입니다.</figcaption>
+        <figcaption>예비관광벤처 사업계획서 양식의 첫 표 <strong>「일반현황」</strong>. 위 표의 네 유형은 <em>사업의 모양</em>으로 나눈 것이고, 실제 신청서에서는 <strong class="hot-t">신청유형 넷 중 하나를 고릅니다(택 1)</strong> — <strong>관광체험서비스 · 실감형관광콘텐츠 · 관광인프라 · 관광딥테크</strong>. 그 아래 <strong>서비스명 20자 · 한줄설명 50자</strong>가 워크북 시트 1 의 칸이고, 맨 아래 <strong>협약목표</strong>(KPI · 매출 · 투자 · 고용)는 선정되면 약속하게 되는 숫자입니다.</figcaption>
       </figure>
-      <p class="nx-jump"><a href="#kpi-sec">협약목표 KPI(매출 · 투자 · 고용) 자세히 — 04장 KPI ↓</a><span>KPI 4가지 창업 사례와 「고용은 어떻게 증명하나」 영상을 04장 KPI 칸에 모았습니다.</span></p>
-      <figure class="learn-fig" id="apply-types-4">
+        <figure class="tf-b" id="apply-types-4">
         <img src="images/pre-tourism-venture-application-types-four.svg" width="960" height="650" alt="예비관광벤처 신청유형 넷 — ① 관광체험서비스: 관광객이 직접 참여해 즐기는 여행상품·테마코스·체험 프로그램(스토리텔링 테마투어·맞춤형 프라이빗 투어·소규모 특화여행·단체 테마형 프로그램), ② 실감형관광콘텐츠: AR·VR·미디어아트처럼 보고 겪게 만드는 디지털 관광 콘텐츠(메타버스 체험·디지털 전시관·미디어아트 공간·다국어 실감 안내), ③ 관광인프라: 오프라인 시설·공간·자원을 새 콘셉트와 기술로 고도화하는 공간 기반 사업(유휴공간 체험형 관광공간·스마트 관광단지·체류형 복합공간), ④ 관광딥테크: 관광기업·지자체의 운영을 디지털화하는 데이터·SaaS·플랫폼 기반 B2B 솔루션(숙박 운영관리 PMS·POS·CRM·관광데이터 분석과 수요예측·OTA 연동과 정산 자동화)" loading="lazy" />
-        <figcaption class="cap-list"><span class="cl"><b class="k">이 그림</b> : 사업계획서 「일반현황」의 <strong>신청유형(택 1)</strong> 넷을 한 장에 편 것입니다.</span><span class="cl"><b class="k">고르는 기준 ①</b> : <strong>내 돈을 누가 내는가</strong> — 여행자가 내면 ①②③ 쪽, 사업자가 내면 <strong>④ 관광딥테크</strong>.</span><span class="cl"><b class="k">고르는 기준 ②</b> : <strong>내 것이 무엇인가</strong> — 상품인가 · 콘텐츠인가 · 공간인가 · 기술인가.</span><span class="cl"><b class="k">워크북 시트 1</b> : 「그 유형을 고른 근거 한 문장」은 위 두 물음에 답하면 그대로 써집니다.</span><span class="cl"><b class="k">유형 이름</b> : 사업계획서 양식 그대로입니다.</span><span class="cl"><b class="k">풀이와 예시</b> : <strong>수업용으로 붙인 것</strong>입니다 — 뜻이 가장 가까운 공식 문서인 <strong>2026 부산관광스타트업 공모전 모집요강</strong>의 모집유형 표(개념 · 예시)를 참고했습니다.</span><span class="cl note"><b class="k">주의</b> : 관광벤처 공고문 원문의 정의와 글자까지 같지는 않습니다. 실제로 지원할 때는 <strong>해당 회차 공고문의 유형 설명</strong>을 그대로 확인하십시오.</span></figcaption>
+        <figcaption><strong>신청유형(택 1) 넷</strong>을 한 장에 — 아래 일곱 줄이 이 그림의 설명입니다.</figcaption>
       </figure>
-      <p class="dltags"><a class="mapl form ylw" href="idea-development-workbook-4in1.html" target="_blank" rel="noopener">✦ 아이디어 구체화 4종 통합 워크북 · ChatGPT 프롬프트 ↗</a><span class="dl-src"><b>유형을 골랐으면 그다음은 아이디어를 「말이 되는 상품」으로 깎는 일입니다.</b> 원본 워크북 넷을 한 페이지에 모았습니다 — <b>① 피드백 루프</b>(한 번 묻고 끝내지 않고 <em>구체화 → 사례 비교 → 현실성 검토 · MVP</em>를 세 번 돌린다) · <b>② 프롬프트 워크북</b>(마스터 프롬프트 하나와 단계별 여덟 — 아이디어 진단 · 핵심 고객 · 이용 장면 · 정확히 무엇을 파는가 · 이용 흐름 · 차별성 · 운영과 가격 · MVP) · <b>③ PRODUCT · SERVICE 구체화</b> · <b>④ 관광상품 PRODUCT 구체화</b>. 프롬프트 상자는 <b>복사 버튼</b>이 붙어 있고 <b>[내 아이디어]</b>만 바꿔 넣으면 됩니다. 한지 교육 콘텐츠 · 지역문화 공연처럼 <b>막연한 한 줄이 시범 운영안까지 좁혀지는 예</b>가 끝에 둘 있습니다 — 02장에서 세운 <b>WHO · PROBLEM</b>을 여기서 <b>무엇을 파는가</b>로 옮깁니다.</span></p>
-
+      </div>
+      <p class="cap-list tf-notes"><span class="cl"><b class="k">이 그림</b> : 사업계획서 「일반현황」의 <strong>신청유형(택 1)</strong> 넷을 한 장에 편 것입니다.</span><span class="cl"><b class="k">고르는 기준 ①</b> : <strong>내 돈을 누가 내는가</strong> — 여행자가 내면 ①②③ 쪽, 사업자가 내면 <strong>④ 관광딥테크</strong>.</span><span class="cl"><b class="k">고르는 기준 ②</b> : <strong>내 것이 무엇인가</strong> — 상품인가 · 콘텐츠인가 · 공간인가 · 기술인가.</span><span class="cl"><b class="k">워크북 시트 1</b> : 「그 유형을 고른 근거 한 문장」은 위 두 물음에 답하면 그대로 써집니다.</span><span class="cl"><b class="k">유형 이름</b> : 사업계획서 양식 그대로입니다.</span><span class="cl"><b class="k">풀이와 예시</b> : <strong>수업용으로 붙인 것</strong>입니다 — 뜻이 가장 가까운 공식 문서인 <strong>2026 부산관광스타트업 공모전 모집요강</strong>의 모집유형 표(개념 · 예시)를 참고했습니다.</span><span class="cl note"><b class="k">주의</b> : 관광벤처 공고문 원문의 정의와 글자까지 같지는 않습니다. 실제로 지원할 때는 <strong>해당 회차 공고문의 유형 설명</strong>을 그대로 확인하십시오.</span></p>
+      <p class="nx-jump"><a href="#kpi-sec">협약목표 KPI(매출 · 투자 · 고용) 자세히 — 04장 KPI ↓</a><span>KPI 4가지 창업 사례와 「고용은 어떻게 증명하나」 영상을 04장 KPI 칸에 모았습니다.</span></p>
+      
       <div class="plat-box">
         <p class="pb-h"><b class="pb-tag">관광인프라</b><b class="pb-tag">플랫폼</b>도구는 어디에 있고 무엇이 어디로 가는가</p>
         <p class="pb-d">아이템을 문장으로 만들었으면, 그것을 <strong>실제로 보이는 자리</strong>에 올리는 일이 남습니다. 이 판은 <strong>Claude Code · GitHub · Vercel</strong> 셋이 어떻게 이어지는지를 여섯 장으로 풉니다 — ① 네 도구의 역할 · ② 세 가지 연결 · ③ 처음 한 번 설정(코드 가져오기 → Claude Code 연결 → Vercel 연결) · ④ <strong>수정에서 배포까지 일곱 걸음</strong>(수정 목표 → AI에 요청 → 미리보기 → 저장 → Commit → Push → 배포 확인) · ⑤ <strong>어디에서 멈췄을까</strong>(「Commit했는데 GitHub에 없다」 「내 컴퓨터에서만 된다」 등 다섯 갈래) · ⑥ 관광 수업 실습 — <strong>안동 안내 사이트</strong>의 제목 고치기 · 관광지 카드 더하기 · 모바일 화면 손보기.</p>
@@ -3435,10 +3462,14 @@
       <div class="tri-wrap tri-warm hub-gap">
         <svg class="tri-line" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polygon points="50,3 97,97 3,97" /></svg>
         <ol class="vcards c3 steps tri3">
-          <li class="t-orange on-dark"><span class="vt">WHO</span><span class="vh">누구의 문제인가</span><span class="vd">고객을 구체적으로. <em>예: 부산을 처음 찾는 외국인 개별 여행자.</em></span><span class="tri-hub">문제 정의</span></li>
-          <li class="t-orange2 on-dark"><span class="vt">WHAT</span><span class="vh">어떤 문제인가</span><span class="vd">진짜 불편을 한 문장으로. <em>예: 언어 장벽으로 로컬 경험에 닿지 못한다.</em></span></li>
+          <li class="t-orange on-dark"><span class="vt">WHO</span><span class="vh">누구의 문제인가</span><span class="vd">고객을 구체적으로. <em>예: 부산을 처음 찾는 외국인 개별 여행자.</em></span><span class="vlk"><a href="#sr-08a">▶ 고객 페르소나 영상 ↓</a></span><span class="tri-hub">문제 정의</span></li>
+          <li class="t-orange2 on-dark"><span class="vt">WHAT</span><span class="vh">어떤 문제인가</span><span class="vd">진짜 불편을 한 문장으로. <em>예: 언어 장벽으로 로컬 경험에 닿지 못한다.</em></span><span class="vlk"><a href="#idea-wb">✦ 아이템 구체화 워크북 ↓</a></span></li>
           <li class="t-orange3 on-dark"><span class="vt">WHY NOW<b class="vstar">★ 차별성</b></span><span class="vh">기존 업체와 어떤 차별성이 있는가</span><span class="vd">이미 있는 서비스·대체재가 못 하는 것, 남이 쉽게 따라 하지 못하는 규칙 하나를 짚습니다. 시장·기술·규제의 변화가 지금 그 틈을 열었다면 더 단단해집니다. <em>예: 번역 앱은 말만 옮기지만, 검증된 로컬 호스트가 골목까지 함께 걷는다. 이 칸이 흔들리면 「기존 업체와 뭐가 다른데?」로 되돌아옵니다.</em></span></li>
         </ol>
+      </div>
+      <div class="tri-follow">
+        <div class="tf-col"><p class="tf-h"><b>WHO</b> → 고객을 한 사람으로</p><div class="ir-row" id="sr-08a" style="margin:0"><div class="ir-short mini"><iframe src="https://www.youtube-nocookie.com/embed/KEFW2iuAgxg?start=719" title="[사업계획서작성] ⑧ 사업계획서 작성 요령 — 고객 페르소나" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><p class="ir-cap"><b>「⑧ 사업계획서 작성 요령」 · 고객 페르소나</b> — 한국부동산원 · <strong>11분 59초부터</strong>. 아래 타겟팅 ①~③으로 좁힐 고객을 「20대 관광객」에서 멈추지 않고 <b>한 사람(페르소나)</b>으로 그려 보이는 법. 같은 영상 11:14부터는 03장 「3 그리기」의 비즈니스 모델 도식화입니다.</p></div></div></div>
+        <div class="tf-col"><p class="tf-h"><b>WHAT</b> → 무엇을 파는가로 깎기</p><p class="dltags" id="idea-wb"><a class="mapl form ylw" href="idea-development-workbook-4in1.html" target="_blank" rel="noopener">✦ 아이디어 구체화 4종 통합 워크북 · ChatGPT 프롬프트 ↗</a><span class="dl-src"><b>유형을 골랐으면 그다음은 아이디어를 「말이 되는 상품」으로 깎는 일입니다.</b> 원본 워크북 넷을 한 페이지에 모았습니다 — <b>① 피드백 루프</b>(한 번 묻고 끝내지 않고 <em>구체화 → 사례 비교 → 현실성 검토 · MVP</em>를 세 번 돌린다) · <b>② 프롬프트 워크북</b>(마스터 프롬프트 하나와 단계별 여덟 — 아이디어 진단 · 핵심 고객 · 이용 장면 · 정확히 무엇을 파는가 · 이용 흐름 · 차별성 · 운영과 가격 · MVP) · <b>③ PRODUCT · SERVICE 구체화</b> · <b>④ 관광상품 PRODUCT 구체화</b>. 프롬프트 상자는 <b>복사 버튼</b>이 붙어 있고 <b>[내 아이디어]</b>만 바꿔 넣으면 됩니다. 한지 교육 콘텐츠 · 지역문화 공연처럼 <b>막연한 한 줄이 시범 운영안까지 좁혀지는 예</b>가 끝에 둘 있습니다 — 위 삼각형의 <b>WHO · WHAT</b>을 여기서 <b>무엇을 파는가</b>로 옮깁니다.</span></p></div>
       </div>
       <p>좋은 문제 정의는 이미 절반의 해답입니다. 이 사이트의 출발점도 "친절한 로컬 가이드와 여행자를 잇는다"는 한 문장이었습니다.</p>
       <figure class="learn-fig ps-penta" id="problem-statement-5">
@@ -3487,7 +3518,6 @@
           <li><span class="dltags"><a class="mapl form lime" href="market-size-4-visuals.html" target="_blank" rel="noopener">⑥ LAM → RAM → SOM → SAM → TAM → PAM ↗</a></span><span>좁힌 고객이 <b>몇 명 · 얼마</b>인지로 넘어가는 다리 — 여섯 단계를 <b>계단형 · 중첩형 · 원형형 · 확장형</b> 네 그림으로 봅니다(10주차 할 것 ①).</span></li>
         </ol>
       </div>
-      <div class="ir-row" id="sr-08a"><div class="ir-short mini"><iframe src="https://www.youtube-nocookie.com/embed/KEFW2iuAgxg?start=719" title="[사업계획서작성] ⑧ 사업계획서 작성 요령 — 고객 페르소나" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><p class="ir-cap"><b>「⑧ 사업계획서 작성 요령」 · 고객 페르소나</b> — 한국부동산원 · <strong>11분 59초부터</strong>. 위 ①~③으로 좁힌 타겟을 「20대 관광객」에서 멈추지 않고 <b>한 사람(페르소나)</b>으로 그려 보이는 법. 같은 영상 11:14부터는 03장 「3 그리기」의 비즈니스 모델 도식화입니다.</p></div></div>
       <figure class="learn-fig sm">
         <img src="images/tourism-venture-market-size-sam-som-tam.png" alt="TAM → SAM → RAM → SOM 깔때기 — TAM(전체 글로벌 수요)에 사업모델 필터를 걸어 SAM(지리적으로 닿는 시장), 운영 제약 필터를 걸어 RAM(실제 접근 가능한 시장), 직접 경쟁을 감안해 SOM(현실적인 단기 점유율)까지 좁힌다" width="272" height="394" loading="lazy" />
         <figcaption>위 ⑥ 깔때기의 축약판 — <b>LAM · PAM 둘을 빼고 TAM → SAM → RAM → SOM 네 단계</b>만, 단계 사이에 무엇을 거르는지(사업모델 · 운영 제약 · 직접 경쟁)를 적어 넣은 그림입니다. 한 장으로 빠르게 볼 때 씁니다.</figcaption>
