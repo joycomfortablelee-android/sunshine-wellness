@@ -511,6 +511,21 @@
     .learn-article .city-card .linkrow.tiny a:hover { background: #2563a8; border-color: #2563a8; color: #fff; }
     .learn-article .city-card .linkrow.tiny a.sky { background: #e0f2fe; border-color: #7cc4ea; }
     @media (max-width: 820px) { .learn-article .city-grid { grid-template-columns: 1fr; } }
+    /* 04-1 숫자 카드 · 04-2 세 묶음 */
+    .learn-article .stat4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 10px 0 12px; }
+    .learn-article .stat4 > div { border: 1px solid #c3daee; border-radius: 10px; background: #f7fbff; padding: 10px 12px; }
+    .learn-article .stat4 b { display: block; font-size: 17px; font-weight: 900; color: #1c4e8a; letter-spacing: -.3px; }
+    .learn-article .stat4 span { display: block; margin-top: 2px; font-size: 11.5px; color: #5c6b7a; }
+    .learn-article .step-tag { display: inline-block; margin-bottom: 4px; padding: 1px 8px; border-radius: 999px; background: #1c4e8a; color: #fff; font-size: 10.5px; font-weight: 800; margin-right: 6px; vertical-align: 2px; }
+    .learn-article .ks-wrap { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; align-items: start; margin: 8px 0 12px; }
+    .learn-article .ks-grp { border: 1px solid #c3daee; border-top: 3px solid #2563a8; border-radius: 10px; background: #fff; padding: 10px 12px; min-width: 0; }
+    .learn-article .ks-grp .ks-h { margin: 0 0 6px; font-size: 12.5px; color: #5c6b7a; }
+    .learn-article .ks-grp .ks-h b { font-size: 14px; color: #1c4e8a; }
+    .learn-article .ks-grp .kwlist { margin: 0; }
+    .learn-article .ks-grp .kwlist li { display: block !important; grid-template-columns: none !important; padding: 6px 0; font-size: 12.5px; line-height: 1.7; }
+    .learn-article .ks-grp .kwlist li > span { display: block; }
+    .learn-article .ks-grp .kwlist li > b { display: block; margin-top: 6px; font-size: 12.5px; color: #17365d; }
+    @media (max-width: 900px) { .learn-article .stat4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } .learn-article .ks-wrap { grid-template-columns: 1fr; } }
     /* 한국부동산원 시리즈 한눈에 — 편 번호 알약 줄 */
     .learn-article .dltags.series-idx .si-h { font-size: 12px; font-weight: 800; color: #17365d; margin-right: 6px; }
     .learn-article .dltags.series-idx a { display: inline-block; margin: 0 4px 4px 0; padding: 3px 9px; border-radius: 999px; border: 1px solid #c3d2e2; background: #fff; color: #17365d; font-size: 11.5px; font-weight: 700; text-decoration: none; }
@@ -3291,25 +3306,22 @@
           <p class="nx-d">고객을 정했으면 <strong class="hot-t">그 고객에게서 어떻게 돈이 들어오는지</strong>를 그립니다. 사업계획서 <strong>「2-2 사업모델」</strong> 칸은 이날과 11주차, <strong>두 번에 걸쳐</strong> 채워 <strong class="hot-t">3차 제출(11월 15일(일) 자정)</strong>로 냅니다.</p>
 
           <p class="nx-lb">이날 한 것 ① — 비즈니스 모델 1차시</p>
-          <p class="nx-d">비즈니스 모델을 <strong>개략적으로 훑어보는</strong> 데까지 했습니다. 아래 <strong>할 것 ①~②</strong>와 수익모델 숫자 넣기는 <strong class="hot-t">11주차(11/10)에 한 번 더</strong> 이어서 다룹니다.</p>
+          <p class="nx-d">비즈니스 모델을 <strong>개략적으로 훑어보는</strong> 데까지 했습니다. 아래 <strong>할 것 ①</strong>과 수익모델 숫자 넣기는 <strong class="hot-t">11주차(11/10)에 한 번 더</strong> 이어서 다룹니다.</p>
 
           <p class="nx-lb">이날 한 것 ② — 예비창업패키지 합격 사업계획서 영상</p>
           <p class="nx-d">함께 봤습니다 — 사업계획서를 <strong>왜 그렇게 써야 심사에서 통과하는지</strong>, 실제 합격 사례의 관점에서 보는 영상입니다. 05장 「예비관광벤처 사업공모」·「관광 오픈이노베이션」 절에서 본 <strong>예비창업패키지</strong>(중기부)가 바로 이 영상이 다루는 그 사업입니다.</p>
-          <p class="dltags"><a class="mapl form" href="https://class101.net/ko/products/6350e49a4ba9e7000e7968ab" target="_blank" rel="noopener">CLASS101 · 예비창업패키지 사업계획서 작성하기 ↗</a><span class="dl-src">예비창업패키지 등 정부 지원사업에 <b>합격한 사업계획서가 실제로 어떻게 쓰였는지</b>를 강사가 짚어 주는 강의입니다. 수업 전에 한 편 보고 오면, 오늘 그릴 <b>네모 넷과 화살표</b>가 더 구체적으로 잡힙니다.</span></p>
+          <p class="dltags"><a class="mapl form" href="https://class101.net/ko/products/6350e49a4ba9e7000e7968ab" target="_blank" rel="noopener">CLASS101 · 예비창업패키지 사업계획서 작성하기 ↗</a><span class="dl-src">예비창업패키지 등 정부 지원사업에 <b>합격한 사업계획서가 실제로 어떻게 쓰였는지</b>를 강사가 짚어 주는 강의입니다. 이날 함께 보며 <b>네모 넷과 화살표</b>를 어떻게 그리는지 구체적으로 잡았습니다.</span></p>
 
           <p class="nx-lb">이날 한 것 ③ — 03장 자주색 판 훑어보기</p>
           <p class="nx-jump"><a href="#ch03">이날 쓰는 자주색 판들 — 도식화 · BM 네 가지 · 17가지 수익모델 ↓</a><span>03장 「비즈니스 모델 — 어떻게 돈이 도는가」 아래에 모여 있습니다.</span></p>
-          <p class="dltags"><a class="mapl form bm s1" href="business-model-17-types-p20-40.html" target="_blank" rel="noopener"><span class="step-chip">1 고르기</span>비즈니스 모델 17가지 × 관광 적용 ↗</a><a class="mapl form bm s2" href="business-model-revenue-formula.html" target="_blank" rel="noopener"><span class="step-chip">2 계산하기</span>비즈니스 모델 × 수익모델 공식 · 계산기 ↗</a><a class="mapl form bm s3" href="business-model-revenue-flow-diagram.html" target="_blank" rel="noopener"><span class="step-chip">3 그리기</span>사업모델 도식화 — 화살표로 직접 그려보기 ↗</a><a class="mapl form bm s3" href="bm-diagram-4types.html" target="_blank" rel="noopener"><span class="step-chip">3 그리기</span>BM 도식 네 가지 — 고객군(B2C·B2B·B2G)별 실제 사례 ↗</a><span class="dl-src">위 <b>할 것 ①·②</b>를 이 네 판에서 합니다 — <b>1 고르기</b>는 <b>수수료형 · 판매마진형 · 구독형</b> 등 <b>돈이 들어오는 화살표에 ★</b>를 찍을 때 참고할 17가지 수익모델 목록, <b>2 계산하기</b>는 고른 모델에 숫자를 넣어 <b>월 예상 수익</b>을 내는 판, <b>3 그리기</b>의 첫 판은 <b>빈 화살표 틀</b>에 내 박스를 직접 채우는 곳, 둘째 판은 <b>B2C·B2B·B2G</b> 실제 사례로 모양을 고르는 곳입니다.</span></p>
+          <p class="dltags"><a class="mapl form bm s1" href="business-model-17-types-p20-40.html" target="_blank" rel="noopener"><span class="step-chip">1 고르기</span>비즈니스 모델 17가지 × 관광 적용 ↗</a><a class="mapl form bm s2" href="business-model-revenue-formula.html" target="_blank" rel="noopener"><span class="step-chip">2 계산하기</span>비즈니스 모델 × 수익모델 공식 · 계산기 ↗</a><a class="mapl form bm s3" href="business-model-revenue-flow-diagram.html" target="_blank" rel="noopener"><span class="step-chip">3 그리기</span>사업모델 도식화 — 화살표로 직접 그려보기 ↗</a><a class="mapl form bm s3" href="bm-diagram-4types.html" target="_blank" rel="noopener"><span class="step-chip">3 그리기</span>BM 도식 네 가지 — 고객군(B2C·B2B·B2G)별 실제 사례 ↗</a><span class="dl-src">이 네 판을 이날 함께 훑었습니다(실습은 아래 할 것 ① · 11주차 숫자 넣기) — <b>1 고르기</b>는 <b>수수료형 · 판매마진형 · 구독형</b> 등 <b>돈이 들어오는 화살표에 ★</b>를 찍을 때 참고할 17가지 수익모델 목록, <b>2 계산하기</b>는 고른 모델에 숫자를 넣어 <b>월 예상 수익</b>을 내는 판, <b>3 그리기</b>의 첫 판은 <b>빈 화살표 틀</b>에 내 박스를 직접 채우는 곳, 둘째 판은 <b>B2C·B2B·B2G</b> 실제 사례로 모양을 고르는 곳입니다.</span></p>
 
           <p class="nx-lb">할 것 ① — 네모 넷과 화살표로 그리기</p>
           <p class="nx-d">박스 <strong>3~4개</strong>, <strong>가치는 실선 · 돈은 점선</strong>, 우리 박스 안에 <strong>남기는 돈을 숫자로</strong>. 그린 뒤 <strong>돈이 들어오는 화살표에 ★</strong>를 찍습니다 — 별이 하나도 없으면 아직 사업모델이 아닙니다.</p>
 
-                    <p class="nx-lb">할 것 ② — 여행사 창업계획서 모의 한 부 <em>(4주차 9/22에서 옮겨 온 실습)</em></p>
-          <p class="nx-d">모의로 한 부를 끝까지 채웁니다 — 어떤 여행사인가 · 누구를 태우는가 · <strong>상품 한 개의 원가와 값</strong> · 등록 기준(<strong>자본금 · 사무실 · 보증보험</strong>)을 어떻게 맞출 것인가. 쓰는 순서는 <em>여행사 사업계획서 AI 프롬프트 워크북</em>, 숫자 근거는 <em>여행업 등록기준 · 자본금</em>과 <em>영업보증보험</em>에서 가져옵니다.</p>
-          <p class="dltags"><a class="mapl form hot" href="travel-agency-ai-prompt-workbook.html" target="_blank" rel="noopener">여행사 사업계획서 AI 프롬프트 워크북 · 2시간 수업용 ↗</a><a class="mapl form" href="travel-agency-capital-requirements.html" target="_blank" rel="noopener">여행업 등록기준 · 자본금 ↗</a><a class="mapl form" href="travel-agency-guarantee-insurance.html" target="_blank" rel="noopener">영업보증보험 ↗</a><span class="dl-src"><b>쓰는 순서</b>는 워크북, <b>숫자 근거</b>는 등록기준과 보증보험에서 가져옵니다.</span></p>
-          <p class="nx-n"><strong>이날 여기에 붙이는 이유</strong> — 「상품 한 개의 원가와 값」이 11주차 <strong>수익모델 고르고 숫자 넣기</strong>와 같은 계산입니다. 등록기준과 보증보험도 결국 <em>이 사업이 실제로 굴러가는가</em>의 숫자입니다.</p>
 
-                  </div>
+
+          </div>
       </details>
 
       <details class="wk-fold" id="wk11">
@@ -3318,7 +3330,7 @@
           <p class="nx-h">내 아이템의 돈 버는 방식과 경쟁 상대, 실현 근거를 정리하는 날</p>
 
           <p class="nx-lb">먼저 — 비즈니스 모델 2차시 <em>(10주차 11/3에서 이어짐)</em></p>
-          <p class="nx-d">10주차에 개략적으로 훑어본 <strong>비즈니스 모델</strong>을 한 번 더 다룹니다 — <a href="#wk10">10주차 할 것 ①~② ↑</a>(사업모델 그리기 · 여행사 창업계획서 모의).</p>
+          <p class="nx-d">10주차에 개략적으로 훑어본 <strong>비즈니스 모델</strong>을 한 번 더 다룹니다 — <a href="#wk10">10주차 할 것 ① ↑</a>(사업모델 그리기).</p>
 
                     <p class="nx-lb">먼저 할 것 — 수익모델 고르고 숫자 넣기 <em>(10주차 11/3에서 옮겨 옴)</em></p>
           <p class="nx-d">수수료형 · 판매마진형 · 구독형 · 광고형 · B2B 솔루션형 가운데 <strong>내 것 하나(또는 둘)</strong>를 고르고, <strong>거래건수 × 평균 거래금액 × 수수료율</strong>로 월 예상 수익을 계산합니다. 근거 없는 숫자는 쓰지 않고 <em>어디서 가져온 값인지</em>를 괄호로 답니다.</p>
@@ -3436,6 +3448,11 @@
           <p class="dltags"><a class="mapl form ylw" href="travel-agency-startup-strategy-slides.html" target="_blank" rel="noopener">✦ 여행업 창업전략 · 소자본 창업 로드맵 ↗</a><a class="mapl form" href="travel-agency-capital-requirements.html" target="_blank" rel="noopener">여행업 등록기준 · 자본금과 법적 근거 한 장 ↗</a><span class="dl-src">3주차(9/15)에 본 <b>여행사 창업 프로세스</b>를 다시 짚습니다 — 작은 자본으로 어디서부터 시작하는지.</span></p>
 
           <p class="nx-n">이날 받은 지적이 그대로 심사장에서 나올 질문입니다. 고칠 곳을 적어 두고 <strong>기말 전까지</strong> 반영하십시오 — 다음 수업은 없습니다.</p>
+
+          <p class="nx-lb">할 것 ⑥ — 여행사 창업계획서 모의 한 부 <em>(4주차 9/22 → 10주차 11/3에서 옮겨 온 실습)</em></p>
+          <p class="nx-d">모의로 한 부를 끝까지 채웁니다 — 어떤 여행사인가 · 누구를 태우는가 · <strong>상품 한 개의 원가와 값</strong> · 등록 기준(<strong>자본금 · 사무실 · 보증보험</strong>)을 어떻게 맞출 것인가. 쓰는 순서는 <em>여행사 사업계획서 AI 프롬프트 워크북</em>, 숫자 근거는 <em>여행업 등록기준 · 자본금</em>과 <em>영업보증보험</em>에서 가져옵니다.</p>
+          <p class="dltags"><a class="mapl form hot" href="travel-agency-ai-prompt-workbook.html" target="_blank" rel="noopener">여행사 사업계획서 AI 프롬프트 워크북 · 2시간 수업용 ↗</a><a class="mapl form" href="travel-agency-capital-requirements.html" target="_blank" rel="noopener">여행업 등록기준 · 자본금 ↗</a><a class="mapl form" href="travel-agency-guarantee-insurance.html" target="_blank" rel="noopener">영업보증보험 ↗</a><span class="dl-src"><b>쓰는 순서</b>는 워크북, <b>숫자 근거</b>는 등록기준과 보증보험에서 가져옵니다.</span></p>
+          <p class="nx-n"><strong>마지막 수업에 두는 이유</strong> — 한 학기 동안 쓴 칸(문제 · 고객 · 수익모델 · 위험)을 <strong>업종 하나에 끝까지 대 보는</strong> 마무리입니다. 「상품 한 개의 원가와 값」은 11주차 <strong>수익모델 숫자 넣기</strong>와 같은 계산입니다. 등록기준과 보증보험도 결국 <em>이 사업이 실제로 굴러가는가</em>의 숫자입니다.</p>
         </div>
       </details>
 
@@ -3722,7 +3739,7 @@
 
       <p class="learn-part lp-call" id="예비관광벤처공모"><span class="ptag">04-1 ① 관광 전용</span>예비관광벤처 사업공모<span class="ptag-out"><b>★</b>외부의 기회들</span></p>
       <p>'공공 지원'이 실제로 어떻게 작동하는지, 한국관광공사의 대표 사업인 <strong>예비관광벤처 사업공모</strong>를 예로 살펴봅니다. 아직 사업자등록을 하지 않은 <em>예비창업자</em>가 아이디어를 실제 사업으로 세울 수 있도록 자금과 프로그램을 지원하는, 관광 창업의 대표적 진입로입니다.</p>
-      <p class="mini-note"><strong>제18회 한눈에</strong> — 예비관광벤처 <strong>★ 최대 7,700만 원 · 15개 내외</strong> · 접수 <strong>4/29~5/15</strong> · 자부담 10% · <a href="https://touraz.kr" target="_blank" rel="noopener">투어라즈 ↗</a> · <a href="#touraz-tiers">세 부문 그림 ↑</a></p>
+      <div class="stat4"><div><b>최대 7,700만 원</b><span>예비 부문 지원 · 자부담 10%</span></div><div><b>15개 내외</b><span>예비창업자 선발</span></div><div><b>4/29 ~ 5/15</b><span>제18회 접수 · 매년 봄</span></div><div><b>투어라즈</b><span><a href="https://touraz.kr" target="_blank" rel="noopener">touraz.kr ↗</a> · <a href="#touraz-tiers">세 부문 그림 ↑</a></span></div></div>
       <details class="spec-fold">
       <summary>요강 — 신청 대상 · 지원 분야 · 지원 내용 · 평가 절차 · 핵심 제출물</summary>
       <ul>
@@ -3737,12 +3754,12 @@
 
       <ul class="reslist grid3 two">
         <li class="t-blue3">
-          <a href="https://touraz.kr/announcementList/pssrpView?pssrpSeqEnc=jf4jC9axJbweeQHTDbzcug==&curPage=1" target="_blank" rel="noopener">제18회 예비관광벤처 사업공모 (공고 원문) ↗</a>
+          <span class="step-tag">① 공고를 읽는다</span><a href="https://touraz.kr/announcementList/pssrpView?pssrpSeqEnc=jf4jC9axJbweeQHTDbzcug==&curPage=1" target="_blank" rel="noopener">제18회 예비관광벤처 사업공모 (공고 원문) ↗</a>
           <span class="desc">위 사례의 실제 공고 페이지. 지원 자격·제출서류·평가 일정 등 상세 요건과 사업계획서 양식을 확인할 수 있습니다. 접수·심사는 관광벤처 통합 플랫폼 '투어라즈'에서 진행됩니다.</span>
           <span class="meta">한국관광공사 · 관광벤처(touraz.kr) · 운영: (주)탭엔젤파트너스</span>
         </li>
         <li class="t-blue3">
-          <a href="https://blog.naver.com/sonsoore2/224181341896" target="_blank" rel="noopener">2026 관광벤처사업 공모 — 예비·성장 최대 1.2억 지원 (합격 가이드·꿀팁 총정리) ↗</a>
+          <span class="step-tag">② 실제로 낸다</span><a href="https://blog.naver.com/sonsoore2/224181341896" target="_blank" rel="noopener">2026 관광벤처사업 공모 — 예비·성장 최대 1.2억 지원 (합격 가이드·꿀팁 총정리) ↗</a>
           <span class="desc">위 요강이 <strong>공고를 읽는 이야기</strong>였다면, 이 글은 <strong>실제로 내는 이야기</strong>입니다. 관광벤처사업(예비·성장)의 지원 규모와 신청 전략을 정리한 실전 가이드로, 공고문만으로는 알기 어려운 <strong>사업계획서 작성·평가 대비 팁</strong>을 담았습니다.</span>
           <span class="meta">네이버 블로그 '정부지원 정보방'</span>
         </li>
@@ -3766,18 +3783,28 @@
       </details>
 
       <p class="learn-part lp-sub ks" id="예비창업패키지"><span class="ptag">04-2 ② 범부처</span>예비창업패키지, 무엇을 어떻게 내나</p>
-      <ol class="kwlist ks-kw">
-        <li><b>어떤 사업인가</b><span>중기부의 <strong>대표 예비창업 지원사업</strong>입니다(공고 <strong>제2026-207호</strong> · 신산업기술창업과 <strong>1357</strong>). <strong>사업자등록을 하지 않은 예비창업자</strong>면 <strong>나이 제한 없이</strong> 냅니다.</span></li>
-        <li><b>이미 끝난 회차</b><span>2026년은 <strong>3. 6. ~ 3. 24. 16:00</strong>으로 마감됐습니다. 여기 걸어 둔 것은 <strong class="hot-t">다음 회차를 미리 읽어 두라는 뜻</strong>입니다 — 3월에 열려 3월에 닫히므로 <strong>그때 알면 늦습니다</strong>.</span></li>
-        <li><b>받는 것</b><span>사업화자금 <strong>평균 4천만원</strong>(<strong>1단계 2천 + 2단계 2천</strong>). 분야는 <strong>일반</strong>과 <strong>특화</strong>(여성 · 소셜벤처 · 사내벤처)로 갈립니다.</span></li>
-        <li><b>양식 — 10쪽</b><span>초록 알약이 그 <strong>2026년 양식</strong>입니다. 분량이 <strong>15쪽 → 10쪽</strong>(목차 제외)으로 줄었고, 그림이 많으면 <strong>별첨2 기타 증빙서류</strong>로 뺍니다.</span></li>
-        <li><b>구성은 PSST</b><span><strong>1 문제 인식(Problem) · 2 실현 가능성(Solution) · 3 성장전략(Scale-up) · 4 팀 구성(Team)</strong>. <strong class="hot-t">이 수업 과제 1이 그대로 이 네 칸에 들어갑니다</strong> — <strong>02장 문제 정의</strong>가 1번, <strong>03장 비즈니스 모델</strong>이 3번의 「수익화 모델」 칸입니다.</span></li>
-        <li><b>부처가 달라도</b><span>옆의 <strong>창업중심대학 양식(2024)</strong>과 나란히 열어 보십시오. <strong>묻는 것이 같다</strong>는 것이 한눈에 보입니다 — 같은 아이템으로 여러 창구에 낼 수 있는 이유입니다.</span></li>
-        <li><b>P는 증빙으로</b><span>느낌이 아니라 <strong>수치 · 논문 · 고객 인터뷰</strong>로 씁니다. <em>PRISM 정책연구용역</em>과 <em>한국관광 데이터랩</em>이 그 숫자를 주는 곳입니다.</span></li>
-        <li><b>S · S · T는 무엇으로</b><span><strong>실현</strong>은 경쟁사 비교표 · 구조도 · 프로토타입 화면으로, <strong>성장</strong>은 <strong>고객획득비용(CAC)</strong>과 단계별 자금 소요를 숫자로, <strong>팀</strong>은 직무 경험 · 학위 · 외주와 MOU로 증명합니다.</span></li>
-        <li><b>쓰지 말 말, 지킬 시각</b><span><em>「개발 예정」</em> 같은 흐린 말은 빼십시오. 그리고 <strong class="hot-t">마감 세 시간 전에는 제출을 끝내십시오</strong> — 접수 사이트는 마감 직전에 느려집니다.</span></li>
-        <li><b>사설 정리 둘</b><span>점선 알약 둘은 <strong>창업 컨설팅 업체가 쓴 글</strong>입니다. 회차 변경점과 작성 요령이 잘 정리돼 있어 걸었지만 <strong>끝에 유료 서비스를 팝니다</strong> — <strong class="hot-t">읽되 사지 마십시오.</strong> 기준은 언제나 <strong>공식 공고와 양식</strong>입니다.</span></li>
-      </ol>
+      <p class="dltags ks-pills"><a class="mapl form hot" href="https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&amp;bcIdx=1066579&amp;parentSeq=1066579" target="_blank" rel="noopener">2026 예비창업패키지 공고 (3/24 마감) ↗</a><a class="mapl form hot lime" href="assets/preliminary-startup-package-business-plan-form-2026.docx" download="2026_예비창업패키지_사업계획서_양식.docx">2026 예비창업패키지 양식 ⤓ DOCX</a><a class="mapl form" href="assets/startup-univ-preliminary-business-plan-form-2024.hwpx" download="2024_창업중심대학_예비창업자_사업계획서_양식.hwpx">창업중심대학 양식 (2024) ⤓ HWPX</a><a class="mapl form ex" href="https://blog.naver.com/772ryo/224202821244" target="_blank" rel="noopener">그 회차가 어떻게 달라졌나 · 사설 정리 ↗</a><a class="mapl form ex" href="https://passhacker.com/blog/2026-pre-startup-package-business-plan-form-writing-guide" target="_blank" rel="noopener">PSST 네 칸 쓰는 법 · 사설 정리 ↗</a><span class="dl-src">남색 알약이 공고, <b>초록 알약이 2026 양식</b>, 흰 알약이 견줄 <b>창업중심대학 양식</b>, <b>점선 알약 둘이 사설 정리</b>입니다.</span></p>
+      <div class="ks-wrap">
+      <div class="ks-grp"><p class="ks-h"><b>사업</b> — 무엇을 받나</p>
+        <ol class="kwlist ks-kw">
+          <li><b>어떤 사업인가</b><span>중기부의 <strong>대표 예비창업 지원사업</strong>입니다(공고 <strong>제2026-207호</strong> · 신산업기술창업과 <strong>1357</strong>). <strong>사업자등록을 하지 않은 예비창업자</strong>면 <strong>나이 제한 없이</strong> 냅니다.</span></li>
+          <li><b>이미 끝난 회차</b><span>2026년은 <strong>3. 6. ~ 3. 24. 16:00</strong>으로 마감됐습니다. 여기 걸어 둔 것은 <strong class="hot-t">다음 회차를 미리 읽어 두라는 뜻</strong>입니다 — 3월에 열려 3월에 닫히므로 <strong>그때 알면 늦습니다</strong>.</span></li>
+          <li><b>받는 것</b><span>사업화자금 <strong>평균 4천만원</strong>(<strong>1단계 2천 + 2단계 2천</strong>). 분야는 <strong>일반</strong>과 <strong>특화</strong>(여성 · 소셜벤처 · 사내벤처)로 갈립니다.</span></li>
+        </ol></div>
+      <div class="ks-grp"><p class="ks-h"><b>양식</b> — 무엇을 묻나</p>
+        <ol class="kwlist ks-kw">
+          <li><b>양식 — 10쪽</b><span>초록 알약이 그 <strong>2026년 양식</strong>입니다. 분량이 <strong>15쪽 → 10쪽</strong>(목차 제외)으로 줄었고, 그림이 많으면 <strong>별첨2 기타 증빙서류</strong>로 뺍니다.</span></li>
+          <li><b>구성은 PSST</b><span><strong>1 문제 인식(Problem) · 2 실현 가능성(Solution) · 3 성장전략(Scale-up) · 4 팀 구성(Team)</strong>. <strong class="hot-t">이 수업 과제 1이 그대로 이 네 칸에 들어갑니다</strong> — <strong>02장 문제 정의</strong>가 1번, <strong>03장 비즈니스 모델</strong>이 3번의 「수익화 모델」 칸입니다.</span></li>
+          <li><b>부처가 달라도</b><span>위 흰 알약 <strong>창업중심대학 양식(2024)</strong>과 나란히 열어 보십시오. <strong>묻는 것이 같다</strong>는 것이 한눈에 보입니다 — 같은 아이템으로 여러 창구에 낼 수 있는 이유입니다.</span></li>
+        </ol></div>
+      <div class="ks-grp"><p class="ks-h"><b>쓰는 법</b> — 어떻게 채우나</p>
+        <ol class="kwlist ks-kw">
+          <li><b>P는 증빙으로</b><span>느낌이 아니라 <strong>수치 · 논문 · 고객 인터뷰</strong>로 씁니다. <em>PRISM 정책연구용역</em>과 <em>한국관광 데이터랩</em>이 그 숫자를 주는 곳입니다.</span></li>
+          <li><b>S · S · T는 무엇으로</b><span><strong>실현</strong>은 경쟁사 비교표 · 구조도 · 프로토타입 화면으로, <strong>성장</strong>은 <strong>고객획득비용(CAC)</strong>과 단계별 자금 소요를 숫자로, <strong>팀</strong>은 직무 경험 · 학위 · 외주와 MOU로 증명합니다.</span></li>
+          <li><b>쓰지 말 말, 지킬 시각</b><span><em>「개발 예정」</em> 같은 흐린 말은 빼십시오. 그리고 <strong class="hot-t">마감 세 시간 전에는 제출을 끝내십시오</strong> — 접수 사이트는 마감 직전에 느려집니다.</span></li>
+          <li><b>사설 정리 둘</b><span>점선 알약 둘은 <strong>창업 컨설팅 업체가 쓴 글</strong>입니다. 회차 변경점과 작성 요령이 잘 정리돼 있어 걸었지만 <strong>끝에 유료 서비스를 팝니다</strong> — <strong class="hot-t">읽되 사지 마십시오.</strong> 기준은 언제나 <strong>공식 공고와 양식</strong>입니다.</span></li>
+        </ol></div>
+      </div>
 
       <p class="learn-part lp-sub" id="보육투자"><span class="ptag">04-3 ③ 보육 · 투자</span>키우고 투자하는 곳 — 돈보다 사람 · 공간 · 연결</p>
       <p>사업화 자금을 주는 ①②와 달리, 이 칸은 <strong>사람과 공간과 연결</strong>을 줍니다 — <strong>창업보육센터</strong>(입주 공간 · 컨설팅), <strong>액셀러레이터</strong>(단기 집중 보육 · 투자 연결), <strong>TIPS</strong>(민간 투자와 정부 R&amp;D 매칭), <strong>엔젤 · 벤처투자</strong>. 관광 쪽에서는 지역마다 <strong>관광기업지원센터</strong>가 이 역할을 함께 맡습니다 — 경북은 경주의 경북관광기업지원센터가 입주 · 컨설팅 · 교육 · 공모를 한곳에 모아 둡니다.</p>
