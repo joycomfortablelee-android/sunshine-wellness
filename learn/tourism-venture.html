@@ -74,6 +74,11 @@
     .learn-hero .room-bar .rb-parts .rb-grp a.sub.key { background: #ffe800; border: 1px solid #d8bb2a; color: #14120a; font-weight: 800; }
     .learn-hero .room-bar .rb-parts .rb-grp a.sub:hover { background: var(--rc); border-style: solid; color: #fff; }
 
+    /* 학사일정 상자 — 안내서 아래 강의계획서 두 안(압축). 점선 아래, 알약 셋 */
+    .learn-hero .syl-box .syl-plan { margin-top: 10px; padding-top: 9px; border-top: 1px dashed #c3d2e2; }
+    .learn-hero .syl-box .syl-plan .sp-t { margin: 0 0 6px; font-size: 12px; font-weight: 800; color: #17365d; }
+    .learn-hero .syl-box .syl-plan .sp-t span { display: block; margin-top: 2px; font-size: 10.5px; font-weight: 600; color: #7a8a9a; }
+    .learn-hero .syl-box .syl-plan a.mapl.wb { background: #fff7d6; border-color: #e0c45c; color: #6b5410; }
     /* 학사일정 상자 아래 — 사업계획서 제출 회차표. 지난 회차는 옅게, 지금 회차는 붉은 줄. */
     .learn-hero .syl-box .sub-rounds { margin-top: 12px; padding-top: 10px; border-top: 1px dashed #c3d2e2; }
     .learn-hero .syl-box .sub-rounds .sr-t { margin: 0 0 6px; font-size: 12px; font-weight: 800; color: #17365d; }
@@ -1731,6 +1736,14 @@
       .learn-article .note-box .kwlist > li { grid-template-columns: 1fr; gap: 3px; }
     }
 
+    /* 강의실 한 줄 압축 — 5·6교시(같은 방)를 묶고 7교시 이동을 화살표로. */
+    .room-bar .rb-room { display: flex; flex-wrap: wrap; align-items: center; gap: 5px 6px; margin: 0 0 10px; font-size: 12.5px; line-height: 1.4; }
+    .room-bar .rb-room .rr-h { font-size: 12px; font-weight: 800; color: #17365d; margin-right: 2px; }
+    .room-bar .rb-room .rr { display: inline-flex; align-items: baseline; gap: 4px; padding: 3px 10px; border-radius: 999px; background: #eef3f9; border: 1px solid #cfdcea; color: #2b3e55; white-space: nowrap; }
+    .room-bar .rb-room .rr.mv { background: #fff3e0; border-color: #e0b877; color: #6b4612; }
+    .room-bar .rb-room .rr b { font-weight: 800; }
+    .room-bar .rb-room .rr em { font-style: normal; font-size: 10.5px; font-weight: 800; padding: 0 5px; border-radius: 4px; background: #17365d; color: #fff; }
+    .room-bar .rb-room .rr-ar { font-style: normal; font-size: 11px; font-weight: 800; color: #8a5a17; }
     /* 강의실 목록 한 줄 — 교시(시간) 강의실을 한 행에 붙여 세로 공간을 아낀다. */
     .room-bar .rb-list.oneline { grid-template-columns: 1fr; gap: 5px; }
     .room-bar .rb-list.oneline li {
@@ -2485,19 +2498,18 @@
 
       <div class="hero-row">
         <div class="room-bar">
-          <p class="rb-t">강의실<span>화요일 5 · 6 · 7교시</span><b class="rb-mv">6교시가 끝나면 강의실을 옮깁니다</b></p>
-          <ul class="rb-list oneline">
-            <li class="pc"><b>5교시</b><span class="tm">(13:00 – 13:50)</span><span class="rm">사회대 <strong>2106호</strong><em>PC실</em></span></li>
-            <li class="pc"><b>6교시</b><span class="tm">(14:00 – 14:50)</span><span class="rm">사회대 <strong>2106호</strong><em>PC실</em></span></li>
-            <li class="mv"><b>7교시</b><span class="tm">(15:00 – 15:50)</span><span class="rm">사회대 <strong>3402호</strong></span></li>
-          </ul>
-          <p class="rb-parts"><b>이 페이지는 열 파트</b><a class="p0" href="#part00">00 한눈에</a><a class="p2" href="#part02">01 평가기준</a><span class="rb-grp p2"><a class="p2 sub" href="#과제1">과제 1 · 예비관광벤처 사업계획서</a><a class="p2 sub" href="assets/tourism-venture-18th-business-plan-form.hwp" download="[붙임] 제18회 예비관광벤처부문 사업계획서 양식.hwp">제18회 양식 ⤓ HWP</a><a class="p2 sub key" href="gov-support-business-plan-98p.html" target="_blank" rel="noopener" title="이명신 IR피칭 멘토 강의">★ 사업계획서 합격 비법 · 98장 ↗</a><a class="p2 sub" href="#배우기">★ 배우기 · 쓰는 법</a></span><a class="p1" href="#part01">02 Build Up</a><a class="p3" href="#part03">03 흐름</a><span class="rb-grp p3"><a class="p3 sub" href="#ch01">01 관광벤처란</a><a class="p3 sub" href="#ch02">02 문제정의</a><a class="p3 sub key" href="#ch03" title="이번 주 · 다음 주 수업 — 사업계획서 3차 제출(2-2 사업모델)">★ 03 비즈니스모델</a><a class="p3 sub" href="#ch04">04 린스타트업</a><a class="p3 sub" href="#ch05">05 창업지원</a><a class="p3 sub" href="#ch06">06 사이트사례</a></span><a class="p4" href="#part04">04 어디에</a><span class="rb-grp p4"><a class="p4 sub" href="#예비관광벤처공모">① 관광 전용</a><a class="p4 sub" href="#예비창업패키지">② 범부처</a><a class="p4 sub" href="#보육투자">③ 보육 · 투자</a><a class="p4 sub" href="#광역시원도심공모">④ 지역</a></span><a class="p5" href="#part05">05 업종</a><span class="rb-grp p5"><a class="p5 sub" href="#ch07">5-1 여행업</a><a class="p5 sub" href="#ch08">5-2 외식</a><a class="p5 sub" href="#ch09">5-3 민박한옥</a><a class="p5 sub" href="#ch10">5-4 스마트팜</a><a class="p5 sub" href="#ch11">5-5 연구용역</a><a class="p5 sub" href="#local-creator">5-6 로컬크리에이터</a><a class="p5 sub" href="#tourdure">5-7 관광두레</a></span><a class="p7" href="#part07">06 책</a><a class="p8" href="#part08">07 기업가정신</a><a class="p10" href="#part10">08 IR 피칭</a><a class="p9" href="#part09">09 곁들여</a><a class="p6" href="#part06">10 취업</a><span class="rb-sep" aria-hidden="true"></span><a class="fin" href="#과제2">과제 2 — EO Korea 사례연구 · 11월 9일(월) 24시까지</a><a class="fin" href="#part02" title="1차 중간고사 · 2차 11월 1일(일) · 3차 11월 15일(일)">사업계획서 3차 제출 — 11월 15일(일) 자정까지<span class="fin-l">2-2 사업모델(도식화 · 수익화 모델)</span><span class="fin-l">2-3 잠재리스크 및 대응방안</span></a></p>
+          <p class="rb-room"><b class="rr-h">강의실 · 화</b><span class="rr pc"><b>5·6교시</b> 13:00–14:50 · 사회대 <strong>2106호</strong> <em>PC실</em></span><i class="rr-ar" title="6교시가 끝나면 강의실을 옮깁니다">→ 이동</i><span class="rr mv"><b>7교시</b> 15:00–15:50 · 사회대 <strong>3402호</strong></span></p>
+          <p class="rb-parts"><b>이 페이지는 열 파트</b><a class="p0" href="#part00">00 한눈에</a><a class="p2" href="#part02">01 평가기준</a><span class="rb-grp p2"><a class="p2 sub" href="#과제1">과제 1 · 예비관광벤처 사업계획서</a><a class="p2 sub" href="assets/tourism-venture-18th-business-plan-form.hwp" download="[붙임] 제18회 예비관광벤처부문 사업계획서 양식.hwp">제18회 양식 ⤓ HWP</a><a class="p2 sub key" href="gov-support-business-plan-98p.html" target="_blank" rel="noopener" title="이명신 IR피칭 멘토 강의">★ 사업계획서 합격 비법 · 98장 ↗</a><a class="p2 sub" href="#배우기">★ 배우기 · 쓰는 법</a></span><a class="p1" href="#part01">02 Build Up</a><a class="p3" href="#part03">03 흐름</a><span class="rb-grp p3"><a class="p3 sub" href="#ch01">01 관광벤처란</a><a class="p3 sub key" href="#ch02" title="사업계획서 1-1 문제 인식 — 1차 · 2차 제출 칸">★ 02 문제정의</a><a class="p3 sub key" href="#ch03" title="이번 주 · 다음 주 수업 — 사업계획서 3차 제출(2-2 사업모델)">★ 03 비즈니스모델</a><a class="p3 sub" href="#ch04">04 린스타트업</a><a class="p3 sub" href="#ch05">05 창업지원</a><a class="p3 sub" href="#ch06">06 사이트사례</a></span><a class="p4" href="#part04">04 어디에</a><span class="rb-grp p4"><a class="p4 sub" href="#예비관광벤처공모">① 관광 전용</a><a class="p4 sub" href="#예비창업패키지">② 범부처</a><a class="p4 sub" href="#보육투자">③ 보육 · 투자</a><a class="p4 sub" href="#광역시원도심공모">④ 지역</a></span><a class="p5" href="#part05">05 업종</a><span class="rb-grp p5"><a class="p5 sub" href="#ch07">5-1 여행업</a><a class="p5 sub" href="#ch08">5-2 외식</a><a class="p5 sub" href="#ch09">5-3 민박한옥</a><a class="p5 sub" href="#ch10">5-4 스마트팜</a><a class="p5 sub" href="#ch11">5-5 연구용역</a><a class="p5 sub" href="#local-creator">5-6 로컬크리에이터</a><a class="p5 sub" href="#tourdure">5-7 관광두레</a></span><a class="p7" href="#part07">06 책</a><a class="p8" href="#part08">07 기업가정신</a><a class="p10" href="#part10">08 IR 피칭</a><a class="p9" href="#part09">09 곁들여</a><a class="p6" href="#part06">10 취업</a><span class="rb-sep" aria-hidden="true"></span><a class="fin" href="#과제2">과제 2 — EO Korea 사례연구 · 11월 9일(월) 24시까지</a><a class="fin" href="#part02" title="1차 중간고사 · 2차 11월 1일(일) · 3차 11월 15일(일)">사업계획서 3차 제출 — 11월 15일(일) 자정까지<span class="fin-l">2-2 사업모델(도식화 · 수익화 모델)</span><span class="fin-l">2-3 잠재리스크 및 대응방안</span></a></p>
         </div>
         <div class="syl-box cal">
           <p class="syl-t"><a href="academic-calendar-venture.html" target="_blank" rel="noopener">2학기 학사일정 달력 ↗</a></p>
           <p class="syl-d"><strong>관광벤처창업론은 화요일 5·6·7교시</strong>입니다.</p>
           <p class="syl-tags"><a class="mapl" href="academic-calendar-venture.html" target="_blank" rel="noopener">9~12월 달력 · 출석 열기 ↗</a><a class="mapl mini" href="tourism-venture-student-note.html" target="_blank" rel="noopener">학생 이해 노트 ↗</a><span class="syl-src">개강 9/1 · 중간시험 8주 · 기말시험 16주 · 보강일 포함</span></p>
-          <p class="syl-tags docs"><b class="dt-h">안내서</b><a class="mapl stu" href="#읽는법">📖 이 페이지를 읽는 법 · 바로 읽기 ↓</a><a class="mapl rg" href="assets/tourism-venture-reading-guide.docx" download="관광벤처창업론_안내서.docx">⬇ 안내서 Word — 과목 · 홈페이지 소개 + 수업 진행 <small>다운받기</small></a></p>
+          <p class="syl-tags docs"><b class="dt-h">안내서</b><a class="mapl stu" href="#읽는법">📖 이 페이지를 읽는 법 · 바로 읽기 ↓</a><a class="mapl rg" href="assets/tourism-venture-reading-guide.docx" download="관광벤처창업론_안내서.docx">⬇ 안내서 Word — 과목 · 홈페이지 소개 + 수업 진행 <small>다운받기</small></a></p>
+          <div class="syl-plan">
+            <p class="sp-t">강의계획서 — 두 안 <span>15주 + 기말 · 중간 8주(10/20) · 기말 16주(12/15) · 결강 없음 · 정규 수업 14주(12/1)까지</span></p>
+            <p class="syl-tags"><a class="mapl" href="assets/tourism-venture-syllabus-2026-2.docx" download="2026-2학기_관광벤처창업론_강의계획서(안1).docx" title="공식 사업계획서 6절을 한 주에 한 칸씩 — 13회가 온전히 「낼 서류 한 부」로">안 1 · 서식 축 — 양식을 한 칸씩 ⤓</a><a class="mapl" href="assets/tourism-venture-syllabus-2026-2-plan2.docx" download="2026-2학기_관광벤처창업론_강의계획서(안2).docx" title="안 1 + 업종별 실무(5~7주) · 연구용역(10주) · 진로·취업(11주) — 기말이 창업 IR / 모의면접 두 갈래">안 2 · 업종 · 연구용역 · 진로까지 ⤓</a><a class="mapl wb" href="assets/tourism-venture-weekly-workbook.docx" download="관광벤처창업론_예비관광벤처_사업계획서_주차별_작업워크북.docx">두 안 공통 · 주차별 워크북 ⤓</a></p>
+          </div>
           <div class="sub-rounds" id="제출회차">
             <p class="sr-t">사업계획서 제출 — 세 번</p>
             <table>
@@ -2726,25 +2738,6 @@
       <p class="bm-jump"><a href="#part10">IR 피칭 — 실제 강의와 실제 무대 · 파트 08 ↓</a><span>위 자료로 <b>서류</b>를 썼다면, 그 서류를 <b>몇 분 안에 말로</b> 옮기는 법은 파트 08에 모았습니다.</span></p>
 
       <p class="mini-note"><strong>낼 것을 정했으면 남들이 무엇을 냈는지 봅니다.</strong> 아래는 <strong class="hot-t">이 공모에 낼 아이템을 벤치마킹하는 자리</strong>입니다 — 관광·여행 스타트업을 모아 놓은 목록에서 회사를 고르고, 그중 한 곳을 끝까지 읽은 예가 <em>벤치마킹 PT</em>로 붙어 있습니다.</p>
-
-      <div class="syl-box plan">
-        <p class="syl-t">강의계획서 — 위 달력을 학사 서식으로 옮기면 이렇게 됩니다<a class="wb-pill" href="assets/tourism-venture-weekly-workbook.docx" download="관광벤처창업론_예비관광벤처_사업계획서_주차별_작업워크북.docx">두 안이 함께 쓰는 주차별 워크북 ⤓</a></p>
-        <p class="syl-d">같은 학사일정 위에 <strong>서로 다른 두 안</strong>을 올렸습니다. 둘 다 <strong>15주 + 기말시험 주</strong>로 짰고 <strong>8주차(10/20) 중간시험</strong>·<strong>16주차(12/15) 기말시험</strong>이 표에 들어 있으며, 평가 배점은 공모의 <strong>서류·발표 평가항목 가중치</strong>를 그대로 옮겼습니다. <strong>결강이 없는 학기</strong>입니다.</p>
-        <div class="plan2">
-          <div class="pcol p1">
-            <p class="pc-t"><b>안 1</b>서식 축 — 양식을 한 칸씩 채운다</p>
-            <p class="pc-d">공식 사업계획서 <strong>6절을 한 주에 한 칸씩</strong> 채웁니다. 이 페이지의 이론 여섯 장과 과제 둘이 그대로 주차가 되고, 군더더기 없이 <strong>「낼 서류 한 부」</strong>에 집중합니다. 실제 강의 13회가 온전히 사업계획서로 갑니다.</p>
-            <a class="mapl" href="assets/tourism-venture-syllabus-2026-2.docx" download="2026-2학기_관광벤처창업론_강의계획서(안1).docx">안 1 ⤓ DOCX · A4 4~5쪽</a>
-          </div>
-          <div class="pcol p2">
-            <p class="pc-t"><b>안 2</b>업종 · 연구용역 · 진로까지 넓힌다</p>
-            <p class="pc-d">안 1에 셋을 더했습니다 — ① <strong>업종별 창업 실무</strong>(5주 여행·외식 / 6주 농어촌 자원·<strong>스마트팜 융복합</strong> / 7주 지역 세 갈래) ② <strong>연구용역 창업과 분석 보고서</strong>(10주) ③ <strong>진로·취업 지도</strong>(11주). 기말 발표가 <strong>창업 IR과 취업 모의면접 두 갈래</strong>로 갈려, 창업하지 않는 학생도 자기 트랙을 고릅니다.</p>
-            <a class="mapl" href="assets/tourism-venture-syllabus-2026-2-plan2.docx" download="2026-2학기_관광벤처창업론_강의계획서(안2).docx">안 2 ⤓ DOCX · A4 5~6쪽</a>
-          </div>
-        </div>
-        <p class="syl-tags"><span class="syl-src"><b>정규 수업은 14주차(12/1)로 끝납니다</b> — 15주차(12/8~12/11)는 보강 지정 기간이고 이 과목은 결강이 없어 보강할 회차가 없습니다.</span></p>
-      </div>
-
 
       <div class="ir-row" id="sr-17"><div class="ir-short mini"><iframe src="https://www.youtube-nocookie.com/embed/UyF2PfDUidQ" title="[정책, 데이터활용] ⑰ 사업계획서 고도화와 강점 살리기" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><p class="ir-cap"><b>「⑰ 사업계획서 고도화와 강점 살리기」</b> — 한국부동산원 「사업계획서 작성」 시리즈. 다 쓴 계획서를 <b>심사위원의 눈으로 다시 다듬는</b> 법 — 3차 제출 전, 그리고 14주차 모의 심사에서 봅니다.</p></div></div>
 
