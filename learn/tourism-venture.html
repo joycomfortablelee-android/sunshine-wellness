@@ -1947,14 +1947,15 @@
     /* ===== 배우기 세 갈래 — 사분면과 같은 크기 =====
        칸 크기를 사분면과 맞추려면 열이 둘이어야 한다. 셋 가운데 앞의 둘은
        「돈을 내고 배운다」 한 줄에 나란히 두고, 공공 무료 한 칸은 두 칸 폭으로 눕힌다. */
-    .learn-article .quad.learnq { grid-template-rows: auto auto auto; }
-    .learn-article .quad.learnq .q-l1 { grid-area: 1 / 2; }
-    .learn-article .quad.learnq .q-l2 { grid-area: 1 / 3; }
-    .learn-article .quad.learnq .q-s1 { grid-area: 2 / 1; }
-    .learn-article .quad.learnq .l1 { grid-area: 2 / 2; }
-    .learn-article .quad.learnq .l2 { grid-area: 2 / 3; }
-    .learn-article .quad.learnq .q-s2 { grid-area: 3 / 1; }
-    .learn-article .quad.learnq .l3 { grid-area: 3 / 2 / 3 / -1; }
+    /* 한 줄 세 칸 — 유료 둘과 공공 무료 하나를 나란히. 왼쪽 축 이름(q-side)은 각 칸 머리로 옮겼다. */
+    .learn-article .quad.learnq { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: auto auto; }
+    .learn-article .quad.learnq .q-side { display: none; }
+    .learn-article .quad.learnq .q-l1 { grid-area: 1 / 1; }
+    .learn-article .quad.learnq .q-l2 { grid-area: 1 / 2; }
+    .learn-article .quad.learnq .q-l3 { grid-area: 1 / 3; }
+    .learn-article .quad.learnq .l1 { grid-area: 2 / 1; }
+    .learn-article .quad.learnq .l2 { grid-area: 2 / 2; }
+    .learn-article .quad.learnq .l3 { grid-area: 2 / 3; }
     .learn-article .quad.learnq .q-top em {
       display: block; margin-top: 2px; font-style: normal;
       font-size: 10px; font-weight: 700; color: #7c93aa; letter-spacing: 0;
@@ -1981,7 +1982,8 @@
       cursor: pointer; font-size: 11.5px; font-weight: 800; color: #6d8dae;
     }
     @media (max-width: 720px) {
-      .learn-article .quad.learnq .q-l1, .learn-article .quad.learnq .q-l2 { display: none; }
+      .learn-article .quad.learnq { grid-template-columns: 1fr; }
+      .learn-article .quad.learnq .q-l1, .learn-article .quad.learnq .q-l2, .learn-article .quad.learnq .q-l3 { display: none; }
       .learn-article .quad.learnq .l1, .learn-article .quad.learnq .l2,
       .learn-article .quad.learnq .l3 { grid-area: auto; }
     }
@@ -3486,8 +3488,9 @@
       </ol>
       <p class="learn-part lp-sub lrn"><span class="ptag">배우기</span>어디서 배우고 누구에게 묻는가 — 자리 셋</p>
       <div class="quad learnq" role="group" aria-label="어디서 배우나 — 세 갈래">
-        <span class="q-top q-l1">사람에게<em>강의를 듣거나 물어본다</em></span>
-        <span class="q-top q-l2">혼자<em>도구와 자료로 만든다</em></span>
+        <span class="q-top q-l1">사람에게<em>강의를 듣거나 물어본다 · 돈을 내고</em></span>
+        <span class="q-top q-l2">혼자<em>도구와 자료로 만든다 · 돈을 내고</em></span>
+        <span class="q-top q-l3">공공이 무료로<em>열어 둔 강의실</em></span>
         <span class="q-side q-s1"><b>돈을 내고</b>배운다</span>
         <div class="q-cell l1">
           <span class="grouptitle">사업계획서 · IR 피칭 배우기</span>
