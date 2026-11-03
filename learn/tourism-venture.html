@@ -46,6 +46,9 @@
     .learn-hero .room-bar .rb-parts .p9 { --rc:#1f6a73; --rb:#eaf5f4; --rl:#b9dcd9; --rd:#175057; }
     .learn-hero .room-bar .rb-parts .rb-sep { width: 1px; height: 14px; margin: 0 4px; background: #c3d2e2; }
     .learn-hero .room-bar .rb-parts a.fin { background: #c0392b; border-color: #c0392b; color: #fff; font-weight: 800; }
+    /* 여러 줄 알약 — 범위 항목마다 한 줄씩 */
+    .learn-hero .room-bar .rb-parts a.fin .fin-l { display: block; font-weight: 700; padding-left: 10px; }
+    .learn-hero .room-bar .rb-parts a.fin:has(.fin-l) { border-radius: 12px; text-align: left; }
     .learn-hero .room-bar .rb-parts a.fin:hover { background: #98291d; border-color: #98291d; color: #fff; }
     /* 계층 — 파트(부모)는 굵은 실선 · 진한 글자, 장(자식)은 흰 바탕 점선으로 한 단계 낮춘다.
        03 흐름 · 05 업종의 장들은 파트 색 점선 상자(rb-grp)로 묶어 어느 파트 소속인지 바로 보이게 한다. */
@@ -60,6 +63,21 @@
       font-size: 10.5px; font-weight: 700;
     }
     .learn-hero .room-bar .rb-parts .rb-grp a.sub:hover { background: var(--rc); border-style: solid; color: #fff; }
+
+    /* 학사일정 상자 아래 — 사업계획서 제출 회차표. 지난 회차는 옅게, 지금 회차는 붉은 줄. */
+    .learn-hero .syl-box .sub-rounds { margin-top: 12px; padding-top: 10px; border-top: 1px dashed #c3d2e2; }
+    .learn-hero .syl-box .sub-rounds .sr-t { margin: 0 0 6px; font-size: 12px; font-weight: 800; color: #17365d; }
+    .learn-hero .syl-box .sub-rounds table { width: 100%; border-collapse: collapse; font-size: 11.5px; line-height: 1.45; background: #fff; }
+    .learn-hero .syl-box .sub-rounds th { background: #eef3f9; color: #17365d; font-weight: 800; text-align: left; padding: 5px 8px; border: 1px solid #c3d2e2; white-space: nowrap; }
+    .learn-hero .syl-box .sub-rounds td { padding: 5px 8px; border: 1px solid #d6e0ea; color: #2b3a4a; vertical-align: top; }
+    .learn-hero .syl-box .sub-rounds td { text-align: left; }
+    .learn-hero .syl-box .sub-rounds td:first-child { white-space: nowrap; text-align: center; }
+    .learn-hero .syl-box .sub-rounds td:nth-child(2) { white-space: nowrap; }
+    .learn-hero .syl-box .sub-rounds td small { display: block; font-size: 10.5px; color: #7a8a9a; }
+    .learn-hero .syl-box .sub-rounds tr.done td { color: #8796a5; }
+    .learn-hero .syl-box .sub-rounds tr.now td { background: #fdf1ef; color: #6b211a; font-weight: 700; }
+    .learn-hero .syl-box .sub-rounds tr.now td:first-child { box-shadow: inset 3px 0 0 #c0392b; }
+    .learn-hero .syl-box .sub-rounds mark.hl-y { background: linear-gradient(transparent 50%, #ffe45c 50%); color: inherit; padding: 0 2px; }
 
     /* ===== 파트 머리글 — 일곱 파트를 가르는 큰 띠 =====
        장(lp-core) 위의 층이라 더 크고, 왼쪽에 굵은 바를 세워 한눈에 구분된다. */
@@ -2439,13 +2457,24 @@
             <li class="pc"><b>6교시</b><span class="tm">(14:00 – 14:50)</span><span class="rm">사회대 <strong>2106호</strong><em>PC실</em></span></li>
             <li class="mv"><b>7교시</b><span class="tm">(15:00 – 15:50)</span><span class="rm">사회대 <strong>3402호</strong></span></li>
           </ul>
-          <p class="rb-parts"><b>이 페이지는 아홉 파트</b><a class="p0" href="#part00">00 한눈에</a><a class="p1" href="#part01">01 Build Up</a><a class="p2" href="#part02">02 평가기준</a><a class="p3" href="#part03">03 흐름</a><span class="rb-grp p3"><a class="p3 sub" href="#ch01">01 관광벤처란</a><a class="p3 sub" href="#ch02">02 문제정의</a><a class="p3 sub" href="#ch03">03 비즈니스모델</a><a class="p3 sub" href="#ch04">04 린스타트업</a><a class="p3 sub" href="#ch05">05 창업지원</a><a class="p3 sub" href="#ch06">06 사이트사례</a></span><a class="p4" href="#part04">04 어디에</a><a class="p5" href="#part05">05 업종</a><span class="rb-grp p5"><a class="p5 sub" href="#ch07">07 여행업</a><a class="p5 sub" href="#ch08">08 외식</a><a class="p5 sub" href="#ch09">09 민박한옥</a><a class="p5 sub" href="#ch10">10 스마트팜</a><a class="p5 sub" href="#ch11">11 연구용역</a><a class="p5 sub" href="#local-creator">12 로컬크리에이터</a></span><a class="p6" href="#part06">06 취업</a><a class="p7" href="#part07">07 책</a><a class="p8" href="#part08">08 기업가정신</a><a class="p9" href="#part09">09 곁들여</a><span class="rb-sep" aria-hidden="true"></span><a class="fin" href="#과제3">과제 — EO Korea 사례연구 · 11월 9일(월) 24시까지</a><a class="fin" href="#part02" title="1차 중간고사 · 2차 11월 1일(일) · 3차 11월 15일(일)">사업계획서 3차 제출 — 11월 15일(일) 자정까지 · 2-2 사업모델(도식화 · 수익화 모델) · 2-3 잠재리스크 및 대응방안</a></p>
+          <p class="rb-parts"><b>이 페이지는 아홉 파트</b><a class="p0" href="#part00">00 한눈에</a><a class="p1" href="#part01">01 Build Up</a><a class="p2" href="#part02">02 평가기준</a><a class="p3" href="#part03">03 흐름</a><span class="rb-grp p3"><a class="p3 sub" href="#ch01">01 관광벤처란</a><a class="p3 sub" href="#ch02">02 문제정의</a><a class="p3 sub" href="#ch03">03 비즈니스모델</a><a class="p3 sub" href="#ch04">04 린스타트업</a><a class="p3 sub" href="#ch05">05 창업지원</a><a class="p3 sub" href="#ch06">06 사이트사례</a></span><a class="p4" href="#part04">04 어디에</a><a class="p5" href="#part05">05 업종</a><span class="rb-grp p5"><a class="p5 sub" href="#ch07">07 여행업</a><a class="p5 sub" href="#ch08">08 외식</a><a class="p5 sub" href="#ch09">09 민박한옥</a><a class="p5 sub" href="#ch10">10 스마트팜</a><a class="p5 sub" href="#ch11">11 연구용역</a><a class="p5 sub" href="#local-creator">12 로컬크리에이터</a></span><a class="p6" href="#part06">06 취업</a><a class="p7" href="#part07">07 책</a><a class="p8" href="#part08">08 기업가정신</a><a class="p9" href="#part09">09 곁들여</a><span class="rb-sep" aria-hidden="true"></span><a class="fin" href="#과제3">과제 — EO Korea 사례연구 · 11월 9일(월) 24시까지</a><a class="fin" href="#part02" title="1차 중간고사 · 2차 11월 1일(일) · 3차 11월 15일(일)">사업계획서 3차 제출 — 11월 15일(일) 자정까지<span class="fin-l">2-2 사업모델(도식화 · 수익화 모델)</span><span class="fin-l">2-3 잠재리스크 및 대응방안</span></a></p>
         </div>
         <div class="syl-box cal">
           <p class="syl-t"><a href="academic-calendar-venture.html" target="_blank" rel="noopener">2학기 학사일정 달력 ↗</a></p>
           <p class="syl-d"><strong>관광벤처창업론은 화요일 5·6·7교시</strong>입니다.</p>
           <p class="syl-tags"><a class="mapl" href="academic-calendar-venture.html" target="_blank" rel="noopener">9~12월 달력 · 출석 열기 ↗</a><a class="mapl mini" href="tourism-venture-student-note.html" target="_blank" rel="noopener">학생 이해 노트 ↗</a><span class="syl-src">개강 9/1 · 중간시험 8주 · 기말시험 16주 · 보강일 포함</span></p>
-          <p class="syl-tags docs"><b class="dt-h">안내서</b><a class="mapl stu" href="#읽는법">📖 이 페이지를 읽는 법 · 바로 읽기 ↓</a><a class="mapl rg" href="assets/tourism-venture-reading-guide.docx" download="관광벤처창업론_안내서.docx">⬇ 안내서 Word — 과목 · 홈페이지 소개 + 수업 진행 <small>다운받기</small></a></p>
+          <p class="syl-tags docs"><b class="dt-h">안내서</b><a class="mapl stu" href="#읽는법">📖 이 페이지를 읽는 법 · 바로 읽기 ↓</a><a class="mapl rg" href="assets/tourism-venture-reading-guide.docx" download="관광벤처창업론_안내서.docx">⬇ 안내서 Word — 과목 · 홈페이지 소개 + 수업 진행 <small>다운받기</small></a></p>
+          <div class="sub-rounds">
+            <p class="sr-t">사업계획서 제출 — 세 번</p>
+            <table>
+              <thead><tr><th>회차</th><th>기한</th><th>범위</th></tr></thead>
+              <tbody>
+                <tr class="done"><td><b>1차</b></td><td>중간시험 주간<small>8주 · 10/20</small></td><td>1-1 문제 인식 · 2-1 시장현황 · 목표고객 · 4-1 관광시장 이해도</td></tr>
+                <tr class="done"><td><b>2차</b></td><td>11월 1일(일) 자정</td><td>1차 세 칸 보완 재제출</td></tr>
+                <tr class="now"><td><b>3차</b></td><td>11월 15일(일) 자정</td><td><mark class="hl-y">2-2 사업모델</mark>(도식화 · 수익화 모델)<br />2-3 잠재리스크 및 대응방안</td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
