@@ -74,6 +74,13 @@
     .learn-hero .room-bar .rb-parts .rb-grp a.sub.key { background: #ffe800; border: 1px solid #d8bb2a; color: #14120a; font-weight: 800; }
     .learn-hero .room-bar .rb-parts .rb-grp a.sub:hover { background: var(--rc); border-style: solid; color: #fff; }
 
+    /* 과제 1 자료 — 번호 붙인 여섯 줄(양식 · 채우기 · 공고 · 옮겨 내기 · 점검 · 참고) */
+    .learn-article .task-box .ts-head { margin: 12px 0 6px; font-size: 13px; color: #3d4b5a; }
+    .learn-article .task-box .tb-tags.tb-step { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 6px 0 0; padding: 8px 10px; border-left: 3px solid #e0c45c; background: rgba(255,255,255,.55); border-radius: 0 8px 8px 0; }
+    .learn-article .task-box .tb-step .ts-n { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; background: #17365d; color: #fff; font-size: 12px; font-weight: 800; }
+    .learn-article .task-box .tb-step .ts-t { font-size: 13px; font-weight: 800; color: #17365d; }
+    .learn-article .task-box .tb-step .ts-d { font-size: 11.5px; color: #7a8a9a; margin-right: 4px; }
+    .learn-article .task-box .tb-step .tb-src { flex: 1 1 100%; margin: 2px 0 0 28px; font-size: 11.5px; color: #5c6b7a; }
     /* 학사일정 상자 — 안내서 아래 강의계획서 두 안(압축). 점선 아래, 알약 셋 */
     .learn-hero .syl-box .syl-plan { margin-top: 10px; padding-top: 9px; border-top: 1px dashed #c3d2e2; }
     .learn-hero .syl-box .syl-plan .sp-t { margin: 0 0 6px; font-size: 12px; font-weight: 800; color: #17365d; }
@@ -411,6 +418,17 @@
     /* 작은 영상 — 가로 300px 16:9. 본문 흐름을 끊지 않게 모든 수업 영상은 이 크기로 */
     .learn-article .ir-row .ir-short.mini { flex: 0 1 300px; }
     .learn-article .ir-row .ir-short.mini iframe { max-width: 300px; aspect-ratio: 16 / 9; }
+    /* 시리즈 영상 1행 3열 — 영상 둘 + 나머지 편 목록 카드 */
+    .learn-article .ir-row.tri { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; align-items: start; }
+    .learn-article .ir-row.tri .ir-short.mini { flex: none; }
+    .learn-article .ir-row.tri .ir-short.mini iframe { max-width: 100%; }
+    .learn-article .ir-row.tri .sr-card { background: #f6f8fb; border: 1px solid #d6e0ec; border-radius: 12px; padding: 12px 14px; font-size: 12.5px; }
+    .learn-article .ir-row.tri .sr-card .sr-h { margin: 0 0 6px; font-weight: 800; color: #17365d; }
+    .learn-article .ir-row.tri .sr-card ul { list-style: none; margin: 0; padding: 0; }
+    .learn-article .ir-row.tri .sr-card li { display: flex; justify-content: space-between; gap: 8px; padding: 4px 0; border-bottom: 1px dashed #d6e0ec; }
+    .learn-article .ir-row.tri .sr-card li span { color: #7a8794; font-size: 11.5px; white-space: nowrap; }
+    .learn-article .ir-row.tri .sr-card .sr-n { margin: 7px 0 0; color: #7a8794; font-size: 11.5px; line-height: 1.6; }
+    @media (max-width: 760px) { .learn-article .ir-row.tri { grid-template-columns: 1fr; } }
     .learn-article .ir-row .ir-short.mini .ir-cap { font-size: 12px; line-height: 1.6; text-align: left; }
     /* 영상은 언제나 정중앙 — 줄 안에서 가운데 정렬 */
     .learn-article .ir-row { justify-content: center; }
@@ -2687,13 +2705,14 @@
         <li><b>워크북 16시트</b><span><strong>한 회차 한 칸</strong> → 학기 말 한 부(A4 18쪽). 맨 앞 <strong class="hot-t">배점표 = 채점 기준</strong> — 1절 · 2절이 서류 점수의 절반(25% + 25%).</span></li>
         <li><b>AI 사용 규칙</b><span>써도 되지만 <strong>매주 기록</strong>. <strong class="hot-t">1-1 문제 인식 · 5절 팀빌딩은 직접</strong>(대필 · 허위는 선정 취소). AI 숫자는 <strong>원문 URL 확인한 것만</strong> — 숨기지 않으면 감점 없음.</span></li>
       </ol>
-        <p class="tb-tags"><a class="mapl form hot red" href="assets/tourism-venture-18th-business-plan-form.hwp" download="[붙임] 제18회 예비관광벤처부문 사업계획서 양식.hwp">공식 사업계획서 양식 ⤓ HWP</a><a class="mapl form bm" href="pre-tourism-venture-plan-form-slides.html" target="_blank" rel="noopener">같은 양식 · 열여섯 장 ↗</a><a class="mapl form" href="assets/pre-tourism-venture-business-plan-at-a-glance-a4.docx" download="예비관광벤처_사업계획서_한눈에보기_A4_1장.docx">사업계획서 한눈에 보기 · A4 1장 ⤓ DOCX</a><a class="mapl form" href="pre-tourism-venture-business-plan-map.html" target="_blank" rel="noopener">사업계획서 가지치기 구조 ↗</a><a class="mapl form ex" href="dongduk-2027-faculty-hiring-student-guide.html" target="_blank" rel="noopener">참고 · 동덕여대 교원초빙 공고 ↗</a></p>
-        <p class="tb-tags sub"><a class="mapl form hot lime" href="assets/tourism-venture-weekly-workbook.docx" download="관광벤처창업론_예비관광벤처_사업계획서_주차별_작업워크북.docx">✦ 주차별 작업 워크북 ⤓ DOCX · 16시트</a><a class="mapl form hot lime" href="tourism-venture-chatgpt-prompt-workbook.html" target="_blank" rel="noopener">✦ ChatGPT 대화형 프롬프트 워크북 · 24문항 ↗</a></p>
-        <p class="tb-tags sub"><a class="mapl form" href="https://www.touraz.kr/" target="_blank" rel="noopener">투어라즈 공고 원문 ↗</a><a class="mapl form" href="https://viewer.knto.or.kr:1265/v/pNgUzf4SZFx" target="_blank" rel="noopener">공고문 원문 뷰어 ↗</a><a class="mapl form ex" href="assets/busan-vegan-platform-proposal.pdf" target="_blank" rel="noopener">참고 · 비건부산 제안서 ↗</a><span class="tb-src"><b>HWP가 실제로 제출하는 원본</b>이고, 워크북은 그 칸을 <b>주차별로 나눠 채우는 작업지</b>입니다. 제18회 양식으로 만들었지만 칸 구성은 회차가 바뀌어도 거의 그대로입니다 — <b>제19회는 2027년 4월 말 공고·5월 중순 마감</b>이 예상되므로, 이번 학기에 써 두면 내년에 그대로 냅니다.</span></p>
-        <p class="tb-tags sub"><a class="mapl form hot red soft" href="assets/preliminary-startup-package-business-plan-form-2026.docx" download="2026_예비창업패키지_사업계획서_양식.docx">2026 예비창업패키지 양식 ⤓ DOCX</a><span class="tb-src">관광이 아니어도 내는 <b>범부처 창업 공모</b>의 양식입니다 — 문제 · 해결 · 성장 · 팀(PSST)으로 묻는 뼈대가 위 HWP와 닮아, 써 둔 내용을 옮겨 쓰기 좋습니다.</span></p>
+        <p class="ts-head">과제 1 자료 — <b>① 양식</b>으로 무엇을 내는지 보고, <b>② 워크북</b>으로 채우고, <b>③ 공고</b>로 확인하고, <b>⑤ 점검</b>하고 냅니다.</p>
+        <p class="tb-tags tb-step"><b class="ts-n">①</b><b class="ts-t">양식</b><span class="ts-d">내는 원본</span><a class="mapl form hot red" href="assets/tourism-venture-18th-business-plan-form.hwp" download="[붙임] 제18회 예비관광벤처부문 사업계획서 양식.hwp">공식 사업계획서 양식 ⤓ HWP</a><a class="mapl form bm" href="pre-tourism-venture-plan-form-slides.html" target="_blank" rel="noopener">같은 양식 · 열여섯 장 ↗</a><a class="mapl form" href="assets/pre-tourism-venture-business-plan-at-a-glance-a4.docx" download="예비관광벤처_사업계획서_한눈에보기_A4_1장.docx">사업계획서 한눈에 보기 · A4 1장 ⤓ DOCX</a><a class="mapl form" href="pre-tourism-venture-business-plan-map.html" target="_blank" rel="noopener">사업계획서 가지치기 구조 ↗</a><span class="tb-src"><b>HWP가 실제로 내는 원본</b> — 나머지 셋은 같은 양식을 화면 · 한 장 · 가지 구조로 본 판입니다.</span></p>
+        <p class="tb-tags tb-step"><b class="ts-n">②</b><b class="ts-t">채우기</b><span class="ts-d">주차별로 쓰는 도구</span><a class="mapl form hot lime" href="assets/tourism-venture-weekly-workbook.docx" download="관광벤처창업론_예비관광벤처_사업계획서_주차별_작업워크북.docx">✦ 주차별 작업 워크북 ⤓ DOCX · 16시트</a><a class="mapl form hot lime" href="tourism-venture-chatgpt-prompt-workbook.html" target="_blank" rel="noopener">✦ ChatGPT 대화형 프롬프트 워크북 · 24문항 ↗</a><span class="tb-src">한 회차 한 칸 — 워크북이 작업지, 프롬프트 워크북은 AI와 대화하며 칸을 채우는 판.</span></p>
+        <p class="tb-tags tb-step"><b class="ts-n">③</b><b class="ts-t">공고 원문</b><span class="ts-d">무엇을 묻는지 확인</span><a class="mapl form" href="https://www.touraz.kr/" target="_blank" rel="noopener">투어라즈 공고 원문 ↗</a><a class="mapl form" href="https://viewer.knto.or.kr:1265/v/pNgUzf4SZFx" target="_blank" rel="noopener">공고문 원문 뷰어 ↗</a><span class="tb-src">제18회 기준 · <b>제19회는 2027년 4월 말 공고 · 5월 중순 마감 예상</b> — 이번 학기에 써 두면 내년에 그대로 냅니다.</span></p>
+        <p class="tb-tags tb-step"><b class="ts-n">④</b><b class="ts-t">옮겨 내기</b><span class="ts-d">다른 공모 양식</span><a class="mapl form hot red soft" href="assets/preliminary-startup-package-business-plan-form-2026.docx" download="2026_예비창업패키지_사업계획서_양식.docx">2026 예비창업패키지 양식 ⤓ DOCX</a><span class="tb-src">범부처 <b>예비창업패키지</b> — PSST 뼈대가 같아 써 둔 내용을 그대로 옮깁니다.</span></p>
+        <p class="tb-tags tb-step"><b class="ts-n">⑤</b><b class="ts-t">점검</b><span class="ts-d">내기 전에</span><a class="mapl form" href="tourism-venture-midterm-writing-guide.html" target="_blank" rel="noopener">✍️ 중간과제 사업계획서 작성 가이드 ↗</a><a class="mapl form" href="tourism-venture-midterm-item-review.html" target="_blank" rel="noopener" style="background:#fff3d6;color:#a8681f;border-color:#e0a106;">📝 학생별 통합 평가표 · 세부 평가기준 보기 ↗</a><span class="tb-src">작성 가이드(번호 체계 · 전후 비교 · 체크리스트) · 통합 평가표(①~⑧ 88개 항목 · 표절률).</span></p>
+        <p class="tb-tags tb-step"><b class="ts-n">⑥</b><b class="ts-t">참고</b><span class="ts-d">남이 쓴 예</span><a class="mapl form ex" href="assets/busan-vegan-platform-proposal.pdf" target="_blank" rel="noopener">참고 · 비건부산 제안서 ↗</a><a class="mapl form ex" href="dongduk-2027-faculty-hiring-student-guide.html" target="_blank" rel="noopener">참고 · 동덕여대 교원초빙 공고 ↗</a><span class="tb-src">실제 제안서와 공고문 — 칸을 어떻게 채웠는지 보는 용도입니다.</span></p>
 
-        <p class="dltags"><a class="mapl form" href="tourism-venture-midterm-writing-guide.html" target="_blank" rel="noopener">✍️ 중간과제 사업계획서 작성 가이드 ↗</a><span class="dl-src">번호 체계(가나다 → 동그라미 숫자) · 작성 전·후 비교 · 제출용 예시 · 제출 전 체크리스트가 한 화면에 있습니다.</span></p>
-        <p class="dltags" style="margin:6px 0 0;"><a class="mapl form" href="tourism-venture-midterm-item-review.html" target="_blank" rel="noopener" style="background:#fff3d6;color:#a8681f;border-color:#e0a106;">📝 학생별 통합 평가표 · 세부 평가기준 보기 ↗</a><span class="dl-src">①~⑧ 평가 근거 88개 항목 · 표절률 확인사항까지 전부 공개합니다.</span></p>
       </div>
 
       <p class="learn-part lp-sub lrn" id="배우기"><span class="ptag">★ 과제 1 · 배우기</span>어디서 배우고 누구에게 묻는가 — 자리 셋</p>
@@ -2746,9 +2765,11 @@
 
       <p class="mini-note"><strong>낼 것을 정했으면 남들이 무엇을 냈는지 봅니다.</strong> 아래는 <strong class="hot-t">이 공모에 낼 아이템을 벤치마킹하는 자리</strong>입니다 — 관광·여행 스타트업을 모아 놓은 목록에서 회사를 고르고, 그중 한 곳을 끝까지 읽은 예가 <em>벤치마킹 PT</em>로 붙어 있습니다.</p>
 
-      <div class="ir-row" id="sr-10"><div class="ir-short mini"><iframe src="https://www.youtube-nocookie.com/embed/OkVYP1ofU4s" title="[사업계획서작성] ⑩ 사업계획서 체계적으로 준비하자" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><p class="ir-cap"><b>「⑩ 사업계획서 체계적으로 준비하자」</b> — 한국부동산원 「사업계획서 작성」 시리즈. 과제 1을 쓰다 막히면 — 사업계획서를 <b>어떤 순서로 준비하는가</b>를 다시 봅니다. 아래 ⑰ 고도화와 짝입니다.</p></div></div>
-
-      <div class="ir-row" id="sr-17"><div class="ir-short mini"><iframe src="https://www.youtube-nocookie.com/embed/UyF2PfDUidQ" title="[정책, 데이터활용] ⑰ 사업계획서 고도화와 강점 살리기" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><p class="ir-cap"><b>「⑰ 사업계획서 고도화와 강점 살리기」</b> — 한국부동산원 「사업계획서 작성」 시리즈. 다 쓴 계획서를 <b>심사위원의 눈으로 다시 다듬는</b> 법 — 3차 제출 전, 그리고 14주차 모의 심사에서 봅니다.</p></div></div>
+      <div class="ir-row tri">
+        <div class="ir-short mini" id="sr-10"><iframe src="https://www.youtube-nocookie.com/embed/OkVYP1ofU4s" title="[사업계획서작성] ⑩ 사업계획서 체계적으로 준비하자" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><p class="ir-cap"><b>「⑩ 사업계획서 체계적으로 준비하자」</b> — 한국부동산원 「사업계획서 작성」 시리즈. 과제 1을 쓰다 막히면 — 사업계획서를 <b>어떤 순서로 준비하는가</b>를 다시 봅니다. 아래 ⑰ 고도화와 짝입니다.</p></div>
+        <div class="ir-short mini" id="sr-17"><iframe src="https://www.youtube-nocookie.com/embed/UyF2PfDUidQ" title="[정책, 데이터활용] ⑰ 사업계획서 고도화와 강점 살리기" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><p class="ir-cap"><b>「⑰ 사업계획서 고도화와 강점 살리기」</b> — 한국부동산원 「사업계획서 작성」 시리즈. 다 쓴 계획서를 <b>심사위원의 눈으로 다시 다듬는</b> 법 — 3차 제출 전, 그리고 14주차 모의 심사에서 봅니다.</p></div>
+        <div class="ir-short mini sr-card"><p class="sr-h">한국부동산원 「사업계획서 작성」 시리즈 · 나머지 편</p><ul><li><a href="#sr-08a">⑧ 작성 요령 · 고객 페르소나</a><span>03장 시장</span></li><li><a href="#sr-08b">⑧ 비즈니스 모델 도식화</a><span>03장 BM</span></li><li><a href="#sr-09">⑨ 고객검증과정</a><span>04장 린</span></li><li><a href="#sr-14">⑭ 투자 단계 파악</a><span>05장 지원</span></li><li><a href="#sr-11">⑪ 정부지원사업 종류</a><span>파트 04</span></li></ul><p class="sr-n">각 편은 그 내용을 다루는 장 안에 걸어 두었습니다 — 누르면 그 자리로 갑니다.</p></div>
+      </div>
 
       <div class="pt-div" aria-hidden="true"><span>✦</span></div>
       <p class="learn-part pt-part pp-1" id="part01"><span class="pt"><i>파트</i><b>02</b></span><span class="pt-ti">주차별 Build Up</span><span class="pt-sub">매주 무엇을 손에 남기고 나가는가 — 그날의 목표를 한 칸씩 적었습니다. <b>이번 주 것만 펼쳐 두고</b> 나머지는 접어 두십시오.</span></p>
