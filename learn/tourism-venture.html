@@ -34,23 +34,32 @@
     }
     /* 파트 머리글(pp-1~pp-8)과 같은 색을 연한 바탕으로 옮겼다.
        --rc 강조 · --rb 바탕 · --rl 테두리 · --rd 글자. 변수가 없으면 위 기본값으로 떨어진다. */
-    .learn-hero .room-bar .rb-parts a.p0 { --rc:#66788a; --rb:#f2f5f8; --rl:#d3dce4; --rd:#3f4d5a; }
-    .learn-hero .room-bar .rb-parts a.p1 { --rc:#c0392b; --rb:#fbeeec; --rl:#eec9c3; --rd:#8c3b30; }
-    .learn-hero .room-bar .rb-parts a.p2 { --rc:#17365d; --rb:#eef3f9; --rl:#c3d2e2; --rd:#123054; }
-    .learn-hero .room-bar .rb-parts a.p3 { --rc:#3B6259; --rb:#eef4f1; --rl:#c6d8d1; --rd:#234b41; }
-    .learn-hero .room-bar .rb-parts a.p4 { --rc:#2563a8; --rb:#eff5fa; --rl:#c3daee; --rd:#1c4e8a; }
-    .learn-hero .room-bar .rb-parts a.p5 { --rc:#8a5a17; --rb:#fdf6ea; --rl:#e8d3ae; --rd:#7a4e12; }
-    .learn-hero .room-bar .rb-parts a.p6 { --rc:#5b3f7a; --rb:#f4eff8; --rl:#d8cbe6; --rd:#4a3363; }
-    .learn-hero .room-bar .rb-parts a.p7 { --rc:#7a6417; --rb:#fdf8e8; --rl:#e3d79a; --rd:#5c4a10; }
-    .learn-hero .room-bar .rb-parts a.p8 { --rc:#a8431f; --rb:#fbeee6; --rl:#eecab2; --rd:#853418; }
-    .learn-hero .room-bar .rb-parts a.p9 { --rc:#1f6a73; --rb:#eaf5f4; --rl:#b9dcd9; --rd:#175057; }
+    .learn-hero .room-bar .rb-parts .p0 { --rc:#66788a; --rb:#f2f5f8; --rl:#d3dce4; --rd:#3f4d5a; }
+    .learn-hero .room-bar .rb-parts .p1 { --rc:#c0392b; --rb:#fbeeec; --rl:#eec9c3; --rd:#8c3b30; }
+    .learn-hero .room-bar .rb-parts .p2 { --rc:#17365d; --rb:#eef3f9; --rl:#c3d2e2; --rd:#123054; }
+    .learn-hero .room-bar .rb-parts .p3 { --rc:#3B6259; --rb:#eef4f1; --rl:#c6d8d1; --rd:#234b41; }
+    .learn-hero .room-bar .rb-parts .p4 { --rc:#2563a8; --rb:#eff5fa; --rl:#c3daee; --rd:#1c4e8a; }
+    .learn-hero .room-bar .rb-parts .p5 { --rc:#8a5a17; --rb:#fdf6ea; --rl:#e8d3ae; --rd:#7a4e12; }
+    .learn-hero .room-bar .rb-parts .p6 { --rc:#5b3f7a; --rb:#f4eff8; --rl:#d8cbe6; --rd:#4a3363; }
+    .learn-hero .room-bar .rb-parts .p7 { --rc:#7a6417; --rb:#fdf8e8; --rl:#e3d79a; --rd:#5c4a10; }
+    .learn-hero .room-bar .rb-parts .p8 { --rc:#a8431f; --rb:#fbeee6; --rl:#eecab2; --rd:#853418; }
+    .learn-hero .room-bar .rb-parts .p9 { --rc:#1f6a73; --rb:#eaf5f4; --rl:#b9dcd9; --rd:#175057; }
     .learn-hero .room-bar .rb-parts .rb-sep { width: 1px; height: 14px; margin: 0 4px; background: #c3d2e2; }
     .learn-hero .room-bar .rb-parts a.fin { background: #c0392b; border-color: #c0392b; color: #fff; font-weight: 800; }
     .learn-hero .room-bar .rb-parts a.fin:hover { background: #98291d; border-color: #98291d; color: #fff; }
-    /* 03 흐름 안의 여섯 장 — 점선 테두리로, 같은 초록이지만 한 단계 낮춰 보인다. 글자 크기는 다른 알약과 통일. */
-    .learn-hero .room-bar .rb-parts a.sub {
-      padding: 2px 7px; border-style: dashed; opacity: .88;
+    /* 계층 — 파트(부모)는 굵은 실선 · 진한 글자, 장(자식)은 흰 바탕 점선으로 한 단계 낮춘다.
+       03 흐름 · 05 업종의 장들은 파트 색 점선 상자(rb-grp)로 묶어 어느 파트 소속인지 바로 보이게 한다. */
+    .learn-hero .room-bar .rb-parts > a:not(.fin) { border-width: 1.5px; border-color: var(--rc, #17365d); font-weight: 800; }
+    .learn-hero .room-bar .rb-parts .rb-grp {
+      display: inline-flex; flex-wrap: wrap; align-items: center; gap: 4px;
+      margin-left: -2px; padding: 3px 5px; border-radius: 12px;
+      border: 1.5px dashed var(--rc); background: var(--rb);
     }
+    .learn-hero .room-bar .rb-parts .rb-grp a.sub {
+      padding: 2px 8px; background: #fff; border: 1px dashed var(--rc); color: var(--rd);
+      font-size: 10.5px; font-weight: 700;
+    }
+    .learn-hero .room-bar .rb-parts .rb-grp a.sub:hover { background: var(--rc); border-style: solid; color: #fff; }
 
     /* ===== 파트 머리글 — 일곱 파트를 가르는 큰 띠 =====
        장(lp-core) 위의 층이라 더 크고, 왼쪽에 굵은 바를 세워 한눈에 구분된다. */
@@ -2430,7 +2439,7 @@
             <li class="pc"><b>6교시</b><span class="tm">(14:00 – 14:50)</span><span class="rm">사회대 <strong>2106호</strong><em>PC실</em></span></li>
             <li class="mv"><b>7교시</b><span class="tm">(15:00 – 15:50)</span><span class="rm">사회대 <strong>3402호</strong></span></li>
           </ul>
-          <p class="rb-parts"><b>이 페이지는 아홉 파트</b><a class="p0" href="#part00">00 한눈에</a><a class="p1" href="#part01">01 Build Up</a><a class="p2" href="#part02">02 평가기준</a><a class="p3" href="#part03">03 흐름</a><a class="p3 sub" href="#ch01">01 관광벤처란</a><a class="p3 sub" href="#ch02">02 문제정의</a><a class="p3 sub" href="#ch03">03 비즈니스모델</a><a class="p3 sub" href="#ch04">04 린스타트업</a><a class="p3 sub" href="#ch05">05 창업지원</a><a class="p3 sub" href="#ch06">06 사이트사례</a><a class="p4" href="#part04">04 어디에</a><a class="p5" href="#part05">05 업종</a><a class="p5 sub" href="#ch07">07 여행업</a><a class="p5 sub" href="#ch08">08 외식</a><a class="p5 sub" href="#ch09">09 민박한옥</a><a class="p5 sub" href="#ch10">10 스마트팜</a><a class="p5 sub" href="#ch11">11 연구용역</a><a class="p5 sub" href="#local-creator">12 로컬크리에이터</a><a class="p6" href="#part06">06 취업</a><a class="p7" href="#part07">07 책</a><a class="p8" href="#part08">08 기업가정신</a><a class="p9" href="#part09">09 곁들여</a><span class="rb-sep" aria-hidden="true"></span><a class="fin" href="#과제3">과제 — EO Korea 사례연구 · 11월 9일(월) 24시까지</a><a class="fin" href="#part02" title="1차 중간고사 · 2차 11월 1일(일) · 3차 11월 15일(일)">사업계획서 3차 제출 — 11월 15일(일) 자정까지 · 2-2 사업모델(도식화 · 수익화 모델) · 2-3 잠재리스크 및 대응방안</a></p>
+          <p class="rb-parts"><b>이 페이지는 아홉 파트</b><a class="p0" href="#part00">00 한눈에</a><a class="p1" href="#part01">01 Build Up</a><a class="p2" href="#part02">02 평가기준</a><a class="p3" href="#part03">03 흐름</a><span class="rb-grp p3"><a class="p3 sub" href="#ch01">01 관광벤처란</a><a class="p3 sub" href="#ch02">02 문제정의</a><a class="p3 sub" href="#ch03">03 비즈니스모델</a><a class="p3 sub" href="#ch04">04 린스타트업</a><a class="p3 sub" href="#ch05">05 창업지원</a><a class="p3 sub" href="#ch06">06 사이트사례</a></span><a class="p4" href="#part04">04 어디에</a><a class="p5" href="#part05">05 업종</a><span class="rb-grp p5"><a class="p5 sub" href="#ch07">07 여행업</a><a class="p5 sub" href="#ch08">08 외식</a><a class="p5 sub" href="#ch09">09 민박한옥</a><a class="p5 sub" href="#ch10">10 스마트팜</a><a class="p5 sub" href="#ch11">11 연구용역</a><a class="p5 sub" href="#local-creator">12 로컬크리에이터</a></span><a class="p6" href="#part06">06 취업</a><a class="p7" href="#part07">07 책</a><a class="p8" href="#part08">08 기업가정신</a><a class="p9" href="#part09">09 곁들여</a><span class="rb-sep" aria-hidden="true"></span><a class="fin" href="#과제3">과제 — EO Korea 사례연구 · 11월 9일(월) 24시까지</a><a class="fin" href="#part02" title="1차 중간고사 · 2차 11월 1일(일) · 3차 11월 15일(일)">사업계획서 3차 제출 — 11월 15일(일) 자정까지 · 2-2 사업모델(도식화 · 수익화 모델) · 2-3 잠재리스크 및 대응방안</a></p>
         </div>
         <div class="syl-box cal">
           <p class="syl-t"><a href="academic-calendar-venture.html" target="_blank" rel="noopener">2학기 학사일정 달력 ↗</a></p>
