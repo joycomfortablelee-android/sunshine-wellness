@@ -106,6 +106,12 @@
       box-shadow: 0 1px 0 rgba(16,32,48,.04);
     }
     .learn-article .learn-part.pt-part:first-of-type { margin-top: 14px; }
+    /* 파트 머리 위 구분선 — 점선 사이 가운데 ✦. 파트가 바뀌는 자리를 멀리서도 보이게 */
+    .learn-article .pt-div { display: flex; align-items: center; gap: 14px; margin: 52px 0 0; color: #8fa3b8; }
+    .learn-article .pt-div::before, .learn-article .pt-div::after { content: ""; flex: 1; border-top: 2px dashed #c3d2e2; }
+    .learn-article .pt-div span { font-size: 15px; line-height: 1; }
+    .learn-article .pt-div + .learn-part.pt-part { margin-top: 14px; }
+    .learn-article .pt-div:first-child { margin-top: 8px; }
     /* 왼쪽 색 사각형 — 「파트」 라벨 위에 큰 숫자. 멀리서도 몇 번째인지 읽힌다. */
     .learn-article .learn-part.pt-part .pt {
       grid-column: 1; grid-row: 1 / span 2;
@@ -2557,6 +2563,7 @@
         <p class="cg-flow">쓰고(①) → 발표하고 고치고(②) → 양식으로 옮겨 낸다(③)</p>
       </section>
 
+      <div class="pt-div" aria-hidden="true"><span>✦</span></div>
       <p class="learn-part pt-part pp-x" id="part00"><span class="pt"><i>파트</i><b>00</b></span><span class="pt-ti">한눈에 보기</span><span class="pt-sub"><strong>열 파트 지도</strong> · <strong>읽는 법</strong> · <strong>출석부</strong> — 파트 01에 들어가기 전에 전체 그림부터 봅니다</span></p>
 
       <!-- 이 페이지를 읽는 법 — 열 파트 그림(왼쪽)과 상세 표(오른쪽)를 나란히. 과목 · 홈페이지 소개는 Word(assets/tourism-venture-reading-guide.docx)로 따로. 맨 위 「안내서」 줄의 📖 알약이 이 상자를 연다 (2026-10-17) -->
@@ -2636,9 +2643,9 @@
         <figcaption><b>한눈에 보기</b> 이 페이지의 <strong>여덟 파트</strong>가 가운데 한 문장 — <em>「여행의 불편을 반복 가능한 방식으로 푸는 일」</em>에서 뻗어 나갑니다. <span class="zoom-hint">누르면 크게 보입니다</span></figcaption>
       </figure>
 
+      <div class="pt-div" aria-hidden="true"><span>✦</span></div>
       <p class="learn-part pt-part pp-2" id="part02"><span class="pt"><i>파트</i><b>01</b></span><span class="pt-ti">평가 기준과 제출</span><span class="pt-sub"><b>무엇을 내는가</b> — 이 수업의 산출물은 리포트가 아니라 <strong>실제로 낼 수 있는 사업계획서 한 부</strong>입니다. 무엇을 내는지부터 보고 시작합니다.</span></p>
       <p class="dltags"><a class="mapl form" href="tourism-venture-grading-criteria-100.html" target="_blank" rel="noopener">📋 수업 평가 기준(100점) 공지 ↗</a><span class="dl-src">배점 구성과 세부 평가 항목 — 아래 과제들의 점수가 어디서 나오는지 한 화면에서 확인합니다.</span></p>
-      <div class="ir-row" id="sr-10"><div class="ir-short mini"><iframe src="https://www.youtube-nocookie.com/embed/OkVYP1ofU4s" title="[사업계획서작성] ⑩ 사업계획서 체계적으로 준비하자" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><p class="ir-cap"><b>「⑩ 사업계획서 체계적으로 준비하자」</b> — 한국부동산원 「사업계획서 작성」 시리즈. 과제 1을 열기 전에 — 사업계획서를 <b>어떤 순서로 준비하는가</b>를 먼저 봅니다.</p></div></div>
       <p class="dltags series-idx"><b class="si-h">시리즈 한눈에</b><a href="#sr-08a">⑧ 작성 요령 · 페르소나</a><a href="#sr-08b">⑧ BM 도식화</a><a href="#sr-09">⑨ 고객 검증</a><a href="#sr-10">⑩ 체계적 준비</a><a href="#sr-11">⑪ 정부지원사업 종류</a><a href="#part10">⑫ ⑬ IR 피칭</a><a href="#sr-14">⑭ 투자 단계</a><a href="#hire-proof">⑮ 고용 증명</a><a href="#sr-17">⑰ 고도화 · 강점</a><span class="dl-src">한국부동산원 「사업계획서 작성」 시리즈(한국부동산원 진행 강의)는 편마다 다루는 칸이 달라 <b>그 칸을 가르치는 장</b>에 한 편씩 두었습니다 — 누르면 그 자리로 갑니다.</span></p>
 
       <figure class="learn-fig bp7" id="bp-7parts">
@@ -2739,8 +2746,11 @@
 
       <p class="mini-note"><strong>낼 것을 정했으면 남들이 무엇을 냈는지 봅니다.</strong> 아래는 <strong class="hot-t">이 공모에 낼 아이템을 벤치마킹하는 자리</strong>입니다 — 관광·여행 스타트업을 모아 놓은 목록에서 회사를 고르고, 그중 한 곳을 끝까지 읽은 예가 <em>벤치마킹 PT</em>로 붙어 있습니다.</p>
 
+      <div class="ir-row" id="sr-10"><div class="ir-short mini"><iframe src="https://www.youtube-nocookie.com/embed/OkVYP1ofU4s" title="[사업계획서작성] ⑩ 사업계획서 체계적으로 준비하자" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><p class="ir-cap"><b>「⑩ 사업계획서 체계적으로 준비하자」</b> — 한국부동산원 「사업계획서 작성」 시리즈. 과제 1을 쓰다 막히면 — 사업계획서를 <b>어떤 순서로 준비하는가</b>를 다시 봅니다. 아래 ⑰ 고도화와 짝입니다.</p></div></div>
+
       <div class="ir-row" id="sr-17"><div class="ir-short mini"><iframe src="https://www.youtube-nocookie.com/embed/UyF2PfDUidQ" title="[정책, 데이터활용] ⑰ 사업계획서 고도화와 강점 살리기" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><p class="ir-cap"><b>「⑰ 사업계획서 고도화와 강점 살리기」</b> — 한국부동산원 「사업계획서 작성」 시리즈. 다 쓴 계획서를 <b>심사위원의 눈으로 다시 다듬는</b> 법 — 3차 제출 전, 그리고 14주차 모의 심사에서 봅니다.</p></div></div>
 
+      <div class="pt-div" aria-hidden="true"><span>✦</span></div>
       <p class="learn-part pt-part pp-1" id="part01"><span class="pt"><i>파트</i><b>02</b></span><span class="pt-ti">주차별 Build Up</span><span class="pt-sub">매주 무엇을 손에 남기고 나가는가 — 그날의 목표를 한 칸씩 적었습니다. <b>이번 주 것만 펼쳐 두고</b> 나머지는 접어 두십시오.</span></p>
 
       <figure class="grow-fig">
@@ -3310,6 +3320,7 @@
         <li><i class="k-link"></i>관련 링크</li>
       </ul>
 
+      <div class="pt-div" aria-hidden="true"><span>✦</span></div>
       <p class="learn-part pt-part pp-3" id="part03"><span class="pt"><i>파트</i><b>03</b></span><span class="pt-ti">창업의 흐름</span><span class="pt-sub">문제 정의에서 시작해 모델 · 검증 · 지원까지 여섯 장으로 잇습니다. 이 여섯 장이 그대로 <strong>과제 1 사업계획서의 칸</strong>이 됩니다.</span></p>
       <figure class="tv-map narrow" id="tv-home-flow">
         <a href="images/tv-02-home-flow.webp" target="_blank" rel="noopener"><img src="images/tv-02-home-flow.webp" width="1024" height="1536" loading="lazy" alt="관광벤처창업론 HOME 흐름도 — 01 관광벤처란 · 02 아이디어는 문제에서 나온다 · 03 비즈니스 모델 · 04 만들기 전에 검증하라(Lean Startup) · 05 혼자 하지 않는다(창업 지원) · 06 이 사이트를 창업 사례로 읽기"></a>
@@ -3512,6 +3523,7 @@
 
       <p class="mini-note"><strong>01~06장</strong>이 <em>창업의 흐름</em>(문제 → 모델 → 검증 → 지원)을 다뤘다면, <strong>5-1~5-5</strong>는 이를 <strong>구체적인 관광 업종</strong>에 적용합니다. 즉, <strong class="hot-t">아이템이 정해진 뒤 업종별 사업 구조를 살펴보는 단계</strong>입니다.</p>
 
+      <div class="pt-div" aria-hidden="true"><span>✦</span></div>
       <p class="learn-part pt-part pp-4" id="part04"><span class="pt"><i>파트</i><b>04</b></span><span class="pt-ti">어디에 내고, 누구의 도움을 받나</span><span class="pt-sub">낼 곳은 하나가 아닙니다 — <strong>관광벤처(문체부 · 관광공사)</strong> · <strong>지자체 관광 스타트업</strong> · <strong>로컬크리에이터(중기부)</strong> 세 갈래이고, 같은 아이템으로 셋 다 낼 수 있습니다. 로컬크리에이터는 업종으로 다루므로 <a href="#local-creator">파트 05의 5-6</a>에 있습니다. <strong>창구 넷 지도(04-0)</strong>로 시작해 ① 관광 전용 → ② 범부처 → ③ 보육 · 투자 → ④ 가까운 곳 순으로 폅니다.</span></p>
       <figure class="tv-map" id="tv-where">
         <a href="images/tv-04-where-to-apply.webp" target="_blank" rel="noopener"><img src="images/tv-04-where-to-apply.webp" width="1400" height="1050" loading="lazy" alt="그러면 우리가 실제로 참여할 곳은 — 관광 창업 공모(예비관광벤처 사업공모) · 작품 · 서비스 공모(관광데이터 활용 공모전, TourAPI) · 정부 R&amp;D(문화체육관광 R&amp;D, AI 관광혁신) → 지역으로 내려가 보면 경주(황오동 관광스타트업) · 경북(원도심 공모전) · 안동(청년 스타트업 관광기업)"></a>
@@ -3779,6 +3791,7 @@
 
 
 
+      <div class="pt-div" aria-hidden="true"><span>✦</span></div>
       <p class="learn-part pt-part pp-5" id="part05"><span class="pt"><i>파트</i><b>05</b></span><span class="pt-ti">업종별로 들어가기</span><span class="pt-sub">앞이 <strong>창업의 흐름</strong>이었다면 여기부터는 <strong>업종</strong>입니다 — 아이템이 정해진 뒤 그 업의 사업 구조와 규칙을 봅니다. 여행업 · 외식 · 농어촌 · 스마트팜 · 연구용역에 이어 <strong>지역 자체를 아이템으로 삼는 5-6 로컬크리에이터</strong>와 <strong>주민이 함께 꾸리는 5-7 관광두레</strong>로 맺습니다.</span></p>
 
       <p class="learn-part lp-core" id="ch07"><span class="num n5">5-1</span>여행업 창업 — 가장 오래된 업</p>
@@ -4119,6 +4132,7 @@
         </li>
       </ul>
 
+      <div class="pt-div" aria-hidden="true"><span>✦</span></div>
       <p class="learn-part pt-part pp-7" id="part07"><span class="pt"><i>파트</i><b>06</b></span><span class="pt-ti">책 — 교재 세 권</span><span class="pt-sub">기준 교재 두 권 + 사업계획서 작성 참고서 한 권. 가르는 축이 서로 달라, 지금 읽는 대목이 전체의 어디쯤인지 대 보기 좋습니다.</span></p>
 
       <p class="learn-part lp-book"><span class="ptag">책</span>교재로 먼저 지형을 본다</p>
@@ -4172,6 +4186,7 @@
       <p class="dltags" style="margin:6px 0 0;"><a class="mapl form" href="tourism-venture-ox-mc-quiz.html" target="_blank" rel="noopener">OX · 4지선다 자가진단 퀴즈 ↗</a><span class="dl-src">PSST · 문제정의 · 비즈니스 모델 · 린 스타트업 · 여행업 · 연구용역 · 농촌 융복합산업 중심(8주차에도 연결).</span></p>
       <p class="dltags" style="margin:6px 0 0;"><a class="mapl form ylw" href="startup-terms-92-quiz.html" target="_blank" rel="noopener"><span class="blink-star" aria-hidden="true">●</span> 스타트업 핵심 용어 92 · 퀴즈 ↗</a><span class="dl-src">영어 용어 · 한글 발음 · 뜻 · 관광 예시 2열 슬라이드 + 퀴즈 15문항(05장 창업지원 절에도 연결).</span></p>
 
+      <div class="pt-div" aria-hidden="true"><span>✦</span></div>
       <p class="learn-part pt-part pp-8" id="part08"><span class="pt"><i>파트</i><b>07</b></span><span class="pt-ti">기업가 정신</span><span class="pt-sub"><strong>정진선 강사</strong>의 창업가 DNA 강의교안 — 창업가 DNA · 고객 · 전략 · 제품 · 성장 5부, 슬라이드 221장 전체를 그대로 옮겼습니다.</span></p>
       <p class="dltags"><a class="mapl form" href="startup-founder-dna/" target="_blank" rel="noopener">🧬 스타트업 창업가 DNA 강의교안 전체 보기 ↗</a><span class="dl-src">제1부 창업가 DNA(49장) · 제2부 고객(43장) · 제3부 전략(46장) · 제4부 제품(51장) · 제5부 성장(32장).</span></p>
 
@@ -4189,6 +4204,7 @@
         <p class="tb-tags sub"><b style="font-size:12px;color:#7a5a12;margin-right:4px">학생별 추천 영상</b><a class="mapl form" href="https://youtu.be/jV2LMXsHFxc?t=13" target="_blank" rel="noopener">박준영 추천 · 「지방 소멸을 막을 획기적인 기회 | 킹덤플랜트 IR 피칭, Q&amp;A」 EO Korea ↗</a><a class="mapl form" href="https://youtu.be/YoRtQydl1vU?t=6" target="_blank" rel="noopener">고은서 추천 · 「버려진 공간이 돈이 되는 방법 | 더몽 IR 피칭, Q&amp;A」 EO Korea ↗</a><a class="mapl form" href="https://youtu.be/oIpoYVfInAU?t=12" target="_blank" rel="noopener">박상준 추천 · 「[무삭제] 요즘 배달앱 들어가면 보이는 서비스 | 잇그린 IR 피칭, Q&amp;A」 EO Korea ↗</a><a class="mapl form" href="https://youtu.be/ogLbAgGh0RQ?t=293" target="_blank" rel="noopener">박상준 추천 ② · 「[무삭제] MZ세대 지갑을 여는 3가지 키워드 | 그라인더 IR 피칭, Q&amp;A」 EO Korea ↗</a><a class="mapl form" href="https://youtu.be/4On1sUNPrOo?t=5" target="_blank" rel="noopener">차진희 추천 · 「240만 노인 일자리를 혁신하는 회사 | 내이루리 IR 피칭, Q&amp;A」 EO Korea ↗</a><span class="tb-note">친구가 고른 영상도 과제 2의 두 편 후보로 쓸 수 있습니다 — 누르면 추천한 시점부터 재생됩니다.</span></p>
       </div>
 
+      <div class="pt-div" aria-hidden="true"><span>✦</span></div>
       <p class="learn-part pt-part pp-10" id="part10"><span class="pt"><i>파트</i><b>08</b></span><span class="pt-ti">IR 피칭</span><span class="pt-sub">서류가 통과하면 다음은 무대입니다. <strong>몇 분 안에 문제 · 해결 · 시장, 그리고 비전</strong>을 말하는 법을 실제 강의와 실제 무대로 봅니다.</span></p>
       <p>사업계획서는 <strong>읽히는 글</strong>이고, 피칭은 <strong>듣는 말</strong>입니다. 공모 대부분이 <strong>서류 → 발표 심사</strong> 두 단계라, 같은 내용을 두 번 — 한 번은 칸을 채워서, 한 번은 시간 안에 말해서 — 증명해야 합니다. <strong class="hot-t">14주차 발표 리허설 전에 이 파트를 먼저 보십시오.</strong></p>
       <div class="ir-row">
@@ -4198,6 +4214,7 @@
       </div>
       <p class="dltags"><a class="mapl form hot" href="#wk14">14주차 발표 리허설로 ↑</a><a class="mapl form ylw" href="gov-support-business-plan-98p.html" target="_blank" rel="noopener">★ 사업계획서 합격 비법 · 98장 ↗</a><a class="mapl form" href="https://blog.naver.com/772ryo" target="_blank" rel="noopener">이명신 IR피칭 멘토 ↗</a><span class="dl-src">앞의 두 편(⑫ 비전 → ⑬ 컨셉)이 <b>피칭덱을 어떻게 짜는가</b>라면, 정주영 창업경진대회 영상은 <b>실제 무대에서 그것이 어떻게 들리는가</b>입니다. 리허설 때는 <b>문제는 짧게, 해결과 수익 구조에 시간을</b> — 두 영상 모두 그 순서로 말합니다.</span></p>
       
+      <div class="pt-div" aria-hidden="true"><span>✦</span></div>
       <p class="learn-part pt-part pp-9" id="part09"><span class="pt"><i>파트</i><b>09</b></span><span class="pt-ti">곁들여 보기 · 링크</span><span class="pt-sub">사례 둘과 공모를 찾는 창구 모음입니다 — <strong>비건부산</strong>이 이론을 서비스로 옮긴 예라면, <strong>구미 · 포항</strong>은 도시가 왜 관광 창업에 돈을 쓰는지를 보여줍니다.</span></p>
 
 
@@ -4377,6 +4394,7 @@
       <p class="mini-note">교재 연결 — 「관광창업론」(방송대) <strong>14~15장 관광두레</strong>. 지원 금액 · 기간 · 선정 규모는 해마다 바뀌므로 <strong>그 해 공고</strong>로 확인하십시오.</p>
       </div>
 
+      <div class="pt-div" aria-hidden="true"><span>✦</span></div>
       <p class="learn-part pt-part pp-6" id="part06"><span class="pt"><i>파트</i><b>10</b></span><span class="pt-ti">창업하지 않아도 쓰인다</span><span class="pt-sub">모두가 창업하지는 않습니다. 그런데 <strong>관광기업이 사람을 뽑을 때 보는 것</strong>과 공모가 사업계획서에서 보는 것이 거의 같습니다.</span></p>
 
       <div class="task-box vt2 y">
