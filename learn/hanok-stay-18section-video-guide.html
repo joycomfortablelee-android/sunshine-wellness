@@ -72,6 +72,9 @@ body.keywords-off .keyword-blue{color:inherit!important;font-weight:inherit!impo
 body.keywords-off .chapter-keywords{display:none}
 @media(max-width:740px){.chapter-keywords{gap:5px}.chapter-keyword{font-size:10px}.keyword-toggle{order:5}}
 @media print{.keyword-toggle{display:none!important}.chapter-keywords{break-inside:avoid}.keyword-blue{color:#1059bf!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+
+@media(max-width:790px){#narration3min{grid-template-columns:1fr!important}}
+@media print{#narration3min{display:none!important}}
 </style>
 </head>
 <body>
@@ -92,6 +95,7 @@ body.keywords-off .chapter-keywords{display:none}
 <div aria-label="내용 모드 선택" class="toolbar" role="navigation"><div class="tabbar">
 <button class="tab active" data-tab="full">전체 요약</button><button class="tab" data-tab="key">핵심 6구간</button><button class="tab" data-tab="practice">비교표·점검표</button><button class="tab" data-tab="law">법령 확인</button>
 </div><div class="toolbar-spacer"></div><a class="btn" href="tourism-venture.html">← 관광벤처창업론으로</a><input aria-label="구간 내용 검색" class="search" id="search" placeholder="내용·구간 검색" type="search"/><button class="btn primary" id="showVideoBtn" type="button">▶ 영상 보기</button><button class="btn" id="modeBtn">⇄ 좌우 넘김</button><button aria-pressed="true" class="btn keyword-toggle" id="keywordToggle" title="핵심 키워드의 파란색 글자 강조 표시 켜기 또는 끄기" type="button">◆ 핵심어 강조 ON</button><button class="btn" id="printBtn">인쇄 / PDF</button></div>
+<section class="card" id="narration3min" aria-label="3분 압축 소개 영상" style="display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:20px;align-items:center"><video controls preload="metadata" playsinline style="width:100%;border-radius:13px;background:#162720;aspect-ratio:16/9" src="assets/hanok-stay-guide-3min-narration.mp4"><track kind="subtitles" srclang="ko" label="한국어" src="assets/hanok-stay-guide-3min-narration.vtt" default></video><div><div class="kicker">먼저 보기 · 3분 압축 소개</div><h2 style="margin:7px 0 10px;font-size:21px;line-height:1.4">이 가이드를 3분 나레이션으로</h2><p class="muted" style="font-size:13px;line-height:1.8;margin:0">한옥스테이 vs 한옥체험업 → 두 축(등록기준 · 건축물 적법성) → 등록요건 <b>05:05</b> → 등록 절차 <b>11:15</b> → 등록 · 인증 · 플랫폼 구분 → 현장의 함정(사전 협의) 순으로 18구간을 여덟 장에 압축했습니다. 자막(한국어) 포함 · 3분 8초.</p></div></section>
 <section aria-label="한옥체험업 창업 원본 영상 재생 및 타임스탬프" class="video-shell" id="videoShell">
 <div class="video-title"><div><span class="kicker">원본 영상과 상세 요약 동시 학습</span><h2>▶ 한옥체험업 등록 기준과 절차 · YouTube 강의</h2></div>
 <div class="video-actions"><button class="btn" id="videoFloat" type="button">▣ 영상 작게 띄우기</button><button aria-expanded="true" class="btn" id="videoToggle" type="button">접기</button><a class="btn primary" href="https://youtu.be/0KREg5pwXb4?si=QC5_uJlQiyeAOf25" id="youtubeFallback" rel="noopener noreferrer" target="_blank">↗ YouTube에서 열기</a></div></div>
