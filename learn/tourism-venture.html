@@ -442,14 +442,14 @@
     .learn-article table.vt4 td.vt4-o { color: #4b6b21; font-weight: 800; white-space: nowrap; }
     .learn-article table.vt4 td em { font-style: normal; color: #6b7d8f; font-size: 11.5px; }
     .learn-article table.vt4 td.gap { background: #fffbe6; }
-    /* 유형 넷 표 + 신청유형 넷 그림 — 같은 행에서 시작(위 맞춤), 고르는 법은 표 아래 상자 */
+    /* 유형 넷 표 + 신청유형 넷 그림 — 같은 행에서 시작(위 맞춤) */
     .learn-article .vt4-row { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 14px; align-items: start; margin: 10px 0 14px; }
     .learn-article .vt4-row .vt4-wrap { margin: 0; }
     .learn-article .vt4-row figure { margin: 0; }
     .learn-article .vt4-row figure img { display: block; width: 100%; height: auto; border-radius: 8px; border: 1px solid #e1e8ef; }
     .learn-article .vt4-row figcaption { margin-top: 6px; font-size: 12px; line-height: 1.65; color: #4a5a68; }
     @media (max-width: 900px) { .learn-article .vt4-row { grid-template-columns: 1fr; } }
-    .learn-article .vt4-row .pick-box { margin-top: 10px; padding: 10px 13px; border: 1px solid #d5e3c8; border-left: 4px solid #4b6b21; border-radius: 8px; background: #f8fbf4; }
+    .learn-article .vt4-row .pick-box { margin-top: 10px; padding: 10px 13px; border: 1px solid #d5e3c8; border-left: 4px solid #4b6b21; border-radius: 8px; background: #f8fbf4; font-size: 12.5px; line-height: 1.6; }
     .learn-article .vt4-row .pick-box p { margin: 2px 0; font-size: 12.5px; line-height: 1.6; }
     .learn-article .vt4-row .pick-box p.pk-h { font-size: 13px; font-weight: 800; color: #2f4a17; margin-bottom: 4px; }
     .learn-article .vt4-row .pick-box b { color: #2f4a17; margin-right: 6px; }
@@ -539,6 +539,20 @@
     .learn-article .ks-grp .kwlist li > span { display: block; }
     .learn-article .ks-grp .kwlist li > b { display: block; margin-top: 6px; font-size: 12.5px; color: #17365d; }
     @media (max-width: 900px) { .learn-article .stat4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } .learn-article .ks-wrap { grid-template-columns: 1fr; } }
+    .learn-article .tri-follow { grid-template-columns: minmax(0, .9fr) minmax(0, 1.2fr) minmax(0, 1fr) !important; }
+    .learn-article .tri-follow ol.why3 { margin: 0 0 6px; padding: 0; list-style: none; counter-reset: w; }
+    .learn-article .tri-follow ol.why3 li { counter-increment: w; padding: 6px 0; border-bottom: 1px dashed #f0d2b0; font-size: 12.5px; line-height: 1.55; }
+    .learn-article .tri-follow ol.why3 li::before { content: counter(w); display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; margin-right: 6px; border-radius: 50%; background: #c25e10; color: #fff; font-size: 11px; font-weight: 800; }
+    .learn-article .tri-follow ol.why3 li b { color: #8a4f14; }
+    .learn-article .tri-follow ol.why3 li span { display: block; margin-left: 24px; color: #6b5a4a; }
+    .learn-article .tri-follow .why-x { margin: 6px 0; font-size: 12px; color: #6b5a4a; }
+    @media (max-width: 900px) { .learn-article .tri-follow { grid-template-columns: 1fr !important; } }
+    /* 이동 알약 줄 — 번호 붙은 하단 이동 + 위로 가는 하나 */
+    .learn-article .jump-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 12px; }
+    .learn-article .jump-row a { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 999px; border: 1px solid #c3daee; background: #fff; color: #1c4e8a; font-size: 12px; font-weight: 700; text-decoration: none; }
+    .learn-article .jump-row a i { font-style: normal; display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 50%; background: #2563a8; color: #fff; font-size: 11px; }
+    .learn-article .jump-row a:hover { background: #eff5fa; border-color: #2563a8; }
+    .learn-article .jump-row a.up { border-style: dashed; color: #5c6b7a; }
     /* 한국부동산원 시리즈 한눈에 — 편 번호 알약 줄 */
     .learn-article .dltags.series-idx .si-h { font-size: 12px; font-weight: 800; color: #17365d; margin-right: 6px; }
     .learn-article .dltags.series-idx a { display: inline-block; margin: 0 4px 4px 0; padding: 3px 9px; border-radius: 999px; border: 1px solid #c3d2e2; background: #fff; color: #17365d; font-size: 11.5px; font-weight: 700; text-decoration: none; }
@@ -3558,12 +3572,13 @@
         <ol class="vcards c3 steps tri3">
           <li class="t-orange on-dark"><span class="vt">WHO</span><span class="vh">누구의 문제인가</span><span class="vd">고객을 구체적으로. <em>예: 부산을 처음 찾는 외국인 개별 여행자.</em></span><span class="vlk"><a href="#sr-08a">▶ 고객 페르소나 영상 ↓</a></span><span class="tri-hub">문제 정의</span></li>
           <li class="t-orange2 on-dark"><span class="vt">WHAT</span><span class="vh">어떤 문제인가</span><span class="vd">진짜 불편을 한 문장으로. <em>예: 언어 장벽으로 로컬 경험에 닿지 못한다.</em></span><span class="vlk"><a href="#idea-wb">✦ 아이템 구체화 워크북 ↓</a></span></li>
-          <li class="t-orange3 on-dark"><span class="vt">WHY NOW<b class="vstar">★ 차별성</b></span><span class="vh">기존 업체와 어떤 차별성이 있는가</span><span class="vd">이미 있는 서비스·대체재가 못 하는 것, 남이 쉽게 따라 하지 못하는 규칙 하나를 짚습니다. 시장·기술·규제의 변화가 지금 그 틈을 열었다면 더 단단해집니다. <em>예: 번역 앱은 말만 옮기지만, 검증된 로컬 호스트가 골목까지 함께 걷는다. 이 칸이 흔들리면 「기존 업체와 뭐가 다른데?」로 되돌아옵니다.</em></span></li>
+          <li class="t-orange3 on-dark"><span class="vt">WHY NOW<b class="vstar">★ 차별성</b></span><span class="vh">기존 업체와 어떤 차별성이 있는가</span><span class="vd">이미 있는 서비스·대체재가 못 하는 것, 남이 쉽게 따라 하지 못하는 규칙 하나를 짚습니다. 시장·기술·규제의 변화가 지금 그 틈을 열었다면 더 단단해집니다. <em>예: 번역 앱은 말만 옮기지만, 검증된 로컬 호스트가 골목까지 함께 걷는다. 이 칸이 흔들리면 「기존 업체와 뭐가 다른데?」로 되돌아옵니다.</em></span><span class="vlk"><a href="#why-now">★ 차별성 한 줄 틀 ↓</a></span></li>
         </ol>
       </div>
       <div class="tri-follow">
-        <div class="tf-col"><p class="tf-h"><b>WHO</b> → 고객을 한 사람으로</p><div class="ir-row" id="sr-08a" style="margin:0"><div class="ir-short mini"><iframe src="https://www.youtube-nocookie.com/embed/KEFW2iuAgxg?start=719" title="[사업계획서작성] ⑧ 사업계획서 작성 요령 — 고객 페르소나" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><p class="ir-cap"><b>「⑧ 사업계획서 작성 요령」 · 고객 페르소나</b> — 한국부동산원 · <strong>11분 59초부터</strong>. 아래 타겟팅 ①~③으로 좁힐 고객을 「20대 관광객」에서 멈추지 않고 <b>한 사람(페르소나)</b>으로 그려 보이는 법. 같은 영상 11:14부터는 03장 「3 그리기」의 비즈니스 모델 도식화입니다.</p></div></div></div>
-        <div class="tf-col"><p class="tf-h"><b>WHAT</b> → 무엇을 파는가로 깎기</p><p class="dltags" id="idea-wb"><a class="mapl form ylw" href="idea-development-workbook-4in1.html" target="_blank" rel="noopener">✦ 아이디어 구체화 4종 통합 워크북 · ChatGPT 프롬프트 ↗</a><span class="dl-src"><b>유형을 골랐으면 그다음은 아이디어를 「말이 되는 상품」으로 깎는 일입니다.</b> 원본 워크북 넷을 한 페이지에 모았습니다 — <b>① 피드백 루프</b>(한 번 묻고 끝내지 않고 <em>구체화 → 사례 비교 → 현실성 검토 · MVP</em>를 세 번 돌린다) · <b>② 프롬프트 워크북</b>(마스터 프롬프트 하나와 단계별 여덟 — 아이디어 진단 · 핵심 고객 · 이용 장면 · 정확히 무엇을 파는가 · 이용 흐름 · 차별성 · 운영과 가격 · MVP) · <b>③ PRODUCT · SERVICE 구체화</b> · <b>④ 관광상품 PRODUCT 구체화</b>. 프롬프트 상자는 <b>복사 버튼</b>이 붙어 있고 <b>[내 아이디어]</b>만 바꿔 넣으면 됩니다. 한지 교육 콘텐츠 · 지역문화 공연처럼 <b>막연한 한 줄이 시범 운영안까지 좁혀지는 예</b>가 끝에 둘 있습니다 — 위 삼각형의 <b>WHO · WHAT</b>을 여기서 <b>무엇을 파는가</b>로 옮깁니다.</span></p></div>
+        <div class="tf-col"><p class="tf-h"><b>WHO</b> → 고객을 한 사람으로</p><div class="ir-row" id="sr-08a" style="margin:0"><div class="ir-short mini"><iframe src="https://www.youtube-nocookie.com/embed/KEFW2iuAgxg?start=719" title="[사업계획서작성] ⑧ 사업계획서 작성 요령 — 고객 페르소나" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><p class="ir-cap"><b>「⑧ 사업계획서 작성 요령」 · 고객 페르소나</b> — 한국부동산원 · <strong>11분 59초부터</strong>. 아래 타겟팅 ①~③으로 좁힐 고객을 「20대 관광객」에서 멈추지 않고 <b>한 사람(페르소나)</b>으로 그려 보이는 법. 같은 영상 11:14의 <b>비즈니스 모델 도식화</b>는 <a href="#sr-08b">파트 01 ⑰ 옆 ↑</a>에 있습니다.</p></div></div></div>
+        <div class="tf-col"><p class="tf-h"><b>WHAT</b> → 무엇을 파는가로 깎기</p><p class="dltags" id="idea-wb"><a class="mapl form ylw" href="idea-development-workbook-4in1.html" target="_blank" rel="noopener">✦ 아이디어 구체화 4종 통합 워크북 · ChatGPT 프롬프트 ↗</a><span class="dl-src">원본 워크북 넷 — <b>① 피드백 루프</b>(구체화 → 사례 비교 → 현실성 · MVP, 세 번) · <b>② 프롬프트 여덟</b>(진단 · 고객 · 장면 · 파는 것 · 흐름 · 차별성 · 가격 · MVP) · <b>③ 서비스 구체화</b> · <b>④ 관광상품 구체화</b>. <b>[내 아이디어]</b>만 바꿔 복사합니다.</span></p></div>
+        <div class="tf-col" id="why-now"><p class="tf-h"><b>WHY NOW</b> → 차별성을 한 줄로</p><ol class="why3"><li><b>지금 고객이 대신 쓰는 것</b><span>번역 앱 · 패키지 투어 · 블로그 검색</span></li><li><b>그것이 못 하는 것</b><span>골목 안 로컬 경험까지 같이 가지 못한다</span></li><li><b>우리만의 규칙 하나</b><span>검증된 로컬 호스트가 함께 걷는다 — 예: 비건부산의 등급 체계</span></li></ol><p class="why-x">「저희는 다릅니다」가 아니라 <b>「저쪽은 A, 우리는 B」</b>로 씁니다.</p><p class="dltags"><a class="mapl form ylw" href="startup-item-pt-scrapbook/#경쟁사분석" target="_blank" rel="noopener"><span class="blink-star" aria-hidden="true">★</span> Ms.Lee PSST point lesson · 경쟁사 분석 ↗</a><a class="mapl form" href="#research-34">「왜 지금」 근거 · 조사 사이트 34선 ↓</a></p>
       </div>
       <p>좋은 문제 정의는 이미 절반의 해답입니다. 이 사이트의 출발점도 "친절한 로컬 가이드와 여행자를 잇는다"는 한 문장이었습니다.</p>
       <figure class="learn-fig ps-penta" id="problem-statement-5">
@@ -3617,15 +3632,16 @@
         <figcaption>위 ⑥ 깔때기의 축약판 — <b>LAM · PAM 둘을 빼고 TAM → SAM → RAM → SOM 네 단계</b>만, 단계 사이에 무엇을 거르는지(사업모델 · 운영 제약 · 직접 경쟁)를 적어 넣은 그림입니다. 한 장으로 빠르게 볼 때 씁니다.</figcaption>
       </figure>
 
-      <p class="dltags"><a class="mapl form hot" href="startup-research-sites-34.html" target="_blank" rel="noopener">창업정보 조사 사이트 34선 — 근거는 어디서 찾나 ↗</a><a class="mapl form lime" href="startup-research-sites-34-onepage.html" target="_blank" rel="noopener">같은 34곳 · 한 장 초콤팩트 — 인쇄용 ↗</a><span class="dl-src"><b>고객을 좁혔다면, 이제 「그 고객이 정말 있다」는 숫자를 가져올 차례입니다.</b> 사이트를 외우는 판이 아니라 <b>어느 질문에 답해 주는 사이트인가</b>로 묶은 판입니다 — <b>시장규모 · 고객 · 입지</b>(KOSIS · SGIS · 공공데이터포털) · <b>경쟁기업</b>(DART) · <b>소비자 관심</b>(Google Trends · 네이버 데이터랩) · <b>지원사업</b>(K-Startup · 기업마당) · <b>기술 · 특허 · 법</b>(NTIS · KIPRIS · 국가법령정보센터). <b>「외국인 대상 안동 전통문화 체험여행 플랫폼」</b> 하나로 열한 걸음을 따라가는 예와, 주소가 달린 <b>34곳 목록</b>이 있습니다(초록 알약은 그 34곳을 네 묶음 한 장에 모은 <b>인쇄용</b>). 주의 하나 — <b>검색량은 구매량이 아닙니다</b>(수요의 신호일 뿐). 관광 전용 근거(한국관광 데이터랩 · PRISM · 관광특화 통합검색)는 파트 09 에 따로 있습니다. <b>← →</b> 로 넘깁니다.</span></p>
+      <p class="dltags" id="research-34"><a class="mapl form hot" href="startup-research-sites-34.html" target="_blank" rel="noopener">창업정보 조사 사이트 34선 — 근거는 어디서 찾나 ↗</a><a class="mapl form lime" href="startup-research-sites-34-onepage.html" target="_blank" rel="noopener">같은 34곳 · 한 장 초콤팩트 — 인쇄용 ↗</a><span class="dl-src"><b>고객을 좁혔다면, 이제 「그 고객이 정말 있다」는 숫자를 가져올 차례입니다.</b> 사이트를 외우는 판이 아니라 <b>어느 질문에 답해 주는 사이트인가</b>로 묶은 판입니다 — <b>시장규모 · 고객 · 입지</b>(KOSIS · SGIS · 공공데이터포털) · <b>경쟁기업</b>(DART) · <b>소비자 관심</b>(Google Trends · 네이버 데이터랩) · <b>지원사업</b>(K-Startup · 기업마당) · <b>기술 · 특허 · 법</b>(NTIS · KIPRIS · 국가법령정보센터). <b>「외국인 대상 안동 전통문화 체험여행 플랫폼」</b> 하나로 열한 걸음을 따라가는 예와, 주소가 달린 <b>34곳 목록</b>이 있습니다(초록 알약은 그 34곳을 네 묶음 한 장에 모은 <b>인쇄용</b>). 주의 하나 — <b>검색량은 구매량이 아닙니다</b>(수요의 신호일 뿐). 관광 전용 근거(한국관광 데이터랩 · PRISM · 관광특화 통합검색)는 파트 09 에 따로 있습니다. <b>← →</b> 로 넘깁니다.</span></p>
 
       <p class="learn-part lp-core" id="ch03"><span class="num">03</span>비즈니스 모델 — 어떻게 돈이 도는가</p>
-      <p>사업이 되려면 가치가 <strong>돈의 흐름</strong>으로 이어져야 합니다. 비즈니스 모델 캔버스는 이를 아홉 칸으로 정리하는 도구지만, 핵심은 세 가지입니다.</p>
-      <div class="tri-wrap tri-cyan">
-        <svg class="tri-line" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polygon points="50,3 97,97 3,97" /></svg>
+      <p>사업이 되려면 가치가 <strong>돈의 흐름</strong>으로 이어져야 합니다. 비즈니스 모델 캔버스는 이를 아홉 칸으로 정리하는 도구지만, 핵심은 세 가지 — 그리고 그 셋을 <strong>한 장에 그린 수익화 모델 도식</strong>입니다.</p>
+      <div class="tri-wrap tri-cyan sq4">
+        <svg class="tri-line" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polygon points="25,25 75,25 75,75 25,75" /></svg>
         <ol class="vcards c3 steps tri3">
           <li class="t-cyan"><span class="vt">무엇을 주는가</span><span class="vh">가치 제안</span><span class="vd">고객이 기꺼이 돈을 낼 만한 분명한 이득. <em>"부산의 웰니스를 로컬 가이드와 느리게 경험한다"</em>처럼.</span></li>
           <li class="t-cyan2 cy-solid"><span class="vt">누구에게, 어떻게 닿는가</span><span class="vh">고객·채널</span><span class="vd">타깃 고객과 그들을 만나는 경로(검색·SNS·제휴·재방문).</span></li>
+          <li class="t-cyan cy-solid"><span class="vt">한 장에 어떻게 그리나</span><span class="vh">수익화 모델 도식</span><span class="vd">네모 3~4개와 화살표 — <em>가치는 실선, 돈은 점선</em>, 돈이 들어오는 화살표에 ★. 사업계획서 <b>2-2 사업모델</b> 칸에 그대로 들어갑니다. <a href="business-model-revenue-flow-diagram.html" target="_blank" rel="noopener">직접 그려보기 ↗</a></span></li>
           <li class="t-cyan3"><span class="vt">어떻게 버는가</span><span class="vh">수익 모델</span><span class="vd">상품 판매·중개 수수료·구독·광고·B2B 제휴 등. 하나에 기대지 말고 <em>여러 축</em>을 설계한다.</span></li>
         </ol>
         <span class="tri-hub">비즈니스 모델</span>
@@ -3699,7 +3715,8 @@
       <p class="learn-part lp-core" id="ch05"><span class="num">05</span>창업 지원<span class="lp-sub">혼자 하지 않는다</span></p>
       <p>관광벤처는 공공 지원이 비교적 두터운 분야입니다. 아이디어 단계부터 활용할 수 있습니다.</p>
       <div class="ir-row" id="sr-14"><div class="ir-short mini"><iframe src="https://www.youtube-nocookie.com/embed/-ZUcBE9S5aY" title="[사업계획서 작성] ⑭ 투자 어떻게 시작할까요? 나의 단계를 파악하자!" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><p class="ir-cap"><b>「⑭ 투자 어떻게 시작할까요? 나의 단계를 파악하자!」</b> — 한국부동산원 「사업계획서 작성」 시리즈. 지원금 · 융자 · 투자 가운데 <b>지금 내 단계에 맞는 돈</b>이 무엇인지부터 봅니다.</p></div></div>
-      <p class="mini-note">창구는 넷입니다 — <strong>① 관광 전용 · ② 범부처 · ③ 보육 · 투자 · ④ 가까운 곳(지역)</strong>. 어디에 내고 누구의 도움을 받는지는 <a href="#창구넷">파트 04에서 한꺼번에 폅니다 ↓</a> 쓰는 법을 배우는 자리는 <a href="#배우기">과제 1 아래</a>에 있습니다.</p>
+      <p class="mini-note">창구는 넷입니다 — 어디에 내고 누구의 도움을 받는지는 <b>파트 04</b>에서 한꺼번에 폅니다.</p>
+      <p class="jump-row"><a href="#예비관광벤처공모"><i>①</i>관광 전용 ↓</a><a href="#예비창업패키지"><i>②</i>범부처 ↓</a><a href="#보육투자"><i>③</i>보육 · 투자 ↓</a><a href="#광역시원도심공모"><i>④</i>가까운 곳(지역) ↓</a><a class="up" href="#배우기">쓰는 법 배우기 · 과제 1 아래 ↑</a></p>
 
 
 
