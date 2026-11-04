@@ -902,6 +902,21 @@
     .learn-article .form-up .fu-tx .fno { align-self: flex-start; margin: 0 0 1px; }
     .learn-article .form-up .fu-tx b { font-size: 12.5px; }
     .learn-article .form-up .fu-tx small { color: #5c6b7a; font-size: 11px; }
+    /* 양식 칸별 지도 — 11칸을 같은 카드로, 누르면 펼침 (2026-11-04) */
+    .learn-article .form-rest { align-items: start; }
+    .learn-article .form-rest details.fr-card { border: 1px solid #ead9b0; border-top: 4px solid #c08a1f; border-radius: 12px; background: #fffdf7; padding: 0; }
+    .learn-article .form-rest details.fr-card.go { border-top-color: #2f5148; background: #fbfdfc; border-color: #cfe0d8; }
+    .learn-article .form-rest details.fr-card > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: auto 1fr auto; grid-template-areas: "n t m" "h h h"; gap: 4px 8px; align-items: center; padding: 11px 13px; }
+    .learn-article .form-rest details.fr-card > summary::-webkit-details-marker { display: none; }
+    .learn-article .form-rest .fr-nums { grid-area: n; display: inline-flex; gap: 3px; }
+    .learn-article .form-rest .fr-ti { grid-area: t; font-size: 14px; color: #3d2f12; }
+    .learn-article .form-rest .fr-hint { grid-area: h; font-size: 11.5px; color: #6b5a3a; }
+    .learn-article .form-rest details.go .fr-hint::before { content: "↓ "; color: #2f5148; font-weight: 900; }
+    .learn-article .form-rest .fr-more { grid-area: m; font-size: 11px; font-weight: 800; color: #a8740f; white-space: nowrap; }
+    .learn-article .form-rest .fr-more::after { content: "자세히 ▾"; }
+    .learn-article .form-rest details[open] .fr-more::after { content: "접기 ▴"; }
+    .learn-article .form-rest .fr-body { padding: 0 13px 12px; border-top: 1px dashed #e6d6b4; }
+    .learn-article .form-rest details:target, .learn-article .form-rest details[open] { box-shadow: 0 4px 14px -8px rgba(122,82,0,.35); }
     .learn-article .form-rest { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 10px 0 12px; }
     .learn-article .form-rest .fr-card { border: 1px solid #ead9b0; border-top: 4px solid #c08a1f; border-radius: 12px; background: #fffdf7; padding: 12px 14px; }
     .learn-article .form-rest .fr-h { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; margin: 0 0 6px; font-size: 14.5px; color: #3d2f12; }
@@ -3026,73 +3041,126 @@
       </div>
 
       <p class="learn-part lp-core lp-form" id="form-rest"><span class="num">양식</span><span class="lp-t">과제 1 칸별 지도 — 사업계획서 <span class="fno">양식 1-1</span> ~ <span class="fno">양식 6-1</span>에서 어디를 보나</span></p>
-      <p>예비관광벤처 사업계획서의 <strong>칸을 번호 순서대로</strong> 한 줄에 세웠습니다. 아래 장에서 다루는 칸(<span class="fno">양식 1-1</span>~<span class="fno">양식 3-2</span>)은 <strong>↓ 화살표로 그 자리로 내려가고</strong>(그 자리에는 <strong>↑ 양식 지도</strong> 알약이 있어 다시 올라옵니다), 나머지 칸(<span class="fno">양식 3-3</span>~<span class="fno">양식 6-1</span>)은 여기서 <strong>양식이 묻는 것</strong>(제18회 양식 원문)과 <strong>쓰는 요령</strong>을 나란히 봅니다. 장수 한도 — 1 사업 개요 2장 · 2 시장성 3장 · 3 사업화 역량 4장 · 4 관광산업 1장 · 5 팀 빌딩 2장 · 6 기업가 정신 1장(합계 13장).</p>
-      <p class="sub-abcd"><b>이 파트 안에서</b><a class="dn" href="#ch02">↓ 양식 1-1<small>문제 인식</small></a><a class="dn" href="#targeting">↓ 양식 2-1<small>시장 · 목표고객</small></a><a class="dn" href="#ch03-a">↓ 양식 2-2<small>사업모델</small></a><a class="dn" href="#risk">↓ 양식 2-3<small>잠재리스크</small></a><a class="dn" href="#capability">↓ 양식 3-1 · 3-2<small>개발 · 홍보</small></a><a href="#form-3-3"><i>A</i>양식 3-3<small>자금운용 · 표1</small></a><a href="#form-3-4"><i>B</i>양식 3-4<small>일정계획 · 표2 · 표3</small></a><a href="#form-3-5"><i>C</i>양식 3-5<small>성장전략 · 표4</small></a><a href="#form-4"><i>D</i>양식 4-1 · 4-2<small>관광산업 트렌드 · 연관성</small></a><a href="#form-5"><i>E</i>양식 5-1~5-3<small>팀 빌딩 · 표5</small></a><a href="#form-6-1"><i>F</i>양식 6-1<small>KPI 달성 · 협약목표</small></a></p>
-      <p class="fr-sec">아래 장에서 다루는 칸 — 눌러서 그 자리로 ↓</p>
-      <div class="form-up">
-        <a class="fu" href="#ch02"><span class="fu-ar" aria-hidden="true">↓</span><span class="fu-tx"><span class="fno">양식 1-1</span><b>문제 인식의 구체성 및 현실성</b><small>02장 문제 정의 · Problem Statement 다섯 기준</small></span></a>
-        <a class="fu" href="#targeting"><span class="fu-ar" aria-hidden="true">↓</span><span class="fu-tx"><span class="fno">양식 2-1</span><b>시장현황 및 목표고객</b><small>02장 WHO — 타겟팅 판 여섯</small></span></a>
-        <a class="fu" href="#ch03-a"><span class="fu-ar" aria-hidden="true">↓</span><span class="fu-tx"><span class="fno">양식 2-2</span><b>사업모델(도식화)</b><small>03-A 수익화 도식 · 03-B 네 단계</small></span></a>
-        <a class="fu" href="#risk"><span class="fu-ar" aria-hidden="true">↓</span><span class="fu-tx"><span class="fno">양식 2-3</span><b>잠재리스크 및 대응방안</b><small>03-D 위험 평가 워크북</small></span></a>
-        <a class="fu" href="#capability"><span class="fu-ar" aria-hidden="true">↓</span><span class="fu-tx"><span class="fno">양식 3-1</span><span class="fno">양식 3-2</span><b>개발 계획 · 홍보 및 판로개척</b><small>03-E 9개 사업 작성안</small></span></a>
-      </div>
-      <p class="fr-sec">여기서 채울 칸 — 양식 3-3 ~ 6-1</p>
+      <p>예비관광벤처 사업계획서의 <strong>칸을 번호 순서대로</strong> 한 줄에 세웠습니다. 아래 장에서 다루는 칸(<span class="fno">양식 1-1</span>~<span class="fno">양식 3-2</span>)도 같은 카드로 놓고 카드 안 <strong>↓ 알약으로 그 자리로 내려갑니다</strong>(그 자리에는 <strong>↑ 양식 지도</strong> 알약이 있어 다시 올라옵니다). 나머지 칸(<span class="fno">양식 3-3</span>~<span class="fno">양식 6-1</span>)은 여기서 <strong>양식이 묻는 것</strong>(제18회 양식 원문)과 <strong>쓰는 요령</strong>을 나란히 봅니다. 장수 한도 — 1 사업 개요 2장 · 2 시장성 3장 · 3 사업화 역량 4장 · 4 관광산업 1장 · 5 팀 빌딩 2장 · 6 기업가 정신 1장(합계 13장).</p>
+      <p class="sub-abcd"><b>이 파트 안에서</b><a class="dn" href="#form-1-1">↓ 양식 1-1<small>문제 인식</small></a><a class="dn" href="#form-2-1">↓ 양식 2-1<small>시장 · 목표고객</small></a><a class="dn" href="#form-2-2">↓ 양식 2-2<small>사업모델</small></a><a class="dn" href="#form-2-3">↓ 양식 2-3<small>잠재리스크</small></a><a class="dn" href="#form-3-1">↓ 양식 3-1 · 3-2<small>개발 · 홍보</small></a><a href="#form-3-3"><i>A</i>양식 3-3<small>자금운용 · 표1</small></a><a href="#form-3-4"><i>B</i>양식 3-4<small>일정계획 · 표2 · 표3</small></a><a href="#form-3-5"><i>C</i>양식 3-5<small>성장전략 · 표4</small></a><a href="#form-4"><i>D</i>양식 4-1 · 4-2<small>관광산업 트렌드 · 연관성</small></a><a href="#form-5"><i>E</i>양식 5-1~5-3<small>팀 빌딩 · 표5</small></a><a href="#form-6-1"><i>F</i>양식 6-1<small>KPI 달성 · 협약목표</small></a></p>
+      <p class="fr-sec">양식 1-1 ~ 6-1 — 칸을 누르면 <b>양식이 묻는 것 · 쓰는 요령</b>이 펼쳐집니다</p>
       <div class="form-rest">
-        <section class="fr-card" id="form-3-3">
-          <p class="fr-h"><i>A</i><span class="fno">양식 3-3</span> <b>자금운용계획</b></p>
-          <p class="fr-tb">[표1] 자금집행계획 · 정부지원금 7천만 원 한도</p>
-          <p class="fr-l">양식이 묻는 것</p>
-          <ul><li>(1) 회사 설립 등 소요자금 및 투자유치 등 <b>자본금 조달</b>에 대한 목표와 전략</li><li>(2) <b>정부지원금</b>(관광벤처 사업화지원금) 및 지원금 이외 소요자금 <b>집행계획</b>(표 1)</li></ul>
-          <p class="fr-l how">쓰는 요령</p>
-          <p class="fr-how">조달방법(투자 · 매출 · 차입 · 자기자금 · 정부지원금)마다 <b>용도 · 산출근거 · 금액(천원)</b>을 한 줄씩. 「홈페이지 제작 5,000」이 아니라 「예약 페이지 1식 × 견적 2곳 비교 = 5,000」처럼 근거를 숫자로.</p>
-          <p class="dltags"><a class="mapl form" href="tourism-venture-business-plan-script.html" target="_blank" rel="noopener">대본 슬라이드 07 · 양식 3-3 자금운용 한눈에 ↗</a></p>
-        </section>
-        <section class="fr-card" id="form-3-4">
-          <p class="fr-h"><i>B</i><span class="fno">양식 3-4</span> <b>일정계획</b></p>
-          <p class="fr-tb">3-4-1 [표2] 전체 사업단계 · 3-4-2 [표3] 협약기간(2026년 5~11월)</p>
-          <p class="fr-l">양식이 묻는 것</p>
-          <ul><li>3-4-1 사업화 전략을 수행하는 <b>전체 사업단계</b> 일정 — 상품 · 서비스 개발, 홍보 · 판로개척, 인력 · 조직 수립(표 2)</li><li>3-4-2 <b>협약기간 내(5~11월)</b> 월별 일정 — 창업 · 업종 추가 · 변경 계획 포함(표 3)</li></ul>
-          <p class="fr-l how">쓰는 요령</p>
-          <p class="fr-how">[표3]의 일곱 달 칸에 <b>상품·서비스 개발 / 홍보·판로개척 / 창업·업종 / 인력·조직</b> 네 줄을 채웁니다. 3-1 · 3-2에 쓴 일이 이 표의 몇 월에 있는지 서로 맞아야 합니다.</p>
-          <p class="dltags"><a class="mapl form" href="#capability">03-E 작성안 · 양식 3-1 · 3-2와 월별 일정 맞추기 ↓</a></p>
-        </section>
-        <section class="fr-card" id="form-3-5">
-          <p class="fr-h"><i>C</i><span class="fno">양식 3-5</span> <b>성장전략(Scale-up 계획)</b></p>
-          <p class="fr-tb">[표4] 2027~2029 · 매출 · 투자유치 · 신규고용 · 입점업체 · 서비스이용자</p>
-          <p class="fr-l">양식이 묻는 것</p>
-          <ul><li>사업화 이후 <b>3년간</b> 예상 매출 · 고용 · 투자유치 등 Scale-up 계획(표 4) — <b>추정 근거를 상세히</b></li><li><b>손익분기점 달성 시점</b> 제시</li></ul>
-          <p class="fr-l how">쓰는 요령</p>
-          <p class="fr-how">[표4] 오른쪽 「근거」 칸이 핵심입니다 — 「이용자 × 객단가 × 재구매율」처럼 식으로. 손익분기 시점은 03-C 수익 시뮬레이터의 숫자를 그대로 옮깁니다.</p>
-          <p class="dltags"><a class="mapl form bm s2" href="#bm-sim">03-C 수익 시뮬레이터 · 양식 3-5 손익분기 시점 근거 ↓</a></p>
-        </section>
-        <section class="fr-card" id="form-4">
-          <p class="fr-h"><i>D</i><span class="fno">양식 4-1</span><span class="fno">양식 4-2</span> <b>관광산업 트렌드 부합성 및 연관성 (1장 이내)</b></p>
-          
-          <p class="fr-l">양식이 묻는 것</p>
-          <ul><li>4-1 관광산업 및 시장에 대한 이해 — 사업과 관련한 <b>관광산업 · 시장 트렌드</b></li><li>4-2 사업 아이템과 관광산업의 <b>연관성</b>, 관광산업 발전에 <b>어떻게 기여</b>하는가</li></ul>
-          <p class="fr-l how">쓰는 요령</p>
-          <p class="fr-how">4-1은 통계 · 보고서 한두 개로 「지금 이 흐름이 있다」를, 4-2는 ① 관광객 경험이 어떻게 바뀌나 ② 지역 관광사업자와 어떻게 이어지나 ③ 관광산업에 무엇을 보태나 세 문장으로.</p>
-          <p class="dltags"><a class="mapl form" href="#research-34">조사 사이트 34선 · 양식 4-1 트렌드 근거 찾기 ↓</a></p>
-        </section>
-        <section class="fr-card" id="form-5">
-          <p class="fr-h"><i>E</i><span class="fno">양식 5-1</span><span class="fno">양식 5-2</span><span class="fno">양식 5-3</span> <b>팀 빌딩 및 역량 (2장 이내)</b></p>
-          <p class="fr-tb">5-3 [표5] 팀 구성 현황 — 성명 · 직위 · 담당업무 · 보유역량 · 구성상태(완료 / 예정)</p>
-          <p class="fr-l">양식이 묻는 것</p>
-          <ul><li>5-1 대표자의 <b>전문성 · 운영 능력</b> — 경험 · 경력 · 전문지식 · 기술역량, 사업화 의지 · 도전정신 · 장애 극복 경험</li><li>5-2 팀원과의 <b>신뢰 구축 능력</b> — 팀 빌딩 배경, 조직 문화</li><li>5-3 인력 · 조직 운영계획 — (1) 경영원칙 · 조직 구성 · 보유역량 활용과 <b>부족한 역량의 극복방안</b> · 창업준비 계획 (2) 팀 구성 현황(표 5)</li></ul>
-          <p class="fr-l how">쓰는 요령</p>
-          <p class="fr-how">이름을 나열하지 말고 <b>역할 → 그 역할에 맞는 역량 → 증거(경력 · 수상 · 자격)</b> 순서로. 아직 없는 자리는 「예정('26.00)」으로 적고 어떻게 채울지까지.</p>
-          
-        </section>
-        <section class="fr-card" id="form-6-1">
-          <p class="fr-h"><i>F</i><span class="fno">양식 6-1</span> <b>KPI 달성의 현실성 및 사업 참여 적극성 (1장 이내)</b></p>
-          <p class="fr-tb">일반현황 「협약목표」(KPI · 매출 · 관광매출 % · 투자유치 · 신규고용)와 같은 숫자</p>
-          <p class="fr-l">양식이 묻는 것</p>
-          <ul><li><b>KPI 달성 현실성</b> — 대표자 네트워크 · 파트너십 · 협약 이후 예상 매출처 등 팀 역량을 활용한 달성 계획, 「관광벤처 지원사업」이 필요한 이유</li><li><b>사업 참여 적극성</b> — 창업자의 기업가 정신 · 태도, 얼마나 적극적으로 참여해 키워 갈 것인가</li></ul>
-          <p class="fr-l how">쓰는 요령</p>
-          <p class="fr-how">일반현황 표에 건 숫자 하나하나에 「누구에게서 · 어떻게」를 붙입니다 — 「매출 3천만 원 = 협약한 숙소 5곳 × 월 50만 원 × 12개월」. 지원금이 없으면 무엇이 늦어지는지도 한 줄.</p>
-          <p class="dltags"><a class="mapl form" href="#kpi-sec">● KPI 핵심성과지표 · 양식 6-1 · 일반현황 협약목표 숫자 ↓</a></p>
-        </section>
+        <details class="fr-card go" id="form-1-1">
+          <summary><span class="fr-nums"><span class="fno">양식 1-1</span></span><b class="fr-ti">문제 인식의 구체성 및 현실성</b><span class="fr-hint">02장 문제 정의 · Problem Statement 다섯 기준</span><span class="fr-more" aria-hidden="true"></span></summary>
+          <div class="fr-body">
+            <p class="fr-l">양식이 묻는 것</p>
+            <ul><li>제품 · 서비스의 <b>필요성에 대한 문제</b>를 인식하고, 개발을 통해 해결하고자 하는 과제(시장가치)</li><li>(1) 해결하려는 <b>구체적인 문제</b> 정의 (2) 문제 발생의 <b>원인 · 배경</b> (3) 영향을 받는 <b>구체적 대상</b>(고객 · 사용자 · 시장) (4) 해결 방법의 <b>현실성 · 차별성</b></li></ul>
+            <p class="fr-l how">쓰는 요령</p>
+            <p class="fr-how">「안동 여행 앱을 만들겠다」가 아니라 「20대 개별관광객은 야간에 갈 곳을 찾기 어렵다」처럼 <b>누가 · 어떤 불편</b>으로 시작합니다. (1)~(4)를 순서대로 — 원인과 대상이 빠지면 해결이 설득되지 않습니다.</p>
+            <p class="dltags"><a class="mapl form" href="#ch02">02장 문제 정의 · Problem Statement 다섯 기준 ↓</a></p>
+          </div>
+        </details>
+        <details class="fr-card go" id="form-2-1">
+          <summary><span class="fr-nums"><span class="fno">양식 2-1</span></span><b class="fr-ti">시장현황 및 목표고객</b><span class="fr-hint">02장 WHO — 타겟팅 판 여섯</span><span class="fr-more" aria-hidden="true"></span></summary>
+          <div class="fr-body">
+            <p class="fr-l">양식이 묻는 것</p>
+            <ul><li>(1) 해당 사업 관련 <b>시장 현황 및 향후 전망</b></li><li>(2) <b>목표고객층</b>을 설명하고, 그 고객에게 제공할 <b>가치 · 솔루션</b></li></ul>
+            <p class="fr-l how">쓰는 요령</p>
+            <p class="fr-how">「관광객 전체」는 답이 아닙니다 — 시장 현황은 통계 한두 개로, 목표고객은 <b>한 사람(페르소나)</b>까지 좁히고 그 사람에게 주는 가치를 한 줄로.</p>
+            <p class="dltags"><a class="mapl form" href="#targeting">02장 WHO · 타겟팅 판 여섯 ↓</a></p>
+          </div>
+        </details>
+        <details class="fr-card go" id="form-2-2">
+          <summary><span class="fr-nums"><span class="fno">양식 2-2</span></span><b class="fr-ti">사업모델(Business Model) — 도식화</b><span class="fr-hint">03-A 수익화 도식 · 03-B 네 단계</span><span class="fr-more" aria-hidden="true"></span></summary>
+          <div class="fr-body">
+            <p class="fr-l">양식이 묻는 것</p>
+            <ul><li>사업을 통한 <b>수익창출 방법을 도식화</b>하고 <b>경쟁력</b> 설명</li></ul>
+            <p class="fr-l how">쓰는 요령</p>
+            <p class="fr-how">네모 3~4개와 화살표 — <b>가치는 실선, 돈은 점선</b>, 돈이 들어오는 화살표에 ★. 경쟁력은 「우리가 잘한다」가 아니라 <b>「저쪽은 A, 우리는 B」</b> 비교로.</p>
+            <p class="dltags"><a class="mapl form" href="#ch03-a">03-A 수익화 도식 · 03-B 네 단계 ↓</a></p>
+          </div>
+        </details>
+        <details class="fr-card go" id="form-2-3">
+          <summary><span class="fr-nums"><span class="fno">양식 2-3</span></span><b class="fr-ti">잠재리스크 및 대응방안</b><span class="fr-hint">03-D 위험 평가 워크북</span><span class="fr-more" aria-hidden="true"></span></summary>
+          <div class="fr-body">
+            <p class="fr-l">양식이 묻는 것</p>
+            <ul><li>사업 운영 과정에서 예상되는 <b>잠재리스크</b>를 제시하고, 이에 대한 <b>대응방안</b> 서술</li></ul>
+            <p class="fr-l how">쓰는 요령</p>
+            <p class="fr-how">「매출이 감소할 수 있다」가 아니라 <b>「출시 3개월 후 예약률이 목표의 50%에 미달한다」</b>처럼 사건과 조건으로. 대응은 예방책 · 발생 후 대응 · 조기 경고지표로 나눕니다.</p>
+            <p class="dltags"><a class="mapl form" href="#risk">03-D 위험 평가 워크북 ↓</a></p>
+          </div>
+        </details>
+        <details class="fr-card go" id="form-3-1">
+          <summary><span class="fr-nums"><span class="fno">양식 3-1</span><span class="fno">양식 3-2</span></span><b class="fr-ti">상품 · 서비스 · 인프라 개발 계획 · 홍보 및 판로개척</b><span class="fr-hint">03-E 9개 사업 작성안</span><span class="fr-more" aria-hidden="true"></span></summary>
+          <div class="fr-body">
+            <p class="fr-l">양식이 묻는 것</p>
+            <ul><li>3-1 사업화에 필요한 <b>상품 · 서비스 · 인프라</b>(시설 · IT플랫폼 등) <b>개발 계획</b>을 구체적으로</li><li>3-2 <b>홍보 및 판로개척</b> — 구체적인 방법과 <b>일정계획</b>까지</li></ul>
+            <p class="fr-l how">쓰는 요령</p>
+            <p class="fr-how">3-1은 무엇을 · 언제 · 누가 만드나(단계별 산출물과 완료 시점), 3-2는 홍보를 <b>판매 경로</b>로 — 채널 · 일정 · 목표 숫자까지. 둘의 월이 아래 양식 3-4 일정표와 맞아야 합니다.</p>
+            <p class="dltags"><a class="mapl form" href="#capability">03-E 9개 사업 작성안 ↓</a></p>
+          </div>
+        </details>
+        <details class="fr-card" id="form-3-3">
+          <summary><span class="fr-nums"><span class="fno">양식 3-3</span></span><b class="fr-ti">자금운용계획</b><span class="fr-hint">[표1] 자금집행계획 · 정부지원금 7천만 원 한도</span><span class="fr-more" aria-hidden="true"></span></summary>
+          <div class="fr-body">
+            <p class="fr-l">양식이 묻는 것</p>
+            <ul><li>(1) 회사 설립 등 소요자금 및 투자유치 등 <b>자본금 조달</b>에 대한 목표와 전략</li><li>(2) <b>정부지원금</b>(관광벤처 사업화지원금) 및 지원금 이외 소요자금 <b>집행계획</b>(표 1)</li></ul>
+            <p class="fr-l how">쓰는 요령</p>
+            <p class="fr-how">조달방법(투자 · 매출 · 차입 · 자기자금 · 정부지원금)마다 <b>용도 · 산출근거 · 금액(천원)</b>을 한 줄씩. 「홈페이지 제작 5,000」이 아니라 「예약 페이지 1식 × 견적 2곳 비교 = 5,000」처럼 근거를 숫자로.</p>
+            <p class="dltags"><a class="mapl form" href="tourism-venture-business-plan-script.html" target="_blank" rel="noopener">대본 슬라이드 07 · 양식 3-3 자금운용 한눈에 ↗</a></p>
+          </div>
+        </details>
+        <details class="fr-card" id="form-3-4">
+          <summary><span class="fr-nums"><span class="fno">양식 3-4</span></span><b class="fr-ti">일정계획</b><span class="fr-hint">3-4-1 [표2] 전체 사업단계 · 3-4-2 [표3] 협약기간(2026년 5~11월)</span><span class="fr-more" aria-hidden="true"></span></summary>
+          <div class="fr-body">
+            <p class="fr-l">양식이 묻는 것</p>
+            <ul><li>3-4-1 사업화 전략을 수행하는 <b>전체 사업단계</b> 일정 — 상품 · 서비스 개발, 홍보 · 판로개척, 인력 · 조직 수립(표 2)</li><li>3-4-2 <b>협약기간 내(5~11월)</b> 월별 일정 — 창업 · 업종 추가 · 변경 계획 포함(표 3)</li></ul>
+            <p class="fr-l how">쓰는 요령</p>
+            <p class="fr-how">[표3]의 일곱 달 칸에 <b>상품·서비스 개발 / 홍보·판로개척 / 창업·업종 / 인력·조직</b> 네 줄을 채웁니다. 3-1 · 3-2에 쓴 일이 이 표의 몇 월에 있는지 서로 맞아야 합니다.</p>
+            <p class="dltags"><a class="mapl form" href="#capability">03-E 작성안 · 양식 3-1 · 3-2와 월별 일정 맞추기 ↓</a></p>
+          </div>
+        </details>
+        <details class="fr-card" id="form-3-5">
+          <summary><span class="fr-nums"><span class="fno">양식 3-5</span></span><b class="fr-ti">성장전략(Scale-up 계획)</b><span class="fr-hint">[표4] 2027~2029 · 매출 · 투자유치 · 신규고용 · 입점업체 · 서비스이용자</span><span class="fr-more" aria-hidden="true"></span></summary>
+          <div class="fr-body">
+            <p class="fr-l">양식이 묻는 것</p>
+            <ul><li>사업화 이후 <b>3년간</b> 예상 매출 · 고용 · 투자유치 등 Scale-up 계획(표 4) — <b>추정 근거를 상세히</b></li><li><b>손익분기점 달성 시점</b> 제시</li></ul>
+            <p class="fr-l how">쓰는 요령</p>
+            <p class="fr-how">[표4] 오른쪽 「근거」 칸이 핵심입니다 — 「이용자 × 객단가 × 재구매율」처럼 식으로. 손익분기 시점은 03-C 수익 시뮬레이터의 숫자를 그대로 옮깁니다.</p>
+            <p class="dltags"><a class="mapl form bm s2" href="#bm-sim">03-C 수익 시뮬레이터 · 양식 3-5 손익분기 시점 근거 ↓</a></p>
+          </div>
+        </details>
+        <details class="fr-card" id="form-4">
+          <summary><span class="fr-nums"><span class="fno">양식 4-1</span><span class="fno">양식 4-2</span></span><b class="fr-ti">관광산업 트렌드 부합성 및 연관성 (1장 이내)</b><span class="fr-hint"></span><span class="fr-more" aria-hidden="true"></span></summary>
+          <div class="fr-body">
+            <p class="fr-l">양식이 묻는 것</p>
+            <ul><li>4-1 관광산업 및 시장에 대한 이해 — 사업과 관련한 <b>관광산업 · 시장 트렌드</b></li><li>4-2 사업 아이템과 관광산업의 <b>연관성</b>, 관광산업 발전에 <b>어떻게 기여</b>하는가</li></ul>
+            <p class="fr-l how">쓰는 요령</p>
+            <p class="fr-how">4-1은 통계 · 보고서 한두 개로 「지금 이 흐름이 있다」를, 4-2는 ① 관광객 경험이 어떻게 바뀌나 ② 지역 관광사업자와 어떻게 이어지나 ③ 관광산업에 무엇을 보태나 세 문장으로.</p>
+            <p class="dltags"><a class="mapl form" href="#research-34">조사 사이트 34선 · 양식 4-1 트렌드 근거 찾기 ↓</a></p>
+          </div>
+        </details>
+        <details class="fr-card" id="form-5">
+          <summary><span class="fr-nums"><span class="fno">양식 5-1</span><span class="fno">양식 5-2</span><span class="fno">양식 5-3</span></span><b class="fr-ti">팀 빌딩 및 역량 (2장 이내)</b><span class="fr-hint">5-3 [표5] 팀 구성 현황 — 성명 · 직위 · 담당업무 · 보유역량 · 구성상태(완료 / 예정)</span><span class="fr-more" aria-hidden="true"></span></summary>
+          <div class="fr-body">
+            <p class="fr-l">양식이 묻는 것</p>
+            <ul><li>5-1 대표자의 <b>전문성 · 운영 능력</b> — 경험 · 경력 · 전문지식 · 기술역량, 사업화 의지 · 도전정신 · 장애 극복 경험</li><li>5-2 팀원과의 <b>신뢰 구축 능력</b> — 팀 빌딩 배경, 조직 문화</li><li>5-3 인력 · 조직 운영계획 — (1) 경영원칙 · 조직 구성 · 보유역량 활용과 <b>부족한 역량의 극복방안</b> · 창업준비 계획 (2) 팀 구성 현황(표 5)</li></ul>
+            <p class="fr-l how">쓰는 요령</p>
+            <p class="fr-how">이름을 나열하지 말고 <b>역할 → 그 역할에 맞는 역량 → 증거(경력 · 수상 · 자격)</b> 순서로. 아직 없는 자리는 「예정('26.00)」으로 적고 어떻게 채울지까지.</p>
+            
+          </div>
+        </details>
+        <details class="fr-card" id="form-6-1">
+          <summary><span class="fr-nums"><span class="fno">양식 6-1</span></span><b class="fr-ti">KPI 달성의 현실성 및 사업 참여 적극성 (1장 이내)</b><span class="fr-hint">일반현황 「협약목표」(KPI · 매출 · 관광매출 % · 투자유치 · 신규고용)와 같은 숫자</span><span class="fr-more" aria-hidden="true"></span></summary>
+          <div class="fr-body">
+            <p class="fr-l">양식이 묻는 것</p>
+            <ul><li><b>KPI 달성 현실성</b> — 대표자 네트워크 · 파트너십 · 협약 이후 예상 매출처 등 팀 역량을 활용한 달성 계획, 「관광벤처 지원사업」이 필요한 이유</li><li><b>사업 참여 적극성</b> — 창업자의 기업가 정신 · 태도, 얼마나 적극적으로 참여해 키워 갈 것인가</li></ul>
+            <p class="fr-l how">쓰는 요령</p>
+            <p class="fr-how">일반현황 표에 건 숫자 하나하나에 「누구에게서 · 어떻게」를 붙입니다 — 「매출 3천만 원 = 협약한 숙소 5곳 × 월 50만 원 × 12개월」. 지원금이 없으면 무엇이 늦어지는지도 한 줄.</p>
+            <p class="dltags"><a class="mapl form" href="#kpi-sec">● KPI 핵심성과지표 · 양식 6-1 · 일반현황 협약목표 숫자 ↓</a></p>
+          </div>
+        </details>
       </div>
+      <script>
+      (function(){function op(h){if(!h||h.indexOf('#form-')!==0)return;var d=document.getElementById(decodeURIComponent(h.slice(1)));if(d&&d.tagName==='DETAILS')d.open=true;}
+      document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#form-"]');if(a)op(a.getAttribute('href'));});
+      op(location.hash);})();
+      </script>
       <p class="mini-note">원문은 다운로드한 「[붙임] 제18회 예비관광벤처부문 사업계획서 양식」 기준입니다. 회차마다 표 · 한도가 바뀔 수 있으니 지원 때는 그 회차 공고문 양식을 확인하십시오. 각 칸이 슬라이드로 어디에 해당하는지는 <a href="tourism-venture-business-plan-script.html" target="_blank" rel="noopener">사업계획서 대본 슬라이드 12장 ↗</a>에.</p>
 
       <p class="learn-part lp-sub lrn" id="배우기"><span class="ptag">★ 과제 1 · 배우기</span>어디서 배우고 누구에게 묻는가 — 자리 셋</p>
