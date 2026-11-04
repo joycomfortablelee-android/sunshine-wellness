@@ -45,6 +45,7 @@
     .learn-hero .room-bar .rb-parts .p8 { --rc:#a8431f; --rb:#fbeee6; --rl:#eecab2; --rd:#853418; }
     .learn-hero .room-bar .rb-parts .p9 { --rc:#1f6a73; --rb:#eaf5f4; --rl:#b9dcd9; --rd:#175057; }
     .learn-hero .room-bar .rb-parts .p10 { --rc:#4338a0; --rb:#f0eefb; --rl:#cfc9ef; --rd:#2f2873; }
+    .learn-hero .room-bar .rb-parts .p11 { --rc:#0f5e7a; --rb:#eaf4f8; --rl:#b7d8e5; --rd:#0b4a61; }
     .learn-hero .room-bar .rb-parts .rb-sep { width: 1px; height: 14px; margin: 0 4px; background: #c3d2e2; }
     .learn-hero .room-bar .rb-parts a.fin { background: #c0392b; border-color: #c0392b; color: #fff; font-weight: 800; }
     /* 여러 줄 알약 — 범위 항목마다 한 줄씩 */
@@ -147,6 +148,30 @@
     .learn-article .learn-part.pt-part.pp-8 { --pp-ac:#a8431f; --pp-bg:#fbeee6; --pp-dk:#853418; --pp-ln:#eecab2; }
     .learn-article .learn-part.pt-part.pp-9 { --pp-ac:#1f6a73; --pp-bg:#eaf5f4; --pp-dk:#175057; --pp-ln:#b9dcd9; }
     .learn-article .learn-part.pt-part.pp-10 { --pp-ac:#4338a0; --pp-bg:#f0eefb; --pp-dk:#2f2873; --pp-ln:#cfc9ef; }
+    .learn-article .learn-part.pt-part.pp-11 { --pp-ac:#0f5e7a; --pp-bg:#eaf4f8; --pp-dk:#0b4a61; --pp-ln:#b7d8e5; }
+    /* 파트 11 내 사업계획서 작성실 — 기업 한 줄에 초안 · Word · 작성실 · BM */
+    .learn-article .w11 { margin: 10px 0 26px; }
+    .learn-article .w11-steps { list-style: none; margin: 0 0 14px; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+    .learn-article .w11-steps li { display: flex; gap: 8px; align-items: flex-start; background: #fff; border: 1px solid #cfe2ea; border-top: 3px solid #0f5e7a; border-radius: 10px; padding: 9px 11px; font-size: 13px; line-height: 1.65; }
+    .learn-article .w11-steps li::before { content: none; }
+    .learn-article .w11-steps li > b { flex: 0 0 22px; height: 22px; border-radius: 50%; background: #0f5e7a; color: #fff; display: grid; place-items: center; font-size: 12px; }
+    .learn-article .w11-steps em { font-style: normal; font-weight: 700; color: #8a5a00; }
+    .learn-article .w11-tw { overflow-x: auto; border: 1px solid #cfe2ea; border-radius: 12px; }
+    .learn-article table.w11-t { width: 100%; min-width: 640px; border-collapse: collapse; margin: 0; font-size: 13px; }
+    .learn-article table.w11-t th { background: #0f5e7a; color: #fff; font-weight: 700; padding: 8px 10px; text-align: left; font-size: 12.5px; }
+    .learn-article table.w11-t td { padding: 7px 10px; border-top: 1px solid #e1edf2; vertical-align: middle; }
+    .learn-article table.w11-t tbody tr:nth-child(even) td { background: #f5fafc; }
+    .learn-article .w11-co b { color: #0f5e7a; margin-right: 6px; }
+    .learn-article .w11-co small { display: block; color: #6b7a88; font-size: 11.5px; }
+    .learn-article a.w11-b { display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: 12.5px; font-weight: 700; text-decoration: none; white-space: nowrap; border: 1.5px solid; }
+    .learn-article a.w11-b.draft { color: #8a5a00; border-color: #e3b341; background: #fff8e1; }
+    .learn-article a.w11-b.word { color: #1f4e9a; border-color: #9db8e6; background: #f1f5fd; }
+    .learn-article a.w11-b.room { color: #fff; border-color: #0f5e7a; background: #0f5e7a; }
+    .learn-article a.w11-b.bm { color: #7a5a00; border-color: #d9c27a; background: #fff; }
+    .learn-article a.w11-b:hover { filter: brightness(.95); }
+    .learn-article .w11-all { margin: 12px 0 0; align-items: center; }
+    .learn-article .w11-lab { font-size: 12px; color: #0b4a61; margin-right: 4px; }
+    @media (max-width: 720px) { .learn-article .w11-steps { grid-template-columns: 1fr; } }
     /* 머리말을 제목 옆 작은 글씨로 — 문단 하나를 줄이고 제목과 한 덩이로 읽힌다. */
     .learn-article .learn-part.pt-part .pt-ti {
       grid-column: 2; grid-row: 1;
@@ -2923,14 +2948,14 @@
         <div class="room-bar">
           <p class="rb-room"><b class="rr-h">강의실 · 화</b><span class="rr pc"><b>5·6교시</b> 13:00–14:50 · 사회대 <strong>2106호</strong> <em>PC실</em></span><i class="rr-ar" title="6교시가 끝나면 강의실을 옮깁니다">→ 이동</i><span class="rr mv"><b>7교시</b> 15:00–15:50 · 사회대 <strong>3402호</strong></span></p>
           <div class="rb-parts rb-v">
-            <p class="rb-h">이 페이지는 열 파트</p>
+            <p class="rb-h">이 페이지는 열한 파트</p>
             <div class="rb-row"><a class="p0" href="#part00">00 한눈에</a></div>
             <div class="rb-row"><a class="p2" href="#part02">01 평가기준</a><span class="rb-grp rb-in p2"><a class="p2 sub" href="#과제1">과제 1 · 예비관광벤처 사업계획서</a><a class="p2 sub key" href="#form-rest" title="양식 1-1 ~ 6-1 — 칸마다 어디서 배우고 어디에 쓰나">과제 1 칸별 지도 · 양식 1-1~6-1</a><a class="p2 sub" href="assets/tourism-venture-18th-business-plan-form.hwp" download="[붙임] 제18회 예비관광벤처부문 사업계획서 양식.hwp">제18회 양식 ⤓ HWP</a><a class="p2 sub key" href="gov-support-business-plan-98p.html" target="_blank" rel="noopener" title="이명신 IR피칭 멘토 강의"><span class="blink-star" aria-hidden="true">★</span> 사업계획서 합격 비법 · 98장 ↗</a><a class="p2 sub" href="#배우기">★ 배우기 · 쓰는 법</a></span></div>
             <div class="rb-row"><a class="p1" href="#part01">02 Build Up</a></div>
             <div class="rb-row"><a class="p3" href="#part03">03 흐름</a><span class="rb-grp rb-in p3"><a class="p3 sub" href="#ch01">01 관광벤처란</a><a class="p3 sub key" href="#ch02" title="사업계획서 1-1 문제 인식 — 1차 · 2차 제출 칸">★ 02 문제정의</a><a class="p3 sub key" href="#ch03" title="이번 주 · 다음 주 수업 — 사업계획서 3차 제출(2-2 사업모델)">★ 03 비즈니스모델</a><a class="p3 sub" href="#ch03-b">03-B 네 단계</a><a class="p3 sub" href="#bm-sim">03-C 수익 시뮬레이터</a><a class="p3 sub" href="#risk">03-D 위험 관리</a><a class="p3 sub" href="#capability">03-E 사업화 역량</a><a class="p3 sub" href="#ch04">04 린스타트업</a><a class="p3 sub" href="#ch06">06 사이트사례</a></span></div>
             <div class="rb-row"><a class="p4" href="#part04">04 지원 생태계</a><span class="rb-grp rb-in p4"><a class="p4 sub" href="#ch05">창업 지원</a><a class="p4 sub" href="#예비관광벤처공모">A 관광 전용</a><a class="p4 sub" href="#예비창업패키지">B 범부처</a><a class="p4 sub" href="#보육투자">C 보육 · 투자</a><a class="p4 sub" href="#전국경진대회">D 전국 경진대회</a><a class="p4 sub" href="#광역시원도심공모">E 지역</a></span></div>
             <div class="rb-row"><a class="p5" href="#part05">05 업종</a><span class="rb-grp rb-in p5"><a class="p5 sub" href="#ch07">5-1 여행업</a><a class="p5 sub" href="#ch08">5-2 외식</a><a class="p5 sub" href="#ch09">5-3 민박한옥</a><a class="p5 sub" href="#ch10">5-4 스마트팜</a><a class="p5 sub" href="#ch11">5-5 연구용역</a><a class="p5 sub" href="#local-creator">5-6 로컬크리에이터</a><a class="p5 sub" href="#tourdure">5-7 관광두레</a><a class="p5 sub" href="#industry-25">5-8 업종별 이해</a></span></div>
-            <div class="rb-row rb-rest"><a class="p7" href="#part07">06 책</a><a class="p8" href="#part08">07 기업가정신</a><a class="p10" href="#part10">08 IR 피칭</a><a class="p9" href="#part09">09 곁들여</a><a class="p6" href="#part06">10 취업</a></div>
+            <div class="rb-row rb-rest"><a class="p7" href="#part07">06 책</a><a class="p8" href="#part08">07 기업가정신</a><a class="p10" href="#part10">08 IR 피칭</a><a class="p9" href="#part09">09 곁들여</a><a class="p6" href="#part06">10 취업</a><a class="p11" href="#part11">11 작성실</a></div>
           </div>
           <div class="rb-due">
             <p class="rb-h">마감</p>
@@ -3018,6 +3043,7 @@
                 <li style="--ac:#4338a0;--bg:#f0eefb"><a href="#part10"><span class="pm-head"><b class="pm-n">08</b><span class="pm-t">IR 피칭</span><span class="pm-d">서류 다음은 무대 — 피칭덱의 비전 · 실제 경진대회 피칭</span></span><span class="pm-x"><span class="pm-def"><b>IR 피칭</b> 투자자 · 심사위원 앞에서 몇 분 안에 문제 · 해결 · 시장 · 수익 · 팀을 말로 설득하는 발표 <b>피칭덱</b> 그 발표에 쓰는 10~15장 안팎의 슬라이드 묶음(문제 → 해결 → 시장 → 비즈니스 모델 → 팀 → 숫자 · 요청)</span>IR 피칭과 피칭덱의 비밀 ⑫ 비전제시 · ⑬ 컨셉 · 2025 정주영 창업경진대회 트랙별 피칭 · 14주차 발표 리허설과 연결</span></a></li>
                 <li style="--ac:#1f6a73;--bg:#eaf5f4"><a href="#part09"><span class="pm-head"><b class="pm-n">09</b><span class="pm-t">곁들여 보기 · 링크</span></span><span class="pm-x">비건부산(해커톤 → 서비스) · 구미 · 포항(도시가 관광 창업에 투자하는 이유) · 공모 창구 모음</span></a></li>
                 <li style="--ac:#5b3f7a;--bg:#f4eff8"><a href="#part06"><span class="pm-head"><b class="pm-n">10</b><span class="pm-t">창업하지 않아도 쓰인다</span><span class="pm-d">관광기업이 뽑을 때 보는 것 = 공모가 보는 것</span></span><span class="pm-x">과제 3 관광기업 입사 제안서(A4 1장 · 모의 면접) · 면접 질문과 채용 창구</span></a></li>
+                <li style="--ac:#0f5e7a;--bg:#eaf4f8"><a href="#part11"><span class="pm-head"><b class="pm-n">11</b><span class="pm-t">내 사업계획서 작성실</span><span class="pm-d">내 기업 파일로 실제로 쓰는 곳</span></span><span class="pm-x">기업별 3-1~6-1 제안 초안(HTML · Word) · 3-3~6-1 작성실 · BM 실습실 · 개별 워크북</span></a></li>
               </ol>
             </figure>
 
@@ -3226,31 +3252,7 @@
       op(location.hash);})();
       </script>
       <p class="mini-note">원문은 다운로드한 「[붙임] 제18회 예비관광벤처부문 사업계획서 양식」 기준입니다. 회차마다 표 · 한도가 바뀔 수 있으니 지원 때는 그 회차 공고문 양식을 확인하십시오. 각 칸이 슬라이드로 어디에 해당하는지는 <a href="tourism-venture-business-plan-script.html" target="_blank" rel="noopener">사업계획서 대본 슬라이드 12장 ↗</a>에.</p>
-      <p class="dltags wb-toc"><a class="mapl form hot" href="tv-form-wb/index.html" target="_blank" rel="noopener"><span class="blink-star" aria-hidden="true">✍</span> 양식 3-4-2 ~ 6-1 개별 워크북 모음 ↗</a><span class="dl-src">칸마다 따로 쓰는 HTML 워크북 — 브라우저에서 쓰고 <b>제출용 HTML을 내려받아 LMS에 제출</b>합니다. 위 카드를 펼쳐도 그 칸의 워크북 알약이 있습니다.</span></p>
-      <p class="dltags wb-toc" id="form-co"><a class="mapl form hot" href="tv-form-wb/company/all-9.html" target="_blank" rel="noopener"><span class="blink-star" aria-hidden="true">✍</span> 기업별 양식 3-3 ~ 6-1 통합 작성실 · 9개 기업 (교수자 통합관리) ↗</a><a class="mapl form ylw" href="tv-form-wb/company/examples.html" target="_blank" rel="noopener"><span class="blink-star" aria-hidden="true">★</span> 9개 기업 작성 예시본 · 표1~표5 채운 모습 ↗</a><span class="dl-src"><b>예시본</b>은 기업마다 3-3~6-1을 채워 본 교수자 예시(숫자는 가정값), 아래는 <b>내 기업 하나만 들어 있는 작성실</b>입니다 — 첨삭에서 짚은 범위 · 칸별 맞춤 요령을 보며 3-3부터 6-1까지 한 파일에 쓰고, 제출용 HTML을 내려받아 LMS에 제출합니다.</span></p>
-      <ul class="bm-sim-list">
-        <li><a href="tv-form-wb/company/sangju-coffee-archive.html" target="_blank" rel="noopener"><b>상주 커피 아카이브</b><span class="bs-who">임준혁</span><span class="bs-m">양식 3-3 ~ 6-1 작성실</span></a></li>
-        <li><a href="tv-form-wb/company/sigonggan.html" target="_blank" rel="noopener"><b>㈜시공간컴퍼니</b><span class="bs-who">차진희</span><span class="bs-m">양식 3-3 ~ 6-1 작성실</span></a></li>
-        <li><a href="tv-form-wb/company/buskbridge.html" target="_blank" rel="noopener"><b>BuskBridge</b><span class="bs-who">이영훈</span><span class="bs-m">양식 3-3 ~ 6-1 작성실</span></a></li>
-        <li><a href="tv-form-wb/company/hanji-nolji.html" target="_blank" rel="noopener"><b>한지 놀지</b><span class="bs-who">서용주</span><span class="bs-m">양식 3-3 ~ 6-1 작성실</span></a></li>
-        <li><a href="tv-form-wb/company/adco-nnect.html" target="_blank" rel="noopener"><b>ADCO-NNECT</b><span class="bs-who">박준영</span><span class="bs-m">양식 3-3 ~ 6-1 작성실</span></a></li>
-        <li><a href="tv-form-wb/company/gachiga.html" target="_blank" rel="noopener"><b>가치가</b><span class="bs-who">김한철</span><span class="bs-m">양식 3-3 ~ 6-1 작성실</span></a></li>
-        <li><a href="tv-form-wb/company/from.html" target="_blank" rel="noopener"><b>FROM:</b><span class="bs-who">박상준</span><span class="bs-m">양식 3-3 ~ 6-1 작성실</span></a></li>
-        <li><a href="tv-form-wb/company/gyeongbuk-zip.html" target="_blank" rel="noopener"><b>경북.zip</b><span class="bs-who">고은서</span><span class="bs-m">양식 3-3 ~ 6-1 작성실</span></a></li>
-        <li><a href="tv-form-wb/company/local-kase.html" target="_blank" rel="noopener"><b>로컬카세</b><span class="bs-who">김다애</span><span class="bs-m">양식 3-3 ~ 6-1 작성실</span></a></li>
-      </ul>
-      <p class="dltags wb-toc" id="form-draft"><a class="mapl form ylw" href="tv-form-wb/draft/all-9.html" target="_blank" rel="noopener"><span class="blink-star" aria-hidden="true">★</span> 양식 3-1 ~ 6-1 제안 초안 · 9개 기업 통합 (교수자용) ↗</a><span class="dl-src">기존 첨삭을 반영해 <b>3-1부터 6-1까지 15개 작성 영역</b>을 채운 기업별 초안입니다 — 문장 · 표 칸을 눌러 직접 고치고, 브라우저 자동 저장 · JSON 백업 · 수정한 HTML 내려받기 · 섹션 PDF 인쇄가 됩니다. <b>[제안 초안]</b>은 아직 학생이 내지 않은 내용, <b>[확인 필요]</b>는 실제 수치 · 증빙이 필요한 곳 — <b>실제 수행 실적이 아닙니다.</b></span></p>
-      <ul class="bm-sim-list">
-        <li><a href="tv-form-wb/draft/sangju-coffee-archive.html" target="_blank" rel="noopener"><b>상주 커피 아카이브</b><span class="bs-who">임준혁</span><span class="bs-m">양식 3-1 ~ 6-1 제안 초안</span></a></li>
-        <li><a href="tv-form-wb/draft/sigonggan.html" target="_blank" rel="noopener"><b>㈜시공간컴퍼니</b><span class="bs-who">차진희</span><span class="bs-m">양식 3-1 ~ 6-1 제안 초안</span></a></li>
-        <li><a href="tv-form-wb/draft/buskbridge.html" target="_blank" rel="noopener"><b>BuskBridge</b><span class="bs-who">이영훈</span><span class="bs-m">양식 3-1 ~ 6-1 제안 초안</span></a></li>
-        <li><a href="tv-form-wb/draft/hanji-nolji.html" target="_blank" rel="noopener"><b>한지 놀지</b><span class="bs-who">서용주</span><span class="bs-m">양식 3-1 ~ 6-1 제안 초안</span></a></li>
-        <li><a href="tv-form-wb/draft/adco-nnect.html" target="_blank" rel="noopener"><b>ADCO-NNECT</b><span class="bs-who">박준영</span><span class="bs-m">양식 3-1 ~ 6-1 제안 초안</span></a></li>
-        <li><a href="tv-form-wb/draft/gachiga.html" target="_blank" rel="noopener"><b>가치가</b><span class="bs-who">김한철</span><span class="bs-m">양식 3-1 ~ 6-1 제안 초안</span></a></li>
-        <li><a href="tv-form-wb/draft/from.html" target="_blank" rel="noopener"><b>FROM:</b><span class="bs-who">박상준</span><span class="bs-m">양식 3-1 ~ 6-1 제안 초안</span></a></li>
-        <li><a href="tv-form-wb/draft/gyeongbuk-zip.html" target="_blank" rel="noopener"><b>경북.zip</b><span class="bs-who">고은서</span><span class="bs-m">양식 3-1 ~ 6-1 제안 초안</span></a></li>
-        <li><a href="tv-form-wb/draft/local-kase.html" target="_blank" rel="noopener"><b>로컬카세</b><span class="bs-who">김다애</span><span class="bs-m">양식 3-1 ~ 6-1 제안 초안</span></a></li>
-      </ul>
+      <p class="dltags wb-toc"><a class="mapl form hot" href="#part11"><span class="blink-star" aria-hidden="true">✍</span> 내 사업계획서 작성실 → 파트 11 ↓</a><span class="dl-src">위 카드는 <b>각 칸이 무엇을 묻는가</b>, 파트 11은 <b>내 기업 파일(제안 초안 HTML · Word · 작성실 · 개별 워크북)을 열어 실제로 쓰는 곳</b>입니다.</span></p>
 
       <p class="learn-part lp-sub lrn" id="배우기"><span class="ptag">★ 과제 1 · 배우기</span>어디서 배우고 누구에게 묻는가 — 자리 셋</p>
       <div class="quad learnq" role="group" aria-label="어디서 배우나 — 세 갈래">
@@ -5111,6 +5113,33 @@
               
           </div>
         </details>
+      </div>
+
+      <div class="pt-div" aria-hidden="true"><span>✦</span></div>
+      <p class="learn-part pt-part pp-11" id="part11"><span class="pt"><i>파트</i><b>11</b></span><span class="pt-ti">내 사업계획서 작성실</span><span class="pt-sub">과제 1을 <strong>내 기업 파일로 실제로 쓰는 곳</strong> — 초안을 읽고, 작성실에 내 숫자로 고쳐 쓰고, 제출용 HTML을 LMS에 냅니다.</span></p>
+      <div class="w11">
+        <ol class="w11-steps">
+          <li><b>1</b><span><strong>초안 읽기</strong> — 첨삭을 반영한 3-1~6-1 제안 초안(HTML 또는 Word). <em>[제안 초안]</em>은 아직 내가 쓰지 않은 내용, <em>[확인 필요]</em>는 내 수치 · 증빙이 필요한 곳</span></li>
+          <li><b>2</b><span><strong>내 숫자로 고치기</strong> — 작성실이나 초안 HTML에서 칸을 눌러 직접 수정. 숫자는 BM 실습실에서 다시 계산</span></li>
+          <li><b>3</b><span><strong>제출</strong> — 수정한 HTML을 내려받아 LMS에. 초안 문장을 고치지 않고 그대로 내면 안 됩니다(실제 수행 실적이 아님)</span></li>
+        </ol>
+        <div class="w11-tw"><table class="w11-t">
+          <thead><tr><th>기업 · 학생</th><th>① 제안 초안 (읽기 · 고치기)</th><th>① 초안 Word</th><th>② 작성실 (내가 쓰기)</th><th>② 숫자 계산</th></tr></thead>
+          <tbody>
+            <tr><td class="w11-co"><b>01</b>상주 커피 아카이브<small>임준혁</small></td><td><a class="w11-b draft" href="tv-form-wb/draft/sangju-coffee-archive.html" target="_blank" rel="noopener">3-1~6-1 초안 HTML ↗</a></td><td><a class="w11-b word" href="tv-form-wb/draft/word/sangju-coffee-archive.docx" download>초안 Word ⤓</a></td><td><a class="w11-b room" href="tv-form-wb/company/sangju-coffee-archive.html" target="_blank" rel="noopener">3-3~6-1 작성실 ↗</a></td><td><a class="w11-b bm" href="bm-sim/sangju-coffee-archive.html" target="_blank" rel="noopener">BM 실습실 ↗</a></td></tr>
+            <tr><td class="w11-co"><b>02</b>㈜시공간컴퍼니<small>차진희</small></td><td><a class="w11-b draft" href="tv-form-wb/draft/sigonggan.html" target="_blank" rel="noopener">3-1~6-1 초안 HTML ↗</a></td><td><a class="w11-b word" href="tv-form-wb/draft/word/sigonggan.docx" download>초안 Word ⤓</a></td><td><a class="w11-b room" href="tv-form-wb/company/sigonggan.html" target="_blank" rel="noopener">3-3~6-1 작성실 ↗</a></td><td><a class="w11-b bm" href="bm-sim/sigonggan.html" target="_blank" rel="noopener">BM 실습실 ↗</a></td></tr>
+            <tr><td class="w11-co"><b>03</b>BuskBridge<small>이영훈</small></td><td><a class="w11-b draft" href="tv-form-wb/draft/buskbridge.html" target="_blank" rel="noopener">3-1~6-1 초안 HTML ↗</a></td><td><a class="w11-b word" href="tv-form-wb/draft/word/buskbridge.docx" download>초안 Word ⤓</a></td><td><a class="w11-b room" href="tv-form-wb/company/buskbridge.html" target="_blank" rel="noopener">3-3~6-1 작성실 ↗</a></td><td><a class="w11-b bm" href="bm-sim/buskbridge.html" target="_blank" rel="noopener">BM 실습실 ↗</a></td></tr>
+            <tr><td class="w11-co"><b>04</b>한지 놀지<small>서용주</small></td><td><a class="w11-b draft" href="tv-form-wb/draft/hanji-nolji.html" target="_blank" rel="noopener">3-1~6-1 초안 HTML ↗</a></td><td><a class="w11-b word" href="tv-form-wb/draft/word/hanji-nolji.docx" download>초안 Word ⤓</a></td><td><a class="w11-b room" href="tv-form-wb/company/hanji-nolji.html" target="_blank" rel="noopener">3-3~6-1 작성실 ↗</a></td><td><a class="w11-b bm" href="bm-sim/hanji-nolji.html" target="_blank" rel="noopener">BM 실습실 ↗</a></td></tr>
+            <tr><td class="w11-co"><b>05</b>ADCO-NNECT<small>박준영</small></td><td><a class="w11-b draft" href="tv-form-wb/draft/adco-nnect.html" target="_blank" rel="noopener">3-1~6-1 초안 HTML ↗</a></td><td><a class="w11-b word" href="tv-form-wb/draft/word/adco-nnect.docx" download>초안 Word ⤓</a></td><td><a class="w11-b room" href="tv-form-wb/company/adco-nnect.html" target="_blank" rel="noopener">3-3~6-1 작성실 ↗</a></td><td><a class="w11-b bm" href="bm-sim/adco-nnect.html" target="_blank" rel="noopener">BM 실습실 ↗</a></td></tr>
+            <tr><td class="w11-co"><b>06</b>가치가<small>김한철</small></td><td><a class="w11-b draft" href="tv-form-wb/draft/gachiga.html" target="_blank" rel="noopener">3-1~6-1 초안 HTML ↗</a></td><td><a class="w11-b word" href="tv-form-wb/draft/word/gachiga.docx" download>초안 Word ⤓</a></td><td><a class="w11-b room" href="tv-form-wb/company/gachiga.html" target="_blank" rel="noopener">3-3~6-1 작성실 ↗</a></td><td><a class="w11-b bm" href="bm-sim/gachiga.html" target="_blank" rel="noopener">BM 실습실 ↗</a></td></tr>
+            <tr><td class="w11-co"><b>07</b>FROM:<small>박상준</small></td><td><a class="w11-b draft" href="tv-form-wb/draft/from.html" target="_blank" rel="noopener">3-1~6-1 초안 HTML ↗</a></td><td><a class="w11-b word" href="tv-form-wb/draft/word/from.docx" download>초안 Word ⤓</a></td><td><a class="w11-b room" href="tv-form-wb/company/from.html" target="_blank" rel="noopener">3-3~6-1 작성실 ↗</a></td><td><a class="w11-b bm" href="bm-sim/from.html" target="_blank" rel="noopener">BM 실습실 ↗</a></td></tr>
+            <tr><td class="w11-co"><b>08</b>경북.zip<small>고은서</small></td><td><a class="w11-b draft" href="tv-form-wb/draft/gyeongbuk-zip.html" target="_blank" rel="noopener">3-1~6-1 초안 HTML ↗</a></td><td><a class="w11-b word" href="tv-form-wb/draft/word/gyeongbuk-zip.docx" download>초안 Word ⤓</a></td><td><a class="w11-b room" href="tv-form-wb/company/gyeongbuk-zip.html" target="_blank" rel="noopener">3-3~6-1 작성실 ↗</a></td><td><a class="w11-b bm" href="bm-sim/gyeongbuk-zip.html" target="_blank" rel="noopener">BM 실습실 ↗</a></td></tr>
+            <tr><td class="w11-co"><b>09</b>로컬카세<small>김다애</small></td><td><a class="w11-b draft" href="tv-form-wb/draft/local-kase.html" target="_blank" rel="noopener">3-1~6-1 초안 HTML ↗</a></td><td><a class="w11-b word" href="tv-form-wb/draft/word/local-kase.docx" download>초안 Word ⤓</a></td><td><a class="w11-b room" href="tv-form-wb/company/local-kase.html" target="_blank" rel="noopener">3-3~6-1 작성실 ↗</a></td><td><a class="w11-b bm" href="bm-sim/local-kase.html" target="_blank" rel="noopener">BM 실습실 ↗</a></td></tr>
+          </tbody>
+        </table></div>
+        <p class="dltags w11-all"><b class="w11-lab">칸별 · 전체</b><a class="mapl form hot" href="tv-form-wb/index.html" target="_blank" rel="noopener"><span class="blink-star" aria-hidden="true">✍</span> 양식 3-4-2 ~ 6-1 개별 워크북 모음 ↗</a><a class="mapl form" href="tv-form-wb/company/examples.html" target="_blank" rel="noopener">9개 기업 3-3~6-1 작성 예시본 ↗</a><a class="mapl form" href="#form-rest">↑ 과제 1 칸별 지도 · 양식 1-1~6-1</a></p>
+        <p class="dltags w11-all w11-t-only"><b class="w11-lab">교수자용</b><a class="mapl form" href="tv-form-wb/draft/all-9.html" target="_blank" rel="noopener">3-1~6-1 초안 · 9개 기업 통합 ↗</a><a class="mapl form" href="tv-form-wb/draft/word/all-9.docx" download>전체 학생 합본 Word ⤓</a><a class="mapl form" href="tv-form-wb/company/all-9.html" target="_blank" rel="noopener">3-3~6-1 작성실 · 9개 기업 통합 ↗</a></p>
+        <p class="mini-note">학생에게는 <strong>본인 기업 한 줄</strong>만 안내하십시오. 초안 · 예시본의 금액 · 인원 · 일정은 교육용 가정값이며, 정부지원금 한도 · 비목 규정은 해당 회차 공고문으로 다시 확인합니다.</p>
       </div>
 
       <p class="mod-home"><a href="./">← 교육자료 목차로 돌아가기</a></p>
