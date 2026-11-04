@@ -944,14 +944,20 @@
     .learn-article .pmap-grid.rows .pm-x .pm-def b { color: var(--ac); margin-right: 3px; }
     .learn-article .pmap-grid.rows .pm-x .pm-def b + b, .learn-article .pmap-grid.rows .pm-x .pm-def b:not(:first-child) { margin-left: 8px; }
     .learn-article .pmap-grid.rows .pm-x .pm-note { display: block; margin-top: 3px; font-style: normal; font-size: 11.3px; color: #6b7a88; }
-    /* 1행 2열 — 두 칸씩 나란히, 칸 안은 제목 위 · 내용 아래. 01→02 가로는 →, 줄이 바뀌는 자리는 ↓ (2026-11-04) */
-    .learn-article .pmap-grid.rows { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 26px; }
+    /* 1행 3열 — 세 칸씩 나란히(넓은 화면), 칸 안은 제목 위 · 내용 아래. 가로는 →, 줄이 바뀌는 자리는 ↓ · 1100px 이하 2열 · 760px 이하 1열 (2026-11-04) */
+    .learn-article .pmap-grid.rows { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px 26px; }
     .learn-article .pmap-grid.rows a { grid-template-columns: 1fr; gap: 6px; padding: 10px 14px 12px; align-content: start; }
     .learn-article .pmap-grid.rows .pm-x { border-left: 0; padding-left: 0; border-top: 1px dashed color-mix(in srgb, var(--ac) 30%, #fff); padding-top: 6px; }
     .learn-article .pmap-grid.rows > li + li::before { content: none; }
-    .learn-article .pmap-grid.rows > li:nth-child(even)::before { content: "→"; position: absolute; left: -20px; top: 22px; transform: none; font-size: 14px; font-weight: 900; color: #9aa9b8; }
-    .learn-article .pmap-grid.rows > li:nth-child(odd):not(:first-child)::before { content: "↓"; position: absolute; left: 50%; top: -17px; transform: translateX(-50%); font-size: 13px; font-weight: 900; color: #9aa9b8; }
-    @media (max-width: 760px) { .learn-article .pmap-grid.rows { grid-template-columns: 1fr; } .learn-article .pmap-grid.rows > li:nth-child(even)::before { content: "↓"; left: 50%; top: -17px; transform: translateX(-50%); } }
+    .learn-article .pmap-grid.rows > li:not(:nth-child(3n+1))::before { content: "→"; position: absolute; left: -20px; top: 22px; transform: none; font-size: 14px; font-weight: 900; color: #9aa9b8; }
+    .learn-article .pmap-grid.rows > li:nth-child(3n+1):not(:first-child)::before { content: "↓"; position: absolute; left: 50%; top: -17px; transform: translateX(-50%); font-size: 13px; font-weight: 900; color: #9aa9b8; }
+    @media (max-width: 1100px) and (min-width: 761px) {
+      .learn-article .pmap-grid.rows { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .learn-article .pmap-grid.rows > li:nth-child(n)::before { content: "→"; left: -20px; top: 22px; transform: none; }
+      .learn-article .pmap-grid.rows > li:nth-child(odd)::before { content: "↓"; left: 50%; top: -17px; transform: translateX(-50%); }
+      .learn-article .pmap-grid.rows > li:first-child::before { content: none; }
+    }
+    @media (max-width: 760px) { .learn-article .pmap-grid.rows { grid-template-columns: 1fr; } .learn-article .pmap-grid.rows > li:not(:first-child)::before { content: "↓"; left: 50%; top: -17px; transform: translateX(-50%); } }
     @media (max-width: 620px) { .learn-article .pmap-grid.rows a { grid-template-columns: 1fr; } .learn-article .pmap-grid.rows .pm-x { border-left: 0; padding-left: 0; } }
     /* 공유숙박 네 차시 + 더 보기 — 이름을 「무엇을 배우나」로, 알약은 그라데이션 (2026-11-04) */
     .learn-article p.dltags.sl-grad a.mapl.form { border: 0; color: #fff; font-weight: 800; padding: 6px 13px; box-shadow: 0 3px 10px -5px rgba(20,40,60,.45); }
