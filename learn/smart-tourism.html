@@ -885,9 +885,9 @@
     .learn-hero .room-bar .rb-parts a.rb-m { display: inline-flex; align-items: center; gap: 5px; padding: 3px 10px 3px 3px; font-size: 11px; }
     .learn-hero .room-bar .rb-parts a.rb-m i { font-style: normal; font-size: 9.5px; font-weight: 800; background: #17365d; color: #fff; border-radius: 999px; padding: 1px 6px; }
     .learn-hero .room-bar .rb-parts a.rb-m:hover i { background: #fff; color: #17365d; }
-    .learn-hero .room-bar .rb-parts .rb-g { display: inline-flex; align-items: center; gap: 3px; padding: 2px 4px 2px 2px; border-radius: 999px; background: #eef4fa; border: 1px solid #d3e0ec; }
-    .learn-hero .room-bar .rb-parts .rb-sub { display: inline-flex; align-items: center; gap: 3px; }
-    .learn-hero .room-bar .rb-parts .rb-sub a { padding: 2px 7px; font-size: 10px; }
+    .learn-hero .room-bar .rb-parts .rb-g { display: flex; flex: 1 1 100%; box-sizing: border-box; flex-wrap: wrap; align-items: center; gap: 4px 3px; padding: 2px 4px 2px 2px; border-radius: 16px; background: #eef4fa; border: 1px solid #d3e0ec; }
+    .learn-hero .room-bar .rb-parts .rb-sub { display: contents; flex-wrap: wrap; align-items: center; gap: 4px 3px; }
+    .learn-hero .room-bar .rb-parts .rb-sub a { padding: 3px 10px; font-size: 11px; } /* 큰 알약(rb-m)과 같은 크기 · 모자라면 줄바꿈 */
     .learn-hero .room-bar .rb-parts .fin-row .rb-lab { color: #b71c1c; }
     @media (max-width: 620px) {
       .learn-hero .room-bar .rb-parts .rb-row { grid-template-columns: 1fr; gap: 4px; }

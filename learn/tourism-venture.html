@@ -2048,6 +2048,48 @@
     }
     .learn-article .tv-map { max-width: 520px; margin: 16px auto 22px; text-align: center; }
     .learn-article .tv-map.narrow { max-width: 340px; }
+    /* 02장 머리 — 아이디어 한 문장까지 흐름(옛 tv-01-idea-tree.webp 대체) */
+    .learn-article .it-flow { max-width: 760px; margin: 18px auto 26px; padding: 18px 18px 14px; background: #fffaf4; border: 1px solid #f1d9bf; border-radius: 16px; }
+    .learn-article .it-flow .it-title { margin: 0 0 14px; text-align: center; font-size: 16px; font-weight: 800; color: #8a3f0b; }
+    .learn-article .it-flow .it-title small { display: block; font-size: 12px; font-weight: 500; color: #9a6a45; margin-top: 2px; }
+    .learn-article .it-flow ol.it-steps { list-style: none; margin: 0; padding: 0; }
+    .learn-article .it-flow .it-s { position: relative; margin: 0 0 26px; padding: 11px 14px; background: #fff; border: 1.5px solid #f0c9a0; border-radius: 12px; text-align: center; }
+    .learn-article .it-flow .it-s::after { content: "↓"; position: absolute; left: 50%; bottom: -24px; transform: translateX(-50%); font-size: 17px; line-height: 22px; color: #d9822b; font-weight: 700; }
+    .learn-article .it-flow .it-s.last { margin-bottom: 0; }
+    .learn-article .it-flow .it-s.last::after { content: none; }
+    .learn-article .it-flow .it-h { display: block; font-size: 14.5px; font-weight: 800; color: #6b3410; margin-bottom: 7px; }
+    .learn-article .it-flow .it-h .it-n { display: inline-block; min-width: 20px; height: 20px; line-height: 20px; margin-right: 6px; border-radius: 10px; background: #d9822b; color: #fff; font-size: 12px; }
+    .learn-article .it-flow .it-h small { font-weight: 500; color: #9a6a45; font-size: 12px; margin-left: 4px; }
+    .learn-article .it-flow .it-row { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+    .learn-article .it-flow .it-row a, .learn-article .it-flow .it-row span { display: inline-block; padding: 5px 11px; border-radius: 999px; background: #fdf0e2; border: 1px solid #f0c9a0; color: #6b3410; font-size: 13px; text-decoration: none; line-height: 1.4; }
+    .learn-article .it-flow .it-row a:hover { background: #fbe0c4; }
+    .learn-article .it-flow .it-row small { display: block; font-size: 11px; color: #9a6a45; }
+    .learn-article .it-flow .it-two { display: grid; grid-template-columns: 1.6fr 1fr; gap: 10px; }
+    .learn-article .it-flow .it-two > div { padding: 8px; border-radius: 10px; background: #fffaf4; }
+    .learn-article .it-flow .it-three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .learn-article .it-flow .it-three a { display: block; padding: 9px 8px; border-radius: 10px; background: #fdf0e2; border: 1px solid #f0c9a0; color: #4a250a; text-decoration: none; font-size: 13px; line-height: 1.45; }
+    .learn-article .it-flow .it-three a:hover { background: #fbe0c4; }
+    .learn-article .it-flow .it-three b { display: block; font-size: 14px; color: #8a3f0b; }
+    .learn-article .it-flow .it-three .it-form { display: inline-block; margin-top: 5px; padding: 1px 8px; border-radius: 6px; background: #2f6f4f; color: #fff; font-size: 11px; font-weight: 700; }
+    .learn-article .it-flow .it-s.dia { background: #fff6d9; border-color: #e3b341; clip-path: polygon(6% 0, 94% 0, 100% 50%, 94% 100%, 6% 100%, 0 50%); border-radius: 0; padding: 12px 9%; }
+    .learn-article .it-flow .it-s.dia .it-h { color: #7a5a00; }
+    .learn-article .it-flow .it-s.dia .it-h .it-n { background: #c99a1a; }
+    .learn-article .it-flow .it-loop { display: block; margin-top: 6px; font-size: 12.5px; color: #7a5a00; }
+    .learn-article .it-flow .it-loop b { color: #b33a1a; }
+    .learn-article .it-flow .it-s.goal { background: #8a3f0b; border-color: #8a3f0b; color: #fff; }
+    .learn-article .it-flow .it-s.goal .it-h { color: #ffe3c4; }
+    .learn-article .it-flow .it-s.goal .it-h .it-n { background: #fff; color: #8a3f0b; }
+    .learn-article .it-flow .it-s.dia::after { content: none; }
+    .learn-article .it-flow .it-s.goal::before { content: "↓"; position: absolute; left: 50%; top: -25px; transform: translateX(-50%); font-size: 17px; line-height: 22px; color: #d9822b; font-weight: 700; }
+    .learn-article .it-flow .it-goal { color: #fff; margin: 0; font-size: 15.5px; line-height: 1.7; }
+    .learn-article .it-flow .it-goal a { color: #fff; text-decoration: none; border-bottom: 1px dashed rgba(255,255,255,.6); }
+    .learn-article .it-flow .it-goal i { font-style: normal; font-size: 11px; padding: 0 5px; margin: 0 2px; border-radius: 5px; background: rgba(255,255,255,.2); vertical-align: 2px; }
+    .learn-article .it-flow figcaption { margin-top: 12px; font-size: 12px; color: #9a6a45; text-align: center; }
+    @media (max-width: 640px) {
+      .learn-article .it-flow { padding: 14px 10px 12px; }
+      .learn-article .it-flow .it-two, .learn-article .it-flow .it-three { grid-template-columns: 1fr; }
+      .learn-article .it-flow .it-s.dia { clip-path: none; border-radius: 12px; padding: 11px 14px; }
+    }
     .learn-article .tv-map img { display: block; width: 100%; height: auto; border-radius: 10px; border: 1px solid #e3e9f0; cursor: zoom-in; transition: box-shadow .15s; }
     .learn-article .tv-map a:hover img { box-shadow: 0 6px 20px -10px rgba(20,36,58,.5); }
     .tv-zoom { position: fixed; inset: 0; z-index: 9999; display: none; align-items: center; justify-content: center; padding: 20px; background: rgba(15,23,35,.82); cursor: zoom-out; }
@@ -3917,12 +3959,38 @@
         </figure>
       </div>
 
-      <figure class="tv-map" id="tv-idea-tree">
-        <a href="images/tv-01-idea-tree.webp" target="_blank" rel="noopener"><img src="images/tv-01-idea-tree.webp" width="1400" height="1050" loading="lazy" alt="관광벤처란 무엇인가 — 관광에서 어떤 문제를 발견했는가(여행자 · 지역 · 산업) → 어떻게 해결할까(서비스 · 콘텐츠 · 공간) · 무엇을 활용할까(AI · 데이터 · 지역자원) → 관광벤처 아이템(누구에게 · 무엇을 · 어떻게 돈을 벌까) → 실제 관광벤처 사례 → 나의 아이디어 → 관광벤처 아이디어 한 문장"></a>
-        <figcaption><b>아이디어 한 문장까지</b> — 어떤 문제 → 어떻게 · 무엇으로 → 누구에게 · 무엇을 · 어떻게 돈을 → 「<b>누구의 어떤 문제를 어떤 방식으로 해결한다.</b>」</figcaption>
-      </figure>
       <p class="learn-part lp-core" id="ch02"><span class="num">02</span>아이디어는 문제에서 나온다<a class="fno-back" href="#form-rest" title="과제 1 칸별 지도로">↑ 양식 1-1 지도</a></p>
       <p>초보 창업이 가장 자주 넘어지는 지점은 "내가 만들고 싶은 것"에서 시작한다는 것입니다. 순서를 뒤집어야 합니다.</p>
+      <figure class="it-flow" id="tv-idea-tree">
+        <p class="it-title">관광벤처란 무엇인가 — 아이디어 한 문장까지<small>넓게 보고 → 좁히고 → 점검하고 → 한 문장으로. 칸을 누르면 그 절로 갑니다.</small></p>
+        <ol class="it-steps">
+          <li class="it-s"><span class="it-h"><span class="it-n">1</span>관광에서 어떤 문제를 발견했나<small>넓게 보기</small></span>
+            <span class="it-row"><a href="#ch02">여행자의 불편</a><a href="#ch02">지역의 과제</a><a href="#ch02">산업의 빈틈</a></span></li>
+          <li class="it-s"><div class="it-two">
+            <div><span class="it-h"><span class="it-n">2</span>어떻게 해결할까<small>신청유형 택 1</small></span>
+              <span class="it-row"><a href="#apply-types-4">서비스<small>관광체험서비스</small></a><a href="#apply-types-4">콘텐츠<small>실감형관광콘텐츠</small></a><a href="#apply-types-4">공간<small>관광인프라</small></a><a href="#apply-types-4">플랫폼 · 딥테크<small>관광딥테크 · B2B · SaaS</small></a></span></div>
+            <div><span class="it-h">무엇을 활용할까</span>
+              <span class="it-row"><span>AI</span><span>데이터</span><span>지역자원</span></span></div>
+          </div></li>
+          <li class="it-s"><span class="it-h"><span class="it-n">3</span>관광벤처 아이템<small>세 칸</small></span>
+            <span class="it-three">
+              <a href="#targeting"><b>누구에게?</b>WHO · 한 사람(페르소나) · STP로 좁히기<br><span class="it-form">양식 2-1</span></a>
+              <a href="#ch02"><b>무엇을?</b>WHAT · 진짜 불편을 한 문장으로<br><span class="it-form">양식 1-1</span></a>
+              <a href="#ch03-a"><b>어떻게 돈을 벌까?</b>03-A 수익모델로 이어짐<br><span class="it-form">양식 2-2</span></a>
+            </span></li>
+          <li class="it-s"><span class="it-h"><span class="it-n">4</span>실제 관광벤처는 어떤 문제를 어떻게 풀었나</span>
+            <span class="it-row"><a href="#part09">비건부산</a><a href="#ch08">성심당</a><a href="#ch11">어반리즘 하우스</a><a href="#benchmarking">THE VC 벤치마킹</a></span></li>
+          <li class="it-s" id="it-narrow"><span class="it-h"><span class="it-n">5</span>나의 아이디어 — 내가 고른 문제 하나로 좁히기</span>
+            <span class="it-row"><span>경북 지역 관광문제</span><span>관광객 불편</span><span>지역사업자 문제</span></span>
+            <small style="display:block;margin-top:6px;font-size:12px;color:#9a6a45">셋 가운데 하나 · 한 장면 · 한 사람으로</small></li>
+          <li class="it-s dia"><span class="it-h"><span class="it-n">◇</span>점검 — 통과했나?</span>
+            <span class="it-row"><a href="#problem-statement-5">다섯 기준 통과?<small>구체성 · 현실성 · 시장성 · 필요성 · 차별성</small></a><a href="#research-34">숫자 근거 있나?<small>조사 사이트 34선 · TAM → SOM</small></a></span>
+            <span class="it-loop">예 → 아래 한 문장으로 · <b>아니오 → ↺ <a href="#it-narrow">5 나의 아이디어</a>로 돌아가 다시 좁힌다</b></span></li>
+          <li class="it-s goal last"><span class="it-h"><span class="it-n">★</span>관광벤처 아이디어 한 문장</span>
+            <p class="it-goal">「<a href="#targeting">누구<i>WHO</i></a>의 <a href="#ch02">어떤 문제<i>WHAT</i></a>를, <a href="#why-now">기존 ○○와 달리<i>WHY NOW</i></a> △△ 방식으로 해결한다.」</p></li>
+        </ol>
+        <figcaption>어떤 문제 → 어떻게 · 무엇으로 → 누구에게 · 무엇을 · 어떻게 돈을 → 사례 → 좁히기 → 점검 → 한 문장</figcaption>
+      </figure>
       <div class="tri-wrap tri-warm hub-gap">
         <svg class="tri-line" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polygon points="50,3 97,97 3,97" /></svg>
         <ol class="vcards c3 steps tri3">
@@ -4161,8 +4229,8 @@
           <span class="meta">한국관광공사 · 관광벤처(touraz.kr) · 운영: (주)탭엔젤파트너스</span>
         </li>
         <li class="t-blue3">
-          <span class="step-tag">② 실제로 낸다</span><a href="https://blog.naver.com/sonsoore2/224181341896" target="_blank" rel="noopener">2026 관광벤처사업 공모 — 예비·성장 최대 1.2억 지원 (합격 가이드·꿀팁 총정리) ↗</a>
-          <span class="desc">위 요강이 <strong>공고를 읽는 이야기</strong>였다면, 이 글은 <strong>실제로 내는 이야기</strong>입니다. 관광벤처사업(예비·성장)의 지원 규모와 신청 전략을 정리한 실전 가이드로, 공고문만으로는 알기 어려운 <strong>사업계획서 작성·평가 대비 팁</strong>을 담았습니다.</span>
+          <span class="step-tag">② 실제로 낸다</span><a href="https://blog.naver.com/sonsoore2/224181341896" target="_blank" rel="noopener">2026 관광벤처 공모 합격 가이드 · 꿀팁 ↗</a>
+          <span class="desc">예비·성장 최대 1.2억 · 공고문에 없는 <strong>사업계획서 작성 · 평가 대비 팁</strong>.</span>
           <span class="meta">네이버 블로그 '정부지원 정보방'</span>
         </li>
       </ul>
