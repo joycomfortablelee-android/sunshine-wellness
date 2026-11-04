@@ -2804,6 +2804,12 @@
       background: repeating-linear-gradient(135deg, #e7ece9 0 5px, #f5f8f6 5px 10px);
       border: 1px dashed #c3d0cb; border-bottom: 0;
     }
+    /* 11~15주 막대 안 — 매주 채울 양식 칸(숙제) */
+    .learn-article .grow-bars .gb-hw { display: flex; flex-direction: column; align-items: center; margin-top: 7px; color: #fff; font-size: 11px; font-weight: 900; line-height: 1.25; text-align: center; }
+    .learn-article .grow-bars .gb-hw i { font-style: normal; font-size: 9px; font-weight: 800; padding: 0 4px; margin-bottom: 3px; border-radius: 4px; background: #ffe14d; color: #3d3200; }
+    .learn-article .grow-bars .gb-hw small { display: block; margin-top: 3px; font-size: 8.5px; font-weight: 700; opacity: .85; }
+    .learn-article .grow-bars > li.gb-x .gb-hw { color: #2f5148; }
+    .learn-article .grow-bars .gb-tip u { text-decoration: none; color: #ffe14d; font-weight: 700; }
     .learn-article .grow-bars .gb-v { margin-top: -17px; font-size: 11px; font-weight: 800; color: #2f5148; }
     /* 16주 「제출」 — 막대가 가득 차 있으니 띄우지 않고 막대 안쪽 위에 흰 글자로 박아 둔다 */
     .learn-article .grow-bars > li.gb-fin .gb-v { margin-top: 10px; color: #fff; }
@@ -2847,6 +2853,8 @@
       .learn-article .grow-bars .gb-dt { display: none; }
       .learn-article .grow-bars .gb-wk { font-size: 9px; }
       .learn-article .grow-bars .gb-tip { width: 170px; }
+      .learn-article .grow-bars .gb-hw { font-size: 8.5px; }
+      .learn-article .grow-bars .gb-hw small, .learn-article .grow-bars .gb-hw i { display: none; }
     }
     /* ===== 플랫폼 점선 상자 — 「무엇으로 만들어 어디에 올리나」 (2026-09-23) =====
        본문 카드들과 달리 채우지 않고 점선만 두른다. 수업 내용이 아니라 도구 이야기라 한 겹 낮춘다. */
@@ -3372,24 +3380,24 @@
             <span class="gb-tip"><b>10주 · 11/3</b>비즈니스 모델 1차시 · 개략 훑어보기<em><i class="gb-plus">+2</i> · 누계 15</em></span></a>
           </li>
           <li class="gb" style="--h:80%">
-            <a href="#wk11" data-wk="11"><span class="gb-track"><span class="gb-bar"></span></span><span class="gb-wk">11주</span><span class="gb-dt">11/10</span>
-            <span class="gb-tip"><b>11주 · 11/10</b>비즈니스 모델 · 경쟁사 분석 · 실현가능성<em><i class="gb-plus">+1</i> · 누계 16</em></span></a>
+            <a href="#wk11" data-wk="11"><span class="gb-track"><span class="gb-bar"><b class="gb-hw"><i>숙제</i>3-1<br>3-2<small>개발 · 홍보</small></b></span></span><span class="gb-wk">11주</span><span class="gb-dt">11/10</span>
+            <span class="gb-tip"><b>11주 · 11/10</b>비즈니스 모델 · 경쟁사 분석 · 실현가능성 · <u>숙제 양식 3-1 개발 · 3-2 홍보</u><em><i class="gb-plus">+1</i> · 누계 16</em></span></a>
           </li>
           <li class="gb" style="--h:85%">
-            <a href="#wk12" data-wk="12"><span class="gb-track"><span class="gb-bar"></span></span><span class="gb-wk">12주</span><span class="gb-dt">11/17</span>
-            <span class="gb-tip"><b>12주 · 11/17</b>로컬크리에이터 · 농어촌 자원의 사업화<em><i class="gb-plus">+1</i> · 누계 17</em></span></a>
+            <a href="#wk12" data-wk="12"><span class="gb-track"><span class="gb-bar"><b class="gb-hw"><i>숙제</i>3-3<br>3-4<small>자금 · 일정</small></b></span></span><span class="gb-wk">12주</span><span class="gb-dt">11/17</span>
+            <span class="gb-tip"><b>12주 · 11/17</b>로컬크리에이터 · 농어촌 자원의 사업화 · <u>숙제 양식 3-3 자금운용[표1] · 3-4 일정[표2 · 3]</u><em><i class="gb-plus">+1</i> · 누계 17</em></span></a>
           </li>
           <li class="gb" style="--h:90%">
-            <a href="#wk13" data-wk="13"><span class="gb-track"><span class="gb-bar"></span></span><span class="gb-wk">13주</span><span class="gb-dt">11/24</span>
-            <span class="gb-tip"><b>13주 · 11/24</b>연구용역 창업 · B2G<em><i class="gb-plus">+1</i> · 누계 18</em></span></a>
+            <a href="#wk13" data-wk="13"><span class="gb-track"><span class="gb-bar"><b class="gb-hw"><i>숙제</i>3-5<br>4-1<br>4-2<small>성장 · 트렌드</small></b></span></span><span class="gb-wk">13주</span><span class="gb-dt">11/24</span>
+            <span class="gb-tip"><b>13주 · 11/24</b>연구용역 창업 · B2G · <u>숙제 양식 3-5 성장전략[표4] · 4-1 · 4-2 관광 트렌드 · 연관성</u><em><i class="gb-plus">+1</i> · 누계 18</em></span></a>
           </li>
           <li class="gb" style="--h:100%">
-            <a href="#wk14" data-wk="14"><span class="gb-track"><span class="gb-bar"></span></span><span class="gb-wk">14주</span><span class="gb-dt">12/1</span>
-            <span class="gb-tip"><b>14주 · 12/1</b>T 칸 · 모의 심사 · 발표 리허설<em><i class="gb-plus">+2</i> · 누계 20</em></span></a>
+            <a href="#wk14" data-wk="14"><span class="gb-track"><span class="gb-bar"><b class="gb-hw"><i>숙제</i>5-1~3<br>6-1<small>팀 · KPI</small></b></span></span><span class="gb-wk">14주</span><span class="gb-dt">12/1</span>
+            <span class="gb-tip"><b>14주 · 12/1</b>T 칸 · 모의 심사 · 발표 리허설 · <u>숙제 양식 5-1~5-3 팀[표5] · 6-1 KPI · 협약목표</u><em><i class="gb-plus">+2</i> · 누계 20</em></span></a>
           </li>
           <li class="gb gb-x" style="--h:100%">
-            <a href="#wk15" data-wk="15"><span class="gb-track"><span class="gb-bar"></span></span><span class="gb-wk">15주</span><span class="gb-dt">12/8</span>
-            <span class="gb-tip"><b>15주 · 12/8</b>보강 주간 — 수업 없음<em><i class="gb-plus gb-zero">±0</i> · 누계 20</em></span></a>
+            <a href="#wk15" data-wk="15"><span class="gb-track"><span class="gb-bar"><b class="gb-hw"><i>숙제</i>전체<br>다듬기<small>13장 안</small></b></span></span><span class="gb-wk">15주</span><span class="gb-dt">12/8</span>
+            <span class="gb-tip"><b>15주 · 12/8</b>보강 주간 — 수업 없음 · <u>숙제 3-1~6-1 전체 다듬기 · 장수 한도 안으로</u><em><i class="gb-plus gb-zero">±0</i> · 누계 20</em></span></a>
           </li>
           <li class="gb gb-fin" style="--h:100%">
             <a href="#wk16" data-wk="16"><span class="gb-track"><span class="gb-bar"><b class="gb-v">제출</b></span></span><span class="gb-wk">16주</span><span class="gb-dt">12/15</span>
