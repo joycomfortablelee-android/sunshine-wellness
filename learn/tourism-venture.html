@@ -909,6 +909,9 @@
     .learn-article .pmap-grid.rows a { display: grid; grid-template-columns: minmax(170px, 230px) minmax(0, 1fr); gap: 4px 16px; align-items: start; padding: 9px 14px; }
     .learn-article .pmap-grid.rows .pm-head { display: flex; flex-direction: column; gap: 2px; }
     .learn-article .pmap-grid.rows .pm-x { font-size: 12.3px; line-height: 1.6; color: #2b3a4a; border-left: 2px solid color-mix(in srgb, var(--ac) 30%, #fff); padding-left: 12px; }
+    .learn-article .pmap-grid.rows .pm-x .pm-def { display: block; margin-bottom: 5px; padding: 5px 8px; border-radius: 6px; background: rgba(255,255,255,.75); font-size: 11.8px; line-height: 1.6; color: #2b3a4a; }
+    .learn-article .pmap-grid.rows .pm-x .pm-def b { color: var(--ac); margin-right: 3px; }
+    .learn-article .pmap-grid.rows .pm-x .pm-def b + b, .learn-article .pmap-grid.rows .pm-x .pm-def b:not(:first-child) { margin-left: 8px; }
     .learn-article .pmap-grid.rows .pm-x .pm-note { display: block; margin-top: 3px; font-style: normal; font-size: 11.3px; color: #6b7a88; }
     /* 1행 2열 — 두 칸씩 나란히, 칸 안은 제목 위 · 내용 아래. 01→02 가로는 →, 줄이 바뀌는 자리는 ↓ (2026-11-04) */
     .learn-article .pmap-grid.rows { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 26px; }
@@ -2984,7 +2987,7 @@
                 <li style="--ac:#8a5a17;--bg:#fdf6ea"><a href="#part05"><span class="pm-head"><b class="pm-n">05</b><span class="pm-t">업종별로 들어가기</span></span><span class="pm-x">5-1 여행업 · 5-2 외식(성심당) · 5-3 농어촌 민박 · 한옥 · 5-4 스마트팜 · 5-5 연구용역(어반리즘 하우스) · 5-6 로컬크리에이터 · 5-7 관광두레 · 5-8 업종별 이해(25개 업종)</span></a></li>
                 <li style="--ac:#7a6417;--bg:#fdf8e8"><a href="#part07"><span class="pm-head"><b class="pm-n">06</b><span class="pm-t">책 — 교재 세 권</span><span class="pm-d">지금 읽는 대목이 전체의 어디쯤인지</span></span><span class="pm-x">「관광벤처창업론」(이론 · 실무 19장) · 「관광창업론」(업종별 15장)과 이 페이지 장의 대응</span></a></li>
                 <li style="--ac:#a8431f;--bg:#fbeee6"><a href="#part08"><span class="pm-head"><b class="pm-n">07</b><span class="pm-t">기업가 정신</span></span><span class="pm-x">과제 2 EO Korea 사례연구(11/9(월) 24시) · 창업가 DNA · 고객 · 전략 · 제품 · 성장 5부 · 슬라이드 221장</span></a></li>
-                <li style="--ac:#4338a0;--bg:#f0eefb"><a href="#part10"><span class="pm-head"><b class="pm-n">08</b><span class="pm-t">IR 피칭</span><span class="pm-d">서류 다음은 무대 — 피칭덱의 비전 · 실제 경진대회 피칭</span></span><span class="pm-x">IR 피칭과 피칭덱의 비밀 ⑫ 비전제시 · ⑬ 컨셉 · 2025 정주영 창업경진대회 트랙별 피칭 · 14주차 발표 리허설과 연결</span></a></li>
+                <li style="--ac:#4338a0;--bg:#f0eefb"><a href="#part10"><span class="pm-head"><b class="pm-n">08</b><span class="pm-t">IR 피칭</span><span class="pm-d">서류 다음은 무대 — 피칭덱의 비전 · 실제 경진대회 피칭</span></span><span class="pm-x"><span class="pm-def"><b>IR 피칭</b> 투자자 · 심사위원 앞에서 몇 분 안에 문제 · 해결 · 시장 · 수익 · 팀을 말로 설득하는 발표 <b>피칭덱</b> 그 발표에 쓰는 10~15장 안팎의 슬라이드 묶음(문제 → 해결 → 시장 → 비즈니스 모델 → 팀 → 숫자 · 요청)</span>IR 피칭과 피칭덱의 비밀 ⑫ 비전제시 · ⑬ 컨셉 · 2025 정주영 창업경진대회 트랙별 피칭 · 14주차 발표 리허설과 연결</span></a></li>
                 <li style="--ac:#1f6a73;--bg:#eaf5f4"><a href="#part09"><span class="pm-head"><b class="pm-n">09</b><span class="pm-t">곁들여 보기 · 링크</span></span><span class="pm-x">비건부산(해커톤 → 서비스) · 구미 · 포항(도시가 관광 창업에 투자하는 이유) · 공모 창구 모음</span></a></li>
                 <li style="--ac:#5b3f7a;--bg:#f4eff8"><a href="#part06"><span class="pm-head"><b class="pm-n">10</b><span class="pm-t">창업하지 않아도 쓰인다</span><span class="pm-d">관광기업이 뽑을 때 보는 것 = 공모가 보는 것</span></span><span class="pm-x">과제 3 관광기업 입사 제안서(A4 1장 · 모의 면접) · 면접 질문과 채용 창구</span></a></li>
               </ol>
