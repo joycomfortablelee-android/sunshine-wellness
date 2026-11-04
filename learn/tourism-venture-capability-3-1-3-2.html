@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>관광벤처 사업화역량 3-1·3-2 | 정보 손실 없는 보고서형 작성안·실습</title>
+<style>
+:root{--ink:#16263e;--navy:#153a62;--blue:#285f9d;--teal:#087d7e;--soft:#f3f7fb;--line:#dce5ee;--muted:#56667b;--warm:#fff7eb;--red:#a33e3e;--green:#166b52;--white:#fff;--shadow:0 12px 32px rgba(28,60,100,.07)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#eef3f8;color:var(--ink);font-family:'Pretendard','Noto Sans KR','Malgun Gothic',system-ui,sans-serif;font-size:17px;line-height:1.75}button,input,textarea,select{font:inherit}button{cursor:pointer}a{color:var(--blue)}.layout{display:grid;grid-template-columns:265px minmax(0,1fr);max-width:1580px;margin:auto;min-height:100vh}.side{position:sticky;top:0;height:100vh;overflow:auto;background:#133250;color:#fff;padding:27px 18px}.brand{font-size:12px;font-weight:800;letter-spacing:.14em;color:#a3d4e8;margin:8px 10px 7px}.side h2{font-size:21px;line-height:1.4;margin:0 10px 25px}.side a{display:flex;gap:12px;color:#dce8f4;text-decoration:none;padding:10px 13px;border-radius:12px;font-size:15px;align-items:center;margin-bottom:4px}.side a:hover,.side a.active{background:#315a7c;color:#fff}.side a span{font-size:12px;opacity:.7;width:24px}.side .note{border-top:1px solid #38566f;padding:18px 10px;font-size:13px;color:#aec9de;margin-top:20px}.main{padding:36px 48px 75px;min-width:0}.hero{border-radius:22px;background:linear-gradient(125deg,#15365d,#27678a 70%,#0e827e);padding:42px;color:white;box-shadow:var(--shadow);margin-bottom:23px}.eyebrow{letter-spacing:.12em;font-size:14px;font-weight:800;color:#c6e5f2}.hero h1{font-size:clamp(28px,3.5vw,42px);line-height:1.35;margin:15px 0}.hero p{max-width:860px;font-size:18px;color:#e8f3fb;margin:5px 0 28px}.hero-badges{display:flex;gap:9px;flex-wrap:wrap}.hero-badges span{font-size:13px;font-weight:700;border:1px solid #88b4ca88;border-radius:999px;padding:6px 11px;background:#ffffff15}.topbar{display:flex;justify-content:space-between;gap:8px;align-items:center;margin:0 0 23px}.small{font-size:14px;color:var(--muted)}.btn{border:1px solid #b8cfdf;border-radius:11px;background:white;padding:9px 14px;color:#1c527c;font-size:14px;font-weight:800}.btn:hover{background:#e9f5fc}.btn.primary{background:#1b5d91;color:#fff;border-color:#1b5d91}.btn.outline{background:transparent;border-color:#a5bcd0}.section{background:#fff;padding:34px;border:1px solid var(--line);border-radius:19px;box-shadow:var(--shadow);margin-bottom:24px;scroll-margin-top:18px}.section h2{font-size:27px;line-height:1.45;letter-spacing:-.03em;margin:0 0 12px}.section h3{font-size:20px;line-height:1.5;margin:25px 0 12px;color:var(--navy)}.section p{margin:9px 0}.label{font-size:12px;letter-spacing:.13em;font-weight:900;color:var(--teal);margin-bottom:5px}.lead{font-size:18px;color:#314d66}.callout{background:#ecf6fb;border-left:5px solid var(--teal);border-radius:0 11px 11px 0;padding:16px 20px;margin:20px 0;color:#1a4259}.callout.orange{background:#fff8ec;border-left-color:#df972d}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.tile{border:1px solid var(--line);border-radius:14px;padding:18px;background:white}.tile.blue{background:#f0f7fe}.tile.green{background:#eff9f5}.tile.orange{background:#fff9ef}.tile h4{font-size:18px;margin:0 0 8px}.tile p{font-size:15px;margin:0}.flow{display:flex;gap:8px;flex-wrap:wrap;align-items:stretch;margin:22px 0}.flow .node{flex:1 1 160px;border:1px solid #b7d6e5;background:#f0f8fc;border-radius:14px;text-align:center;min-height:95px;display:flex;flex-direction:column;justify-content:center;padding:14px 9px}.node strong{font-size:16px;color:#164b73}.node small{font-size:13px;color:#536f87}.arrow{display:flex;align-items:center;font-size:25px;color:#43859d;font-weight:900}.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:13px;margin:16px 0}table{width:100%;border-collapse:collapse;font-size:15px}th,td{padding:13px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;min-width:120px}th{background:#edf4f9;font-weight:900;color:#204466}tr:last-child td{border-bottom:0}.smallcol{min-width:80px}.bad{color:var(--red);font-weight:900}.good{color:var(--green);font-weight:900}.example{border:1px solid #d2e2d8;background:#f7fcf8;border-radius:13px;padding:18px 20px;white-space:pre-wrap;line-height:1.85;font-size:15px}.contrast{display:grid;grid-template-columns:1fr 1fr;gap:16px}.contrast .weak{background:#fff6f5;border:1px solid #f2d8d4;border-radius:13px;padding:17px}.contrast .strong{background:#f3fbf5;border:1px solid #d0e5d5;border-radius:13px;padding:17px}.stage{display:flex;align-items:center;gap:12px;padding:12px;border-left:3px solid #2e799f;background:#f3f8fd;margin:10px 0}.stage strong{min-width:95px;color:#155480}.em{color:#166d6a;font-weight:800}.num{display:inline-flex;align-items:center;justify-content:center;background:#e4f3f3;color:#066b70;border-radius:10px;font-size:14px;font-weight:900;min-width:34px;height:34px;margin-right:8px}.listline{padding:7px 0;border-bottom:1px dashed #d7e0e8}.listline:last-child{border-bottom:0}.notice{color:#6b4b2c;background:#fff8ef;border:1px solid #f0dfbf;padding:10px 14px;border-radius:9px;font-size:13px;margin-top:12px}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:15px 0}.field{display:flex;flex-direction:column;gap:6px}.field label{font-weight:850;font-size:14px;color:#254c6d}.field input,.field textarea,.field select{border-radius:10px;border:1px solid #bbcbda;padding:11px 12px;background:#fff;outline-color:#2381ad;color:#1c334b;width:100%}.field textarea{min-height:90px;resize:vertical}.span2{grid-column:span 2}.output{white-space:pre-wrap;background:#f7fafd;border:1px solid #cbdde9;padding:22px;border-radius:12px;min-height:260px;font-size:15px}.q{border:1px solid #dce6ef;border-radius:12px;padding:16px;margin:13px 0;background:#fbfdff}.q strong{display:block;margin-bottom:9px}.choices label{display:block;margin:4px 0;padding:6px 9px;border-radius:7px;cursor:pointer}.choices label:hover{background:#eff7fb}.answer{display:none;border-top:1px solid #d6e3e9;margin-top:11px;padding-top:12px;font-size:14px}.show .answer{display:block}.check-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px 15px}.check-list label{display:flex;gap:9px;align-items:start;padding:7px 0;font-size:15px}.check-list input{margin-top:6px;accent-color:#0c7d83}.kpi{font-family:ui-monospace,Consolas,monospace;background:#f0f5f9;padding:14px;border-radius:10px;font-size:14px}.footer{text-align:center;color:#71849b;padding:18px;font-size:13px}.sectionhead{display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap}.pill{font-size:13px;color:#1c7281;background:#e4f4f5;border-radius:30px;padding:5px 11px;font-weight:800}.vocab{font-size:13px;color:#3c5c72;background:#f1f7fa;border-radius:8px;padding:5px 10px;display:inline-block;margin:3px}.toast{position:fixed;right:20px;bottom:20px;background:#133a50;color:#fff;padding:13px 18px;border-radius:12px;box-shadow:0 6px 28px #0003;opacity:0;transform:translateY(16px);pointer-events:none;transition:.2s;z-index:5}.toast.show{opacity:1;transform:translateY(0)}.printonly{display:none}
+@media(max-width:1050px){.layout{grid-template-columns:1fr}.side{height:auto;position:static;padding:16px}.side h2,.side .note,.brand{display:none}.side nav{display:flex;gap:6px;overflow:auto}.side a{white-space:nowrap;flex:none}.main{padding:18px}.section{padding:22px}.hero{padding:27px}}@media(max-width:680px){.grid,.grid3,.contrast,.formgrid,.check-list{grid-template-columns:1fr}.span2{grid-column:span 1}.section h2{font-size:23px}.arrow{display:none}body{font-size:16px}.hero h1{font-size:29px}.flow .node{flex:1 1 42%}}
+@media print{body{background:#fff;font-size:11pt}.layout{display:block}.side,.topbar,.btn,.toast,.hideprint{display:none!important}.main{padding:0}.hero{border-radius:0;box-shadow:none;margin:0 0 12pt;padding:20pt!important;print-color-adjust:exact;-webkit-print-color-adjust:exact}.hero h1{font-size:25pt}.section{box-shadow:none;border:1px solid #ccc;padding:15pt;margin:0 0 14pt;break-inside:auto}.section h2{font-size:18pt}.section h3{font-size:13pt}.section,.tile,.q,.callout,.tablewrap,.contrast{break-inside:avoid}.printonly{display:block}a{text-decoration:none;color:inherit}}
+
+/* 2026-11 edit: Korean typography and top-of-page writing workspace */
+body{font-family:"Noto Sans KR","Noto Sans CJK KR","NanumBarunGothic","Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:17px;line-height:1.82;letter-spacing:-.017em;-webkit-font-smoothing:antialiased;word-break:keep-all}
+.main{padding-top:24px}.side a{font-size:15px;font-weight:550;line-height:1.55}.side h2{font-weight:750}.hero{padding:29px 36px;margin-bottom:19px}.hero h1{font-weight:800;line-height:1.4;font-size:clamp(27px,3vw,36px);margin:8px 0 12px;letter-spacing:-.035em}.hero p{margin:0 0 17px;font-size:17px;line-height:1.65}.hero .eyebrow{font-size:12px}.hero-badges span{font-size:12px}.section h2{font-weight:800;letter-spacing:-.035em}.section h3,.tile h4{font-weight:750}.lead{font-size:16.5px;line-height:1.8}.section p{line-height:1.8}.btn{font-weight:720}.section{scroll-margin-top:18px}.label{letter-spacing:.035em}.worksheet{border:1px solid #cedde9;background:linear-gradient(180deg,#fcfeff 0%,#fff 10%);padding:30px}.work-head{display:flex;gap:20px;align-items:flex-start;justify-content:space-between;margin-bottom:16px}.work-head h2{margin-bottom:3px}.work-head .lead{margin:0;max-width:760px}.work-actions{display:flex;gap:8px;flex-wrap:wrap;flex-shrink:0;padding-top:13px}.writing-row{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(290px,.9fr);border:1px solid #cbdce9;border-radius:18px;overflow:hidden;background:#fff;margin:19px 0 24px;box-shadow:0 6px 26px rgba(32,73,108,.045)}.writing-paper{padding:23px 24px 18px;min-width:0}.writing-title{display:flex;gap:14px;align-items:flex-start;margin-bottom:17px}.writing-number{background:#1a578b;color:#fff;border-radius:11px;padding:8px 11px;font-size:17px;line-height:1.35;font-weight:800;white-space:nowrap}.writing-number.mint{background:#06756d}.writing-title h3{margin:0 0 5px!important;font-size:21px!important;line-height:1.45}.writing-title p{font-size:13px;color:#5c7084;margin:0;line-height:1.6}.write-label{display:block;font-size:15px;font-weight:800;margin-bottom:8px;color:#203f60}.write-label span{color:#63778c;font-size:12px;font-weight:450;margin-left:6px}.write-input{display:block;width:100%;min-height:362px;resize:vertical;padding:19px 20px;border:1.6px solid #aac7db;border-radius:13px;background:repeating-linear-gradient(to bottom,#fff 0,#fff 37px,#f0f5f9 38px,#fff 39px);font-family:"Noto Sans KR","Noto Sans CJK KR","NanumBarunGothic","Malgun Gothic",sans-serif;line-height:39px;font-size:16px;color:#1d3651;letter-spacing:-.017em;outline:none;white-space:pre-wrap;word-break:break-word;overflow:auto}.write-input::placeholder{color:#8395a7;opacity:1}.write-input:focus{border-color:#177cad;box-shadow:0 0 0 4px #c9edff80}.write-toolbar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:13px}.write-toolbar>div{display:flex;flex-wrap:wrap;gap:7px}.write-toolbar .btn{padding:7px 10px;font-size:12.5px;line-height:1.6}.counter{color:#5a7183;font-size:12.5px;white-space:nowrap}.advice{border-left:1px solid #d6e7ed;background:#eff7fa;padding:24px 22px;min-width:0}.advice-tag{font-size:12px;font-weight:850;color:#0e6d73;letter-spacing:.015em}.advice h3{margin:7px 0 16px;font-size:18px;color:#144d6d;letter-spacing:-.02em}.tip{padding:10px 0 11px;border-top:1px solid #d4e5ed}.tip strong{font-size:14px;color:#174e6d;line-height:1.5}.tip p{font-size:13.5px;line-height:1.78;margin:3px 0 0;color:#38576f}.tip-example{background:#fff;padding:13px 15px;border:1px solid #cee5dc;border-left:4px solid #238a74;border-radius:9px;margin-top:9px}.tip-example span{font-size:12px;font-weight:850;color:#0e735b}.tip-example p{font-size:13.5px;line-height:1.75;margin:3px 0 0}.advice-foot{font-size:12.5px;line-height:1.75;color:#745035;margin:13px 0 0!important}.worksheet-footer{border-top:1px solid #e3eaf1;padding-top:12px;color:#456078;font-size:14px;line-height:1.9}.worksheet-footer a{font-weight:700}.print-writing{display:none}#template .output{font-family:inherit;font-size:15px;line-height:1.8}#template .field input{font-family:inherit}
+@media(max-width:1180px){.work-head{flex-direction:column}.work-actions{padding-top:0}.writing-row{grid-template-columns:minmax(0,1.05fr) minmax(255px,.95fr)}.writing-paper{padding:20px}.advice{padding:20px 17px}}
+@media(max-width:850px){.writing-row{grid-template-columns:1fr}.advice{border-left:0;border-top:1px solid #d6e7ed}.worksheet{padding:20px}.write-input{min-height:290px}.work-head{gap:10px}}
+@media(max-width:680px){.main{padding:13px}.hero{padding:21px}.hero h1{font-size:26px}.hero p{font-size:15px}.work-head h2{font-size:22px}.write-toolbar .btn{padding:7px 9px}.writing-paper{padding:15px}.writing-title h3{font-size:18px!important}.write-input{font-size:15px;padding:10px 12px;line-height:34px;min-height:270px}.write-label span{display:block;margin-left:0}.tip p{font-size:13.5px}}
+@media(max-width:680px){.topbar{gap:8px;align-items:center}.topbar .small{font-size:12px;line-height:1.5}.topbar .btn{font-size:12px;padding:8px 10px;white-space:nowrap}}
+@media print{.worksheet{padding:16pt}.writing-row{grid-template-columns:1fr 0.8fr;break-inside:auto;page-break-inside:auto}.writing-paper,.advice{break-inside:auto}.write-input{display:none}.print-writing{display:block;font-family:"Noto Sans KR","Noto Sans CJK KR",sans-serif;font-size:11pt;white-space:pre-wrap;min-height:130pt;border:1px solid #d0dce5;padding:12pt;line-height:1.7}.advice{background:#f2f7f9!important;print-color-adjust:exact}.tip,.tip-example{break-inside:avoid}.hero{padding:18pt!important}.work-head{display:block}.work-actions{display:none!important}}
+
+
+/* nine-case study integration */
+body{font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;letter-spacing:-.012em}
+.case-selector{border:1px solid #c6d9e6;background:#f1f7fc;border-radius:16px;padding:20px 22px;margin:12px 0 22px}
+.case-topline{display:flex;justify-content:space-between;align-items:center;gap:18px}
+.case-topline h3{color:#163959!important;font-size:21px!important}.case-topline p{font-size:14.5px;color:#496178;margin:3px 0}
+.case-brow{display:inline-block;font-size:12px;color:#0d7181;font-weight:900;letter-spacing:.05em}
+.case-select-label{white-space:nowrap;font-size:13px;font-weight:800;color:#19465f}.case-select-label select{display:block;min-width:255px;max-width:320px;margin-top:5px;padding:11px 12px;border:1px solid #8eafca;border-radius:10px;background:#fff;color:#173653;font-size:15px;font-weight:700}
+.case-pills{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0 0}.case-pill{border:1px solid #c5d8e7;border-radius:999px;background:#fff;color:#3a5c73;font-size:13px;font-weight:750;padding:6px 11px;line-height:1.3}.case-pill.selected{background:#1b5d91;border-color:#1b5d91;color:#fff}
+.case-insight{margin-top:14px;border-radius:12px;background:#fff;padding:12px 15px;border-left:4px solid #07868a;font-size:14.5px;line-height:1.75;color:#254a5b}
+.case-live-tip{margin-top:14px;border:1px solid #b6d4db;border-radius:12px;background:#fff;padding:14px}.case-live-tip strong{display:block;font-size:15px;color:#0b5970}.case-live-tip ul{padding-left:19px;margin:7px 0}.case-live-tip li{margin:4px 0;font-size:13.5px;line-height:1.65}.case-live-tip .caution{margin:10px 0 0;font-size:12.8px;font-weight:700;color:#9e5328}
+.case-library{margin-top:24px;border:1px solid #c8dbe5;border-radius:17px;padding:22px;background:linear-gradient(180deg,#fcfeff,#f5fafc)}
+.case-library-top{display:flex;align-items:start;justify-content:space-between;gap:16px}.case-library-top h3{margin:0 0 5px!important;font-size:23px}.case-library-top p{font-size:14px;color:#52667a;line-height:1.65;margin:0}.case-case-actions{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end;min-width:310px}.case-case-actions button{font-size:12px}
+.case-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:18px 0}.case-facts>div{background:#fff;border:1px solid #dce7f0;border-radius:11px;padding:11px 14px}.case-facts b{font-size:12px;color:#2b6b78}.case-facts p{font-size:14px;line-height:1.6;margin:3px 0;color:#183a55}
+.case-draft-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.case-draft-box{min-width:0;border:1px solid #d3e0e7;background:white;border-radius:13px;overflow:hidden}.case-draft-head{display:flex;gap:9px;align-items:center;background:#eaf3ff;padding:11px 14px;color:#164c78}.case-draft-head span{display:flex;align-items:center;justify-content:center;width:43px;height:30px;border-radius:8px;background:#1b5d91;color:white;font-weight:900;font-size:14px}.case-draft-head.teal{background:#e9f8f5;color:#09645e}.case-draft-head.teal span{background:#0e806e}.case-draft-head b{font-size:16px}.case-pre{white-space:pre-wrap;word-break:keep-all;overflow-wrap:anywhere;font-family:inherit;font-size:14.4px;line-height:1.85;margin:0;padding:17px 17px 20px;color:#21374e}
+.case-stages{margin-top:24px}.case-stages h3{margin:2px 0 12px!important;font-size:19px}.case-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}.case-step{background:white;border:1px solid #d5e4ed;border-radius:12px;padding:13px}.case-step b{color:#0f5f80;font-size:13px}.case-step p{font-size:13.5px;line-height:1.6;margin:6px 0 0}.case-measure{display:flex;align-items:center;gap:15px;flex-wrap:wrap;border-radius:12px;background:#e8f5f7;margin-top:11px;padding:12px 15px;font-size:13px;color:#175b63}.case-measure #caseKPIs{display:flex;gap:6px;flex-wrap:wrap}.case-measure #caseKPIs span{display:inline-block;border-radius:999px;padding:3px 9px;background:#fff;font-size:13px;font-weight:700;color:#21616a}
+.case-check-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}.case-checkbox{background:white;border:1px solid #d9e5ef;border-radius:11px;padding:14px}.case-checkbox>b{color:#264e70;font-size:14px}.case-checkbox p{font-size:13.5px;line-height:1.65;margin:6px 0}.case-checkbox.caution{background:#fff8eb;border-color:#eddbc2}.case-checkbox.caution>b{color:#8a5329}.case-source{color:#607286;font-size:12px!important}
+.case-note{font-size:12.6px!important;color:#785634!important;border-top:1px dashed #d2e0e8;padding-top:12px;margin-top:14px!important}
+.case-matrix-wrap{overflow-x:auto}.case-matrix{width:100%;border-collapse:collapse;font-size:14px;min-width:690px}.case-matrix th{background:#163955;color:white;text-align:left;padding:13px 11px;font-size:13px}.case-matrix td{border-bottom:1px solid #e0e8ef;vertical-align:top;padding:12px 11px;line-height:1.55}.case-matrix tr[data-case]{cursor:pointer}.case-matrix tr[data-case]:hover{background:#edf7fb}.case-matrix td:first-child{font-weight:800;color:#1d5f85;white-space:nowrap}.mini-guidance{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:19px}.mini-guidance b{margin-right:6px}.mini-guidance span{font-size:12px;background:#eef5fa;color:#315b77;border-radius:999px;padding:5px 10px}
+@media(max-width:1270px){.case-draft-grid{grid-template-columns:1fr}.case-library-top{flex-wrap:wrap}.case-case-actions{justify-content:flex-start}.case-topline{flex-wrap:wrap}}
+@media(max-width:790px){.case-steps,.case-check-grid,.case-facts{grid-template-columns:1fr}.case-case-actions{min-width:0}.case-selector,.case-library{padding:14px}.case-select-label,.case-select-label select{width:100%;max-width:none}.case-pill{font-size:12px}}
+@media print{.case-selector,.case-case-actions{display:none!important}.case-library{border:1px solid #ddd;background:white}.case-draft-grid{grid-template-columns:1fr 1fr}.case-pre{font-size:10pt}.case-matrix{min-width:0}}
+
+/* 2026-11-04: full-length 1~6 month examples integrated from teacher feedback */
+body{font-family:"Noto Sans KR","Noto Sans CJK KR","NanumBarunGothic","Apple SD Gothic Neo","Malgun Gothic",sans-serif;line-height:1.78;word-break:keep-all}
+.full-sample-notice{padding:13px 17px;background:#e8f4f6;border:1px solid #bcdce0;border-radius:12px;margin:14px 0 18px;color:#173f4b;font-size:14px;line-height:1.7}
+.full-sample-notice span{font-size:11.5px;font-weight:900;color:#0a6775;letter-spacing:.07em;display:block;margin-bottom:3px}
+.full-sample-notice strong{display:block;font-size:14.5px}.full-sample-notice p{font-size:13px;margin:4px 0 0;color:#43636e}
+.case-pre{white-space:pre-wrap;word-break:keep-all;font-family:inherit;font-size:14.5px;line-height:1.85;letter-spacing:-.02em;padding:16px 18px}
+.case-draft-head{padding:13px 16px}
+.case-note{line-height:1.7}
+.collection-actions{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 18px}
+.full-collection-items{display:grid;gap:10px}.collection-item{border:1px solid #cbdde9;border-radius:13px;background:#fff;overflow:hidden}
+.collection-item summary{cursor:pointer;padding:14px 19px;background:#f4f8fd;display:flex;align-items:center;gap:10px;list-style:none}
+.collection-item summary::-webkit-details-marker{display:none}.collection-item summary:before{content:'+';display:flex;align-items:center;justify-content:center;width:25px;height:25px;background:#dfeaf4;border-radius:7px;color:#1f4e79;font-weight:900;flex:none}
+.collection-item[open] summary:before{content:'−'}.collection-item summary .collection-title{font-weight:850;font-size:16.5px;color:#1a3c59}
+.collection-item summary .collection-subtitle{margin-left:auto;font-size:12.5px;color:#47677d}
+.collection-body{padding:17px;background:#fff}.collection-body .case-draft-grid{margin-top:9px}
+.collection-tools{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}.collection-tools .btn{font-size:13px}
+.collection-caption{font-size:12px;color:#64758b;margin:0 0 10px}
+.principle-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.principle-card{border:1px solid #cadde9;background:#f5f9fd;border-radius:14px;padding:18px}
+.principle-card.secondary{background:#f0faf7;border-color:#c8e5dc}
+.principle-card h3{margin:0 0 12px;color:#1e5075;font-size:17px}.principle-card.secondary h3{color:#15644f}
+.principle-steps{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.principle-steps span{border:1px solid #c8dce9;background:white;border-radius:7px;padding:5px 9px;font-size:12px;font-weight:800}
+.principle-steps i{font-style:normal;color:#658399;font-size:16px}
+.principle-card p{font-size:13px;color:#465e6d;line-height:1.7;margin:13px 0 0}
+.rule-alert{background:#fff9f0;border:1px solid #efddbb;padding:16px 19px;border-radius:12px;margin-top:17px}
+.rule-alert>b{color:#8f5a23;font-size:15px}.rule-alert p{margin:6px 0 0;font-size:14px;color:#705e46}
+@media(max-width:990px){.principle-grid{grid-template-columns:1fr}.collection-item summary{flex-wrap:wrap}.collection-item summary .collection-subtitle{margin-left:35px}}
+@media(max-width:720px){.case-pre{font-size:13.5px;padding:13px;line-height:1.75}.collection-body{padding:12px}.collection-item summary{padding:12px}.collection-item summary .collection-title{font-size:14px}.case-draft-grid{grid-template-columns:1fr}}
+@media print{.collection-item{break-inside:avoid}.collection-body{break-inside:auto}.case-pre{font-size:10pt}.full-sample-notice,.principle-card,.rule-alert{background:#fff!important}}
+
+/* Compact academic/report-style summary: replaces expandable full-length collection. */
+.report-summary{padding:34px 38px}
+.report-summary .label{color:#596f85}
+.report-intro{font-size:16px;line-height:1.8;margin:12px 0 10px!important;color:#263b51}
+.report-method{font-size:14.5px;color:#526275;line-height:1.75;padding-bottom:18px;border-bottom:2px solid #cdd9e4;margin-bottom:0!important}
+.report-entries{margin-top:5px}
+.report-entry{padding:19px 0 17px;border-bottom:1px solid #d9e2e9;break-inside:avoid;page-break-inside:avoid}
+.report-entry:last-child{border-bottom:0}
+.report-entry-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 5px}
+.report-entry-head h3{font-size:17.5px;line-height:1.45;font-weight:850;color:#1c3753;margin:0!important;display:flex;align-items:center;gap:11px}
+.report-number{font-variant-numeric:tabular-nums;font-size:13px;font-weight:900;color:#637b93;min-width:24px;letter-spacing:.02em}
+.report-case-link{background:transparent;border:0;color:#32658b;white-space:nowrap;font-size:12px;font-weight:650;padding:5px 2px;text-decoration:underline;text-underline-offset:3px}
+.report-case-link:hover{color:#063b62}
+.report-entry-text{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:3px 0 7px}
+.report-entry-text p{font-size:14.5px;line-height:1.73;margin:4px 0!important;color:#263b51;word-break:keep-all}
+.report-entry-text strong{font-weight:850;color:#164b71;display:block;font-size:13px;margin:0 0 4px;letter-spacing:-.005em}
+.report-verification{font-size:13.2px;color:#56677b;background:#f5f7fa;padding:8px 12px;border-radius:7px;margin:7px 0 0!important;line-height:1.55}
+.report-verification b{font-weight:800;color:#344c62;margin-right:8px}
+.report-source{font-size:13px;color:#667789;border-top:2px solid #cbd7e0;margin-top:12px!important;padding-top:14px;line-height:1.7}
+@media(max-width:780px){.report-summary{padding:21px}.report-entry-text{grid-template-columns:1fr;gap:3px}.report-entry-head{align-items:flex-start;flex-direction:column;gap:0}.report-entry-head h3{font-size:17px}.report-case-link{margin-left:35px}.report-entry{padding:17px 0}}
+@media print{.report-entry{break-inside:avoid}.report-summary{box-shadow:none}.report-entry-text{gap:12pt}.report-entry-text p{font-size:10.5pt}.report-case-link{display:none!important}}
+
+/* Full-fidelity academic report: all 6 monthly activities per business are retained. */
+.report-detailed{padding:36px 38px}
+.report-detailed .report-method{margin:10px 0 12px!important;padding:12px 14px;border-left:3px solid #537e9b;border-bottom:0;background:#f5f8fb;border-radius:0 8px 8px 0}
+.report-detailed .report-rich{padding:23px 0 24px;border-bottom:2px solid #dbe4ec}
+.report-detailed .report-entry-head{margin-bottom:13px}
+.report-detailed .report-entry-head h3{font-size:19px}
+.report-deep-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}
+.report-deep-col{background:#fff;border:1px solid #d8e1e9;border-radius:12px;padding:17px 18px 18px;min-width:0}
+.report-deep-col h4{font-size:15px;letter-spacing:-.015em;line-height:1.45;display:flex;align-items:center;gap:8px;color:#1e4c6c;margin:0 0 9px}
+.report-deep-col h4.green{color:#196454}
+.report-deep-col h4 span{font-size:13px;background:#e2f0fa;color:#205875;padding:4px 7px;border-radius:6px}
+.report-deep-col h4.green span{color:#196454;background:#e1f4ef}
+.report-purpose{margin:0 0 12px!important;font-size:14.2px!important;font-weight:700;line-height:1.65;color:#233d53;border-bottom:1px dashed #d5e0e9;padding-bottom:11px}
+.report-month-list{list-style:none;margin:0;padding:0;display:grid;gap:11px}
+.report-month-step{margin:0;display:grid;grid-template-columns:83px minmax(0,1fr);gap:9px;align-items:start;font-size:14px;line-height:1.7}
+.report-month{display:inline-block;font-size:12px;font-weight:850;color:#3a6280;background:#f0f5f9;border-radius:6px;padding:5px 5px;text-align:center;white-space:nowrap}
+.report-step-text{color:#2d4355;word-break:keep-all}
+.report-application{display:grid;gap:5px;background:#f7f9fb;padding:13px 15px;border-radius:9px;margin-top:13px}
+.report-application p{margin:0!important;display:grid;grid-template-columns:147px 1fr;gap:7px;line-height:1.6;font-size:13px;color:#52677a}
+.report-application b{font-size:12.5px;color:#25455e}
+.report-detailed .report-source{margin-top:22px!important}
+@media(max-width:1000px){.report-deep-grid{grid-template-columns:1fr}.report-deep-col{padding:15px}.report-application p{grid-template-columns:1fr;gap:1px}.report-detailed .report-entry-head{align-items:flex-start}}
+@media(max-width:600px){.report-detailed{padding:20px 16px}.report-month-step{grid-template-columns:78px minmax(0,1fr);gap:8px}.report-month{font-size:11px}.report-deep-col h4{font-size:14px}.report-purpose{font-size:13.5px!important}.report-step-text{font-size:13.5px}.report-detailed .report-entry-head h3{font-size:17.3px}.report-detailed .report-entry-head{gap:5px}}
+@media print{.report-detailed{padding:0}.report-rich{break-before:auto;break-inside:auto!important}.report-deep-col{break-inside:avoid}.report-deep-grid{grid-template-columns:1fr 1fr;gap:9pt}.report-deep-col{padding:10pt}.report-month-step{font-size:9.5pt}.report-application{break-inside:avoid}.report-detailed .report-entry-head{margin-bottom:7pt}}
+
+
+/* === 2026-11-04 | restrained academic color system ====================
+   Blue = 3-1 product / service development
+   Teal = 3-2 promotion / sales
+   Amber = evidence / prerequisite verification
+   Slate = general guide; milestone labels show phases by color.
+   This stylesheet is presentation-only; no case narrative, value, form,
+   control or script is removed or rewritten. ========================= */
+:root{
+  --learning-blue:#235c9e; --learning-blue-dark:#164578;
+  --learning-blue-pale:#f0f6ff; --learning-blue-line:#c4d9f0;
+  --learning-teal:#0b796c; --learning-teal-dark:#07594f;
+  --learning-teal-pale:#ecf8f4; --learning-teal-line:#b9dfd3;
+  --learning-amber:#a66618; --learning-amber-dark:#784713;
+  --learning-amber-pale:#fff7e9; --learning-amber-line:#ead7b8;
+  --phase-experiment:#684b9c; --phase-experiment-pale:#f4effd;
+  --learning-slate:#19354e;
+}
+body{background:#f3f6fa;color:#203347}
+.side{background:#162f4a}
+.side a.active,.side a:hover{background:#234e75;border-left:3px solid #52b8a7;padding-left:10px}
+.hero{background:linear-gradient(115deg,#193d64 0%,#245b86 68%,#17756e 100%)}
+.hero-badges span{background:#fff1;border-color:#b7dcea77}
+.section{border-color:#dbe4ec;box-shadow:0 7px 22px rgba(21,57,88,.045)}
+.section>.label{color:#216585}
+.section h2{color:#183d5b}
+.btn.primary{background:#235c94;border-color:#235c94;color:#fff}
+.btn:focus-visible,.case-pill:focus-visible,.report-case-link:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #d8a44a;outline-offset:2px}
+
+/* Distinguish the two writing tasks all the way from worksheet to samples. */
+#writing31{border-color:#c0d7ed;box-shadow:0 0 0 1px #dceafa66}
+#writing32{border-color:#b7ddd3;box-shadow:0 0 0 1px #d6eee766}
+#writing31 .writing-paper{background:linear-gradient(#f8fbff,#fff 65px)}
+#writing32 .writing-paper{background:linear-gradient(#f6fcfa,#fff 65px)}
+#writing31 .writing-title{border-bottom-color:#cce0f3}
+#writing32 .writing-title{border-bottom-color:#c8e6db}
+#writing31 .writing-title h3{color:var(--learning-blue-dark)}
+#writing32 .writing-title h3{color:var(--learning-teal-dark)}
+#writing31 .advice{background:#eef6ff;border-left-color:#c6ddee}
+#writing32 .advice{background:#edf9f5;border-left-color:#bce0d5}
+#writing31 .advice-tag,#writing31 .tip strong{color:var(--learning-blue-dark)}
+#writing32 .advice-tag,#writing32 .tip strong{color:var(--learning-teal-dark)}
+#writing31 .advice h3{color:var(--learning-blue-dark)}
+#writing32 .advice h3{color:var(--learning-teal-dark)}
+#writing31 .case-live-tip{border-left:4px solid var(--learning-blue)}
+#writing32 .case-live-tip{border-left:4px solid var(--learning-teal)}
+#writing31 .tip-example{border-left-color:var(--learning-blue);background:#f8fbff}
+#writing32 .tip-example{border-left-color:var(--learning-teal);background:#f7fcfa}
+#writing31 .tip-example span{color:var(--learning-blue-dark)}
+#writing32 .tip-example span{color:var(--learning-teal-dark)}
+#writing31 .write-input:focus{border-color:var(--learning-blue);box-shadow:0 0 0 4px #ddebff}
+#writing32 .write-input:focus{border-color:var(--learning-teal);box-shadow:0 0 0 4px #dcf4e9}
+#writing31 .btn.primary{background:var(--learning-blue);border-color:var(--learning-blue)}
+#writing32 .btn.primary{background:var(--learning-teal);border-color:var(--learning-teal)}
+
+/* Selected case: headings and 3-1 / 3-2 preview cards. */
+.case-selector{background:linear-gradient(120deg,#eff5fc,#f5fafb);border-color:#cddfea}
+.case-pill.selected{background:#235d96;border-color:#235d96}
+.case-insight{border-left-color:var(--learning-teal)}
+.case-library{background:#f9fbfd;border-color:#d4e2ec}
+.case-library .case-draft-box:first-child{border-color:var(--learning-blue-line);border-top:4px solid var(--learning-blue)}
+.case-library .case-draft-box:nth-child(2){border-color:var(--learning-teal-line);border-top:4px solid var(--learning-teal)}
+.case-draft-head{background:var(--learning-blue-pale);color:var(--learning-blue-dark)}
+.case-draft-head span{background:var(--learning-blue)}
+.case-draft-head.teal{background:var(--learning-teal-pale);color:var(--learning-teal-dark)}
+.case-draft-head.teal span{background:var(--learning-teal)}
+.case-checkbox.caution{border-left:4px solid var(--learning-amber);background:var(--learning-amber-pale)}
+.case-measure{border-left:4px solid var(--learning-teal);background:var(--learning-teal-pale)}
+.case-steps .case-step:nth-child(1){border-top:3px solid #4976a7}
+.case-steps .case-step:nth-child(2){border-top:3px solid var(--phase-experiment)}
+.case-steps .case-step:nth-child(3){border-top:3px solid var(--learning-teal)}
+.case-matrix th{background:#1e4667}
+.case-matrix tbody tr:nth-child(even){background:#f9fbfd}
+.case-matrix td:nth-child(2){border-left:3px solid #75a9d9}
+.case-matrix td:nth-child(3){border-left:3px solid #d4aa64}
+.case-matrix td:nth-child(4){border-left:3px solid #67b7a7}
+.case-matrix tr[data-case]:hover{background:#edf5fb}
+
+/* Report-style 9-case section: elegant differentiated headings and proof. */
+.report-detailed{background:linear-gradient(180deg,#fbfdff 0,#fff 230px)}
+.report-detailed>.label{color:#416981}
+.report-detailed>.report-intro b{color:#244e70}
+.report-detailed .report-method{
+ background:#f0f5fa;border-left:4px solid #6385a1;color:#384e64
+}
+.report-entries{display:grid;gap:19px;margin-top:21px}
+.report-detailed .report-rich{
+ margin:0;padding:20px 21px 19px;border:1px solid #dce5ef;border-radius:16px;
+ box-shadow:0 4px 16px rgba(20,58,92,.04);background:#fff;break-inside:auto
+}
+.report-detailed .report-entry-head{padding-bottom:12px;border-bottom:1px solid #e5ecf2;margin-bottom:15px}
+.report-detailed .report-entry-head h3{color:#1b3f5c;letter-spacing:-.022em}
+.report-detailed .report-number{
+ display:inline-flex;align-items:center;justify-content:center;min-width:33px;height:31px;
+ background:#e8f0f8;border-radius:8px;color:#27567e;font-size:12.5px
+}
+.report-case-link{color:#276b8c!important;text-decoration:underline;text-underline-offset:3px}
+.report-deep-grid{gap:14px}
+.report-deep-col{
+ background:#fff;border:1px solid var(--learning-blue-line);border-top:4px solid var(--learning-blue);
+ border-radius:13px;padding:18px 19px 19px
+}
+.report-deep-col:nth-child(2){border-color:var(--learning-teal-line);border-top:4px solid var(--learning-teal)}
+.report-deep-col h4{color:var(--learning-blue-dark);font-weight:850;margin-bottom:11px}
+.report-deep-col h4.green{color:var(--learning-teal-dark)}
+.report-deep-col h4 span{background:#dfeefa;color:var(--learning-blue-dark);font-weight:900}
+.report-deep-col h4.green span{background:#dcf4e9;color:var(--learning-teal-dark)}
+.report-deep-col .report-purpose{
+ border-radius:8px;padding:11px 12px;margin-bottom:14px!important;
+ background:var(--learning-blue-pale);border:1px solid #e0eafa;
+ border-bottom-color:#e0eafa;color:#214a71;font-weight:800
+}
+.report-deep-col:nth-child(2) .report-purpose{
+ background:var(--learning-teal-pale);border-color:#d2e9e1;color:#165e55
+}
+.report-month-list{gap:10px}
+.report-month-step{padding:0 0 10px;border-bottom:1px dashed #e0e7ed}
+.report-month-step:last-child{padding-bottom:0;border-bottom:0}
+.report-month{
+ color:#2a6191;background:#ecf4ff;border:1px solid #cfdef1;
+ font-size:11.8px;font-weight:900;border-radius:7px;padding:6px 5px
+}
+.report-month-step:nth-child(2) .report-month{
+ color:#5a4190;background:var(--phase-experiment-pale);border-color:#e0d6f2
+}
+.report-month-step:nth-child(3) .report-month{
+ color:#096a5c;background:#e7f6ef;border-color:#c6e5d9
+}
+.report-step-text{color:#253b50;font-size:14px;line-height:1.77}
+.report-application{display:grid;gap:8px;padding:0;background:transparent;margin-top:14px}
+.report-application p{
+ padding:11px 13px;border-radius:9px;border:1px solid #d4e8e3;
+ border-left:4px solid var(--learning-teal);background:var(--learning-teal-pale);
+ color:#304c47;grid-template-columns:150px minmax(0,1fr);align-items:start
+}
+.report-application p b{color:var(--learning-teal-dark)}
+.report-application p:nth-child(2){
+ background:var(--learning-amber-pale);border-color:var(--learning-amber-line);
+ border-left-color:var(--learning-amber);color:#5d4a33
+}
+.report-application p:nth-child(2) b{color:var(--learning-amber-dark)}
+.report-application p:nth-child(3){
+ background:#f1f5fb;border-color:#d8e2f2;border-left-color:#587ab0;color:#35475e
+}
+.report-application p:nth-child(3) b{color:#254e81}
+
+/* Deliberately quiet section-specific accents elsewhere in the lesson. */
+#plan>.label,#sample1>.label{color:var(--learning-blue)}
+#market>.label,#sample2>.label{color:var(--learning-teal)}
+#roadmap>.label,#rubric>.label{color:#9a621e}
+#plan .stage,#sample1 .contrast .strong{border-left-color:var(--learning-blue)}
+#market .callout{border-left-color:var(--learning-teal)}
+#keyWriting .principle-card:first-child{border-top:4px solid var(--learning-blue)}
+#keyWriting .principle-card.secondary{border-top:4px solid var(--learning-teal)}
+#keyWriting .rule-alert{border-left:4px solid var(--learning-amber)}
+#rubric input[type=checkbox]{accent-color:var(--learning-teal)}
+
+/* Preserve modest color in PDF; never create full solid-color pages. */
+@media print{
+  .report-detailed .report-rich{padding:12pt;border-color:#cfdbe4;box-shadow:none}
+  .report-entries{gap:11pt}
+  .report-deep-col{border:1px solid #ccdae8;border-top:3pt solid #235c9e!important;background:#fff!important}
+  .report-deep-col:nth-child(2){border-color:#b6d9cd;border-top-color:#0b796c!important}
+  .report-deep-col .report-purpose{background:#f1f6fc!important}
+  .report-deep-col:nth-child(2) .report-purpose{background:#eff8f4!important}
+  .report-application p{background:#f0f8f4!important}
+  .report-application p:nth-child(2){background:#fff7e9!important}
+  .report-application p:nth-child(3){background:#f2f5fa!important}
+  .report-month{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+  .report-rich,.report-application p,.report-deep-col{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+}
+@media(max-width:680px){
+  .report-detailed .report-rich{padding:15px 12px}
+  .report-deep-col{padding:15px 13px}
+  .report-application p{grid-template-columns:1fr;gap:4px}
+  .report-entry-head h3{gap:6px}
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="side"><div class="brand">TOURISM VENTURE · PRACTICE</div><h2>사업화 역량 및<br/>실현 가능성</h2><nav>
+<a href="#worksheet"><span>01</span> 3-1·3-2 바로 작성</a><a href="#casecomparison"><span>02</span> 사업별 9개 사례 비교</a>
+<a href="#allSamples"><span>03</span> 9개 사업 상세 보고서</a>
+<a href="#keyWriting"><span>04</span> 3-1·3-2 핵심 원칙</a>
+<a href="#template"><span>05</span> 문장 구성 도우미</a>
+<a href="#intro"><span>06</span> 작성의 핵심</a>
+<a href="#rule"><span>07</span> 4장 분량 설계</a>
+<a href="#plan"><span>08</span> 3-1 개발 계획</a>
+<a href="#sample1"><span>09</span> 3-1 예시 첨삭</a>
+<a href="#market"><span>10</span> 3-2 홍보·판로</a>
+<a href="#sample2"><span>11</span> 3-2 예시 첨삭</a>
+<a href="#roadmap"><span>12</span> 일정·예산·KPI</a>
+<a href="#quiz"><span>13</span> 이해도 점검</a>
+<a href="#rubric"><span>14</span> 최종 체크</a></nav><div class="note">관광벤처창업론 실습자료<br/>제시된 3-1·3-2 문항에 맞춘 작성 가이드<br/>예시 수치는 교육용 가정치입니다.</div></aside>
+<main class="main">
+<div class="topbar"><span class="small">상단 작성칸에 먼저 써 보고, 조언을 확인한 뒤 예시·강의를 활용하세요.</span><div><button class="btn" onclick="window.print()">인쇄 · PDF 저장</button></div></div>
+<header class="hero"><div class="eyebrow">TOURISM BUSINESS PLAN / SECTION 03</div><h1>사업화 역량 및 실현 가능성<br/><span style="font-weight:600">3-1 · 3-2 실전 작성 워크시트</span></h1><p>왼쪽의 <b>빈칸에 직접 작성</b>하고, 오른쪽 <b>교수자 조언</b>으로 개발·홍보·판로의 실행 가능성을 점검하세요.</p><div class="hero-badges"><span>3-1. 상품·서비스·인프라 개발</span><span>3-2. 홍보 및 판로개척</span><span>사업계획서 4장 이내</span><span>상단 작성칸 + 오른쪽 도움말</span></div><div class="hero-badges"><span>학생별 첨삭 9건 연계</span><span>맞춤 3-1·3-2 예시</span><span>상단 입력칸 + 오른쪽 조언</span></div></header>
+<section class="section worksheet" id="worksheet">
+<div class="work-head">
+<div><div class="label">바로 작성 · 실습 워크시트</div><h2>3-1과 3-2를 이곳에서 바로 작성하세요</h2><p class="lead">왼쪽 <b>빈 작성칸</b>에는 내 사업의 계획을 작성하고, 오른쪽 <b>작성 조언</b>을 보면서 빠진 내용을 보완합니다. 입력내용은 동일한 브라우저에 임시 저장됩니다.</p></div>
+<div class="work-actions hideprint"><button class="btn" onclick="downloadWriting()">작성내용 TXT 저장</button><button class="btn primary" onclick="copyAllWriting()">3-1·3-2 전체 복사</button></div>
+</div>
+<div class="case-selector hideprint" id="case-selector"><div class="case-topline"><div><span class="case-brow">첨부 첨삭자료 기반 · 9개 사례</span><h3 style="margin:5px 0 2px">내 아이템을 선택해 작성 예시·조언을 비교하세요</h3><p>선택한 사례의 <b>3-1·3-2 완성형 예시문(1~6개월차)</b>을 확인하고, 필요할 때만 위쪽 빈칸에 적용합니다. 전환해도 이미 작성한 내용은 자동으로 바뀌지 않습니다.</p></div><label class="case-select-label" for="caseChoice">사업 사례 선택 <select aria-label="사업별 사례 선택" id="caseChoice"></select></label></div><div aria-label="학생 사업 선택" class="case-pills" id="casePills" role="group"></div><div class="case-insight" id="caseInsight"></div></div><div class="writing-row" id="writing31">
+<div class="writing-paper">
+<div class="writing-title"><span class="writing-number">3-1</span><div><h3>상품·서비스·인프라 개발 계획</h3><p>사업화에 필요한 상품·서비스·인프라(시설, IT플랫폼 등) 개발 계획을 구체적으로 서술</p></div></div>
+<label class="write-label" for="write31">나의 사업계획서 작성란 <span>실제 제출할 내용으로 작성하세요</span></label>
+<textarea aria-describedby="tips31" class="write-input" id="write31" placeholder="◦ [사업 아이템과 개발할 상품·서비스를 구체적으로 기술]
+ - [개발 순서와 월별 일정, 결과물]
+ - [필요 인프라·담당자·협력사]
+ - [시범운영 방법과 검증 지표]" spellcheck="false"></textarea>
+<div class="print-writing" id="print31"></div>
+<div class="write-toolbar hideprint"><span class="counter" id="count31">0자 작성</span><div><button class="btn outline" onclick="insertOutline('write31')">◦ / - 기본 틀</button><button class="btn outline" onclick="loadExample('write31')">선택 사례 예시 넣기</button><button class="btn" onclick="clearWriting('write31')">비우기</button><button class="btn primary" onclick="copyWriting('write31')">3-1 복사</button></div></div>
+</div>
+<aside class="advice" id="tips31"><div class="advice-tag">교수자 작성 팁 · 3-1</div><h3>“무엇을, 언제, 누가 만들까?”</h3>
+<div class="tip"><strong>01 · 개발 대상을 분명히</strong><p>상품(Product), 서비스(Service), 인프라(Infrastructure)를 구분하세요. 필요하지 않은 앱·시설을 억지로 추가하지 않습니다.</p></div>
+<div class="tip"><strong>02 · 단계별 산출물 명시</strong><p>기획(1개월) → 시제품·예약페이지(2개월) → 시범운영(3개월) → 정식출시 등으로 <b>완료 시점</b>을 적으세요.</p></div>
+<div class="tip"><strong>03 · 자원과 담당자</strong><p>공간·장비·IT·예산·직접 수행자·협력업체를 작성하고, <b>이미 확보</b>했는지 <b>확보 예정</b>인지 구분하세요.</p></div>
+<div class="tip"><strong>04 · 시험 운영과 검증</strong><p>예: 파일럿 3회, 참여자 20명, 만족도 조사, 안전 점검. 수치가 가정이라면 반드시 목표로 표시하세요.</p></div>
+<div class="tip-example"><span>좋은 문장 예시 · 가정</span><p>“1개월 차에 90분 로컬 커피 코스 1종과 운영 매뉴얼을 만들고, 2개월 차에 시범체험 4회를 통해 운영시간·만족도를 점검한다.”</p></div>
+<p class="advice-foot">피해야 할 표현: “플랫폼을 만들겠다”, “품질을 높이겠다”처럼 <b>방법·일정·산출물이 없는 선언</b>.</p>
+<div class="case-live-tip" id="caseTip31"><strong>선택 사례 맞춤 조언</strong><p>사업 사례를 선택하면 이 위치에 작성 조언이 표시됩니다.</p></div></aside>
+</div>
+<div class="writing-row" id="writing32">
+<div class="writing-paper">
+<div class="writing-title"><span class="writing-number mint">3-2</span><div><h3>홍보 및 판로개척</h3><p>구체적인 홍보·판매 방법과 일정계획을 포함하여 작성</p></div></div>
+<label class="write-label" for="write32">나의 사업계획서 작성란 <span>홍보와 판매 경로를 구별해서 작성하세요</span></label>
+<textarea aria-describedby="tips32" class="write-input" id="write32" placeholder="◦ [주요 목표고객과 홍보 핵심 메시지]
+ - [홍보 채널·홍보물·실행 주기·기간]
+ - [예약·결제·입점·제휴 등 실제 판매 경로]
+ - [월별 판로개척 일정 및 KPI]" spellcheck="false"></textarea>
+<div class="print-writing" id="print32"></div>
+<div class="write-toolbar hideprint"><span class="counter" id="count32">0자 작성</span><div><button class="btn outline" onclick="insertOutline('write32')">◦ / - 기본 틀</button><button class="btn outline" onclick="loadExample('write32')">선택 사례 예시 넣기</button><button class="btn" onclick="clearWriting('write32')">비우기</button><button class="btn primary" onclick="copyWriting('write32')">3-2 복사</button></div></div>
+</div>
+<aside class="advice" id="tips32"><div class="advice-tag">교수자 작성 팁 · 3-2</div><h3>“누구에게, 어떻게 판매할까?”</h3>
+<div class="tip"><strong>01 · 고객부터 특정</strong><p>“모든 관광객” 대신 <b>지역·연령·여행목적·구매상황</b>으로 구체화하세요. 구매 결정자도 고려합니다.</p></div>
+<div class="tip"><strong>02 · 홍보는 실행 단위로</strong><p>채널과 주기까지 작성: 예) 인스타그램 숏폼 주 2회, 숙소 QR 안내문 월 1회 점검.</p></div>
+<div class="tip"><strong>03 · 판로는 결제까지 연결</strong><p>홍보 ≠ 판매. <b>예약 링크·자사몰·입점 채널·여행사·숙박업체 제휴</b>를 통해 어디에서 돈을 받는지 설명하세요.</p></div>
+<div class="tip"><strong>04 · 일정과 KPI</strong><p>출시 전에 상세페이지 준비, 출시 뒤 예약 유도. 예) 3개월 차 유료예약 30건(목표), 제휴 2곳(목표).</p></div>
+<div class="tip-example"><span>좋은 문장 예시 · 가정</span><p>“2개월 차에 숏폼을 주 2회 게시하고, 3개월 차에 자체 예약페이지와 숙소 제휴 2곳을 통해 유료예약 30건을 목표로 한다.”</p></div>
+<p class="advice-foot">피해야 할 표현: “SNS를 적극 활용하겠다”, “온라인 판매를 확대하겠다”처럼 <b>고객·주기·구매 경로가 빠진 선언</b>.</p>
+<div class="case-live-tip" id="caseTip32"><strong>선택 사례 맞춤 조언</strong><p>사업 사례를 선택하면 이 위치에 작성 조언이 표시됩니다.</p></div></aside>
+</div>
+<div class="case-library" id="case-library">
+<div class="case-library-top"><div><div class="label">학생 9명 사례 적용 · 맞춤 작성 예시</div><h3>선택한 사업의 3-1·3-2 완성형 작성 예시문</h3><p>제출 원문과 교수자 피드백에 나타난 사업 구상을 토대로 작성한 <b>신규 교육용 제안문</b>입니다. 실제 보유 자원·사업 실행·제휴·법적 허용 여부를 증명하지 않습니다.</p></div><div class="case-case-actions hideprint"><button class="btn" onclick="copyCaseSample('31')">3-1 예시 복사</button><button class="btn" onclick="copyCaseSample('32')">3-2 예시 복사</button><button class="btn primary" onclick="applyCaseSamples()">6개월 완성형 예시를 상단 작성칸에 적용</button></div></div>
+<div class="case-facts"><div><b>사업 맥락</b><p id="caseScope">-</p></div><div><b>최초 목표고객</b><p id="caseTarget">-</p></div><div><b>우선 개발 상품</b><p id="caseProduct">-</p></div><div><b>판매 경로</b><p id="caseSales">-</p></div></div>
+<div class="full-sample-notice"><span>예시문 활용 안내</span><strong>아래 문장은 ① 개발대상 → ② 월별 실행 → ③ 산출물·검증, ① 고객 → ② 홍보 접점 → ③ 예약·계약·결제 → ④ KPI 순서로 작성했습니다.</strong><p>수치·시기·인허가·계약·판매 여부는 실제 확인 전까지 <b>계획(가정)</b>으로 표시하세요. 특히 사업별 법령·위생·안전·정보 제공 조건을 확인한 뒤 유료 서비스를 추진해야 합니다.</p></div>
+<div class="case-draft-grid"><article class="case-draft-box"><div class="case-draft-head"><span>3-1</span><b>상품·서비스·인프라 개발 계획</b></div><pre class="case-pre" id="caseDraft31"></pre></article><article class="case-draft-box"><div class="case-draft-head teal"><span>3-2</span><b>홍보 및 판로개척</b></div><pre class="case-pre" id="caseDraft32"></pre></article></div>
+<div class="case-stages"><div class="label">일정과 성과를 하나의 흐름으로</div><h3>6개월 추진 로드맵 · 교육용 예시</h3><div class="case-steps" id="caseSteps"></div><div class="case-measure"><b>측정할 KPI</b><div id="caseKPIs"></div></div></div>
+<div class="case-check-grid"><div class="case-checkbox"><b>첨삭에서 요구한 핵심 검증</b><p id="caseVerify"></p><p class="case-source" id="caseSource"></p></div><div class="case-checkbox caution"><b>사업화 진행 여부 판단 기준</b><p id="caseGate"></p></div></div>
+<p class="case-note">※ “1~2개월차·3~4개월차·5~6개월차”는 실제 공모 협약기간이 아니라, 작성방법을 보여주는 상대 일정입니다. 회차·건수·인원 등 모든 목표치는 교육용 제안이며 조사·견적·계약·공고에 맞춰 수정해야 합니다.</p>
+</div>
+
+<div class="worksheet-footer"><strong>작성 순서</strong> ① 기본 틀을 넣거나 빈칸에서 시작 → ② 오른쪽 조언 확인 → ③ 실제 일정·자원·숫자 근거 보완 → ④ 복사 또는 TXT 저장. <a href="#template">문장 구성 도우미 바로가기</a></div>
+</section>
+<section class="section compare-section" id="casecomparison"><div class="label">개발 → 홍보 → 실제 판매</div><h2>9개 사업의 사업화 핵심 비교</h2><p class="lead">사업 유형마다 <b>첫 번째로 입증할 실행 가능성</b>과 <b>실제 매출 경로</b>가 다릅니다. 아래 행을 클릭하면 위 사례 작성안이 선택됩니다.</p><div class="case-matrix-wrap"><table aria-label="9개 학생 사업 개발 및 판로 핵심 비교" class="case-matrix"><thead><tr><th>사업명</th><th>최초 개발 대상</th><th>핵심 검증</th><th>최초 판로/전환</th></tr></thead><tbody id="caseMatrixBody"></tbody></table></div><div class="mini-guidance"><b>공통 작성 순서</b><span>① 상품 정의</span><span>② 산출물·필수 인프라</span><span>③ 개발·실증 일정</span><span>④ 목표고객·홍보 채널</span><span>⑤ 실제 예약·결제/납품</span><span>⑥ 증빙 KPI</span></div></section><section class="section" id="template"><div class="label">선택 기능 · 문장 구성 도우미</div><h2>입력한 정보를 바탕으로 기본 문장 만들기</h2><p class="lead">작성칸이 막힐 때 활용하세요. 핵심 정보를 입력하면 아래에 문장 초안이 생성됩니다. <b>완성된 초안을 상단의 3-1·3-2 작성칸으로 옮긴 뒤, 실제 근거와 세부 일정을 직접 보완하세요.</b></p>
+<div class="formgrid hideprint" id="fields"><div class="field"><label for="item">사업 아이템/상품명</label><input id="item" placeholder="예: ○○ 로컬 미식 투어"/></div><div class="field"><label for="target">핵심 목표고객</label><input id="target" placeholder="예: 주말 경북 여행객"/></div><div class="field span2"><label for="benefit">고객에게 제공할 가치·경험</label><input id="benefit" placeholder="예: 지역 해설과 시식을 결합한 90분 예약형 체험"/></div><div class="field"><label for="deliverable">1개월 차 개발 산출물</label><input id="deliverable" placeholder="예: 코스 1종, 운영 매뉴얼"/></div><div class="field"><label for="infra">필요 인프라/시설/IT</label><input id="infra" placeholder="예: 제휴 매장, 시음 장비, 예약 페이지"/></div><div class="field"><label for="pilot">2개월 차 시범검증</label><input id="pilot" placeholder="예: 시범운영 4회, 고객 20명 의견 수집"/></div><div class="field"><label for="owner">실행 담당·협력 주체</label><input id="owner" placeholder="예: 대표(기획), 카페 파트너(현장)"/></div><div class="field"><label for="promo">홍보 채널과 실행 주기</label><input id="promo" placeholder="예: 인스타그램 주 2회, 카페 QR"/></div><div class="field"><label for="sales">판로 및 결제·예약 방식</label><input id="sales" placeholder="예: 자체 예약 링크 및 지역 숙소 제휴"/></div><div class="field"><label for="kpitarget">3개월 차 정량 목표 (계획치)</label><input id="kpitarget" placeholder="예: 유료 예약 30건, 후기 15건"/></div><div class="field"><label for="risk">개발·판매 핵심 위험과 대응</label><input id="risk" placeholder="예: 예약 저조 시 단체 체험 판로 추가"/></div></div>
+<div class="sectionhead"><h3>생성된 작성 초안</h3><div class="hideprint" style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" onclick="resetForm()">입력 초기화</button><button class="btn" onclick="copyText('draft')">초안 복사</button><button class="btn primary" onclick="applyGeneratedDraft()">상단 작성칸에 적용</button></div></div><div aria-live="polite" class="output" id="draft"></div><div class="notice">입력내용은 이 브라우저에만 보관하도록 구성했습니다. 공용 컴퓨터에서는 실습 후 “입력 초기화”를 누르세요. 제출 전 수치·인허가·계약·보유 역량의 사실 여부를 확인하세요.</div></section>
+<section class="section full-collection report-summary report-detailed" id="allSamples">
+ <div class="label">사업화 실행계획 · 9개 사례 보고서형 상세안</div>
+ <h2>9개 사업의 3-1·3-2 작성 내용 전체</h2>
+ <p class="report-intro"><b>내용은 유지하고 문장만 간결하게 정리한 보고서형 작성안.</b> 각 사업의 개발 대상, 1~2개월차·3~4개월차·5~6개월차 실행 활동, 홍보 채널, 예약·결제·계약 경로, 검증사항을 빠짐없이 제시함.</p>
+ <p class="report-method">각 사업마다 <b>3-1 개발 계획 3단계 + 3-2 홍보·판로 3단계</b>를 함께 비교할 수 있도록 구성함. 종결 표현은 ‘개발함·점검함·운영함·판매함’과 같은 보고서형으로 통일함. 아래는 <b>교육용 계획안</b>이며 시행·계약·결제 완료 사실이 아님.</p>
+ <div class="report-entries"><article class="report-entry report-rich" id="summary-coffee">
+  <div class="report-entry-head"><h3><span class="report-number">01</span>상주 커피 아카이브</h3><button type="button" class="report-case-link hideprint" data-choose="coffee">상단 작성 실습에서 보기 ↗</button></div>
+  <div class="report-deep-grid">
+    <section class="report-deep-col">
+      <h4><span>3-1</span> 상품·서비스·인프라 개발 계획</h4>
+      <p class="report-purpose">커피 시음과 개인 취향 분석을 결합한 관광 체험상품 개발</p>
+      <ol class="report-month-list"><li class="report-month-step"><span class="report-month">1~2개월차</span><span class="report-step-text">원두 4~6종을 비교 시음할 수 있는 프로그램을 기획하고, 향미 평가표·취향 기록지·개인별 원두 추천표를 제작함. 동시에 원두 공급처, 시음 원가, 운영 장소와 위생 요건을 검토함.</span></li>
+<li class="report-month-step"><span class="report-month">3~4개월차</span><span class="report-step-text">시범 참여자를 대상으로 소량 시음, 향미 해설, 원두 추천 및 구매 안내를 통합한 프로그램을 운영하고 고객 만족도와 구매 의향을 조사함.</span></li>
+<li class="report-month-step"><span class="report-month">5~6개월차</span><span class="report-step-text">시범운영 결과를 반영하여 체험 절차와 가격을 확정하고, 원두 판매 및 지역 식재료 디저트 연계 체험을 단계적으로 출시함.</span></li></ol>
+    </section>
+    <section class="report-deep-col">
+      <h4 class="green"><span>3-2</span> 홍보 및 판로개척</h4>
+      <p class="report-purpose">주말 관광객과 커피 취향 탐색 고객을 대상으로 체험 예약과 원두 구매를 연결하는 판매 경로 구축</p>
+      <ol class="report-month-list"><li class="report-month-step"><span class="report-month">1~2개월차</span><span class="report-step-text">상주 방문 관광객과 원두 소비자를 주요 고객으로 선정하고, 인스타그램·네이버 플레이스 등에서 시음 체험의 차별성을 소개함.</span></li>
+<li class="report-month-step"><span class="report-month">3~4개월차</span><span class="report-step-text">지역 카페 및 관광사업자와 협력 가능성을 검토하고, 체험 예약 페이지와 현장 원두 구매 안내를 운영함.</span></li>
+<li class="report-month-step"><span class="report-month">5~6개월차</span><span class="report-step-text">시음 참여자에게 취향별 원두 구매 링크를 제공하고, 체험 예약 건수·시음 원가·원두 구매전환율·재구매 건수를 측정하여 수익성을 검증함.</span></li></ol>
+    </section>
+  </div>
+  <div class="report-application"><p><b>실제 고객·판매 연결 경로</b><span>제휴 카페 시음 현장 → 원두 구매/예약형 소규모 체험 → 재구매 링크</span></p><p><b>우선 검증사항</b><span>시음 1인 원가, 원두 매입원가·마진, 구매전환율, 부지·위생·공급처 확보 여부</span></p><p><b>주요 KPI</b><span>팝업 시범운영 횟수 · 1인 시음 원가 · 시음 → 원두 구매전환율 · 원두 1개당 공헌이익</span></p></div>
+</article><article class="report-entry report-rich" id="summary-space">
+  <div class="report-entry-head"><h3><span class="report-number">02</span>㈜시공간컴퍼니 / 시공간</h3><button type="button" class="report-case-link hideprint" data-choose="space">상단 작성 실습에서 보기 ↗</button></div>
+  <div class="report-deep-grid">
+    <section class="report-deep-col">
+      <h4><span>3-1</span> 상품·서비스·인프라 개발 계획</h4>
+      <p class="report-purpose">숙박시설 체크아웃 이후의 유휴시간을 활용하는 짐 보관 연계형 초단기 로컬투어 개발</p>
+      <ol class="report-month-list"><li class="report-month-step"><span class="report-month">1~2개월차</span><span class="report-step-text">포항역·숙박시설·주요 관광지를 연결하는 2~3시간 관광코스를 설계하고, 짐 인계·보관 및 반환이 가능한 협력업체를 조사함.</span></li>
+<li class="report-month-step"><span class="report-month">3~4개월차</span><span class="report-step-text">모바일 예약폼, 참가자 확인, 짐 인수증, 투어 일정표, 귀환 알림 기능을 갖춘 최소기능서비스(MVP)를 구축하고 시범투어를 운영함.</span></li>
+<li class="report-month-step"><span class="report-month">5~6개월차</span><span class="report-step-text">이동시간·운영원가·짐 관리·정시 귀환 여부를 평가하고, 제휴계약과 보험·안전 책임범위를 확인한 후 유료 관광상품 운영을 추진함.</span></li></ol>
+    </section>
+    <section class="report-deep-col">
+      <h4 class="green"><span>3-2</span> 홍보 및 판로개척</h4>
+      <p class="report-purpose">포항 숙박객의 체크아웃 시점을 활용한 현장 홍보 및 모바일 예약 판매체계 구축</p>
+      <ol class="report-month-list"><li class="report-month-step"><span class="report-month">1~2개월차</span><span class="report-step-text">포항역 인근 숙박업소와 관광안내 접점을 중심으로 잠재 제휴처를 발굴하고, 체크아웃 후 관광상품 안내자료와 예약 페이지를 제작함.</span></li>
+<li class="report-month-step"><span class="report-month">3~4개월차</span><span class="report-step-text">제휴가 가능한 숙박업소의 객실 안내문, 체크아웃 안내 메시지, SNS를 활용하여 상품을 홍보하고 소규모 유료 시범예약을 모집함.</span></li>
+<li class="report-month-step"><span class="report-month">5~6개월차</span><span class="report-step-text">예약 완료율, 참가비 매출, 제휴 숙소별 유입 건수, 정시 귀환율을 분석하여 판매 효율이 높은 채널을 중심으로 운영함.</span></li></ol>
+    </section>
+  </div>
+  <div class="report-application"><p><b>실제 고객·판매 연결 경로</b><span>숙박업소 안내·역 주변 접점 → 모바일 예약 → 투어 참가비 결제</span></p><p><b>우선 검증사항</b><span>실제 짐 관리 가능 업체·계약, 투어 인원별 원가, 일정 지연 대책, 보험·책임범위</span></p><p><b>주요 KPI</b><span>제휴 숙소 협의/계약 수 · 시범투어 유료 예약 건수 · 정시 귀환 준수율 · 짐 인계·반환 오류 건수</span></p></div>
+</article><article class="report-entry report-rich" id="summary-busk">
+  <div class="report-entry-head"><h3><span class="report-number">03</span>BuskBridge</h3><button type="button" class="report-case-link hideprint" data-choose="busk">상단 작성 실습에서 보기 ↗</button></div>
+  <div class="report-deep-grid">
+    <section class="report-deep-col">
+      <h4><span>3-1</span> 상품·서비스·인프라 개발 계획</h4>
+      <p class="report-purpose">부산 관광객이 버스킹 공연의 시간·장소·장르를 확인할 수 있는 모바일 공연정보 서비스 개발</p>
+      <ol class="report-month-list"><li class="report-month-step"><span class="report-month">1~2개월차</span><span class="report-step-text">부산의 기존 공연정보 서비스를 비교하고, 공연 일정 검색·공연자 등록·공연 위치 확인 기능을 중심으로 모바일 웹 MVP를 설계함.</span></li>
+<li class="report-month-step"><span class="report-month">3~4개월차</span><span class="report-step-text">공연자의 동의를 받아 공연정보를 등록하고, 공연 취소·시간 변경·장소 이동 등의 정보 수정 절차와 관리자 검증 기능을 구축함.</span></li>
+<li class="report-month-step"><span class="report-month">5~6개월차</span><span class="report-step-text">부산의 특정 관광지역에서 시범운영을 실시하고, 공연정보 정확도·검색 성공률·공연자 참여율을 평가하여 정식 서비스 범위를 결정함.</span></li></ol>
+    </section>
+    <section class="report-deep-col">
+      <h4 class="green"><span>3-2</span> 홍보 및 판로개척</h4>
+      <p class="report-purpose">버스커 확보와 관광객 유입을 동시에 추진하는 양면 플랫폼 마케팅 운영</p>
+      <ol class="report-month-list"><li class="report-month-step"><span class="report-month">1~2개월차</span><span class="report-step-text">부산에서 활동하는 버스커와 공연 관련 커뮤니티를 대상으로 서비스 참여를 안내하고, 공연 등록 의향을 조사함.</span></li>
+<li class="report-month-step"><span class="report-month">3~4개월차</span><span class="report-step-text">관광객 대상 SNS 홍보와 공연 현장 QR코드 안내를 통해 공연정보 검색 서비스를 알리고 실제 이용 데이터를 수집함.</span></li>
+<li class="report-month-step"><span class="report-month">5~6개월차</span><span class="report-step-text">공연 등록 건수·관광객 검색 이용·재방문율을 분석하고, 광고성 정보의 명확한 표시와 이용자 수용성을 검증한 뒤 선택형 유료 홍보상품 등의 수익모델 도입 여부를 판단함.</span></li></ol>
+    </section>
+  </div>
+  <div class="report-application"><p><b>실제 고객·판매 연결 경로</b><span>버스커 등록 → 공연정보 노출 → 관광객 검색; 선택형 유료노출은 후속 검증</span></p><p><b>우선 검증사항</b><span>부산 기존 서비스와의 차이, 공연 장소 규정, 정보 수집동의, 광고 표시·수익모델</span></p><p><b>주요 KPI</b><span>활성 버스커 수 · 유효 공연정보 비율 · 공연 탐색 성공률 · 정보변경 반영 소요시간</span></p></div>
+</article><article class="report-entry report-rich" id="summary-hanji">
+  <div class="report-entry-head"><h3><span class="report-number">04</span>한지 놀지</h3><button type="button" class="report-case-link hideprint" data-choose="hanji">상단 작성 실습에서 보기 ↗</button></div>
+  <div class="report-deep-grid">
+    <section class="report-deep-col">
+      <h4><span>3-1</span> 상품·서비스·인프라 개발 계획</h4>
+      <p class="report-purpose">유아와 초등학생의 발달 수준을 고려한 안동 한지 오감 체험 프로그램 개발</p>
+      <ol class="report-month-list"><li class="report-month-step"><span class="report-month">1~2개월차</span><span class="report-step-text">한지죽 감각놀이, 종이뜨기, 창작활동으로 구성된 체험 시나리오를 설계하고, 유아·초등 저학년·고학년별 난이도와 보호자 참여 기준을 구분함.</span></li>
+<li class="report-month-step"><span class="report-month">3~4개월차</span><span class="report-step-text">한지 재료와 체험 도구를 확보하고, 재료 안전성·위생·알레르기 가능성·시설 이용 조건을 검토한 후 가족 대상 시범프로그램을 운영함.</span></li>
+<li class="report-month-step"><span class="report-month">5~6개월차</span><span class="report-step-text">연령별 만족도, 운영시간, 재료비, 강사 인건비를 분석하여 프로그램을 개선하고 예약형 유료 체험상품으로 출시함.</span></li></ol>
+    </section>
+    <section class="report-deep-col">
+      <h4 class="green"><span>3-2</span> 홍보 및 판로개척</h4>
+      <p class="report-purpose">안동을 방문하는 자녀 동반 가족을 대상으로 온라인 예약과 지역 기관 연계 판매 추진</p>
+      <ol class="report-month-list"><li class="report-month-step"><span class="report-month">1~2개월차</span><span class="report-step-text">자녀 동반 가족여행객을 핵심 고객으로 설정하고, 체험 장면·교육적 가치·보호자 참여 방법을 소개하는 SNS 홍보 콘텐츠를 제작함.</span></li>
+<li class="report-month-step"><span class="report-month">3~4개월차</span><span class="report-step-text">지역 숙박업소와 교육기관에 프로그램을 제안하고, 가족 단위 시범체험을 통해 후기와 개선 의견을 수집함.</span></li>
+<li class="report-month-step"><span class="report-month">5~6개월차</span><span class="report-step-text">온라인 예약 페이지를 통해 가족 체험권을 판매하고, 가족 예약 건수·체험 참가인원·고객 만족도·재방문 의향을 분석함.</span></li></ol>
+    </section>
+  </div>
+  <div class="report-application"><p><b>실제 고객·판매 연결 경로</b><span>가족 예약링크 → 유료 체험권 / 교육기관·숙박업소 연계 문의</span></p><p><b>우선 검증사항</b><span>실제 체험장·재료 조달, 원료·위생·알레르기/안전, 연령제한, 보호자 참여, 가격</span></p><p><b>주요 KPI</b><span>연령별 프로그램 완성 수 · 체험 회차/예약률 · 보호자 만족도 · 안전·위생 문제 건수</span></p></div>
+</article><article class="report-entry report-rich" id="summary-adco">
+  <div class="report-entry-head"><h3><span class="report-number">05</span>ADCO-NNECT</h3><button type="button" class="report-case-link hideprint" data-choose="adco">상단 작성 실습에서 보기 ↗</button></div>
+  <div class="report-deep-grid">
+    <section class="report-deep-col">
+      <h4><span>3-1</span> 상품·서비스·인프라 개발 계획</h4>
+      <p class="report-purpose">안동의 전통문화 공간과 지역 미식자원을 활용한 기업 대상 B2B 행사상품 개발</p>
+      <ol class="report-month-list"><li class="report-month-step"><span class="report-month">1~2개월차</span><span class="report-step-text">기업 고객을 대상으로 제공할 소규모 비즈니스 포럼 및 미식 쇼케이스 상품을 기획하고, 행사장 사용 가능 여부, 참여업체, 식음료 공급업체, 콘텐츠 사용권을 조사함.</span></li>
+<li class="report-month-step"><span class="report-month">3~4개월차</span><span class="report-step-text">행사 진행 시나리오, 공간 배치, 운영인력, 식음료 제공 방식과 견적서를 작성하고, 협력업체와 참여 조건을 협의함.</span></li>
+<li class="report-month-step"><span class="report-month">5~6개월차</span><span class="report-step-text">소규모 시범행사를 통해 행사 운영비와 고객 만족도를 검증하고, 기업별 수요에 따라 프로그램을 선택할 수 있는 B2B 행사 패키지를 개발함.</span></li></ol>
+    </section>
+    <section class="report-deep-col">
+      <h4 class="green"><span>3-2</span> 홍보 및 판로개척</h4>
+      <p class="report-purpose">기업 행사 담당자와 기관 발주처를 대상으로 직접 영업하는 계약 중심 판매체계 구축</p>
+      <ol class="report-month-list"><li class="report-month-step"><span class="report-month">1~2개월차</span><span class="report-step-text">기업·협회·기관 등 잠재 발주처를 분류하고, 행사상품 소개서와 맞춤형 제안서 및 표준 견적서 양식을 제작함.</span></li>
+<li class="report-month-step"><span class="report-month">3~4개월차</span><span class="report-step-text">잠재 발주처에 직접 제안하고 상담을 진행하며, 현장답사와 시범 쇼케이스를 통해 상품의 운영 가능성을 설명함.</span></li>
+<li class="report-month-step"><span class="report-month">5~6개월차</span><span class="report-step-text">상담 결과를 바탕으로 유료 행사계약 체결을 추진하고, 제안서 발송 건수·상담 건수·견적 요청 건수·계약 체결률과 행사별 영업이익을 관리함.</span></li></ol>
+    </section>
+  </div>
+  <div class="report-application"><p><b>실제 고객·판매 연결 경로</b><span>행사 발주처 직접 영업 → 제안서·견적 → 계약금·행사비 정산</span></p><p><b>우선 검증사항</b><span>행사장 사용권, 참여 생산자 동의, 식품위생·납품·IP 권리, 업체별 계약상대방, 행사 원가</span></p><p><b>주요 KPI</b><span>기업 발주처 상담 수 · 견적/제안서 요청 건수 · 시범행사 운영비·손익 · 제안 → 유료계약 전환율</span></p></div>
+</article><article class="report-entry report-rich" id="summary-gachiga">
+  <div class="report-entry-head"><h3><span class="report-number">06</span>가치가</h3><button type="button" class="report-case-link hideprint" data-choose="gachiga">상단 작성 실습에서 보기 ↗</button></div>
+  <div class="report-deep-grid">
+    <section class="report-deep-col">
+      <h4><span>3-1</span> 상품·서비스·인프라 개발 계획</h4>
+      <p class="report-purpose">차량이 없는 개별 관광객의 이동 불편을 줄이는 관광 교통정보 서비스 개발</p>
+      <ol class="report-month-list"><li class="report-month-step"><span class="report-month">1~2개월차</span><span class="report-step-text">여수 주요 관광지와 교통거점을 중심으로 대중교통 배차정보·예상 이동시간·교통비 비교가 가능한 정보 제공 기능을 설계함.</span></li>
+<li class="report-month-step"><span class="report-month">3~4개월차</span><span class="report-step-text">지도 및 대중교통 API 활용 가능성을 확인하고, 여행자가 출발지와 목적지를 입력하면 이용 가능한 이동수단과 대체 경로를 안내하는 MVP를 제작함.</span></li>
+<li class="report-month-step"><span class="report-month">5~6개월차</span><span class="report-step-text">여행자의 경로 검색 성공률과 정보 정확성을 검증하고, 합승·호출·운송 알선·요금 정산 관련 법령과 사업자 권한을 확인한 뒤 적법한 사업자 연계 기능의 도입 여부를 결정함.</span></li></ol>
+    </section>
+    <section class="report-deep-col">
+      <h4 class="green"><span>3-2</span> 홍보 및 판로개척</h4>
+      <p class="report-purpose">무차량 개별여행객의 실제 이동 수요를 검증하고 적법한 교통사업자 제휴를 통한 판매 가능성 확보</p>
+      <ol class="report-month-list"><li class="report-month-step"><span class="report-month">1~2개월차</span><span class="report-step-text">여수 방문 대학생과 개별여행객을 대상으로 교통비 부담과 이동 불편에 관한 설문조사를 진행하고, 수요가 높은 이동 구간을 선정함.</span></li>
+<li class="report-month-step"><span class="report-month">3~4개월차</span><span class="report-step-text">여행자 커뮤니티와 SNS를 통해 교통정보 안내 서비스를 알리고, 운송·호출 관련 사업자에게 합법적 제휴 가능성을 문의함.</span></li>
+<li class="report-month-step"><span class="report-month">5~6개월차</span><span class="report-step-text">경로 검색 건수와 재이용률을 분석하고, 법적 요건 및 계약 구조가 확인된 경우에 한해 정식 제휴 서비스와 수익배분 모델을 검토함.</span></li></ol>
+    </section>
+  </div>
+  <div class="report-application"><p><b>실제 고객·판매 연결 경로</b><span>초기 수요조사 → 적법한 운송·호출 사업자 제휴 검토 → 승인된 판매·수수료 구조</span></p><p><b>우선 검증사항</b><span>현행 합승·호출·알선·정산 법령, 운송사업자 권한, 개인정보·안전, 대중교통 API 제공 범위</span></p><p><b>주요 KPI</b><span>교통정보 탐색 성공률 · 고객 인터뷰·구간 조사 수 · 안전 우려·이용의향 · 적법한 제휴 검토 상태</span></p></div>
+</article><article class="report-entry report-rich" id="summary-from">
+  <div class="report-entry-head"><h3><span class="report-number">07</span>FROM:</h3><button type="button" class="report-case-link hideprint" data-choose="from">상단 작성 실습에서 보기 ↗</button></div>
+  <div class="report-deep-grid">
+    <section class="report-deep-col">
+      <h4><span>3-1</span> 상품·서비스·인프라 개발 계획</h4>
+      <p class="report-purpose">지역 사과 가공 부산물을 활용한 식품용 일회용기 시제품 개발 및 상용화 가능성 검증</p>
+      <ol class="report-month-list"><li class="report-month-step"><span class="report-month">1~2개월차</span><span class="report-step-text">지역 사과 가공업체를 대상으로 원료 확보 가능량과 공급단가를 조사하고, 제품 배합 및 성형 공정을 설계함.</span></li>
+<li class="report-month-step"><span class="report-month">3~4개월차</span><span class="report-step-text">식사용기 시제품을 제작하고, 식품 접촉 안전성·내수성·내유성·누수 성능 등 관련 기준에 따른 시험을 추진함.</span></li>
+<li class="report-month-step"><span class="report-month">5~6개월차</span><span class="report-step-text">시험 결과와 제조원가를 바탕으로 제품 구조를 개선하고, 생산업체의 양산 견적과 원료 공급 안정성을 확인하여 상용화 여부를 결정함.</span></li></ol>
+    </section>
+    <section class="report-deep-col">
+      <h4 class="green"><span>3-2</span> 홍보 및 판로개척</h4>
+      <p class="report-purpose">지역 관광지 식음료 업체를 대상으로 샘플 검증과 소량 납품을 연계하는 B2B 판로 확보</p>
+      <ol class="report-month-list"><li class="report-month-step"><span class="report-month">1~2개월차</span><span class="report-step-text">관광지 카페, 식당, 축제 운영사를 잠재 구매처로 선정하고 기존 식사용기 사용량, 구매단가, 요구 성능을 조사함.</span></li>
+<li class="report-month-step"><span class="report-month">3~4개월차</span><span class="report-step-text">성능과 안전성 확인 수준에 따라 제품 자료 및 샘플을 제공하고, 사용성 평가와 구매 의향 조사를 실시함.</span></li>
+<li class="report-month-step"><span class="report-month">5~6개월차</span><span class="report-step-text">기준을 충족한 제품을 대상으로 소량 납품 계약을 추진하고, 상담 업체 수·샘플 테스트 건수·납품 계약 건수·재발주율을 관리함.</span></li></ol>
+    </section>
+  </div>
+  <div class="report-application"><p><b>실제 고객·판매 연결 경로</b><span>식음료 점포 직접 상담 → 샘플 검증 → 소량 납품 계약 → 반복 발주</span></p><p><b>우선 검증사항</b><span>사과 부산물 공급량·단가, 식품접촉 안전 기준, 내수·내유·누수 성능, 환경성 주장 근거, 양산원가</span></p><p><b>주요 KPI</b><span>안전/성능 시험 통과 항목 · 시제품·원가 비교표 · B2B 샘플 테스트 수 · 납품 전환·재주문율</span></p></div>
+</article><article class="report-entry report-rich" id="summary-gbzip">
+  <div class="report-entry-head"><h3><span class="report-number">08</span>경북.zip / 구미.zip</h3><button type="button" class="report-case-link hideprint" data-choose="gbzip">상단 작성 실습에서 보기 ↗</button></div>
+  <div class="report-deep-grid">
+    <section class="report-deep-col">
+      <h4><span>3-1</span> 상품·서비스·인프라 개발 계획</h4>
+      <p class="report-purpose">구미 원도심의 로컬 상점과 관광자원을 연결하는 맞춤형 관광코스 안내 서비스 개발</p>
+      <ol class="report-month-list"><li class="report-month-step"><span class="report-month">1~2개월차</span><span class="report-step-text">구미 원도심의 관광자원·음식점·체험시설을 조사하고, 관광객 취향과 체류시간별 추천 코스를 기획함.</span></li>
+<li class="report-month-step"><span class="report-month">3~4개월차</span><span class="report-step-text">추천 코스·지도·제휴 점포 정보를 제공하는 모바일 안내 페이지를 개발하고, 참여 의향이 있는 상점과 방문 인증 및 혜택 제공 조건을 협의함.</span></li>
+<li class="report-month-step"><span class="report-month">5~6개월차</span><span class="report-step-text">관광객 시범이용을 통해 코스 이용률, 점포 방문, 쿠폰 사용 등을 측정하고, 공간 조성 사업은 별도의 시설 확보 및 비용 검증 결과에 따라 추진 여부를 결정함.</span></li></ol>
+    </section>
+    <section class="report-deep-col">
+      <h4 class="green"><span>3-2</span> 홍보 및 판로개척</h4>
+      <p class="report-purpose">구미 방문 관광객을 로컬 관광코스로 유입시키고 제휴 점포의 실제 소비와 연결하는 판매체계 구축</p>
+      <ol class="report-month-list"><li class="report-month-step"><span class="report-month">1~2개월차</span><span class="report-step-text">구미 방문 개별 관광객을 목표고객으로 설정하고, 지역 관광정보 채널과 SNS를 활용한 관광코스 소개 콘텐츠를 제작함.</span></li>
+<li class="report-month-step"><span class="report-month">3~4개월차</span><span class="report-step-text">참여 점포의 동의를 받아 QR코드 안내 및 방문 혜택을 제공하고, 체험상품 예약 또는 제휴 점포 방문을 유도함.</span></li>
+<li class="report-month-step"><span class="report-month">5~6개월차</span><span class="report-step-text">코스 이용 건수·제휴 점포 방문 건수·예약 및 쿠폰 사용률을 분석하고, 실제 판매성과를 기준으로 제휴 수수료 또는 공동상품 판매모델을 협의함.</span></li></ol>
+    </section>
+  </div>
+  <div class="report-application"><p><b>실제 고객·판매 연결 경로</b><span>코스 안내 링크 → 제휴 점포 방문 → 체험 예약/쿠폰 사용 → 수수료·판매모델 협의</span></p><p><b>우선 검증사항</b><span>구미 상점 영업시간·상품 품질·개인정보·쿠폰 정산, 공간 확보·비용</span></p><p><b>주요 KPI</b><span>검증된 로컬 코스 수 · 활성 제휴점포 수 · 코스 완료·방문 인증율 · 쿠폰 사용·체험 예약 전환</span></p></div>
+</article><article class="report-entry report-rich" id="summary-localcasse">
+  <div class="report-entry-head"><h3><span class="report-number">09</span>로컬카세 (Localcasse)</h3><button type="button" class="report-case-link hideprint" data-choose="localcasse">상단 작성 실습에서 보기 ↗</button></div>
+  <div class="report-deep-grid">
+    <section class="report-deep-col">
+      <h4><span>3-1</span> 상품·서비스·인프라 개발 계획</h4>
+      <p class="report-purpose">지역 식당과 현지 가이드를 연계한 2~4인 소규모 예약형 미식 관광상품 개발</p>
+      <ol class="report-month-list"><li class="report-month-step"><span class="report-month">1~2개월차</span><span class="report-step-text">시범 운영지역을 선정하고, 지역 식문화·식당·이동 동선·소요시간을 조사하여 2~4인 관광객을 위한 미식투어 코스를 기획함.</span></li>
+<li class="report-month-step"><span class="report-month">3~4개월차</span><span class="report-step-text">현지 가이드와 식당의 참여 가능 여부를 협의하고, 음식 제공 범위·가이드 비용·예약 및 취소 기준을 정한 후 시범투어를 운영함.</span></li>
+<li class="report-month-step"><span class="report-month">5~6개월차</span><span class="report-step-text">투어 만족도와 1회 운영원가를 분석하고, 관련 영업 요건과 협력계약을 확인하여 예약·결제·고객 안내가 가능한 유료 미식투어 상품을 출시함.</span></li></ol>
+    </section>
+    <section class="report-deep-col">
+      <h4 class="green"><span>3-2</span> 홍보 및 판로개척</h4>
+      <p class="report-purpose">지역의 숨은 맛집과 현지 가이드의 전문성을 강조한 사전예약형 미식관광 판매체계 구축</p>
+      <ol class="report-month-list"><li class="report-month-step"><span class="report-month">1~2개월차</span><span class="report-step-text">소규모 자유여행객을 주요 고객으로 설정하고, 지역 미식 콘텐츠와 가이드 소개를 활용한 SNS 홍보자료를 제작함.</span></li>
+<li class="report-month-step"><span class="report-month">3~4개월차</span><span class="report-step-text">지역 숙박업소 및 관광사업자와 홍보 협력을 논의하고, 투어 상세페이지를 통해 시범예약을 모집함.</span></li>
+<li class="report-month-step"><span class="report-month">5~6개월차</span><span class="report-step-text">예약 페이지에서 유료 투어상품을 판매하고, 예약전환율·투어별 참가인원·운영이익·고객 만족도·재예약 의향을 측정하여 수익성을 검증함.</span></li></ol>
+    </section>
+  </div>
+  <div class="report-application"><p><b>실제 고객·판매 연결 경로</b><span>SNS·지역 파트너 → 투어 상세페이지 → 사전예약·결제 → 식당·가이드 정산</span></p><p><b>우선 검증사항</b><span>지역 확정, 가이드 자격·계약, 메뉴·식비 포함 여부, 예약/취소, 식당 동의, 손익</span></p><p><b>주요 KPI</b><span>유료 시범투어 횟수 · 가이드·식당 제휴 확인 수 · 예약 → 실제 참가율 · 식비·가이드비 차감 후 이익</span></p></div>
+</article></div>
+ <p class="report-source">자료 근거: 첨부된 9개 학생의 사업계획서 2단 첨삭자료 및 이를 바탕으로 작성한 수업용 3-1·3-2 제안문. <b>작성안의 수치는 목표·가정이며 이미 확보한 실적이 아님.</b> 실제 제휴·자격·인허가·매출·지불방식은 확인 후 작성해야 함. 상단 워크시트의 완성형 예시문 원본 문장과 교수자 맞춤 조언은 그대로 유지함.</p>
+</section>
+<section class="section" id="keyWriting"><div class="label">교수자 지도용 · 작성의 핵심</div><h2>3-1은 ‘완성할 것’, 3-2는 ‘판매할 경로’를 적습니다</h2><div class="principle-grid"><div class="principle-card"><h3>3-1 · 무엇을 어떻게 완성할 것인가?</h3><div class="principle-steps"><span>개발 대상</span><i>→</i><span>실행 방법</span><i>→</i><span>단계별 일정</span><i>→</i><span>검증·산출물</span></div><p>예: <b>1~2개월차 시제품</b>을 설계하고, <b>3~4개월차 시범운영</b>을 진행해, <b>5~6개월차</b> 결과를 검증한다.</p></div><div class="principle-card secondary"><h3>3-2 · 누구에게 어떻게 판매할 것인가?</h3><div class="principle-steps"><span>목표 고객</span><i>→</i><span>홍보·유입</span><i>→</i><span>예약·계약·결제</span><i>→</i><span>매출·전환 KPI</span></div><p>예: 숙박업소 안내나 SNS를 통해 고객을 유입한 뒤 <b>유료예약·납품계약</b>으로 연결하고 <b>전환율</b>을 측정한다.</p></div></div><div class="rule-alert"><b>학생에게 반드시 강조할 세 가지</b><p><strong>개발 완료 ≠ 개발 예정</strong> · 미확보 시설·협약은 확보 계획으로 표기하세요. <strong>홍보 ≠ 판매</strong> · 게시물 노출보다 예약·결제·납품 경로를 적으세요. <strong>추진 일정 ≠ 막연한 목표</strong> · 언제, 무엇을, 어떻게 측정할지 표시하세요.</p></div></section>
+<section class="section" id="intro"><div class="label">01 · 학습 목표</div><h2>심사위원은 “할 수 있는가?”를 묻습니다</h2><div class="grid3"><div class="tile blue"><h4>① 개발 가능성</h4><p>무엇을, 어떤 기능과 품질로, 누가, 언제까지 만들어낼 것인가?</p></div><div class="tile green"><h4>② 운영 가능성</h4><p>시설·인력·기술·협력사·허가 등 실행 조건이 확보되었는가?</p></div><div class="tile orange"><h4>③ 판매 가능성</h4><p>어떤 고객을, 어느 채널에서, 어떤 비용으로 유입시켜 매출로 연결할 것인가?</p></div></div>
+<div class="flow"><div class="node"><strong>고객 문제</strong><small>누가 무엇을 불편해하나</small></div><div class="arrow">→</div><div class="node"><strong>3-1. 해결책 구현</strong><small>제품 · 서비스 · 인프라 · 검증</small></div><div class="arrow">→</div><div class="node"><strong>3-2. 고객 확보</strong><small>홍보 · 예약 · 제휴 · 판매</small></div><div class="arrow">→</div><div class="node"><strong>사업화 성과</strong><small>시험 운영 · 고객 · 매출</small></div></div>
+<div class="callout"><b>기억할 문장</b> — “우리는 ○○을 하겠습니다”에서 끝내지 말고 <b>“○월까지 ○○을 제작하고, ○명을 대상으로 검증한 뒤, ○○ 채널을 통해 ○건 판매하겠습니다”</b>로 작성합니다.</div>
+<div><span class="vocab">MVP: 최소기능제품</span><span class="vocab">Pilot: 시범운영</span><span class="vocab">Sales Channel: 판매 경로</span><span class="vocab">KPI: 핵심성과지표</span></div>
+</section>
+<section class="section" id="rule"><div class="label">02 · 문항 분석</div><h2>사업계획서 4장 이내, 이렇게 배분합니다</h2><p class="lead">4장은 교육자료의 분량 제한이 아니라 <b>사업계획서 3번 항목 전체의 제한</b>으로 이해하고, 각 문항의 증거를 압축해서 제시합니다.</p><div class="tablewrap"><table><thead><tr><th>구분</th><th>권장 분량</th><th>반드시 제시할 내용</th><th>추천 시각자료</th></tr></thead><tbody><tr><td><b>3-1 개발 계획</b></td><td>약 2~2.5장</td><td>상품 명세, 개발 단계, 검증, 필요 인프라, 인력·협력 체계, 실행 위험</td><td>개발 일정표, 서비스 흐름도, 제품 이미지/화면 구성</td></tr><tr><td><b>3-2 홍보 및 판로개척</b></td><td>약 1.5~2장</td><td>목표고객, 차별적 메시지, 홍보 채널, 예약·판매 경로, 단계별 일정과 수치 목표</td><td>고객 유입 흐름, 채널별 운영표, 월별 KPI</td></tr></tbody></table></div><div class="notice">위 배분은 작성 편의를 위한 권장안입니다. 실제 공고의 글자·표·이미지 규정이 있다면 해당 양식을 우선합니다.</div><h3>문장의 기본 공식</h3><div class="grid3"><div class="tile"><h4>무엇을</h4><p>구체적인 산출물명: 예약 페이지, 90분 체험상품, 운영 매뉴얼</p></div><div class="tile"><h4>어떻게·언제</h4><p>단계, 책임자, 협력사, 필요 자원, 완료 시점</p></div><div class="tile"><h4>무엇으로 확인할까</h4><p>개발 완료, 시범 참여자, 구매 전환, 후기, 판매 건수 등</p></div></div></section>
+<section class="section" id="plan"><div class="label">03 · 3-1 작성법</div><div class="sectionhead"><h2>3-1. 상품·서비스·인프라 개발 계획</h2><span class="pill">WHAT + HOW + WHEN + WHO + EVIDENCE</span></div><p class="lead">문항의 핵심은 <b>사업화할 대상을 구체화하고, 제작부터 현장 운영까지 이어지는 실행 설계</b>를 보여주는 것입니다.</p><div class="grid3"><div class="tile blue"><h4>상품 Product</h4><p>고객이 구매하는 결과물. 예: 지역 미식 체험권, 기념품 키트, 관광 패스</p></div><div class="tile green"><h4>서비스 Service</h4><p>고객이 경험하는 과정. 예: 예약 안내, 가이드 진행, 사후 후기 관리</p></div><div class="tile orange"><h4>인프라 Infrastructure</h4><p>서비스 제공에 필요한 기반. 예: 체험 공간, 장비, 예약·결제 페이지, 제휴업체</p></div></div>
+<h3>3-1은 6개의 질문에 답하는 방식으로 작성</h3><div class="tablewrap"><table><thead><tr><th class="smallcol">순서</th><th>필수 질문</th><th>좋은 작성 내용</th></tr></thead><tbody>
+<tr><td>①</td><td>누구에게 무엇을 제공하는가?</td><td>고객 세그먼트 + 상품명 + 핵심 경험 + 이용 방식</td></tr><tr><td>②</td><td>고객은 무엇을 받는가?</td><td>구성 요소, 이용시간, 가격(안), 운영 규모, 품질 기준</td></tr><tr><td>③</td><td>최소한 무엇부터 만들 것인가?</td><td>MVP 범위와 추후 개선 기능을 구분</td></tr><tr><td>④</td><td>어떤 자원이 필요한가?</td><td>시설, 장비, IT, 담당자, 협력업체, 승인·안전 조건</td></tr><tr><td>⑤</td><td>어떤 순서로 실행하는가?</td><td>설계 → 개발 → 시범운영 → 개선 → 출시</td></tr><tr><td>⑥</td><td>성공적으로 준비되었다는 증거는?</td><td>고객 반응, 재예약, 운영 테스트 결과, 품질·안전 점검</td></tr></tbody></table></div>
+<h3>개발 흐름도: 아이디어를 실제 서비스로 만드는 과정</h3><div class="flow"><div class="node"><strong>1. 기획</strong><small>타깃·가치·상품 명세</small></div><div class="arrow">→</div><div class="node"><strong>2. 최소 구현</strong><small>예약·운영 준비</small></div><div class="arrow">→</div><div class="node"><strong>3. 시범 검증</strong><small>참여자·피드백</small></div><div class="arrow">→</div><div class="node"><strong>4. 개선·출시</strong><small>표준 운영·판매 개시</small></div></div><div class="callout orange"><b>자주 빠지는 내용</b> — “앱을 개발한다”는 계획만으로는 부족합니다. <b>예약/결제/고객응대 중 어느 기능이 필수인지, 앱 없이도 시작 가능한지, 개발·운영 책임자가 누구인지</b>를 설명해야 합니다. 체험·숙박 등 업종의 인허가와 안전관리 여부도 검토 항목에 포함하세요.</div></section>
+<section class="section" id="sample1"><div class="label">04 · 3-1 나쁜 예 / 좋은 예</div><h2>관광창업 사례로 문장 개선하기</h2><p><b>가상의 교육용 사례: 경북 로컬 커피 스토리 투어</b><br/>핵심 서비스: 지역 카페·로스터와 연계한 90분 커피 시음과 동네 이야기 체험. 실제 고객 수요나 제휴 확정 사실을 의미하지 않습니다.</p><div class="contrast"><div class="weak"><span class="bad">△ 추상적 문장</span><p>“지역 관광객을 위한 커피 관광상품을 개발하고 플랫폼을 구축할 것이다. 체험 프로그램도 운영할 예정이다.”</p><p class="small">문제점: 구성·일정·자원·시범 검증·플랫폼 범위가 보이지 않음</p></div><div class="strong"><span class="good">✓ 평가 가능한 문장</span><p>“1개월 차에 90분 체험 운영안과 코스 1종을 설계하고, 2개월 차에 협력 카페와 4회 시범운영을 실시한다. 초기에는 모바일 예약·결제 페이지를 활용하며, 고객 만족도와 재구매 의향을 조사해 3개월 차 정식 상품을 출시한다.”</p><p class="small">장점: 산출물·기간·인프라·검증·출시가 연결됨</p></div></div>
+<h3>학생용 서술 예시 — 양식의 ◦ / - 구조</h3><div class="example" id="sample31">◦ 지역 방문객을 대상으로 「로컬 커피 스토리 투어」를 개발한다. 지역 카페 시음, 로스터 설명, 골목 스토리 탐방을 결합한 90분 예약형 체험상품으로 구성한다.
+ - 1개월 차: 고객 이용 시나리오, 1개 코스 및 운영 매뉴얼 제작, 가격·정원·안전관리 기준 설정
+ - 2개월 차: 협력 카페·진행인력 협의, 모바일 예약·결제 페이지 구축, 시범운영 4회 진행
+ - 3개월 차: 참여자 만족도 및 운영원가를 분석하여 동선·설명 콘텐츠를 개선하고 정식 출시
+◦ 초기 인프라는 협력 공간, 시음 장비, 고객 안내물, 예약·결제 시스템으로 구성한다.
+ - 자체 앱은 초기 필수 항목에서 제외하고, 예약 가능한 최소 기능부터 구축하여 개발비 부담을 낮춘다.
+ - 제휴 확정 여부, 현장 안전·위생·필요 신고 요건은 출시 전 점검하고 증빙한다.</div><div class="sectionhead" style="margin-top:12px"><span class="small">상품명·인력·기간·제휴 현황은 본인 아이템에 맞게 수정해야 합니다.</span><button class="btn hideprint" onclick="copyText('sample31')">3-1 예시 복사</button></div></section>
+<section class="section" id="market"><div class="label">05 · 3-2 작성법</div><div class="sectionhead"><h2>3-2. 홍보 및 판로개척</h2><span class="pill">TARGET + CHANNEL + CONVERSION + KPI</span></div><p class="lead"><b>홍보는 알리는 활동, 판로개척은 실제 구매·예약이 발생할 경로를 확보하는 활동</b>입니다. 두 개를 구별해 작성해야 합니다.</p>
+<div class="grid"><div class="tile blue"><h4>홍보 Promotion</h4><p>누구에게 어떤 가치로 알릴 것인가?</p><p>예: 숏폼 영상, 검색 콘텐츠, 현장 체험단, 언론·지역 커뮤니티</p></div><div class="tile green"><h4>판로 Sales/Distribution</h4><p>고객이 어디에서 어떻게 구매할 것인가?</p><p>예: 자체 예약 링크, 체험상품 판매채널, 숙박시설·여행사 제휴, 단체 계약</p></div></div>
+<h3>고객이 결제할 때까지 경로를 그려봅니다</h3><div class="flow"><div class="node"><strong>고객 발견</strong><small>SNS·검색·지역 제휴</small></div><div class="arrow">→</div><div class="node"><strong>관심·비교</strong><small>가격·후기·경험 콘텐츠</small></div><div class="arrow">→</div><div class="node"><strong>예약·결제</strong><small>직접 예약·판매 제휴</small></div><div class="arrow">→</div><div class="node"><strong>경험·재구매</strong><small>만족도·후기·추천</small></div></div>
+<h3>3-2 작성에 필요한 5가지 근거</h3><div class="tablewrap"><table><thead><tr><th>구분</th><th>작성 질문</th><th>관광창업 예시</th></tr></thead><tbody><tr><td><b>목표고객</b></td><td>누가 예약·결정·지불하는가?</td><td>주말 1박2일 경북 여행객 / 소규모 단체 담당자</td></tr><tr><td><b>홍보 메시지</b></td><td>구매할 이유를 한 문장으로?</td><td>“지역 이야기를 맛보는 90분 커피 여행”</td></tr><tr><td><b>홍보 채널</b></td><td>어디서 고객에게 노출되는가?</td><td>지역 여행 검색 콘텐츠, 숏폼, 협력 카페 QR</td></tr><tr><td><b>판매 경로</b></td><td>어디로 이동하면 결제되는가?</td><td>자체 예약 페이지, 지역 숙소·여행사 연계 판매</td></tr><tr><td><b>목표·일정</b></td><td>언제 얼마만큼 성과를 낼 것인가?</td><td>시범 4회, 후기 수집, 방문→예약 전환율 추적</td></tr></tbody></table></div><div class="callout orange"><b>구체성이 부족한 표현</b> — “인스타그램 마케팅을 적극 추진” 대신 <b>“2개월 차 주 2회 체험형 숏폼 게시 → 예약 페이지 연결 → 링크 클릭·예약 건수를 매주 점검”</b>처럼 행동, 주기, 구매 경로, 측정방법을 적습니다.</div></section>
+<section class="section" id="sample2"><div class="label">06 · 3-2 나쁜 예 / 좋은 예</div><h2>홍보 계획을 판매 계획으로 연결하세요</h2><div class="contrast"><div class="weak"><span class="bad">△ 추상적 문장</span><p>“SNS와 블로그, 인플루언서를 활용해 인지도를 높이고 관광객을 유치하겠다.”</p><p class="small">문제점: 목표고객·예산·실행 주기·예약 동선·지표 부재</p></div><div class="strong"><span class="good">✓ 평가 가능한 문장</span><p>“2개월 차부터 20~40대 주말여행객을 대상으로 체험 영상 주 2편을 게시하고 모든 콘텐츠에 예약 링크를 연결한다. 협력 카페에서 QR 안내를 진행하며, 예약 유입 경로와 구매 건수를 주 단위로 확인한다.”</p><p class="small">장점: 대상·방법·일정·판로·측정지표 제시</p></div></div>
+<h3>학생용 서술 예시 — 양식의 ◦ / - 구조</h3><div class="example" id="sample32">◦ 1차 목표고객은 주말에 경북을 방문하는 소규모 여행객으로 설정하고, 「90분 동안 지역의 맛과 이야기를 경험하는 투어」를 핵심 메시지로 홍보한다.
+ - 1개월 차: 상품 소개 콘텐츠·사진 제작, 예약 페이지와 검색 노출용 안내문 구축
+ - 2개월 차: 숏폼 영상 주 2회 게시, 협력 카페 내 QR 안내, 시범운영 참여자의 자발적 후기 확보
+ - 3개월 차: 예약 경로별 문의·클릭·구매 건수를 분석하고 반응이 높은 채널에 운영 역량 집중
+◦ 판로는 직접 예약과 지역 파트너 제휴를 병행한다.
+ - 직접 판매: 모바일 예약·결제 링크를 모든 홍보 채널에 동일하게 연결
+ - 제휴 판매: 지역 숙박시설·관광 안내거점·여행사와 상품 소개 및 예약 연결 방식 협의
+ - 관리 지표: 채널별 유입 수, 예약 건수, 예약 전환율, 고객획득비용, 후기 수를 월별 확인한다.</div><div class="sectionhead" style="margin-top:12px"><span class="small">실제 제휴 계약, 게시물 성과, 광고비는 확인된 사실과 계획을 명확히 구별하세요.</span><button class="btn hideprint" onclick="copyText('sample32')">3-2 예시 복사</button></div></section>
+<section class="section" id="roadmap"><div class="label">07 · 실행력의 증거</div><h2>월별 일정·예산·성과지표가 서로 맞아야 합니다</h2><div class="tablewrap"><table><thead><tr><th>단계</th><th>3-1 개발·운영 산출물</th><th>3-2 홍보·판매 활동</th><th>점검할 KPI (예시)</th></tr></thead><tbody><tr><td><b>1개월 차</b><br/>설계</td><td>1개 코스 시나리오, 운영 매뉴얼, 가격안</td><td>고객군 정의, 상세 페이지 초안, 촬영·콘텐츠 제작</td><td>코스 1개, 소개 페이지 1개</td></tr><tr><td><b>2개월 차</b><br/>검증</td><td>예약 페이지 운영, 시범체험 4회</td><td>숏폼 주 2회, 카페 QR, 초기 후기 수집</td><td>시범 참가자 수, 예약 건수, 만족도</td></tr><tr><td><b>3개월 차</b><br/>출시</td><td>피드백 반영, 정식 운영 시작</td><td>숙박·여행사 제휴 제안, 직접 예약 유도</td><td>유료 예약 건수, 채널별 유입</td></tr><tr><td><b>4개월 차</b><br/>개선</td><td>운영 품질 및 원가 개선</td><td>성과 채널 중심 집행, 재구매·추천 관리</td><td>전환율, 고객획득비용, 후기 수</td></tr></tbody></table></div><h3>“정량 목표”를 쓰는 간단한 방법</h3><div class="grid"><div class="tile blue"><h4>예약 전환율 Conversion rate</h4><div class="kpi">예약 건수 ÷ 예약 페이지 방문 수 × 100</div><p>예시: 20건 ÷ 1,000명 × 100 = <b>2%</b></p></div><div class="tile green"><h4>고객획득비용 CAC</h4><div class="kpi">해당 기간 고객획득비용 ÷ 신규 고객 수</div><p>예시: 홍보비 20만 원 ÷ 신규 고객 20명 = <b>1만 원/명</b></p></div></div><div class="notice">전환율·비용·예약 수치는 교육용 계산 예시입니다. 본인 사업의 실적이 아니므로 “목표치” 또는 “추정치”라고 표시하세요. 예약 전환율 분모는 사업계획서 내에서 동일하게 유지합니다. CAC는 목적에 따라 광고비 외 콘텐츠·인력비 등의 포함 범위를 명시하세요.</div><h3>실현 가능성을 높이는 3가지 증거</h3><div class="grid3"><div class="tile"><h4>보유 역량</h4><p>창업자 경험, 전문 자격, 제작·운영 실적, 담당 업무</p></div><div class="tile"><h4>확보 자원</h4><p>장소 협의 내역, 공급 견적, 장비 목록, 협력 의향 확인</p></div><div class="tile"><h4>검증 근거</h4><p>시제품 사진, 시험 이용, 고객 인터뷰, 실제 예약·후기</p></div></div></section>
+<section class="section" id="quiz"><div class="label">09 · 수업 중 이해도 확인</div><h2>바로 풀어보는 4문항</h2><div class="q" data-answer="b"><strong>Q1. “앱을 개발하겠다”는 3-1 내용에 가장 먼저 보완할 것은?</strong><div class="choices"><label><input name="q1" type="radio" value="a"/> 앱 로고 색상</label><label><input name="q1" type="radio" value="b"/> 필수 기능·개발 시점·담당자·검증 방법</label><label><input name="q1" type="radio" value="c"/> 해외 유명 앱 이름</label></div><div class="answer">정답 B. 개발 대상과 실행·검증 방안이 명시되어야 실현 가능성을 판단할 수 있습니다.</div></div><div class="q" data-answer="c"><strong>Q2. 3-2의 “판로개척”에 가장 적합한 것은?</strong><div class="choices"><label><input name="q2" type="radio" value="a"/> 브랜드 슬로건 제작</label><label><input name="q2" type="radio" value="b"/> 좋아요 수 확대</label><label><input name="q2" type="radio" value="c"/> 체험예약 링크 개설 및 숙박업체 판매 제휴</label></div><div class="answer">정답 C. 판로는 실제 예약·구매 경로와 연결됩니다.</div></div><div class="q" data-answer="a"><strong>Q3. 개발 계획과 홍보 계획에서 일정이 중요한 이유는?</strong><div class="choices"><label><input name="q3" type="radio" value="a"/> 출시 전 개발·검증이 가능한지 확인하기 위해</label><label><input name="q3" type="radio" value="b"/> 분량을 늘리기 위해</label><label><input name="q3" type="radio" value="c"/> 무조건 1개월 내 매출을 내야 해서</label></div><div class="answer">정답 A. 일정표는 개발-시범운영-출시-홍보의 선후관계를 드러냅니다.</div></div><div class="q" data-answer="b"><strong>Q4. 계획 수치를 제시할 때 옳은 태도는?</strong><div class="choices"><label><input name="q4" type="radio" value="a"/> 목표치를 이미 달성한 실적처럼 작성</label><label><input name="q4" type="radio" value="b"/> 가정·목표·실적을 구분하고 산출 근거 명시</label><label><input name="q4" type="radio" value="c"/> 수치는 생략하고 의지만 강조</label></div><div class="answer">정답 B. 계획과 실제 증거를 구분해야 신뢰할 수 있습니다.</div></div><button class="btn primary hideprint" onclick="grade()">정답 확인</button><b id="score" style="margin-left:12px"></b></section>
+<section class="section" id="rubric"><div class="label">10 · 제출 전 자기 점검</div><h2>계획서를 읽는 사람의 관점에서 확인하세요</h2><div class="check-list" id="checklist"><label><input type="checkbox"/> 상품·서비스의 핵심 구성이 구체적인가?</label><label><input type="checkbox"/> 개발 결과물과 필수 기능이 명확한가?</label><label><input type="checkbox"/> 공간·장비·IT·인력 등 인프라가 확인되는가?</label><label><input type="checkbox"/> 개발 → 시범운영 → 개선 → 출시의 일정이 있는가?</label><label><input type="checkbox"/> 담당자·협력사와 확보 여부를 구분했는가?</label><label><input type="checkbox"/> 인허가·안전·운영 위험 및 대응을 검토했는가?</label><label><input type="checkbox"/> 목표고객과 핵심 메시지가 명확한가?</label><label><input type="checkbox"/> 홍보 채널의 실행 주기·예산 또는 자원이 있는가?</label><label><input type="checkbox"/> 예약·결제·제휴 등 판매 경로가 있는가?</label><label><input type="checkbox"/> 일정표의 활동과 성과지표가 연결되는가?</label><label><input type="checkbox"/> 가정·목표·실적을 구분했는가?</label><label><input type="checkbox"/> 두 문항을 포함하여 전체 4장 이내인가?</label></div><div class="callout"><b id="checkprogress">0 / 12개 항목 확인</b><br/>고득점의 핵심은 화려한 문장이 아니라 <b>산출물·실행자·시점·판로·검증 근거의 연결</b>입니다.</div><h3>학습 활동: 20분 실습</h3><div class="stage"><strong>5분</strong><span>내 아이템의 핵심 상품·서비스·인프라를 1문장씩 정의</span></div><div class="stage"><strong>7분</strong><span>3-1 작성: 3단계 일정 + 담당·필요자원 + 시범검증 기준</span></div><div class="stage"><strong>5분</strong><span>3-2 작성: 타깃 1개 + 홍보 채널 2개 + 판매 경로 1개</span></div><div class="stage"><strong>3분</strong><span>동료와 교환하여 “누가·언제·어떻게·무슨 근거?” 질문 후 보완</span></div><div class="callout orange"><b>제출용 마지막 문장</b> — “사업 아이디어를 구현하는 개발 일정과 고객에게 판매하는 판로 일정이 서로 일치하는가?” 이 질문에 답할 수 있으면 3번 항목의 논리적 연결이 갖춰집니다.</div></section>
+<footer class="footer">관광벤처 사업계획서 작성 실습 | 3. 사업화 역량 및 실현 가능성<br/>본 자료의 사업 아이템·수치·일정·제휴 예시는 교육용 가정으로, 공모사업 공식 평가기준 또는 실제 실적을 의미하지 않습니다.</footer>
+</main></div><div class="toast" id="toast" role="status"></div>
+<script>
+const ids=['item','target','benefit','deliverable','infra','pilot','owner','promo','sales','kpitarget','risk'];
+const $=s=>document.getElementById(s);
+const blank=(id,alt)=>$(id).value.trim()||'['+alt+']';
+function updateDraft(){const lines=[
+'3-1. 상품·서비스·인프라 개발 계획',
+'◦ '+blank('target','핵심 고객')+'을(를) 대상으로 「'+blank('item','사업 아이템명')+'」을 개발·운영한다. 핵심 제공 가치는 '+blank('benefit','고객에게 제공할 구체적 경험·편익')+'이다.',
+' - 1개월 차 개발 결과물: '+blank('deliverable','개발 산출물')+'.',
+' - 2개월 차 시범운영 및 검증: '+blank('pilot','시범운영 규모와 검증 내용')+'.',
+' - 핵심 인프라·운영 자원: '+blank('infra','시설·장비·IT 등')+'.',
+' - 실행 담당·협력 주체: '+blank('owner','담당자/협력 주체')+'.',
+' - 검증 결과를 바탕으로 문제점을 개선한 후 정식 상품을 출시한다.',
+'',
+'3-2. 홍보 및 판로개척',
+'◦ '+blank('target','목표고객')+'을(를) 대상으로 상품의 핵심 가치를 전달하고, 실제 예약·구매로 연결한다.',
+' - 홍보 방법 및 주기: '+blank('promo','홍보채널 및 운영주기')+'.',
+' - 예약·판매 경로: '+blank('sales','판로와 결제방식')+'.',
+' - 3개월 차 정량 목표(계획치): '+blank('kpitarget','측정 가능한 목표')+'.',
+' - 핵심 위험 및 대응: '+blank('risk','위험 대응계획')+'.',
+' - 월별로 채널별 유입·문의·예약·판매를 점검해 성과가 높은 판로를 집중 운영한다.'
+];$('draft').textContent=lines.join('\n');try{localStorage.setItem('venture3_fields',JSON.stringify(Object.fromEntries(ids.map(id=>[id,$(id).value]))))}catch(e){}}
+function toast(msg){const e=$('toast');e.textContent=msg;e.classList.add('show');clearTimeout(window._toastTimeout);window._toastTimeout=setTimeout(()=>e.classList.remove('show'),2200)}
+async function copyText(id){const content=$(id).innerText;try{await navigator.clipboard.writeText(content);toast('복사했습니다. 필요한 부분을 수정하세요.')}catch(e){let t=document.createElement('textarea');t.value=content;document.body.appendChild(t);t.select();try{document.execCommand('copy');toast('복사했습니다.')}catch(x){toast('텍스트를 선택해 복사해 주세요.')}t.remove()}}
+function resetForm(){if(!confirm('실습 입력 내용을 초기화할까요?'))return;ids.forEach(id=>$(id).value='');try{localStorage.removeItem('venture3_fields')}catch(e){}updateDraft();toast('입력 내용을 초기화했습니다.')}
+function grade(){let correct=0;document.querySelectorAll('.q').forEach((q,i)=>{let chosen=q.querySelector('input:checked');q.classList.add('show');if(chosen&&chosen.value===q.dataset.answer)correct++});$('score').textContent=correct+' / 4문항 정답';toast('정답과 해설을 확인해 보세요.')}
+function updateProgress(){const a=[...document.querySelectorAll('#checklist input')];$('checkprogress').textContent=a.filter(x=>x.checked).length+' / '+a.length+'개 항목 확인'}
+try{let o=JSON.parse(localStorage.getItem('venture3_fields')||'{}');ids.forEach(id=>{if(o[id])$(id).value=o[id]})}catch(e){}ids.forEach(id=>$(id).addEventListener('input',updateDraft));updateDraft();document.querySelectorAll('#checklist input').forEach(x=>x.addEventListener('change',updateProgress));
+const links=[...document.querySelectorAll('.side nav a')];if('IntersectionObserver' in window){const obs=new IntersectionObserver(entries=>{entries.filter(e=>e.isIntersecting).forEach(e=>{links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))})},{rootMargin:'-10% 0px -70% 0px'});document.querySelectorAll('.section').forEach(s=>obs.observe(s))}
+
+// Top writing spaces remain blank unless the user writes or deliberately chooses an example.
+const workIds=['write31','write32'];
+const exampleTexts={
+ write31:'◦ 주말 경북 여행객을 대상으로 지역 카페·로스터리와 협력한 「90분 로컬 커피 스토리 투어」 1종을 개발한다.\n - 1개월 차: 코스·운영 시나리오와 안전 체크리스트 각 1종을 제작하고 협력 매장과 운영 일정을 협의한다.\n - 2개월 차: 예약 페이지를 구성하고 시범운영 4회, 참여자 20명의 의견을 수집해 동선·운영시간을 개선한다.\n - 3개월 차: 매뉴얼 확정과 체험 진행자 교육 후 정식 출시한다. [교육용 가정치, 확보 여부 확인 필요]',
+ write32:'◦ 경북 지역의 주말 개별여행객을 주요 목표고객으로 설정하고 “지역 이야기를 맛보는 90분 커피 여행”을 핵심 홍보 메시지로 활용한다.\n - 1개월 차: 상품 상세페이지·콘텐츠 사진을 제작하고 예약 링크를 정비한다.\n - 2개월 차: 인스타그램 숏폼 주 2회 게시, 제휴 카페 현장 QR 홍보를 진행한다.\n - 3개월 차: 자체 예약페이지와 지역 숙박업체 제휴 2곳을 통해 유료예약 30건을 목표로 한다. [교육용 가정치, 실적과 구분]'
+};
+function syncWorkspaces(){
+ try{localStorage.setItem('venture3_workspaces_v2',JSON.stringify(Object.fromEntries(workIds.map(id=>[id,$(id).value]))))}catch(e){}
+ for(const id of workIds){const t=$(id).value;$(id==='write31'?'count31':'count32').textContent=t.length.toLocaleString('ko-KR')+'자 작성';$(id==='write31'?'print31':'print32').textContent=t||'작성 내용이 없습니다.'}
+}
+function insertOutline(id){const area=$(id);const template='◦ \n - \n - \n - ';if(area.value.trim()&&!confirm('기존 작성내용을 기본 틀로 바꾸시겠습니까?'))return;area.value=template;syncWorkspaces();area.focus();toast('기본 틀을 넣었습니다.');}
+function loadExample(id){const area=$(id);if(area.value.trim()&&!confirm('기존 작성내용을 교육용 예시로 바꾸시겠습니까?'))return;area.value=exampleTexts[id];syncWorkspaces();area.focus();toast('교육용 예시를 넣었습니다. 실제 상황에 맞게 수정하세요.');}
+function clearWriting(id){if(!$(id).value)return;if(!confirm('작성칸 내용을 비우시겠습니까?'))return;$(id).value='';syncWorkspaces();$(id).focus();toast('작성칸을 비웠습니다.');}
+async function copyPlain(textValue){try{await navigator.clipboard.writeText(textValue);toast('작성내용을 복사했습니다.')}catch(e){const tmp=document.createElement('textarea');tmp.value=textValue;document.body.appendChild(tmp);tmp.select();try{document.execCommand('copy');toast('작성내용을 복사했습니다.')}catch(error){toast('작성내용을 직접 선택하여 복사해 주세요.')}tmp.remove();}}
+function copyWriting(id){return copyPlain((id==='write31'?'3-1. 상품·서비스·인프라 개발 계획':'3-2. 홍보 및 판로개척')+'\n'+($(id).value||''));}
+function writingAllText(){return '3. 사업화 역량 및 실현 가능성\n\n3-1. 상품·서비스·인프라 개발 계획\n'+$('write31').value+'\n\n3-2. 홍보 및 판로개척\n'+$('write32').value;}
+function copyAllWriting(){return copyPlain(writingAllText());}
+function downloadWriting(){const blob=new Blob(['\ufeff'+writingAllText()],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='사업화역량_3-1_3-2_작성내용.txt';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000);toast('작성내용을 TXT로 저장합니다.');}
+function applyGeneratedDraft(){
+ const textValue=$('draft').textContent;const cut=textValue.indexOf('3-2. 홍보 및 판로개척');if(cut<0){toast('초안 구분을 확인해 주세요.');return;}
+ if(workIds.some(id=>$(id).value.trim())&&!confirm('상단의 기존 작성내용을 생성된 초안으로 바꾸시겠습니까?'))return;
+ $('write31').value=textValue.slice('3-1. 상품·서비스·인프라 개발 계획'.length,cut).trim();
+ $('write32').value=textValue.slice(cut+'3-2. 홍보 및 판로개척'.length).trim();
+ syncWorkspaces();$('worksheet').scrollIntoView({behavior:'smooth'});toast('초안을 상단 작성칸에 적용했습니다.');
+}
+try{const stored=JSON.parse(localStorage.getItem('venture3_workspaces_v2')||'{}');for(const id of workIds){if(typeof stored[id]==='string')$(id).value=stored[id];}}catch(e){}
+for(const id of workIds)$(id).addEventListener('input',syncWorkspaces);
+syncWorkspaces();
+</script>
+<script>(function(){
+const data=[{"id":"coffee","who":"임준혁","name":"상주 커피 아카이브","type":"체험형 F&B·원두 판매","scope":"상주 / 커피 취향 탐색·시음 → 원두 구매","source":"1-1·2-1·4-1 첨삭본: 3번 항목은 제출 범위에서 확인되지 않아 신규 작성 제안","core":"일단 대형 매장부터 짓기보다 제휴 카페의 소규모 팝업으로 시음 원가와 구매전환을 실증합니다.","goal":"주말 드라이브를 즐기는 3040 원두 구매 관심층(우선 검증 대상)","product":"소량 비교 시음·취향 기록·원두 추천·지역 식재료 디저트 연계 체험","sales":"제휴 카페 시음 현장 → 원두 구매/예약형 소규모 체험 → 재구매 링크","verify":"시음 1인 원가, 원두 매입원가·마진, 구매전환율, 부지·위생·공급처 확보 여부","gate":"시음 비용과 원두 구매전환율이 실측으로 확인되기 전에는 상설 대형 공간 투자·매출을 확정하지 않습니다.","dev":["◦ 커피 시음과 개인 취향 분석을 결합한 관광 체험상품 개발"," - 1~2개월차에는 원두 4~6종을 비교 시음할 수 있는 프로그램을 기획하고, 향미 평가표·취향 기록지·개인별 원두 추천표를 제작한다. 동시에 원두 공급처, 시음 원가, 운영 장소와 위생 요건을 검토한다."," - 3~4개월차에는 시범 참여자를 대상으로 소량 시음, 향미 해설, 원두 추천 및 구매 안내를 통합한 프로그램을 운영하고 고객 만족도와 구매 의향을 조사한다."," - 5~6개월차에는 시범운영 결과를 반영하여 체험 절차와 가격을 확정하고, 원두 판매 및 지역 식재료 디저트 연계 체험을 단계적으로 출시한다."],"mkt":["◦ 주말 관광객과 커피 취향 탐색 고객을 대상으로 체험 예약과 원두 구매를 연결하는 판매 경로 구축"," - 1~2개월차에는 상주 방문 관광객과 원두 소비자를 주요 고객으로 선정하고, 인스타그램·네이버 플레이스 등에서 시음 체험의 차별성을 소개한다."," - 3~4개월차에는 지역 카페 및 관광사업자와 협력 가능성을 검토하고, 체험 예약 페이지와 현장 원두 구매 안내를 운영한다."," - 5~6개월차에는 시음 참여자에게 취향별 원두 구매 링크를 제공하고, 체험 예약 건수·시음 원가·원두 구매전환율·재구매 건수를 측정하여 수익성을 검증한다."],"kpi":["팝업 시범운영 횟수","1인 시음 원가","시음 → 원두 구매전환율","원두 1개당 공헌이익"],"road":["원두 4~6종·향미표·시음 원가·장소 조사","소량 시음 시범운영·구매의향 조사","유료 체험·원두 판매·재구매 검증"],"feedback31":["상주 입지·공간은 미확정이면 후보로 표기","무료 시음의 횟수·제공량·원가를 명시","지역 디저트 공급계약과 위생 관련 사항 확인"],"feedback32":["주요 구매고객을 3040 1집단으로 먼저 설정","무료 시음객과 유료 구매고객을 구분","SNS 조회가 아닌 실제 원두 구매전환을 측정"]},{"id":"space","who":"차진희","name":"㈜시공간컴퍼니 / 시공간","type":"포항 초단기 관광서비스","scope":"포항 / 체크아웃 후 2~3시간 짐 없는 로컬투어","source":"첨삭본에서 3-1·3-2 세부 항목 미확인, 추가 작성 필요로 표시","core":"풀앱 개발보다 예약·짐 인수·동선·귀환을 먼저 검증하는 MVP가 적절합니다.","goal":"포항 숙소 체크아웃 후 귀환 전 시간이 남는 관광객","product":"짐 인계·보관 확인 + 2~3시간 로컬코스 + 정시귀환 안내","sales":"숙박업소 안내·역 주변 접점 → 모바일 예약 → 투어 참가비 결제","verify":"실제 짐 관리 가능 업체·계약, 투어 인원별 원가, 일정 지연 대책, 보험·책임범위","gate":"짐 수령·정시 귀환에 대한 운영책임과 안전·보험체계를 확정하지 않으면 유료투어를 시작하지 않습니다.","dev":["◦ 숙박시설 체크아웃 이후의 유휴시간을 활용하는 짐 보관 연계형 초단기 로컬투어 개발"," - 1~2개월차에는 포항역·숙박시설·주요 관광지를 연결하는 2~3시간 관광코스를 설계하고, 짐 인계·보관 및 반환이 가능한 협력업체를 조사한다."," - 3~4개월차에는 모바일 예약폼, 참가자 확인, 짐 인수증, 투어 일정표, 귀환 알림 기능을 갖춘 최소기능서비스(MVP)를 구축하고 시범투어를 운영한다."," - 5~6개월차에는 이동시간·운영원가·짐 관리·정시 귀환 여부를 평가하고, 제휴계약과 보험·안전 책임범위를 확인한 후 유료 관광상품 운영을 추진한다."],"mkt":["◦ 포항 숙박객의 체크아웃 시점을 활용한 현장 홍보 및 모바일 예약 판매체계 구축"," - 1~2개월차에는 포항역 인근 숙박업소와 관광안내 접점을 중심으로 잠재 제휴처를 발굴하고, 체크아웃 후 관광상품 안내자료와 예약 페이지를 제작한다."," - 3~4개월차에는 제휴가 가능한 숙박업소의 객실 안내문, 체크아웃 안내 메시지, SNS를 활용하여 상품을 홍보하고 소규모 유료 시범예약을 모집한다."," - 5~6개월차에는 예약 완료율, 참가비 매출, 제휴 숙소별 유입 건수, 정시 귀환율을 분석하여 판매 효율이 높은 채널을 중심으로 운영한다."],"kpi":["제휴 숙소 협의/계약 수","시범투어 유료 예약 건수","정시 귀환 준수율","짐 인계·반환 오류 건수"],"road":["동선·짐 관리 제휴처·예약 설계","예약폼·짐 인수증·귀환 알림 시범","안전·책임·원가 검증 후 유료 판매"],"feedback31":["서비스 구성요소와 책임 주체를 명확히","짐 분실·열차 지연·우천 등 예외 시나리오 필요","실제 앱 개발 여부를 MVP 결과로 판단"],"feedback32":["호텔 체크아웃·역 귀환이라는 구체적 접점 활용","홍보 채널별 예약전환 및 비용 계산","계약하지 않은 숙소를 제휴 확정으로 쓰지 않기"]},{"id":"busk","who":"이영훈","name":"BuskBridge","type":"버스킹 공연정보 플랫폼","scope":"부산 / 관광객-버스커 공연정보 연결","source":"버스커 모집·정보 품질·실행계획 코멘트 기반 신규 3-1/3-2 제안","core":"관객 모집 이전에 공연정보 공급자 확보와 정보 갱신 프로세스를 설계합니다.","goal":"부산의 한 관광권역에서 당일 공연을 찾는 자유여행객","product":"일자·장소·장르별 공연 검색, 공연자 등록, 취소·변경 알림","sales":"버스커 등록 → 공연정보 노출 → 관광객 검색; 선택형 유료노출은 후속 검증","verify":"부산 기존 서비스와의 차이, 공연 장소 규정, 정보 수집동의, 광고 표시·수익모델","gate":"등록된 공연의 실제 개최 여부와 기존 서비스 대비 탐색 편익을 확인한 뒤 수익형 광고 기능을 검토합니다.","dev":["◦ 부산 관광객이 버스킹 공연의 시간·장소·장르를 확인할 수 있는 모바일 공연정보 서비스 개발"," - 1~2개월차에는 부산의 기존 공연정보 서비스를 비교하고, 공연 일정 검색·공연자 등록·공연 위치 확인 기능을 중심으로 모바일 웹 MVP를 설계한다."," - 3~4개월차에는 공연자의 동의를 받아 공연정보를 등록하고, 공연 취소·시간 변경·장소 이동 등의 정보 수정 절차와 관리자 검증 기능을 구축한다."," - 5~6개월차에는 부산의 특정 관광지역에서 시범운영을 실시하고, 공연정보 정확도·검색 성공률·공연자 참여율을 평가하여 정식 서비스 범위를 결정한다."],"mkt":["◦ 버스커 확보와 관광객 유입을 동시에 추진하는 양면 플랫폼 마케팅 운영"," - 1~2개월차에는 부산에서 활동하는 버스커와 공연 관련 커뮤니티를 대상으로 서비스 참여를 안내하고, 공연 등록 의향을 조사한다."," - 3~4개월차에는 관광객 대상 SNS 홍보와 공연 현장 QR코드 안내를 통해 공연정보 검색 서비스를 알리고 실제 이용 데이터를 수집한다."," - 5~6개월차에는 공연 등록 건수·관광객 검색 이용·재방문율을 분석하고, 광고성 정보의 명확한 표시와 이용자 수용성을 검증한 뒤 선택형 유료 홍보상품 등의 수익모델 도입 여부를 판단한다."],"kpi":["활성 버스커 수","유효 공연정보 비율","공연 탐색 성공률","정보변경 반영 소요시간"],"road":["기존 서비스 비교·모바일 MVP 설계","공연자 동의·등록·변경 알림","공연 검색 검증·수익화 가능성 판단"],"feedback31":["“플랫폼 구축”보다 필수 검색·등록·검증 기능 정의","장소별 공연 규정 및 정보갱신 책임자 지정","다국어·추천은 초기 필수기능과 구분"],"feedback32":["버스커 공급 확보와 관광객 유입을 따로 설계","광고 유료노출은 신뢰·표시 문제 사전 검토","가입자보다 정확도와 검색 성공률을 우선 관리"]},{"id":"hanji","who":"서용주","name":"한지 놀지","type":"가족형 전통문화 체험","scope":"안동 / 유아·초등 가족 대상 한지죽 오감놀이","source":"연령별 난이도·안전·현장 체험 검증 첨삭 기반 계획 제안","core":"3~5세와 초등학생의 체험안을 나누고 위생·보호자 동행을 포함한 운영 표준을 만듭니다.","goal":"안동·예천 지역을 방문한 유아 또는 초등학생 동반 가족","product":"한지죽 촉감놀이·종이뜨기·창작활동을 결합한 예약형 가족 체험","sales":"가족 예약링크 → 유료 체험권 / 교육기관·숙박업소 연계 문의","verify":"실제 체험장·재료 조달, 원료·위생·알레르기/안전, 연령제한, 보호자 참여, 가격","gate":"유아 체험의 재료·위생·안전과 보호자 동행 기준이 마련되지 않으면 유료운영을 진행하지 않습니다.","dev":["◦ 유아와 초등학생의 발달 수준을 고려한 안동 한지 오감 체험 프로그램 개발"," - 1~2개월차에는 한지죽 감각놀이, 종이뜨기, 창작활동으로 구성된 체험 시나리오를 설계하고, 유아·초등 저학년·고학년별 난이도와 보호자 참여 기준을 구분한다."," - 3~4개월차에는 한지 재료와 체험 도구를 확보하고, 재료 안전성·위생·알레르기 가능성·시설 이용 조건을 검토한 후 가족 대상 시범프로그램을 운영한다."," - 5~6개월차에는 연령별 만족도, 운영시간, 재료비, 강사 인건비를 분석하여 프로그램을 개선하고 예약형 유료 체험상품으로 출시한다."],"mkt":["◦ 안동을 방문하는 자녀 동반 가족을 대상으로 온라인 예약과 지역 기관 연계 판매 추진"," - 1~2개월차에는 자녀 동반 가족여행객을 핵심 고객으로 설정하고, 체험 장면·교육적 가치·보호자 참여 방법을 소개하는 SNS 홍보 콘텐츠를 제작한다."," - 3~4개월차에는 지역 숙박업소와 교육기관에 프로그램을 제안하고, 가족 단위 시범체험을 통해 후기와 개선 의견을 수집한다."," - 5~6개월차에는 온라인 예약 페이지를 통해 가족 체험권을 판매하고, 가족 예약 건수·체험 참가인원·고객 만족도·재방문 의향을 분석한다."],"kpi":["연령별 프로그램 완성 수","체험 회차/예약률","보호자 만족도","안전·위생 문제 건수"],"road":["연령별 한지 오감 체험 구성","안전·위생 확인·가족 대상 시범","원가·만족도 검증·체험권 판매"],"feedback31":["만 3세와 초등학생을 동일 난이도로 운영하지 않기","재료·위생·안전 및 동행 보호자 기준 구체화","예약 가능 회차와 진행인력의 실제 용량 계산"],"feedback32":["실제 비용을 결제하는 부모를 구매고객으로 명시","연령·시간·안전정보가 포함된 홍보물 작성","유아 이용자 수보다 가족 예약률을 우선 측정"]},{"id":"adco","who":"박준영","name":"ADCO-NNECT","type":"안동 로컬 B2B MICE","scope":"안동 / 헤리티지·미식 융합 기업행사","source":"PCO·공간 중개·식재료 경매 동시 추진 관련 첨삭에서 초기 핵심 서비스 1개 선정 권고","core":"기업행사·공간중개·식재료 경매를 동시에 열기보다 첫 유료 고객을 위한 B2B 행사 1종부터 검증합니다.","goal":"안동 로컬 콘텐츠를 활용한 기업·단체 행사 기획자 또는 발주처","product":"안동 헤리티지와 미식을 결합한 B2B 쇼케이스·포럼 시범 운영","sales":"행사 발주처 직접 영업 → 제안서·견적 → 계약금·행사비 정산","verify":"행사장 사용권, 참여 생산자 동의, 식품위생·납품·IP 권리, 업체별 계약상대방, 행사 원가","gate":"장소·식품·지식재산권 등의 계약 관계가 확인되기 전에 중개 수수료나 독점 IP 매출을 확정하지 않습니다.","dev":["◦ 안동의 전통문화 공간과 지역 미식자원을 활용한 기업 대상 B2B 행사상품 개발"," - 1~2개월차에는 기업 고객을 대상으로 제공할 소규모 비즈니스 포럼 및 미식 쇼케이스 상품을 기획하고, 행사장 사용 가능 여부, 참여업체, 식음료 공급업체, 콘텐츠 사용권을 조사한다."," - 3~4개월차에는 행사 진행 시나리오, 공간 배치, 운영인력, 식음료 제공 방식과 견적서를 작성하고, 협력업체와 참여 조건을 협의한다."," - 5~6개월차에는 소규모 시범행사를 통해 행사 운영비와 고객 만족도를 검증하고, 기업별 수요에 따라 프로그램을 선택할 수 있는 B2B 행사 패키지를 개발한다."],"mkt":["◦ 기업 행사 담당자와 기관 발주처를 대상으로 직접 영업하는 계약 중심 판매체계 구축"," - 1~2개월차에는 기업·협회·기관 등 잠재 발주처를 분류하고, 행사상품 소개서와 맞춤형 제안서 및 표준 견적서 양식을 제작한다."," - 3~4개월차에는 잠재 발주처에 직접 제안하고 상담을 진행하며, 현장답사와 시범 쇼케이스를 통해 상품의 운영 가능성을 설명한다."," - 5~6개월차에는 상담 결과를 바탕으로 유료 행사계약 체결을 추진하고, 제안서 발송 건수·상담 건수·견적 요청 건수·계약 체결률과 행사별 영업이익을 관리한다."],"kpi":["기업 발주처 상담 수","견적/제안서 요청 건수","시범행사 운영비·손익","제안 → 유료계약 전환율"],"road":["행사상품·장소·공급업체·권리 조사","시나리오·견적서·참여조건 협의","시범 쇼케이스·B2B 발주 계약 추진"],"feedback31":["PCO·공간매칭·경매 중 무엇이 첫 유료상품인지 확정","식자재와 IP 거래의 계약권한을 따로 검토","바이어 300명 등 대규모 실적 가정 사용 주의"],"feedback32":["광고 조회수보다 B2B 미팅·견적·계약 건수 관리","기업 구매자의 발주 주기·예산·의사결정자 조사","계약하지 않은 거래를 확정 매출로 기재 금지"]},{"id":"gachiga","who":"김한철","name":"가치가","type":"관광교통 정보·매칭","scope":"여수 등 후보 지역 / 무차량 1인 관광객 이동 문제","source":"학생 서술의 합승·호출·정산 적법성 미검증 및 3번 항목 미확인 코멘트 기반","core":"합승 주선은 허용 여부를 먼저 확인합니다. 첫 검증은 교통안내·수요조사와 적법한 운영사업자 제휴 가능성 중심으로 설계합니다.","goal":"자가용이 없는 20~23세 대학생 1인 여행객(검증 가설)","product":"여행 동선·대체교통 안내 및 합법적 사업자 연동 가능성 검증","sales":"초기 수요조사 → 적법한 운송·호출 사업자 제휴 검토 → 승인된 판매·수수료 구조","verify":"현행 합승·호출·알선·정산 법령, 운송사업자 권한, 개인정보·안전, 대중교통 API 제공 범위","gate":"법률·인허가·제휴 근거가 마련되지 않은 합승 중개·요금 분담·결제 기능은 유료 시범서비스를 개시하지 않습니다.","dev":["◦ 차량이 없는 개별 관광객의 이동 불편을 줄이는 관광 교통정보 서비스 개발"," - 1~2개월차에는 여수 주요 관광지와 교통거점을 중심으로 대중교통 배차정보·예상 이동시간·교통비 비교가 가능한 정보 제공 기능을 설계한다."," - 3~4개월차에는 지도 및 대중교통 API 활용 가능성을 확인하고, 여행자가 출발지와 목적지를 입력하면 이용 가능한 이동수단과 대체 경로를 안내하는 MVP를 제작한다."," - 5~6개월차에는 여행자의 경로 검색 성공률과 정보 정확성을 검증하고, 합승·호출·운송 알선·요금 정산 관련 법령과 사업자 권한을 확인한 뒤 적법한 사업자 연계 기능의 도입 여부를 결정한다."],"mkt":["◦ 무차량 개별여행객의 실제 이동 수요를 검증하고 적법한 교통사업자 제휴를 통한 판매 가능성 확보"," - 1~2개월차에는 여수 방문 대학생과 개별여행객을 대상으로 교통비 부담과 이동 불편에 관한 설문조사를 진행하고, 수요가 높은 이동 구간을 선정한다."," - 3~4개월차에는 여행자 커뮤니티와 SNS를 통해 교통정보 안내 서비스를 알리고, 운송·호출 관련 사업자에게 합법적 제휴 가능성을 문의한다."," - 5~6개월차에는 경로 검색 건수와 재이용률을 분석하고, 법적 요건 및 계약 구조가 확인된 경우에 한해 정식 제휴 서비스와 수익배분 모델을 검토한다."],"kpi":["교통정보 탐색 성공률","고객 인터뷰·구간 조사 수","안전 우려·이용의향","적법한 제휴 검토 상태"],"road":["여수 이동 구간·교통비·수요 조사","교통정보 MVP·적법 제휴 타진","정보 정확도·이용률·법적 조건 검토"],"feedback31":["택시 합승·요금분담을 현재 허용된 사업으로 단정 금지","교통정보 API 정확도와 책임 소재 확인","적법한 제휴가 없으면 합승 중개 실험을 실시하지 않기"],"feedback32":["대학생 1인 여행객으로 초기 고객을 좁히기","“이용의향”과 실제 유료 결제는 별개","법률 검토 이전 수수료·매출 계획은 조건부로 작성"]},{"id":"from","who":"박상준","name":"FROM:","type":"친환경 식사용기 제조·B2B","scope":"사과 부산물 / 관광지 식음료 매장·축제 납품 가능성","source":"첨삭본 3-1·3-2 공란에 대한 원료·성능시험·B2B 영업 수정지시 반영","core":"재료조달→배합→금형/시제품→식품접촉·누수시험→실사용 테스트→양산견적의 순서를 지킵니다.","goal":"관광지 음식점·카페·지역축제 식음료 운영자(초기 B2B 검증 고객)","product":"지역 사과 가공 부산물을 활용한 식사용기 시제품(성능·환경성은 검증 전)","sales":"식음료 점포 직접 상담 → 샘플 검증 → 소량 납품 계약 → 반복 발주","verify":"사과 부산물 공급량·단가, 식품접촉 안전 기준, 내수·내유·누수 성능, 환경성 주장 근거, 양산원가","gate":"식품접촉 안전성·사용 성능·환경 표시의 근거가 확보되지 않으면 판매·친환경 인증 표현을 진행하지 않습니다.","dev":["◦ 지역 사과 가공 부산물을 활용한 식품용 일회용기 시제품 개발 및 상용화 가능성 검증"," - 1~2개월차에는 지역 사과 가공업체를 대상으로 원료 확보 가능량과 공급단가를 조사하고, 제품 배합 및 성형 공정을 설계한다."," - 3~4개월차에는 식사용기 시제품을 제작하고, 식품 접촉 안전성·내수성·내유성·누수 성능 등 관련 기준에 따른 시험을 추진한다."," - 5~6개월차에는 시험 결과와 제조원가를 바탕으로 제품 구조를 개선하고, 생산업체의 양산 견적과 원료 공급 안정성을 확인하여 상용화 여부를 결정한다."],"mkt":["◦ 지역 관광지 식음료 업체를 대상으로 샘플 검증과 소량 납품을 연계하는 B2B 판로 확보"," - 1~2개월차에는 관광지 카페, 식당, 축제 운영사를 잠재 구매처로 선정하고 기존 식사용기 사용량, 구매단가, 요구 성능을 조사한다."," - 3~4개월차에는 성능과 안전성 확인 수준에 따라 제품 자료 및 샘플을 제공하고, 사용성 평가와 구매 의향 조사를 실시한다."," - 5~6개월차에는 기준을 충족한 제품을 대상으로 소량 납품 계약을 추진하고, 상담 업체 수·샘플 테스트 건수·납품 계약 건수·재발주율을 관리한다."],"kpi":["안전/성능 시험 통과 항목","시제품·원가 비교표","B2B 샘플 테스트 수","납품 전환·재주문율"],"road":["원료 확보·성형 공정·공급가 조사","시제품 제작·안전·성능 시험","적합 제품만 테스트·소량 납품"],"feedback31":["성능·안전시험 통과 전 식사용 판매 금지","“친환경” 판단에 코팅·뚜껑·폐기방식 포함","재료·금형·시험비를 견적·산식으로 제시"],"feedback32":["SNS보다 업장 구매담당자 대상 직접 영업 우선","견적 → 테스트 → 납품 → 재주문을 구분","환경성 주장보다 객관적 성능·원가를 제시"]},{"id":"gbzip","who":"고은서","name":"경북.zip / 구미.zip","type":"소도시 로컬 큐레이션","scope":"구미 원도심 / 로컬 체험·상점 연결","source":"공간조성·앱개발 동시 진행 위험 및 구미 1단계 수동 추천 권고 첨삭 반영","core":"초기에는 구미의 검증된 코스·점포 DB와 수동 추천으로 시작하고 건물·자동화는 사용 데이터 검증 뒤 검토합니다.","goal":"구미 원도심의 체험·상점 코스를 찾는 개별여행객","product":"취향별 구미 1일 코스·제휴 점포 안내·방문 인증/혜택(협의 시)","sales":"코스 안내 링크 → 제휴 점포 방문 → 체험 예약/쿠폰 사용 → 수수료·판매모델 협의","verify":"구미 상점 영업시간·상품 품질·개인정보·쿠폰 정산, 공간 확보·비용","gate":"확정되지 않은 유휴공간을 보유 인프라로 제시하거나 점포 동의 없이 쿠폰·방문데이터를 운영하지 않습니다.","dev":["◦ 구미 원도심의 로컬 상점과 관광자원을 연결하는 맞춤형 관광코스 안내 서비스 개발"," - 1~2개월차에는 구미 원도심의 관광자원·음식점·체험시설을 조사하고, 관광객 취향과 체류시간별 추천 코스를 기획한다."," - 3~4개월차에는 추천 코스·지도·제휴 점포 정보를 제공하는 모바일 안내 페이지를 개발하고, 참여 의향이 있는 상점과 방문 인증 및 혜택 제공 조건을 협의한다."," - 5~6개월차에는 관광객 시범이용을 통해 코스 이용률, 점포 방문, 쿠폰 사용 등을 측정하고, 공간 조성 사업은 별도의 시설 확보 및 비용 검증 결과에 따라 추진 여부를 결정한다."],"mkt":["◦ 구미 방문 관광객을 로컬 관광코스로 유입시키고 제휴 점포의 실제 소비와 연결하는 판매체계 구축"," - 1~2개월차에는 구미 방문 개별 관광객을 목표고객으로 설정하고, 지역 관광정보 채널과 SNS를 활용한 관광코스 소개 콘텐츠를 제작한다."," - 3~4개월차에는 참여 점포의 동의를 받아 QR코드 안내 및 방문 혜택을 제공하고, 체험상품 예약 또는 제휴 점포 방문을 유도한다."," - 5~6개월차에는 코스 이용 건수·제휴 점포 방문 건수·예약 및 쿠폰 사용률을 분석하고, 실제 판매성과를 기준으로 제휴 수수료 또는 공동상품 판매모델을 협의한다."],"kpi":["검증된 로컬 코스 수","활성 제휴점포 수","코스 완료·방문 인증율","쿠폰 사용·체험 예약 전환"],"road":["구미 로컬 코스·점포 정보 조사","모바일 안내·참여 상점 조건 협의","방문·쿠폰·예약 성과 검증"],"feedback31":["“경북 전체”보다 구미 원도심 1개 권역부터","앱보다 점포 DB·영업시간 최신성 검증","유휴공간 조성비·확보권한 미확인 시 후속 검토"],"feedback32":["광고성 노출과 실제 지역 상점 방문을 구분","제휴점포별 QR·쿠폰·예약의 거래경로 설명","동의 없는 위치·취향데이터 수집 주의"]},{"id":"localcasse","who":"김다애","name":"로컬카세 (Localcasse)","type":"가이드 동행 소규모 미식투어","scope":"시범지역 1곳 필요 / 로컬 가이드·숨은 맛집 큐레이션","source":"3번 항목 누락 지적, 운영모델·가이드 검증·식비·예약체계 보완 코멘트 반영","core":"첫 시범 지역과 1회 상품구성을 확정하고 가이드 검증·식당예약·고객결제·환불 책임을 명확히 합니다.","goal":"검증된 로컬 미식 경험을 원하는 소규모 개별여행객·커플","product":"현지 가이드의 2~4인 프라이빗 로컬 미식 투어(지역·시간·식비는 확정 필요)","sales":"SNS·지역 파트너 → 투어 상세페이지 → 사전예약·결제 → 식당·가이드 정산","verify":"지역 확정, 가이드 자격·계약, 메뉴·식비 포함 여부, 예약/취소, 식당 동의, 손익","gate":"가이드·식당과의 조건 및 예약·취소 책임이 정리되기 전에는 “검증된 독점 맛집”이나 확정 수익을 단정하지 않습니다.","dev":["◦ 지역 식당과 현지 가이드를 연계한 2~4인 소규모 예약형 미식 관광상품 개발"," - 1~2개월차에는 시범 운영지역을 선정하고, 지역 식문화·식당·이동 동선·소요시간을 조사하여 2~4인 관광객을 위한 미식투어 코스를 기획한다."," - 3~4개월차에는 현지 가이드와 식당의 참여 가능 여부를 협의하고, 음식 제공 범위·가이드 비용·예약 및 취소 기준을 정한 후 시범투어를 운영한다."," - 5~6개월차에는 투어 만족도와 1회 운영원가를 분석하고, 관련 영업 요건과 협력계약을 확인하여 예약·결제·고객 안내가 가능한 유료 미식투어 상품을 출시한다."],"mkt":["◦ 지역의 숨은 맛집과 현지 가이드의 전문성을 강조한 사전예약형 미식관광 판매체계 구축"," - 1~2개월차에는 소규모 자유여행객을 주요 고객으로 설정하고, 지역 미식 콘텐츠와 가이드 소개를 활용한 SNS 홍보자료를 제작한다."," - 3~4개월차에는 지역 숙박업소 및 관광사업자와 홍보 협력을 논의하고, 투어 상세페이지를 통해 시범예약을 모집한다."," - 5~6개월차에는 예약 페이지에서 유료 투어상품을 판매하고, 예약전환율·투어별 참가인원·운영이익·고객 만족도·재예약 의향을 측정하여 수익성을 검증한다."],"kpi":["유료 시범투어 횟수","가이드·식당 제휴 확인 수","예약 → 실제 참가율","식비·가이드비 차감 후 이익"],"road":["첫 운영지역·코스·식비 구성 확정","가이드·식당 협력조건·시범투어","예약·결제·정산 후 수익성 검증"],"feedback31":["미확정 지역을 먼저 정하고 상품 1종부터","가이드 선발 기준·식당 예약권한·식비 구분","단순 플랫폼 기획보다 1회 투어의 실제 운영가능성"],"feedback32":["고객예약 경로 및 결제·환불 주체 명시","조회수보다 유료예약과 가이드 정산 후 이익","시장 규모나 지불 의향 수치는 원출처 검증"]}];
+const byId=Object.fromEntries(data.map(o=>[o.id,o]));
+let selected='coffee';
+const get=id=>document.getElementById(id);
+const esc=str=>String(str).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function textList(a){return a.map(x=>'<li>'+esc(x)+'</li>').join('')}
+function drawCase(id){
+ if(!byId[id])return;
+ selected=id;const o=byId[id];
+ get('caseChoice').value=id;
+ for(const el of get('casePills').querySelectorAll('button'))el.classList.toggle('selected',el.dataset.case===id);
+ get('caseInsight').innerHTML='<b>'+esc(o.who)+' · '+esc(o.name)+'</b> — '+esc(o.core);
+ get('caseScope').textContent=o.scope;get('caseTarget').textContent=o.goal;get('caseProduct').textContent=o.product;get('caseSales').textContent=o.sales;
+ get('caseDraft31').textContent=o.dev.join('\n');get('caseDraft32').textContent=o.mkt.join('\n');
+ get('caseVerify').textContent=o.verify;get('caseGate').textContent=o.gate;get('caseSource').textContent='근거: '+o.source;
+ get('caseSteps').innerHTML=o.road.map((x,i)=>'<div class="case-step"><b>'+['1~2개월차','3~4개월차','5~6개월차'][i]+'</b><p>'+esc(x)+'</p></div>').join('');
+ get('caseKPIs').innerHTML=o.kpi.map(x=>'<span>'+esc(x)+'</span>').join('');
+ get('caseTip31').innerHTML='<strong>'+esc(o.name)+' · 3-1 조언</strong><ul>'+textList(o.feedback31)+'</ul><p class="caution">검증 우선: '+esc(o.verify)+'</p>';
+ get('caseTip32').innerHTML='<strong>'+esc(o.name)+' · 3-2 조언</strong><ul>'+textList(o.feedback32)+'</ul><p class="caution">전환 경로: '+esc(o.sales)+'</p>';
+ try{localStorage.setItem('venture3_selected_case_v3',id)}catch(e){}
+}
+window.selectCase=function(id,go){drawCase(id);if(go)get('case-selector').scrollIntoView({behavior:'smooth',block:'start'})};
+window.copyCaseSample=function(typ){const o=byId[selected];const v=(typ==='31'?o.dev:o.mkt).join('\n');if(typeof copyPlain==='function')copyPlain(v);else navigator.clipboard?.writeText(v)};
+window.applyCaseSamples=function(){
+ const o=byId[selected];if(!o)return;
+ if(['write31','write32'].some(id=>get(id).value.trim())&&!confirm('현재 작성된 3-1·3-2 내용을 선택한 교육용 예시로 바꾸시겠습니까?'))return;
+ get('write31').value=o.dev.join('\n');get('write32').value=o.mkt.join('\n');
+ if(typeof syncWorkspaces==='function')syncWorkspaces();
+ get('writing31').scrollIntoView({behavior:'smooth',block:'start'});
+ if(typeof toast==='function')toast('선택한 사례를 작성칸에 적용했습니다. 실제 내용으로 검증·수정하세요.');
+};
+// Preserve the original "예시 넣기" buttons, but make them case specific.
+window.loadExample=function(id){
+ const o=byId[selected];if(!o)return;
+ const e=get(id);if(e.value.trim()&&!confirm('기존 작성내용을 선택 사례의 교육용 예시로 바꾸시겠습니까?'))return;
+ e.value=(id==='write31'?o.dev:o.mkt).join('\n');
+ if(typeof syncWorkspaces==='function')syncWorkspaces();e.focus();
+ if(typeof toast==='function')toast('선택한 사례의 6개월 작성 예시를 넣었습니다. 실제 근거에 맞게 수정하세요.');
+};
+const select=get('caseChoice');
+for(const o of data){const option=document.createElement('option');option.value=o.id;option.textContent=o.who+' · '+o.name;select.appendChild(option)}
+select.addEventListener('change',e=>drawCase(e.target.value));
+get('casePills').innerHTML=data.map(o=>'<button type="button" class="case-pill" data-case="'+esc(o.id)+'">'+esc(o.name)+'</button>').join('');
+get('casePills').addEventListener('click',ev=>{const button=ev.target.closest('button[data-case]');if(button)drawCase(button.dataset.case)});
+get('caseMatrixBody').innerHTML=data.map(o=>'<tr data-case="'+esc(o.id)+'" tabindex="0" title="이 사례 작성안 보기"><td>'+esc(o.name)+'</td><td>'+esc(o.product)+'</td><td>'+esc(o.verify)+'</td><td>'+esc(o.sales)+'</td></tr>').join('');
+
+// Report summaries are visible without an accordion; case selection preserves written work.
+get('allSamples').addEventListener('click',ev=>{const btn=ev.target.closest('[data-choose]');if(btn)window.selectCase(btn.dataset.choose,true)});
+get('caseMatrixBody').addEventListener('click',ev=>{const tr=ev.target.closest('tr[data-case]');if(tr)window.selectCase(tr.dataset.case,true)});
+get('caseMatrixBody').addEventListener('keydown',ev=>{if(ev.key==='Enter'||ev.key===' '){const tr=ev.target.closest('tr[data-case]');if(tr){ev.preventDefault();window.selectCase(tr.dataset.case,true)}}});
+try{const old=localStorage.getItem('venture3_selected_case_v3');if(byId[old])selected=old}catch(e){}
+drawCase(selected);
+})();</script></body>
+</html>
