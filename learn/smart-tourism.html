@@ -875,8 +875,24 @@
     /* 파트 05 경북 AX 경진대회 카드 — 흰 바탕 · 네이비 테두리 (2026-11-04) */
     .learn-article #ax2026 > li.hi.tone.navy.box { --s-bg: #fff; --t-bg: #fff; border: 2px solid #123556; }
     /* 위 알약 줄 — 파트 01 · 02 하위 갈래를 점선 묶음으로 (2026-11-04) */
-    .learn-hero .room-bar .rb-parts .rb-sub { display: inline-flex; align-items: center; gap: 3px; padding: 2px 3px; margin-left: -2px; border: 1px dashed #b9cade; border-radius: 999px; }
-    .learn-hero .room-bar .rb-parts .rb-sub a { padding: 2px 7px; font-size: 10px; background: #f4f8fc; }
+    /* 위 알약 줄을 세 줄로 — 배우기(00–04) · 만들고 쓰기(05–11) · 최종결과물, 하위 갈래는 큰 알약에 붙여 한 묶음 (2026-11-04) */
+    .learn-hero .room-bar .rb-parts.rows { display: grid; gap: 7px; }
+    .learn-hero .room-bar .rb-parts .rb-row { display: grid; grid-template-columns: 92px minmax(0,1fr); align-items: center; gap: 8px; }
+    .learn-hero .room-bar .rb-parts .rb-row + .rb-row { padding-top: 7px; border-top: 1px dotted #d6e1ec; }
+    .learn-hero .room-bar .rb-parts .rb-lab { display: flex; flex-direction: column; font-size: 11.5px; font-weight: 800; color: #17365d; line-height: 1.25; }
+    .learn-hero .room-bar .rb-parts .rb-lab small { font-size: 9.5px; font-weight: 700; color: #7f97b0; }
+    .learn-hero .room-bar .rb-parts .rb-items { display: flex; flex-wrap: wrap; align-items: center; gap: 5px 6px; }
+    .learn-hero .room-bar .rb-parts a.rb-m { display: inline-flex; align-items: center; gap: 5px; padding: 3px 10px 3px 3px; font-size: 11px; }
+    .learn-hero .room-bar .rb-parts a.rb-m i { font-style: normal; font-size: 9.5px; font-weight: 800; background: #17365d; color: #fff; border-radius: 999px; padding: 1px 6px; }
+    .learn-hero .room-bar .rb-parts a.rb-m:hover i { background: #fff; color: #17365d; }
+    .learn-hero .room-bar .rb-parts .rb-g { display: inline-flex; align-items: center; gap: 3px; padding: 2px 4px 2px 2px; border-radius: 999px; background: #eef4fa; border: 1px solid #d3e0ec; }
+    .learn-hero .room-bar .rb-parts .rb-sub { display: inline-flex; align-items: center; gap: 3px; }
+    .learn-hero .room-bar .rb-parts .rb-sub a { padding: 2px 7px; font-size: 10px; }
+    .learn-hero .room-bar .rb-parts .fin-row .rb-lab { color: #b71c1c; }
+    @media (max-width: 620px) {
+      .learn-hero .room-bar .rb-parts .rb-row { grid-template-columns: 1fr; gap: 4px; }
+      .learn-hero .room-bar .rb-parts .rb-lab { flex-direction: row; gap: 6px; align-items: baseline; }
+    }
     .learn-article p.dltags.to11 { margin: 10px 0 16px; }
     /* 파트 02 하위 목차 A~D — 파트 머리 바로 밑 알약 줄 (2026-11-04) */
     .learn-article p.sub-abcd { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 8px 0 14px; }
@@ -1513,7 +1529,11 @@
             <li class="pc"><b>수 1 · 2교시</b><span class="tm">(09:00 – 10:50)</span><span class="rm">사회대 <strong>2106호</strong><em>PC실</em></span></li>
             <li class="mv"><b>목요일</b><span class="tm">(09:00 – 12:00)</span><span class="rm">사회대 <strong>3402호</strong><em>네 번 · 3시간</em></span></li>
           </ul>
-          <p class="rb-parts"><a href="#part00">00 한눈에</a><a href="#part01">01 국내 사례</a><span class="rb-sub"><a href="#국내-A">A</a><a href="#국내-B">B</a><a href="#국내-C">C</a><a href="#국내-D">D</a><a href="#국내-E">E</a></span><a href="#part06">02 이론</a><span class="rb-sub"><a href="#개념" title="02-A 개념 · 스마트 관광이란">A 개념</a><a class="sc" href="#척도개발" title="척도개발 5편 복습 — 02-B 어떻게 재나">B 측정 ↓</a><a href="#적용" title="02-C 적용 · 누구에게 · 어떤 기술로">C 적용</a><a href="#기술수용" title="02-D 수용 · 기술수용 이론">D 수용</a></span><a href="#part07">03 연구</a><a class="pp" href="smart-tourism-syllabus-15w-interactive.html" target="_blank" rel="noopener" title="15주 강의계획서 — KCI 논문 138편 · 대주제(계속 늘어남) · 30회차">연구 주제 ↗</a><a href="#part02">04 해외 사례</a><a href="#part03">05 공모전</a><a href="#part04">06 PBL</a><a href="#part05">07 책</a><a href="#part08">08 취업</a><a href="#part09">09 자료실</a><a href="#part10">10 AI</a><a href="#part11">11 실무 과제</a><span class="rb-sep" aria-hidden="true"></span><a class="fin red" href="#과제2"><span class="blink-star" aria-hidden="true">✦</span> 최종결과물 1 · AX 응모신청서</a><a class="fin redo" href="gyeongbuk-ax-form-4-8.html" target="_blank" rel="noopener"><span class="blink-star" aria-hidden="true">✦</span> 응모신청서 4~8쪽 · 웹에서 바로 쓰기 ↗</a><a class="fin" href="#과제4">최종결과물 2 · 업무수행계획서</a></p>
+          <div class="rb-parts rows">
+            <div class="rb-row"><b class="rb-lab">배우기<small>파트 00–04</small></b><span class="rb-items"><a class="rb-m" href="#part00"><i>00</i>한눈에</a><span class="rb-g"><a class="rb-m" href="#part01"><i>01</i>국내 사례</a><span class="rb-sub"><a href="#국내-A">A</a><a href="#국내-B">B</a><a href="#국내-C">C</a><a href="#국내-D">D</a><a href="#국내-E">E</a></span></span><span class="rb-g"><a class="rb-m" href="#part06"><i>02</i>이론</a><span class="rb-sub"><a href="#개념" title="02-A 개념 · 스마트 관광이란">A 개념</a><a class="sc" href="#척도개발" title="척도개발 5편 복습 — 02-B 어떻게 재나">B 측정 ↓</a><a href="#적용" title="02-C 적용 · 누구에게 · 어떤 기술로">C 적용</a><a href="#기술수용" title="02-D 수용 · 기술수용 이론">D 수용</a></span></span><span class="rb-g"><a class="rb-m" href="#part07"><i>03</i>연구</a><span class="rb-sub"><a class="pp" href="smart-tourism-syllabus-15w-interactive.html" target="_blank" rel="noopener" title="15주 강의계획서 — KCI 논문 138편 · 대주제(계속 늘어남) · 30회차">연구 주제 ↗</a></span></span><a class="rb-m" href="#part02"><i>04</i>해외 사례</a></span></div>
+            <div class="rb-row"><b class="rb-lab">만들고 쓰기<small>파트 05–11</small></b><span class="rb-items"><a class="rb-m" href="#part03"><i>05</i>공모전</a><a class="rb-m" href="#part04"><i>06</i>PBL</a><a class="rb-m" href="#part05"><i>07</i>책</a><a class="rb-m" href="#part08"><i>08</i>취업</a><a class="rb-m" href="#part09"><i>09</i>자료실</a><a class="rb-m" href="#part10"><i>10</i>AI</a><a class="rb-m" href="#part11"><i>11</i>실무 과제</a></span></div>
+            <div class="rb-row fin-row"><b class="rb-lab">최종결과물<small>두 가지</small></b><span class="rb-items"><a class="fin red" href="#과제2"><span class="blink-star" aria-hidden="true">✦</span> 최종결과물 1 · AX 응모신청서</a><a class="fin redo" href="gyeongbuk-ax-form-4-8.html" target="_blank" rel="noopener"><span class="blink-star" aria-hidden="true">✦</span> 응모신청서 4~8쪽 · 웹에서 바로 쓰기 ↗</a><a class="fin" href="#과제4">최종결과물 2 · 업무수행계획서</a></span></div>
+          </div>
           <p class="rb-thu"><b>목요일 수업</b><a class="rt-d" href="smart-tourism-weekly-plan.html#attend">9/3</a><a class="rt-d" href="smart-tourism-weekly-plan.html#attend">10/1</a><a class="rt-d" href="smart-tourism-weekly-plan.html#attend">10/29</a><a class="rt-d" href="smart-tourism-weekly-plan.html#attend">11/26</a><span class="rt-n">각 <b>3시간</b>(09:00 – 12:00) · 사회대 3402호</span></p>
         </div>
         <div class="syl-box">
