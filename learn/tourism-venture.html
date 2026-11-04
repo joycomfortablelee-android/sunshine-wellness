@@ -457,6 +457,9 @@
     .learn-article .vt4-row .pick-box .pk-n b { margin: 0; color: #4a5a68; }
     .learn-article .tf-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; align-items: start; margin: 14px 0 6px; }
     .learn-article .tf-pair figure { margin: 0; }
+    /* 그림 하나만 있는 줄 — 정중앙에, 폭은 표 한 칸보다 조금 넓게 (2026-11-04) */
+    .learn-article .tf-pair.tf-solo { grid-template-columns: minmax(0, 1fr); max-width: 720px; margin-left: auto; margin-right: auto; }
+    .learn-article .tf-pair.tf-solo figcaption { text-align: center; }
     .learn-article .tf-pair img { width: 100%; height: auto; border-radius: 8px; border: 1px solid #e1e8ef; }
     .learn-article .tf-pair figcaption { margin-top: 6px; font-size: 12px; line-height: 1.65; color: #4a5a68; text-align: left; }
     .learn-article p.cap-list.tf-notes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 18px; margin: 4px 0 10px; font-size: 12px; line-height: 1.6; color: #4a5a68; }
@@ -3603,7 +3606,7 @@
         <figcaption>예비관광벤처 사업계획서 양식의 첫 표 <strong>「일반현황」</strong>. 왼쪽 표의 네 유형은 <em>사업의 모양</em>으로 나눈 것이고, 실제 신청서에서는 <strong class="hot-t">신청유형 넷 중 하나를 고릅니다(택 1)</strong> — <strong>관광체험서비스 · 실감형관광콘텐츠 · 관광인프라 · 관광딥테크</strong>. 그 아래 <strong>서비스명 20자 · 한줄설명 50자</strong>가 워크북 시트 1 의 칸이고, 맨 아래 <strong>협약목표</strong>(KPI · 매출 · 투자 · 고용)는 선정되면 약속하게 되는 숫자입니다.</figcaption>
       </figure>
       </div>
-      <div class="tf-pair">
+      <div class="tf-pair tf-solo">
         <figure class="tf-a" id="apply-types-4">
         <img src="images/pre-tourism-venture-application-types-four.svg" width="960" height="650" alt="예비관광벤처 신청유형 넷 — ① 관광체험서비스: 관광객이 직접 참여해 즐기는 여행상품·테마코스·체험 프로그램(스토리텔링 테마투어·맞춤형 프라이빗 투어·소규모 특화여행·단체 테마형 프로그램), ② 실감형관광콘텐츠: AR·VR·미디어아트처럼 보고 겪게 만드는 디지털 관광 콘텐츠(메타버스 체험·디지털 전시관·미디어아트 공간·다국어 실감 안내), ③ 관광인프라: 오프라인 시설·공간·자원을 새 콘셉트와 기술로 고도화하는 공간 기반 사업(유휴공간 체험형 관광공간·스마트 관광단지·체류형 복합공간), ④ 관광딥테크: 관광기업·지자체의 운영을 디지털화하는 데이터·SaaS·플랫폼 기반 B2B 솔루션(숙박 운영관리 PMS·POS·CRM·관광데이터 분석과 수요예측·OTA 연동과 정산 자동화)" loading="lazy" />
         <figcaption><strong>신청유형(택 1) 넷</strong> — 사업계획서 「일반현황」의 신청유형 칸, 위 표 셋째 열입니다. 고르는 법은 표 아래에.</figcaption>
