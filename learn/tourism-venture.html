@@ -919,6 +919,23 @@
     .learn-article .pmap-grid.rows > li:nth-child(odd):not(:first-child)::before { content: "↓"; position: absolute; left: 50%; top: -17px; transform: translateX(-50%); font-size: 13px; font-weight: 900; color: #9aa9b8; }
     @media (max-width: 760px) { .learn-article .pmap-grid.rows { grid-template-columns: 1fr; } .learn-article .pmap-grid.rows > li:nth-child(even)::before { content: "↓"; left: 50%; top: -17px; transform: translateX(-50%); } }
     @media (max-width: 620px) { .learn-article .pmap-grid.rows a { grid-template-columns: 1fr; } .learn-article .pmap-grid.rows .pm-x { border-left: 0; padding-left: 0; } }
+    /* 공유숙박 네 차시 + 더 보기 — 이름을 「무엇을 배우나」로, 알약은 그라데이션 (2026-11-04) */
+    .learn-article p.dltags.sl-grad a.mapl.form { border: 0; color: #fff; font-weight: 800; padding: 6px 13px; box-shadow: 0 3px 10px -5px rgba(20,40,60,.45); }
+    .learn-article p.dltags.sl-grad a.mapl.form i { font-style: normal; margin-right: 5px; opacity: .9; }
+    .learn-article p.dltags.sl-grad a.mapl.form small { margin-left: 4px; font-size: 10.5px; font-weight: 700; opacity: .85; }
+    .learn-article p.dltags.sl-grad a.g1 { background: linear-gradient(120deg, #1f6fb2, #4fa3d9); }
+    .learn-article p.dltags.sl-grad a.g2 { background: linear-gradient(120deg, #6a4bb0, #a07ad8); }
+    .learn-article p.dltags.sl-grad a.g3 { background: linear-gradient(120deg, #1f7a5a, #4cb58a); }
+    .learn-article p.dltags.sl-grad a.g4 { background: linear-gradient(120deg, #c2410c, #f08a3c); }
+    .learn-article p.dltags.sl-grad a.g5 { background: linear-gradient(120deg, #5b6b7d, #93a3b5); }
+    .learn-article p.dltags.sl-grad a.mapl.form:hover { filter: brightness(1.08); transform: translateY(-1px); }
+    /* 파트 03 마인드맵 — 글판(넓게) + 그림판(좁게) 한 줄 (2026-11-04) */
+    .learn-article .mm03 { display: grid; grid-template-columns: minmax(0, 1.9fr) minmax(0, 1fr); gap: 14px; align-items: start; margin: 12px 0 6px; }
+    .learn-article .mm03 figure { margin: 0; }
+    .learn-article .mm03 img { width: 100%; height: auto; border-radius: 10px; border: 1px solid #e1e8ef; cursor: zoom-in; }
+    .learn-article .mm03 figcaption { margin-top: 5px; font-size: 11.8px; line-height: 1.55; color: #4a5a68; }
+    .learn-article .mm03-pills { margin: 6px 0 16px; }
+    @media (max-width: 720px) { .learn-article .mm03 { grid-template-columns: 1fr; } }
     .learn-article .fr-sec { margin: 14px 0 6px; font-size: 12.5px; font-weight: 800; color: #7a5200; }
     /* 고용 증명 영상(#hire-proof) — 정중앙 · 설명도 가운데 (2026-11-04) */
     .learn-article #hire-proof { justify-content: center; }
@@ -3815,6 +3832,17 @@
 
       <div class="pt-div" aria-hidden="true"><span>✦</span></div>
       <p class="learn-part pt-part pp-3" id="part03"><span class="pt"><i>파트</i><b>03</b></span><span class="pt-ti">창업의 흐름</span><span class="pt-sub">문제 정의에서 시작해 모델 · 검증 · 지원까지 여섯 장으로 잇습니다. 이 여섯 장이 그대로 <strong>과제 1 사업계획서의 칸</strong>이 됩니다.</span></p>
+      <div class="mm03" id="tv-mindmap">
+        <figure class="mm03-main">
+          <a href="images/tv-03-mindmap-text.webp" target="_blank" rel="noopener"><img src="images/tv-03-mindmap-text.webp" width="2400" height="1520" loading="lazy" alt="관광벤처 창업 전체 마인드맵 — 가운데 「관광벤처 창업 마인드맵 · 문제 → 가치 → 수익 → 검증」. 01 관광벤처란 무엇인가(출발점 · 서비스 유형 · 기반 유형 · 핵심 질문), 02 아이디어는 문제에서 나온다(WHO · WHAT · WHY NOW · 검토 기준), 03 비즈니스 모델(가치 제안 · 고객·채널 · 수익 구조 · 실행 가능성 — 손익 · 위험 2-3 · 개발 3-1 · 판로 3-2), 04 만들기 전에 검증하라(PoC · MVP · KPI · 피벗), 05 혼자 하지 않는다(관광벤처 지원 · 정부 창업 지원 · 지역 창업 지원 · 꼭 확인할 것), 06 사이트와 사례로 배우기(문제→해결 · 홍보·데이터 · 구현·배포 · 비즈니스 모델). 아래 핵심 흐름 ① 문제 발견 → ② 고객·해결책 → ③ 가치·수익 → ④ 시험·검증 → ⑤ 지원·개발 → ⑥ 배포·개선." /></a>
+          <figcaption><b>파트 03 마인드맵</b> — 여섯 장(01~06)이 가운데 「문제 → 가치 → 수익 → 검증」으로 모입니다. <span class="zoom-hint">누르면 크게 보입니다</span></figcaption>
+        </figure>
+        <figure class="mm03-side">
+          <a href="images/tv-03-mindmap-illust.webp" target="_blank" rel="noopener"><img src="images/tv-03-mindmap-illust.webp" width="1218" height="1291" loading="lazy" alt="관광벤처 창업 마인드맵 그림판 — 01 관광벤처란 · 02 아이디어는 문제에서 나온다(누구의 문제 · 어떤 문제 · 왜 지금) · 03 비즈니스 모델(가치 제안 · 고객·채널 · 수익모델) · 04 만들기 전에 검증하라(MVP · 고객 검증 · 측정·학습) · 05 혼자 하지 않는다(관광벤처 · 정부 · 지역 지원) · 실행 도구로 구현하기 · 06 이 사이트를 창업 사례로 읽기, 아래 핵심 흐름 문제 발견 → 아이디어 → 사업 모델 → 검증(MVP) → 지원·실행 → 사업계획서." /></a>
+          <figcaption><b>같은 지도 · 그림판</b> — 아이콘으로 보는 판. <span class="zoom-hint">누르면 크게</span></figcaption>
+        </figure>
+      </div>
+      <p class="dltags mm03-pills"><a class="mapl form hot" href="tourism-venture-mindmap-interactive.html" target="_blank" rel="noopener"><span class="blink-star" aria-hidden="true">✦</span> 파트 03 마인드맵 · 눌러서 펼치는 인터랙티브 판 ↗</a><a class="mapl form" href="#ch01">01 관광벤처란부터 읽기 ↓</a><span class="dl-src">가지를 누르면 장별 핵심이 펼쳐지는 웹 판입니다. 그림 두 장은 같은 내용을 글(왼쪽) · 그림(오른쪽)으로 그린 것입니다.</span></p>
       <figure class="tv-map narrow" id="tv-home-flow">
         <a href="images/tv-02-home-flow.webp" target="_blank" rel="noopener"><img src="images/tv-02-home-flow.webp" width="1024" height="1536" loading="lazy" alt="관광벤처창업론 HOME 흐름도 — 01 관광벤처란 · 02 아이디어는 문제에서 나온다 · 03 비즈니스 모델 · 04 만들기 전에 검증하라(Lean Startup) · 05 혼자 하지 않는다(창업 지원) · 06 이 사이트를 창업 사례로 읽기"></a>
         <figcaption><b>파트 03 여섯 장 지도</b> — 01 관광벤처란 → 02 문제 → 03 비즈니스 모델 → 04 검증 → 05 지원 → 06 이 사이트를 사례로.</figcaption>
@@ -4402,7 +4430,7 @@
       <p>도시에서 창업하면 <strong>손님이 있는 곳</strong>으로 갑니다. 지역에서 창업하면 반대입니다 — <strong>자원이 있는 곳으로 손님을 부릅니다.</strong> 그래서 지역 관광창업은 <em>무엇을 가졌는가</em>에서 시작하고, 가진 것이 대개 <strong>공간과 농산물</strong>입니다.</p>
 
       <p class="learn-part lp-sub" id="공유숙박"><span class="ptag">공유숙박</span>외국인관광 도시민박 · 서울 · 강릉 · 문답 — 네 차시 교안</p>
-      <p class="dltags"><a class="mapl form hot" href="shared-lodging-08w-foreign-urban-minbak.html" target="_blank" rel="noopener">① 8·9주 · 공유숙박 · 외국인관광 도시민박업 ↗</a><a class="mapl form hot" href="shared-lodging-10w-seoul.html" target="_blank" rel="noopener">② 10주 · 서울 공유숙박 창업과 운영 ↗</a><a class="mapl form hot" href="shared-lodging-11-12w-gangneung.html" target="_blank" rel="noopener">③ 11·12주 · 강릉 마당집 ↗</a><a class="mapl form hot" href="shared-lodging-12w-ox-qa.html" target="_blank" rel="noopener"><span class="blink-star">★</span> ④ 12주 · OX 42문항 + 100문100답 ↗</a><a class="mapl form" href="shared-lodging-jeju-pension-farm-minbak.html" target="_blank" rel="noopener">⑤ 더 보기 · 제주 펜션 · 에어비앤비 · 농어촌민박업 (27장) ↗</a><span class="dl-src">업종 · 허가(외국인관광 도시민박업 · 오피스텔 Q&amp;A) → 서울 사례로 창업과 운영 → 강릉 마당집 한 채로 매물 · 계약 · 수익 계산 → 문답 · OX로 점검. 원본 슬라이드 좌우 넘김 · 수익 계산기 · 퀴즈 · 글자 크기 조절(A− / A＋)이 들어 있습니다. 법령 · 플랫폼 정책은 최신 기준을 다시 확인하십시오.</span></p>
+      <p class="dltags sl-grad"><a class="mapl form g1" href="shared-lodging-08w-foreign-urban-minbak.html" target="_blank" rel="noopener"><i>①</i>제도 · 외국인관광 도시민박업이란 <small>8·9주</small> ↗</a><a class="mapl form g2" href="shared-lodging-10w-seoul.html" target="_blank" rel="noopener"><i>②</i>도시 사례 · 서울에서 창업하고 운영하기 <small>10주</small> ↗</a><a class="mapl form g3" href="shared-lodging-11-12w-gangneung.html" target="_blank" rel="noopener"><i>③</i>한 채 따라가기 · 강릉 마당집 매물 · 계약 · 수익 <small>11·12주</small> ↗</a><a class="mapl form g4" href="shared-lodging-12w-ox-qa.html" target="_blank" rel="noopener"><span class="blink-star">★</span> <i>④</i>점검 · OX 42문항 + 100문100답 <small>12주</small> ↗</a><a class="mapl form g5" href="shared-lodging-jeju-pension-farm-minbak.html" target="_blank" rel="noopener"><i>⑤</i>넓혀 보기 · 제주 펜션 · 에어비앤비 · 농어촌민박 <small>27장</small> ↗</a><span class="dl-src">업종 · 허가(외국인관광 도시민박업 · 오피스텔 Q&amp;A) → 서울 사례로 창업과 운영 → 강릉 마당집 한 채로 매물 · 계약 · 수익 계산 → 문답 · OX로 점검. 원본 슬라이드 좌우 넘김 · 수익 계산기 · 퀴즈 · 글자 크기 조절(A− / A＋)이 들어 있습니다. 법령 · 플랫폼 정책은 최신 기준을 다시 확인하십시오.</span></p>
       <p><strong>공간을 파는 일에는 먼저 등록할 칸이 있습니다.</strong></p>
       <div class="tri-wrap tri-green">
         <svg class="tri-line" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polygon points="50,3 97,97 3,97" /></svg>
