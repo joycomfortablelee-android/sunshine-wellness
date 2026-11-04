@@ -563,15 +563,16 @@
     .learn-article .stat4 b { display: block; font-size: 17px; font-weight: 900; color: #1c4e8a; letter-spacing: -.3px; }
     .learn-article .stat4 span { display: block; margin-top: 2px; font-size: 11.5px; color: #5c6b7a; }
     .learn-article .step-tag { display: inline-block; margin-bottom: 4px; padding: 1px 8px; border-radius: 999px; background: #1c4e8a; color: #fff; font-size: 10.5px; font-weight: 800; margin-right: 6px; vertical-align: 2px; }
-    .learn-article .ks-wrap { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; align-items: start; margin: 8px 0 12px; }
-    .learn-article .ks-grp { border: 1px solid #c3daee; border-top: 3px solid #2563a8; border-radius: 10px; background: #fff; padding: 10px 12px; min-width: 0; }
+    .learn-article .ks-wrap { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; align-items: stretch; margin: 8px 0 12px; }
+    .learn-article .ks-grp { border: 1px solid #c3daee; border-top: 3px solid #2563a8; border-radius: 10px; background: #fff; padding: 10px 12px; min-width: 0; height: 100%; }
     .learn-article .ks-grp .ks-h { margin: 0 0 6px; font-size: 12.5px; color: #5c6b7a; }
     .learn-article .ks-grp .ks-h b { font-size: 14px; color: #1c4e8a; }
     .learn-article .ks-grp .kwlist { margin: 0; }
     .learn-article .ks-grp .kwlist li { display: block !important; grid-template-columns: none !important; padding: 6px 0; font-size: 12.5px; line-height: 1.7; }
     .learn-article .ks-grp .kwlist li > span { display: block; }
     .learn-article .ks-grp .kwlist li > b { display: block; margin-top: 6px; font-size: 12.5px; color: #17365d; }
-    @media (max-width: 900px) { .learn-article .stat4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } .learn-article .ks-wrap { grid-template-columns: 1fr; } }
+    @media (max-width: 900px) { .learn-article .stat4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 640px) { .learn-article .ks-wrap { grid-template-columns: 1fr; } }
     .learn-article .tri-follow { grid-template-columns: minmax(0, .9fr) minmax(0, 1.2fr) minmax(0, 1fr) !important; }
     .learn-article .tri-follow ol.why3 { margin: 0 0 6px; padding: 0; list-style: none; counter-reset: w; }
     .learn-article .tri-follow ol.why3 li { counter-increment: w; padding: 6px 0; border-bottom: 1px dashed #f0d2b0; font-size: 12.5px; line-height: 1.55; }
@@ -1441,6 +1442,11 @@
       font-size: 17px; font-weight: 900; letter-spacing: -.2px;
     }
     .learn-article .flowbar i { font-style: normal; color: var(--gold); font-weight: 900; font-size: 24px; line-height: 1; }
+    .learn-article .flowbar.fb6 { gap: 8px; padding: 16px 12px 12px; }
+    .learn-article .flowbar.fb6 b { padding: 8px 15px; font-size: 15px; }
+    .learn-article .flowbar.fb6 b.fb-re { background: #fff; color: #1f6f5c; border: 2px solid #1f6f5c; box-shadow: none; }
+    .learn-article .flowbar.fb6 i { font-size: 20px; }
+    .learn-article .flowbar.fb6 .fb-note { text-align: center; }
     .learn-article .flowbar .fb-note {
       width: 100%; margin: 4px 0 0; font-size: 12.5px; color: var(--muted); line-height: 1.7;
     }
@@ -4072,8 +4078,9 @@
 
       <p class="learn-part lp-core" id="ch04"><span class="num">04</span>만들기 전에 검증하라 — 린 스타트업<a class="poc-jump" href="#poc"><span class="poc-star" aria-hidden="true">✦</span>PoC · MVP 비교 ↓</a><a class="poc-jump kpi-jump" href="#kpi-sec"><span class="blink-star" aria-hidden="true">●</span> KPI 핵심성과지표 ↓</a></p>
       <p>가장 비싼 실수는 아무도 원하지 않는 것을 완벽하게 만드는 것입니다. 그래서 순환이 필요합니다.</p>
-      <div class="flowbar">
-        <b>작게 만들고</b><i>→</i><b>시장에 내고</b><i>→</i><b>배워서 고치기</b>
+      <div class="flowbar fb6">
+        <b>고객에게 묻고</b><i>→</i><b>작게 만들고</b><i>→</i><b>시장 · 기업에 내고</b><i>→</i><b>불만을 듣고</b><i>→</i><b>고치고</b><i>↺</i><b class="fb-re">다시 묻는다</b>
+        <p class="fb-note">만들기 <strong>전에</strong> 고객(B2C) · 기업(B2B)에게 먼저 묻고, 내놓은 <strong>뒤에</strong> 나온 불만 · 이탈 이유가 다음 고칠 거리입니다 — 한 바퀴가 아니라 여러 바퀴.</p>
       </div>
       <div class="tri-wrap tri-blue">
         <svg class="tri-line" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polygon points="50,3 97,97 3,97" /></svg>
