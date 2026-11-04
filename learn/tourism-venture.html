@@ -807,6 +807,34 @@
     .learn-article .learn-part.lp-core.ch-sub { margin: 26px 0 12px 18px; padding: 10px 16px; font-size: 15px; background: linear-gradient(120deg, #3f6a60 0%, #5b8579 100%); box-shadow: 0 3px 10px rgba(43,74,66,.14); }
     .learn-article .learn-part.lp-core.ch-sub .num { width: auto; height: 26px; padding: 0 10px; border-radius: 999px; font-size: 12px; }
     .learn-article p.sub-abcd { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 8px 0 14px; }
+    /* 5-8 관광 관련 업종 25개 아이콘 지도 — 8개 영역을 색 칸으로, 업종은 동그란 아이콘 (2026-11-04) */
+    .learn-article .ind-map { margin: 12px 0 22px; padding: 14px 14px 16px; border: 1px solid #dfe5ec; border-radius: 14px; background: #fbfcfd; }
+    .learn-article .ind-map .im-h { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 6px 14px; margin: 0 0 12px; font-size: 13.5px; color: #17365d; }
+    .learn-article .ind-map .im-lg { font-size: 11.5px; color: #6b7a88; display: inline-flex; align-items: center; gap: 5px; }
+    .learn-article .ind-map .im-lg i { display: inline-block; width: 14px; height: 14px; border-radius: 50%; background: #fff; }
+    .learn-article .ind-map .im-lg i.lg-old { border: 2.5px solid #17365d; }
+    .learn-article .ind-map .im-lg i.lg-new { border: 2px dashed #8a99a8; margin-left: 8px; }
+    .learn-article .ind-map .im-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(215px, 1fr)); gap: 12px; }
+    .learn-article .ind-map .im-g { --c: #2b5f96; --bg: #eef4fb; border-radius: 12px; background: var(--bg); border-top: 4px solid var(--c); padding: 9px 10px 10px; }
+    .learn-article .ind-map .im-g.c1 { --c: #1f6fb2; --bg: #edf5fc; } .learn-article .ind-map .im-g.c2 { --c: #b8662a; --bg: #fdf4ec; }
+    .learn-article .ind-map .im-g.c3 { --c: #2f8a5b; --bg: #eef8f2; } .learn-article .ind-map .im-g.c4 { --c: #8a5cc2; --bg: #f5f0fc; }
+    .learn-article .ind-map .im-g.c5 { --c: #c2417a; --bg: #fcf0f5; } .learn-article .ind-map .im-g.c6 { --c: #6d7d21; --bg: #f5f8e9; }
+    .learn-article .ind-map .im-g.c7 { --c: #4a5a70; --bg: #f1f3f6; } .learn-article .ind-map .im-g.c8 { --c: #0f8a95; --bg: #eaf7f8; }
+    .learn-article .ind-map .im-gt { display: flex; align-items: center; justify-content: space-between; margin: 0 0 7px; font-size: 13px; font-weight: 800; color: var(--c); }
+    .learn-article .ind-map .im-gt small { display: inline-flex; align-items: center; justify-content: center; min-width: 20px; height: 20px; border-radius: 999px; background: var(--c); color: #fff; font-size: 11px; }
+    .learn-article .ind-map ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+    .learn-article .ind-map li a { display: flex; align-items: center; gap: 9px; padding: 5px 8px 5px 5px; border-radius: 10px; background: #fff; text-decoration: none; color: #1c2b3a; border: 1px solid transparent; }
+    .learn-article .ind-map li a:hover { border-color: var(--c); }
+    .learn-article .ind-map .im-ic { flex: none; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; font-size: 20px; background: #fff; border: 2px dashed var(--c); }
+    .learn-article .ind-map li.old .im-ic { border: 2.5px solid var(--c); background: var(--bg); }
+    .learn-article .ind-map .im-tx { min-width: 0; display: flex; flex-direction: column; line-height: 1.35; }
+    .learn-article .ind-map .im-tx b { font-size: 12.5px; font-weight: 800; }
+    .learn-article .ind-map .im-tx b em { font-style: normal; font-size: 10.5px; font-weight: 800; color: var(--c); margin-right: 5px; }
+    .learn-article .ind-map .im-tx span { font-size: 11px; color: #5c6b7a; overflow-wrap: anywhere; }
+    /* 과제 2 학생별 추천 영상 — 노란 과제 상자 밖, 흰 바탕 줄로 (2026-11-04) */
+    .learn-article p.dltags.stu-vids { margin: 10px 0 18px; padding: 10px 12px; border: 1px solid #dfe5ec; border-radius: 10px; background: #fff; }
+    .learn-article p.dltags.stu-vids .sv-h { display: block; width: 100%; margin-bottom: 4px; font-size: 12px; color: #17365d; }
+    .learn-article p.dltags.stu-vids a.mapl { background: #fff; }
     .learn-article p.sub-abcd > b { font-size: 12px; color: #5c6b7a; margin-right: 4px; }
     .learn-article p.sub-abcd a { display: inline-flex; align-items: center; gap: 6px; padding: 4px 11px 4px 4px; border-radius: 999px; background: #eef5f2; border: 1px solid #b9d3c9; color: #2f5148; font-size: 12px; font-weight: 700; text-decoration: none; }
     .learn-article p.sub-abcd a i { font-style: normal; font-size: 11px; font-weight: 900; background: #2f5148; color: #fff; border-radius: 999px; padding: 1px 7px; }
@@ -4394,6 +4422,52 @@
       <p class="learn-part lp-core" id="industry-25"><span class="num n5">5-8</span>관광창업 업종별 이해 — 25개 업종과 사업 사례</p>
       <p>여기까지 업종을 하나씩 들어가 봤다면, 이제 <strong>관광창업 전체 지도</strong>를 한 장으로 펼칩니다 — 관광산업 8개 영역, <strong>05장 관광 관련 업종 25개 통합표</strong>, 사업자등록의 업태 · 종목 · 업종코드, 그리고 <strong>법정 관광사업 · 관광 연계 창업 · 지원사업</strong>이 어떻게 갈리는지. 내 아이템이 <em>어느 업종 칸</em>에 들어가는지 확인하는 자리입니다.</p>
       <p class="dltags"><a class="mapl form hot" href="tourism-startup-industry-25-cases.html" target="_blank" rel="noopener"><span class="blink-star">★</span> 관광창업 업종별 이해와 사업 사례 · 학습 퀴즈 30문항 ↗</a><span class="dl-src">25개 업종 통합표 · 사업자등록(업태 · 종목 · 업종코드) · 사례를 이해하는 <b>3가지 수익모델</b> · 관광벤처창업론 강의 적용 · 퀴즈 30문항(교수자용 정답표 포함).</span></p>
+      <div class="ind-map" aria-label="관광 관련 업종 25개 — 8개 영역별 아이콘 지도">
+        <p class="im-h"><b>한눈에 · 25개 업종 아이콘 지도</b><span class="im-lg"><i class="lg-old"></i>기존 7(5-1~5-7 · 이 장에서 들어가 본 업종) <i class="lg-new"></i>추가 18</span></p>
+        <div class="im-grid">
+          <section class="im-g c1"><p class="im-gt">여행·이동<small>3</small></p><ul>
+            <li class="old"><a href="https://www.hanatourcompany.com/kr/company/overview/about" target="_blank" rel="noopener" title="5-1 여행업 — 하나투어 · 확인 자료"><span class="im-ic" aria-hidden="true">✈️</span><span class="im-tx"><b><em>5-1</em>여행업</b><span>하나투어 ↗</span></span></a></li>
+            <li class="new"><a href="https://info.movv.co/?referer=www.movv.co" target="_blank" rel="noopener" title="5-18 교통 · 모빌리티 — 무브(MOVV) · 확인 자료"><span class="im-ic" aria-hidden="true">🚐</span><span class="im-tx"><b><em>5-18</em>교통 · 모빌리티</b><span>무브(MOVV) ↗</span></span></a></li>
+            <li class="new"><a href="https://ban-life.com/" target="_blank" rel="noopener" title="5-25 특수목적 · 테마 — 반려생활(Banlife) · 확인 자료"><span class="im-ic" aria-hidden="true">🐾</span><span class="im-tx"><b><em>5-25</em>특수목적 · 테마</b><span>반려생활(Banlife) ↗</span></span></a></li>
+          </ul></section>
+          <section class="im-g c2"><p class="im-gt">숙박·식음<small>3</small></p><ul>
+            <li class="old"><a href="https://daejeon.go.kr/fod/ContentsHtmlView.do?menuSeq=7834" target="_blank" rel="noopener" title="5-2 외식 — 대전 성심당 · 확인 자료"><span class="im-ic" aria-hidden="true">🍞</span><span class="im-tx"><b><em>5-2</em>외식</b><span>대전 성심당 ↗</span></span></a></li>
+            <li class="old"><a href="https://korean.visitseoul.net/entertainment/%EB%9D%BD%EA%B3%A0%EC%9E%AC/KOP001183" target="_blank" rel="noopener" title="5-3 민박 · 한옥 — 서울 락고재 · 확인 자료"><span class="im-ic" aria-hidden="true">🏯</span><span class="im-tx"><b><em>5-3</em>민박 · 한옥</b><span>서울 락고재 ↗</span></span></a></li>
+            <li class="new"><a href="https://app.lottehotel.com/global/en/brands/about/lotte-l7" target="_blank" rel="noopener" title="5-8 호텔 · 숙박 — L7 바이 롯데호텔 · 확인 자료"><span class="im-ic" aria-hidden="true">🏨</span><span class="im-tx"><b><em>5-8</em>호텔 · 숙박</b><span>L7 바이 롯데호텔 ↗</span></span></a></li>
+          </ul></section>
+          <section class="im-g c3"><p class="im-gt">체험·레저<small>6</small></p><ul>
+            <li class="old"><a href="https://mediahub.seoul.go.kr/archives/2018913" target="_blank" rel="noopener" title="5-4 스마트팜 — 상도역 메트로팜(팜에이트) · 확인 자료"><span class="im-ic" aria-hidden="true">🌱</span><span class="im-tx"><b><em>5-4</em>스마트팜</b><span>상도역 메트로팜(팜에이트) ↗</span></span></a></li>
+            <li class="new"><a href="https://www.sanghafarm.co.kr/brand/introduce/guide.jsp" target="_blank" rel="noopener" title="5-10 농어촌 체험 — 고창 상하농원 · 확인 자료"><span class="im-ic" aria-hidden="true">🌾</span><span class="im-tx"><b><em>5-10</em>농어촌 체험</b><span>고창 상하농원 ↗</span></span></a></li>
+            <li class="new"><a href="https://frip.co.kr/" target="_blank" rel="noopener" title="5-11 체험 · 액티비티 — 프립(Frip) · 확인 자료"><span class="im-ic" aria-hidden="true">🎨</span><span class="im-tx"><b><em>5-11</em>체험 · 액티비티</b><span>프립(Frip) ↗</span></span></a></li>
+            <li class="new"><a href="https://park-roche.com/" target="_blank" rel="noopener" title="5-12 웰니스 · 치유 — 정선 파크로쉬 리조트앤웰니스 · 확인 자료"><span class="im-ic" aria-hidden="true">🧘</span><span class="im-tx"><b><em>5-12</em>웰니스 · 치유</b><span>정선 파크로쉬 리조트앤웰니스 ↗</span></span></a></li>
+            <li class="new"><a href="https://www.surfyy.com/" target="_blank" rel="noopener" title="5-13 레저 · 스포츠 — 양양 서피비치 · 확인 자료"><span class="im-ic" aria-hidden="true">🏄</span><span class="im-tx"><b><em>5-13</em>레저 · 스포츠</b><span>양양 서피비치 ↗</span></span></a></li>
+            <li class="new"><a href="https://mediround.co.kr/" target="_blank" rel="noopener" title="5-24 의료 · 헬스케어 — 메디라운드(MEDIROUND) · 확인 자료"><span class="im-ic" aria-hidden="true">🏥</span><span class="im-tx"><b><em>5-24</em>의료 · 헬스케어</b><span>메디라운드(MEDIROUND) ↗</span></span></a></li>
+          </ul></section>
+          <section class="im-g c4"><p class="im-gt">관광시설<small>2</small></p><ul>
+            <li class="new"><a href="https://glamtree.co.kr/" target="_blank" rel="noopener" title="5-9 캠핑 · 글램핑 — 가평 글램트리 리조트 · 확인 자료"><span class="im-ic" aria-hidden="true">⛺</span><span class="im-tx"><b><em>5-9</em>캠핑 · 글램핑</b><span>가평 글램트리 리조트 ↗</span></span></a></li>
+            <li class="new"><a href="https://adventure.lotteworld.com/" target="_blank" rel="noopener" title="5-23 테마파크 · 시설 — 롯데월드 어드벤처 · 확인 자료"><span class="im-ic" aria-hidden="true">🎢</span><span class="im-tx"><b><em>5-23</em>테마파크 · 시설</b><span>롯데월드 어드벤처 ↗</span></span></a></li>
+          </ul></section>
+          <section class="im-g c5"><p class="im-gt">문화·콘텐츠<small>3</small></p><ul>
+            <li class="new"><a href="https://mudfestival.or.kr/festival/view" target="_blank" rel="noopener" title="5-15 축제 · 이벤트 — 보령머드축제 · 확인 자료"><span class="im-ic" aria-hidden="true">🎉</span><span class="im-tx"><b><em>5-15</em>축제 · 이벤트</b><span>보령머드축제 ↗</span></span></a></li>
+            <li class="new"><a href="https://korean.visitseoul.net/partners-kr/seoul-goods" target="_blank" rel="noopener" title="5-19 기념품 · 굿즈 — 서울마이소울샵(서울굿즈) · 확인 자료"><span class="im-ic" aria-hidden="true">🎁</span><span class="im-tx"><b><em>5-19</em>기념품 · 굿즈</b><span>서울마이소울샵(서울굿즈) ↗</span></span></a></li>
+            <li class="new"><a href="https://dot-mill.co.kr/" target="_blank" rel="noopener" title="5-20 콘텐츠 · 미디어 — 닷밀(DOTMILL) · 확인 자료"><span class="im-ic" aria-hidden="true">🎬</span><span class="im-tx"><b><em>5-20</em>콘텐츠 · 미디어</b><span>닷밀(DOTMILL) ↗</span></span></a></li>
+          </ul></section>
+          <section class="im-g c6"><p class="im-gt">지역·공동체<small>3</small></p><ul>
+            <li class="old"><a href="https://www.urbanplay.co.kr/About" target="_blank" rel="noopener" title="5-6 로컬크리에이터 — 어반플레이 · 확인 자료"><span class="im-ic" aria-hidden="true">🏘️</span><span class="im-tx"><b><em>5-6</em>로컬크리에이터</b><span>어반플레이 ↗</span></span></a></li>
+            <li class="old"><a href="https://v.daum.net/v/qY58g9PKl3" target="_blank" rel="noopener" title="5-7 관광두레 — 철원 오감투어 · 확인 자료"><span class="im-ic" aria-hidden="true">🤝</span><span class="im-tx"><b><em>5-7</em>관광두레</b><span>철원 오감투어 ↗</span></span></a></li>
+            <li class="new"><a href="https://www.visitbusan.net/index.do?lang_cd=ko&amp;menuCd=DOM_000000202002001000&amp;uc_seq=372" target="_blank" rel="noopener" title="5-21 도시재생 · 문화공간 — 부산 F1963 · 확인 자료"><span class="im-ic" aria-hidden="true">🏭</span><span class="im-tx"><b><em>5-21</em>도시재생 · 문화공간</b><span>부산 F1963 ↗</span></span></a></li>
+          </ul></section>
+          <section class="im-g c7"><p class="im-gt">전문서비스<small>3</small></p><ul>
+            <li class="old"><a href="https://www.consumerinsight.co.kr/boardList?cate=trav" target="_blank" rel="noopener" title="5-5 연구용역 — 컨슈머인사이트 · 확인 자료"><span class="im-ic" aria-hidden="true">📊</span><span class="im-tx"><b><em>5-5</em>연구용역</b><span>컨슈머인사이트 ↗</span></span></a></li>
+            <li class="new"><a href="https://ezpmp.co.kr/" target="_blank" rel="noopener" title="5-14 MICE · 국제회의 — 이즈피엠피(EZPMP) · 확인 자료"><span class="im-ic" aria-hidden="true">🎤</span><span class="im-tx"><b><em>5-14</em>MICE · 국제회의</b><span>이즈피엠피(EZPMP) ↗</span></span></a></li>
+            <li class="new"><a href="https://www.cnet.co.kr/view/?no=20220429155157" target="_blank" rel="noopener" title="5-22 마케팅 · 컨설팅 — 한국SNS인재개발원 · 확인 자료"><span class="im-ic" aria-hidden="true">📣</span><span class="im-tx"><b><em>5-22</em>마케팅 · 컨설팅</b><span>한국SNS인재개발원 ↗</span></span></a></li>
+          </ul></section>
+          <section class="im-g c8"><p class="im-gt">디지털·기술<small>2</small></p><ul>
+            <li class="new"><a href="https://www.myrealtrip.com/" target="_blank" rel="noopener" title="5-16 플랫폼 · OTA — 마이리얼트립 · 확인 자료"><span class="im-ic" aria-hidden="true">📱</span><span class="im-tx"><b><em>5-16</em>플랫폼 · OTA</b><span>마이리얼트립 ↗</span></span></a></li>
+            <li class="new"><a href="https://www.nextunicorn.kr/company/ebcbb6ba87545859?tab=service" target="_blank" rel="noopener" title="5-17 AI · 딥테크 — 마이로(MYRO) · 확인 자료"><span class="im-ic" aria-hidden="true">🤖</span><span class="im-tx"><b><em>5-17</em>AI · 딥테크</b><span>마이로(MYRO) ↗</span></span></a></li>
+          </ul></section>
+        </div>
+      </div>
 
       <div class="pt-div" aria-hidden="true"><span>✦</span></div>
       <p class="learn-part pt-part pp-7" id="part07"><span class="pt"><i>파트</i><b>06</b></span><span class="pt-ti">책 — 교재 세 권</span><span class="pt-sub">기준 교재 두 권 + 사업계획서 작성 참고서 한 권. 가르는 축이 서로 달라, 지금 읽는 대목이 전체의 어디쯤인지 대 보기 좋습니다.</span></p>
@@ -4465,8 +4539,8 @@
         <li><b>낼 것</b><span>좌우로 넘기는 <strong>발표용 HTML 파일 하나</strong> — 영상 제목 · YouTube 링크 포함, 노란색 = 벤처창업 개념 · 파란색 = 영상 속 실제 사례.</span></li>
         </ol>
         <p class="tb-tags"><a class="mapl form hot" href="tourism-venture-eo-korea-case-study.html" target="_blank" rel="noopener">과제 안내 — 좌우 넘김 · 원전 충실형 ↗</a><a class="mapl form" href="https://www.youtube.com/@eo_korea/videos" target="_blank" rel="noopener">EO Korea 전체 영상 ↗</a><a class="mapl form" href="https://www.youtube.com/@eo_korea/playlists" target="_blank" rel="noopener">EO Korea 재생목록 ↗</a><a class="mapl form bm" href="b2b-startup-know-how-55-slides.html" target="_blank" rel="noopener"><span class="blink-star">✦</span> B2B 스타트업 성장전략 55장 ↗</a></p>
-        <p class="tb-tags sub"><b style="font-size:12px;color:#7a5a12;margin-right:4px">학생별 추천 영상</b><a class="mapl form" href="https://youtu.be/jV2LMXsHFxc?t=13" target="_blank" rel="noopener">박준영 추천 · 「지방 소멸을 막을 획기적인 기회 | 킹덤플랜트 IR 피칭, Q&amp;A」 EO Korea ↗</a><a class="mapl form" href="https://youtu.be/YoRtQydl1vU?t=6" target="_blank" rel="noopener">고은서 추천 · 「버려진 공간이 돈이 되는 방법 | 더몽 IR 피칭, Q&amp;A」 EO Korea ↗</a><a class="mapl form" href="https://youtu.be/oIpoYVfInAU?t=12" target="_blank" rel="noopener">박상준 추천 · 「[무삭제] 요즘 배달앱 들어가면 보이는 서비스 | 잇그린 IR 피칭, Q&amp;A」 EO Korea ↗</a><a class="mapl form" href="https://youtu.be/ogLbAgGh0RQ?t=293" target="_blank" rel="noopener">박상준 추천 ② · 「[무삭제] MZ세대 지갑을 여는 3가지 키워드 | 그라인더 IR 피칭, Q&amp;A」 EO Korea ↗</a><a class="mapl form" href="https://youtu.be/4On1sUNPrOo?t=5" target="_blank" rel="noopener">차진희 추천 · 「240만 노인 일자리를 혁신하는 회사 | 내이루리 IR 피칭, Q&amp;A」 EO Korea ↗</a><span class="tb-note">친구가 고른 영상도 과제 2의 두 편 후보로 쓸 수 있습니다 — 누르면 추천한 시점부터 재생됩니다.</span></p>
       </div>
+      <p class="dltags stu-vids"><b class="sv-h">과제 2 · 학생별 추천 영상</b><a class="mapl form" href="https://youtu.be/jV2LMXsHFxc?t=13" target="_blank" rel="noopener">박준영 추천 · 「지방 소멸을 막을 획기적인 기회 | 킹덤플랜트 IR 피칭, Q&amp;A」 EO Korea ↗</a><a class="mapl form" href="https://youtu.be/YoRtQydl1vU?t=6" target="_blank" rel="noopener">고은서 추천 · 「버려진 공간이 돈이 되는 방법 | 더몽 IR 피칭, Q&amp;A」 EO Korea ↗</a><a class="mapl form" href="https://youtu.be/oIpoYVfInAU?t=12" target="_blank" rel="noopener">박상준 추천 · 「[무삭제] 요즘 배달앱 들어가면 보이는 서비스 | 잇그린 IR 피칭, Q&amp;A」 EO Korea ↗</a><a class="mapl form" href="https://youtu.be/ogLbAgGh0RQ?t=293" target="_blank" rel="noopener">박상준 추천 ② · 「[무삭제] MZ세대 지갑을 여는 3가지 키워드 | 그라인더 IR 피칭, Q&amp;A」 EO Korea ↗</a><a class="mapl form" href="https://youtu.be/4On1sUNPrOo?t=5" target="_blank" rel="noopener">차진희 추천 · 「240만 노인 일자리를 혁신하는 회사 | 내이루리 IR 피칭, Q&amp;A」 EO Korea ↗</a><span class="dl-src">친구가 고른 영상도 과제 2의 두 편 후보로 쓸 수 있습니다 — 누르면 추천한 시점부터 재생됩니다.</span></p>
 
       <div class="pt-div" aria-hidden="true"><span>✦</span></div>
       <p class="learn-part pt-part pp-10" id="part10"><span class="pt"><i>파트</i><b>08</b></span><span class="pt-ti">IR 피칭</span><span class="pt-sub">서류가 통과하면 다음은 무대입니다. <strong>몇 분 안에 문제 · 해결 · 시장, 그리고 비전</strong>을 말하는 법을 실제 강의와 실제 무대로 봅니다.</span></p>
