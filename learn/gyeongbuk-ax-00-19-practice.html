@@ -1,73 +1,210 @@
 <!DOCTYPE html>
+
 <html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="스마트관광 중간발표를 경북 AX 응모신청서로 연결하는 통합 실습: AI 설정, 프롬프트 19개, 신청서 항목 연결." name="description"/><title>경북 AX 기말실습 | AI 시작 가이드 + 19단계 프롬프트</title><style id="ax1-style">
 .ax-jump{display:flex;flex-wrap:wrap;gap:9px;margin:19px 0 0;padding:12px 0 0;border-top:1px solid #e5ebf5}.ax-jump a{font-size:14px;text-decoration:none;background:#edf3fd;color:#24476d;border:1px solid #d7e4fa;padding:8px 11px;border-radius:30px;font-weight:700}.ax1{--ink:#19273b;--muted:#576579;--navy:#172e57;--border:#dce4ef;--blue:#265bd8;font-family:Pretendard,'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;color:var(--ink);max-width:1120px;margin:0 auto;padding:14px 22px 90px;font-size:16px;line-height:1.95;box-sizing:border-box}.ax1 *{box-sizing:border-box}.ax1 button,.ax1 input{font:inherit}.ax1 button{cursor:pointer}.ax1 h2,.ax1 h3,.ax1 p{margin:0}.ax1 .eyebrow{font-size:13px;color:var(--blue);font-weight:850;letter-spacing:.08em}.ax1 .h2{font-size:clamp(24px,3vw,34px);line-height:1.35;color:var(--navy);letter-spacing:-.02em;margin:8px 0}.ax1 .intro{color:var(--muted);max-width:900px}.ax1 .unit{border-top:3px solid var(--navy);padding-top:25px}.ax1 .pills{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}.ax1 .pills button{padding:8px 12px;border:1px solid var(--border);border-radius:100px;background:#fff;color:#486078;font-weight:700;font-size:13px}.ax1 .pills button.active{background:#172e57;color:white;border-color:#172e57}.ax1 .app{display:grid;grid-template-columns:275px minmax(0,1fr);border:1px solid var(--border);border-radius:18px;overflow:hidden;min-height:590px;background:#fff}.ax1 .aside{background:#f5f8fc;border-right:1px solid var(--border);padding:19px 13px}.ax1 .search{width:100%;border:1px solid #ccd7e5;border-radius:9px;background:white;padding:10px 12px;margin:10px 0 13px;outline-offset:2px;font-size:14px}.ax1 .steps{max-height:680px;overflow:auto;display:grid;align-content:start;gap:5px}.ax1 .steps button{text-align:left;display:flex;align-items:center;gap:9px;border:1px solid transparent;background:transparent;color:#3a4f66;padding:10px;border-radius:9px;line-height:1.55;font-size:14px}.ax1 .steps button .num{font-weight:900;color:#4270b6;font-size:12px;min-width:24px}.ax1 .steps button.active{background:#e6efff;color:#153e90;border-color:#c8dafa;font-weight:800}.ax1 .steps button.done .num::after{content:' ✓';color:#12846e}.ax1 .steps button:focus-visible{outline:2px solid #265bd8}.ax1 .panel{padding:28px;min-width:0}.ax1 .counter{display:flex;justify-content:space-between;gap:12px;font-size:13px;color:var(--muted);font-weight:700;flex-wrap:wrap}.ax1 .heading{font-size:clamp(22px,2.4vw,29px);color:var(--navy);line-height:1.35;margin-top:13px;letter-spacing:-.02em}.ax1 .mapping{font-size:13px;color:#1b5ab4;font-weight:800;background:#eef4ff;border-radius:8px;display:inline-block;padding:5px 9px;margin-top:11px}.ax1 .halves{display:grid;grid-template-columns:minmax(185px,.78fr) minmax(0,1.22fr);gap:15px;margin-top:19px}.ax1 .flowcol,.ax1 .promptcol{min-width:0;border-radius:13px;border:1px solid #dce4ef;padding:18px}.ax1 .flowcol{background:#f8faff}.ax1 .sectiontag{font-size:12px;letter-spacing:.06em;font-weight:900;color:#5c718d;margin-bottom:11px}.ax1 .flowbox{border:1px solid #cddcf3;border-radius:10px;background:white;text-align:center;padding:12px 9px}.ax1 .flowbox strong{display:block;font-size:14px;color:#1e4f9f}.ax1 .flowbox span{display:block;color:#5a6c81;font-size:13px;margin-top:3px;line-height:1.8}.ax1 .arrow{display:block;text-align:center;color:#6280a6;padding:3px;font-size:22px;line-height:1}.ax1 .promptcol{background:#fff}.ax1 .prompttext{white-space:pre-wrap;overflow-wrap:anywhere;font-size:15px;line-height:2;background:#f6f8fb;border-radius:10px;padding:17px;color:#253648;min-height:280px;user-select:text}.ax1 .note{font-size:14px;background:#edf5ff;border-left:3px solid #3268ce;padding:10px 13px;border-radius:0 7px 7px 0;margin-top:17px}.ax1 .controls{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center;margin-top:19px}.ax1 .controls button,.ax1 .smallbtn{border:1px solid #cdd9e8;border-radius:10px;background:#fff;color:#284769;font-size:14px;font-weight:800;padding:9px 13px}.ax1 button.primary{background:#265bd8;color:#fff;border-color:#265bd8}.ax1 .toast{color:#166c59;font-size:13px;font-weight:800;min-height:20px}.ax1 .caption{font-size:13px;color:#617187;margin-top:15px}.ax1 .footerlinks{display:flex;flex-wrap:wrap;gap:12px;margin-top:21px}.ax1 .footerlinks a{color:#2357b0;font-weight:750}.ax1 .progress-track{height:7px;background:#e5ebf4;border-radius:40px;overflow:hidden;margin:12px 0}.ax1 .progress-fill{height:100%;width:0;background:#265bd8;transition:width .22s}.ax1 .utility{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin-top:16px}.ax1 .utility label{font-size:13px;color:#4a5e77}.ax1 .utility input{accent-color:#2a63d8}.ax1 .originalnotice{font-size:13px;color:#52647a;margin-top:8px}.ax1 .originalnotice a{color:#2357b0}.ax1 .shortcuts{display:none}
 @media(max-width:950px){.ax1 .halves{grid-template-columns:1fr}.ax1 .flowcol{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;align-items:center}.ax1 .flowcol .sectiontag{grid-column:1/-1}.ax1 .flowbox{height:100%}.ax1 .arrow{display:none}}
 @media(max-width:720px){.ax1{padding:18px 13px 70px}.ax1 .app{grid-template-columns:1fr}.ax1 .aside{border-right:none;border-bottom:1px solid var(--border)}.ax1 .steps{max-height:188px;grid-template-columns:1fr 1fr;gap:5px}.ax1 .steps button{font-size:12px;padding:8px}.ax1 .panel{padding:19px}.ax1 .flowcol{grid-template-columns:1fr 1fr}.ax1 .flowbox span{font-size:12px}.ax1 .pills{gap:6px}.ax1 .pills button{font-size:12px;padding:7px 9px}.ax1 .prompttext{min-height:220px}}
 @media print{.ax-jump,.ax1 .aside,.ax1 .controls,.ax1 .pills,.ax1 .utility{display:none!important}.ax1 .app{display:block;border:0}.ax1 .halves{grid-template-columns:1fr 1fr}.ax1{max-width:none}.ax1 .panel{padding:0}}
+</style><style id="ax-map-style">
+#ax-mapping{max-width:1120px;margin:12px auto 35px;padding:28px 22px 34px;font-family:Pretendard,'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;color:#19273b;line-height:1.55;box-sizing:border-box}
+#ax-mapping *{box-sizing:border-box}
+#ax-mapping .axm-top{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:12px}
+#ax-mapping .axm-kicker{font-size:13px;font-weight:900;letter-spacing:.1em;color:#245bba}
+#ax-mapping h2{font-size:clamp(24px,3vw,32px);line-height:1.3;margin:7px 0 11px;color:#172e57}
+#ax-mapping .axm-lead{color:#506077;max-width:900px;font-size:15px;margin:0 0 19px}
+#ax-mapping .axm-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
+#ax-mapping .axm-stage{border:1px solid #dce4ef;border-radius:14px;padding:15px;background:#fff;min-width:0;box-shadow:0 4px 14px rgba(25,40,73,.03)}
+#ax-mapping .axm-stage .axm-num{font-size:12px;letter-spacing:.05em;color:#5d6e83;font-weight:850}
+#ax-mapping .axm-stage h3{margin:7px 0 6px;font-size:17px;color:#182f51}
+#ax-mapping .axm-stage p{margin:0;font-size:13px;min-height:42px;color:#52647b}
+#ax-mapping .axm-chip{display:inline-block;font-size:12px;font-weight:900;background:#f0f4f9;color:#314965;border-radius:6px;padding:4px 8px;margin-top:10px}
+#ax-mapping .axm-matrix{border:1px solid #dce4ef;border-radius:16px;overflow:hidden;background:white;margin-top:22px}
+#ax-mapping .axm-toolbar{padding:16px;background:#f7f9fd;border-bottom:1px solid #dce4ef;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+#ax-mapping .axm-toolbar h3{font-size:18px;margin:0;color:#172e57}
+#ax-mapping .axm-count{font-size:13px;color:#52647b;font-weight:750}
+#ax-mapping .axm-filters{display:flex;gap:7px;flex-wrap:wrap;padding:12px 15px;background:#fff;border-bottom:1px solid #e5eaf2}
+#ax-mapping button.axm-filter{font:inherit;font-size:13px;font-weight:800;border:1px solid #dce4ef;border-radius:100px;background:white;color:#425979;padding:8px 12px;cursor:pointer}
+#ax-mapping button.axm-filter[aria-pressed=true]{background:#172e57;color:white;border-color:#172e57}
+#ax-mapping table{width:100%;border-collapse:collapse;font-size:14px}
+#ax-mapping th{background:#f8faff;text-align:left;color:#496078;font-weight:900;font-size:12px;padding:11px 13px;border-bottom:1px solid #e5eaf2}
+#ax-mapping td{border-bottom:1px solid #eef1f5;padding:11px 13px;vertical-align:middle}
+#ax-mapping tr:last-child td{border-bottom:0}
+#ax-mapping td.axm-id{font-weight:900;color:#245bba;width:56px;font-variant-numeric:tabular-nums}
+#ax-mapping td.axm-link{font-weight:700;width:180px;color:#334c73}
+#ax-mapping td.axm-work{font-size:13px;color:#5b6880}
+#ax-mapping .axm-mini{padding:13px 16px;background:#edf5ff;border-left:3px solid #265bd8;font-size:13px;margin-top:15px;border-radius:0 7px 7px 0;color:#27486d}
+#ax-mapping .axm-more{color:#2258ae;font-weight:800;text-decoration:none;font-size:13px}
+#ax-mapping .axm-cta{margin-top:14px;display:flex;gap:9px;flex-wrap:wrap}
+#ax-mapping .axm-cta a{background:#172e57;color:white;text-decoration:none;font-weight:800;font-size:13px;padding:9px 12px;border-radius:9px}
+#ax-mapping .axm-cta a.secondary{background:#edf3fd;color:#244d8f}
+#ax-mapping tr[hidden]{display:none}
+@media(max-width:740px){#ax-mapping{padding:17px 13px 22px}#ax-mapping .axm-steps{grid-template-columns:repeat(2,minmax(0,1fr))}#ax-mapping .axm-stage{padding:12px}#ax-mapping .axm-matrix{overflow:hidden}#ax-mapping table{min-width:620px}#ax-mapping .axm-tbl-scroll{overflow:auto}#ax-mapping .axm-toolbar h3{font-size:16px}}
+@media print{#ax-mapping .axm-filters,#ax-mapping .axm-cta{display:none!important}#ax-mapping tr[hidden]{display:table-row!important}}
+</style>
+<style id="ax-highlight-and-row-colors">
+:root{--ax-yellow:#ffeb8e;--ax-yellow-light:#fff1a8}
+.ax0 .axhl,#ax-mapping .axhl,.ax1 .axhl{background:linear-gradient(transparent 23%,var(--ax-yellow-light) 23%,var(--ax-yellow) 90%,transparent 90%);color:inherit;padding:0 .09em;border-radius:2px;font-weight:850;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.ax0 .hero h1 .axhl{color:#142d52;background:linear-gradient(transparent 45%,#ffdf63 45%,#ffdf63 95%,transparent 95%)}
+.ax0 .note{background:#f9fbff;border-left-color:#e2a52c;color:#1f3655}
+.ax0 .hero{background:linear-gradient(115deg,#f0f5ff,#fffdf7 69%,#fff 100%)}
+.ax0 .hero .lead{max-width:100%;font-size:17px;line-height:1.7}
+.ax0 .tile{border-top:4px solid #aac5f2;box-shadow:0 4px 14px rgba(30,50,90,.04)}
+.ax0 .tile:nth-child(2){border-top-color:#70adbc}.ax0 .tile:nth-child(3){border-top-color:#c6a1da}
+.ax0 .resource-row:nth-child(odd){background:#f8faff}.ax0 .resource-row:nth-child(even){background:#f4f8ff}
+.ax0 .resource-row .axhl{font-weight:850}
+.ax0 .step{background:#f8faff;border-top:3px solid #c9d6ee}
+.ax0 .step:nth-child(2){background:#f0f8ff;border-top-color:#93c2db}
+.ax0 .step:nth-child(3){background:#faf6ff;border-top-color:#c4a7e0}
+.ax0 .step:nth-child(4){background:#eff9f4;border-top-color:#8cc3a4}
+.ax0 .step:nth-child(5){background:#fff8ed;border-top-color:#edbf78}
+.ax0 .ax-formkey{background:linear-gradient(transparent 40%,#fff0a3 40%,#fff0a3 91%,transparent 91%);padding:0 .12em}
+.ax0 .tip{border-top:3px solid #c9d6ee;background:#fff}
+.ax0 .tip:nth-child(2){border-top-color:#8fc1d5}.ax0 .tip:nth-child(3){border-top-color:#b0a8db}.ax0 .tip:nth-child(4){border-top-color:#86c9aa}
+.ax0 #ax0-map tbody tr:nth-child(1){background:#edf3ff}.ax0 #ax0-map tbody tr:nth-child(2){background:#e8f5ff}.ax0 #ax0-map tbody tr:nth-child(3){background:#f4eeff}.ax0 #ax0-map tbody tr:nth-child(4){background:#e9f8f0}.ax0 #ax0-map tbody tr:nth-child(5){background:#fff5e6}.ax0 #ax0-map tbody tr:nth-child(6){background:#f3edf9}.ax0 #ax0-map tbody tr:nth-child(7){background:#faeee9}
+.ax0 #ax0-map tbody tr td:first-child{font-weight:850}
+#ax-mapping .axm-steps{margin-bottom:3px}
+#ax-mapping .axm-stage{border-width:1px;border-top-width:4px;box-shadow:0 6px 17px rgba(29,48,80,.045)}
+#ax-mapping .axm-stage:nth-child(1){background:#f4f6ff;border-top-color:#6a83bc}
+#ax-mapping .axm-stage:nth-child(2){background:#f0f8ff;border-top-color:#3285b6}
+#ax-mapping .axm-stage:nth-child(3){background:#f8f3ff;border-top-color:#8664bd}
+#ax-mapping .axm-stage:nth-child(4){background:#f0fbf6;border-top-color:#299479}
+#ax-mapping .axm-stage:nth-child(5){background:#fff9ef;border-top-color:#d8a353}
+#ax-mapping .axm-stage:nth-child(6){background:#f7f4fb;border-top-color:#8076a1}
+#ax-mapping .axm-stage p{color:#435572}
+#ax-mapping .axm-chip{background:#fff;border:1px solid #e2e8f2;color:#344968}
+#ax-mapping .axm-legend{margin-top:22px;border:1px solid #e3e9f1;border-radius:13px;background:#fff;padding:14px 16px;display:flex;gap:10px 22px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+#ax-mapping .axm-legend-title{font-size:13px;color:#506077}
+#ax-mapping .axm-mini-swatch{display:inline-block;vertical-align:middle;width:10px;height:10px;border-radius:3px;background:#a2b9df;margin-right:5px}
+#ax-mapping .axm-legend-pills{display:flex;gap:6px;flex-wrap:wrap}
+#ax-mapping .axm-lg{display:inline-block;padding:5px 8px;border-radius:7px;font-size:12px;font-weight:850;border:1px solid transparent;color:#34455c}
+#ax-mapping .axm-lg.case{background:#e8efff;border-color:#c8d7f6}
+#ax-mapping .axm-lg.problem{background:#e2f1ff;border-color:#bbdef5}
+#ax-mapping .axm-lg.solve{background:#f0e8ff;border-color:#dbc5f5}
+#ax-mapping .axm-lg.effect{background:#def5e9;border-color:#b9e5d3}
+#ax-mapping .axm-lg.action{background:#fff0d9;border-color:#f5d7a5}
+#ax-mapping .axm-lg.final{background:#f1eaf8;border-color:#d9cbed}
+#ax-mapping table{border-collapse:separate;border-spacing:0}
+#ax-mapping .axm-row{background:var(--row-bg)}
+#ax-mapping .axm-row td{border-bottom:2px solid #fff;padding:13px 13px}
+#ax-mapping .axm-row:hover{filter:brightness(.977)}
+#ax-mapping .axm-row td:first-child{box-shadow:inset 5px 0 0 var(--row-accent);color:#1d375e;font-size:15px;padding-left:16px}
+#ax-mapping .axm-row .axm-topic{font-weight:850;color:#243851}
+#ax-mapping .axm-row .axm-work{color:#35465e}
+#ax-mapping .axm-row .axm-link{color:#234666;font-weight:850}
+#ax-mapping .axm-row .axhl{background:linear-gradient(transparent 20%,#ffed9b 20%,#ffed9b 92%,transparent 92%)}
+#ax-mapping .axm-matrix{margin-top:14px}
+#ax-mapping .axm-mini{border-left-color:#e3ac33;background:#fffdf2}
+.ax1 .mapping{border-left:4px solid #e9af38;background:#fdfaf0;color:#263f60}
+.ax1 .heading .axhl{background:linear-gradient(transparent 47%,#ffde6f 47%,#ffde6f 92%,transparent 92%)}
+.ax1 .flowbox{background:#fffdf7;border-color:#dce3eb}
+.ax1 .flowbox strong{display:block;font-size:14px;color:#1e4f9f}
+.ax1 .flowbox strong .axhl{background:linear-gradient(transparent 32%,#ffeb93 32%,#ffeb93 90%,transparent 90%)}
+.ax1 .prompttext{background:#fbfcff;border:1px solid #edf0f5}
+.ax1 .note{background:#fffbeb;border-left-color:#dba13e;color:#3f4c5d}
+.ax1 .steps button.active{border-left:4px solid #e3b447}
+.ax1 .panel[data-stage="경북 문제"] .flowcol{background:#f1f8ff}
+.ax1 .panel[data-stage="AI 해결"] .flowcol{background:#f8f4ff}
+.ax1 .panel[data-stage="체감 효과"] .flowcol{background:#f1fbf5}
+.ax1 .panel[data-stage="실행 검토"] .flowcol{background:#fff9ef}
+.ax1 .panel[data-stage="신청서 완성"] .flowcol{background:#f8f5fb}
+@media(max-width:750px){#ax-mapping .axm-legend{padding:13px}.ax0 .hero h1 .axhl{box-decoration-break:clone;-webkit-box-decoration-break:clone}#ax-mapping .axm-row td{padding:11px 10px}}
+@media print{.ax0,#ax-mapping,.ax1{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+</style>
+<style id="ax0-question-framework-style">
+/* STEP 00: concrete target → problem → solution → AI framework */
+.ax0 .four-section{margin-top:28px}
+.ax0 .fourgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:16px}
+.ax0 .fourcard{position:relative;border:1px solid #d9e3f2;border-top:5px solid var(--four-color);background:var(--four-bg);border-radius:15px;padding:16px 13px 14px;min-height:180px}
+.ax0 .fourcard .fnum{font-size:12px;font-weight:900;letter-spacing:.055em;color:#435771}
+.ax0 .fourcard h3{font-size:18px;line-height:1.45;margin:11px 0 5px;font-weight:850;color:#172943}
+.ax0 .fourcard .fenglish{font-size:12px;font-weight:750;color:#59708b;letter-spacing:.035em}
+.ax0 .fourcard p{font-size:14px;line-height:1.65;color:#314963;margin:11px 0 0}
+.ax0 .fourcard .axhl{box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.ax0 .fourhint{padding:15px 17px;border:1px solid #d8e4f2;background:#f6f9fd;border-radius:12px;margin-top:15px;font-size:14px;line-height:1.7}
+.ax0 .upload-callout{border:1px solid #b9d8bd;background:#f4fbf6;padding:20px 20px 15px;border-radius:15px;margin-top:18px}
+.ax0 .upload-callout h3{font-size:17px;margin:0 0 7px;color:#18533d}
+.ax0 .upload-callout p{font-size:14px;line-height:1.75;color:#2b5145;margin:0 0 9px}
+.ax0 .upload-callout .upload-steps{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}
+.ax0 .upload-callout .upload-steps span{font-size:13px;background:white;border:1px solid #bddfc9;border-radius:50px;padding:5px 11px;font-weight:750;color:#245b47}
+.ax0 .end-questions{font-size:14px;line-height:1.8;border:1px dashed #b3c8e9;background:#fafcff;padding:12px 17px;border-radius:12px;margin-top:15px}
+.ax0 .end-questions strong{color:#173765}
+.ax0 mark.axhl{color:inherit}
+@media(max-width:980px){.ax0 .fourgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:580px){.ax0 .fourgrid{grid-template-columns:1fr}.ax0 .fourcard{min-height:0;padding:14px}.ax0 .upload-callout{padding:15px}}
 </style></head><body style="margin:0;background:#fff"><style id="ax0-style">
 .ax0{--ink:#19273b;--muted:#576579;--blue:#265bd8;--navy:#172e57;--edge:#dce4ef;--pale:#f4f7fc;--paper:#fff;--teal:#177a69;color:var(--ink);font-family:Pretendard,"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;font-size:17px;line-height:1.95;max-width:1120px;margin:0 auto;padding:28px 22px 70px;box-sizing:border-box}
 .ax0 *{box-sizing:border-box}.ax0 a{color:#1954bf;text-underline-offset:3px}.ax0 button,.ax0 input,.ax0 textarea{font:inherit}.ax0 button{cursor:pointer}.ax0 h1,.ax0 h2,.ax0 h3,.ax0 p{margin:0}.ax0 h1{font-size:clamp(28px,4vw,43px);line-height:1.27;letter-spacing:-.035em;color:var(--navy);margin:10px 0 13px}.ax0 h2{font-size:clamp(21px,2.7vw,27px);line-height:1.45;letter-spacing:-.02em}.ax0 h3{font-size:19px;line-height:1.4}.ax0 p{margin-top:8px}.ax0 small{font-size:13px}.ax0 .eyebrow{font-size:13px;font-weight:800;color:var(--blue);letter-spacing:.09em}.ax0 .lead{font-size:18px;color:#4a5a70;max-width:840px}.ax0 .hero{background:linear-gradient(115deg,#f1f5ff,#fff 67%);border:1px solid #dbe6fc;border-radius:22px;padding:34px 35px 31px}.ax0 .hero .minor{display:inline-flex;font-size:13px;font-weight:800;background:#deebff;color:#1e4ca2;padding:5px 12px;border-radius:50px}.ax0 .note{border-left:4px solid #2965df;background:#f0f5ff;padding:12px 16px;border-radius:0 12px 12px 0;font-weight:600;margin-top:20px}.ax0 .block{margin-top:37px}.ax0 .sub{font-size:15px;color:var(--muted);margin-top:6px}.ax0 .columns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:19px}.ax0 .columns.two{grid-template-columns:repeat(2,minmax(0,1fr))}.ax0 .tile{border:1px solid var(--edge);background:#fff;border-radius:16px;padding:21px}.ax0 .tile .number{font-weight:900;font-size:13px;color:var(--blue);margin-bottom:9px;display:inline-block}.ax0 .tile p{font-size:15px;color:var(--muted)}.ax0 .tag{background:#e9f2ff;color:#2252ab;padding:2px 7px;border-radius:5px;font-weight:800;font-size:13px;white-space:nowrap}.ax0 .resource-list{margin-top:16px;border:1px solid var(--edge);border-radius:14px;overflow:hidden}.ax0 .resource-row{display:grid;grid-template-columns:190px 1fr;gap:16px;padding:16px 18px;border-bottom:1px solid var(--edge);font-size:15px}.ax0 .resource-row:last-child{border-bottom:none}.ax0 .resource-row strong{font-size:16px}.ax0 .resource-row em{display:block;font-style:normal;color:var(--muted);margin-top:4px}.ax0 .stepbar{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px;margin:19px 0}.ax0 .step{background:var(--pale);padding:13px 11px;border:1px solid var(--edge);border-radius:12px;text-align:center;font-size:14px;line-height:1.75}.ax0 .step strong{display:block;color:var(--navy);font-size:16px}.ax0 .workbench{border:1px solid #bdcdeb;background:#f8faff;border-radius:20px;padding:27px;margin-top:18px}.ax0 .formgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}.ax0 label.field{display:block;font-size:14px;font-weight:800;color:#2a3950}.ax0 label.field input,.ax0 label.field textarea{display:block;width:100%;margin-top:6px;padding:12px 14px;background:#fff;border:1px solid #becbdd;border-radius:9px;color:var(--ink);outline-offset:2px}.ax0 .wide{grid-column:1/-1}.ax0 .checkrow{display:flex;flex-wrap:wrap;gap:9px 18px;margin-top:10px}.ax0 .checkrow label{font-size:14px;font-weight:600;display:flex;gap:7px;align-items:center}.ax0 .checkrow input{accent-color:#235bd0;width:17px;height:17px}.ax0 .actions{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:18px}.ax0 .btn{border:1px solid #ccd8e9;background:#fff;color:#23446f;border-radius:10px;font-size:15px;font-weight:800;padding:11px 18px;display:inline-flex;align-items:center;justify-content:center;text-decoration:none}.ax0 .btn.primary{background:var(--blue);color:white;border-color:var(--blue)}.ax0 .btn:focus-visible{outline:3px solid #9cbcff;outline-offset:2px}.ax0 .prompt{width:100%;min-height:400px;background:#fff;border:1px solid #c0cfe5;border-radius:12px;padding:18px;resize:vertical;font-size:15px;line-height:1.95;color:var(--ink)}.ax0 .mini{font-size:13px;color:var(--muted)}.ax0 .tipgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:15px}.ax0 .tip{border:1px solid var(--edge);border-radius:12px;padding:16px;background:#fff}.ax0 .tip strong{display:block;font-size:16px}.ax0 .tip p{font-size:14px;color:var(--muted);margin-top:5px}.ax0 .bottom{background:var(--navy);color:white;border-radius:18px;padding:24px;margin-top:34px}.ax0 .bottom h2{color:white}.ax0 .bottom p{color:#d8e5fb}.ax0 .bottom .btn{border-color:#b7cef3;color:#123662;background:white}.ax0 .smallprint{margin-top:14px;color:var(--muted);font-size:13px}.ax0 .status{color:var(--teal);font-size:14px;font-weight:700}.ax0 details{border:1px solid var(--edge);border-radius:12px;background:#fff;padding:13px 16px;margin-top:12px}.ax0 summary{font-weight:800;cursor:pointer}.ax0 .tablewrap{overflow:auto;margin-top:13px}.ax0 table{border-collapse:collapse;width:100%;min-width:620px;font-size:14px}.ax0 td,.ax0 th{padding:12px;text-align:left;border-bottom:1px solid var(--edge);vertical-align:top}.ax0 th{background:#f4f7fc}.ax0 .skip{font-size:13px;color:var(--muted)}
 @media (max-width:750px){.ax0{padding:14px 13px 40px;font-size:16px}.ax0 .hero{padding:23px}.ax0 .columns,.ax0 .columns.two,.ax0 .formgrid,.ax0 .tipgrid{grid-template-columns:1fr}.ax0 .stepbar{grid-template-columns:1fr 1fr}.ax0 .resource-row{grid-template-columns:1fr;gap:4px}.ax0 .workbench{padding:18px}.ax0 .wide{grid-column:1}.ax0 .prompt{min-height:470px}}
 @media print{.ax0 .actions,.ax0 .bottom .btn{display:none}.ax0{max-width:none;padding:0}.ax0 .workbench{break-inside:avoid}}
-
-/* 중요 부분 노란 형광펜 (2026-11-04) */
-.ax0 p strong,.ax0 .note{background:linear-gradient(transparent 52%,#fff07a 52%);padding:0 2px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
-.ax0 .note{background:#fffbd6;border-left-color:#e5b800}
 </style><main aria-label="00 AI 실습 시작 가이드" class="ax0" id="ax0-guide">
 <header class="hero">
 <span class="minor">PRE-STEP · 00 / 전체 실습 · STEP 00~19</span>
 <div class="eyebrow" style="margin-top:15px">SMART TOURISM × GYEONGBUK AX · FINAL PROJECT</div>
-<h1>AI와 함께<br/>기말 AX 응모신청서 시작하기</h1>
-<p class="lead">중간발표에서 제안했던 스마트관광 아이디어를 <strong>경상북도 도민체감형 AX 경진대회 응모신청서</strong>에 맞게 발전시키는 실습입니다. 19개 프롬프트를 사용하기 전에 <strong>우리의 목표, 보유 자료, 사용 방법</strong>을 AI에 먼저 알려주세요.</p>
-<div class="note">오늘의 핵심: “AI에게 바로 신청서를 써 달라고 하지 말고, 우리가 이미 한 일과 앞으로 해야 할 일을 먼저 설명한다.”</div>
-</header><nav class="ax-jump" id="ax-page-top"><a href="#ax0-goal">00 · 목표·자원</a><a href="#ax0-workbench">시작 프롬프트 만들기</a><a href="#ax1-prompts">01~19 · 단계별 실습</a><a href="https://sunshinewellness.co.kr/learn/gyeongbuk-ax-form-4-8.html" rel="noopener noreferrer" target="_blank">응모신청서 작성 ↗</a></nav>
+<h1>AI와 함께<br/><mark class="axhl">기말 AX 응모신청서</mark> 시작하기</h1>
+<p class="lead">중간발표에서 제안했던 스마트관광 아이디어를 <strong>경상북도 도민체감형 AX 경진대회 응모신청서</strong>에 맞게 발전시키는 실습입니다. 19개 프롬프트를 사용하기 전에 <strong><mark class="axhl">우리의 목표, 보유 자료, 사용 방법</mark></strong>을 AI에 먼저 알려주세요.</p>
+<div class="note">오늘의 핵심: “<mark class="axhl">AI에게 바로 신청서를 써 달라고 하지 말고</mark>, <mark class="axhl">우리가 이미 한 일과 앞으로 해야 할 일</mark>을 먼저 설명한다.”<br/>그리고 <strong><mark class="axhl">누구의 · 어떤 문제를 · 어떤 방식과 AI 기술로 해결할지</mark></strong> 생각하고 <strong><mark class="axhl">중간발표 PPT를 실제로 첨부</mark></strong>합니다.</div>
+</header><nav class="ax-jump" id="ax-page-top"><a href="#ax0-goal">00 · 목표·자원</a><a href="#ax0-four">4대 핵심 질문</a><a href="#ax0-workbench">시작 프롬프트 만들기</a><a href="#ax-mapping">19개 × 신청서 연결표</a><a href="#ax1-prompts">01~19 · 단계별 실습</a><a href="https://sunshinewellness.co.kr/learn/gyeongbuk-ax-form-4-8.html" rel="noopener noreferrer" target="_blank">응모신청서 작성 ↗</a></nav>
 <section class="block" id="ax0-goal">
-<div class="eyebrow">01 · WHAT WE WANT</div><h2>우리의 목표부터 분명히 하기</h2>
+<div class="eyebrow">01 · WHAT WE WANT</div><h2><mark class="axhl">우리의 목표</mark>부터 분명히 하기</h2>
 <div class="columns">
-<article class="tile"><span class="number">GOAL 01</span><h3>기존 발표를 출발점으로</h3><p>새 주제를 무작정 만드는 대신, <strong>중간발표의 아이디어·자료·한계</strong>를 확인해 활용합니다.</p><p><strong>자료는 많이 줄수록 좋습니다.</strong> 다른 친구의 발표 자료도 공개된 범위에서는 써도 됩니다. 다만 <strong>방향은 각자 정합니다.</strong></p></article>
-<article class="tile"><span class="number">GOAL 02</span><h3>적용 지역은 경북</h3><p>발표에서 다룬 지역이 인천·서울·해외여도 괜찮습니다. 사례는 참고하고, <strong>문제와 수혜자는 경북 지역에서</strong> 다시 구체화합니다.</p></article>
-<article class="tile"><span class="number">GOAL 03</span><h3>양식에 맞춘 제출본</h3><p>최종 산출물은 응모신청서 <strong>[2] 아이디어, [3] 문제, [4] 해결, [5] 효과, [6] 실행</strong>을 연결한 문서입니다.</p></article>
+<article class="tile"><span class="number">GOAL 01</span><h3><mark class="axhl">기존 발표</mark>를 출발점으로</h3><p>새 주제를 무작정 만드는 대신, <strong><mark class="axhl">중간발표의 아이디어·자료·한계</mark></strong>를 확인해 활용합니다.</p></article>
+<article class="tile"><span class="number">GOAL 02</span><h3>적용 지역은 <mark class="axhl">경북</mark></h3><p>발표에서 다룬 지역이 인천·서울·해외여도 괜찮습니다. 사례는 참고하고, <strong><mark class="axhl">문제와 수혜자는 경북 지역에서</mark></strong> 다시 구체화합니다.</p></article>
+<article class="tile"><span class="number">GOAL 03</span><h3><mark class="axhl">양식에 맞춘 제출본</mark></h3><p>최종 산출물은 응모신청서 <strong><mark class="axhl">[2] 아이디어, [3] 문제, [4] 해결, [5] 효과, [6] 실행</mark></strong>을 연결한 문서입니다.</p></article>
 </div>
 </section>
 <section class="block" id="ax0-resources">
-<div class="eyebrow">02 · WHAT WE ALREADY HAVE</div><h2>우리가 이미 가진 자료와 각각의 역할</h2>
+<div class="eyebrow">02 · WHAT WE ALREADY HAVE</div><h2>우리가 이미 <mark class="axhl">가진 자료</mark>와 각각의 역할</h2>
 <p class="sub">AI는 자료마다 용도가 다르다는 사실을 알아야 합니다. 참고 사례와 경북 현지의 실제 사실을 혼동하지 않도록 합니다.</p>
 <div class="resource-list">
-<div class="resource-row"><strong>① 중간발표 PPT·PDF <span class="tag">아이디어 출발점</span></strong><div>학생 본인이 제안한 관광 문제, 이용자, 서비스, 그림, 발표 후 피드백을 살펴봅니다.<em>사용 방법: 파일을 AI에 첨부하고 ‘내 발표에서 확인되는 내용’을 먼저 추출하기.</em></div></div>
-<div class="resource-row"><strong>② 응모신청서 양식① <span class="tag">작성 기준</span></strong><div>실제 문항 순서, 요구 내용, 작성 분량을 기준으로 삼습니다.<em>사용 방법: 공식 양식을 첨부하거나 <a href="https://sunshinewellness.co.kr/learn/gyeongbuk-ax-form-4-8.html" rel="noopener noreferrer" target="_blank">4~8쪽 웹 작성 화면</a>을 열어 문항별로 옮기기.</em></div></div>
-<div class="resource-row"><strong>③ 기존 프롬프트 19개 <span class="tag">질문 순서</span></strong><div>사례 이해부터 문제 발견, AX 아이디어 구체화, 최종 점검까지 진행하는 단계별 질문 도구입니다.<em>사용 방법: <a href="#ax1-prompts">19개 프롬프트 페이지</a>에서 현재 단계의 프롬프트만 복사.</em></div></div>
-<div class="resource-row"><strong>④ 유럽 스마트관광 사례집 <span class="tag">비교 근거</span></strong><div>수업에서 다룬 유럽 사례 44건 중 유사한 문제 해결 방식을 찾을 때 활용합니다.<em>사용 방법: 관련 사례의 자료·출처를 함께 제공하고 [6-1]에서 참고한 점과 다른 점을 구별하기.</em></div></div>
-<div class="resource-row"><strong>⑤ 경북 지역자료 <span class="tag">사실 확인</span></strong><div>지역 관광정보, 지자체 공개자료, 통계, 인터뷰, 직접 관찰 등으로 적용 지역의 실제 문제를 확인합니다.<em>사용 방법: 지역명·자료일자·출처를 제시하고, 없는 수치는 추정으로 명확히 표시하기.</em></div></div>
+<div class="resource-row"><strong><mark class="axhl">① 중간발표 PPT·PDF</mark> <span class="tag">아이디어 출발점</span></strong><div>학생 본인이 제안한 관광 문제, 이용자, 서비스, 그림, 발표 후 피드백을 살펴봅니다.<em>사용 방법: 파일을 AI에 첨부하고 ‘내 발표에서 확인되는 내용’을 먼저 추출하기.</em></div></div>
+<div class="resource-row"><strong><mark class="axhl">② 응모신청서 양식①</mark> <span class="tag">작성 기준</span></strong><div>실제 문항 순서, 요구 내용, 작성 분량을 기준으로 삼습니다.<em>사용 방법: 공식 양식을 첨부하거나 <a href="https://sunshinewellness.co.kr/learn/gyeongbuk-ax-form-4-8.html" rel="noopener noreferrer" target="_blank">4~8쪽 웹 작성 화면</a>을 열어 문항별로 옮기기.</em></div></div>
+<div class="resource-row"><strong><mark class="axhl">③ 기존 프롬프트 19개</mark> <span class="tag">질문 순서</span></strong><div>사례 이해부터 문제 발견, AX 아이디어 구체화, 최종 점검까지 진행하는 단계별 질문 도구입니다.<em>사용 방법: <a href="#ax1-prompts">19개 프롬프트 페이지</a>에서 현재 단계의 프롬프트만 복사.</em></div></div>
+<div class="resource-row"><strong><mark class="axhl">④ 유럽 스마트관광 사례집</mark> <span class="tag">비교 근거</span></strong><div>수업에서 다룬 유럽 사례 44건 중 유사한 문제 해결 방식을 찾을 때 활용합니다.<em>사용 방법: 관련 사례의 자료·출처를 함께 제공하고 [6-1]에서 참고한 점과 다른 점을 구별하기.</em></div></div>
+<div class="resource-row"><strong><mark class="axhl">⑤ 경북 지역자료</mark> <span class="tag">사실 확인</span></strong><div>지역 관광정보, 지자체 공개자료, 통계, 인터뷰, 직접 관찰 등으로 적용 지역의 실제 문제를 확인합니다.<em>사용 방법: 지역명·자료일자·출처를 제시하고, 없는 수치는 추정으로 명확히 표시하기.</em></div></div>
 </div>
 <p class="smallprint">※ 자료는 모두 처음부터 갖출 필요가 없습니다. 없는 자료는 ‘미확보’라고 알려주고, 이후 필요한 단계에서 보충하면 됩니다.</p>
 </section>
 <section class="block" id="ax0-method">
-<div class="eyebrow">03 · HOW TO WORK WITH AI</div><h2>AI 활용 순서: 먼저 설정하고, 그다음 질문하기</h2>
+<div class="eyebrow">03 · HOW TO WORK WITH AI</div><h2>AI 활용 순서: <mark class="axhl">먼저 설정하고</mark>, 그다음 질문하기</h2>
 <div aria-label="AI 실습 5단계" class="stepbar">
-<div class="step"><strong>1 · 새 대화</strong>과제 전용 채팅 열기</div>
-<div class="step"><strong>2 · 자료 첨부</strong>PPT와 양식 우선</div>
-<div class="step"><strong>3 · 시작 프롬프트</strong>목표·자원·기준 전달</div>
-<div class="step"><strong>4 · 단계별 질문</strong>기존 01~19 활용</div>
-<div class="step"><strong>5 · 학생 검증</strong>근거 확인 후 양식 작성</div>
+<div class="step"><strong><mark class="axhl">1 · 새 대화</mark></strong>과제 전용 채팅 열기</div>
+<div class="step"><strong><mark class="axhl">2 · 자료 첨부</mark></strong>PPT와 양식 우선</div>
+<div class="step"><strong><mark class="axhl">3 · 시작 프롬프트</mark></strong>목표·자원·기준 전달</div>
+<div class="step"><strong><mark class="axhl">4 · 네 가지 구체화</mark></strong>대상·문제·해결·AI</div>
+<div class="step"><strong><mark class="axhl">5 · 단계별 실습</mark></strong>01~19 활용·근거 확인</div>
 </div>
-<p>아래 입력 칸에 본인의 중간발표 내용을 간단히 적으면, <strong>처음 한 번만 사용할 공통 시작 프롬프트</strong>를 만들 수 있습니다. 이것은 기존 01~19번 중 어느 것도 대신하지 않는 <strong>‘대화의 안내문’</strong>입니다.</p>
+<p>아래 입력 칸에 본인의 중간발표 내용을 간단히 적으면, <strong><mark class="axhl">처음 한 번만 사용할 공통 시작 프롬프트</mark></strong>를 만들 수 있습니다. 이것은 기존 01~19번 중 어느 것도 대신하지 않는 <strong>‘대화의 안내문’</strong>입니다.</p>
+</section>
+<section class="block four-section" id="ax0-four">
+<div class="eyebrow">04 QUESTIONS · TARGET → PROBLEM → SOLUTION → AI</div>
+<h2><mark class="axhl">프롬프트 번호를 먼저 고르지 말고</mark>, 이 네 가지부터 생각하세요</h2>
+<p class="sub">AI와 대화할 때는 새 아이디어를 만들어 달라고 하기 전에 <strong>중간발표의 핵심 구상</strong>을 <mark class="axhl">대상·문제·해결 방식·AI 기술</mark>로 설명합니다. 아직 결정하지 못한 내용은 <strong>‘미정’</strong>이라고 적어도 됩니다.</p>
+<div class="fourgrid" aria-label="경북 AX 서비스 구상을 위한 네 가지 핵심 질문">
+<article class="fourcard" style="--four-color:#3475ba;--four-bg:#f1f7ff"><div class="fnum">01 · TARGET USER</div><h3><mark class="axhl">누구를 대상으로?</mark></h3><div class="fenglish">대상 이용자</div><p>경북 주민, 관광객, 고령자, 관광사업자 중 <strong>누가 가장 불편한지</strong> 정합니다.</p></article>
+<article class="fourcard" style="--four-color:#bf6b37;--four-bg:#fff7ef"><div class="fnum">02 · PROBLEM</div><h3><mark class="axhl">어떤 문제를?</mark></h3><div class="fenglish">현장에서 겪는 불편</div><p><strong>경북의 어디서 · 언제 · 무엇 때문에</strong> 불편한지, 기존 방법의 한계는 무엇인지 설명합니다.</p></article>
+<article class="fourcard" style="--four-color:#248a71;--four-bg:#effaf6"><div class="fnum">03 · SOLUTION</div><h3><mark class="axhl">어떤 해결 방식으로?</mark></h3><div class="fenglish">서비스 · 기능 · 이용 과정</div><p>기존 발표에서 제안한 <strong>관광 서비스</strong>로 어떻게 문제를 줄일지 생각합니다.</p></article>
+<article class="fourcard" style="--four-color:#8550ba;--four-bg:#f8f3ff"><div class="fnum">04 · AI TECHNOLOGY</div><h3><mark class="axhl">어떤 AI 기술을?</mark></h3><div class="fenglish">필요성 · 적합성 · 실현성</div><p>생성형·추천·예측·음성·영상 인식 등에서 <strong>정말 필요한 기능만</strong> 검토합니다.</p></article>
+</div>
+<div class="fourhint"><strong>수업의 판단 기준:</strong> <mark class="axhl">대상 → 문제 → 해결 방식 → AI 기술</mark> 순서로 생각하세요. <strong>AI가 없어도 충분히 해결되는 문제라면</strong> AI 적용 이유를 다시 검토해야 합니다.</div>
 </section>
 <section class="block workbench" id="ax0-workbench">
-<div class="eyebrow">INTERACTIVE · COPY YOUR STARTER PROMPT</div><h2>내 발표를 입력하고 시작 프롬프트 만들기</h2>
+<div class="eyebrow">INTERACTIVE · COPY YOUR STARTER PROMPT</div><h2>내 발표를 입력하고 <mark class="axhl">시작 프롬프트 만들기</mark></h2>
 <div class="formgrid">
-<label class="field">중간발표 주제·작품명<input id="ax0-topic" placeholder="예: 관광지 맞춤형 AI 안내 서비스" type="text"/></label>
-<label class="field">중간발표에서 다룬 지역<input id="ax0-origin" placeholder="예: 인천 / 경주 / 유럽의 한 도시" type="text"/></label>
-<label class="field">경북에서 적용할 지역<input id="ax0-region" placeholder="예: 경북 경주시, 안동시 등" type="text"/></label>
-<label class="field">가장 불편한 대상<input id="ax0-audience" placeholder="예: 대중교통 이용 관광객" type="text"/></label>
-<label class="field wide">중간발표에서 제안했던 서비스·기능<textarea id="ax0-idea" placeholder="예: 관광객의 이동 동선과 관광정보를 안내하는 서비스" rows="2"></textarea></label>
+<label class="field"><span class="ax-formkey">중간발표 주제·작품명</span><input id="ax0-topic" placeholder="예: 관광지 맞춤형 AI 안내 서비스" type="text"/></label>
+<label class="field"><span class="ax-formkey">중간발표에서 다룬 지역</span><input id="ax0-origin" placeholder="예: 인천 / 경주 / 유럽의 한 도시" type="text"/></label>
+<label class="field"><span class="ax-formkey">경북에서 적용할 지역</span><input id="ax0-region" placeholder="예: 경북 경주시, 안동시 등" type="text"/></label>
+<label class="field"><span class="ax-formkey">가장 불편한 대상</span><input id="ax0-audience" placeholder="예: 대중교통 이용 관광객" type="text"/></label>
+<label class="field wide"><span class="ax-formkey"><mark class="axhl">해결하고 싶은 구체적인 불편 · 문제</mark></span><textarea id="ax0-problem" placeholder="예: 이동·예약·관광정보가 흩어져 계획을 세우기 어렵다. 자료로 확인되지 않았다면 '검증 필요'라고 적기" rows="2"></textarea></label>
+<label class="field wide"><span class="ax-formkey"><mark class="axhl">어떤 방식으로 해결하고 싶은가요? · 기존 서비스 아이디어</mark></span><textarea id="ax0-idea" placeholder="예: 관광정보와 교통편을 연결해 개인 맞춤 동선 안내" rows="2"></textarea></label>
+<label class="field wide"><span class="ax-formkey"><mark class="axhl">활용할 AI 기술 (미정이어도 됩니다)</mark></span><input id="ax0-tech" placeholder="예: 개인화 추천 AI / 생성형 AI / 아직 모르겠음" type="text"/></label>
 </div>
-<div style="margin-top:17px;font-size:14px;font-weight:800">AI 대화에 첨부할 수 있는 자료를 체크하세요.</div>
+<div class="end-questions"><strong>00단계의 마지막 대화는 이렇게 끝납니다.</strong> <mark class="axhl">① 누구를 대상으로? → ② 어떤 문제를? → ③ 어떤 해결 방식으로? → ④ 어떤 AI 기술을?</mark><br/><strong>그리고 중간발표 PPT·원고·조사자료를 첨부해 달라고 요청합니다.</strong> 다음에 실행할 프롬프트 번호를 먼저 물어보지 않습니다.</div>
+<div style="margin-top:17px;font-size:14px;font-weight:800">AI 대화에 첨부할 수 있는 <mark class="axhl">자료를 체크</mark>하세요.</div>
 <div class="checkrow">
 <label><input class="ax0-resource" type="checkbox" value="중간발표 PPT·PDF"/>중간발표 PPT·PDF</label>
 <label><input class="ax0-resource" type="checkbox" value="응모신청서 양식①"/>양식①</label>
 <label><input class="ax0-resource" type="checkbox" value="유럽 스마트관광 사례집"/>유럽 사례집</label>
 <label><input class="ax0-resource" type="checkbox" value="경북 지역 증빙자료"/>경북 지역자료</label>
-<label><input class="ax0-resource" type="checkbox" value="다른 친구의 발표 자료(공개된 범위)"/>친구 발표 자료</label>
 </div>
 <div class="actions">
 <button class="btn primary" id="ax0-make" type="button">① 시작 프롬프트 만들기</button>
@@ -77,33 +214,39 @@
 <label class="field" for="ax0-output" style="margin-top:21px">② 아래 내용을 복사해 AI 새 대화에 붙여넣으세요.</label>
 <textarea aria-label="자동 생성된 AI 시작 프롬프트" class="prompt" id="ax0-output" readonly=""></textarea>
 <div class="actions"><button class="btn primary" id="ax0-copy" type="button">📋 시작 프롬프트 복사</button><span class="status" id="ax0-status" role="status">입력 후 만들기 버튼을 누르세요.</span></div>
-<p class="mini">체크는 보유·준비 상태 표시일 뿐, 파일이 자동으로 첨부되는 것은 아닙니다. 반드시 AI 대화에 실제 파일을 첨부하고 인식 여부를 확인하세요.</p>
+<div class="upload-callout" id="ax0-upload-guide">
+<h3>📎 <mark class="axhl">중간발표 파일 첨부는 반드시 별도로!</mark></h3>
+<p>여기서 생성된 시작 프롬프트는 <strong>텍스트만 복사</strong>됩니다. 실제 PPT·PDF·발표 원고는 <strong>학생이 AI 대화창의 파일 첨부 기능</strong>을 이용해 올려야 합니다.</p>
+<div class="upload-steps"><span>① 시작 프롬프트 복사</span><span>② AI에 붙여넣기</span><span>③ PPT·PDF 파일 첨부</span><span>④ 읽은 파일 확인 후 시작</span></div>
+<p>발표 파일이 없으면 발표 원고나 핵심 슬라이드 내용을 제공하세요. 유럽 사례집이나 지역자료는 실제 첨부했을 때만 근거로 사용합니다.</p>
+</div>
+<p class="mini">체크는 보유·준비 상태 표시일 뿐 파일을 자동으로 첨부하지 않습니다. 개인정보와 타인의 민감한 정보가 들어간 파일은 업로드 전에 확인하세요.</p>
 </section>
 <section class="block" id="ax0-map">
-<div class="eyebrow">04 · USE THE EXISTING PROMPTS</div><h2>기존 19개는 이렇게 이어서 사용합니다</h2>
-<p class="sub">새 도입부는 ‘시작 설정’만 담당합니다. 상세 질문과 신청서 작성은 이 페이지 아래의 단계별 프롬프트를 그대로 활용하세요.</p>
+<div class="eyebrow">04 · USE THE EXISTING PROMPTS</div><h2><mark class="axhl">기존 19개</mark>는 이렇게 이어서 사용합니다</h2>
+<p class="sub">새 도입부에서 <mark class="axhl">네 가지 핵심 질문과 발표자료 확인</mark>을 먼저 수행합니다. 다음에 상세 질문과 신청서 작성은 아래의 19단계 프롬프트를 활용하세요.</p>
 <div class="tablewrap"><table><thead><tr><th>진행 구간</th><th>기존 프롬프트 번호</th><th>학생이 할 일</th></tr></thead><tbody>
-<tr><td>참고 자료 분석</td><td>01~02</td><td>스마트관광 사례의 핵심 구조 파악, 다른 지역에서 적용 가능한 요소 찾기</td></tr>
-<tr><td>경북의 문제 찾기</td><td>03~04</td><td>경북의 특정 지역·사람·불편·기존 해결 방식 확정 → 신청서 [3]</td></tr>
-<tr><td>AX 서비스 설계</td><td>05~07</td><td>AI가 꼭 필요한 기능만 선택하고 이용 흐름 설명 → 신청서 [4]</td></tr>
-<tr><td>변화·효과 분석</td><td>08~09</td><td>도입 전후와 도민·관광객·지역상권의 기대 변화 → 신청서 [5]</td></tr>
-<tr><td>실행 가능성</td><td>10~13</td><td>유사 사례, 기술·자원, 예상 문제, 단계별 추진안 → 신청서 [6]</td></tr>
-<tr><td>최종 문서 완성</td><td>14~18</td><td>양식과 연결, 초안 작성, 논리와 근거·표현 점검</td></tr>
-<tr><td>작성 방식 참고</td><td>19</td><td>인천 사례를 신청서로 연결하는 <strong>시연 예시</strong> — 경북 실제 사례로 혼동하지 않기</td></tr>
+<tr><td><mark class="axhl">참고 자료 분석</mark></td><td>01~02</td><td>스마트관광 사례의 핵심 구조 파악, 다른 지역에서 적용 가능한 요소 찾기</td></tr>
+<tr><td><mark class="axhl">경북의 문제 찾기</mark></td><td>03~04</td><td>경북의 특정 지역·사람·불편·기존 해결 방식 확정 → 신청서 [3]</td></tr>
+<tr><td><mark class="axhl">AX 서비스 설계</mark></td><td>05~07</td><td>AI가 꼭 필요한 기능만 선택하고 이용 흐름 설명 → 신청서 [4]</td></tr>
+<tr><td><mark class="axhl">변화·효과 분석</mark></td><td>08~09</td><td>도입 전후와 도민·관광객·지역상권의 기대 변화 → 신청서 [5]</td></tr>
+<tr><td><mark class="axhl">실행 가능성</mark></td><td>10~13</td><td>유사 사례, 기술·자원, 예상 문제, 단계별 추진안 → 신청서 [6]</td></tr>
+<tr><td><mark class="axhl">최종 문서 완성</mark></td><td>14~18</td><td>양식과 연결, 초안 작성, 논리와 근거·표현 점검</td></tr>
+<tr><td><mark class="axhl">작성 방식 참고</mark></td><td>19</td><td>인천 사례를 신청서로 연결하는 <strong>시연 예시</strong> — 경북 실제 사례로 혼동하지 않기</td></tr>
 </tbody></table></div>
 </section>
 <section class="block" id="ax0-rules">
-<div class="eyebrow">05 · WORK QUALITY</div><h2>좋은 프롬프트를 쓰는 것만큼 중요한 4가지</h2>
+<div class="eyebrow">05 · WORK QUALITY</div><h2>좋은 프롬프트를 쓰는 것만큼 <mark class="axhl">중요한 4가지</mark></h2>
 <div class="tipgrid">
-<div class="tip"><strong>① AI가 모르면 표시하게 하기</strong><p>확인되지 않은 숫자·사례·관광 효과는 사실처럼 쓰지 말고 [자료 확인 필요] 또는 [추정]으로 구분합니다.</p></div>
-<div class="tip"><strong>② 발표 자료와 경북 현실 구분하기</strong><p>해외나 다른 도시의 사례를 ‘경북에서 이미 운영 중인 서비스’라고 쓰지 않습니다.</p></div>
-<div class="tip"><strong>③ 한 번에 전부 작성하지 않기</strong><p>01~19의 각 단계에서 학생이 확인·수정하고 다음 단계로 진행합니다. 초기부터 신청서 전체를 생성할 필요는 없습니다.</p></div>
-<div class="tip"><strong>④ 학생의 판단 남기기</strong><p>무슨 문제를 해결할지, 어느 경북 지역을 선택할지, 실현 가능성이 있는지 직접 결정하고 근거를 남깁니다.</p></div>
+<div class="tip"><strong><mark class="axhl">① AI가 모르면 표시하게 하기</mark></strong><p>확인되지 않은 숫자·사례·관광 효과는 사실처럼 쓰지 말고 <mark class="axhl">[자료 확인 필요] 또는 [추정]</mark>으로 구분합니다.</p></div>
+<div class="tip"><strong><mark class="axhl">② 발표 자료와 경북 현실 구분하기</mark></strong><p>해외나 다른 도시의 사례를 ‘<mark class="axhl">경북에서 이미 운영 중인 서비스</mark>’라고 쓰지 않습니다.</p></div>
+<div class="tip"><strong><mark class="axhl">③ 한 번에 전부 작성하지 않기</mark></strong><p><mark class="axhl">01~19의 각 단계에서 학생이 확인·수정</mark>하고 다음 단계로 진행합니다. 초기부터 신청서 전체를 생성할 필요는 없습니다.</p></div>
+<div class="tip"><strong><mark class="axhl">④ 학생의 판단 남기기</mark></strong><p>무슨 문제를 해결할지, 어느 경북 지역을 선택할지, 실현 가능성이 있는지 직접 결정하고 근거를 남깁니다.</p></div>
 </div>
 <details><summary>수업에서 자주 생기는 실수 3가지</summary><p>① PPT를 첨부하지 않았는데 AI가 본 것처럼 답하는 경우 → <strong>실제로 읽은 자료 목록</strong>을 요구하세요.</p><p>② 외국 사례의 이용자 수·성과를 경북의 사실로 바꾸는 경우 → <strong>출처와 지역을 각각 표시</strong>하세요.</p><p>③ ‘AI’라는 말을 붙였지만 실제로 AI가 필요 없는 경우 → 기존 프롬프트 <strong>06번 AI 필요성 점검</strong>으로 돌아가세요.</p></details>
 </section>
 <footer class="bottom">
-<div class="eyebrow" style="color:#b7d5ff">READY FOR PROMPT 01</div><h2>이제 아래 19개 프롬프트를 활용하세요.</h2>
+<div class="eyebrow" style="color:#b7d5ff">READY FOR PROMPT 01</div><h2>이제 아래 <mark class="axhl">19개 프롬프트</mark>를 활용하세요.</h2>
 <p>먼저 위 시작 프롬프트를 AI에 입력하고, 자료 확인 결과를 검토한 뒤 01번부터 필요한 단계로 진행합니다.</p>
 <div class="actions">
 <a class="btn" href="#ax1-prompts">→ 아래의 프롬프트 01~19 시작</a>
@@ -111,31 +254,106 @@
 </div>
 </footer>
 <p class="smallprint">강의 실습용 00단계 · 기존 19개 프롬프트 및 공식 양식의 내용을 대체하지 않습니다. 최종 제출 서류·접수 방식은 실제 공고문을 우선하여 확인하세요.</p>
-</main><section aria-label="19개 단계별 AX 응모신청서 프롬프트" class="ax1" id="ax1-prompts">
-<div class="unit"><div class="eyebrow">STEP 01 — 19 · SMART TOURISM AX</div><h2 class="h2">스마트관광 아이디어를 신청서로 연결하는 19걸음</h2><p class="intro">00단계에서 시작 프롬프트를 AI에 입력한 다음, 같은 대화에서 아래 단계를 한 번에 하나씩 진행하세요. 단계별 핵심 흐름(왼쪽)을 확인하고 실습 프롬프트(오른쪽)를 복사할 수 있습니다.</p><p class="originalnotice">이 통합본의 19개 질문은 <a href="https://sunshinewellness.co.kr/learn/smart-tourism-ax-application-prompts-19.html" rel="noopener noreferrer" target="_blank">기존 19단계 교안</a>의 학습 순서를 바탕으로 새롭게 정리한 실습용 문안입니다. 기존 페이지의 문장 그대로를 보려면 링크를 참조하세요.</p></div>
+</main>
+<section aria-label="19개 프롬프트 전체 학습지도" id="ax-mapping">
+<div class="axm-top"><div><div class="axm-kicker">VISUAL MAP · 00 → 19</div><h2>19개 프롬프트, <mark class="axhl">어떤 신청서 항목</mark>에 쓰일까요?</h2><p class="axm-lead">전체 흐름을 먼저 파악한 뒤, 아래에서 항목별로 필터링하세요. 01~13번은 내용 만들기, 14~19번은 신청서 작성과 점검에 초점을 둡니다.</p></div></div>
+<div class="axm-steps" aria-label="6개 학습 단계와 신청서 항목 연결">
+<div class="axm-stage"><div class="axm-num">01–02 · CASE STUDY</div><h3>① <mark class="axhl">사례 이해</mark></h3><p>중간발표·타 지역 스마트관광 사례의 문제 해결 원리 분석</p><span class="axm-chip">[6-1], [6-4]에 활용</span></div>
+<div class="axm-stage"><div class="axm-num">03–04 · IDENTIFY PROBLEMS</div><h3>② <mark class="axhl">경북 문제 발견</mark></h3><p>어디서·누가·왜 불편한지, 현재 해결방법의 한계 정리</p><span class="axm-chip">[3-1]~[3-3]</span></div>
+<div class="axm-stage"><div class="axm-num">05–07 · DESIGN AI SOLUTION</div><h3>③ <mark class="axhl">AI 해결 설계</mark></h3><p>아이디어 비교, AI 필요성, 관광객 서비스 이용 과정</p><span class="axm-chip">[4-1], [4-2]</span></div>
+<div class="axm-stage"><div class="axm-num">08–09 · EVALUATE IMPACT</div><h3>④ <mark class="axhl">도민 체감 효과</mark></h3><p>도입 전후 변화, 지역 적합성, 예상 혜택 대상</p><span class="axm-chip">[5-1]~[5-3]</span></div>
+<div class="axm-stage"><div class="axm-num">10–13 · IMPLEMENTATION</div><h3>⑤ <mark class="axhl">실행 계획</mark></h3><p>유사사례 차별화, 기술·자원, 위험, 단계별 추진</p><span class="axm-chip">[6-1]~[6-4]</span></div>
+<div class="axm-stage"><div class="axm-num">14–19 · FINALIZE</div><h3>⑥ <mark class="axhl">신청서 완성</mark></h3><p>항목 연결 → 초안 → 논리 → 문장 → 평가 → 인천 사례 연습</p><span class="axm-chip">[2]~[6] 전체</span></div>
+</div>
+<div class="axm-legend" aria-label="학습 단계 색상 범례"><div class="axm-legend-title"><span class="axm-mini-swatch"></span><strong>표 읽는 법</strong> · 연한 배경색은 <mark class="axhl">프롬프트별 구분</mark>, 노란색은 <mark class="axhl">지금 주목할 핵심</mark>입니다.</div><div class="axm-legend-pills"><span class="axm-lg case">01–02 사례</span><span class="axm-lg problem">03–04 문제</span><span class="axm-lg solve">05–07 해결</span><span class="axm-lg effect">08–09 효과</span><span class="axm-lg action">10–13 실행</span><span class="axm-lg final">14–19 작성</span></div></div><div class="axm-matrix"><div class="axm-toolbar"><h3>프롬프트 <mark class="axhl">19개 × 신청서 항목 연결표</mark></h3><span aria-live="polite" class="axm-count" id="axm-count">전체 19개</span></div>
+<div aria-label="응모신청서 항목 필터" class="axm-filters" role="group">
+<button aria-pressed="true" class="axm-filter" data-filter="all" type="button">전체 19개</button>
+<button aria-pressed="false" class="axm-filter" data-filter="3" type="button">[3] 문제</button>
+<button aria-pressed="false" class="axm-filter" data-filter="4" type="button">[4] 해결</button>
+<button aria-pressed="false" class="axm-filter" data-filter="5" type="button">[5] 효과</button>
+<button aria-pressed="false" class="axm-filter" data-filter="6" type="button">[6] 실행</button>
+<button aria-pressed="false" class="axm-filter" data-filter="common" type="button">신청서 전체 점검</button>
+</div><div class="axm-tbl-scroll"><table><thead><tr><th>번호</th><th>프롬프트 주제</th><th>이 단계에서 할 일</th><th>관련 문항</th></tr></thead><tbody id="axm-rows"></tbody></table></div></div>
+<div class="axm-mini"><strong><mark class="axhl">[2] 아이디어명·50자 요약·분야</mark></strong>는 현재 19개에서 단독 프롬프트로 다루지 않습니다. 05번에서 아이디어를 정하고 15번에서 전체 초안을 만든 다음 별도로 작성하면 빠짐이 없습니다. 또한 인천 사례(19번)는 연습용이며 실제 접수 지역은 경북이어야 합니다.</div>
+<div class="axm-cta"><a href="#ax0-workbench">00단계에서 AI 시작하기</a><a class="secondary" href="#ax1-prompts">01~19번 실습 바로가기</a></div>
+</section><section aria-label="19개 단계별 AX 응모신청서 프롬프트" class="ax1" id="ax1-prompts">
+<div class="unit"><div class="eyebrow">STEP 01 — 19 · SMART TOURISM AX</div><h2 class="h2">스마트관광 아이디어를 신청서로 연결하는 <mark class="axhl">19걸음</mark></h2><p class="intro">00단계에서 시작 프롬프트를 AI에 입력한 다음, 같은 대화에서 아래 단계를 한 번에 하나씩 진행하세요. 단계별 핵심 흐름(왼쪽)을 확인하고 실습 프롬프트(오른쪽)를 복사할 수 있습니다.</p><p class="originalnotice">이 통합본의 19개 질문은 <a href="https://sunshinewellness.co.kr/learn/smart-tourism-ax-application-prompts-19.html" rel="noopener noreferrer" target="_blank">기존 19단계 교안</a>의 학습 순서를 바탕으로 새롭게 정리한 실습용 문안입니다. 기존 페이지의 문장 그대로를 보려면 링크를 참조하세요.</p></div>
 <div aria-label="진행 단계 선택" class="pills" id="ax1-stages"></div>
 <div class="app"><aside class="aside"><div class="eyebrow">TABLE OF CONTENTS</div><input aria-label="프롬프트 검색" class="search" id="ax1-search" placeholder="번호·주제 검색"/><div class="progress-track"><div class="progress-fill" id="ax1-bar"></div></div><div class="caption" id="ax1-progress">학습 완료 0 / 19</div><nav aria-label="프롬프트 목록" class="steps" id="ax1-steps"></nav></aside>
-<div class="panel"><div class="counter"><span id="ax1-counter">PROMPT 01 / 19</span><span id="ax1-group">사례 분석</span></div><h3 class="heading" id="ax1-heading"></h3><span class="mapping" id="ax1-mapping"></span><div class="halves"><div class="flowcol" id="ax1-flow"></div><div class="promptcol"><div class="sectiontag">AI에 붙여넣을 실습 프롬프트</div><div class="prompttext" id="ax1-prompt-text"></div></div></div><div class="note" id="ax1-note"></div><div class="utility"><label><input id="ax1-completed" type="checkbox"/> 이 단계를 완료했습니다</label><span class="toast" id="ax1-toast" role="status"></span></div><div class="controls"><button id="ax1-prev" type="button">← 이전 단계</button><button class="primary" id="ax1-copy" type="button">📋 프롬프트 복사</button><button id="ax1-next" type="button">다음 단계 →</button></div><p class="caption">중간발표 자료와 실제 조사 내용이 없는 경우에는 먼저 AI에 자료를 제공하세요. 프롬프트 복사만으로 문서가 자동 완성되지는 않습니다.</p></div></div>
+<div class="panel" id="ax1-panel"><div class="counter"><span id="ax1-counter">PROMPT 01 / 19</span><span id="ax1-group">사례 분석</span></div><h3 class="heading" id="ax1-heading"></h3><span class="mapping" id="ax1-mapping"></span><div class="halves"><div class="flowcol" id="ax1-flow"></div><div class="promptcol"><div class="sectiontag">AI에 붙여넣을 실습 프롬프트</div><div class="prompttext" id="ax1-prompt-text"></div></div></div><div class="note" id="ax1-note"></div><div class="utility"><label><input id="ax1-completed" type="checkbox"/> 이 단계를 완료했습니다</label><span class="toast" id="ax1-toast" role="status"></span></div><div class="controls"><button id="ax1-prev" type="button">← 이전 단계</button><button class="primary" id="ax1-copy" type="button">📋 프롬프트 복사</button><button id="ax1-next" type="button">다음 단계 →</button></div><p class="caption">중간발표 자료와 실제 조사 내용이 없는 경우에는 먼저 AI에 자료를 제공하세요. 프롬프트 복사만으로 문서가 자동 완성되지는 않습니다.</p></div></div>
 <div class="footerlinks"><a href="#ax0-workbench">↑ 00단계 시작 프롬프트로 돌아가기</a><a href="https://sunshinewellness.co.kr/learn/gyeongbuk-ax-form-4-8.html" rel="noopener noreferrer" target="_blank">↗ 응모신청서 4~8쪽 바로 작성</a><a href="https://sunshinewellness.co.kr/learn/smart-tourism-ax-application-prompts-19.html" rel="noopener noreferrer" target="_blank">↗ 기존 19개 교안</a></div>
 </section><script id="ax0-js">
 (function(){
  const el=(id)=>document.getElementById(id);
  const root=el('ax0-guide');if(!root)return;
- const ids=['topic','origin','region','audience','idea'];
+ const ids=['topic','origin','region','audience','problem','idea','tech'];
  const val=(id)=>el('ax0-'+id).value.trim();
  const safe=(v,placeholder)=>v||`[${placeholder} — 학생이 직접 입력]`;
  function build(){
- const v={topic:safe(val('topic'),'중간발표 주제'),origin:safe(val('origin'),'기존 발표 지역'),region:safe(val('region'),'경북의 구체적인 지역'),audience:safe(val('audience'),'주요 이용자'),idea:safe(val('idea'),'기존 서비스 아이디어')};
+ const v={
+  topic:safe(val('topic'),'중간발표 주제'),
+  origin:safe(val('origin'),'기존 발표 지역'),
+  region:safe(val('region'),'경북의 구체적인 지역'),
+  audience:safe(val('audience'),'주요 이용자'),
+  problem:safe(val('problem'),'현재 경험하는 불편·문제'),
+  idea:safe(val('idea'),'기존 서비스 아이디어'),
+  tech:safe(val('tech'),'활용할 AI 기술 또는 미정')
+ };
  const res=[...root.querySelectorAll('.ax0-resource:checked')].map(e=>e.value);
- const status=res.length?res.map(s=>'· '+s+' (첨부 예정 또는 첨부 여부 확인 필요)').join('\n'):'· 현재 체크한 자료 없음. 첨부 가능한 자료를 AI에 알려주세요.';
- el('ax0-output').value=`나는 스마트관광 관련 대학 수업의 기말시험 대체 과제를 수행하는 학생입니다. 지금부터 당신은 응모신청서를 대신 지어내는 사람이 아니라, 나의 중간발표를 발전시키고 근거와 논리를 점검하는 연구·작성 조력자입니다.\n\n[1. 우리의 최종 목표]\n중간발표의 스마트관광 아이디어를 경상북도 도민체감형 AX 경진대회 응모신청서에 맞춰 발전시키는 것입니다. 최종적으로 양식①의 [2] 아이디어, [3] 문제 인식, [4] 해결 방안, [5] 도민체감 효과, [6] 실현 가능성에 맞는 내용을 작성합니다. 적용 장소는 반드시 경상북도 안에서 선택합니다.\n\n[2. 내가 이미 한 일]\n- 중간발표 주제: ${v.topic}\n- 발표에서 다룬 지역·사례: ${v.origin}\n- 경북에서 적용하려는 지역: ${v.region}\n- 가장 불편한 대상: ${v.audience}\n- 발표에서 제안한 서비스·기능: ${v.idea}\n\n[3. 우리가 가진 자원 및 자료별 역할]\n${status}\n· 응모신청서 4~8쪽 웹 양식: https://sunshinewellness.co.kr/learn/gyeongbuk-ax-form-4-8.html (작성 문항을 확인하는 기준)\n· 수업 프롬프트 19개: https://sunshinewellness.co.kr/learn/smart-tourism-ax-application-prompts-19.html (단계별 질문 순서)\n· 유럽 스마트관광 사례 44건: 내가 실제 자료를 제공했을 때에만 비교 사례로 활용\n· 경북 지역 자료: 실제로 제공하거나 검증할 수 있는 자료만 지역 사실의 근거로 사용\n\n내가 자료를 ‘가지고 있다’고 말한 것과 이 대화에 실제 첨부된 것은 다릅니다. 우선 당신이 실제로 읽을 수 있는 자료와 읽지 못한 자료를 분명하게 구분해주세요. URL에 직접 접근할 수 없다면 내용을 지어내지 말고 필요한 부분을 붙여넣거나 업로드하도록 알려주세요.\n\n[4. 앞으로 협업하는 방식]\n1. 내 중간발표에서 재활용할 수 있는 요소와 경북의 상황에 맞게 다시 검토할 요소를 구분합니다.\n2. 19개 프롬프트를 한꺼번에 실행하지 않고, 내가 지정하는 번호의 프롬프트를 하나씩 사용합니다.\n3. 실제 확인된 사실 / 발표자가 제안한 아이디어 / 검증되지 않은 추정 / 추가 자료가 필요한 내용을 구분합니다. 출처 없는 통계·성과·국내외 사례를 만들어내지 않습니다.\n4. 기존 발표가 경북 외 지역의 사례라면 이를 참고용으로만 활용하고, 경북에서 실제 발생하는 문제와 수혜자를 별도로 확인합니다.\n5. 특정 기술이 없어도 해결 가능한 문제인지 검토하고, 정말 필요한 AI 기능만 제안합니다.\n6. 나는 학생이므로 최종 지역·대상·아이디어 선정은 내가 판단하도록 질문해 주세요.\n\n[5. 지금 첫 번째로 해 줄 일]\n신청서 전체를 바로 쓰지 말고, 먼저 ① 현재 확인 가능한 자료 목록 ② 내 중간발표에서 활용할 요소 ③ 경북 적용을 위해 새로 조사해야 할 부분 ④ 시작할 기존 프롬프트 번호와 그 이유를 간단한 표로 정리해 주세요. 그리고 실제로 부족한 자료가 무엇인지 질문해 주세요.
+ const status=res.length?res.map(s=>'· '+s+' (보유·준비 상태에 체크함 / 이 대화에 실제 첨부됐는지 확인 필요)').join('\n'):'· 현재 체크한 자료 없음. 실제 첨부 가능한 자료를 확인해 주세요.';
+ el('ax0-output').value=`나는 스마트관광 관련 대학 수업의 기말시험 대체 과제를 수행하는 학생입니다. 지금부터 당신은 응모신청서를 대신 지어내는 사람이 아니라, 나의 중간발표를 발전시키고 문제·해결책·AI 기술의 적합성을 함께 검토하는 연구·작성 조력자입니다.
 
-그다음, 「누구를 대상으로」 「어떤 문제를」 풀 것인지, 그리고 그 문제를 「어떤 기술로 어떻게」 해결할 수 있는지 최대한 구체적으로 제시해 주세요.`;
+[1. 우리의 최종 목표]
+중간발표에서 제안했던 스마트관광 아이디어를 경상북도 도민체감형 AX 경진대회 응모신청서에 맞게 발전시키는 것입니다. 최종적으로 양식①의 [2] 아이디어(작품명·50자 요약·카테고리), [3] 문제 인식, [4] 해결 방안, [5] 도민체감 효과(도입 전·후), [6] 실현 가능성(유사 사례·필요 기술·자원·예상 어려움)을 작성합니다. 적용 지역은 반드시 경상북도 안에서 선택합니다.
+
+[2. 내가 이미 한 일과 현재 생각]
+나는 중간시험 대체 과제로 스마트관광에 관한 발표를 진행했습니다. 가능한 한 기존 발표의 아이디어와 근거를 활용하고 싶습니다.
+- 중간발표 주제: ${v.topic}
+- 발표에서 다룬 지역·사례: ${v.origin}
+- 경북에서 적용하려는 지역: ${v.region}
+- 가장 불편한 대상: ${v.audience}
+- 해결하고 싶은 문제: ${v.problem}
+- 중간발표에서 제안한 서비스·기능: ${v.idea}
+- 고려 중인 AI 기술: ${v.tech}
+입력하지 않았거나 아직 모르는 내용은 발표자료 확인 후 함께 검토해 주세요. 나의 발표 파일을 읽기 전에는 발표 내용을 추측하지 마세요.
+
+[3. 우리가 가진 자원 및 자료별 역할]
+${status}
+· 중간발표 PPT·발표 원고·조사자료: 기존 문제·이용자·서비스를 확인할 핵심 자료. 실제 파일을 첨부했을 때 읽어 주세요.
+· 응모신청서 4~8쪽 웹 양식: https://sunshinewellness.co.kr/learn/gyeongbuk-ax-form-4-8.html (최종 문항·작성 기준)
+· 수업 프롬프트 19개: https://sunshinewellness.co.kr/learn/smart-tourism-ax-application-prompts-19.html (후속 실습의 단계별 질문)
+· 유럽 스마트관광 사례 44건: 내가 실제 파일이나 출처를 제공했을 때에만 비교 사례로 활용
+· 경북 지역 자료: 실제 제공하거나 검증할 수 있는 지역 사실·통계·관광정보만 근거로 사용
+
+내가 자료를 가지고 있다는 사실과 당신이 실제로 읽은 것은 다릅니다. 읽은 자료·읽지 못한 자료를 구분하고, 링크에 접근할 수 없다면 내용을 지어내지 말고 업로드나 붙여넣기를 요청해 주세요.
+
+[4. 앞으로 함께 작업하는 방식]
+1. 중간발표에서 활용할 수 있는 요소와 경북 상황에 맞게 확인해야 할 요소를 구분합니다.
+2. 경북의 구체적인 지역·주민·관광객·관광사업자가 겪는 문제를 확인합니다.
+3. 기술부터 제안하지 말고 '대상 → 문제 → 해결 방식 → AI 기술' 순서로 함께 검토합니다.
+4. 일반적인 서비스만으로 해결할 수 있는 문제인지 살핀 뒤 정말 필요한 AI 기능을 제안합니다.
+5. 확인된 사실 / 내가 제안한 아이디어 / 검증되지 않은 추정 / 추가 자료가 필요한 내용을 구분합니다. 출처 없는 통계·성과·사례는 만들지 않습니다.
+6. 중간발표의 지역이 경북 밖이라면 참고 사례로만 활용하고, 경북에서의 문제와 수혜자를 별도로 확인합니다.
+7. 내 아이디어를 무조건 긍정하지 말고 현실성과 근거를 비판적으로 검토합니다. 최종 지역·대상·아이디어는 학생인 내가 결정합니다.
+8. 신청서 전체나 프롬프트 19개를 한꺼번에 실행하지 않고 필요한 내용을 확인하면서 단계적으로 진행합니다.
+
+[5. 지금 첫 번째로 해 줄 일]
+아직 응모신청서 전체를 작성하지 마세요. 먼저 ① 현재 실제로 확인 가능한 자료 ② 중간발표에서 활용할 내용 ③ 경북 적용을 위해 새로 조사할 부분을 간단히 정리해 주세요. 자료를 보지 못했다면 '확인 전'이라고 표시해 주세요.
+
+그다음 내가 어떤 경북 AX 서비스를 개발하고 싶은지 구체화할 수 있도록 다음 네 가지 질문을 해 주세요. 발표자료가 있다면 그 내용에서 출발하고, 자료가 없으면 확인되지 않은 내용임을 분명히 해 주세요.
+① 누구를 대상으로 할 것인가? (Target User) — 경북 주민·관광객·사업자 중 누구의 불편인가?
+② 어떤 문제를 해결할 것인가? (Problem) — 경북의 어느 지역에서, 어떤 상황에서, 무엇이 불편한가?
+③ 어떤 해결 방식을 제안할 것인가? (Solution) — 어떤 관광 서비스·기능·이용 과정을 만들고 싶은가?
+④ 어떤 AI 기술을 활용할 것인가? (AI Technology) — AI가 필요한 이유는 무엇이며 어떤 기술이 적합한가? 아직 모르면 함께 검토해 주세요.
+
+다음에 사용할 프롬프트 번호부터 묻지 마세요. 마지막에는 반드시 다음과 같이 안내해 주세요.
+
+“중간발표에서 사용한 PPT, 발표 원고 또는 조사자료를 첨부파일로 올려주세요. 자료를 확인한 뒤, 누구를 대상으로 어떤 문제를 어떤 방식과 AI 기술로 해결할지 함께 구체화하겠습니다.”`;
  el('ax0-status').textContent='시작 프롬프트가 만들어졌습니다.';
  }
  el('ax0-make').addEventListener('click',build);
  el('ax0-copy').addEventListener('click',async()=>{if(!el('ax0-output').value.trim())build();const content=el('ax0-output').value;try{await navigator.clipboard.writeText(content);el('ax0-status').textContent='복사했습니다. AI에 붙여넣으세요.'}catch(e){el('ax0-output').focus();el('ax0-output').select();let worked=false;try{worked=document.execCommand('copy')}catch(_){}el('ax0-status').textContent=worked?'복사했습니다.':'자동 복사가 제한되어 있습니다. 선택된 내용을 Ctrl+C로 복사하세요.'}});
- el('ax0-demo').addEventListener('click',()=>{const demo={topic:'AI 기반 맞춤형 스마트관광 안내 서비스',origin:'인천 스마트관광도시 사례',region:'경북 안동시',audience:'처음 방문하는 대중교통 이용 관광객',idea:'관광지 정보를 모아 개인의 관심사와 교통편에 맞는 동선을 추천'};for(const [k,v]of Object.entries(demo))el('ax0-'+k).value=v;build();el('ax0-status').textContent='가상 예시입니다. 실제 발표 내용으로 바꾸세요.'});
+ el('ax0-demo').addEventListener('click',()=>{const demo={topic:'AI 기반 맞춤형 스마트관광 안내 서비스',origin:'인천 스마트관광도시 사례',region:'경북 안동시',audience:'처음 방문하는 대중교통 이용 관광객',problem:'관광지별 이동·운영 정보가 분산되어 여행 동선을 짜기 어렵다는 가설(현장 확인 필요)',idea:'관광지 정보를 모아 개인의 관심사와 교통편에 맞는 동선을 추천',tech:'관광정보 검색·개인화 추천 AI(필요성 검토 예정)'};for(const [k,v]of Object.entries(demo))el('ax0-'+k).value=v;build();el('ax0-status').textContent='가상 예시입니다. 실제 발표 내용으로 바꾸세요.'});
  el('ax0-reset').addEventListener('click',()=>{for(const id of ids)el('ax0-'+id).value='';for(const x of root.querySelectorAll('.ax0-resource'))x.checked=false;build();el('ax0-status').textContent='입력을 초기화했습니다.'});
  build();
 })();
@@ -147,7 +365,36 @@ const $=id=>document.getElementById(id);
 const buttons=$('ax1-steps'), pills=$('ax1-stages');
 let index=0, stage='전체', search='';
 const completed=new Set();
-const escapeHTML=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const headlineKeys=['사례 이해','문제 해결 원리','경북 관광의 문제','핵심 문제','AX 아이디어','AI가 정말 필요한지','서비스 작동 흐름','도입 전과 도입 후','경북에 맞는 이유','차별화','실현 가능성','어려움','운영계획','문항 연결','초안 작성','논리 연결','명확하게 작성','자체평가','인천 발표자료'];
+ const promptKeys=[
+ ['직접 확인된 사실','아직 확인할 수 없는 주장'],
+ ['핵심 해결 원리','경북에 적용할 때'],
+ ['불편을 먼저 발견','실제로 확인되지 않은 문제'],
+ ['누가·언제·어디서','기존 대응과 한계'],
+ ['세 가지','최종 선택은 내가'],
+ ['AI 없이도 가능한 부분','AI의 사용이 실제로 도움이 되는 부분'],
+ ['단계별 이용 과정','이용자가 하는 행동'],
+ ['도입 전 불편','도입 후 기대되는 변화'],
+ ['실제 여건','확인된 통계와 계산 가정'],
+ ['가장 관련 있는 사례','임의로 꾸며 내지'],
+ ['필요한 기술, 데이터, 기관 협력','확보하지 못한 자원'],
+ ['발생 가능한 문제','감출 수 없는 한계'],
+ ['세 단계','평가 후 적용 지역 확대'],
+ ['각 문항과 연결','추가 확인이 필요한 자료'],
+ ['[2] 아이디어 개요','[추가 조사 필요]'],
+ ['경북의 실제 문제','근거 없는 성과 주장'],
+ ['쉽고 구체적으로','확인 수준을 바꾸지'],
+ ['일곱 기준','부족한 내용을 상상'],
+ ['실제로 첨부한','인천에서 확인된 성과']
+ ];
+ function highlightSafe(input,words){
+   let output=escapeHTML(input);for(const word of words||[]){
+     const target=escapeHTML(word);const at=output.indexOf(target);
+     if(at>=0)output=output.slice(0,at)+'<mark class="axhl">'+target+'</mark>'+output.slice(at+target.length);
+   }
+   return output;
+ }
+ const escapeHTML=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function showSteps(){
  buttons.innerHTML='';
  const filtered=data.filter(x=>(stage==='전체'||x.stage===stage) && (search===''||`${x.n} ${x.title} ${x.target} ${x.stage}`.toLowerCase().includes(search)));
@@ -155,7 +402,7 @@ function showSteps(){
  if(!filtered.length)buttons.textContent='검색 결과가 없습니다.';
 }
 function showPills(){pills.innerHTML='';[['전체',19],...stageNames.map(s=>[s[0],s[2]])].forEach(([name,count])=>{const b=document.createElement('button');b.type='button';b.className=stage===name?'active':'';b.textContent=name==='전체'?'전체 19':name+' · '+count;b.onclick=()=>{stage=name;search='';$('ax1-search').value=''; const candidate=data.find(x=>stage==='전체'||x.stage===stage);if(candidate)index=candidate.n-1;render();};pills.append(b);});}
-function render(){const p=data[index];$('ax1-counter').textContent='PROMPT '+String(p.n).padStart(2,'0')+' / 19';$('ax1-group').textContent=p.stage;$('ax1-heading').textContent=p.title;$('ax1-mapping').textContent='📌 신청서 연결 · '+p.target;$('ax1-prompt-text').textContent=p.prompt;$('ax1-note').textContent='작성 안내 · '+p.note;const flow=$('ax1-flow');flow.innerHTML='<div class="sectiontag">핵심 키워드 구조</div>';p.flow.forEach((a,i)=>{const box=document.createElement('div');box.className='flowbox';box.innerHTML='<strong>'+escapeHTML(a[0])+'</strong><span>'+escapeHTML(a[1])+'</span>';flow.append(box);if(i<p.flow.length-1){const arrow=document.createElement('span');arrow.className='arrow';arrow.textContent='↓';flow.append(arrow);}});$('ax1-prev').disabled=index===0;$('ax1-next').disabled=index===data.length-1;$('ax1-completed').checked=completed.has(p.n);$('ax1-progress').textContent='학습 완료 '+completed.size+' / 19';$('ax1-bar').style.width=(completed.size/19*100)+'%';$('ax1-toast').textContent='';showSteps();showPills();}
+function render(){const p=data[index];$('ax1-counter').textContent='PROMPT '+String(p.n).padStart(2,'0')+' / 19';$('ax1-group').textContent=p.stage;$('ax1-panel').dataset.stage=p.stage;$('ax1-heading').innerHTML=highlightSafe(p.title, headlineKeys[p.n-1]);$('ax1-mapping').innerHTML='📌 신청서 연결 · <mark class="axhl">'+escapeHTML(p.target)+'</mark>';$('ax1-prompt-text').innerHTML=highlightSafe(p.prompt, promptKeys[p.n-1]);$('ax1-note').innerHTML='<mark class="axhl">작성 안내</mark> · '+escapeHTML(p.note);const flow=$('ax1-flow');flow.innerHTML='<div class="sectiontag">핵심 키워드 구조</div>';p.flow.forEach((a,i)=>{const box=document.createElement('div');box.className='flowbox';box.innerHTML='<strong><mark class="axhl">'+escapeHTML(a[0])+'</mark></strong><span>'+escapeHTML(a[1])+'</span>';flow.append(box);if(i<p.flow.length-1){const arrow=document.createElement('span');arrow.className='arrow';arrow.textContent='↓';flow.append(arrow);}});$('ax1-prev').disabled=index===0;$('ax1-next').disabled=index===data.length-1;$('ax1-completed').checked=completed.has(p.n);$('ax1-progress').textContent='학습 완료 '+completed.size+' / 19';$('ax1-bar').style.width=(completed.size/19*100)+'%';$('ax1-toast').textContent='';showSteps();showPills();}
 async function copyContent(str){try{await navigator.clipboard.writeText(str);return true;}catch(e){const t=document.createElement('textarea');t.value=str;t.style.position='fixed';t.style.top='-1000px';document.body.append(t);t.focus();t.select();let ok=false;try{ok=document.execCommand('copy')}catch(err){}t.remove();return ok;}}
 $('ax1-copy').addEventListener('click',async()=>{$('ax1-toast').textContent=await copyContent(data[index].prompt)?'복사했습니다. AI에 붙여넣으세요.':'자동 복사가 제한되었습니다. 프롬프트를 선택해 직접 복사하세요.';});
 $('ax1-prev').addEventListener('click',()=>{index=Math.max(0,index-1);stage='전체';render();});
@@ -163,4 +410,32 @@ $('ax1-next').addEventListener('click',()=>{index=Math.min(18,index+1);stage='�
 $('ax1-search').addEventListener('input',e=>{search=e.target.value.trim().toLowerCase();stage='전체';showPills();showSteps();});
 $('ax1-completed').addEventListener('change',e=>{e.target.checked?completed.add(data[index].n):completed.delete(data[index].n);render();});
 render();
+})();</script><script id="ax-map-script">(function(){
+const rows=[["01", "스마트관광도시 사례 이해", "발표 PPT의 문제·기술·경험 변화 정리", "[6-1] 유사 사례", "6"], ["02", "문제 해결 구조 추출", "다른 지역에도 적용할 수 있는 해결 원리 도출", "[6-1] 사례 · [6-4] 추진", "6"], ["03", "타깃 지역 문제 발견", "경북의 관광객·주민 불편 후보 찾기", "[3-1] 문제 · [3-2] 대상", "3"], ["04", "핵심 문제 구체화", "누가·언제·어디서·무슨 불편·기존 한계", "[3-1]~[3-3] 전체", "3"], ["05", "스마트관광 AI 아이디어 생성", "해결 아이디어 3개 비교 및 선택", "[4-1] 서비스", "4"], ["06", "AI 필요성 검토", "AI가 꼭 필요한 기능과 일반 기능 구분", "[4-1] 서비스 보완", "4"], ["07", "관광객 이용 흐름", "관광객이 이용하는 순서 설계", "[4-2] 작동방식", "4"], ["08", "도입 전·후 비교", "AI 도입 전 불편과 도입 후 변화 대조", "[5-1] 전·후 비교", "5"], ["09", "지역 효과 분석", "경북 지역 적합성·혜택 대상 검토", "[5-2] 경북 적합성 · [5-3] 수혜 규모", "5"], ["10", "기존 사례와 차별화", "참고한 부분과 경북 맞춤 차별점 구분", "[6-1] 유사 사례", "6"], ["11", "실현 가능성 검토", "데이터·기술·기관·예산·인력 검토", "[6-2] 기술·자원", "6"], ["12", "예상 문제점 점검", "개인정보·오류·비용 등 위험과 한계", "[6-3] 예상 어려움", "6"], ["13", "단계별 추진계획", "시범운영→지역 확산→본격 운영 계획", "[6-4] 추진계획", "6"], ["14", "응모신청서 연결", "지금까지 정리한 내용을 양식 문항에 배치", "[3]~[6] 전 문항", "common"], ["15", "응모신청서 초안 작성", "문항별 2~5문장 작성 및 부족한 근거 표시", "[2]~[6] 전체 초안", "common"], ["16", "신청서 논리 점검", "문제→해결→효과→실행 연결 검토", "[3]~[6] 전 문항", "common"], ["17", "학생 수준 문장 다듬기", "과장 없이 구체적·자연스러운 표현 수정", "[3]~[6] 전 문항", "common"], ["18", "최종 자체평가", "구체성·AI 필요성·차별성·실현성 평가", "[3]~[6] 전 문항", "common"], ["19", "인천 PPT → 신청서 예시", "타 지역 사례를 양식에 옮기는 방법 연습", "[3]~[6] 작성 예시", "common"]];
+const root=document.querySelector('#ax-mapping');if(!root)return;
+const tbody=root.querySelector('#axm-rows');
+const rowPalettes=[
+ ['#eef3ff','#6a83bc'],['#e6eeff','#5274b2'],
+ ['#e8f5ff','#2b7fae'],['#dff0ff','#2370a6'],
+ ['#f5efff','#8b62c2'],['#eee6ff','#7855b8'],['#e8e1fb','#6b4ba3'],
+ ['#e7f8f0','#288a73'],['#dcf3ea','#1e7b67'],
+ ['#fff5e8','#bb852f'],['#ffefd9','#b57a23'],['#ffe9d9','#b76d30'],['#ffe3ca','#ae602c'],
+ ['#f6f3fc','#756a9a'],['#efedfb','#685d96'],['#eae8f8','#635d91'],['#f9edf5','#a65e94'],['#f6e8f0','#a24f85'],['#fbece7','#a66c58']
+ ];
+ const topicKeys=['사례 이해','문제 해결 구조','문제 발견','핵심 문제','AI 아이디어','AI 필요성','이용 흐름','전·후','지역 효과','차별화','실현 가능성','예상 문제점','추진계획','신청서 연결','초안 작성','논리 점검','문장 다듬기','자체평가','인천 PPT'];
+ const workKeys=['문제·기술·경험 변화','해결 원리','불편 후보','기존 한계','3개 비교 및 선택','꼭 필요한 기능','이용하는 순서','도입 후 변화','혜택 대상','경북 맞춤 차별점','데이터·기술·기관·예산·인력','위험과 한계','시범운영→지역 확산→본격 운영','양식 문항에 배치','부족한 근거 표시','문제→해결→효과→실행','구체적·자연스러운','구체성·AI 필요성·차별성·실현성','양식에 옮기는 방법'];
+ function esc(s){return String(s).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));}
+ function highlight(input,word){const v=esc(input),w=esc(word),at=v.indexOf(w);return at<0?v:v.slice(0,at)+'<mark class="axhl">'+w+'</mark>'+v.slice(at+w.length);}
+ rows.forEach(function(r,k){const tr=document.createElement('tr');tr.dataset.bucket=r[4];tr.className='axm-row';tr.style.setProperty('--row-bg',rowPalettes[k][0]);tr.style.setProperty('--row-accent',rowPalettes[k][1]);
+const id=document.createElement('td');id.className='axm-id';id.textContent=r[0];
+const topic=document.createElement('td');topic.className='axm-topic';topic.innerHTML=highlight(r[1],topicKeys[k]);
+const work=document.createElement('td');work.className='axm-work';work.innerHTML=highlight(r[2],workKeys[k]);
+const link=document.createElement('td');link.className='axm-link';link.textContent=r[3];
+tr.append(id,topic,work,link);tbody.appendChild(tr);});
+const buttons=[...root.querySelectorAll('.axm-filter')];
+buttons.forEach(function(b){b.addEventListener('click',function(){const bucket=b.dataset.filter;
+let count=0;[...tbody.children].forEach(function(tr){const show=bucket==='all'||tr.dataset.bucket===bucket;tr.hidden=!show;if(show)count++;});
+buttons.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});
+root.querySelector('#axm-count').textContent=count+'개 프롬프트';
+});});
 })();</script></body></html>
