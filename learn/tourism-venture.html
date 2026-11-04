@@ -875,6 +875,17 @@
     /* 파트 04 창구 A~E — 갈래 머리 위에 연한 점선으로 구획 (2026-11-04) */
     .learn-article #예비관광벤처공모, .learn-article #예비창업패키지, .learn-article #보육투자, .learn-article #전국경진대회, .learn-article #광역시원도심공모 { position: relative; margin-top: 46px; }
     .learn-article #예비관광벤처공모::before, .learn-article #예비창업패키지::before, .learn-article #보육투자::before, .learn-article #전국경진대회::before, .learn-article #광역시원도심공모::before { content: ""; position: absolute; left: 0; right: 0; top: -24px; border-top: 1.5px dashed #c9d4df; }
+    /* 한옥 파트 — 프로세스 · 매물 · 비용을 접고 펴기 (2026-11-04) */
+    .learn-article details.hz-fold { margin: 10px 0; border: 1px solid #e6d6b4; border-radius: 10px; background: #fffefa; }
+    .learn-article details.hz-fold > summary { cursor: pointer; padding: 10px 14px; font-size: 14px; color: #5a3d12; list-style: none; }
+    .learn-article details.hz-fold > summary::-webkit-details-marker { display: none; }
+    .learn-article details.hz-fold > summary::before { content: "▸"; display: inline-block; width: 16px; color: #a8740f; transition: transform .15s; }
+    .learn-article details.hz-fold[open] > summary::before { transform: rotate(90deg); }
+    .learn-article details.hz-fold > summary b { color: #3d2a0c; }
+    .learn-article details.hz-fold > summary::after { content: " · 펼치기"; font-size: 11.5px; color: #a08a60; }
+    .learn-article details.hz-fold[open] > summary::after { content: " · 접기"; }
+    .learn-article details.hz-fold[open] { padding: 0 12px 10px; }
+    .learn-article details.hz-fold[open] > summary { margin: 0 -12px; }
     .learn-article .fr-sec { margin: 14px 0 6px; font-size: 12.5px; font-weight: 800; color: #7a5200; }
     /* 고용 증명 영상(#hire-proof) — 정중앙 · 설명도 가운데 (2026-11-04) */
     .learn-article #hire-proof { justify-content: center; }
@@ -4323,6 +4334,7 @@
       <section class="hanok-zone" id="hanok-zone" aria-label="한옥체험업 창업 — 프로세스 · 매물 · 비용">
         <p class="hz-h"><b class="hz-tag">한옥 파트</b>한옥체험업 창업 — 프로세스 · 매물 · 비용</p>
         <p class="dltags hz-pills"><a class="mapl form" href="assets/lodging-ops-01-hanok-operation.pdf" download="숙박업운영핵심비결_01_한옥체험업운영_부가자료.pdf">한옥체험업 운영 ⤓ PDF</a><a class="mapl form" href="https://www.hanokdb.kr/" target="_blank" rel="noopener">한옥DB ↗</a><a class="mapl form" href="https://hanok.seoul.go.kr/front/kor/exp/expPlaceView.do?spmSeq=155&amp;searchGubun=P100" target="_blank" rel="noopener">서울한옥포털 · 한옥 체험 장소 ↗</a><span class="dl-src">관광e배움터 「한옥체험업 운영」 부가자료와, 아래 「매물을 찾는 세 경로」에서 쓰는 전국 · 서울 한옥 정보 창구입니다. 영상 가이드 · 통합강의안은 위 한옥체험업 칸에.</span></p>
+      <details class="hz-fold"><summary><b>① 프로세스 5단계</b> — 매물 → 시설 → 등록 → 사업자 → 운영</summary>
       <div class="six-box wood">
         <p class="six-h">한옥체험업 창업 프로세스 5단계</p>
         <div class="step-flow">
@@ -4340,7 +4352,9 @@
         <strong>③ 지자체 등록 신청</strong> — 준비서류(신청서 · 사업계획서 · 시설 배치도 · 임대차계약서 등)를 지참해 시 · 군 · 구청의 관광과(또는 문화관광과)에 접수합니다. 담당 공무원이 <strong>현장 실사</strong>로 소방 · 시설 기준을 점검한 뒤 「한옥체험업 등록증」을 발급합니다.<br />
         <strong>④ 사업자등록</strong> — 등록증을 들고 세무서에서 사업자등록을 합니다(업태: <strong>숙박업</strong> / 종목: <strong>한옥체험업</strong>).</p>
       </div>
+      </details>
 
+      <details class="hz-fold"><summary><b>② 매물</b> — 찾는 세 경로 · 매입 전 현장 확인 셋</summary>
       <p><strong>그 1단계 「매물 확보」부터가 쉽지 않습니다.</strong> 한옥은 일반 아파트처럼 아무 공인중개사사무소에서나 좋은 매물을 찾기 어렵고, 건축적 가치(목조 상태 · 대수선 가능 여부)를 알아보는 전용 경로를 거쳐야 합니다.</p>
       <div class="six-box wood">
         <p class="six-h">한옥 매물을 찾는 세 경로</p>
@@ -4361,7 +4375,9 @@
       </ul>
       </div>
       <p class="mini-note">✍️ <strong>검수 요청</strong> — 위 매물 탐색 경로 · 기관명 · 체크포인트는 AI 응답을 바탕으로 정리한 참고 자료입니다. 기관의 현재 운영 여부와 지자체별 세부 공고는 실제 신청 전에 다시 확인하십시오.</p>
+      </details>
 
+      <details class="hz-fold"><summary><b>③ 비용</b> — 초기 창업비 · 월 운영비 · 자금조달 팁</summary>
       <p><strong>한옥을 운영하려면 돈이 어떻게 드는가.</strong> 비용은 ① 문을 열기까지의 <strong>초기 창업비용</strong>과 ② 문을 연 뒤 매달 빠져나가는 <strong>운영비용</strong>, 둘로 나눠서 봅니다.</p>
       <div class="six-box wood">
         <p class="six-h">① 초기 창업비용 (매입 · 임차 및 공사)</p>
@@ -4400,6 +4416,7 @@
       </ul>
       </div>
       <p class="mini-note">✍️ <strong>검수 요청</strong> — 위 금액은 AI 응답을 바탕으로 정리한 참고용 추정치이며 지역 · 시점 · 건물 상태에 따라 크게 달라집니다. 실제 사업계획서에 쓸 때는 현장 견적 · 공고문 등으로 다시 확인하십시오.</p>
+      </details>
       </section>
 
       <p><strong>공간 사업의 셈은 객실 수가 아니라 가동률입니다.</strong> 방이 몇 개인지보다 <em>일 년에 며칠 차는가</em>가 매출을 정합니다. 고정비(임차·수선·인건비)는 손님이 없어도 나가므로, <strong>비수기를 무엇으로 채우는가</strong>가 사업계획서에서 실제로 읽히는 대목입니다 — 워크북 <strong>[표4] Scale-up</strong>의 계산식이 여기서 나옵니다.</p>
