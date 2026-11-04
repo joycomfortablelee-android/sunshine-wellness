@@ -135,6 +135,64 @@
 @media(max-width:700px){.ps-board{padding:17px 14px}.ps-columns,.ps-two-values{grid-template-columns:1fr}.ps-arrow{font-size:20px}.ps-board-title{font-size:18px}.ps-block{padding:14px}.ps-levers{grid-template-columns:1fr}.ps-index-grid{grid-template-columns:1fr 1fr}.ps-minirow{grid-template-columns:1fr auto;gap:4px}.ps-minirow .tinybar{grid-column:1/-1;grid-row:2}.ps-money-item strong{font-size:16px}}
 @media(max-width:400px){.ps-index-grid{grid-template-columns:1fr}}
 @media print{body[data-active-tab="problem"] .panel#problem{display:block!important}body[data-active-tab="problem"] .panel#sim,body[data-active-tab="problem"] .panel#bmc,body[data-active-tab="problem"] .panel#tasks,body[data-active-tab="problem"] .panel#portfolio{display:none!important}.ps-board{background:#fbfcff!important;color:#1a3045!important;print-color-adjust:exact;-webkit-print-color-adjust:exact}.ps-board,.ps-verify,.ps-intro{break-inside:avoid}.ps-actions,.ps-index{display:none!important}}
+/* ===== 단계별 색 다시 입힘 (2026-11-04) — 문제 빨강 · 해결 파랑 · 가치 초록/보라 · 수익 금색, 판 바탕은 흰색 · 네이비 테두리 ===== */
+.ps-board{background:#fff;border:2px solid #1c2f55;color:#1c2b3a;box-shadow:0 6px 18px #1c2f5514}
+.ps-board>.ps-label{color:#1c4e8a}
+.ps-board>.ps-label span{color:#c0392b!important}
+.ps-board-title{color:#16263f}
+.ps-block{border-left-width:1.5px}
+.ps-block h4{color:#fff}
+.ps-block li{color:#e8eff6}
+.ps-block.problem{background:linear-gradient(150deg,#4a1a24,#2e1420);border-color:#e0655f;box-shadow:0 0 0 1px #e0655f33 inset}
+.ps-block.problem .ps-head{color:#ffb1aa}
+.ps-block.solution{background:linear-gradient(150deg,#123566,#0f2547);border-color:#4f8ff0;box-shadow:0 0 0 1px #4f8ff033 inset}
+.ps-block.solution .ps-head{color:#a9caff}
+.ps-solution-bar{background:linear-gradient(105deg,#0d5a4f,#11806a 55%,#1aa37e);border-color:#3fd1b0}
+.ps-solution-bar .ps-label{color:#c9fff0}
+.ps-solution-bar h3{color:#fff}
+.ps-solution-bar p{color:#dff7ef}
+.ps-block.value{background:linear-gradient(150deg,#124436,#0e3128);border-color:#3fbf86}
+.ps-block.value .ps-head{color:#9df0c6}
+.ps-block.partner{background:linear-gradient(150deg,#2f2156,#211843);border-color:#9b7cf0}
+.ps-block.partner .ps-head{color:#cdbbff}
+.ps-revenue-box{background:linear-gradient(120deg,#4a3209,#5e3f0b 60%,#6e4a10);border-color:#f0b84a;color:#fff6e3}
+.ps-revenue-box .ps-label{color:#ffd88a}
+.ps-revenue-box h3{color:#ffe3a3}
+.ps-revenue-box p{color:#fff3da}
+.ps-revenue-box .ps-note{background:#3a2706;border-left-color:#f0b84a;color:#fff0cf}
+.ps-arrow{color:#d99a1e}
+.ps-arrow span{color:#4a5d72}
+.ps-lever{color:#fff}
+.ps-lever:nth-child(3n+1){background:linear-gradient(150deg,#5a2a10,#3d1d0b);border-color:#f08a4a}
+.ps-lever:nth-child(3n+2){background:linear-gradient(150deg,#561a3f,#3a1230);border-color:#e86aa8}
+.ps-lever:nth-child(3n+3){background:linear-gradient(150deg,#0f4a5a,#0b3441);border-color:#4fc6e0}
+.ps-lever small{color:#ffe3a3}
+.ps-money-item{border-top:4px solid #247f93}
+.ps-money-item:nth-child(2){border-top-color:#d7a95a}
+.ps-money-item:nth-child(3){border-top-color:#91a0b0}
+.ps-money-item.pos{border-top-color:#2d987a;background:#f0faf5}
+.ps-money-item.neg{border-top-color:#cf5654;background:#fdf1f0}
+.tinybar .fill{background:linear-gradient(90deg,#4f8ff0,#3fd1b0,#f0b84a)!important}
+@media print{
+ .ps-board{background:#fff!important;border-color:#1c2f55;color:#1c2b3a!important}
+ .ps-block h4,.ps-revenue-box,.ps-solution-bar,.ps-lever{color:#fff!important}
+}
+
+/* 위 탭 알약 — BM(비즈니스 모델 · 파랑)과 수익화(금색)를 색 · 꼬리표로 갈라 둔다 (2026-11-04) */
+.tab{border-radius:999px;border:1.5px solid #d3dde6;background:#fff}
+.tab::before{display:inline-block;margin-right:6px;padding:1px 7px;border-radius:999px;font-size:10px;font-weight:900;letter-spacing:.3px;vertical-align:1px}
+.tab[data-tab="sim"]{background:#fff6e3;border-color:#e0a83a;color:#8a5a00}
+.tab[data-tab="sim"]::before{content:"수익화";background:#c8860f;color:#fff}
+.tab[data-tab="sim"]:not(.active):hover{background:#ffeccc}
+.tab[data-tab="sim"].active{background:#c8860f;border-color:#c8860f;color:#fff}
+.tab[data-tab="sim"].active::before{background:#fff;color:#8a5a00}
+.tab[data-tab="bmc"]{background:#edf3ff;border-color:#5b84d6;color:#1f4a9a}
+.tab[data-tab="bmc"]::before{content:"BM";background:#1f4a9a;color:#fff}
+.tab[data-tab="bmc"]:not(.active):hover{background:#dde8ff}
+.tab[data-tab="bmc"].active{background:#1f4a9a;border-color:#1f4a9a;color:#fff}
+.tab[data-tab="bmc"].active::before{background:#fff;color:#1f4a9a}
+.tab.active{border-color:var(--nav2)}
+
 </style>
 </head>
 <body>
