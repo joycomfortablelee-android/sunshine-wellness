@@ -68,6 +68,26 @@
   footer{text-align:center;color:#8c9bad;font-size:12px;margin-top:26px}
   @media(max-width:720px){.wrap{padding:12px 12px 42px}header{padding:25px 23px;border-radius:14px}section{padding:20px 15px;border-radius:13px}.dashboard{grid-template-columns:1fr;gap:28px}.donut{width:190px}.notice{padding:18px 14px}.notice h3{font-size:18px}.notice table{font-size:12px}}
   @media print{ @page{size:A4;margin:13mm}body{background:white;font-size:12px}.wrap{max-width:none;padding:0}header{border-radius:8px;padding:20px 25px;box-shadow:none;-webkit-print-color-adjust:exact;print-color-adjust:exact}h1{font-size:26px}.actions{display:none}section{box-shadow:none;margin-top:16px;padding:16px 18px;break-inside:avoid;page-break-inside:avoid}h2{font-size:18px;margin-bottom:11px}td,th{padding:8px 9px}.donut,.fill,.group,.total,th{-webkit-print-color-adjust:exact;print-color-adjust:exact}.donut{width:200px}.dashboard{grid-template-columns:210px 1fr}.notice{padding:16px}.notice table{margin:12px 0}.print-hidden{display:none!important}footer{margin-top:8px}}
+  /* 한 화면에 — 줄간격 좁게 · 가로로 넓게 · 2단 배치 (2026-11-04) */
+  @media screen and (min-width:1000px){
+   body{line-height:1.45}
+   .wrap{max-width:1400px;padding:14px 22px 14px}
+   header{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:14px 24px;border-radius:14px}
+   header h1{font-size:24px;margin:0}.eyebrow{margin:0 0 3px;font-size:11px}.header-sub{font-size:13px}.topline{margin-top:0}
+   .actions{position:absolute;right:30px;top:58px;margin:0}.actions button{padding:5px 11px;font-size:12px;background:#ffffffe8}.wrap{position:relative}
+   .cols{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:14px;align-items:start}
+   .cols section{margin-top:10px;padding:14px 18px;border-radius:12px}
+   h2{font-size:16px;margin:0 0 8px}
+   th{padding:6px 10px}td{padding:6px 10px}
+   .tablewrap table{min-width:0}
+   .dashboard{grid-template-columns:120px 1fr;gap:18px}.donut{width:120px}.center strong{font-size:16px}.center small{font-size:9.5px}.donut::before{inset:22%}
+   .bars{gap:5px}.barhead{margin-bottom:3px;font-size:13px}.barhead b{font-size:14px}.track{height:11px}.detail{margin-top:2px;font-size:12px}
+   .notice{padding:12px 16px}.notice h3{font-size:16px;margin:0 0 6px}.notice p{font-size:13.5px;margin:6px 0}
+   .notice table{margin:8px 0;font-size:13px}.notice th,.notice td{padding:5px 10px}
+   .notice .callout{padding-top:8px;margin-top:8px}.notice .callout h4{font-size:13.5px;margin:0 0 2px}
+   .professor-note p{font-size:13px}.tiny{margin-top:4px}
+   footer{margin-top:8px}
+  }
 </style>
 </head>
 <body>
@@ -80,6 +100,7 @@
 </header>
 <div class="actions"><button onclick="window.print()" type="button">인쇄 / PDF로 저장</button></div>
 
+<div class="cols"><div class="col">
 <section aria-labelledby="evaluation">
  <h2 id="evaluation">1. 평가 영역 및 배점</h2>
  <div class="tablewrap">
@@ -110,6 +131,12 @@
  </div>
 </section>
 
+<section class="professor-note" aria-labelledby="teacher-note">
+ <h2 id="teacher-note">교수자 확인 사항 <span style="font-size:13px;color:var(--muted);font-weight:500">(공지 전 점검)</span></h2>
+ <p>출석 28점은 <strong>14회 × 2점</strong> 기준입니다. 전체 16주에서 1주 차만 제외하면 <strong>15회</strong>이므로, 추가로 제외할 1회 또는 15회에 적용할 점수 산정 방식을 확정해야 합니다.</p>
+ <p class="tiny">이 구역은 학생 공지문과 구분된 교수자 점검 메모입니다.</p>
+</section>
+</div><div class="col">
 <section aria-labelledby="notice">
  <h2 id="notice">3. 학생 공지사항</h2>
  <div class="notice">
@@ -139,11 +166,8 @@
  </div>
 </section>
 
-<section class="professor-note" aria-labelledby="teacher-note">
- <h2 id="teacher-note">교수자 확인 사항 <span style="font-size:13px;color:var(--muted);font-weight:500">(공지 전 점검)</span></h2>
- <p>출석 28점은 <strong>14회 × 2점</strong> 기준입니다. 전체 16주에서 1주 차만 제외하면 <strong>15회</strong>이므로, 추가로 제외할 1회 또는 15회에 적용할 점수 산정 방식을 확정해야 합니다.</p>
- <p class="tiny">이 구역은 학생 공지문과 구분된 교수자 점검 메모입니다.</p>
-</section>
+
+</div></div>
 <footer>관광벤처창업론 · 수업 평가 기준</footer>
 </main>
 </body>
