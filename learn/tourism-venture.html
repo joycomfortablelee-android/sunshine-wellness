@@ -860,6 +860,18 @@
     .learn-article .learn-part.lp-core.ch-sub { margin: 26px 0 12px 18px; padding: 10px 16px; font-size: 15px; background: linear-gradient(120deg, #3f6a60 0%, #5b8579 100%); box-shadow: 0 3px 10px rgba(43,74,66,.14); }
     /* 하위 갈래 본문을 바 안으로 — 바 아래에 붙은 상자에 들여 넣는다 (2026-11-04) */
     .learn-article .learn-part.lp-core.ch-sub.has-body { margin-bottom: 0; border-radius: 10px 10px 0 0; }
+    /* 03-G 실행 주체와 성과 — 5-1~5-3 · 표5 · 6-1 */
+    .learn-article .t7-chain { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; justify-content: center; margin: 10px 0 4px; }
+    .learn-article .t7-chain b { padding: 6px 16px; border-radius: 999px; background: #1f4d43; color: #fff; font-size: 14px; font-weight: 900; }
+    .learn-article .t7-chain i { font-style: normal; color: #c9952a; font-weight: 900; }
+    .learn-article figure.t7-wheel { max-width: 620px; margin: 10px auto 6px; text-align: center; }
+    .learn-article figure.t7-wheel img { width: 100%; height: auto; cursor: zoom-in; }
+    .learn-article figure.t7-wheel figcaption { font-size: 12.5px; color: #4a5a68; line-height: 1.65; }
+    .learn-article .t7-tables { display: grid; grid-template-columns: 1.25fr 1fr; gap: 14px; align-items: start; margin-top: 12px; }
+    .learn-article .t7-st { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 11.5px; font-weight: 800; background: #e3f1ea; color: #1f6f5c; }
+    .learn-article .t7-st.plan { background: #fff3cf; color: #8a6a1f; }
+    .learn-article .t7-st.ex { background: #f1eaf8; color: #6b4f93; }
+    @media (max-width: 900px) { .learn-article .t7-tables { grid-template-columns: 1fr; } }
     /* 03-F 양식 3-2 홍보 및 판로개척 */
     .learn-article .p32-wk { display: inline-block; margin-left: 4px; padding: 1px 9px; border-radius: 999px; background: #ffe14d; color: #3d3200; font-size: 12px; font-weight: 800; }
     .learn-article ol.p32-four { list-style: none; margin: 14px 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; counter-reset: p32; }
@@ -3076,7 +3088,7 @@
             <div class="rb-row"><a class="p0" href="#part00">00 한눈에</a></div>
             <div class="rb-row"><a class="p2" href="#part02">01 평가기준</a><span class="rb-grp rb-in p2"><a class="p2 sub" href="#과제1">과제 1 · 예비관광벤처 사업계획서</a><a class="p2 sub key" href="#form-rest" title="양식 1-1 ~ 6-1 — 칸마다 어디서 배우고 어디에 쓰나">과제 1 칸별 지도 · 양식 1-1~6-1</a><a class="p2 sub" href="assets/tourism-venture-18th-business-plan-form.hwp" download="[붙임] 제18회 예비관광벤처부문 사업계획서 양식.hwp">제18회 양식 ⤓ HWP</a><a class="p2 sub key" href="gov-support-business-plan-98p.html" target="_blank" rel="noopener" title="이명신 IR피칭 멘토 강의"><span class="blink-star" aria-hidden="true">★</span> 사업계획서 합격 비법 · 98장 ↗</a><a class="p2 sub key" href="startup-item-pt-scrapbook/" target="_blank" rel="noopener" title="창업 아이템 PT 참고 슬라이드 34장"><span class="blink-star" aria-hidden="true">★</span> Ms.Lee PSST point lesson · 참고 슬라이드 34장 ↗</a><a class="p2 sub" href="#배우기">★ 배우기 · 쓰는 법</a></span></div>
             <div class="rb-row"><a class="p1" href="#part01">02 Build Up</a></div>
-            <div class="rb-row"><a class="p3" href="#part03">03 흐름</a><span class="rb-grp rb-in p3"><a class="p3 sub" href="#ch01">01 관광벤처란</a><a class="p3 sub key" href="#ch02" title="사업계획서 1-1 문제 인식 — 1차 · 2차 제출 칸">★ 02 문제정의</a><a class="p3 sub key" href="#ch03" title="이번 주 · 다음 주 수업 — 사업계획서 3차 제출(2-2 사업모델)">★ 03 비즈니스모델</a><a class="p3 sub" href="#ch03-b">03-B 네 단계</a><a class="p3 sub" href="#bm-sim">03-C 수익 시뮬레이터</a><a class="p3 sub" href="#risk">03-D 위험 관리</a><a class="p3 sub" href="#capability">03-E 사업화 역량</a><a class="p3 sub" href="#promo-3-2">03-F 홍보 · 판로</a><a class="p3 sub" href="#ch04">04 린스타트업</a><a class="p3 sub" href="#ch06">06 사이트사례</a></span></div>
+            <div class="rb-row"><a class="p3" href="#part03">03 흐름</a><span class="rb-grp rb-in p3"><a class="p3 sub" href="#ch01">01 관광벤처란</a><a class="p3 sub key" href="#ch02" title="사업계획서 1-1 문제 인식 — 1차 · 2차 제출 칸">★ 02 문제정의</a><a class="p3 sub key" href="#ch03" title="이번 주 · 다음 주 수업 — 사업계획서 3차 제출(2-2 사업모델)">★ 03 비즈니스모델</a><a class="p3 sub" href="#ch03-b">03-B 네 단계</a><a class="p3 sub" href="#bm-sim">03-C 수익 시뮬레이터</a><a class="p3 sub" href="#risk">03-D 위험 관리</a><a class="p3 sub" href="#capability">03-E 사업화 역량</a><a class="p3 sub" href="#promo-3-2">03-F 홍보 · 판로</a><a class="p3 sub" href="#team-7th">03-G 팀 · 성과</a><a class="p3 sub" href="#ch04">04 린스타트업</a><a class="p3 sub" href="#ch06">06 사이트사례</a></span></div>
             <div class="rb-row"><a class="p4" href="#part04">04 지원 생태계</a><span class="rb-grp rb-in p4"><a class="p4 sub" href="#ch05">창업 지원</a><a class="p4 sub" href="#예비관광벤처공모">A 관광 전용</a><a class="p4 sub" href="#예비창업패키지">B 범부처</a><a class="p4 sub" href="#보육투자">C 보육 · 투자</a><a class="p4 sub" href="#전국경진대회">D 전국 경진대회</a><a class="p4 sub" href="#광역시원도심공모">E 지역</a></span></div>
             <div class="rb-row"><a class="p5" href="#part05">05 업종</a><span class="rb-grp rb-in p5"><a class="p5 sub" href="#ch07">5-1 여행업</a><a class="p5 sub" href="#ch08">5-2 외식</a><a class="p5 sub" href="#ch09">5-3 민박한옥</a><a class="p5 sub" href="#ch10">5-4 스마트팜</a><a class="p5 sub" href="#ch11">5-5 연구용역</a><a class="p5 sub" href="#local-creator">5-6 로컬크리에이터</a><a class="p5 sub" href="#tourdure">5-7 관광두레</a><a class="p5 sub" href="#industry-25">5-8 업종별 이해</a></span></div>
             <div class="rb-row rb-rest"><a class="p7" href="#part07">06 책</a><a class="p8" href="#part08">07 기업가정신</a><a class="p10" href="#part10">08 IR 피칭</a><a class="p9" href="#part09">09 곁들여</a><a class="p6" href="#part06">10 취업</a><a class="p11" href="#part11">11 작성실</a></div>
@@ -4144,7 +4156,7 @@
       <p class="dltags" id="research-34"><a class="mapl form hot" href="startup-research-sites-34.html" target="_blank" rel="noopener">창업정보 조사 사이트 34선 — 근거는 어디서 찾나 ↗</a><a class="mapl form lime" href="startup-research-sites-34-onepage.html" target="_blank" rel="noopener">같은 34곳 · 한 장 초콤팩트 — 인쇄용 ↗</a><span class="dl-src"><b>고객을 좁혔다면, 이제 「그 고객이 정말 있다」는 숫자를 가져올 차례입니다.</b> 사이트를 외우는 판이 아니라 <b>어느 질문에 답해 주는 사이트인가</b>로 묶은 판입니다 — <b>시장규모 · 고객 · 입지</b>(KOSIS · SGIS · 공공데이터포털) · <b>경쟁기업</b>(DART) · <b>소비자 관심</b>(Google Trends · 네이버 데이터랩) · <b>지원사업</b>(K-Startup · 기업마당) · <b>기술 · 특허 · 법</b>(NTIS · KIPRIS · 국가법령정보센터). <b>「외국인 대상 안동 전통문화 체험여행 플랫폼」</b> 하나로 열한 걸음을 따라가는 예와, 주소가 달린 <b>34곳 목록</b>이 있습니다(초록 알약은 그 34곳을 네 묶음 한 장에 모은 <b>인쇄용</b>). 주의 하나 — <b>검색량은 구매량이 아닙니다</b>(수요의 신호일 뿐). 관광 전용 근거(한국관광 데이터랩 · PRISM · 관광특화 통합검색)는 파트 09 에 따로 있습니다. <b>← →</b> 로 넘깁니다.</span></p>
 
       <p class="learn-part lp-core" id="ch03"><span class="num">03</span>비즈니스 모델 — 어떻게 돈이 도는가<span class="fno-backs"><a class="fno-back" href="#form-2-2" title="과제 1 칸별 지도 — 양식 2-2 카드">↑ 양식 2-2</a><a class="fno-back" href="#form-2-3" title="과제 1 칸별 지도 — 양식 2-3 카드">↑ 2-3</a><a class="fno-back" href="#form-3-1" title="과제 1 칸별 지도 — 양식 3-1 · 3-2 카드">↑ 3-1 · 3-2</a></span></p>
-      <p class="sub-abcd"><b>03장 안에서</b><a href="#ch03-a"><i>A</i>핵심 셋 · 수익화 도식</a><a href="#ch03-b"><i>B</i>수익모델 네 단계</a><a href="#bm-sim"><i>C</i>수익 시뮬레이터</a><a href="#risk"><i>D</i>위험 관리</a><a href="#capability"><i>E</i>사업화 역량 · 3-1</a><a href="#promo-3-2"><i>F</i>홍보 · 판로 · 3-2</a></p>
+      <p class="sub-abcd"><b>03장 안에서</b><a href="#ch03-a"><i>A</i>핵심 셋 · 수익화 도식</a><a href="#ch03-b"><i>B</i>수익모델 네 단계</a><a href="#bm-sim"><i>C</i>수익 시뮬레이터</a><a href="#risk"><i>D</i>위험 관리</a><a href="#capability"><i>E</i>사업화 역량 · 3-1</a><a href="#promo-3-2"><i>F</i>홍보 · 판로 · 3-2</a><a href="#team-7th"><i>G</i>팀 · 성과 · 5 · 6-1</a></p>
       <p>사업이 되려면 가치가 <strong>돈의 흐름</strong>으로 이어져야 합니다. 비즈니스 모델 캔버스는 이를 아홉 칸으로 정리하는 도구지만, 핵심은 세 가지 — 그리고 그 셋을 <strong>한 장에 그린 수익화 모델 도식</strong>입니다.</p>
       <p class="learn-part lp-core ch-sub has-body" id="ch03-a"><span class="num">03-A</span>핵심 셋 — 가치 · 고객 · 수익, 그리고 한 장의 수익화 도식<a class="fno-back" href="#form-rest" title="과제 1 칸별 지도로">↑ 양식 2-2 지도</a></p>
       <div class="ch-sub-body">
@@ -4249,6 +4261,30 @@
       <p class="mini-note">이 표의 달은 <a href="#form-3-4">양식 3-4 [표3] 월별 일정</a>과, 마지막 칸 숫자는 <a href="#form-6-1">양식 6-1 KPI</a>와 같아야 합니다. 숫자는 예시이니 내 사업의 숫자로 바꿔 쓰십시오.</p>
       <p class="dltags" style="justify-content:center"><a class="mapl form hot shine" href="promotion-20-interactive.html" target="_blank" rel="noopener"><span class="blink-star" aria-hidden="true">✦</span> 홍보 방식 20가지 · 아이콘 지도 ↗</a><span class="dl-src">다섯 갈래(검색 · 발견 / SNS · 콘텐츠 / 신뢰 · 입소문 / 현장 · 제휴 / 관계 · 재방문) 20가지 — 아이콘을 누르면 누구에게 · 무엇을 · 무엇으로 성과를 보나 · 양식 3-2 문장 예시. 2~4가지를 골라 내 홍보 조합을 만들고 복사합니다.</span></p>
       <p class="dltags"><a class="mapl form webform" href="tourism-venture-capability-3-1-3-2.html" target="_blank" rel="noopener"><span class="blink-star" aria-hidden="true">✍</span> 우리 반 9개 사업 <span class="fno">양식 3-2</span> 작성안 · 바로 쓰기 ↗</a><a class="mapl form" href="#capability">← 03-E 양식 3-1 개발 계획</a></p>
+      </div>
+
+      <p class="learn-part lp-core ch-sub has-body" id="team-7th"><span class="num">03-G</span><span class="lp-t">실행 주체와 성과 — <span class="fno">양식 5-1~5-3</span> · [표5] · <span class="fno">양식 6-1</span> — 누가 실행하고, 무엇을 달성하는가</span><a class="fno-back" href="#form-rest" title="과제 1 칸별 지도로">↑ 양식 5 · 6-1 지도</a></p>
+      <div class="ch-sub-body">
+      <p>5장은 <strong>우리 팀에게 실행할 능력이 있는가</strong>, 6-1은 <strong>그 능력과 네트워크로 KPI를 어떻게 달성하는가</strong>입니다. 둘을 <b>사람 → 역량 → 실행 → 성과</b> 한 줄로 잇습니다. <span class="p32-wk">15주 · 12/8 보강 주간 → 7차 제출 12/13(일) 자정</span></p>
+      <p class="t7-chain"><b>사람</b><i>→</i><b>역량</b><i>→</i><b>실행</b><i>→</i><b>성과</b></p>
+      <figure class="t7-wheel">
+        <a href="tv-team-kpi-7th-guide.html" target="_blank" rel="noopener"><img src="images/tv-7th-team-20-wheel.webp" width="1304" height="1001" loading="lazy" alt="팀 빌딩 및 역량 20가지 원형 도식 — 대표자 역량(01 관련 경험 · 경력, 02 전문지식 · 기술역량, 03 실행 실적 · 성과, 04 문제 극복 경험) · 팀원 역량(05 팀원 전문역량, 06 관련 프로젝트 경험, 07 보유 네트워크 · 파트너십, 08 실행 역량 · 운영 경험) · 역할 분담(09 조직도 · 운영 체계, 10 역할 및 책임 R&amp;R, 11 의사소통 · 협업 방식, 12 팀 결성 배경 · 신뢰 구축) · 부족 역량(13 부족한 전문역량, 14 부족 역량의 영향, 15 역량 확보 전략, 16 확보 일정과 우선순위) · 확보 계획(17 외부 전문가 · 자문, 18 인력 채용 계획, 19 역량과 KPI 연결, 20 협약목표와의 정합성). 가운데: 양식 5-1~5-3 · 표5 · 6-1 KPI · 협약목표"></a>
+        <figcaption><b>팀 빌딩 및 역량 20가지</b> — 안쪽 다섯 색이 영역(대표자 역량 · 팀원 역량 · 역할 분담 · 부족 역량 · 확보 계획), 바깥 20칸이 쓸 거리. <span class="zoom-hint">누르면 클릭형 작성 가이드가 열립니다</span></figcaption>
+      </figure>
+      <p class="dltags" style="justify-content:center"><a class="mapl form hot shine" href="tv-team-kpi-7th-guide.html" target="_blank" rel="noopener"><span class="blink-star" aria-hidden="true">✦</span> 7차 · 팀 역량 · 성과 인터랙티브 작성 가이드 ↗</a><span class="dl-src">원형 20항목 클릭 → 작성 질문 · 예시 문장 · 증빙 / 20항목 체크표 / [표5] 팀 구성 · 6-1 KPI 직접 입력(브라우저에 저장) / 최종 점검표.</span></p>
+      <div class="t7-tables">
+        <table class="p32-cal">
+          <caption>각 항목에 실제로 쓸 내용</caption>
+          <thead><tr><th>항목</th><th>작성 아이디어</th><th>작성 예시</th></tr></thead>
+          <tbody><tr><th>관련 경험</th><td>전공 · 활동 · 현장 경험</td><td>지역 축제 운영 참여, 관광상품 기획 경험</td></tr><tr><th>전문 역량</th><td>사업에 필요한 기술 · 지식</td><td>콘텐츠 제작, 고객응대, 서비스 개발</td></tr><tr><th>실행 실적</th><td>실제 해본 일과 결과</td><td>체험 프로그램 시범 운영, 고객 인터뷰 실시</td></tr><tr><th>팀 결성 배경</th><td>왜 함께하게 되었는가</td><td>관광기획과 디자인 역량을 결합하기 위해 구성</td></tr><tr><th>신뢰 구축</th><td>협업과 갈등 해결 방식</td><td>주간 회의, 업무 공유, 의사결정 기준 설정</td></tr><tr><th>역할 분담</th><td>누가 무엇을 책임지는가</td><td>대표자는 영업, 팀원은 상품기획과 운영</td></tr><tr><th>부족 역량</th><td>현재 할 수 없는 업무</td><td>플랫폼 개발, 회계 · 법률 전문성 부족</td></tr><tr><th>인력 확보</th><td>채용 · 외주 · 전문가 활용</td><td>출시 전 개발 외주 계약, 매출 확대 시 채용</td></tr><tr><th>운영 원칙</th><td>지속적인 조직 운영 방식</td><td>업무 책임 명확화, 고객 피드백 정기 공유</td></tr></tbody>
+        </table>
+        <table class="p32-cal">
+          <caption>[표5] 팀 구성 현황 — 가상 관광체험 창업팀 예시</caption>
+          <thead><tr><th>직위</th><th>담당업무</th><th>보유역량</th><th>구성상태</th></tr></thead>
+          <tbody><tr><th>대표</th><td>사업기획 · 제휴 · 자금관리</td><td>관광 전공 · 프로젝트 수행 경험</td><td><span class="t7-st">완료</span></td></tr><tr><th>운영 담당</th><td>관광상품 운영 · 고객관리</td><td>현장운영 · 고객응대 경험</td><td><span class="t7-st">완료</span></td></tr><tr><th>마케팅 담당</th><td>SNS 콘텐츠 · 예약 전환</td><td>영상제작 · 디지털마케팅 경험</td><td><span class="t7-st plan">예정</span></td></tr><tr><th>개발 담당</th><td>예약 시스템 구축 · 관리</td><td>웹 개발 역량</td><td><span class="t7-st ex">외주 활용 계획</span></td></tr></tbody>
+        </table>
+      </div>
+      <p class="mini-note">원본 양식의 [표5]에는 성명 · 직위 · 담당업무 · 보유역량(경력 · 학력 등) · 구성상태가 들어갑니다. <b>확정된 팀원과 채용 예정 인력을 구분</b>하고, <b>외주 인력은 내부 팀원으로 오인되지 않게</b> 따로 표시하십시오. 예시의 활동 · 경력을 사실처럼 옮겨 쓰지 말고, 본인의 실제 경험과 증빙할 수 있는 계획만 적습니다.</p>
       </div>
 
       <p class="learn-part lp-core" id="ch04"><span class="num">04</span>만들기 전에 검증하라 — 린 스타트업<a class="poc-jump" href="#poc"><span class="poc-star" aria-hidden="true">✦</span>PoC · MVP 비교 ↓</a><a class="poc-jump kpi-jump" href="#kpi-sec"><span class="blink-star" aria-hidden="true">●</span> KPI 핵심성과지표 ↓</a></p>
