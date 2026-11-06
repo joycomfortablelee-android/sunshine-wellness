@@ -24,9 +24,14 @@ Disallow: /learn/mice-management-mgmt-workbook.html
 Disallow: /learn/hrm-sustainable-growth-3rd-toc.html
 Disallow: /learn/smart-hrm-visual-roadmap.html
 Disallow: /learn/hotel-management-14chapter-workbook.html
+# 관광벤처 학생별 사업계획서 — 학생 실명 · 아이템 · 첨삭이 있어 검색 로봇을 막는다(링크로는 그대로 열림)
+Disallow: /learn/tv-form-wb/company/
+Disallow: /learn/tv-form-wb/draft/
+Disallow: /learn/bm-sim/
 
 Sitemap: https://www.sunshinewellness.co.kr/sitemap.xml
 # 관광벤처 학생별 사업계획서 — 학생 실명 · 아이템 · 첨삭이 있어 검색 로봇을 막는다(링크로는 그대로 열림)
 Disallow: /learn/tv-form-wb/company/
 Disallow: /learn/tv-form-wb/draft/
 Disallow: /learn/bm-sim/
+
