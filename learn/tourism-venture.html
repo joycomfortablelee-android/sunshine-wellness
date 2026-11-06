@@ -860,6 +860,22 @@
     .learn-article .learn-part.lp-core.ch-sub { margin: 26px 0 12px 18px; padding: 10px 16px; font-size: 15px; background: linear-gradient(120deg, #3f6a60 0%, #5b8579 100%); box-shadow: 0 3px 10px rgba(43,74,66,.14); }
     /* 하위 갈래 본문을 바 안으로 — 바 아래에 붙은 상자에 들여 넣는다 (2026-11-04) */
     .learn-article .learn-part.lp-core.ch-sub.has-body { margin-bottom: 0; border-radius: 10px 10px 0 0; }
+    /* 03-F 양식 3-2 홍보 및 판로개척 */
+    .learn-article .p32-wk { display: inline-block; margin-left: 4px; padding: 1px 9px; border-radius: 999px; background: #ffe14d; color: #3d3200; font-size: 12px; font-weight: 800; }
+    .learn-article ol.p32-four { list-style: none; margin: 14px 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; counter-reset: p32; }
+    .learn-article ol.p32-four > li { counter-increment: p32; margin: 0; padding: 12px 12px 10px; border-radius: 10px; background: #fff; border: 1px solid #c9ddd5; border-top: 4px solid #2f6d5d; display: flex; flex-direction: column; gap: 6px; font-size: 13px; line-height: 1.6; }
+    .learn-article ol.p32-four > li::before { content: counter(p32); width: 22px; height: 22px; border-radius: 50%; background: #2f6d5d; color: #fff; font-size: 12px; font-weight: 900; display: grid; place-items: center; }
+    .learn-article ol.p32-four b { font-size: 15px; color: #1f4d43; }
+    .learn-article ol.p32-four i { font-style: normal; font-size: 12px; color: #5c6b7a; background: #f3f7f5; border-radius: 6px; padding: 4px 7px; margin-top: auto; }
+    .learn-article .p32-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 0 0 14px; }
+    .learn-article .p32-pair .wx { margin: 0; }
+    .learn-article table.p32-cal { width: 100%; border-collapse: collapse; font-size: 13px; line-height: 1.55; background: #fff; margin: 0 0 6px; }
+    .learn-article table.p32-cal caption { caption-side: top; text-align: left; font-weight: 800; color: #1f4d43; font-size: 13px; padding-bottom: 6px; }
+    .learn-article table.p32-cal th, .learn-article table.p32-cal td { border: 1px solid #d5e4de; padding: 6px 9px; text-align: left; vertical-align: top; }
+    .learn-article table.p32-cal thead th { background: #eef4f2; color: #1f6f5c; font-size: 12px; }
+    .learn-article table.p32-cal tbody th { white-space: nowrap; color: #1f4d43; }
+    @media (max-width: 860px) { .learn-article ol.p32-four { grid-template-columns: repeat(2, minmax(0, 1fr)); } .learn-article .p32-pair { grid-template-columns: 1fr; } }
+    @media (max-width: 520px) { .learn-article ol.p32-four { grid-template-columns: 1fr; } }
     .learn-article .ch-sub-body { margin: 0 0 22px 18px; padding: 6px 16px 14px 18px; border: 1px solid #c9ddd5; border-top: 0; border-radius: 0 0 10px 10px; background: #fbfdfc; }
     .learn-article .ch-sub-body > :first-child { margin-top: 10px; }
     .learn-article .learn-part.lp-core.ch-sub .num { width: auto; height: 26px; padding: 0 10px; border-radius: 999px; font-size: 12px; }
@@ -1518,6 +1534,7 @@
     .learn-article .flowbar.fb6 { gap: 4px; padding: 16px 8px 12px; }
     .learn-article .flowbar.fb6 b { padding: 6px 9px; font-size: 13px; }
     .learn-article .flowbar.fb6 b.fb-re { background: #fff; color: #1f6f5c; border: 2px solid #1f6f5c; box-shadow: none; }
+    .learn-article .flowbar.fb6 b.fb-from { background: #fff; color: #1f6f5c; border: 2px dashed #1f6f5c; box-shadow: none; }
     .learn-article .flowbar.fb6 i { font-size: 15px; }
     .learn-article .flowbar.fb6 .fb-note { text-align: center; }
     .learn-article .flowbar.fb2row { flex-direction: column; align-items: stretch; gap: 10px; }
@@ -3053,7 +3070,7 @@
             <div class="rb-row"><a class="p0" href="#part00">00 한눈에</a></div>
             <div class="rb-row"><a class="p2" href="#part02">01 평가기준</a><span class="rb-grp rb-in p2"><a class="p2 sub" href="#과제1">과제 1 · 예비관광벤처 사업계획서</a><a class="p2 sub key" href="#form-rest" title="양식 1-1 ~ 6-1 — 칸마다 어디서 배우고 어디에 쓰나">과제 1 칸별 지도 · 양식 1-1~6-1</a><a class="p2 sub" href="assets/tourism-venture-18th-business-plan-form.hwp" download="[붙임] 제18회 예비관광벤처부문 사업계획서 양식.hwp">제18회 양식 ⤓ HWP</a><a class="p2 sub key" href="gov-support-business-plan-98p.html" target="_blank" rel="noopener" title="이명신 IR피칭 멘토 강의"><span class="blink-star" aria-hidden="true">★</span> 사업계획서 합격 비법 · 98장 ↗</a><a class="p2 sub key" href="startup-item-pt-scrapbook/" target="_blank" rel="noopener" title="창업 아이템 PT 참고 슬라이드 34장"><span class="blink-star" aria-hidden="true">★</span> Ms.Lee PSST point lesson · 참고 슬라이드 34장 ↗</a><a class="p2 sub" href="#배우기">★ 배우기 · 쓰는 법</a></span></div>
             <div class="rb-row"><a class="p1" href="#part01">02 Build Up</a></div>
-            <div class="rb-row"><a class="p3" href="#part03">03 흐름</a><span class="rb-grp rb-in p3"><a class="p3 sub" href="#ch01">01 관광벤처란</a><a class="p3 sub key" href="#ch02" title="사업계획서 1-1 문제 인식 — 1차 · 2차 제출 칸">★ 02 문제정의</a><a class="p3 sub key" href="#ch03" title="이번 주 · 다음 주 수업 — 사업계획서 3차 제출(2-2 사업모델)">★ 03 비즈니스모델</a><a class="p3 sub" href="#ch03-b">03-B 네 단계</a><a class="p3 sub" href="#bm-sim">03-C 수익 시뮬레이터</a><a class="p3 sub" href="#risk">03-D 위험 관리</a><a class="p3 sub" href="#capability">03-E 사업화 역량</a><a class="p3 sub" href="#ch04">04 린스타트업</a><a class="p3 sub" href="#ch06">06 사이트사례</a></span></div>
+            <div class="rb-row"><a class="p3" href="#part03">03 흐름</a><span class="rb-grp rb-in p3"><a class="p3 sub" href="#ch01">01 관광벤처란</a><a class="p3 sub key" href="#ch02" title="사업계획서 1-1 문제 인식 — 1차 · 2차 제출 칸">★ 02 문제정의</a><a class="p3 sub key" href="#ch03" title="이번 주 · 다음 주 수업 — 사업계획서 3차 제출(2-2 사업모델)">★ 03 비즈니스모델</a><a class="p3 sub" href="#ch03-b">03-B 네 단계</a><a class="p3 sub" href="#bm-sim">03-C 수익 시뮬레이터</a><a class="p3 sub" href="#risk">03-D 위험 관리</a><a class="p3 sub" href="#capability">03-E 사업화 역량</a><a class="p3 sub" href="#promo-3-2">03-F 홍보 · 판로</a><a class="p3 sub" href="#ch04">04 린스타트업</a><a class="p3 sub" href="#ch06">06 사이트사례</a></span></div>
             <div class="rb-row"><a class="p4" href="#part04">04 지원 생태계</a><span class="rb-grp rb-in p4"><a class="p4 sub" href="#ch05">창업 지원</a><a class="p4 sub" href="#예비관광벤처공모">A 관광 전용</a><a class="p4 sub" href="#예비창업패키지">B 범부처</a><a class="p4 sub" href="#보육투자">C 보육 · 투자</a><a class="p4 sub" href="#전국경진대회">D 전국 경진대회</a><a class="p4 sub" href="#광역시원도심공모">E 지역</a></span></div>
             <div class="rb-row"><a class="p5" href="#part05">05 업종</a><span class="rb-grp rb-in p5"><a class="p5 sub" href="#ch07">5-1 여행업</a><a class="p5 sub" href="#ch08">5-2 외식</a><a class="p5 sub" href="#ch09">5-3 민박한옥</a><a class="p5 sub" href="#ch10">5-4 스마트팜</a><a class="p5 sub" href="#ch11">5-5 연구용역</a><a class="p5 sub" href="#local-creator">5-6 로컬크리에이터</a><a class="p5 sub" href="#tourdure">5-7 관광두레</a><a class="p5 sub" href="#industry-25">5-8 업종별 이해</a></span></div>
             <div class="rb-row rb-rest"><a class="p7" href="#part07">06 책</a><a class="p8" href="#part08">07 기업가정신</a><a class="p10" href="#part10">08 IR 피칭</a><a class="p9" href="#part09">09 곁들여</a><a class="p6" href="#part06">10 취업</a><a class="p11" href="#part11">11 작성실</a></div>
@@ -3291,7 +3308,7 @@
             <ul><li>3-1 사업화에 필요한 <b>상품 · 서비스 · 인프라</b>(시설 · IT플랫폼 등) <b>개발 계획</b>을 구체적으로</li><li>3-2 <b>홍보 및 판로개척</b> — 구체적인 방법과 <b>일정계획</b>까지</li></ul>
             <p class="fr-l how">쓰는 요령</p>
             <p class="fr-how">3-1은 무엇을 · 언제 · 누가 만드나(단계별 산출물과 완료 시점), 3-2는 홍보를 <b>판매 경로</b>로 — 채널 · 일정 · 목표 숫자까지. 둘의 월이 아래 양식 3-4 일정표와 맞아야 합니다.</p>
-            <p class="dltags"><a class="mapl form" href="#capability">03-E 9개 사업 작성안 ↓</a></p>
+            <p class="dltags"><a class="mapl form" href="#capability">03-E 3-1 개발 · 9개 사업 작성안 ↓</a><a class="mapl form" href="#promo-3-2">03-F 3-2 홍보 · 판로 ↓</a></p>
           </div>
         </details>
         <details class="fr-card" id="form-3-3">
@@ -4121,7 +4138,7 @@
       <p class="dltags" id="research-34"><a class="mapl form hot" href="startup-research-sites-34.html" target="_blank" rel="noopener">창업정보 조사 사이트 34선 — 근거는 어디서 찾나 ↗</a><a class="mapl form lime" href="startup-research-sites-34-onepage.html" target="_blank" rel="noopener">같은 34곳 · 한 장 초콤팩트 — 인쇄용 ↗</a><span class="dl-src"><b>고객을 좁혔다면, 이제 「그 고객이 정말 있다」는 숫자를 가져올 차례입니다.</b> 사이트를 외우는 판이 아니라 <b>어느 질문에 답해 주는 사이트인가</b>로 묶은 판입니다 — <b>시장규모 · 고객 · 입지</b>(KOSIS · SGIS · 공공데이터포털) · <b>경쟁기업</b>(DART) · <b>소비자 관심</b>(Google Trends · 네이버 데이터랩) · <b>지원사업</b>(K-Startup · 기업마당) · <b>기술 · 특허 · 법</b>(NTIS · KIPRIS · 국가법령정보센터). <b>「외국인 대상 안동 전통문화 체험여행 플랫폼」</b> 하나로 열한 걸음을 따라가는 예와, 주소가 달린 <b>34곳 목록</b>이 있습니다(초록 알약은 그 34곳을 네 묶음 한 장에 모은 <b>인쇄용</b>). 주의 하나 — <b>검색량은 구매량이 아닙니다</b>(수요의 신호일 뿐). 관광 전용 근거(한국관광 데이터랩 · PRISM · 관광특화 통합검색)는 파트 09 에 따로 있습니다. <b>← →</b> 로 넘깁니다.</span></p>
 
       <p class="learn-part lp-core" id="ch03"><span class="num">03</span>비즈니스 모델 — 어떻게 돈이 도는가<span class="fno-backs"><a class="fno-back" href="#form-2-2" title="과제 1 칸별 지도 — 양식 2-2 카드">↑ 양식 2-2</a><a class="fno-back" href="#form-2-3" title="과제 1 칸별 지도 — 양식 2-3 카드">↑ 2-3</a><a class="fno-back" href="#form-3-1" title="과제 1 칸별 지도 — 양식 3-1 · 3-2 카드">↑ 3-1 · 3-2</a></span></p>
-      <p class="sub-abcd"><b>03장 안에서</b><a href="#ch03-a"><i>A</i>핵심 셋 · 수익화 도식</a><a href="#ch03-b"><i>B</i>수익모델 네 단계</a><a href="#bm-sim"><i>C</i>수익 시뮬레이터</a><a href="#risk"><i>D</i>위험 관리</a><a href="#capability"><i>E</i>사업화 역량</a></p>
+      <p class="sub-abcd"><b>03장 안에서</b><a href="#ch03-a"><i>A</i>핵심 셋 · 수익화 도식</a><a href="#ch03-b"><i>B</i>수익모델 네 단계</a><a href="#bm-sim"><i>C</i>수익 시뮬레이터</a><a href="#risk"><i>D</i>위험 관리</a><a href="#capability"><i>E</i>사업화 역량 · 3-1</a><a href="#promo-3-2"><i>F</i>홍보 · 판로 · 3-2</a></p>
       <p>사업이 되려면 가치가 <strong>돈의 흐름</strong>으로 이어져야 합니다. 비즈니스 모델 캔버스는 이를 아홉 칸으로 정리하는 도구지만, 핵심은 세 가지 — 그리고 그 셋을 <strong>한 장에 그린 수익화 모델 도식</strong>입니다.</p>
       <p class="learn-part lp-core ch-sub has-body" id="ch03-a"><span class="num">03-A</span>핵심 셋 — 가치 · 고객 · 수익, 그리고 한 장의 수익화 도식<a class="fno-back" href="#form-rest" title="과제 1 칸별 지도로">↑ 양식 2-2 지도</a></p>
       <div class="ch-sub-body">
@@ -4194,17 +4211,44 @@
         <figcaption><b>위험 9각형</b> — 워크북의 아홉 갈래를 한 장에. 내 아이템에 <b>해당하는 꼭짓점</b>을 먼저 고르고, 그중 <b>발생 가능성 × 영향</b>이 큰 셋을 대응방안까지 씁니다. 시장 위험(①, 수요 자체가 없음)과 경쟁 위험(⑨, 있는 고객을 빼앗김)은 서로 다른 칸입니다.</figcaption>
       </figure>
 
-      <p class="learn-part lp-core ch-sub has-body" id="capability"><span class="num">03-E</span><span class="lp-t">사업화 역량 — <span class="fno">양식 3-1</span> 개발 계획 · <span class="fno">양식 3-2</span> 홍보 및 판로개척 — 무엇을 완성하고, 어디서 팔 것인가</span><a class="fno-back" href="#form-rest" title="과제 1 칸별 지도로">↑ 양식 3-1 · 3-2 지도</a></p>
+      <p class="learn-part lp-core ch-sub has-body" id="capability"><span class="num">03-E</span><span class="lp-t">사업화 역량 — <span class="fno">양식 3-1</span> 개발 계획 — 무엇을 완성할 것인가 <small style="font-weight:600;opacity:.75">(3-2 홍보는 03-F)</small></span><a class="fno-back" href="#form-rest" title="과제 1 칸별 지도로">↑ 양식 3-1 · 3-2 지도</a></p>
       <div class="ch-sub-body">
       <p>모델과 위험을 적었으면, 이제 <strong>정말 실행할 수 있는지</strong>를 보입니다. 사업계획서 <strong>3. 사업화 역량 및 실현 가능성</strong>(4장 이내) 중 앞의 두 칸 — <strong><span class="fno">양식 3-1</span> 상품·서비스·인프라 개발 계획</strong>은 「완성할 것」, <strong><span class="fno">양식 3-2</span> 홍보 및 판로개척</strong>은 「판매할 경로」를 적는 자리입니다.</p>
       <p class="dltags"><a class="mapl form webform" href="tourism-venture-capability-3-1-3-2.html" target="_blank" rel="noopener"><span class="blink-star" aria-hidden="true">✍</span> 사업화 역량 <span class="fno">양식 3-1</span> · <span class="fno">양식 3-2</span> — 우리 반 9개 사업 작성안 · 바로 쓰기 ↗</a><a class="mapl form" href="tourism-venture-capability-3-1-3-2.html" download="관광벤처창업론_사업화역량_3-1_3-2.html" title="내려받아 Chrome 또는 Edge에서 열면 인터넷 없이도 바로 작성할 수 있습니다">⤓ 같은 자료 · HTML 내려받기</a><span class="dl-src"><b>9개 사업의 사업화 핵심 비교 → <span class="fno">양식 3-1</span> · <span class="fno">양식 3-2</span> 작성 내용 전체 → 내 정보를 넣어 기본 문장 만들기</b> 순서로 봅니다. 심사위원의 질문은 「할 수 있는가?」 — <b>홍보 계획을 판매 계획으로</b> 잇고, <b>월별 일정 · 예산 · 성과지표가 서로 맞는지</b> 마지막 4문항으로 점검합니다.</span></p>
+      </div>
+
+      <p class="learn-part lp-core ch-sub has-body" id="promo-3-2"><span class="num">03-F</span><span class="lp-t">홍보 및 판로개척 — <span class="fno">양식 3-2</span> — 누가 알고, 어디서 사는가</span><a class="fno-back" href="#form-rest" title="과제 1 칸별 지도로">↑ 양식 3-2 지도</a></p>
+      <div class="ch-sub-body">
+      <p>양식이 묻는 것은 한 줄입니다 — <strong>홍보 및 판로개척, 구체적인 방법과 일정계획까지.</strong> 심사위원은 「알리겠다」가 아니라 <strong>「누가, 어디서 알고, 어디서 사는가」</strong>를 봅니다. 홍보는 <em>판매로 이어지는 길</em>로 써야 합니다. <span class="p32-wk">12주 · 11/17 수업 활동 → 4차 제출 11/22(일) 자정</span></p>
+      <ol class="p32-four">
+        <li><b>누구에게</b><span>양식 2-1의 <strong>한 사람(페르소나)</strong>을 그대로. 홍보 대상이 넓어지면 예산이 흩어집니다.</span><i>예: 부산을 처음 찾는 20대 외국인 개별 여행자</i></li>
+        <li><b>어디서 알게</b><span><strong>홍보 채널</strong> — SNS(릴스 · 숏폼) · 검색(네이버 · 구글 지도) · 인플루언서 · 지자체 · 관광공사 홍보 · 박람회 · 축제.</span><i>예: 인스타 릴스 주 3회 + 구글 지도 업체 등록</i></li>
+        <li><b>어디서 사게</b><span><strong>판로</strong> — 자사 예약 페이지 · OTA 입점(클룩 · 마이리얼트립 등) · 여행사 B2B · 기관 B2G · 오프라인 제휴(숙소 · 카페).</span><i>예: 클룩 입점 + 게스트하우스 세 곳 제휴</i></li>
+        <li><b>몇 명 · 얼마</b><span><strong>목표 숫자</strong> — 노출 → 클릭 → 예약의 전환을 숫자로, 한 명 데려오는 비용(CAC)까지.</span><i>예: 노출 1만 → 클릭 3% 300 → 예약 10% 30건</i></li>
+      </ol>
+      <div class="p32-pair">
+        <p class="wx bad"><span class="wx-t">✗ 막연한 계획</span>「SNS로 적극 홍보 예정」 · 「다양한 채널로 판로 개척」<small>채널 · 일정 · 숫자가 없다 → 실행할 수 있는지 판단할 수 없다</small></p>
+        <p class="wx good"><span class="wx-t">○ 판매로 이어지는 계획</span>「7월부터 릴스 주 3회 · 8월 클룩 입점 · 9월 축제 부스 — 11월까지 예약 120건」<small>채널 · 월 · 목표 숫자가 한 문장에 → 3-4 일정표 · 6-1 KPI와 맞물린다</small></p>
+      </div>
+      <table class="p32-cal">
+        <caption>협약기간(5~11월) 홍보 · 판로 일정 — 예시 틀</caption>
+        <thead><tr><th>시기</th><th>홍보(알리기)</th><th>판로(팔기)</th><th>목표 숫자</th></tr></thead>
+        <tbody>
+          <tr><th>5~6월</th><td>SNS 계정 · 구글 지도 등록, 시범 콘텐츠</td><td>자사 예약 페이지 · 시범 판매</td><td>시범 고객 20명 · 후기 10건</td></tr>
+          <tr><th>7~8월</th><td>릴스 주 3회 · 인플루언서 2명</td><td>OTA 1곳 입점 · 숙소 제휴 3곳</td><td>월 예약 20건</td></tr>
+          <tr><th>9~10월</th><td>지역 축제 · 박람회 참가</td><td>여행사 B2B 상품 1개</td><td>월 예약 30건</td></tr>
+          <tr><th>11월</th><td>후기 모음 · 성과 콘텐츠</td><td>재구매 · 단체 문의</td><td>누적 예약 120건</td></tr>
+        </tbody>
+      </table>
+      <p class="mini-note">이 표의 달은 <a href="#form-3-4">양식 3-4 [표3] 월별 일정</a>과, 마지막 칸 숫자는 <a href="#form-6-1">양식 6-1 KPI</a>와 같아야 합니다. 숫자는 예시이니 내 사업의 숫자로 바꿔 쓰십시오.</p>
+      <p class="dltags"><a class="mapl form webform" href="tourism-venture-capability-3-1-3-2.html" target="_blank" rel="noopener"><span class="blink-star" aria-hidden="true">✍</span> 우리 반 9개 사업 <span class="fno">양식 3-2</span> 작성안 · 바로 쓰기 ↗</a><a class="mapl form" href="#capability">← 03-E 양식 3-1 개발 계획</a></p>
       </div>
 
       <p class="learn-part lp-core" id="ch04"><span class="num">04</span>만들기 전에 검증하라 — 린 스타트업<a class="poc-jump" href="#poc"><span class="poc-star" aria-hidden="true">✦</span>PoC · MVP 비교 ↓</a><a class="poc-jump kpi-jump" href="#kpi-sec"><span class="blink-star" aria-hidden="true">●</span> KPI 핵심성과지표 ↓</a></p>
       <p>가장 비싼 실수는 아무도 원하지 않는 것을 완벽하게 만드는 것입니다. 그래서 순환이 필요합니다.</p>
       <div class="flowbar fb6 fb2row">
         <p class="fb-row"><span class="fb-tag">작은 고리 · 보여 주고 확인</span><b>불편 묻기</b><i>→</i><b>프로토타입</b><i>→</i><b>보여 주고 묻기</b><i>↺</i><em class="fb-stop">공모 서류 · 피칭은 여기까지로도</em></p>
-        <p class="fb-row"><span class="fb-tag">큰 고리 · 실제로 쓰게</span><b>최소 MVP 테스트</b><i>→</i><b>불만 듣고</b><i>→</i><b>프로토타입으로 고쳐 보기</b><i>→</i><b>최적화</b><i>→</i><b>시장 · 기업에</b><i>→</i><b>혁신 · 확장</b><i>↺</i><b class="fb-re">다시 묻기</b></p>
+        <p class="fb-row"><span class="fb-tag">큰 고리 · 실제로 쓰게</span><b class="fb-from">프로토타입 통과</b><i>→</i><b>최소 MVP 테스트</b><i>→</i><b>불만 듣고</b><i>→</i><b>프로토타입으로 고쳐 보기</b><i>→</i><b>최적화</b><i>→</i><b>시장 · 기업에</b><i>→</i><b>혁신 · 확장</b><i>↺</i><b class="fb-re">다시 묻기</b></p>
         <table class="fb-ask">
           <thead><tr><th></th><th>무엇을 묻나</th><th>프로토타입</th></tr></thead>
           <tbody>
@@ -4213,7 +4257,7 @@
             <tr><th>③ 써 보게 하고 묻기<small>MVP · 큰 고리</small></th><td>「써 보니 어디서 멈추셨어요?」 · 「다시 쓰시겠어요?」</td><td><b>계속 만듭니다.</b> 고칠 기능 · 새 기능은 먼저 프로토타입으로 보여 주고 확인한 뒤 MVP에 넣습니다.</td></tr>
           </tbody>
         </table>
-        <p class="fb-note"><strong>프로토타입</strong>(화면 · 모형 · 시안)은 <em>보여 주고 묻는 것</em>, <strong>MVP</strong>는 <em>실제로 써 보게 하는 것</em>입니다.<br />작은 고리를 몇 번 돈 뒤 큰 고리로 — 큰 고리에서도 <strong>프로토타입은 계속 만듭니다</strong>(고칠 것을 먼저 보여 주고 확인).<br />불만 · 이탈 이유로 다듬고(최적화) 고객(B2C) · 기업(B2B)에 내고, 배운 것으로 새 기능 · 새 시장(혁신 · 확장)으로.<br /><a href="#poc">PoC · MVP 비교 ↓</a></p>
+        <p class="fb-note"><strong>프로토타입</strong>(화면 · 모형 · 시안)은 <em>보여 주고 묻는 것</em>, <strong>MVP</strong>는 <em>실제로 써 보게 하는 것</em>입니다.<br />작은 고리를 몇 번 돌아 <strong>프로토타입이 통과하면</strong> 그것으로 최소 MVP를 만들어 큰 고리로 — 큰 고리에서도 <strong>프로토타입은 계속 만듭니다</strong>(고칠 것을 먼저 보여 주고 확인).<br />불만 · 이탈 이유로 다듬고(최적화) 고객(B2C) · 기업(B2B)에 내고, 배운 것으로 새 기능 · 새 시장(혁신 · 확장)으로.<br /><a href="#poc">PoC · MVP 비교 ↓</a></p>
       </div>
       <div class="tri-wrap tri-blue">
         <svg class="tri-line" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polygon points="50,3 97,97 3,97" /></svg>
