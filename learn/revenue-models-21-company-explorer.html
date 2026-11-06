@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>수익화 모델 21가지 × 실제 기업 사례 | 클릭형 강의 지도</title>
+<style>
+:root{--navy:#173253;--ink:#1d344e;--muted:#667b92;--line:#dce6f0;--bg:#f5f8fc;--red:#c6382d;--blue:#2579b9;--green:#258b67;--purple:#7750a9;--gold:#bc8b24}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--bg);font-family: "Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;line-height:1.5}button,input,select{font:inherit}button{cursor:pointer}a{color:#1865a2}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #5ba6e1;outline-offset:3px}
+.container{max-width:1460px;margin:auto;padding:28px 24px 76px}.eyebrow{color:#40759e;font-size:12px;font-weight:900;letter-spacing:.1em}.head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:20px}.head h1{margin:4px 0 7px;font-size:clamp(24px,3vw,36px);line-height:1.25;letter-spacing:-.06em}.head p{margin:0;color:#61758a;font-size:14px}.countbox{min-width:190px;background:white;border:1px solid var(--line);border-radius:15px;padding:13px 18px;box-shadow:0 3px 15px #1e406609}.countbox strong{font-size:26px;color:var(--navy);font-weight:900}.countbox div{font-size:12px;color:#60758b;font-weight:700}.info{background:#eff6ff;border:1px solid #d8e8fc;border-radius:13px;padding:13px 17px;font-size:13px;color:#455e7b;margin-bottom:16px}.info strong{color:#173c68}.controls{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 7px 22px #2c56730c;padding:19px 20px}.bar{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:12px}.barlabel{font-size:13px;color:#46637e;font-weight:900;white-space:nowrap}.search{flex:1;max-width:360px;min-width:150px;border:1px solid #cbd9e6;background:#f9fbfd;padding:10px 13px;border-radius:12px;color:var(--ink)}.smallbtn{border:1px solid #cbd9e6;color:#34536f;background:#fff;border-radius:11px;padding:9px 13px;font-size:13px;font-weight:800}.smallbtn:hover{background:#f0f7fc}.pillrow{display:flex;flex-wrap:wrap;gap:7px}.category{white-space:nowrap;border:1px solid #d6e1ec;background:#f7fafc;color:#436178;border-radius:999px;padding:7px 12px;font-size:12px;font-weight:800;transition:.15s}.category.active{background:var(--navy);border-color:var(--navy);color:#fff}.category .n{font-weight:650;opacity:.68}.pillbox{max-height:224px;overflow:auto;padding:5px 2px 1px;scrollbar-color:#c9d9e7 transparent}.company-pill{border:1px solid #d2dfeb;border-radius:999px;background:white;color:#35506a;font-weight:750;font-size:12.5px;min-height:33px;padding:6px 11px;transition:.15s;white-space:nowrap;box-shadow:0 1px 0 #eef3f7}.company-pill:hover{border-color:#7da2c8;transform:translateY(-1px)}.company-pill.active{background:#173253;border-color:#173253;color:#fff;box-shadow:0 2px 7px #1c487d30}.company-pill.match{border-color:#d1a348;background:#fff7e7;color:#825909}.company-pill.muted{opacity:.23}.pillbox .pillrow{align-content:start;gap:7px}.smallhint{font-size:12px;color:#7890a4;margin:11px 0 0}.workspace{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(320px,.94fr);gap:18px;margin-top:18px;align-items:stretch}.panel{border:1px solid var(--line);border-radius:20px;background:white;box-shadow:0 5px 18px #1c426108}.wheelpanel{padding:14px 12px 18px;min-width:0}.sectionhead{display:flex;justify-content:space-between;align-items:center;padding:4px 16px 0;gap:8px}.sectionhead strong{font-size:17px;letter-spacing:-.04em}.sectionhead small{color:#718599;font-size:12px}svg{width:100%;height:auto;max-height:710px;display:block;margin:0 auto;overflow:visible}svg text{font-family:"Pretendard","Noto Sans KR","Malgun Gothic",sans-serif;user-select:none}svg .slicepath{stroke:#fff;stroke-width:3;transition:opacity .2s,filter .2s}svg .ringpath{stroke:#fff;stroke-width:2;transition:opacity .2s,filter .2s}svg .seg{cursor:pointer}svg .seg:hover .ringpath{filter:brightness(.96)}svg .outer-label{font-size:15px;font-weight:850;pointer-events:none}svg .num{font-size:14px;font-weight:900;pointer-events:none}svg .innerlabel{fill:#fff;font-weight:850;font-size:17px;pointer-events:none}svg .center-title{font-size:17px;font-weight:850;fill:#ffe5ab;pointer-events:none}svg .center-sub{font-size:34px;font-weight:1000;fill:#fff;pointer-events:none}svg .selected-dot{stroke:#fff;stroke-width:3;filter:drop-shadow(0 1px 2px #1c344e55)}svg .focus-ring{fill:none;stroke:#133659;stroke-width:3;pointer-events:none}svg .seg:focus-visible .ringpath{stroke:#143659;stroke-width:4}.detail{padding:23px 24px;display:flex;flex-direction:column;min-width:0}.kick{font-size:11px;letter-spacing:.12em;color:#6c87a1;font-weight:950;margin-bottom:10px}.detail h2{font-size:27px;line-height:1.32;letter-spacing:-.055em;margin:0 0 7px}.desc{font-size:14px;color:#526d83;line-height:1.75;margin:6px 0 14px}.tagrow{display:flex;gap:6px;flex-wrap:wrap;margin-top:5px}.tag{border-radius:7px;background:#f0f5fb;color:#436582;padding:4px 8px;font-size:11px;font-weight:850}.subheading{font-size:13px;font-weight:900;color:#183955;margin:18px 0 10px}.links{display:flex;flex-wrap:wrap;gap:10px}.links a{font-size:12px;font-weight:750}.modelcards{display:flex;flex-direction:column;gap:8px;max-height:415px;overflow:auto;padding-right:3px}.modelcard{border:1px solid #e5ebf2;background:#fbfcfe;border-radius:12px;padding:11px 12px;display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;color:#29465e;transition:.15s}.modelcard:hover{border-color:#98b5cb;background:#f6faff}.number{border-radius:9px;min-width:31px;height:31px;display:grid;place-items:center;color:#fff;font-size:13px;font-weight:900;flex:none}.modelcard .mname{font-size:14px;font-weight:900}.modelcard p{margin:3px 0 0;font-size:12px;color:#678092;line-height:1.58}.modelcard .smalllabel{font-size:10px;color:#8b9faf;font-weight:800}.smallnote{padding:12px 14px;border:1px solid #f1e6c8;border-radius:12px;background:#fffaf0;font-size:12px;color:#816528;line-height:1.7;margin-top:auto}.modelcount{font-weight:900;color:#1e4e76}.modelcompany{display:flex;flex-wrap:wrap;gap:6px;padding:0 0 14px}.modelcompany button{border:1px solid #d9e3ee;border-radius:9px;background:#f7fbfd;color:#365774;font-size:12px;font-weight:750;padding:6px 8px}.modelcompany button:hover{background:#e6f3ff}.below{margin-top:18px}.belowhead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;margin:0 0 10px}.belowhead h2{font-size:19px;margin:0;letter-spacing:-.04em}.models-table{width:100%;border-collapse:collapse;font-size:13px}.models-table th{font-size:12px;color:#526a82;background:#f3f7fb;text-align:left}.models-table td,.models-table th{padding:11px 12px;border-bottom:1px solid #e9eef4;vertical-align:top}.models-table td:nth-child(1){font-weight:900;width:44px}.models-table td:nth-child(2){font-weight:850;white-space:nowrap}.models-table tr{cursor:pointer}.models-table tr:hover{background:#f6fbff}.models-table tr.sel{background:#eaf4ff}.models-table td:nth-child(3){color:#617991;max-width:430px}.models-table td:nth-child(4){font-size:12px;color:#45718e}.footnote{font-size:12px;color:#657a90;line-height:1.8;margin:18px 0 0}.source-list{font-size:12px;color:#58728c;line-height:1.85;display:flex;flex-wrap:wrap;gap:9px 18px}.source-list a{color:#22649b}.footer{margin-top:24px;padding:20px 10px 0;border-top:1px solid #dce5ee;font-size:12px;color:#74879a}.warning{color:#9e6022}.shorttips{display:flex;gap:9px;flex-wrap:wrap;margin:13px 0}.tip{font-size:12px;color:#4e6b82;border:1px solid #d9e4ee;border-radius:99px;padding:5px 9px;background:#f9fbff}.empty{font-size:13px;padding:20px 2px;color:#73899b}.printBtn{border:1px solid #bfd3e4;color:#315876;background:#f9fcff;border-radius:11px;padding:8px 11px;font-size:12px;font-weight:850}@media(max-width:1050px){.workspace{grid-template-columns:1fr}.detail{min-height:300px}.modelcards{max-height:350px}}@media(max-width:650px){.container{padding:16px 11px 55px}.head{flex-direction:column}.head h1{font-size:25px}.countbox{align-self:stretch}.controls{padding:14px}.search{max-width:none}.workspace{gap:10px}.wheelpanel{padding:8px 2px 10px}.sectionhead{padding:5px 12px 0}.sectionhead strong{font-size:14px}.sectionhead small{font-size:10px}.detail{padding:17px}.detail h2{font-size:23px}.models-table{font-size:11px}.models-table th,.models-table td{padding:8px 5px}.models-table td:nth-child(3){display:none}.models-table th:nth-child(3){display:none}.models-table td:nth-child(2){white-space:normal}.outer-label{font-size:14px}}@media print{.controls,.printBtn{display:none}.workspace{display:block}.detail{page-break-before:always}.panel{box-shadow:none}.container{max-width:100%}.models-table tr{break-inside:avoid}}
+</style>
+</head>
+<body>
+<main class="container">
+ <header class="head"><div><div class="eyebrow">TOURISM VENTURE · REVENUE MODEL EXPLORER</div><h1>수익화 모델 21가지 <span style="color:#8eacbf">×</span> 실제 기업으로 보기</h1><p>기업 알약을 클릭하세요. 원형 지도에서 해당 모델만 강조하고, 수익이 발생하는 방식을 설명합니다.</p></div><div class="countbox"><div><strong id="companyCount">—</strong> 기업·서비스 사례</div><div>8개 업종 · 21개 유형 · 클릭형 탐색</div></div></header>
+ <div class="info"><strong>수업용 읽는 법</strong> · 한 기업은 여러 수익모델을 동시에 가질 수 있습니다. <b>①~⑰·⑱~㉑은 원 도표의 번호</b>를 그대로 사용합니다. <b>원가·시간 기준(2·3)은 가격 산정 방식</b>이고, <b>벌금형(13)은 부수적 수입</b>일 수 있으므로 핵심 매출과 구분해 해석하세요.</div>
+ <section class="controls" aria-label="기업 탐색"><div class="bar"><label class="barlabel" for="companySearch">실제 기업으로 보기</label><input id="companySearch" class="search" placeholder="기업·브랜드 검색 (예: 메리어트, 당근, 성심당)" aria-label="기업 검색"/><button class="smallbtn" id="clearSearch" type="button">검색 초기화</button><button class="smallbtn" id="resetAll" type="button">전체 모델 보기</button></div><div class="pillrow" id="categories" aria-label="업종 필터"></div><div class="smallhint" id="pillHint">알약을 클릭하면 여러 모델이 함께 표시됩니다.</div><div class="pillbox" id="pillbox"><div id="companies" class="pillrow"></div></div></section>
+ <section class="workspace"><div class="panel wheelpanel"><div class="sectionhead"><strong>21가지 모델 · 다섯 갈래</strong><small>원형 조각도 클릭해 보세요</small></div><svg id="wheel" viewBox="0 0 900 710" role="img" aria-label="수익화 모델 21가지 원형 도표. 각 조각을 클릭하여 해당 모델의 기업을 찾을 수 있습니다."></svg><div class="shorttips" style="justify-content:center"><span class="tip">● 색상 = 5가지 수익화 갈래</span><span class="tip">● 바깥 숫자 = 원문 번호</span><span class="tip">● 강조 = 선택 기업의 적용 예시</span></div></div><aside class="panel detail" id="detail" aria-live="polite"></aside></section>
+ <section class="panel below" style="padding:21px 22px"><div class="belowhead"><h2>21개 모델 해설 · 사례 역검색</h2><button class="printBtn" id="printPage">인쇄 / PDF 저장</button></div><p style="font-size:13px;color:#6b8195;margin:0 0 12px">표의 모델명을 클릭하면 그 모델과 연결한 기업 알약만 강조됩니다. 아래 기업 예시는 핵심 매출 비중의 순위가 아니라 학습을 위한 연결 사례입니다.</p><div style="overflow-x:auto"><table class="models-table"><thead><tr><th>번호</th><th>모델</th><th>개념·구분</th><th>대표 기업·서비스 예시</th></tr></thead><tbody id="modelRows"></tbody></table></div><p class="footnote"><strong>구별해야 할 개념:</strong> 18 판매형은 상품·서비스의 판매, 1 일회성 선지급은 제공 전 결제 시점, 4 사용료는 시설·기능 이용의 대가, 12 정액형은 정해진 기간의 반복 결제입니다. 또한 20 중개형은 거래 연결의 사업 구조, 10 거래수수료는 연결한 거래에서 받는 대가를 뜻하여 함께 나타날 수 있습니다.</p></section>
+ <section class="panel below" style="padding:21px 22px"><div class="belowhead"><h2>공식자료로 확인하는 주요 사례</h2><span style="font-size:12px;color:#7790a5">각 사이트의 정책·요금은 변경될 수 있습니다.</span></div><div class="source-list" id="sources"></div><p class="footnote">이 자료는 공개 사업 구조를 활용한 <b>분류 교육용</b>입니다. 개별 서비스의 모든 요금제·매출 항목을 조사한 감사보고서가 아닙니다. 자료가 있는 기업은 공식 링크를 제공했으며, 나머지는 이해를 돕기 위한 보수적 연결 사례입니다. 특히 명시적 라이선스/프랜차이즈 계약, 취소 수수료, 원가가산, 시간당 가격제는 실제 계약 확인 없이 확정할 수 없습니다.</p></section>
+ <footer class="footer">신라대학교 · 관광벤처창업론 교육자료 · 2026.11 | 21개 유형 번호·명칭: 사용자가 제공한 분류를 유지 | 웹 연결 없이 로컬 HTML로 실행 가능</footer>
+</main>
+<script>
+'use strict';
+const families=[
+{key:'sale',name:'팔아서 번다',words:['팔아서','번다'],color:'#bf392c',light:'#f4d5d1',ids:[18,1,7,6,14]},
+{key:'usage',name:'쓰는 만큼·기간만큼',words:['쓰는 만큼 ·','기간만큼'],color:'#2477b7',light:'#d7eaf8',ids:[12,11,4,9,17]},
+{key:'broker',name:'사이에서 번다',words:['사이에서','번다'],color:'#278b65',light:'#d3ece0',ids:[20,10,8,21]},
+{key:'rights',name:'기업·권리로 번다',words:['기업 ·','권리로 번다'],color:'#7b4daf',light:'#e7daf6',ids:[19,5,16,15]},
+{key:'price',name:'값을 매기는 기준',words:['값을 매기는','기준'],color:'#bc8a23',light:'#f4e8cc',ids:[2,3,13]}
+];
+const models={
+18:['판매형','상품·입장권·서비스를 건별로 판매하여 매출을 얻는다.'],
+1:['일회성 선지급','이용·인도 전에 예약금이나 선결제 금액을 받는다. 결제 시점과 회계상 매출 인식 시점은 다를 수 있다.'],
+7:['부가가치 업셀링','기본 상품에 좌석·등급·추가서비스 등 고급 옵션을 붙인다.'],
+6:['소모품 기반','본체를 공급하고 반복적으로 필요한 소모품에서 매출을 만든다.'],
+14:['소액결제','게임 아이템·디지털 콘텐츠·추가 기능을 소액으로 구매하게 한다.'],
+12:['정액형(구독)','월·연 등 정해진 기간의 이용권을 정액으로 제공한다. 자동갱신형 구독과 일회성 기간권은 구분한다.'],
+11:['종량형','사용량·사용시간·API 호출량·이동거리 등에 비례하여 부과한다.'],
+4:['사용료','시설·장비·소프트웨어의 이용권 또는 사용 대가를 받는다.'],
+9:['제한적 접근','회원·유료 구역·프리미엄 기능에 별도의 접근 권한을 제공한다.'],
+17:['유지보수','점검·수리·관리·기술지원을 계약 대가로 제공한다.'],
+20:['중개형','공급자와 고객·매도자와 매수자를 연결하는 시장을 운영한다.'],
+10:['거래수수료','성사된 거래·결제 금액의 일부 또는 거래당 수수료를 받는다.'],
+8:['광고','노출·검색·광고상품을 사업자에 판매한다.'],
+21:['데이터 판매','가공된 정보·데이터베이스·분석 서비스의 사용·접근권을 판매한다. 개인정보 거래와 혼동하지 않는다.'],
+19:['B2B 솔루션형','기업 고객의 업무·운영 문제를 해결하는 기술·서비스를 판매한다.'],
+5:['기술이전','특허·설계·기술의 라이선스 또는 로열티로 수익을 얻는다.'],
+16:['프랜차이즈','브랜드·운영시스템 사용과 관련해 가입비·로열티 등을 받는다.'],
+15:['비용절감 공유','절감 성과에 기초한 보상 또는 절감액 배분 계약으로 수익을 얻는다.'],
+2:['원가 기준','재료·인건비 등 비용을 토대로 가격을 산정하는 방식이다. 수익원이라기보다 가격결정 기준이다.'],
+3:['투입시간 기준','투입한 전문가 시간·인력 시간을 기준으로 가격을 정한다. 가격결정 방식이다.'],
+13:['벌금형','취소·노쇼·지연 등 계약 위반 조건에서 발생하는 요금이다. 고객 보호·법률상 제한에 유의한다.']
+};
+const industries=['관광·OTA','호텔·리조트','테마·문화','외식·카페','커머스·플랫폼','교통·모빌리티','IT·B2B','제조·콘텐츠'];
+// 교육용 매칭 데이터: name|업종|21개 모델 번호|왜 연결되는가.
+const entries=`에어비앤비|관광·OTA|20,10|숙박·체험 공급자와 여행객을 연결하고 예약 서비스 수수료를 받는다.
+야놀자|관광·OTA|20,10,19|숙박 예약 연결과 기업용 호텔·여행 기술 솔루션 사업을 구분해 볼 수 있다.
+여기어때|관광·OTA|20,10|숙박 및 여행 상품의 예약 연결과 거래 기반 수익을 살펴볼 수 있다.
+부킹닷컴|관광·OTA|20,10,8|숙박 예약 중개와 광고·노출 상품 구조를 구분한다.
+아고다|관광·OTA|20,10|숙박 예약을 연결하는 플랫폼·거래 기반 수익 사례다.
+익스피디아|관광·OTA|20,10,8|예약 수수료 및 여행 판매·광고 등 여러 경로가 존재한다.
+트립닷컴|관광·OTA|20,10|항공·숙박 등 예약 연결 수익을 검토한다.
+클룩|관광·OTA|20,10|투어·체험·이용권을 공급자와 여행객 사이에서 연결한다.
+마이리얼트립|관광·OTA|20,10|현지 투어·여행 경험의 판매자와 고객을 매칭한다.
+하나투어|관광·OTA|18,7|패키지 판매 및 선택 관광·부가 상품 등 추가 구매를 살핀다.
+모두투어|관광·OTA|18,7|여행상품 판매와 선택형 추가 서비스 구성의 예시다.
+노랑풍선|관광·OTA|18,7|패키지·맞춤상품 판매 및 옵션 구매의 구조를 살핀다.
+GetYourGuide|관광·OTA|20,10|현지 액티비티 공급자와 여행객을 연결한다.
+Viator|관광·OTA|20,10|체험·투어 예약을 연결하는 마켓플레이스다.
+트립어드바이저|관광·OTA|8,20|여행 정보 트래픽과 광고·예약 연결 사업을 비교한다.
+호텔스닷컴|관광·OTA|20,10|숙박 예약 플랫폼의 공급자 연결과 거래 수익을 살핀다.
+호스텔월드|관광·OTA|20,10|호스텔 숙박 예약의 연결·수수료 모델을 보여준다.
+트래블월렛|관광·OTA|10,19|여행 결제·환전 관련 금융서비스 및 기업 서비스 수익을 검토한다.
+트립비토즈|관광·OTA|20,10|숙소 동영상 탐색과 예약 거래 연결의 사례다.
+레드캡투어|관광·OTA|18,19|여행상품 판매와 법인 출장관리 서비스를 구분한다.
+메리어트 인터내셔널|호텔·리조트|16,19,18|브랜드 프랜차이즈 사용료·위탁운영 수수료와 일부 직접 운영 숙박매출을 구분한다.
+힐튼 월드와이드|호텔·리조트|16,19,18|프랜차이즈·라이선스·호텔 운영수수료·직접 소유 호텔 수익이 공시된다.
+하얏트 호텔스|호텔·리조트|16,19,18|브랜드·운영위탁 계약과 직접 운영·소유 호텔의 수익을 비교한다.
+IHG 호텔스앤리조트|호텔·리조트|16,19|브랜드 가맹과 호텔 관리·지원 서비스가 핵심 구조에 포함된다.
+아코르|호텔·리조트|16,19,18|호텔 프랜차이즈와 관리계약, 일부 직접 운영을 함께 살핀다.
+윈덤 호텔스앤리조트|호텔·리조트|16,19|호텔 브랜드 프랜차이즈 및 기업용 지원 서비스를 제공한다.
+베스트웨스턴|호텔·리조트|16,19|회원 호텔에 브랜드·예약·운영 지원을 제공하는 조직 형태다.
+호텔신라|호텔·리조트|18,7,4|객실·식음료·면세상품 판매와 부가 서비스 이용 수익을 구분한다.
+롯데호텔앤리조트|호텔·리조트|18,7,4|객실·식음료 판매와 객실 등급 상향 및 시설 이용을 구분한다.
+조선호텔앤리조트|호텔·리조트|18,7,4|객실·레스토랑·부대시설 등 복합 숙박 매출의 사례다.
+소노호텔앤리조트|호텔·리조트|18,4,12|객실·시설 이용과 기간·회원권 기반 이용 상품을 구분한다.
+파라다이스시티|호텔·리조트|18,4,7|호텔 객실·식음·레저 시설 및 선택형 추가 서비스다.
+신라스테이|호텔·리조트|18,7|객실 판매와 조식·패키지 등 부가상품을 구분한다.
+토요코인|호텔·리조트|18,1|객실 숙박과 사전예약·선결제의 차이를 설명할 수 있다.
+반얀트리 호텔앤리조트|호텔·리조트|16,19,18|호텔 브랜드·운영 구조와 일부 숙박서비스 매출을 구분한다.
+오요(OYO)|호텔·리조트|19,20,10|숙소 운영기술·판매채널과 공급자 연결을 살펴보는 사례다.
+에어비앤비 호스트(사업자)|호텔·리조트|18,1,7|개별 호스트는 플랫폼이 아니라 숙박서비스 제공자로 숙박료와 선택형 서비스를 받는다.
+롯데월드 어드벤처|테마·문화|18,7,12|입장권 판매·매직패스 프리미엄·연간이용권을 구분한다. 연간이용권은 자동갱신 구독과 다른 기간권일 수 있다.
+에버랜드|테마·문화|18,7,12|입장권·우선 이용/체험 옵션·연간이용권의 구조를 비교한다.
+서울랜드|테마·문화|18,12,7|입장권 및 연간 이용·부가 체험 구매를 구분한다.
+레고랜드 코리아|테마·문화|18,7,12|1일 입장권·패스·추가 경험의 수익화 예시다.
+디즈니 테마파크|테마·문화|18,7,12|입장권·우선탑승 옵션·시즌/연간 이용 상품을 구분한다.
+유니버설 스튜디오 파크|테마·문화|18,7,12|입장권·익스프레스 패스·시즌 이용권 등의 모델이다.
+캐리비안 베이|테마·문화|18,7,4|입장·시설 이용과 대여·부가상품을 구분한다.
+오션월드|테마·문화|18,7,4|입장권, 시설·편의용품 이용 및 추가 요금을 비교한다.
+CGV|테마·문화|18,7,8|영화표 판매·특별관 추가금·극장 내 광고를 구분한다.
+메가박스|테마·문화|18,7,8|상영권 이용 상품·프리미엄관·광고상품을 구분한다.
+넷플릭스|테마·문화|12,9|월 구독료로 콘텐츠 접근권을 제공하며 요금제에 따라 접근 조건이 다르다.
+티빙|테마·문화|12,9|정액 요금제와 콘텐츠 접근권이 결합된 서비스다.
+유튜브 프리미엄|테마·문화|12,9|광고 제거 등 프리미엄 접근 혜택을 유료 구독으로 제공한다.
+스포티파이|테마·문화|12,8,9|유료 구독과 무료 이용층 대상 광고·접근 혜택을 구분한다.
+성심당|외식·카페|18,7|빵·제과 판매와 묶음·선물세트 등 추가 구매를 살핀다.
+스타벅스|외식·카페|18,7|음료·푸드 판매 및 사이즈·추가 옵션 판매를 구분한다.
+투썸플레이스|외식·카페|18,7|커피·디저트 판매와 세트·옵션 구매를 살핀다.
+이디야커피|외식·카페|18,16,7|가맹점 소매판매와 본부의 프랜차이즈 사업은 주체가 다름에 유의한다.
+메가MGC커피|외식·카페|18,16,7|매장 판매와 가맹본부 수익을 사업 주체별로 나눠본다.
+빽다방|외식·카페|18,16,7|음료 판매와 프랜차이즈 본부의 브랜드 수익을 구분한다.
+맥도날드|외식·카페|18,16|직영점 매출과 가맹점에서 받는 임차료·로열티 등을 구별한다.
+버거킹|외식·카페|18,16,7|매장 상품 판매·가맹 계약·메뉴 업셀링 사례다.
+BBQ치킨|외식·카페|18,16,7|치킨 매장 판매와 브랜드 프랜차이즈 본부 사업을 구분한다.
+교촌치킨|외식·카페|18,16,7|상품 매출과 프랜차이즈 운영, 추가 메뉴 구매를 구분한다.
+맘스터치|외식·카페|18,16,7|버거 판매와 가맹본부 사업·메뉴 추가구매를 살핀다.
+도미노피자|외식·카페|18,16,7|피자 판매, 브랜드 가맹, 사이드 추가 판매의 사례다.
+피자헛|외식·카페|18,16,7|메뉴 판매·프랜차이즈와 추가상품을 구분한다.
+파리바게뜨|외식·카페|18,16,7|가맹점의 제과·카페 판매와 브랜드 본부 수익을 나눠본다.
+뚜레쥬르|외식·카페|18,16,7|빵·케이크 판매와 가맹사업을 구별한다.
+서브웨이|외식·카페|18,16,7|매장 판매·프랜차이즈 로열티·추가 토핑 판매를 구분한다.
+배달의민족|외식·카페|20,10,8|음식점·소비자 연결, 주문중개 수수료, 광고상품을 구분한다.
+쿠팡이츠|외식·카페|20,10|가맹점과 소비자의 주문 거래 연결·서비스 요금 구조를 살핀다.
+당근|커머스·플랫폼|8|동네 중고거래는 일반 개인 간 직거래 수수료와 구분하고 지역 광고상품을 수익 사례로 본다.
+네이버|커머스·플랫폼|8,10,12|검색 광고·쇼핑 거래 관련 수수료·유료 멤버십을 구분한다.
+카카오|커머스·플랫폼|8,10,14|광고·커머스 중개·디지털 콘텐츠 소액구매를 구분한다.
+쿠팡|커머스·플랫폼|18,12,10|직매입 판매·유료 멤버십·마켓플레이스 수수료를 구분한다.
+11번가|커머스·플랫폼|20,10,8|입점 판매자와 소비자를 연결하고 거래 수수료·광고를 판다.
+G마켓|커머스·플랫폼|20,10,8|오픈마켓 거래 연결·판매수수료·광고의 예시다.
+무신사|커머스·플랫폼|18,20,10|자체 상품 판매와 입점 브랜드 거래 연결을 나눠 본다.
+오늘의집|커머스·플랫폼|20,10,8|인테리어 상품 중개와 광고·브랜드 노출 서비스를 구분한다.
+번개장터|커머스·플랫폼|20,10|중고 상품 거래 연결과 유료 거래·결제 기능을 검토한다.
+KREAM|커머스·플랫폼|20,10|리셀 거래 당사자를 연결하고 거래 관련 수수료를 받는다.
+아이디어스|커머스·플랫폼|20,10|작가와 구매자의 거래를 연결하는 핸드메이드 마켓이다.
+숨고|커머스·플랫폼|20,4|전문가 매칭과 견적·연결에 대한 서비스 이용 대가를 구분한다.
+크몽|커머스·플랫폼|20,10,3|전문서비스 거래 중개 및 일부 전문가의 시간단위 견적을 구분한다. 시간기준은 판매자별로 다를 수 있다.
+클래스101|커머스·플랫폼|12,9|콘텐츠 구독료와 수강 가능한 강좌 접근권을 구분한다.
+컬리|커머스·플랫폼|18,12|상품 직접 판매와 유료 멤버십 혜택을 구분한다.
+오픈씨(OpenSea)|커머스·플랫폼|20,10|디지털 자산 판매자와 구매자를 연결하고 플랫폼 거래수수료를 받는다.
+이베이(eBay)|커머스·플랫폼|20,10,8|매매 중개·판매자 수수료·상품 노출 광고를 운영한다.
+아마존 마켓플레이스|커머스·플랫폼|20,10,8|제3자 판매자 연결·거래수수료·광고상품을 구분한다.
+카카오 T|교통·모빌리티|20,10,4|이동서비스 호출·연결과 유료 기능의 이용 대가를 구분한다.
+우버(Uber)|교통·모빌리티|20,10|승객과 운행 공급자를 연결하고 거래 기반 수익을 얻는다.
+쏘카|교통·모빌리티|4,11,12|차량 이용료·시간/거리 기준 요금과 정기 이용 서비스를 구분한다.
+그린카|교통·모빌리티|4,11|차량 대여 이용권과 시간·거리 관련 요금을 구별한다.
+코레일|교통·모빌리티|18,1,7|승차권 판매·선결제와 좌석 등급별 추가 요금을 비교한다.
+SR(SRT)|교통·모빌리티|18,1,7|승차권 판매와 좌석 서비스 등급을 구분한다.
+대한항공|교통·모빌리티|18,7,13|항공권 판매·유료 부가서비스 및 조건부 취소·변경 수수료를 구별한다.
+아시아나항공|교통·모빌리티|18,7,13|항공운임·부가상품·운임규정상 일부 변경/취소 수수료를 구분한다.
+제주항공|교통·모빌리티|18,7,13|항공권 및 수하물·좌석 선택 등 유료 옵션과 취소 수수료를 구분한다.
+티웨이항공|교통·모빌리티|18,7,13|기본 항공권 판매와 수하물 등 부가매출·규정상 수수료를 살핀다.
+진에어|교통·모빌리티|18,7,13|운임과 좌석/수하물 추가상품·조건부 취소 수수료를 구분한다.
+우버 이츠|교통·모빌리티|20,10|음식 배달 플랫폼에서 공급자·주문자 연결과 거래 기반 대가를 검토한다.
+Microsoft 365|IT·B2B|12,9,19|기업·개인용 정액 소프트웨어 접근권을 제공한다.
+Adobe Creative Cloud|IT·B2B|12,9,19|전문 제작 도구를 정액형 접근권으로 제공한다.
+Salesforce|IT·B2B|12,19|기업용 CRM 솔루션을 반복 구독으로 공급한다.
+AWS|IT·B2B|11,19|클라우드 사용량에 따른 요금과 기업용 기술 서비스를 제공한다.
+Google Cloud|IT·B2B|11,19|인프라·데이터 처리 등 이용량 기반 요금과 B2B 서비스를 제공한다.
+네이버클라우드|IT·B2B|11,19|국내 기업의 클라우드 자원·솔루션 사용에 요금을 부과한다.
+토스페이먼츠|IT·B2B|10,19|가맹점 결제처리·기업용 결제 솔루션을 제공한다.
+채널톡|IT·B2B|12,19|기업용 고객상담 소프트웨어를 구독형으로 제공한다.
+스티비|IT·B2B|12,19|기업·창작자를 위한 이메일 마케팅 툴을 유료 플랜으로 제공한다.
+슬랙(Slack)|IT·B2B|12,9,19|업무 협업 도구의 유료 요금제와 기능 접근권을 구분한다.
+노션(Notion)|IT·B2B|12,9,19|유료 업무공간·AI 기능 등 반복 과금을 제공한다.
+줌(Zoom)|IT·B2B|12,9,19|무료·유료 화상회의 기능의 접근등급을 구분한다.
+GitHub|IT·B2B|12,9,19|개발 협업의 유료 플랜과 기업용 기능을 제공한다.
+Autodesk|IT·B2B|12,19|설계·제작 소프트웨어를 정액 계약으로 공급한다.
+SAP|IT·B2B|12,19,17|기업 운영 SW 구독·유지지원 계약을 구분한다.
+더존비즈온|IT·B2B|12,19,17|기업 회계·ERP 솔루션과 유지관리·지원 상품을 구분한다.
+오픈AI API|IT·B2B|11,19|API 사용량과 기업용 AI 서비스 제공의 사례다.
+알서포트|IT·B2B|12,19|원격지원·협업 솔루션을 기업용 유료 서비스로 제공한다.
+삼성전자|제조·콘텐츠|18,7,17|전자제품 판매·부가 기능/서비스와 유상 유지·수리 서비스를 구분한다.
+LG전자|제조·콘텐츠|18,12,17|가전 판매와 구독형 가전 관리 서비스·유지관리를 구분한다.
+애플|제조·콘텐츠|18,12,7|하드웨어 판매·서비스 구독·제품 업그레이드 구성을 구분한다.
+네스프레소|제조·콘텐츠|18,6|커피머신과 반복 구매하는 캡슐 상품을 연결한다.
+큐리그(Keurig)|제조·콘텐츠|18,6|커피 추출 기기와 소모품인 K-Cup을 결합한다.
+질레트|제조·콘텐츠|18,6|면도기 본체와 반복적으로 교체하는 면도날을 판매한다.
+HP 프린팅|제조·콘텐츠|18,6,12|프린터 판매·잉크 소모품·정기 공급 플랜을 구분한다.
+캐논 프린터|제조·콘텐츠|18,6,17|프린터 판매·잉크/토너 소모품·유지관리 계약을 구분한다.
+닌텐도|제조·콘텐츠|18,12,14|게임기·게임 판매, 온라인 정액서비스, 게임별 소액구매 사례를 구분한다.
+넥슨|제조·콘텐츠|14,12|게임 내 상품 소액결제와 일부 서비스의 기간제 상품을 구분한다.
+넷마블|제조·콘텐츠|14|게임 내 재화·아이템 등 디지털 소액결제 사례다.
+로블록스|제조·콘텐츠|14,20,10|가상경제 아이템 구매와 제작자 생태계 관련 거래 구조를 구분한다.
+크래프톤|제조·콘텐츠|18,14|게임 판매와 게임 내 유료 상품을 구분한다.
+블룸버그 터미널|제조·콘텐츠|12,21,19|전문 금융정보 데이터·단말 접근 구독과 기업용 서비스를 구분한다.
+NielsenIQ|제조·콘텐츠|21,19|소매·소비자 데이터와 기업용 분석 인사이트를 제공한다.
+유로모니터|제조·콘텐츠|21,12|시장정보 데이터베이스·리포트의 유료 접근을 제공한다.
+S&P Global Market Intelligence|제조·콘텐츠|21,12,19|기업·금융 데이터·분석 접근권을 유료로 제공한다.
+Arm|제조·콘텐츠|5,19|반도체 설계 IP 라이선스 사용료와 칩 판매량 연동 로열티를 받는다.
+퀄컴|제조·콘텐츠|5,18|특허 라이선싱 사업과 반도체 제품 판매 사업을 구분한다.
+돌비(Dolby)|제조·콘텐츠|5,19|오디오·영상 기술의 라이선스와 기술 솔루션을 제공한다.
+오티스 엘리베이터|제조·콘텐츠|18,17|승강기 판매와 설치 후 반복되는 유지보수·서비스 계약을 구분한다.
+케스코(K-ESCO)|제조·콘텐츠|15,19,17|ESCO 에너지절감 성과 계약과 시설 운영·사후관리 서비스를 제공한다.
+오프린트미|제조·콘텐츠|18,2|맞춤 인쇄는 용지·수량·가공 등 비용 요소를 이용해 견적을 이해할 수 있다. 실제 원가가산법 공식 확인 사례는 아니다.
+삼일PwC 컨설팅|제조·콘텐츠|19,3|컨설팅은 프로젝트·인력 투입시간으로 견적을 설명할 수 있으나 실제 계약별 가격방식은 다르다.
+뉴욕타임스|제조·콘텐츠|12,9,8|디지털 유료 기사 접근권과 광고 수익을 구분한다.
+월스트리트저널|제조·콘텐츠|12,9,8|유료 기사·데이터 접근 요금과 광고를 구분한다.`;
+const companies=entries.trim().split('\n').map((line,i)=>{const p=line.split('|');return {id:i,name:p[0],industry:p[1],models:p[2].split(',').map(Number),note:p[3]}});
+const sourceIndex={
+'에어비앤비':[{title:'Airbnb 2025 연차보고서',url:'https://www.sec.gov/Archives/edgar/data/1559720/000155972026000004/abnb-20251231.htm'}],
+'메리어트 인터내셔널':[{title:'Marriott 2025 연간 실적',url:'https://marriott.gcs-web.com/node/36796'}],
+'힐튼 월드와이드':[{title:'Hilton 2025 연차보고서',url:'https://ir.hilton.com/sec-filings/all-sec-filings/content/0001585689-26-000007/hlt-20251231.htm'}],
+'당근':[{title:'당근비즈니스 광고 안내',url:'https://business.daangn.com/ads/about'}],
+'롯데월드 어드벤처':[{title:'매직패스 안내',url:'https://adventure.lotteworld.com/price/price/magicpass?hl=ko-KR'},{title:'연간이용권 안내',url:'https://adventure.lotteworld.com/price/member/price'}],
+'Arm':[{title:'Arm 투자자 공시·라이선스 모델',url:'https://investors.arm.com/node/8511/html'}],
+'퀄컴':[{title:'Qualcomm 특허 라이선싱 안내',url:'https://www.qualcomm.com/news/releases/2026/10/qualcomm-announces-long-term-patent-cross-license-agreement-with'}],
+'케스코(K-ESCO)':[{title:'케스코 ESCO 계약방식',url:'https://www.k-esco.co.kr/business/esco.do'}],
+'대한항공':[{title:'대한항공 홈페이지',url:'https://www.koreanair.com/'}]
+};
+const sourcesExtra=[{title:'한국에너지공단: ESCO 성과보증·절감액 배분 설명',url:'https://www.energy.or.kr/front/conts/105003001007000.do'},{title:'Airbnb 수수료 구조 변경 안내(2026)',url:'https://www.airbnb.com/resources/hosting-homes/a/simplifying-airbnb-service-fees-746'}];
+const byId=id=>models[id];const modelFamily=id=>families.find(f=>f.ids.includes(id));const catColor=id=>modelFamily(id).color;
+let state={category:'전체',search:'',company:null,model:null};
+const categoryEl=document.getElementById('categories'),companiesEl=document.getElementById('companies'),detailEl=document.getElementById('detail');
+const svgNS='http://www.w3.org/2000/svg';
+function S(tag,attrs={},txt=null){let e=document.createElementNS(svgNS,tag);for(const [k,v] of Object.entries(attrs))e.setAttribute(k,String(v));if(txt!==null)e.textContent=txt;return e}
+function el(tag,attrs={},text=null){let e=document.createElement(tag);for(const [k,v] of Object.entries(attrs)){if(k==='class')e.className=v;else e.setAttribute(k,v)}if(text!==null)e.textContent=text;return e}
+function rgb(hex){return [1,3,5].map(i=>parseInt(hex.slice(i,i+2),16))}function tint(hex,p){const [r,g,b]=rgb(hex);return '#'+[r,g,b].map(v=>Math.round(v+(255-v)*p).toString(16).padStart(2,'0')).join('')}
+function point(cx,cy,r,deg){let a=deg*Math.PI/180;return [cx+Math.cos(a)*r,cy+Math.sin(a)*r]}
+function arcPath(cx,cy,r1,r2,a0,a1){let p0=point(cx,cy,r2,a0),p1=point(cx,cy,r2,a1),p2=point(cx,cy,r1,a1),p3=point(cx,cy,r1,a0),large=a1-a0>180?1:0;return `M ${p0[0]} ${p0[1]} A ${r2} ${r2} 0 ${large} 1 ${p1[0]} ${p1[1]} L ${p2[0]} ${p2[1]} A ${r1} ${r1} 0 ${large} 0 ${p3[0]} ${p3[1]} Z`}
+function setCompany(c){state.company=c;state.model=null;renderAll();document.getElementById('detail').scrollIntoView({behavior:'smooth',block:'nearest'});}
+function setModel(id){state.company=null;state.model=state.model===id?null:id;state.category='전체';state.search='';document.getElementById('companySearch').value='';renderAll();}
+function resetAll(){state.company=null;state.model=null;state.search='';state.category='전체';document.getElementById('companySearch').value='';renderAll()}
+function renderCategories(){categoryEl.replaceChildren();for(const cat of ['전체',...industries]){let count=cat==='전체'?companies.length:companies.filter(c=>c.industry===cat).length;let b=el('button',{class:'category'+(state.category===cat?' active':''),type:'button'},cat+' ');b.append(el('span',{class:'n'},String(count)));b.addEventListener('click',()=>{state.category=cat;renderAll()});categoryEl.append(b)}}
+function renderPills(){companiesEl.replaceChildren();let filtered=companies.filter(c=>(state.category==='전체'||c.industry===state.category)&&(!state.search||c.name.toLowerCase().includes(state.search.toLowerCase())||c.note.toLowerCase().includes(state.search.toLowerCase())));if(state.model!==null)filtered.sort((a,b)=>Number(b.models.includes(state.model))-Number(a.models.includes(state.model))||a.id-b.id);for(let c of filtered){let cls='company-pill'+(state.company&&state.company.id===c.id?' active':'')+(state.model!==null?(c.models.includes(state.model)?' match':' muted'):'');let b=el('button',{type:'button',class:cls,'aria-pressed':String(Boolean(state.company&&state.company.id===c.id)),title:c.name+' · '+c.models.map(n=>models[n][0]).join(' / ')},c.name);b.addEventListener('click',()=>setCompany(c));companiesEl.append(b)}if(!filtered.length)companiesEl.append(el('div',{class:'empty'},'검색 결과가 없습니다. 다른 키워드를 입력해 보세요.'));document.getElementById('pillHint').textContent=`현재 ${filtered.length}개 표시 · ${state.model!==null?'노란색 알약은 선택 모델에 해당합니다.':'기업 하나를 선택하면 해당 유형만 원형 지도에 표시됩니다.'}`}
+function renderWheel(){let svg=document.getElementById('wheel');svg.replaceChildren();let cx=450,cy=354,unit=360/21,angle=-90;const selected=state.company?.models|| (state.model!==null?[state.model]:null);let labelRoot=S('g');svg.append(labelRoot);
+ for(const family of families){let a0=angle,a1=angle+family.ids.length*unit,mid=(a0+a1)/2;let pie=S('g');let activeFamily=!selected||family.ids.some(id=>selected.includes(id));pie.append(S('path',{d:arcPath(cx,cy,100,192,a0,a1),fill:family.color,class:'slicepath',opacity:activeFamily?1:.18}));let [ix,iy]=point(cx,cy,148,mid);let txt=S('text',{x:ix,y:iy-(family.words.length-1)*9,fill:'white','font-size':16,'text-anchor':'middle','font-weight':'900',opacity:activeFamily?1:.25});family.words.forEach((t,i)=>{let sp=S('tspan',{x:ix,dy:i?20:0},t);txt.append(sp)});pie.append(txt);labelRoot.append(pie);
+  for(const id of family.ids){let b0=angle,b1=angle+unit,bmid=(b0+b1)/2,isActive=!selected||selected.includes(id);let g=S('g',{class:'seg',role:'button',tabindex:'0','aria-label':`${id}번 ${models[id][0]}: 모델에 해당하는 기업 보기`,'aria-pressed':String(state.model===id)});let sec=S('path',{d:arcPath(cx,cy,201,250,b0,b1),fill:tint(family.color,.81),class:'ringpath',opacity:isActive?1:.2});g.append(sec);let [nx,ny]=point(cx,cy,225,bmid);g.append(S('text',{x:nx,y:ny+5,class:'num','text-anchor':'middle',fill:family.color,opacity:isActive?1:.18},id));let [tx,ty]=point(cx,cy,270,bmid),anchor=tx>cx+26?'start':tx<cx-26?'end':'middle';if(Math.abs(tx-cx)>26)tx+=(anchor==='start'?6:-6);let label=S('text',{x:tx,y:ty+5,class:'outer-label','text-anchor':anchor,fill:family.color,opacity:isActive?1:.23},models[id][0]);svg.append(label);if(selected?.includes(id)){let [dx,dy]=point(cx,cy,253,bmid);g.append(S('circle',{cx:dx,cy:dy,r:6.5,fill:family.color,class:'selected-dot'}))}g.addEventListener('click',()=>setModel(id));g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();setModel(id)}});svg.append(g);angle=b1}
+ }
+ svg.append(S('circle',{cx,cy,r:95,fill:'#fff'}));svg.append(S('circle',{cx,cy,r:89,fill:'#1c345a'}));let t=S('text',{x:cx,y:cy-11,class:'center-title','text-anchor':'middle'},'수익화 모델');svg.append(t);svg.append(S('text',{x:cx,y:cy+28,class:'center-sub','text-anchor':'middle'},'21가지'));if(state.company){svg.append(S('text',{x:cx,y:cy+54,fill:'#d6e7f6','text-anchor':'middle','font-weight':'800','font-size':12},`선택 ${state.company.models.length}개`))}
+ }
+function cardForModel(id,link=true){let f=modelFamily(id),m=models[id];let b=el(link?'button':'div',{class:'modelcard',...(link?{'type':'button'}:{})});let n=el('span',{class:'number',style:`background:${f.color}`},String(id));let right=el('div');right.append(el('div',{class:'mname'},m[0]),el('p',{},m[1]));b.append(n,right);if(link)b.addEventListener('click',()=>setModel(id));return b}
+function renderDetail(){detailEl.replaceChildren();let kick=el('div',{class:'kick'});detailEl.append(kick);if(state.company){let c=state.company;kick.textContent='선택한 기업 · 수익모델 연결';detailEl.append(el('h2',{},c.name));let tags=el('div',{class:'tagrow'});tags.append(el('span',{class:'tag'},c.industry),el('span',{class:'tag'},'관련 모델 '+c.models.length+'개'),el('span',{class:'tag'},sourceIndex[c.name]?'공식 참고자료 연결':'교육용 사례 매칭'));detailEl.append(tags,el('p',{class:'desc'},c.note));if(sourceIndex[c.name]){let links=el('div',{class:'links'});for(const s of sourceIndex[c.name])links.append(el('a',{href:s.url,target:'_blank',rel:'noopener noreferrer'},s.title+' ↗'));detailEl.append(links)}detailEl.append(el('div',{class:'subheading'},'이 기업에서 관찰할 수 있는 모델'));let cards=el('div',{class:'modelcards'});for(const id of c.models)cards.append(cardForModel(id));detailEl.append(cards);detailEl.append(el('p',{class:'smallnote'},'분류 기준: 기업 전체와 브랜드·개별 매장을 혼동하지 마세요. 예: 호텔 체인의 가맹수수료는 본사의 수익이고, 객실료는 숙박 운영주체의 매출일 수 있습니다. 2·3번은 실제 내부 원가·시간 단가 책정 확정이 아닙니다.'))}
+ else if(state.model!==null){let id=state.model,m=models[id],f=modelFamily(id),cs=companies.filter(c=>c.models.includes(id));kick.textContent='21가지 중 선택 모델';detailEl.append(el('h2',{},`${id}. ${m[0]}`),el('div',{class:'tagrow'}));let p=el('p',{class:'desc'},m[1]);detailEl.append(p,el('div',{class:'subheading'},`연결 기업·서비스 ${cs.length}개`));let group=el('div',{class:'modelcompany'});cs.forEach(c=>{let b=el('button',{type:'button'},c.name);b.onclick=()=>setCompany(c);group.append(b)});detailEl.append(group);if([2,3,13,15].includes(id))detailEl.append(el('p',{class:'smallnote'},id===2||id===3?'원가·시간 기준은 가격책정 방식입니다. 해당 기업이 그 방식을 공식 채택했음을 확인하지 않은 경우 교육용 견적 사례로만 해석해야 합니다.':id===13?'변경·취소 요금은 법·약관·운임 조건에 따라 달라집니다. 이를 핵심 매출모델로 일반화하지 마세요.':'성과확정·성과보증 등 ESCO 계약 형태에 따라 보수와 절감액 배분 방식이 다릅니다.'));
+ }else{kick.textContent='HOW TO READ · 비교 학습';detailEl.append(el('h2',{},'기업을 누르면 수익의 흐름이 보입니다.'));detailEl.append(el('p',{class:'desc'},'관광기업, 호텔 체인, 외식 프랜차이즈, 플랫폼, 제조기업의 사례를 비교해 보세요. 하나의 기업이 여러 모델을 결합하는 방식에 주목합니다.'));let guide=el('div',{class:'modelcards'});[{n:'① 관광기업',d:'에어비앤비: 중개 구조와 거래 수수료',name:'에어비앤비'},{n:'② 호텔경영',d:'메리어트: 브랜드 가맹과 위탁운영·직접 운영',name:'메리어트 인터내셔널'},{n:'③ 외식업',d:'성심당: 상품 판매와 추가 구매',name:'성심당'},{n:'④ 일반 플랫폼',d:'당근: 개인 간 중고거래와 광고 매출의 차이',name:'당근'},{n:'⑤ 복합 레저',d:'롯데월드: 입장권·매직패스·연간이용권',name:'롯데월드 어드벤처'}].forEach(item=>{let b=el('button',{class:'modelcard',type:'button'});let div=el('div');div.append(el('div',{class:'mname'},item.n),el('p',{},item.d));b.append(div);b.onclick=()=>setCompany(companies.find(c=>c.name===item.name));guide.append(b)});detailEl.append(guide);detailEl.append(el('p',{class:'smallnote'},'대부분의 기업은 1개의 수익모델만 쓰지 않습니다. 서로 다른 모델이 연결되더라도 매출 규모나 이익 기여도를 의미하지 않습니다.'))}
+}
+function renderTable(){let tbody=document.getElementById('modelRows');tbody.replaceChildren();for(const f of families){for(const id of f.ids){let cs=companies.filter(c=>c.models.includes(id)),tr=el('tr',{...(state.model===id?{class:'sel'}:{})});let no=el('td',{},String(id)),name=el('td',{},models[id][0]),text=el('td',{},models[id][1]);no.style.color=f.color;let short=cs.slice(0,5).map(c=>c.name).join(' · ');let x=el('td',{},short+(cs.length>5?` 외 ${cs.length-5}개`:'')||'확인 사례 없음');tr.append(no,name,text,x);tr.tabIndex=0;tr.addEventListener('click',()=>setModel(id));tr.addEventListener('keydown',e=>{if(e.key==='Enter'){setModel(id)}});tbody.append(tr)}}}
+function renderSources(){let dst=document.getElementById('sources');for(const [name,items] of Object.entries(sourceIndex)){for(const x of items){let a=el('a',{href:x.url,target:'_blank',rel:'noopener noreferrer'},`${name} · ${x.title} ↗`);dst.append(a)}}for(const x of sourcesExtra)dst.append(el('a',{href:x.url,target:'_blank',rel:'noopener noreferrer'},x.title+' ↗'))}
+function renderAll(){renderCategories();renderPills();renderWheel();renderDetail();renderTable()}
+document.getElementById('companySearch').addEventListener('input',e=>{state.search=e.target.value;renderPills()});document.getElementById('clearSearch').onclick=()=>{state.search='';document.getElementById('companySearch').value='';renderPills()};document.getElementById('resetAll').onclick=resetAll;document.getElementById('printPage').onclick=()=>window.print();
+document.getElementById('companyCount').textContent=companies.length;renderSources();renderAll();
+// 교육자료 데이터 완전성 검사: 항목·중복·모델 ID·업종
+const bad=companies.filter(c=>!c.name||!industries.includes(c.industry)||!c.models.length||c.models.some(id=>!models[id]));const used=new Set(companies.flatMap(c=>c.models));if(bad.length||used.size!==21||new Set(companies.map(c=>c.name)).size!==companies.length)console.warn('교육자료 데이터 점검:',{bad,coveredModels:used.size,duplicates:companies.length-new Set(companies.map(c=>c.name)).size});
+</script>
+</body>
+</html>
