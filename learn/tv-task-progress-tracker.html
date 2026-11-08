@@ -1,0 +1,848 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="경국대학교 관광벤처창업론 교수자용 과제 진도관리">
+<title>과제 진도관리 | 경국대학교 관광벤처창업론</title>
+<style>
+:root{--ink:#252137;--muted:#625e73;--line:#e5e0ee;--paper:#fff;--canvas:#f7f6fa;--violet:#5c3ca4;--deep:#472684;--soft:#eee8f9;--green:#176449;--green-bg:#e6f5ed;--blue:#205b8a;--blue-bg:#e7f1fb;--gray:#535366;--gray-bg:#eeedf3;--amber:#8a4612;--amber-bg:#fff0db;--shadow:0 4px 16px #37215e09;font-family:"Pretendard","Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;color:var(--ink);background:var(--canvas);font-size:15px}
+*{box-sizing:border-box}body{margin:0}button,input,select,textarea{font:inherit}button,a,input,select,textarea,summary{touch-action:manipulation}button{cursor:pointer}button:disabled{opacity:.5;cursor:not-allowed}a{color:var(--deep)}a:hover{text-decoration-thickness:2px}button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,[tabindex]:focus-visible{outline:3px solid #9861de;outline-offset:3px}h1,h2,h3,p{margin:0}h2{font-size:1.36rem;letter-spacing:-.045em}h3{font-size:1.06rem;letter-spacing:-.03em}small{font-size:.81rem}.muted{color:var(--muted);line-height:1.62}.ico{width:19px;height:19px;stroke:currentColor;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round;fill:none;flex:none}.skip{position:fixed;left:10px;top:-70px;z-index:10;background:white;padding:10px}.skip:focus{top:10px}.shell{display:grid;grid-template-columns:222px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;align-self:start;height:100vh;display:flex;flex-direction:column;background:#fff;border-right:1px solid var(--line);padding:25px 15px 18px;z-index:2}.brand{display:flex;gap:11px;align-items:center;padding:3px 6px 29px}.brand-mark{display:grid;place-items:center;width:39px;height:39px;border-radius:12px;background:var(--deep);color:white;flex:none}.brand strong,.brand small{display:block;white-space:nowrap}.brand strong{font-size:.94rem;letter-spacing:-.035em}.brand small{font-size:.68rem;letter-spacing:.045em;color:var(--violet);font-weight:800;margin-bottom:3px}.nav-label{padding:0 10px;margin:0 0 9px;color:var(--muted);font-size:.71rem;font-weight:800;letter-spacing:.055em}.nav-list{display:grid;gap:5px;margin-bottom:24px}.nav{display:flex;align-items:center;gap:10px;min-height:43px;border:0;border-radius:9px;background:none;color:#4e485f;text-align:left;padding:9px 11px;font-weight:660;font-size:.89rem;width:100%}.nav:hover{background:#f5f0fb}.nav[aria-current=page]{background:var(--soft);color:var(--deep);font-weight:800}.local-info{margin-top:auto;background:#f7f4fb;border:1px solid #eee8f7;padding:12px;border-radius:11px;color:#50466b;font-size:.77rem;line-height:1.55}.local-info b{display:block;margin-bottom:3px}.main{min-width:0}.topbar{height:69px;display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid var(--line);padding:0 34px;background:#fff}.crumb{display:flex;gap:8px;align-items:center;color:var(--muted);font-size:.85rem}.crumb b{color:var(--ink)}.top-actions,.actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.page{padding:27px 34px 40px;max-width:1510px;margin:auto;display:grid;gap:22px}.hero{position:relative;overflow:hidden;isolation:isolate;border-radius:17px;min-height:190px;padding:29px 32px;background:linear-gradient(105deg,#422475,#5d399e 64%,#7551b7);color:#fff;display:flex;align-items:center;box-shadow:0 7px 24px #47268425}.hero h1{font-size:clamp(2rem,4vw,3.05rem);line-height:1.12;letter-spacing:-.07em;margin:9px 0 10px}.hero p{color:#f0e9fc;line-height:1.58;font-size:.94rem;max-width:485px}.hero .eyebrow{color:#f3e8ff}.hero .art{position:absolute;width:365px;right:-4px;top:-15px;z-index:-1;height:235px;opacity:.83}.eyebrow{font-weight:850;letter-spacing:.085em;font-size:.69rem;color:var(--violet)}.heading{display:flex;justify-content:space-between;align-items:end;gap:12px}.heading h1{font-size:clamp(1.75rem,3.5vw,2.42rem);letter-spacing:-.06em;margin:5px 0 5px}.heading .muted,.sub{font-size:.86rem}.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}.metric{text-align:left;border:1px solid var(--line);background:#fff;border-radius:13px;padding:13px 16px 14px;color:var(--ink);box-shadow:var(--shadow);display:grid;gap:4px;position:relative}.metric:hover,.metric[aria-pressed=true]{border-color:#a68bc8}.metric .metric-title{font-size:.84rem;font-weight:800;display:flex;align-items:center;gap:8px}.metric strong{font-size:1.88rem;line-height:1.15;letter-spacing:-.05em}.metric small{color:var(--muted);font-size:.73rem}.dot{height:8px;width:8px;border-radius:50%;display:inline-block;background:currentColor;flex:none}.done{color:var(--green);--status-bg:var(--green-bg)}.progress{color:var(--blue);--status-bg:var(--blue-bg)}.todo{color:var(--gray);--status-bg:var(--gray-bg)}.check{color:var(--amber);--status-bg:var(--amber-bg)}.badge{display:inline-flex;gap:5px;align-items:center;padding:4px 8px;border-radius:20px;font-size:.75rem;font-weight:800;white-space:nowrap;background:var(--status-bg,var(--soft));color:inherit}.badge.done,.badge.progress,.badge.todo,.badge.check{color:revert-layer}.badge.done{color:var(--green)}.badge.progress{color:var(--blue)}.badge.todo{color:var(--gray)}.badge.check{color:var(--amber)}.tag{display:inline-flex;align-items:center;border-radius:6px;padding:4px 7px;background:var(--soft);color:var(--deep);font-size:.74rem;font-weight:800;line-height:1.35}.tag.original{background:var(--green-bg);color:var(--green)}.tag.feedback{background:var(--blue-bg);color:var(--blue)}.tag.verify{background:var(--amber-bg);color:var(--amber)}.tag.guide{background:#ececf3;color:var(--gray)}.panel{background:#fff;border:1px solid var(--line);border-radius:15px;box-shadow:var(--shadow);min-width:0}.panel-head{display:flex;justify-content:space-between;align-items:start;gap:10px;padding:18px 20px 12px}.panel-head p{margin-top:5px}.btn{border:1px solid #dcd5e7;background:#fff;color:var(--deep);border-radius:8px;padding:8px 12px;font-weight:750;min-height:38px;display:inline-flex;gap:7px;align-items:center;justify-content:center;text-decoration:none;font-size:.84rem;white-space:nowrap}.btn .ico{width:16px;height:16px}.btn:hover{background:#f4effa}.btn.primary{background:var(--deep);color:white;border-color:var(--deep)}.btn.primary:hover{background:#59359a}.btn.minor{background:#f3eef9;border-color:#f3eef9}.btn.danger{color:#9a2842}.btn.small{font-size:.76rem;padding:5px 8px;min-height:32px}.linkbtn{border:0;background:none;color:var(--deep);padding:0;text-align:left;font-weight:800}.linkbtn:hover{text-decoration:underline}.filterbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:0 20px 12px}.filterbar label{margin:0}.searchbox{min-width:215px;flex:1;position:relative}.searchbox input{width:100%;padding-left:35px}.searchbox .ico{position:absolute;top:10px;left:11px;color:var(--violet);width:16px;height:16px}.input,input:not([type=checkbox]):not([type=file]),textarea,select{min-width:0;border:1px solid #dcd5e7;background:#fff;color:var(--ink);border-radius:8px;padding:8px 10px;min-height:37px}.searchbox input:not([type=checkbox]){padding-left:35px}input::placeholder,textarea::placeholder{color:#6b657a}.filters-meta{padding:0 20px 10px;font-size:.76rem;color:var(--muted)}.table-wrap{overflow:auto;max-height:60vh;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}table{border-collapse:separate;border-spacing:0;width:100%;font-size:.82rem}.matrix{min-width:780px}.matrix th,.matrix td{text-align:center;padding:9px 4px;white-space:nowrap;border-bottom:1px solid #efebf4}.matrix thead th{background:#f5f2fa;color:#4e4167;font-size:.73rem}.matrix .group th{background:#eee9f7;padding:6px}.matrix .group th:nth-child(odd){background:#e8e0f4}.matrix th:first-child.sticky,.matrix td:first-child.sticky{position:sticky;left:0;z-index:1;text-align:left;min-width:132px;padding-left:13px;background:#fff}.matrix th:first-child.sticky{background:#eee9f7}.matrix tbody tr:hover td{background:#faf7fd}.matrix .form-link{font-size:.77rem;border:0;background:none;color:var(--deep);padding:2px 3px;font-weight:800}.matrix .form-link:hover,.matrix .cell:hover{text-decoration:underline}.matrix .cell{border:0;background:none;padding:2px 0}.matrix .badge{font-size:.65rem;padding:4px 6px}.matrix .badge .dot{height:5px;width:5px}.matrix .biz{display:block;font-size:.67rem;max-width:135px;overflow:hidden;text-overflow:ellipsis;color:var(--muted);margin-top:3px}.matrix .dash{color:#8a809a}.legend{padding:10px 20px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;color:var(--muted);font-size:.75rem}.legend .badge{font-size:.7rem}.empty{display:grid;justify-items:center;text-align:center;gap:8px;padding:23px 16px 25px;line-height:1.5}.empty p{max-width:49ch}.empty-icon{background:var(--soft);color:var(--violet);border-radius:10px;display:grid;place-items:center;width:38px;height:38px}.roadmap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;padding:0 20px 17px}.road-card{text-align:left;border:1px solid #e8e0f2;background:#f9f6fd;border-radius:10px;padding:11px 12px;color:var(--ink);display:grid;gap:5px}.road-card:hover{border-color:#ab91cb}.road-card b{font-size:.86rem}.road-card small{font-size:.72rem;color:var(--muted)}.list{display:grid;gap:10px;padding:0 20px 18px}.list-row{display:grid;gap:6px;border:1px solid var(--line);border-radius:10px;padding:12px;background:#fff}.list-row header,.doc-line{display:flex;justify-content:space-between;gap:9px;align-items:start}.list-row p,.source-text,.wrap{overflow-wrap:anywhere;white-space:pre-wrap;line-height:1.58}.list-row p{font-size:.84rem}.source-text{margin:8px 0;color:#504860;font-size:.81rem}.layout{display:grid;grid-template-columns:minmax(250px,1fr) minmax(290px,1fr);gap:16px;align-items:start}.assignment-tabs{display:flex;gap:6px;flex-wrap:wrap;padding:0 20px 16px}.assignment-tabs button[aria-pressed=true]{background:var(--deep);color:white;border-color:var(--deep)}.form{display:grid;gap:12px;padding:0 20px 18px}.form label:not(.tick){display:grid;gap:5px;font-size:.83rem;font-weight:800}.form textarea{width:100%;resize:vertical;min-height:68px}.form .sub{font-weight:400}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.tick{display:flex;align-items:start;gap:7px;font-size:.78rem;line-height:1.5;color:#5a506d}.tick input{accent-color:var(--deep);margin-top:2px}.callout{border:1px solid #e6d9f5;background:#f7f1fe;border-radius:10px;padding:10px 12px;font-size:.8rem;color:#533b76;line-height:1.6}.callout.warn{background:var(--amber-bg);color:var(--amber);border-color:#f3ddba}.callout:empty{display:none}.checks{display:grid;gap:8px;margin-top:4px}.checks .tick{padding:8px;border-radius:6px;background:#fff7ea;color:#654326}.checks .tick:has(input:checked){background:var(--green-bg);color:var(--green)}.file-count{font-size:.75rem;color:var(--muted)}summary{cursor:pointer;color:var(--deep);font-weight:750;font-size:.83rem}.source-labels,.inline{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.priority{border-left:4px solid #b97028}.priority.p2{border-left-color:#9572bf}.priority.p3{border-left-color:#8d93aa}.priority h3{margin:2px 0}.demo{padding:8px 12px;border-radius:8px;background:#fff0d9;color:#6c3b12;font-size:.82rem;font-weight:750;display:flex;justify-content:space-between;align-items:center;gap:8px}.footnote{color:var(--muted);font-size:.72rem;margin:1px 2px}.footnote a{margin-left:6px}.note-label{color:var(--violet);font-weight:800;margin-right:5px}.guide{display:grid;gap:10px}.guide details{padding:12px 14px;border:1px solid var(--line);border-radius:10px}.guide details p{margin-top:7px;font-size:.83rem}.guide .guide-body{display:grid;gap:6px;margin-top:7px}.toast{position:fixed;right:24px;bottom:22px;z-index:10;max-width:min(90vw,500px);padding:11px 15px;background:#34234f;color:#fff;border-radius:9px;font-size:.86rem;box-shadow:0 6px 25px #1f103e30}.toast:empty{display:none}dialog{width:min(570px,calc(100% - 24px));max-height:calc(100% - 26px);border:1px solid var(--line);border-radius:16px;padding:0;color:var(--ink);box-shadow:0 18px 60px #25133f40}dialog::backdrop{background:#24173178}dialog .panel-head{padding-bottom:16px}.dialog-close{padding:6px 10px;min-height:32px}.form-footer{display:flex;justify-content:end;align-items:center;gap:8px;flex-wrap:wrap;margin-top:3px}.data-grid{display:grid;gap:11px}.scroll-target{scroll-margin-top:18px}hr{border:0;border-top:1px solid var(--line);margin:0}.danger-text{color:#982642}.multi{display:flex;gap:5px;flex-wrap:wrap}.stack{display:grid;gap:8px}.device-chip{font-size:.75rem;color:var(--violet);font-weight:800;white-space:nowrap}.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:1150px){.shell{grid-template-columns:190px minmax(0,1fr)}.page{padding:23px 23px 30px}.topbar{padding:0 23px}.brand{gap:7px;padding-left:0}.sidebar{padding-left:12px;padding-right:12px}.layout{grid-template-columns:1fr}}
+@media(max-width:800px){.shell{display:block}.sidebar{position:static;height:auto;padding:10px 14px;border-right:0;border-bottom:1px solid var(--line)}.brand{padding:0 0 9px}.brand-mark{width:32px;height:32px}.nav-list{display:flex;flex-wrap:wrap;gap:4px;margin:0}.sidebar .nav-label,.local-info{display:none}.nav{width:auto;min-height:36px;font-size:.78rem;padding:6px 8px;gap:4px}.nav .ico{width:15px;height:15px}.topbar{height:auto;min-height:53px;padding:8px 15px}.page{padding:16px 14px 28px;gap:15px}.hero{padding:23px 19px;min-height:165px}.hero .art{right:-128px;opacity:.34}.metrics{gap:8px}.metric{padding:11px 10px}.metric strong{font-size:1.55rem}.metric small{display:none}.roadmap{grid-template-columns:repeat(2,minmax(0,1fr))}.crumb span:first-child,.crumb .ico,.device-chip{display:none}.panel-head,.filterbar,.filters-meta,.form,.list,.roadmap,.legend,.assignment-tabs{padding-left:13px;padding-right:13px}.heading{align-items:start}.heading .actions{justify-content:end}.heading .sub{max-width:38ch}}
+@media(max-width:420px){.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.form-grid{grid-template-columns:1fr}.top-actions .btn{font-size:.72rem;padding:6px 8px}.top-actions .ico{display:none}.filterbar select{max-width:100%}.searchbox{min-width:100%}.heading{display:grid}.heading .actions{justify-content:start}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+.schedule-wrap{overflow-x:auto;border-top:1px solid var(--line)}
+.schedule-table{min-width:645px}
+.schedule-table th,.schedule-table td{padding:12px 16px;text-align:left;vertical-align:top;line-height:1.55;border-bottom:1px solid var(--line)}
+.schedule-table thead th{background:#f5f2fa;color:#4e4167}
+.schedule-table tbody th,.schedule-table td:nth-child(3){color:var(--deep);font-weight:800;white-space:nowrap}
+.schedule-table tbody td:nth-child(2){min-width:135px;color:var(--muted)}
+.schedule-table tbody tr:last-child{background:#f6f1fc}
+.schedule-table tbody tr:last-child>*{border-bottom:0}
+.schedule-scope{display:grid;gap:4px}
+.schedule-link{display:inline-block;background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;margin-top:10px;font-size:.84rem;font-weight:800;color:#fff;text-underline-offset:3px}
+</style>
+</head>
+<body>
+<a class="skip" href="#page">본문으로 이동</a>
+<div class="shell">
+<aside class="sidebar">
+<div class="brand"><span id="brand-icon" class="brand-mark"></span><div><small>경국대학교</small><strong>관광벤처창업론</strong></div></div>
+<div class="nav-label">교수자 작업공간</div>
+<nav class="nav-list" aria-label="작업공간" id="nav-main"></nav>
+<div class="nav-label">수업 자료</div>
+<nav class="nav-list" aria-label="수업 자료" id="nav-tools"></nav>
+<div class="local-info"><b>교수자용 · 브라우저 저장</b>과제와 첨부는 현재 브라우저에 저장됩니다. 이동할 때는 백업을 사용하세요.</div>
+</aside>
+<main class="main">
+<header class="topbar"><div class="crumb"><span>관광벤처창업론</span><span id="crumb-icon"></span><b id="crumb">전체 현황</b></div><div class="top-actions"><span class="device-chip" id="store-chip">교수자 전용</span><button class="btn" data-action="add-student" id="top-add">학생 추가</button><button class="btn primary" data-action="import-source" id="top-import">자료 가져오기</button></div></header>
+<div class="page" id="page" tabindex="-1"><p class="muted">진도관리 화면을 여는 중입니다.</p></div>
+</main>
+</div>
+<dialog id="dialog" aria-labelledby="dialog-title"></dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<input type="file" id="restore" accept=".json,application/json" hidden>
+<noscript><p>이 HTML을 사용하려면 브라우저의 JavaScript를 켜 주세요.</p></noscript>
+<script>
+'use strict';
+const $ = (selector, root = document) => root.querySelector(selector);
+const icons = {
+  mark:'<path d="M3 9l9-5 9 5-9 5-9-5zM6 11v5c3 3 9 3 12 0v-5M21 9v6"/>',
+  board:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11M15 9v11"/>',
+  users:'<path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2M22 21v-2a4 4 0 0 0-3-3.9"/><circle cx="9.5" cy="7.5" r="3.5"/><path d="M17 4.2a3.5 3.5 0 0 1 0 6.6"/>',
+  calendar:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4m8-4v4M3 10h18M8 15h2m4 0h2"/>',
+  flag:'<path d="M5 21V4m0 1c6-5 9 4 15 0v11c-6 4-9-5-15 0"/>',
+  book:'<path d="M12 7c-3-3-6-3-9-2v14c3-1 6-1 9 2 3-3 6-3 9-2V5c-3-1-6-1-9 2zm0 0v14"/>',
+  folder:'<path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>',
+  plus:'<path d="M12 5v14M5 12h14"/>',
+  upload:'<path d="M12 16V4m-4 4 4-4 4 4M4 16v4h16v-4"/>',
+  arrow:'<path d="m9 6 6 6-6 6"/>',
+  search:'<circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/>',
+  download:'<path d="M12 4v12m-4-4 4 4 4-4M4 17v3h16v-3"/>',
+  clip:'<path d="M8 13.5l6-6a3 3 0 0 1 4.2 4.2l-8 8a5 5 0 0 1-7.1-7.1l8-8"/>'
+};
+const icon = (name) => '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">'+(icons[name]||'')+'</svg>';
+const escapeHtml = (value) => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const h = escapeHtml;
+const terms = (s) => String(s ?? '').normalize('NFKC').toLowerCase().trim();
+const includes = (q, ...parts) => terms(q).split(/\s+/).filter(Boolean).every(word => terms(parts.flat(Infinity).join(' ')).includes(word));
+const id = () => globalThis.crypto?.randomUUID?.() ?? Date.now().toString(36)+'-'+Math.random().toString(36).slice(2);
+const dateInKorea = () => new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Seoul',year:'numeric',month:'2-digit',day:'2-digit'}).format();
+const LIMIT = 12*1024*1024;
+const statuses = {done:'완료',progress:'진행',todo:'미작성',check:'확인 필요'};
+const kinds = {original:'원문',feedback:'첨삭',draft:'제안 초안',verify:'확인 필요',guide:'작성지도'};
+const fields = {done:'수정·완료된 항목',gaps:'근거가 부족한 내용',risk:'잠재리스크 및 대응방안 누락',next:'다음 지도 내용'};
+const submissionRule = '수업에서 쓰고, 그 주 일요일 자정까지 · 한글(HWP) 파일로';
+const submissions = [
+  {round:'1차',week:8,classDay:'10/20 중간시험 주간',due:'10/20(화)',range:['양식 1-1 문제 인식 · 양식 2-1 시장현황 및 목표고객 · 양식 4-1 관광시장 이해도']},
+  {round:'2차',due:'11/1(일) 자정',range:['1차 세 칸 보완 재제출']},
+  {round:'3차',week:11,classDay:'11/10 수업',due:'11/15(일) 자정',range:['양식 2-2 사업모델(도식화 · 수익화 모델)','양식 2-3 잠재리스크 및 대응방안']},
+  {round:'4차',week:12,classDay:'11/17 수업',due:'11/22(일) 자정',title:'개발과 시장 진입',short:'개발 → 홍보 → 판매',range:['3-1 개발 · 3-2 홍보 · 3-2 판로']},
+  {round:'5차',week:13,classDay:'11/24 수업',due:'11/29(일) 자정',title:'자금과 실행계획',short:'자금 → 일정 → 실행관리',range:['3-3 표1 자금운용 · 3-4-1 표2 전체 일정 · 3-4-2 표3 협약기간 일정']},
+  {round:'6차',week:14,classDay:'12/1 수업',due:'12/6(일) 자정',title:'성장과 경쟁력',short:'성장 → 관광 연관성 → 보완',range:['3-5 표4 성장전략 · 4-2 관광산업 연관성 · 4-1 보완']},
+  {round:'7차',week:15,classDay:'12/8 보강 주간',due:'12/13(일) 자정',title:'팀과 성과관리',short:'팀 → KPI → 협약목표',range:['5-1~5-3 표5 팀 · 6-1 KPI · 일반현황 협약목표']},
+  {round:'최종',week:16,classDay:'12/15 기말',due:'12/15(화) 자정',range:['1-1~6-1 한 부(한글 HWP 파일) + 발표 자료','제18회 공식 양식 준수 · 칸, 순서, 표, 장수 한도, 글꼴 유지']}
+];
+const weeks = Object.fromEntries(submissions.filter(item=>item.title).map(item=>[item.week,item]));
+const forms = [
+  ['3-1',12,'상품·서비스·인프라 개발','고객문제와 연결한 개발 산출물, 시제품·시범 운영, 단계별 검증·완성 기준'],
+  ['3-2',12,'홍보 및 판로개척','타깃별 채널과 콘텐츠, 홍보 일정, 예약·결제 경로, 전환 지표'],
+  ['3-3',13,'자금운용계획 · 표1','활동별 비용, 수량·단가·견적, 자금 조달과 집행 근거'],
+  ['3-4-1',13,'전체 사업단계 추진일정 · 표2','월별 마일스톤, 선후 관계, 완료 산출물'],
+  ['3-4-2',13,'협약기간 일정·실행관리 · 표3','세부 일정, 담당자, 협력 여부, 완료 확인과 위험 대응'],
+  ['3-5',14,'성장전략 · 표4','초기 고객과 재구매, 확장 단계, 목표치와 추정 근거'],
+  ['4-1',14,'관광시장·트렌드 및 계획 보완','트렌드 원출처, 경쟁·대체 사례, 기존 양식의 수치와 일정 대조'],
+  ['4-2',14,'관광산업 연관성','관광객·지역 사업자 편익, 이용 행동과 사업·자원의 연결 근거'],
+  ['5-1',15,'대표자 전문성 및 운영 능력','실제 경험·자격·수행 실적과 보완 계획'],
+  ['5-2',15,'팀원과의 신뢰 구축','팀원·협력자 역할, 업무·정산 기준, 소통과 갈등 대응'],
+  ['5-3',15,'인력 및 조직 운영계획 · 표5','담당 업무, 보유역량, 채용·외주·협력 상태와 근거'],
+  ['6-1',15,'성과지표(KPI)와 사업 참여','지표 정의·산식·목표·기한·증빙, 협약목표와 정합성']
+].map(([code,week,title,prompt])=>({code,week,title,prompt}));
+const formBy = Object.fromEntries(forms.map(f=>[f.code,f]));
+const guideLink = 'https://chatgpt.com/library?file_id=libfile_fc2382b6129c81919f62a71d6af22ad0&account_id=personal';
+const legacyLink = 'https://chatgpt.com/library?file_id=libfile_439a411241ac8191bae040ed553a1e85&account_id=personal';
+const views = {board:['board','전체 현황'],schedule:['calendar','제출 일정'],student:['users','학생별 상세'],weekly:['calendar','주차별 점검'],priority:['flag','지도 우선순위'],guide:['book','작성지도'],data:['folder','자료·백업']};
+const blank = () => ({version:1,revision:0,students:[],tasks:{},docs:[],logs:[]});
+const freshTask = () => ({status:'check',basis:'',done:'',gaps:'',risk:'',next:'',gapsResolved:false,riskResolved:false,resolved:[]});
+let db, actual = blank(), example = null, demo = false, writing = false;
+let view='board', selected='', code='3-1', toastTimer;
+const filters = {board:{q:'',week:'',code:'',status:'',kind:'',field:''},priority:{q:'',week:'',code:'',status:'',kind:'',field:''},weekly:{q:'',week:'',student:'',code:''},data:{q:'',kind:''}};
+const current = () => demo ? example : actual;
+const taskKey = (sid,f) => sid+'|'+f;
+const task = (sid,f) => current().tasks[taskKey(sid,f)] || freshTask();
+const studentFor = (sid) => current().students.find(s=>s.id===sid);
+function openDb(){
+  return new Promise((resolve,reject)=>{
+    const request=indexedDB.open('silla-venture-progress',1);
+    request.onupgradeneeded=()=>request.result.createObjectStore('workspace');
+    request.onsuccess=()=>resolve(request.result);
+    request.onerror=()=>reject(request.error);
+  });
+}
+function readDb(){
+  return new Promise((resolve,reject)=>{
+    const request=db.transaction('workspace','readonly').objectStore('workspace').get('records');
+    request.onsuccess=()=>resolve(request.result||blank());
+    request.onerror=()=>reject(request.error);
+  });
+}
+function writeDb(value,revision){
+  return new Promise((resolve,reject)=>{
+    if(!db){reject(new Error('이 브라우저에서 저장소를 열 수 없습니다.'));return;}
+    const transaction=db.transaction('workspace','readwrite');
+    const store=transaction.objectStore('workspace');
+    const request=store.get('records');
+    let conflict=false;
+    request.onsuccess=()=>{
+      if((request.result?.revision||0)!==revision){conflict=true;transaction.abort();return;}
+      store.put(value,'records');
+    };
+    transaction.oncomplete=resolve;
+    transaction.onabort=()=>reject(new Error(conflict?'다른 탭에 새 기록이 저장되었습니다. 입력값을 복사한 뒤 이 페이지를 새로고침해 주세요.':(transaction.error?.message||'저장에 실패했습니다.')));
+  });
+}
+function toast(message){
+  $('#toast').textContent=message;clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>{$('#toast').textContent='';},5200);
+}
+async function mutate(change){
+  if(writing)throw new Error('저장 중입니다. 잠시 후 다시 시도해 주세요.');
+  writing=true;
+  try{
+    const old=current();
+    const value=structuredClone(old);
+    const result=await change(value);
+    value.revision=old.revision+1;
+    if(demo){example=value;}else{await writeDb(value,old.revision);actual=value;}
+    return result;
+  }finally{writing=false;}
+}
+function sample(){
+  const state=blank();
+  state.students=[{id:'demo-a',name:'예시 학생 A',project:'골목길 오디오 투어'},{id:'demo-b',name:'예시 학생 B',project:'해안 산책 체험'},{id:'demo-c',name:'예시 학생 C',project:'로컬 마켓 스탬프'}];
+  for(const student of state.students){
+    for(const [index,f] of forms.entries()){
+      if(index>4)break;
+      state.tasks[taskKey(student.id,f.code)]={...freshTask(),status:index===0?'done':index===1?'progress':'todo',basis:'가상 수업 예시 · 11/8 점검 기록',done:index===0?'시범 운영 동선과 완료 기준을 보완함.':'',next:index===1?'홍보 채널별 예약 전환 기준을 기록하기.':''};
+    }
+  }
+  state.tasks['demo-b|3-1']={...freshTask(),status:'progress',basis:'가상 수업 예시 · 시범 코스안',risk:'강풍 시 중단 기준, 대체 코스 및 공지 담당자가 빠져 있음.',next:'기상 기준과 운영 중단 후 연락 절차를 표로 작성하기.'};
+  state.tasks['demo-c|3-2']={...freshTask(),gaps:'채널별 유입과 예약 전환 데이터가 필요함.',next:'예약 경로별 측정 방법을 확인하기.'};
+  state.docs=[{id:'demo-doc',title:'예시 학생 B · 시범 코스안 첨삭',name:'',kind:'feedback',studentId:'demo-b',code:'3-1',text:'시범 코스와 출발 지점을 확인했습니다. 강풍 시 운영 중단 조건과 대체 코스를 추가하세요.',sections:{},checkGroups:{},data:''}];
+  state.logs=[{id:'demo-log',week:12,date:'2026-11-08',studentId:'demo-b',code:'3-1',text:'코스 순서는 구체화했으며, 악천후 기준과 대체안은 추가 점검하기로 함.',status:'check'}];
+  return state;
+}
+function linkedDocs(sid,f){
+  return current().docs.filter(d=>d.studentId===sid&&(d.code===f||Object.hasOwn(d.sections,f)));
+}
+function flagsFor(sid,f){
+  return linkedDocs(sid,f).flatMap(d=>(d.checkGroups[f]||[]).map((message,i)=>({id:d.id+':'+f+':'+i,message,title:d.title})));
+}
+function stateFor(sid,f,t=task(sid,f),flags=flagsFor(sid,f),docs=linkedDocs(sid,f)){
+  const reasons=[];
+  if(!t.basis.trim())reasons.push('교수자가 확인한 근거가 기록되지 않았습니다.');
+  if(t.gaps.trim()&&!t.gapsResolved)reasons.push('근거 보완 항목이 남아 있습니다.');
+  if(t.risk.trim()&&!t.riskResolved)reasons.push('리스크 또는 대응방안의 누락을 점검해야 합니다.');
+  if(flags.some(flag=>!t.resolved.includes(flag.id)))reasons.push('자료에서 가져온 확인 항목이 남아 있습니다.');
+  if(docs.some(d=>d.kind==='verify'&&!t.resolved.includes(d.id+':source')))reasons.push('확인 필요로 분류된 자료가 있습니다.');
+  return {status:reasons.length?'check':t.status,reasons};
+}
+function badge(status){return '<span class="badge '+status+'"><span class="dot" aria-hidden="true"></span>'+statuses[status]+'</span>';}
+function tag(kind){return '<span class="tag '+kind+'">'+kinds[kind]+'</span>';}
+function btn(label,action,options={}){
+  const {style='',glyph='',data={}}=options;
+  return '<button type="button" class="btn '+style+'" data-action="'+action+'" '+Object.entries(data).map(([k,v])=>'data-'+k+'="'+h(v)+'"').join(' ')+'>'+(glyph?icon(glyph):'')+h(label)+'</button>';
+}
+function empty(title,message,action='',glyph='folder'){
+  return '<div class="empty"><span class="empty-icon">'+icon(glyph)+'</span><h3>'+h(title)+'</h3><p class="muted sub">'+h(message)+'</p>'+action+'</div>';
+}
+function choices(items,value,any){
+  return (any===undefined?'':'<option value="">'+h(any)+'</option>')+items.map(([v,label])=>'<option value="'+h(v)+'"'+(String(value)===String(v)?' selected':'')+'>'+h(label)+'</option>').join('');
+}
+const formChoices = () => forms.map(f=>[f.code,f.code+' '+f.title]);
+const studentChoices = () => current().students.map(s=>[s.id,s.name+(s.project?' · '+s.project:'')]);
+const weekChoices = () => Object.entries(weeks).map(([w,v])=>[w,w+'주차 · '+v.round]);
+const kindChoices = () => Object.entries(kinds);
+function head(title,description,action='',eyebrow='COURSE WORKSPACE'){
+  return '<div class="heading"><div><p class="eyebrow">'+eyebrow+'</p><h1>'+h(title)+'</h1><p class="muted sub">'+h(description)+'</p></div><div class="actions">'+action+'</div></div>';
+}
+function panelHead(title,description='',action=''){
+  return '<div class="panel-head"><div><h2>'+h(title)+'</h2>'+(description?'<p class="muted sub">'+h(description)+'</p>':'')+'</div>'+(action?'<div class="actions">'+action+'</div>':'')+'</div>';
+}
+function foot(){
+  return '<p class="footnote">경국대학교 · 관광벤처창업론 · 2026년 2학기 <a href="'+guideLink+'" target="_blank" rel="noopener">작성지도 원본 ↗</a></p>';
+}
+function hero(){
+  return `<div class="hero"><div><span class="eyebrow">2026년 2학기  /  교수자 대시보드</span><h1>과제 진도관리</h1><p>사업계획서 3-1부터 6-1까지, 학생별 제출물과 첨삭을 모아 보고 다음 수업에서 다룰 항목을 정합니다.</p><button type="button" class="schedule-link" data-action="go" data-view="schedule">사업계획서 제출 일정 보기 →</button></div>
+  <svg class="art" viewBox="0 0 365 235" fill="none" aria-hidden="true"><circle cx="240" cy="119" r="101" stroke="#d8c0f8" opacity=".45"/><circle cx="240" cy="119" r="74" stroke="#d8c0f8" opacity=".36"/><circle cx="240" cy="119" r="130" stroke="#d8c0f8" opacity=".27"/><path d="M126 160h228m-205-45h186m-141-51h117M240 0v235" stroke="#d8c0f8" opacity=".24"/><path d="m131 150 51-33 41 18 53-55 43 12" stroke="#fff" stroke-width="2.1"/><circle cx="131" cy="150" r="5" fill="#d0b8f7"/><circle cx="182" cy="117" r="6" fill="#e3cafd"/><circle cx="223" cy="135" r="5" fill="#d0b8f7"/><circle cx="276" cy="80" r="7" fill="#f5e8ff"/><circle cx="319" cy="92" r="5" fill="#d0b8f7"/><rect x="151" y="164" width="112" height="34" rx="7" fill="#fff" fill-opacity=".12" stroke="#d8c0f8" stroke-opacity=".56"/><path d="m163 181 4 4 8-9m9 5h54" stroke="#eaddfc" stroke-width="1.5" stroke-linecap="round"/><path d="M317 40v16m-8-8h16M147 71v12m-6-6h12" stroke="#eaddfc" stroke-width="1.5" stroke-linecap="round"/></svg></div>`;
+}
+function rowRecords(){
+  return current().students.flatMap(s=>forms.map(f=>{
+    const t=task(s.id,f.code), docs=linkedDocs(s.id,f.code), flags=flagsFor(s.id,f.code);
+    return {s,f,t,docs,flags,...stateFor(s.id,f.code,t,flags,docs)};
+  }));
+}
+function matches(r,filter){
+  const {s,f,t,docs,flags,status}=r;
+  if(filter.week&&Number(filter.week)!==f.week || filter.code&&filter.code!==f.code || filter.status&&filter.status!==status)return false;
+  const docKinds=docs.map(d=>d.kind);
+  if(filter.kind==='verify'&&status!=='check'&&!docKinds.includes('verify'))return false;
+  if(filter.kind&&filter.kind!=='verify'&&!docKinds.includes(filter.kind))return false;
+  if(filter.field){
+    const fieldText=filter.field==='gaps'?[t.gaps,...flags.map(x=>x.message)]:[t[filter.field]];
+    if(!fieldText.some(x=>x.trim()))return false;
+    return includes(filter.q,s.name,s.project,f.code,f.title,fieldText);
+  }
+  return includes(filter.q,s.name,s.project,f.code,f.title,statuses[status],t.basis,Object.keys(fields).map(k=>t[k]),flags.map(x=>x.message),docs.map(d=>[d.title,kinds[d.kind],d.sections[f.code]||d.text]));
+}
+function filterControls(which){
+  const f=filters[which];
+  const input='<label class="searchbox">'+icon('search')+'<span class="visually-hidden">검색</span><input type="search" data-filter="q" value="'+h(f.q)+'" placeholder="'+(which==='data'?'자료 제목·본문 검색':which==='weekly'?'학생·점검 내용 검색':'학생·양식·메모·자료 검색')+'"></label>';
+  const select=(key,items,any)=>'<label><span class="visually-hidden">'+any+'</span><select data-filter="'+key+'">'+choices(items,f[key],any)+'</select></label>';
+  let options='';
+  if(which!=='data')options+=select('week',weekChoices(),'전체 주차');
+  if(which==='weekly')options+=select('student',studentChoices(),'전체 학생');
+  if(which!=='data')options+=select('code',formChoices(),'전체 양식');
+  if(which!=='weekly'){
+    if(which!=='data')options+=select('status',Object.entries(statuses),'전체 상태');
+    options+=select('kind',kindChoices(),'전체 자료 유형');
+    if(which!=='data')options+=select('field',Object.entries(fields),'전체 기록 항목');
+  }
+  return '<div class="filterbar">'+input+options+btn('초기화','reset-filter',{style:'small'})+'</div>';
+}
+function taskButton(sid,f,label,cls='linkbtn'){
+  return '<button type="button" class="'+cls+'" data-action="open-task" data-sid="'+h(sid)+'" data-code="'+h(f)+'">'+label+'</button>';
+}
+function matrix(records){
+  const formCols=filters.board.code?forms.filter(f=>f.code===filters.board.code):filters.board.week?forms.filter(f=>String(f.week)===filters.board.week):forms;
+  const ids=new Set(records.map(x=>x.s.id));
+  const byKey=new Map(records.map(r=>[taskKey(r.s.id,r.f.code),r]));
+  const visibleStudents=current().students.filter(s=>ids.has(s.id));
+  const groupHeads=Object.entries(weeks).map(([w,d])=>{
+    const count=formCols.filter(f=>String(f.week)===w).length;
+    return count?'<th scope="colgroup" colspan="'+count+'">'+w+'주차 · '+d.round+'</th>':'';
+  }).join('');
+  const rows=visibleStudents.map(s=>'<tr><th class="sticky" scope="row">'+taskButton(s.id,records.find(r=>r.s.id===s.id).f.code,h(s.name))+'<span class="biz" title="'+h(s.project)+'">'+h(s.project||'사업명 미등록')+'</span></th>'+formCols.map(f=>{
+    const r=byKey.get(taskKey(s.id,f.code));
+    return '<td>'+(r?'<button type="button" class="cell" data-action="open-task" data-sid="'+h(s.id)+'" data-code="'+f.code+'" aria-label="'+h(s.name+' '+f.code+' '+statuses[r.status])+'">'+badge(r.status)+'</button>':'<span class="dash">—</span>')+'</td>';
+  }).join('')+'</tr>').join('');
+  const help=current().students.length?empty('일치하는 과제가 없습니다','검색어나 필터를 조정하면 다른 과제를 볼 수 있습니다.','','search'):empty('등록된 학생이 없습니다','학생을 직접 추가하거나 기존 학생별 HTML을 가져오면 양식별 진도표가 채워집니다.',btn('기존 HTML 가져오기','import-source',{style:'minor',glyph:'upload'}),'users');
+  return '<p class="filters-meta">'+visibleStudents.length+'명 · 과제 '+records.length+'건</p><div class="table-wrap" tabindex="0" aria-label="양식별 전체 현황표"><table class="matrix" style="min-width:'+Math.max(310,145+formCols.length*61)+'px"><caption class="visually-hidden">학생별 과제 진행 상태</caption><thead><tr class="group"><th class="sticky" rowspan="2" scope="col">학생 / 사업명</th>'+groupHeads+'</tr><tr>'+formCols.map(f=>'<th scope="col"><button type="button" class="form-link" title="'+h(f.title)+'" data-action="filter-code" data-code="'+f.code+'">'+f.code+'</button></th>').join('')+'</tr></thead><tbody>'+rows+'</tbody></table></div>'+(rows?'':help);
+}
+function schedulePage(){
+  const rows=submissions.map(item=>{
+    const classInfo=item.week?item.week+'주차 · '+item.classDay:'—';
+    const scope=item.range.map(line=>'<span>'+h(line)+'</span>').join('');
+    return '<tr><th scope="row">'+h(item.round)+'</th><td>'+h(classInfo)+'</td><td>'+h(item.due)+'</td><td><div class="schedule-scope">'+scope+'</div></td></tr>';
+  }).join('');
+  return head('사업계획서 제출 일정',submissionRule,'','2026년 2학기 · 경국대학교')+
+    '<section class="panel" id="submission-schedule">'+panelHead('1차~최종 제출 안내')+
+    '<div class="schedule-wrap" tabindex="0" role="region" aria-label="회차별 제출 일정"><table class="schedule-table">'+
+    '<thead><tr><th scope="col">회차</th><th scope="col">주차·수업일</th><th scope="col">제출 기한</th><th scope="col">작성 범위</th></tr></thead><tbody>'+rows+'</tbody></table></div></section>';
+}
+function roadmap(){
+  return '<section class="panel">'+panelHead('12~15주차 작성 흐름','주차를 선택하면 해당 양식만 표시합니다.',btn('작성지도 보기','go',{style:'small',data:{view:'guide'}}))+'<div class="roadmap">'+Object.entries(weeks).map(([w,d])=>'<button class="road-card" type="button" data-action="filter-week" data-week="'+w+'"><span class="eyebrow">'+w+'주차 · '+d.round+'</span><b>'+d.title+'</b><small>'+d.short+'</small><small>'+d.classDay+' · 제출 '+d.due+'</small></button>').join('')+'</div></section>';
+}
+function boardPage(){
+  return hero()+'<div id="metrics" class="metrics" aria-label="상태별 과제 수"></div><section class="panel" id="board-panel">'+panelHead('학생별 과제 현황','학생 이름이나 상태를 선택해 과제의 근거와 지도 내용을 확인하세요.')+filterControls('board')+'<div id="results"></div><div class="legend">'+Object.keys(statuses).map(badge).join('')+'<span>근거가 미확인인 과제는 자동으로 확인 필요로 표시합니다.</span></div></section>'+roadmap();
+}
+function updateBoard(){
+  const all=rowRecords(), matchesBoard=all.filter(r=>matches(r,filters.board));
+  const filterOn=Object.values(filters.board).some(Boolean);
+  const total=Object.fromEntries(Object.keys(statuses).map(key=>[key,all.filter(r=>r.status===key).length]));
+  $('#metrics').innerHTML=Object.entries(statuses).map(([key,label])=>'<button class="metric" type="button" data-action="filter-status" data-status="'+key+'" aria-pressed="'+(filters.board.status===key)+'"><span class="metric-title '+key+'"><span class="dot"></span>'+label+'</span><strong>'+total[key]+'</strong><small>'+({done:'검토를 마친 과제',progress:'작성·수정 중인 과제',todo:'미작성으로 확인된 과제',check:'근거 또는 검토가 필요한 과제'}[key])+'</small></button>').join('');
+  $('#results').innerHTML=matrix(matchesBoard)+(filterOn&&matchesBoard.length?'<div class="list">'+matchesBoard.slice(0,100).map(r=>'<div class="list-row"><header>'+taskButton(r.s.id,r.f.code,h(r.s.name+' · '+r.f.code+' '+r.f.title))+badge(r.status)+'</header>'+recordText(r)+'</div>').join('')+(matchesBoard.length>100?'<p class="muted sub">요약은 첫 100건입니다. 전체 결과는 위 표에 표시됩니다.</p>':'')+'</div>':'');
+}
+function recordText(r){
+  const key=filters[view]?.field||'';
+  const lines=Object.entries(fields).filter(([k])=>!key||key===k).flatMap(([k,label])=>{
+    const parts=[r.t[k],...(k==='gaps'?r.flags.filter(x=>!r.t.resolved.includes(x.id)).slice(0,2).map(x=>x.message):[])].filter(Boolean);
+    return parts.length?['<p><span class="note-label">'+label+'</span>'+h(parts.join(' / '))+'</p>']:[];
+  });
+  if(!lines.length&&r.reasons.length)lines.push('<p class="muted">'+h(r.reasons[0])+'</p>');
+  return lines.join('');
+}
+function studentPage(){
+  const s=studentFor(selected)||current().students[0];
+  if(!s)return head('학생별 상세','학생과 과제를 선택해 원문, 첨삭, 제안 초안 및 확인 사항을 살펴봅니다.')+'<section class="panel">'+empty('상세를 볼 학생이 없습니다','학생을 등록하거나 기존 학생별 HTML을 가져오세요.',btn('학생 추가','add-student',{style:'primary',glyph:'plus'}),'users')+'</section>';
+  selected=s.id;
+  const f=formBy[code], t=task(s.id,code), flags=flagsFor(s.id,code), docs=linkedDocs(s.id,code), info=stateFor(s.id,code,t,flags,docs);
+  const sources=current().docs.filter(d=>d.studentId===s.id&&!d.code&&!Object.hasOwn(d.sections,code));
+  const tabs=forms.map(x=>'<button type="button" class="btn small" data-action="open-task" data-sid="'+h(s.id)+'" data-code="'+x.code+'" aria-pressed="'+(code===x.code)+'" title="'+h(x.title)+'"><span class="dot '+stateFor(s.id,x.code).status+'"></span>'+x.code+'</button>').join('');
+  const item=(k,placeholder)=>'<label>'+fields[k]+'<textarea name="'+k+'" placeholder="'+h(placeholder)+'">'+h(t[k])+'</textarea></label>';
+  const toggle=(name,active,text)=>'<label class="tick"><input type="checkbox" name="'+name+'"'+(active?' checked':'')+'>'+h(text)+'</label>';
+  const flagList=[
+    ...flags,
+    ...docs.filter(d=>d.kind==='verify').map(d=>({id:d.id+':source',message:d.text||'자료 내용과 관련 근거를 검토하세요.',title:d.title}))
+  ];
+  return head('학생별 상세','과제 상태는 검토 근거와 확인 항목을 반영해 표시합니다.',btn('학생 정보 수정','edit-student',{style:'small',data:{sid:s.id}}),'STUDENT RECORD')+
+  '<section class="panel">'+panelHead(s.name,s.project||'사업명 미등록','<label><span class="visually-hidden">학생 선택</span><select data-change="student">'+choices(studentChoices(),s.id)+'</select></label>')+
+  '<div class="assignment-tabs" aria-label="과제 선택">'+tabs+'</div></section>'+
+  '<div class="layout"><section class="panel">'+panelHead(code+' '+f.title,f.week+'주차 · '+weeks[f.week].round,'<span id="active-badge">'+badge(info.status)+'</span>')+
+  '<form class="form" id="task-form"><div class="callout">'+h(f.prompt)+'</div><div class="callout warn" id="task-reasons">'+h(info.reasons.join(' '))+'</div>'+
+  '<div class="form-grid"><label>교수자 판단 상태<select name="status">'+choices(Object.entries(statuses),t.status)+'</select></label><label>확인한 근거<textarea name="basis" placeholder="예: 11/17 수정본 2쪽, 제출 기록, 11/17 면담에서 미작성 확인">'+h(t.basis)+'</textarea></label></div>'+
+  item('done','예: 시범 운영 대상과 테스트 기준을 수정함')+
+  item('gaps','예: 참가 의향의 조사 시점과 표본 확인 필요')+toggle('gapsResolved',t.gapsResolved,'위 근거 부족 사항을 검토하고 해소함')+
+  item('risk','예: 기상 악화 시 중단 기준, 대체안과 연락 책임자 누락')+toggle('riskResolved',t.riskResolved,'위 리스크와 대응방안의 누락을 해소함')+
+  '<details><summary>리스크 점검 질문</summary><p class="source-text">시장·재무·운영·기술·법제·안전·평판·협력·경쟁 중 관련 위험을 적고, 조기경고지표, 중단·대응 기준, 담당자와 대체안을 연결합니다. 문서에서 확인할 수 없는 내용은 확인 항목으로 남겨 주세요.</p></details>'+
+  item('next','예: 다음 수업에서 조기경고 기준과 대체 운영 절차를 작성하기')+
+  (flagList.length?'<div class="checks"><h3>자료에서 확인할 항목</h3>'+flagList.map(flag=>'<label class="tick"><input type="checkbox" name="resolved" value="'+h(flag.id)+'"'+(t.resolved.includes(flag.id)?' checked':'')+'><span><b>'+h(flag.title)+'</b><br>'+h(flag.message)+'</span></label>').join('')+'</div>':'')+
+  '<div class="form-footer">'+btn('주차 점검 추가','add-log',{data:{sid:s.id,code}})+'<button class="btn primary" type="submit">과제 기록 저장</button></div></form></section>'+
+  '<section class="panel">'+panelHead('과제 자료','원문·첨삭·제안 초안·확인 필요를 구분해서 기록합니다.',btn('자료 등록','add-doc',{style:'small',glyph:'clip',data:{sid:s.id,code}}))+
+  (docs.length?'<div class="list">'+docs.map(d=>docCard(d,code)).join('')+'</div>':empty('이 과제에 연결된 자료가 없습니다','학생 제출물, 첨삭 파일 또는 메모를 등록하세요.'))+
+  (sources.length?'<hr>'+panelHead('학생 공통 / 다른 양식 자료','필요한 양식에 맞춰 자료를 열어보세요.')+'<div class="list">'+sources.slice(0,12).map(d=>docCard(d,'')).join('')+'</div>':'')+
+  '</section></div>';
+}
+function fileSize(size){
+  return size>=1048576?(size/1048576).toFixed(1)+' MB':Math.max(1,Math.ceil(size/1024))+' KB';
+}
+function docCard(d,context=''){
+  const body=(context&&d.sections[context])||d.text||'';
+  const sectionNames=Object.keys(d.sections);
+  return '<article class="list-row"><header><div class="source-labels">'+tag(d.kind)+'<b class="wrap">'+h(d.title)+'</b></div>'+btn('자료 상세','view-doc',{style:'small',data:{doc:d.id,code:context}})+'</header>'+
+    '<div class="file-count wrap">'+h([d.studentId?(studentFor(d.studentId)?.name||'학생'):'수업 공통',d.code||(sectionNames.length?sectionNames.length+'개 양식':null),d.name||null,d.size?fileSize(d.size):null].filter(Boolean).join(' · '))+'</div>'+
+    (body?'<p class="muted">'+h(body.slice(0,200))+(body.length>200?'…':'')+'</p>':'')+'</article>';
+}
+function logPage(){
+  return head('주차별 점검','수업 중 확인한 수정 내용과 다음 약속을 학생·양식별로 남깁니다.',btn('점검 기록 추가','add-log',{style:'primary',glyph:'plus'}),'WEEKLY REVIEW')+
+    '<section class="panel">'+panelHead('점검 기록')+filterControls('weekly')+'<div id="results"></div></section>'+roadmap();
+}
+function updateLogs(){
+  const filter=filters.weekly;
+  const records=current().logs.filter(x=>(!filter.week||String(x.week)===filter.week)&&(!filter.student||x.studentId===filter.student)&&(!filter.code||x.code===filter.code)&&includes(filter.q,studentFor(x.studentId)?.name,studentFor(x.studentId)?.project,x.date,x.week+'주차',x.code,formBy[x.code]?.title,x.text,statuses[x.status])).sort((a,b)=>b.date.localeCompare(a.date)||b.week-a.week);
+  $('#results').innerHTML='<p class="filters-meta">점검 '+records.length+'건</p>'+(records.length?'<div class="list">'+records.map(x=>{
+    const title=(studentFor(x.studentId)?.name||'수업 전체')+(x.code?' · '+x.code+' '+formBy[x.code].title:'');
+    return '<article class="list-row"><header><div><span class="eyebrow">'+h(x.date)+' · '+x.week+'주차</span><h3>'+h(title)+'</h3></div><div class="actions">'+(x.status?badge(x.status):'')+btn('편집','edit-log',{style:'small',data:{log:x.id}})+'</div></header><p>'+h(x.text)+'</p>'+(x.studentId&&x.code?taskButton(x.studentId,x.code,'과제 열기 ↗'):'')+'</article>';
+  }).join('')+'</div>':empty('표시할 점검 기록이 없습니다','주차, 점검일과 수업에서 확인한 내용을 남기세요.',btn('점검 기록 추가','add-log',{style:'minor',glyph:'plus'}),'calendar'));
+}
+function priorityPage(){
+  return head('다음 수업 지도 우선순위','과제에 남은 리스크와 근거 부족, 다음 지도 내용을 모아 봅니다.','', 'NEXT CLASS')+
+  '<section class="panel">'+panelHead('지도할 항목','① 리스크 누락 → ② 근거·자료 확인 → ③ 작성·수정 지도 순으로 정렬합니다.')+filterControls('priority')+'<div id="results"></div></section>';
+}
+function priorityOf(r){
+  if(r.t.risk.trim()&&!r.t.riskResolved)return 1;
+  if(r.status==='check')return 2;
+  if(r.status!=='done'||r.t.next.trim())return 3;
+  return 0;
+}
+function updatePriority(){
+  const records=rowRecords().map(r=>({...r,rank:priorityOf(r)})).filter(r=>r.rank&&matches(r,filters.priority)).sort((a,b)=>a.rank-b.rank||a.f.week-b.f.week||a.s.name.localeCompare(b.s.name,'ko')||forms.indexOf(a.f)-forms.indexOf(b.f));
+  const titles=['','1순위 · 리스크·대응방안','2순위 · 근거·자료 확인','3순위 · 작성·수정 지도'];
+  $('#results').innerHTML='<p class="filters-meta">지도 대상 '+records.length+'건</p>'+(records.length?'<div class="list">'+records.map(r=>'<article class="list-row priority p'+r.rank+'"><header><div><span class="eyebrow">'+titles[r.rank]+'</span><h3>'+taskButton(r.s.id,r.f.code,h(r.s.name+' · '+r.f.code+' '+r.f.title))+'</h3></div>'+badge(r.status)+'</header>'+recordText(r)+(!r.t.next.trim()?'<p class="muted">'+(r.rank===1?'수업에서 중단 기준, 담당자와 대체안을 확인하세요.':r.rank===2?'수업에서 원문 또는 증빙을 확인하고 근거를 기록하세요.':'수업에서 다음에 작성할 항목과 기한을 정하세요.')+'</p>':'')+'</article>').join('')+'</div>':empty('표시할 지도 항목이 없습니다','학생을 등록하거나 검색 조건을 조정하세요.','','flag'));
+}
+function guidePage(){
+  return head('작성지도','기존 4차~7차 작성지도를 과제별 점검 기준으로 연결했습니다.','<a class="btn" href="'+guideLink+'" target="_blank" rel="noopener">'+icon('book')+'작성지도 원본 ↗</a>','WRITING GUIDE')+
+  '<div class="callout">'+btn('1차~최종 제출 일정','go',{style:'small',data:{view:'schedule'}})+'<p>3-4는 학생별 자료 구조에 맞춰 표2와 표3으로 나누었습니다. 4-1은 학생 자료의 관광시장·트렌드와 작성지도의 계획 보완 관점을 함께 표시합니다.</p></div>'+
+  '<div class="guide">'+Object.entries(weeks).map(([week,w])=>'<section class="panel">'+panelHead(week+'주차 · '+w.round+' '+w.title,w.classDay+' · 제출 '+w.due,btn('이 주차 현황','filter-week',{style:'small',data:{week}}))+'<div class="list">'+forms.filter(f=>String(f.week)===week).map(f=>'<details><summary>'+f.code+' '+f.title+'</summary><p class="muted">'+h(f.prompt)+'</p><div class="guide-body">'+btn('양식 현황 보기','filter-code',{style:'small',data:{code:f.code}})+'</div></details>').join('')+(week==='15'?'<details><summary>협약기간 목표 점검</summary><p class="muted">6-1 KPI와 함께 매출·고용·투자 목표의 기간, 수치와 실현 근거를 대조하세요.</p></details>':'')+'</div></section>').join('')+'</div>';
+}
+function dataPage(){
+  return head('자료·백업','기존 작성지도와 학생별 HTML을 가져오거나 교수자 작업 기록을 백업합니다.',btn('자료 가져오기','import-source',{style:'primary',glyph:'upload'}),'SOURCE LIBRARY')+
+  '<div class="layout"><section class="panel">'+panelHead('기존 HTML 재활용')+
+  '<div class="list"><div class="list-row"><h3>학생 9명용 자료</h3><p class="muted">기존 ZIP을 풀고 00번 교수자용 통합 HTML 한 개를 선택하거나, 01~09번 학생별 HTML을 여러 개 선택하세요. 학생·사업명·양식별 제안 초안과 확인 항목을 가져옵니다. 원문과 첨삭은 증빙으로 별도 등록할 수 있습니다.</p><div class="actions"><a class="btn small" href="'+legacyLink+'" target="_blank" rel="noopener">학생별 HTML 묶음 ↗</a>'+btn('HTML 선택','import-source',{style:'small'})+'</div></div>'+
+  '<div class="list-row"><h3>작성지도</h3><p class="muted">기본 작성지도는 왼쪽 메뉴에서 열 수 있습니다. 새 작성지도 HTML은 수업 공통 자료로 등록할 수 있습니다.</p><div class="actions"><a class="btn small" href="'+guideLink+'" target="_blank" rel="noopener">기존 작성지도 ↗</a>'+btn('공통 자료 등록','add-doc',{style:'small',data:{kind:'guide'}})+'</div></div></div></section>'+
+  '<section class="panel">'+panelHead('백업과 복원')+'<div class="list"><div class="list-row"><p class="muted">학생, 과제 메모, 점검 기록, 첨부 파일을 하나의 JSON으로 내려받습니다. 기기나 브라우저를 바꿀 때 JSON을 복원해 이어서 사용하세요. 복원은 현재 작업 기록 전체를 교체합니다.</p><div class="actions">'+btn('백업 다운로드','backup',{style:'small',glyph:'download'})+btn('백업 복원','restore',{style:'small',glyph:'upload'})+'</div></div><div class="list-row"><h3>예시 화면</h3><p class="muted">가상 학생의 기록으로 화면과 입력 방식을 확인할 수 있습니다. 예시 작업은 실제 작업 기록과 분리됩니다.</p>'+btn(demo?'실제 작업공간으로':'예시 데이터 보기','toggle-demo',{style:'small'})+'</div></div></section></div>'+
+  '<section class="panel">'+panelHead('등록 자료','원문, 첨삭, 제안 초안, 확인 필요 및 작성지도를 찾아볼 수 있습니다.',btn('자료 직접 등록','add-doc',{style:'small',glyph:'clip'}))+filterControls('data')+'<div id="results"></div></section>';
+}
+function updateDocs(){
+  const filter=filters.data;
+  const docs=current().docs.filter(d=>(!filter.kind||filter.kind===d.kind)&&includes(filter.q,d.title,d.name,studentFor(d.studentId)?.name,d.code,kinds[d.kind],d.text,Object.values(d.sections),Object.values(d.checkGroups))).slice().reverse();
+  $('#results').innerHTML='<p class="filters-meta">등록 자료 '+docs.length+'건</p>'+(docs.length?'<div class="list">'+docs.map(d=>docCard(d)).join('')+'</div>':empty('표시할 자료가 없습니다','기존 HTML을 가져오거나 자료를 직접 등록하세요.',btn('자료 직접 등록','add-doc',{style:'minor'})));
+}
+function render(focus=false){
+  $('#crumb').textContent=views[view][1];
+  for(const nav of document.querySelectorAll('.nav[data-view]')){
+    if(nav.dataset.view===view)nav.setAttribute('aria-current','page');else nav.removeAttribute('aria-current');
+  }
+  const top=demo?'<div class="demo">예시 데이터 · 실제 학생 기록과 분리된 가상 작업공간입니다.'+btn('예시 종료','toggle-demo',{style:'small'})+'</div>':'';
+  const page={board:boardPage,schedule:schedulePage,student:studentPage,weekly:logPage,priority:priorityPage,guide:guidePage,data:dataPage}[view];
+  $('#page').innerHTML=top+page()+foot();
+  updateResults();
+  if(focus){window.scrollTo(0,0);$('#page').focus({preventScroll:true});}
+}
+function updateResults(){
+  const update={board:updateBoard,weekly:updateLogs,priority:updatePriority,data:updateDocs}[view];
+  if(update)update();
+}
+function go(destination,focus=true){view=destination;render(focus);}
+function showDialog(title,description,content,submit='',extra=''){
+  const dialog=$('#dialog');
+  dialog.innerHTML=panelHeadDialog(title,description)+'<form class="form" id="modal-form">'+content+'<div class="form-footer">'+extra+btn('닫기','close',{style:'small'})+(submit?'<button class="btn primary" type="submit">'+h(submit)+'</button>':'')+'</div><div class="callout warn" id="modal-error" role="status"></div></form>';
+  if(!dialog.open)dialog.showModal();
+  return $('#modal-form');
+}
+function panelHeadDialog(title,description){
+  return '<div class="panel-head"><div><h2 id="dialog-title">'+h(title)+'</h2>'+(description?'<p class="muted sub">'+h(description)+'</p>':'')+'</div><button type="button" class="btn dialog-close" data-action="close" aria-label="닫기">×</button></div>';
+}
+function modalSubmit(form,handler){
+  form.addEventListener('submit',async(event)=>{
+    event.preventDefault();
+    const button=form.querySelector('button[type=submit]');
+    if(button.disabled)return;
+    button.disabled=true;
+    $('#modal-error').textContent='';
+    try{await handler(new FormData(form),form);}
+    catch(error){const box=$('#modal-error');if(box)box.textContent=error.message;}
+    finally{button.disabled=false;}
+  });
+}
+function finish(message,{refresh=true}={}){
+  if($('#dialog').open)$('#dialog').close();
+  if(refresh)render();
+  toast(message);
+}
+function studentDialog(sid){
+  const s=studentFor(sid);
+  const form=showDialog(s?'학생 정보 수정':'학생 추가','학생 이름은 필수이며 사업명은 나중에 입력할 수 있습니다.',
+    '<label>학생 이름<input required name="name" maxlength="80" value="'+h(s?.name)+'" placeholder="학생 이름"></label><label>사업명<input name="project" maxlength="180" value="'+h(s?.project)+'" placeholder="사업 아이템 또는 팀명"></label>',
+    s?'변경 저장':'학생 등록');
+  modalSubmit(form,async data=>{
+    const name=String(data.get('name')).trim(), project=String(data.get('project')).trim();
+    if(!name)throw new Error('학생 이름을 입력해 주세요.');
+    const studentId=s?.id||id();
+    await mutate(state=>{
+      if(state.students.some(row=>row.id!==studentId&&terms(row.name)===terms(name)&&terms(row.project)===terms(project)))throw new Error('같은 이름과 사업명이 이미 등록되어 있습니다.');
+      if(s)Object.assign(state.students.find(row=>row.id===sid),{name,project});
+      else state.students.push({id:studentId,name,project});
+    });
+    selected=studentId;code='3-1';view='student';
+    finish(s?'학생 정보를 변경했습니다.':'학생을 등록했습니다. 모든 양식은 확인 필요에서 시작합니다.');
+  });
+}
+function logDialog({sid='',formCode='',logId=''}={}){
+  const log=current().logs.find(l=>l.id===logId);
+  const form=showDialog(log?'점검 기록 수정':'주차별 점검 추가','선택한 양식이 있는 경우 저장 당시의 과제 상태도 기록합니다.',
+    '<div class="form-grid"><label>주차<select name="week" required>'+choices(weekChoices(),log?.week||formBy[formCode]?.week||filters.weekly.week||12)+'</select></label><label>점검일<input type="date" name="date" required value="'+h(log?.date||dateInKorea())+'"></label></div>'+
+    '<label>학생<select name="student">'+choices(studentChoices(),log?.studentId||sid||filters.weekly.student,'수업 전체')+'</select></label>'+
+    '<label>양식<select name="code">'+choices(formChoices(),log?.code||formCode,'양식 전체')+'</select></label>'+
+    '<label>점검 내용<textarea name="text" required maxlength="8000" placeholder="오늘 확인한 수정 사항, 부족한 자료, 다음 수업 전까지 할 일을 기록하세요.">'+h(log?.text)+'</textarea></label>',
+    '점검 기록 저장',log?btn('기록 삭제','remove-log',{style:'small danger',data:{log:log.id}}):'');
+  const select=form.elements.namedItem('code');
+  select.addEventListener('change',()=>{if(formBy[select.value])form.elements.namedItem('week').value=formBy[select.value].week;});
+  modalSubmit(form,async data=>{
+    const text=String(data.get('text')).trim(),studentId=String(data.get('student')),f=String(data.get('code'));
+    if(!text)throw new Error('점검 내용을 입력해 주세요.');
+    const status=log&&log.studentId===studentId&&log.code===f?log.status:(studentId&&f?stateFor(studentId,f).status:'');
+    const record={id:log?.id||id(),week:Number(data.get('week')),date:String(data.get('date')),studentId,code:f,text,status};
+    await mutate(state=>{const index=state.logs.findIndex(x=>x.id===record.id);if(index>=0)state.logs[index]=record;else state.logs.push(record);});
+    finish('점검 기록을 저장했습니다.');
+  });
+}
+function inertRoot(text){
+  const template=document.createElement('template');
+  template.innerHTML=text;
+  return template.content;
+}
+function cleanText(root){
+  const copy=root.cloneNode(true);
+  copy.querySelectorAll('style,script,template,link,meta,svg,nav,button').forEach(el=>el.remove());
+  copy.querySelectorAll('p,div,section,article,h1,h2,h3,h4,li,tr,br').forEach(el=>el.append('\n'));
+  copy.querySelectorAll('td,th').forEach(el=>el.append(' | '));
+  return copy.textContent.replace(/[ \t]+/g,' ').replace(/\n\s*\n+/g,'\n').trim().slice(0,120000);
+}
+function toData(file){
+  return new Promise((resolve,reject)=>{
+    const reader=new FileReader();
+    reader.onload=()=>resolve(reader.result);
+    reader.onerror=()=>reject(new Error('파일을 읽지 못했습니다.'));
+    reader.readAsDataURL(file);
+  });
+}
+const checksPattern=/\[(?:확인 필요|필수 보완|[^\[\]\n]{0,50}(?:확인|입력|미정|미검증)[^\[\]\n]{0,25})\]|확인\s*필요|미확인|미검증/;
+function checkLines(lines){
+  return [...new Set(lines.map(x=>String(x).trim()).filter(x=>x&&checksPattern.test(x)))].slice(0,40);
+}
+async function fileRecord(file){
+  if(!file)return {name:'',size:0,data:'',extracted:''};
+  if(file.size>LIMIT)throw new Error(file.name+'의 크기가 12 MB를 초과합니다.');
+  const data=await toData(file);
+  let extracted='';
+  if(/\.html?$/i.test(file.name))extracted=cleanText(inertRoot(await file.text()));
+  if(/\.(txt|md|csv|tsv)$/i.test(file.name))extracted=(await file.text()).slice(0,120000);
+  return {name:file.name,size:file.size,data,extracted};
+}
+function docDialog({sid='',formCode='',kind='',docId=''}={}){
+  const doc=current().docs.find(d=>d.id===docId);
+  const type=doc?.kind||kind||'original';
+  const form=showDialog(doc?'자료 정보 수정':'자료 직접 등록','HTML·텍스트는 본문을 검색할 수 있습니다. PDF·한글·Word 등은 첨부로 보관하고 검색할 요약이나 근거를 입력할 수 있습니다.',
+    '<label>자료 유형<select name="kind" required>'+choices(kindChoices(),type)+'</select></label>'+
+    '<div class="form-grid"><label>학생<select name="student">'+choices(studentChoices(),doc?.studentId||sid,'수업 공통')+'</select></label>'+
+    '<label>연결 양식<select name="code">'+choices(formChoices(),doc?.code||formCode,'공통 / 미지정')+'</select></label></div>'+
+    '<label>자료 제목<input name="title" maxlength="180" value="'+h(doc?.title)+'" placeholder="제목을 비우면 첨부 파일명을 사용합니다"></label>'+
+    '<label>첨부 파일 · 파일당 최대 12 MB<input name="file" type="file">'+(doc?.name?'<span class="muted sub">현재 첨부 '+h(doc.name)+'</span>':'')+'</label>'+
+    '<label>검색용 메모 / 근거<textarea name="text" maxlength="120000" placeholder="원문 인용 위치, 수정 요청, 확인해야 할 근거 등을 기록하세요.">'+h(doc?.memo??doc?.text??'')+'</textarea></label>',
+    '자료 저장');
+  modalSubmit(form,async data=>{
+    const file=data.get('file'), useFile=file instanceof File&&Boolean(file.name);
+    const title=String(data.get('title')).trim()||(useFile?file.name:doc?.title||'');
+    if(!title)throw new Error('자료 제목이나 첨부 파일을 넣어 주세요.');
+    const docKind=String(data.get('kind')), studentId=String(data.get('student')), f=String(data.get('code'));
+    const memo=String(data.get('text')).trim();
+    if(f&&!studentId)throw new Error('과제에 연결하려면 학생을 선택해 주세요.');
+    if(doc?.legacy&&useFile)throw new Error('기존 양식별 자료의 새 파일은 HTML 가져오기로 등록해 주세요.');
+    const attachment=useFile?await fileRecord(file):{name:doc?.name||'',size:doc?.size||0,data:doc?.data||'',extracted:doc?.extracted||''};
+    if(!memo&&!attachment.name)throw new Error('첨부 파일이나 메모를 넣어 주세요.');
+    const text=[memo,attachment.extracted].filter(Boolean).join('\n\n').slice(0,125000);
+    const checkGroups=doc?.legacy?doc.checkGroups:(f?{[f]:checkLines(text.split('\n'))}:{});
+    const record={id:doc?.id||id(),title,kind:docKind,studentId,code:f,text,memo,sections:doc?.sections||{},checkGroups,legacy:doc?.legacy||'',...attachment};
+    await mutate(state=>{
+      const index=state.docs.findIndex(x=>x.id===record.id);
+      if(index>=0){
+        state.docs[index]=record;
+        if(!doc.legacy&&(doc.text!==record.text||doc.kind!==record.kind||doc.code!==record.code||doc.studentId!==record.studentId||useFile)){
+          for(const row of Object.values(state.tasks))row.resolved=row.resolved.filter(x=>!x.startsWith(record.id+':'));
+        }
+      }else state.docs.push(record);
+    });
+    finish('자료를 등록했습니다.');
+  });
+}
+function showDoc(docId,formCode=''){
+  const d=current().docs.find(x=>x.id===docId);
+  if(!d)return;
+  const pieces=Object.entries(d.sections);
+  showDialog(d.title,[kinds[d.kind],studentFor(d.studentId)?.name||'수업 공통',d.name].filter(Boolean).join(' · '),
+    (d.kind==='draft'?'<div class="callout">제안 초안과 여기에 포함된 원문 검토 요약은 출처 표기와 함께 읽어 주세요. 원문 파일 및 완료 증빙은 과제에 별도 연결할 수 있습니다.</div>':'')+
+    (d.text?'<div class="source-text">'+h(d.text)+'</div>':'')+
+    pieces.map(([f,body])=>'<details'+(f===formCode?' open':'')+'><summary>'+h(f+' '+formBy[f]?.title)+'</summary><div class="source-text">'+h(body)+'</div></details>').join('')+
+    (!d.text&&!pieces.length?'<p class="muted sub">첨부 원본을 내려받아 내용을 확인하세요.</p>':''),
+    '',(d.data?btn('첨부 다운로드','download-doc',{style:'small',glyph:'download',data:{doc:d.id}}):'')+(!d.legacy?btn('정보 수정','edit-doc',{style:'small',data:{doc:d.id}}):'')+btn('자료 삭제','remove-doc',{style:'small danger',data:{doc:d.id}}));
+}
+function embeddedData(root){
+  const prefix=/window\.__DATA__\s*=\s*/;
+  for(const script of root.querySelectorAll('script')){
+    const text=script.textContent;
+    const match=prefix.exec(text);
+    if(!match)continue;
+    const start=match.index+match[0].length;
+    if(text[start]!=='[')continue;
+    let depth=0,quoted=false,escaped=false;
+    for(let i=start;i<text.length;i++){
+      const c=text[i];
+      if(quoted){if(escaped)escaped=false;else if(c==='\\')escaped=true;else if(c==='"')quoted=false;continue;}
+      if(c==='"')quoted=true;
+      else if(c==='[')depth++;
+      else if(c===']'&&--depth===0)return JSON.parse(text.slice(start,i+1));
+    }
+    throw new Error('기존 작성형 HTML의 자료 블록을 읽을 수 없습니다.');
+  }
+  return null;
+}
+function sectionLines(section){
+  return section.blocks.flatMap(b=>{
+    if(b.type==='table'&&Array.isArray(b.rows))return b.rows.filter(Array.isArray).map(row=>row.filter(x=>typeof x==='string').join(' | '));
+    return typeof b.text==='string'?[b.text]:[];
+  }).filter(Boolean);
+}
+function fingerprint(value){
+  let hash=2166136261;
+  for(let i=0;i<value.length;i++)hash=Math.imul(hash^value.charCodeAt(i),16777619);
+  return value.length+':'+(hash>>>0).toString(36);
+}
+function legacyDocument(file,student,attachment){
+  const sections={},checkGroups={};
+  for(const area of student.sections){
+    if(!formBy[area.id]||!Array.isArray(area.blocks))continue;
+    const lines=sectionLines(area);
+    sections[area.id]=lines.join('\n').slice(0,45000);
+    checkGroups[area.id]=checkLines(lines);
+  }
+  if(!Object.keys(sections).length)throw new Error('기존 자료에서 3-1~6-1 양식을 찾지 못했습니다.');
+  const text=student.sections.filter(a=>['intro','review','sources'].includes(a.id)&&Array.isArray(a.blocks)).flatMap(sectionLines).join('\n').slice(0,30000);
+  return {id:id(),title:student.business+' · 3-1~6-1 작성 자료',kind:'draft',code:'',text,sections,checkGroups,
+    legacy:fingerprint(JSON.stringify([student.student,student.business,sections,text])),name:attachment.name||file.name,size:attachment.size||0,data:attachment.data||''};
+}
+async function parseLegacy(file){
+  if(!/\.html?$/i.test(file.name))throw new Error('압축을 풀고 HTML 파일을 선택해 주세요.');
+  if(file.size>LIMIT)throw new Error('파일당 최대 크기는 12 MB입니다.');
+  const root=inertRoot(await file.text()),rows=embeddedData(root);
+  if(rows){
+    if(!Array.isArray(rows)||!rows.length||rows.length>120||rows.some(x=>!x||typeof x.student!=='string'||!x.student.trim()||typeof x.business!=='string'||!Array.isArray(x.sections)))throw new Error('학생·양식 데이터의 형식을 확인해 주세요.');
+    const attachment=rows.length===1?{name:file.name,size:file.size,data:await toData(file)}:{};
+    return rows.map(student=>({name:student.student.trim(),project:student.business.trim(),doc:legacyDocument(file,student,attachment)}));
+  }
+  if(root.querySelector('#weekTabs,.week-details[data-detail]')){
+    const extracted=cleanText(root);
+    return [{doc:{id:id(),title:root.querySelector('h1')?.textContent.trim()||file.name,kind:'guide',studentId:'',code:'',text:extracted,sections:{},checkGroups:{},legacy:fingerprint(file.name+extracted),name:file.name,size:file.size,data:await toData(file)}}];
+  }
+  const exported=[...root.querySelectorAll('[data-section]')].filter(el=>formBy[el.dataset.section]);
+  if(exported.length){
+    const title=root.querySelector('.staticPaper .docTitle')?.textContent||'';
+    const parts=title.split(' · ');
+    if(parts.length<2||!parts[0].trim())throw new Error('학생 이름을 읽을 수 없습니다. 자료 직접 등록에서 학생을 선택해 주세요.');
+    const name=parts[0].trim(),project=parts.slice(1).join(' · ').trim();
+    const sections=Object.fromEntries(exported.map(el=>[el.dataset.section,cleanText(el)]));
+    const checkGroups=Object.fromEntries(Object.entries(sections).map(([f,text])=>[f,checkLines(text.split('\n'))]));
+    return [{name,project,doc:{id:id(),title:project+' · 학생별 작성본',kind:'draft',code:'',text:'기존 작성형 HTML의 내보내기 파일입니다. 제안 초안과 미확인 항목의 표기를 참고하세요.',sections,checkGroups,legacy:fingerprint(title+JSON.stringify(sections)),name:file.name,size:file.size,data:await toData(file)}}];
+  }
+  throw new Error('자동 연결 형식을 찾지 못했습니다. 자료 직접 등록에서 학생·양식·자료 유형을 선택해 주세요.');
+}
+function importDialog(){
+  const form=showDialog('기존 HTML 가져오기','00번 교수자용 통합 HTML, 학생별 HTML 여러 개 또는 기존 작성지도 HTML을 선택하세요.',
+    '<div class="callout">학생용 작성형 HTML은 제안 초안으로 가져오고 자료의 확인 문구는 양식별 확인 항목으로 표시합니다. 현재 기록과 동일한 자료는 건너뜁니다.</div>'+
+    '<label>HTML 파일 선택<input type="file" name="files" accept=".html,.htm,text/html" multiple required></label>'+
+    '<div class="actions"><a class="btn small" href="'+legacyLink+'" target="_blank" rel="noopener">학생별 HTML 묶음 ↗</a><a class="btn small" href="'+guideLink+'" target="_blank" rel="noopener">작성지도 원본 ↗</a>'+btn('자료 직접 등록','add-doc',{style:'small'})+'</div>',
+    '선택한 HTML 가져오기');
+  modalSubmit(form,async data=>{
+    const files=data.getAll('files').filter(f=>f instanceof File&&f.name);
+    if(!files.length)throw new Error('가져올 HTML을 선택해 주세요.');
+    if(files.length>30)throw new Error('한 번에 30개 이하의 HTML을 선택해 주세요.');
+    const candidates=[],errors=[];
+    for(const file of files){
+      try{candidates.push(...await parseLegacy(file));}
+      catch(error){errors.push(file.name+' · '+error.message);}
+    }
+    if(!candidates.length)throw new Error(errors.join('\n'));
+    const totals=await mutate(state=>{
+      let students=0,docs=0,duplicates=0;
+      for(const item of candidates){
+        let studentId='';
+        if(item.name){
+          const sameName=state.students.filter(s=>terms(s.name)===terms(item.name));
+          let student=sameName.find(s=>terms(s.project)===terms(item.project));
+          if(!student&&sameName.length===1&&!sameName[0].project){student=sameName[0];student.project=item.project;}
+          if(!student){student={id:id(),name:item.name,project:item.project};state.students.push(student);students++;}
+          studentId=student.id;
+        }
+        if(state.docs.some(d=>d.studentId===studentId&&d.legacy===item.doc.legacy)){duplicates++;continue;}
+        state.docs.push({...item.doc,studentId});docs++;
+      }
+      return {students,docs,duplicates};
+    });
+    const message='학생 '+totals.students+'명 추가 · 자료 '+totals.docs+'건 등록 · 중복 '+totals.duplicates+'건 건너뜀';
+    if(errors.length){
+      render();
+      showDialog('가져오기 결과',message,'<p class="muted sub">다음 파일은 자료 직접 등록에서 확인해 주세요.</p><div class="callout warn wrap">'+h(errors.join('\n'))+'</div>');
+    }else{view='board';finish(message);}
+  });
+}
+function taskFromForm(form,old){
+  const d=new FormData(form);
+  const values=Object.fromEntries(['status','basis',...Object.keys(fields)].map(key=>[key,String(d.get(key)||'').trim()]));
+  return {...old,...values,gapsResolved:d.has('gapsResolved'),riskResolved:d.has('riskResolved'),resolved:d.getAll('resolved')};
+}
+function download(name,blob){
+  const url=URL.createObjectURL(blob);
+  const link=document.createElement('a');
+  link.href=url;link.download=name;document.body.append(link);link.click();link.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),3000);
+}
+async function downloadAttachment(docId){
+  const doc=current().docs.find(d=>d.id===docId);
+  if(!doc?.data)return;
+  const base64=doc.data.split(',')[1];
+  const blob=new Blob([Uint8Array.from(atob(base64),c=>c.charCodeAt(0))],{type:'application/octet-stream'});
+  download(doc.name||'첨부파일',blob);
+}
+const str=(x,limit=140000)=>typeof x==='string'&&x.length<=limit;
+const keySafe=(x)=>str(x,140)&&x.length>0&&/^[\w.-]+$/.test(x);
+const recordLike=x=>x!==null&&typeof x==='object'&&!Array.isArray(x);
+function validBackup(x){
+  if(!recordLike(x)||x.version!==1||!Array.isArray(x.students)||!Array.isArray(x.docs)||!Array.isArray(x.logs)||!recordLike(x.tasks))return false;
+  const ids=new Set();
+  for(const s of x.students){
+    if(!recordLike(s)||!keySafe(s.id)||ids.has(s.id)||!str(s.name,240)||!s.name.trim()||!str(s.project,400))return false;
+    ids.add(s.id);
+  }
+  for(const [key,t] of Object.entries(x.tasks)){
+    const [sid,f,...rest]=key.split('|');
+    if(rest.length||!ids.has(sid)||!Object.hasOwn(formBy,f)||!recordLike(t)||!Object.hasOwn(statuses,t.status)||!['basis',...Object.keys(fields)].every(k=>str(t[k]))||typeof t.gapsResolved!=='boolean'||typeof t.riskResolved!=='boolean'||!Array.isArray(t.resolved)||!t.resolved.every(r=>str(r,240)))return false;
+  }
+  const docIds=new Set();
+  for(const d of x.docs){
+    if(!recordLike(d)||!keySafe(d.id)||docIds.has(d.id)||!str(d.title,500)||!str(d.name,500)||!Object.hasOwn(kinds,d.kind)||!(d.studentId===''||ids.has(d.studentId))||!(d.code===''||Object.hasOwn(formBy,d.code))||!str(d.text)||!recordLike(d.sections)||!recordLike(d.checkGroups)||!str(d.data,17*1024*1024))return false;
+    if(d.data&&!/^data:[^,]{0,200};base64,[a-z0-9+/=]*$/i.test(d.data))return false;
+    if(!Object.entries(d.sections).every(([f,text])=>Object.hasOwn(formBy,f)&&str(text))||!Object.entries(d.checkGroups).every(([f,a])=>Object.hasOwn(formBy,f)&&Array.isArray(a)&&a.every(p=>str(p))))return false;
+    docIds.add(d.id);
+  }
+  const logIds=new Set();
+  for(const l of x.logs){
+    if(!recordLike(l)||!keySafe(l.id)||logIds.has(l.id)||!Object.hasOwn(weeks,l.week)||!str(l.date,10)||!/^\d{4}-\d{2}-\d{2}$/.test(l.date)||!str(l.text)||!(l.studentId===''||ids.has(l.studentId))||!(l.code===''||Object.hasOwn(formBy,l.code))||!(l.status===''||Object.hasOwn(statuses,l.status)))return false;
+    logIds.add(l.id);
+  }
+  return true;
+}
+async function prepareRestore(file){
+  if(file.size>100*1024*1024)throw new Error('100 MB 이하의 진도관리 백업을 선택해 주세요.');
+  const parsed=JSON.parse(await file.text());
+  if(parsed.format!=='silla-venture-progress'||!validBackup(parsed.workspace))throw new Error('이 진도관리 웹앱에서 만든 정상적인 백업 파일을 선택해 주세요.');
+  const value=parsed.workspace;
+  const form=showDialog('백업 복원','현재 작업 기록 전체를 선택한 백업으로 교체합니다.',
+    '<div class="callout warn">복원할 기록 · 학생 '+value.students.length+'명, 자료 '+value.docs.length+'건, 점검 '+value.logs.length+'건</div><label class="tick"><input type="checkbox" required>현재 작업 기록을 이 백업으로 교체합니다.</label>',
+    '백업으로 교체');
+  modalSubmit(form,async()=>{
+    await mutate(state=>{
+      state.students=value.students;state.tasks=value.tasks;state.docs=value.docs;state.logs=value.logs;
+    });
+    selected='';code='3-1';view='board';finish('백업을 복원했습니다.');
+  });
+}
+function deleteDialog(type,recordId){
+  const isDoc=type==='doc';
+  const row=(isDoc?current().docs:current().logs).find(x=>x.id===recordId);
+  if(!row)return;
+  const form=showDialog(isDoc?'자료 삭제':'점검 기록 삭제',isDoc?'이 자료와 여기에서 가져온 확인 항목을 제거합니다.':'선택한 점검 기록을 제거합니다.',
+    '<div class="callout warn wrap">'+h(row.title||row.text.slice(0,180))+'</div>','삭제');
+  modalSubmit(form,async()=>{
+    await mutate(state=>{
+      if(isDoc){
+        state.docs=state.docs.filter(x=>x.id!==recordId);
+        for(const t of Object.values(state.tasks))t.resolved=t.resolved.filter(r=>!r.startsWith(recordId+':'));
+      }else state.logs=state.logs.filter(x=>x.id!==recordId);
+    });
+    finish('선택한 기록을 삭제했습니다.');
+  });
+}
+const actions={
+  go:({view:destination})=>go(destination),
+  'add-student':()=>studentDialog(),
+  'edit-student':({sid})=>studentDialog(sid),
+  'open-task':({sid,code:f})=>{selected=sid;code=f;go('student');},
+  'add-log':({sid,code:f})=>logDialog({sid,formCode:f}),
+  'edit-log':({log})=>logDialog({logId:log}),
+  'remove-log':({log})=>deleteDialog('log',log),
+  'import-source':()=>importDialog(),
+  'add-doc':({sid,code:f,kind})=>docDialog({sid,formCode:f,kind}),
+  'edit-doc':({doc})=>docDialog({docId:doc}),
+  'view-doc':({doc,code:f})=>showDoc(doc,f),
+  'remove-doc':({doc})=>deleteDialog('doc',doc),
+  'download-doc':({doc})=>downloadAttachment(doc),
+  close:()=>$('#dialog').close(),
+  'filter-status':({status})=>{
+    filters.board.status=filters.board.status===status?'':status;render();$('#board-panel').scrollIntoView({block:'nearest'});$('#board-panel select[data-filter="status"]').focus({preventScroll:true});
+  },
+  'filter-code':({code:f})=>{
+    filters.board.code=filters.board.code===f?'':f;
+    if(filters.board.week&&String(formBy[f].week)!==filters.board.week)filters.board.week='';
+    go('board',false);$('#board-panel').scrollIntoView({block:'start'});$('#board-panel select[data-filter="code"]').focus({preventScroll:true});
+  },
+  'filter-week':({week})=>{
+    filters.board.week=week;filters.board.code='';
+    go('board',false);$('#board-panel').scrollIntoView({block:'start'});$('#board-panel select[data-filter="week"]').focus({preventScroll:true});
+  },
+  'reset-filter':()=>{
+    for(const key of Object.keys(filters[view]))filters[view][key]='';
+    render();$('#page [data-filter=q]').focus();
+  },
+  'toggle-demo':()=>{
+    if(writing)return;
+    demo=!demo;if(demo)example??=sample();
+    for(const group of Object.values(filters))for(const k of Object.keys(group))group[k]='';
+    selected='';code='3-1';go('board');
+  },
+  backup:()=>{
+    if(demo){toast('예시를 종료한 뒤 실제 기록을 백업할 수 있습니다.');return;}
+    download('관광벤처창업론_진도관리_'+dateInKorea()+'.json',new Blob([JSON.stringify({format:'silla-venture-progress',workspace:actual})],{type:'application/json'}));
+  },
+  restore:()=>{if(demo){toast('예시를 종료한 뒤 실제 기록을 복원할 수 있습니다.');return;}$('#restore').click();}
+};
+document.addEventListener('click',async event=>{
+  const button=event.target.closest('[data-action]');
+  if(!button)return;
+  const action=actions[button.dataset.action];
+  if(action)try{await action(button.dataset);}catch(error){toast(error.message);}
+});
+document.addEventListener('input',event=>{
+  const el=event.target;
+  if(el.dataset.filter==='q'){filters[view].q=el.value;updateResults();return;}
+  const form=el.closest('#task-form');
+  if(!form)return;
+  if(el.name==='gaps'||el.name==='risk'){
+    const previous=task(selected,code);
+    if(el.value.trim()!==previous[el.name])form.elements.namedItem(el.name+'Resolved').checked=false;
+  }
+  const info=stateFor(selected,code,taskFromForm(form,task(selected,code)));
+  $('#active-badge').innerHTML=badge(info.status);
+  $('#task-reasons').textContent=info.reasons.join(' ');
+});
+document.addEventListener('change',event=>{
+  const el=event.target;
+  if(el.dataset.filter&&el.dataset.filter!=='q'){
+    filters[view][el.dataset.filter]=el.value;
+    if(view==='board'&&el.dataset.filter==='week'&&filters.board.code&&el.value&&String(formBy[filters.board.code].week)!==el.value){
+      filters.board.code='';$('#page [data-filter=code]').value='';
+    }
+    if(view==='board'&&el.dataset.filter==='code'&&el.value&&filters.board.week&&String(formBy[el.value].week)!==filters.board.week){
+      filters.board.week='';$('#page [data-filter=week]').value='';
+    }
+    updateResults();
+  }
+  if(el.dataset.change==='student'){selected=el.value;render();$('#page [data-change=student]').focus();}
+});
+document.addEventListener('submit',async event=>{
+  const form=event.target;
+  if(form.id!=='task-form')return;
+  event.preventDefault();
+  const sid=selected,f=code,t=taskFromForm(form,task(sid,f));
+  const button=form.querySelector('button[type=submit]');
+  if(button.disabled)return;
+  button.disabled=true;
+  try{
+    await mutate(state=>{state.tasks[taskKey(sid,f)]=t;});
+    render();
+    if(view==='student'&&selected===sid&&code===f)$('#task-form button[type=submit]').focus({preventScroll:true});
+    toast('과제 기록을 저장했습니다. 현재 상태는 '+statuses[stateFor(sid,f).status]+'입니다.');
+  }catch(error){toast(error.message);}
+  finally{button.disabled=false;}
+});
+$('#restore').addEventListener('change',async event=>{
+  const file=event.target.files[0];event.target.value='';
+  if(file)try{await prepareRestore(file);}catch(error){toast('백업을 열 수 없습니다. '+error.message);}
+});
+function setup(){
+  $('#brand-icon').innerHTML=icon('mark');$('#crumb-icon').innerHTML=icon('arrow');
+  $('#top-add').insertAdjacentHTML('afterbegin',icon('plus'));$('#top-import').insertAdjacentHTML('afterbegin',icon('upload'));
+  for(const [key,[glyph,label]] of Object.entries(views)){
+    $(key==='guide'||key==='data'?'#nav-tools':'#nav-main').insertAdjacentHTML('beforeend','<button type="button" class="nav" data-action="go" data-view="'+key+'">'+icon(glyph)+label+'</button>');
+  }
+}
+async function init(){
+  setup();
+  try{db=await openDb();actual=await readDb();}
+  catch(error){$('#store-chip').textContent='저장소 사용 불가';toast('브라우저 저장소를 열 수 없습니다. 다른 브라우저 창이나 Sites 주소에서 다시 열어 주세요.');}
+  render();
+}
+init();
+</script>
+</body>
+</html>
