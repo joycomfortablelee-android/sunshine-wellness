@@ -36,7 +36,12 @@ body{overflow-x:hidden}
 .source{font-size:12px;font-weight:800;background:#f4f7fa;border:1px solid #dde6ee;color:#647689;border-radius:999px;padding:7px 10px;white-space:nowrap}
 .label{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
 .question{font-size:18px;line-height:1.6;font-weight:800;margin:7px 0 16px}
-.option{font-size:16px;line-height:1.5;padding:11px 14px;border:1px solid #e0e8ef;background:#fafcfe;border-radius:11px;margin:8px 0}
+.options{display:flex;flex-direction:column}
+.option{display:block;width:100%;text-align:left;font-family:inherit;font-size:16px;line-height:1.5;padding:11px 14px;border:1px solid #e0e8ef;background:#fafcfe;border-radius:11px;margin:8px 0;cursor:pointer;color:inherit;transition:border-color .15s,background .15s}
+.option:hover{border-color:var(--blue);background:#f2f8fd}
+.option.selected{border-color:var(--blue);background:#e9f3fc;font-weight:800}
+.option.correct{border-color:#2fa875;background:#eafaf1;font-weight:800}
+.option.wrong{border-color:#d9704a;background:#fdf1ec}
 .answer-btn{margin-top:18px;border:0;border-radius:11px;background:var(--navy);color:white;font-size:14px;font-weight:900;padding:11px 17px;cursor:pointer}
 .answer{display:none;margin-top:13px;background:#eef8f6;border:1px solid #c7e6df;border-radius:13px;padding:16px 17px;line-height:1.65}
 .answer-title{font-weight:800}
@@ -102,11 +107,11 @@ body{overflow-x:hidden}
         </div>
         <div class="label">문제</div>
         <div class="question">150개의 식물 개체를 4개의 변수(꽃받침 길이, 꽃받침 폭, 꽃잎 길이, 꽃잎 폭)로 측정한 데이터를 사용하여 3개의 식물 군으로 구분하려 한다. 이때 사용 가능한 분석 방법으로 적절한 것은?</div>
-        <div class="options">
-          <div class="option">① 회귀분석(Regression)</div>
-          <div class="option">② 시계열분석(Time series Analysis)</div>
-          <div class="option">③ 군집분석(Cluster Analysis)</div>
-          <div class="option">④ 연관분석(Association Analysis)</div>
+        <div class="options" data-correct="2">
+          <button type="button" class="option" data-i="0" onclick="selectOption(this)">① 회귀분석(Regression)</button>
+          <button type="button" class="option" data-i="1" onclick="selectOption(this)">② 시계열분석(Time series Analysis)</button>
+          <button type="button" class="option" data-i="2" onclick="selectOption(this)">③ 군집분석(Cluster Analysis)</button>
+          <button type="button" class="option" data-i="3" onclick="selectOption(this)">④ 연관분석(Association Analysis)</button>
         </div>
         <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
         <div class="answer">
@@ -136,11 +141,11 @@ body{overflow-x:hidden}
         </div>
         <div class="label">문제</div>
         <div class="question">변수 간 상관성을 고려하여 두 데이터의 통계적 거리를 계산하는 방법은?</div>
-        <div class="options">
-          <div class="option">① 유클리디안 거리</div>
-          <div class="option">② 맨해튼 거리</div>
-          <div class="option">③ 마할라노비스 거리</div>
-          <div class="option">④ 코사인 유사도</div>
+        <div class="options" data-correct="2">
+          <button type="button" class="option" data-i="0" onclick="selectOption(this)">① 유클리디안 거리</button>
+          <button type="button" class="option" data-i="1" onclick="selectOption(this)">② 맨해튼 거리</button>
+          <button type="button" class="option" data-i="2" onclick="selectOption(this)">③ 마할라노비스 거리</button>
+          <button type="button" class="option" data-i="3" onclick="selectOption(this)">④ 코사인 유사도</button>
         </div>
         <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
         <div class="answer">
@@ -170,11 +175,11 @@ body{overflow-x:hidden}
         </div>
         <div class="label">문제</div>
         <div class="question">두 군집에 속한 개체 간 거리 중 가장 먼 거리를 군집 간 거리로 정의하는 연결법은 무엇인가?</div>
-        <div class="options">
-          <div class="option">① 최단연결법</div>
-          <div class="option">② 최장연결법</div>
-          <div class="option">③ 평균연결법</div>
-          <div class="option">④ 중심연결법</div>
+        <div class="options" data-correct="1">
+          <button type="button" class="option" data-i="0" onclick="selectOption(this)">① 최단연결법</button>
+          <button type="button" class="option" data-i="1" onclick="selectOption(this)">② 최장연결법</button>
+          <button type="button" class="option" data-i="2" onclick="selectOption(this)">③ 평균연결법</button>
+          <button type="button" class="option" data-i="3" onclick="selectOption(this)">④ 중심연결법</button>
         </div>
         <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
         <div class="answer">
@@ -204,11 +209,11 @@ body{overflow-x:hidden}
         </div>
         <div class="label">문제</div>
         <div class="question">고차원 데이터를 이해하기 쉬운 저차원의 뉴런으로 정렬하여 지도의 형태로 형상화하는 클러스터링 방법으로 적절한 것은?</div>
-        <div class="options">
-          <div class="option">① 의사결정나무(Decision Tree)</div>
-          <div class="option">② 연관규칙(Association Rule)</div>
-          <div class="option">③ 랜덤포레스트(Random Forest)</div>
-          <div class="option">④ 자기조직화지도(SOM)</div>
+        <div class="options" data-correct="3">
+          <button type="button" class="option" data-i="0" onclick="selectOption(this)">① 의사결정나무(Decision Tree)</button>
+          <button type="button" class="option" data-i="1" onclick="selectOption(this)">② 연관규칙(Association Rule)</button>
+          <button type="button" class="option" data-i="2" onclick="selectOption(this)">③ 랜덤포레스트(Random Forest)</button>
+          <button type="button" class="option" data-i="3" onclick="selectOption(this)">④ 자기조직화지도(SOM)</button>
         </div>
         <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
         <div class="answer">
@@ -238,11 +243,11 @@ body{overflow-x:hidden}
         </div>
         <div class="label">문제</div>
         <div class="question">군집분석 기법으로 가장 적절하지 않은 것은?</div>
-        <div class="options">
-          <div class="option">① K-Means Clustering</div>
-          <div class="option">② 계층적 군집화(Hierarchical Clustering)</div>
-          <div class="option">③ Silhouette Coefficient</div>
-          <div class="option">④ DBSCAN</div>
+        <div class="options" data-correct="2">
+          <button type="button" class="option" data-i="0" onclick="selectOption(this)">① K-Means Clustering</button>
+          <button type="button" class="option" data-i="1" onclick="selectOption(this)">② 계층적 군집화(Hierarchical Clustering)</button>
+          <button type="button" class="option" data-i="2" onclick="selectOption(this)">③ Silhouette Coefficient</button>
+          <button type="button" class="option" data-i="3" onclick="selectOption(this)">④ DBSCAN</button>
         </div>
         <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
         <div class="answer">
@@ -272,12 +277,12 @@ body{overflow-x:hidden}
         </div>
         <div class="label">문제</div>
         <div class="question">비지도학습 중 군집화 알고리즘에 해당하는 것은?</div>
-        <div class="options">
-          <div class="option">① 나이브베이즈</div>
-          <div class="option">② K-NN</div>
-          <div class="option">③ 로지스틱 회귀</div>
-          <div class="option">④ K-means</div>
-          <div class="option">⑤ SVM</div>
+        <div class="options" data-correct="3">
+          <button type="button" class="option" data-i="0" onclick="selectOption(this)">① 나이브베이즈</button>
+          <button type="button" class="option" data-i="1" onclick="selectOption(this)">② K-NN</button>
+          <button type="button" class="option" data-i="2" onclick="selectOption(this)">③ 로지스틱 회귀</button>
+          <button type="button" class="option" data-i="3" onclick="selectOption(this)">④ K-means</button>
+          <button type="button" class="option" data-i="4" onclick="selectOption(this)">⑤ SVM</button>
         </div>
         <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
         <div class="answer">
@@ -325,11 +330,25 @@ function showSlide(i){
 }
 function goPrev(){ showSlide(current-1); }
 function goNext(){ showSlide(current+1); }
+function selectOption(btn){
+  const group = btn.parentElement;
+  group.querySelectorAll('.option').forEach(o=>o.classList.remove('selected','correct','wrong'));
+  btn.classList.add('selected');
+}
 function toggleAnswer(btn){
   const box = btn.nextElementSibling;
   const open = box.style.display === 'block';
   box.style.display = open ? 'none' : 'block';
   btn.textContent = open ? '정답 · 해설 확인' : '정답 · 해설 닫기';
+  const group = btn.closest('.question-card').querySelector('.options');
+  const correctI = group.dataset.correct;
+  group.querySelectorAll('.option').forEach(o=>{
+    o.classList.remove('correct','wrong');
+    if(!open){
+      if(o.dataset.i === correctI) o.classList.add('correct');
+      else if(o.classList.contains('selected')) o.classList.add('wrong');
+    }
+  });
 }
 document.addEventListener('keydown',e=>{
   if(e.key==='ArrowLeft') goPrev();
