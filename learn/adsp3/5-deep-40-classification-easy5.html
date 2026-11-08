@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>분류분석 쉬운 문제 5선 · 2절 알약 모음에서 바로 풀리는 것만</title>
+<style>
+:root {
+  --navy:#14385f; --navy2:#1e527f; --blue:#2c6cab; --teal:#1c8f8b;
+  --gold:#c69a3b; --bg:#eef4fa; --line:#d9e3ed; --text:#1f2d3d; --muted:#687b8e; --green:#0f766e;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:"Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",Arial,sans-serif;background:linear-gradient(180deg,#eaf2fb,#f8fbff);color:var(--text)}
+body{overflow-x:hidden}
+.app{min-height:100vh}
+.header{position:sticky;top:0;z-index:30;background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:15px 22px 13px;box-shadow:0 5px 18px rgba(10,40,70,.16)}
+.header-inner{max-width:1280px;margin:auto;display:flex;justify-content:space-between;gap:18px;align-items:center}
+.header h1{font-size:23px;margin:0 0 4px;line-height:1.25}
+.header p{margin:0;font-size:13px;opacity:.9}
+.header-badge{font-size:12px;font-weight:800;white-space:nowrap;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:7px 10px}
+.stage{display:grid;grid-template-columns:62px minmax(0,1280px) 62px;gap:12px;justify-content:center;align-items:start;padding:18px 14px 12px}
+.nav-btn{position:sticky;top:48vh;width:54px;height:54px;border:0;border-radius:50%;background:var(--navy);color:white;font-size:28px;font-weight:900;cursor:pointer;box-shadow:0 8px 20px rgba(20,56,95,.2)}
+.nav-btn:hover{transform:translateY(-2px)}
+.nav-btn:disabled{opacity:.28;cursor:not-allowed;transform:none}
+.viewer{min-width:0}
+.slide{display:none}
+.slide.active{display:block}
+.slide-head{background:#fff;border:1px solid var(--line);border-radius:18px 18px 0 0;padding:15px 20px;display:flex;justify-content:space-between;align-items:center}
+.eyebrow{font-size:11px;font-weight:900;letter-spacing:.12em;color:var(--blue)}
+.slide-head h2{margin:3px 0 0;font-size:21px;color:var(--navy)}
+.count{background:#f1f6fb;color:#5f7285;border:1px solid #dce6ef;border-radius:999px;padding:6px 10px;font-size:13px;font-weight:800;white-space:nowrap}
+.question-card{background:#fff;border:1px solid var(--line);border-radius:0 0 18px 18px;padding:24px 26px 27px;box-shadow:0 14px 34px rgba(20,56,95,.08);margin-bottom:16px}
+.question-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;padding-bottom:15px;border-bottom:2px solid #edf3f8;margin-bottom:19px}
+.qnum{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
+.question-head h3{font-size:22px;margin:4px 0 0;color:var(--navy)}
+.source{font-size:12px;font-weight:800;background:#f4f7fa;border:1px solid #dde6ee;color:#647689;border-radius:999px;padding:7px 10px;white-space:nowrap}
+.label{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
+.question{font-size:18px;line-height:1.6;font-weight:800;margin:7px 0 16px}
+.subbox{font-size:15px;line-height:1.6;background:#f6f9fc;border:1px dashed #c6d6e4;border-radius:11px;padding:12px 14px;margin:0 0 14px;color:#33465a}
+.options{display:flex;flex-direction:column}
+.option{display:block;width:100%;text-align:left;font-family:inherit;font-size:16px;line-height:1.5;padding:11px 14px;border:1px solid #e0e8ef;background:#fafcfe;border-radius:11px;margin:8px 0;cursor:pointer;color:inherit;transition:border-color .15s,background .15s}
+.option:hover{border-color:var(--blue);background:#f2f8fd}
+.option.selected{border-color:var(--blue);background:#e9f3fc;font-weight:800}
+.option.correct{border-color:#2fa875;background:#eafaf1;font-weight:800}
+.option.wrong{border-color:#d9704a;background:#fdf1ec}
+.answer-btn{margin-top:18px;border:0;border-radius:11px;background:var(--navy);color:white;font-size:14px;font-weight:900;padding:11px 17px;cursor:pointer}
+.answer{display:none;margin-top:13px;background:#eef8f6;border:1px solid #c7e6df;border-radius:13px;padding:16px 17px;line-height:1.65}
+.answer-title{font-weight:800}
+.answer strong{font-size:23px;color:var(--green)}
+.answer p{margin:8px 0 11px}
+.memory{background:#fff8e7;border:1px solid #f0ddb0;border-radius:10px;padding:11px 13px;font-weight:800}
+.fromtag{display:inline-block;margin:0 0 14px;font-size:11.5px;font-weight:800;color:#5b3aa3;background:#ece4fb;border:1px solid #cbb8ef;border-radius:999px;padding:5px 11px}
+.bottom-nav{max-width:1280px;margin:0 auto 28px;display:flex;justify-content:center;align-items:center;gap:12px;padding:0 12px}
+.dots{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.dot{width:12px;height:12px;border:0;border-radius:50%;background:#bdccda;cursor:pointer;padding:0}
+.dot.active{background:var(--blue);transform:scale(1.2)}
+.help{font-size:12px;color:#718397;text-align:center;margin:0 0 22px}
+@media(max-width:850px){
+  .stage{grid-template-columns:1fr;padding:10px}
+  .nav-btn{position:fixed;z-index:40;bottom:20px;top:auto;width:48px;height:48px}
+  #prevBtn{left:12px} #nextBtn{right:12px}
+  .header-inner{align-items:flex-start}
+  .header-badge{display:none}
+  .question-card{padding:19px 17px 22px}
+  .question{font-size:17px}
+  .question-head h3{font-size:19px}
+}
+@media print{
+  .header,.nav-btn,.bottom-nav,.help{display:none!important}
+  .slide{display:block!important;page-break-after:always}
+  .question-card{box-shadow:none}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="header-inner">
+      <div>
+        <h1>5장 2절 분류분석 · 쉬운 문제 5선</h1>
+        <p>2절의 보라색 알약 5개를 전부 살펴(로지스틱회귀·KNN·SVM·나이브베이즈) "바로 답이 보이는" 문제만 하나씩 추렸습니다. 전체 복습 전 가볍게 먼저 풀어보세요.</p>
+      </div>
+      <div class="header-badge">← → 방향키 지원</div>
+    </div>
+  </header>
+
+  <main class="stage">
+    <button class="nav-btn" id="prevBtn" onclick="goPrev()" aria-label="이전 화면">‹</button>
+    <div class="viewer">
+
+    <section class="slide active" data-index="0">
+      <div class="slide-head">
+        <div><div class="eyebrow">EASY 01 / 로지스틱회귀</div><h2>e^β는 무엇의 변화를 나타내나</h2></div>
+        <div class="count">1 / 5</div>
+      </div>
+      <article class="question-card">
+        <span class="fromtag">출처 · 로그오즈·KNN·SVM 개념 (p393–395)</span>
+        <div class="question-head">
+          <div><div class="qnum">QUESTION 01</div><h3>로지스틱회귀 계수의 지수변환이 뜻하는 것</h3></div>
+          <div class="source">39회 기출</div>
+        </div>
+        <div class="label">문제</div>
+        <div class="question">아래의 로지스틱회귀모형에 대한 설명에서 괄호 안에 들어갈 단어는?</div>
+        <div class="subbox">로지스틱 회귀모형에서 e^β₁의 의미는 X₁,…,Xₚ이 주어질 때, X₁이 한 단위 증가할 때마다 성공(y=1)의 ( )이/가 증가하는지를 나타낸다.</div>
+        <div class="options" data-correct="1">
+          <button type="button" class="option" data-i="0" onclick="selectOption(this)">① 확률 (Probability)</button>
+          <button type="button" class="option" data-i="1" onclick="selectOption(this)">② 오즈 (Odds)</button>
+          <button type="button" class="option" data-i="2" onclick="selectOption(this)">③ 로그 오즈 (Log Odds)</button>
+          <button type="button" class="option" data-i="3" onclick="selectOption(this)">④ 오즈비 (Odds Ratio)</button>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>②</strong></div>
+          <p>e^β는 독립변수가 한 단위 증가할 때 성공(y=1)의 오즈가 몇 배로 증가하는지를 나타낸다. 오즈는 확률이나 로그 오즈와 구분되는 별개의 개념이다.</p>
+          <div class="memory">핵심 암기 · exp(β) = 오즈(Odds)의 변화배수</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="1">
+      <div class="slide-head">
+        <div><div class="eyebrow">EASY 02 / KNN</div><h2>KNN의 단점이 아닌 것 고르기</h2></div>
+        <div class="count">2 / 5</div>
+      </div>
+      <article class="question-card">
+        <span class="fromtag">출처 · KNN 슬라이드 (p401–403)</span>
+        <div class="question-head">
+          <div><div class="qnum">QUESTION 02</div><h3>K-Nearest-Neighbor의 단점으로 옳지 않은 것</h3></div>
+          <div class="source">기출</div>
+        </div>
+        <div class="label">문제</div>
+        <div class="question">다음 중 K-Nearest-Neighbor의 단점 중 옳지 않은 것은?</div>
+        <div class="options" data-correct="1">
+          <button type="button" class="option" data-i="0" onclick="selectOption(this)">① k 값을 구하기 어렵다.</button>
+          <button type="button" class="option" data-i="1" onclick="selectOption(this)">② 수치형 데이터만 분석이 가능하다.</button>
+          <button type="button" class="option" data-i="2" onclick="selectOption(this)">③ 이상치에 영향을 많이 받는다.</button>
+          <button type="button" class="option" data-i="3" onclick="selectOption(this)">④ 차원의 크기가 크면 계산량이 많아진다.</button>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>②</strong></div>
+          <p>KNN은 거리 계산이 가능하도록 변환하면 범주형 변수도 함께 쓸 수 있어, "수치형 데이터만 분석 가능하다"는 설명은 KNN의 실제 단점이 아니다. 나머지 셋은 모두 실제로 알려진 KNN의 단점이다.</p>
+          <div class="memory">핵심 암기 · KNN은 거리 기반 — 수치형 전용이 아니라 "거리로 바꿀 수 있어야" 함</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="2">
+      <div class="slide-head">
+        <div><div class="eyebrow">EASY 03 / SVM</div><h2>커널 함수는 왜 쓰나</h2></div>
+        <div class="count">3 / 5</div>
+      </div>
+      <article class="question-card">
+        <span class="fromtag">출처 · SVM 슬라이드 (p404–405)</span>
+        <div class="question-head">
+          <div><div class="qnum">QUESTION 03</div><h3>SVM 커널 함수의 역할</h3></div>
+          <div class="source">기출</div>
+        </div>
+        <div class="label">문제</div>
+        <div class="question">SVM(Support Vector Machine)에서 커널 함수의 역할은 무엇인가?</div>
+        <div class="options" data-correct="1">
+          <button type="button" class="option" data-i="0" onclick="selectOption(this)">① 데이터의 차원을 축소한다.</button>
+          <button type="button" class="option" data-i="1" onclick="selectOption(this)">② 데이터의 차원을 증가시킨다.</button>
+          <button type="button" class="option" data-i="2" onclick="selectOption(this)">③ 데이터의 노이즈를 제거한다.</button>
+          <button type="button" class="option" data-i="3" onclick="selectOption(this)">④ 데이터의 분포를 균등하게 만든다.</button>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>②</strong></div>
+          <p>커널 함수는 저차원에서 선형 분리가 어려운 데이터를 더 높은 차원으로 매핑해, 그 공간에서는 선형으로 분리할 수 있도록 만든다(커널 트릭).</p>
+          <div class="memory">핵심 암기 · 커널 함수 = 저차원→고차원 매핑으로 "분리 가능"하게 만듦</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="3">
+      <div class="slide-head">
+        <div><div class="eyebrow">EASY 04 / 나이브베이즈</div><h2>베이즈 정리 바르게 이해하기</h2></div>
+        <div class="count">4 / 5</div>
+      </div>
+      <article class="question-card">
+        <span class="fromtag">출처 · 나이브베이즈 슬라이드 (p406)</span>
+        <div class="question-head">
+          <div><div class="qnum">QUESTION 04</div><h3>베이즈 정리에 대한 설명으로 적절한 것</h3></div>
+          <div class="source">43회 기출 · 20번</div>
+        </div>
+        <div class="label">문제</div>
+        <div class="question">다음은 베이즈 정리에 대한 설명이다. 내용이 가장 적절한 것은?</div>
+        <div class="options" data-correct="3">
+          <button type="button" class="option" data-i="0" onclick="selectOption(this)">① 베이즈 정리는 연역적 추론 방법이다.</button>
+          <button type="button" class="option" data-i="1" onclick="selectOption(this)">② 베이즈 정리 공식은 P(A|B) = [P(B|A) × P(B)] / P(A) 형태이다.</button>
+          <button type="button" class="option" data-i="2" onclick="selectOption(this)">③ P(B|A)는 P(A|B)와 상호 교환이 가능하다.</button>
+          <button type="button" class="option" data-i="3" onclick="selectOption(this)">④ 베이즈 정리는 과거 경험과 현재 증거를 기반으로 추정한다.</button>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>④</strong></div>
+          <p>베이즈 정리는 사전확률(과거 경험)에 새로운 증거(현재 데이터)를 반영해 사후확률로 업데이트하는 귀납적·확률적 추론이다. ①은 연역적이라는 표현이 틀렸고, ②는 공식의 항이 뒤바뀌었으며, ③은 P(A|B)와 P(B|A)는 일반적으로 서로 다르다.</p>
+          <div class="memory">핵심 암기 · 베이즈 정리 = 사전확률 + 새 증거 → 사후확률 업데이트</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="4">
+      <div class="slide-head">
+        <div><div class="eyebrow">EASY 05 / 로지스틱 R 결과</div><h2>glm() 결과에서 가장 헷갈리는 선택지 고르기</h2></div>
+        <div class="count">5 / 5</div>
+      </div>
+      <article class="question-card">
+        <span class="fromtag">출처 · 로지스틱회귀 이론·R·기출 슬라이드 (p396–400)</span>
+        <div class="question-head">
+          <div><div class="qnum">QUESTION 05</div><h3>신용카드 체납 예측 결과 해석 중 부적절한 것</h3></div>
+          <div class="source">기출</div>
+        </div>
+        <div class="label">문제</div>
+        <div class="question">10,000명의 신용카드 고객에 대한 체납 여부(default)와 학생여부(student), 카드 잔고(balance), 연봉(income)을 포함한 데이터로 체납 확률을 예측한 결과에 대한 설명으로 가장 부적절한 것은?</div>
+        <div class="options" data-correct="2">
+          <button type="button" class="option" data-i="0" onclick="selectOption(this)">① 로지스틱 회귀모형을 사용한 결과이다.</button>
+          <button type="button" class="option" data-i="1" onclick="selectOption(this)">② 세 설명변수 모두가 체납확률을 예측하는데 유의한 영향이 있지는 않다.</button>
+          <button type="button" class="option" data-i="2" onclick="selectOption(this)">③ 카드 잔고와 연봉이 동일한 수준일 때, 학생(studentYes)이 학생이 아닌 고객보다 체납확률이 높다.</button>
+          <button type="button" class="option" data-i="3" onclick="selectOption(this)">④ 해당 분석 결과에 대한 분산분석표를 확인하기 위해서는 anova(model)를 실행하면 된다.</button>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>③</strong></div>
+          <p>회귀계수의 부호를 거꾸로 읽은 설명이다 — 실제로는 다른 조건이 같을 때 학생(studentYes)의 계수가 음수(또는 비학생보다 체납확률이 낮게 나오는 방향)로 나타나는 것이 이 유형 문제의 전형적 함정이다. 나머지 ①②④는 R glm() 분석 결과에 대한 통상적인 설명이다.</p>
+          <div class="memory">핵심 암기 · 회귀계수 해석은 "부호"부터 확인 — 방향이 바뀐 설명을 찾는 문제가 자주 나옴</div>
+        </div>
+      </article>
+    </section>
+
+    </div>
+    <button class="nav-btn" id="nextBtn" onclick="goNext()" aria-label="다음 화면">›</button>
+  </main>
+
+  <div class="bottom-nav"><div class="dots">
+    <button class="dot active" onclick="showSlide(0)" aria-label="1번 화면"></button>
+    <button class="dot" onclick="showSlide(1)" aria-label="2번 화면"></button>
+    <button class="dot" onclick="showSlide(2)" aria-label="3번 화면"></button>
+    <button class="dot" onclick="showSlide(3)" aria-label="4번 화면"></button>
+    <button class="dot" onclick="showSlide(4)" aria-label="5번 화면"></button>
+  </div></div>
+  <div class="help">좌우 버튼 · 키보드 ← → · 하단 점을 눌러 화면을 이동할 수 있습니다.</div>
+</div>
+
+<script>
+let current = 0;
+const slides = [...document.querySelectorAll('.slide')];
+const dots = [...document.querySelectorAll('.dot')];
+function showSlide(i){
+  if(i < 0 || i >= slides.length) return;
+  current = i;
+  slides.forEach((s,idx)=>s.classList.toggle('active', idx===i));
+  dots.forEach((d,idx)=>d.classList.toggle('active', idx===i));
+  document.getElementById('prevBtn').disabled = i===0;
+  document.getElementById('nextBtn').disabled = i===slides.length-1;
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function goPrev(){ showSlide(current-1); }
+function goNext(){ showSlide(current+1); }
+function selectOption(btn){
+  const group = btn.parentElement;
+  group.querySelectorAll('.option').forEach(o=>o.classList.remove('selected','correct','wrong'));
+  btn.classList.add('selected');
+}
+function toggleAnswer(btn){
+  const box = btn.nextElementSibling;
+  const open = box.style.display === 'block';
+  box.style.display = open ? 'none' : 'block';
+  btn.textContent = open ? '정답 · 해설 확인' : '정답 · 해설 닫기';
+  const group = btn.closest('.question-card').querySelector('.options');
+  const correctI = group.dataset.correct;
+  group.querySelectorAll('.option').forEach(o=>{
+    o.classList.remove('correct','wrong');
+    if(!open){
+      if(o.dataset.i === correctI) o.classList.add('correct');
+      else if(o.classList.contains('selected')) o.classList.add('wrong');
+    }
+  });
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowLeft') goPrev();
+  if(e.key==='ArrowRight') goNext();
+});
+showSlide(0);
+</script>
+</body>
+</html>
