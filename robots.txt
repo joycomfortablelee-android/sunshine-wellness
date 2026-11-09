@@ -28,5 +28,6 @@ Disallow: /learn/hotel-management-14chapter-workbook.html
 Disallow: /learn/tv-form-wb/company/
 Disallow: /learn/tv-form-wb/draft/
 Disallow: /learn/bm-sim/
+Disallow: /learn/ai-hrm-integrated-lecture-guide.html
 
 Sitemap: https://www.sunshinewellness.co.kr/sitemap.xml
