@@ -29,5 +29,7 @@ Disallow: /learn/tv-form-wb/company/
 Disallow: /learn/tv-form-wb/draft/
 Disallow: /learn/bm-sim/
 Disallow: /learn/ai-hrm-integrated-lecture-guide.html
+Disallow: /learn/hrm-job-postings-14-remember.html
+Disallow: /learn/hrm-publy-162-cases.html
 
 Sitemap: https://www.sunshinewellness.co.kr/sitemap.xml
