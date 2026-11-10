@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#183557">
+<title>7차 팀 빌딩 · 무엇을 적을까</title>
+<meta name="description" content="관광벤처 사업계획서 7차 — 5-1 사업자의 전문성 및 운영 능력 · 5-2 팀원과의 신뢰 구축 능력 · 5-3 인력 및 조직 운영계획 · [표5] 팀 구성 현황에 무엇을 적을지 아이디어와 예시.">
+<style>
+:root{--navy:#183557;--bg:#f5f8fc;--line:#dfe7f0;--muted:#5f7289;--text:#17283d;--c4:#1f8a5c;--c5:#2f6fb3;--c6:#c9781a;--c7:#8354b3;--y:#ffe37a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;line-height:1.6;word-break:keep-all}
+a{color:#2b6cb0}
+.wrap{max-width:1180px;margin:0 auto;padding:18px 16px 70px}
+.back{display:inline-block;font-size:13px;font-weight:700;text-decoration:none;margin-bottom:10px}
+.hero{background:linear-gradient(112deg,#102b48,#193b62 70%,#2b567a);color:#fff;border-radius:18px;padding:24px 26px}
+.hero .eb{font-size:12px;font-weight:800;letter-spacing:.12em;color:#aaceeb}
+.hero h1{margin:6px 0 8px;font-size:clamp(23px,3vw,34px);line-height:1.3;letter-spacing:-.03em}
+.hero p{margin:0;color:#d2e5f8;font-size:15px}
+.hero .due{display:inline-block;margin-top:12px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:99px;padding:4px 12px;font-size:13px}
+.hero .due b{color:var(--y)}
+h2{font-size:20px;margin:34px 0 4px;letter-spacing:-.02em}
+h2 small{font-size:13px;color:var(--muted);font-weight:600;margin-left:6px}
+.lead{color:var(--muted);font-size:14px;margin:0 0 12px}
+mark{background:linear-gradient(180deg,transparent 30%,var(--y) 30%,var(--y) 90%,transparent 90%);color:inherit;padding:0 .1em}
+/* 4~7차 벽돌 */
+.wall{display:flex;flex-direction:column-reverse;gap:6px}
+.row{display:grid;grid-template-columns:150px repeat(3,minmax(0,1fr));gap:6px;opacity:.55}
+.row.on{opacity:1}
+.row:nth-child(2){margin-left:22px}.row:nth-child(3){margin-left:44px}.row:nth-child(4){margin-left:66px}
+.cap{background:var(--navy);color:#fff;border-radius:6px;padding:6px 10px;font-size:12px;line-height:1.35}
+.cap b{display:block;font-size:14px}.cap em{font-style:normal;color:var(--y);font-weight:700}
+.bk{background:#fff;border:1px solid var(--line);border-bottom:4px solid var(--c);border-radius:6px;padding:6px 10px}
+.bk i{font-style:normal;font-size:11px;color:#8a97a8;font-weight:800}
+.bk b{display:block;font-size:14.5px}.bk span{font-size:12px;color:var(--c);font-weight:700}
+.row.on .bk{border-color:var(--c);box-shadow:0 2px 10px rgba(131,84,179,.15)}
+/* 연결 예시 */
+.flow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-top:12px;font-size:13px}
+.flow b{background:#f0ecf7;color:#5a3a85;border-radius:6px;padding:3px 8px}
+.flow .x{color:#9aa7b6}
+/* 세 카드 */
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.card{background:#fff;border:1px solid var(--line);border-top:5px solid var(--c7);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column}
+.card .no{font-size:12px;font-weight:800;color:var(--c7)}
+.card h3{margin:2px 0 6px;font-size:17px;line-height:1.35}
+.card .off{font-size:12px;color:var(--muted);background:#f6f8fb;border-radius:8px;padding:6px 9px;margin:0 0 10px}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
+.chips span{background:#f0ecf7;color:#4d3274;border-radius:6px;padding:3px 9px;font-size:13px;font-weight:700}
+.card .q{margin-top:auto;font-weight:800;font-size:14px;border-left:3px solid var(--c7);padding-left:9px}
+.card.trust{border-top-color:#c9781a}.card.trust .no{color:#c9781a}.card.trust .chips span{background:#fdf1e2;color:#8a5212}.card.trust .q{border-color:#c9781a}
+.warn{background:#fff8ea;border:1px solid #f1ddb4;border-radius:10px;padding:10px 13px;font-size:13.5px;margin-top:12px}
+/* 표 */
+.tw{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:14px}
+th,td{padding:9px 12px;border-bottom:1px solid #e8edf3;text-align:left;vertical-align:top}
+th{background:#eef2f8;font-size:13px;color:#2c4566}
+tr:last-child td{border-bottom:0}
+td.f{white-space:nowrap;font-weight:800;color:var(--c7);font-size:12.5px}
+td.k{font-weight:800;white-space:nowrap}
+td.e{color:#1f6f5c}
+.st{display:inline-block;border-radius:99px;padding:1px 9px;font-size:12px;font-weight:800}
+.st.ok{background:#e4f5ec;color:#1f7a50}.st.plan{background:#fff1dc;color:#9a5d10}.st.out{background:#eceff4;color:#55657a}
+.note{font-size:12.5px;color:var(--muted);margin:8px 2px 0}
+/* 마무리 */
+.final{background:#fff;border:2px solid var(--c7);border-radius:14px;padding:16px 18px}
+.final .chips span{font-size:14px}
+.chain{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;margin:12px 0 4px;font-size:17px;font-weight:900}
+.chain b{background:var(--navy);color:#fff;border-radius:10px;padding:6px 16px}.chain i{font-style:normal;color:#9aa7b6}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.two div{background:#f7f9fc;border:1px solid var(--line);border-radius:10px;padding:11px 13px;font-size:14px}
+.two b{display:block;font-size:15px;margin-bottom:3px}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.links a{background:#fff;border:1px solid #cfdbea;border-radius:99px;padding:6px 13px;font-size:13px;font-weight:700;text-decoration:none}
+.links a:hover{background:#eef4fc}
+@media(max-width:820px){.cards,.two{grid-template-columns:1fr}.row{grid-template-columns:1fr 1fr 1fr;margin-left:0!important}.cap{grid-column:1/-1}}
+@media print{body{background:#fff}.back,.links{display:none}.hero{color:#000;background:#fff;border:1px solid #999}.hero p{color:#333}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="tourism-venture.html#제출회차">← 관광벤처창업론으로</a>
+
+<header class="hero">
+  <div class="eb">관광벤처 사업계획서 · 7차 제출</div>
+  <h1>팀 빌딩 및 역량 — 누가, 어떤 역량으로 이 사업을 실행하는가?</h1>
+  <p>5-1 · 5-2 · 5-3과 [표5]에 <b>무엇을 적으면 좋을지</b> 항목별 아이디어와 예시입니다. 경력을 나열하는 칸이 아니라 <b>「이 사람들이 왜 이 사업을 해낼 수 있는가」</b>를 보여 주는 칸입니다.</p>
+  <span class="due">15주차 · 12/8 보강 주간 수업 → <b>12/13(일) 자정</b> 제출</span>
+</header>
+
+<h2>① 4차~7차 — 하나의 사업을 쌓아 올리는 순서 <small>지금은 맨 위 7차</small></h2>
+<p class="lead">개발 → 홍보 · 판매 → 자금 → 일정 → 성장 → 역량 → 성과. 각 양식이 따로 노는 과제가 아니라 <mark>하나의 관광벤처를 사업화하는 과정</mark>입니다.</p>
+<div class="wall">
+  <div class="row" style="--c:var(--c4)"><div class="cap"><b>4차 · 12주</b>11/17 수업 · <em>11/22(일)</em></div><div class="bk"><i>01</i><b>개발</b><span>양식 3-1</span></div><div class="bk"><i>02</i><b>홍보</b><span>양식 3-2</span></div><div class="bk"><i>03</i><b>판매</b><span>양식 3-2</span></div></div>
+  <div class="row" style="--c:var(--c5)"><div class="cap"><b>5차 · 13주</b>11/24 수업 · <em>11/29(일)</em></div><div class="bk"><i>04</i><b>자금</b><span>3-3 · 표1</span></div><div class="bk"><i>05</i><b>일정</b><span>3-4 · 표2</span></div><div class="bk"><i>06</i><b>실행관리</b><span>3-4 · 표3</span></div></div>
+  <div class="row" style="--c:var(--c6)"><div class="cap"><b>6차 · 14주</b>12/1 수업 · <em>12/6(일)</em></div><div class="bk"><i>07</i><b>성장전략</b><span>양식 3-5 · 표4</span></div><div class="bk"><i>08</i><b>연관성</b><span>양식 4-2</span></div><div class="bk"><i>09</i><b>계획 보완</b><span>양식 4-1</span></div></div>
+  <div class="row on" style="--c:var(--c7)"><div class="cap"><b>7차 · 15주</b>12/8 보강 · <em>12/13(일)</em></div><div class="bk"><i>10</i><b>팀 역량</b><span>5-1~5-3 · 표5</span></div><div class="bk"><i>11</i><b>성과지표</b><span>6-1</span></div><div class="bk"><i>12</i><b>협약목표</b><span>매출 · 고용 · 투자</span></div></div>
+</div>
+<div class="flow"><span>예 · 「로컬투어 상품 출시」라는 활동 하나가</span>
+  <b>3-1 개발 대상</b><span class="x">→</span><b>3-2 판매 상품</b><span class="x">→</span><b>3-3 개발 · 마케팅 비용</b><span class="x">→</span><b>3-4 출시 일정</b><span class="x">→</span><b>3-5 지역 확대</b><span class="x">→</span><b>5장 담당 팀원</b><span class="x">→</span><b>6-1 예약건수 · 매출 KPI</b>
+</div>
+
+<h2>② 5장 세 칸 — 공식 양식 순서대로</h2>
+<p class="lead">회색 상자는 제18회 공식 양식의 작성 안내를 줄인 것입니다. 칩은 그 칸에서 다룰 거리입니다.</p>
+<div class="cards">
+  <article class="card">
+    <span class="no">5-1</span><h3>사업자의 전문성 및 운영 능력</h3>
+    <p class="off">공식 · 대표자의 경험 · 경력 · 전문지식 · 기술역량, 사업화 의지 · 도전정신 · 장애 극복 능력</p>
+    <div class="chips"><span>관련 경험</span><span>전문 역량</span><span>실행 실적</span><span>문제 극복</span><span>창업 의지</span></div>
+    <p class="q">대표자는 왜 이 사업을 잘할 수 있는가?</p>
+  </article>
+  <article class="card trust">
+    <span class="no">5-2</span><h3>팀원과의 신뢰 구축 능력</h3>
+    <p class="off">공식 · 팀빌딩 배경, 조직문화 등 신뢰 구축 능력</p>
+    <div class="chips"><span>팀 결성 배경</span><span>공동 목표</span><span>소통 방식</span><span>갈등 해결</span><span>조직 문화</span></div>
+    <p class="q">이 팀은 어떻게 함께 일하고 신뢰를 유지하는가?</p>
+  </article>
+  <article class="card">
+    <span class="no">5-3</span><h3>인력 및 조직 운영계획</h3>
+    <p class="off">공식 · 경영원칙 · 조직 인력 구성 · 보유역량 활용 및 부족 역량 보완 · 창업준비 계획 · [표5] 팀 구성 현황</p>
+    <div class="chips"><span>역할 분담</span><span>보유 역량</span><span>부족 역량</span><span>인력 확보</span><span>운영 원칙</span></div>
+    <p class="q">누가 무엇을 맡고, 부족한 부분은 어떻게 채우는가?</p>
+  </article>
+</div>
+<p class="warn"><b>자주 틀리는 곳 —</b> 5-2는 「팀원 역량」이 아니라 <mark>팀원과의 신뢰 구축 능력</mark>을 묻습니다. 팀원 이력은 5-3과 [표5]에 쓰고, 5-2에는 <b>왜 함께하게 됐고 어떻게 함께 일하는지</b>를 씁니다.</p>
+
+<h2>③ 항목마다 실제로 쓸 내용</h2>
+<div class="tw"><table>
+  <thead><tr><th>양식</th><th>항목</th><th>작성 아이디어</th><th>작성 예시</th></tr></thead>
+  <tbody>
+    <tr><td class="f">5-1</td><td class="k">관련 경험</td><td>전공 · 활동 · 현장 경험</td><td class="e">지역 축제 운영 참여, 관광상품 기획 경험</td></tr>
+    <tr><td class="f">5-1</td><td class="k">전문 역량</td><td>사업에 필요한 기술 · 지식</td><td class="e">콘텐츠 제작, 고객응대, 서비스 개발</td></tr>
+    <tr><td class="f">5-1</td><td class="k">실행 실적</td><td>실제로 해 본 일과 그 결과</td><td class="e">체험 프로그램 시범 운영, 고객 인터뷰 실시</td></tr>
+    <tr><td class="f">5-2</td><td class="k">팀 결성 배경</td><td>왜 함께하게 되었는가</td><td class="e">관광기획과 디자인 역량을 결합하기 위해 구성</td></tr>
+    <tr><td class="f">5-2</td><td class="k">신뢰 구축</td><td>협업과 갈등 해결 방식</td><td class="e">주간 회의, 업무 공유, 의사결정 기준 설정</td></tr>
+    <tr><td class="f">5-3</td><td class="k">역할 분담</td><td>누가 무엇을 책임지는가</td><td class="e">대표자는 영업, 팀원은 상품기획과 운영</td></tr>
+    <tr><td class="f">5-3</td><td class="k">부족 역량</td><td>지금 팀이 할 수 없는 업무</td><td class="e">플랫폼 개발, 회계 · 법률 전문성 부족</td></tr>
+    <tr><td class="f">5-3</td><td class="k">인력 확보</td><td>채용 · 외주 · 전문가 활용</td><td class="e">출시 전 개발 외주 계약, 매출 확대 시 채용</td></tr>
+    <tr><td class="f">5-3</td><td class="k">운영 원칙</td><td>조직을 계속 굴리는 방식</td><td class="e">업무 책임 명확화, 고객 피드백 정기 공유</td></tr>
+  </tbody>
+</table></div>
+
+<h2>④ [표5] 팀 구성 현황 — 이렇게 채웁니다</h2>
+<p class="lead">원본 양식 칸: 성명 · 직위 · 담당업무 · 보유역량(경력 / 학력 등) · 구성상태. 아래는 가상의 관광체험 창업팀 예시입니다(성명 칸 생략).</p>
+<div class="tw"><table>
+  <thead><tr><th>직위</th><th>담당업무</th><th>보유역량</th><th>구성상태</th></tr></thead>
+  <tbody>
+    <tr><td class="k">대표</td><td>사업기획 · 제휴 · 자금관리</td><td>관광 전공 · 프로젝트 수행 경험</td><td><span class="st ok">완료</span></td></tr>
+    <tr><td class="k">운영 담당</td><td>관광상품 운영 · 고객관리</td><td>현장운영 · 고객응대 경험</td><td><span class="st ok">완료</span></td></tr>
+    <tr><td class="k">마케팅 담당</td><td>SNS 콘텐츠 · 예약 전환</td><td>영상제작 · 디지털마케팅 경험</td><td><span class="st plan">예정</span></td></tr>
+    <tr><td class="k">개발 담당</td><td>예약 시스템 구축 · 관리</td><td>웹 개발 역량</td><td><span class="st out">외주 활용 계획</span></td></tr>
+  </tbody>
+</table></div>
+<p class="note">실제로 쓸 때는 <b>확정된 팀원</b>과 <b>채용 예정 인력</b>을 구분하고, 외주 인력은 내부 팀원으로 오해받지 않도록 따로 표시합니다.</p>
+
+<h2>⑤ 7차를 한 줄로 — 사람 → 역량 → 실행 → 성과</h2>
+<div class="final">
+  <div class="chips" style="justify-content:center"><span>대표자 역량</span><span>팀 신뢰</span><span>역할 분담</span><span>인력 확보</span><span>KPI 달성</span><span>협약목표</span></div>
+  <p style="text-align:center;margin:4px 0 0;font-weight:800">5-1~5-3 · 표5 / 6-1 · 협약목표 — 이 사업을 누가 실행하고, 어떤 성과를 달성할 것인가?</p>
+  <div class="chain"><b>사람</b><i>→</i><b>역량</b><i>→</i><b>실행</b><i>→</i><b>성과</b></div>
+  <div class="two">
+    <div><b>5장 · 팀</b>우리 팀에게 <mark>실행할 능력</mark>이 있는가 — 대표자 · 팀 신뢰 · 인력 운영.</div>
+    <div><b>6-1 · KPI</b>그 능력과 <mark>보유 네트워크 · 파트너십 · 예상 매출처</mark>를 써서 KPI를 어떻게 달성하는가 — 공식 양식이 이 근거를 요구합니다.</div>
+  </div>
+</div>
+
+<h2>⑥ 직접 써 보기</h2>
+<div class="links">
+  <a href="tv-form-wb/5-1.html" target="_blank" rel="noopener">✍ 5-1 워크북 ↗</a>
+  <a href="tv-form-wb/5-2.html" target="_blank" rel="noopener">✍ 5-2 워크북 ↗</a>
+  <a href="tv-form-wb/5-3.html" target="_blank" rel="noopener">✍ 5-3 · [표5] 워크북 ↗</a>
+  <a href="tv-form-wb/6-1.html" target="_blank" rel="noopener">✍ 6-1 KPI 워크북 ↗</a>
+  <a href="tv-team-kpi-7th-guide.html" target="_blank" rel="noopener">7차 인터랙티브 작성 가이드 ↗</a>
+  <a href="tv-business-plan-4th-7th-map.html" target="_blank" rel="noopener">4차~7차 작성지도 ↗</a>
+</div>
+<p class="note">예시는 모두 교육용 가상 사례입니다. 제출할 때는 본인 팀의 사실과 근거로 다시 씁니다.</p>
+</div>
+</body>
+</html>
