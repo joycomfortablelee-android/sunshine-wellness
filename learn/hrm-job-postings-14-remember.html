@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-
 <html lang="ko">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="light" name="color-scheme"/>
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet"/>
-<meta content="인적자원관리 실무교육 통합 HTML: 리멤버 HRM 채용공고 14건, 상세 공고문 5개 기업(디노티시아·팀스파르타·더파운더즈·엔탑자산관리·휴먼컨설팅그룹), 15주 강의계획, 5가지 실습, 예스폼 검색어." name="description"/>
-<title>HRM 인적자원관리 강의자료 | 채용공고 14건 · 상세 공고문 5개 기업 · 15주 강의안</title>
+<meta content="HRM 실제 채용공고 12건 중 상세 8건: 디노티시아, 팀스파르타, 더파운더즈, IT 플랫폼 기업(유니코써치 헤드헌팅), NHN, 엔탑자산관리, 휴먼컨설팅그룹, 아이아이컴바인드. 15주 수업, 5가지 HR 실습, 예스폼 검색어." name="description"/>
+<title>HRM 인적자원관리 강의자료 | 채용공고 12건 · 상세 공고문 8건 · 15주 강의안</title>
 <style>
 :root{--ink:#1d2b40;--navy:#122943;--blue:#27669b;--teal:#168681;--muted:#5e7186;--line:#dce5ed;--pale:#f5f8fb;--white:#fff;--warm:#fff8eb;--shadow:0 12px 34px rgba(25,45,68,.08)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f1f5f8;color:var(--ink);font-family:Arial,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;font-size:15px;line-height:1.77}a{color:var(--blue)}button{font:inherit;cursor:pointer}h1,h2,h3,h4{line-height:1.42;color:var(--navy);letter-spacing:-.035em}h1{font-size:clamp(2rem,4vw,3.1rem);margin:14px 0 13px}h2{font-size:1.55rem;margin:0 0 18px}h3{font-size:1.13rem;margin:28px 0 12px}h4{font-size:1.01rem;margin:14px 0 8px}p{margin:8px 0 13px}strong{color:#102d49}small,.fine{color:var(--muted)}
@@ -36,6 +35,11 @@
 .course-lab{display:grid;grid-template-columns:52px minmax(0,1fr);gap:12px;padding:13px 0;border-bottom:1px solid #e4edf2}.course-lab:last-child{border-bottom:0}.lab-num{width:44px;height:44px;display:grid;place-items:center;background:#e6f1f4;color:#1b6479;border-radius:11px;font-weight:900}
 @media (max-width:760px){.job-facts{grid-template-columns:repeat(2,minmax(0,1fr))}.job-details{grid-template-columns:1fr}.job-head{padding:20px 16px}.job-body{padding:5px 16px 17px}}
 @media print{.job{break-inside:avoid}.job-head{background:#f2f6f7!important}.job-cta{background:white!important;color:#135a70!important;border:1px solid #135a70}}
+
+/* 2026-11-09 case addition: compact cards and clear labels */
+#job-platform .company-mark{background:#e4eef9;color:#244d80}#job-platform .job-head{background:linear-gradient(110deg,#f7faff,#eef5fb)}
+#job-platform .warn{margin:10px 0 12px}#platform-lab .data td,#platform-lab .data th{padding:9px 11px}
+.listing .tiny-deadline[title]{color:#7a4750;background:#fff0f0} .listing-actions a:focus-visible,details summary:focus-visible{outline:3px solid #275c9b;outline-offset:3px}
 </style>
 <style>
 /* Compact job-board refresh — inspired by clean recruitment listings */
@@ -74,7 +78,7 @@ body{font-size:15.4px;line-height:1.57;color:#1e2938}
 @media(max-width:760px){body{font-size:14.5px}.section{padding:13px 12px}.board-section{padding:14px 12px}.listing-name{font-size:14.3px}.listing-meta{font-size:11.6px}.job-body li{font-size:13px}.data{font-size:12.5px}}
 @media print{.job-body{display:block!important} .hcg-compare{break-inside:avoid}}
 </style><style>
-/* Updated 2026-11-09: 14 unique jobs, 5 analyzed companies, compact readable layout */
+/* Updated 2026-11-09: 12 unique jobs, 5 analyzed companies, compact readable layout */
 .board-feature{margin-top:8px;margin-bottom:8px}
 .section,.board-section{scroll-margin-top:18px}
 .sparta-compare{border-left:3px solid #2b7d72}
@@ -85,18 +89,27 @@ body{font-size:15.4px;line-height:1.57;color:#1e2938}
 @media(min-width:1000px){.cards3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}}
 @media(min-width:620px) and (max-width:999px){.cards3{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
 @media(max-width:619px){.cards3{display:grid;grid-template-columns:1fr;gap:8px}}
+</style><style>
+/* 2026-11-09: 12 listings / 7 detailed company cases. Compact & legible. */
+@media (min-width:900px){.cards3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+#enterprise-lab .data td{line-height:1.55}
+.job-body .warn{margin:10px 0;padding:8px 12px}
+.job-tags span{white-space:normal}
+.job-body .actions{margin:9px 0}
+.board-stats span{max-width:100%;line-height:1.4}
+@media (max-width:720px){.cards3{grid-template-columns:1fr}.job-facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style></head>
 <body>
 <div class="top"><div class="wrap"><a class="brand" href="#top"><i>HRM</i> 강의·실습 통합노트</a><div class="top-right"><span class="hide-mobile">실제 공고 · 15주 강의 · HR 실습</span><button onclick="window.print()" type="button">인쇄 / PDF 저장</button></div></div></div>
-<header class="hero" id="top"><div class="wrap"><div class="eyebrow">HRM JOB BOARD  /  TEACHING CASEBOOK</div><h1>채용공고로 배우는 인적자원관리</h1><p>실제 HRM 공고 14건을 비교하고, <strong>5개 기업의 공고문 · 15주 강의안 · 실습 5종</strong>을 한 페이지에서 확인합니다.</p><div class="pills"><span class="pill">HRM 공고 14건</span><span class="pill">공고문 분석 5건</span><span class="pill">15주 강의안</span><span class="pill">실무 실습 5종</span><span class="pill">예스폼 서식 검색</span></div></div></header>
+<header class="hero" id="top"><div class="wrap"><div class="eyebrow">HRM JOB BOARD  /  TEACHING CASEBOOK</div><h1>채용공고로 배우는 인적자원관리</h1><p>실제 HRM 공고 12건을 비교하고, <strong>8건의 상세 공고문 · 15주 강의안 · 실습 5종</strong>을 한 페이지에서 확인합니다.</p><div class="pills"><span class="pill">HRM 공고 12건</span><span class="pill">공고문 분석 8건</span><span class="pill">15주 강의안</span><span class="pill">실무 실습 5종</span><span class="pill">예스폼 서식 검색</span></div></div></header>
 <div class="shell">
-<aside aria-label="목차" class="aside"><div class="tinytitle">목차 · QUICK JUMP</div><a class="nav-feature" href="#vacancies">▦ 채용공고 14건 모아보기</a><a href="#job-postings">▤ 5개 기업 공고문 열람</a><div class="spacerline"></div><a href="#overview">00. 전체 목차</a><a href="#company">01. 기업별 HR 직무 비교</a><a href="#job-postings">01-A. 실제 채용공고 5건</a><a href="#preopening">01-B. 시니어 레지던스 실습</a><a href="#hcg-lab">01-C. HRIS·JaDE 구축 실습</a><a href="#sparta-lab">01-D. 근태·노무·AI 실습</a><a href="#topics">02. 가르칠 10가지</a><a href="#syllabus">03. 15주 강의계획</a><a href="#practices">04. 5가지 실습</a><a href="#analytics">05. HR 데이터·AI</a><a href="#tourism">06. 관광·호텔 분야 적용</a><a href="#assessment">07. 평가·수업비율</a><div class="spacerline"></div><a href="#yesform">08. 예스폼 검색어 표</a><a href="#chips">09. 추천 검색어 10개</a><a href="#categories">10. 예스폼 메뉴별 자료</a><a href="#roadmap">11. 실습 양식 활용 순서</a><a href="#sources">12. 참고·주의사항</a></aside>
+<aside aria-label="목차" class="aside"><div class="tinytitle">목차 · QUICK JUMP</div><a class="nav-feature" href="#vacancies">▦ 채용공고 12건 모아보기</a><a href="#job-postings">▤ 상세 공고문 8건 열람</a><div class="spacerline"></div><a href="#overview">00. 전체 목차</a><a href="#company">01. 기업별 HR 직무 비교</a><a href="#job-postings">01-A. 실제 채용공고 8건</a><a href="#preopening">01-B. 시니어 레지던스 실습</a><a href="#hcg-lab">01-C. HRIS·JaDE 구축 실습</a><a href="#sparta-lab">01-D. 근태·노무·AI 실습</a><a href="#enterprise-lab">01-E. HRIS·데이터 운영 비교 실습</a><a href="#topics">02. 가르칠 10가지</a><a href="#syllabus">03. 15주 강의계획</a><a href="#practices">04. 5가지 실습</a><a href="#analytics">05. HR 데이터·AI</a><a href="#tourism">06. 관광·호텔 분야 적용</a><a href="#assessment">07. 평가·수업비율</a><div class="spacerline"></div><a href="#yesform">08. 예스폼 검색어 표</a><a href="#chips">09. 추천 검색어 10개</a><a href="#categories">10. 예스폼 메뉴별 자료</a><a href="#roadmap">11. 실습 양식 활용 순서</a><a href="#sources">12. 참고·주의사항</a></aside>
 <main class="main">
 <section class="section board-section" id="vacancies">
-<div class="board-heading"><div><div class="eyetitle">RECRUITMENT SNAPSHOT</div><h2>적극 채용 중인 HRM 공고 <span class="board-total">14</span></h2><p>사용자 제공 HRM 공고 13건과 휴먼컨설팅그룹 JaDE 컨설턴트 1건을 합친 목록입니다. 신규 링크 2건은 기존 목록의 공고에 연결했습니다.</p></div><a class="subtle-ghost" href="#job-postings">공고문 5건 자세히 ▸</a></div>
+<div class="board-heading"><div><div class="eyetitle">RECRUITMENT SNAPSHOT</div><h2>HRM 채용공고 사례 모음 <span class="board-total">12</span></h2><p>리멤버 HRM 공고 12건을 강의 사례로 정리했습니다. 그중 8건은 상세 공고문과 실습 과제를 제공합니다. 모집 여부는 원문에서 확인하세요.</p></div><a class="subtle-ghost" href="#job-postings">공고문 8건 자세히 ▸</a></div>
 <div class="board-feature"><div class="feat-icon">HR</div><div><span class="feat-kicker">오늘의 직무 비교</span><strong>HRM 담당자</strong><span>핀다 · 3년~6년 차 · 서울/강남구</span></div><a href="#job-postings">기업별 사례 보기 ▸</a></div>
 <div class="board-controls"><div class="board-search"><span aria-hidden="true">⌕</span><input aria-label="기업명, 직무, 지역으로 채용공고 검색" id="jobSearch" placeholder="기업명 · 직무명 · 지역 검색" type="search"/></div><div aria-label="경력 조건 필터" class="board-filters" role="group"><button aria-pressed="true" class="filter-btn active" data-filter="all" type="button">전체</button><button aria-pressed="false" class="filter-btn" data-filter="entry" type="button">경력 무관</button><button aria-pressed="false" class="filter-btn" data-filter="junior" type="button">1~3년</button><button aria-pressed="false" class="filter-btn" data-filter="mid" type="button">4~6년</button><button aria-pressed="false" class="filter-btn" data-filter="senior" type="button">5년 이상</button></div><label class="sort-wrap">정렬 <select aria-label="공고 정렬" id="sortJobs"><option value="recommended">추천순</option><option value="experience">경력 낮은 순</option><option value="company">회사명순</option></select></label></div>
-<div class="board-stats"><strong id="visibleCount">총 14개 공고</strong><span>원문 확인·상세 분석: 디노티시아 · 팀스파르타 · 더파운더즈 · 엔탑자산관리 · 휴먼컨설팅그룹</span></div>
+<div class="board-stats"><strong id="visibleCount">총 12개 공고</strong><span>상세 분석 8건 · 디노티시아 · 팀스파르타 · 더파운더즈 · IT 플랫폼(기업명 비공개) · NHN · 엔탑자산관리 · 휴먼컨설팅그룹 · 아이아이컴바인드</span></div>
 <div class="listing-wrap" id="jobRows"><article class="listing" data-company="(주)디노티시아" data-order="0" data-search="(주)디노티시아 hrm 인턴 (정규직 전환 연계) 경력 무관 서울/서초구 채용·근태" data-years="0">
 <div class="listing-left"><div class="listing-icon">주</div></div>
 <div class="listing-content"><div class="listing-company">(주)디노티시아 <span class="listing-skill">채용·근태</span></div>
@@ -118,26 +131,26 @@ body{font-size:15.4px;line-height:1.57;color:#1e2938}
 <div class="listing-meta"><span>협의</span><i>·</i><span>1년 이상</span><i>·</i><span>서울/강남구</span></div></div>
 <div class="listing-actions"><a class="inline-link" href="https://career.rememberapp.co.kr/job/posting/327146" rel="noopener noreferrer" target="_blank">원문 보기 ↗</a><a class="mini-link detail-jump" href="#job-founders">공고문 요약 ▾</a></div>
 </article>
-<article class="listing" data-company="[헤드헌팅] 국내 대표 IT 플랫폼 기업" data-order="3" data-search="[헤드헌팅] 국내 대표 it 플랫폼 기업 [it 플랫폼 대표기업] hrm 1년~5년 차 경기/성남시 인사 운영" data-years="1">
+<article class="listing" data-company="[헤드헌팅] 국내 대표 IT 플랫폼 기업" data-order="3" data-search="[헤드헌팅] 국내 대표 it 플랫폼 기업 [it 플랫폼 대표기업] hrm 1년~5년 경기/성남시 인사 운영 평가 보상 인사제도 기획 데이터 시각화 유니코써치 335303" data-years="1">
 <div class="listing-left"><div class="listing-icon">H</div></div>
 <div class="listing-content"><div class="listing-company">[헤드헌팅] 국내 대표 IT 플랫폼 기업 <span class="listing-skill">인사 운영</span></div>
 <div class="listing-name">[IT 플랫폼 대표기업] HRM</div>
-<div class="listing-meta"><span class="tiny-deadline">D-10</span><span>협의</span><i>·</i><span>1년~5년 차</span><i>·</i><span>경기/성남시</span></div></div>
-<div class="listing-actions"></div>
+<div class="listing-meta"><span class="tiny-deadline" title="2026년 11월 2일 마감된 공고 (수업용 사례)">11/02 마감</span><span>협의</span><i>·</i><span>1년~5년 차</span><i>·</i><span>경기/성남시</span></div></div>
+<div class="listing-actions"><a class="inline-link" href="https://career.rememberapp.co.kr/job/posting/335303" rel="noopener noreferrer" target="_blank">원문 보기 ↗</a><a class="mini-link detail-jump" href="#job-platform">공고문 요약 ▾</a></div>
 </article>
-<article class="listing" data-company="엔에이치엔(주)" data-order="4" data-search="엔에이치엔(주) [nhn] hrm 경력 무관 경기/성남시 hrm" data-years="0">
+<article class="listing" data-company="엔에이치엔(주)" data-order="4" data-search="엔에이치엔(주) [nhn] hrm 경력 무관 경기/성남시 hrm 333460 제도 기획·데이터 시각화" data-years="0">
 <div class="listing-left"><div class="listing-icon">엔</div></div>
 <div class="listing-content"><div class="listing-company">엔에이치엔(주) <span class="listing-skill">HRM</span></div>
 <div class="listing-name">[NHN] HRM</div>
 <div class="listing-meta"><span>협의</span><i>·</i><span>경력 무관</span><i>·</i><span>경기/성남시</span></div></div>
-<div class="listing-actions"></div>
+<div class="listing-actions"><a class="inline-link" href="https://career.rememberapp.co.kr/job/posting/333460" rel="noopener noreferrer" target="_blank">원문 보기 ↗</a><a class="mini-link detail-jump" href="#job-nhn">공고문 요약 ▾</a></div>
 </article>
-<article class="listing" data-company="(주)아이아이컴바인드" data-order="5" data-search="(주)아이아이컴바인드 [iicombined] 인사운영(hrm) 담당자 (계약직) 3년~8년 차 서울/성동구 인사 운영" data-years="3">
+<article class="listing" data-company="(주)아이아이컴바인드" data-order="5" data-search="(주)아이아이컴바인드 [iicombined] 인사운영(hrm) 담당자 (계약직) 3년~8년 차 서울/성동구 인사 운영 341194 급여·근태·hris" data-years="3">
 <div class="listing-left"><div class="listing-icon">주</div></div>
 <div class="listing-content"><div class="listing-company">(주)아이아이컴바인드 <span class="listing-skill">인사 운영</span></div>
 <div class="listing-name">[IICOMBINED] 인사운영(HRM) 담당자 (계약직)</div>
 <div class="listing-meta"><span>협의</span><i>·</i><span>3년~8년 차</span><i>·</i><span>서울/성동구</span></div></div>
-<div class="listing-actions"></div>
+<div class="listing-actions"><a class="inline-link" href="https://career.rememberapp.co.kr/job/posting/341194" rel="noopener noreferrer" target="_blank">원문 보기 ↗</a><a class="mini-link detail-jump" href="#job-iic">공고문 요약 ▾</a></div>
 </article>
 <article class="listing" data-company="(주)키다리스튜디오" data-order="6" data-search="(주)키다리스튜디오 hrm(급여) 2년~8년 차 서울/성동구 급여" data-years="2">
 <div class="listing-left"><div class="listing-icon">주</div></div>
@@ -146,56 +159,42 @@ body{font-size:15.4px;line-height:1.57;color:#1e2938}
 <div class="listing-meta"><span class="tiny-deadline">D-4</span><span>협의</span><i>·</i><span>2년~8년 차</span><i>·</i><span>서울/성동구</span></div></div>
 <div class="listing-actions"></div>
 </article>
-<article class="listing" data-company="쿠팡(주)" data-order="7" data-search="쿠팡(주) [쿠팡] sr. hrm specialist (eats) 7년~12년 차 서울/강남구 hrm" data-years="7">
-<div class="listing-left"><div class="listing-icon">쿠</div></div>
-<div class="listing-content"><div class="listing-company">쿠팡(주) <span class="listing-skill">HRM</span></div>
-<div class="listing-name">[쿠팡] Sr. HRM Specialist (Eats)</div>
-<div class="listing-meta"><span>협의</span><i>·</i><span>7년~12년 차</span><i>·</i><span>서울/강남구</span></div></div>
-<div class="listing-actions"></div>
-</article>
-<article class="listing" data-company="쿠팡(주)" data-order="8" data-search="쿠팡(주) [쿠팡] senior hrm specialist 5년 이상 서울/광진구 hrm" data-years="5">
-<div class="listing-left"><div class="listing-icon">쿠</div></div>
-<div class="listing-content"><div class="listing-company">쿠팡(주) <span class="listing-skill">HRM</span></div>
-<div class="listing-name">[쿠팡] Senior HRM Specialist</div>
-<div class="listing-meta"><span>협의</span><i>·</i><span>5년 이상</span><i>·</i><span>서울/광진구</span></div></div>
-<div class="listing-actions"></div>
-</article>
-<article class="listing" data-company="(주)슈프리마" data-order="9" data-search="(주)슈프리마 [슈프리마hq] hrm 담당자 5년~10년 차 경기/성남시 hrm" data-years="5">
+<article class="listing" data-company="(주)슈프리마" data-order="7" data-search="(주)슈프리마 [슈프리마hq] hrm 담당자 5년~10년 차 경기/성남시 hrm" data-years="5">
 <div class="listing-left"><div class="listing-icon">주</div></div>
 <div class="listing-content"><div class="listing-company">(주)슈프리마 <span class="listing-skill">HRM</span></div>
 <div class="listing-name">[슈프리마HQ] HRM 담당자</div>
 <div class="listing-meta"><span>협의</span><i>·</i><span>5년~10년 차</span><i>·</i><span>경기/성남시</span></div></div>
 <div class="listing-actions"></div>
 </article>
-<article class="listing" data-company="(주)핀다" data-order="10" data-search="(주)핀다 hrm 담당자 3년~6년 차 서울/강남구 hrm" data-years="3">
+<article class="listing" data-company="(주)핀다" data-order="8" data-search="(주)핀다 hrm 담당자 3년~6년 차 서울/강남구 hrm" data-years="3">
 <div class="listing-left"><div class="listing-icon">주</div></div>
 <div class="listing-content"><div class="listing-company">(주)핀다 <span class="listing-skill">HRM</span></div>
 <div class="listing-name">HRM 담당자</div>
 <div class="listing-meta"><span>협의</span><i>·</i><span>3년~6년 차</span><i>·</i><span>서울/강남구</span></div></div>
 <div class="listing-actions"></div>
 </article>
-<article class="listing" data-company="[헤드헌팅] 국내 중견 그룹사" data-order="11" data-search="[헤드헌팅] 국내 중견 그룹사 hrm 대리-과장급 5년~10년 차 경기/성남시 hrm" data-years="5">
+<article class="listing" data-company="[헤드헌팅] 국내 중견 그룹사" data-order="9" data-search="[헤드헌팅] 국내 중견 그룹사 hrm 대리-과장급 5년~10년 차 경기/성남시 hrm" data-years="5">
 <div class="listing-left"><div class="listing-icon">H</div></div>
 <div class="listing-content"><div class="listing-company">[헤드헌팅] 국내 중견 그룹사 <span class="listing-skill">HRM</span></div>
 <div class="listing-name">HRM 대리-과장급</div>
 <div class="listing-meta"><span>협의</span><i>·</i><span>5년~10년 차</span><i>·</i><span>경기/성남시</span></div></div>
 <div class="listing-actions"></div>
 </article>
-<article class="listing" data-company="[헤드헌팅] 글로벌 백신 대기업" data-order="12" data-search="[헤드헌팅] 글로벌 백신 대기업 [바이오 대기업] hrm 5년~11년 차 인천/연수구 hrm" data-years="5">
+<article class="listing" data-company="[헤드헌팅] 글로벌 백신 대기업" data-order="10" data-search="[헤드헌팅] 글로벌 백신 대기업 [바이오 대기업] hrm 5년~11년 차 인천/연수구 hrm" data-years="5">
 <div class="listing-left"><div class="listing-icon">H</div></div>
 <div class="listing-content"><div class="listing-company">[헤드헌팅] 글로벌 백신 대기업 <span class="listing-skill">HRM</span></div>
 <div class="listing-name">[바이오 대기업] HRM</div>
 <div class="listing-meta"><span>협의</span><i>·</i><span>5년~11년 차</span><i>·</i><span>인천/연수구</span></div></div>
 <div class="listing-actions"></div>
-</article><article class="listing" data-company="(주)휴먼컨설팅그룹" data-order="13" data-search="(주)휴먼컨설팅그룹 hcg e-hr 시스템 jade 제이드 구현 컨설턴트 4년~6년 차 성남 분당구 판교 hrm erp 급여 근태 평가 인사 데이터 이관" data-years="4"><div class="listing-left"><div class="listing-icon">H</div></div><div class="listing-content"><div class="listing-company">(주)휴먼컨설팅그룹 <span class="listing-skill">HRIS · ERP 구축</span></div><div class="listing-name">e-HR 시스템(JaDE) 구현 컨설턴트</div><div class="listing-meta"><span>협의</span><i>·</i><span>4년~6년 차</span><i>·</i><span>경기/성남시 분당구</span><i>·</i><span>채용 시 마감</span></div></div><div class="listing-actions"><a class="inline-link" href="https://career.rememberapp.co.kr/job/posting/321841" rel="noopener noreferrer" target="_blank">원문 보기 ↗</a><a class="mini-link detail-jump" href="#job-hcg">공고문 요약 ▾</a></div></article></div>
+</article><article class="listing" data-company="(주)휴먼컨설팅그룹" data-order="11" data-search="(주)휴먼컨설팅그룹 hcg e-hr 시스템 jade 제이드 구현 컨설턴트 4년~6년 차 성남 분당구 판교 hrm erp 급여 근태 평가 인사 데이터 이관" data-years="4"><div class="listing-left"><div class="listing-icon">H</div></div><div class="listing-content"><div class="listing-company">(주)휴먼컨설팅그룹 <span class="listing-skill">HRIS · ERP 구축</span></div><div class="listing-name">e-HR 시스템(JaDE) 구현 컨설턴트</div><div class="listing-meta"><span>협의</span><i>·</i><span>4년~6년 차</span><i>·</i><span>경기/성남시 분당구</span><i>·</i><span>채용 시 마감</span></div></div><div class="listing-actions"><a class="inline-link" href="https://career.rememberapp.co.kr/job/posting/321841" rel="noopener noreferrer" target="_blank">원문 보기 ↗</a><a class="mini-link detail-jump" href="#job-hcg">공고문 요약 ▾</a></div></article></div>
 <div class="board-empty" hidden="" id="boardEmpty">조건에 해당하는 공고가 없습니다. 검색어를 바꿔 보세요.</div>
-<div class="board-footer">※ 공고 14개는 서로 다른 채용 직무이며, 링크가 추가된 팀스파르타·더파운더즈는 중복 등록하지 않았습니다. 상세 공고문은 5개 기업 사례이며, 채용 조건은 변경될 수 있습니다.</div>
+<div class="board-footer">※ 공고 12개는 중복 없이 구성했습니다. 아이아이컴바인드(341194), NHN(333460)은 기존 목록에 원문·상세분석 링크를 추가했습니다. 채용 조건은 변경될 수 있습니다.</div>
 </section>
-<section class="section" id="overview"><div class="section-heading"><span class="num">00</span><div><h2>통합자료 한눈에 보기</h2><p>앞선 교육 설계·예스폼 자료 안내와 실제 채용공고 5건을 함께 수록</p></div></div>
+<section class="section" id="overview"><div class="section-heading"><span class="num">00</span><div><h2>통합자료 한눈에 보기</h2><p>앞선 교육 설계·예스폼 자료 안내와 실제 채용공고 상세 사례 8건을 함께 수록</p></div></div>
 <p class="lead">추천 수업의 기본 방향은 <strong>“인적자원관리 이론을 배우고, 기업 인사담당자의 업무를 직접 수행해 보는 강의”</strong>입니다.</p>
-<div class="indexbox"><a href="#vacancies"><span>PART A</span>채용공고 14건 → 기업 공고문 5건</a><a href="#syllabus"><span>PART B</span>10대 교육 주제 → 15주 강의</a><a href="#practices"><span>PART C</span>5가지 실습 → 산출물 만들기</a><a href="#yesform"><span>PART D</span>예스폼 검색어 → 실습 양식 찾기</a></div>
+<div class="indexbox"><a href="#vacancies"><span>PART A</span>채용공고 12건 → 상세 공고문 8건</a><a href="#syllabus"><span>PART B</span>10대 교육 주제 → 15주 강의</a><a href="#practices"><span>PART C</span>5가지 실습 → 산출물 만들기</a><a href="#yesform"><span>PART D</span>예스폼 검색어 → 실습 양식 찾기</a></div>
 <div class="note"><strong>수업 운영 원칙:</strong> HR 실무를 직접 체험하되 직무분석·채용·평가·보상·교육훈련 등 인적자원관리의 이론적 기반을 함께 가르칩니다.</div></section>
-<section class="section" id="company"><div class="section-heading"><span class="num">01</span><div><h2>다섯 기업이 요구하는 실무 역량 비교</h2><p>제시된 리멤버 채용공고의 담당 업무와 자격요건에 근거한 비교</p></div></div>
+<section class="section" id="company"><div class="section-heading"><span class="num">01</span><div><h2>8개 채용공고가 요구하는 실무 역량 비교</h2><p>제시된 리멤버 채용공고의 담당 업무와 자격요건에 근거한 비교</p></div></div>
 <div class="cards3"><article class="card"><div class="hint">디노티시아 · HRM 인턴 (정규직 전환 연계)</div><h3>인사 운영 실무</h3><p>신입·인턴 진입 단계 · 경력 무관</p><ul><li>면접 일정 조율 및 면접 운영</li><li>면접관·지원자 커뮤니케이션</li><li>채용 현황 데이터 분석</li><li>근태·휴가·휴직 제도 운영</li><li>기타 인사운영 지원</li></ul></article>
 <article class="card sparta-compare">
 <div class="hint">팀스파르타 · HRM Manager</div>
@@ -210,14 +209,30 @@ body{font-size:15.4px;line-height:1.57;color:#1e2938}
 </ul>
 <p class="fine"><a href="https://career.rememberapp.co.kr/job/posting/319655" rel="noopener noreferrer" target="_blank">리멤버 319655 원문 ↗</a></p>
 </article>
-<article class="card"><div class="hint">더파운더즈 · HRM Ops 매니저</div><h3>인사 시스템·제도 설계</h3><p>1년 이상 경력 · HR 운영의 체계화</p><ul><li>온보딩·오프보딩·계약·급여 관리</li><li>근태 데이터 정책 수립 및 이슈 대응</li><li>Flex·ERP 시스템 운영 및 고도화</li><li>인사 DB·조직도·R&amp;R 관리</li><li>인사정책·업무매뉴얼·프로세스 개선</li></ul></article><article class="card"><div class="hint">엔탑자산관리 · 시니어 레지던스 운영기획</div><h3>조직·서비스·사업 운영 통합</h3><p>10년 이상 · 운영 총괄·개관 준비</p><ul><li>입주자 중심 서비스 운영전략</li><li>운영조직·인력구성 및 SOP 설계</li><li>개관 전 채용·교육·시범운영</li><li>입주율·매출·운영비·손익(P&amp;L) 관리</li><li>헬스케어·F&amp;B·컨시어지 파트너 관리</li></ul></article><article class="card hcg-compare"><div class="fine">휴먼컨설팅그룹 · e-HR 시스템(JaDE) 구현 컨설턴트</div><h3>HRIS 구축·데이터 이관 컨설팅</h3><p>4년~6년 차 · 급여·근태·평가 실무 기반의 HR 시스템 컨설팅</p><ul><li>고객사 HR 업무분석 및 요구사항 정의</li><li>근태·급여·평가 규칙의 시스템 설정</li><li>인사 데이터 이관 및 품질 검증</li><li>시스템 테스트 및 사용자 교육</li><li>개선 요구사항 도출·AI 업무 활용</li></ul></article></div>
+<article class="card"><div class="hint">더파운더즈 · HRM Ops 매니저</div><h3>인사 시스템·제도 설계</h3><p>1년 이상 경력 · HR 운영의 체계화</p><ul><li>온보딩·오프보딩·계약·급여 관리</li><li>근태 데이터 정책 수립 및 이슈 대응</li><li>Flex·ERP 시스템 운영 및 고도화</li><li>인사 DB·조직도·R&amp;R 관리</li><li>인사정책·업무매뉴얼·프로세스 개선</li></ul></article><article class="card"><div class="hint">[헤드헌팅] IT 플랫폼 대표기업 · HRM (공고 335303)</div><h3>인사제도 운영·C&amp;B·데이터 시각화</h3><p>경력 1~5년 · 고용기업명 비공개 · 유니코써치 중개</p><ul>
+<li>그룹 법인 HR 운영과 인사제도 개선</li><li>입사부터 퇴사까지 직원 생애주기 관리</li><li>근태·평가·보상·인사발령 등 HRM</li><li>제도 기획 경험, 데이터 분석·시각화 역량</li><li>커뮤니케이션·정확한 업무 처리</li></ul>
+<p class="fine"><strong>2026-11-02 마감 (현재 모집 사례 아님)</strong> · <a href="https://career.rememberapp.co.kr/job/posting/335303" rel="noopener noreferrer" target="_blank">리멤버 335303 원문 ↗</a></p></article><article class="card"><div class="hint">엔탑자산관리 · 시니어 레지던스 운영기획</div><h3>조직·서비스·사업 운영 통합</h3><p>10년 이상 · 운영 총괄·개관 준비</p><ul><li>입주자 중심 서비스 운영전략</li><li>운영조직·인력구성 및 SOP 설계</li><li>개관 전 채용·교육·시범운영</li><li>입주율·매출·운영비·손익(P&amp;L) 관리</li><li>헬스케어·F&amp;B·컨시어지 파트너 관리</li></ul></article><article class="card hcg-compare"><div class="fine">휴먼컨설팅그룹 · e-HR 시스템(JaDE) 구현 컨설턴트</div><h3>HRIS 구축·데이터 이관 컨설팅</h3><p>4년~6년 차 · 급여·근태·평가 실무 기반의 HR 시스템 컨설팅</p><ul><li>고객사 HR 업무분석 및 요구사항 정의</li><li>근태·급여·평가 규칙의 시스템 설정</li><li>인사 데이터 이관 및 품질 검증</li><li>시스템 테스트 및 사용자 교육</li><li>개선 요구사항 도출·AI 업무 활용</li></ul></article>
+<article class="card" style="border-left:3px solid #266f98">
+<div class="hint">아이아이컴바인드 · 인사운영(HRM) 담당자 · 계약직</div>
+<h3>급여·근태 운영과 HRIS 기반 업무 개선</h3>
+<p>공고상 경력 3~8년 · 1년 계약(육아휴직 대체)</p>
+<ul><li>입사부터 퇴사까지 Employee Lifecycle 관리</li><li>급여·4대 보험·근태·복리후생 운영</li><li>SAP SuccessFactors·Shiftee 활용</li><li>업무상 오류·반복 절차의 개선 및 자동화</li><li>사업·조직의 요구를 이해하는 HRBP 성장역량</li></ul>
+<p class="fine"><a href="https://career.rememberapp.co.kr/job/posting/341194" rel="noopener noreferrer" target="_blank">리멤버 341194 원문 ↗</a></p>
+</article>
+<article class="card" style="border-left:3px solid #266f98">
+<div class="hint">NHN · HRM</div>
+<h3>그룹사 인사제도 기획·인사 데이터 시각화</h3>
+<p>공고 내용상 5년 이하 경력 · 모집 화면은 '경력 무관' 표기</p>
+<ul><li>그룹 내 주요 법인 인사제도 운영·개선</li><li>입사부터 퇴사까지의 인사 라이프사이클</li><li>근태·평가·보상·인사발령 등 제도 운영</li><li>인사 데이터를 시각화하고 근거 기반 개선 제안</li><li>인사제도 기획·운영 경험을 포트폴리오로 제시</li></ul>
+<p class="fine"><a href="https://career.rememberapp.co.kr/job/posting/333460" rel="noopener noreferrer" target="_blank">리멤버 333460 원문 ↗</a></p>
+</article></div>
 <div class="compare-arrow">신입: HR 운영 실행 → 경력: HR 제도·시스템 설계 → 책임자: 개관·조직·손익 통합 관리</div>
 <p>HR 담당자는 사람을 채용하는 데 그치지 않습니다. <strong>채용 → 입사 → 근태·급여 → 평가 → 보상·육성 → 퇴사</strong>에 걸친 직원의 전 과정을 관리하고 이를 데이터와 시스템으로 효율적으로 운영합니다.</p>
 <div aria-label="인사관리 전 과정" class="flowbar"><span>채용</span><b>›</b><span>입사·온보딩</span><b>›</b><span>근태·급여</span><b>›</b><span>평가</span><b>›</b><span>보상·육성</span><b>›</b><span>퇴사</span></div>
 <p class="fine">디노티시아는 HR 운영의 기초, 더파운더즈는 제도·시스템 구축, 엔탑자산관리는 인력과 서비스·운영예산을 통합하는 책임자 직무로 비교할 수 있습니다. 기존 세 공고와 HCG 공고의 조건은 2026년 11월 9일 확인한 리멤버 게시내용을 기준으로 하며 변경될 수 있습니다.</p></section>
-<section class="section" id="job-postings"><div class="section-heading"><span class="num">01-A</span><div><h2>실제 채용공고 5건 · 공고문 형식</h2><p>5개 기업 공고문을 접었다 펼칠 수 있습니다 · 원문 링크와 수업 실습 연계 포함</p></div></div>
+<section class="section" id="job-postings"><div class="section-heading"><span class="num">01-A</span><div><h2>실제 채용공고 8건 · 공고문 형식</h2><p>8개 상세 공고문을 접었다 펼칠 수 있습니다 · 원문 링크와 수업 실습 연계 포함</p></div></div>
 <p class="lead">아래 자료는 각 공고의 <strong>공고소개 → 주요업무 → 자격요건 → 우대사항 → 채용절차 → 기타안내</strong> 순서를 그대로 따라갑니다. 수업에서는 학생들에게 공고별로 요구되는 역량과 제출할 실무 산출물을 찾아보게 하세요.</p>
-<div class="warn"><strong>자료 확인 기준: 2026.11.09.</strong> 채용공고는 수정·조기마감될 수 있습니다. 본 HTML의 공고문은 학생 실습용 구조화 요약이며, 실제 지원 전에는 반드시 아래 원문 링크로 확인하세요. <strong>디노티시아 공고</strong>는 제목이 'HRM 인턴'인데 본문 소개 일부는 'HR 시니어 매니저'를 지칭하는 불일치가 확인됩니다.</div>
+<div class="warn"><strong>자료 확인 기준: 2026.11.09.</strong> 채용공고는 수정·조기마감될 수 있습니다. 본 HTML의 공고문은 학생 실습용 구조화 요약이며, 실제 지원 전에는 반드시 아래 원문 링크로 확인하세요. <strong>디노티시아 공고</strong>는 제목이 'HRM 인턴'인데 본문 소개 일부는 'HR 시니어 매니저'를 지칭하는 불일치가 확인됩니다. <strong>추가 주의:</strong> 335303번 IT 플랫폼 채용공고는 2026-11-02 마감 표기로 확인되어 과거 공고 사례로만 사용합니다.</div>
 <div class="job-list">
 <details class="job" id="job-dino"><summary class="job-head"><div class="job-company"><div class="company-mark">D</div><div><strong>(주)디노티시아</strong><div class="fine">AI·반도체 기술 스타트업 · 채용공고 353213</div></div></div><h3>HRM 인턴 (정규직 전환 연계)</h3><span class="expand-hint">공고문 펼치기 ⌄</span><div class="job-tags"><span>HR Operations</span><span>채용 프로세스</span><span>근태·휴가</span><span>채용 데이터</span></div><div class="job-facts"><div class="job-fact"><small>근무지</small><b>서울 서초구</b></div><div class="job-fact"><small>경력·학력</small><b>경력 무관 · 학사 이상</b></div><div class="job-fact"><small>급여</small><b>협의</b></div><div class="job-fact"><small>마감일</small><b>2026.11.15</b></div></div></summary>
 <div class="job-body"><h4>공고소개</h4><p>자체 반도체와 벡터 데이터베이스, AI 모델 기술을 개발하는 기업의 HR 운영 직무입니다. 공고상 인턴 포지션이지만 소개문 일부에 시니어 매니저가 언급되어 있어 직무 소개를 읽을 때 구분이 필요합니다.</p>
@@ -226,7 +241,6 @@ body{font-size:15.4px;line-height:1.57;color:#1e2938}
 <h4>기타안내 · 복리후생</h4><p>업무 장비·도서·AI 도구 구독, 영어 학습 지원, 중식·야근식대, 간식, 유연·재택근무, 건강검진, 경조 지원, 리프레시 휴가 등이 안내되어 있습니다. 세부 조건은 공고 원문을 확인하세요.</p>
 <a class="job-cta" href="https://career.rememberapp.co.kr/job/posting/353213" rel="noopener noreferrer" target="_blank">리멤버 원문 공고 보기 ↗</a>
 <div class="job-study"><h4>교수자 실습 연결 · 신입 HR 담당자의 하루</h4><p><strong>문제:</strong> 면접을 앞둔 지원자가 20명이고 면접관은 4명입니다. 중복 없이 일정을 작성하고 모든 지원자에게 안내해야 합니다.</p><p><strong>산출물:</strong> 채용계획서 · 면접평가표 · 면접 일정표 · 안내 이메일 · 채용현황표</p></div></div></details>
-
 <details class="job" id="job-sparta">
 <summary class="job-head">
 <div class="job-company"><div class="company-mark">S</div><div><strong>팀스파르타(주)</strong><div class="fine">IT 교육·서비스 기업 · 리멤버 공고 319655</div></div></div>
@@ -280,7 +294,22 @@ body{font-size:15.4px;line-height:1.57;color:#1e2938}
 <p class="fine">필수 지원서류: 이력서·경력기술서 / 선택: 포트폴리오. 필요시 추가자료·과제·언어 면접을 요청할 수 있습니다.</p>
 <h4>기타안내 · 복리후생</h4><p>도서·강의, 식사·간식, 건강검진, 일부 의료비·운동비 지원, 생일·경조 관련 제도, 버디 제도, 1시간 단위 연차 사용, 야근 식대·택시비 등이 안내됩니다. 수시채용으로 조기 마감될 수 있습니다.</p>
 <a class="job-cta" href="https://career.rememberapp.co.kr/job/posting/327146" rel="noopener noreferrer" target="_blank">리멤버 원문 공고 보기 ↗</a>
-<div class="job-study"><h4>교수자 실습 연결 · HR Ops 프로세스 개선</h4><p><strong>문제:</strong> 가상의 회사에서 직원 인사정보의 누락과 근태 데이터 오류가 반복 발생합니다.</p><p><strong>산출물:</strong> 인사 DB 설계 · 데이터 검증 규칙 · 온보딩 체크리스트 · 인사운영 SOP · 개선안</p></div></div></details>
+<div class="job-study"><h4>교수자 실습 연결 · HR Ops 프로세스 개선</h4><p><strong>문제:</strong> 가상의 회사에서 직원 인사정보의 누락과 근태 데이터 오류가 반복 발생합니다.</p><p><strong>산출물:</strong> 인사 DB 설계 · 데이터 검증 규칙 · 온보딩 체크리스트 · 인사운영 SOP · 개선안</p></div></div></details><details class="job" id="job-platform">
+<summary class="job-head"><div class="job-company"><div class="company-mark">IT</div><div><strong>[헤드헌팅] 국내 대표 IT 플랫폼 기업 (기업명 비공개)</strong><div class="fine">공고 게재: (주)유니코써치 · 리멤버 335303 · 2026-11-02 마감</div></div></div>
+<h3>[IT 플랫폼 대표기업] HRM</h3><span class="expand-hint">공고문 펼치기 ⌄</span>
+<div class="job-tags"><span>HRM</span><span>Payroll / C&amp;B</span><span>근태·평가·보상</span><span>인사제도 기획</span><span>데이터 분석·시각화</span></div>
+<div class="job-facts"><div class="job-fact"><small>근무지</small><b>경기도 성남시 분당구</b></div><div class="job-fact"><small>경력·학력</small><b>경력 1~5년 · 학사 이상</b></div><div class="job-fact"><small>연봉</small><b>협의</b></div><div class="job-fact"><small>마감일</small><b>2026-11-02 (마감)</b></div></div></summary>
+<div class="job-body">
+<div class="warn"><strong>자료 구분:</strong> 2026년 11월 9일 기준 표시된 마감일은 이미 지났습니다. 실시간 채용 중인 공고로 소개하지 않고 교육 사례로만 활용합니다. 유니코써치는 채용 대행사이며 실제 채용 기업명은 공개되지 않았습니다.</div>
+<h4>공고소개</h4><p>국내 대표 IT 플랫폼 기업의 HRM 담당자로, 인사 운영과 C&amp;B(보상관리)를 경험하며 HRM 전문성을 키우는 포지션으로 안내합니다.</p>
+<div class="job-details"><section><h4>주요업무</h4><ul><li>그룹 주요 법인 인사 운영과 제도 개선</li><li>입사부터 퇴사까지 직원 생애주기 전반의 HR 운영</li><li>근태, 평가, 보상, 조직 개편 및 인사발령 등의 HRM 업무 중 일부</li></ul></section>
+<section><h4>자격요건</h4><ul><li>인사 관련 경력 5년 이하 (목록상 경력 1~5년)</li><li>다양한 인사제도에 대한 기획 경험</li><li>데이터 분석 및 시각화 역량</li></ul><h4>우대사항</h4><ul><li>인사제도를 깊이 있게 검토하고 설계한 경험</li><li>원활한 커뮤니케이션</li><li>꼼꼼하고 정확한 업무 처리</li></ul></section></div>
+<h4>채용절차</h4><div class="flowbar"><span>서류전형</span><b>›</b><span>1차 면접</span><b>›</b><span>2차 면접</span><b>›</b><span>최종합격</span></div>
+<h4>기타안내</h4><p><strong>공고 형태:</strong> 헤드헌팅 · <strong>중개사:</strong> (주)유니코써치 · <strong>근무지:</strong> 경기 성남시 분당구 · <strong>연봉:</strong> 협의. 원문에 확인되지 않는 복리후생·세부 채용기업 정보는 기재하지 않습니다.</p>
+<div class="actions"><a class="job-cta" href="https://career.rememberapp.co.kr/job/posting/335303" rel="noopener noreferrer" target="_blank">리멤버 원문 공고 보기 ↗</a></div>
+<div class="job-study"><h4>교수자 실습 연결 · 그룹사 HRM 제도 개선과 데이터 분석</h4><p><strong>가상 상황:</strong> 계열 법인 A·B·C의 근태·인사발령·성과평가 데이터 항목이 달라 비교 보고가 어렵습니다. 학생이 지표의 정의를 통일하고, 평가 완료율·근태 이상률·인사발령 처리기간을 시각화하여 제도 개선안을 작성합니다.</p>
+<p><strong>산출물:</strong> HRM 업무흐름도 · KPI 정의서 · 그룹사 비교 대시보드 · 인사제도 개선 제안서(1쪽).</p><p><strong>핵심 질문:</strong> HR 운영 실무 경험을 바탕으로 HR 정책기획 역량을 어떻게 입증할 것인가?</p></div>
+</div></details>
 <details class="job" id="job-ntop"><summary class="job-head"><div class="job-company"><div class="company-mark n">N</div><div><strong>엔탑자산관리(주)</strong><div class="fine">넷마블 계열사로 공고에 소개 · 채용공고 343609</div></div></div><h3>[넷마블 계열사] 시니어 레지던스 운영기획</h3><span class="expand-hint">공고문 펼치기 ⌄</span><div class="job-tags"><span>Senior Residence</span><span>Pre-opening</span><span>운영조직·SOP</span><span>P&amp;L·KPI</span><span>헬스케어·컨시어지</span></div><div class="job-facts"><div class="job-fact"><small>근무지</small><b>경기 과천시</b></div><div class="job-fact"><small>경력·학력</small><b>10년 이상 · 학사 이상</b></div><div class="job-fact"><small>직급·연봉 표기</small><b>차·부장 / 5천만~1억원</b></div><div class="job-fact"><small>마감</small><b>채용 시 마감</b></div></div></summary>
 <div class="job-body"><h4>공고소개</h4><p>시니어 레지던스의 개발 단계에서 시작해 운영 철학, 주거·생활 서비스, 헬스케어 연계, 식음(F&amp;B), 조직 설계, 사업 운영 및 개관 준비까지 연결하는 기획직입니다. 일반적인 HR 담당직과 달리 조직관리·고객경험·사업손익을 함께 책임지는 <strong>운영 책임자 수준</strong>의 역할입니다.</p>
 <div class="job-details"><section><h4>주요업무 ① 운영전략·서비스 기획</h4><ul><li>운영전략 및 연간 사업 운영계획 수립</li><li>입주자별 생활·커뮤니티 서비스 설계</li><li>조직·인력 구성 및 표준운영절차(SOP) 수립</li><li>운영품질과 고객만족도 관리체계 정립</li></ul><h4>주요업무 ② Pre-opening</h4><ul><li>개관 준비 마스터플랜과 일정 총괄</li><li>채용·교육 및 부문별 준비사항 관리</li><li>시설·시스템 사전점검과 시범운영</li><li>개관 초기 안정화 및 개선과제 관리</li></ul></section><section><h4>주요업무 ③ 운영 성과관리</h4><ul><li>사업계획·예산·손익(P&amp;L) 관리</li><li>입주율·매출·운영비 등 KPI 설계·모니터링</li><li>시설·식음·헬스케어·컨시어지 협력사 관리</li><li>운영 리스크 점검과 서비스 개선</li></ul><h4>자격요건·우대사항</h4><ul><li>관련 경력 10년 이상</li><li>시니어 레지던스·실버타운, 고급호텔·럭셔리 레지던스 또는 대형병원 서비스 경력</li><li>상경·호텔경영·보건행정·사회복지·간호 등 전공 우대</li><li>사회복지사 등 관련 자격·실질 운영기획 경험 우대</li></ul></section></div>
@@ -288,7 +317,56 @@ body{font-size:15.4px;line-height:1.57;color:#1e2938}
 <h4>기타안내 · 근무조건</h4><p>정규직(수습 6개월), 월~금 08:00~17:00·주 40시간. 게시화면에는 연봉 5,000만~1억원으로 표시되지만 상세 소개는 경력에 따른 처우 협의라고 기재합니다. 식대, 단체상해보험·건강검진, 야근 교통비, 경조·명절 지원, 직원 복지시설 및 제휴 혜택 등이 안내됩니다.</p>
 <a class="job-cta" href="https://career.rememberapp.co.kr/job/posting/343609" rel="noopener noreferrer" target="_blank">리멤버 원문 공고 보기 ↗</a>
 <div class="job-study"><h4>교수자 실습 연결 · 시니어 레지던스 개관 인력계획</h4><p><strong>문제:</strong> 120실 규모의 가상 프리미엄 시니어 레지던스를 개관한다고 가정합니다. 프런트·컨시어지·F&amp;B·시설·헬스케어 관련 조직을 어떻게 구성할까요?</p><p><strong>산출물:</strong> 조직도 · 필요인력 산정표 · 채용·교육 일정 · 서비스 SOP · 개관 체크리스트 · 운영 KPI</p><p class="fine">120실은 수업을 위해 설정한 가정이며 실제 엔탑자산관리 사업 규모와 무관합니다.</p></div></div></details>
-<details class="job" id="job-hcg"><summary class="job-head"><div class="job-company"><div class="company-mark">H</div><div><strong>(주)휴먼컨설팅그룹 (HCG)</strong><div class="fine">e-HR 소프트웨어·컨설팅 · 리멤버 공고 321841</div></div></div><h3>e-HR 시스템(JaDE) 구현 컨설턴트</h3><span class="expand-hint">공고문 펼치기 ⌄</span><div class="job-tags"><span>HRIS·ERP</span><span>업무 요구사항 분석</span><span>데이터 이관</span><span>사용자 교육</span><span>AI 활용</span></div><div class="job-facts"><div class="job-fact"><small>근무지</small><b>경기 성남시 분당구</b></div><div class="job-fact"><small>경력·학력</small><b>4~6년 차 · 학력 무관</b></div><div class="job-fact"><small>급여</small><b>협의</b></div><div class="job-fact"><small>마감일</small><b>채용 시 마감</b></div></div></summary><div class="job-body"><h4>공고소개</h4><p>HCG JaDE 사업본부는 조직·인사·근태·급여·세무·연말정산·교육·평가 등 인사업무 전반을 포괄하는 <strong>Total HR Package ‘JaDE’</strong>를 기반으로 중견·강소기업의 구축형(On-Premise) HR 시스템 프로젝트를 수행합니다. 고객사의 제도와 데이터가 실제 시스템에서 작동하도록 설계·설정·검증하는 컨설턴트 포지션입니다.</p><div class="job-details"><section><h4>주요업무</h4><ul><li>e-HR 패키지 JaDE 구현 컨설팅</li><li>고객사의 인사 업무 분석 및 요구사항 정의</li><li>근태·급여·평가 등 HR 업무 규칙 설정과 테스트</li><li>기존 인사 데이터 이관 및 정합성 확인</li><li>고객사 인사담당자를 대상으로 시스템 사용 교육</li><li>JaDE 제품 개선을 위한 기획·설계 아이디어 제안</li></ul></section><section><h4>자격요건</h4><ul><li>학력·연령·성별 제한 없음</li><li>인사업무 4년 이상, 특히 급여·근태·평가 주담당 경험 우대 성격의 요건</li></ul><h4>우대사항</h4><ul><li>e-HR 또는 ERP 인사 모듈 운영·구축 프로젝트 경험</li><li>Word·Excel·PowerPoint 문서 및 산출물 작성 능력</li><li>바이브코딩 등 AI 도구를 활용한 업무 수행 역량</li></ul></section></div><h4>채용절차</h4><div class="flowbar"><span>서류전형</span><b>›</b><span>1차 인터뷰</span><b>›</b><span>2차 인터뷰</span><b>›</b><span>최종합격</span></div><h4>기타안내</h4><p><strong>고용·근무:</strong> 정규직, 선택적 근로시간제. <strong>근무지:</strong> 경기도 성남시 분당구 판교역로 230, 삼환하이팩스 B동 704호.</p><p><strong>복리후생:</strong> 연차·반차·시차, 경조·포상·모성보호 휴가, 4대보험·퇴직연금, 온라인 교육, 단체상해보험, 최신 노트북·통신비, 야간 식대·교통비 등.</p><div class="actions"><a class="job-cta" href="https://career.rememberapp.co.kr/job/posting/321841" rel="noopener noreferrer" target="_blank">리멤버 원문 공고 보기 ↗</a><a class="job-cta secondary-link" href="https://e-hcg.com/solutions/jade" rel="noopener noreferrer" target="_blank">JaDE 제품 소개 보기 ↗</a></div><div class="job-study"><h4>교수자 실습 연결 · 가상 HR 시스템 도입 컨설팅</h4><p><strong>문제:</strong> 직원 50명 규모의 관광기업이 엑셀로 근태·휴가·평가를 각각 관리하여 중복 입력과 오류가 발생합니다. HRIS 도입 프로젝트의 기획과 검증을 수행해 봅니다.</p><p><strong>산출물:</strong> 요구사항 정의서 · 인사 DB 필드 매핑표 · 근태규칙 설정표 · 테스트 시나리오 · 사용자 교육자료</p></div></div></details></div></section>
+<details class="job" id="job-hcg"><summary class="job-head"><div class="job-company"><div class="company-mark">H</div><div><strong>(주)휴먼컨설팅그룹 (HCG)</strong><div class="fine">e-HR 소프트웨어·컨설팅 · 리멤버 공고 321841</div></div></div><h3>e-HR 시스템(JaDE) 구현 컨설턴트</h3><span class="expand-hint">공고문 펼치기 ⌄</span><div class="job-tags"><span>HRIS·ERP</span><span>업무 요구사항 분석</span><span>데이터 이관</span><span>사용자 교육</span><span>AI 활용</span></div><div class="job-facts"><div class="job-fact"><small>근무지</small><b>경기 성남시 분당구</b></div><div class="job-fact"><small>경력·학력</small><b>4~6년 차 · 학력 무관</b></div><div class="job-fact"><small>급여</small><b>협의</b></div><div class="job-fact"><small>마감일</small><b>채용 시 마감</b></div></div></summary><div class="job-body"><h4>공고소개</h4><p>HCG JaDE 사업본부는 조직·인사·근태·급여·세무·연말정산·교육·평가 등 인사업무 전반을 포괄하는 <strong>Total HR Package ‘JaDE’</strong>를 기반으로 중견·강소기업의 구축형(On-Premise) HR 시스템 프로젝트를 수행합니다. 고객사의 제도와 데이터가 실제 시스템에서 작동하도록 설계·설정·검증하는 컨설턴트 포지션입니다.</p><div class="job-details"><section><h4>주요업무</h4><ul><li>e-HR 패키지 JaDE 구현 컨설팅</li><li>고객사의 인사 업무 분석 및 요구사항 정의</li><li>근태·급여·평가 등 HR 업무 규칙 설정과 테스트</li><li>기존 인사 데이터 이관 및 정합성 확인</li><li>고객사 인사담당자를 대상으로 시스템 사용 교육</li><li>JaDE 제품 개선을 위한 기획·설계 아이디어 제안</li></ul></section><section><h4>자격요건</h4><ul><li>학력·연령·성별 제한 없음</li><li>인사업무 4년 이상, 특히 급여·근태·평가 주담당 경험 우대 성격의 요건</li></ul><h4>우대사항</h4><ul><li>e-HR 또는 ERP 인사 모듈 운영·구축 프로젝트 경험</li><li>Word·Excel·PowerPoint 문서 및 산출물 작성 능력</li><li>바이브코딩 등 AI 도구를 활용한 업무 수행 역량</li></ul></section></div><h4>채용절차</h4><div class="flowbar"><span>서류전형</span><b>›</b><span>1차 인터뷰</span><b>›</b><span>2차 인터뷰</span><b>›</b><span>최종합격</span></div><h4>기타안내</h4><p><strong>고용·근무:</strong> 정규직, 선택적 근로시간제. <strong>근무지:</strong> 경기도 성남시 분당구 판교역로 230, 삼환하이팩스 B동 704호.</p><p><strong>복리후생:</strong> 연차·반차·시차, 경조·포상·모성보호 휴가, 4대보험·퇴직연금, 온라인 교육, 단체상해보험, 최신 노트북·통신비, 야간 식대·교통비 등.</p><div class="actions"><a class="job-cta" href="https://career.rememberapp.co.kr/job/posting/321841" rel="noopener noreferrer" target="_blank">리멤버 원문 공고 보기 ↗</a><a class="job-cta secondary-link" href="https://e-hcg.com/solutions/jade" rel="noopener noreferrer" target="_blank">JaDE 제품 소개 보기 ↗</a></div><div class="job-study"><h4>교수자 실습 연결 · 가상 HR 시스템 도입 컨설팅</h4><p><strong>문제:</strong> 직원 50명 규모의 관광기업이 엑셀로 근태·휴가·평가를 각각 관리하여 중복 입력과 오류가 발생합니다. HRIS 도입 프로젝트의 기획과 검증을 수행해 봅니다.</p><p><strong>산출물:</strong> 요구사항 정의서 · 인사 DB 필드 매핑표 · 근태규칙 설정표 · 테스트 시나리오 · 사용자 교육자료</p></div></div></details>
+<details class="job" id="job-iic"><summary class="job-head">
+<div class="job-company"><div class="company-mark">I</div><div><strong>(주)아이아이컴바인드 (IICOMBINED)</strong><div class="fine">젠틀몬스터·탬버린즈 등 브랜드 운영 · 리멤버 341194</div></div></div>
+<h3>[IICOMBINED] 인사운영(HRM) 담당자 (계약직)</h3><span class="expand-hint">공고문 펼치기 ⌄</span>
+<div class="job-tags"><span>Payroll</span><span>근태·4대 보험</span><span>SAP SuccessFactors</span><span>Shiftee</span><span>AI 자동화</span></div>
+<div class="job-facts"><div class="job-fact"><small>근무지</small><b>서울 성동구</b></div><div class="job-fact"><small>경력·학력</small><b>3~8년 차 · 학사 이상</b></div><div class="job-fact"><small>급여</small><b>협의</b></div><div class="job-fact"><small>마감일</small><b>채용 시 마감</b></div></div>
+</summary><div class="job-body">
+<h4>공고소개</h4><p>브랜드 확장 과정에서 인사 운영의 정확성을 확보하고, 반복 업무에서 발견한 문제를 제도 개선으로 연결하는 피플팀 직무입니다. 운영 경험을 바탕으로 조직의 일하는 방식까지 개선하는 역할을 강조합니다.</p>
+<div class="job-details">
+<section><h4>주요업무</h4><ul>
+<li><strong>제도 운영·개선:</strong> 인사운영 과정의 문제 파악과 개선 과제 실행</li>
+<li><strong>직원 생애주기:</strong> 입사·재직·이동·퇴사 전반의 HR 행정 관리</li>
+<li><strong>급여·근태:</strong> Payroll, 근태, 사회보험, 복리후생 등 지원</li>
+<li><strong>HR 데이터:</strong> HRIS 데이터 정비 및 운영 프로세스 효율화</li>
+</ul></section>
+<section><h4>자격요건</h4><ul>
+<li>4년제 학사 이상 및 HR 실무 3년 이상</li>
+<li>SAP SuccessFactors, Shiftee 등 HR 정보·근태시스템 사용 경험</li>
+<li>기존 업무를 개선한 문제정의·실행 경험</li>
+</ul><h4>우대사항</h4><ul>
+<li>사내 급여 산정·지급 등 Payroll 운영 경험</li>
+<li>사업 및 조직 운영과 연결하는 HRBP 지향</li>
+<li>협업 커뮤니케이션, IT·AI를 활용한 행정 효율화 경험</li>
+</ul></section></div>
+<h4>채용절차</h4><div class="flowbar"><span>서류전형</span><b>›</b><span>1차 면접(인성검사 포함)</span><b>›</b><span>2차 면접</span><b>›</b><span>최종합격</span></div>
+<h4>기타안내</h4><p><strong>고용형태:</strong> 육아휴직 대체 계약직, 약 1년. 정규직 전환을 전제로 한 공고는 아닙니다. <strong>근무:</strong> 평일 09:00~18:00, 서울 성동구 뚝섬로 433. <strong>제출:</strong> 지원서·경력기술서 필수. <strong>복지:</strong> 건강검진, 식대, 경조·휴가 제도 등(일부 혜택은 정규직 대상일 수 있어 적용 여부 확인 필요).</p>
+<div class="actions"><a class="job-cta" href="https://career.rememberapp.co.kr/job/posting/341194" rel="noopener noreferrer" target="_blank">리멤버 원문 공고 보기 ↗</a></div>
+<div class="job-study"><h4>교수자 실습 연결 · Payroll·근태·HRIS 데이터 관리</h4><p><strong>가상 상황:</strong> 정규직·계약직 직원 30명의 휴가·급여·인사정보가 서로 다른 시트에 저장되어 있습니다. 기준정보와 근태자료를 검증하고, 시스템 간 필드를 연결해 오류를 줄입니다.</p><p><strong>산출물:</strong> 직원 마스터 DB · 급여/근태 데이터 점검표 · HRIS 필드 매핑표 · 개인정보 최소수집 체크리스트 · 자동화 개선 제안서</p></div>
+</div></details>
+<details class="job" id="job-nhn"><summary class="job-head">
+<div class="job-company"><div class="company-mark">N</div><div><strong>엔에이치엔(주) · NHN</strong><div class="fine">IT 그룹사 · 인사지원팀 · 리멤버 공고 333460</div></div></div>
+<h3>[NHN] HRM</h3><span class="expand-hint">공고문 펼치기 ⌄</span>
+<div class="job-tags"><span>HR 제도기획</span><span>근태·평가·보상</span><span>그룹사 HRM</span><span>People Analytics</span><span>포트폴리오</span></div>
+<div class="job-facts"><div class="job-fact"><small>근무지</small><b>경기 성남시 분당구</b></div><div class="job-fact"><small>경력·학력</small><b>경력 무관 표기 / 본문 5년 이하</b></div><div class="job-fact"><small>급여</small><b>협의</b></div><div class="job-fact"><small>마감일</small><b>채용 시 마감</b></div></div>
+</summary><div class="job-body"><h4>공고소개</h4><p>NHN 주요 법인의 HRM 업무를 담당하는 인사지원팀 포지션입니다. 구성원의 성과와 근무 경험을 뒷받침할 인사제도를 운영하면서, 문제를 발견하고 제도를 개선하는 역할을 맡습니다.</p>
+<div class="job-details"><section><h4>주요업무</h4><ul>
+<li>그룹 내 주요 법인의 인사제도 운영과 개선 과제 수행</li>
+<li>입사·재직·퇴사에 이르는 구성원 인사 업무 관리</li>
+<li>근태, 인사평가, 보상, 인사발령 등 HRM 기능 담당</li>
+</ul></section><section><h4>자격요건</h4><ul>
+<li>공고 본문 기준 인사 관련 경력 5년 이하</li><li>인사제도 기획 경험</li><li>데이터 분석 및 시각화 역량</li>
+</ul><h4>우대사항</h4><ul>
+<li>인사제도를 직접 고민하고 개선·설계해 본 경험</li><li>협업 커뮤니케이션과 세심한 업무 처리 역량</li>
+</ul></section></div>
+<h4>채용절차</h4><div class="flowbar"><span>서류전형</span><b>›</b><span>T인터뷰</span><b>›</b><span>C인터뷰</span><b>›</b><span>처우협의</span><b>›</b><span>입사</span></div>
+<h4>기타안내</h4><p><strong>지원서류:</strong> 포트폴리오 필수. <strong>근무지:</strong> 판교 플레이뮤지엄. <strong>복지·근무제도:</strong> 월 단위 유연근무, 세분화된 연차·연장근로 관리, 교육·심리상담·건강검진·식사지원, 가족친화 제도 등. 적용 기준은 공고 원문을 확인하세요.</p>
+<div class="warn"><strong>표기 유의:</strong> 플랫폼 요약 정보에는 '경력 무관'이 표시되지만, 자격요건 본문에는 '5년 이하 경력'이라고 안내되어 있습니다. 실제 지원 기준은 채용 담당자에게 확인해야 합니다.</div>
+<div class="actions"><a class="job-cta" href="https://career.rememberapp.co.kr/job/posting/333460" rel="noopener noreferrer" target="_blank">리멤버 원문 공고 보기 ↗</a></div>
+<div class="job-study"><h4>교수자 실습 연결 · 평가·보상 KPI와 HR 데이터 시각화</h4><p><strong>가상 상황:</strong> 서로 다른 그룹사 3곳에서 연차사용률, 성과평가 완료율, 평가등급 분포, 이직률 등을 월별로 보고하려 합니다. 지표 정의를 표준화한 후 대시보드를 작성하고 제도 개선 의견을 제시합니다.</p><p><strong>산출물:</strong> HR KPI 정의서 · 평가·보상 현황 대시보드 · 시각화 해석 보고서 · HRM 포트폴리오 1장</p></div>
+</div></details></div></section>
 <section class="section" id="preopening"><div class="section-heading"><span class="num">01-B</span><div><h2>시니어 레지던스 사례로 확장하는 HRM 실습</h2><p>서비스 운영과 인력관리의 연계를 학생이 경험하는 종합 프로젝트</p></div></div>
 <p>엔탑자산관리 공고가 의미 있는 이유는 <strong>호텔·관광 분야의 인적자원관리와 조직운영을 한 사례에서 통합해 가르칠 수 있다는 점</strong>입니다. 학생에게 시설을 운영할 책임자의 관점에서 인력계획을 설계하게 합니다.</p>
 <div class="flowbar"><span>서비스 콘셉트</span><b>›</b><span>직무·조직 설계</span><b>›</b><span>인원 산정·채용</span><b>›</b><span>교육·시범운영</span><b>›</b><span>SOP·품질관리</span><b>›</b><span>KPI·예산</span></div>
@@ -310,8 +388,23 @@ body{font-size:15.4px;line-height:1.57;color:#1e2938}
 <tr><td>프로세스 개선</td><td>반복 HR 문의와 입력 오류를 어떻게 줄일 수 있을까?</td><td>인사 FAQ·자동화 제안서</td></tr>
 </tbody></table></div>
 <p class="fine">교육상 주의: 근로자성, 연차휴가 및 각종 법정 의무는 사실관계와 적용 법령에 따라 달라집니다. 실제 실습에서는 가상 사례를 사용하고, 최종 법적 판단을 AI에 맡기지 않습니다. 공고: <a href="https://career.rememberapp.co.kr/job/posting/319655" rel="noopener noreferrer" target="_blank">팀스파르타 HRM Manager</a>.</p>
-</section>
-
+</section><section class="section" id="enterprise-lab">
+<div class="section-heading"><span class="num">01-E</span><div><h2>아이아이컴바인드·NHN 사례 비교 실습</h2><p>HRIS 데이터를 정확히 관리하는 역량과 제도 개선을 위한 분석 역량 연결</p></div></div>
+<div class="table-scroll"><table class="data"><thead><tr><th>구분</th><th>아이아이컴바인드</th><th>NHN</th><th>학생 산출물</th></tr></thead><tbody>
+<tr><td>핵심 직무</td><td>Payroll·근태·4대 보험·HRIS</td><td>그룹사 인사제도·평가·보상</td><td>HR 업무분장표</td></tr>
+<tr><td>데이터 활용</td><td>HRIS 정보 입력·검증·연계</td><td>근태·평가·보상 KPI 분석·시각화</td><td>직원 DB + KPI 대시보드</td></tr>
+<tr><td>프로세스 개선</td><td>반복 HR 행정 자동화</td><td>운영지표를 근거로 제도 개선</td><td>개선 전후 SOP 및 지표 정의서</td></tr>
+<tr><td>채용 준비</td><td>운영 사례·시스템 사용 경험 설명</td><td>제도 기획·분석 포트폴리오 제출</td><td>직무별 1페이지 프로젝트 요약</td></tr>
+</tbody></table></div>
+<div class="note"><strong>통합 과제:</strong> 직원 40명의 가상 인사DB를 이용하여 ① 근태·급여 데이터 오류 찾기 ② HRIS 필드 정의 ③ 연차사용률·평가 완료율 시각화 ④ 개선안 2개 제시를 순차 수행합니다. 실제 개인정보 및 임금정보는 사용하지 않습니다.</div>
+<p class="fine">원문: <a href="https://career.rememberapp.co.kr/job/posting/341194" rel="noopener noreferrer" target="_blank">IICOMBINED 341194</a> · <a href="https://career.rememberapp.co.kr/job/posting/333460" rel="noopener noreferrer" target="_blank">NHN 333460</a>.</p>
+</section><section class="section" id="platform-lab"><div class="section-heading"><span class="num">01-F</span><div><h2>IT 플랫폼 HRM 사례 · 인사제도와 People Analytics</h2><p>기업명 비공개 헤드헌팅 공고(335303)에서 실제 요구되는 역량을 수업 결과물로 연결</p></div></div>
+<div class="table-scroll"><table class="data"><thead><tr><th>공고 핵심 역량</th><th>수업 활동</th><th>산출물</th></tr></thead><tbody>
+<tr><td>그룹사 HR 운영</td><td>법인별 채용·입퇴사·발령 흐름 비교</td><td>공통 HR 운영 프로세스</td></tr>
+<tr><td>근태·평가·보상</td><td>기준을 서로 다르게 적용한 가상 사례 점검</td><td>인사제도·운영 규정 체크리스트</td></tr>
+<tr><td>데이터 분석·시각화</td><td>가상 직원 30명의 평가 완료율·근태 이상률 계산</td><td>HR KPI 대시보드</td></tr>
+<tr><td>인사제도 기획</td><td>데이터에 드러난 비효율을 개선안으로 정리</td><td>제도 개선 제안서(1쪽)</td></tr>
+</tbody></table></div><div class="note"><strong>차별점:</strong> 디노티시아가 신입 HR 운영, 더파운더즈가 HRIS 운영·체계화, NHN이 제도·성과분석이라면 이번 익명 IT 플랫폼 사례는 <strong>복수 법인 HR 운영 + 제도기획 + 데이터 시각화</strong>를 결합합니다. <a href="https://career.rememberapp.co.kr/job/posting/335303" rel="noopener noreferrer" target="_blank">원문 공고(마감) ↗</a></div></section>
 <section class="section" id="topics"><div class="section-heading"><span class="num">02</span><div><h2>반드시 가르칠 10가지 교육 주제</h2><p>현장 직무와 교과 이론의 연결</p></div></div>
 <div class="table-scroll"><table class="data"><thead><tr><th>순위</th><th>교육 주제 (영어)</th><th>학생이 실제로 수행할 수 있어야 할 업무</th></tr></thead><tbody>
 <tr><td>1</td><td><strong>채용관리</strong><br/>Recruitment</td><td>채용공고 작성, 면접 질문·평가표 제작</td></tr>
@@ -330,7 +423,7 @@ body{font-size:15.4px;line-height:1.57;color:#1e2938}
 <p class="reference">앞선 답변에서 Gartner(2026)의 노동시장 데이터·미래 역량 활용, McKinsey(2026)의 인력역량계획·채용 효율화·성과관리·AI 활용을 관련 동향으로 언급했습니다. 정확한 원문 제목과 출처 링크는 확인 후 강의자료에 인용하는 것이 적절합니다.</p></section>
 <section class="section" id="syllabus"><div class="section-heading"><span class="num">03</span><div><h2>15주 인적자원관리 강의계획안</h2><p>「인적자원관리: 이론과 HR 실무」 — 매주 실무 산출물 작성</p></div></div>
 <div class="table-scroll"><table class="data"><thead><tr><th>주차</th><th>핵심 강의 내용</th><th>실습·학생 산출물</th></tr></thead><tbody>
-<tr><td>1주</td><td>HRM의 개념과 인사담당자 직무</td><td>5개 기업 채용공고 비교</td></tr>
+<tr><td>1주</td><td>HRM의 개념과 인사담당자 직무</td><td>8건의 상세 채용공고 비교</td></tr>
 <tr><td>2주</td><td>전략적 인적자원관리·인력계획</td><td>기업의 인력 수요 예측</td></tr>
 <tr><td>3주</td><td>직무분석·직무설계</td><td>직무기술서(JD) 작성</td></tr>
 <tr><td>4주</td><td>채용계획·채용브랜딩</td><td>채용공고 직접 작성</td></tr>
@@ -388,8 +481,8 @@ body{font-size:15.4px;line-height:1.57;color:#1e2938}
 <section class="section" id="roadmap"><div class="section-heading"><span class="num">11</span><div><h2>실습 양식 활용 추천 순서</h2><p>현장에서 접하기 쉬운 기초 양식부터 분석·제도 개선까지</p></div></div>
 <div aria-label="검색 양식 활용 순서" class="flowbar"><span>면접평가표</span><b>›</b><span>연차관리대장</span><b>›</b><span>인사고과표</span><b>›</b><span>채용현황 대시보드</span><b>›</b><span>인사업무 매뉴얼</span></div>
 <p>이 다섯 가지는 채용·근태·평가·데이터 분석·업무 시스템화를 두루 보여줍니다. <strong>엑셀 양식을 내려받아 학생들이 가상 직원 데이터를 입력하고 결과를 분석</strong>하게 하는 방식이 적합합니다.</p><p>강의에서는 단순히 예스폼 양식의 칸을 채우는 데서 끝내지 말고, <strong>‘이 표는 왜 필요한가?’ ‘어떤 오류가 발생할 수 있는가?’ ‘개선할 방법은 무엇인가?’</strong>를 함께 토론합니다.</p></section>
-<section class="section" id="sources"><div class="section-heading"><span class="num">12</span><div><h2>참고 사이트·자료 이용 시 주의</h2><p>원문 채용공고 링크 5건과 예스폼·고용노동부 자료</p></div></div>
-<div class="source"><ul><li><strong>예스폼:</strong> <a href="https://www.yesform.com/" rel="noopener noreferrer" target="_blank">www.yesform.com</a> — 각 문서명으로 검색. 자료별 유료/무료 이용 조건과 라이선스 확인.</li><li><strong>고용노동부:</strong> <a href="https://www.moel.go.kr/" rel="noopener noreferrer" target="_blank">www.moel.go.kr</a> — 채용절차, 근로시간, 연차휴가, 근로계약 등의 최신 법령 및 행정안내 확인.</li><li><strong>SHRM(2025):</strong> 원래 답변에서 채용 분야 AI 활용 조사(응답 집단의 51%)를 언급. 강의·논문 인용 전 해당 조사 보고서의 표본, 조사문항, 수치 확인 필요.</li><li><strong>Gartner(2026), McKinsey(2026):</strong> 원래 답변에서 HR·인력계획 및 AI 관련 동향으로 언급. 정확한 기사/보고서 서지정보는 사용 전 별도 확인 필요.</li><li><strong>기업 공고:</strong> <a href="https://career.rememberapp.co.kr/job/posting/353213" target="_blank">디노티시아 353213</a>, <a href="https://career.rememberapp.co.kr/job/posting/327146" target="_blank">더파운더즈 327146</a>, <a href="https://career.rememberapp.co.kr/job/posting/343609" target="_blank">엔탑자산관리 343609, 휴먼컨설팅그룹 321841</a>. 채용조건은 2026.11.09 리멤버 게시사항 기준입니다. 마감·혜택 등은 변경될 수 있습니다.</li></ul></div>
+<section class="section" id="sources"><div class="section-heading"><span class="num">12</span><div><h2>참고 사이트·자료 이용 시 주의</h2><p>원문 채용공고 링크 8건과 예스폼·고용노동부 자료</p></div></div>
+<div class="source"><ul><li><strong>예스폼:</strong> <a href="https://www.yesform.com/" rel="noopener noreferrer" target="_blank">www.yesform.com</a> — 각 문서명으로 검색. 자료별 유료/무료 이용 조건과 라이선스 확인.</li><li><strong>고용노동부:</strong> <a href="https://www.moel.go.kr/" rel="noopener noreferrer" target="_blank">www.moel.go.kr</a> — 채용절차, 근로시간, 연차휴가, 근로계약 등의 최신 법령 및 행정안내 확인.</li><li><strong>SHRM(2025):</strong> 원래 답변에서 채용 분야 AI 활용 조사(응답 집단의 51%)를 언급. 강의·논문 인용 전 해당 조사 보고서의 표본, 조사문항, 수치 확인 필요.</li><li><strong>Gartner(2026), McKinsey(2026):</strong> 원래 답변에서 HR·인력계획 및 AI 관련 동향으로 언급. 정확한 기사/보고서 서지정보는 사용 전 별도 확인 필요.</li><li><strong>기업 공고 원문(8개 상세 사례):</strong> <a href="https://career.rememberapp.co.kr/job/posting/353213" rel="noopener noreferrer" target="_blank">디노티시아</a> · <a href="https://career.rememberapp.co.kr/job/posting/319655" rel="noopener noreferrer" target="_blank">팀스파르타</a> · <a href="https://career.rememberapp.co.kr/job/posting/327146" rel="noopener noreferrer" target="_blank">더파운더즈</a> · <a href="https://career.rememberapp.co.kr/job/posting/343609" rel="noopener noreferrer" target="_blank">엔탑자산관리</a> · <a href="https://career.rememberapp.co.kr/job/posting/321841" rel="noopener noreferrer" target="_blank">휴먼컨설팅그룹</a> · <a href="https://career.rememberapp.co.kr/job/posting/341194" rel="noopener noreferrer" target="_blank">아이아이컴바인드</a> · <a href="https://career.rememberapp.co.kr/job/posting/333460" rel="noopener noreferrer" target="_blank">NHN</a>. 공고 내용과 채용 여부는 수정될 수 있습니다. · <a href="https://career.rememberapp.co.kr/job/posting/335303" rel="noopener noreferrer" target="_blank">익명 IT 플랫폼 기업(유니코써치, 335303·2026-11-02 마감)</a></li></ul></div>
 <div class="warn"><strong>교수자 활용 메모:</strong> 예스폼은 완성된 인사서식을 찾는 출발점입니다. 유료 템플릿을 학생에게 배포할 때는 라이선스를 확인하고, 학생 실습·발표에는 개인식별정보가 없는 가상의 데이터를 사용하세요. 회사 실무용 문서와 법적으로 적합한 서식은 동일하다고 가정하지 마세요.</div>
 <div class="callout"><strong>핵심 결론</strong><p>학생에게 ‘인적자원관리가 무엇인지’ 설명하는 데 그치지 않고, <strong>실제 채용공고를 읽고 → 필요한 역량을 찾고 → 관련 서식을 사용해 업무를 수행하고 → 데이터를 근거로 개선안을 제시</strong>하게 하는 수업이 목표입니다.</p></div>
 <p>휴먼컨설팅그룹 JaDE 공식 제품안내: <a href="https://e-hcg.com/solutions/jade" rel="noopener noreferrer" target="_blank">https://e-hcg.com/solutions/jade</a> · 채용공고: <a href="https://career.rememberapp.co.kr/job/posting/321841" rel="noopener noreferrer" target="_blank">리멤버 321841</a>.</p><p>추가 검증 원문: <a href="https://career.rememberapp.co.kr/job/posting/319655" rel="noopener noreferrer" target="_blank">팀스파르타 HRM Manager(319655)</a> · <a href="https://career.rememberapp.co.kr/job/posting/327146" rel="noopener noreferrer" target="_blank">더파운더즈 HRM Ops 매니저(327146)</a>. 2026-11-09 확인 기준이며 이후 변경될 수 있습니다.</p></section>
