@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>스마트 관광 정의 퀴즈</title>
+<style>
+:root{
+  --bg:#f4f7fb; --card:#fff; --ink:#1b2a3b; --muted:#5c6b7d; --line:#dfe6ee;
+  --accent:#1c5fae; --accent-soft:#eaf1fb; --good:#1f8a4c; --good-bg:#e9f8ee;
+  --bad:#b4393a; --bad-bg:#fdecec; --dot:#1c5fae;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR","Apple SD Gothic Neo",Pretendard,Arial,sans-serif;line-height:1.6}
+.wrap{max-width:760px;margin:0 auto;padding:28px 18px 60px}
+header{margin-bottom:22px}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.08em;color:var(--accent);text-transform:uppercase}
+h1{font-size:clamp(22px,4vw,28px);margin:8px 0 10px;line-height:1.35}
+header p{color:var(--muted);font-size:14.5px;margin:0}
+
+.ref-wrap{margin:18px 0 24px;overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+table.ref-tb{width:100%;border-collapse:collapse;font-size:13.5px;min-width:480px}
+table.ref-tb th,table.ref-tb td{padding:9px 10px;text-align:center;border-bottom:1px solid var(--line)}
+table.ref-tb th{background:var(--accent-soft);color:var(--accent);font-weight:800}
+table.ref-tb td:first-child,table.ref-tb th:first-child{text-align:left}
+table.ref-tb .dot{color:var(--dot);font-size:16px;font-weight:900}
+table.ref-tb tr:last-child td{border-bottom:0}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px 22px;margin:16px 0;box-shadow:0 8px 22px rgba(30,50,80,.05)}
+.q-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;font-size:13px;margin-right:8px;flex:0 0 auto}
+.q-title{font-size:16px;font-weight:800;margin:0 0 12px;display:flex;align-items:flex-start;gap:0}
+.opts{display:grid;gap:8px}
+.opt{display:flex;align-items:flex-start;gap:9px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;cursor:pointer;font-size:14.5px;background:#fafcfe}
+.opt:hover{background:var(--accent-soft)}
+.opt input{margin-top:3px;flex:0 0 auto;accent-color:var(--accent)}
+.opt .dot{color:var(--dot);font-weight:900}
+.card.graded .opt{cursor:default}
+.card.graded .opt:hover{background:#fafcfe}
+.card.graded .opt.correct{background:var(--good-bg);border-color:var(--good);color:#1a5c33}
+.card.graded .opt.wrong{background:var(--bad-bg);border-color:var(--bad);color:#8c2a2b}
+.explain{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);font-size:13px;color:var(--muted);display:none}
+.card.graded .explain{display:block}
+.explain .dot{color:var(--dot);font-weight:900}
+
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+button{font:inherit;font-weight:800;font-size:14.5px;border:0;border-radius:10px;padding:12px 20px;cursor:pointer;background:var(--accent);color:#fff}
+button.ghost{background:var(--accent-soft);color:var(--accent)}
+button:active{transform:translateY(1px)}
+.result{margin-top:16px;display:none}
+.result.show{display:block}
+.score-line{font-size:15px;font-weight:800;padding:12px 14px;border-radius:10px;margin-bottom:12px}
+.score-line.ok{background:var(--good-bg);color:var(--good)}
+.score-line.warn{background:var(--bad-bg);color:var(--bad)}
+.footnote{font-size:12.5px;color:var(--muted);margin-top:26px;text-align:center}
+.footnote a{color:var(--accent);text-decoration:none;font-weight:700}
+@media(max-width:480px){.card{padding:16px 15px 18px}table.ref-tb{font-size:12.5px}}
+.q-title small{display:block;font-weight:600;color:var(--muted);font-size:13px;margin-top:6px}
+.q-title b{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">스마트관광의 이해 · 02-A 01 정의 · 객관식 퀴즈</div>
+    <h1>스마트 관광이란 — 정의 퀴즈 12문항</h1>
+    <p>슬라이드 「01 · 스마트 관광이란」을 읽고 풉니다. 각 문항에서 하나씩 고른 뒤 「채점하기」를 누르세요.</p>
+  </header>
+
+  <div class="card" data-q="0">
+    <p class="q-title"><span class="q-num">1</span><span>스마트 관광의 정의로 가장 알맞은 것은?</span></p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q0" value="0">관광지마다 무료 와이파이를 설치하는 것</label>
+      <label class="opt"><input type="radio" name="q0" value="1">ICT로 관광 자원·서비스·경험을 데이터로 잇고, 그 데이터로 더 나은 여행을 설계하는 관광</label>
+      <label class="opt"><input type="radio" name="q0" value="2">여행사가 상품을 온라인으로 판매하는 것</label>
+      <label class="opt"><input type="radio" name="q0" value="3">AI가 여행 일정을 대신 짜 주는 서비스</label>
+    </div>
+    <p class="explain">정의의 핵심은 <b>ICT · 데이터로 잇기 · 더 나은 여행 설계</b>입니다. 와이파이·온라인 판매·AI 일정은 그 일부 도구일 뿐입니다.</p>
+  </div>
+
+  <div class="card" data-q="1">
+    <p class="q-title"><span class="q-num">2</span><span>「종이 지도 → 앱, 안내소 → 검색」처럼 바뀐 변화에서, <b>후기</b>는 무엇이 되었습니까?</span></p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q1" value="0">별점</label>
+      <label class="opt"><input type="radio" name="q1" value="1">블로그</label>
+      <label class="opt"><input type="radio" name="q1" value="2">광고</label>
+      <label class="opt"><input type="radio" name="q1" value="3">안내 책자</label>
+    </div>
+    <p class="explain">종이 지도가 앱이 되고, 안내소가 검색이 되고, <b>후기가 별점</b>이 되는 변화 — 경험이 데이터로 바뀌는 장면입니다.</p>
+  </div>
+
+  <div class="card" data-q="2">
+    <p class="q-title"><span class="q-num">3</span><span>전자관광(e-Tourism)과 스마트 관광을 바르게 구분한 것은?</span></p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q2" value="0">전자관광은 AI 중심, 스마트 관광은 온라인 예약 중심</label>
+      <label class="opt"><input type="radio" name="q2" value="1">둘은 같은 말이다</label>
+      <label class="opt"><input type="radio" name="q2" value="2">전자관광은 「온라인 예약」, 스마트 관광은 센서·모바일·AI가 실시간으로 상황을 읽고 반응</label>
+      <label class="opt"><input type="radio" name="q2" value="3">전자관광은 오프라인, 스마트 관광은 온라인</label>
+    </div>
+    <p class="explain">전자관광이 <b>온라인 예약</b>이었다면, 스마트 관광은 <b>실시간으로 상황을 읽고 반응</b>합니다.</p>
+  </div>
+
+  <div class="card" data-q="3">
+    <p class="q-title"><span class="q-num">4</span><span>「붐비는 해변을 피해 다른 곳을 추천한다」는 스마트 관광의 어떤 특징을 보여 줍니까?</span></p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q3" value="0">미리 정해 둔 패키지 일정을 그대로 판매한다</label>
+      <label class="opt"><input type="radio" name="q3" value="1">실시간 상황(혼잡)을 읽고 반응한다</label>
+      <label class="opt"><input type="radio" name="q3" value="2">종이 안내 책자를 늘린다</label>
+      <label class="opt"><input type="radio" name="q3" value="3">온라인 예약 수수료를 낮춘다</label>
+    </div>
+    <p class="explain">센서·모바일 데이터로 <b>지금의 혼잡</b>을 읽고 대안을 건네는 것 — 실시간 반응입니다. 외국인에게 즉시 번역을 건네는 것도 같은 예입니다.</p>
+  </div>
+
+  <div class="card" data-q="4">
+    <p class="q-title"><span class="q-num">5</span><span>슬라이드가 <b>좁은(잘못된)</b> 이해로 표시한 문장은?</span></p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q4" value="0">스마트 관광 = 관광객에게 앱을 제공하는 것</label>
+      <label class="opt"><input type="radio" name="q4" value="1">스마트 관광 = 도시의 관광 발전 전체를 더 잘 관리하는 것</label>
+      <label class="opt"><input type="radio" name="q4" value="2">스마트 관광 = 지속가능 · 접근 가능 · 효율적인 관광 관리</label>
+      <label class="opt"><input type="radio" name="q4" value="3">스마트 관광 = 기술과 혁신으로 관광 문제를 푸는 것</label>
+    </div>
+    <p class="explain">「앱을 제공하는 것」은 너무 좁습니다. 앱은 수단이고, 대상은 <b>도시의 관광 발전 전체</b>입니다.</p>
+  </div>
+
+  <div class="card" data-q="5">
+    <p class="q-title"><span class="q-num">6</span><span>기술과 혁신으로 도시의 관광 발전 전체를 관리할 때, 슬라이드가 든 세 가지 방향이 <b>아닌</b> 것은?</span></p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q5" value="0">지속가능하게</label>
+      <label class="opt"><input type="radio" name="q5" value="1">접근 가능하게</label>
+      <label class="opt"><input type="radio" name="q5" value="2">효율적으로</label>
+      <label class="opt"><input type="radio" name="q5" value="3">최대한 많은 관광객을 모으도록</label>
+    </div>
+    <p class="explain">세 방향은 <b>지속가능 · 접근 가능 · 효율적</b>. 관광객 수를 늘리는 것 자체가 목표가 아닙니다 — 관광객 증가는 오히려 문제의 출발점입니다.</p>
+  </div>
+
+  <div class="card" data-q="6">
+    <p class="q-title"><span class="q-num">7</span><span>스마트 관광이 필요해지는 흐름에서 빈칸에 들어갈 말은?<br><small>관광객 증가 → 경제적 기회 → 동시에 ( ? ) 발생 → 기존 방식으로는 해결 어려움 → 데이터 · 디지털 기술 · 혁신 정책</small></span></p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q6" value="0">관광 수입 감소</label>
+      <label class="opt"><input type="radio" name="q6" value="1">혼잡 · 환경 · 접근성 · 지역사회 문제</label>
+      <label class="opt"><input type="radio" name="q6" value="2">항공 노선 축소</label>
+      <label class="opt"><input type="radio" name="q6" value="3">여행사 폐업</label>
+    </div>
+    <p class="explain">관광객이 늘면 기회와 함께 <b>혼잡 · 환경 · 접근성 · 지역사회 문제</b>가 생기고, 기존 방식으로 풀기 어려워 데이터 · 기술 · 정책이 필요해집니다.</p>
+  </div>
+
+  <div class="card" data-q="7">
+    <p class="q-title"><span class="q-num">8</span><span>EC(유럽연합 집행위원회) 기준 SMART TOURISM의 네 요소에 <b>들지 않는</b> 것은?</span></p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q7" value="0">Technology</label>
+      <label class="opt"><input type="radio" name="q7" value="1">Sustainability</label>
+      <label class="opt"><input type="radio" name="q7" value="2">Profitability</label>
+      <label class="opt"><input type="radio" name="q7" value="3">Accessibility</label>
+    </div>
+    <p class="explain">네 요소는 <b>Technology × Sustainability × Accessibility × Local Creativity</b>. 수익성(Profitability)은 들어 있지 않습니다.</p>
+  </div>
+
+  <div class="card" data-q="8">
+    <p class="q-title"><span class="q-num">9</span><span>네 요소 중 🎨 아이콘으로 표시된, 지역의 고유한 문화·창의를 뜻하는 것은?</span></p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q8" value="0">Local Creativity</label>
+      <label class="opt"><input type="radio" name="q8" value="1">Technology</label>
+      <label class="opt"><input type="radio" name="q8" value="2">Sustainability</label>
+      <label class="opt"><input type="radio" name="q8" value="3">Accessibility</label>
+    </div>
+    <p class="explain"><b>Local Creativity</b> — 지역 문화유산과 창조산업. ⚙️ Technology, 🌱 Sustainability, ♿ Accessibility와 짝을 이룹니다.</p>
+  </div>
+
+  <div class="card" data-q="9">
+    <p class="q-title"><span class="q-num">10</span><span>슬라이드가 말하는 스마트 관광의 목표는?</span></p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q9" value="0">관광객만 편리한 도시</label>
+      <label class="opt"><input type="radio" name="q9" value="1">관광을 더 잘 관리하는 도시</label>
+      <label class="opt"><input type="radio" name="q9" value="2">앱이 가장 많은 도시</label>
+      <label class="opt"><input type="radio" name="q9" value="3">방문객 수 1위 도시</label>
+    </div>
+    <p class="explain">목표는 <b>관광객만 편리한 도시가 아니라 관광을 더 잘 관리하는 도시</b>입니다.</p>
+  </div>
+
+  <div class="card" data-q="10">
+    <p class="q-title"><span class="q-num">11</span><span>스마트 관광을 「AI · 앱 · 빅데이터 관광」으로만 설명하면 어떤 문제가 생깁니까?</span></p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q10" value="0">EU의 개념보다 넓어진다</label>
+      <label class="opt"><input type="radio" name="q10" value="1">EU의 개념과 정확히 같아진다</label>
+      <label class="opt"><input type="radio" name="q10" value="2">디지털화만 강조해 EU의 개념보다 좁아진다</label>
+      <label class="opt"><input type="radio" name="q10" value="3">관광객 경험이 빠진다</label>
+    </div>
+    <p class="explain"><b>디지털화만 강조하면 EU의 개념보다 좁아집니다</b> — 지속가능성 · 접근성 · 지역 창의가 빠지기 때문입니다.</p>
+  </div>
+
+  <div class="card" data-q="11">
+    <p class="q-title"><span class="q-num">12</span><span>다음 중 스마트 관광을 가장 잘 설명한 학생은?</span></p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q11" value="0">가: 관광 앱을 많이 내려받게 하는 것이에요.</label>
+      <label class="opt"><input type="radio" name="q11" value="1">나: 빅데이터로 매출을 올리는 마케팅이에요.</label>
+      <label class="opt"><input type="radio" name="q11" value="2">다: 온라인 예약 사이트를 만드는 거예요.</label>
+      <label class="opt"><input type="radio" name="q11" value="3">라: 데이터와 기술로 혼잡 · 환경 · 접근성까지 도시 관광 전체를 관리하는 거예요.</label>
+    </div>
+    <p class="explain">라 학생만 <b>도시 전체 · 지속가능 · 접근성</b>까지 담았습니다. 가·나·다는 기술 수단 하나로 좁힌 설명입니다.</p>
+  </div>
+
+  <div class="actions">
+    <button id="gradeBtn">채점하기</button>
+    <button class="ghost" id="resetBtn">다시 풀기</button>
+  </div>
+
+  <div class="result" id="result">
+    <div class="score-line" id="scoreLine"></div>
+  </div>
+
+  <p class="footnote">슬라이드 다시 보기: <a href="smart-tourism.html#개념" target="_blank" rel="noopener">스마트관광의 이해 · 02-A 스마트 관광이란 ↗</a></p>
+</div>
+
+<script>
+const ANSWERS = [1, 0, 2, 1, 0, 3, 1, 2, 0, 1, 2, 3];
+
+function grade(){
+  let score = 0;
+  document.querySelectorAll('.card[data-q]').forEach(card => {
+    const qi = Number(card.dataset.q);
+    const chosen = card.querySelector('input[name="q' + qi + '"]:checked');
+    const chosenVal = chosen ? Number(chosen.value) : -1;
+    const correctVal = ANSWERS[qi];
+    card.classList.add('graded');
+    card.querySelectorAll('.opt').forEach((opt, i) => {
+      opt.classList.remove('correct','wrong');
+      if (i === correctVal) opt.classList.add('correct');
+      else if (i === chosenVal) opt.classList.add('wrong');
+    });
+    if (chosenVal === correctVal) score++;
+  });
+  const result = document.getElementById('result');
+  result.classList.add('show');
+  const scoreLine = document.getElementById('scoreLine');
+  scoreLine.className = 'score-line ' + (score === ANSWERS.length ? 'ok' : 'warn');
+  scoreLine.textContent = `${score} / ${ANSWERS.length} 문제 맞음`;
+  result.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+document.getElementById('gradeBtn').addEventListener('click', grade);
+document.getElementById('resetBtn').addEventListener('click', () => {
+  document.querySelectorAll('input[type=radio]').forEach(r => r.checked = false);
+  document.querySelectorAll('.card').forEach(c => c.classList.remove('graded'));
+  document.getElementById('result').classList.remove('show');
+  window.scrollTo({top:0, behavior:'smooth'});
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>스마트관광 요인 용어 퀴즈</title>
+<style>
+:root{
+  --bg:#f4f7fb; --card:#fff; --ink:#1b2a3b; --muted:#5c6b7d; --line:#dfe6ee;
+  --accent:#1c5fae; --accent-soft:#eaf1fb; --good:#1f8a4c; --good-bg:#e9f8ee;
+  --bad:#b4393a; --bad-bg:#fdecec; --dot:#1c5fae;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR","Apple SD Gothic Neo",Pretendard,Arial,sans-serif;line-height:1.6}
+.wrap{max-width:760px;margin:0 auto;padding:28px 18px 60px}
+header{margin-bottom:22px}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.08em;color:var(--accent);text-transform:uppercase}
+h1{font-size:clamp(22px,4vw,28px);margin:8px 0 10px;line-height:1.35}
+header p{color:var(--muted);font-size:14.5px;margin:0}
+
+.ref-wrap{margin:18px 0 24px;overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+table.ref-tb{width:100%;border-collapse:collapse;font-size:13.5px;min-width:480px}
+table.ref-tb th,table.ref-tb td{padding:9px 10px;text-align:center;border-bottom:1px solid var(--line)}
+table.ref-tb th{background:var(--accent-soft);color:var(--accent);font-weight:800}
+table.ref-tb td:first-child,table.ref-tb th:first-child{text-align:left}
+table.ref-tb .dot{color:var(--dot);font-size:16px;font-weight:900}
+table.ref-tb tr:last-child td{border-bottom:0}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px 22px;margin:16px 0;box-shadow:0 8px 22px rgba(30,50,80,.05)}
+.q-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;font-size:13px;margin-right:8px;flex:0 0 auto}
+.q-title{font-size:16px;font-weight:800;margin:0 0 12px;display:flex;align-items:flex-start;gap:0}
+.opts{display:grid;gap:8px}
+.opt{display:flex;align-items:flex-start;gap:9px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;cursor:pointer;font-size:14.5px;background:#fafcfe}
+.opt:hover{background:var(--accent-soft)}
+.opt input{margin-top:3px;flex:0 0 auto;accent-color:var(--accent)}
+.opt .dot{color:var(--dot);font-weight:900}
+.card.graded .opt{cursor:default}
+.card.graded .opt:hover{background:#fafcfe}
+.card.graded .opt.correct{background:var(--good-bg);border-color:var(--good);color:#1a5c33}
+.card.graded .opt.wrong{background:var(--bad-bg);border-color:var(--bad);color:#8c2a2b}
+.explain{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);font-size:13px;color:var(--muted);display:none}
+.card.graded .explain{display:block}
+.explain .dot{color:var(--dot);font-weight:900}
+
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+button{font:inherit;font-weight:800;font-size:14.5px;border:0;border-radius:10px;padding:12px 20px;cursor:pointer;background:var(--accent);color:#fff}
+button.ghost{background:var(--accent-soft);color:var(--accent)}
+button:active{transform:translateY(1px)}
+.result{margin-top:16px;display:none}
+.result.show{display:block}
+.score-line{font-size:15px;font-weight:800;padding:12px 14px;border-radius:10px;margin-bottom:12px}
+.score-line.ok{background:var(--good-bg);color:var(--good)}
+.score-line.warn{background:var(--bad-bg);color:var(--bad)}
+.footnote{font-size:12.5px;color:var(--muted);margin-top:26px;text-align:center}
+.footnote a{color:var(--accent);text-decoration:none;font-weight:700}
+@media(max-width:480px){.card{padding:16px 15px 18px}table.ref-tb{font-size:12.5px}}
+.q-title small{display:block;font-weight:600;color:var(--muted);font-size:13px;margin-top:6px}
+.q-title b{color:var(--accent)}
+details.terms{margin:0 0 8px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 14px}
+details.terms summary{cursor:pointer;font-weight:800;color:var(--accent);font-size:14px}
+details.terms table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+details.terms td{padding:6px 6px;border-top:1px solid var(--line);vertical-align:top}
+details.terms td:nth-child(2){color:var(--muted);white-space:nowrap}
+@media(max-width:560px){details.terms td:nth-child(2){white-space:normal}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">스마트관광 척도개발 · 03 요인 용어 · 개념 이해 퀴즈</div>
+    <h1>여덟 요인 — 개념별 이해 퀴즈 14문항</h1>
+    <p>정의를 외웠는지보다, <b>장면을 보고 어떤 요인인지 가려내는지</b>를 묻습니다. 헷갈리기 쉬운 짝(스마트인프라 vs 기술통합성, 신뢰성 vs 보안성, 정보성 vs 상호작용성)도 넣었습니다.</p>
+  </header>
+
+  <details class="terms"><summary>여덟 요인 용어표 펼쳐 보기 (먼저 풀어 보고 막히면 여세요)</summary><table><tr><td><b>기술통합성</b></td><td>Technology Integration</td><td>여러 기술이 서비스 과정에 연결 · 통합되는 정도</td></tr><tr><td><b>편의성</b></td><td>Convenience</td><td>쉽고 빠르며 원활하게 서비스를 이용하는 정도</td></tr><tr><td><b>정보성</b></td><td>Informativeness</td><td>필요한 정보를 정확하고 적시에 얻는 정도</td></tr><tr><td><b>스마트인프라</b></td><td>Smart Infrastructure</td><td>키오스크 · 앱 · IoT 등 시스템 기반이 구축된 정도</td></tr><tr><td><b>신뢰성</b></td><td>Reliability</td><td>정보 · 예약 · 서비스 시스템을 믿을 수 있는 정도</td></tr><tr><td><b>개인화</b></td><td>Personalization</td><td>선호 · 이력에 맞는 맞춤형 서비스를 제공하는 정도</td></tr><tr><td><b>상호작용성</b></td><td>Interactivity</td><td>실시간 소통과 반응 · 피드백이 가능한 정도</td></tr><tr><td><b>보안성</b></td><td>Security</td><td>개인정보 · 결제 · 여행정보가 안전하게 보호되는 정도</td></tr></table></details>
+
+  <div class="card" data-q="0">
+    <p class="q-title"><span class="q-num">1</span><span><b>개인정보 · 결제 · 여행정보가 안전하게 보호되는 정도</b>를 뜻하는 요인은?</span></p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q0" value="0">신뢰성</label>
+      <label class="opt"><input type="radio" name="q0" value="1">보안성</label>
+      <label class="opt"><input type="radio" name="q0" value="2">기술통합성</label>
+      <label class="opt"><input type="radio" name="q0" value="3">스마트인프라</label>
+    </div>
+    <p class="explain"><b>보안성(Security)</b>. 신뢰성은 시스템을 <i>믿을 수 있는가</i>, 보안성은 정보가 <i>안전하게 지켜지는가</i>입니다.</p>
+  </div>
+
+  <div class="card" data-q="1">
+    <p class="q-title"><span class="q-num">2</span><span>호텔 앱이 지난 투숙 기록을 보고 「지난번처럼 높은 층 · 금연 객실로 준비할까요?」라고 묻습니다. 어떤 요인입니까?</span></p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q1" value="0">개인화</label>
+      <label class="opt"><input type="radio" name="q1" value="1">상호작용성</label>
+      <label class="opt"><input type="radio" name="q1" value="2">정보성</label>
+      <label class="opt"><input type="radio" name="q1" value="3">편의성</label>
+    </div>
+    <p class="explain">선호 · 이력에 맞춘 맞춤형 서비스 — <b>개인화(Personalization)</b>입니다.</p>
+  </div>
+
+  <div class="card" data-q="2">
+    <p class="q-title"><span class="q-num">3</span><span>항공권 예약 · 좌석 지정 · 모바일 탑승권 · 수하물 추적이 <b>앱 하나에 이어져</b> 끊김 없이 돌아갑니다. 가장 가까운 요인은?</span></p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q2" value="0">스마트인프라</label>
+      <label class="opt"><input type="radio" name="q2" value="1">기술통합성</label>
+      <label class="opt"><input type="radio" name="q2" value="2">편의성</label>
+      <label class="opt"><input type="radio" name="q2" value="3">신뢰성</label>
+    </div>
+    <p class="explain">여러 기술이 서비스 과정에 <b>연결 · 통합</b>되는 정도 — <b>기술통합성(Technology Integration)</b>입니다. 키오스크 · 앱이 <i>있는 것</i> 자체는 스마트인프라.</p>
+  </div>
+
+  <div class="card" data-q="3">
+    <p class="q-title"><span class="q-num">4</span><span>컨벤션센터 곳곳에 <b>키오스크 · 전용 앱 · IoT 센서</b>가 설치되어 있습니다. 이 「시스템 기반이 갖춰진 정도」를 나타내는 요인은?</span></p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q3" value="0">기술통합성</label>
+      <label class="opt"><input type="radio" name="q3" value="1">정보성</label>
+      <label class="opt"><input type="radio" name="q3" value="2">스마트인프라</label>
+      <label class="opt"><input type="radio" name="q3" value="3">상호작용성</label>
+    </div>
+    <p class="explain"><b>스마트인프라(Smart Infrastructure)</b> — 기반이 <i>구축</i>되었는가를 봅니다.</p>
+  </div>
+
+  <div class="card" data-q="4">
+    <p class="q-title"><span class="q-num">5</span><span>식당 앱에 메뉴 · 알레르기 성분 · 대기 시간이 <b>정확하고 제때</b> 나옵니다. 어떤 요인입니까?</span></p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q4" value="0">정보성</label>
+      <label class="opt"><input type="radio" name="q4" value="1">편의성</label>
+      <label class="opt"><input type="radio" name="q4" value="2">개인화</label>
+      <label class="opt"><input type="radio" name="q4" value="3">신뢰성</label>
+    </div>
+    <p class="explain">필요한 정보를 정확하고 적시에 얻는 정도 — <b>정보성(Informativeness)</b>입니다.</p>
+  </div>
+
+  <div class="card" data-q="5">
+    <p class="q-title"><span class="q-num">6</span><span>여행 중 챗봇에 질문하자 바로 답이 오고, 남긴 불만에 업체가 실시간으로 응답했습니다. 어떤 요인입니까?</span></p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q5" value="0">개인화</label>
+      <label class="opt"><input type="radio" name="q5" value="1">정보성</label>
+      <label class="opt"><input type="radio" name="q5" value="2">편의성</label>
+      <label class="opt"><input type="radio" name="q5" value="3">상호작용성</label>
+    </div>
+    <p class="explain">실시간 소통과 반응 · 피드백 — <b>상호작용성(Interactivity)</b>입니다. 정보성은 <i>정보의 질</i>, 상호작용성은 <i>주고받는 반응</i>.</p>
+  </div>
+
+  <div class="card" data-q="6">
+    <p class="q-title"><span class="q-num">7</span><span>「앱에서 확정된 예약이 현장에서 <b>틀림없이 그대로</b> 확인된다」는 믿음은 어떤 요인에 해당합니까?</span></p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q6" value="0">보안성</label>
+      <label class="opt"><input type="radio" name="q6" value="1">신뢰성</label>
+      <label class="opt"><input type="radio" name="q6" value="2">기술통합성</label>
+      <label class="opt"><input type="radio" name="q6" value="3">정보성</label>
+    </div>
+    <p class="explain">정보 · 예약 · 서비스 시스템을 믿을 수 있는 정도 — <b>신뢰성(Reliability)</b>입니다. 해킹 · 유출 걱정은 보안성 쪽.</p>
+  </div>
+
+  <div class="card" data-q="7">
+    <p class="q-title"><span class="q-num">8</span><span>체크인을 줄 서지 않고 <b>휴대폰으로 30초 만에</b> 끝냈습니다. 가장 가까운 요인은?</span></p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q7" value="0">스마트인프라</label>
+      <label class="opt"><input type="radio" name="q7" value="1">상호작용성</label>
+      <label class="opt"><input type="radio" name="q7" value="2">편의성</label>
+      <label class="opt"><input type="radio" name="q7" value="3">개인화</label>
+    </div>
+    <p class="explain">쉽고 빠르며 원활하게 이용하는 정도 — <b>편의성(Convenience)</b>입니다.</p>
+  </div>
+
+  <div class="card" data-q="8">
+    <p class="q-title"><span class="q-num">9</span><span>영어 원어와 한글이 <b>잘못</b> 짝지어진 것은?</span></p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q8" value="0">Convenience — 편의성</label>
+      <label class="opt"><input type="radio" name="q8" value="1">Interactivity — 상호작용성</label>
+      <label class="opt"><input type="radio" name="q8" value="2">Reliability — 보안성</label>
+      <label class="opt"><input type="radio" name="q8" value="3">Personalization — 개인화</label>
+    </div>
+    <p class="explain">Reliability는 <b>신뢰성</b>, 보안성은 <b>Security</b>입니다.</p>
+  </div>
+
+  <div class="card" data-q="9">
+    <p class="q-title"><span class="q-num">10</span><span><b>Informativeness</b>의 한글 요인 이름은?</span></p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q9" value="0">정보성</label>
+      <label class="opt"><input type="radio" name="q9" value="1">신뢰성</label>
+      <label class="opt"><input type="radio" name="q9" value="2">기술통합성</label>
+      <label class="opt"><input type="radio" name="q9" value="3">상호작용성</label>
+    </div>
+    <p class="explain"><b>정보성</b> — 필요한 정보를 정확하고 적시에 얻는 정도.</p>
+  </div>
+
+  <div class="card" data-q="10">
+    <p class="q-title"><span class="q-num">11</span><span>「키오스크가 있다」와 「키오스크 · 앱 · 결제가 서로 연결돼 한 흐름으로 처리된다」를 구분하면, 각각 어떤 요인입니까?</span></p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q10" value="0">편의성 → 정보성</label>
+      <label class="opt"><input type="radio" name="q10" value="1">스마트인프라 → 기술통합성</label>
+      <label class="opt"><input type="radio" name="q10" value="2">기술통합성 → 스마트인프라</label>
+      <label class="opt"><input type="radio" name="q10" value="3">신뢰성 → 상호작용성</label>
+    </div>
+    <p class="explain"><b>있는가</b>는 스마트인프라, <b>이어져 있는가</b>는 기술통합성. 두 요인을 가르는 기준입니다.</p>
+  </div>
+
+  <div class="card" data-q="11">
+    <p class="q-title"><span class="q-num">12</span><span>「정보성」과 「상호작용성」의 차이를 가장 잘 설명한 것은?</span></p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q11" value="0">둘 다 정보가 많은 정도를 뜻한다</label>
+      <label class="opt"><input type="radio" name="q11" value="1">정보성은 정보가 정확 · 적시인가, 상호작용성은 실시간으로 묻고 반응 · 피드백을 주고받는가</label>
+      <label class="opt"><input type="radio" name="q11" value="2">정보성은 앱, 상호작용성은 키오스크에 관한 것이다</label>
+      <label class="opt"><input type="radio" name="q11" value="3">정보성은 보안, 상호작용성은 결제에 관한 것이다</label>
+    </div>
+    <p class="explain">정보성은 <b>받는 정보의 질</b>, 상호작용성은 <b>주고받는 소통</b>입니다.</p>
+  </div>
+
+  <div class="card" data-q="12">
+    <p class="q-title"><span class="q-num">13</span><span>「신뢰성」과 「보안성」을 바르게 구분한 것은?</span></p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q12" value="0">신뢰성 = 개인정보 보호, 보안성 = 예약 정확성</label>
+      <label class="opt"><input type="radio" name="q12" value="1">둘은 같은 요인이다</label>
+      <label class="opt"><input type="radio" name="q12" value="2">신뢰성 = 결제 속도, 보안성 = 앱 디자인</label>
+      <label class="opt"><input type="radio" name="q12" value="3">신뢰성 = 정보 · 예약 · 서비스 시스템을 믿을 수 있는가, 보안성 = 개인정보 · 결제 · 여행정보가 안전하게 보호되는가</label>
+    </div>
+    <p class="explain">신뢰성은 <b>제대로 작동하리라는 믿음</b>, 보안성은 <b>정보가 새지 않는 안전</b>입니다.</p>
+  </div>
+
+  <div class="card" data-q="13">
+    <p class="q-title"><span class="q-num">14</span><span>관광지 앱이 내 위치와 취향을 보고 <b>근처 맛집을 골라 추천</b>하고, 내가 「싫어요」를 누르자 <b>바로 다른 곳을 다시 추천</b>합니다. 이 장면에 함께 나타난 두 요인은?</span></p>
+    <div class="opts">
+      <label class="opt"><input type="radio" name="q13" value="0">개인화 · 상호작용성</label>
+      <label class="opt"><input type="radio" name="q13" value="1">보안성 · 신뢰성</label>
+      <label class="opt"><input type="radio" name="q13" value="2">스마트인프라 · 편의성</label>
+      <label class="opt"><input type="radio" name="q13" value="3">정보성 · 보안성</label>
+    </div>
+    <p class="explain">취향 맞춤은 <b>개인화</b>, 내 반응에 곧바로 응답하는 것은 <b>상호작용성</b>. 한 장면에 요인이 둘 이상 겹칠 수 있습니다.</p>
+  </div>
+
+  <div class="actions">
+    <button id="gradeBtn">채점하기</button>
+    <button class="ghost" id="resetBtn">다시 풀기</button>
+  </div>
+
+  <div class="result" id="result">
+    <div class="score-line" id="scoreLine"></div>
+  </div>
+
+  <p class="footnote">요인 패턴(산업별 ● 표)은 <a href="smart-tourism-5-industry-factors-quiz.html" target="_blank" rel="noopener">5개 산업 요인 패턴 퀴즈 ↗</a> · 슬라이드는 <a href="smart-tourism.html#척도개발" target="_blank" rel="noopener">스마트관광의 이해 ↗</a></p>
+</div>
+
+<script>
+const ANSWERS = [1, 0, 1, 2, 0, 3, 1, 2, 2, 0, 1, 1, 3, 0];
+
+function grade(){
+  let score = 0;
+  document.querySelectorAll('.card[data-q]').forEach(card => {
+    const qi = Number(card.dataset.q);
+    const chosen = card.querySelector('input[name="q' + qi + '"]:checked');
+    const chosenVal = chosen ? Number(chosen.value) : -1;
+    const correctVal = ANSWERS[qi];
+    card.classList.add('graded');
+    card.querySelectorAll('.opt').forEach((opt, i) => {
+      opt.classList.remove('correct','wrong');
+      if (i === correctVal) opt.classList.add('correct');
+      else if (i === chosenVal) opt.classList.add('wrong');
+    });
+    if (chosenVal === correctVal) score++;
+  });
+  const result = document.getElementById('result');
+  result.classList.add('show');
+  const scoreLine = document.getElementById('scoreLine');
+  scoreLine.className = 'score-line ' + (score === ANSWERS.length ? 'ok' : 'warn');
+  scoreLine.textContent = `${score} / ${ANSWERS.length} 문제 맞음`;
+  result.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+document.getElementById('gradeBtn').addEventListener('click', grade);
+document.getElementById('resetBtn').addEventListener('click', () => {
+  document.querySelectorAll('input[type=radio]').forEach(r => r.checked = false);
+  document.querySelectorAll('.card').forEach(c => c.classList.remove('graded'));
+  document.getElementById('result').classList.remove('show');
+  window.scrollTo({top:0, behavior:'smooth'});
+});
+</script>
+</body>
+</html>
