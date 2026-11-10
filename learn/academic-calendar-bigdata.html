@@ -188,6 +188,8 @@ table.roster-tbl .rd {color:#aab3c0}
 table.roster-tbl .rsum {font-weight:800; color:var(--navy)}
 table.roster-tbl tbody tr.roster-total td {background:#eef4ff; font-weight:800; color:var(--navy)}
 table.roster-tbl .rlate {display:block; font-size:8.5px; color:#a8681f; font-weight:700; margin-top:1px}
+table.roster-tbl .rconv {display:block; font-size:8.5px; color:#c0392b; font-weight:800; margin-top:1px}
+.conv {color:#c0392b; font-weight:800}
 table.roster-tbl .rwk-off {color:#aab3c0; font-style:normal}
 @media(max-width:1320px) {
   .grid {grid-template-columns:1fr}
@@ -467,7 +469,7 @@ table.roster-tbl .rwk-off {color:#aab3c0; font-style:normal}
           <td><span class="tag">#군집분석</span><span class="tag">#K-means</span><span class="tag">#Ward</span><span class="tag">#DBSCAN</span><span class="tag">#GMM</span><span class="tag">#분산분석</span><span class="tag">#ANOVA</span><span class="tag">#이원분산분석</span><span class="sm">군집분석 핵심 4가지 — <a href="adsp3/5-deep-36-priority-figures.html" target="_blank" rel="noopener">학습 우선순위 · 그림 — K-means · Ward · DBSCAN · GMM (5장) ↗</a></span><span class="sm">분산분석(ANOVA) — <a href="https://www.youtube.com/live/5WfShfnMD50?si=amYKtbQ0J0D8SBTO&amp;t=47" target="_blank" rel="noopener">분산분석 개괄설명 ▶ 영상 ↗</a> · <a href="https://www.youtube.com/live/5WfShfnMD50?si=k9JHiAo4dKrbtCYK&amp;t=1132" target="_blank" rel="noopener">주효과검정 · 이원분산분석 ▶ 영상 ↗</a></span></td>
           <td class="dash">—</td>
           <td><strong>군집분석 문제</strong><span class="sm"><a href="adsp3/5-deep-21-clustering-overview.html" target="_blank" rel="noopener">3과목 5장 군집분석 개관(교재 쪽수) ↗</a> · <a href="adsp3/5-deep-35-cluster-bonus-quiz.html" target="_blank" rel="noopener">군집분석 3문제 풀이 · 복습 ↗</a> · <a href="adsp3/5-deep-38-cluster-easy6.html" target="_blank" rel="noopener">✏ 군집분석 쉬운 문제 6선 ↗</a></span></td>
-          <td><span class="nm">고은서</span> · <span class="nm">김다애</span> · <span class="nm">김윤서</span><span class="late">(지각 · 10분)</span> · <span class="nm">박상준</span> · <span class="nm">서효원</span> · <span class="nm">이영훈</span> · <span class="nm">임준혁</span> · <span class="nm">장민주</span> · <span class="nm">정연승</span><span class="late">(지각 · 5분 · 누적 3회째)</span> · <span class="nm">한솔</span> <strong>(10명)</strong></td>
+          <td><span class="nm">고은서</span> · <span class="nm">김다애</span> · <span class="nm">김윤서</span><span class="late">(지각 · 10분)</span> · <span class="nm">박상준</span> · <span class="nm">서효원</span> · <span class="nm">이영훈</span> · <span class="nm">임준혁</span> · <span class="nm">장민주</span> · <span class="nm">정연승</span><span class="late">(지각 · 5분 · 누적 3회째 → <b class="conv">결석 1회로 전환</b>)</span> · <span class="nm">한솔</span> <strong>(10명)</strong></td>
           <td class="abs"><b>2명</b> — <span class="nm">김대호</span><em>(취업계)</em> · <span class="nm">김준호</span></td>
         </tr>
       </tbody>
@@ -578,9 +580,9 @@ table.roster-tbl .rwk-off {color:#aab3c0; font-style:normal}
         <tr>
           <td>정연승</td>
           <td></td><td class="ro">○</td><td class="ro">○</td><td class="ro">○</td><td class="ro">○<small class="rlate">지각</small></td><td></td><td class="ro">○<small class="rlate">지각</small></td>
-          <td class="rx">결석</td><td class="ro">○</td><td class="rx">결석</td><td class="ro">○<small class="rlate">지각</small></td><td></td><td></td><td></td><td></td><td></td>
-          <td class="rsum">3</td>
-          <td class="rsum">5/8<small class="rlate">지각 3→결석 1 반영</small></td>
+          <td class="rx">결석</td><td class="ro">○</td><td class="rx">결석</td><td class="ro">○<small class="rlate">지각</small><small class="rconv">3회째 → 결석 1</small></td><td></td><td></td><td></td><td></td><td></td>
+          <td class="rsum">3<small class="rconv">→ 결석 1</small></td>
+          <td class="rsum">5/8<small class="rconv">지각 3 → 결석 1 전환</small></td>
         </tr>
         <tr>
           <td>한솔</td>
