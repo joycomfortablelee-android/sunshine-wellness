@@ -514,6 +514,18 @@
     @media (max-width: 620px) {
       .learn-article .note-box .kwlist.mk-kw > li { grid-template-columns: 1fr; gap: 2px; }
     }
+    /* 파트 12 스마트 모빌리티 개념 넷 — 「용어 : 설명」 두 칸, 설명 줄이 꺾여도 같은 들여쓰기 */
+    .learn-article .kwlist.mob-kw { margin: 10px 0 14px; padding: 0; list-style: none; }
+    .learn-article .kwlist.mob-kw > li {
+      display: grid; grid-template-columns: 168px minmax(0, 1fr); gap: 14px;
+      margin: 0; padding: 8px 0; border-top: 1px dashed #d9e2ea; line-height: 1.75;
+    }
+    .learn-article .kwlist.mob-kw > li:first-child { border-top: 0; }
+    .learn-article .kwlist.mob-kw > li::before { content: none; }
+    .learn-article .kwlist.mob-kw > li > b { font-weight: 800; color: #17395f; letter-spacing: -.2px; }
+    @media (max-width: 620px) {
+      .learn-article .kwlist.mob-kw > li { grid-template-columns: 1fr; gap: 2px; }
+    }
     /* PBL 머리 — 제목 대신 알약 하나. 위 「그래서 무슨 말인가」 알약과 같은 모양이다. */
     .learn-article .pbl-tag { margin: 0 0 9px; }
     .learn-article .pbl-tag .mapl.form.hot {
@@ -3390,7 +3402,7 @@
 
       <p class="learn-part pt-part pp-2" id="part12"><span class="pt"><i>파트</i><b>12</b></span><span class="pt-ti">스마트 모빌리티</span><span class="pt-sub">5대 요소의 <strong>④ 스마트 모빌리티</strong> — 관광객의 <strong>이동</strong>을 하나로 잇는 기술</span><span class="pt-jump"><a href="#part00">00 한눈에</a><a href="#part01">01 국내</a><a href="#part06">02 이론</a><a href="#part07">03 연구</a><a href="#part02">04 해외</a><a href="#part03">05 공모전</a><a href="#part04">06 PBL</a><a href="#part05">07 책</a><a href="#part08">08 취업</a><a href="#part09">09 자료실</a><a href="#part10">10 AI</a><a href="#part11">11 실무</a><a href="#part12" class="on" aria-current="true">12 모빌리티</a></span></p>
       <p>스마트 모빌리티는 한국관광공사 스마트관광도시 <a href="#국내-B">5대 요소</a> 가운데 <strong>관광교통</strong>을 맡는 영역입니다. 핵심가치는 <strong>방문범위 확대</strong>입니다. 대중교통이 닿지 않는 곳까지 2차 교통수단으로 이어 주면 관광객이 머무는 범위가 넓어집니다. 그래서 「이동」 자체가 관광 경험의 일부가 됩니다.</p>
-      <ol class="kwlist">
+      <ol class="kwlist mob-kw">
         <li><b>MaaS</b><span>Mobility as a Service — 버스 · 철도 · 택시 · 공유 이동수단을 <strong>앱 하나에서 검색 · 예약 · 결제</strong>하도록 묶는 서비스입니다.</span></li>
         <li><b>수요응답형 교통</b><span>정해진 노선 대신 <strong>부르는 곳으로 오는</strong> 버스 · 승합차입니다. 도시와 도시, 관광지와 관광지 사이를 잇습니다.</span></li>
         <li><b>공유 · 퍼스널 모빌리티</b><span>공유자동차 · 공유자전거 · 전동킥보드처럼 <strong>도시 안의 짧은 구간</strong>을 메웁니다.</span></li>
