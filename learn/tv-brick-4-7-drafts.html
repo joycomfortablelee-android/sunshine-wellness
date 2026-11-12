@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ko"><head><meta name="robots" content="noindex"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>사업계획서 4~7차 벽돌 시안</title>
+<style>
+body{margin:0;background:#f6f7f9;font-family:"Malgun Gothic","Noto Sans KR",sans-serif;color:#1c2f55}
+.wrap{max-width:1100px;margin:0 auto;padding:24px 16px 60px}
+h2{font-size:18px;margin:38px 0 6px}h2 small{font-weight:400;color:#5c6b7a;font-size:13px;margin-left:8px}
+.note{font-size:13px;color:#5c6b7a;margin:0 0 12px}
+/* ── 시안 A: 계단식 벽돌 (아래에서 위로 쌓임) ── */
+.wallA{display:flex;flex-direction:column-reverse;gap:6px}
+.rowA{display:grid;grid-template-columns:150px repeat(3,1fr);gap:6px;align-items:stretch}
+.rowA:nth-child(2){margin-left:24px}.rowA:nth-child(3){margin-left:48px}.rowA:nth-child(4){margin-left:72px}
+.capA{background:#1c2f55;color:#fff;border-radius:6px;padding:8px 10px;font-size:12px;line-height:1.4}
+.capA b{display:block;font-size:14px}.capA em{font-style:normal;color:#ffe37a;font-weight:700}
+.bA{background:#fff;border:1px solid #d7dde6;border-bottom:4px solid var(--c);border-radius:6px;padding:8px 10px;position:relative}
+.bA i{font-style:normal;font-size:11px;color:#8a97a8;font-weight:700}
+.bA b{display:block;font-size:15px;margin:1px 0}.bA span{font-size:12px;color:#1f6f5c;font-weight:700}
+.qA{grid-column:2/-1;font-size:12px;color:#5c6b7a;margin:-2px 0 4px;padding-left:2px}
+/* ── 시안 B: 엇갈린 벽돌 4단 + 오른쪽 질문 ── */
+.wallB{display:grid;gap:5px}
+.rowB{display:grid;grid-template-columns:120px 1fr 260px;gap:8px;align-items:center}
+.lab{font-size:12px;line-height:1.35}.lab b{display:block;font-size:14px}.lab small{color:#b33a1a;font-weight:700}
+.bricks{display:flex;gap:5px}.rowB:nth-child(even) .bricks{padding-left:36px}.rowB:nth-child(odd) .bricks{padding-right:36px}
+.bB{flex:1;background:var(--c);color:#fff;border-radius:4px;padding:9px 10px;box-shadow:inset 0 -3px 0 rgba(0,0,0,.18)}
+.bB i{font-style:normal;font-size:11px;opacity:.8}.bB b{display:block;font-size:15px}.bB span{font-size:12px;opacity:.95}
+.qB{font-size:12.5px;color:#34465f;border-left:3px solid var(--c);padding-left:9px;line-height:1.5}
+/* ── 시안 C: 가로 한 줄 12벽돌 타임라인 ── */
+.wallC{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.colC{background:#fff;border:1px solid #d7dde6;border-radius:8px;overflow:hidden}
+.colC header{background:var(--c);color:#fff;padding:7px 10px;font-size:12px}.colC header b{font-size:14px;margin-right:6px}
+.colC .bk{display:grid;grid-template-columns:28px 1fr;gap:6px;padding:7px 10px;border-top:1px dashed #e3e7ee;font-size:13px}
+.colC .bk i{font-style:normal;font-weight:800;color:var(--c)}.colC .bk span{display:block;font-size:11.5px;color:#1f6f5c;font-weight:700}
+.colC p{margin:0;padding:7px 10px;background:#f3f6fa;font-size:11.5px;color:#5c6b7a;line-height:1.45}
+@media(max-width:760px){.rowA,.rowB{grid-template-columns:1fr;margin-left:0!important}.qA{grid-column:auto}.rowB .bricks{padding:0!important}.wallC{grid-template-columns:1fr 1fr}}
+</style></head><body><div class="wrap">
+<h1 style="font-size:22px;margin:0">🧱 사업계획서 4~7차 — 벽돌 시안 세 가지</h1>
+<p class="note">관광벤처 페이지 상단에는 시안 A를 넣었습니다. 색: 4차 초록 · 5차 파랑 · 6차 주황 · 7차 자주.</p>
+
+<h2>시안 A · 계단식으로 쌓는 벽돌 <small>추천 — 아래 4차부터 위로 7차까지 쌓여 올라감</small></h2>
+<p class="note">「한 칸씩 쌓아 한 부로」라는 이 수업의 말과 그대로 맞습니다. 위로 갈수록 오른쪽으로 한 칸씩 물려 계단처럼 보입니다.</p>
+<div class="wallA">
+ <div class="rowA" style="--c:#1f8a5c"><div class="capA"><b>4차 · 12주</b>11/17 수업<br><em>11/22(일) 자정</em></div>
+  <div class="bA"><i>01</i><b>개발</b><span>양식 3-1</span></div><div class="bA"><i>02</i><b>홍보</b><span>양식 3-2</span></div><div class="bA"><i>03</i><b>판매</b><span>양식 3-2</span></div>
+  <div class="qA">무엇을 만들고 → 누구에게 알리고 → 어디서 판매할 것인가?</div></div>
+ <div class="rowA" style="--c:#2f6fb3"><div class="capA"><b>5차 · 13주</b>11/24 수업<br><em>11/29(일) 자정</em></div>
+  <div class="bA"><i>04</i><b>자금</b><span>3-3 · 표1</span></div><div class="bA"><i>05</i><b>일정</b><span>3-4 · 표2</span></div><div class="bA"><i>06</i><b>실행관리</b><span>3-4 · 표3</span></div>
+  <div class="qA">얼마가 필요하고 → 언제 사용하며 → 누가 실행하는가?</div></div>
+ <div class="rowA" style="--c:#c9781a"><div class="capA"><b>6차 · 14주</b>12/1 수업<br><em>12/6(일) 자정</em></div>
+  <div class="bA"><i>07</i><b>성장전략</b><span>양식 3-5 · 표4</span></div><div class="bA"><i>08</i><b>연관성</b><span>양식 4-2</span></div><div class="bA"><i>09</i><b>계획 보완</b><span>양식 4-1</span></div>
+  <div class="qA">초기 시장에 진입한 뒤 → 어떻게 성장하고 → 무엇으로 경쟁력을 입증할 것인가?</div></div>
+ <div class="rowA" style="--c:#8a3f8f"><div class="capA"><b>7차 · 15주</b>12/8 보강 주간<br><em>12/13(일) 자정</em></div>
+  <div class="bA"><i>10</i><b>팀 역량</b><span>5-1~5-3 · 표5</span></div><div class="bA"><i>11</i><b>성과지표</b><span>6-1</span></div><div class="bA"><i>12</i><b>협약목표</b><span>매출·고용·투자</span></div>
+  <div class="qA">누가 실행하고 → 무엇으로 측정하며 → 협약기간에 어디까지 달성할 것인가?</div></div>
+</div>
+
+<h2>시안 B · 엇갈려 쌓은 색 벽돌 <small>진짜 벽돌담처럼 줄마다 반 칸씩 어긋남</small></h2>
+<div class="wallB">
+ <div class="rowB" style="--c:#1f8a5c"><div class="lab"><b>4차 · 12주 (11/17)</b><small>11/22(일) 자정</small></div><div class="bricks"><div class="bB"><i>01</i><b>개발</b><span>양식 3-1</span></div><div class="bB"><i>02</i><b>홍보</b><span>양식 3-2</span></div><div class="bB"><i>03</i><b>판매</b><span>양식 3-2</span></div></div><div class="qB">무엇을 만들고 → 누구에게 알리고 → 어디서 판매할 것인가?</div></div>
+ <div class="rowB" style="--c:#2f6fb3"><div class="lab"><b>5차 · 13주 (11/24)</b><small>11/29(일) 자정</small></div><div class="bricks"><div class="bB"><i>04</i><b>자금</b><span>3-3 · 표1</span></div><div class="bB"><i>05</i><b>일정</b><span>3-4 · 표2</span></div><div class="bB"><i>06</i><b>실행관리</b><span>3-4 · 표3</span></div></div><div class="qB">얼마가 필요하고 → 언제 사용하며 → 누가 실행하는가?</div></div>
+ <div class="rowB" style="--c:#c9781a"><div class="lab"><b>6차 · 14주 (12/1)</b><small>12/6(일) 자정</small></div><div class="bricks"><div class="bB"><i>07</i><b>성장전략</b><span>양식 3-5 · 표4</span></div><div class="bB"><i>08</i><b>연관성</b><span>양식 4-2</span></div><div class="bB"><i>09</i><b>계획 보완</b><span>양식 4-1</span></div></div><div class="qB">초기 시장에 진입한 뒤 → 어떻게 성장하고 → 무엇으로 경쟁력을 입증할 것인가?</div></div>
+ <div class="rowB" style="--c:#8a3f8f"><div class="lab"><b>7차 · 15주 (12/8 보강)</b><small>12/13(일) 자정</small></div><div class="bricks"><div class="bB"><i>10</i><b>팀 역량</b><span>5-1~5-3 · 표5</span></div><div class="bB"><i>11</i><b>성과지표</b><span>6-1</span></div><div class="bB"><i>12</i><b>협약목표</b><span>매출·고용·투자</span></div></div><div class="qB">누가 실행하고 → 무엇으로 측정하며 → 협약기간에 어디까지 달성할 것인가?</div></div>
+</div>
+
+<h2>시안 C · 네 기둥(세로 카드) <small>가로 공간이 넓을 때 가장 짧게 들어감</small></h2>
+<div class="wallC">
+ <div class="colC" style="--c:#1f8a5c"><header><b>4차</b>12주 11/17 · 마감 11/22(일)</header><div class="bk"><i>01</i><div>개발<span>양식 3-1</span></div></div><div class="bk"><i>02</i><div>홍보<span>양식 3-2</span></div></div><div class="bk"><i>03</i><div>판매<span>양식 3-2</span></div></div><p>무엇을 만들고 → 누구에게 알리고 → 어디서 판매할 것인가?</p></div>
+ <div class="colC" style="--c:#2f6fb3"><header><b>5차</b>13주 11/24 · 마감 11/29(일)</header><div class="bk"><i>04</i><div>자금<span>3-3 · 표1</span></div></div><div class="bk"><i>05</i><div>일정<span>3-4 · 표2</span></div></div><div class="bk"><i>06</i><div>실행관리<span>3-4 · 표3</span></div></div><p>얼마가 필요하고 → 언제 사용하며 → 누가 실행하는가?</p></div>
+ <div class="colC" style="--c:#c9781a"><header><b>6차</b>14주 12/1 · 마감 12/6(일)</header><div class="bk"><i>07</i><div>성장전략<span>양식 3-5 · 표4</span></div></div><div class="bk"><i>08</i><div>연관성<span>양식 4-2</span></div></div><div class="bk"><i>09</i><div>계획 보완<span>양식 4-1</span></div></div><p>초기 시장 진입 뒤 → 어떻게 성장하고 → 무엇으로 경쟁력을 입증할 것인가?</p></div>
+ <div class="colC" style="--c:#8a3f8f"><header><b>7차</b>15주 12/8 보강 · 마감 12/13(일)</header><div class="bk"><i>10</i><div>팀 역량<span>5-1~5-3 · 표5</span></div></div><div class="bk"><i>11</i><div>성과지표<span>6-1</span></div></div><div class="bk"><i>12</i><div>협약목표<span>매출·고용·투자</span></div></div><p>누가 실행하고 → 무엇으로 측정하며 → 협약기간에 어디까지 달성할 것인가?</p></div>
+</div>
+</div></body></html>
