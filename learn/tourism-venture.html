@@ -3180,6 +3180,20 @@
     /* 실전 입사지원서 목록 — 스마트관광의 발표 준비(VIA) 상자와 같은 연한 노랑 점선 상자 (2026-09-30) */
     .learn-article .jf-box { margin: 8px 0 12px; padding: 12px 14px 10px; border-radius: 10px; background: #fffbe0; border: 1.5px dashed #d8bb2a; }
     .learn-article .jf-box .jf-d { margin: 0 0 6px; }
+    /* 사업계획서 4~7차 계단식 벽돌 — 아래 4차부터 위로 7차까지 쌓임 */
+    .brk{margin:0 0 14px}
+    .brk .brk-t{font-size:13px;font-weight:700;color:#1c2f55;margin:0 0 6px}
+    .brk .brk-t small{font-weight:400;color:#5c6b7a;margin-left:6px}
+    .brk-wall{display:flex;flex-direction:column-reverse;gap:6px}
+    .brk-row{display:grid;grid-template-columns:132px repeat(3,1fr);gap:6px;align-items:stretch}
+    .brk-row:nth-child(2){margin-left:22px}.brk-row:nth-child(3){margin-left:44px}.brk-row:nth-child(4){margin-left:66px}
+    .brk-cap{background:#1c2f55;color:#fff;border-radius:6px;padding:7px 9px;font-size:11.5px;line-height:1.4}
+    .brk-cap b{display:block;font-size:13.5px}.brk-cap em{font-style:normal;color:#ffe37a;font-weight:700}
+    .brk-b{background:#fff;border:1px solid #d7dde6;border-bottom:4px solid var(--c);border-radius:6px;padding:7px 9px}
+    .brk-b i{font-style:normal;font-size:10.5px;color:#8a97a8;font-weight:700}
+    .brk-b b{display:block;font-size:14px;margin:1px 0;color:#1c2f55}.brk-b span{font-size:11.5px;color:#1f6f5c;font-weight:700}
+    .brk-q{grid-column:2/-1;font-size:11.5px;color:#5c6b7a;margin:-2px 0 4px;padding-left:2px}
+    @media(max-width:760px){.brk-row{grid-template-columns:1fr 1fr;margin-left:0!important}.brk-cap,.brk-q{grid-column:1/-1}}
   </style>
 </head>
 <body class="mod-venture">
@@ -3237,6 +3251,15 @@
             <p class="cal-h">강의계획서 — 두 안</p>
             <p class="sp-t"><span>15주 + 기말 · 중간 8주(10/20) · 기말 16주(12/15) · 결강 없음 · 정규 수업 14주(12/1)까지</span></p>
             <p class="syl-tags"><a class="mapl" href="assets/tourism-venture-syllabus-2026-2.docx" download="2026-2학기_관광벤처창업론_강의계획서(안1).docx" title="공식 사업계획서 6절을 한 주에 한 칸씩 — 13회가 온전히 「낼 서류 한 부」로">안 1 · 서식 축 — 양식을 한 칸씩 ⤓</a><a class="mapl" href="assets/tourism-venture-syllabus-2026-2-plan2.docx" download="2026-2학기_관광벤처창업론_강의계획서(안2).docx" title="안 1 + 업종별 실무(5~7주) · 연구용역(10주) · 진로·취업(11주) — 기말이 창업 IR / 모의면접 두 갈래">안 2 · 업종 · 연구용역 · 진로까지 ⤓</a><a class="mapl wb" href="assets/tourism-venture-weekly-workbook.docx" download="관광벤처창업론_예비관광벤처_사업계획서_주차별_작업워크북.docx">두 안 공통 · 주차별 워크북 ⤓</a></p>
+          </div>
+          <div class="brk" id="brick-4-7">
+            <p class="brk-t">사업계획서 4~7차 — 한 칸씩 쌓아 한 부로 <small>아래 4차부터 위로 7차까지</small></p>
+            <div class="brk-wall">
+ <div class="brk-row" style="--c:#1f8a5c"><div class="brk-cap"><b>4차 · 12주</b>11/17 수업<br><em>11/22(일) 자정</em></div><div class="brk-b"><i>01</i><b>개발</b><span>양식 3-1</span></div><div class="brk-b"><i>02</i><b>홍보</b><span>양식 3-2</span></div><div class="brk-b"><i>03</i><b>판매</b><span>양식 3-2</span></div><div class="brk-q">무엇을 만들고 → 누구에게 알리고 → 어디서 판매할 것인가?</div></div>
+ <div class="brk-row" style="--c:#2f6fb3"><div class="brk-cap"><b>5차 · 13주</b>11/24 수업<br><em>11/29(일) 자정</em></div><div class="brk-b"><i>04</i><b>자금</b><span>3-3 · 표1</span></div><div class="brk-b"><i>05</i><b>일정</b><span>3-4 · 표2</span></div><div class="brk-b"><i>06</i><b>실행관리</b><span>3-4 · 표3</span></div><div class="brk-q">얼마가 필요하고 → 언제 사용하며 → 누가 실행하는가?</div></div>
+ <div class="brk-row" style="--c:#c9781a"><div class="brk-cap"><b>6차 · 14주</b>12/1 수업<br><em>12/6(일) 자정</em></div><div class="brk-b"><i>07</i><b>성장전략</b><span>양식 3-5 · 표4</span></div><div class="brk-b"><i>08</i><b>연관성</b><span>양식 4-2</span></div><div class="brk-b"><i>09</i><b>계획 보완</b><span>양식 4-1</span></div><div class="brk-q">초기 시장에 진입한 뒤 → 어떻게 성장하고 → 무엇으로 경쟁력을 입증할 것인가?</div></div>
+ <div class="brk-row" style="--c:#8a3f8f"><div class="brk-cap"><b>7차 · 15주</b>12/8 보강 주간<br><em>12/13(일) 자정</em></div><div class="brk-b"><i>10</i><b>팀 역량</b><span>5-1~5-3 · 표5</span></div><div class="brk-b"><i>11</i><b>성과지표</b><span>6-1</span></div><div class="brk-b"><i>12</i><b>협약목표</b><span>매출·고용·투자</span></div><div class="brk-q">누가 실행하고 → 무엇으로 측정하며 → 협약기간에 어디까지 달성할 것인가?</div></div>
+            </div>
           </div>
           <div class="sub-rounds" id="제출회차">
             <p class="cal-h">사업계획서 제출 — 수업에서 쓰고, 그 주 일요일 자정까지 · <mark class="hl-y">한글(HWP) 파일로</mark></p>
