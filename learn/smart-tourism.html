@@ -523,6 +523,13 @@
     .learn-article .kwlist.mob-kw > li:first-child { border-top: 0; }
     .learn-article .kwlist.mob-kw > li::before { content: none; }
     .learn-article .kwlist.mob-kw > li > b { font-weight: 800; color: #17395f; letter-spacing: -.2px; }
+    /* 파트 12 알약 계단 — 넓게 보기 → 개념 → 사례 → 써 보기 (2026-11-13) */
+    .learn-article .mob-steps-intro { margin: 14px 0 8px; padding: 11px 15px; background: #f3f7fd; border: 1px solid #d6e2f1; border-left: 4px solid #1c2f55; border-radius: 10px; font-size: .95rem; line-height: 1.75; }
+    .learn-article .mob-steps-intro b { color: #1c2f55; }
+    .learn-article .mob-st { display: inline-block; margin-right: 7px; padding: 1px 10px; border-radius: 100px; font-size: .78rem; font-weight: 800; color: #fff; vertical-align: 2px; white-space: nowrap; }
+    .learn-article .mob-st.s1 { background: #1c2f55; } .learn-article .mob-st.s2 { background: #2f6fb5; } .learn-article .mob-st.s3 { background: #2c8256; } .learn-article .mob-st.s4 { background: #b8432f; }
+    .learn-article .mob-st-ax { margin: 8px 0 4px; font-size: .92rem; }
+    .learn-article .mob-st-ax a { font-weight: 800; color: #b8432f; }
     @media (max-width: 620px) {
       .learn-article .kwlist.mob-kw > li { grid-template-columns: 1fr; gap: 2px; }
     }
@@ -3431,33 +3438,35 @@
         <li><b>공유 · 퍼스널 모빌리티</b><span>공유자동차 · 공유자전거 · 전동킥보드처럼 <strong>도시 안의 짧은 구간</strong>을 메웁니다.</span></li>
         <li><b>자율주행</b><span>운전자 없이 달리는 셔틀 · 버스입니다. 관광지 순환 노선에서 시범 운행이 이루어집니다.</span></li>
       </ol>
+      <p class="mob-steps-intro"><b>알약은 기말 AX 신청서까지 가는 계단입니다.</b> 이동은 관광의 일부입니다(<b>1</b>). 그 이동을 앱 하나로 묶는 것이 MaaS입니다(<b>2</b>). 해외 도시는 이렇게 했고, 경북의 섬과 안동에 옮기면 이렇게 됩니다(<b>3</b>). 이제 내 주제로 신청서를 씁니다(<b>4</b>).</p>
       <ul class="reslist tight">
-        <li class="hi tone box lb1">
-          <a href="smart-mobility-city-comparison.html" target="_blank" rel="noopener">🚇 스마트시티 × 스마트 모빌리티 — 싱가포르 · 서울 · 헬싱키 · 부산 에코델타 비교 ↗</a>
-          <span class="desc">네 도시를 같은 기준으로 비교하고, 왜 이것이 스마트관광 연구인지 정리합니다. 학생 탐구활동(나만의 도시 평가) · 8문항 자동 채점 퀴즈 · 한 장 결과 정리가 함께 있습니다.</span>
-          <span class="meta">선샤인 웰니스 · 자체 제작 자료 · 도시비교 · 퀴즈 · 결과정리</span>
-        </li>
         <li>
-          <a href="smart-mobility-maas-lecture-note.html" target="_blank" rel="noopener">🚌 MaaS 이해와 관광교통경영론 활용 — 강의자료 ↗</a>
-          <span class="desc">MaaS란 무엇인가 → 관광에서 어떻게 쓰나 → 일반 교통 앱과 무엇이 다른가 → 관광교통경영론에서 왜 중요한가, 네 단계로 읽습니다.</span>
-          <span class="meta">선샤인 웰니스 · 강의자료</span>
-        </li>
-        <li class="fresh">
-          <a href="andong-ai-smart-tourism-mobility.html" target="_blank" rel="noopener">🏝 섬 · 안동 AI 스마트 관광 모빌리티 — 실증사업과 학생 프로젝트 ↗</a> <a class="mapl mini" href="assets/andong-ai-smart-tourism-mobility.docx" download="안동_AI_스마트관광모빌리티_전체답변_통합.docx">⤓ Word</a>
-          <span class="desc">국내 섬(도서) 지역 미래 모빌리티 R&amp;D(해상 DRT · 자율운항 · UAM · MaaS · 드론 물류) → 학생 프로젝트 가이드 → 경북 적용 후보지 TOP 5 → 안동형 실증사업 제안 → AI 수요예측 · 배차 · 경로 → 빅데이터 우수 수상작 벤치마킹.</span>
-          <span class="meta">선샤인 웰니스 · 통합 연구 · 강의자료 · 6장 + 부록 · 표 64 · 도식 3 · 참고 링크 65 · HTML / Word</span>
-        </li>
-        <li class="fresh">
-          <a href="smart-mobility-ax-examples.html" target="_blank" rel="noopener">📝 스마트 모빌리티로 AX 신청서 쓰기 — 가상 예시 세 편 ↗</a>
-          <span class="desc">외국인 관광지 이동(경주) · 섬 이동(울릉) · 관광권 사이 이동(북부권)을 경북 AX 응모신청서 [3-1]~[6-4] 칸 그대로 채운 가상 예시입니다. AX와 DX의 차이 → AI 상자 4칸(데이터 · AI 동사 · 나오는 것 · 사람) → 세 신청서 → 심사 기준별 점수 자리와 제출 전 점검 다섯 가지 순서로 읽습니다.</span>
-          <span class="meta">선샤인 웰니스 · 기말 · 최종결과물 1 보조자료 · 가상 예시(숫자는 가정치) · 도식 4</span>
-        </li>
-        <li>
-          <a href="transportation-mobility.html" target="_blank" rel="noopener">🚗 관광교통과 모빌리티 — 이동이 곧 경험이다 ↗</a>
+          <span class="mob-st s1">1 넓게 보기</span><a href="transportation-mobility.html" target="_blank" rel="noopener">🚗 관광교통과 모빌리티 — 이동이 곧 경험이다 ↗</a>
           <span class="desc">관광교통 전체를 다루는 교육자료 모듈입니다. 스마트 모빌리티를 교통 산업 전체 속에서 넓게 볼 때 엽니다.</span>
           <span class="meta">선샤인 웰니스 · 교육자료 모듈</span>
         </li>
+        <li>
+          <span class="mob-st s2">2 개념 잡기</span><a href="smart-mobility-maas-lecture-note.html" target="_blank" rel="noopener">🚌 MaaS 이해와 관광교통경영론 활용 — 강의자료 ↗</a>
+          <span class="desc">MaaS란 무엇인가 → 관광에서 어떻게 쓰나 → 일반 교통 앱과 무엇이 다른가 → 관광교통경영론에서 왜 중요한가, 네 단계로 읽습니다.</span>
+          <span class="meta">선샤인 웰니스 · 강의자료</span>
+        </li>
+        <li class="hi tone box lb1">
+          <span class="mob-st s3">3 사례 보기 · 해외</span><a href="smart-mobility-city-comparison.html" target="_blank" rel="noopener">🚇 스마트시티 × 스마트 모빌리티 — 싱가포르 · 서울 · 헬싱키 · 부산 에코델타 비교 ↗</a>
+          <span class="desc">네 도시를 같은 기준으로 비교하고, 왜 이것이 스마트관광 연구인지 정리합니다. 학생 탐구활동(나만의 도시 평가) · 8문항 자동 채점 퀴즈 · 한 장 결과 정리가 함께 있습니다.</span>
+          <span class="meta">선샤인 웰니스 · 자체 제작 자료 · 도시비교 · 퀴즈 · 결과정리</span>
+        </li>
+        <li class="fresh">
+          <span class="mob-st s3">3 사례 보기 · 경북</span><a href="andong-ai-smart-tourism-mobility.html" target="_blank" rel="noopener">🏝 섬 · 안동 AI 스마트 관광 모빌리티 — 실증사업과 학생 프로젝트 ↗</a> <a class="mapl mini" href="assets/andong-ai-smart-tourism-mobility.docx" download="안동_AI_스마트관광모빌리티_전체답변_통합.docx">⤓ Word</a>
+          <span class="desc">국내 섬(도서) 지역 미래 모빌리티 R&amp;D(해상 DRT · 자율운항 · UAM · MaaS · 드론 물류) → 학생 프로젝트 가이드 → 경북 적용 후보지 TOP 5 → 안동형 실증사업 제안 → AI 수요예측 · 배차 · 경로 → 빅데이터 우수 수상작 벤치마킹.</span>
+          <span class="meta">선샤인 웰니스 · 통합 연구 · 강의자료 · 6장 + 부록 · 표 64 · 도식 3 · 참고 링크 65 · HTML / Word</span>
+        </li>
+        <li class="fresh" id="mob-ax">
+          <span class="mob-st s4">4 써 보기</span><a href="smart-mobility-ax-examples.html" target="_blank" rel="noopener">📝 스마트 모빌리티로 AX 신청서 쓰기 — 가상 예시 세 편 ↗</a>
+          <span class="desc">외국인 관광지 이동(경주) · 섬 이동(울릉) · 관광권 사이 이동(북부권)을 경북 AX 응모신청서 [3-1]~[6-4] 칸 그대로 채운 가상 예시입니다. AX와 DX의 차이 → AI 상자 4칸(데이터 · AI 동사 · 나오는 것 · 사람) → 세 신청서 → 심사 기준별 점수 자리와 제출 전 점검 다섯 가지 순서로 읽습니다.</span>
+          <span class="meta">선샤인 웰니스 · 기말 · 최종결과물 1 보조자료 · 가상 예시(숫자는 가정치) · 도식 4</span>
+        </li>
       </ul>
+      <p class="mob-st-ax">모빌리티 주제로 신청서를 쓰는 학생은 <a href="#mob-ax">4 써 보기 ↑</a>부터 엽니다. 막히는 칸은 거꾸로 — [6-1] 사례는 3, [4] 해결 방안의 뼈대는 2, [3] 문제 인식은 1로 돌아갑니다.</p>
       <p class="mini-note">함께 보기 — <a href="#국내-B">01-B 5대 요소 표 · 오각형 ④</a> · <a href="#part05">07 책 PART 5 스마트모빌리티</a>(스마트콘텐츠로서의 스마트모빌리티 · RECSA 모델 · 프리미엄 모빌리티와 CIT 분석)</p>
 
       <p class="mod-home"><a href="./">← 교육자료 목차로 돌아가기</a></p>
