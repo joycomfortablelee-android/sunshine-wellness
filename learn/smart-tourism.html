@@ -1510,6 +1510,17 @@
     .learn-article .instr-script b { color: #17365d; }
     /* 「이제 아홉 곳을 하나씩」 앞 표지 알약 — 주간 운영 11주 알약과 같은 이름 (2026-09-30) */
     .learn-article .mini-note .pv-co { display: inline-block; margin: 0 6px 4px 0; padding: 3px 11px; border-radius: 999px; background: #ffe800; border: 1px solid #d8bb2a; color: #14120a; font-size: 12px; font-weight: 800; vertical-align: 1px; }
+    /* 경북 AX 경진대회 심사 기준 — 인라인 SVG (2026-11-13) */
+    .learn-article figure.ax-crit { max-width: 660px; margin: 18px auto 22px; background: #fff; }
+    .learn-article figure.ax-crit svg { width: 100%; height: auto; display: block; }
+    .learn-article .ax-crit .axc-t { font-size: 17px; font-weight: 900; fill: #1c2f55; }
+    .learn-article .ax-crit .axc-sg { font-size: 13px; font-weight: 800; fill: #fff; text-anchor: middle; }
+    .learn-article .ax-crit .axc-sp { font-size: 12px; font-weight: 700; fill: #ffe3a3; text-anchor: middle; }
+    .learn-article .ax-crit .axc-n { font-size: 14.5px; font-weight: 800; fill: #1c2f55; }
+    .learn-article .ax-crit .axc-d { font-size: 11.5px; fill: #5b6b7d; }
+    .learn-article .ax-crit .axc-v { font-size: 15px; font-weight: 900; fill: #1c2f55; }
+    .learn-article .ax-crit .axc-ln { stroke: #d6dee7; stroke-width: 1.2; }
+    .learn-article .ax-crit figcaption { font-size: 13px; color: #5b6b7d; text-align: center; margin-top: 6px; }
     /* 「스마트관광 대전환」 15Part 원저 목차 — 4열 그리드(공간절약) */
     .learn-article .toc15-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px; margin: 10px 0 18px; }
     .learn-article .toc15-card { border: 1px solid var(--line); border-radius: 9px; padding: 9px 11px; background: #fafaf9; }
@@ -2858,6 +2869,17 @@
         <p class="tb-tags"><a class="mapl form hot red" href="assets/gyeongbuk-ax-2026-form1-application.docx" download="0714-양식1_응모신청서.docx">양식① 응모신청서 ⤓</a><a class="mapl form redo" href="gyeongbuk-ax-form-4-8.html" target="_blank" rel="noopener">응모신청서 4~8쪽 · 웹에서 바로 쓰기 ↗</a><a class="mapl form" href="assets/gyeongbuk-ax-2026-form2-consent.docx" download="0714-양식2_개인정보저작권동의서.docx">양식② 동의서 ⤓</a><a class="mapl form" href="assets/gyeongbuk-ax-2026-notice.pdf" target="_blank" rel="noopener">공고문 원문 3쪽 ↗</a><span class="tb-src">두 양식을 <b>각각 PDF로 변환해 이메일 접수</b>합니다. 대학생은 <b>일반부</b>이고, 아이디어만으로 응모할 수 있어 개발 완성물은 필요 없습니다.</span></p>
       </div>
 
+      <figure class="ax-crit" id="ax-criteria">
+        <svg viewBox="0 0 660 370" role="img" aria-label="경상북도 도민체감형 AX 경진대회 심사 기준 100점 — 도민 체감성 30점, 경북 적합성 25점, AX 적합성 20점, 실현 가능성 15점, 창의성·확산성 10점">
+          <text class="axc-t" x="30" y="26">심사 기준 — 100점</text>
+          <rect x="30" y="44" width="180" height="46" fill="#1c2f55"/><rect x="210" y="44" width="150" height="46" fill="#2f6fb5"/><rect x="360" y="44" width="120" height="46" fill="#2c8256"/><rect x="480" y="44" width="90" height="46" fill="#c08a1e"/><rect x="570" y="44" width="60" height="46" fill="#b8432f"/><text class="axc-sg" x="120" y="64">도민 체감성</text><text class="axc-sp" x="120" y="82">30점</text><text class="axc-sg" x="285" y="64">경북 적합성</text><text class="axc-sp" x="285" y="82">25점</text><text class="axc-sg" x="420" y="64">AX 적합성</text><text class="axc-sp" x="420" y="82">20점</text><text class="axc-sg" x="525" y="64">실현 가능성</text><text class="axc-sp" x="525" y="82">15점</text><text class="axc-sg" x="600" y="64">창의·확산</text><text class="axc-sp" x="600" y="82">10점</text>
+          <line x1="30" y1="108" x2="630" y2="108" class="axc-ln"/>
+          <text class="axc-n" x="30" y="134">1. 도민 체감성</text><text class="axc-d" x="30" y="151">도민의 일상문제 해결 효과와 체감 가능성</text><rect x="330" y="121" width="285" height="22" rx="4" fill="#1c2f55"/><text class="axc-v" x="623" y="137">30</text><text class="axc-n" x="30" y="174">2. 경북 적합성</text><text class="axc-d" x="30" y="191">경북의 지역 여건과 현안에 대한 적합성</text><rect x="330" y="161" width="237.5" height="22" rx="4" fill="#2f6fb5"/><text class="axc-v" x="575.5" y="177">25</text><text class="axc-n" x="30" y="214">3. AX 적합성</text><text class="axc-d" x="30" y="231">AI·데이터 등 AX 활용의 적절성</text><rect x="330" y="201" width="190" height="22" rx="4" fill="#2c8256"/><text class="axc-v" x="528" y="217">20</text><text class="axc-n" x="30" y="254">4. 실현 가능성</text><text class="axc-d" x="30" y="271">기술·제도·운영 측면의 실행 가능성</text><rect x="330" y="241" width="142.5" height="22" rx="4" fill="#c08a1e"/><text class="axc-v" x="480.5" y="257">15</text><text class="axc-n" x="30" y="294">5. 창의성·확산성</text><text class="axc-d" x="30" y="311">기존 서비스와의 차별성 및 시군 확산 가능성</text><rect x="330" y="281" width="95" height="22" rx="4" fill="#b8432f"/><text class="axc-v" x="433" y="297">10</text>
+          <line x1="30" y1="338" x2="630" y2="338" class="axc-ln"/>
+          <text class="axc-n" x="30" y="360">합계 100점</text><text class="axc-d" x="125" y="360">심사위원 평가점수에 따라 수상작 선정</text>
+        </svg>
+        <figcaption>경상북도 도민체감형 AX 경진대회 심사 기준 — <strong>도민 체감성(30)</strong>과 <strong>경북 적합성(25)</strong>이 절반을 넘습니다. 기술(AX 적합성 20)보다 <strong>도민이 일상에서 무엇이 나아지는가</strong>가 먼저입니다.</figcaption>
+      </figure>
 
       <details class="fold gold">
         <summary>공모전 현황표 10건 · 그 밖의 창구 3곳</summary>
@@ -3276,7 +3298,7 @@
           <a href="https://www.yes24.com/product/goods/169630287" target="_blank" rel="noopener">「스마트관광 대전환 — K-관광대국을 상상하다」 · 정남호 지음 ↗</a>
           <span class="desc"><strong>네 권 중 가장 최근</strong>(2025. 12. 25.)이며, <strong class="hot-t">AI 퍼스트 시대</strong>를 전제로 <em>“기술을 넘어 사람을 향한 경험으로”</em> K-관광대국 전략을 제시합니다. 15개 Part 276쪽 — <strong>스마트관광도시</strong>(Part 3)는 파트 01의 국내 열두 도시와, <strong>지속가능발전목표</strong>(Part 9)는 파트 04의 EU 네 부문과 이어집니다. 저자 정남호는 「스마트관광」 제2판의 공저자이기도 해, 두 책을 나란히 놓으면 <strong>4년 사이 달라진 논의</strong>를 볼 수 있습니다.</span>
           <span class="meta">정남호(경희대 스마트관광원 교수 · 클래리베이트 세계 상위 1% 연구자 2025) · 경희대학교출판문화원 · 2025. 12. 25. · 276쪽 · 20,000원</span>
-          <div class="linkrow tiny"><a href="smart-tourism-grand-transition-quiz.html" target="_blank" rel="noopener">스마트관광 대전환 퀴즈 75문항 ↗</a><a href="smart-tourism-transformation-15parts.html" target="_blank" rel="noopener">스마트관광 대전환 퀴즈 · 글꼴 선택 가능 버전 ↗</a></div>
+          <div class="linkrow tiny"><a href="smart-tourism-grand-transition-audio-15.html" target="_blank" rel="noopener">🔊 Part별 음성 15개 ↗</a><a href="smart-tourism-grand-transition-quiz.html" target="_blank" rel="noopener">스마트관광 대전환 퀴즈 75문항 ↗</a><a href="smart-tourism-transformation-15parts.html" target="_blank" rel="noopener">스마트관광 대전환 퀴즈 · 글꼴 선택 가능 버전 ↗</a></div>
         </li>
       </ul>
 
@@ -3293,6 +3315,7 @@
       <p class="mini-note">정남호 저 | 경희대학교출판문화원(경희대학교출판부) | 2025년 12월 25일 — 연말정산 <strong>도서공연비 소득공제</strong> 대상 도서입니다. 신용·체크카드나 현금(현금영수증 발급)으로 구매하면 공제 한도 안에서 추가 공제를 받을 수 있습니다.</p>
 
       <p class="mini-note">「스마트관광 대전환」 15개 Part의 원저 세부 목차와 시작 쪽수입니다. 리포트에서 특정 장을 인용할 때 쪽수를 바로 확인하십시오.</p>
+      <div class="linkrow tiny"><a href="smart-tourism-grand-transition-audio-15.html" target="_blank" rel="noopener">🔊 Part별 음성 15개 ↗</a></div>
       <div class="toc15-grid">
         <div class="toc15-card"><span class="t15-no">PART 1</span><h4>관광 패러다임의 대전환</h4><ol><li><b>①</b> AI 퍼스트 시대, 관광산업의 대응(17쪽)</li><li><b>②</b> AI 기반의 스마트관광으로(23쪽)</li><li><b>③</b> 차별화된 경험을 제공하는 콘텐츠가 경쟁력!(31쪽)</li></ol></div>
         <div class="toc15-card"><span class="t15-no">PART 2</span><h4>스마트관광플랫폼</h4><ol><li><b>①</b> 스마트관광플랫폼이란?(41쪽)</li><li><b>②</b> 국내 사례(47쪽)</li><li><b>③</b> 국외 사례(52쪽)</li></ol></div>
