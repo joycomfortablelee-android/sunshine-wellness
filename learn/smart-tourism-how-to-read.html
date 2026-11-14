@@ -204,6 +204,15 @@
   }
   .goal .t { font-size: 14.5px; font-weight: 500; line-height: 1.6; }
 
+  .goals.g4 { grid-template-columns: repeat(4, 1fr); }
+  .goal .vb { align-self: flex-start; font-size: 12.5px; font-weight: 800; color: #fff; padding: 2px 11px; border-radius: 999px; letter-spacing: .04em; }
+  .goal.v1 .vb { background: #2563a8; } .goal.v2 .vb { background: #0f8a86; } .goal.v3 .vb { background: #c27a12; } .goal.v4 .vb { background: #c62828; }
+  .goal.v1 { border-top: 3px solid #2563a8; } .goal.v2 { border-top: 3px solid #0f8a86; } .goal.v3 { border-top: 3px solid #c27a12; } .goal.v4 { border-top: 3px solid #c62828; }
+  .goal .cont { font-style: normal; color: #0f8a86; font-weight: 800; }
+  .g4-note { font-size: 12.5px; color: var(--muted, #667); margin: 8px 0 0; }
+  @media (max-width: 760px) { .goals.g4 { grid-template-columns: 1fr 1fr !important; } }
+  @media (max-width: 460px) { .goals.g4 { grid-template-columns: 1fr !important; } }
+
   /* ---------- structure rail ---------- */
   .rail {
     display: flex;
@@ -573,12 +582,14 @@
     <div class="thesis">
       <p>스마트 관광은 “여행에 기술을 얹는 것”이 아니라 <strong>기술로 여행자·기업·도시가 실시간으로 연결되는 하나의 생태계</strong>를 만드는 일이고, 이 페이지는 그것을 <em>사례로 보고 → 문제에서 출발해 만들고 → 이론과 근거로 받치는</em> 순서로 배치한 것입니다.</p>
     </div>
-    <div class="goals">
-      <div class="goal"><span class="n">목표 01</span><span class="t">스마트 관광 도시 현상을 설명하는 이론적 관점을 익히고, 연구 · 실무 사례를 분석하고 설명할 수 있다</span></div>
-      <div class="goal"><span class="n">목표 02</span><span class="t">국내외 스마트 관광 도시 사례를 플랫폼 · 연구 · 웹 · 앱 · 이미지 · 영상 · AI 등으로 심층 탐구하고, 비교 · 대조하여 문제-해결 방식으로 벤치마킹할 수 있다</span></div>
-      <div class="goal"><span class="n">목표 03</span><span class="t">그 사례와 이론을 리포트·기획서의 근거로 쓰고, 취업 지원 서류와 발표에서 자기 산출물로 설명할 수 있다</span></div>
+    <div class="goals g4">
+      <div class="goal v1"><span class="vb">설명</span><span class="n">목표 ①</span><span class="t">스마트 관광 도시 현상을 설명하는 이론적 관점을 익히고, 연구 · 실무 사례를 분석하고 설명할 수 있다</span></div>
+      <div class="goal v2"><span class="vb">비교</span><span class="n">목표 ② 앞</span><span class="t">국내외 스마트 관광 도시 사례를 플랫폼 · 연구 · 웹 · 앱 · 이미지 · 영상 · AI 등으로 심층 탐구하고, 비교 · 대조하여 <i class="cont">→</i></span></div>
+      <div class="goal v3"><span class="vb">평가</span><span class="n">목표 ② 뒤</span><span class="t"><i class="cont">→</i> 문제-해결 방식으로 벤치마킹할 수 있다</span></div>
+      <div class="goal v4"><span class="vb">제안</span><span class="n">목표 ③</span><span class="t">그 사례와 이론을 리포트·기획서의 근거로 쓰고, 취업 지원 서류와 발표에서 자기 산출물로 설명할 수 있다</span></div>
     </div>
-    <p class="lede" style="font-size:14.5px;"><strong>이 세 줄이 곧 평가 기준입니다.</strong> 중간 과제도 기말 과제도 여기에 맞춰 채점됩니다. 페이지의 모든 파트는 셋 중 하나에 걸려 있으니, 자료를 열 때마다 “이건 어느 목표인가”를 떠올리면 길을 잃지 않습니다.</p>
+    <p class="g4-note">세 목표를 <b>네 동작</b>으로 나눴습니다 — 문장은 그대로이고, <b>목표 ②</b>만 「비교」와 「평가」 두 칸에 이어 걸쳐 있습니다(두 칸을 이어 읽으면 원문).</p>
+    <p class="lede" style="font-size:14.5px;"><strong>이 네 동작(세 목표)이 곧 평가 기준입니다.</strong> 중간 과제도 기말 과제도 여기에 맞춰 채점됩니다. 페이지의 모든 파트는 셋 중 하나에 걸려 있으니, 자료를 열 때마다 “이건 어느 목표인가”를 떠올리면 길을 잃지 않습니다.</p>
   </section>
 
   <section>
