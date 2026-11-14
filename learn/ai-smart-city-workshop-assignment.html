@@ -28,6 +28,18 @@ h2{font-size:1.5rem;letter-spacing:-.035em;line-height:1.45;margin:0;color:var(-
 .ov dt{background:#eef3fb;font-weight:800;color:#263b5a;padding:9px 14px;border-bottom:1px solid var(--border)}.ov dd{margin:0;padding:9px 14px;border-bottom:1px solid var(--border)}
 .ov dt:last-of-type,.ov dd:last-of-type{border-bottom:none}
 .hot{color:#b8432f;font-weight:800}
+/* 왜 해 볼 만한가 */
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0}
+.why div{border:1px solid var(--border);border-radius:13px;padding:14px 15px;background:#fafcff}
+.why b{display:block;font-size:1.55rem;line-height:1.2;letter-spacing:-.03em;color:#183e75}
+.why span{display:block;font-weight:800;color:var(--navy);margin:4px 0 2px;font-size:.92rem}
+.why small{display:block;color:var(--muted);font-size:.82rem;line-height:1.6}
+.gain{list-style:none;padding:0;margin:12px 0}
+.gain li{border-left:4px solid #2c8256;background:#f1faf4;border-radius:0 11px 11px 0;padding:10px 15px;margin:8px 0}
+.gain li b{color:#1d5e3c}
+.src{font-size:.8rem;color:var(--muted);margin-top:10px}
+@media(max-width:900px){.why{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.why{grid-template-columns:1fr}}
 /* APEC 해부 */
 .apec{display:grid;grid-template-columns:220px 1fr;gap:22px;align-items:start;margin:14px 0}
 .apec img{width:100%;border-radius:10px;border:1px solid var(--border);display:block}
@@ -90,12 +102,31 @@ ol.chk li{margin:6px 0}
 </header>
 <div class="container">
   <div class="toptools">
-    <nav aria-label="문서 내 목차"><a href="#notice">① 공고</a><a href="#apec">② APEC 해부</a><a href="#task">③ 과제</a><a href="#score">④ 평가표</a><a href="#form">⑤ 양식</a><a href="#check">⑥ 점검</a></nav>
+    <nav aria-label="문서 내 목차"><a href="#why">⓪ 왜 해 볼 만한가</a><a href="#notice">① 공고</a><a href="#apec">② APEC 해부</a><a href="#task">③ 과제</a><a href="#score">④ 평가표</a><a href="#form">⑤ 양식</a><a href="#check">⑥ 점검</a></nav>
     <button class="printBtn" type="button" onclick="window.print()">🖨️ 인쇄 / PDF 저장</button>
   </div>
   <div class="warn"><strong>먼저 읽기 —</strong> 이 과제는 <strong>가정 상황</strong>입니다. 실제 공모 접수는 <strong>2026. 10. 29.(목) 18:00에 끝났고</strong>, 11월은 선정평가 기간입니다. 우리 대학이 신청했거나 선정됐다는 뜻이 아닙니다. 공고의 <strong>규칙과 평가표만 빌려 와</strong> 「이 사업을 받은 대학이라면 어떤 워크숍을 열어야 점수가 나오나」를 설계해 봅니다.</div>
 
   <main>
+  <section class="section" id="why">
+    <div class="sec-head"><div class="secno">00</div><h2>왜 해 볼 만한가 — 나라가 이 인재에 돈을 쓰는 이유</h2></div>
+    <p>이 공모 안내 공문은 2026년 10월 <strong>우리 대학에도 대학원과 학과마다 실제로 돌았습니다.</strong> 먼 나라 이야기가 아닙니다. 공모지침 첫 장이 이 사업을 왜 하는지 숫자로 적어 두었는데, 그 숫자가 곧 여러분이 이 분야를 볼 이유입니다.</p>
+    <div class="why">
+      <div><b>3,544조 원</b><span>’28년 글로벌 스마트도시 시장</span><small>’22년 1,422조 원 → ’24년 1,586조 원 → ’28년 3,544조 원. 연 22.4% 성장 전망</small></div>
+      <div><b>80%</b><span>실무인력이 필요하다는 기업</span><small>스마트도시 기업 설문 결과. 신규 인력 수요는 <strong>해마다 1,000명 이상</strong></small></div>
+      <div><b>70% 이상</b><span>국고 중 학생 몫</span><small>지원금의 70% 이상을 <strong>학생 장학금</strong>(참여 학생 등록금)과 교육프로그램에 쓰도록 못 박았습니다</small></div>
+      <div><b>국내·외 인턴십</b><span>빼면 안 되는 필수 항목</span><small>실무형 프로그램에 국내·외 인턴십 · 산학협력 · 국제협력이 필수이고, 학생 해외 연수 · 학술대회 여비도 사업비로 지원합니다</small></div>
+    </div>
+    <h3>이 과제가 여러분에게 남기는 것</h3>
+    <ul class="gain">
+      <li><b>공공 공모의 언어를 손에 익힙니다.</b> 성과지표를 숫자로 적고 「~할 수 있다」를 쓰지 않는 습관은, 관광공사 · 문화재단 · 지자체 사업계획서(과제 3)를 쓸 때 그대로 쓰는 근육입니다.</li>
+      <li><b>면접에서 꺼낼 포트폴리오 한 장이 생깁니다.</b> 포스터 1장 + 설계표 1장 = 「실제 국토부 공고의 평가표에 맞춰 국내·해외 연계 워크숍을 설계해 봤다」는 말할 거리.</li>
+      <li><b>진로 한 갈래가 보입니다.</b> 공고는 두 학과 이상을 묶은 <strong>융합 트랙</strong>도 인정합니다 — 관광 + AI · 도시 · 데이터. 관광경영 졸업 → AI·스마트도시 대학원 과정(석사 4학기, 장학금) → 스마트도시 기업 · 지자체 · 관광공사로 이어지는 길이 이 사업으로 실제로 열리고 있습니다.</li>
+    </ul>
+    <div class="key">한 줄로 — 나라는 지금 <strong>관광 · 도시를 알면서 AI를 쓸 줄 아는 사람</strong>을 돈 들여 키우려 합니다. 이 과제는 그 사람이 어떻게 일하는지 한 번 미리 해 보는 것입니다.</div>
+    <p class="src">출처: 국토교통부 공고 제2026-1238호 「AI·스마트도시 혁신인재육성 사업」 공모 및 공모지침(사업개요 · 지원조건 · 사업비 비목 기준). 시장 규모는 지침에 인용된 전망치입니다.</p>
+  </section>
+
   <section class="section" id="notice">
     <div class="sec-head"><div class="secno">01</div><h2>공고 한 장 요약 — 무엇을 하라는 사업인가</h2></div>
     <dl class="ov">
