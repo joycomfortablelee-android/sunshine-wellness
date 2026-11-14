@@ -3719,7 +3719,7 @@
 <div class="t15-pop" id="t15-pop" role="dialog" aria-label="Part 요약 음성 대본" hidden><div class="t15-pop-hd"><b><small id="t15-pop-no"></small><span id="t15-pop-ti"></span></b><button type="button" class="t15-pop-x" id="t15-pop-x" aria-label="대본 닫기">×</button></div><div class="t15-pop-bd" id="t15-pop-bd"></div></div>
 <script>(function(){var SRC="smart-tourism-grand-transition-audio-15.html",doc=null,wait=null,cur="",pop=document.getElementById("t15-pop"),bd=document.getElementById("t15-pop-bd");
 function load(){if(doc)return Promise.resolve(doc);if(!wait)wait=fetch(SRC).then(function(r){if(!r.ok)throw 0;return r.text();}).then(function(t){doc=new DOMParser().parseFromString(t,"text/html");return doc;});return wait;}
-function show(a){var m=(a.getAttribute("src")||"").match(/part(dd).mp3/);if(!m)return;var id="p"+m[1],card=a.closest(".toc15-card");
+function show(a){var m=(a.getAttribute("src")||"").match(/part(\d\d)\.mp3/);if(!m)return;var id="p"+m[1],card=a.closest(".toc15-card");
 document.querySelectorAll(".toc15-card.t15-on").forEach(function(c){c.classList.remove("t15-on");});if(card)card.classList.add("t15-on");
 if(cur===id&&!pop.hidden)return;cur=id;
 document.getElementById("t15-pop-no").textContent=card?card.querySelector(".t15-no").textContent+" 대본":"대본";document.getElementById("t15-pop-ti").textContent=card?card.querySelector("h4").textContent:"";
