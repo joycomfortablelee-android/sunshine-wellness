@@ -20,6 +20,25 @@
 h2 .io-tag{font-size:12px;vertical-align:4px}
 .io-line b{display:inline-block;margin-right:7px;font-size:12px;color:#fff;background:#4a5d74;border-radius:6px;padding:0 7px}
 @media(min-width:861px){.io-cols .tile.io.in::after,.io-cols .tile.io.app::after{content:"→";position:absolute;right:-13px;top:50%;transform:translateY(-50%);width:22px;height:22px;border-radius:50%;background:#fff;border:1px solid #c9d6e6;color:#4a6a96;font-weight:900;font-size:13px;line-height:20px;text-align:center;z-index:2}}
+
+/* 맨땅이 아니라 내 발표에서 — 첨부 흐름 (2026-11-14) */
+.ff-flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:6px;margin:12px 0}
+.ff-in{flex:1 1 140px;display:flex;flex-direction:column;gap:4px;background:#fff;border:1px solid #d6e0ee;border-radius:12px;padding:9px 10px}
+.ff-in small{font-size:12px;line-height:1.5;color:#5b6b80}
+.ff-b{display:inline-block;align-self:flex-start;padding:3px 10px;border-radius:999px;color:#fff;font-weight:800;font-size:13px}
+.ff-b.f1{background:#c0632b}.ff-b.f2{background:#2f6fb5}.ff-b.f3{background:#6b4fb0}.ff-b.f4{background:#2c8256}.ff-b.f5{background:#17365d}
+.ff-plus,.ff-arr{align-self:center;font-weight:900;font-size:20px;color:#8aa0c0}
+.ff-cmp{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.ff-bad,.ff-good{border-radius:12px;padding:10px 13px;font-size:14px;line-height:1.7}.ff-bad b,.ff-good b{display:block;margin-bottom:2px}
+.ff-bad{background:#fbeeee;border:1px solid #efc9c4}.ff-bad b{color:#b8432f}
+.ff-good{background:#ecf7ef;border:1px solid #bfe0c9}.ff-good b{color:#2c8256}
+.ff-ex{background:#f7f9fc;border:1px dashed #c9d6e6;border-radius:12px;padding:10px 13px;margin:10px 0}
+.ff-ex-t{font-weight:800;margin:0 0 6px;font-size:14px}.ff-ex-t span{font-size:11px;font-weight:700;color:#8a5a00;background:#fff3cf;border-radius:6px;padding:1px 6px;margin-left:4px}
+.ff-q{margin:5px 0;padding:7px 11px;border-radius:12px;font-size:13.5px;line-height:1.65;max-width:88%}
+.ff-q b{display:inline-block;margin-right:7px;font-size:11.5px;color:#fff;border-radius:6px;padding:0 7px}
+.ff-q.me{background:#fff;border:1px solid #d6e0ee;margin-left:auto}.ff-q.me b{background:#c0632b}
+.ff-q.ai{background:#eef2fb;border:1px solid #d3dcf0}.ff-q.ai b{background:#6b4fb0}
+@media(max-width:750px){.ff-cmp{grid-template-columns:1fr}.ff-plus,.ff-arr{width:100%;text-align:center;transform:rotate(90deg)}.ff-q{max-width:100%}}
 </style><style id="ax-map-style">
 #ax-mapping{max-width:1120px;margin:12px auto 35px;padding:28px 22px 34px;font-family:Pretendard,'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;color:#19273b;line-height:1.55;box-sizing:border-box}
 #ax-mapping *{box-sizing:border-box}
@@ -232,10 +251,32 @@ h2 .io-tag{font-size:12px;vertical-align:4px}
 <textarea aria-label="자동 생성된 AI 시작 프롬프트" class="prompt" id="ax0-output" readonly=""></textarea>
 <div class="actions"><button class="btn primary" id="ax0-copy" type="button">📋 시작 프롬프트 복사</button><span class="status" id="ax0-status" role="status">입력 후 만들기 버튼을 누르세요.</span></div>
 <div class="upload-callout" id="ax0-upload-guide">
-<h3>📎 <mark class="axhl">중간발표 파일 첨부는 반드시 별도로!</mark></h3>
-<p>여기서 생성된 시작 프롬프트는 <strong>텍스트만 복사</strong>됩니다. 실제 PPT·PDF·발표 원고는 <strong>학생이 AI 대화창의 파일 첨부 기능</strong>을 이용해 올려야 합니다.</p>
-<div class="upload-steps"><span>① 시작 프롬프트 복사</span><span>② AI에 붙여넣기</span><span>③ PPT·PDF 파일 첨부</span><span>④ 읽은 파일 확인 후 시작</span></div>
-<p>발표 파일이 없으면 발표 원고나 핵심 슬라이드 내용을 제공하세요. 유럽 사례집이나 지역자료는 실제 첨부했을 때만 근거로 사용합니다.</p>
+<h3>📎 <mark class="axhl">맨땅에서 시작하지 않습니다 — 내 중간발표에서 시작합니다</mark></h3>
+<p>위에서 만든 시작 프롬프트는 <strong>「내 발표를 읽고 이어서 도와 달라」는 부탁</strong>입니다. 그래서 프롬프트만 붙여넣으면 AI는 읽을 발표가 없어 <strong>아무 주제나 새로 지어냅니다.</strong> 반드시 <strong>같은 대화창에 내 발표 파일을 📎 첨부</strong>해서 <strong>두 개를 함께</strong> 넣으세요.</p>
+<div class="ff-flow">
+  <div class="ff-in"><span class="ff-b f1">📎 내 중간발표 파일</span><small>PPT · PDF · 발표 원고 — 클립 버튼으로 첨부</small></div>
+  <div class="ff-plus">+</div>
+  <div class="ff-in"><span class="ff-b f2">📋 시작 프롬프트</span><small>위 칸에서 복사 → 대화창에 붙여넣기</small></div>
+  <div class="ff-arr">→</div>
+  <div class="ff-in"><span class="ff-b f3">🤖 AI가 내 발표를 먼저 읽고 요약</span><small>문제 · 이용자 · 서비스 · 받은 피드백</small></div>
+  <div class="ff-arr">→</div>
+  <div class="ff-in"><span class="ff-b f4">✅ 내가 맞는지 확인 · 고치기</span><small>틀린 요약은 바로 바로잡기</small></div>
+  <div class="ff-arr">→</div>
+  <div class="ff-in"><span class="ff-b f5">01~19 단계로</span><small>그 발표 위에서 경북으로 옮기기</small></div>
+</div>
+<div class="ff-cmp">
+  <div class="ff-bad"><b>✗ 이렇게 하면 맨땅</b>프롬프트만 붙여넣고 「경북 관광 AX 아이디어 줘」 → AI가 <em>내 발표와 상관없는</em> 일반론 아이디어를 냅니다. 중간발표에서 한 고민이 다 사라집니다.</div>
+  <div class="ff-good"><b>✓ 이렇게 하면 이어 가기</b>발표 PDF 📎 + 시작 프롬프트 → AI: 「당신 발표의 문제는 ○○, 이용자는 ○○, 서비스는 ○○로 읽었습니다. 맞나요?」 → <em>내 아이디어</em>가 출발점이 됩니다.</div>
+</div>
+<div class="ff-ex">
+  <p class="ff-ex-t">예시 — 중간발표에서 「인천 개항장 AR 야간 투어」를 발표했다면 <span>가상 예시</span></p>
+  <p class="ff-q me"><b>나</b>(📎 중간발표.pdf 첨부) + 시작 프롬프트 붙여넣기</p>
+  <p class="ff-q ai"><b>AI</b>첨부한 「중간발표.pdf」 12쪽을 읽었습니다. 발표의 <strong>문제</strong>는 저녁에 볼거리가 없어 관광객이 일찍 떠나는 것, <strong>이용자</strong>는 20~30대 개별 관광객, <strong>서비스</strong>는 AR 야간 투어 앱입니다. 발표 뒤 받은 피드백은 무엇이었나요?</p>
+  <p class="ff-q me"><b>나</b>맞아요. 피드백은 「앱을 따로 깔아야 해서 부담」이었어요.</p>
+  <p class="ff-q ai"><b>AI</b>그럼 이 아이디어를 경북으로 옮겨 봅시다. 야간 관광이 과제인 경북 지역 후보는 … (→ 여기서부터 01~19 단계)</p>
+</div>
+<div class="upload-steps"><span>① 시작 프롬프트 복사</span><span>② <b>같은 대화창</b>에 붙여넣기</span><span>③ 📎 <b>내 발표 파일 첨부</b></span><span>④ AI의 <b>발표 요약</b>이 맞는지 확인 후 시작</span></div>
+<p>발표 파일이 없으면 <strong>발표 원고나 슬라이드 글을 그대로 붙여넣으세요.</strong> 유럽 사례집이나 경북 지역자료도 <strong>실제로 첨부했을 때만</strong> 근거로 씁니다. AI가 첫 답에서 <strong>내 발표 이야기를 하지 않으면</strong> 파일이 안 들어간 것입니다 — 다시 첨부하세요.</p>
 </div>
 <p class="mini">체크는 보유·준비 상태 표시일 뿐 파일을 자동으로 첨부하지 않습니다. 개인정보와 타인의 민감한 정보가 들어간 파일은 업로드 전에 확인하세요.</p>
 </section>
