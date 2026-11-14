@@ -48,6 +48,31 @@ h2 .io-tag{font-size:12px;vertical-align:4px}
 .axm-modes em{font-style:normal;font-size:12.5px;color:#5b6b80;margin-left:4px}
 tr.axm-grp td{background:#17365d;color:#fff;padding:7px 12px;font-size:13.5px}
 tr.axm-grp td b{font-weight:800}tr.axm-grp td span{margin-left:10px;font-size:12px;color:#c9d9ef;font-weight:600}
+
+/* 지역 · 문제 · AI 고르기 (2026-11-14) */
+#ax-pick3{max-width:1120px;margin:0 auto 35px;padding:22px 22px 30px;font-family:Pretendard,'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;color:#19273b;line-height:1.55;box-sizing:border-box;background:#fff;border:1px solid #dce5f0;border-radius:18px}
+#ax-pick3 .eyebrow{font-size:12px;font-weight:900;letter-spacing:.12em;color:#2563eb;text-transform:uppercase}
+#ax-pick3 h2{font-size:26px;line-height:1.35;margin:6px 0 6px;color:#12213b}
+#ax-pick3 .sub{margin:0;color:#4a5d74;font-size:15px;line-height:1.7}
+@media(max-width:750px){#ax-pick3{padding:16px 13px 20px;border-radius:14px}#ax-pick3 h2{font-size:21px}}
+.pick3 .p3-row{display:grid;grid-template-columns:1fr 24px 1fr 24px 1fr;gap:6px;align-items:stretch;margin-top:14px}
+.p3{background:#fff;border:1px solid #d6e0ee;border-top:4px solid;border-radius:14px;padding:14px 15px}
+.p3.r{border-top-color:#2f6fb5}.p3.p{border-top-color:#c0632b}.p3.a{border-top-color:#2c8256}
+.p3-h{margin:0 0 6px;font-weight:900;font-size:17px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.p3-h small{font-size:11.5px;font-weight:700;color:#5b6b80}
+.p3-n{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;color:#fff;font-size:14px}
+.p3.r .p3-n{background:#2f6fb5}.p3.p .p3-n{background:#c0632b}.p3.a .p3-n{background:#2c8256}
+.p3-q{margin:0 0 8px;font-size:14.5px;line-height:1.6;color:#17365d}
+.p3-ol{margin:6px 0;padding-left:20px;font-size:13.5px;line-height:1.7}
+.p3-frame{margin:6px 0;padding:8px 10px;background:#f7f9fc;border-radius:10px;font-size:13.5px;line-height:1.7}.p3-frame b{display:block;font-size:12px;color:#5b6b80}
+.p3-v{display:inline-block;margin:3px 4px 0 0;padding:1px 9px;border-radius:999px;background:#17365d;color:#fff;font-size:12px;font-weight:700}
+.p3-bad,.p3-good{margin:6px 0 0;padding:6px 10px;border-radius:9px;font-size:13px;line-height:1.6}
+.p3-bad{background:#fbeeee;color:#8c2a2b}.p3-good{background:#ecf7ef;color:#1a5c33}
+.p3-as{display:inline-block;font-size:11px;font-weight:700;color:#8a5a00;background:#fff3cf;border-radius:6px;padding:0 6px}
+.p3-link{margin:8px 0 0;font-size:13px;font-weight:700}
+.p3-arr{align-self:center;text-align:center;font-weight:900;font-size:20px;color:#8aa0c0}
+.p3-tip{margin:12px 0 0;padding:10px 13px;background:#eef4fc;border-left:4px solid #2f6fb5;border-radius:0 10px 10px 0;font-size:14px;line-height:1.7}
+@media(max-width:900px){.pick3 .p3-row{grid-template-columns:1fr}.p3-arr{transform:rotate(90deg)}}
 </style><style id="ax-map-style">
 #ax-mapping{max-width:1120px;margin:12px auto 35px;padding:28px 22px 34px;font-family:Pretendard,'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;color:#19273b;line-height:1.55;box-sizing:border-box}
 #ax-mapping *{box-sizing:border-box}
@@ -186,7 +211,7 @@ tr.axm-grp td b{font-weight:800}tr.axm-grp td span{margin-left:10px;font-size:12
 <h1>AI와 함께<br/><mark class="axhl">기말 AX 응모신청서</mark> 시작하기</h1>
 <p class="lead">중간발표에서 제안했던 스마트관광 아이디어를 <strong>경상북도 도민체감형 AX 경진대회 응모신청서</strong>에 맞게 발전시키는 실습입니다. 19개 프롬프트를 사용하기 전에 <strong><mark class="axhl">우리의 목표, 보유 자료, 사용 방법</mark></strong>을 AI에 먼저 알려주세요.</p>
 <div class="note">오늘의 핵심: “<mark class="axhl">AI에게 바로 신청서를 써 달라고 하지 말고</mark>, <mark class="axhl">우리가 이미 한 일과 앞으로 해야 할 일</mark>을 먼저 설명한다.”<br/>그리고 <strong><mark class="axhl">누구의 · 어떤 문제를 · 어떤 방식과 AI 기술로 해결할지</mark></strong> 생각하고 <strong><mark class="axhl">중간발표 PPT를 실제로 첨부</mark></strong>합니다.</div>
-</header><nav class="ax-jump" id="ax-page-top"><a href="#ax0-goal">00 · 목표·자원</a><a href="#ax0-four">4대 핵심 질문</a><a href="#ax0-workbench">시작 프롬프트 만들기</a><a href="#ax-mapping">19개 × 신청서 연결표</a><a href="#ax1-prompts">01~19 · 단계별 실습</a><a href="https://sunshinewellness.co.kr/learn/gyeongbuk-ax-form-4-8.html" rel="noopener noreferrer" target="_blank">응모신청서 작성 ↗</a></nav>
+</header><nav class="ax-jump" id="ax-page-top"><a href="#ax0-goal">00 · 목표·자원</a><a href="#ax0-four">4대 핵심 질문</a><a href="#ax0-workbench">시작 프롬프트 만들기</a><a href="#ax-mapping">19개 × 신청서 연결표</a><a href="#ax-pick3">지역 · 문제 · AI 고르기</a><a href="#ax1-prompts">01~19 · 단계별 실습</a><a href="https://sunshinewellness.co.kr/learn/gyeongbuk-ax-form-4-8.html" rel="noopener noreferrer" target="_blank">응모신청서 작성 ↗</a></nav>
 <section class="block" id="ax0-goal">
 <div class="eyebrow">01 · WHAT WE WANT</div><h2><mark class="axhl">우리의 목표</mark>부터 분명히 하기</h2>
 <p class="io-strip"><span class="io-s in"><b>INPUT</b>중간발표</span><i>→</i><span class="io-s app"><b>APPLICATION</b>경북에 적용</span><i>→</i><span class="io-s out"><b>OUTPUT</b>응모신청서 [2]~[6]</span><em>세 목표는 <b>입력 → 적용 → 출력</b> 한 줄로 이어집니다.</em></p>
@@ -344,6 +369,34 @@ tr.axm-grp td b{font-weight:800}tr.axm-grp td span{margin-left:10px;font-size:12
 </div><div class="axm-tbl-scroll"><table><thead><tr><th>번호</th><th>프롬프트 주제</th><th>이 단계에서 할 일</th><th>관련 문항</th></tr></thead><tbody id="axm-rows"></tbody></table></div></div>
 <div class="axm-mini"><strong><mark class="axhl">[2] 아이디어명·50자 요약·분야</mark></strong>는 현재 19개에서 단독 프롬프트로 다루지 않습니다. 05번에서 아이디어를 정하고 15번에서 전체 초안을 만든 다음 별도로 작성하면 빠짐이 없습니다. 또한 인천 사례(19번)는 연습용이며 실제 접수 지역은 경북이어야 합니다.</div>
 <div class="axm-cta"><a href="#ax0-workbench">00단계에서 AI 시작하기</a><a class="secondary" href="#ax1-prompts">01~19번 실습 바로가기</a></div>
+</section>
+<section class="block pick3" id="ax-pick3">
+<div class="eyebrow">막히는 세 곳 · HOW TO PICK</div><h2><mark class="axhl">지역 · 문제 · AI</mark> — 이렇게 고릅니다</h2>
+<p class="sub">세 가지는 <b>순서대로</b> 정합니다. 지역이 정해져야 문제가 보이고, 문제가 정해져야 AI가 할 일이 보입니다. 셋 다 <b>내 중간발표에서 출발</b>합니다.</p>
+<div class="p3-row">
+<article class="p3 r"><p class="p3-h"><span class="p3-n">①</span>지역 고르기<small>프롬프트 03 전에</small></p>
+<p class="p3-q">「내 발표의 문제가 <b>경북 어디에서 가장 심한가?</b>」</p>
+<ol class="p3-ol"><li>내 발표의 문제를 <b>한 줄</b>로 적는다</li><li>경북에서 그 문제가 있을 만한 곳 <b>세 곳</b>을 AI와 함께 뽑는다</li><li>관광객 수 · 고령 인구 · 교통처럼 <b>숫자로 확인되는 곳</b> 하나로 정한다</li><li>시 · 군에서 멈추지 말고 <b>관광지 · 읍면 · 거리</b>까지 좁힌다</li></ol>
+<p class="p3-bad">✗ 「경북 전체」 「경북 관광지」 — 너무 넓어 문제가 안 보입니다</p>
+<p class="p3-good">✓ 「경주 대릉원 · 동궁과 월지 일대의 저녁 시간」</p>
+<p class="p3-link"><a href="https://yuanlee.info/region/gyeongbuk-tourism-resources.html" target="_blank" rel="noopener">경북 도시 · 인구 · 관광 데이터 ↗</a></p></article>
+<div class="p3-arr">→</div>
+<article class="p3 p"><p class="p3-h"><span class="p3-n">②</span>문제 고르기<small>프롬프트 03 · 04 → [3]</small></p>
+<p class="p3-q">「<b>누가 · 언제 · 어디서 · 무엇이 불편</b>하고, 지금 방법은 왜 안 되나?」</p>
+<p class="p3-frame"><b>문장틀</b>(누가)는 (언제) (어디서) (무슨 불편) 때문에 (어떤 손해)를 본다. 지금은 (기존 방법)으로 하지만 (이유) 때문에 해결되지 않는다.</p>
+<ul class="p3-ol"><li><b>주민</b>이 한 명이라도 들어가나? (도민 체감 30점)</li><li><b>숫자 하나</b>를 댈 수 있나? (방문객 · 대기시간 · 거리)</li><li>AI 없이 안내판 하나로 풀리면 → 문제를 다시 고른다</li></ul>
+<p class="p3-bad">✗ 「관광 정보가 부족하다」 — 누가 · 언제가 없습니다</p>
+<p class="p3-good">✓ 「저녁에 대릉원을 나온 외국인 관광객이 다음 갈 곳과 막차를 몰라 일찍 숙소로 돌아간다. 안내소는 저녁에 닫는다.」 <span class="p3-as">가정 — 실제 운영 시간 확인</span></p></article>
+<div class="p3-arr">→</div>
+<article class="p3 a"><p class="p3-h"><span class="p3-n">③</span>AI 고르기<small>프롬프트 05~07 → [4]</small></p>
+<p class="p3-q">「<b>AI를 빼면</b> 무엇이 안 되나?」</p>
+<p class="p3-frame"><b>AI 동사 하나만 고릅니다</b><span class="p3-v">예측한다</span><span class="p3-v">추천한다</span><span class="p3-v">번역 · 대화한다</span><span class="p3-v">감지한다</span><span class="p3-v">최적화한다</span></p>
+<ol class="p3-ol"><li><b>넣는 데이터</b> — 이름이 있는 실제 데이터(예: 버스 도착 정보 · 관광지 운영 시간)</li><li><b>AI 동사</b> — 위에서 하나</li><li><b>나오는 것</b> — 화면 · 알림 한 장면</li><li><b>사람이 하는 일</b> — 관광객 · 주민이 그걸 보고 바꾸는 행동</li></ol>
+<p class="p3-bad">✗ 「AI 기반 스마트 관광 플랫폼」 — 동사가 없습니다</p>
+<p class="p3-good">✓ 「AI가 지금 덜 붐비고 아직 여는 곳과 막차 시간을 <b>추천한다</b> → 관광객이 한 곳 더 들른다」</p>
+<p class="p3-link"><a href="smart-mobility-ax-examples.html?page=6" target="_blank" rel="noopener">AI가 정말 필요한지 따지는 법 — 실현성 검증 예시 ↗</a></p></article>
+</div>
+<p class="p3-tip">막히면 AI에게 이렇게 물으세요 — 「내 발표의 문제는 ○○입니다. <b>경북에서</b> 이 문제가 있을 만한 곳 세 곳과, 각각 확인할 수 있는 공개 데이터를 알려 주세요. 데이터가 없으면 없다고 말해 주세요.」</p>
 </section><section aria-label="19개 단계별 AX 응모신청서 프롬프트" class="ax1" id="ax1-prompts">
 <div class="unit"><div class="eyebrow">STEP 01 — 19 · SMART TOURISM AX</div><h2 class="h2">스마트관광 아이디어를 신청서로 연결하는 <mark class="axhl">19걸음</mark></h2><p class="intro">00단계에서 시작 프롬프트를 AI에 입력한 다음, 같은 대화에서 아래 단계를 한 번에 하나씩 진행하세요. 단계별 핵심 흐름(왼쪽)을 확인하고 실습 프롬프트(오른쪽)를 복사할 수 있습니다.</p><p class="originalnotice">이 통합본의 19개 질문은 <a href="https://sunshinewellness.co.kr/learn/smart-tourism-ax-application-prompts-19.html" rel="noopener noreferrer" target="_blank">기존 19단계 교안</a>의 학습 순서를 바탕으로 새롭게 정리한 실습용 문안입니다. 기존 페이지의 문장 그대로를 보려면 링크를 참조하세요.</p></div>
 <div aria-label="진행 단계 선택" class="pills" id="ax1-stages"></div>
