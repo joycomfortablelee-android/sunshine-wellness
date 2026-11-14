@@ -53,26 +53,63 @@ ol.chk li{margin:6px 0}
 .footer{padding:20px 0 44px;color:#637186;font-size:.82rem;text-align:center}
 @media(max-width:720px){.container{padding:0 16px}.section{padding:22px 17px}.dxax,.ba{grid-template-columns:1fr}.row,.ov{grid-template-columns:1fr}.row .q{border-bottom:1px solid var(--border)}}
 @media print{body{background:#fff;font-size:10pt}.masthead,.app-head,.grp,thead th{print-color-adjust:exact;-webkit-print-color-adjust:exact}.toptools{display:none}.section{box-shadow:none;margin:12px auto;padding:18px}.app{break-before:page}@page{size:A4;margin:13mm}}
+
+/* ===== 좌우 넘김 ===== */
+html,body{height:100%}
+body.deck{overflow:hidden;display:flex;flex-direction:column}
+.dk-top{flex:none;display:flex;align-items:center;gap:10px;padding:8px 16px;background:#0c1c36;color:#fff;min-width:0}
+.dk-top b{font-size:.92rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:0 1 auto;min-width:0}
+.dk-tabs{display:flex;gap:6px;overflow-x:auto;flex:1 1 auto;min-width:0;scrollbar-width:none}.dk-tabs::-webkit-scrollbar{display:none}
+.dk-tabs button{flex:none;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.08);color:#dbe8fb;border-radius:100px;padding:4px 11px;font-weight:700;font-size:.8rem;font-family:inherit;cursor:pointer;white-space:nowrap}
+.dk-tabs button.on{background:#fff;color:#0c1c36;border-color:#fff}
+.dk-count{flex:none;font-weight:800;font-size:.85rem;color:#c6eafc}
+.dk-top .printBtn{flex:none;padding:4px 10px;font-size:.8rem}
+.dk-view{flex:1 1 auto;overflow:hidden;position:relative}
+.dk-track{display:flex;height:100%;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.dk-slide{flex:0 0 100%;width:100%;height:100%;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;padding-bottom:70px}
+.dk-slide .section{margin:18px auto}
+.cover{color:#fff;background:linear-gradient(125deg,#0c1c36 0%,#183e75 52%,#115f74 100%);border-radius:17px;margin:18px auto;padding:44px 40px}
+.cover .intro{max-width:760px;font-size:1.05rem;margin:18px 0 0;color:#edf4ff}.cover strong{color:#fff}
+.cover h1{font-size:clamp(1.8rem,4.6vw,3.1rem);line-height:1.22;letter-spacing:-.04em;margin:12px 0 8px}
+.go{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
+.go button{text-align:left;border:1px solid var(--border);background:#fff;border-radius:12px;padding:12px 14px;font-family:inherit;cursor:pointer;color:var(--ink);box-shadow:var(--shadow)}
+.go button:hover{background:var(--light)}.go button b{display:block;color:var(--navy);font-size:.95rem}.go button small{color:var(--muted);font-size:.8rem}
+.cont{font-size:.85rem;font-weight:600;opacity:.8}
+.dk-arrow{position:fixed;top:50%;transform:translateY(-50%);z-index:20;width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:rgba(255,255,255,.94);box-shadow:var(--shadow);font-size:1.6rem;line-height:1;color:#183e75;cursor:pointer}
+.dk-arrow:disabled{opacity:.3;cursor:default}.dk-prev{left:10px}.dk-next{right:10px}
+.dk-bot{position:fixed;left:0;right:0;bottom:0;z-index:15;display:flex;justify-content:center;align-items:center;gap:7px;padding:12px;background:linear-gradient(rgba(243,246,252,0),rgba(243,246,252,.96) 45%);pointer-events:none}
+.dk-bot i{width:9px;height:9px;border-radius:50%;background:#c3cfe0;cursor:pointer;pointer-events:auto}.dk-bot i.on{background:#183e75;width:22px;border-radius:6px}
+.dk-help{position:fixed;right:14px;bottom:12px;z-index:16;font-size:.75rem;color:var(--muted)}
+.dk-bar{height:3px;width:0;background:#2f6fb5;transition:width .3s;flex:none}
+@media(max-width:1240px){.dk-slide .container{padding:0 62px}}
+@media(max-width:900px){.go{grid-template-columns:1fr 1fr}.dk-help{display:none}}
+@media(max-width:720px){.dk-top b{display:none}.dk-slide .container{padding:0 16px}.dk-arrow{width:38px;height:38px;font-size:1.3rem;top:auto;bottom:6px;transform:none}.dk-prev{left:8px}.dk-next{right:8px}.cover{padding:28px 20px}.dk-top .printBtn{display:none}.go{grid-template-columns:1fr}}
+@media print{body.deck{overflow:visible;display:block;height:auto}.dk-top,.dk-arrow,.dk-bot,.dk-help,.dk-bar,.go{display:none!important}.dk-view{overflow:visible}.dk-track{display:block;transform:none!important}.dk-slide{height:auto;overflow:visible;break-after:page;padding:0}.cover{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
 </style>
 </head>
-<body>
-<header class="masthead">
-  <div class="container hero">
+<body class="deck">
+<div class="dk-top"><b>스마트 모빌리티 AX 가상 신청서</b><nav class="dk-tabs" id="dkTabs" aria-label="슬라이드 목차"><button type="button" data-go="0">표지</button><button type="button" data-go="1">① AX란</button><button type="button" data-go="2">② AI 상자</button><button type="button" data-go="3">③ 경주 · 문제</button><button type="button" data-go="4">③ 경주 · 해결</button><button type="button" data-go="5">④ 울릉 · 문제</button><button type="button" data-go="6">④ 울릉 · 해결</button><button type="button" data-go="7">⑤ 북부권 · 문제</button><button type="button" data-go="8">⑤ 북부권 · 해결</button><button type="button" data-go="9">⑥ 점검</button></nav><span class="dk-count" id="dkCount"></span><button class="printBtn" type="button" onclick="window.print()">🖨️ 인쇄</button></div>
+<div class="dk-bar" id="dkBar"></div>
+<div class="dk-view"><div class="dk-track" id="dkTrack">
+<div class="dk-slide" id="intro" data-title="표지"><div class="container">
+  <div class="cover">
     <div class="eyebrow">Smart Mobility · AX Application · Worked Examples</div>
     <h1>스마트 모빌리티로 AX 신청서 쓰기<br/>가상 예시 세 편</h1>
     <p class="intro">외국인 관광지 이동 · 섬 이동 · 관광권 사이 이동. 세 주제를 <strong>경상북도 도민체감형 AX 경진대회 응모신청서</strong> 칸 번호 그대로 채워 본 <strong>가상 예시</strong>입니다. 시스템을 만들지 않습니다. <strong>데이터가 AI를 거쳐 주민의 하루를 어떻게 바꾸는지</strong>를 보여 줍니다.</p>
     <div class="meta"><span class="pill">파트 12 모빌리티</span><span class="pill">기말 · 최종결과물 1</span><span class="pill">경북 한정</span><span class="pill">가상 예시</span></div>
   </div>
-</header>
-<div class="container">
-  <div class="toptools">
-    <nav aria-label="문서 내 목차"><a href="#ax">① AX란</a><a href="#box">② AI 상자 4칸</a><a href="#ex1">③ 외국인</a><a href="#ex2">④ 섬</a><a href="#ex3">⑤ 관광권</a><a href="#check">⑥ 점검</a></nav>
-    <button class="printBtn" type="button" onclick="window.print()">🖨️ 인쇄 / PDF 저장</button>
-  </div>
   <div class="warn"><strong>먼저 읽기 —</strong> 아래 세 신청서는 <strong>가상 예시</strong>입니다. <span class="as">노란 밑줄 숫자</span>는 모두 설명을 위해 만든 <strong>가정치</strong>입니다. 내 신청서에는 공공데이터포털 · 한국관광 데이터랩 · 시군 통계에서 <strong>실제 숫자를 찾아 바꿔 넣으세요.</strong> 예시 문장을 그대로 옮겨 내면 안 됩니다.</div>
-
-  <main>
-  <section class="section" id="ax">
+  <div class="go">
+    <button type="button" data-go="1"><b>① AX란</b><small>DX와 한 줄 차이</small></button>
+    <button type="button" data-go="2"><b>② AI 상자 4칸</b><small>쓰기 전에 이것부터</small></button>
+    <button type="button" data-go="3"><b>③ 외국인 · 경주</b><small>다국어 AI 이동 안내</small></button>
+    <button type="button" data-go="5"><b>④ 섬 · 울릉</b><small>AI 결항 예측</small></button>
+    <button type="button" data-go="7"><b>⑤ 관광권 · 북부권</b><small>AI 수요응답 버스</small></button>
+    <button type="button" data-go="9"><b>⑥ 점검</b><small>점수 자리 · 다섯 질문</small></button>
+  </div>
+</div></div>
+<div class="dk-slide" id="ax" data-title="① AX란"><div class="container">
+  <section class="section">
     <div class="sec-head"><div class="secno">01</div><h2>AX란 무엇인가 — DX와 한 줄 차이</h2></div>
     <p><strong>AX(AI Transformation, AI 전환)</strong>는 사람이 하던 <strong>판단</strong>을 AI가 데이터로 대신하거나 돕도록 일하는 방식을 바꾸는 것입니다. 종이를 앱으로 옮기는 <strong>DX(디지털 전환)</strong>와는 이 점이 다릅니다.</p>
     <div class="dxax">
@@ -83,8 +120,9 @@ ol.chk li{margin:6px 0}
     <div class="verbs"><span>예측한다</span><span>추천한다</span><span>최적화한다</span><span>번역·대화한다</span><span>감지한다</span><span class="no">AI 기반 플랫폼</span><span class="no">스마트 통합 시스템</span></div>
     <div class="key">심사 100점 가운데 <strong>도민 체감성 30 + 경북 적합성 25 = 55점</strong>입니다. AX 적합성은 20점입니다. 기술이 화려한 것보다 <strong>경북 주민의 하루가 무엇이 나아지는지</strong>가 먼저입니다.</div>
   </section>
-
-  <section class="section" id="box">
+</div></div>
+<div class="dk-slide" id="box" data-title="② AI 상자"><div class="container">
+  <section class="section">
     <div class="sec-head"><div class="secno">02</div><h2>AI 상자 4칸 — 신청서를 쓰기 전에 이것부터</h2></div>
     <p>이 4칸이 채워지면 <strong>[4-1] · [4-2]</strong>는 거의 다 써진 것입니다. ①에 실제 데이터 이름이 들어가면 <strong>[6-2]</strong>도 함께 채워집니다.</p>
     <figure>
@@ -105,9 +143,9 @@ ol.chk li{margin:6px 0}
       <figcaption>④가 비어 있으면 AI가 아무것도 바꾸지 못한 것입니다. ④에 <strong>주민</strong>이 들어가야 도민 체감성 30점이 열립니다.</figcaption>
     </figure>
   </section>
-
-  <!-- ===== 예시 1 ===== -->
-  <section class="section app" id="ex1">
+</div></div>
+<div class="dk-slide" id="ex1" data-title="③ 경주 · 문제"><div class="container">
+  <section class="section app">
     <div class="app-head t1"><span class="tag">가상 예시 1</span><h2>외국인 관광지 이동 — 경주</h2></div>
     <dl class="ov">
       <dt>작품명</dt><dd><strong>경주 한 화면 길벗 — 다국어 AI 이동 안내</strong></dd>
@@ -131,6 +169,13 @@ ol.chk li{margin:6px 0}
       <div class="row"><div class="q">[3-1] 어떤 문제가 있나요?</div><div class="a">경주 시내버스는 노선 번호와 정류장 이름이 한국어 위주이고, 불국사·양동마을처럼 시내에서 먼 곳은 배차 간격이 <span class="as">40~60분</span>입니다. 외국인은 버스를 놓치면 택시 말고 대안을 모릅니다.</div></div>
       <div class="row"><div class="q">[3-2] 누가 가장 불편한가요?</div><div class="a">① 한국어를 못 읽는 외국인 개별 관광객 ② <strong>스마트폰 글씨를 읽기 힘든 고령 주민</strong>. 두 집단이 「작은 한글 화면」이라는 같은 벽에 막혀 있습니다.</div></div>
       <div class="row"><div class="q">[3-3] 기존엔 어떻게 해결하려 했나요?</div><div class="a">관광안내소 · 관광통역안내전화 1330 · 지도 앱 영문판. 그러나 안내소는 저녁에 닫고, 지도 앱은 수요응답형 버스나 시티투어버스 같은 <strong>지역 2차 교통을 묶어 주지 못합니다.</strong></div></div>
+    </div>
+  </section>
+</div></div>
+<div class="dk-slide" id="ex1b" data-title="③ 경주 · 해결"><div class="container">
+  <section class="section app">
+    <div class="app-head t1"><span class="tag">가상 예시 1</span><h2>외국인 관광지 이동 — 경주 <small class="cont">(계속)</small></h2></div>
+    <div class="form">
       <div class="grp">[4] 해결 방안</div>
       <div class="row"><div class="q">[4-1] 어떤 AI 서비스인가요?</div><div class="a">말이나 글로 「불국사 가고 싶어요」라고 물으면, 생성형 AI가 <strong>질문을 이해하고 실시간 버스 도착 정보와 맞춰 경로를 추천</strong>하는 다국어 대화형 안내. 같은 엔진을 <strong>어르신용 큰 글씨 · 음성 모드</strong>로도 엽니다.</div></div>
       <div class="row"><div class="q">[4-2] 어떻게 작동하나요?</div><div class="a"><ul><li>입력: 질문(음성·문자, 한·영·중·일 등)</li><li>AI: 번역 → 목적지 파악 → BIS 도착 시각 · DRT 운행 구역과 맞춰 경로 2~3개 추천</li><li>출력: 「다음 버스 12분 / 놓치면 DRT 호출」 한 화면 + 음성 안내</li><li>정류장 QR, 관광안내소 태블릿, 개인 휴대폰 웹(앱 설치 없이)</li></ul></div></div>
@@ -145,9 +190,9 @@ ol.chk li{margin:6px 0}
       <div class="row"><div class="q">[6-4] 단계별 추진 안</div><div class="a">1단계 불국사 · 보문 노선 시범(3개월) → 2단계 경주 전역 + DRT 연계 → 3단계 안동 · 영주 등 경북 관광 시군 확산.</div></div>
     </div>
   </section>
-
-  <!-- ===== 예시 2 ===== -->
-  <section class="section app" id="ex2">
+</div></div>
+<div class="dk-slide" id="ex2" data-title="④ 울릉 · 문제"><div class="container">
+  <section class="section app">
     <div class="app-head t2"><span class="tag">가상 예시 2</span><h2>섬 이동 — 울릉도</h2></div>
     <dl class="ov">
       <dt>작품명</dt><dd><strong>울릉 뱃길 미리알림 — AI 결항 예측과 일정 다시 짜기</strong></dd>
@@ -171,6 +216,13 @@ ol.chk li{margin:6px 0}
       <div class="row"><div class="q">[3-1] 어떤 문제가 있나요?</div><div class="a">울릉도는 바닷길이 유일한 대중교통이라 기상이 나쁘면 여객선이 멈춥니다. 결항은 대개 <strong>전날이나 당일에야 확정</strong>되어 손쓸 시간이 없습니다.</div></div>
       <div class="row"><div class="q">[3-2] 누가 가장 불편한가요?</div><div class="a"><strong>육지 병원에 다니는 울릉 주민</strong>이 가장 큽니다. 진료 예약을 날리면 다시 잡는 데 <span class="as">2~3주</span>가 걸립니다. 다음은 숙박·식당을 예약한 관광객과 지역 상인입니다.</div></div>
       <div class="row"><div class="q">[3-3] 기존엔 어떻게 해결하려 했나요?</div><div class="a">선사 · 여객선 예매 서비스의 운항 공지, 기상 특보. 하지만 모두 「오늘 뜨나 안 뜨나」만 알려 줄 뿐 <strong>며칠 앞을 내다보지 못합니다.</strong></div></div>
+    </div>
+  </section>
+</div></div>
+<div class="dk-slide" id="ex2b" data-title="④ 울릉 · 해결"><div class="container">
+  <section class="section app">
+    <div class="app-head t2"><span class="tag">가상 예시 2</span><h2>섬 이동 — 울릉도 <small class="cont">(계속)</small></h2></div>
+    <div class="form">
       <div class="grp">[4] 해결 방안</div>
       <div class="row"><div class="q">[4-1] 어떤 AI 서비스인가요?</div><div class="a">과거 수년 치 결항 기록과 그날의 파고 · 풍속 예보를 학습한 AI가 <strong>2~3일 뒤 여객선 결항 확률을 예측</strong>하고, 확률이 높으면 주민과 예약 관광객에게 미리 알려 대안 날짜를 제안합니다.</div></div>
       <div class="row"><div class="q">[4-2] 어떻게 작동하나요?</div><div class="a"><ul><li>입력: 해양기상 예보(파고 · 풍속 · 풍향), 운항 · 결항 기록, 선박별 운항 기준</li><li>AI: 날짜 · 항로별 결항 확률 계산(분류 예측 모델)</li><li>출력: 확률 60% 이상이면 문자 알림 「모레 오전 배 결항 확률 70% — 내일 배를 권합니다」</li><li>주민은 군청 · 보건의료원 문자로, 관광객은 예매 정보에 남긴 번호로 받습니다.</li></ul></div></div>
@@ -185,9 +237,9 @@ ol.chk li{margin:6px 0}
       <div class="row"><div class="q">[6-4] 단계별 추진 안</div><div class="a">1단계 포항–울릉 한 항로 · 과거 데이터로 정확도 검증 → 2단계 주민 문자 알림 시범 → 3단계 숙박 · 렌터카 예약과 연계, 다른 항로로 확산.</div></div>
     </div>
   </section>
-
-  <!-- ===== 예시 3 ===== -->
-  <section class="section app" id="ex3">
+</div></div>
+<div class="dk-slide" id="ex3" data-title="⑤ 북부권 · 문제"><div class="container">
+  <section class="section app">
     <div class="app-head t3"><span class="tag">가상 예시 3</span><h2>관광권 사이 이동 — 경북 북부권(안동 · 영주 · 봉화)</h2></div>
     <dl class="ov">
       <dt>작품명</dt><dd><strong>북부권 같이타 — 주민과 관광객이 함께 타는 AI 수요응답 버스</strong></dd>
@@ -211,6 +263,13 @@ ol.chk li{margin:6px 0}
       <div class="row"><div class="q">[3-1] 어떤 문제가 있나요?</div><div class="a">안동 하회마을 · 영주 부석사 · 봉화 분천역은 서로 차로 <span class="as">40~60분</span> 거리인데, 시군 경계를 넘는 버스가 드뭅니다. 차 없는 관광객은 한 곳만 보고 돌아가고, 같은 길에서 농촌 주민은 하루 <span class="as">2~3회</span> 다니는 버스를 기다립니다.</div></div>
       <div class="row"><div class="q">[3-2] 누가 가장 불편한가요?</div><div class="a"><strong>읍내 병원 · 장에 가야 하는 면 단위 고령 주민</strong>, 그리고 기차로 와서 권역을 돌고 싶은 뚜벅이 관광객.</div></div>
       <div class="row"><div class="q">[3-3] 기존엔 어떻게 해결하려 했나요?</div><div class="a">시군별 농어촌 버스 · 시티투어버스 · 일부 지역의 수요응답형 버스. 그러나 <strong>시군마다 따로 운영</strong>하고, 주민용과 관광용이 나뉘어 둘 다 빈 차로 다니는 시간이 깁니다.</div></div>
+    </div>
+  </section>
+</div></div>
+<div class="dk-slide" id="ex3b" data-title="⑤ 북부권 · 해결"><div class="container">
+  <section class="section app">
+    <div class="app-head t3"><span class="tag">가상 예시 3</span><h2>관광권 사이 이동 — 경북 북부권(안동 · 영주 · 봉화) <small class="cont">(계속)</small></h2></div>
+    <div class="form">
       <div class="grp">[4] 해결 방안</div>
       <div class="row"><div class="q">[4-1] 어떤 AI 서비스인가요?</div><div class="a">AI가 요일 · 시간대 · 장날 · 축제 일정별 이동 수요를 <strong>예측</strong>하고, 들어온 호출을 묶어 <strong>가장 짧은 경로로 배차를 최적화</strong>하는 북부권 공동 수요응답 버스. 주민과 관광객이 같은 차를 탑니다.</div></div>
       <div class="row"><div class="q">[4-2] 어떻게 작동하나요?</div><div class="a"><ul><li>입력: 관광객 이동 통계, 교통카드 승하차, 장날 · 축제 일정, 실시간 호출(앱 · 전화)</li><li>AI ①: 내일 시간대별 수요 예측 → 투입 차량 수 결정</li><li>AI ②: 실시간 호출을 묶어 경로 계산(합승 최적화)</li><li>출력: 기사 태블릿 경로 · 승객 도착 시각 문자. <strong>어르신은 전화 한 통으로 호출</strong>합니다.</li></ul></div></div>
@@ -225,8 +284,9 @@ ol.chk li{margin:6px 0}
       <div class="row"><div class="q">[6-4] 단계별 추진 안</div><div class="a">1단계 안동역–하회마을–병산서원 축(주말 관광 + 평일 주민) → 2단계 영주 · 봉화 연결 → 3단계 경주 · 포항 · 영덕 동해안권으로 확산.</div></div>
     </div>
   </section>
-
-  <section class="section" id="check">
+</div></div>
+<div class="dk-slide" id="check" data-title="⑥ 점검"><div class="container">
+  <section class="section">
     <div class="sec-head"><div class="secno">06</div><h2>세 예시가 점수를 얻는 자리 · 내 신청서 점검</h2></div>
     <div class="tablewrap"><table>
       <thead><tr><th>심사 기준</th><th>외국인 · 경주</th><th>섬 · 울릉</th><th>관광권 · 북부권</th></tr></thead>
@@ -248,8 +308,36 @@ ol.chk li{margin:6px 0}
     </ol>
     <div class="key">다음 순서 — AI 상자 4칸을 내 주제로 채운다 → 다섯 질문으로 점검한다 → <a href="smart-tourism-ax-application-prompts-19.html" target="_blank" rel="noopener">AX 공모 프롬프트 19개 ↗</a>로 칸별 문장을 늘린다 → <a href="gyeongbuk-ax-form-4-8.html" target="_blank" rel="noopener">응모신청서 4~8쪽 웹 양식 ↗</a>에 옮긴다.</div>
   </section>
-  </main>
   <p class="footer"><strong>선샤인 웰니스</strong> · 스마트관광의 이해 파트 12 · 가상 예시(노란 밑줄 숫자는 가정치)</p>
-</div>
+</div></div>
+</div></div>
+<button class="dk-arrow dk-prev" id="dkPrev" type="button" aria-label="이전 장">‹</button><button class="dk-arrow dk-next" id="dkNext" type="button" aria-label="다음 장">›</button>
+<div class="dk-bot" id="dkDots"></div><div class="dk-help">← → 키 · 스와이프</div>
+<script>
+(function(){
+var track=document.getElementById('dkTrack'),sl=[].slice.call(track.children),n=sl.length,i=0;
+var tabs=[].slice.call(document.querySelectorAll('#dkTabs button')),dotsEl=document.getElementById('dkDots'),cnt=document.getElementById('dkCount'),bar=document.getElementById('dkBar');
+var prev=document.getElementById('dkPrev'),next=document.getElementById('dkNext');
+sl.forEach(function(s,k){var d=document.createElement('i');d.title=s.getAttribute('data-title');d.onclick=function(){go(k)};dotsEl.appendChild(d);});
+var dots=[].slice.call(dotsEl.children);
+function pad(x){return (x<10?'0':'')+x}
+function go(k){i=Math.max(0,Math.min(n-1,k));track.style.transform='translateX('+(-i*100)+'%)';
+ tabs.forEach(function(t,j){t.classList.toggle('on',j===i)});dots.forEach(function(t,j){t.classList.toggle('on',j===i)});
+ var tb=tabs[i],nav=tb.parentNode;nav.scrollLeft=tb.offsetLeft-nav.clientWidth/2+tb.clientWidth/2;
+ cnt.textContent=pad(i+1)+' / '+pad(n);bar.style.width=((i+1)/n*100)+'%';
+ prev.disabled=i===0;next.disabled=i===n-1;sl[i].scrollTop=0;
+ try{var u=new URL(location.href);u.searchParams.set('page',i+1);u.hash='';history.replaceState(null,'',u)}catch(e){}}
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('[data-go]');if(b){e.preventDefault();go(+b.getAttribute('data-go'))}});
+prev.onclick=function(){go(i-1)};next.onclick=function(){go(i+1)};
+document.addEventListener('keydown',function(e){if(/INPUT|TEXTAREA|SELECT/.test(e.target.tagName))return;
+ if(e.key==='ArrowRight'||e.key==='PageDown')go(i+1);else if(e.key==='ArrowLeft'||e.key==='PageUp')go(i-1);else if(e.key==='Home')go(0);else if(e.key==='End')go(n-1);});
+var sx=0,sy=0;track.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;sy=e.touches[0].clientY},{passive:true});
+track.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;
+ if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5&&!(e.target.closest&&e.target.closest('.tablewrap')))go(dx<0?i+1:i-1)},{passive:true});
+var q=+new URLSearchParams(location.search).get('page'),h=decodeURIComponent(location.hash.slice(1)),hk=-1;
+if(h)sl.forEach(function(s,k){if(s.id===h)hk=k});
+go(hk>=0?hk:(q?q-1:0));
+})();
+</script>
 </body>
 </html>
