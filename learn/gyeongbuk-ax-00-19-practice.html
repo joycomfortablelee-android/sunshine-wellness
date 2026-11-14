@@ -5,6 +5,21 @@
 @media(max-width:950px){.ax1 .halves{grid-template-columns:1fr}.ax1 .flowcol{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;align-items:center}.ax1 .flowcol .sectiontag{grid-column:1/-1}.ax1 .flowbox{height:100%}.ax1 .arrow{display:none}}
 @media(max-width:720px){.ax1{padding:18px 13px 70px}.ax1 .app{grid-template-columns:1fr}.ax1 .aside{border-right:none;border-bottom:1px solid var(--border)}.ax1 .steps{max-height:188px;grid-template-columns:1fr 1fr;gap:5px}.ax1 .steps button{font-size:12px;padding:8px}.ax1 .panel{padding:19px}.ax1 .flowcol{grid-template-columns:1fr 1fr}.ax1 .flowbox span{font-size:12px}.ax1 .pills{gap:6px}.ax1 .pills button{font-size:12px;padding:7px 9px}.ax1 .prompttext{min-height:220px}}
 @media print{.ax-jump,.ax1 .aside,.ax1 .controls,.ax1 .pills,.ax1 .utility{display:none!important}.ax1 .app{display:block;border:0}.ax1 .halves{grid-template-columns:1fr 1fr}.ax1{max-width:none}.ax1 .panel{padding:0}}
+
+/* 목표 셋 = INPUT → APPLICATION → OUTPUT (2026-11-14) */
+.io-strip{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:14px 0 4px}
+.io-strip .io-s{display:inline-flex;align-items:center;gap:7px;padding:6px 14px;border-radius:999px;font-weight:800;font-size:14px;color:#fff}
+.io-strip .io-s b{font-size:11px;letter-spacing:.08em;opacity:.85}
+.io-strip i{font-style:normal;font-weight:900;color:#8aa0c0}
+.io-strip em{font-style:normal;font-size:13px;color:#5b6b80;margin-left:4px}
+.io-s.in,.io-tag.in{background:#2f6fb5}.io-s.app,.io-tag.app{background:#2c8256}.io-s.out,.io-tag.out{background:#c0632b}
+.tile.io{position:relative}.tile.io.in{border-top-color:#2f6fb5}.tile.io.app{border-top-color:#2c8256}.tile.io.out{border-top-color:#c0632b}
+.io-tag{display:inline-block;margin-left:8px;padding:2px 10px;border-radius:999px;color:#fff;font-size:11.5px;font-weight:800;letter-spacing:.04em;vertical-align:1px}
+.io-line{margin:10px 0 0;padding-top:9px;border-top:1px dashed #d6e0ee;font-size:13.5px;line-height:1.6;color:#33475b}
+.io-note{margin:8px 0 12px;padding:8px 13px;border-left:4px solid #2f6fb5;background:#eef4fc;border-radius:0 10px 10px 0;font-size:14px;line-height:1.7;color:#2b3f58}
+h2 .io-tag{font-size:12px;vertical-align:4px}
+.io-line b{display:inline-block;margin-right:7px;font-size:12px;color:#fff;background:#4a5d74;border-radius:6px;padding:0 7px}
+@media(min-width:861px){.io-cols .tile.io.in::after,.io-cols .tile.io.app::after{content:"→";position:absolute;right:-13px;top:50%;transform:translateY(-50%);width:22px;height:22px;border-radius:50%;background:#fff;border:1px solid #c9d6e6;color:#4a6a96;font-weight:900;font-size:13px;line-height:20px;text-align:center;z-index:2}}
 </style><style id="ax-map-style">
 #ax-mapping{max-width:1120px;margin:12px auto 35px;padding:28px 22px 34px;font-family:Pretendard,'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;color:#19273b;line-height:1.55;box-sizing:border-box}
 #ax-mapping *{box-sizing:border-box}
@@ -146,14 +161,16 @@
 </header><nav class="ax-jump" id="ax-page-top"><a href="#ax0-goal">00 · 목표·자원</a><a href="#ax0-four">4대 핵심 질문</a><a href="#ax0-workbench">시작 프롬프트 만들기</a><a href="#ax-mapping">19개 × 신청서 연결표</a><a href="#ax1-prompts">01~19 · 단계별 실습</a><a href="https://sunshinewellness.co.kr/learn/gyeongbuk-ax-form-4-8.html" rel="noopener noreferrer" target="_blank">응모신청서 작성 ↗</a></nav>
 <section class="block" id="ax0-goal">
 <div class="eyebrow">01 · WHAT WE WANT</div><h2><mark class="axhl">우리의 목표</mark>부터 분명히 하기</h2>
-<div class="columns">
-<article class="tile"><span class="number">GOAL 01</span><h3><mark class="axhl">기존 발표</mark>를 출발점으로</h3><p>새 주제를 무작정 만드는 대신, <strong><mark class="axhl">중간발표의 아이디어·자료·한계</mark></strong>를 확인해 활용합니다.</p></article>
-<article class="tile"><span class="number">GOAL 02</span><h3>적용 지역은 <mark class="axhl">경북</mark></h3><p>발표에서 다룬 지역이 인천·서울·해외여도 괜찮습니다. 사례는 참고하고, <strong><mark class="axhl">문제와 수혜자는 경북 지역에서</mark></strong> 다시 구체화합니다.</p></article>
-<article class="tile"><span class="number">GOAL 03</span><h3><mark class="axhl">양식에 맞춘 제출본</mark></h3><p>최종 산출물은 응모신청서 <strong><mark class="axhl">[2] 아이디어, [3] 문제, [4] 해결, [5] 효과, [6] 실행</mark></strong>을 연결한 문서입니다.</p></article>
+<p class="io-strip"><span class="io-s in"><b>INPUT</b>중간발표</span><i>→</i><span class="io-s app"><b>APPLICATION</b>경북에 적용</span><i>→</i><span class="io-s out"><b>OUTPUT</b>응모신청서 [2]~[6]</span><em>세 목표는 <b>입력 → 적용 → 출력</b> 한 줄로 이어집니다.</em></p>
+<div class="columns io-cols">
+<article class="tile io in"><span class="number">GOAL 01</span><span class="io-tag in">INPUT · 입력</span><h3><mark class="axhl">기존 발표</mark>를 출발점으로</h3><p>새 주제를 무작정 만드는 대신, <strong><mark class="axhl">중간발표의 아이디어·자료·한계</mark></strong>를 확인해 활용합니다.</p><p class="io-line"><b>넣는 것</b>중간발표 PPT·PDF · 발표 후 피드백 · 참고한 사례 — <a href="#ax0-resources">자료 다섯 가지 ↓</a></p></article>
+<article class="tile io app"><span class="number">GOAL 02</span><span class="io-tag app">APPLICATION · 적용</span><h3>적용 지역은 <mark class="axhl">경북</mark></h3><p>발표에서 다룬 지역이 인천·서울·해외여도 괜찮습니다. 사례는 참고하고, <strong><mark class="axhl">문제와 수혜자는 경북 지역에서</mark></strong> 다시 구체화합니다.</p><p class="io-line"><b>하는 일</b>사례를 경북의 문제 · 수혜자 · 데이터에 옮겨 다시 구체화</p></article>
+<article class="tile io out"><span class="number">GOAL 03</span><span class="io-tag out">OUTPUT · 출력</span><h3><mark class="axhl">양식에 맞춘 제출본</mark></h3><p>최종 산출물은 응모신청서 <strong><mark class="axhl">[2] 아이디어, [3] 문제, [4] 해결, [5] 효과, [6] 실행</mark></strong>을 연결한 문서입니다.</p><p class="io-line"><b>나오는 것</b>[2] 아이디어 → [6] 실행이 이어진 응모신청서 한 편</p></article>
 </div>
 </section>
 <section class="block" id="ax0-resources">
-<div class="eyebrow">02 · WHAT WE ALREADY HAVE</div><h2>우리가 이미 <mark class="axhl">가진 자료</mark>와 각각의 역할</h2>
+<div class="eyebrow">02 · WHAT WE ALREADY HAVE</div><h2>우리가 이미 <mark class="axhl">가진 자료</mark>와 각각의 역할 <span class="io-tag in">INPUT · 입력</span></h2>
+<p class="io-note in">위 <b>GOAL 01 INPUT</b>에 넣는 재료입니다 — 아래 다섯 자료를 AI에 함께 넣고, <b>GOAL 02</b>에서 경북에 적용해 <b>GOAL 03</b> 응모신청서로 꺼냅니다.</p>
 <p class="sub">AI는 자료마다 용도가 다르다는 사실을 알아야 합니다. 참고 사례와 경북 현지의 실제 사실을 혼동하지 않도록 합니다.</p>
 <div class="resource-list">
 <div class="resource-row"><strong><mark class="axhl">① 중간발표 PPT·PDF</mark> <span class="tag">아이디어 출발점</span></strong><div>학생 본인이 제안한 관광 문제, 이용자, 서비스, 그림, 발표 후 피드백을 살펴봅니다.<em>사용 방법: 파일을 AI에 첨부하고 ‘내 발표에서 확인되는 내용’을 먼저 추출하기.</em></div></div>
