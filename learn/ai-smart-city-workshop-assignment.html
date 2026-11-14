@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex"/>
+<meta name="description" content="국토교통부 「AI·스마트도시 혁신인재육성 사업」 공고를 바탕으로, 2024 APEC 스마트 관광도시 교육 워크숍처럼 3부 워크숍 프로그램을 설계하는 과제"/>
+<title>AI·스마트도시 워크숍 설계 과제 | 선샤인 웰니스</title>
+<style>
+:root{--navy:#12213b;--ink:#22304a;--muted:#52647c;--bg:#f3f6fc;--border:#dce4ef;--light:#eaf1ff;--c1:#1c2f55;--c2:#2f6fb5;--c3:#2c8256;--c4:#c08a1e;--c5:#b8432f;--shadow:0 12px 28px rgba(15,30,64,.075)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);font-family:'Pretendard','Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;color:var(--ink);line-height:1.75;word-break:keep-all}
+a{color:#1859ce}.container{max-width:1120px;margin:0 auto;padding:0 25px}
+.masthead{color:#fff;background:linear-gradient(125deg,#0c1c36 0%,#183e75 52%,#115f74 100%)}
+.hero{padding:56px 0 50px}.eyebrow{font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:#c6eafc;font-weight:800}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.22;letter-spacing:-.04em;margin:12px 0 8px}
+.hero .intro{max-width:780px;font-size:1.05rem;margin:18px 0 0;color:#edf4ff}.hero strong{color:#fff}
+.meta{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}.pill{border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.13);color:#fff;padding:5px 13px;border-radius:100px;font-weight:600;font-size:.86rem}
+.toptools{display:flex;gap:8px;flex-wrap:wrap;justify-content:space-between;align-items:center;margin:22px auto 10px}.toptools nav{display:flex;gap:8px;flex-wrap:wrap}
+.toptools a,.printBtn{border:1px solid var(--border);background:#fff;border-radius:9px;padding:7px 12px;font-size:.88rem;font-weight:700;color:#324968;text-decoration:none;font-family:inherit;cursor:pointer}
+.toptools a:hover,.printBtn:hover{background:var(--light)}
+.section{background:#fff;border:1px solid var(--border);border-radius:17px;box-shadow:var(--shadow);margin:22px auto;padding:32px 36px}
+.sec-head{display:flex;align-items:center;gap:14px;margin-bottom:10px}.secno{width:40px;height:40px;border-radius:12px;color:#fff;background:var(--navy);font-weight:800;display:grid;place-items:center;flex:none}
+h2{font-size:1.5rem;letter-spacing:-.035em;line-height:1.45;margin:0;color:var(--navy)}h3{font-size:1.12rem;margin:24px 0 8px;color:#142e56}p{margin:9px 0}
+.key{background:linear-gradient(110deg,#eef5ff,#effafa);border:1px solid #ccddf1;border-left:5px solid #2966cf;border-radius:12px;padding:15px 18px;font-weight:650;margin:16px 0}
+.warn{background:#fff8e8;border:1px solid #f0d9a2;border-left:5px solid #c08a1e;border-radius:12px;padding:13px 17px;margin:16px 0;font-size:.95rem}
+.ov{display:grid;grid-template-columns:150px 1fr;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:12px 0 18px}
+.ov dt{background:#eef3fb;font-weight:800;color:#263b5a;padding:9px 14px;border-bottom:1px solid var(--border)}.ov dd{margin:0;padding:9px 14px;border-bottom:1px solid var(--border)}
+.ov dt:last-of-type,.ov dd:last-of-type{border-bottom:none}
+.hot{color:#b8432f;font-weight:800}
+/* APEC 해부 */
+.apec{display:grid;grid-template-columns:220px 1fr;gap:22px;align-items:start;margin:14px 0}
+.apec img{width:100%;border-radius:10px;border:1px solid var(--border);display:block}
+.apec .cap{font-size:.8rem;color:var(--muted);text-align:center;margin-top:5px}
+.bu{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+.bu div{border-radius:12px;padding:13px 15px;color:#fff}.bu b{display:block;font-size:1.02rem}.bu small{display:block;opacity:.88;font-size:.84rem;margin-top:4px}
+.b1{background:#1c2f55}.b2{background:#2f6fb5}.b3{background:#2c8256}
+.rule{counter-reset:r;list-style:none;padding:0;margin:12px 0}
+.rule li{counter-increment:r;position:relative;padding:10px 14px 10px 50px;border:1px solid var(--border);border-radius:11px;margin:8px 0;background:#fafcff}
+.rule li::before{content:counter(r);position:absolute;left:13px;top:10px;width:26px;height:26px;border-radius:8px;background:var(--navy);color:#fff;font-weight:800;display:grid;place-items:center;font-size:.86rem}
+/* 공고에서 워크숍이 놓이는 자리 */
+.where{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+.where div{border:1px solid var(--border);border-radius:13px;padding:14px 17px;background:#fafcff}
+.where div.on{border-color:#9cc6ae;background:#f1faf4}
+.where b{display:block;color:var(--navy);margin-bottom:4px}
+.where q{display:block;font-size:.88rem;color:#3b4d66;border-left:3px solid #c08a1e;padding:4px 10px;margin:7px 0;background:#fffaf0;quotes:none}
+.where q b{display:inline;margin:0;color:#8a5a00}
+figure{margin:18px 0}figure svg{width:100%;height:auto;display:block}figcaption{font-size:.86rem;color:var(--muted);margin-top:6px;text-align:center}
+.svg-t{font:800 15px 'Pretendard','Malgun Gothic',sans-serif;fill:#12213b}
+.svg-g{font:800 12.5px 'Pretendard','Malgun Gothic',sans-serif;fill:#fff}
+.svg-n{font:700 12.5px 'Pretendard','Malgun Gothic',sans-serif;fill:#22304a}
+.svg-d{font:500 11.5px 'Pretendard','Malgun Gothic',sans-serif;fill:#52647c}
+.svg-v{font:800 12.5px 'Pretendard','Malgun Gothic',sans-serif;fill:#22304a}
+.svg-w{font:800 12.5px 'Pretendard','Malgun Gothic',sans-serif;fill:#b8432f}
+/* 표 */
+.tablewrap{overflow-x:auto;border:1px solid var(--border);border-radius:12px;margin:14px 0}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:.92rem}thead th{background:#203a61;color:#fff;text-align:left;padding:11px 13px}
+td{border-bottom:1px solid #e2e9f3;padding:11px 13px;vertical-align:top}tbody tr:nth-child(even){background:#f8faff}tbody tr:last-child td{border-bottom:none}td:first-child{font-weight:800;white-space:nowrap}
+td.blank{color:#9aa8bb;font-style:italic}
+tr.p1 td:first-child{color:#1c2f55}tr.p2 td:first-child{color:#2f6fb5}tr.p3 td:first-child{color:#2c8256}
+/* 포스터 틀 */
+.poster{border:2px solid #183e75;border-radius:14px;overflow:hidden;margin:14px 0;max-width:720px}
+.poster .ph{background:linear-gradient(125deg,#0c1c36,#183e75 60%,#115f74);color:#fff;padding:18px 22px}
+.poster .ph small{display:block;color:#c6eafc;font-weight:700;letter-spacing:.08em;font-size:.78rem}
+.poster .ph b{display:block;font-size:1.35rem;line-height:1.35;margin:4px 0}
+.poster .ph span{font-size:.88rem;color:#e3eefc}
+.poster .pr{display:grid;grid-template-columns:96px 1fr;border-top:1px solid var(--border)}
+.poster .pr>div:first-child{padding:11px 12px;font-weight:800;color:#fff;font-size:.9rem}
+.poster .pr>div:last-child{padding:11px 14px;font-size:.92rem}
+.poster .pr .m{color:var(--muted);font-size:.84rem}
+.poster .pf{background:#f3f6fc;padding:10px 16px;font-size:.84rem;color:#3b4d66;border-top:1px solid var(--border)}
+.as{background:#fff3cf;border-bottom:2px dotted #c08a1e;padding:0 3px;border-radius:3px}
+.as::after{content:"가정";font-size:.68rem;font-weight:800;color:#8a5a00;margin-left:4px;vertical-align:super}
+ol.chk li{margin:6px 0}
+.ban{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.ban span{background:#fff;color:#b8432f;border:1.5px dashed #b8432f;border-radius:100px;padding:4px 12px;font-weight:700;font-size:.88rem;text-decoration:line-through}
+.ban span.ok{color:#fff;background:#2c8256;border:1.5px solid #2c8256;text-decoration:none}
+.footer{padding:20px 0 44px;color:#637186;font-size:.82rem;text-align:center}
+@media(max-width:720px){.container{padding:0 16px}.section{padding:22px 17px}.apec,.where,.ov{grid-template-columns:1fr}.apec img{max-width:240px;margin:0 auto}.bu{grid-template-columns:1fr}.poster .pr{grid-template-columns:1fr}}
+@media print{body{background:#fff;font-size:10pt}.masthead,thead th,.bu div,.poster .ph,.poster .pr>div:first-child{print-color-adjust:exact;-webkit-print-color-adjust:exact}.toptools{display:none}.section{box-shadow:none;margin:12px auto;padding:18px}@page{size:A4;margin:13mm}}
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="container hero">
+    <div class="eyebrow">AI · Smart City Talent · Workshop Design</div>
+    <h1>APEC 워크숍처럼 짜 보기<br/>AI·스마트관광도시 워크숍 설계 과제</h1>
+    <p class="intro">국토교통부가 2026년 9월 공고한 <strong>「AI·스마트도시 혁신인재육성 사업」</strong>은 대학원에 AI·스마트도시 과정을 열고, 그 안에서 <strong>산학협력 · 국제협력 · 워크숍</strong>을 운영하게 합니다. 여러분은 <strong>선정된 대학의 운영팀</strong>이 되어, 1차년도에 열 <strong>3시간짜리 워크숍 프로그램</strong>을 짭니다. 본보기는 <strong>2024 APEC 스마트 관광도시 교육 워크숍</strong>입니다.</p>
+    <div class="meta"><span class="pill">파트 04 해외 · 실습 연계</span><span class="pill">팀 과제</span><span class="pill">A4 2장</span><span class="pill">국토부 공고 제2026-1238호</span></div>
+  </div>
+</header>
+<div class="container">
+  <div class="toptools">
+    <nav aria-label="문서 내 목차"><a href="#notice">① 공고</a><a href="#apec">② APEC 해부</a><a href="#task">③ 과제</a><a href="#score">④ 평가표</a><a href="#form">⑤ 양식</a><a href="#check">⑥ 점검</a></nav>
+    <button class="printBtn" type="button" onclick="window.print()">🖨️ 인쇄 / PDF 저장</button>
+  </div>
+  <div class="warn"><strong>먼저 읽기 —</strong> 이 과제는 <strong>가정 상황</strong>입니다. 실제 공모 접수는 <strong>2026. 10. 29.(목) 18:00에 끝났고</strong>, 11월은 선정평가 기간입니다. 우리 대학이 신청했거나 선정됐다는 뜻이 아닙니다. 공고의 <strong>규칙과 평가표만 빌려 와</strong> 「이 사업을 받은 대학이라면 어떤 워크숍을 열어야 점수가 나오나」를 설계해 봅니다.</div>
+
+  <main>
+  <section class="section" id="notice">
+    <div class="sec-head"><div class="secno">01</div><h2>공고 한 장 요약 — 무엇을 하라는 사업인가</h2></div>
+    <dl class="ov">
+      <dt>사업명</dt><dd>AI·스마트도시 혁신인재육성 사업 (국토교통부 공고 제2026-1238호, 2026. 9. 29.)</dd>
+      <dt>목적</dt><dd><strong>AI 시티</strong>로의 변화와 스마트도시 산업계 수요를 반영해 AI·스마트도시 핵심 전문인력 양성</dd>
+      <dt>규모</dt><dd>총 36억 원 · 3년(’26~’28) · <strong>4년제 대학 4곳</strong>(비수도권 2곳 이상) · 대학별 연 국고 2.8억 원 + 대학 부담 25% 이상</dd>
+      <dt>대상</dt><dd>전일제 대학원 석·박사과정 — <strong>AI·스마트도시 학과</strong> 또는 두 학과 이상을 묶은 <strong>전문 트랙</strong></dd>
+      <dt>두 축</dt><dd><strong>학술형</strong> — 스마트도시 교과목 중 <strong>AI 접목 교과목 학점 30% 이상</strong><br/><strong>실무형</strong> — <strong>국내·외 인턴십 · 산학협력 · 국제협력</strong> 필수, 실무형 성과지표가 전체 지표의 <strong>40% 이상</strong></dd>
+      <dt>주관 · 문의</dt><dd>국토교통부 도시경제과 · 국토교통과학기술진흥원(KAIA)</dd>
+    </dl>
+    <h3>워크숍은 공고 어디에 들어가나</h3>
+    <div class="where">
+      <div class="on"><b>① 실무형 프로그램의 한 칸</b>공고는 실무형 프로그램을 「산업체·지자체 연계 실무형 프로그램, 국제화 프로그램」이라 부르고, 사업비 기준에 워크숍을 직접 적어 두었습니다.
+        <q>국내·외 연수 여비 : 참여학생의 단기 국내·외 연수 <b>워크샵, 세미나, 포럼</b>, 인턴쉽 등</q>
+        <q>산학협력 교육 연구 및 창업 지원비 : 현장실습, 창업교육, 인턴십, <b>취·창업워크숍</b>, 세미나 등</q></div>
+      <div><b>② 그래서 워크숍 하나가 여러 점수를 건드립니다</b>잘 짠 워크숍 한 번은 <strong>산학협력(건)</strong> · <strong>국제협력(건)</strong> · <strong>교육생(명)</strong> · <strong>취·창업교육(건)</strong>이라는 성과지표를 동시에 만듭니다. 그리고 서면평가 100점 중 <strong class="hot">35점</strong>짜리 항목에 근거가 됩니다(④에서 봅니다).</div>
+    </div>
+    <div class="key">한 줄로 — 이 과제의 워크숍은 「행사」가 아니라 <strong>사업계획서에 숫자로 적히는 실무형 프로그램</strong>입니다.</div>
+  </section>
+
+  <section class="section" id="apec">
+    <div class="sec-head"><div class="secno">02</div><h2>본보기 해부 — 2024 APEC 스마트 관광도시 교육 워크숍</h2></div>
+    <div class="apec">
+      <div><a href="images/apec-smart-tourism-city-workshop-2024-poster.webp" target="_blank" rel="noopener"><img src="images/apec-smart-tourism-city-workshop-2024-poster.webp" alt="APEC 스마트 관광도시 교육 워크숍 포스터 — 2024. 4. 23.(화) 14:30~17:30, 주제 「지속 가능한 관광을 위한 스마트 관광도시의 역할」. 1부 양양군 · 싱가포르 센토사, 2부 경주시 · 호주 · 페루 리마, 3부 지역 협력 · 민간 협력" loading="lazy"/></a><div class="cap">누르면 크게 · 출처 APEC · 문화체육관광부 · 한국관광공사</div></div>
+      <div>
+        <p>2024. 4. 23.(화) 14:30~17:30, 세 시간. 주제는 「지속 가능한 관광을 위한 스마트 관광도시의 역할」 하나이고, 그 아래를 <strong>세 부</strong>로 갈랐습니다.</p>
+        <div class="bu">
+          <div class="b1"><b>1부 · 편의</b>기술 · 데이터 융복합<small>양양군 ↔ 싱가포르 센토사</small></div>
+          <div class="b2"><b>2부 · 경험</b>스마트 기술로 확장<small>경주시 ↔ 호주 · 페루 리마</small></div>
+          <div class="b3"><b>3부 · 지속가능성</b>협력으로 만드는 생태계<small>지역 협력 · 민간 협력</small></div>
+        </div>
+        <p>이 프로그램에서 <strong>그대로 가져올 규칙 다섯</strong>:</p>
+      </div>
+    </div>
+    <ol class="rule">
+      <li><strong>주제는 한 문장, 질문은 세 개.</strong> 「스마트관광」처럼 넓게 두지 않고 「지속 가능한 관광을 위한 ~의 역할」처럼 <em>무엇을 위해</em>를 박았습니다.</li>
+      <li><strong>부마다 국내 한 곳 + 해외 한 곳.</strong> 같은 질문에 두 도시가 답하게 해야 비교가 생깁니다. 국내만이면 자랑, 해외만이면 남의 얘기입니다.</li>
+      <li><strong>부의 순서가 이야기다.</strong> 편의(쓰기 쉬움) → 경험(즐거움) → 지속가능성(누가 계속 굴리나). 기술에서 시작해 사람과 협력으로 끝납니다.</li>
+      <li><strong>마지막 부는 「누가 함께하나」.</strong> 3부는 도시가 아니라 <strong>지역 · 민간</strong>이 무대에 섭니다 — 공고의 산학협력 · 국제협력과 같은 자리입니다.</li>
+      <li><strong>주최 · 주관을 밝힌다.</strong> APEC · 문화체육관광부 · 한국관광공사. 누가 돈을 대고 누가 운영하는지가 포스터에 보입니다.</li>
+    </ol>
+  </section>
+
+  <section class="section" id="task">
+    <div class="sec-head"><div class="secno">03</div><h2>과제 — 우리 대학의 첫 워크숍 프로그램 짜기</h2></div>
+    <p><strong>상황</strong> · 우리 대학이 이 사업에 선정되어 <strong>관광 × AI·스마트도시 전문 트랙</strong>을 열었다고 가정합니다. 1차년도(’26. 11. ~ ’27. 8.) 안에 대학원생 · 지자체 · 기업 · 해외 기관이 함께하는 <strong>3시간 워크숍</strong>을 한 번 엽니다. 그 프로그램을 짭니다.</p>
+    <h3>지켜야 할 조건 여섯</h3>
+    <ol class="rule">
+      <li><strong>3부 구성 · 3시간 안팎.</strong> APEC처럼 주제 한 문장 아래 1 · 2 · 3부.</li>
+      <li><strong>부마다 국내 도시(또는 기관) 1 + 해외 도시(또는 기관) 1.</strong> 국내는 <strong>경북 시군 하나 이상</strong>을 꼭 넣습니다(파트 01 · 파트 12에서 다룬 도시 활용).</li>
+      <li><strong>공고의 세 축을 한 번씩 건드린다.</strong> 1부는 <strong>학술형</strong>(AI 접목 교과와 연결), 2부는 <strong>산학협력</strong>(지자체 · 기업 연계), 3부는 <strong>국제협력 또는 창업</strong>.</li>
+      <li><strong>해외 사례는 근거 있는 곳.</strong> 파트 04 유럽 스마트관광 수도 · Green Pioneer 사례집, APEC 포스터의 센토사 · 호주 · 리마 중에서 고르면 출처가 섭니다.</li>
+      <li><strong>성과지표 셋 이상을 숫자로.</strong> 공고 정량지표 목록(교육생 · 산학협력 · 국제협력 · 취·창업교육 · 국내/해외 인턴십)에서 고르고, <strong>그중 둘 이상은 실무형 지표</strong>로.</li>
+      <li><strong>모호한 말 금지.</strong> 공고 원문이 이렇게 적습니다 — 「~할 수도 있다」 「~이 가능하다」 「~을 고려하고 있다」 같은 표현은 <strong>불가능한 것으로 간주</strong>합니다.</li>
+    </ol>
+    <div class="ban"><span>협력할 수 있다</span><span>참여를 고려 중</span><span>확산이 가능하다</span><span class="ok">협약 2건 체결 · 대학원생 20명 참가</span></div>
+    <h3>제출물 — A4 두 장</h3>
+    <dl class="ov">
+      <dt>1장 · 포스터</dt><dd>APEC 포스터처럼 한 장으로 — <strong>워크숍 제목 · 주제 한 문장 · 일시 · 장소 · 1~3부(발표 도시 · 기관) · 주최 · 주관 · 협력</strong>. 아래 ⑤의 틀을 쓰거나 Canva · PPT로 직접 디자인해도 됩니다.</dd>
+      <dt>2장 · 설계표</dt><dd>⑤의 표를 채웁니다 — 부별 <strong>질문 · 국내 · 해외 · 왜 이 짝인가 · 공고의 어느 축 · 성과지표</strong>, 그리고 이 워크숍이 평가표 <strong>어느 항목의 근거</strong>가 되는지.</dd>
+      <dt>발표</dt><dd>팀당 5분 — 포스터를 띄우고 「왜 이 두 도시를 한 부에 세웠나」를 부마다 한 문장씩.</dd>
+    </dl>
+  </section>
+
+  <section class="section" id="score">
+    <div class="sec-head"><div class="secno">04</div><h2>평가표에 대 보기 — 워크숍이 받쳐 주는 35점</h2></div>
+    <p>공고의 서면평가는 100점입니다. 그중 워크숍 한 번이 <strong>직접 근거</strong>가 되는 항목이 넷, 합쳐 <strong class="hot">35점</strong>입니다. 설계표 마지막 칸에 「이 워크숍은 어느 항목의 증빙이 되나」를 적을 때 이 그림을 봅니다.</p>
+    <figure>
+      <svg viewBox="0 0 680 410" role="img" aria-label="AI·스마트도시 혁신인재육성 사업 서면평가 100점 — 사업목표 20, 사업수행 계획 60, 사업수행 역량 10, 추진의지·사후관리 10. 워크숍이 근거가 되는 항목은 교과목·실무형 10, 창업지원 10, 네트워크 10, 성과 확산 5로 합 35점">
+        <text class="svg-t" x="20" y="24">서면평가 100점 — 큰 칸 넷</text>
+        <rect x="20" y="38" width="128" height="44" fill="#1c2f55"/><rect x="148" y="38" width="384" height="44" fill="#2f6fb5"/><rect x="532" y="38" width="64" height="44" fill="#2c8256"/><rect x="596" y="38" width="64" height="44" fill="#c08a1e"/>
+        <text class="svg-g" x="84" y="57" text-anchor="middle">사업목표</text><text class="svg-g" x="84" y="74" text-anchor="middle">20</text>
+        <text class="svg-g" x="340" y="57" text-anchor="middle">사업수행 계획의 우수성</text><text class="svg-g" x="340" y="74" text-anchor="middle">60</text>
+        <text class="svg-g" x="564" y="57" text-anchor="middle">역량</text><text class="svg-g" x="564" y="74" text-anchor="middle">10</text>
+        <text class="svg-g" x="628" y="57" text-anchor="middle">의지</text><text class="svg-g" x="628" y="74" text-anchor="middle">10</text>
+        <line x1="20" y1="100" x2="660" y2="100" stroke="#dce4ef"/>
+        <text class="svg-t" x="20" y="126">「사업수행 계획」 60점 안의 아홉 항목 — 빨간 글씨가 워크숍 근거</text>
+        <g>
+          <text class="svg-n" x="20" y="154">학과 개설 여부</text><rect x="300" y="142" width="80" height="16" rx="3" fill="#cbd6e6"/><text class="svg-v" x="388" y="155">5</text>
+          <text class="svg-n" x="20" y="180">학과 · 트랙 추진방식</text><rect x="300" y="168" width="80" height="16" rx="3" fill="#cbd6e6"/><text class="svg-v" x="388" y="181">5</text>
+          <text class="svg-w" x="20" y="206">교과목 · 실무형 프로그램 구성 ★</text><rect x="300" y="194" width="160" height="16" rx="3" fill="#b8432f"/><text class="svg-w" x="468" y="207">10</text><text class="svg-d" x="496" y="207">실무형 지표 40% · 산학·국제협력</text>
+          <text class="svg-n" x="20" y="232">교수진 · 전담인력</text><rect x="300" y="220" width="80" height="16" rx="3" fill="#cbd6e6"/><text class="svg-v" x="388" y="233">5</text>
+          <text class="svg-n" x="20" y="258">시설 · 기자재</text><rect x="300" y="246" width="80" height="16" rx="3" fill="#cbd6e6"/><text class="svg-v" x="388" y="259">5</text>
+          <text class="svg-n" x="20" y="284">학생 선발 · 유치</text><rect x="300" y="272" width="80" height="16" rx="3" fill="#cbd6e6"/><text class="svg-v" x="388" y="285">5</text>
+          <text class="svg-w" x="20" y="310">대학 창업지원 계획 ★</text><rect x="300" y="298" width="160" height="16" rx="3" fill="#b8432f"/><text class="svg-w" x="468" y="311">10</text><text class="svg-d" x="496" y="311">창업교육 · 멘토링 · 동아리</text>
+          <text class="svg-w" x="20" y="336">보유 네트워크 역량 ★</text><rect x="300" y="324" width="160" height="16" rx="3" fill="#b8432f"/><text class="svg-w" x="468" y="337">10</text><text class="svg-d" x="496" y="337">기업 · 기관 · 해외대학 협력</text>
+          <text class="svg-w" x="20" y="362">성과물 연계 · 확산 ★</text><rect x="300" y="350" width="80" height="16" rx="3" fill="#b8432f"/><text class="svg-w" x="388" y="363">5</text><text class="svg-d" x="416" y="363">성과를 생태계로 퍼뜨리기</text>
+        </g>
+        <line x1="20" y1="380" x2="660" y2="380" stroke="#dce4ef"/>
+        <text class="svg-w" x="20" y="402">★ 넷 합계 35점</text><text class="svg-d" x="130" y="402">— 워크숍 한 번을 잘 짜면 사업계획서 2.3 · 2.6 · 2.7 · 2.8절의 증빙이 됩니다</text>
+      </svg>
+      <figcaption>출처 — 국토교통부 「AI·스마트도시 혁신인재육성 사업」 공모지침 붙임 2 수행대학 평가기준. ★ 표시는 이 과제를 위한 수업용 구분입니다.</figcaption>
+    </figure>
+    <div class="key">짝 맞추기 — <strong>2부(산학협력)</strong>는 「교과목 · 실무형」과 「네트워크」를, <strong>3부(국제협력 · 창업)</strong>는 「창업지원」과 「확산」을 받쳐 주게 짜면 네 항목이 고르게 덮입니다.</div>
+  </section>
+
+  <section class="section" id="form">
+    <div class="sec-head"><div class="secno">05</div><h2>양식 — 포스터 틀과 설계표</h2></div>
+    <h3>1장 · 포스터 틀 (예시는 형식만 보여 줍니다)</h3>
+    <div class="poster">
+      <div class="ph"><small>AI · SMART TOURISM CITY WORKSHOP</small><b>[워크숍 제목]</b><span>주제 · 「[무엇을 위한] AI 스마트관광도시의 [역할 / 과제]」 · [일시] · [장소]</span></div>
+      <div class="pr"><div class="b1">1부 · 학술</div><div><strong>[질문 한 줄]</strong><br/>국내 [경북 시군] ↔ 해외 [도시] <span class="m">· 연결 교과 [AI 접목 교과목명]</span></div></div>
+      <div class="pr"><div class="b2">2부 · 산학</div><div><strong>[질문 한 줄]</strong><br/>국내 [지자체 · 기업] ↔ 해외 [도시 · 기업] <span class="m">· 대학원생 현장 과제 · 인턴십 연결</span></div></div>
+      <div class="pr"><div class="b3">3부 · 국제 · 창업</div><div><strong>[질문 한 줄]</strong><br/>[해외 대학 · 기관] · [창업 기업 · 지원기관] <span class="m">· 협약 · 창업 멘토링</span></div></div>
+      <div class="pf">주최 [대학] · 주관 [사업단] · 협력 [지자체 · 기업 · 해외 기관] · 지원 국토교통부 · 국토교통과학기술진흥원(가정)</div>
+    </div>
+    <h3>2장 · 설계표</h3>
+    <div class="tablewrap"><table>
+      <thead><tr><th>부</th><th>질문 한 줄</th><th>국내</th><th>해외</th><th>왜 이 짝인가</th><th>공고의 축</th><th>성과지표 (숫자)</th></tr></thead>
+      <tbody>
+        <tr class="p1"><td>1부</td><td class="blank">예) 관광객 흐름을 AI는 어떻게 읽나</td><td class="blank">경북 시군</td><td class="blank">해외 도시</td><td class="blank">같은 문제 · 다른 풀이</td><td>학술형</td><td class="blank">교육생 <span class="as">30명</span></td></tr>
+        <tr class="p2"><td>2부</td><td class="blank"></td><td class="blank">지자체 · 기업</td><td class="blank"></td><td class="blank"></td><td>실무형 · 산학협력</td><td class="blank">산학협력 <span class="as">2건</span></td></tr>
+        <tr class="p3"><td>3부</td><td class="blank"></td><td class="blank"></td><td class="blank">해외 대학 · 기관</td><td class="blank"></td><td>실무형 · 국제협력 / 창업</td><td class="blank">국제협력 <span class="as">1건</span> · 취·창업교육 <span class="as">1건</span></td></tr>
+      </tbody>
+    </table></div>
+    <p>표 아래에 두 줄을 덧붙입니다 — <strong>① 이 워크숍이 근거가 되는 평가 항목</strong>(④의 ★ 넷 중) · <strong>② 끝난 뒤 남는 것</strong>(협약서 · 발표집 · 인턴 자리 · 창업 아이디어 등 증빙이 되는 결과물).</p>
+  </section>
+
+  <section class="section" id="check">
+    <div class="sec-head"><div class="secno">06</div><h2>내기 전에 스스로 묻는 다섯 가지</h2></div>
+    <ol class="chk">
+      <li><strong>주제가 한 문장인가?</strong> 「스마트관광 워크숍」은 주제가 아니라 이름입니다. <em>무엇을 위해</em>가 들어갔나요?</li>
+      <li><strong>부마다 국내와 해외가 같은 질문에 답하나?</strong> 두 발표가 서로 다른 얘기를 하면 짝이 아닙니다.</li>
+      <li><strong>경북 시군이 하나라도 무대에 섰나?</strong></li>
+      <li><strong>성과지표가 숫자이고, 둘 이상이 실무형인가?</strong> 노란 가정치를 우리 팀 숫자로 바꿨나요?</li>
+      <li><strong>「~할 수 있다」가 남아 있지 않나?</strong> 공고는 그 말을 「못 한다」로 읽습니다.</li>
+    </ol>
+    <div class="key">출처 — 국토교통부 공고 제2026-1238호 · 「AI·스마트도시 혁신인재육성 사업」 공모지침(2026. 9. 29.) · 2024 APEC 스마트 관광도시 교육 워크숍 포스터. 공고 원문은 국토교통부 · 국토교통과학기술진흥원 누리집에서 확인합니다.</div>
+  </section>
+  </main>
+  <p class="footer"><strong>선샤인 웰니스</strong> · 스마트관광의 이해 · 가정 상황 과제(노란 밑줄 숫자는 예시)</p>
+</div>
+</body>
+</html>
