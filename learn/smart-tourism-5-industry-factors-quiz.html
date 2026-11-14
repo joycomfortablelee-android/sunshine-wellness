@@ -12,7 +12,7 @@
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR","Apple SD Gothic Neo",Pretendard,Arial,sans-serif;line-height:1.6}
-.wrap{max-width:760px;margin:0 auto;padding:28px 18px 60px}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 18px 60px}
 header{margin-bottom:22px}
 .eyebrow{font-size:12px;font-weight:800;letter-spacing:.08em;color:var(--accent);text-transform:uppercase}
 h1{font-size:clamp(22px,4vw,28px);margin:8px 0 10px;line-height:1.35}
@@ -54,6 +54,27 @@ button:active{transform:translateY(1px)}
 .footnote{font-size:12.5px;color:var(--muted);margin-top:26px;text-align:center}
 .footnote a{color:var(--accent);text-decoration:none;font-weight:700}
 @media(max-width:480px){.card{padding:16px 15px 18px}table.ref-tb{font-size:12.5px}}
+
+/* 넓고 촘촘하게 — 표는 왼쪽에 고정, 문제는 오른쪽, 보기는 한 줄 (2026-11-14) */
+body{line-height:1.85}
+header{margin-bottom:14px}
+header p{line-height:1.85}
+.qz-grid{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:900px){.qz-grid{grid-template-columns:minmax(360px,420px) 1fr;align-items:start}.qz-side{position:sticky;top:12px}.qz-side .ref-wrap{margin:0}}
+.qz-side table.ref-tb{min-width:0;font-size:12.5px}.qz-side table.ref-tb th,.qz-side table.ref-tb td{padding:7px 5px}.qz-side table.ref-tb td:first-child,.qz-side table.ref-tb th:first-child{padding-left:10px}
+.side-note{font-size:12.5px;color:var(--muted);margin:8px 2px 0;line-height:1.7}
+.qz-main .card{margin:0 0 12px;padding:16px 18px 16px}
+.q-title{line-height:1.7;margin-bottom:10px}
+.opts{gap:8px}
+@media(min-width:620px){.opts{grid-template-columns:repeat(4,1fr)}}
+.opt{padding:9px 12px;line-height:1.6}
+table.ref-tb td,table.ref-tb th{padding:8px 9px;line-height:1.5}
+.explain{margin-top:10px;padding:10px 13px;border-radius:10px;background:#f6f9fd;border:1px dashed #c9d8ea;font-size:14px;line-height:1.85;color:var(--ink);display:none}
+.card.graded .explain,.card.revealed .explain{display:block}
+.explain .ans{display:inline-block;margin-right:8px;padding:2px 10px;border-radius:999px;background:var(--good);color:#fff;font-weight:800;font-size:13px}
+.card.revealed .opt.correct{background:var(--good-bg);border-color:var(--good);color:#1a5c33;font-weight:700}
+.show-ans{margin-top:10px;background:var(--accent-soft);color:var(--accent);font-size:13px;padding:6px 14px;border-radius:999px}
+.card.revealed .show-ans,.card.graded .show-ans{background:#eef1f5;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -64,7 +85,8 @@ button:active{transform:translateY(1px)}
     <p>다섯 산업의 최종 척도에 어떤 요인이 포함되는지 그 패턴을 묻습니다. 각 문항에서 하나씩 고른 뒤 「채점하기」를 누르세요.</p>
   </header>
 
-  <div class="ref-wrap">
+  <div class="qz-grid">
+  <aside class="qz-side"><div class="ref-wrap">
     <table class="ref-tb">
       <thead><tr><th>요인</th><th>여행업</th><th>외식업</th><th>컨벤션</th><th>숙박업</th><th>항공</th></tr></thead>
       <tbody>
@@ -78,76 +100,87 @@ button:active{transform:translateY(1px)}
         <tr><td>보안성</td><td></td><td></td><td></td><td></td><td class="dot">●</td></tr>
       </tbody>
     </table>
-  </div>
+  </div><p class="side-note">표를 보며 풀고, 문제마다 <b>「정답 · 해설 보기」</b>로 바로 확인합니다.</p></aside>
+  <div class="qz-main">
 
   <div class="card" data-q="0">
-    <p class="q-title"><span class="q-num">1</span>5개 산업 <b>모두</b>에 <span class="dot">●</span> 표시된 요인은 몇 가지입니까?</p>
+    <p class="q-title"><span class="q-num">1</span><span>5개 산업 <b>모두</b>에 <span class="dot">●</span> 표시된 요인은 몇 가지입니까?</span></p>
     <div class="opts">
       <label class="opt"><input type="radio" name="q0" value="0">1가지</label>
       <label class="opt"><input type="radio" name="q0" value="1">2가지</label>
       <label class="opt"><input type="radio" name="q0" value="2">3가지</label>
       <label class="opt"><input type="radio" name="q0" value="3">4가지</label>
     </div>
+    <button type="button" class="show-ans">정답 · 해설 보기</button>
     <p class="explain"><b>편의성</b>과 <b>스마트인프라</b> 두 요인만 다섯 산업 전체에 <span class="dot">●</span> — 가장 보편적인 두 요인입니다.</p>
   </div>
 
   <div class="card" data-q="1">
-    <p class="q-title"><span class="q-num">2</span>다음 중 <b>항공</b> 칸에 <span class="dot">●</span>가 <b>없는</b> 요인은?</p>
+    <p class="q-title"><span class="q-num">2</span><span>다음 중 <b>항공</b> 칸에 <span class="dot">●</span>가 <b>없는</b> 요인은?</span></p>
     <div class="opts">
       <label class="opt"><input type="radio" name="q1" value="0">편의성</label>
       <label class="opt"><input type="radio" name="q1" value="1">개인화</label>
       <label class="opt"><input type="radio" name="q1" value="2">정보성</label>
       <label class="opt"><input type="radio" name="q1" value="3">보안성</label>
     </div>
+    <button type="button" class="show-ans">정답 · 해설 보기</button>
     <p class="explain"><b>정보성</b>은 여행업 · 외식업 · 컨벤션 · 숙박업까지만 <span class="dot">●</span>이고 항공은 빈칸입니다.</p>
   </div>
 
   <div class="card" data-q="2">
-    <p class="q-title"><span class="q-num">3</span><b>여행업 · 외식업 · 컨벤션</b>에서는 <span class="dot">●</span>이지만 <b>숙박업 · 항공</b>에서는 둘 다 빈칸인 요인은 모두 몇 개입니까?</p>
+    <p class="q-title"><span class="q-num">3</span><span><b>여행업 · 외식업 · 컨벤션</b>에서는 <span class="dot">●</span>이지만 <b>숙박업 · 항공</b>에서는 둘 다 빈칸인 요인은 모두 몇 개입니까?</span></p>
     <div class="opts">
       <label class="opt"><input type="radio" name="q2" value="0">1개</label>
       <label class="opt"><input type="radio" name="q2" value="1">2개</label>
       <label class="opt"><input type="radio" name="q2" value="2">3개</label>
       <label class="opt"><input type="radio" name="q2" value="3">4개</label>
     </div>
+    <button type="button" class="show-ans">정답 · 해설 보기</button>
     <p class="explain"><b>기술통합성</b>과 <b>신뢰성</b>, 두 요인입니다. <b>편의성 · 스마트인프라</b>는 다섯 산업 전부에 <span class="dot">●</span>라서 제외되고, <b>정보성</b>은 숙박업에도 <span class="dot">●</span>가 있어 "숙박업 · 항공 둘 다 빈칸" 조건을 못 채웁니다. 세 산업 전부 <span class="dot">●</span> + 숙박업 · 항공 전부 빈칸, 이 두 조건을 동시에 만족하는 요인만 셉니다.</p>
   </div>
 
   <div class="card" data-q="3">
-    <p class="q-title"><span class="q-num">4</span><b>개인화</b>(맞춤)와 <b>상호작용성</b>(소통)이 공통으로 <span class="dot">●</span> 표시된 두 산업은?</p>
+    <p class="q-title"><span class="q-num">4</span><span><b>개인화</b>(맞춤)와 <b>상호작용성</b>(소통)이 공통으로 <span class="dot">●</span> 표시된 두 산업은?</span></p>
     <div class="opts">
       <label class="opt"><input type="radio" name="q3" value="0">여행업 · 외식업</label>
       <label class="opt"><input type="radio" name="q3" value="1">외식업 · 컨벤션</label>
       <label class="opt"><input type="radio" name="q3" value="2">숙박업 · 항공</label>
       <label class="opt"><input type="radio" name="q3" value="3">컨벤션 · 숙박업</label>
     </div>
+    <button type="button" class="show-ans">정답 · 해설 보기</button>
     <p class="explain"><b>숙박업 · 항공</b>에서만 새롭게 강조되는 요인입니다 — 숙박은 「맞춤」, 항공은 「소통」.</p>
   </div>
 
   <div class="card" data-q="4">
-    <p class="q-title"><span class="q-num">5</span><b>보안성</b>(Security) 요인이 <span class="dot">●</span> 표시된 산업은 어디입니까?</p>
+    <p class="q-title"><span class="q-num">5</span><span><b>보안성</b>(Security) 요인이 <span class="dot">●</span> 표시된 산업은 어디입니까?</span></p>
     <div class="opts">
       <label class="opt"><input type="radio" name="q4" value="0">여행업</label>
       <label class="opt"><input type="radio" name="q4" value="1">외식업</label>
       <label class="opt"><input type="radio" name="q4" value="2">숙박업</label>
       <label class="opt"><input type="radio" name="q4" value="3">항공</label>
     </div>
+    <button type="button" class="show-ans">정답 · 해설 보기</button>
     <p class="explain"><b>항공</b>에서만 나타나는, 가장 산업 특화된 요인입니다.</p>
   </div>
 
   <div class="card" data-q="5">
-    <p class="q-title"><span class="q-num">6</span>다음 중 <span class="dot">●</span> 표시된 산업 수가 <b>가장 적은(가장 특수한)</b> 요인은?</p>
+    <p class="q-title"><span class="q-num">6</span><span>다음 중 <span class="dot">●</span> 표시된 산업 수가 <b>가장 적은(가장 특수한)</b> 요인은?</span></p>
     <div class="opts">
       <label class="opt"><input type="radio" name="q5" value="0">정보성</label>
       <label class="opt"><input type="radio" name="q5" value="1">기술통합성</label>
       <label class="opt"><input type="radio" name="q5" value="2">개인화</label>
       <label class="opt"><input type="radio" name="q5" value="3">보안성</label>
     </div>
+    <button type="button" class="show-ans">정답 · 해설 보기</button>
     <p class="explain"><b>보안성</b>은 항공 1개 산업에만 <span class="dot">●</span> — 표에서 가장 좁은 요인입니다.</p>
+  </div>
+
+  </div>
   </div>
 
   <div class="actions">
     <button id="gradeBtn">채점하기</button>
+    <button class="ghost" id="showAllBtn">정답 · 해설 모두 보기</button>
     <button class="ghost" id="resetBtn">다시 풀기</button>
   </div>
 
@@ -184,10 +217,29 @@ function grade(){
   result.scrollIntoView({behavior:'smooth', block:'nearest'});
 }
 
+
+const CIRC = ['①','②','③','④'];
+document.querySelectorAll('.card[data-q]').forEach(card => {
+  const ai = ANSWERS[Number(card.dataset.q)];
+  const txt = card.querySelectorAll('.opt')[ai].textContent.trim();
+  card.querySelector('.explain').insertAdjacentHTML('afterbegin', '<span class="ans">정답 ' + CIRC[ai] + '</span><b>' + txt + '</b><br>');
+});
+function reveal(card, on){
+  card.classList.toggle('revealed', on);
+  const ai = ANSWERS[Number(card.dataset.q)];
+  card.querySelectorAll('.opt').forEach((o,i) => { if (!card.classList.contains('graded')) o.classList.toggle('correct', on && i === ai); });
+  card.querySelector('.show-ans').textContent = on ? '정답 · 해설 접기' : '정답 · 해설 보기';
+}
+document.querySelectorAll('.show-ans').forEach(b => b.addEventListener('click', () => {
+  const card = b.closest('.card'); reveal(card, !card.classList.contains('revealed'));
+}));
+document.getElementById('showAllBtn').addEventListener('click', () => {
+  document.querySelectorAll('.card[data-q]').forEach(c => reveal(c, true));
+});
 document.getElementById('gradeBtn').addEventListener('click', grade);
 document.getElementById('resetBtn').addEventListener('click', () => {
   document.querySelectorAll('input[type=radio]').forEach(r => r.checked = false);
-  document.querySelectorAll('.card').forEach(c => c.classList.remove('graded'));
+  document.querySelectorAll('.card[data-q]').forEach(c => { c.classList.remove('graded'); reveal(c, false); c.querySelectorAll('.opt').forEach(o => o.classList.remove('correct','wrong')); });
   document.getElementById('result').classList.remove('show');
   window.scrollTo({top:0, behavior:'smooth'});
 });
