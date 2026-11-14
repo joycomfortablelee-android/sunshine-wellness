@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex" />
+<title>AI·스마트도시 워크숍 · 웹에서 바로 쓰기</title>
+<style>
+  :root{
+    --ink:#1f2937; --muted:#5b6472; --line:#9ca3af; --soft:#f3f4f6; --bg:#e9edf2;
+    --blue:#2f4fa6; --red:#e0455a; --lav:#e9ecfa; --navy:#1d3a8a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;background:var(--bg);color:var(--ink);overflow:hidden;word-break:keep-all}
+  .app{height:100vh;display:flex;flex-direction:column}
+  .topbar{height:58px;background:#fff;border-bottom:1px solid #d5d9df;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:0 22px;flex:0 0 auto}
+  .topbar .title{font-size:16px;font-weight:800;letter-spacing:-.03em}
+  .topbar .right{display:flex;align-items:center;gap:10px}
+  .topbar .page-indicator{font-size:13px;color:#64748b;font-weight:700}
+  .tbtn{border:1px solid #cbd5e1;background:#fff;color:#334155;border-radius:8px;padding:5px 10px;font:700 12.5px inherit;font-family:inherit;cursor:pointer}
+  .tbtn:hover{background:#f1f5f9}
+  .viewport{flex:1;position:relative;overflow:hidden}
+  .track{height:100%;display:flex;transition:transform .38s ease}
+  .slide{min-width:100%;height:100%;overflow:auto;padding:26px 78px 90px}
+  .paper{width:min(980px,100%);min-height:calc(100vh - 145px);margin:0 auto;background:#fff;box-shadow:0 10px 32px rgba(15,23,42,.10);padding:34px 42px 44px}
+  .page-no{text-align:right;font-size:12px;color:#7c8490;margin-bottom:6px}
+  .slide-label{font-size:12px;font-weight:800;color:#64748b;margin-bottom:5px}
+  h1{margin:0 0 10px;font-size:27px;letter-spacing:-.045em}
+  .lead{margin:0 0 18px;font-size:15px;line-height:1.65}
+  .small-note{font-size:12.5px;color:#64748b;margin-top:9px;line-height:1.55}
+
+  /* 쓰는 칸 공통 */
+  [contenteditable="true"]{outline:none;border-radius:3px;transition:background .15s}
+  [contenteditable="true"]:hover{background:rgba(255,236,170,.35)}
+  [contenteditable="true"]:focus{background:#fff8d6;box-shadow:0 0 0 2px #f2c94c}
+  [contenteditable="true"]:empty:before{content:attr(data-ph);color:#a8b0bc;font-weight:500;font-style:italic}
+
+  /* ── 1쪽 · 포스터 (APEC 워크숍 양식) ── */
+  .poster{background:var(--lav);border-radius:6px;overflow:hidden;border:1px solid #d6dbf0}
+  .p-hero{position:relative;padding:30px 30px 26px;text-align:right;
+    background:
+      radial-gradient(circle at 18% 30%,rgba(255,255,255,.75) 0 60px,transparent 61px),
+      linear-gradient(135deg,#dfe4fb 0%,#c9d2f5 45%,#f3d9e0 100%)}
+  .p-hero::before{content:"";position:absolute;left:24px;top:22px;width:46%;height:72%;border-radius:22px;
+    background:linear-gradient(160deg,#8fa2e8,#5b74d0);opacity:.35;transform:skewX(-18deg)}
+  .p-reg{position:relative;display:inline-block;background:#fff;border:2px solid var(--blue);border-radius:999px;padding:4px 16px;font-size:14px;font-weight:800;color:var(--navy)}
+  .p-reg span{color:var(--red);margin-left:6px}
+  .p-title{position:relative;margin:12px 0 0;font-size:40px;line-height:1.2;font-weight:900;letter-spacing:-.05em;color:var(--navy)}
+  .p-title .accent{color:var(--red)}
+  .p-title div{display:inline-block;min-width:60%}
+  .p-body{background:#fff;margin:0 22px;border-radius:16px 16px 0 0;padding:22px 22px 12px;display:grid;grid-template-columns:230px 1fr;gap:22px}
+  .p-tag{display:inline-block;border:2px solid var(--navy);border-radius:999px;padding:1px 16px;font-weight:800;color:var(--navy);font-size:15px;margin-top:6px}
+  .p-tag::after{content:" ↗";color:var(--red);font-size:12px}
+  .p-rule{height:2px;background:linear-gradient(90deg,var(--red),transparent);margin:8px 0 10px}
+  .p-when{font-size:24px;font-weight:900;color:var(--navy);line-height:1.35;letter-spacing:-.03em;min-height:64px}
+  .p-theme{font-size:20px;font-weight:900;color:var(--red);line-height:1.4;letter-spacing:-.03em;min-height:56px}
+  .p-sub{font-size:14px;color:#374151;line-height:1.6;margin-top:6px;min-height:44px}
+  .p-qr{margin-top:22px;width:110px;border:3px solid #8b5fbf;border-radius:8px;text-align:center;padding:10px 6px 0;font-size:12px;color:#6b7280}
+  .p-qr i{display:block;width:80px;height:80px;margin:0 auto 8px;background:repeating-conic-gradient(#222 0 25%,#fff 0 50%) 0 0/20px 20px;opacity:.75}
+  .p-qr b{display:block;margin:0 -6px;background:#8b5fbf;color:#fff;padding:3px 0;font-size:11.5px}
+  .p-contact{text-align:right;font-size:12.5px;color:#4b5563;padding-bottom:6px;border-bottom:2px solid var(--blue)}
+  .p-contact b{color:var(--navy);margin-right:6px}
+  .prog{width:100%;border-collapse:collapse;font-size:13.5px}
+  .prog td{border-bottom:1px solid #d9dde6;padding:5px 6px;vertical-align:top}
+  .prog td.t{width:92px;color:#374151;white-space:nowrap;font-size:12.5px}
+  .prog td.k{width:64px;color:var(--blue);font-weight:800}
+  .prog td.c{color:#111827}
+  .prog tr.bar td{background:linear-gradient(90deg,#3f57b5,#e0566a);color:#fff;font-weight:800;text-align:center;padding:6px;border:0}
+  .prog tr.bar td [contenteditable]:empty:before{color:rgba(255,255,255,.8)}
+  .prog tr.bar td [contenteditable]:focus{background:rgba(255,255,255,.2);box-shadow:0 0 0 2px #fff}
+  .prog .who{display:inline-block;margin-left:4px;color:#b42335;font-weight:700}
+  .p-note{text-align:right;font-size:11px;color:#6b7280;margin-top:5px}
+  .p-note::before{content:"• ";color:var(--red)}
+  .p-foot{background:#fff;margin:0 22px 22px;border-top:1px dashed #d6dbf0;border-radius:0 0 16px 16px;padding:12px 22px;display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;font-size:13.5px}
+  .p-foot .lab{color:#4b5563;font-weight:700}
+  .p-foot .org{min-width:120px;font-weight:800;color:var(--navy)}
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 0;font-size:12.5px;color:#4b5563}
+  .legend span{background:#f8fafc;border:1px solid #e2e8f0;border-radius:999px;padding:2px 10px}
+  .legend b{color:var(--red)}
+
+  /* ── 2쪽 · 설계표 ── */
+  .section{border:1px solid var(--line);margin-top:14px}
+  .section-title{background:var(--soft);border-bottom:1px solid var(--line);padding:12px 15px;font-size:17px;font-weight:800;letter-spacing:-.03em}
+  .guide{padding:10px 14px;font-size:13.5px;line-height:1.6;font-style:italic;color:#4b5563;border-bottom:1px solid #d1d5db}
+  .answer{min-height:110px;padding:14px;line-height:1.7}
+  .dtab-wrap{overflow-x:auto}
+  .dtab{width:100%;min-width:760px;border-collapse:collapse;font-size:13.5px}
+  .dtab th{background:#203a61;color:#fff;text-align:left;padding:9px 10px;font-size:13px;white-space:nowrap}
+  .dtab td{border:1px solid #d1d5db;padding:0;vertical-align:top}
+  .dtab td>div{min-height:92px;padding:9px 10px;line-height:1.6}
+  .dtab td.bu{width:70px;padding:9px 10px;font-weight:900;color:#fff;text-align:center}
+  .dtab td.ax{width:104px;padding:9px 10px;font-size:12.5px;font-weight:700;background:#f8fafc;color:#334155}
+  .b1{background:#1c2f55}.b2{background:#2f6fb5}.b3{background:#2c8256}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;padding:12px 14px}
+  .chips label{display:flex;align-items:center;gap:6px;border:1px solid #cbd5e1;border-radius:999px;padding:5px 12px;font-size:13.5px;cursor:pointer;background:#fff}
+  .chips label:has(input:checked){background:#fdecee;border-color:#b8432f;color:#8a2a1c;font-weight:800}
+  .chips small{color:#64748b;font-weight:600}
+  .sum{padding:8px 14px 12px;font-size:13.5px;color:#334155;font-weight:700}
+  .sum b{color:#b8432f}
+
+  /* ── 3쪽 · 점검 ── */
+  .chk{list-style:none;padding:0;margin:14px 0}
+  .chk li{display:flex;gap:12px;align-items:flex-start;border:1px solid #d1d5db;border-radius:10px;padding:12px 14px;margin:9px 0;background:#fff}
+  .chk .st{flex:none;width:58px;text-align:center;border-radius:999px;padding:2px 0;font-size:12.5px;font-weight:900;background:#e5e7eb;color:#6b7280}
+  .chk li.ok .st{background:#dcfce7;color:#166534}
+  .chk li.ng .st{background:#fee2e2;color:#991b1b}
+  .chk li.ok .st::before{content:"통과"}
+  .chk li.ng .st::before{content:"고칠 것"}
+  .chk li.na .st::before{content:"비었음"}
+  .chk .d{font-size:13px;color:#4b5563;margin-top:3px}
+  .chk mark{background:#fee2e2;color:#991b1b;padding:0 3px;border-radius:3px}
+
+  /* 내비게이션 (4~8쪽 양식과 같음) */
+  .nav{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);display:flex;align-items:center;gap:12px;z-index:20;background:rgba(255,255,255,.94);border:1px solid #d7dbe0;border-radius:999px;padding:8px 12px;box-shadow:0 6px 22px rgba(15,23,42,.12)}
+  .nav button{border:1px solid #cbd5e1;background:#fff;color:#334155;border-radius:999px;width:38px;height:38px;font-size:20px;cursor:pointer}
+  .nav button:disabled{opacity:.35;cursor:default}
+  .dots{display:flex;gap:7px}
+  .dot{width:9px;height:9px;border-radius:50%;background:#cbd5e1;cursor:pointer}
+  .dot.active{background:#334155}
+
+  @media (max-width:760px){
+    .slide{padding:16px 12px 82px}
+    .paper{padding:22px 14px 32px}
+    h1{font-size:23px}
+    .topbar{padding:0 12px}.topbar .title{font-size:13.5px}
+    .p-title{font-size:28px}
+    .p-body{grid-template-columns:1fr;margin:0 10px;padding:16px 12px}
+    .p-foot{margin:0 10px 10px}
+    .p-qr{display:none}
+    .p-body>div{min-width:0}
+    .topbar .page-indicator{display:none}
+    .tbtn{padding:4px 7px;font-size:11.5px}
+    .prog td.t{width:74px;font-size:11.5px}
+  }
+  @media print{
+    body{background:#fff;overflow:visible}
+    .topbar,.nav,.small-note.scr{display:none !important}
+    .app,.viewport,.track{display:block;height:auto;overflow:visible}
+    .track{transform:none !important}
+    .slide{display:block;width:100%;height:auto;min-width:0;padding:0;page-break-after:always;overflow:visible}
+    .paper{box-shadow:none;width:100%;min-height:auto;padding:8mm 10mm}
+    .slide:last-child{page-break-after:auto}
+    [contenteditable="true"]:empty:before{content:""}
+    .poster,.p-hero,.prog tr.bar td,.dtab th,.dtab td.bu{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+    @page{size:A4;margin:8mm}
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="topbar">
+    <div class="title">AI·스마트도시 워크숍 · 포스터 · 설계표 — 웹에서 바로 쓰기</div>
+    <div class="right">
+      <button class="tbtn" type="button" id="clearBtn" title="이 브라우저에 저장된 내용을 지웁니다">처음부터</button>
+      <button class="tbtn" type="button" onclick="window.print()">🖨️ 인쇄 / PDF</button>
+      <div class="page-indicator"><span id="currentNum">1</span> / 3장</div>
+    </div>
+  </div>
+
+  <div class="viewport">
+    <div class="track" id="track">
+
+      <!-- 1장 · 포스터 -->
+      <section class="slide">
+        <div class="paper">
+          <div class="page-no">- 1 -</div>
+          <div class="slide-label">제출물 1장 · 포스터 — 2024 APEC 스마트 관광도시 교육 워크숍(경주 발표) 양식 그대로</div>
+          <h1>1장 · 워크숍 포스터</h1>
+          <p class="lead"><strong>💡 회색 기울임 글씨가 있는 자리를 눌러 바로 적습니다.</strong> 시간 · 구분 칸도 고칠 수 있습니다. 부마다 <b>발표1 = 국내(경북 시군 하나 이상)</b>, <b>발표2 = 해외</b>가 <b>같은 질문</b>에 답하게 짭니다.</p>
+
+          <div class="poster">
+            <div class="p-hero">
+              <div class="p-reg">사전등록 마감일 <span contenteditable="true" data-k="reg" data-ph="2027. 00. 00.(요일)"></span></div>
+              <div class="p-title"><div contenteditable="true" data-k="title" data-ph="[워크숍 제목] 예) AI 스마트관광도시 혁신인재 워크숍"></div></div>
+            </div>
+
+            <div class="p-body">
+              <div>
+                <span class="p-tag">일 시</span><div class="p-rule"></div>
+                <div class="p-when" contenteditable="true" data-k="when" data-ph="2027. 00. 00.(요일), 14:00-17:00"></div>
+                <div class="p-when" style="font-size:14px;min-height:22px;font-weight:700;color:#374151" contenteditable="true" data-k="where" data-ph="장소 — 예) ○○대학교 ○○관 / 경주 ○○"></div>
+                <span class="p-tag" style="margin-top:14px">주 제</span><div class="p-rule"></div>
+                <div class="p-theme" contenteditable="true" data-k="theme" data-ph="[무엇을 위한] AI 스마트관광도시의 [역할]"></div>
+                <div class="p-sub" contenteditable="true" data-k="subtheme" data-ph="부제 — 예) 경북 관광 데이터와 산학 · 국제협력을 중심으로"></div>
+                <div class="p-qr"><i></i><b>사전등록 바로가기</b></div>
+              </div>
+
+              <div>
+                <div class="p-contact"><b>문의</b><span contenteditable="true" data-k="contact" data-ph="workshop@○○.ac.kr"></span></div>
+                <table class="prog">
+                  <tbody>
+                    <tr><td class="t" contenteditable="true" data-k="t1">14:00~14:02</td><td class="k" contenteditable="true" data-k="k1"></td><td class="c" contenteditable="true" data-k="c1">개회 및 행사 소개</td></tr>
+                    <tr><td class="t" contenteditable="true" data-k="t2">14:02~14:05</td><td class="k" contenteditable="true" data-k="k2">개회식</td><td class="c" contenteditable="true" data-k="c2" data-ph="환영사 — 누가?"></td></tr>
+                    <tr><td class="t" contenteditable="true" data-k="t3">14:05~14:10</td><td class="k" contenteditable="true" data-k="k3"></td><td class="c" contenteditable="true" data-k="c3">워크숍 개요 및 진행 방법 소개</td></tr>
+                    <tr><td class="t" contenteditable="true" data-k="t4">14:10~14:20</td><td class="k" contenteditable="true" data-k="k4">기조연설</td><td class="c" contenteditable="true" data-k="c4" data-ph="기조연설 제목 = 주제 한 문장"></td></tr>
+
+                    <tr class="bar"><td colspan="3">(1부) <span contenteditable="true" data-k="q1" data-ph="학술 — 1부 질문 한 줄"></span></td></tr>
+                    <tr><td class="t" contenteditable="true" data-k="t5">14:20~14:40</td><td class="k">발표1</td><td class="c"><span contenteditable="true" data-k="c5" data-ph="발표 제목"></span>,<span class="who" contenteditable="true" data-k="w5" data-ph="경북 시군"></span></td></tr>
+                    <tr><td class="t" contenteditable="true" data-k="t6">14:40~15:00</td><td class="k">발표2</td><td class="c"><span contenteditable="true" data-k="c6" data-ph="발표 제목"></span>,<span class="who" contenteditable="true" data-k="w6" data-ph="해외 도시"></span></td></tr>
+                    <tr><td class="t" contenteditable="true" data-k="t7">15:00~15:10</td><td class="k">Q&amp;A</td><td class="c" contenteditable="true" data-k="c7">질의응답 및 참여자 토론</td></tr>
+
+                    <tr class="bar"><td colspan="3">(2부) <span contenteditable="true" data-k="q2" data-ph="산학협력 — 2부 질문 한 줄"></span></td></tr>
+                    <tr><td class="t" contenteditable="true" data-k="t8">15:10~15:30</td><td class="k">발표1</td><td class="c"><span contenteditable="true" data-k="c8" data-ph="발표 제목"></span>,<span class="who" contenteditable="true" data-k="w8" data-ph="국내 지자체 · 기업"></span></td></tr>
+                    <tr><td class="t" contenteditable="true" data-k="t9">15:30~15:50</td><td class="k">발표2</td><td class="c"><span contenteditable="true" data-k="c9" data-ph="발표 제목"></span>,<span class="who" contenteditable="true" data-k="w9" data-ph="해외 도시 · 기업"></span></td></tr>
+                    <tr><td class="t" contenteditable="true" data-k="t10">15:50~16:00</td><td class="k">Q&amp;A</td><td class="c" contenteditable="true" data-k="c10">질의응답 및 참여자 토론</td></tr>
+
+                    <tr class="bar"><td colspan="3">(3부) <span contenteditable="true" data-k="q3" data-ph="국제협력 또는 창업 — 3부 질문 한 줄"></span></td></tr>
+                    <tr><td class="t" contenteditable="true" data-k="t11">16:00~16:20</td><td class="k">발표1</td><td class="c"><span contenteditable="true" data-k="c11" data-ph="발표 제목"></span>,<span class="who" contenteditable="true" data-k="w11" data-ph="국내 기관 · 창업기업"></span></td></tr>
+                    <tr><td class="t" contenteditable="true" data-k="t12">16:20~16:40</td><td class="k">발표2</td><td class="c"><span contenteditable="true" data-k="c12" data-ph="발표 제목"></span>,<span class="who" contenteditable="true" data-k="w12" data-ph="해외 대학 · 기관"></span></td></tr>
+                    <tr><td class="t" contenteditable="true" data-k="t13">16:40~16:50</td><td class="k">Q&amp;A</td><td class="c" contenteditable="true" data-k="c13">질의응답 및 토론</td></tr>
+                    <tr><td class="t" contenteditable="true" data-k="t14">16:50~17:00</td><td class="k"></td><td class="c" contenteditable="true" data-k="c14" data-ph="전체 논의 정리 및 폐회 — 협약 체결식 · 인턴 매칭 등 남는 것"></td></tr>
+                  </tbody>
+                </table>
+                <div class="p-note">프로그램은 변경될 수 있습니다.</div>
+              </div>
+            </div>
+
+            <div class="p-foot">
+              <span class="lab">주최</span><span class="org" contenteditable="true" data-k="host" data-ph="○○대학교"></span>
+              <span class="lab">주관</span><span class="org" contenteditable="true" data-k="org" data-ph="AI·스마트도시 혁신인재 사업단"></span>
+              <span class="lab">협력</span><span class="org" contenteditable="true" data-k="partner" data-ph="경북 ○○시 · 기업 · 해외 기관"></span>
+              <span class="lab">지원</span><span class="org" contenteditable="true" data-k="support">국토교통부 · 국토교통과학기술진흥원(가정)</span>
+            </div>
+          </div>
+
+          <div class="legend"><span>APEC 본보기 — 1부 <b>양양군 ↔ 싱가포르 센토사</b></span><span>2부 <b>경주시 ↔ 호주 · 페루 리마</b></span><span>3부 <b>지역 협력 · 민간 협력</b></span></div>
+          <p class="small-note scr">※ 적은 내용은 이 브라우저에만 자동 저장됩니다(다른 기기 · 다른 사람에게는 보이지 않음). 내기 전에 「🖨️ 인쇄 / PDF」로 저장하세요.</p>
+        </div>
+      </section>
+
+      <!-- 2장 · 설계표 -->
+      <section class="slide">
+        <div class="paper">
+          <div class="page-no">- 2 -</div>
+          <div class="slide-label">제출물 2장 · 설계표</div>
+          <h1>2장 · 설계표</h1>
+          <p class="lead"><strong>💡 포스터의 세 부를 「왜 이렇게 짰나」로 풀어 쓰는 칸입니다.</strong> 공고는 「~할 수 있다」 「~을 고려하고 있다」를 <b>불가능한 것으로 간주</b>합니다 — 숫자로 적으세요.</p>
+
+          <div class="section">
+            <div class="section-title">[2-1] 부별 설계</div>
+            <div class="guide">예) 1부 · 관광객 흐름을 AI는 어떻게 읽나 · 경주시 ↔ 바르셀로나 · 같은 과잉관광 문제, 다른 데이터 풀이 · 교육생 30명</div>
+            <div class="dtab-wrap"><table class="dtab">
+              <thead><tr><th>부</th><th>질문 한 줄</th><th>국내</th><th>해외</th><th>왜 이 짝인가</th><th>공고의 축</th><th>성과지표 (숫자)</th></tr></thead>
+              <tbody>
+                <tr><td class="bu b1">1부</td><td><div contenteditable="true" data-k="d1q" data-ph="포스터 1부 질문"></div></td><td><div contenteditable="true" data-k="d1k" data-ph="경북 시군"></div></td><td><div contenteditable="true" data-k="d1f" data-ph="해외 도시"></div></td><td><div contenteditable="true" data-k="d1w" data-ph="같은 문제 · 다른 풀이"></div></td><td class="ax">학술형<br/><small>AI 접목 교과</small><div contenteditable="true" data-k="d1c" data-ph="연결 교과목명" style="min-height:0;padding:4px 0 0;font-weight:500"></div></td><td><div contenteditable="true" data-k="d1m" data-ph="교육생 ○명"></div></td></tr>
+                <tr><td class="bu b2">2부</td><td><div contenteditable="true" data-k="d2q" data-ph="포스터 2부 질문"></div></td><td><div contenteditable="true" data-k="d2k" data-ph="지자체 · 기업"></div></td><td><div contenteditable="true" data-k="d2f" data-ph="해외 도시 · 기업"></div></td><td><div contenteditable="true" data-k="d2w" data-ph=""></div></td><td class="ax">실무형<br/><small>산학협력</small></td><td><div contenteditable="true" data-k="d2m" data-ph="산학협력 ○건 · 인턴십 ○명"></div></td></tr>
+                <tr><td class="bu b3">3부</td><td><div contenteditable="true" data-k="d3q" data-ph="포스터 3부 질문"></div></td><td><div contenteditable="true" data-k="d3k" data-ph="국내 기관 · 창업기업"></div></td><td><div contenteditable="true" data-k="d3f" data-ph="해외 대학 · 기관"></div></td><td><div contenteditable="true" data-k="d3w" data-ph=""></div></td><td class="ax">실무형<br/><small>국제협력 / 창업</small></td><td><div contenteditable="true" data-k="d3m" data-ph="국제협력 ○건 · 취·창업교육 ○건"></div></td></tr>
+              </tbody>
+            </table></div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">[2-2] 이 워크숍이 근거가 되는 평가 항목 <small style="font-weight:600;color:#64748b">— 서면평가 100점 중 ★ 넷</small></div>
+            <div class="chips" id="scoreChips">
+              <label><input type="checkbox" data-k="s1" value="10"/>교과목 · 실무형 프로그램 구성 <small>10</small></label>
+              <label><input type="checkbox" data-k="s2" value="10"/>대학 창업지원 계획 <small>10</small></label>
+              <label><input type="checkbox" data-k="s3" value="10"/>보유 네트워크 역량 <small>10</small></label>
+              <label><input type="checkbox" data-k="s4" value="5"/>성과물 연계 · 확산 <small>5</small></label>
+            </div>
+            <div class="sum">고른 항목 합계 <b id="scoreSum">0</b>점 / 35점</div>
+            <div class="guide">어느 부가 어느 항목을 받쳐 주는지 한두 줄로. 예) 2부 → 실무형 구성 · 네트워크, 3부 → 창업지원 · 확산</div>
+            <div class="answer" contenteditable="true" data-k="why" data-ph="여기에 작성하세요."></div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">[2-3] 끝난 뒤 남는 것 <small style="font-weight:600;color:#64748b">— 증빙이 되는 결과물</small></div>
+            <div class="guide">협약서 · 발표집 · 인턴 자리 · 창업 아이디어 · 공동 교과 등. 개수와 함께. 예) MOU 2건 · 발표 자료집 1권 · 지자체 인턴 3자리</div>
+            <div class="answer" contenteditable="true" data-k="left" data-ph="여기에 작성하세요."></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3장 · 점검 -->
+      <section class="slide">
+        <div class="paper">
+          <div class="page-no">- 3 -</div>
+          <div class="slide-label">내기 전에 · 자동 점검</div>
+          <h1>내기 전에 스스로 묻는 다섯 가지</h1>
+          <p class="lead"><strong>💡 이 쪽으로 넘어올 때마다 1 · 2장에 적은 내용을 다시 읽어 표시합니다.</strong> 자동 점검은 글자만 봅니다 — 내용이 맞는지는 팀이 판단합니다.</p>
+          <ul class="chk" id="chk">
+            <li id="c1"><span class="st"></span><div><b>주제가 한 문장이고 「무엇을 위해」가 들어갔나?</b><div class="d"></div></div></li>
+            <li id="c2"><span class="st"></span><div><b>부마다 국내와 해외가 같은 질문에 답하나?</b><div class="d"></div></div></li>
+            <li id="c3"><span class="st"></span><div><b>경북 시군이 하나라도 무대에 섰나?</b><div class="d"></div></div></li>
+            <li id="c4"><span class="st"></span><div><b>성과지표가 숫자이고, 둘 이상이 실무형인가?</b><div class="d"></div></div></li>
+            <li id="c5"><span class="st"></span><div><b>「~할 수 있다」가 남아 있지 않나?</b><div class="d"></div></div></li>
+          </ul>
+          <p class="small-note">※ 과제 설명 · 평가표 · APEC 해부는 <a href="ai-smart-city-workshop-assignment.html" target="_blank" rel="noopener">과제 안내 · 포스터 틀 · 설계표 ↗</a>에 있습니다. 화면의 빈 칸은 눌러서 바로 적을 수 있고, 인쇄하면 1~3장이 쪽별로 나옵니다(빈 칸 안내 글씨는 인쇄되지 않습니다).</p>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <div class="nav">
+    <button id="prevBtn" aria-label="이전">←</button>
+    <div class="dots" id="dots"></div>
+    <button id="nextBtn" aria-label="다음">→</button>
+  </div>
+</div>
+
+<script>
+  /* ── 자동 저장 (이 브라우저에만) ── */
+  const KEY = 'ai-smart-city-workshop-form-v1';
+  const fields = [...document.querySelectorAll('[data-k]')];
+  function load(){ try{ return JSON.parse(localStorage.getItem(KEY) || '{}'); }catch(e){ return {}; } }
+  function save(){
+    const o = {};
+    fields.forEach(el => { o[el.dataset.k] = el.type === 'checkbox' ? el.checked : el.innerText; });
+    try{ localStorage.setItem(KEY, JSON.stringify(o)); }catch(e){}
+  }
+  const saved = load();
+  fields.forEach(el => {
+    const v = saved[el.dataset.k];
+    if (v === undefined) return;
+    if (el.type === 'checkbox') el.checked = !!v; else el.innerText = v;
+  });
+  // 비운 칸은 :empty가 되도록 정리
+  function tidy(el){ if (el.isContentEditable && el.innerText.trim() === '') el.innerHTML = ''; }
+  fields.forEach(tidy);
+  let t;
+  document.addEventListener('input', e => { if (e.target.dataset && e.target.dataset.k){ tidy(e.target); clearTimeout(t); t = setTimeout(save, 300); } });
+  document.addEventListener('change', e => { if (e.target.type === 'checkbox'){ save(); sumScore(); } });
+  // 붙여넣기는 글자만
+  document.addEventListener('paste', e => {
+    if (!e.target.isContentEditable) return;
+    e.preventDefault();
+    document.execCommand('insertText', false, (e.clipboardData || window.clipboardData).getData('text'));
+  });
+  // 한 줄 칸(포스터 · 표)에서 Enter는 줄바꿈 대신 다음 칸
+  document.addEventListener('keydown', e => {
+    const el = e.target;
+    if (e.key === 'Enter' && el.isContentEditable && !el.classList.contains('answer') && !el.closest('.dtab')){
+      e.preventDefault();
+      const eds = fields.filter(f => f.isContentEditable);
+      const n = eds[eds.indexOf(el) + 1]; if (n) n.focus();
+    }
+  });
+  document.getElementById('clearBtn').addEventListener('click', () => {
+    if (!confirm('이 브라우저에 저장된 내용을 모두 지우고 처음 양식으로 돌아갈까요?')) return;
+    try{ localStorage.removeItem(KEY); }catch(e){}
+    location.reload();
+  });
+
+  function sumScore(){
+    const s = [...document.querySelectorAll('#scoreChips input:checked')].reduce((a, i) => a + +i.value, 0);
+    document.getElementById('scoreSum').textContent = s;
+  }
+  sumScore();
+
+  /* ── 자동 점검 ── */
+  const v = k => { const el = document.querySelector(`[data-k="${k}"]`); return el ? el.innerText.trim() : ''; };
+  const GB = ['경주','포항','안동','구미','영주','영천','상주','문경','경산','의성','청송','영양','영덕','청도','고령','성주','칠곡','예천','봉화','울진','울릉','군위','경북','경상북도'];
+  const BAN = /(할\s*수\s*(도\s*)?있|가능하다|가능할|고려하고|고려\s*중|검토\s*중|예정이다|노력하겠|추진할\s*계획)/g;
+  function setC(id, state, html){ const li = document.getElementById(id); li.className = state; li.querySelector('.d').innerHTML = html; }
+  function esc(s){ return s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+  function check(){
+    const th = v('theme');
+    if (!th) setC('c1','na','포스터의 <b>주제</b> 칸이 비어 있습니다.');
+    else if (/위한|위해/.test(th) && !/[.!?]\s*\S/.test(th)) setC('c1','ok','「' + esc(th) + '」');
+    else setC('c1','ng','「' + esc(th) + '」 — 「무엇을 <b>위한</b> ~의 역할」처럼 목적을 박아 한 문장으로.');
+
+    const miss = [];
+    [['1',5,6],['2',8,9],['3',11,12]].forEach(([b,a,c]) => {
+      if (!v('q'+b)) miss.push(b+'부 질문');
+      if (!v('w'+a)) miss.push(b+'부 국내');
+      if (!v('w'+c)) miss.push(b+'부 해외');
+    });
+    if (miss.length === 9) setC('c2','na','포스터의 부별 질문 · 국내 · 해외 칸이 비어 있습니다.');
+    else if (miss.length) setC('c2','ng','빈 칸 — ' + miss.join(' · '));
+    else setC('c2','ok','세 부 모두 질문 하나에 국내 · 해외가 섰습니다. 두 발표 제목이 정말 <b>같은 질문</b>에 답하는지는 눈으로 확인하세요.');
+
+    const stage = ['w5','w8','w11','d1k','d2k','d3k'].map(v).join(' ');
+    const hit = GB.filter(g => stage.includes(g));
+    if (!stage.trim()) setC('c3','na','국내 발표 칸이 비어 있습니다.');
+    else if (hit.length) setC('c3','ok','찾음 — ' + hit.join(' · '));
+    else setC('c3','ng','국내 칸에 경북 시군 이름이 보이지 않습니다.');
+
+    const ms = ['d1m','d2m','d3m'].map(v);
+    const numd = ms.filter(m => /\d/.test(m));
+    const prac = ['d2m','d3m'].map(v).filter(m => /\d/.test(m)).length;
+    if (!ms.join('')) setC('c4','na','설계표의 <b>성과지표</b> 칸이 비어 있습니다.');
+    else if (numd.length >= 3 && prac >= 2) setC('c4','ok','숫자 지표 ' + numd.length + '개 · 실무형(2 · 3부) ' + prac + '개');
+    else setC('c4','ng','숫자가 든 지표 ' + numd.length + '개 / 3개 이상 · 실무형(2 · 3부) ' + prac + '개 / 2개 이상');
+
+    const all = fields.filter(f => f.isContentEditable).map(f => f.innerText).join('\n');
+    const found = [...new Set((all.match(BAN) || []).map(s => s.trim()))];
+    const typed = fields.some(f => f.isContentEditable && f.hasAttribute('data-ph') && f.innerText.trim());
+    if (!typed) setC('c5','na','아직 적은 내용이 없습니다.');
+    else if (found.length) setC('c5','ng','남은 표현 — ' + found.map(s => '<mark>' + esc(s) + '</mark>').join(' ') + ' → 「○건 체결」 「○명 참가」처럼 바꾸세요.');
+    else setC('c5','ok','모호한 표현이 보이지 않습니다.');
+  }
+
+  /* ── 좌우 넘김 (4~8쪽 양식과 같음) ── */
+  const track = document.getElementById('track');
+  const slides = [...document.querySelectorAll('.slide')];
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const currentNum = document.getElementById('currentNum');
+  const dotsWrap = document.getElementById('dots');
+  let index = 0;
+  slides.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.addEventListener('click', () => go(i));
+    dotsWrap.appendChild(d);
+  });
+  function go(i){
+    index = Math.max(0, Math.min(slides.length - 1, i));
+    track.style.transform = `translateX(-${index * 100}%)`;
+    currentNum.textContent = 1 + index;
+    [...dotsWrap.children].forEach((d, j) => d.classList.toggle('active', j === index));
+    prevBtn.disabled = index === 0;
+    nextBtn.disabled = index === slides.length - 1;
+    slides[index].scrollTop = 0;
+    if (index === 2) check();
+  }
+  prevBtn.addEventListener('click', () => go(index - 1));
+  nextBtn.addEventListener('click', () => go(index + 1));
+  document.addEventListener('keydown', (e) => {
+    if (e.target.isContentEditable || e.target.tagName === 'INPUT') return;
+    if (e.key === 'ArrowLeft') go(index - 1);
+    if (e.key === 'ArrowRight') go(index + 1);
+  });
+  let startX = null;
+  document.addEventListener('touchstart', e => { startX = e.target.closest('.dtab-wrap') ? null : e.touches[0].clientX; }, {passive:true});
+  document.addEventListener('touchend', e => {
+    if (startX === null) return;
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 55) go(index + (dx < 0 ? 1 : -1));
+    startX = null;
+  }, {passive:true});
+  go(0);
+</script>
+</body>
+</html>
