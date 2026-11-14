@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<meta name="description" content="스마트 모빌리티 세 주제(외국인 관광지 이동 · 섬 이동 · 관광권 사이 이동)를 경북 도민체감형 AX 경진대회 응모신청서 칸에 맞춰 채운 가상 예시"/>
+<meta name="description" content="스마트 모빌리티 세 주제(외국인 관광지 이동 · 섬 이동 · 관광권 사이 이동)를 경북 도민체감형 AX 경진대회 응모신청서 칸에 맞춰 채운 가상 예시와, 사례마다 실현 가능성을 따져 고친 검증 장"/>
 <title>스마트 모빌리티 AX 가상 신청서 | 선샤인 웰니스</title>
 <style>
 :root{--navy:#12213b;--blue:#2563eb;--ink:#22304a;--muted:#52647c;--bg:#f3f6fc;--border:#dce4ef;--light:#eaf1ff;--c1:#1c2f55;--c2:#2f6fb5;--c3:#2c8256;--c4:#c08a1e;--c5:#b8432f;--shadow:0 12px 28px rgba(15,30,64,.075)}
@@ -85,10 +85,33 @@ body.deck{overflow:hidden;display:flex;flex-direction:column}
 @media(max-width:900px){.go{grid-template-columns:1fr 1fr}.dk-help{display:none}}
 @media(max-width:720px){.dk-top b{display:none}.dk-slide .container{padding:0 16px}.dk-arrow{width:38px;height:38px;font-size:1.3rem;top:auto;bottom:6px;transform:none}.dk-prev{left:8px}.dk-next{right:8px}.cover{padding:28px 20px}.dk-top .printBtn{display:none}.go{grid-template-columns:1fr}}
 @media print{body.deck{overflow:visible;display:block;height:auto}.dk-top,.dk-arrow,.dk-bot,.dk-help,.dk-bar,.go{display:none!important}.dk-view{overflow:visible}.dk-track{display:block;transform:none!important}.dk-slide{height:auto;overflow:visible;break-after:page;padding:0}.cover{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+
+/* ===== 실현성 검증 (2026-11-14) ===== */
+.toc{margin:4px 0 14px}.toc table{min-width:0}.toc td:first-child{width:130px}
+.toc tr.v td{background:#f1faf4}
+.fact{background:#eef7f1;border:1px solid #bfe0c9;border-left:5px solid #2c8256;border-radius:12px;padding:12px 16px;margin:14px 0;font-size:.94rem}
+.fact .lab,.prob .lab,.fix .lab{display:inline-block;font-size:.78rem;font-weight:800;color:#fff;border-radius:100px;padding:1px 10px;margin-right:6px;vertical-align:1px}
+.fact .lab{background:#2c8256}.fact .src{display:block;font-size:.8rem;color:var(--muted);margin-top:4px}
+.prob{background:#fbeeee;border:1px solid #efc9c4;border-left:5px solid #b8432f;border-radius:12px;padding:12px 16px;margin:14px 0;font-size:.95rem}.prob .lab{background:#b8432f}
+.fix{background:linear-gradient(110deg,#eef5ff,#effafa);border:1px solid #ccddf1;border-left:5px solid #2966cf;border-radius:12px;padding:12px 16px;margin:14px 0;font-size:.95rem}.fix .lab{background:#2966cf}
+.flow4{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:10px 0}.flow4 span{background:#eaf1ff;border:1px solid #c8d8f2;border-radius:10px;padding:6px 11px;font-weight:700;font-size:.88rem;color:#1c2f55}.flow4 i{color:#6e8ab3;font-style:normal;font-weight:900}
+.stop{border:1.5px dashed #b8432f;border-radius:10px;padding:9px 13px;margin:14px 0;font-size:.9rem;color:#7a2a1d;background:#fffafa}.stop b{color:#b8432f}
+.draft{background:#fff8e8;border:1px solid #f0d9a2;border-radius:10px;padding:8px 13px;margin:0 0 12px;font-size:.88rem}.draft a{font-weight:800}
+.lv{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0}.lv div{border-radius:10px;padding:8px 10px;font-size:.85rem;text-align:center}.lv b{display:block;font-size:.95rem}
+.lv .l1{background:#e3f4ea}.lv .l2{background:#fff4d6}.lv .l3{background:#fde7dc}.lv .l4{background:#f8d5d5}
+.calc{border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin:12px 0;background:#fafcff}
+.calc label{display:grid;grid-template-columns:150px 1fr 110px;gap:10px;align-items:center;font-size:.9rem;margin:6px 0}.calc output{font-weight:800;color:#1c2f55;text-align:right}
+.calc input[type=range]{width:100%}
+.calc .res{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}.calc .res div{flex:1 1 180px;background:#fff;border:1px solid var(--border);border-radius:10px;padding:10px 12px}.calc .res b{display:block;font-size:1.35rem;color:#b8432f}
+.chkbox{list-style:none;padding:0;margin:8px 0}.chkbox li{margin:5px 0}.chkbox label{display:flex;gap:9px;align-items:flex-start;cursor:pointer}.chkbox input{margin-top:6px;width:17px;height:17px;flex:none}
+.chkcount{font-weight:800;color:#2c8256}
+.motto{margin:18px 0 6px;padding:18px 20px;border-radius:14px;background:#12213b;color:#fff;text-align:center;font-size:1.18rem;font-weight:800;line-height:1.6}.motto small{display:block;font-size:.82rem;font-weight:600;color:#bcd0ee;margin-top:4px}
+@media(max-width:720px){.lv{grid-template-columns:1fr 1fr}.calc label{grid-template-columns:1fr;gap:2px}.calc output{text-align:left}}
+@media print{.calc input{display:none}.motto{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
 </style>
 </head>
 <body class="deck">
-<div class="dk-top"><b>스마트 모빌리티 AX 가상 신청서</b><nav class="dk-tabs" id="dkTabs" aria-label="슬라이드 목차"><button type="button" data-go="0">표지</button><button type="button" data-go="1">① AX란</button><button type="button" data-go="2">② AI 상자</button><button type="button" data-go="3">③ 경주 · 문제</button><button type="button" data-go="4">③ 경주 · 해결</button><button type="button" data-go="5">④ 울릉 · 문제</button><button type="button" data-go="6">④ 울릉 · 해결</button><button type="button" data-go="7">⑤ 북부권 · 문제</button><button type="button" data-go="8">⑤ 북부권 · 해결</button><button type="button" data-go="9">⑥ 점검</button></nav><span class="dk-count" id="dkCount"></span><button class="printBtn" type="button" onclick="window.print()">🖨️ 인쇄</button></div>
+<div class="dk-top"><b>스마트 모빌리티 AX 가상 신청서</b><nav class="dk-tabs" id="dkTabs" aria-label="슬라이드 목차"><button type="button" data-go="0">표지</button><button type="button" data-go="1">① AX란</button><button type="button" data-go="2">② AI 상자</button><button type="button" data-go="3">③ 경주 · 문제</button><button type="button" data-go="4">③ 경주 · 해결</button><button type="button" data-go="5">③ 경주 · 검증</button><button type="button" data-go="6">④ 울릉 · 문제</button><button type="button" data-go="7">④ 울릉 · 해결</button><button type="button" data-go="8">④ 울릉 · 검증</button><button type="button" data-go="9">⑤ 북부권 · 문제</button><button type="button" data-go="10">⑤ 북부권 · 해결</button><button type="button" data-go="11">⑤ 북부권 · 검증</button><button type="button" data-go="12">⑥ 점검</button></nav><span class="dk-count" id="dkCount"></span><button class="printBtn" type="button" onclick="window.print()">🖨️ 인쇄</button></div>
 <div class="dk-bar" id="dkBar"></div>
 <div class="dk-view"><div class="dk-track" id="dkTrack">
 <div class="dk-slide" id="intro" data-title="표지"><div class="container">
@@ -96,16 +119,28 @@ body.deck{overflow:hidden;display:flex;flex-direction:column}
     <div class="eyebrow">Smart Mobility · AX Application · Worked Examples</div>
     <h1>스마트 모빌리티로 AX 신청서 쓰기<br/>가상 예시 세 편</h1>
     <p class="intro">외국인 관광지 이동 · 섬 이동 · 관광권 사이 이동. 세 주제를 <strong>경상북도 도민체감형 AX 경진대회 응모신청서</strong> 칸 번호 그대로 채워 본 <strong>가상 예시</strong>입니다. 시스템을 만들지 않습니다. <strong>데이터가 AI를 거쳐 주민의 하루를 어떻게 바꾸는지</strong>를 보여 줍니다.</p>
-    <div class="meta"><span class="pill">파트 12 모빌리티</span><span class="pill">기말 · 최종결과물 1</span><span class="pill">경북 한정</span><span class="pill">가상 예시</span></div>
+    <div class="meta"><span class="pill">파트 12 모빌리티</span><span class="pill">기말 · 최종결과물 1</span><span class="pill">경북 한정</span><span class="pill">가상 예시</span><span class="pill">실현성 검증 포함</span></div>
   </div>
+  <div class="tablewrap toc"><table>
+    <thead><tr><th>구분</th><th>주요 내용</th></tr></thead>
+    <tbody>
+      <tr><td>① AX란</td><td>DX와 AX의 차이, AI 전환의 핵심 · <b>AI가 꼭 필요한가</b></td></tr>
+      <tr><td>② AI 상자</td><td>AI 신청서 작성 전 핵심 4단계</td></tr>
+      <tr><td>③ 경주</td><td>외국인 관광객 · 고령 주민을 위한 다국어 AI 이동 안내</td></tr>
+      <tr><td>④ 울릉도</td><td>AI 여객선 결항 예측 및 주민 의료 일정 지원</td></tr>
+      <tr><td>⑤ 경북 북부권</td><td>안동 · 영주 · 봉화 AI 수요응답형 버스(DRT)</td></tr>
+      <tr><td>⑥ 점검</td><td>심사 기준별 비교 및 제출 전 체크리스트</td></tr>
+      <tr class="v"><td>+ 실현성 검증</td><td>사례마다 한 장씩 — <b>경주는 기술 구현</b>, <b>울릉은 기존 사업과의 중복</b>, <b>북부권은 비용</b>을 따져 신청서를 고칩니다.</td></tr>
+    </tbody>
+  </table></div>
   <div class="warn"><strong>먼저 읽기 —</strong> 아래 세 신청서는 <strong>가상 예시</strong>입니다. <span class="as">노란 밑줄 숫자</span>는 모두 설명을 위해 만든 <strong>가정치</strong>입니다. 내 신청서에는 공공데이터포털 · 한국관광 데이터랩 · 시군 통계에서 <strong>실제 숫자를 찾아 바꿔 넣으세요.</strong> 예시 문장을 그대로 옮겨 내면 안 됩니다.</div>
   <div class="go">
     <button type="button" data-go="1"><b>① AX란</b><small>DX와 한 줄 차이</small></button>
     <button type="button" data-go="2"><b>② AI 상자 4칸</b><small>쓰기 전에 이것부터</small></button>
-    <button type="button" data-go="3"><b>③ 외국인 · 경주</b><small>다국어 AI 이동 안내</small></button>
-    <button type="button" data-go="5"><b>④ 섬 · 울릉</b><small>AI 결항 예측</small></button>
-    <button type="button" data-go="7"><b>⑤ 관광권 · 북부권</b><small>AI 수요응답 버스</small></button>
-    <button type="button" data-go="9"><b>⑥ 점검</b><small>점수 자리 · 다섯 질문</small></button>
+    <button type="button" data-go="3"><b>③ 외국인 · 경주</b><small>다국어 AI 이동 안내 → 검증: 어떻게 구현하나</small></button>
+    <button type="button" data-go="6"><b>④ 섬 · 울릉</b><small>AI 결항 예측 → 검증: 이미 있는 서비스 아닌가</small></button>
+    <button type="button" data-go="9"><b>⑤ 관광권 · 북부권</b><small>AI 수요응답 버스 → 검증: 돈은 감당되나</small></button>
+    <button type="button" data-go="12"><b>⑥ 점검</b><small>점수 자리 · 실현성 체크리스트</small></button>
   </div>
 </div></div>
 <div class="dk-slide" id="ax" data-title="① AX란"><div class="container">
@@ -119,6 +154,7 @@ body.deck{overflow:hidden;display:flex;flex-direction:column}
     <p>그래서 신청서에서 AI는 <strong>동사 하나</strong>로 씁니다. 「AI 기반 통합 플랫폼」은 동사가 없어서 AX 적합성 점수를 받기 어렵습니다.</p>
     <div class="verbs"><span>예측한다</span><span>추천한다</span><span>최적화한다</span><span>번역·대화한다</span><span>감지한다</span><span class="no">AI 기반 플랫폼</span><span class="no">스마트 통합 시스템</span></div>
     <div class="key">심사 100점 가운데 <strong>도민 체감성 30 + 경북 적합성 25 = 55점</strong>입니다. AX 적합성은 20점입니다. 기술이 화려한 것보다 <strong>경북 주민의 하루가 무엇이 나아지는지</strong>가 먼저입니다.</div>
+    <div class="warn"><strong>AI가 꼭 필요한가? —</strong> 단순 알림 · 고정 번역문 · 정해진 시간표 표시는 <strong>규칙 기반</strong>으로도 됩니다. AI는 자연어 질문 이해, 여러 조건을 한꺼번에 따지는 추천, 수요 예측처럼 <strong>규칙으로는 안 되는 자리</strong>에 씁니다. 그리고 그 자리에서 <strong>단순 방식보다 나은지</strong>를 비교해 보여야 합니다. AI를 쓰려고 문제를 만드는 것이 아니라, 주민의 문제에 맞는 수단을 고르는 것입니다.</div>
   </section>
 </div></div>
 <div class="dk-slide" id="box" data-title="② AI 상자"><div class="container">
@@ -175,6 +211,7 @@ body.deck{overflow:hidden;display:flex;flex-direction:column}
 <div class="dk-slide" id="ex1b" data-title="③ 경주 · 해결"><div class="container">
   <section class="section app">
     <div class="app-head t1"><span class="tag">가상 예시 1</span><h2>외국인 관광지 이동 — 경주 <small class="cont">(계속)</small></h2></div>
+    <p class="draft">✎ 여기까지가 <b>처음 쓴 안</b>입니다. 다음 장 <a href="#" data-go="5">③ 경주 · 검증 →</a>에서 실현 가능성을 따져 고칩니다.</p>
     <div class="form">
       <div class="grp">[4] 해결 방안</div>
       <div class="row"><div class="q">[4-1] 어떤 AI 서비스인가요?</div><div class="a">말이나 글로 「불국사 가고 싶어요」라고 물으면, 생성형 AI가 <strong>질문을 이해하고 실시간 버스 도착 정보와 맞춰 경로를 추천</strong>하는 다국어 대화형 안내. 같은 엔진을 <strong>어르신용 큰 글씨 · 음성 모드</strong>로도 엽니다.</div></div>
@@ -189,6 +226,26 @@ body.deck{overflow:hidden;display:flex;flex-direction:column}
       <div class="row"><div class="q">[6-3] 예상되는 어려움은?</div><div class="a">AI가 틀린 경로를 안내할 위험 → 실시간 데이터만 근거로 답하게 하고, 확신이 낮으면 1330으로 넘깁니다. 고령 주민의 사용 부담 → 경로당 시연과 음성 우선 화면.</div></div>
       <div class="row"><div class="q">[6-4] 단계별 추진 안</div><div class="a">1단계 불국사 · 보문 노선 시범(3개월) → 2단계 경주 전역 + DRT 연계 → 3단계 안동 · 영주 등 경북 관광 시군 확산.</div></div>
     </div>
+  </section>
+</div></div>
+<div class="dk-slide" id="ex1c" data-title="③ 경주 · 검증"><div class="container">
+  <section class="section app">
+    <div class="app-head t1"><span class="tag">실현성 검증 1</span><h2>경주 — 다국어 AI 이동 안내, 어떻게 구현하나</h2></div>
+    <div class="fact"><span class="lab">확인된 사실</span>경주시 버스정보시스템(BIS)은 실시간 버스 위치 · 도착 예정 · 노선 · 환승 정보를 이미 제공합니다. 경주시는 2026.6.12 버스정보안내기 <b>39기</b>(신규 36 · 교체 3)에 <b>3억 원</b>을 들이는 사업을 발표했습니다.<span class="src">출처: <a href="https://its.gyeongju.go.kr/bis_intro.do" target="_blank" rel="noopener">경주시 BIS 소개 ↗</a> · <a href="https://gyeongju.go.kr/news/page.do?mnu_uid=1336&amp;parm_bod_uid=321530" target="_blank" rel="noopener">경주시 보도(2026.6.12) ↗</a> · <a href="https://www.data.go.kr/data/15098530/openapi.do" target="_blank" rel="noopener">국토교통부 TAGO 버스도착정보 API ↗</a></span></div>
+    <div class="prob"><span class="lab">따져 볼 점</span>① 버스 정보는 <b>AI가 만들어 내는 것이 아니라 BIS에서 가져오는 것</b>입니다. ② 「구글 · 네이버 지도 + 번역 앱과 무엇이 다른가?」에 답하지 못하면 중복 사업으로 읽힙니다. ③ 키오스크를 새로 사면 비용이 커집니다.</div>
+    <h3>구조 — AI는 조회한 값을 설명만 한다</h3>
+    <div class="flow4"><span>외국어 · 쉬운 한국어 질문</span><i>→</i><span>① AI가 목적지 · 언어 · 조건 이해</span><i>→</i><span>② BIS · TAGO API로 실제 버스 조회</span><i>→</i><span>③ 검색증강생성(RAG)으로 다국어 · 쉬운 문장 답변</span><i>→</i><span>④ QR 모바일 웹 · 큰 글씨 · 음성</span></div>
+    <p>AI는 버스 번호나 도착 시각을 <b>지어내지 않습니다.</b> 실시간 조회에 실패하면 공식 BIS 화면으로 넘깁니다.</p>
+    <div class="fix"><span class="lab">지도 앱과 다른 점</span>① <b>고령 주민 모드</b> — 큰 글씨 · 음성 질문 · 음성 답. ② <b>관광지 특화 경고</b> — 「불국사 입장 마감」 「보문 방면 막차」 「다음 버스까지 40분, 놓치면 DRT 호출」. ③ <b>사람에게 넘기기</b> — 확신이 낮거나 질문이 복잡하면 관광안내소 · 1330으로 연결.</div>
+    <div class="tablewrap"><table><thead><tr><th>초기 실증</th><th>범위</th></tr></thead><tbody>
+      <tr><td>장소</td><td>경주역 · 관광안내소 · 주요 관광지 등 3개 지점 정류장 QR</td></tr>
+      <tr><td>언어</td><td>한국어(쉬운 말 · 큰 글씨) · 영어 · 일본어 · 중국어</td></tr>
+      <tr><td>만드는 것</td><td>QR 모바일 웹, 목적지별 이동 안내, AI 질의응답</td></tr>
+      <tr><td>만들지 않는 것</td><td>새 키오스크 구매, 자체 지도, 자체 AI 모델 학습</td></tr>
+      <tr><td>잴 것</td><td>정류장 선택 성공률 · 잘못 탄 버스 감소 · 과업 완료 시간 · 고령자 혼자 이용 가능 여부 — 기존 지도 앱과 비교</td></tr>
+    </tbody></table></div>
+    <p class="why">AI가 필요한 이유: 「불국사 마지막 버스 몇 시예요?」 같은 <b>자유 질문</b>을 여러 언어로 이해하고, 시각 · 위치 · 입장 마감을 함께 따져 답하는 일은 고정 번역문으로는 안 됩니다.</p>
+    <div class="stop"><b>중단 조건 —</b> BIS · TAGO에서 필요한 노선을 실제로 불러올 수 없거나, 기존 지도 앱보다 나은 점이 검증되지 않으면 확대하지 않습니다. <b>첫 검증 과제는 API 연계 시험</b>입니다(아직 해 보지 않았습니다).</div>
   </section>
 </div></div>
 <div class="dk-slide" id="ex2" data-title="④ 울릉 · 문제"><div class="container">
@@ -222,6 +279,7 @@ body.deck{overflow:hidden;display:flex;flex-direction:column}
 <div class="dk-slide" id="ex2b" data-title="④ 울릉 · 해결"><div class="container">
   <section class="section app">
     <div class="app-head t2"><span class="tag">가상 예시 2</span><h2>섬 이동 — 울릉도 <small class="cont">(계속)</small></h2></div>
+    <p class="draft">✎ 여기까지가 <b>처음 쓴 안</b>입니다. 다음 장 <a href="#" data-go="8">④ 울릉 · 검증 →</a>에서 실현 가능성을 따져 고칩니다.</p>
     <div class="form">
       <div class="grp">[4] 해결 방안</div>
       <div class="row"><div class="q">[4-1] 어떤 AI 서비스인가요?</div><div class="a">과거 수년 치 결항 기록과 그날의 파고 · 풍속 예보를 학습한 AI가 <strong>2~3일 뒤 여객선 결항 확률을 예측</strong>하고, 확률이 높으면 주민과 예약 관광객에게 미리 알려 대안 날짜를 제안합니다.</div></div>
@@ -236,6 +294,24 @@ body.deck{overflow:hidden;display:flex;flex-direction:column}
       <div class="row"><div class="q">[6-3] 예상되는 어려움은?</div><div class="a">예측이 틀릴 수 있음 → 「확정」이 아니라 「확률」로만 알리고, 최종 운항 결정은 선사와 해경이 합니다. 운항 기록 공유 → 선사와 업무협약.</div></div>
       <div class="row"><div class="q">[6-4] 단계별 추진 안</div><div class="a">1단계 포항–울릉 한 항로 · 과거 데이터로 정확도 검증 → 2단계 주민 문자 알림 시범 → 3단계 숙박 · 렌터카 예약과 연계, 다른 항로로 확산.</div></div>
     </div>
+  </section>
+</div></div>
+<div class="dk-slide" id="ex2c" data-title="④ 울릉 · 검증"><div class="container">
+  <section class="section app">
+    <div class="app-head t2"><span class="tag">실현성 검증 2</span><h2>울릉도 — 결항 예측, 이미 있는 서비스 아닌가</h2></div>
+    <div class="fact"><span class="lab">확인된 사실</span>한국해양교통안전공단(KOMSA)은 2025.12.18 AI로 <b>최대 3일 뒤</b> 여객선 운항 가능성을 4단계로 알려 주는 「<b>내일의 운항예보 플러스</b>」 시범운영을 발표했습니다. 전국 <b>18개 항로 · 26척</b>, <b>포항~울릉 포함</b>.<span class="src">출처: <a href="https://www.komsa.or.kr/bbs/BBSMSTR_000000000744/view.do?mno=sub06_0101&amp;nttId=B000000028924Ir7oU9" target="_blank" rel="noopener">KOMSA 보도자료(2025.12.18) ↗</a> · 운항 가능성 예보이지 출항 확정 정보가 아닙니다.</span></div>
+    <div class="lv"><div class="l1"><b>높음</b>80~100%</div><div class="l2"><b>보통</b>50~80%</div><div class="l3"><b>낮음</b>20~50%</div><div class="l4"><b>매우 낮음</b>0~20%</div></div>
+    <div class="prob"><span class="lab">따져 볼 점</span>처음 안의 「AI가 결항 확률을 예측한다」는 <b>국가기관이 이미 하고 있는 일</b>입니다. 다시 만들면 중복 사업이 됩니다. 게다가 결항은 파고만으로 정해지지 않습니다 — 선박 규모 · 정비 · 실제 출항 결정이 함께 작용합니다.</div>
+    <div class="fix"><span class="lab">이렇게 고친다</span><b>예측은 공단 예보를 가져다 쓰고, AI는 「일정」을 맡는다.</b> 진료 예약일 · <b>가는 배</b> · <b>돌아오는 배</b>의 운항 가능성을 함께 놓고, 「이 날짜로 가면 <b>섬으로 못 돌아올 위험</b>이 크다」를 따져 <b>대체 일정 2~3개를 추천</b>합니다. 작품명도 「울릉 뱃길 미리알림 — 운항예보로 진료 일정 다시 짜기」로 바꿉니다.</div>
+    <div class="flow4"><span>주민이 진료일 · 배편 등록(전화도 가능)</span><i>→</i><span>공단 운항예보 확인(왕복)</span><i>→</i><span>AI가 진료 요일 · 왕복 예보 · 숙박을 함께 따져 대체 일정 추천</span><i>→</i><span>쉬운 말 문자 · 음성 안내</span><i>→</i><span>담당자 · 주민이 최종 확인</span></div>
+    <div class="tablewrap"><table><thead><tr><th>운항 가능성</th><th>시스템이 하는 일</th></tr></thead><tbody>
+      <tr><td>높음</td><td>일정 유지 · 출항 전날 공식 운항정보 다시 확인 안내</td></tr>
+      <tr><td>보통</td><td>예보 갱신 시각 알림 · 하루 앞당긴 대안 일정 미리 보여 주기</td></tr>
+      <tr><td>낮음 · 매우 낮음</td><td>선사 확인 · 진료 예약 변경 문의 안내 · 돌아오는 배까지 고려한 대체 일정 추천</td></tr>
+    </tbody></table></div>
+    <p class="why">AI가 필요한 이유: 단순 알림(「모레 배 낮음」)은 규칙으로 됩니다. AI의 몫은 <b>진료 요일 · 왕복 예보 · 육지 숙박</b>을 한꺼번에 따져 <b>어느 날로 옮길지 추천</b>하는 것 — 단순 알림과 비교해 그 추가 가치를 재야 합니다.</p>
+    <p><b>잴 것</b>: 진료 일정 차질 건수 · <b>육지에 발이 묶인 날수(숙박비)</b> · 재예약까지 걸린 날 · 안내를 받고 일정을 바꾼 비율.</p>
+    <div class="stop"><b>중단 조건 —</b> 공단 예보를 쓸 권한(API 등)이 없거나, 군청 · 보건의료원 · 선사 협력과 개인정보 보호 조건이 확보되지 않으면 진행하지 않습니다. 처음에는 <b>담당자가 공식 예보를 손으로 확인</b>하는 시험 운영부터. 응급환자는 119 · 의료기관 절차를 따르고, 예약이나 출항을 자동 확정하지 않습니다.</div>
   </section>
 </div></div>
 <div class="dk-slide" id="ex3" data-title="⑤ 북부권 · 문제"><div class="container">
@@ -269,6 +345,7 @@ body.deck{overflow:hidden;display:flex;flex-direction:column}
 <div class="dk-slide" id="ex3b" data-title="⑤ 북부권 · 해결"><div class="container">
   <section class="section app">
     <div class="app-head t3"><span class="tag">가상 예시 3</span><h2>관광권 사이 이동 — 경북 북부권(안동 · 영주 · 봉화) <small class="cont">(계속)</small></h2></div>
+    <p class="draft">✎ 여기까지가 <b>처음 쓴 안</b>입니다. 다음 장 <a href="#" data-go="11">⑤ 북부권 · 검증 →</a>에서 실현 가능성을 따져 고칩니다.</p>
     <div class="form">
       <div class="grp">[4] 해결 방안</div>
       <div class="row"><div class="q">[4-1] 어떤 AI 서비스인가요?</div><div class="a">AI가 요일 · 시간대 · 장날 · 축제 일정별 이동 수요를 <strong>예측</strong>하고, 들어온 호출을 묶어 <strong>가장 짧은 경로로 배차를 최적화</strong>하는 북부권 공동 수요응답 버스. 주민과 관광객이 같은 차를 탑니다.</div></div>
@@ -285,6 +362,35 @@ body.deck{overflow:hidden;display:flex;flex-direction:column}
     </div>
   </section>
 </div></div>
+<div class="dk-slide" id="ex3c" data-title="⑤ 북부권 · 검증"><div class="container">
+  <section class="section app">
+    <div class="app-head t3"><span class="tag">실현성 검증 3</span><h2>경북 북부권 — 수요응답형 버스, 돈은 감당되나</h2></div>
+    <div class="fact"><span class="lab">확인된 사실</span>농림축산식품부는 2026.7.26 「농촌 특화 AI 기반 수요맞춤형 교통모델」 실증 착수를 발표했습니다. 대상은 <b>인제 · 진천 · 봉화 · 의령 · 하동</b> 5개 군, 봉화는 <b>소천면</b>에서 먼저 합니다. 버스 · 택시 · DRT를 잇고 앱과 <b>전화 호출</b>을 함께 받으며, 11월부터 운영할 계획입니다.<span class="src">출처: <a href="https://www.mafra.go.kr/bbs/home/792/578538/artclView.do" target="_blank" rel="noopener">농림축산식품부 보도자료 ↗</a> · 실증의 운영비 절감 효과와 주민 만족도는 아직 나오지 않았습니다.</span></div>
+    <div class="prob"><span class="lab">따져 볼 점</span>① 봉화에서 정부 실증이 이미 시작됐으니 <b>그것과 무엇이 다른지</b> 먼저 써야 합니다. ② 차량 · 기사 · 정비 · 플랫폼 운영비는 <b>누가, 몇 년 동안</b> 냅니까? 이용객이 적은 곳일수록 1인당 비용이 커집니다.</div>
+    <div class="tablewrap"><table><thead><tr><th>방식</th><th>새로 드는 돈</th><th>장점</th><th>위험</th><th>첫 실증</th></tr></thead><tbody>
+      <tr><td>A. 새 AI 버스</td><td>차량 · 기사 · 정비 · 플랫폼</td><td>확장성</td><td>고정비가 큼</td><td>낮음</td></tr>
+      <tr><td>B. 기존 버스 전환</td><td>기존 운행비 · 시스템</td><td>기존 자원 활용</td><td>노선 조정 · 운수업체 협의</td><td>중간</td></tr>
+      <tr><td>C. 기존 행복택시 활용</td><td>운행 보조금 · 시스템</td><td>소규모 검증 쉬움</td><td>이용이 늘면 보조금도 늚</td><td>높음</td></tr>
+    </tbody></table></div>
+    <h3>운영비 계산기 — C 방식 · 교육용 가정</h3>
+    <div class="calc" id="drtCalc">
+      <label>하루 운행 건수<input type="range" id="cN" min="5" max="100" step="5" value="20"/><output id="oN">20건</output></label>
+      <label>1건당 공공 보조금<input type="range" id="cW" min="5000" max="25000" step="1000" value="10000"/><output id="oW">10,000원</output></label>
+      <label>월 운영일<input type="range" id="cD" min="10" max="30" step="1" value="25"/><output id="oD">25일</output></label>
+      <div class="res"><div>월 운행 보조금<b id="rM">500만 원</b></div><div>연간 운행 보조금<b id="rY">6,000만 원</b></div></div>
+      <p style="font-size:.85rem;color:var(--muted);margin:8px 0 0">하루 건수 × 건당 보조금 × 월 운영일 × 12. 플랫폼 · 상담 인력 · 행정 · 보험은 별도입니다. 실제 지자체 운행비나 절감액이 아닙니다 — <b>차를 사지 않아도 싸지는 않다</b>는 것을 보는 도구입니다.</p>
+    </div>
+    <div class="fix"><span class="lab">이렇게 고친다</span>새 버스 대신 <b>기존 행복택시 · 농어촌버스</b>에 AI 배차 지원을 붙입니다. 같은 마을 · 비슷한 시간대 요청(읍내 병원 · 장날)을 AI가 묶을 수 있는지 보여 주고, <b>운행 담당자가 승인</b>해 배정한 뒤 전화 · 문자로 알립니다. 합승은 면허 · 법령 · 이용자 동의 · 안전 조건이 될 때만. 봉화 실증과는 <b>주민 · 관광객 혼합 탑승</b>과 <b>시군 경계 권역</b>으로 다르게 잡습니다.</div>
+    <div class="tablewrap"><table><thead><tr><th>AI가 정말 나은가</th><th>비교 방법 — 기존 운영 · 규칙 기반 배차 · AI 지원 배차</th></tr></thead><tbody>
+      <tr><td>공공 보조금</td><td>주민 1인당 · 이동 1건당 비용</td></tr>
+      <tr><td>공차 거리</td><td>승객 없이 달린 거리</td></tr>
+      <tr><td>대기시간</td><td>호출부터 탑승까지</td></tr>
+      <tr><td>접근성</td><td>병원 · 장에 희망 시간 안에 도착한 비율</td></tr>
+      <tr><td>형평성</td><td>오지 마을 · 고령자가 불리해지지 않는지</td></tr>
+    </tbody></table></div>
+    <div class="stop"><b>중단 조건 —</b> 기존 방식보다 비용이 늘면서 주민 편익도 나아지지 않거나, 운수업체 · 예산 · 면허 조건이 안 되면 확대하지 않습니다. 첫 단계는 <b>한 읍 · 면의 과거 운행 기록으로 가상 배차 시뮬레이션</b>입니다.</div>
+  </section>
+</div></div>
 <div class="dk-slide" id="check" data-title="⑥ 점검"><div class="container">
   <section class="section">
     <div class="sec-head"><div class="secno">06</div><h2>세 예시가 점수를 얻는 자리 · 내 신청서 점검</h2></div>
@@ -298,6 +404,27 @@ body.deck{overflow:hidden;display:flex;flex-direction:column}
         <tr><td>창의 · 확산 10</td><td>안동 · 영주로</td><td>다른 항로 · 숙박 연계</td><td>동해안권으로</td></tr>
       </tbody>
     </table></div>
+    <h3>실현성 검증 뒤 — 세 예시를 이렇게 고쳤습니다</h3>
+    <div class="tablewrap"><table>
+      <thead><tr><th>구분</th><th>③ 경주</th><th>④ 울릉도</th><th>⑤ 북부권</th></tr></thead>
+      <tbody>
+        <tr><td>처음 안</td><td>다국어 AI 이동 안내</td><td>AI 결항 예측</td><td>새 AI 수요응답 버스</td></tr>
+        <tr><td>핵심 문제</td><td>실제 구현 방법 · 지도 앱과 차별점</td><td>기존 국가 예보와 중복</td><td>차량 · 지속 운영비</td></tr>
+        <tr><td>고친 방향</td><td>BIS 조회값을 설명하는 AI 안내</td><td>공단 예보 + AI 진료 일정 추천</td><td>기존 교통자원 + AI 배차 지원</td></tr>
+        <tr><td>기존 자원</td><td>경주 BIS · TAGO</td><td>KOMSA 운항예보</td><td>행복택시 · 농어촌버스</td></tr>
+        <tr><td>첫 실증</td><td>3개 지점 QR 웹</td><td>담당자 확인 시험 운영</td><td>가상 배차 시뮬레이션</td></tr>
+        <tr><td>가장 중요한 검증</td><td>API 연계 · 안내 정확도</td><td>일정 지원의 실제 편익</td><td>경제성 · 주민 접근성</td></tr>
+      </tbody>
+    </table></div>
+    <h3>제출 전 실현성 체크리스트 <span class="chkcount" id="chkCount">0 / 6</span></h3>
+    <ul class="chkbox" id="chkList">
+      <li><label><input type="checkbox"/>실제 공공데이터 이름과 <b>이용 권한</b>(API 호출 가능 여부 · 갱신 주기)을 확인했다</label></li>
+      <li><label><input type="checkbox"/>같은 일을 하는 <b>정부 · 지자체 사업</b>을 찾아보고 차별점을 적었다</label></li>
+      <li><label><input type="checkbox"/>AI 방식과 <b>규칙 기반 · 기존 방식</b>을 무엇으로 비교할지 정했다</label></li>
+      <li><label><input type="checkbox"/><b>운영 주체 · 예산 · 몇 년 운영할지</b>를 적었다</label></li>
+      <li><label><input type="checkbox"/>주민 편익 지표와 <b>중단 조건</b>을 정했다</label></li>
+      <li><label><input type="checkbox"/>개인정보 · 안전 · <b>틀렸을 때 누가 책임지고 누구에게 넘기는지</b>를 적었다</label></li>
+    </ul>
     <h3>제출 전에 스스로 묻는 다섯 가지</h3>
     <ol class="chk">
       <li><strong>AI를 빼도 그대로 돌아가나?</strong> 그렇다면 그냥 앱입니다. AI 동사를 다시 고르세요.</li>
@@ -307,8 +434,9 @@ body.deck{overflow:hidden;display:flex;flex-direction:column}
       <li><strong>경북의 다른 시군에도 옮길 수 있나?</strong> [6-4] 3단계에 지명을 적습니다.</li>
     </ol>
     <div class="key">다음 순서 — AI 상자 4칸을 내 주제로 채운다 → 다섯 질문으로 점검한다 → <a href="smart-tourism-ax-application-prompts-19.html" target="_blank" rel="noopener">AX 공모 프롬프트 19개 ↗</a>로 칸별 문장을 늘린다 → <a href="gyeongbuk-ax-form-4-8.html" target="_blank" rel="noopener">응모신청서 4~8쪽 웹 양식 ↗</a>에 옮긴다.</div>
+    <div class="motto">AI 기술이 존재한다는 것과 그 기술로 실제 사업을 운영할 수 있다는 것은 서로 다른 문제다.<small>경주는 기술 구현, 울릉은 중복과 차별화, 북부권은 비용과 지속성 — 세 예시 모두 아직 실제 서비스로 효과가 검증된 것은 아닙니다.</small></div>
   </section>
-  <p class="footer"><strong>선샤인 웰니스</strong> · 스마트관광의 이해 파트 12 · 가상 예시(노란 밑줄 숫자는 가정치)</p>
+  <p class="footer"><strong>선샤인 웰니스</strong> · 스마트관광의 이해 파트 12 · 가상 예시(노란 밑줄 숫자는 가정치) · 「확인된 사실」 상자는 2026.11.14 원문 확인</p>
 </div></div>
 </div></div>
 <button class="dk-arrow dk-prev" id="dkPrev" type="button" aria-label="이전 장">‹</button><button class="dk-arrow dk-next" id="dkNext" type="button" aria-label="다음 장">›</button>
@@ -333,10 +461,23 @@ document.addEventListener('keydown',function(e){if(/INPUT|TEXTAREA|SELECT/.test(
  if(e.key==='ArrowRight'||e.key==='PageDown')go(i+1);else if(e.key==='ArrowLeft'||e.key==='PageUp')go(i-1);else if(e.key==='Home')go(0);else if(e.key==='End')go(n-1);});
 var sx=0,sy=0;track.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;sy=e.touches[0].clientY},{passive:true});
 track.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;
- if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5&&!(e.target.closest&&e.target.closest('.tablewrap')))go(dx<0?i+1:i-1)},{passive:true});
+ if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5&&!(e.target.closest&&e.target.closest('.tablewrap,.calc,input')))go(dx<0?i+1:i-1)},{passive:true});
 var q=+new URLSearchParams(location.search).get('page'),h=decodeURIComponent(location.hash.slice(1)),hk=-1;
 if(h)sl.forEach(function(s,k){if(s.id===h)hk=k});
 go(hk>=0?hk:(q?q-1:0));
+})();
+</script>
+<script>
+(function(){
+var f=function(x){return x.toLocaleString('ko-KR')};
+var n=document.getElementById('cN'),w=document.getElementById('cW'),d=document.getElementById('cD');
+function up(){var N=+n.value,W=+w.value,D=+d.value,m=N*W*D;
+ document.getElementById('oN').textContent=N+'건';document.getElementById('oW').textContent=f(W)+'원';document.getElementById('oD').textContent=D+'일';
+ document.getElementById('rM').textContent=f(Math.round(m/10000))+'만 원';document.getElementById('rY').textContent=f(Math.round(m*12/10000))+'만 원';}
+[n,w,d].forEach(function(el){el.addEventListener('input',up)});up();
+var bx=[].slice.call(document.querySelectorAll('#chkList input'));
+function cc(){document.getElementById('chkCount').textContent=bx.filter(function(b){return b.checked}).length+' / '+bx.length}
+bx.forEach(function(b){b.addEventListener('change',cc)});cc();
 })();
 </script>
 </body>
