@@ -12,7 +12,7 @@
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR","Apple SD Gothic Neo",Pretendard,Arial,sans-serif;line-height:1.6}
-.wrap{max-width:760px;margin:0 auto;padding:28px 18px 60px}
+.wrap{max-width:1100px;margin:0 auto;padding:28px 18px 60px}
 header{margin-bottom:22px}
 .eyebrow{font-size:12px;font-weight:800;letter-spacing:.08em;color:var(--accent);text-transform:uppercase}
 h1{font-size:clamp(22px,4vw,28px);margin:8px 0 10px;line-height:1.35}
@@ -38,8 +38,21 @@ table.ref-tb tr:last-child td{border-bottom:0}
 .card.graded .opt:hover{background:#fafcfe}
 .card.graded .opt.correct{background:var(--good-bg);border-color:var(--good);color:#1a5c33}
 .card.graded .opt.wrong{background:var(--bad-bg);border-color:var(--bad);color:#8c2a2b}
-.explain{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);font-size:13px;color:var(--muted);display:none}
-.card.graded .explain{display:block}
+.explain{margin-top:12px;padding:12px 14px;border-radius:10px;background:#f6f9fd;border:1px dashed #c9d8ea;font-size:14.5px;line-height:1.85;color:var(--ink);display:none}
+.card.graded .explain,.card.revealed .explain{display:block}
+.explain .ans{display:inline-block;margin-right:8px;padding:2px 10px;border-radius:999px;background:var(--good);color:#fff;font-weight:800;font-size:13px}
+.card.revealed .opt.correct{background:var(--good-bg);border-color:var(--good);color:#1a5c33;font-weight:700}
+.show-ans{margin-top:12px;background:var(--accent-soft);color:var(--accent);font-size:13px;padding:7px 14px;border-radius:999px}
+.card.revealed .show-ans,.card.graded .show-ans{background:#eef1f5;color:var(--muted)}
+@media(min-width:760px){.opts{grid-template-columns:1fr 1fr}}
+/* 행간 넓게 */
+body{line-height:1.85}
+header p{line-height:1.85}
+.card{padding:24px 26px 26px;margin:22px 0}
+.q-title{line-height:1.7;margin-bottom:16px}
+.opts{gap:12px}
+.opt{padding:13px 15px;line-height:1.7}
+details.terms td{padding:9px 8px;line-height:1.7}
 .explain .dot{color:var(--dot);font-weight:900}
 
 .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
@@ -82,6 +95,7 @@ details.terms td:nth-child(2){color:var(--muted);white-space:nowrap}
       <label class="opt"><input type="radio" name="q0" value="2">기술통합성</label>
       <label class="opt"><input type="radio" name="q0" value="3">스마트인프라</label>
     </div>
+    <button type="button" class="show-ans">정답 · 해설 보기</button>
     <p class="explain"><b>보안성(Security)</b>. 신뢰성은 시스템을 <i>믿을 수 있는가</i>, 보안성은 정보가 <i>안전하게 지켜지는가</i>입니다.</p>
   </div>
 
@@ -93,6 +107,7 @@ details.terms td:nth-child(2){color:var(--muted);white-space:nowrap}
       <label class="opt"><input type="radio" name="q1" value="2">정보성</label>
       <label class="opt"><input type="radio" name="q1" value="3">편의성</label>
     </div>
+    <button type="button" class="show-ans">정답 · 해설 보기</button>
     <p class="explain">선호 · 이력에 맞춘 맞춤형 서비스 — <b>개인화(Personalization)</b>입니다.</p>
   </div>
 
@@ -104,6 +119,7 @@ details.terms td:nth-child(2){color:var(--muted);white-space:nowrap}
       <label class="opt"><input type="radio" name="q2" value="2">편의성</label>
       <label class="opt"><input type="radio" name="q2" value="3">신뢰성</label>
     </div>
+    <button type="button" class="show-ans">정답 · 해설 보기</button>
     <p class="explain">여러 기술이 서비스 과정에 <b>연결 · 통합</b>되는 정도 — <b>기술통합성(Technology Integration)</b>입니다. 키오스크 · 앱이 <i>있는 것</i> 자체는 스마트인프라.</p>
   </div>
 
@@ -115,6 +131,7 @@ details.terms td:nth-child(2){color:var(--muted);white-space:nowrap}
       <label class="opt"><input type="radio" name="q3" value="2">스마트인프라</label>
       <label class="opt"><input type="radio" name="q3" value="3">상호작용성</label>
     </div>
+    <button type="button" class="show-ans">정답 · 해설 보기</button>
     <p class="explain"><b>스마트인프라(Smart Infrastructure)</b> — 기반이 <i>구축</i>되었는가를 봅니다.</p>
   </div>
 
@@ -126,6 +143,7 @@ details.terms td:nth-child(2){color:var(--muted);white-space:nowrap}
       <label class="opt"><input type="radio" name="q4" value="2">개인화</label>
       <label class="opt"><input type="radio" name="q4" value="3">신뢰성</label>
     </div>
+    <button type="button" class="show-ans">정답 · 해설 보기</button>
     <p class="explain">필요한 정보를 정확하고 적시에 얻는 정도 — <b>정보성(Informativeness)</b>입니다.</p>
   </div>
 
@@ -137,6 +155,7 @@ details.terms td:nth-child(2){color:var(--muted);white-space:nowrap}
       <label class="opt"><input type="radio" name="q5" value="2">편의성</label>
       <label class="opt"><input type="radio" name="q5" value="3">상호작용성</label>
     </div>
+    <button type="button" class="show-ans">정답 · 해설 보기</button>
     <p class="explain">실시간 소통과 반응 · 피드백 — <b>상호작용성(Interactivity)</b>입니다. 정보성은 <i>정보의 질</i>, 상호작용성은 <i>주고받는 반응</i>.</p>
   </div>
 
@@ -148,6 +167,7 @@ details.terms td:nth-child(2){color:var(--muted);white-space:nowrap}
       <label class="opt"><input type="radio" name="q6" value="2">기술통합성</label>
       <label class="opt"><input type="radio" name="q6" value="3">정보성</label>
     </div>
+    <button type="button" class="show-ans">정답 · 해설 보기</button>
     <p class="explain">정보 · 예약 · 서비스 시스템을 믿을 수 있는 정도 — <b>신뢰성(Reliability)</b>입니다. 해킹 · 유출 걱정은 보안성 쪽.</p>
   </div>
 
@@ -159,6 +179,7 @@ details.terms td:nth-child(2){color:var(--muted);white-space:nowrap}
       <label class="opt"><input type="radio" name="q7" value="2">편의성</label>
       <label class="opt"><input type="radio" name="q7" value="3">개인화</label>
     </div>
+    <button type="button" class="show-ans">정답 · 해설 보기</button>
     <p class="explain">쉽고 빠르며 원활하게 이용하는 정도 — <b>편의성(Convenience)</b>입니다.</p>
   </div>
 
@@ -170,6 +191,7 @@ details.terms td:nth-child(2){color:var(--muted);white-space:nowrap}
       <label class="opt"><input type="radio" name="q8" value="2">Reliability — 보안성</label>
       <label class="opt"><input type="radio" name="q8" value="3">Personalization — 개인화</label>
     </div>
+    <button type="button" class="show-ans">정답 · 해설 보기</button>
     <p class="explain">Reliability는 <b>신뢰성</b>, 보안성은 <b>Security</b>입니다.</p>
   </div>
 
@@ -181,6 +203,7 @@ details.terms td:nth-child(2){color:var(--muted);white-space:nowrap}
       <label class="opt"><input type="radio" name="q9" value="2">기술통합성</label>
       <label class="opt"><input type="radio" name="q9" value="3">상호작용성</label>
     </div>
+    <button type="button" class="show-ans">정답 · 해설 보기</button>
     <p class="explain"><b>정보성</b> — 필요한 정보를 정확하고 적시에 얻는 정도.</p>
   </div>
 
@@ -192,6 +215,7 @@ details.terms td:nth-child(2){color:var(--muted);white-space:nowrap}
       <label class="opt"><input type="radio" name="q10" value="2">기술통합성 → 스마트인프라</label>
       <label class="opt"><input type="radio" name="q10" value="3">신뢰성 → 상호작용성</label>
     </div>
+    <button type="button" class="show-ans">정답 · 해설 보기</button>
     <p class="explain"><b>있는가</b>는 스마트인프라, <b>이어져 있는가</b>는 기술통합성. 두 요인을 가르는 기준입니다.</p>
   </div>
 
@@ -203,6 +227,7 @@ details.terms td:nth-child(2){color:var(--muted);white-space:nowrap}
       <label class="opt"><input type="radio" name="q11" value="2">정보성은 앱, 상호작용성은 키오스크에 관한 것이다</label>
       <label class="opt"><input type="radio" name="q11" value="3">정보성은 보안, 상호작용성은 결제에 관한 것이다</label>
     </div>
+    <button type="button" class="show-ans">정답 · 해설 보기</button>
     <p class="explain">정보성은 <b>받는 정보의 질</b>, 상호작용성은 <b>주고받는 소통</b>입니다.</p>
   </div>
 
@@ -214,6 +239,7 @@ details.terms td:nth-child(2){color:var(--muted);white-space:nowrap}
       <label class="opt"><input type="radio" name="q12" value="2">신뢰성 = 결제 속도, 보안성 = 앱 디자인</label>
       <label class="opt"><input type="radio" name="q12" value="3">신뢰성 = 정보 · 예약 · 서비스 시스템을 믿을 수 있는가, 보안성 = 개인정보 · 결제 · 여행정보가 안전하게 보호되는가</label>
     </div>
+    <button type="button" class="show-ans">정답 · 해설 보기</button>
     <p class="explain">신뢰성은 <b>제대로 작동하리라는 믿음</b>, 보안성은 <b>정보가 새지 않는 안전</b>입니다.</p>
   </div>
 
@@ -225,11 +251,13 @@ details.terms td:nth-child(2){color:var(--muted);white-space:nowrap}
       <label class="opt"><input type="radio" name="q13" value="2">스마트인프라 · 편의성</label>
       <label class="opt"><input type="radio" name="q13" value="3">정보성 · 보안성</label>
     </div>
+    <button type="button" class="show-ans">정답 · 해설 보기</button>
     <p class="explain">취향 맞춤은 <b>개인화</b>, 내 반응에 곧바로 응답하는 것은 <b>상호작용성</b>. 한 장면에 요인이 둘 이상 겹칠 수 있습니다.</p>
   </div>
 
   <div class="actions">
     <button id="gradeBtn">채점하기</button>
+    <button class="ghost" id="showAllBtn">정답 · 해설 모두 보기</button>
     <button class="ghost" id="resetBtn">다시 풀기</button>
   </div>
 
@@ -266,10 +294,29 @@ function grade(){
   result.scrollIntoView({behavior:'smooth', block:'nearest'});
 }
 
+
+const CIRC = ['①','②','③','④'];
+document.querySelectorAll('.card[data-q]').forEach(card => {
+  const ai = ANSWERS[Number(card.dataset.q)];
+  const txt = card.querySelectorAll('.opt')[ai].textContent.trim();
+  card.querySelector('.explain').insertAdjacentHTML('afterbegin', '<span class="ans">정답 ' + CIRC[ai] + '</span><b>' + txt + '</b><br>');
+});
+function reveal(card, on){
+  card.classList.toggle('revealed', on);
+  const ai = ANSWERS[Number(card.dataset.q)];
+  card.querySelectorAll('.opt').forEach((o,i) => { if (!card.classList.contains('graded')) o.classList.toggle('correct', on && i === ai); });
+  card.querySelector('.show-ans').textContent = on ? '정답 · 해설 접기' : '정답 · 해설 보기';
+}
+document.querySelectorAll('.show-ans').forEach(b => b.addEventListener('click', () => {
+  const card = b.closest('.card'); reveal(card, !card.classList.contains('revealed'));
+}));
+document.getElementById('showAllBtn').addEventListener('click', () => {
+  document.querySelectorAll('.card[data-q]').forEach(c => reveal(c, true));
+});
 document.getElementById('gradeBtn').addEventListener('click', grade);
 document.getElementById('resetBtn').addEventListener('click', () => {
   document.querySelectorAll('input[type=radio]').forEach(r => r.checked = false);
-  document.querySelectorAll('.card').forEach(c => c.classList.remove('graded'));
+  document.querySelectorAll('.card[data-q]').forEach(c => { c.classList.remove('graded'); reveal(c, false); c.querySelectorAll('.opt').forEach(o => o.classList.remove('correct','wrong')); });
   document.getElementById('result').classList.remove('show');
   window.scrollTo({top:0, behavior:'smooth'});
 });
