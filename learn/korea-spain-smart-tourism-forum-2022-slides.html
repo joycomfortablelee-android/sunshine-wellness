@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="description" content="2022 한-스페인 관광포럼(마드리드) 세 세션 아홉 발표를 좌우 넘김으로 — 과제 1 「AI·스마트관광도시 워크숍 설계」의 본보기. 출처: 국제관광동향 2022년 제5호(한국문화관광연구원).">
+<title>한-스페인 관광포럼 2022 | 좌우 넘김 — 과제 1 워크숍의 본보기</title>
+<style>
+  :root{
+    --navy:#112e44; --ink:#19384e; --muted:#687c8c; --line:#dce8ee;
+    --kr:#2268a8; --kr-pale:#eaf3fb; --es:#c2412f; --es-pale:#fdf0ec; --es-gold:#c8952e;
+    --gold-pale:#fff7e3; --yel:#ffe45c; --green:#1f8a62; --green-pale:#e9f7f0;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{background:linear-gradient(180deg,#eef6fa 0%,#f8fbfc 60%,#f1f6f9 100%);color:var(--ink);
+    font-family:"Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;word-break:keep-all;overflow:hidden}
+  a{color:inherit}
+  button{font:inherit;cursor:pointer}
+  button:disabled{opacity:.3;cursor:default}
+  button:focus-visible,a:focus-visible{outline:3px solid #43b6d0;outline-offset:2px}
+
+  .shell{height:100dvh;display:flex;flex-direction:column;max-width:1400px;margin:auto;padding:10px 24px 12px;gap:8px}
+  .top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex:none}
+  .brand{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:800;color:#24485e;min-width:0}
+  .brand b{background:var(--navy);color:#fff;font-size:11.5px;padding:6px 9px;border-radius:8px;letter-spacing:.04em;flex:none}
+  .brand span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .top-act{display:flex;gap:6px;flex:none}
+  .top-act a{border:1px solid #d3e3ea;background:#fff;border-radius:9px;font-size:12px;font-weight:750;padding:7px 10px;text-decoration:none;color:#31556a;white-space:nowrap}
+  .top-act a.y{background:var(--yel);border-color:#e3c62a;color:#3d3300}
+  .tabs{display:flex;gap:5px;overflow-x:auto;flex:none;padding:2px 1px 6px;scrollbar-width:thin}
+  .tab{flex:none;border:1px solid transparent;background:transparent;color:#6f8797;font-size:12px;font-weight:750;padding:5px 11px;border-radius:999px;white-space:nowrap}
+  .tab:hover{background:#e3f0f5}
+  .tab.on{background:var(--navy);color:#fff}
+
+  .frame{position:relative;flex:1;min-height:0;border:1px solid #d3e3ea;border-radius:18px;background:#fff;overflow:hidden;box-shadow:0 20px 60px rgba(18,56,82,.08)}
+  .track{height:100%;display:flex;transition:transform .38s cubic-bezier(.22,.75,.18,1)}
+  .slide{flex:0 0 100%;min-width:0;height:100%;padding:24px 40px 18px;display:flex;flex-direction:column;gap:14px;overflow:hidden}
+  .s-head{flex:none;border-bottom:1px solid #e7eef1;padding-bottom:12px}
+  .kick{font-size:11px;font-weight:850;letter-spacing:.16em;color:#2a7f99}
+  .kick i{font-style:normal;color:#8ca0ae;letter-spacing:.06em}
+  .slide h2{margin:6px 0 6px;font-size:clamp(22px,2.6vw,34px);line-height:1.25;letter-spacing:-.045em;color:#0f2c42}
+  .lead{margin:0;font-size:clamp(13px,1.1vw,15.5px);line-height:1.65;color:#5b7183;max-width:1080px}
+  .s-body{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:thin;display:flex;flex-direction:column;gap:14px;padding:2px 2px 6px}
+  .take{flex:none;display:flex;gap:10px;align-items:flex-start;background:var(--gold-pale);border:1px dashed #e0b84a;border-radius:12px;padding:10px 14px;font-size:13.5px;line-height:1.6;color:#4a3d10}
+  .take b.tg{flex:none;background:var(--yel);color:#3d3300;border-radius:999px;padding:2px 10px;font-size:12px;font-weight:850;white-space:nowrap}
+  .src{flex:none;font-size:11px;color:#8a9aa7;display:flex;justify-content:space-between;gap:10px}
+
+  .flag{display:inline-block;font-size:11px;font-weight:850;border-radius:999px;padding:2px 9px;vertical-align:2px;margin-right:6px;letter-spacing:.02em}
+  .flag.kr{background:var(--kr);color:#fff}
+  .flag.es{background:var(--es);color:#fff}
+  .who{font-size:12.5px;color:#7a8d9b;margin:2px 0 0}
+
+  /* 표지 */
+  .cover{justify-content:center;background:radial-gradient(1200px 500px at 85% 10%,#fdf0ec 0,transparent 60%),radial-gradient(900px 500px at 0% 100%,#eaf3fb 0,transparent 60%),#fff}
+  .cover .eyebrow{font-size:13px;font-weight:850;color:var(--es);letter-spacing:.12em}
+  .cover h1{margin:10px 0 12px;font-size:clamp(30px,4.4vw,58px);line-height:1.15;letter-spacing:-.05em;color:#0f2c42}
+  .cover h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--yel) 62%)}
+  .cover p.q{font-size:clamp(15px,1.5vw,20px);line-height:1.6;color:#3f5a6d;margin:0 0 20px;max-width:900px}
+  .meta-row{display:flex;flex-wrap:wrap;gap:8px}
+  .meta-row span{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 12px;font-size:13px;font-weight:700;color:#3c5a6e}
+  .hint{margin-top:22px;font-size:13px;color:#8396a4}
+
+  /* 구조 표 */
+  .grid3{display:grid;grid-template-columns:150px minmax(0,1fr) minmax(0,1fr);gap:8px;align-items:stretch}
+  .grid3 .h{font-size:12.5px;font-weight:850;color:#fff;border-radius:10px;padding:8px 12px;display:flex;align-items:center}
+  .grid3 .h.kr{background:var(--kr)} .grid3 .h.es{background:var(--es)} .grid3 .h.n{background:var(--navy)}
+  .grid3 .sess{background:#f3f7fa;border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:13px;font-weight:800;color:#183a52;line-height:1.4}
+  .grid3 .sess small{display:block;font-weight:650;color:#7a8d9b;margin-top:3px;font-size:11.5px}
+  .grid3 .c{border-radius:12px;padding:10px 12px;font-size:13.5px;line-height:1.5}
+  .grid3 .c.kr{background:var(--kr-pale);border:1px solid #cfe2f3}
+  .grid3 .c.es{background:var(--es-pale);border:1px solid #f3d6cf}
+  .grid3 .c b{display:block;color:#0f2c42}
+  .grid3 .c span{color:#6a7f8f;font-size:12px}
+  .arrow-note{font-size:14px;line-height:1.65;color:#36536a;background:#f6fafc;border-left:4px solid var(--navy);padding:10px 14px;border-radius:0 10px 10px 0}
+
+  /* 발표 카드 */
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .trio{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .card{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:#fbfdfe;display:flex;flex-direction:column;gap:8px}
+  .card.kr{border-top:5px solid var(--kr)} .card.es{border-top:5px solid var(--es)}
+  .card h3{margin:0;font-size:16.5px;line-height:1.4;color:#0f2c42;letter-spacing:-.02em}
+  .card ul{margin:0;padding-left:18px;font-size:13.5px;line-height:1.62;color:#2f4a5e}
+  .card li{margin:2px 0}
+  .card li b{color:#0f2c42}
+  .card .note{font-size:12px;color:#7a6720;background:#fff8df;border-radius:8px;padding:6px 9px;line-height:1.5}
+
+  .big-num{display:flex;gap:12px;flex-wrap:wrap}
+  .big-num div{flex:1;min-width:130px;background:var(--es-pale);border:1px solid #f3d6cf;border-radius:14px;padding:12px 14px}
+  .big-num b{display:block;font-size:30px;color:var(--es);letter-spacing:-.03em;line-height:1.1}
+  .big-num span{font-size:12.5px;color:#6b5a55}
+  .pill5{display:flex;flex-wrap:wrap;gap:6px}
+  .pill5 span{background:#fff;border:1.5px solid var(--es);color:var(--es);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:800}
+
+  /* 비교 표 */
+  table.cmp{width:100%;border-collapse:separate;border-spacing:0;font-size:13.5px;line-height:1.5}
+  table.cmp th,table.cmp td{border-bottom:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:top}
+  table.cmp thead th{font-size:12.5px;color:#fff;font-weight:850}
+  table.cmp thead th:first-child{background:#4b6274;border-radius:10px 0 0 0}
+  table.cmp thead th.kr{background:var(--kr)} table.cmp thead th.es{background:var(--es)}
+  table.cmp thead th:last-child{border-radius:0 10px 0 0}
+  table.cmp tbody th{color:#183a52;font-weight:850;background:#f5f8fa;white-space:nowrap}
+  table.cmp td.gap{color:#a07a12;font-weight:700}
+
+  /* 빈틈 */
+  .gaps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .gap-c{border-radius:14px;padding:14px 16px;background:#fff;border:1.5px solid #e9d27a}
+  .gap-c .n{font-size:12px;font-weight:850;color:#a07a12;letter-spacing:.08em}
+  .gap-c h3{margin:4px 0 6px;font-size:17px;color:#0f2c42}
+  .gap-c p{margin:0;font-size:13.5px;line-height:1.62;color:#3b566a}
+
+  /* 설계표 */
+  table.plan{width:100%;border-collapse:collapse;font-size:13px;line-height:1.5}
+  table.plan th,table.plan td{border:1px solid #d8e4ea;padding:8px 9px;text-align:left;vertical-align:top}
+  table.plan thead th{background:var(--navy);color:#fff;font-size:12px}
+  table.plan td.ex{color:#5d7486;background:#fbfdfe}
+  table.plan td.blank{background:repeating-linear-gradient(135deg,#fffbea 0 8px,#fff 8px 16px);color:#b39a3a;font-weight:700}
+  .cta{display:flex;flex-wrap:wrap;gap:10px}
+  .cta a{text-decoration:none;font-weight:850;font-size:14px;border-radius:999px;padding:10px 18px;border:2px solid var(--navy);color:var(--navy);background:#fff}
+  .cta a.y{background:var(--yel);border-color:#d8b920;color:#3d3300}
+
+  /* 하단 조작 */
+  .ctrl{flex:none;display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .ctrl button{border:1px solid #cfdfe7;background:#fff;border-radius:10px;padding:8px 16px;font-weight:800;color:var(--navy)}
+  .ctrl button:hover:not(:disabled){border-color:var(--navy)}
+  .dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+  .dots button{width:9px;height:9px;padding:0;border-radius:50%;border:0;background:#c9d8e0}
+  .dots button.on{background:var(--navy);width:24px;border-radius:6px}
+  .count{font-size:12.5px;font-weight:800;color:#5a7182;min-width:54px;text-align:center}
+
+  @media (max-width:860px){
+    body{overflow:auto}
+    .shell{padding:8px 12px 10px}
+    .brand span{display:none}
+    .top-act a:not(.y){display:none}
+    .slide{padding:18px 16px 12px}
+    .duo,.trio,.gaps{grid-template-columns:1fr}
+    .grid3{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+    .frame,.shell{min-width:0;max-width:100vw}
+    .top-act a.y{font-size:11px;padding:6px 8px}
+    table.cmp td,table.cmp th,table.plan td,table.plan th{overflow-wrap:anywhere;padding:6px 5px}
+    .grid3 .sess{grid-column:1/-1}
+    .grid3 .h.n{display:none}
+    table.cmp,table.plan{font-size:12px}
+    table.cmp tbody th{white-space:normal}
+    .slide{overflow:auto}
+    .s-body{flex:none;overflow:visible}
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+  <div class="top">
+    <div class="brand"><b>과제 1 본보기</b><span>2022 한-스페인 관광포럼 · 스마트 관광도시 경험과 미래</span></div>
+    <div class="top-act">
+      <a href="assets/international-tourism-trends-2022-05.pdf#page=11" target="_blank" rel="noopener">원문 PDF 10–12쪽 ↗</a>
+      <a class="y" href="ai-smart-city-workshop-assignment.html" target="_blank" rel="noopener">✦ 과제 1 안내 ↗</a>
+    </div>
+  </div>
+  <nav class="tabs" id="tabs" aria-label="슬라이드 목록"></nav>
+
+  <div class="frame" id="frame">
+    <div class="track" id="track">
+
+      <!-- 1 표지 -->
+      <section class="slide cover" data-tab="표지">
+        <div class="eyebrow">2022. 7. 11 · 스페인 마드리드</div>
+        <h1>여러분이 짤 워크숍은<br><em>이미 한 번 열렸습니다</em></h1>
+        <p class="q">「2022 한-스페인 관광포럼」은 <b>세 세션</b>마다 <b>한국 한 곳 + 스페인 한 곳</b>이 같은 질문에 답했습니다.
+          과제 1이 요구하는 <b>「1 · 2 · 3부, 부마다 국내 + 해외」</b>와 같은 틀입니다. 이 포럼을 뜯어 보고, 무엇을 베끼고 무엇을 더 잘할지 정합니다.</p>
+        <div class="meta-row">
+          <span>주제 「스마트 관광도시 경험과 미래」</span>
+          <span>주최 문화체육관광부 · 스페인 산업통상관광부</span>
+          <span>주관 한국문화관광연구원</span>
+          <span>3세션 · 발표 9편(1편 불참)</span>
+        </div>
+        <p class="hint">← → 방향키 · 화면 밀기 · 아래 단추로 넘깁니다</p>
+      </section>
+
+      <!-- 2 구조 -->
+      <section class="slide" data-tab="한 장 구조">
+        <div class="s-head">
+          <div class="kick">STRUCTURE <i>· 포럼 전체를 한 장으로</i></div>
+          <h2>세 세션 × 한국 · 스페인 짝</h2>
+          <p class="lead">정책 → 도시 → 기업. 위로 갈수록 넓고, 아래로 갈수록 현장입니다. 세션마다 두 나라가 <b>같은 질문</b>에 답하게 짰다는 것이 이 포럼의 뼈대입니다.</p>
+        </div>
+        <div class="s-body">
+          <div class="grid3">
+            <div class="h n">세션 · 질문</div><div class="h kr">한국</div><div class="h es">스페인</div>
+            <div class="sess">1세션 · 스마트 관광의 미래<small>나라는 무엇을 하려 하나 — 정책</small></div>
+            <div class="c kr"><b>한국문화관광연구원</b>스마트 관광도시, 미래를 위한 관광 R&amp;D 전략<br><span>안희자 연구위원</span></div>
+            <div class="c es"><b>SEGITTUR</b>스마트 관광목적지 모델과 프로그램<br><span>Carlos Romero Dexeus 국장</span></div>
+            <div class="sess">2세션 · 스마트 관광도시 경험<small>도시는 실제로 무엇을 했나 — 현장</small></div>
+            <div class="c kr"><b>인천</b>스마트 관광도시의 미래, 인천 스마트관광도시<br><span>김민혜 인천관광공사 실장</span></div>
+            <div class="c es"><b>발렌시아 · 베니도름</b>유럽 스마트관광 수도의 경험 / 목적지의 지능적 적용<br><span>Visit València · Visit Benidorm</span></div>
+            <div class="sess">3세션 · 스마트 관광산업 성장<small>기업은 무엇으로 돈을 버나 — 산업</small></div>
+            <div class="c kr"><b>비지트(Visit, inc.) · H2O</b>360VR 라운드픽 / 호스피탈리티 2.0<br><span>H2O는 코로나19로 불참</span></div>
+            <div class="c es"><b>Smartvel · Minube</b>AI 기반 목적지 콘텐츠 / 여행 커뮤니티 플랫폼<br><span>대표 · 공동대표 발표</span></div>
+          </div>
+          <p class="arrow-note">과제 1의 <b>1부 학술형 · 2부 산학협력 · 3부 국제협력 또는 창업</b>을 여기에 겹쳐 보십시오. 1세션은 <b>연구 · 교과</b>, 2세션은 <b>지자체와 함께</b>, 3세션은 <b>기업 · 창업</b> — 세 축이 거의 그대로 겹칩니다.</p>
+        </div>
+        <div class="take"><b class="tg">과제로</b><span>여러분의 설계표 첫 줄도 이렇게 시작합니다 — <b>부마다 질문 하나, 국내 하나, 해외 하나.</b> 질문이 같아야 짝이 비교가 됩니다.</span></div>
+        <div class="src"><span>출처: 한국문화관광연구원, 국제관광동향 2022년 제5호, 10–12쪽 &lt;표 10~12&gt;</span></div>
+      </section>
+
+      <!-- 3 1세션 한국 -->
+      <section class="slide" data-tab="1세션 · 한국 R&amp;D">
+        <div class="s-head">
+          <div class="kick">SESSION 1 <i>· 발표 1</i></div>
+          <h2><span class="flag kr">한국</span>스마트 관광도시, 미래를 위한 관광 R&amp;D 전략</h2>
+          <p class="who">안희자 (한국문화관광연구원 연구위원)</p>
+        </div>
+        <div class="s-body">
+          <div class="duo">
+            <div class="card kr">
+              <h3>무엇이 바뀌었나</h3>
+              <ul>
+                <li><b>포스트 팬데믹</b> — 관광산업의 디지털 전환, 관광 일자리의 기술기반 전환</li>
+                <li>스마트 관광 개념의 확대 — <b>「ICT로 관광기반 조성」에서 「스마트 관광경험」으로</b></li>
+                <li>스마트 관광생태계를 만들어 <b>지역관광 활성화</b></li>
+              </ul>
+            </div>
+            <div class="card kr">
+              <h3>그래서 무엇을 하나 — R&amp;D 전략</h3>
+              <ul>
+                <li>혁신적 관광서비스 <b>개발 및 사업화</b> 지원</li>
+                <li>지속가능한 관광산업 생태계 구축</li>
+                <li>관광산업의 디지털 전환 지원</li>
+                <li>향후 의제 — 지속가능발전 · 관광문제 해결, 수요 변화 대응 서비스 혁신, <b>기술 트렌드 반영 · 기술융합 확대</b></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="take"><b class="tg">과제로</b><span>1부(학술형)는 이런 발표 자리입니다 — 연구기관이 <b>「무엇이 바뀌었고, 그래서 무엇을 연구 · 교육해야 하나」</b>를 말합니다. 여러분 1부의 국내 연사는 누구로 하겠습니까?</span></div>
+        <div class="src"><span>국제관광동향 2022년 제5호 10쪽 &lt;표 10&gt;</span></div>
+      </section>
+
+      <!-- 4 1세션 스페인 -->
+      <section class="slide" data-tab="1세션 · SEGITTUR">
+        <div class="s-head">
+          <div class="kick">SESSION 1 <i>· 발표 2</i></div>
+          <h2><span class="flag es">스페인</span>스마트 관광목적지 모델과 프로그램</h2>
+          <p class="who">Carlos Romero Dexeus (SEGITTUR 국장) · SEGITTUR는 스페인 관광의 혁신 · 디지털화를 맡은 산업통상관광부 산하 공공기관</p>
+        </div>
+        <div class="s-body">
+          <div class="pill5"><span>거버넌스</span><span>기술</span><span>지속가능성</span><span>혁신</span><span>접근성</span></div>
+          <div class="big-num">
+            <div><b>5</b><span>대 요소 — 「책임 있고 지속적인 관광」을 위한 전략적 관리 모델</span></div>
+            <div><b>97</b><span>개 필수 요건</span></div>
+            <div><b>261</b><span>개 지표로 도시를 진단 → 실행계획</span></div>
+          </div>
+          <div class="duo">
+            <div class="card es">
+              <h3>다섯 요소를 어떻게 재나</h3>
+              <ul>
+                <li><b>거버넌스</b> — 참여형 의사결정 모델</li>
+                <li><b>혁신성</b> — 혁신적 경영과 혁신 활동</li>
+                <li><b>기술성</b> — 관광을 스마트하게 관리하는 기술</li>
+                <li><b>지속가능성</b> — 문화유산 · 환경보전 · 사회경제적 발전</li>
+                <li><b>접근성</b> — 모두를 위한 관광</li>
+              </ul>
+            </div>
+            <div class="card es">
+              <h3>혼자 하지 않는다 — Red DTI</h3>
+              <ul>
+                <li>스마트 관광도시 <b>네트워크</b>를 운영해 모델의 경쟁력을 키움</li>
+                <li>공공행정 · 협력 · 연구 · 홍보 · 편의 제공 · 진흥(규범화 · 표준화) · 교육</li>
+              </ul>
+              <p class="note">파트 01-B의 한국 「5대 요소」와 나란히 놓아 보십시오 — 같은 「다섯」이지만 무엇을 넣었는지가 다릅니다.</p>
+            </div>
+          </div>
+        </div>
+        <div class="take"><b class="tg">과제로</b><span>스페인은 <b>숫자(97 · 261)</b>로 말했습니다. 공고가 「~할 수 있다」를 불가능으로 보는 것과 같은 이유입니다 — 여러분 성과지표도 <b>몇 명 · 몇 건 · 몇 개</b>로.</span></div>
+        <div class="src"><span>국제관광동향 2022년 제5호 10쪽 &lt;표 10&gt;</span></div>
+      </section>
+
+      <!-- 5 인천 -->
+      <section class="slide" data-tab="2세션 · 인천">
+        <div class="s-head">
+          <div class="kick">SESSION 2 <i>· 발표 3</i></div>
+          <h2><span class="flag kr">한국</span>스마트 관광도시의 미래, 인천 스마트관광도시</h2>
+          <p class="who">김민혜 (인천관광공사 실장) · 인천은 한국 스마트관광도시 <b>첫 시범도시</b>, 2020년부터 추진</p>
+        </div>
+        <div class="s-body">
+          <div class="trio">
+            <div class="card kr">
+              <h3>배경 — 디지털 전환</h3>
+              <ul>
+                <li>온라인 관광마케팅</li>
+                <li>가상현실 투어</li>
+                <li>데이터기반 마케팅</li>
+                <li>비대면 서비스로 확대</li>
+              </ul>
+            </div>
+            <div class="card kr">
+              <h3>인천이 한 일</h3>
+              <ul>
+                <li><b>스마트 개항장</b>으로 전환</li>
+                <li>AR / VR 스마트 경험</li>
+                <li>관광객 앱 — My Pass, 모바일 결제, 교통 예약</li>
+                <li>지역상권 스마트 인프라 · 관광객 편의</li>
+                <li>디지털 전환 <b>청년 협의회</b></li>
+                <li>실시간 데이터 수집 · 모니터링</li>
+              </ul>
+            </div>
+            <div class="card kr">
+              <h3>나라의 다음 계획</h3>
+              <ul>
+                <li><b>2025년까지 25개 도시</b> 선정</li>
+              </ul>
+              <p class="note">파트 01의 열두 도시가 이 계획의 결과입니다. 인천이 맨 앞, 경북의 도시들은 그 뒤에 들어왔습니다.</p>
+            </div>
+          </div>
+        </div>
+        <div class="take"><b class="tg">과제로</b><span>국내 연사로 <b>「첫 시범도시」</b>를 부른 이유 — 가장 오래 해 봤기 때문입니다. 여러분의 2부 국내 자리에 <b>경북 시군 하나</b>를 넣을 때도 「왜 이 도시가 말할 자격이 있나」를 한 줄로 적으십시오.</span></div>
+        <div class="src"><span>국제관광동향 2022년 제5호 11쪽 &lt;표 11&gt;</span></div>
+      </section>
+
+      <!-- 6 발렌시아 -->
+      <section class="slide" data-tab="2세션 · 발렌시아">
+        <div class="s-head">
+          <div class="kick">SESSION 2 <i>· 발표 4</i></div>
+          <h2><span class="flag es">스페인</span>스마트 관광목적지 미래와 경험: 발렌시아</h2>
+          <p class="who">Joan Carles (Visit València 부소장) · 2022 <b>유럽 스마트관광 수도</b> 선정</p>
+        </div>
+        <div class="s-body">
+          <div class="duo">
+            <div class="card es">
+              <h3>지속가능성 · 재생관광</h3>
+              <ul><li>지속가능한 디지털 에티켓, <b>탄소중립</b></li><li>스마트하고 지속가능한 <b>모빌리티</b></li></ul>
+            </div>
+            <div class="card es">
+              <h3>접근성 · 포용성</h3>
+              <ul><li>열린 도시, 포용성 있는 도시</li></ul>
+            </div>
+            <div class="card es">
+              <h3>관광경험을 위한 디지털화</h3>
+              <ul>
+                <li><b>SIT</b> — 관광정보 시스템</li>
+                <li><b>SISVENTUR</b> — 관광업계를 위한 디지털 플랫폼</li>
+                <li>방문경험을 위한 <b>유동성(혼잡) 관리</b></li>
+              </ul>
+            </div>
+            <div class="card es">
+              <h3>창의성 · 문화유산 · 거버넌스</h3>
+              <ul>
+                <li>지중해적 가치와 문화유산 활용</li>
+                <li>세계 디자인 수도 2022</li>
+                <li>협력 거버넌스 구축 · 운영</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="take"><b class="tg">과제로</b><span>발렌시아는 기술을 먼저 말하지 않았습니다 — <b>지속가능성 · 접근성이 앞, 디지털이 셋째</b>. 심사에서 「도민 체감」을 묻는 경북 공모와 같은 순서입니다.</span></div>
+        <div class="src"><span>국제관광동향 2022년 제5호 11쪽 &lt;표 11&gt;</span></div>
+      </section>
+
+      <!-- 7 베니도름 -->
+      <section class="slide" data-tab="2세션 · 베니도름">
+        <div class="s-head">
+          <div class="kick">SESSION 2 <i>· 발표 5</i></div>
+          <h2><span class="flag es">스페인</span>관광목적지의 지능적 적용: 베니도름</h2>
+          <p class="who">Leire Bilbao Laredo (Visit Benidorm 관광홍보팀장) · 스페인 스마트관광도시 인증 <b>UNE 17850</b>을 처음 받은 도시</p>
+        </div>
+        <div class="s-body">
+          <div class="duo">
+            <div class="card es">
+              <h3>모델을 그대로 가져와 인증까지</h3>
+              <ul>
+                <li><b>SEGITTUR 모델</b>(1세션의 5대 요소) 도입 → 인증 최초 획득</li>
+                <li><b>거버넌스</b> — 스마트 관광도시 관리 주체 설립, 관리 시스템</li>
+                <li>스마트 오피스 · 보안 거버넌스</li>
+                <li>지속가능한 도시 모빌리티 플랜 — <b>자전거 · 보행로 중심</b></li>
+              </ul>
+            </div>
+            <div class="card es">
+              <h3>지표로 관리한다</h3>
+              <ul>
+                <li><b>접근성 지표</b> — 접근성 인증 해변, 무장애 관광안내소, 접근 가능한 관광지도, <b>Navilens QR코드</b></li>
+                <li><b>지속가능성 지표</b> — 녹색지대, 공기질, 물 관리, 쓰레기 · 재활용, LED</li>
+              </ul>
+              <p class="note">1세션에서 정부 기관이 말한 모델을, 2세션에서 한 도시가 「이렇게 적용했다」로 받았습니다. 세션이 서로 이어지게 짠 것입니다.</p>
+            </div>
+          </div>
+        </div>
+        <div class="take"><b class="tg">과제로</b><span>좋은 워크숍은 <b>앞 부의 이론을 뒤 부의 현장이 받습니다.</b> 여러분 1부 연사가 말한 틀을 2부 도시가 실제로 쓴 사례로 고르면, 설계표의 「왜 이 짝인가」가 저절로 채워집니다.</span></div>
+        <div class="src"><span>국제관광동향 2022년 제5호 11쪽 &lt;표 11&gt;</span></div>
+      </section>
+
+      <!-- 8 짝 비교 -->
+      <section class="slide" data-tab="세 도시 나란히">
+        <div class="s-head">
+          <div class="kick">COMPARE <i>· 2세션을 한 표로</i></div>
+          <h2>같은 질문, 세 도시의 대답</h2>
+          <p class="lead">「스마트 관광도시로 무엇을 했나」를 같은 칸에 놓으면, 무엇이 겹치고 어디가 비는지 보입니다. 빈칸(—)이 바로 <b>질문거리</b>입니다.</p>
+        </div>
+        <div class="s-body">
+          <table class="cmp">
+            <thead><tr><th>칸</th><th class="kr">인천</th><th class="es">발렌시아</th><th class="es">베니도름</th></tr></thead>
+            <tbody>
+              <tr><th>기술 · 서비스</th><td>AR/VR, 관광객 앱(My Pass · 결제 · 교통 예약)</td><td>SIT 관광정보 시스템, SISVENTUR 업계 플랫폼</td><td>스마트 오피스, Navilens QR</td></tr>
+              <tr><th>데이터</th><td>실시간 수집 · 모니터링</td><td>유동성(혼잡) 관리</td><td>접근성 · 지속가능성 지표 관리</td></tr>
+              <tr><th>지속가능성</th><td class="gap">— (표에 없음)</td><td>탄소중립, 재생관광</td><td>녹색지대 · 공기질 · 물 · 쓰레기 · LED</td></tr>
+              <tr><th>접근성</th><td class="gap">— (표에 없음)</td><td>열린 · 포용 도시</td><td>인증 해변, 무장애 안내소, 접근 가능 지도</td></tr>
+              <tr><th>모빌리티</th><td>교통 예약(앱)</td><td>스마트 · 지속가능 모빌리티</td><td>자전거 · 보행 중심 플랜</td></tr>
+              <tr><th>사람 · 거버넌스</th><td>청년 협의회, 지역상권</td><td>협력 거버넌스</td><td>관리 주체 설립, 보안 거버넌스</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="take"><b class="tg">과제로</b><span>이 표가 곧 여러분 설계표의 축소판입니다. 국내 · 해외를 고를 때 <b>칸이 서로 비어 있는 짝</b>을 고르면 토론이 생깁니다 — 「인천은 왜 접근성을 말하지 않았나?」 같은 질문이 3시간짜리 워크숍을 살립니다.</span></div>
+        <div class="src"><span>&lt;표 11&gt;에 적힌 발표 요지만으로 채움 — 실제 사업에 없다는 뜻이 아니라 발표 요지에 없다는 뜻</span></div>
+      </section>
+
+      <!-- 9 3세션 스페인 기업 -->
+      <section class="slide" data-tab="3세션 · 스페인 기업">
+        <div class="s-head">
+          <div class="kick">SESSION 3 <i>· 발표 6 · 7</i></div>
+          <h2><span class="flag es">스페인</span>트래블테크는 무엇으로 돈을 버나</h2>
+        </div>
+        <div class="s-body">
+          <div class="duo">
+            <div class="card es">
+              <h3>Smartvel — 관광목적지 콘텐츠 솔루션으로 관광객 유치</h3>
+              <p class="who">Iñigo Valenzuela Cossio (대표)</p>
+              <ul>
+                <li>여행업계 기업 · 종사자에게 <b>AI 기반 마케팅 콘텐츠</b> 제공</li>
+                <li>고객 수요에 맞춘 차별화된 콘텐츠로 <b>고객 여정의 필요</b>를 해결</li>
+                <li>여행 결정(출입국 정보) · 콘텐츠 · 트립 플래너 · 여행가이드 · 메신저 솔루션</li>
+              </ul>
+            </div>
+            <div class="card es">
+              <h3>Minube — 스마트 목적지의 미래: 新 여행자 비전</h3>
+              <p class="who">Gonzalo Moreno (공동대표)</p>
+              <ul>
+                <li>스페인 최대 <b>여행 커뮤니티 플랫폼</b> — 다음 목적지를 「발견」하게 함</li>
+                <li>10대 테마: 모빌리티(연결) · 사회적 나눔(공유) · 체험 콘텐츠 · 바이럴리티+UGC · 실시간 · 멀티 디바이스 · 데이터 · 관광업계의 역할 · 빈도 확장 · 고객 지식 확장</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="take"><b class="tg">과제로</b><span>3부는 <b>창업 · 기업</b> 자리입니다. 「AI 기반 플랫폼」이라고만 쓰지 말고, Smartvel처럼 <b>누구에게(업계 종사자) 무엇을(맞춤 콘텐츠) 파는지</b>를 한 줄로.</span></div>
+        <div class="src"><span>국제관광동향 2022년 제5호 12쪽 &lt;표 12&gt;</span></div>
+      </section>
+
+      <!-- 10 3세션 한국 기업 -->
+      <section class="slide" data-tab="3세션 · 한국 기업">
+        <div class="s-head">
+          <div class="kick">SESSION 3 <i>· 발표 8 · 9</i></div>
+          <h2><span class="flag kr">한국</span>벤처는 무엇을 들고 마드리드에 갔나</h2>
+        </div>
+        <div class="s-body">
+          <div class="duo">
+            <div class="card kr">
+              <h3>비지트(Visit, inc.) — 스마트 관광상품: 문화와 기술의 연결</h3>
+              <p class="who">조용원 (대표)</p>
+              <ul>
+                <li>스마트폰 기반 <b>360VR</b>을 실시간 촬영 · 공유하고 정보를 구입하는 <b>라운드픽</b> 모바일 서비스</li>
+                <li>공간체험부터 쇼핑 · 예약까지 종합 서비스</li>
+              </ul>
+            </div>
+            <div class="card kr">
+              <h3>H2O — 새로운 호스피탈리티 분야 개척</h3>
+              <p class="who">이웅희 (대표) · <b>코로나19로 불참</b>(발표 예정 내용)</p>
+              <ul>
+                <li>디지털 전환으로 <b>Hospitality 2.0</b> 운영 관리</li>
+                <li>운영관리 · 인력관리 자동화</li>
+                <li>주중 매출 증가, 운영비용 절감</li>
+              </ul>
+              <p class="note">국제 행사는 연사 한 명이 빠지면 그 부가 기웁니다. 여러분 설계에도 <b>대체 연사 · 영상 발표</b> 한 줄을 넣어 두십시오.</p>
+            </div>
+          </div>
+        </div>
+        <div class="take"><b class="tg">과제로</b><span>스페인 쪽이 <b>콘텐츠 · 커뮤니티</b>를, 한국 쪽이 <b>VR · 운영 자동화</b>를 들고 왔습니다. 짝이 꼭 같은 업종일 필요는 없지만, <b>같은 질문(「기업은 무엇으로 성장하나」)</b>에는 답해야 합니다.</span></div>
+        <div class="src"><span>국제관광동향 2022년 제5호 12쪽 &lt;표 12&gt; · 본문 번호(발표 8 비지트)와 표 번호(발표 8 H2O · 9 비지트)가 다름</span></div>
+      </section>
+
+      <!-- 11 빈틈 -->
+      <section class="slide" data-tab="이 포럼의 빈틈">
+        <div class="s-head">
+          <div class="kick">YOUR TURN <i>· 베끼되 더 잘하기</i></div>
+          <h2>이 포럼에 없던 세 가지 — 여러분이 채울 자리</h2>
+          <p class="lead">잘 짠 포럼이지만, 과제 1의 기준으로 보면 비어 있는 곳이 있습니다. 그 빈칸이 여러분 설계의 차별점입니다.</p>
+        </div>
+        <div class="s-body">
+          <div class="gaps">
+            <div class="gap-c">
+              <div class="n">빈틈 1</div>
+              <h3>경북이 없다</h3>
+              <p>한국 도시는 인천 하나였습니다. 과제 1은 <b>국내에 경북 시군을 하나 이상</b> 넣으라고 합니다. 발렌시아(문화유산 · 탄소중립) 맞은편에 <b>경주</b>나 <b>안동</b>을, 베니도름(해변 · 접근성) 맞은편에 <b>포항 · 영덕</b>을 세워 보십시오.</p>
+            </div>
+            <div class="gap-c">
+              <div class="n">빈틈 2</div>
+              <h3>성과가 숫자로 없다</h3>
+              <p>보고서에는 발표 요지만 남고 <b>「그래서 몇 명이 무엇을 얻었나」</b>가 없습니다. 여러분은 성과지표 셋 이상 — 교육생 · 산학협력 · 국제협력 · 취·창업교육 · 인턴십 — 을 <b>숫자로</b> 적습니다.</p>
+            </div>
+            <div class="gap-c">
+              <div class="n">빈틈 3</div>
+              <h3>학생 · 대학이 없다</h3>
+              <p>연사는 연구원 · 공사 · 기업뿐입니다. 이 사업은 <b>대학원 과정</b>을 여는 사업이니, 부마다 <b>학생이 무엇을 하는지</b>(팀 과제 발표 · 기업 멘토링 · 인턴 연결)가 보여야 합니다.</p>
+            </div>
+          </div>
+        </div>
+        <div class="take"><b class="tg">과제로</b><span>포스터 한 장에 이 포럼을 「본보기」로 적고, <b>「우리 워크숍은 여기에 ○○을 더했다」</b>를 한 줄 넣으면 발표 첫 30초가 해결됩니다.</span></div>
+        <div class="src"><span>과제 1 조건: <a href="ai-smart-city-workshop-assignment.html" target="_blank" rel="noopener">과제 안내 페이지</a> · 스마트 투어리즘 파트 11</span></div>
+      </section>
+
+      <!-- 12 설계표 -->
+      <section class="slide" data-tab="내 설계표로">
+        <div class="s-head">
+          <div class="kick">DESIGN <i>· 포럼을 내 설계표로 옮기기</i></div>
+          <h2>한 줄은 포럼에서 빌리고, 두 줄은 내가 씁니다</h2>
+          <p class="lead">첫 줄은 이 포럼 2세션을 설계표 형식으로 옮긴 예시입니다. 빗금 칸이 여러분 몫입니다.</p>
+        </div>
+        <div class="s-body">
+          <table class="plan">
+            <thead><tr><th>부</th><th>같은 질문</th><th>국내(경북 하나 이상)</th><th>해외</th><th>왜 이 짝인가</th><th>성과지표(숫자)</th></tr></thead>
+            <tbody>
+              <tr><td class="ex"><b>예시</b><br>2부 산학협력</td><td class="ex">스마트 관광도시는 실제로 무엇을 했나</td><td class="ex">인천(첫 시범도시)</td><td class="ex">발렌시아(2022 유럽 스마트관광 수도)</td><td class="ex">「시범」과 「수도」 — 처음 해 본 도시와 가장 잘한 도시</td><td class="ex">포럼에는 없음 → 이것이 빈틈 2</td></tr>
+              <tr><td><b>1부</b><br>학술형</td><td class="blank">?</td><td class="blank">?</td><td class="blank">?</td><td class="blank">?</td><td class="blank">교육생 ○명</td></tr>
+              <tr><td><b>2부</b><br>산학협력</td><td class="blank">?</td><td class="blank">경북 ○○시 · 군</td><td class="blank">?</td><td class="blank">?</td><td class="blank">협약 ○건</td></tr>
+              <tr><td><b>3부</b><br>국제협력 · 창업</td><td class="blank">?</td><td class="blank">?</td><td class="blank">?</td><td class="blank">?</td><td class="blank">?</td></tr>
+            </tbody>
+          </table>
+          <div class="cta">
+            <a class="y" href="ai-smart-city-workshop-assignment.html" target="_blank" rel="noopener">✦ 과제 안내 · 포스터 틀 · 설계표 열기 ↗</a>
+            <a href="smart-tourism.html#과제-워크숍">← 스마트 투어리즘 과제 1로</a>
+            <a href="assets/international-tourism-trends-2022-05.pdf#page=11" target="_blank" rel="noopener">원문 PDF 10–12쪽 ↗</a>
+          </div>
+        </div>
+        <div class="take"><b class="tg">마지막으로</b><span>2022년 마드리드의 포럼은 <b>정부 연구기관이 몇 달을 들여</b> 짠 행사입니다. 여러분은 같은 틀을 <b>A4 두 장</b>으로 짭니다 — 틀은 이미 검증됐으니, 채울 내용에만 힘을 쓰면 됩니다.</span></div>
+        <div class="src"><span>출처: 한국문화관광연구원 관광정책연구실, 국제관광동향 2022년 제5호(7월)</span></div>
+      </section>
+
+    </div>
+  </div>
+
+  <div class="ctrl">
+    <button id="prev" aria-label="이전 슬라이드">← 이전</button>
+    <div class="dots" id="dots"></div>
+    <span class="count" id="count"></span>
+    <button id="next" aria-label="다음 슬라이드">다음 →</button>
+  </div>
+</div>
+<script>
+(function(){
+  var track=document.getElementById('track'),slides=[].slice.call(track.children),max=slides.length-1,i=0;
+  var tabs=document.getElementById('tabs'),dots=document.getElementById('dots');
+  slides.forEach(function(s,n){
+    var t=document.createElement('button');t.className='tab';t.textContent=(n+1)+'. '+s.getAttribute('data-tab').replace('&amp;','&');t.onclick=function(){go(n)};tabs.appendChild(t);
+    var d=document.createElement('button');d.setAttribute('aria-label',(n+1)+'번 슬라이드');d.onclick=function(){go(n)};dots.appendChild(d);
+  });
+  function go(n){
+    i=Math.max(0,Math.min(max,n));
+    track.style.transform='translateX('+(-100*i)+'%)';
+    [].forEach.call(tabs.children,function(t,k){t.classList.toggle('on',k===i)});
+    [].forEach.call(dots.children,function(d,k){d.classList.toggle('on',k===i)});
+    tabs.children[i].scrollIntoView({block:'nearest',inline:'center'});
+    document.getElementById('count').textContent=(i+1)+' / '+(max+1);
+    document.getElementById('prev').disabled=i===0;document.getElementById('next').disabled=i===max;
+    slides.forEach(function(s,k){s.setAttribute('aria-hidden',k!==i)});
+    try{history.replaceState(null,'','#'+(i+1))}catch(e){}
+  }
+  document.getElementById('prev').onclick=function(){go(i-1)};
+  document.getElementById('next').onclick=function(){go(i+1)};
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key==='PageDown'){e.preventDefault();go(i+1)}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(i-1)}
+    else if(e.key==='Home')go(0);else if(e.key==='End')go(max);
+  });
+  var sx=0,sy=0,fr=document.getElementById('frame');
+  fr.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;sy=e.touches[0].clientY},{passive:true});
+  fr.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.3)go(i+(dx<0?1:-1))},{passive:true});
+  var h=parseInt(location.hash.slice(1),10);go(h>0?h-1:0);
+})();
+</script>
+</body>
+</html>
