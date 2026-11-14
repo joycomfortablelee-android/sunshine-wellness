@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="빅데이터 분석에서 분산분석이 필요한 사례, 관광객 소비금액 예제, ANOVA F검정 실습, 분석방법 비교와 교수자용 활용자료">
+<title>빅데이터 분석에서 분산분석(ANOVA)이 필요한 사례 · 강의자료</title>
+<style>
+:root{--ink:#19253d;--muted:#5b6780;--navy:#111e3c;--navy2:#172f57;--teal:#13a99a;--mint:#e2faf5;--blue:#4669c9;--surface:#fff;--wash:#f4f7fb;--border:#dfe6ef;--amber:#edb752;--red:#b74c55;--green:#137b65;--shadow:0 14px 36px rgba(16,37,67,.08)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--wash);color:var(--ink);font-family:Pretendard,"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;line-height:1.7;font-size:16px}button,input{font:inherit}a{color:inherit;text-decoration:none}.shell{max-width:1440px;margin:auto;display:grid;grid-template-columns:228px minmax(0,1fr);min-height:100vh}.sidebar{background:var(--navy);color:#cbd7eb;padding:28px 18px;position:sticky;top:0;height:100vh;overflow-y:auto}.sidebar .mark{font-size:12px;letter-spacing:.14em;color:#78e1d2;font-weight:800}.sidebar h2{color:white;font-size:19px;line-height:1.45;margin:12px 0 24px}.sidebar a{display:block;border-radius:9px;padding:11px 12px;font-size:14px;margin:3px 0}.sidebar a:hover,.sidebar a:focus{background:#273e64;color:white}.sidebar .side-note{color:#93a8c7;font-size:12px;line-height:1.75;border-top:1px solid #314362;margin-top:23px;padding-top:20px}.main{min-width:0}.hero{background:linear-gradient(115deg,#102142 0%,#16395c 65%,#116b6e 135%);color:white;padding:68px clamp(22px,5vw,72px) 54px;overflow:hidden;position:relative}.hero::after{content:"";position:absolute;width:360px;height:360px;right:-118px;top:-154px;border:60px solid #2a809b40;border-radius:50%;pointer-events:none}.hero .eyebrow{font-size:12px;letter-spacing:.18em;color:#81e1d4;font-weight:800}.hero h1{font-size:clamp(31px,4vw,52px);letter-spacing:-.045em;line-height:1.3;max-width:870px;margin:16px 0 20px}.hero .lead{font-size:clamp(15px,1.5vw,19px);color:#d3dfef;max-width:780px}.tag-row{display:flex;flex-wrap:wrap;gap:9px;margin:23px 0}.tag{display:inline-block;border:1px solid #55708d;border-radius:100px;font-size:12px;padding:5px 12px;color:#e0f7f4;background:#ffffff09}.hero-actions{margin-top:25px;display:flex;flex-wrap:wrap;gap:10px}.btn{border:1px solid #bfcddd;padding:10px 17px;border-radius:10px;font-weight:750;cursor:pointer;background:white;color:#19304d;transition:transform .12s ease,background .12s ease}.btn:hover{transform:translateY(-1px)}.btn.primary{background:#2bd3bd;border-color:#2bd3bd;color:#0c3340}.btn.ghost{background:transparent;color:white;border-color:#7895af}.content{max-width:1120px;margin:0 auto;padding:35px clamp(18px,3.7vw,58px) 76px}.section{scroll-margin-top:24px;margin-bottom:54px}.section-head{display:flex;gap:14px;align-items:flex-start;margin:8px 0 22px}.index{display:inline-flex;width:37px;height:37px;flex:0 0 37px;align-items:center;justify-content:center;border-radius:11px;background:#d9f5ef;color:#116f69;font-size:14px;font-weight:850}.section h2{font-size:clamp(22px,2.25vw,30px);letter-spacing:-.038em;margin:0 0 3px}.section .sub{color:var(--muted);margin:0;font-size:14px}.intro{font-size:17px;max-width:1000px;margin:6px 0 28px}.intro strong{color:#126e6b}.card{background:var(--surface);border:1px solid var(--border);border-radius:17px;padding:clamp(18px,2.5vw,29px);box-shadow:var(--shadow);margin-bottom:18px}.card h3{font-size:19px;letter-spacing:-.03em;margin:0 0 12px}.card p{margin:9px 0}.table-wrap{width:100%;overflow-x:auto;border-radius:12px;border:1px solid var(--border)}table{width:100%;border-collapse:collapse;min-width:660px;font-size:14px}th,td{text-align:left;vertical-align:top;padding:13px 14px;border-bottom:1px solid #e8edf3}th{background:#eaf1f8;color:#24446b;font-weight:800}tr:last-child td{border-bottom:none}tbody tr:nth-child(even){background:#fafbfd}tbody tr:hover{background:#f1f9fc}td strong{color:#174d73}.notice{font-size:13px;border-left:4px solid var(--teal);background:#edf9f6;border-radius:0 9px 9px 0;padding:11px 14px;color:#25534e;margin:15px 0}.notice.amber{border-color:var(--amber);background:#fff9e8;color:#66522b}.kpi-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:20px 0}.kpi{background:#eff4fa;padding:17px 15px;border-radius:13px}.kpi span{display:block;font-size:13px;color:#61708a}.kpi b{font-size:26px;display:block;letter-spacing:-.035em;margin-top:3px;color:#1c4366}.bar-chart{display:grid;gap:13px;margin:22px 0 8px}.bar-row{display:grid;grid-template-columns:55px minmax(0,1fr) 77px;gap:10px;align-items:center}.bar-row .g{font-weight:800}.bar-track{background:#e8eef6;border-radius:8px;height:34px;overflow:hidden}.bar-fill{height:100%;border-radius:8px;display:flex;align-items:center;justify-content:end;padding-right:11px;color:white;font-weight:850;min-width:30px}.bar-row:nth-child(1) .bar-fill{background:#667bb0}.bar-row:nth-child(2) .bar-fill{background:#4d83b6}.bar-row:nth-child(3) .bar-fill{background:#0d928d}.bar-row:nth-child(4) .bar-fill{background:#317b99}.bar-row .amount{font-size:13px;font-weight:750;color:#36516f}.flex{display:grid;grid-template-columns:1fr 1fr;gap:17px}.hypo{background:#f3f6fb;border:1px solid #e5eaf1;padding:15px 17px;border-radius:12px}.hypo b{color:#174c78}.hypo p{font-size:14px;margin:5px 0}.formula{font-size:19px;font-weight:700;text-align:center;background:#edf3f9;border-radius:14px;padding:22px 12px;margin:12px 0;letter-spacing:-.02em}.fraction{display:inline-grid;grid-template-rows:auto auto;vertical-align:middle;line-height:1.3}.fraction>span:first-child{border-bottom:2px solid currentColor;padding:0 8px 5px}.fraction>span:last-child{padding:5px 8px 0}.control-panel{background:#f5f8fb;padding:18px;border-radius:14px;border:1px solid #dce5f0;margin:12px 0}.control-top{display:flex;gap:13px;align-items:center;justify-content:space-between;flex-wrap:wrap}.slider-wrap{display:flex;align-items:center;gap:10px;flex:1 1 320px}.slider-wrap label{font-weight:750;font-size:14px;white-space:nowrap}.slider-wrap input{accent-color:#138e83;width:100%;min-width:120px}.slider-value{font-weight:850;min-width:45px;color:#087c76;text-align:center}.preset-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.preset{font-size:13px;background:white;border:1px solid #b9cbd8;border-radius:8px;cursor:pointer;padding:6px 10px}.preset:hover{background:#e2f6f2;border-color:#48a99e}.viz-wrap{overflow-x:auto}.viz-wrap svg{display:block;max-width:100%;height:auto;margin:auto}.metric-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0}.metric{background:#f3f7fa;border:1px solid #e4eaf0;border-radius:11px;padding:13px 9px;text-align:center}.metric span{display:block;font-size:12px;color:#66738b}.metric b{display:block;font-size:22px;color:#1c4a73;line-height:1.5}.conclusion{padding:14px 16px;background:#e3f7ef;border:1px solid #9cddc5;border-radius:11px;color:#0c6250;font-weight:750}.conclusion.no{background:#fff6e8;color:#815421;border-color:#e7c48b}.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:#55677e;margin:12px 0}.swatch{display:inline-block;width:20px;height:3px;vertical-align:middle;margin-right:5px}.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.flow-stage{background:#f0f5fa;border:1px solid #dbe6ef;padding:15px 13px;border-radius:12px;position:relative}.flow-stage:not(:last-child)::after{content:"→";font-weight:850;font-size:21px;position:absolute;right:-15px;top:40%;z-index:2;color:#0c8f89;background:#fff;padding:0 2px}.flow-stage b{display:block;color:#204e70;font-size:15px}.flow-stage p{margin:6px 0 0;font-size:13px;color:#5e6a78}.flow-stage:last-child{background:#e3f5f0;border-color:#b4dcd0}.bullet{padding-left:21px}.bullet li{margin:7px 0}.two-card{display:grid;grid-template-columns:1.05fr .95fr;gap:18px}.keyquote{border-left:5px solid var(--teal);background:#ecfaf5;color:#174e48;padding:20px 22px;font-size:19px;font-weight:750;border-radius:0 12px 12px 0}.quiz-grid{display:grid;gap:15px}.quiz{background:#f6f9fc;border:1px solid #e1e9f2;border-radius:11px;padding:15px}.quiz h4{margin:0 0 10px;font-size:15px}.answers{display:flex;flex-wrap:wrap;gap:8px}.answer{background:white;border:1px solid #ccd9e5;border-radius:9px;padding:7px 10px;cursor:pointer;color:#284a69;font-size:13px}.answer.selected{background:#d8f5ed;border-color:#0c9083}.feedback{font-size:13px;min-height:20px;margin:10px 0 0;color:#4e6076}.footer{border-top:1px solid var(--border);padding-top:18px;color:#67788e;font-size:13px}.print-top{display:none}.small{font-size:13px;color:var(--muted)}
+@media(max-width:1000px){.shell{display:block}.sidebar{position:static;height:auto;padding:13px 18px}.sidebar h2,.sidebar .side-note,.sidebar .mark{display:none}.sidebar nav{display:flex;overflow-x:auto;gap:7px;white-space:nowrap}.sidebar a{padding:7px 10px;font-size:12px;background:#22385a}.hero{padding-top:48px}}@media(max-width:680px){.kpi-grid,.metric-row{grid-template-columns:repeat(2,1fr)}.flex,.two-card{grid-template-columns:1fr}.flow{grid-template-columns:1fr}.flow-stage:not(:last-child)::after{content:"↓";right:50%;top:auto;bottom:-19px}.hero{padding:40px 22px 39px}.content{padding:26px 15px 55px}.bar-row{grid-template-columns:42px minmax(0,1fr) 67px}.card{padding:18px}.kpi b{font-size:22px}.hero h1{font-size:32px}}
+@media print{body{background:#fff;font-size:12px}.shell{display:block}.sidebar,.hero-actions,.control-panel,.quiz-grid{display:none!important}.hero{background:#fff!important;color:#182845;padding:12px 0 24px;border-bottom:2px solid #213d64}.hero .eyebrow,.hero .lead{color:#334663}.hero h1{font-size:29px}.tag{color:#26354d;border-color:#ccd4e0}.content{max-width:none;padding:16px 0}.section{break-inside:avoid;margin-bottom:25px}.card{box-shadow:none;break-inside:avoid;padding:14px}.table-wrap{overflow:visible}table{min-width:0}th,td{padding:7px 8px}.flow-stage{break-inside:avoid}.print-top{display:block}.no-print{display:none}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar" aria-label="목차"><div class="mark">LECTURE NOTE · BIG DATA</div><h2>빅데이터 분석에서<br>분산분석(ANOVA)</h2><nav>
+    <a href="#s0">00 · 핵심 개념</a><a href="#s1">01 · 적용 사례 8가지</a><a href="#s2">02 · 관광객 소비 예시</a><a href="#s3">03 · F검정 인터랙티브 실습</a><a href="#s4">04 · 분석방법 비교</a><a href="#s5">05 · 분석 절차와 주의점</a><a href="#s6">06 · 수업 퀴즈</a>
+  </nav><div class="side-note">수업용 통합 HTML<br>표·그래프·분산분석 원리·교수용 핵심 메시지<br><br>모든 수치는 <strong>가상 예시</strong>입니다. 웹 연결 없이 작동합니다.</div></aside>
+  <main class="main">
+    <header class="hero"><div class="eyebrow">BIG DATA ANALYTICS · CHAPTER ANOVA</div><h1>빅데이터 분석에서<br>분산분석이 필요한 사례</h1><p class="lead">대규모 데이터에서 집단별 평균 차이를 발견하고, 그 차이가 통계적으로 유의한지를 확인하는 방법을 관광·호텔·축제 사례로 학습합니다.</p><div class="tag-row"><span class="tag">ANOVA · Analysis of Variance</span><span class="tag">집단 간 평균 비교</span><span class="tag">F검정 · 유의확률</span><span class="tag">관광 빅데이터</span></div><div class="hero-actions"><a href="#s1" class="btn primary">수업 시작하기</a><a href="#s3" class="btn ghost">F검정 실습</a><button class="btn ghost" type="button" onclick="window.print()">인쇄 / PDF 저장</button></div></header>
+    <div class="content">
+      <section class="section" id="s0"><div class="section-head"><span class="index">00</span><div><h2>왜 빅데이터 분석에 ANOVA가 필요한가?</h2><p class="sub">많은 데이터가 있다는 사실과 평균 차이가 의미 있다는 판단은 다릅니다.</p></div></div><p class="intro"><strong>분산분석(ANOVA, Analysis of Variance)</strong>은 세 집단 이상을 포함한 여러 집단의 <strong>모집단 평균이 같은지</strong> 검정하는 대표적 통계방법입니다. 관광객 유형, 방문 지역, 여행 시기, 서비스 방식에 따른 차이를 분석하여 마케팅과 정책 의사결정에 활용할 수 있습니다.</p><div class="kpi-grid"><div class="kpi"><span>주요 질문</span><b>평균 차이?</b></div><div class="kpi"><span>검정통계량</span><b>F</b></div><div class="kpi"><span>유의성 판단</span><b>p-value</b></div><div class="kpi"><span>실무적 중요성</span><b>효과크기</b></div></div><div class="notice">빅데이터는 집단 간 <b>차이를 관찰</b>하게 해주고, ANOVA는 특정 가정하에서 그 차이가 <b>통계적으로 유의한지 검정</b>합니다. 관찰된 차이가 원인과 결과를 의미하는 것은 아닙니다.</div></section>
+      <section class="section" id="s1"><div class="section-head"><span class="index">01</span><div><h2>빅데이터에서 ANOVA가 필요한 8가지 사례</h2><p class="sub">독립변수는 집단을 구분하는 기준, 종속변수는 비교할 수치입니다.</p></div></div><div class="card"><div class="table-wrap"><table><thead><tr><th style="width:14%">분야</th><th style="width:37%">빅데이터 활용 사례</th><th>분산분석의 연구질문</th></tr></thead><tbody>
+        <tr><td><strong>관광</strong></td><td>연령대별 관광객 카드 소비</td><td>20·30·40·50대의 <b>평균 관광지출액</b>이 다른가?</td></tr><tr><td><strong>호텔</strong></td><td>호텔 예약·고객 평가</td><td>3·4·5성급 호텔의 <b>평균 고객만족도</b>가 다른가?</td></tr><tr><td><strong>축제</strong></td><td>지역축제 방문객 설문·소비</td><td>축제별 <b>평균 방문객 만족도</b>에 차이가 있는가?</td></tr><tr><td><strong>스마트관광</strong></td><td>AI 관광안내 서비스 이용</td><td>AI 챗봇·키오스크·직원 안내 방식에 따라 <b>평균 만족도</b>가 다른가?</td></tr><tr><td><strong>항공</strong></td><td>항공사 서비스 평가</td><td>항공사별 <b>평균 서비스 만족도</b>가 다른가?</td></tr><tr><td><strong>외식</strong></td><td>음식점 주문·리뷰</td><td>한식·일식·양식 음식점의 <b>평균 객단가</b>가 다른가?</td></tr><tr><td><strong>인적자원관리</strong></td><td>기업 직원 교육성과</td><td>대면·온라인·AI 맞춤형 교육에 따라 <b>평균 교육성과</b>가 다른가?</td></tr><tr><td><strong>지역정책</strong></td><td>지자체 관광 통계</td><td>지역별 관광객의 <b>평균 체류시간</b>이 다른가?</td></tr>
+      </tbody></table></div><p class="small">분석단위(관광객·예약·방문 등)와 관측치의 독립성에 따라 적절한 통계모형은 달라질 수 있습니다.</p></div></section>
+      <section class="section" id="s2"><div class="section-head"><span class="index">02</span><div><h2>관광객 연령별 소비금액 사례</h2><p class="sub">기술통계 그래프만 보고 통계적 유의성을 결론 내릴 수 있을까요?</p></div></div><div class="card"><h3>연령대별 1인당 평균 관광 소비금액</h3><p class="small">관광객 10만 명의 카드 소비 데이터가 있다고 <b>가정</b>한 설명용 평균값입니다. 실제 조사 결과가 아닙니다.</p><div class="bar-chart" role="img" aria-label="가상 소비금액: 20대 12만원, 30대 18만원, 40대 25만원, 50대 21만원"><div class="bar-row"><span class="g">20대</span><div class="bar-track"><div class="bar-fill" style="width:48%">12</div></div><span class="amount">12만원</span></div><div class="bar-row"><span class="g">30대</span><div class="bar-track"><div class="bar-fill" style="width:72%">18</div></div><span class="amount">18만원</span></div><div class="bar-row"><span class="g">40대</span><div class="bar-track"><div class="bar-fill" style="width:100%">25</div></div><span class="amount">25만원</span></div><div class="bar-row"><span class="g">50대</span><div class="bar-track"><div class="bar-fill" style="width:84%">21</div></div><span class="amount">21만원</span></div></div><div class="notice amber"><b>학생에게 질문:</b> 40대 평균 소비금액이 가장 높습니다. 그렇다면 연령에 따라 관광 소비금액이 <b>통계적으로 유의하게 다르다</b>고 바로 말할 수 있을까요? → <b>아니요.</b> 집단 내 변동도 살펴봐야 합니다.</div><div class="flex"><div class="hypo"><b>독립변수 / Independent Variable</b><p>연령대(20대·30대·40대·50대) — 네 집단을 구분하는 범주형 변수</p></div><div class="hypo"><b>종속변수 / Dependent Variable</b><p>1인당 관광 소비금액(만원) — 각 관광객의 연속형 수치 변수</p></div><div class="hypo"><b>귀무가설 / H₀</b><p>네 연령대의 모집단 평균 소비금액은 모두 같다.</p></div><div class="hypo"><b>대립가설 / H₁</b><p>적어도 한 연령대의 모집단 평균 소비금액은 다르다.</p></div></div><p>ANOVA 검정의 <b>p &lt; .05</b>라면 (가정이 충족된 경우) 적어도 한 집단의 평균이 다르다는 통계적 근거가 됩니다. <b>어느 집단 간에 차이가 있는지</b>는 사후검정으로 확인합니다.</p></div></section>
+      <section class="section" id="s3"><div class="section-head"><span class="index">03</span><div><h2>F검정 원리 — 직접 변화시켜 보기</h2><p class="sub">집단 평균은 그대로 두고 각 집단 내부의 값이 얼마나 흩어지는지만 바꿔 보세요.</p></div></div><div class="card"><div class="formula" aria-label="F는 집단 간 평균제곱을 집단 내 평균제곱으로 나눈 값">F = <span class="fraction"><span>집단 간 평균제곱 (MS between)</span><span>집단 내 평균제곱 (MS within)</span></span></div><p><b>집단 간 변동(Between-group Variation)</b>이 <b>집단 내 변동(Within-group Variation)</b>에 비해 충분히 크면 F값이 커지고, 일반적으로 귀무가설을 기각할 근거가 강해집니다.</p><div class="control-panel no-print"><div class="control-top"><div class="slider-wrap"><label for="spread">집단 내 흩어짐 정도</label><input type="range" id="spread" min="0.6" max="4" step="0.1" value="2.0" aria-label="집단 내 흩어짐 정도"><output class="slider-value" id="spreadVal" for="spread">2.0×</output></div><span class="small">클수록 집단 내 분산 증가</span></div><div class="preset-row"><button class="preset" data-spread="0.8" type="button">차이가 선명할 때</button><button class="preset" data-spread="3.1" type="button">판단 경계 살펴보기</button><button class="preset" data-spread="4" type="button">집단 내 차이가 클 때</button><button class="preset" id="reset" type="button">처음 상태</button></div></div><div class="viz-wrap"><svg id="dotplot" viewBox="0 0 800 352" role="img" aria-label="네 연령대의 개인별 관광 소비금액 점 분포 및 각 집단 평균, 전체 평균"><title>집단 간·집단 내 변동의 관계</title></svg></div><div class="legend"><span><i class="swatch" style="background:#128a80"></i>집단 평균선</span><span><i class="swatch" style="background:#d59b3d"></i>전체 평균선</span><span>● 개별 관측값(모의자료)</span></div><div class="metric-row" aria-live="polite"><div class="metric"><span>F 통계량</span><b id="fvalue">—</b></div><div class="metric"><span>유의확률 p</span><b id="pvalue">—</b></div><div class="metric"><span>효과크기 η²</span><b id="etavalue">—</b></div><div class="metric"><span>자유도 (집단 간, 집단 내)</span><b id="dfvalue">(3, 20)</b></div></div><div id="conclusion" class="conclusion" aria-live="polite">결과를 계산하는 중입니다.</div><p class="small" id="ms-values"></p><div class="notice amber"><b>실습 데이터의 한계:</b> 이 실습은 원래의 ‘10만 명 카드 소비’ 데이터를 이용한 검정이 아닙니다. 네 집단 각각 <b>6명, 총 24명의 인공 관측값</b>을 만들어 집단 평균(12·18·25·21만원)은 고정하고 내부 흩어짐만 변화시킨 시뮬레이션입니다. p값 역시 이 24개 가상 관측값을 기준으로 계산됩니다.</div></div></section>
+      <section class="section" id="s4"><div class="section-head"><span class="index">04</span><div><h2>어떤 분산분석을 선택해야 할까?</h2><p class="sub">설계, 종속변수 개수, 반복측정 여부, 등분산 가정에 따라 선택합니다.</p></div></div><div class="card"><div class="table-wrap"><table><thead><tr><th>분석방법</th><th>언제 쓰나?</th><th>관광·호텔·HRM 적용 예</th></tr></thead><tbody><tr><td><strong>일원분산분석<br>One-way ANOVA</strong></td><td>집단 구분 요인 1개</td><td>연령대별 소비금액</td></tr><tr><td><strong>이원분산분석<br>Two-way ANOVA</strong></td><td>요인 2개와 상호작용 검토</td><td>연령대 × 여행 유형에 따른 소비금액</td></tr><tr><td><strong>반복측정 분산분석<br>Repeated Measures ANOVA</strong></td><td>동일 대상의 반복 측정</td><td>동일 관광객의 여행 전·중·후 만족도</td></tr><tr><td><strong>다변량 분산분석<br>MANOVA</strong></td><td>연속형 종속변수 여러 개를 함께 검정</td><td>호텔 등급에 따른 만족도·신뢰·충성도</td></tr><tr><td><strong>Welch ANOVA</strong></td><td>집단 분산이 같지 않은 경우</td><td>호텔 등급별 만족도에서 이분산이 나타난 경우</td></tr></tbody></table></div></div></section>
+      <section class="section" id="s5"><div class="section-head"><span class="index">05</span><div><h2>분석 결과를 의사결정으로 연결하기</h2><p class="sub">기술통계 → 분산분석 → 사후검정 → 의사결정</p></div></div><div class="card"><div class="flow"><div class="flow-stage"><b>① 기술통계<br>Descriptive Statistics</b><p>어느 관광객 집단이 돈을 더 많이 쓰는가?</p></div><div class="flow-stage"><b>② 분산분석<br>ANOVA</b><p>관찰된 평균 차이가 통계적으로 유의한가?</p></div><div class="flow-stage"><b>③ 사후검정<br>Post-hoc Test</b><p>어느 집단과 어느 집단의 평균이 다른가?</p></div><div class="flow-stage"><b>④ 의사결정<br>Decision-making</b><p>타깃별 마케팅과 관광정책에 어떻게 활용할까?</p></div></div><p style="margin-top:22px"><b>사후검정:</b> 등분산 가정이 타당한 경우 Tukey HSD, 등분산이 충족되지 않는 경우 Games–Howell 등을 검토할 수 있습니다. 다만 전체 ANOVA 유의성만으로 특정 두 집단 간 차이를 판단해서는 안 됩니다.</p></div><div class="two-card"><div class="card"><h3>✅ 분석 전 반드시 점검할 것</h3><ul class="bullet"><li><b>독립성:</b> 한 관광객의 반복 방문 자료를 독립 관측치로 취급하지 않았는가?</li><li><b>분산의 동질성:</b> 집단 간 분산 차이가 크다면 Welch ANOVA가 더 적절할 수 있는가?</li><li><b>분포·이상치:</b> 각 집단 잔차의 분포와 이상치, 심한 왜도는 어떠한가?</li><li><b>군집 구조:</b> 방문객이 호텔·지역·축제별로 묶여 있다면 혼합효과모형 등이 필요한가?</li></ul></div><div class="card"><h3>⚠️ 빅데이터에서 특히 주의할 것</h3><ul class="bullet"><li><b>표본 수 효과:</b> 데이터가 아주 많으면 작은 차이도 p &lt; .05가 될 수 있습니다.</li><li><b>효과크기:</b> η² 또는 ω²와 신뢰구간 등으로 차이의 실질적 크기를 확인합니다.</li><li><b>불균형 표본:</b> 집단별 관측치가 크게 다른지 확인합니다.</li><li><b>인과 해석 금지:</b> 관찰자료의 연령대별 평균 차이를 연령 효과의 원인·결과로 단정하지 않습니다.</li></ul></div></div><div class="keyquote">“빅데이터는 집단 간 평균 차이를 <u>발견</u>하게 해주고, 분산분석은 그 차이가 통계적으로 유의한지를 <u>검증</u>하는 방법이다. 하지만 통계적 유의성이 실무적 중요성이나 인과관계를 뜻하지는 않는다.”</div></section>
+      <section class="section" id="s6"><div class="section-head"><span class="index">06</span><div><h2>수업 마무리 · 확인 퀴즈</h2><p class="sub">선택지를 눌러 바로 피드백을 확인할 수 있습니다.</p></div></div><div class="card quiz-grid"><div class="quiz" data-correct="b"><h4>Q1. 20대·30대·40대·50대의 평균 관광소비금액을 비교하려면 가장 직접적인 분석방법은?</h4><div class="answers"><button type="button" class="answer" data-key="a">상관분석</button><button type="button" class="answer" data-key="b">일원분산분석</button><button type="button" class="answer" data-key="c">빈도분석</button></div><p class="feedback" aria-live="polite"></p></div><div class="quiz" data-correct="c"><h4>Q2. ANOVA 결과 p &lt; .05일 때 가장 적절한 해석은?</h4><div class="answers"><button type="button" class="answer" data-key="a">모든 집단이 서로 다르다</button><button type="button" class="answer" data-key="b">연령이 지출 차이의 원인이다</button><button type="button" class="answer" data-key="c">적어도 한 집단의 모집단 평균이 다를 근거가 있다</button></div><p class="feedback" aria-live="polite"></p></div><div class="quiz" data-correct="a"><h4>Q3. 빅데이터에서 유의확률이 아주 작게 나왔을 때 추가로 살펴봐야 할 것은?</h4><div class="answers"><button type="button" class="answer" data-key="a">효과크기와 실무적 의미</button><button type="button" class="answer" data-key="b">p값만 있으면 충분하다</button><button type="button" class="answer" data-key="c">모든 집단의 평균이 완전히 동일하다</button></div><p class="feedback" aria-live="polite"></p></div></div><div class="notice"><b>교수자용 최종 적용 사례:</b> 관광객 소비 빅데이터 → 연령대별 기술통계 → 일원분산분석(F검정) → 사후검정 → 세분시장별 관광마케팅 전략. 실습에선 각 단계가 수행하는 역할을 구분시키는 데 초점을 둡니다.</div></section>
+      <footer class="footer"><b>빅데이터 분석 · 분산분석 강의자료</b><p>이 자료의 사례·평균값·점 분포는 모두 교육용 가상 예시입니다. 시뮬레이터의 F값 및 p값은 화면에서 생성한 가상 자료로 계산합니다. 실제 연구에는 원자료, 연구설계, 측정척도, 가정 점검 및 적절한 통계 모형이 필요합니다.</p><p>오프라인 HTML · 브라우저에서 바로 실행 · 인쇄 가능</p></footer>
+    </div>
+  </main>
+</div>
+<script>
+(()=>{
+  'use strict';
+  const spread=document.querySelector('#spread');
+  const baseMeans=[12,18,25,21], names=['20대','30대','40대','50대'];
+  const baseOff=[-3,-2,-1,1,2,3];
+  const colors=['#6479ad','#4d83b6','#0a948b','#327b9d'];
+  const $=(s)=>document.querySelector(s);
+  // Lanczos logGamma, regularized incomplete beta, F right-tail probability.
+  function logGamma(z){
+    const p=[0.99999999999980993,676.5203681218851,-1259.1392167224028,771.32342877765313,-176.61502916214059,12.507343278686905,-0.13857109526572012,9.9843695780195716e-6,1.5056327351493116e-7];
+    if(z<.5)return Math.log(Math.PI)-Math.log(Math.sin(Math.PI*z))-logGamma(1-z);
+    z-=1;let x=p[0];for(let i=1;i<p.length;i++)x+=p[i]/(z+i);
+    const t=z+7.5;return .5*Math.log(2*Math.PI)+(z+.5)*Math.log(t)-t+Math.log(x);
+  }
+  function betaCF(a,b,x){
+    const MAXIT=200, EPS=3e-14, FPMIN=1e-300;
+    let qab=a+b,qap=a+1,qam=a-1,c=1,d=1-qab*x/qap;
+    if(Math.abs(d)<FPMIN)d=FPMIN;d=1/d;let h=d;
+    for(let m=1;m<=MAXIT;m++){
+      let m2=2*m,aa=m*(b-m)*x/((qam+m2)*(a+m2));
+      d=1+aa*d;if(Math.abs(d)<FPMIN)d=FPMIN;c=1+aa/c;if(Math.abs(c)<FPMIN)c=FPMIN;d=1/d;h*=d*c;
+      aa=-(a+m)*(qab+m)*x/((a+m2)*(qap+m2));
+      d=1+aa*d;if(Math.abs(d)<FPMIN)d=FPMIN;c=1+aa/c;if(Math.abs(c)<FPMIN)c=FPMIN;d=1/d;
+      let del=d*c;h*=del;if(Math.abs(del-1)<EPS)break;
+    }
+    return h;
+  }
+  function incBeta(x,a,b){
+    if(x<=0)return 0;if(x>=1)return 1;
+    const bt=Math.exp(logGamma(a+b)-logGamma(a)-logGamma(b)+a*Math.log(x)+b*Math.log(1-x));
+    if(x<(a+1)/(a+b+2))return bt*betaCF(a,b,x)/a;
+    return 1-bt*betaCF(b,a,1-x)/b;
+  }
+  function fTail(f,d1,d2){
+    // Survival P(F_{d1,d2} >= f) = I_{d2/(d2+d1 f)}(d2/2,d1/2)
+    return incBeta(d2/(d2+d1*f),d2/2,d1/2);
+  }
+  function analysis(s){
+    const groups=baseMeans.map(mu=>baseOff.map(off=>mu+off*s));
+    const n=groups.reduce((acc,g)=>acc+g.length,0),grand=groups.flat().reduce((a,b)=>a+b,0)/n;
+    const means=groups.map(g=>g.reduce((a,b)=>a+b,0)/g.length);
+    const ssb=groups.reduce((a,g,i)=>a+g.length*(means[i]-grand)**2,0);
+    const ssw=groups.reduce((a,g,i)=>a+g.reduce((sum,x)=>sum+(x-means[i])**2,0),0);
+    const dfb=groups.length-1,dfw=n-groups.length;
+    const msb=ssb/dfb,msw=ssw/dfw,f=msb/msw,p=fTail(f,dfb,dfw);
+    return {groups,means,grand,ssb,ssw,msb,msw,f,p,eta:ssb/(ssb+ssw),dfb,dfw};
+  }
+  function plot(a){
+    const svg=$('#dotplot');
+    const W=800,H=352,top=34,bottom=290,left=65,right=766;
+    const vals=a.groups.flat(),lower=Math.max(0,Math.floor((Math.min(...vals)-3)/5)*5),upper=Math.ceil((Math.max(...vals)+3)/5)*5;
+    const y=v=>bottom-(v-lower)/(upper-lower)*(bottom-top);
+    const centers=[155,315,475,635];let out='';
+    // backgrounds, grid, ticks
+    for(let i=0;i<4;i++)out+=`<rect x="${centers[i]-66}" y="${top}" width="132" height="${bottom-top}" rx="12" fill="${i%2===0?'#f3f7fc':'#f9fbfe'}"/>`;
+    for(let v=lower;v<=upper;v+=5){let yy=y(v);out+=`<line x1="${left}" y1="${yy.toFixed(1)}" x2="${right}" y2="${yy.toFixed(1)}" stroke="#dce6ef" stroke-width="1"/><text x="${left-13}" y="${(yy+4).toFixed(1)}" text-anchor="end" font-size="12" fill="#65748a">${v}</text>`;}
+    out+=`<text x="12" y="19" font-size="12" fill="#576c85">단위: 만원</text>`;
+    out+=`<line x1="${left}" y1="${y(a.grand)}" x2="${right}" y2="${y(a.grand)}" stroke="#d59b3d" stroke-width="2.4" stroke-dasharray="9 6"/>`;
+    out+=`<text x="${right-5}" y="${y(a.grand)-8}" text-anchor="end" font-size="11" font-weight="700" fill="#a77926">전체 평균 ${a.grand.toFixed(1)}</text>`;
+    a.groups.forEach((g,i)=>{
+      const x=centers[i],ym=y(a.means[i]);
+      // mean to grand deviation arrow-ish vertical connector
+      out+=`<line x1="${x-49}" y1="${ym}" x2="${x-49}" y2="${y(a.grand)}" stroke="#d3a84e" stroke-width="3" stroke-dasharray="3 3" opacity=".8"/>`;
+      g.forEach((v,j)=>{
+        const xx=x+[-27,-15,-3,9,21,33][j];
+        out+=`<circle cx="${xx}" cy="${y(v)}" r="6.5" fill="${colors[i]}" fill-opacity=".85" stroke="white" stroke-width="1.4"><title>${names[i]} 가상 관측 ${j+1}: ${v.toFixed(1)}만원</title></circle>`;
+      });
+      out+=`<line x1="${x-43}" y1="${ym}" x2="${x+43}" y2="${ym}" stroke="#128a80" stroke-width="3.6" stroke-linecap="round"/>`;
+      out+=`<text x="${x}" y="${bottom+24}" font-size="15" text-anchor="middle" font-weight="700" fill="#1d3b5d">${names[i]}</text>`;
+      out+=`<text x="${x}" y="${bottom+43}" font-size="12" text-anchor="middle" fill="#63768d">평균 ${a.means[i].toFixed(1)}</text>`;
+    });
+    svg.innerHTML=out;
+  }
+  function render(){
+    const s=Number(spread.value),a=analysis(s);
+    $('#spreadVal').textContent=s.toFixed(1)+'×';
+    $('#fvalue').textContent=a.f.toFixed(3);
+    $('#pvalue').textContent=a.p<.001?'< .001':a.p.toFixed(3).replace(/^0/, '');
+    $('#etavalue').textContent=a.eta.toFixed(3);
+    $('#dfvalue').textContent=`(${a.dfb}, ${a.dfw})`;
+    $('#ms-values').textContent=`계산 근거: 집단 간 SS = ${a.ssb.toFixed(2)}, 집단 내 SS = ${a.ssw.toFixed(2)}; MS between = ${a.msb.toFixed(2)}, MS within = ${a.msw.toFixed(2)} (총 24개 가상 관측값).`;
+    let c=$('#conclusion');
+    if(a.p<.05){c.className='conclusion';c.textContent=`p < .05 → 귀무가설 기각. 이 가상 자료에서는 적어도 한 연령대의 평균이 다르다는 통계적 근거가 있습니다.`;}
+    else{c.className='conclusion no';c.textContent=`p ≥ .05 → 귀무가설을 기각하지 못함. 이 가상 자료만으로는 연령대별 평균이 다르다는 통계적 근거가 충분하지 않습니다.`;}
+    plot(a);
+  }
+  spread.addEventListener('input',render);
+  document.querySelectorAll('[data-spread]').forEach(btn=>btn.addEventListener('click',()=>{spread.value=btn.dataset.spread;render();}));
+  $('#reset').addEventListener('click',()=>{spread.value='2.0';render();});
+  const explanations=[
+    ['정답입니다. 집단을 구분하는 요인 1개(연령대), 연속형 종속변수 1개(소비금액)이므로 일원분산분석을 검토합니다.','연령대라는 범주형 요인 1개에 따른 연속형 결과변수의 평균을 비교하는 상황입니다.'],
+    ['정답입니다. 전체 검정은 “적어도 하나는 다르다”까지 확인합니다. 어느 집단 사이의 차이인지는 추가 검정이 필요합니다.','전체 유의성은 모든 쌍의 차이를 뜻하지 않으며, 인과관계를 입증하지도 않습니다.'],
+    ['정답입니다. 표본 수가 클수록 작은 차이도 유의할 수 있으므로 효과크기와 정책적·실무적 의미를 함께 확인합니다.','큰 표본의 작은 p값만으로 중요한 효과라 해석할 수 없습니다.']
+  ];
+  document.querySelectorAll('.quiz').forEach((q,index)=>{
+    q.querySelectorAll('.answer').forEach(btn=>btn.addEventListener('click',()=>{
+      q.querySelectorAll('.answer').forEach(x=>x.classList.remove('selected'));
+      btn.classList.add('selected');
+      const yes=btn.dataset.key===q.dataset.correct;
+      q.querySelector('.feedback').textContent=(yes?'✓ 정답. ':'다시 확인해 보세요. ')+explanations[index][yes?0:1];
+      q.querySelector('.feedback').style.color=yes?'#0f745d':'#a45430';
+    }));
+  });
+  render();
+})();
+</script>
+</body>
+</html>
