@@ -514,7 +514,7 @@
     @media (max-width: 620px) {
       .learn-article .note-box .kwlist.mk-kw > li { grid-template-columns: 1fr; gap: 2px; }
     }
-    /* 파트 12 스마트 모빌리티 개념 넷 — 「용어 : 설명」 두 칸, 설명 줄이 꺾여도 같은 들여쓰기 */
+    /* 파트 08 스마트 모빌리티 개념 넷 — 「용어 : 설명」 두 칸, 설명 줄이 꺾여도 같은 들여쓰기 */
     .learn-article .kwlist.mob-kw { margin: 10px 0 14px; padding: 0; list-style: none; }
     .learn-article .kwlist.mob-kw > li {
       display: grid; grid-template-columns: 168px minmax(0, 1fr); gap: 14px;
@@ -523,7 +523,7 @@
     .learn-article .kwlist.mob-kw > li:first-child { border-top: 0; }
     .learn-article .kwlist.mob-kw > li::before { content: none; }
     .learn-article .kwlist.mob-kw > li > b { font-weight: 800; color: #17395f; letter-spacing: -.2px; }
-    /* 파트 12 알약 계단 — 넓게 보기 → 개념 → 사례 → 써 보기 (2026-11-13) */
+    /* 파트 08 알약 계단 — 넓게 보기 → 개념 → 사례 → 써 보기 (2026-11-13) */
     .learn-article .mob-steps-intro { margin: 14px 0 8px; padding: 11px 15px; background: #f3f7fd; border: 1px solid #d6e2f1; border-left: 4px solid #1c2f55; border-radius: 10px; font-size: .95rem; line-height: 1.75; }
     .learn-article .mob-steps-intro b { color: #1c2f55; }
     .learn-article .mob-st { display: inline-block; margin-right: 7px; padding: 1px 10px; border-radius: 100px; font-size: .78rem; font-weight: 800; color: #fff; vertical-align: 2px; white-space: nowrap; }
@@ -912,6 +912,9 @@
       .learn-hero .room-bar .rb-parts .rb-row { grid-template-columns: 1fr; gap: 4px; }
       .learn-hero .room-bar .rb-parts .rb-lab { flex-direction: row; gap: 6px; align-items: baseline; }
     }
+    .learn-article .learn-part.step-go a { color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: inherit; }
+    .learn-article .learn-part.step-go a em { margin-left: 8px; color: #b8432f; opacity: 1; }
+    .learn-article .learn-part.step-go a:hover { text-decoration: underline; text-underline-offset: 3px; }
     .learn-article p.step-next { margin: -6px 0 18px; }
     .learn-article a.step-jump { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px 6px 6px; border: 1.5px solid #17365d; border-radius: 999px; background: #fff; color: #17365d; font-size: 13px; font-weight: 800; text-decoration: none; }
     .learn-article a.step-jump b { padding: 2px 10px; border-radius: 999px; background: #17365d; color: #fff; font-size: 12px; }
@@ -1344,7 +1347,7 @@
     .learn-article .fin-topic .ft-row b { min-width: 104px; font-size: 12.5px; color: #8a1c1c; }
     .learn-article .fin-topic .ft-row a { padding: 2px 11px; border-radius: 999px; background: #fff; border: 1px solid #d62828; color: #b71c1c; font-size: 12px; font-weight: 800; text-decoration: none; }
     .learn-article .fin-topic .ft-row a:hover { background: #d62828; color: #fff; }
-    /* 교통 줄 끝 — 파트 12로 내려가는 알약. 빨강 줄 안에서 남색 채움으로 갈라 둔다 (2026-11-14) */
+    /* 교통 줄 끝 — 파트 08로 내려가는 알약. 빨강 줄 안에서 남색 채움으로 갈라 둔다 (2026-11-14) */
     .learn-article .fin-topic .ft-row a.to-mob { background: #1d4f91; border-color: #1d4f91; color: #fff; box-shadow: 0 0 0 3px rgba(29,79,145,.16); }
     .learn-article .fin-topic .ft-row a.to-mob:hover { background: #12335f; border-color: #12335f; color: #fff; }
     .learn-article .fin-topic .ft-src { font-size: 11.5px; color: #8a8f99; }
@@ -1709,7 +1712,7 @@
   <main class="learn-article">
     <div class="lw">
 
-      <p class="learn-part pt-part pp-x" id="part00"><span class="pt"><i>파트</i><b>00</b></span><span class="pt-ti">한눈에 보기</span><span class="pt-sub"><strong>한 학기 지도</strong> · <strong>수업 흐름</strong> · <strong>결과물 두 가지</strong> — 파트 01에 들어가기 전에 전체 그림부터 봅니다</span><span class="pt-jump"><a href="#part00" class="on" aria-current="true">00 한눈에</a><a href="#part01">01 국내</a><a href="#part06">02 이론</a><a href="#part07">03 연구</a><a href="#part02">04 해외</a><a href="#part03">05 공모전</a><a href="#part04">06 PBL</a><a href="#part05">07 책</a><a href="#part08">08 취업</a><a href="#part09">09 자료실</a><a href="#part10">10 AI</a><a href="#part11">11 실무</a><a href="#part12">12 모빌리티</a></span></p>
+      <p class="learn-part pt-part pp-x" id="part00"><span class="pt"><i>파트</i><b>00</b></span><span class="pt-ti">한눈에 보기</span><span class="pt-sub"><strong>한 학기 지도</strong> · <strong>수업 흐름</strong> · <strong>결과물 두 가지</strong> — 파트 01에 들어가기 전에 전체 그림부터 봅니다</span><span class="pt-jump"><a href="#part00" class="on" aria-current="true">00 한눈에</a><a href="#part01">01 국내</a><a href="#part06">02 이론</a><a href="#part07">03 연구</a><a href="#part02">04 해외</a><a href="#part03">05 공모전</a><a href="#part04">06 PBL</a><a href="#part05">07 책</a><a href="#part12">08 모빌리티</a><a href="#part09">09 자료실</a><a href="#part10">10 AI</a><a href="#part11">11 실무</a><a href="#part08">12 취업</a></span></p>
       <p class="part-goal"><span class="pg-l">한 학기를 마치면 · 네 동작</span><span class="pg-i v1"><b>설명</b><em>목표 ①</em>스마트 관광 도시 현상을 설명하는 이론적 관점을 익히고, 연구 · 실무 사례를 분석하고 설명할 수 있다</span><span class="pg-i v2"><b>비교</b><em>목표 ② 앞</em>국내외 스마트 관광 도시 사례를 플랫폼 · 연구 · 웹 · 앱 · 이미지 · 영상 · AI 등으로 심층 탐구하고, 비교 · 대조하여</span><span class="pg-i v3"><b>평가</b><em>목표 ② 뒤</em>문제-해결 방식으로 벤치마킹할 수 있다</span><span class="pg-i v4"><b>제안</b><em>목표 ③</em>그 사례와 이론을 리포트·기획서의 근거로 쓰고, 취업 지원 서류와 발표에서 자기 산출물로 설명할 수 있다</span></p>
 
       <p class="lead sm lead-rows">
@@ -1803,7 +1806,7 @@
 
 
 
-      <p class="learn-part pt-part pp-1" id="part01"><span class="pt"><i>파트</i><b>01</b></span><span class="pt-ti">국내 사례 먼저 보기</span><span class="pt-sub"><strong>벤치마킹</strong> → <strong>경북 지역 보기</strong> → <strong>공모전 양식</strong>(<a href="#ax2026">파트 05</a>) — 세 단계로 국내 현장을 먼저 봅니다</span><span class="pt-jump"><a href="#part00">00 한눈에</a><a href="#part01" class="on" aria-current="true">01 국내</a><a href="#part06">02 이론</a><a href="#part07">03 연구</a><a href="#part02">04 해외</a><a href="#part03">05 공모전</a><a href="#part04">06 PBL</a><a href="#part05">07 책</a><a href="#part08">08 취업</a><a href="#part09">09 자료실</a><a href="#part10">10 AI</a><a href="#part11">11 실무</a><a href="#part12">12 모빌리티</a></span></p>
+      <p class="learn-part pt-part pp-1" id="part01"><span class="pt"><i>파트</i><b>01</b></span><span class="pt-ti">국내 사례 먼저 보기</span><span class="pt-sub"><strong>벤치마킹</strong> → <strong>경북 지역 보기</strong> → <strong>공모전 양식</strong>(<a href="#ax2026">파트 05</a>) — 세 단계로 국내 현장을 먼저 봅니다</span><span class="pt-jump"><a href="#part00">00 한눈에</a><a href="#part01" class="on" aria-current="true">01 국내</a><a href="#part06">02 이론</a><a href="#part07">03 연구</a><a href="#part02">04 해외</a><a href="#part03">05 공모전</a><a href="#part04">06 PBL</a><a href="#part05">07 책</a><a href="#part12">08 모빌리티</a><a href="#part09">09 자료실</a><a href="#part10">10 AI</a><a href="#part11">11 실무</a><a href="#part08">12 취업</a></span></p>
       <p class="part-goal"><span class="pg-l">이 파트를 마치면</span><span class="pg-i v1"><b>설명</b><em>목표 ①</em>5대 요소로 국내 스마트관광도시 열두 곳이 무엇을 만들었는지 설명한다</span><span class="pg-i v2"><b>비교</b><em>목표 ② 앞</em>내가 맡은 도시를 플랫폼 · 연구 · 웹 · 앱 · 이미지 · 영상 · AI로 심층 탐구하고, WHAT · PLATFORM+RESEARCH · PROMOTION 세 칸으로 갈라 비교 도시와 나란히 놓는다</span><span class="pg-i v3"><b>평가</b><em>목표 ② 뒤</em>척도의 8요인 × 1~5점과 5대 요소 점수표로 내 도시가 잘하는 것 · 부족한 것을 매긴다<span class="pg-pills"><a href="smart-tourism-city-5-elements-scorecard.html" target="_blank" rel="noopener">5대 요소 점수표 ↗</a><a href="smart-tourism-city-deep-dive-workbook.html" target="_blank" rel="noopener">심층탐색 · 평가 워크북 ↗</a><a href="smart-tourism-city-8-factor-scorecard.html" target="_blank" rel="noopener">8요인 점수표 ↗</a></span></span><span class="pg-i v4"><b>제안</b><em>목표 ③</em>개선 제안을 한 줄씩 적어 중간 심층 PT로 발표하고, 경북 시 · 군에 옮겨 올 점을 응모 원고로 잇는다</span></p>
       <p class="sub-abcd"><b>파트 01 안에서</b><a href="#국내-A"><i>A</i>어디 · 공식 플랫폼과 열두 도시</a><a href="#국내-B"><i>B</i>기준 · 5대 요소</a><a href="#국내-C"><i>C</i>중간 과제 · 심층 PT</a><a href="#국내-D"><i>D</i>열두 도시 · 자료 네 줄</a><a href="#국내-E"><i>E</i>세 단계 실습 · 용인 → 안동</a></p>
       <p class="learn-part pt-learn" id="국내-A"><span class="pt">01-A</span>어디 · 무엇을 — 공식 플랫폼과 열두 도시</p>
@@ -1839,14 +1842,14 @@
               <tr><th scope="row">스마트 경험</th><td>관광콘텐츠</td><td>AR · VR · MR · 홀로그램</td><td><b>관광매력 극대화</b></td><td>최신 기술로 자연 · 문화 · 역사 등 관광매력을 극대화</td></tr>
               <tr><th scope="row">스마트 편의</th><td>관광인프라</td><td>O2O · 디지털 사이니지 등</td><td><b>관광일정 관리</b></td><td>편리한 체류를 위해 식당 · 체험 등을 실시간으로 알려 주고 예약 · 결제 지원</td></tr>
               <tr><th scope="row">스마트 서비스</th><td>관광지원서비스</td><td>챗봇 · 로보틱스 등</td><td><b>관광품질 개선</b></td><td>다국어 · 불편신고 · 짐배송 등 관광지 현장의 불편에 신속 대응</td></tr>
-              <tr><th scope="row">스마트 모빌리티</th><td>관광교통</td><td>공유플랫폼 · 자율주행 · MaaS 등</td><td><b>방문범위 확대</b></td><td>공유자동차 · 수요대응형 자동차(도시 간) · 퍼스널 모빌리티(도시 안) 등 2차 교통수단 · <a href="#part12">🛴 자료는 파트 12 스마트 모빌리티 ↓</a></td></tr>
+              <tr><th scope="row">스마트 모빌리티</th><td>관광교통</td><td>공유플랫폼 · 자율주행 · MaaS 등</td><td><b>방문범위 확대</b></td><td>공유자동차 · 수요대응형 자동차(도시 간) · 퍼스널 모빌리티(도시 안) 등 2차 교통수단 · <a href="#part12">🛴 자료는 파트 08 스마트 모빌리티 ↓</a></td></tr>
               <tr><th scope="row">스마트 플랫폼</th><td>관광정보</td><td>AI · Data Analytics 등</td><td><b>관광정보 공유</b></td><td>스마트관광도시 안의 여러 서비스를 등록 · 이용하고, 그 기록을 모아 공유</td></tr>
             </tbody>
           </table>
         </div>
         <figure class="k5-penta" aria-label="스마트관광 5대 요소 오각형 — 경험 · 편의 · 서비스 · 모빌리티 · 플랫폼">
           <svg viewBox="0 0 920 620" role="img" font-family="'Noto Sans KR','Malgun Gothic',sans-serif"><title>스마트관광 5대 요소 오각형</title><polygon points="460.0,165.0 616.9,279.0 557.0,463.5 363.0,463.5 303.1,279.0" fill="#f6f9fc" stroke="#c9d6e6" stroke-width="2"/><line x1="460" y1="330" x2="460.0" y2="165.0" stroke="#dbe4ee" stroke-dasharray="4 4"/><line x1="460" y1="330" x2="616.9" y2="279.0" stroke="#dbe4ee" stroke-dasharray="4 4"/><line x1="460" y1="330" x2="557.0" y2="463.5" stroke="#dbe4ee" stroke-dasharray="4 4"/><line x1="460" y1="330" x2="363.0" y2="463.5" stroke="#dbe4ee" stroke-dasharray="4 4"/><line x1="460" y1="330" x2="303.1" y2="279.0" stroke="#dbe4ee" stroke-dasharray="4 4"/><line x1="460.0" y1="165.0" x2="460.0" y2="120.0" stroke="#7b4fc0" stroke-width="2"/><rect x="340" y="20" width="240" height="100" rx="12" fill="#f4eefc" stroke="#7b4fc0" stroke-width="2"/><rect x="340" y="20" width="6" height="100" rx="3" fill="#7b4fc0"/><text x="460" y="52" text-anchor="middle" font-size="17" font-weight="800" fill="#7b4fc0">① 스마트 경험</text><text x="460" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#33475b">관광콘텐츠 → 관광매력 극대화</text><text x="460" y="100" text-anchor="middle" font-size="12.5" fill="#5f6f80">AR · VR · MR · 홀로그램</text><circle cx="460.0" cy="165.0" r="9" fill="#7b4fc0"/><line x1="616.9" y1="279.0" x2="650.0" y2="279.0" stroke="#2f9a62" stroke-width="2"/><rect x="650" y="230" width="240" height="100" rx="12" fill="#eaf6ef" stroke="#2f9a62" stroke-width="2"/><rect x="650" y="230" width="6" height="100" rx="3" fill="#2f9a62"/><text x="770" y="262" text-anchor="middle" font-size="17" font-weight="800" fill="#2f9a62">② 스마트 편의</text><text x="770" y="288" text-anchor="middle" font-size="13" font-weight="700" fill="#33475b">관광인프라 → 관광일정 관리</text><text x="770" y="310" text-anchor="middle" font-size="12.5" fill="#5f6f80">O2O · 디지털 사이니지</text><circle cx="616.9" cy="279.0" r="9" fill="#2f9a62"/><line x1="557.0" y1="463.5" x2="560.0" y2="495.0" stroke="#e08a2b" stroke-width="2"/><rect x="560" y="495" width="240" height="100" rx="12" fill="#fff3e6" stroke="#e08a2b" stroke-width="2"/><rect x="560" y="495" width="6" height="100" rx="3" fill="#e08a2b"/><text x="680" y="527" text-anchor="middle" font-size="17" font-weight="800" fill="#e08a2b">③ 스마트 서비스</text><text x="680" y="553" text-anchor="middle" font-size="13" font-weight="700" fill="#33475b">관광지원서비스 → 관광품질 개선</text><text x="680" y="575" text-anchor="middle" font-size="12.5" fill="#5f6f80">챗봇 · 로보틱스</text><circle cx="557.0" cy="463.5" r="9" fill="#e08a2b"/><line x1="363.0" y1="463.5" x2="360.0" y2="495.0" stroke="#2f74c0" stroke-width="2"/><a href="#part12" style="cursor:pointer"><rect x="120" y="495" width="240" height="100" rx="12" fill="#e9f2fc" stroke="#2f74c0" stroke-width="2"/><rect x="120" y="495" width="6" height="100" rx="3" fill="#2f74c0"/><text x="240" y="527" text-anchor="middle" font-size="17" font-weight="800" fill="#2f74c0">④ 스마트 모빌리티</text><text x="240" y="553" text-anchor="middle" font-size="13" font-weight="700" fill="#33475b">관광교통 → 방문범위 확대</text><text x="240" y="575" text-anchor="middle" font-size="12.5" fill="#5f6f80">공유플랫폼 · 자율주행 · MaaS<tspan font-weight="800"> ↗</tspan></text><circle cx="342" cy="503" r="16" class="sp-ping"/><circle cx="342" cy="503" r="5" class="sp-live"/></a><circle cx="363.0" cy="463.5" r="9" fill="#2f74c0"/><line x1="303.1" y1="279.0" x2="270.0" y2="279.0" stroke="#d0477e" stroke-width="2"/><rect x="30" y="230" width="240" height="100" rx="12" fill="#fdeef4" stroke="#d0477e" stroke-width="2"/><rect x="30" y="230" width="6" height="100" rx="3" fill="#d0477e"/><text x="150" y="262" text-anchor="middle" font-size="17" font-weight="800" fill="#d0477e">⑤ 스마트 플랫폼</text><text x="150" y="288" text-anchor="middle" font-size="13" font-weight="700" fill="#33475b">관광정보 → 관광정보 공유</text><text x="150" y="310" text-anchor="middle" font-size="12.5" fill="#5f6f80">AI · Data Analytics</text><circle cx="303.1" cy="279.0" r="9" fill="#d0477e"/><text x="460" y="320" text-anchor="middle" font-size="17" font-weight="800" fill="#17365d">스마트관광도시</text><text x="460" y="344" text-anchor="middle" font-size="13.5" font-weight="700" fill="#44566b">도시가 갖추는 다섯 영역</text><text x="460" y="366" text-anchor="middle" font-size="11.5" fill="#7c8a99">한국관광공사(2020)</text></svg>
-          <figcaption>위 표를 오각형으로 — 꼭짓점마다 <b>연계 관광요소 → 핵심가치</b>와 <b>연계 기술</b>. 「무엇을 하나」는 위 표에서. <b>④ 스마트 모빌리티 박스를 누르면</b> 파트 12 스마트 모빌리티로 이동합니다. <a href="smart-tourism-city-5-elements-scorecard.html" target="_blank" rel="noopener">이 기준으로 내 도시 평가하기 — 5대 요소 점수표 ↗</a> <a href="smart-tourism-5-elements-quiz.html" target="_blank" rel="noopener">✦ 5대 요소 암기 퀴즈 ↗</a></figcaption>
+          <figcaption>위 표를 오각형으로 — 꼭짓점마다 <b>연계 관광요소 → 핵심가치</b>와 <b>연계 기술</b>. 「무엇을 하나」는 위 표에서. <b>④ 스마트 모빌리티 박스를 누르면</b> 파트 08 스마트 모빌리티로 이동합니다. <a href="smart-tourism-city-5-elements-scorecard.html" target="_blank" rel="noopener">이 기준으로 내 도시 평가하기 — 5대 요소 점수표 ↗</a> <a href="smart-tourism-5-elements-quiz.html" target="_blank" rel="noopener">✦ 5대 요소 암기 퀴즈 ↗</a></figcaption>
         </figure>
 
         <details class="k5-script">
@@ -2040,10 +2043,10 @@
 
 
       <p class="dltags to11"><a class="mapl form" href="#과제-워크숍">과제 1 · AI·스마트도시 워크숍 설계 → 파트 11 ↓</a><a class="mapl form y" href="#과제1">과제 2 · 용인을 본떠 내 도시로 → 파트 11 ↓</a><a class="mapl form" href="#과제4">과제 3 · 업무수행계획서 → 파트 11 ↓</a><span class="dl-src">세 과제는 <b>파트 11 실무 과제</b>로 모았습니다.</span></p>
-      <p class="step-next"><a class="step-jump" href="#단계3"><b>단계 3</b>공모전 양식으로 결과 만들기 <span>→ 파트 05 ↓</span></a></p>
+      <p class="learn-part pt-step s3 step-go"><a href="#단계3"><span class="pt">단계 3</span>공모전 양식으로 결과 만들기 <em>→ 파트 05 ↓</em></a></p>
 
 
-      <p class="learn-part pt-part pp-3" id="part06"><span class="pt"><i>파트</i><b>02</b></span><span class="pt-ti">이론 슬라이드</span><span class="pt-sub"><strong>네 갈래</strong>로 — 개념 → 측정 → 적용 → 수용</span><span class="pt-jump"><a href="#part00">00 한눈에</a><a href="#part01">01 국내</a><a href="#part06" class="on" aria-current="true">02 이론</a><a href="#part07">03 연구</a><a href="#part02">04 해외</a><a href="#part03">05 공모전</a><a href="#part04">06 PBL</a><a href="#part05">07 책</a><a href="#part08">08 취업</a><a href="#part09">09 자료실</a><a href="#part10">10 AI</a><a href="#part11">11 실무</a><a href="#part12">12 모빌리티</a></span></p>
+      <p class="learn-part pt-part pp-3" id="part06"><span class="pt"><i>파트</i><b>02</b></span><span class="pt-ti">이론 슬라이드</span><span class="pt-sub"><strong>네 갈래</strong>로 — 개념 → 측정 → 적용 → 수용</span><span class="pt-jump"><a href="#part00">00 한눈에</a><a href="#part01">01 국내</a><a href="#part06" class="on" aria-current="true">02 이론</a><a href="#part07">03 연구</a><a href="#part02">04 해외</a><a href="#part03">05 공모전</a><a href="#part04">06 PBL</a><a href="#part05">07 책</a><a href="#part12">08 모빌리티</a><a href="#part09">09 자료실</a><a href="#part10">10 AI</a><a href="#part11">11 실무</a><a href="#part08">12 취업</a></span></p>
       <p class="part-goal"><span class="pg-l">이 파트를 마치면</span><span class="pg-i v1"><b>설명</b><em>A 개념</em>스마트 관광을 「앱 제공」이 아니라 <strong>도시 관광 전체를 지속가능 · 접근 가능 · 효율적으로 관리하는 것</strong>으로 설명하고, EC 네 요소(기술 · 지속가능성 · 접근성 · 지역 창의)를 든다</span><span class="pg-i v2"><b>비교</b><em>B 측정</em>다섯 산업(여행 · 외식 · 컨벤션 · 숙박 · 항공)의 <strong>요인 패턴</strong>을 견주고, 문항이 걸러진 까닭(겹침 · 막연함)을 짚는다</span><span class="pg-i v3"><b>적용</b><em>C 적용</em>일곱 대상 가운데 하나를 골라 <strong>데이터 → 분석 · 기술 → 서비스</strong> 세 칸을 기술 이름까지 적는다</span><span class="pg-i v4"><b>판단</b><em>D 수용</em>TAM → TRAM → UTAUT2 → 혁신저항 · PAM으로 사람들이 스마트관광 서비스를 <strong>왜 쓰고 왜 안 쓰는지</strong> 따진다</span></p>
       <p class="sub-abcd"><b>파트 02 안에서</b><a href="#개념"><i>A</i>개념 · 스마트 관광이란</a><a href="#척도개발"><i>B</i>산업별 척도(측정기준) · 척도개발 5편</a><a href="#적용"><i>C</i>적용 · 누구에게 · 어떤 기술로</a><a href="#기술수용"><i>D</i>수용 · 기술수용 이론</a></p>
       <figure class="topic-map" id="대주제구성도">
@@ -2671,7 +2674,7 @@
       <p class="dltags"><a class="mapl form hot" href="tam-models-22-quiz.html" target="_blank" rel="noopener">기술수용모형 22문제 — 문제 풀고 정답 · 해설 보기 ↗</a><span class="dl-src"><b>만화로 흐름을 봤다면, 이제 문제로 확인합니다.</b> TAM · 확장 TAM · TRAM · UTAUT2 · 혁신저항 · PAM(ECM) — 여섯 모형을 상호작용 맵 · 변수 관계도 여섯으로 다시 짚고, <b>22문제</b>를 한 장씩 풀며 「정답 · 해설 보기」로 확인합니다. 참고문헌(Davis 1989 · Venkatesh 2012 · Ram &amp; Sheth 1989 · Bhattacherjee 2001 등)도 함께 실렸습니다.</span></p>
 
 
-      <p class="learn-part pt-part pp-5" id="part07"><span class="pt"><i>파트</i><b>03</b></span><span class="pt-ti">연구</span><span class="pt-sub"><strong>국제(SSCI) · 국내 논문</strong>으로 근거를 세웁니다</span><span class="pt-jump"><a href="#part00">00 한눈에</a><a href="#part01">01 국내</a><a href="#part06">02 이론</a><a href="#part07" class="on" aria-current="true">03 연구</a><a href="#part02">04 해외</a><a href="#part03">05 공모전</a><a href="#part04">06 PBL</a><a href="#part05">07 책</a><a href="#part08">08 취업</a><a href="#part09">09 자료실</a><a href="#part10">10 AI</a><a href="#part11">11 실무</a><a href="#part12">12 모빌리티</a></span></p>
+      <p class="learn-part pt-part pp-5" id="part07"><span class="pt"><i>파트</i><b>03</b></span><span class="pt-ti">연구</span><span class="pt-sub"><strong>국제(SSCI) · 국내 논문</strong>으로 근거를 세웁니다</span><span class="pt-jump"><a href="#part00">00 한눈에</a><a href="#part01">01 국내</a><a href="#part06">02 이론</a><a href="#part07" class="on" aria-current="true">03 연구</a><a href="#part02">04 해외</a><a href="#part03">05 공모전</a><a href="#part04">06 PBL</a><a href="#part05">07 책</a><a href="#part12">08 모빌리티</a><a href="#part09">09 자료실</a><a href="#part10">10 AI</a><a href="#part11">11 실무</a><a href="#part08">12 취업</a></span></p>
       <p class="part-goal"><span class="pg-l">이 파트를 마치면</span><span class="pg-i v1"><b>설명</b><em>목표 ①</em>국제(SSCI) · 국내 논문의 연구모형을 읽고 설명한다</span><span class="pg-i v2"><b>비교</b><em>목표 ② 앞</em>국제 연구와 국내 연구의 결과를 비교한다</span><span class="pg-i v4"><b>제안</b><em>목표 ③</em>리포트 · 기획서의 근거 문장으로 인용한다</span></p>
       <p class="h3tag"><span>국제 연구 (SSCI)</span></p>
       <div class="fig-side vidside res">
@@ -2833,7 +2836,7 @@
         <figcaption class="cap-ctx">파트 01에서 본 국내 스마트관광도시를 이제 해외 도시와 나란히 봅니다.<br />2024 APEC 스마트 관광도시 교육 워크숍은 <strong>양양 · 경주</strong>(국내)와 <strong>센토사 · 호주 · 페루 리마</strong>(해외)를 한 무대에 세워 <strong>편의(1부) · 경험(2부) · 지속가능성(3부)</strong>이라는 같은 세 질문으로 비교했습니다.<br />아래 유럽 사례도 이 세 질문을 들고 읽어 보십시오 — 「우리 도시라면?」을 함께 묻는 것이 해외 사례를 보는 이유입니다. <a href="#apec틀">실습 2 아래 ↓</a></figcaption>
       </figure>
 
-      <p class="learn-part pt-part pp-2" id="part02"><span class="pt"><i>파트</i><b>04</b></span><span class="pt-ti">해외 사례 넓게 보기</span><span class="pt-sub">개념 → 한국어 보고서 → <strong>EU 공모 원본</strong> → 최신 회차, <strong>네 번 읽기</strong>로 유럽을 봅니다</span><span class="pt-jump"><a href="#part00">00 한눈에</a><a href="#part01">01 국내</a><a href="#part06">02 이론</a><a href="#part07">03 연구</a><a href="#part02" class="on" aria-current="true">04 해외</a><a href="#part03">05 공모전</a><a href="#part04">06 PBL</a><a href="#part05">07 책</a><a href="#part08">08 취업</a><a href="#part09">09 자료실</a><a href="#part10">10 AI</a><a href="#part11">11 실무</a><a href="#part12">12 모빌리티</a></span></p>
+      <p class="learn-part pt-part pp-2" id="part02"><span class="pt"><i>파트</i><b>04</b></span><span class="pt-ti">해외 사례 넓게 보기</span><span class="pt-sub">개념 → 한국어 보고서 → <strong>EU 공모 원본</strong> → 최신 회차, <strong>네 번 읽기</strong>로 유럽을 봅니다</span><span class="pt-jump"><a href="#part00">00 한눈에</a><a href="#part01">01 국내</a><a href="#part06">02 이론</a><a href="#part07">03 연구</a><a href="#part02" class="on" aria-current="true">04 해외</a><a href="#part03">05 공모전</a><a href="#part04">06 PBL</a><a href="#part05">07 책</a><a href="#part12">08 모빌리티</a><a href="#part09">09 자료실</a><a href="#part10">10 AI</a><a href="#part11">11 실무</a><a href="#part08">12 취업</a></span></p>
       <p class="part-goal"><span class="pg-l">이 파트를 마치면</span><span class="pg-i v2"><b>비교</b><em>목표 ② 앞</em>EU 스마트관광 수도 사례를 국내 사례와 비교 · 대조한다</span><span class="pg-i v3"><b>평가</b><em>목표 ② 뒤</em>수상 · 결선 도시가 무엇으로 뽑혔는지 문제-해결로 따져 벤치마킹할 점을 가려낸다</span><span class="pg-i v4"><b>제안</b><em>목표 ③</em>국내외 스마트관광도시를 한 무대에 세운 <strong>워크숍</strong>(3부 × 국내 1 + 해외 1)을 제안한다 <a href="ai-smart-city-workshop-assignment.html" target="_blank" rel="noopener">과제 안내 ↗</a> · <a href="ai-smart-city-workshop-form.html" target="_blank" rel="noopener">포스터 · 설계표 바로 쓰기 ↗</a></span></p>
       <p>국내 현장을 봤다면 이제 <strong>유럽</strong>입니다. 한국어 요약 보고서에서 출발해 → 유럽연합의 공식 공모 → 89쪽짜리 사례집 원본으로 이어집니다. 한국의 스마트관광도시 사업과 나란히 놓고 읽어 보세요. 같은 이름 아래 <strong>유럽이 무엇을 먼저 보는지</strong>가 드러납니다. 그리고 끝에서는 국내와 해외 도시를 <strong>한 무대에 세우는 워크숍</strong>을 직접 제안합니다 — <a href="#과제-워크숍">파트 11 과제 1 ↓</a>.</p>
       <p class="learn-part pt-step r1"><span class="pt">읽기 1</span>개념 잡기</p>
@@ -2981,7 +2984,7 @@
 
 
 
-      <p class="learn-part pt-part pp-6" id="part03"><span class="pt"><i>파트</i><b>05</b></span><span class="pt-ti">직접 만들어 보기 · 공모전</span><span class="pt-sub">무엇을 향해 만드는지 먼저 봅니다 — <strong>공모전이 과녁</strong>입니다</span><span class="pt-jump"><a href="#part00">00 한눈에</a><a href="#part01">01 국내</a><a href="#part06">02 이론</a><a href="#part07">03 연구</a><a href="#part02">04 해외</a><a href="#part03" class="on" aria-current="true">05 공모전</a><a href="#part04">06 PBL</a><a href="#part05">07 책</a><a href="#part08">08 취업</a><a href="#part09">09 자료실</a><a href="#part10">10 AI</a><a href="#part11">11 실무</a><a href="#part12">12 모빌리티</a></span></p>
+      <p class="learn-part pt-part pp-6" id="part03"><span class="pt"><i>파트</i><b>05</b></span><span class="pt-ti">직접 만들어 보기 · 공모전</span><span class="pt-sub">무엇을 향해 만드는지 먼저 봅니다 — <strong>공모전이 과녁</strong>입니다</span><span class="pt-jump"><a href="#part00">00 한눈에</a><a href="#part01">01 국내</a><a href="#part06">02 이론</a><a href="#part07">03 연구</a><a href="#part02">04 해외</a><a href="#part03" class="on" aria-current="true">05 공모전</a><a href="#part04">06 PBL</a><a href="#part05">07 책</a><a href="#part12">08 모빌리티</a><a href="#part09">09 자료실</a><a href="#part10">10 AI</a><a href="#part11">11 실무</a><a href="#part08">12 취업</a></span></p>
       <p class="part-goal"><span class="pg-l">이 파트를 마치면</span><span class="pg-i v3"><b>평가</b><em>목표 ② 뒤</em>공모전 심사 기준으로 내 아이디어를 점검한다</span><span class="pg-i v4"><b>제안</b><em>목표 ③</em>공모전 양식에 맞춰 아이디어를 제안한다</span></p>
       <p>스마트 관광은 <em>만들어 본 사람</em>과 <em>읽기만 한 사람</em>의 거리가 유난히 큰 분야입니다. 그래서 <strong>무엇을 향해 만드는지 먼저 봅니다</strong> — 아래 <strong>공모전</strong>이 그 과녁입니다. 이 모듈에서 배운 것을 그대로 출품작으로 바꿀 수 있는 자리이며, 공식 공고 주소로 바로 연결됩니다. 그다음이 <strong>제작 실습</strong>입니다. 과녁을 알고 만들면 무엇을 남겨야 할지가 달라집니다 — <strong>실습이 곧 응모의 모의 연습</strong>입니다.</p>
 
@@ -3019,7 +3022,7 @@
           <li><b>어려움은 솔직하게</b><span>[6]의 「예상되는 어려움」은 숨기지 않는 편이 유리합니다 — 실습에서 만난 <strong>줌 15 해상도 한계</strong>처럼 <strong class="hot-t">도구의 한계를 아는 사람이 쓴 글</strong>로 읽힙니다.</span></li>
         </ul>
         <p class="tb-tags"><a class="mapl form hot red" href="assets/gyeongbuk-ax-2026-form1-application.docx" download="0714-양식1_응모신청서.docx">양식① 응모신청서 ⤓</a><a class="mapl form redo" href="gyeongbuk-ax-form-4-8.html" target="_blank" rel="noopener">응모신청서 4~8쪽 · 웹에서 바로 쓰기 ↗</a><a class="mapl form" href="assets/gyeongbuk-ax-2026-form2-consent.docx" download="0714-양식2_개인정보저작권동의서.docx">양식② 동의서 ⤓</a><a class="mapl form" href="assets/gyeongbuk-ax-2026-notice.pdf" target="_blank" rel="noopener">공고문 원문 3쪽 ↗</a><a class="mapl form y" href="https://yuanlee.info/region/gyeongbuk-tourism-resources.html" target="_blank" rel="noopener">경북 도시 · 인구 · 관광 데이터 ↗</a><a class="mapl form y" href="https://yuanlee.info/region/gyeongbuk-tourism-100.html" target="_blank" rel="noopener">경북관광 100선 ↗</a><span class="tb-src">두 양식을 <b>각각 PDF로 변환해 이메일 접수</b>합니다. 대학생은 <b>일반부</b>이고, 아이디어만으로 응모할 수 있어 개발 완성물은 필요 없습니다.</span></p>
-        <div class="fin-topic"><span class="ft-badge">축제 이슈</span><span class="ft-d">축제 현장 여섯 장면 — 장마다 <b>문제 → 기술·서비스 → 효과</b>, 곧 신청서 <b>[3] · [4] · [5]</b>의 순서입니다. <b>내 주제의 장면부터</b> 열어 보세요.</span><span class="ft-row"><b>축제</b><a href="smart-tourism-ax-4cut-comics.html?page=1" target="_blank" rel="noopener">① 축제 혼잡 ↗</a><a href="smart-tourism-ax-4cut-comics.html?page=2" target="_blank" rel="noopener">② 응급 대응 ↗</a><a href="smart-tourism-ax-4cut-comics.html?page=5" target="_blank" rel="noopener">⑤ 결제 편의 ↗</a></span><span class="ft-row"><b>교통</b><a href="smart-tourism-ax-4cut-comics.html?page=1" target="_blank" rel="noopener">① 혼잡 예측 · 분산 ↗</a><a href="smart-tourism-ax-4cut-comics.html?page=4" target="_blank" rel="noopener">④ 길찾기 · 현장경험 ↗</a><a href="smart-tourism-ax-4cut-comics.html?page=6" target="_blank" rel="noopener">⑥ 교통약자 이동 ↗</a><a class="to-mob" href="#part12">↓ 파트 12 스마트 모빌리티 — 계단 1~4</a></span><span class="ft-row"><b>약자 · 배리어프리</b><a href="smart-tourism-ax-4cut-comics.html?page=6" target="_blank" rel="noopener">⑥ 교통약자 이동 ↗</a><a href="smart-tourism-ax-4cut-comics.html?page=2" target="_blank" rel="noopener">② 응급 대응 ↗</a><a href="smart-tourism-ax-4cut-comics.html?page=3" target="_blank" rel="noopener">③ 관광 안내 · 말하는 캐릭터 ↗</a></span><span class="ft-row"><b>서원</b><a href="smart-tourism-ax-4cut-comics.html?page=3" target="_blank" rel="noopener">③ 관광 안내 · AI 챗봇 ↗</a><a href="smart-tourism-ax-4cut-comics.html?page=4" target="_blank" rel="noopener">④ 디지털 지도 · XR ↗</a></span><span class="ft-src">그림 · 구성 — 승예(수강생)</span></div>
+        <div class="fin-topic"><span class="ft-badge">축제 이슈</span><span class="ft-d">축제 현장 여섯 장면 — 장마다 <b>문제 → 기술·서비스 → 효과</b>, 곧 신청서 <b>[3] · [4] · [5]</b>의 순서입니다. <b>내 주제의 장면부터</b> 열어 보세요.</span><span class="ft-row"><b>축제</b><a href="smart-tourism-ax-4cut-comics.html?page=1" target="_blank" rel="noopener">① 축제 혼잡 ↗</a><a href="smart-tourism-ax-4cut-comics.html?page=2" target="_blank" rel="noopener">② 응급 대응 ↗</a><a href="smart-tourism-ax-4cut-comics.html?page=5" target="_blank" rel="noopener">⑤ 결제 편의 ↗</a></span><span class="ft-row"><b>교통</b><a href="smart-tourism-ax-4cut-comics.html?page=1" target="_blank" rel="noopener">① 혼잡 예측 · 분산 ↗</a><a href="smart-tourism-ax-4cut-comics.html?page=4" target="_blank" rel="noopener">④ 길찾기 · 현장경험 ↗</a><a href="smart-tourism-ax-4cut-comics.html?page=6" target="_blank" rel="noopener">⑥ 교통약자 이동 ↗</a><a class="to-mob" href="#part12">↓ 파트 08 스마트 모빌리티 — 계단 1~4</a></span><span class="ft-row"><b>약자 · 배리어프리</b><a href="smart-tourism-ax-4cut-comics.html?page=6" target="_blank" rel="noopener">⑥ 교통약자 이동 ↗</a><a href="smart-tourism-ax-4cut-comics.html?page=2" target="_blank" rel="noopener">② 응급 대응 ↗</a><a href="smart-tourism-ax-4cut-comics.html?page=3" target="_blank" rel="noopener">③ 관광 안내 · 말하는 캐릭터 ↗</a></span><span class="ft-row"><b>서원</b><a href="smart-tourism-ax-4cut-comics.html?page=3" target="_blank" rel="noopener">③ 관광 안내 · AI 챗봇 ↗</a><a href="smart-tourism-ax-4cut-comics.html?page=4" target="_blank" rel="noopener">④ 디지털 지도 · XR ↗</a></span><span class="ft-src">그림 · 구성 — 승예(수강생)</span></div>
       </div>
 
       <figure class="ax-crit" id="ax-criteria">
@@ -3205,7 +3208,7 @@
         </li>
       </ul>
 
-      <p class="learn-part pt-part pp-9" id="part04"><span class="pt"><i>파트</i><b>06</b></span><span class="pt-ti">PBL — 문제에서 출발한다</span><span class="pt-sub">해커톤에서 뽑혀 시범사업이 된 아이디어 — <strong>문제 두 줄 → 해결 두 줄</strong></span><span class="pt-jump"><a href="#part00">00 한눈에</a><a href="#part01">01 국내</a><a href="#part06">02 이론</a><a href="#part07">03 연구</a><a href="#part02">04 해외</a><a href="#part03">05 공모전</a><a href="#part04" class="on" aria-current="true">06 PBL</a><a href="#part05">07 책</a><a href="#part08">08 취업</a><a href="#part09">09 자료실</a><a href="#part10">10 AI</a><a href="#part11">11 실무</a><a href="#part12">12 모빌리티</a></span></p>
+      <p class="learn-part pt-part pp-9" id="part04"><span class="pt"><i>파트</i><b>06</b></span><span class="pt-ti">PBL — 문제에서 출발한다</span><span class="pt-sub">해커톤에서 뽑혀 시범사업이 된 아이디어 — <strong>문제 두 줄 → 해결 두 줄</strong></span><span class="pt-jump"><a href="#part00">00 한눈에</a><a href="#part01">01 국내</a><a href="#part06">02 이론</a><a href="#part07">03 연구</a><a href="#part02">04 해외</a><a href="#part03">05 공모전</a><a href="#part04" class="on" aria-current="true">06 PBL</a><a href="#part05">07 책</a><a href="#part12">08 모빌리티</a><a href="#part09">09 자료실</a><a href="#part10">10 AI</a><a href="#part11">11 실무</a><a href="#part08">12 취업</a></span></p>
       <p class="part-goal"><span class="pg-l">이 파트를 마치면</span><span class="pg-i v1"><b>설명</b><em>목표 ①</em>해커톤 사례를 「문제 두 줄 → 해결 두 줄」로 설명한다</span><span class="pg-i v3"><b>평가</b><em>목표 ② 뒤</em>시범사업이 된 아이디어가 왜 뽑혔는지 따진다</span><span class="pg-i v4"><b>제안</b><em>목표 ③</em>내 주제의 문제-해결 두 줄을 쓴다</span></p>
       <p>앞의 공모전들이 <strong>낼 자리</strong>를 보여줬다면, 여기서는 <strong>그 아이디어가 실제로 무엇이 되었는지</strong>를 봅니다. 2024년 해커톤에서 뽑혀 시범사업이 된 <strong>아홉 곳</strong>이 전부 <strong class="hot-t">문제 두 줄 → 해결 두 줄</strong>로 적혀 있고, 그것이 이 수업이 자료를 배치한 방식이자 여러분의 과제가 가는 순서입니다.</p>
 
@@ -3421,7 +3424,7 @@
 
       <p class="dltags"><a class="mapl form hot" href="smart-tourism-company-urls.html" target="_blank" rel="noopener">기업 · 서비스 URL 한 장 정리 ↗</a><span class="dl-src">위 아홉 곳의 <b>공식 사이트 주소</b>를 스티키노트 한 장에 모았습니다 — 참고용 서비스 페이지(워치마일 · DSC · 페이앱)까지. <b>㈜시정은 확인 필요, ㈜애프터워크는 미확인</b>으로 표시해 두었습니다.</span></p>
 
-      <p class="learn-part pt-part pp-7" id="part05"><span class="pt"><i>파트</i><b>07</b></span><span class="pt-ti">책</span><span class="pt-sub"><strong>12개 장</strong> 마인드맵과 강의 슬라이드 견본</span><span class="pt-jump"><a href="#part00">00 한눈에</a><a href="#part01">01 국내</a><a href="#part06">02 이론</a><a href="#part07">03 연구</a><a href="#part02">04 해외</a><a href="#part03">05 공모전</a><a href="#part04">06 PBL</a><a href="#part05" class="on" aria-current="true">07 책</a><a href="#part08">08 취업</a><a href="#part09">09 자료실</a><a href="#part10">10 AI</a><a href="#part11">11 실무</a><a href="#part12">12 모빌리티</a></span></p>
+      <p class="learn-part pt-part pp-7" id="part05"><span class="pt"><i>파트</i><b>07</b></span><span class="pt-ti">책</span><span class="pt-sub"><strong>12개 장</strong> 마인드맵과 강의 슬라이드 견본</span><span class="pt-jump"><a href="#part00">00 한눈에</a><a href="#part01">01 국내</a><a href="#part06">02 이론</a><a href="#part07">03 연구</a><a href="#part02">04 해외</a><a href="#part03">05 공모전</a><a href="#part04">06 PBL</a><a href="#part05" class="on" aria-current="true">07 책</a><a href="#part12">08 모빌리티</a><a href="#part09">09 자료실</a><a href="#part10">10 AI</a><a href="#part11">11 실무</a><a href="#part08">12 취업</a></span></p>
       <p class="part-goal"><span class="pg-l">이 파트를 마치면</span><span class="pg-i v1"><b>설명</b><em>목표 ①</em>책 12개 장의 핵심 개념을 마인드맵으로 설명한다</span></p>
       <p class="mini-note"><a class="dl-link" href="https://strc.khu.ac.kr/bbs/board.php?bo_table=06_01&amp;wr_id=21" target="_blank" rel="noopener">이 그림의 12개 장 · 강의 슬라이드 내려받기 ↗</a> — 아래 마인드맵과 <strong>같은 순서로 짜인 12개 장</strong>의 강의 슬라이드 견본(PDF). <span class="src-inline">경희대학교 스마트관광연구소</span></p>
 
@@ -3495,120 +3498,11 @@
       </div>
       <p class="mini-note">위 목차 열다섯 Part를 다섯 개씩 한 장에 — Part마다 <strong>핵심 메시지 한 줄</strong>과 장면 그림. 그림을 누르면 크게 봅니다.</p>
 
-      <p class="learn-part pt-part pp-4" id="part08"><span class="pt"><i>파트</i><b>08</b></span><span class="pt-ti">취업 · 면접</span><span class="pt-sub"><strong>면접 질문 스무 문항</strong> · 채용 창구 · 실전 입사지원서</span><span class="pt-jump"><a href="#part00">00 한눈에</a><a href="#part01">01 국내</a><a href="#part06">02 이론</a><a href="#part07">03 연구</a><a href="#part02">04 해외</a><a href="#part03">05 공모전</a><a href="#part04">06 PBL</a><a href="#part05">07 책</a><a href="#part08" class="on" aria-current="true">08 취업</a><a href="#part09">09 자료실</a><a href="#part10">10 AI</a><a href="#part11">11 실무</a><a href="#part12">12 모빌리티</a></span></p>
-      <p class="part-goal"><span class="pg-l">이 파트를 마치면</span><span class="pg-i v4"><b>제안</b><em>목표 ③</em>내 산출물을 면접 답변 · 입사지원서의 근거로 쓰고 자기 말로 설명한다</span></p>
-
-      <div class="syl-box job" id="대비">
-        <p class="syl-t"><a href="interview-personality-20.html" target="_blank" rel="noopener">기관 인성면접 예상 질문 20문 ↗</a><a class="sticky-pill" href="interview-personality-20.html" target="_blank" rel="noopener">노란 스티키노트 한 장 ↗</a><a class="doc-pill" href="assets/interview-personality-20.docx" download="기관_인성면접_예상질문_20문.docx">워드로 내려받기 ⤓ DOCX</a></p>
-        <p class="syl-d"><strong>파트 05가 취업 지원으로 모인다</strong>고 했습니다 — 그 마지막 칸이 면접입니다. 벤치마킹 발표와 업무 수행계획서로 <em>내가 무엇을 했는가</em>를 만들었다면, 면접은 그것을 <strong>말로 옮기는 자리</strong>입니다. 아래 스무 문항은 <strong>공공기관·공기업 인성면접</strong>에서 반복해서 나오는 질문들입니다.</p>
-        <p class="syl-d"><strong>쓰는 법은 하나입니다 — 눈으로 읽지 말고 소리 내어 답하십시오.</strong> 한 문항당 <strong>40초~1분</strong>이 실제 면접의 길이입니다. 스무 장이 <em>자기소개 → 장·단점 → 극복 경험 → 협업과 갈등 → 원칙과 태도 → 마지막 한마디</em> 순으로 놓여 있어, 위에서부터 훑으면 <strong class="hot-t">면접 한 회차가 그대로 지나갑니다</strong>. 인쇄하면 A4에 4열로 떨어져 손에 들고 연습할 수 있습니다.</p>
-        <div class="prep-via">
-          <p class="pv-t"><span class="pv-badge">발표 준비</span>이 스무 문항으로 발표합니다 — 먼저 2번 「본인의 가장 큰 장점은 무엇입니까?」</p>
-          <p class="pv-d">장점을 느낌으로 말하지 않고 <strong>검사 결과를 근거로</strong> 말합니다. <a href="https://www.viacharacter.org/" target="_blank" rel="noopener"><b>VIA 성격강점 검사 ↗</b></a>(VIA Institute on Character, 무료 · 한국어)를 봅니다.</p>
-          <ol class="pv-steps">
-            <li><b>검사</b>스물네 가지 강점에 순위가 매겨집니다(15분 안팎).</li>
-            <li><b>캡처</b>상위 다섯 — <strong>대표강점</strong> 화면을 사진으로 남깁니다.</li>
-            <li><b>하나 고르기</b>다섯 가운데 면접에서 말할 강점 하나.</li>
-            <li><b>경험 잇기</b>그 강점이 드러난 실제 경험 하나 — 이 수업의 도시 발표 · 팀 작업도 됩니다.</li>
-            <li><b>40초 답</b>「제 가장 큰 장점은 ○○입니다 → 근거 경험 → 입사 후 이렇게 쓰겠습니다」 — 소리 내어 발표합니다.</li>
-          </ol>
-          <p class="pv-foot"><strong>상위 다섯 캡처는 LMS에 — 중간고사 다음 주 화요일 전까지.</strong> 순위가 낮은 강점은 3번 「본인의 단점」 답의 재료가 됩니다.</p>
-        </div>
-        <p class="syl-tags job-more"><a class="mapl hub" href="https://yuanlee.info/students.html" target="_blank" rel="noopener">학생 지원 한자리 — 진로 · 자격증 · 공모전 · 취업 ↗</a><a class="mapl blue" href="job-opportunities-board.html" target="_blank" rel="noopener">채용 기회 알림판 — 공공기관 · 연구원 · 재단 ↗</a><a class="mapl now" href="https://academy.visitkorea.or.kr/mainHome.do" target="_blank" rel="noopener">관광in · 관광전문인력포털 ↗</a><a class="mapl soft" href="https://k-mice.visitkorea.or.kr/noti.kto?func_name=list&amp;pgbn=2" target="_blank" rel="noopener">K-MICE · 정규 · 계약직 · 인턴 채용 ↗</a><a class="mapl soft" href="https://promice.or.kr/" target="_blank" rel="noopener">PROMICE · 희망MICE인턴십 ↗</a><a class="mapl" href="https://www.hotelinnetwork.com/intro.php" target="_blank" rel="noopener">호텔인네트워크 · 호텔·관광 채용 ↗</a><a class="mapl" href="https://linkareer.com/list/intern?filterBy_activityTypeID=5&amp;filterBy_jobTypes=INTERN&amp;filterBy_status=OPEN&amp;orderBy_direction=DESC&amp;orderBy_field=RECENT&amp;page=1" target="_blank" rel="noopener">링커리어 · 인턴 공고 ↗</a><a class="mapl" href="https://www.hosco.com/en" target="_blank" rel="noopener">hosco · 해외 호스피탈리티 채용 ↗</a><a class="mapl" href="https://www.glassdoor.com/Job/united-arab-emirates-internship-in-hotel-jobs-SRCH_IL.0,20_IN6_KO21,40.htm" target="_blank" rel="noopener">Glassdoor · UAE 호텔 인턴 검색 ↗</a><a class="mapl blue" href="https://linkareer.com/activity/264438" target="_blank" rel="noopener">지금 열림 · 두바이 한국관 해외 인턴십 ↗</a><a class="mapl lime" href="chatgpt-job-prompts.html" target="_blank" rel="noopener">AI 취업 활용 프롬프트 6 ↗</a><span class="syl-src"><b>첫 알약은 담당교수가 운영하는 학생 지원 페이지</b>입니다 — 교과 흐름과 진로를 잇는 지도, <b>자격증 안내</b>, <b>공모전 · 지원사업</b>, <b>진로 열두 갈래와 예시 기관</b>, K-Move · K-Work 같은 외부 프로그램까지 한자리에 모아 두었습니다. 아래 창구들이 <em>자리</em>를 보여준다면, 여기는 <em>길</em>을 보여줍니다.<br /><b>면접을 준비하기 전에 어떤 자리가 열려 있는지부터 봅니다.</b> 관광in은 한국관광공사가 여는 <b>공공 포털</b>(채용 · 교육 · 인력 정보), <b>K-MICE</b>는 같은 공사가 운영하는 <b>MICE(회의 · 포상관광 · 컨벤션 · 전시) 채용판</b>으로 정규 · 계약직 · 인턴을 한 목록에서 거를 수 있습니다, 호텔인네트워크는 <b>호텔 · 관광 분야 채용</b>, 링커리어는 <b>인턴 공고</b>를 최신순으로 모아 둡니다 — 재학 중에 넣을 수 있는 자리가 여기 있습니다.<br /><b>파란 알약은 개별 공고</b>입니다 — <em>Dubai Global Village 한국관 인턴십</em>(외국계 · 활동비 · 수료증). 모집이 끝나면 닫힙니다. <b>해외로 나갈 생각이라면 두 곳을 더 보십시오</b> — <b>hosco</b>는 호텔 · 레스토랑 등 호스피탈리티 분야의 국제 채용 네트워크이고, <b>Glassdoor</b>는 「UAE · 호텔 · 인턴」으로 이미 걸러 둔 검색 결과입니다. 두바이 공고가 닫혀도 같은 자리가 여기서 계속 올라옵니다.</span></p>
-        <p class="syl-t job-forms"><b class="jf-lead">실전 입사지원서 — 위 질문에 답할 「내 이야기」를 먼저 종이에 옮깁니다</b><a class="sticky-pill" href="job-application-assignment.html" target="_blank" rel="noopener">웹에서 바로 작성 · 자동저장 ↗</a><a class="doc-pill" href="assets/job-application-assignment.docx" download="실전_입사지원서_과제양식.docx">워드로 내려받기 ⤓ DOCX</a></p>
-        <div class="prep-via jf-box">
-          <p class="syl-d jf-d"><strong>면접 답은 지원서에서 시작합니다.</strong></p>
-          <ol class="jf-list">
-            <li><b>한 곳 · 한 직무</b><span>기업·기관 <strong>한 곳</strong>과 직무 <strong>하나</strong>를 실제로 고릅니다.</span></li>
-            <li><b>자격요건 대조</b><span><strong>채용공고의 자격요건</strong>과 <strong>내가 가진 것</strong>을 마주 놓습니다.</span></li>
-            <li><b>자기소개서 다섯 문항</b><span><em>지원동기 · 직무역량 · 문제해결 · 협업 · 입사 후 목표</em>를 <strong>상황 → 역할 → 행동 → 결과</strong> 흐름으로 씁니다.</span></li>
-            <li><b>면접과 이어짐</b><span>위 스무 문항은 <strong class="hot-t">여기 적은 경험을 말로 옮기는 자리</strong> — 지원서가 비면 면접 답도 빕니다.</span></li>
-            <li><b>웹 양식</b><span>칸에 쓰면 <strong>브라우저에 자동저장</strong> · 인쇄 · PDF 저장 · TXT 내려받기.</span></li>
-            <li><b>워드 양식</b><span>같은 내용을 손으로 채우는 <strong>A4 두 장</strong>.</span></li>
-            <li><b>제출</b><span>끝의 <strong>자기점검 여덟 줄</strong>까지 채우고 냅니다.</span></li>
-          </ol>
-        </div>
-              </div>
-
-      <p class="learn-part pt-part pp-8" id="part09"><span class="pt"><i>파트</i><b>09</b></span><span class="pt-ti">국내 자료실</span><span class="pt-sub">곁에 두고 볼 <strong>보고서와 게시판</strong></span><span class="pt-jump"><a href="#part00">00 한눈에</a><a href="#part01">01 국내</a><a href="#part06">02 이론</a><a href="#part07">03 연구</a><a href="#part02">04 해외</a><a href="#part03">05 공모전</a><a href="#part04">06 PBL</a><a href="#part05">07 책</a><a href="#part08">08 취업</a><a href="#part09" class="on" aria-current="true">09 자료실</a><a href="#part10">10 AI</a><a href="#part11">11 실무</a><a href="#part12">12 모빌리티</a></span></p>
-      <p>파트 01의 <strong>공식 플랫폼</strong>이 국내의 <em>현장</em>이라면, 여기는 <strong>한국에서 만들어진 문서</strong>입니다 — 곁에 두고 볼 보고서와 게시판.</p>
-      <ul class="reslist tight">
-        <li class="hi tone box lb1">
-          <a href="https://datalab.visitkorea.or.kr/site/portal/ex/bbs/View.do?cbIdx=1132&amp;bcIdx=302260" target="_blank" rel="noopener">한국관광 데이터랩 — 해외지사 조사보고서가 쌓이는 게시판 ↗</a>
-          <span class="desc">파트 01 <strong>유럽 심화보고서의 원문 게시글</strong>이자, 한국관광공사 <strong>해외지사의 현지 조사 자료가 쌓이는 게시판</strong>. 국가별 시장 동향·관광 트렌드 보고서가 계속 올라오고 대부분 <strong>한국어 PDF</strong>입니다 — 해외 사례를 인용할 때 <strong>영어 원문보다 여기를 먼저</strong>.</span>
-          <span class="meta">한국관광공사 파리지사 · 2022-12-16 등록 · datalab.visitkorea.or.kr</span>
-        </li>
-        <li class="hi tone box lb2">
-          <a href="assets/international-tourism-trends-2022-05.pdf" target="_blank" rel="noopener">국제관광동향 2022년 제5호 — 세계 관광 회복 · 프랑스 관광계획 · 국제기구 소식 (PDF) ↗</a>
-          <span class="desc">한국문화관광연구원(KCTI) 관광정책연구실이 펴내는 <strong>정기 동향 보고서</strong>. 구성은 셋 — ① <strong>세계 관광 동향</strong>(회복 현황, 주요국 입국·출국) ② <strong>주요국 관광 동향: 프랑스</strong> 「데스티나시옹 프랑스(Destination France)」 관광계획 ③ <strong>국제기구 소식</strong>과 주요 발행 보고서. 위 유럽 자료와 이어지는 지점이 ②입니다 — 보르도가 속한 <strong>프랑스가 국가 차원에서 관광을 어떻게 다시 설계하는지</strong> 볼 수 있습니다. ①은 UNWTO의 <strong>항공 예약·여행감정(travel sentiment)</strong> 지표를 그대로 인용하는데, 웹·소셜 대화를 긍정/부정으로 합산한 이 지표야말로 다음 모듈 「빅데이터 분석」이 다루는 관광 데이터의 실물입니다. 리포트에 통계를 인용할 때 <strong>표기 형식을 배우기에도</strong> 좋은 자료입니다.</span>
-          <span class="meta">한국문화관광연구원(KCTI) 관광정책연구실 · 2022년 제5호(7월) · PDF 13쪽</span>
-        </li>
-        <li class="hi tone box lb3">
-          <a href="https://genai-tourism-decision.healthylee7.chatgpt.site/#strategy" target="_blank" rel="noopener">생성형 AI로 보는 관광 의사결정 — 전략 편 ↗</a>
-          <span class="desc">생성형 AI(GenAI)가 관광 계획·마케팅·운영의 의사결정을 어떻게 바꾸는지 정리한 인터랙티브 자료. '전략(Strategy)' 섹션에서는 데이터·AI를 실제 관광 비즈니스 판단에 접목하는 방향을 살펴봅니다.</span>
-          <span class="meta">선샤인 웰니스 · 자체 제작 자료</span>
-        </li>
-      </ul>
-
-      <p class="learn-part pt-part pp-9" id="part10"><span class="pt"><i>파트</i><b>10</b></span><span class="pt-ti">AI와 관광·호텔·여행</span><span class="pt-sub">업계 곳곳에 <strong>AI가 어떻게 쓰이는지</strong> 22개 장으로 — 장마다 <strong>교수자 강의 대본</strong>이 붙어 있어 수업에 바로 씁니다</span><span class="pt-jump"><a href="#part00">00 한눈에</a><a href="#part01">01 국내</a><a href="#part06">02 이론</a><a href="#part07">03 연구</a><a href="#part02">04 해외</a><a href="#part03">05 공모전</a><a href="#part04">06 PBL</a><a href="#part05">07 책</a><a href="#part08">08 취업</a><a href="#part09">09 자료실</a><a href="#part10" class="on" aria-current="true">10 AI</a><a href="#part11">11 실무</a><a href="#part12">12 모빌리티</a></span></p>
-      <p class="part-goal"><span class="pg-l">이 파트를 마치면</span><span class="pg-i v1"><b>설명</b><em>목표 ①</em>관광 · 호텔 · 여행업에 AI가 어떻게 쓰이는지 설명한다</span><span class="pg-i v2"><b>비교</b><em>목표 ② 앞</em>세 업종의 AI 적용을 비교한다</span><span class="pg-i v3"><b>평가</b><em>목표 ② 뒤</em>AI 도입의 효과와 한계를 따진다</span></p>
-      <p>관광·호텔·여행 세 업종에 AI가 실제로 어떻게 적용되는지를 22개 장으로 정리했습니다. 장마다 발표용 슬라이드와 <strong>교수자 강의 대본</strong>이 함께 붙어 있어, 수업에서 그대로 읽으며 진행할 수 있습니다.</p>
-      <ul class="reslist tight">
-        <li class="hi tone box lb1">
-          <a href="tourism-hotel-travel-ai-22chapters.html" target="_blank" rel="noopener">관광·호텔·여행의 AI — 22장 좌우 넘김 · 슬라이드별 강의 대본 ↗</a>
-          <span class="desc">관광·호텔·여행 업계에 AI가 어떻게 쓰이는지 22개 장으로 정리한 슬라이드 자료. 장마다 <strong>교수자 강의 대본</strong>이 함께 붙어 있어, 발표·수업 진행용으로 그대로 읽으며 쓸 수 있습니다.</span>
-          <span class="meta">선샤인 웰니스 · 자체 제작 자료 · 22장 · 좌우 넘김</span>
-        </li>
-      </ul>
-
-      <p class="learn-part pt-part pp-x" id="part11"><span class="pt"><i>파트</i><b>11</b></span><span class="pt-ti">실무 과제</span><span class="pt-sub"><strong>손으로 해 보는 세 과제</strong> — 워크숍 설계 · 벤치마킹 실습 · 업무수행계획서</span><span class="pt-jump"><a href="#part00">00 한눈에</a><a href="#part01">01 국내</a><a href="#part06">02 이론</a><a href="#part07">03 연구</a><a href="#part02">04 해외</a><a href="#part03">05 공모전</a><a href="#part04">06 PBL</a><a href="#part05">07 책</a><a href="#part08">08 취업</a><a href="#part09">09 자료실</a><a href="#part10">10 AI</a><a href="#part11" class="on" aria-current="true">11 실무</a><a href="#part12">12 모빌리티</a></span></p>
-      <p class="part-goal"><span class="pg-l">이 파트를 마치면</span><span class="pg-i v2"><b>비교</b><em>목표 ② 앞</em>배정 도시를 WHAT · PLATFORM+RESEARCH · PROMOTION 세 칸으로 벤치마킹한다(과제 2)</span><span class="pg-i v3"><b>평가</b><em>목표 ② 뒤</em>서면평가표 · 점검 질문으로 내 설계를 스스로 따진다</span><span class="pg-i v4"><b>제안</b><em>목표 ③</em>워크숍 프로그램(과제 1)과 업무수행계획서(과제 3)를 제안한다</span></p>
-      <p class="sub-abcd"><b>파트 11 안에서</b><a href="#과제-워크숍"><i>A</i>과제 1 · AI·스마트도시 워크숍 설계</a><a href="#과제1"><i>B</i>과제 2 · 국내 스마트 도시 벤치마킹</a><a href="#과제4"><i>C</i>과제 3 · 업무수행계획서</a></p>
-
-      <div class="task-box s1 y2">
-        <p class="tb-t" id="과제-워크숍"><b class="tb-n prac">과제 1</b>AI·스마트관광도시 워크숍 설계 — APEC 워크숍처럼 3부로 <span class="when">개인 과제 · A4 2장 · 5분 발표</span></p>
-        <p class="part-goal sub"><span class="pg-l">과제 1 목표</span><span class="pg-i v2"><b>비교</b><em>목표 ② 앞</em>APEC 워크숍처럼 부마다 국내 한 곳 + 해외 한 곳을 같은 질문에 나란히 세운다</span><span class="pg-i v3"><b>평가</b><em>목표 ② 뒤</em>서면평가표(워크숍이 받치는 35점)와 점검 다섯으로 내 설계를 스스로 따진다</span><span class="pg-i v4"><b>제안</b><em>목표 ③</em>경북 시 · 군을 넣은 3부 워크숍 프로그램을 성과지표 숫자와 함께 포스터 · 설계표로 제안한다</span></p>
-        <p class="tb-d">국토교통부 <strong>「AI·스마트도시 혁신인재육성 사업」</strong>(공고 제2026-1238호)은 대학원에 AI·스마트도시 과정을 열고 <strong>산학협력 · 국제협력 · 워크숍</strong>을 운영하게 합니다. 우리 대학이 이 사업에 <strong>선정됐다고 가정</strong>하고, 1차년도에 열 <strong class="hot-t">3시간짜리 워크숍 프로그램</strong>을 짭니다. 본보기는 파트 04의 <a href="#apec틀">2024 APEC 스마트 관광도시 교육 워크숍 ↑</a>입니다.</p>
-        <p class="tb-tags"><a class="mapl form y" href="ai-smart-city-workshop-assignment.html" target="_blank" rel="noopener">✦ 과제 안내 · 포스터 틀 · 설계표 ↗</a><a class="mapl form redo" href="ai-smart-city-workshop-form.html" target="_blank" rel="noopener"><span class="blink-star" aria-hidden="true">✦</span> 포스터 · 설계표 · 웹에서 바로 쓰기 ↗</a><a class="mapl form" href="korea-spain-smart-tourism-forum-2022-slides.html" target="_blank" rel="noopener">▶ 먼저 보기 · 2022 한-스페인 관광포럼 — 이미 열린 「3세션 × 국내·해외 짝」 좌우 넘김 ↗</a><a class="mapl form" href="#대주제구성도">🗺 주제 고르기 · 스마트관광 대주제 구성도 16주제 ↑</a></p>
-        <ol class="kwlist tb-kw">
-          <li><b>왜 해 볼 만한가</b><span>글로벌 스마트도시 시장 <strong>’28년 3,544조 원</strong> 전망 · 기업 <strong>80%</strong>가 실무인력이 필요하다 하고 신규 수요는 <strong>해마다 1,000명 이상</strong>. 그래서 국토부는 지원금의 <strong class="hot-t">70% 이상을 학생 장학금 · 교육</strong>에 쓰게 했고 <strong>국내·외 인턴십</strong>을 필수로 넣었습니다. 이 공문은 우리 대학 학과에도 실제로 왔습니다 — 이 과제는 그 사업계획서의 한 칸을 진짜 공고 언어로 미리 써 보는 연습입니다. <a href="ai-smart-city-workshop-assignment.html#why" target="_blank" rel="noopener">숫자 넷 · 남는 것 셋 ↗</a></span></li>
-          <li><b>틀은 APEC</b><span>주제 한 문장 아래 <strong>1 · 2 · 3부</strong>, 부마다 <strong>국내 한 곳 + 해외 한 곳</strong>이 같은 질문에 답합니다. 국내는 <strong>경북 시군을 하나 이상</strong> 넣습니다.</span></li>
-          <li><b>공고의 세 축</b><span>1부 <strong>학술형</strong>(AI 접목 교과) · 2부 <strong>산학협력</strong>(지자체 · 기업) · 3부 <strong>국제협력 또는 창업</strong>.</span></li>
-          <li><b>주제는 구성도에서</b><span><a href="#대주제구성도">스마트관광 대주제 구성도 ↑</a>의 16주제(A~P)에서 <strong>부마다 하나씩</strong> 고르면 세 부가 한 주제 아래 겹치지 않습니다. 예 — 1부 학술형은 <strong>A 개념 · F 기술수용 · I 인공지능</strong>, 2부 산학협력은 <strong>D 스마트관광도시 · E 거버넌스 · K 산업별 적용 · L 지역 사례</strong>, 3부 국제협력 · 창업은 <strong>H 실감기술 · J 경제적 가치 · M 지속가능성 · O 서비스</strong>. <strong class="hot-t">P 관광객 심리 및 행동</strong>은 어느 부에든 「왜 쓰고 어떻게 느끼나」를 묻는 질문으로 넣을 수 있습니다.</span></li>
-          <li><b>숫자로 적는다</b><span>성과지표 셋 이상(교육생 · 산학협력 · 국제협력 · 취·창업교육 · 인턴십), 둘 이상은 실무형. 공고는 <strong class="hot-t">「~할 수 있다」 「~을 고려하고 있다」를 불가능으로 봅니다.</strong></span></li>
-          <li><b>제출물</b><span><strong>1장 포스터</strong>(APEC 포스터처럼) + <strong>2장 설계표</strong>(부별 질문 · 국내 · 해외 · 왜 이 짝인가 · 성과지표 · 평가표 어느 항목의 근거인가).</span></li>
-        </ol>
-      </div>
-
-      <div class="task-box s1 y2">
-        <p class="tb-t" id="과제1"><b class="tb-n prac">과제 2</b>국내 스마트 도시 벤치마킹 — 용인을 본떠 내 도시로 <span class="when">중간시험 전 · 수업 중 실습 → 바로 발표</span></p>
-        <p class="part-goal sub"><span class="pg-l">과제 2 목표</span><span class="pg-i v2"><b>비교</b><em>목표 ② 앞</em>배정받은 도시를 WHAT · PLATFORM+RESEARCH · PROMOTION 세 칸으로 갈라 공식 출처와 함께 벤치마킹한다</span><span class="pg-i v3"><b>평가</b><em>목표 ② 뒤</em>남의 발표를 들으며 워크시트로 플랫폼–근거–홍보가 이어지는지 평가한다</span></p>
-        <p class="tb-d">파트 01 단계 1의 <a href="#flow3">용인 여섯 자료 ↑</a>가 <strong>용인을 어떻게 갈라 봤는지</strong> 확인했으면, 같은 틀을 <strong>배정받은 도시</strong>에 그대로 적용합니다. 채우는 칸은 셋입니다 — <strong>WHAT</strong> 무엇을 만들었나 · <strong>PLATFORM + RESEARCH</strong> 무엇을 근거로 삼았나 · <strong>PROMOTION</strong> 어떻게 알렸나. 단순 소개가 아니라 <strong class="hot-t">플랫폼–근거–홍보가 이어지는 것</strong>이 보여야 하고, 칸마다 <strong>공식 출처 URL</strong>을 적습니다.</p>
-        <p class="tb-tags"><a class="mapl form y" href="smart-tourism-city-analysis-worksheet.html" target="_blank" rel="noopener">발표 들으며 쓰는 워크시트 — 웹에서 바로 ↗</a><a class="mapl form y" href="smart-tourism-city-card-yongin.html" target="_blank" rel="noopener">양식과 용인 예시를 한 화면에서 ↗</a><a class="mapl form hot red" href="assets/city-card-a4-1p-student.docx" download="스마트관광도시_도시카드_A4_1장_학생양식.docx">양식 · A4 1장 ⤓</a><a class="mapl form" href="assets/city-card-a4-3p-student.docx" download="스마트관광도시_도시카드_A4_3장_학생작성용.docx">양식 · A4 3장 ⤓</a><a class="mapl form ex" href="assets/city-card-a4-3p-yongin-example.docx" download="스마트관광도시_용인_예시답안.docx">예시 · 용인 ⤓</a><a class="mapl form" href="assets/smart-tourism-city-analysis-worksheet.docx" download="스마트관광도시_발표분석_워크시트.docx">같은 워크시트 · 인쇄용 ⤓ DOCX</a></p>
-        <ol class="kwlist tb-kw">
-          <li><b>먼저 열어 볼 곳</b><span>노란 알약 <strong>「양식과 용인 예시를 한 화면에서」</strong>가 <strong>아래 워드 넷을 웹으로 펼쳐 놓은 판</strong>입니다 — <strong>1장 양식 → 3장 양식 → 용인 완성 예시 → 교수자 예시 안내</strong> 순으로 탭이 놓여 있습니다. 내려받기 전에 <em>어떤 칸을 무엇으로 채우는지</em>를 용인 실제 답안으로 먼저 보십시오. 용인은 <strong>사업명(스마트 다다익선 용인, Link&amp;Stay)</strong>과 <strong>지금 쓰는 플랫폼명(용인관광)</strong>이 달라, 그 둘을 갈라 적는 법도 여기서 배웁니다.</span></li>
-          <li><b>양식 둘 중 하나만</b><span><strong>1장은 요약본</strong>, <strong>3장은 칸을 나눠 채우는 판</strong>입니다 — 둘 중 하나만 내면 됩니다.</span></li>
-          <li><b>예시는 견본</b><span>용인을 맡은 팀은 <strong>그대로 옮기지 말고</strong> 예시가 다루지 않은 자료를 더 찾으십시오.</span></li>
-          <li><b>워크시트는 듣는 것</b><span><strong class="hot-t">남의 발표를 들으며 채우는 판</strong> — 요약 → 다섯 칸 → 기억할 것 → 평가 → 더 생각하기.</span></li>
-        </ol>
-      </div>
-
-      <div class="task-box pd3 y">
-        <p class="tb-t" id="과제4"><b class="tb-n">과제 3</b>지역문화재단 · 관광공사 · 연구원 업무수행계획서 쓰기 — 공공기관·재단 취업 지원의 실무를 익힌다 <span>기말발표 · 모의 PT · 그룹 평가</span></p>
-        <p class="part-goal sub"><span class="pg-l">과제 3 목표</span><span class="pg-i v1"><b>설명</b><em>목표 ①</em>지역문화재단 · 관광공사 · 연구원이 무엇을 하는 기관인지 공식 출처로 진단한다</span><span class="pg-i v3"><b>평가</b><em>목표 ② 뒤</em>기관의 빈자리를 관광객 관점 · 도시 관점으로 따진다</span><span class="pg-i v4"><b>제안</b><em>목표 ③</em>3개월 · 1년 · 3년 수행 계획과 성과 지표를 세우고, 내 산출물을 근거로 모의 PT에서 설명한다</span></p>
-        <ol class="kwlist tb-kw">
-          <li><b>왜 지금 쓰나</b><span><strong>공공기관 · 지역 재단 채용에서 실제로 받는 서류</strong>입니다 — 관광공사 · 문화재단 · 관광재단은 자기소개서와 함께 <strong>직무수행계획서</strong>를 받고, 면접도 이 문서로 묻습니다. 학기 중에 써 두면 <strong class="hot-t">지원 시점에 처음 마주치지 않습니다.</strong></span></li>
-          <li><b>칸은 여섯</b><span><strong>★ 한 문장</strong> · <strong>1 기관 진단</strong>(공식 출처 URL) · <strong>2 빈자리</strong>(관광객 관점인가 도시 관점인가) · <strong>3 스마트관광 관점</strong>(EU 네 부문 중 선택 — <strong class="hot-t">디지털화만 고르면 좁아진다</strong>) · <strong>4 수행 계획</strong>(3개월 · 1년 · 3년) · <strong>5 내 산출물</strong>(<em>“하겠습니다”가 아니라 “이미 해봤고 여기 있습니다”</em> — <strong>안동 관광지도 · 도시 카드 · 공모전 출품작</strong>. <strong class="hot-t">실제로 보여줄 것이 있는가</strong>) · <strong>6 성과 지표</strong>(<strong>방문객 총수 대신 분산</strong>을 보는 지표).</span></li>
-          <li><b>쓰고 끝내지 않는다</b><span>작성한 계획서로 <strong class="hot-t">모의 PT</strong>를 하고 그룹 평가로 피드백을 받습니다. 실제 채용에서도 이 문서를 놓고 면접이 진행되므로, <strong>남 앞에서 한 번 말해 본 사람</strong>과 문서만 낸 사람의 차이가 그 자리에서 드러납니다.</span></li>
-        </ol>
-        <p class="tb-tags"><a class="mapl form hot" href="agency-plan-sheet.html" target="_blank" rel="noopener">웹에서 작성하기 ↗</a><a class="mapl form" href="assets/agency-plan-a4-1p-student.docx" download="기관기여_업무수행계획_A4_1장_빈양식.docx">빈 양식 · A4 1장 ⤓</a><a class="mapl form ex" href="assets/agency-plan-a4-1p-andong-example.docx" download="기관기여_업무수행계획_안동_예시답안.docx">예시 · 안동 ⤓</a><span class="tb-src">웹에서 쓰면 자동 저장되고 「제출용 글 복사」로 워드에 옮길 수 있습니다. <b>예시는 안동을 놓고 여섯 칸을 다 채운 견본</b>입니다 — 그대로 옮기지 말고 <b>내가 맡은 기관으로 바꿔</b> 쓰십시오.</span></p>
-      </div>
-
-      <p class="learn-part pt-part pp-2" id="part12"><span class="pt"><i>파트</i><b>12</b></span><span class="pt-ti">스마트 모빌리티</span><span class="pt-sub">5대 요소의 <strong>④ 스마트 모빌리티</strong> — 관광객의 <strong>이동</strong>을 하나로 잇는 기술</span><span class="pt-jump"><a href="#part00">00 한눈에</a><a href="#part01">01 국내</a><a href="#part06">02 이론</a><a href="#part07">03 연구</a><a href="#part02">04 해외</a><a href="#part03">05 공모전</a><a href="#part04">06 PBL</a><a href="#part05">07 책</a><a href="#part08">08 취업</a><a href="#part09">09 자료실</a><a href="#part10">10 AI</a><a href="#part11">11 실무</a><a href="#part12" class="on" aria-current="true">12 모빌리티</a></span></p>
+      <p class="learn-part pt-part pp-2" id="part12"><span class="pt"><i>파트</i><b>08</b></span><span class="pt-ti">스마트 모빌리티</span><span class="pt-sub">5대 요소의 <strong>④ 스마트 모빌리티</strong> — 관광객의 <strong>이동</strong>을 하나로 잇는 기술</span><span class="pt-jump"><a href="#part00">00 한눈에</a><a href="#part01">01 국내</a><a href="#part06">02 이론</a><a href="#part07">03 연구</a><a href="#part02">04 해외</a><a href="#part03">05 공모전</a><a href="#part04">06 PBL</a><a href="#part05">07 책</a><a href="#part12" class="on" aria-current="true">08 모빌리티</a><a href="#part09">09 자료실</a><a href="#part10">10 AI</a><a href="#part11">11 실무</a><a href="#part08">12 취업</a></span></p>
       <p class="part-goal"><span class="pg-l">이 파트를 마치면</span><span class="pg-i v1"><b>설명</b><em>목표 ①</em>MaaS · 수요응답형 교통 · 공유 모빌리티 · 자율주행을 구별해 설명한다</span><span class="pg-i v2"><b>비교</b><em>목표 ② 앞</em>싱가포르 · 서울 · 헬싱키 · 부산 에코델타를 비교한다</span><span class="pg-i v3"><b>평가</b><em>목표 ② 뒤</em>관광객의 이동 경험이 실제로 나아지는지 따진다</span><span class="pg-i v4"><b>제안</b><em>목표 ③</em>모빌리티 주제로 AX 응모신청서를 쓴다</span></p>
       <p>스마트 모빌리티는 한국관광공사 스마트관광도시 <a href="#국내-B">5대 요소</a> 가운데 <strong>관광교통</strong>을 맡는 영역입니다. 핵심가치는 <strong>방문범위 확대</strong>입니다. 대중교통이 닿지 않는 곳까지 2차 교통수단으로 이어 주면 관광객이 머무는 범위가 넓어집니다. 그래서 「이동」 자체가 관광 경험의 일부가 됩니다.</p>
       <details class="instr-script" id="mob-voice">
-        <summary class="instr-t">🔊 파트 12 음성 안내 ① — 정의 · 개념 넷 · 계단 · 약 1분 30초 ↗</summary>
+        <summary class="instr-t">🔊 파트 08 음성 안내 ① — 정의 · 개념 넷 · 계단 · 약 1분 30초 ↗</summary>
         <audio class="instr-au" controls preload="none" src="assets/smart-tourism-part12-mobility-guide-1.mp3">브라우저가 오디오 재생을 지원하지 않습니다.</audio>
         <p><b>① 스마트 모빌리티란</b> — 한국관광공사 5대 요소(경험 · 편의 · 서비스 · 모빌리티 · 플랫폼) 중 <b>관광교통</b>. 핵심가치는 <b>방문범위 확대</b>입니다. 역 · 터미널에서 관광지까지 2차 교통이 끊기면 관광객은 역 근처에만 머뭅니다 — 그 빈 구간을 잇는 것이 스마트 모빌리티입니다.</p>
         <p><b>② 개념 넷</b> — <b>MaaS</b>(앱 하나로 검색 · 예약 · 결제) · <b>수요응답형 교통</b>(부르는 곳으로 오는 버스, 관광지 사이) · <b>공유 · 퍼스널 모빌리티</b>(도시 안 짧은 구간) · <b>자율주행</b>(관광지 순환 노선 시범). 거리로 기억합니다 — 짧은 구간은 공유, 관광지 사이는 수요응답, 이 모두를 한 화면에 묶는 것이 MaaS.</p>
@@ -3630,7 +3524,7 @@
       </div>
       <p class="mob-steps-intro"><b>알약은 기말 AX 신청서까지 가는 계단입니다.</b> 이동은 관광의 일부입니다(<b>1</b>). 그 이동을 앱 하나로 묶는 것이 MaaS입니다(<b>2</b>). 해외 도시는 이렇게 했고, 경북의 섬과 안동에 옮기면 이렇게 됩니다(<b>3</b>). 이제 내 주제로 신청서를 씁니다(<b>4</b>).</p>
       <details class="instr-script" id="mob-voice-2">
-        <summary class="instr-t">🔊 파트 12 음성 안내 ② — 계단 1~4 · 읽는 순서 · 약 2분 ↗</summary>
+        <summary class="instr-t">🔊 파트 08 음성 안내 ② — 계단 1~4 · 읽는 순서 · 약 2분 ↗</summary>
         <audio class="instr-au" controls preload="none" src="assets/smart-tourism-part12-mobility-guide-2.mp3">브라우저가 오디오 재생을 지원하지 않습니다.</audio>
         <p><b>계단 1 · 넓게 보기</b> — 관광교통 전체 모듈. 교통 산업 전체 속에서 모빌리티의 자리를 봅니다. 신청서 <b>[3] 문제 인식</b>이 막히면 여기로.</p>
         <p><b>계단 2 · 개념 잡기</b> — MaaS 강의자료. 무엇인가 → 관광에서 어떻게 → 일반 교통 앱과 차이 → 관광교통경영론에서 왜 중요한가. 신청서 <b>[4] 해결 방안의 뼈대</b>.</p>
@@ -3685,6 +3579,115 @@
       </ul>
       <p class="mob-st-ax">모빌리티 주제로 신청서를 쓰는 학생은 <a href="#mob-ax">4 써 보기 ↑</a>부터 엽니다. 막히는 칸은 거꾸로 — [6-1] 사례는 3, [4] 해결 방안의 뼈대는 2, [3] 문제 인식은 1로 돌아갑니다.</p>
       <p class="mini-note">함께 보기 — <a href="#국내-B">01-B 5대 요소 표 · 오각형 ④</a> · <a href="#part05">07 책 PART 5 스마트모빌리티</a>(스마트콘텐츠로서의 스마트모빌리티 · RECSA 모델 · 프리미엄 모빌리티와 CIT 분석)</p>
+
+      <p class="learn-part pt-part pp-8" id="part09"><span class="pt"><i>파트</i><b>09</b></span><span class="pt-ti">국내 자료실</span><span class="pt-sub">곁에 두고 볼 <strong>보고서와 게시판</strong></span><span class="pt-jump"><a href="#part00">00 한눈에</a><a href="#part01">01 국내</a><a href="#part06">02 이론</a><a href="#part07">03 연구</a><a href="#part02">04 해외</a><a href="#part03">05 공모전</a><a href="#part04">06 PBL</a><a href="#part05">07 책</a><a href="#part12">08 모빌리티</a><a href="#part09" class="on" aria-current="true">09 자료실</a><a href="#part10">10 AI</a><a href="#part11">11 실무</a><a href="#part08">12 취업</a></span></p>
+      <p>파트 01의 <strong>공식 플랫폼</strong>이 국내의 <em>현장</em>이라면, 여기는 <strong>한국에서 만들어진 문서</strong>입니다 — 곁에 두고 볼 보고서와 게시판.</p>
+      <ul class="reslist tight">
+        <li class="hi tone box lb1">
+          <a href="https://datalab.visitkorea.or.kr/site/portal/ex/bbs/View.do?cbIdx=1132&amp;bcIdx=302260" target="_blank" rel="noopener">한국관광 데이터랩 — 해외지사 조사보고서가 쌓이는 게시판 ↗</a>
+          <span class="desc">파트 01 <strong>유럽 심화보고서의 원문 게시글</strong>이자, 한국관광공사 <strong>해외지사의 현지 조사 자료가 쌓이는 게시판</strong>. 국가별 시장 동향·관광 트렌드 보고서가 계속 올라오고 대부분 <strong>한국어 PDF</strong>입니다 — 해외 사례를 인용할 때 <strong>영어 원문보다 여기를 먼저</strong>.</span>
+          <span class="meta">한국관광공사 파리지사 · 2022-12-16 등록 · datalab.visitkorea.or.kr</span>
+        </li>
+        <li class="hi tone box lb2">
+          <a href="assets/international-tourism-trends-2022-05.pdf" target="_blank" rel="noopener">국제관광동향 2022년 제5호 — 세계 관광 회복 · 프랑스 관광계획 · 국제기구 소식 (PDF) ↗</a>
+          <span class="desc">한국문화관광연구원(KCTI) 관광정책연구실이 펴내는 <strong>정기 동향 보고서</strong>. 구성은 셋 — ① <strong>세계 관광 동향</strong>(회복 현황, 주요국 입국·출국) ② <strong>주요국 관광 동향: 프랑스</strong> 「데스티나시옹 프랑스(Destination France)」 관광계획 ③ <strong>국제기구 소식</strong>과 주요 발행 보고서. 위 유럽 자료와 이어지는 지점이 ②입니다 — 보르도가 속한 <strong>프랑스가 국가 차원에서 관광을 어떻게 다시 설계하는지</strong> 볼 수 있습니다. ①은 UNWTO의 <strong>항공 예약·여행감정(travel sentiment)</strong> 지표를 그대로 인용하는데, 웹·소셜 대화를 긍정/부정으로 합산한 이 지표야말로 다음 모듈 「빅데이터 분석」이 다루는 관광 데이터의 실물입니다. 리포트에 통계를 인용할 때 <strong>표기 형식을 배우기에도</strong> 좋은 자료입니다.</span>
+          <span class="meta">한국문화관광연구원(KCTI) 관광정책연구실 · 2022년 제5호(7월) · PDF 13쪽</span>
+        </li>
+        <li class="hi tone box lb3">
+          <a href="https://genai-tourism-decision.healthylee7.chatgpt.site/#strategy" target="_blank" rel="noopener">생성형 AI로 보는 관광 의사결정 — 전략 편 ↗</a>
+          <span class="desc">생성형 AI(GenAI)가 관광 계획·마케팅·운영의 의사결정을 어떻게 바꾸는지 정리한 인터랙티브 자료. '전략(Strategy)' 섹션에서는 데이터·AI를 실제 관광 비즈니스 판단에 접목하는 방향을 살펴봅니다.</span>
+          <span class="meta">선샤인 웰니스 · 자체 제작 자료</span>
+        </li>
+      </ul>
+
+      <p class="learn-part pt-part pp-9" id="part10"><span class="pt"><i>파트</i><b>10</b></span><span class="pt-ti">AI와 관광·호텔·여행</span><span class="pt-sub">업계 곳곳에 <strong>AI가 어떻게 쓰이는지</strong> 22개 장으로 — 장마다 <strong>교수자 강의 대본</strong>이 붙어 있어 수업에 바로 씁니다</span><span class="pt-jump"><a href="#part00">00 한눈에</a><a href="#part01">01 국내</a><a href="#part06">02 이론</a><a href="#part07">03 연구</a><a href="#part02">04 해외</a><a href="#part03">05 공모전</a><a href="#part04">06 PBL</a><a href="#part05">07 책</a><a href="#part12">08 모빌리티</a><a href="#part09">09 자료실</a><a href="#part10" class="on" aria-current="true">10 AI</a><a href="#part11">11 실무</a><a href="#part08">12 취업</a></span></p>
+      <p class="part-goal"><span class="pg-l">이 파트를 마치면</span><span class="pg-i v1"><b>설명</b><em>목표 ①</em>관광 · 호텔 · 여행업에 AI가 어떻게 쓰이는지 설명한다</span><span class="pg-i v2"><b>비교</b><em>목표 ② 앞</em>세 업종의 AI 적용을 비교한다</span><span class="pg-i v3"><b>평가</b><em>목표 ② 뒤</em>AI 도입의 효과와 한계를 따진다</span></p>
+      <p>관광·호텔·여행 세 업종에 AI가 실제로 어떻게 적용되는지를 22개 장으로 정리했습니다. 장마다 발표용 슬라이드와 <strong>교수자 강의 대본</strong>이 함께 붙어 있어, 수업에서 그대로 읽으며 진행할 수 있습니다.</p>
+      <ul class="reslist tight">
+        <li class="hi tone box lb1">
+          <a href="tourism-hotel-travel-ai-22chapters.html" target="_blank" rel="noopener">관광·호텔·여행의 AI — 22장 좌우 넘김 · 슬라이드별 강의 대본 ↗</a>
+          <span class="desc">관광·호텔·여행 업계에 AI가 어떻게 쓰이는지 22개 장으로 정리한 슬라이드 자료. 장마다 <strong>교수자 강의 대본</strong>이 함께 붙어 있어, 발표·수업 진행용으로 그대로 읽으며 쓸 수 있습니다.</span>
+          <span class="meta">선샤인 웰니스 · 자체 제작 자료 · 22장 · 좌우 넘김</span>
+        </li>
+      </ul>
+
+      <p class="learn-part pt-part pp-x" id="part11"><span class="pt"><i>파트</i><b>11</b></span><span class="pt-ti">실무 과제</span><span class="pt-sub"><strong>손으로 해 보는 세 과제</strong> — 워크숍 설계 · 벤치마킹 실습 · 업무수행계획서</span><span class="pt-jump"><a href="#part00">00 한눈에</a><a href="#part01">01 국내</a><a href="#part06">02 이론</a><a href="#part07">03 연구</a><a href="#part02">04 해외</a><a href="#part03">05 공모전</a><a href="#part04">06 PBL</a><a href="#part05">07 책</a><a href="#part12">08 모빌리티</a><a href="#part09">09 자료실</a><a href="#part10">10 AI</a><a href="#part11" class="on" aria-current="true">11 실무</a><a href="#part08">12 취업</a></span></p>
+      <p class="part-goal"><span class="pg-l">이 파트를 마치면</span><span class="pg-i v2"><b>비교</b><em>목표 ② 앞</em>배정 도시를 WHAT · PLATFORM+RESEARCH · PROMOTION 세 칸으로 벤치마킹한다(과제 2)</span><span class="pg-i v3"><b>평가</b><em>목표 ② 뒤</em>서면평가표 · 점검 질문으로 내 설계를 스스로 따진다</span><span class="pg-i v4"><b>제안</b><em>목표 ③</em>워크숍 프로그램(과제 1)과 업무수행계획서(과제 3)를 제안한다</span></p>
+      <p class="sub-abcd"><b>파트 11 안에서</b><a href="#과제-워크숍"><i>A</i>과제 1 · AI·스마트도시 워크숍 설계</a><a href="#과제1"><i>B</i>과제 2 · 국내 스마트 도시 벤치마킹</a><a href="#과제4"><i>C</i>과제 3 · 업무수행계획서</a></p>
+
+      <div class="task-box s1 y2">
+        <p class="tb-t" id="과제-워크숍"><b class="tb-n prac">과제 1</b>AI·스마트관광도시 워크숍 설계 — APEC 워크숍처럼 3부로 <span class="when">개인 과제 · A4 2장 · 5분 발표</span></p>
+        <p class="part-goal sub"><span class="pg-l">과제 1 목표</span><span class="pg-i v2"><b>비교</b><em>목표 ② 앞</em>APEC 워크숍처럼 부마다 국내 한 곳 + 해외 한 곳을 같은 질문에 나란히 세운다</span><span class="pg-i v3"><b>평가</b><em>목표 ② 뒤</em>서면평가표(워크숍이 받치는 35점)와 점검 다섯으로 내 설계를 스스로 따진다</span><span class="pg-i v4"><b>제안</b><em>목표 ③</em>경북 시 · 군을 넣은 3부 워크숍 프로그램을 성과지표 숫자와 함께 포스터 · 설계표로 제안한다</span></p>
+        <p class="tb-d">국토교통부 <strong>「AI·스마트도시 혁신인재육성 사업」</strong>(공고 제2026-1238호)은 대학원에 AI·스마트도시 과정을 열고 <strong>산학협력 · 국제협력 · 워크숍</strong>을 운영하게 합니다. 우리 대학이 이 사업에 <strong>선정됐다고 가정</strong>하고, 1차년도에 열 <strong class="hot-t">3시간짜리 워크숍 프로그램</strong>을 짭니다. 본보기는 파트 04의 <a href="#apec틀">2024 APEC 스마트 관광도시 교육 워크숍 ↑</a>입니다.</p>
+        <p class="tb-tags"><a class="mapl form y" href="ai-smart-city-workshop-assignment.html" target="_blank" rel="noopener">✦ 과제 안내 · 포스터 틀 · 설계표 ↗</a><a class="mapl form redo" href="ai-smart-city-workshop-form.html" target="_blank" rel="noopener"><span class="blink-star" aria-hidden="true">✦</span> 포스터 · 설계표 · 웹에서 바로 쓰기 ↗</a><a class="mapl form" href="korea-spain-smart-tourism-forum-2022-slides.html" target="_blank" rel="noopener">▶ 먼저 보기 · 2022 한-스페인 관광포럼 — 이미 열린 「3세션 × 국내·해외 짝」 좌우 넘김 ↗</a><a class="mapl form" href="#대주제구성도">🗺 주제 고르기 · 스마트관광 대주제 구성도 16주제 ↑</a></p>
+        <ol class="kwlist tb-kw">
+          <li><b>왜 해 볼 만한가</b><span>글로벌 스마트도시 시장 <strong>’28년 3,544조 원</strong> 전망 · 기업 <strong>80%</strong>가 실무인력이 필요하다 하고 신규 수요는 <strong>해마다 1,000명 이상</strong>. 그래서 국토부는 지원금의 <strong class="hot-t">70% 이상을 학생 장학금 · 교육</strong>에 쓰게 했고 <strong>국내·외 인턴십</strong>을 필수로 넣었습니다. 이 공문은 우리 대학 학과에도 실제로 왔습니다 — 이 과제는 그 사업계획서의 한 칸을 진짜 공고 언어로 미리 써 보는 연습입니다. <a href="ai-smart-city-workshop-assignment.html#why" target="_blank" rel="noopener">숫자 넷 · 남는 것 셋 ↗</a></span></li>
+          <li><b>틀은 APEC</b><span>주제 한 문장 아래 <strong>1 · 2 · 3부</strong>, 부마다 <strong>국내 한 곳 + 해외 한 곳</strong>이 같은 질문에 답합니다. 국내는 <strong>경북 시군을 하나 이상</strong> 넣습니다.</span></li>
+          <li><b>공고의 세 축</b><span>1부 <strong>학술형</strong>(AI 접목 교과) · 2부 <strong>산학협력</strong>(지자체 · 기업) · 3부 <strong>국제협력 또는 창업</strong>.</span></li>
+          <li><b>주제는 구성도에서</b><span><a href="#대주제구성도">스마트관광 대주제 구성도 ↑</a>의 16주제(A~P)에서 <strong>부마다 하나씩</strong> 고르면 세 부가 한 주제 아래 겹치지 않습니다. 예 — 1부 학술형은 <strong>A 개념 · F 기술수용 · I 인공지능</strong>, 2부 산학협력은 <strong>D 스마트관광도시 · E 거버넌스 · K 산업별 적용 · L 지역 사례</strong>, 3부 국제협력 · 창업은 <strong>H 실감기술 · J 경제적 가치 · M 지속가능성 · O 서비스</strong>. <strong class="hot-t">P 관광객 심리 및 행동</strong>은 어느 부에든 「왜 쓰고 어떻게 느끼나」를 묻는 질문으로 넣을 수 있습니다.</span></li>
+          <li><b>숫자로 적는다</b><span>성과지표 셋 이상(교육생 · 산학협력 · 국제협력 · 취·창업교육 · 인턴십), 둘 이상은 실무형. 공고는 <strong class="hot-t">「~할 수 있다」 「~을 고려하고 있다」를 불가능으로 봅니다.</strong></span></li>
+          <li><b>제출물</b><span><strong>1장 포스터</strong>(APEC 포스터처럼) + <strong>2장 설계표</strong>(부별 질문 · 국내 · 해외 · 왜 이 짝인가 · 성과지표 · 평가표 어느 항목의 근거인가).</span></li>
+        </ol>
+      </div>
+
+      <div class="task-box s1 y2">
+        <p class="tb-t" id="과제1"><b class="tb-n prac">과제 2</b>국내 스마트 도시 벤치마킹 — 용인을 본떠 내 도시로 <span class="when">중간시험 전 · 수업 중 실습 → 바로 발표</span></p>
+        <p class="part-goal sub"><span class="pg-l">과제 2 목표</span><span class="pg-i v2"><b>비교</b><em>목표 ② 앞</em>배정받은 도시를 WHAT · PLATFORM+RESEARCH · PROMOTION 세 칸으로 갈라 공식 출처와 함께 벤치마킹한다</span><span class="pg-i v3"><b>평가</b><em>목표 ② 뒤</em>남의 발표를 들으며 워크시트로 플랫폼–근거–홍보가 이어지는지 평가한다</span></p>
+        <p class="tb-d">파트 01 단계 1의 <a href="#flow3">용인 여섯 자료 ↑</a>가 <strong>용인을 어떻게 갈라 봤는지</strong> 확인했으면, 같은 틀을 <strong>배정받은 도시</strong>에 그대로 적용합니다. 채우는 칸은 셋입니다 — <strong>WHAT</strong> 무엇을 만들었나 · <strong>PLATFORM + RESEARCH</strong> 무엇을 근거로 삼았나 · <strong>PROMOTION</strong> 어떻게 알렸나. 단순 소개가 아니라 <strong class="hot-t">플랫폼–근거–홍보가 이어지는 것</strong>이 보여야 하고, 칸마다 <strong>공식 출처 URL</strong>을 적습니다.</p>
+        <p class="tb-tags"><a class="mapl form y" href="smart-tourism-city-analysis-worksheet.html" target="_blank" rel="noopener">발표 들으며 쓰는 워크시트 — 웹에서 바로 ↗</a><a class="mapl form y" href="smart-tourism-city-card-yongin.html" target="_blank" rel="noopener">양식과 용인 예시를 한 화면에서 ↗</a><a class="mapl form hot red" href="assets/city-card-a4-1p-student.docx" download="스마트관광도시_도시카드_A4_1장_학생양식.docx">양식 · A4 1장 ⤓</a><a class="mapl form" href="assets/city-card-a4-3p-student.docx" download="스마트관광도시_도시카드_A4_3장_학생작성용.docx">양식 · A4 3장 ⤓</a><a class="mapl form ex" href="assets/city-card-a4-3p-yongin-example.docx" download="스마트관광도시_용인_예시답안.docx">예시 · 용인 ⤓</a><a class="mapl form" href="assets/smart-tourism-city-analysis-worksheet.docx" download="스마트관광도시_발표분석_워크시트.docx">같은 워크시트 · 인쇄용 ⤓ DOCX</a></p>
+        <ol class="kwlist tb-kw">
+          <li><b>먼저 열어 볼 곳</b><span>노란 알약 <strong>「양식과 용인 예시를 한 화면에서」</strong>가 <strong>아래 워드 넷을 웹으로 펼쳐 놓은 판</strong>입니다 — <strong>1장 양식 → 3장 양식 → 용인 완성 예시 → 교수자 예시 안내</strong> 순으로 탭이 놓여 있습니다. 내려받기 전에 <em>어떤 칸을 무엇으로 채우는지</em>를 용인 실제 답안으로 먼저 보십시오. 용인은 <strong>사업명(스마트 다다익선 용인, Link&amp;Stay)</strong>과 <strong>지금 쓰는 플랫폼명(용인관광)</strong>이 달라, 그 둘을 갈라 적는 법도 여기서 배웁니다.</span></li>
+          <li><b>양식 둘 중 하나만</b><span><strong>1장은 요약본</strong>, <strong>3장은 칸을 나눠 채우는 판</strong>입니다 — 둘 중 하나만 내면 됩니다.</span></li>
+          <li><b>예시는 견본</b><span>용인을 맡은 팀은 <strong>그대로 옮기지 말고</strong> 예시가 다루지 않은 자료를 더 찾으십시오.</span></li>
+          <li><b>워크시트는 듣는 것</b><span><strong class="hot-t">남의 발표를 들으며 채우는 판</strong> — 요약 → 다섯 칸 → 기억할 것 → 평가 → 더 생각하기.</span></li>
+        </ol>
+      </div>
+
+      <div class="task-box pd3 y">
+        <p class="tb-t" id="과제4"><b class="tb-n">과제 3</b>지역문화재단 · 관광공사 · 연구원 업무수행계획서 쓰기 — 공공기관·재단 취업 지원의 실무를 익힌다 <span>기말발표 · 모의 PT · 그룹 평가</span></p>
+        <p class="part-goal sub"><span class="pg-l">과제 3 목표</span><span class="pg-i v1"><b>설명</b><em>목표 ①</em>지역문화재단 · 관광공사 · 연구원이 무엇을 하는 기관인지 공식 출처로 진단한다</span><span class="pg-i v3"><b>평가</b><em>목표 ② 뒤</em>기관의 빈자리를 관광객 관점 · 도시 관점으로 따진다</span><span class="pg-i v4"><b>제안</b><em>목표 ③</em>3개월 · 1년 · 3년 수행 계획과 성과 지표를 세우고, 내 산출물을 근거로 모의 PT에서 설명한다</span></p>
+        <ol class="kwlist tb-kw">
+          <li><b>왜 지금 쓰나</b><span><strong>공공기관 · 지역 재단 채용에서 실제로 받는 서류</strong>입니다 — 관광공사 · 문화재단 · 관광재단은 자기소개서와 함께 <strong>직무수행계획서</strong>를 받고, 면접도 이 문서로 묻습니다. 학기 중에 써 두면 <strong class="hot-t">지원 시점에 처음 마주치지 않습니다.</strong></span></li>
+          <li><b>칸은 여섯</b><span><strong>★ 한 문장</strong> · <strong>1 기관 진단</strong>(공식 출처 URL) · <strong>2 빈자리</strong>(관광객 관점인가 도시 관점인가) · <strong>3 스마트관광 관점</strong>(EU 네 부문 중 선택 — <strong class="hot-t">디지털화만 고르면 좁아진다</strong>) · <strong>4 수행 계획</strong>(3개월 · 1년 · 3년) · <strong>5 내 산출물</strong>(<em>“하겠습니다”가 아니라 “이미 해봤고 여기 있습니다”</em> — <strong>안동 관광지도 · 도시 카드 · 공모전 출품작</strong>. <strong class="hot-t">실제로 보여줄 것이 있는가</strong>) · <strong>6 성과 지표</strong>(<strong>방문객 총수 대신 분산</strong>을 보는 지표).</span></li>
+          <li><b>쓰고 끝내지 않는다</b><span>작성한 계획서로 <strong class="hot-t">모의 PT</strong>를 하고 그룹 평가로 피드백을 받습니다. 실제 채용에서도 이 문서를 놓고 면접이 진행되므로, <strong>남 앞에서 한 번 말해 본 사람</strong>과 문서만 낸 사람의 차이가 그 자리에서 드러납니다.</span></li>
+        </ol>
+        <p class="tb-tags"><a class="mapl form hot" href="agency-plan-sheet.html" target="_blank" rel="noopener">웹에서 작성하기 ↗</a><a class="mapl form" href="assets/agency-plan-a4-1p-student.docx" download="기관기여_업무수행계획_A4_1장_빈양식.docx">빈 양식 · A4 1장 ⤓</a><a class="mapl form ex" href="assets/agency-plan-a4-1p-andong-example.docx" download="기관기여_업무수행계획_안동_예시답안.docx">예시 · 안동 ⤓</a><span class="tb-src">웹에서 쓰면 자동 저장되고 「제출용 글 복사」로 워드에 옮길 수 있습니다. <b>예시는 안동을 놓고 여섯 칸을 다 채운 견본</b>입니다 — 그대로 옮기지 말고 <b>내가 맡은 기관으로 바꿔</b> 쓰십시오.</span></p>
+      </div>
+
+      <p class="learn-part pt-part pp-4" id="part08"><span class="pt"><i>파트</i><b>12</b></span><span class="pt-ti">취업 · 면접</span><span class="pt-sub"><strong>면접 질문 스무 문항</strong> · 채용 창구 · 실전 입사지원서</span><span class="pt-jump"><a href="#part00">00 한눈에</a><a href="#part01">01 국내</a><a href="#part06">02 이론</a><a href="#part07">03 연구</a><a href="#part02">04 해외</a><a href="#part03">05 공모전</a><a href="#part04">06 PBL</a><a href="#part05">07 책</a><a href="#part12">08 모빌리티</a><a href="#part09">09 자료실</a><a href="#part10">10 AI</a><a href="#part11">11 실무</a><a href="#part08" class="on" aria-current="true">12 취업</a></span></p>
+      <p class="part-goal"><span class="pg-l">이 파트를 마치면</span><span class="pg-i v4"><b>제안</b><em>목표 ③</em>내 산출물을 면접 답변 · 입사지원서의 근거로 쓰고 자기 말로 설명한다</span></p>
+
+      <div class="syl-box job" id="대비">
+        <p class="syl-t"><a href="interview-personality-20.html" target="_blank" rel="noopener">기관 인성면접 예상 질문 20문 ↗</a><a class="sticky-pill" href="interview-personality-20.html" target="_blank" rel="noopener">노란 스티키노트 한 장 ↗</a><a class="doc-pill" href="assets/interview-personality-20.docx" download="기관_인성면접_예상질문_20문.docx">워드로 내려받기 ⤓ DOCX</a></p>
+        <p class="syl-d"><strong>파트 05가 취업 지원으로 모인다</strong>고 했습니다 — 그 마지막 칸이 면접입니다. 벤치마킹 발표와 업무 수행계획서로 <em>내가 무엇을 했는가</em>를 만들었다면, 면접은 그것을 <strong>말로 옮기는 자리</strong>입니다. 아래 스무 문항은 <strong>공공기관·공기업 인성면접</strong>에서 반복해서 나오는 질문들입니다.</p>
+        <p class="syl-d"><strong>쓰는 법은 하나입니다 — 눈으로 읽지 말고 소리 내어 답하십시오.</strong> 한 문항당 <strong>40초~1분</strong>이 실제 면접의 길이입니다. 스무 장이 <em>자기소개 → 장·단점 → 극복 경험 → 협업과 갈등 → 원칙과 태도 → 마지막 한마디</em> 순으로 놓여 있어, 위에서부터 훑으면 <strong class="hot-t">면접 한 회차가 그대로 지나갑니다</strong>. 인쇄하면 A4에 4열로 떨어져 손에 들고 연습할 수 있습니다.</p>
+        <div class="prep-via">
+          <p class="pv-t"><span class="pv-badge">발표 준비</span>이 스무 문항으로 발표합니다 — 먼저 2번 「본인의 가장 큰 장점은 무엇입니까?」</p>
+          <p class="pv-d">장점을 느낌으로 말하지 않고 <strong>검사 결과를 근거로</strong> 말합니다. <a href="https://www.viacharacter.org/" target="_blank" rel="noopener"><b>VIA 성격강점 검사 ↗</b></a>(VIA Institute on Character, 무료 · 한국어)를 봅니다.</p>
+          <ol class="pv-steps">
+            <li><b>검사</b>스물네 가지 강점에 순위가 매겨집니다(15분 안팎).</li>
+            <li><b>캡처</b>상위 다섯 — <strong>대표강점</strong> 화면을 사진으로 남깁니다.</li>
+            <li><b>하나 고르기</b>다섯 가운데 면접에서 말할 강점 하나.</li>
+            <li><b>경험 잇기</b>그 강점이 드러난 실제 경험 하나 — 이 수업의 도시 발표 · 팀 작업도 됩니다.</li>
+            <li><b>40초 답</b>「제 가장 큰 장점은 ○○입니다 → 근거 경험 → 입사 후 이렇게 쓰겠습니다」 — 소리 내어 발표합니다.</li>
+          </ol>
+          <p class="pv-foot"><strong>상위 다섯 캡처는 LMS에 — 중간고사 다음 주 화요일 전까지.</strong> 순위가 낮은 강점은 3번 「본인의 단점」 답의 재료가 됩니다.</p>
+        </div>
+        <p class="syl-tags job-more"><a class="mapl hub" href="https://yuanlee.info/students.html" target="_blank" rel="noopener">학생 지원 한자리 — 진로 · 자격증 · 공모전 · 취업 ↗</a><a class="mapl blue" href="job-opportunities-board.html" target="_blank" rel="noopener">채용 기회 알림판 — 공공기관 · 연구원 · 재단 ↗</a><a class="mapl now" href="https://academy.visitkorea.or.kr/mainHome.do" target="_blank" rel="noopener">관광in · 관광전문인력포털 ↗</a><a class="mapl soft" href="https://k-mice.visitkorea.or.kr/noti.kto?func_name=list&amp;pgbn=2" target="_blank" rel="noopener">K-MICE · 정규 · 계약직 · 인턴 채용 ↗</a><a class="mapl soft" href="https://promice.or.kr/" target="_blank" rel="noopener">PROMICE · 희망MICE인턴십 ↗</a><a class="mapl" href="https://www.hotelinnetwork.com/intro.php" target="_blank" rel="noopener">호텔인네트워크 · 호텔·관광 채용 ↗</a><a class="mapl" href="https://linkareer.com/list/intern?filterBy_activityTypeID=5&amp;filterBy_jobTypes=INTERN&amp;filterBy_status=OPEN&amp;orderBy_direction=DESC&amp;orderBy_field=RECENT&amp;page=1" target="_blank" rel="noopener">링커리어 · 인턴 공고 ↗</a><a class="mapl" href="https://www.hosco.com/en" target="_blank" rel="noopener">hosco · 해외 호스피탈리티 채용 ↗</a><a class="mapl" href="https://www.glassdoor.com/Job/united-arab-emirates-internship-in-hotel-jobs-SRCH_IL.0,20_IN6_KO21,40.htm" target="_blank" rel="noopener">Glassdoor · UAE 호텔 인턴 검색 ↗</a><a class="mapl blue" href="https://linkareer.com/activity/264438" target="_blank" rel="noopener">지금 열림 · 두바이 한국관 해외 인턴십 ↗</a><a class="mapl lime" href="chatgpt-job-prompts.html" target="_blank" rel="noopener">AI 취업 활용 프롬프트 6 ↗</a><span class="syl-src"><b>첫 알약은 담당교수가 운영하는 학생 지원 페이지</b>입니다 — 교과 흐름과 진로를 잇는 지도, <b>자격증 안내</b>, <b>공모전 · 지원사업</b>, <b>진로 열두 갈래와 예시 기관</b>, K-Move · K-Work 같은 외부 프로그램까지 한자리에 모아 두었습니다. 아래 창구들이 <em>자리</em>를 보여준다면, 여기는 <em>길</em>을 보여줍니다.<br /><b>면접을 준비하기 전에 어떤 자리가 열려 있는지부터 봅니다.</b> 관광in은 한국관광공사가 여는 <b>공공 포털</b>(채용 · 교육 · 인력 정보), <b>K-MICE</b>는 같은 공사가 운영하는 <b>MICE(회의 · 포상관광 · 컨벤션 · 전시) 채용판</b>으로 정규 · 계약직 · 인턴을 한 목록에서 거를 수 있습니다, 호텔인네트워크는 <b>호텔 · 관광 분야 채용</b>, 링커리어는 <b>인턴 공고</b>를 최신순으로 모아 둡니다 — 재학 중에 넣을 수 있는 자리가 여기 있습니다.<br /><b>파란 알약은 개별 공고</b>입니다 — <em>Dubai Global Village 한국관 인턴십</em>(외국계 · 활동비 · 수료증). 모집이 끝나면 닫힙니다. <b>해외로 나갈 생각이라면 두 곳을 더 보십시오</b> — <b>hosco</b>는 호텔 · 레스토랑 등 호스피탈리티 분야의 국제 채용 네트워크이고, <b>Glassdoor</b>는 「UAE · 호텔 · 인턴」으로 이미 걸러 둔 검색 결과입니다. 두바이 공고가 닫혀도 같은 자리가 여기서 계속 올라옵니다.</span></p>
+        <p class="syl-t job-forms"><b class="jf-lead">실전 입사지원서 — 위 질문에 답할 「내 이야기」를 먼저 종이에 옮깁니다</b><a class="sticky-pill" href="job-application-assignment.html" target="_blank" rel="noopener">웹에서 바로 작성 · 자동저장 ↗</a><a class="doc-pill" href="assets/job-application-assignment.docx" download="실전_입사지원서_과제양식.docx">워드로 내려받기 ⤓ DOCX</a></p>
+        <div class="prep-via jf-box">
+          <p class="syl-d jf-d"><strong>면접 답은 지원서에서 시작합니다.</strong></p>
+          <ol class="jf-list">
+            <li><b>한 곳 · 한 직무</b><span>기업·기관 <strong>한 곳</strong>과 직무 <strong>하나</strong>를 실제로 고릅니다.</span></li>
+            <li><b>자격요건 대조</b><span><strong>채용공고의 자격요건</strong>과 <strong>내가 가진 것</strong>을 마주 놓습니다.</span></li>
+            <li><b>자기소개서 다섯 문항</b><span><em>지원동기 · 직무역량 · 문제해결 · 협업 · 입사 후 목표</em>를 <strong>상황 → 역할 → 행동 → 결과</strong> 흐름으로 씁니다.</span></li>
+            <li><b>면접과 이어짐</b><span>위 스무 문항은 <strong class="hot-t">여기 적은 경험을 말로 옮기는 자리</strong> — 지원서가 비면 면접 답도 빕니다.</span></li>
+            <li><b>웹 양식</b><span>칸에 쓰면 <strong>브라우저에 자동저장</strong> · 인쇄 · PDF 저장 · TXT 내려받기.</span></li>
+            <li><b>워드 양식</b><span>같은 내용을 손으로 채우는 <strong>A4 두 장</strong>.</span></li>
+            <li><b>제출</b><span>끝의 <strong>자기점검 여덟 줄</strong>까지 채우고 냅니다.</span></li>
+          </ol>
+        </div>
+              </div>
 
       <p class="mod-home"><a href="./">← 교육자료 목차로 돌아가기</a></p>
       <nav class="mod-nav only-next">
@@ -3894,7 +3897,7 @@ load().then(function(d){var sc=d.querySelector("#"+id+" .sc");if(cur!==id)return
 document.addEventListener("play",function(e){if(e.target.classList&&e.target.classList.contains("t15-aud"))show(e.target);},true);
 document.getElementById("t15-pop-x").addEventListener("click",function(){pop.hidden=true;document.querySelectorAll(".toc15-card.t15-on").forEach(function(c){c.classList.remove("t15-on");});});
 document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!pop.hidden)document.getElementById("t15-pop-x").click();});})();</script>
-<div class="t15-pop" id="mob-pop" role="dialog" aria-label="파트 12 알약 음성 대본" hidden><div class="t15-pop-hd"><b><small>파트 12 · 알약 음성 대본</small><span id="mob-pop-ti"></span></b><button type="button" class="t15-pop-x" id="mob-pop-x" aria-label="대본 닫기">×</button></div><div class="t15-pop-bd" id="mob-pop-bd"></div></div>
+<div class="t15-pop" id="mob-pop" role="dialog" aria-label="파트 08 알약 음성 대본" hidden><div class="t15-pop-hd"><b><small>파트 08 · 알약 음성 대본</small><span id="mob-pop-ti"></span></b><button type="button" class="t15-pop-x" id="mob-pop-x" aria-label="대본 닫기">×</button></div><div class="t15-pop-bd" id="mob-pop-bd"></div></div>
 <script>(function(){var pop=document.getElementById("mob-pop"),bd=document.getElementById("mob-pop-bd"),ti=document.getElementById("mob-pop-ti");
 function mark(id){document.querySelectorAll("li.mob-on").forEach(function(l){l.classList.remove("mob-on");});document.querySelectorAll(".mob-vc.playing").forEach(function(b){b.classList.remove("playing");});if(!id)return;var a=document.querySelector('audio[data-sc="'+id+'"]');if(a&&a.closest("li"))a.closest("li").classList.add("mob-on");var c=document.querySelector('.mob-vc[data-play="'+id+'"]');if(c)c.classList.add("playing");}
 function show(id){var sc=document.getElementById(id);if(!sc)return;ti.textContent=sc.getAttribute("data-ti");bd.innerHTML=sc.innerHTML;bd.scrollTop=0;pop.hidden=false;mark(id);}
