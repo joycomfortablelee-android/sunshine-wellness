@@ -108,6 +108,12 @@ body.deck{overflow:hidden;display:flex;flex-direction:column}
 .motto{margin:18px 0 6px;padding:18px 20px;border-radius:14px;background:#12213b;color:#fff;text-align:center;font-size:1.18rem;font-weight:800;line-height:1.6}.motto small{display:block;font-size:.82rem;font-weight:600;color:#bcd0ee;margin-top:4px}
 @media(max-width:720px){.lv{grid-template-columns:1fr 1fr}.calc label{grid-template-columns:1fr;gap:2px}.calc output{text-align:left}}
 @media print{.calc input{display:none}.motto{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+
+/* 장마다 음성 (2026-11-14) */
+.sv{display:flex;align-items:center;flex-wrap:wrap;gap:6px 12px;margin:14px auto 0;padding:7px 12px;background:#fff;border:1px solid var(--border);border-left:4px solid #2f6fb5;border-radius:10px;box-shadow:var(--shadow)}
+.sv-t{font-size:.85rem;font-weight:800;color:#17365d}
+.sv audio{height:32px;flex:1 1 260px;min-width:0;max-width:440px}
+@media print{.sv{display:none!important}}
 </style>
 </head>
 <body class="deck">
@@ -115,6 +121,7 @@ body.deck{overflow:hidden;display:flex;flex-direction:column}
 <div class="dk-bar" id="dkBar"></div>
 <div class="dk-view"><div class="dk-track" id="dkTrack">
 <div class="dk-slide" id="intro" data-title="표지"><div class="container">
+  <div class="sv"><span class="sv-t">🔊 표지 · 음성 설명 58초</span><audio controls preload="none" src="assets/smart-mobility-ax-voice/slide00.mp3">브라우저가 오디오 재생을 지원하지 않습니다.</audio></div>
   <div class="cover">
     <div class="eyebrow">Smart Mobility · AX Application · Worked Examples</div>
     <h1>스마트 모빌리티로 AX 신청서 쓰기<br/>가상 예시 세 편</h1>
@@ -144,6 +151,7 @@ body.deck{overflow:hidden;display:flex;flex-direction:column}
   </div>
 </div></div>
 <div class="dk-slide" id="ax" data-title="① AX란"><div class="container">
+  <div class="sv"><span class="sv-t">🔊 ① AX란 · 음성 설명 58초</span><audio controls preload="none" src="assets/smart-mobility-ax-voice/slide01.mp3">브라우저가 오디오 재생을 지원하지 않습니다.</audio></div>
   <section class="section">
     <div class="sec-head"><div class="secno">01</div><h2>AX란 무엇인가 — DX와 한 줄 차이</h2></div>
     <p><strong>AX(AI Transformation, AI 전환)</strong>는 사람이 하던 <strong>판단</strong>을 AI가 데이터로 대신하거나 돕도록 일하는 방식을 바꾸는 것입니다. 종이를 앱으로 옮기는 <strong>DX(디지털 전환)</strong>와는 이 점이 다릅니다.</p>
@@ -158,6 +166,7 @@ body.deck{overflow:hidden;display:flex;flex-direction:column}
   </section>
 </div></div>
 <div class="dk-slide" id="box" data-title="② AI 상자"><div class="container">
+  <div class="sv"><span class="sv-t">🔊 ② AI 상자 · 음성 설명 46초</span><audio controls preload="none" src="assets/smart-mobility-ax-voice/slide02.mp3">브라우저가 오디오 재생을 지원하지 않습니다.</audio></div>
   <section class="section">
     <div class="sec-head"><div class="secno">02</div><h2>AI 상자 4칸 — 신청서를 쓰기 전에 이것부터</h2></div>
     <p>이 4칸이 채워지면 <strong>[4-1] · [4-2]</strong>는 거의 다 써진 것입니다. ①에 실제 데이터 이름이 들어가면 <strong>[6-2]</strong>도 함께 채워집니다.</p>
@@ -181,6 +190,7 @@ body.deck{overflow:hidden;display:flex;flex-direction:column}
   </section>
 </div></div>
 <div class="dk-slide" id="ex1" data-title="③ 경주 · 문제"><div class="container">
+  <div class="sv"><span class="sv-t">🔊 ③ 경주 · 문제 · 음성 설명 52초</span><audio controls preload="none" src="assets/smart-mobility-ax-voice/slide03.mp3">브라우저가 오디오 재생을 지원하지 않습니다.</audio></div>
   <section class="section app">
     <div class="app-head t1"><span class="tag">가상 예시 1</span><h2>외국인 관광지 이동 — 경주</h2></div>
     <dl class="ov">
@@ -209,6 +219,7 @@ body.deck{overflow:hidden;display:flex;flex-direction:column}
   </section>
 </div></div>
 <div class="dk-slide" id="ex1b" data-title="③ 경주 · 해결"><div class="container">
+  <div class="sv"><span class="sv-t">🔊 ③ 경주 · 해결 · 음성 설명 47초</span><audio controls preload="none" src="assets/smart-mobility-ax-voice/slide04.mp3">브라우저가 오디오 재생을 지원하지 않습니다.</audio></div>
   <section class="section app">
     <div class="app-head t1"><span class="tag">가상 예시 1</span><h2>외국인 관광지 이동 — 경주 <small class="cont">(계속)</small></h2></div>
     <p class="draft">✎ 여기까지가 <b>처음 쓴 안</b>입니다. 다음 장 <a href="#" data-go="5">③ 경주 · 검증 →</a>에서 실현 가능성을 따져 고칩니다.</p>
@@ -229,6 +240,7 @@ body.deck{overflow:hidden;display:flex;flex-direction:column}
   </section>
 </div></div>
 <div class="dk-slide" id="ex1c" data-title="③ 경주 · 검증"><div class="container">
+  <div class="sv"><span class="sv-t">🔊 ③ 경주 · 검증 · 음성 설명 1분 4초</span><audio controls preload="none" src="assets/smart-mobility-ax-voice/slide05.mp3">브라우저가 오디오 재생을 지원하지 않습니다.</audio></div>
   <section class="section app">
     <div class="app-head t1"><span class="tag">실현성 검증 1</span><h2>경주 — 다국어 AI 이동 안내, 어떻게 구현하나</h2></div>
     <div class="fact"><span class="lab">확인된 사실</span>경주시 버스정보시스템(BIS)은 실시간 버스 위치 · 도착 예정 · 노선 · 환승 정보를 이미 제공합니다. 경주시는 2026.6.12 버스정보안내기 <b>39기</b>(신규 36 · 교체 3)에 <b>3억 원</b>을 들이는 사업을 발표했습니다.<span class="src">출처: <a href="https://its.gyeongju.go.kr/bis_intro.do" target="_blank" rel="noopener">경주시 BIS 소개 ↗</a> · <a href="https://gyeongju.go.kr/news/page.do?mnu_uid=1336&amp;parm_bod_uid=321530" target="_blank" rel="noopener">경주시 보도(2026.6.12) ↗</a> · <a href="https://www.data.go.kr/data/15098530/openapi.do" target="_blank" rel="noopener">국토교통부 TAGO 버스도착정보 API ↗</a></span></div>
@@ -249,6 +261,7 @@ body.deck{overflow:hidden;display:flex;flex-direction:column}
   </section>
 </div></div>
 <div class="dk-slide" id="ex2" data-title="④ 울릉 · 문제"><div class="container">
+  <div class="sv"><span class="sv-t">🔊 ④ 울릉 · 문제 · 음성 설명 44초</span><audio controls preload="none" src="assets/smart-mobility-ax-voice/slide06.mp3">브라우저가 오디오 재생을 지원하지 않습니다.</audio></div>
   <section class="section app">
     <div class="app-head t2"><span class="tag">가상 예시 2</span><h2>섬 이동 — 울릉도</h2></div>
     <dl class="ov">
@@ -277,6 +290,7 @@ body.deck{overflow:hidden;display:flex;flex-direction:column}
   </section>
 </div></div>
 <div class="dk-slide" id="ex2b" data-title="④ 울릉 · 해결"><div class="container">
+  <div class="sv"><span class="sv-t">🔊 ④ 울릉 · 해결 · 음성 설명 44초</span><audio controls preload="none" src="assets/smart-mobility-ax-voice/slide07.mp3">브라우저가 오디오 재생을 지원하지 않습니다.</audio></div>
   <section class="section app">
     <div class="app-head t2"><span class="tag">가상 예시 2</span><h2>섬 이동 — 울릉도 <small class="cont">(계속)</small></h2></div>
     <p class="draft">✎ 여기까지가 <b>처음 쓴 안</b>입니다. 다음 장 <a href="#" data-go="8">④ 울릉 · 검증 →</a>에서 실현 가능성을 따져 고칩니다.</p>
@@ -297,6 +311,7 @@ body.deck{overflow:hidden;display:flex;flex-direction:column}
   </section>
 </div></div>
 <div class="dk-slide" id="ex2c" data-title="④ 울릉 · 검증"><div class="container">
+  <div class="sv"><span class="sv-t">🔊 ④ 울릉 · 검증 · 음성 설명 56초</span><audio controls preload="none" src="assets/smart-mobility-ax-voice/slide08.mp3">브라우저가 오디오 재생을 지원하지 않습니다.</audio></div>
   <section class="section app">
     <div class="app-head t2"><span class="tag">실현성 검증 2</span><h2>울릉도 — 결항 예측, 이미 있는 서비스 아닌가</h2></div>
     <div class="fact"><span class="lab">확인된 사실</span>한국해양교통안전공단(KOMSA)은 2025.12.18 AI로 <b>최대 3일 뒤</b> 여객선 운항 가능성을 4단계로 알려 주는 「<b>내일의 운항예보 플러스</b>」 시범운영을 발표했습니다. 전국 <b>18개 항로 · 26척</b>, <b>포항~울릉 포함</b>.<span class="src">출처: <a href="https://www.komsa.or.kr/bbs/BBSMSTR_000000000744/view.do?mno=sub06_0101&amp;nttId=B000000028924Ir7oU9" target="_blank" rel="noopener">KOMSA 보도자료(2025.12.18) ↗</a> · 운항 가능성 예보이지 출항 확정 정보가 아닙니다.</span></div>
@@ -315,6 +330,7 @@ body.deck{overflow:hidden;display:flex;flex-direction:column}
   </section>
 </div></div>
 <div class="dk-slide" id="ex3" data-title="⑤ 북부권 · 문제"><div class="container">
+  <div class="sv"><span class="sv-t">🔊 ⑤ 북부권 · 문제 · 음성 설명 49초</span><audio controls preload="none" src="assets/smart-mobility-ax-voice/slide09.mp3">브라우저가 오디오 재생을 지원하지 않습니다.</audio></div>
   <section class="section app">
     <div class="app-head t3"><span class="tag">가상 예시 3</span><h2>관광권 사이 이동 — 경북 북부권(안동 · 영주 · 봉화)</h2></div>
     <dl class="ov">
@@ -343,6 +359,7 @@ body.deck{overflow:hidden;display:flex;flex-direction:column}
   </section>
 </div></div>
 <div class="dk-slide" id="ex3b" data-title="⑤ 북부권 · 해결"><div class="container">
+  <div class="sv"><span class="sv-t">🔊 ⑤ 북부권 · 해결 · 음성 설명 39초</span><audio controls preload="none" src="assets/smart-mobility-ax-voice/slide10.mp3">브라우저가 오디오 재생을 지원하지 않습니다.</audio></div>
   <section class="section app">
     <div class="app-head t3"><span class="tag">가상 예시 3</span><h2>관광권 사이 이동 — 경북 북부권(안동 · 영주 · 봉화) <small class="cont">(계속)</small></h2></div>
     <p class="draft">✎ 여기까지가 <b>처음 쓴 안</b>입니다. 다음 장 <a href="#" data-go="11">⑤ 북부권 · 검증 →</a>에서 실현 가능성을 따져 고칩니다.</p>
@@ -363,6 +380,7 @@ body.deck{overflow:hidden;display:flex;flex-direction:column}
   </section>
 </div></div>
 <div class="dk-slide" id="ex3c" data-title="⑤ 북부권 · 검증"><div class="container">
+  <div class="sv"><span class="sv-t">🔊 ⑤ 북부권 · 검증 · 음성 설명 1분 4초</span><audio controls preload="none" src="assets/smart-mobility-ax-voice/slide11.mp3">브라우저가 오디오 재생을 지원하지 않습니다.</audio></div>
   <section class="section app">
     <div class="app-head t3"><span class="tag">실현성 검증 3</span><h2>경북 북부권 — 수요응답형 버스, 돈은 감당되나</h2></div>
     <div class="fact"><span class="lab">확인된 사실</span>농림축산식품부는 2026.7.26 「농촌 특화 AI 기반 수요맞춤형 교통모델」 실증 착수를 발표했습니다. 대상은 <b>인제 · 진천 · 봉화 · 의령 · 하동</b> 5개 군, 봉화는 <b>소천면</b>에서 먼저 합니다. 버스 · 택시 · DRT를 잇고 앱과 <b>전화 호출</b>을 함께 받으며, 11월부터 운영할 계획입니다.<span class="src">출처: <a href="https://www.mafra.go.kr/bbs/home/792/578538/artclView.do" target="_blank" rel="noopener">농림축산식품부 보도자료 ↗</a> · 실증의 운영비 절감 효과와 주민 만족도는 아직 나오지 않았습니다.</span></div>
@@ -392,6 +410,7 @@ body.deck{overflow:hidden;display:flex;flex-direction:column}
   </section>
 </div></div>
 <div class="dk-slide" id="check" data-title="⑥ 점검"><div class="container">
+  <div class="sv"><span class="sv-t">🔊 ⑥ 점검 · 음성 설명 50초</span><audio controls preload="none" src="assets/smart-mobility-ax-voice/slide12.mp3">브라우저가 오디오 재생을 지원하지 않습니다.</audio></div>
   <section class="section">
     <div class="sec-head"><div class="secno">06</div><h2>세 예시가 점수를 얻는 자리 · 내 신청서 점검</h2></div>
     <div class="tablewrap"><table>
@@ -453,7 +472,7 @@ function go(k){i=Math.max(0,Math.min(n-1,k));track.style.transform='translateX('
  tabs.forEach(function(t,j){t.classList.toggle('on',j===i)});dots.forEach(function(t,j){t.classList.toggle('on',j===i)});
  var tb=tabs[i],nav=tb.parentNode;nav.scrollLeft=tb.offsetLeft-nav.clientWidth/2+tb.clientWidth/2;
  cnt.textContent=pad(i+1)+' / '+pad(n);bar.style.width=((i+1)/n*100)+'%';
- prev.disabled=i===0;next.disabled=i===n-1;sl[i].scrollTop=0;
+ prev.disabled=i===0;next.disabled=i===n-1;sl[i].scrollTop=0;document.querySelectorAll('audio').forEach(function(x){x.pause()});
  try{var u=new URL(location.href);u.searchParams.set('page',i+1);u.hash='';history.replaceState(null,'',u)}catch(e){}}
 document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('[data-go]');if(b){e.preventDefault();go(+b.getAttribute('data-go'))}});
 prev.onclick=function(){go(i-1)};next.onclick=function(){go(i+1)};
@@ -461,7 +480,7 @@ document.addEventListener('keydown',function(e){if(/INPUT|TEXTAREA|SELECT/.test(
  if(e.key==='ArrowRight'||e.key==='PageDown')go(i+1);else if(e.key==='ArrowLeft'||e.key==='PageUp')go(i-1);else if(e.key==='Home')go(0);else if(e.key==='End')go(n-1);});
 var sx=0,sy=0;track.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;sy=e.touches[0].clientY},{passive:true});
 track.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;
- if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5&&!(e.target.closest&&e.target.closest('.tablewrap,.calc,input')))go(dx<0?i+1:i-1)},{passive:true});
+ if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5&&!(e.target.closest&&e.target.closest('.tablewrap,.calc,input,.sv')))go(dx<0?i+1:i-1)},{passive:true});
 var q=+new URLSearchParams(location.search).get('page'),h=decodeURIComponent(location.hash.slice(1)),hk=-1;
 if(h)sl.forEach(function(s,k){if(s.id===h)hk=k});
 go(hk>=0?hk:(q?q-1:0));
