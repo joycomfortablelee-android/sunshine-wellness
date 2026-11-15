@@ -972,6 +972,14 @@
     .learn-article .chasi-div { display: flex; align-items: center; gap: 12px; margin: 30px 0 26px; }
     .learn-article .chasi-div::before, .learn-article .chasi-div::after { content: ""; flex: 1; border-top: 3px dashed #7f93a8; }
     .learn-article .chasi-div > span { flex: none; padding: 3px 14px; border: 2px solid #7f93a8; border-radius: 999px; background: #fff; color: #33475b; font-size: 12.5px; font-weight: 800; letter-spacing: .2px; }
+    /* 장 학습 목표 — 개념 셋을 번호로. 04장 머리 바로 아래. */
+    .learn-article .ch-goal { margin: 4px 0 16px; padding: 12px 16px 10px; border: 1px solid #c9d9ea; border-left: 4px solid #1f6fb2; border-radius: 10px; background: #f5f9fd; }
+    .learn-article .ch-goal .cg-h { margin: 0 0 6px; font-size: 13px; font-weight: 800; color: #14508f; letter-spacing: .3px; }
+    .learn-article .ch-goal ol { margin: 0; padding-left: 22px; }
+    .learn-article .ch-goal li { margin: 0 0 4px; font-size: 13px; line-height: 1.7; color: #33475b; }
+    .learn-article .ch-goal li::marker { font-weight: 900; color: #1f6fb2; }
+    .learn-article .ch-goal li b { color: #17395f; font-weight: 800; }
+    .learn-article .ch-goal li strong { color: #a02d1f; }
     /* 03-F 양식 3-2 홍보 및 판로개척 */
     .learn-article .p32-wk { display: inline-block; margin-left: 4px; padding: 1px 9px; border-radius: 999px; background: #ffe14d; color: #3d3200; font-size: 12px; font-weight: 800; }
     .learn-article ol.p32-four { list-style: none; margin: 14px 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; counter-reset: p32; }
@@ -4585,6 +4593,7 @@
       </figure>
 
       <p class="learn-part lp-core" id="ch04"><span class="num">04</span>만들기 전에 검증하라 — 린 스타트업<a class="poc-jump" href="#poc"><span class="poc-star" aria-hidden="true">✦</span>PoC · MVP 비교 ↓</a><a class="poc-jump kpi-jump" href="#kpi-sec"><span class="blink-star" aria-hidden="true">●</span> KPI 핵심성과지표 ↓</a></p>
+      <div class="ch-goal" aria-label="04장 학습 목표"><p class="cg-h">학습 목표</p><ol><li><b>린 스타트업</b> — 「만든다 → 묻는다 → 배운다」 순환을 설명하고, 왜 <strong>만들기 전에 고객 검증</strong>이 먼저인지 말할 수 있다.</li><li><b>PoC · 프로토타입 · MVP</b> — 「되나? · 어떻게 생겼나? · 쓰나?」로 셋을 구분하고, <strong>보여 주고 묻기</strong>와 <strong>써 보게 하기</strong>의 차이를 말할 수 있다.</li><li><b>KPI · 피벗</b> — KPI로 목표까지의 거리를 숫자로 읽고, 가설과 다르면 <strong>비전은 두고 전략만 바꾸는</strong> 피벗을 설명할 수 있다. KPI가 사업계획서의 <strong>협약목표(매출 · 투자 · 고용)</strong>가 됨을 안다.</li></ol></div>
       <p>가장 비싼 실수는 아무도 원하지 않는 것을 완벽하게 만드는 것입니다. 그래서 순환이 필요합니다.</p>
       <div class="tri-wrap tri-blue">
         <svg class="tri-line" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polygon points="50,3 97,97 3,97" /></svg>
