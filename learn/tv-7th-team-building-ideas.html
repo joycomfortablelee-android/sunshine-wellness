@@ -83,6 +83,21 @@ h2{margin:24px 0 4px;font-size:18px}.lead{font-size:13px;margin:0 0 8px}
 .flow{margin-top:8px;padding:8px 12px;font-size:12px;gap:4px}.flow b{padding:2px 7px}
 @media(max-width:820px){.wall{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:480px){.wall{grid-template-columns:1fr}}
+/* 여덟 파트 좌우 넘김(2026-11-15) — 한 번에 한 파트, ‹ › · 방향키 · 밀기 */
+.sl-nav{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:6px;margin:16px 0 4px;padding:8px 0;background:var(--bg)}
+.sl-dots{flex:1;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}.sl-dots::-webkit-scrollbar{display:none}
+.sl-dots button{flex:1 0 auto;border:1px solid var(--line);background:#fff;color:var(--muted);border-radius:99px;padding:5px 10px;font:inherit;font-size:12.5px;font-weight:700;cursor:pointer;white-space:nowrap}
+.sl-dots button b{margin-right:4px;color:var(--c7)}
+.sl-dots button[aria-selected="true"]{background:var(--navy);border-color:var(--navy);color:#fff}.sl-dots button[aria-selected="true"] b{color:var(--y)}
+.sl-arr{flex:none;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--navy);font-size:22px;line-height:1;cursor:pointer}
+.sl-arr:disabled,.sl-arr2:disabled{opacity:.3;cursor:default}
+.sl-track{overflow:hidden;touch-action:pan-y}.sl{display:none}.sl.on{display:block}.sl.on.enter{animation:slIn .28s ease}.sl.on.enter.back{animation-name:slBack}
+.sl > h2:first-child{margin-top:10px}
+@keyframes slIn{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:none}}@keyframes slBack{from{opacity:0;transform:translateX(-28px)}to{opacity:1;transform:none}}
+.sl-foot{display:flex;justify-content:center;align-items:center;gap:14px;margin:18px 0 6px}
+.sl-arr2{border:1px solid var(--navy);background:#fff;color:var(--navy);border-radius:99px;padding:6px 16px;font:inherit;font-size:13px;font-weight:800;cursor:pointer}.sl-arr2:hover:not(:disabled){background:var(--navy);color:#fff}
+.sl-count{font-size:13px;font-weight:800;color:var(--muted)}
+@media print{.sl-nav,.sl-foot{display:none}.sl{display:block!important}}
 @media print{body{background:#fff}.back,.links{display:none}.hero{color:#000;background:#fff;border:1px solid #999}.hero p{color:#333}}
 /* 차수별 세부 구조 탭 */
 .row{cursor:pointer}.row:hover{opacity:.85}
@@ -131,6 +146,13 @@ h2{margin:24px 0 4px;font-size:18px}.lead{font-size:13px;margin:0 0 8px}
   <span class="due">15주차 · 12/8 보강 주간 수업 → <b>12/13(일) 자정</b> 제출</span>
 </header>
 
+<nav class="sl-nav" aria-label="여덟 파트">
+  <button type="button" class="sl-arr" data-d="-1" aria-label="이전 파트">‹</button>
+  <div class="sl-dots" role="tablist"><button type="button" role="tab" data-i="0"><b>①</b>쌓는 순서</button><button type="button" role="tab" data-i="1"><b>②</b>차수별 구조</button><button type="button" role="tab" data-i="2"><b>③</b>7차 한눈에</button><button type="button" role="tab" data-i="3"><b>④</b>5장 세 칸</button><button type="button" role="tab" data-i="4"><b>⑤</b>쓸 내용</button><button type="button" role="tab" data-i="5"><b>⑥</b>[표5] 채우기</button><button type="button" role="tab" data-i="6"><b>⑦</b>한 줄 요약</button><button type="button" role="tab" data-i="7"><b>⑧</b>직접 써 보기</button></div>
+  <button type="button" class="sl-arr" data-d="1" aria-label="다음 파트">›</button>
+</nav>
+<div class="sl-track">
+<section class="sl" data-i="0" aria-label="① 쌓는 순서">
 <h2>① 4차~7차 — 하나의 사업을 쌓아 올리는 순서 <small>지금은 맨 위 7차</small></h2>
 <p class="lead">개발 → 홍보 · 판매 → 자금 → 일정 → 성장 → 역량 → 성과. 각 양식이 따로 노는 과제가 아니라 <mark>하나의 관광벤처를 사업화하는 과정</mark>입니다.</p>
 <div class="wall">
@@ -142,7 +164,8 @@ h2{margin:24px 0 4px;font-size:18px}.lead{font-size:13px;margin:0 0 8px}
 <div class="flow"><span>예 · 「로컬투어 상품 출시」라는 활동 하나가</span>
   <b>3-1 개발 대상</b><span class="x">→</span><b>3-2 판매 상품</b><span class="x">→</span><b>3-3 개발 · 마케팅 비용</b><span class="x">→</span><b>3-4 출시 일정</b><span class="x">→</span><b>3-5 지역 확대</b><span class="x">→</span><b>5장 담당 팀원</b><span class="x">→</span><b>6-1 예약건수 · 매출 KPI</b>
 </div>
-
+</section>
+<section class="sl" data-i="1" aria-label="② 차수별 구조">
 <h2 id="detail">② 차수별 세부 구조 — 눌러서 보기 <small>위 벽돌을 눌러도 바뀝니다</small></h2>
 <p class="lead">차수를 고르면 그 회차에 내는 양식마다 <b>무엇을 어떤 순서로 쓰는지</b>가 나옵니다. 칩은 왼쪽부터 쓰는 순서입니다.</p>
 <div class="tabs" role="tablist" aria-label="제출 차수">
@@ -153,7 +176,8 @@ h2{margin:24px 0 4px;font-size:18px}.lead{font-size:13px;margin:0 0 8px}
 </div>
 <div id="detailBox" class="dbox" role="tabpanel" aria-live="polite"></div>
 <noscript><p class="note">이 칸은 자바스크립트가 켜져 있어야 보입니다.</p></noscript>
-
+</section>
+<section class="sl" data-i="2" aria-label="③ 7차 한눈에">
 <h2 id="sum7">③ 7차 한눈에 — 여섯 칸 · 세부 작성 항목</h2>
 <p class="lead">위 네 줄(보라)은 <b>누가 실행하나</b>, 아래 두 줄(초록)은 <b>무엇을 달성하나</b>입니다. 칸 이름은 공식 양식, 꺾쇠는 그 칸에 쓸 거리입니다.</p>
 <div class="tw sum7"><table>
@@ -168,7 +192,8 @@ h2{margin:24px 0 4px;font-size:18px}.lead{font-size:13px;margin:0 0 8px}
 </tbody></table></div>
 <p class="gobox"><a href="tv-7th-team-kpi-table-guide.html" target="_blank" rel="noopener">✍ 이 표대로 직접 쓰기 — 7차 표형 작성가이드 ↗</a><span>수업 순서 · 위 전체 안내표로 설명 → 학생이 자기 관광벤처 아이템을 <b>5-1 · 5-2 · 5-3 · [표5] · KPI · 6-1</b> 작성표에 입력(20항목 체크 · 브라우저 자동 저장 · CSV · JSON 백업)</span></p>
 <p class="note">5-1 공식 이름은 「<b>사업자</b>의 전문성 및 운영 능력」이고, 쓰는 내용은 대표자의 역량입니다. 협약목표의 숫자는 6-1 KPI · 일반현황과 같아야 합니다.</p>
-
+</section>
+<section class="sl" data-i="3" aria-label="④ 5장 세 칸">
 <h2>④ 5장 세 칸 — 공식 양식 순서대로</h2>
 <p class="lead">회색 상자는 제18회 공식 양식의 작성 안내를 줄인 것입니다. 칩은 그 칸에서 다룰 거리입니다.</p>
 <div class="cards">
@@ -192,7 +217,8 @@ h2{margin:24px 0 4px;font-size:18px}.lead{font-size:13px;margin:0 0 8px}
   </article>
 </div>
 <p class="warn"><b>자주 틀리는 곳 —</b> 5-2는 「팀원 역량」이 아니라 <mark>팀원과의 신뢰 구축 능력</mark>을 묻습니다. 팀원 이력은 5-3과 [표5]에 쓰고, 5-2에는 <b>왜 함께하게 됐고 어떻게 함께 일하는지</b>를 씁니다.</p>
-
+</section>
+<section class="sl" data-i="4" aria-label="⑤ 쓸 내용">
 <h2>⑤ 항목마다 실제로 쓸 내용</h2>
 <div class="tw"><table>
   <thead><tr><th>양식</th><th>항목</th><th>작성 아이디어</th><th>작성 예시</th></tr></thead>
@@ -208,7 +234,8 @@ h2{margin:24px 0 4px;font-size:18px}.lead{font-size:13px;margin:0 0 8px}
     <tr><td class="f">5-3</td><td class="k">운영 원칙</td><td>조직을 계속 굴리는 방식</td><td class="e">업무 책임 명확화, 고객 피드백 정기 공유</td></tr>
   </tbody>
 </table></div>
-
+</section>
+<section class="sl" data-i="5" aria-label="⑥ [표5] 채우기">
 <h2>⑥ [표5] 팀 구성 현황 — 이렇게 채웁니다</h2>
 <p class="lead">원본 양식 칸: 성명 · 직위 · 담당업무 · 보유역량(경력 / 학력 등) · 구성상태. 아래는 가상의 관광체험 창업팀 예시입니다(성명 칸 생략).</p>
 <div class="tw"><table>
@@ -221,7 +248,8 @@ h2{margin:24px 0 4px;font-size:18px}.lead{font-size:13px;margin:0 0 8px}
   </tbody>
 </table></div>
 <p class="note">실제로 쓸 때는 <b>확정된 팀원</b>과 <b>채용 예정 인력</b>을 구분하고, 외주 인력은 내부 팀원으로 오해받지 않도록 따로 표시합니다.</p>
-
+</section>
+<section class="sl" data-i="6" aria-label="⑦ 한 줄 요약">
 <h2>⑦ 7차를 한 줄로 — 사람 → 역량 → 실행 → 성과</h2>
 <div class="final">
   <div class="chips" style="justify-content:center"><span>대표자 역량</span><span>팀 신뢰</span><span>역할 분담</span><span>인력 확보</span><span>KPI 달성</span><span>협약목표</span></div>
@@ -232,7 +260,8 @@ h2{margin:24px 0 4px;font-size:18px}.lead{font-size:13px;margin:0 0 8px}
     <div><b>6-1 · KPI</b>그 능력과 <mark>보유 네트워크 · 파트너십 · 예상 매출처</mark>를 써서 KPI를 어떻게 달성하는가 — 공식 양식이 이 근거를 요구합니다.</div>
   </div>
 </div>
-
+</section>
+<section class="sl" data-i="7" aria-label="⑧ 직접 써 보기">
 <h2>⑧ 직접 써 보기</h2>
 <div class="links">
   <a href="tv-form-wb/5-1.html" target="_blank" rel="noopener">✍ 5-1 워크북 ↗</a>
@@ -243,6 +272,9 @@ h2{margin:24px 0 4px;font-size:18px}.lead{font-size:13px;margin:0 0 8px}
   <a href="tv-team-kpi-7th-guide.html" target="_blank" rel="noopener">7차 인터랙티브 작성 가이드 ↗</a>
   <a href="tv-business-plan-4th-7th-map.html" target="_blank" rel="noopener">4차~7차 작성지도 ↗</a>
 </div>
+</section>
+</div>
+<div class="sl-foot"><button type="button" class="sl-arr2" data-d="-1">‹ 이전</button><span class="sl-count"></span><button type="button" class="sl-arr2" data-d="1">다음 ›</button></div>
 <p class="note">예시는 모두 교육용 가상 사례입니다. 제출할 때는 본인 팀의 사실과 근거로 다시 씁니다.</p>
 </div>
 <script>
@@ -277,9 +309,34 @@ function show(r){const d=R[r];box.style.setProperty('--c',C[r]);
  rows.forEach((w,i)=>w.classList.toggle('on',i+4==r));}
 tabs.forEach(b=>b.addEventListener('click',()=>show(b.dataset.r)));
 rows.forEach((w,i)=>{w.tabIndex=0;w.setAttribute('role','button');w.setAttribute('aria-label',(i+4)+'차 세부 구조 보기');
- const go=()=>{show(String(i+4));document.getElementById('detail').scrollIntoView({behavior:'smooth',block:'start'})};
+ const go=()=>{show(String(i+4));if(window.slGo)window.slGo(1);};
  w.addEventListener('click',go);w.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}});});
 const h=(location.hash.match(/^#r([4-7])$/)||[])[1];show(h||'7');
+})();
+</script>
+
+<script>
+(function(){
+const S=[...document.querySelectorAll('.sl')],D=[...document.querySelectorAll('.sl-dots button')],cnt=document.querySelector('.sl-count');
+let cur=-1;
+function go(i,noScroll){i=Math.max(0,Math.min(S.length-1,i));if(i===cur)return;const back=i<cur;
+ S.forEach((x,k)=>{x.classList.toggle('on',k===i);x.classList.toggle('back',k===i&&back);x.classList.toggle('enter',k===i&&cur>=0);});
+ D.forEach((b,k)=>b.setAttribute('aria-selected',String(k===i)));
+ D[i].scrollIntoView({block:'nearest',inline:'center'});
+ document.querySelectorAll('[data-d]').forEach(b=>b.disabled=(+b.dataset.d<0&&i===0)||(+b.dataset.d>0&&i===S.length-1));
+ cnt.textContent=(i+1)+' / '+S.length;
+ if(cur>=0&&!noScroll){const n=document.querySelector('.sl-nav');const y=n.getBoundingClientRect().top+scrollY-4;if(scrollY>y)scrollTo({top:y,behavior:'smooth'});}
+ cur=i;try{history.replaceState(null,'','#p'+(i+1))}catch(e){}}
+window.slGo=go;
+D.forEach((b,k)=>b.addEventListener('click',()=>go(k)));
+document.querySelectorAll('[data-d]').forEach(b=>b.addEventListener('click',()=>go(cur+ +b.dataset.d)));
+document.addEventListener('keydown',e=>{if(/INPUT|TEXTAREA|SELECT/.test(e.target.tagName))return;if(e.key==='ArrowRight')go(cur+1);if(e.key==='ArrowLeft')go(cur-1);});
+let x0=null,y0=null;const tr=document.querySelector('.sl-track');
+tr.addEventListener('touchstart',e=>{x0=e.touches[0].clientX;y0=e.touches[0].clientY},{passive:true});
+tr.addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5)go(cur+(dx<0?1:-1));x0=null;});
+const h=location.hash;let st=0;const m=h.match(/^#p([1-8])$/);
+if(m)st=+m[1]-1;else if(/^#r[4-7]$/.test(h))st=1;else if(h.length>1){const t=document.getElementById(decodeURIComponent(h.slice(1)));const sec=t&&t.closest('.sl');if(sec)st=+sec.dataset.i;}
+go(st,true);
 })();
 </script>
 </body>
