@@ -25,6 +25,9 @@
 .lecture3 .lec-btn{font-size:12px;border-radius:8px;padding:6px 10px;background:#fff;border:1px solid #d8bb6d;color:#6a5214;font-weight:750}
 @media(max-width:800px){.lecture3-body{grid-template-columns:1fr}.lecture3-side{border-right:0;border-bottom:1px solid #efdda0}}
 @media print{.lecture3{break-inside:avoid}.lecture3 summary:after{display:none}.lecture3-body{display:grid!important}}
+
+/* 저장 · 인쇄 띠 — 떠다니지 않게 화면 맨 위에 고정(2026-11-15) */
+@media screen{.bottom-bar{top:0;bottom:auto!important;left:0;right:0;transform:none;border-radius:0;justify-content:center;max-width:none;padding:6px 12px;box-shadow:0 2px 10px #142c4b30}.bottom-bar span{display:inline!important}body{padding-top:46px}.side{top:58px}}
 </style>
 </head>
 <body>
