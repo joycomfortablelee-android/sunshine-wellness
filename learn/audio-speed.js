@@ -54,7 +54,8 @@
       [].forEach.call(document.querySelectorAll('audio:not([data-sw-rate])'), function (a) { a.dataset.swRate = '1'; a.playbackRate = rate; a.defaultPlaybackRate = rate; a.insertAdjacentElement('afterend', group()); });
     }).observe(document.body, { childList: true, subtree: true });
     // <audio> 태그 없이 🔊 버튼으로만 재생하는 페이지는 화면 왼쪽 아래에 속도 버튼 하나
-    if (/new Audio\(/.test([].map.call(document.scripts, function (x) { return x.textContent; }).join(''))) { var g = group(); g.classList.add('float'); document.body.appendChild(g); }
+    // 페이지가 <body data-no-rate-float> 로 끄면 띄우지 않는다(관광벤처 — 2026-11-15 사용자 요청)
+    if (!document.body.hasAttribute('data-no-rate-float') && /new Audio\(/.test([].map.call(document.scripts, function (x) { return x.textContent; }).join(''))) { var g = group(); g.classList.add('float'); document.body.appendChild(g); }
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
