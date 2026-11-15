@@ -27,8 +27,9 @@
 .speaker{min-height:650px}.speaker-body{min-height:180px}
 @media(max-width:600px){.voice-section{padding:12px}.voice-controls button,.voice-subcontrols button,.voice-file{font-size:11px;padding:7px}.top-ctrls button{padding:6px}}
 @media print{.voice-section{display:none!important}}
-</style></head>
-<body><header class="topbar"><div class="brand"><span class="brand-mark">ANOVA</span><strong>일원배치 분산분석 · 장별 음성 녹음·재생</strong></div><div class="top-ctrls"><select id="jump" title="구간 이동" aria-label="구간 선택"></select><button id="toggleNotes">대본 숨기기</button><button id="speech">🔊 대본 자동 낭독</button><button id="audioTopPlay">▶ 이 장 녹음 재생</button><button id="speechStop">■ 정지</button><button onclick="window.print()" class="accent">인쇄 / PDF 저장</button></div></header>
+</style><script src="tts-speed.js"></script>
+</head>
+<body data-no-rate-float><header class="topbar"><div class="brand"><span class="brand-mark">ANOVA</span><strong>일원배치 분산분석 · 장별 음성 녹음·재생</strong></div><div class="top-ctrls"><select id="jump" title="구간 이동" aria-label="구간 선택"></select><button id="toggleNotes">대본 숨기기</button><button id="speech">🔊 대본 자동 낭독</button><button id="audioTopPlay">▶ 이 장 녹음 재생</button><button type="button" id="aiVoiceBtn" class="" title="같은 대본을 AI 목소리(녹음 파일)로 듣기 — 내 녹음과 별개">🤖 AI 목소리</button><button id="speechStop">■ 정지</button><button onclick="window.print()" class="accent">인쇄 / PDF 저장</button></div></header>
 <main class="shell"><div class="overview"><div class="over-left"><span class="count" id="counter">00 / 17</span><div class="over-h" id="chapterName">오늘의 학습 목표</div></div><div class="over-time" id="time">권장 설명 · 1분</div></div><div class="progress"><div id="progress"></div></div><article class="slide-grid" id="screen"><section class="panel visual-pane"><div class="panel-head"><span class="eyebrow">STUDENT VIEW · 학생 화면</span><span class="sm-info">강의 핵심 개념 · 학습 자료</span></div><div class="hero"><div class="sub" id="sub"></div><h1 id="h1"></h1><div class="core" id="core"></div></div><div class="canvas" id="canvas"></div></section><aside class="panel speaker"><div class="panel-head"><span class="eyebrow">SPEAKER NOTES · 교수자 설명</span><div class="head-right"><span class="sm-info" id="noteTime"></span><button class="small-btn" id="copyScript">대본 복사</button></div></div><section class="voice-section" aria-label="장별 녹음 및 재생">
   <div class="voice-title"><strong>🎧 <span id="audioTitle">00장</span> · 녹음 플레이어</strong><span class="recording-badge" id="audioBadge">미등록</span></div>
   <div class="voice-controls"><button id="recordStart" class="voice-primary">🎙 내 목소리 녹음</button><button id="recordPlay" disabled>▶ 녹음 재생</button><button id="recordStop" disabled>■ 정지</button></div>
@@ -252,4 +253,8 @@ refreshPanel();
 })();
 </script>
 <script src="audio-speed.js" defer></script>
-</body></html>
+<script>(function(){const btn=document.getElementById("aiVoiceBtn");if(!btn)return;const ai=new Audio();ai.preload="none";let cur=null;const num=()=>{const c=document.getElementById("counter");return c?c.textContent.trim().slice(0,2):"00"};const reset=()=>{btn.textContent="🤖 AI 목소리"};
+btn.addEventListener("click",()=>{try{window.speechSynthesis&&window.speechSynthesis.cancel()}catch(e){}document.querySelectorAll("audio").forEach(a=>a.pause());const n=num();if(cur!==n){cur=n;ai.src="assets/anova17-ai-voice/s"+n+".mp3"}if(ai.paused){ai.play().then(()=>{btn.textContent="Ⅱ AI 목소리 멈춤"}).catch(()=>{btn.textContent="🤖 AI 목소리(재생 실패)"})}else{ai.pause();btn.textContent="▶ AI 이어 듣기"}});
+ai.addEventListener("ended",reset);
+const c=document.getElementById("counter");if(c)new MutationObserver(()=>{if(num()!==cur){ai.pause();reset();}}).observe(c,{childList:true,characterData:true,subtree:true});
+["speech","audioTopPlay","recordPlay","recordStart"].forEach(id=>{const b=document.getElementById(id);if(b)b.addEventListener("click",()=>{if(!ai.paused){ai.pause();reset()}})});})();</script></body></html>
