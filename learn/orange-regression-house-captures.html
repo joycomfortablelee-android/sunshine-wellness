@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Orange 회귀분석 캡처 9장 | 빅데이터 분석 시범 수업</title>
+<style>
+  :root{
+    --deep:#17365d; --accent:#0f766e; --accent-l:#e9f6ef; --line:#dbe4ee;
+    --ink:#1f2d2a; --muted:#5d6f7f; --bg:#f3f6f8;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);line-height:1.6;
+    font-family:"Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",Arial,sans-serif;word-break:keep-all}
+  .wrap{max-width:980px;margin:0 auto;padding:18px 16px 50px}
+  .top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+  .top a{font-size:13px;font-weight:700;text-decoration:none;border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 13px;color:var(--deep)}
+  .top a:hover{background:var(--deep);color:#fff}
+  header{background:linear-gradient(135deg,#17365d,#0f766e);color:#fff;border-radius:16px;padding:20px 22px}
+  header .k{font-size:12px;letter-spacing:.12em;font-weight:800;opacity:.85}
+  header h1{margin:5px 0 6px;font-size:22px;letter-spacing:-.4px}
+  header p{margin:0;font-size:13.5px;opacity:.92}
+
+  .viewer{background:#fff;border:1px solid var(--line);border-radius:16px;margin-top:16px;overflow:hidden}
+  .stage{position:relative;background:#11202c;display:flex;align-items:center;justify-content:center;min-height:260px;touch-action:pan-y}
+  .stage img{display:block;max-width:100%;max-height:72vh;width:auto;height:auto;margin:0 auto;user-select:none;-webkit-user-drag:none}
+  .arrow{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:0;
+    background:rgba(255,255,255,.92);color:var(--deep);font-size:18px;font-weight:900;cursor:pointer;box-shadow:0 2px 8px #0004}
+  .arrow:hover{background:#fff}
+  .arrow.prev{left:10px}
+  .arrow.next{right:10px}
+  .arrow:disabled{opacity:.35;cursor:default}
+  .cap{padding:14px 18px 16px}
+  .cap .n{display:inline-block;font-size:12px;font-weight:800;color:#fff;background:var(--accent);border-radius:999px;padding:2px 10px;margin-bottom:8px}
+  .cap .step{font-size:12px;font-weight:700;color:var(--muted);margin:0 0 3px}
+  .cap h2{margin:0 0 7px;font-size:17.5px;color:var(--deep);letter-spacing:-.3px}
+  .cap p{margin:0;font-size:13.8px;color:#33443f}
+  .dots{display:flex;justify-content:center;gap:7px;padding:4px 0 14px}
+  .dots button{width:9px;height:9px;border-radius:50%;border:0;background:#cfd9e2;padding:0;cursor:pointer}
+  .dots button.on{background:var(--accent);width:22px;border-radius:5px}
+  .thumbs{display:flex;gap:7px;overflow-x:auto;padding:10px 14px 14px;border-top:1px solid var(--line)}
+  .thumbs button{flex:0 0 auto;border:2px solid transparent;border-radius:8px;padding:0;background:none;cursor:pointer;line-height:0}
+  .thumbs button.on{border-color:var(--accent)}
+  .thumbs img{width:66px;height:44px;object-fit:cover;border-radius:6px;display:block;opacity:.75}
+  .thumbs button.on img{opacity:1}
+  .note{font-size:12.5px;color:var(--muted);margin:14px 2px 0}
+  .kbd{display:inline-block;border:1px solid #c9d6e2;border-radius:5px;padding:0 6px;font-size:11.5px;background:#fff;color:var(--deep)}
+  @media (max-width:560px){ .arrow{width:36px;height:36px;font-size:15px} .cap h2{font-size:16px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a href="big-data-analytics.html#demo-1116">← 오늘(11/16) 시범 수업으로</a>
+    <a href="big-data-analytics.html#cluster">파트 05 군집분석</a>
+  </div>
+
+  <header>
+    <div class="k">ORANGE · REGRESSION</div>
+    <h1>Orange 회귀분석(Regression) — House 데이터 실습 캡처 9장</h1>
+    <p>지도학습 Regression · Boston House 데이터로 MEDV(주택가치) 예측 · 11/16 2 · 3차시</p>
+  </header>
+
+  <div class="viewer">
+    <div class="stage">
+      <button class="arrow prev" id="prevBtn" aria-label="이전 장면">‹</button>
+      <img id="stageImg" src="" alt="">
+      <button class="arrow next" id="nextBtn" aria-label="다음 장면">›</button>
+    </div>
+    <div class="cap">
+      <span class="n" id="counter">1 / 9</span>
+      <p class="step" id="stepLabel"></p>
+      <h2 id="title"></h2>
+      <p id="desc"></p>
+    </div>
+    <div class="dots" id="dots"></div>
+    <div class="thumbs" id="thumbs"></div>
+  </div>
+
+  <p class="note">← → 방향키 또는 화면을 좌우로 쓸어서 넘길 수 있습니다 (<span class="kbd">←</span> <span class="kbd">→</span>). 세종대 「빅데이터와 인공지능 마케팅 2」 Orange 회귀분석 실습 영상 캡처 재구성.</p>
+</div>
+
+<script>
+const slides = [
+  {
+    src: "images/orange-regression/01-house-data-load.png",
+    step: "01 · 영상 7분",
+    title: "File 위젯으로 데이터 불러오기",
+    desc: "File 위젯을 열어 「데이터와 모델」 폴더에서 Boston House 데이터를 불러옵니다. 같은 폴더에 House(테스트 데이터), House(테스트 데이터, MEDV 없음), iris, wine 등 여러 데이터셋이 있는데, 오늘은 학습용인 House(학습데이터)를 선택합니다."
+  },
+  {
+    src: "images/orange-regression/02-select-columns-medv-target.png",
+    step: "02",
+    title: "Select Columns — 종속변수(Target) 지정",
+    desc: "CRIM · ZN · INDUS · CHAS · NOX · RM · AGE · DIS · RAD · TAX · PTRATIO · B · LSTAT 13개 Features 중에서, 예측하고 싶은 MEDV(주택의 평균 가치)를 Target(종속변수)으로 직접 지정해 줍니다."
+  },
+  {
+    src: "images/orange-regression/03-test-and-score-models.png",
+    step: "03 · 영상 약 12분",
+    title: "Test and Score — 7개 회귀모델 성능 비교",
+    desc: "Linear Regression · SVM · Neural Network · Tree · AdaBoost · Gradient Boosting · Random Forest 7개 모델을 MSE · RMSE · MAE · MAPE · R² 다섯 지표로 한 번에 비교합니다. 「Stratification is ignored for regression」 경고는 — 회귀에서는 층화 샘플링이 적용되지 않는다는 뜻으로, 분류모델에서만 의미가 있는 옵션입니다."
+  },
+  {
+    src: "images/orange-regression/04-error-metrics-basic.png",
+    step: "04 · 영상 14분",
+    title: "회귀모델의 오류 지표 — 이름부터 정리",
+    desc: "MAE(Mean Absolute Error) · MSE(Mean Square Error) · RMSE(Root Mean Squared Error) · R²(R-squared, Coefficient of determination) — 앞으로 비교할 네 가지 오류·설명력 지표의 이름을 먼저 짚고 갑니다."
+  },
+  {
+    src: "images/orange-regression/05-feature-importance-lstat.png",
+    step: "05 · 영상 24분",
+    title: "Feature Importance — 어떤 변수가 가장 중요한가",
+    desc: "위젯을 더블클릭해 결과를 확인하면, R² 감소폭(Decrease in R2) 기준으로 LSTAT(저소득층 비율)이 가장 중요한 변수로 나타나고, 이어서 RM(방 개수) · DIS(고용센터까지 거리) · CRIM(범죄율) 순으로 이어집니다."
+  },
+  {
+    src: "images/orange-regression/06-r-squared-explained.png",
+    step: "06 · 정리",
+    title: "R-squared(결정계수) 해석하는 법",
+    desc: "R²는 모델이 데이터를 얼마나 잘 설명하는지 나타내는 지표입니다. R²=1이면 완벽한 예측, R²=0이면 전혀 예측하지 못함, 0<R²<1이면 일부만 예측(예: R²=0.7 → 70%를 예측하고 나머지 30%는 오차). R² 값이 클수록 모델의 예측이 정확합니다."
+  },
+  {
+    src: "images/orange-regression/07-error-metrics-summary.png",
+    step: "07 · 정리",
+    title: "회귀모델의 오류 지표 — 정의로 다시 정리",
+    desc: "MAE는 예측값과 실제값 차이의 절댓값을 평균한 값, MSE는 그 차이를 제곱해 평균한 값, RMSE는 MSE의 제곱근, R²는 모델이 데이터의 변화를 얼마나 잘 설명하는지 나타내는 지표입니다."
+  },
+  {
+    src: "images/orange-regression/08-data-source-links.png",
+    step: "08 · 출처",
+    title: "오늘 실습에 쓴 Orange 자료 출처",
+    desc: "출처 01 — orangedatamining.com/widget-catalog/ (위젯 목록) · 출처 02 — orangedatamining.com/download/ (Orange 내려받기)."
+  },
+  {
+    src: "images/orange-regression/09-image-embedding-bonus.png",
+    step: "09 · 보너스",
+    title: "(이어 보기) 이미지 임베딩과 모델 비교",
+    desc: "지난주 이미지 분석 실습처럼, Inception v3 · SqueezeNet · VGG16 · Painters · DeepLoc · Openface 등 여러 사전학습 임베딩을 Neural Network + Test and Score + Confusion Matrix로 나란히 비교할 수 있습니다 — 회귀뿐 아니라 분류 구조에서도 같은 「비교 → 평가」 패턴이 반복됩니다."
+  }
+];
+
+let i = 0;
+const stageImg = document.getElementById('stageImg');
+const title = document.getElementById('title');
+const desc = document.getElementById('desc');
+const stepLabel = document.getElementById('stepLabel');
+const counter = document.getElementById('counter');
+const dotsWrap = document.getElementById('dots');
+const thumbsWrap = document.getElementById('thumbs');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+
+slides.forEach((s, idx) => {
+  const d = document.createElement('button');
+  d.setAttribute('aria-label', (idx+1) + '번째 장면으로');
+  d.onclick = () => go(idx);
+  dotsWrap.appendChild(d);
+
+  const t = document.createElement('button');
+  const img = document.createElement('img');
+  img.src = s.src; img.alt = s.title; img.loading = 'lazy';
+  t.appendChild(img);
+  t.onclick = () => go(idx);
+  thumbsWrap.appendChild(t);
+});
+
+function render(){
+  const s = slides[i];
+  stageImg.src = s.src;
+  stageImg.alt = s.title;
+  title.textContent = s.title;
+  desc.textContent = s.desc;
+  stepLabel.textContent = s.step;
+  counter.textContent = (i+1) + ' / ' + slides.length;
+  prevBtn.disabled = i === 0;
+  nextBtn.disabled = i === slides.length - 1;
+  [...dotsWrap.children].forEach((d,idx)=>d.classList.toggle('on', idx===i));
+  [...thumbsWrap.children].forEach((t,idx)=>{
+    t.classList.toggle('on', idx===i);
+    if (idx===i) t.scrollIntoView({inline:'center', block:'nearest', behavior:'smooth'});
+  });
+}
+function go(n){ i = Math.max(0, Math.min(slides.length-1, n)); render(); }
+function move(n){ go(i+n); }
+
+prevBtn.onclick = () => move(-1);
+nextBtn.onclick = () => move(1);
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft') move(-1);
+  if (e.key === 'ArrowRight') move(1);
+});
+
+let touchX = null;
+const stage = document.querySelector('.stage');
+stage.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, {passive:true});
+stage.addEventListener('touchend', e => {
+  if (touchX === null) return;
+  const dx = e.changedTouches[0].clientX - touchX;
+  if (Math.abs(dx) > 40) move(dx > 0 ? -1 : 1);
+  touchX = null;
+}, {passive:true});
+
+render();
+</script>
+</body>
+</html>
