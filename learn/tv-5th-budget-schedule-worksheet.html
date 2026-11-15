@@ -16,7 +16,7 @@
 .w5-pair>.w5-l>.box{margin:0}
 .w5-say{position:sticky;top:60px;padding:13px 15px;border-radius:14px;background:#fffdf3;border:1.5px dashed #e2c36b;color:#2b3640}
 .w5-say .ws-h{margin:0 0 6px;font-size:13px;font-weight:900;color:#8a5a00;line-height:1.45}.w5-say .ws-h small{display:block;font-weight:700;color:#9a7a35;font-size:12px}
-.w5-say .ws-au{display:flex;align-items:center;gap:6px;margin:0 0 8px}.w5-say .ws-au audio{height:32px;flex:1;min-width:0}.w5-say .ws-au span{font-size:11.5px;font-weight:800;color:#17365d;white-space:nowrap}
+.w5-say .ws-au{display:flex;align-items:center;flex-wrap:wrap;gap:4px 6px;margin:0 0 8px}.w5-say .ws-au audio{height:32px;flex:1 1 100%;min-width:0}.w5-say .ws-au .sw-rate{margin:0}.w5-say .ws-au span{font-size:11.5px;font-weight:800;color:#17365d;white-space:nowrap}
 .w5-say .ws-t{margin:0;font-size:13.5px;line-height:1.85}
 .box td,.box th{padding-top:10px;padding-bottom:10px}
 }
@@ -105,5 +105,6 @@ $('copyPreview').onclick=async()=>{const str=preview();renderPreview();try{await
 let restored=false;try{const raw=localStorage.getItem('tourism5th_workbook_v1');if(raw){const data=JSON.parse(raw);if(Array.isArray(data.budget)&&Array.isArray(data.roadmap)&&Array.isArray(data.months)){budget=hydrate(data.budget);roadmap=hydrate(data.roadmap);months=hydrate(data.months.map(r=>({...r,months:Array.from({length:7},(_,i)=>r.months?.[i]?1:0)})));Object.entries(data.fields||{}).forEach(([k,v])=>{if($(k))$(k).value=safeText(v)});if(Array.isArray(data.checks))document.querySelectorAll('.taskcheck').forEach((c,i)=>c.checked=!!data.checks[i]);restored=true}}}catch(e){}if(!restored){budget=hydrate(budgetExample);roadmap=hydrate(roadmapExample);months=hydrate(monthExample)}redrawBudget();redrawRoadmap();redrawMonth();checkProgress();renderPreview();
 })();
 </script>
+<script src="audio-speed.js" defer></script>
 </body>
 </html>

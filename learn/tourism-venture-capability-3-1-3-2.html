@@ -802,5 +802,6 @@ get('caseMatrixBody').addEventListener('click',ev=>{const tr=ev.target.closest('
 get('caseMatrixBody').addEventListener('keydown',ev=>{if(ev.key==='Enter'||ev.key===' '){const tr=ev.target.closest('tr[data-case]');if(tr){ev.preventDefault();window.selectCase(tr.dataset.case,true)}}});
 try{const old=localStorage.getItem('venture3_selected_case_v3');if(byId[old])selected=old}catch(e){}
 drawCase(selected);
-})();</script></body>
+})();</script><script src="audio-speed.js" defer></script>
+</body>
 </html>

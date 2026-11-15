@@ -349,5 +349,6 @@ document.addEventListener('touchstart', e=>{ sx=e.changedTouches[0].screenX; }, 
 document.addEventListener('touchend', e=>{ ex=e.changedTouches[0].screenX; if (Math.abs(ex-sx)>60) { if (ex<sx) nextSlide(); else prevSlide(); } }, {passive:true});
 showSlide(1);
 </script>
+<script src="audio-speed.js" defer></script>
 </body>
 </html>

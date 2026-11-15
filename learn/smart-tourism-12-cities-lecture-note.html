@@ -115,4 +115,5 @@ let sx=0,sy=0;document.addEventListener('touchstart',e=>{sx=e.touches[0].clientX
 const toc=document.getElementById('toc');document.getElementById('tocBtn').onclick=()=>toc.classList.add('open');document.getElementById('tocClose').onclick=()=>toc.classList.remove('open');toc.addEventListener('click',e=>{if(e.target===toc)toc.classList.remove('open')});document.querySelectorAll('.toc-item').forEach(b=>b.onclick=()=>{go(+b.dataset.go);toc.classList.remove('open')});
 const qp=+new URLSearchParams(location.search).get('page');go(qp?qp-1:0);
 </script>
+<script src="audio-speed.js" defer></script>
 </body></html>
