@@ -1417,6 +1417,11 @@
     .learn-article .dm-note { background: #fff8e1; border-left: 4px solid #e7b844; border-radius: 0 8px 8px 0; padding: 8px 12px; font-size: 13.5px; line-height: 1.7; margin: 6px 0 10px; }
 
     .qz-b { display: inline-flex; align-items: center; justify-content: center; width: 17px; height: 17px; border-radius: 50%; background: #b0302a; color: #fff; font-size: 10px; font-weight: 900; font-style: normal; vertical-align: -2px; margin: 0 4px 0 2px; }
+
+    .learn-article .an-g { margin: 14px 0 4px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; border-top: 1.5px dashed #c9d3df; padding-top: 8px; }
+    .learn-article .an-g b { font-size: 13.5px; font-weight: 900; color: #17365d; }
+    .learn-article .an-g span { font-size: 12px; color: #6b7c90; }
+    .learn-article .reslist a.an-sub { margin-left: 6px; font-size: .92em; }
 </style>
 </head>
 <body class="mod-bigdata">
@@ -2646,54 +2651,59 @@
 
       <h2 class="learn-part pt-part pp-4" id="anova"><span class="pt"><i>파트</i><b>13</b></span><span class="pt-ti">분산분석 — F검정 · ANOVA · 사후검정 · MANOVA</span><span class="pt-sub">t검정이 <strong>두 집단</strong>을 비교했다면, 분산분석은 <strong>세 집단 이상</strong>의 평균 차이를 한 번에 봅니다 — 차이가 있는가(F검정) → 어디서 다른가(사후검정) → 종속변수가 여럿이면(MANOVA).</span></h2>
       <p class="adsp-back"><a href="#adsp-p272">↑ ADsP 3과목 지도 · p272 분산분석으로 올라가기</a></p>
+      <p class="an-g"><b>1 · 먼저 — 왜 · 무엇을 비교하나</b><span>처음 듣는 학생은 여기부터</span></p>
       <ul class="reslist tight">
         <li class="fresh">
-          <a href="f-test-13-lecture.html" target="_blank" rel="noopener">① F검정 시범수업 13장 — 핵심 해설 · 노란 키워드 ↗</a>
-          <span class="desc">집단 간 변동 · 집단 내 변동 → F값 → 관광지 만족도 계산. 평균이 다르다는 것과 <strong>통계적으로 유의하다</strong>는 것의 차이.</span>
+          <a href="bigdata-anova-cases-lecture.html" target="_blank" rel="noopener"><i class="qz-b" title="퀴즈 포함">퀴</i>① 빅데이터 분석에서 분산분석이 필요한 사례 — 8가지 사례 · F검정 실습 · 퀴즈 ↗</a>
+          <span class="desc">관광 · 호텔 · 축제 · 스마트관광 · 항공 · 외식 등 <strong>여덟 사례</strong>로 「무엇을 집단으로 나누고 무엇을 비교하나」 → 관광객 소비 예시 → F검정 인터랙티브 실습 → 분석방법 비교 · 절차와 주의점 → 수업 퀴즈. 수치는 모두 가상 예시입니다.</span>
         </li>
-        <li>
-          <a href="bigdata-f-test-demo-lesson.html" target="_blank" rel="noopener">② F검정 시범수업 15장 — 빅데이터 활용 · 시뮬레이터 · 퀴즈 10 ↗</a>
-          <span class="desc">변동을 바꿔 보며 F값이 어떻게 움직이는지 시뮬레이터로 확인하고 퀴즈 10문항으로 점검.</span>
+        <li class="fresh"><a href="f-test-13-lecture.html" target="_blank" rel="noopener">② F검정 시범수업 — 13장 핵심 해설 · 노란 키워드 ↗</a> <a class="an-sub" href="bigdata-f-test-demo-lesson.html" target="_blank" rel="noopener"><i class="qz-b" title="퀴즈 포함">퀴</i>15장 · 시뮬레이터 · 퀴즈 10 ↗</a>
+          <span class="desc"><b>13장</b> — 집단 간 변동 · 집단 내 변동 → F값 → 관광지 만족도 계산, 평균이 다르다는 것과 <strong>통계적으로 유의하다</strong>는 것의 차이. <b>15장</b> — 변동을 바꿔 보며 F값이 움직이는 것을 시뮬레이터로 보고 퀴즈 10문항으로 점검.</span>
+        </li>
+      </ul>
+      <p class="an-g"><b>2 · 개념 깊이 — 가설 · F공식 · 사후검정</b><span>시험에 나오는 핵심</span></p>
+      <ul class="reslist tight">
+        <li class="fresh">
+          <a href="anova-capture-script-hypotheses.html" target="_blank" rel="noopener">③ 분산분석 ANOVA — 원본 캡처 · 설명 대본 · 귀무가설 / 대립가설 ↗</a>
+          <span class="desc">캡처 화면과 강의 대본을 나란히 — 01~05 핵심 개념, <strong>귀무가설(H₀)</strong>과 <strong>대립가설(H₁)</strong>을 어떻게 세우고 읽는지.</span>
         </li>
         <li class="fresh">
-          <a href="fisher-f-df-spss-voice.html" target="_blank" rel="noopener">③ 피셔의 F공식과 자유도 — SPSS 두 표 · 상세 음성 강의 ↗</a>
+          <a href="fisher-f-df-spss-voice.html" target="_blank" rel="noopener">④ 피셔의 F공식과 자유도 — SPSS 두 표 · 상세 음성 강의 ↗</a>
           <span class="desc">F = 집단 간 평균제곱 ÷ 집단 내 평균제곱, 자유도는 왜 k−1 · N−k인가 — SPSS의 <strong>Levene 표</strong>와 <strong>ANOVA 표</strong> 두 장을 한 칸씩 읽기. 성인학습자용 친절한 설명 · 음성.</span>
         </li>
         <li>
-          <a href="anova-73-two-session-lecture.html" target="_blank" rel="noopener">④ 분산분석 ANOVA 2차시 73장 — 빅데이터 · 학습목표 · 음성 대본 ↗</a>
-          <span class="desc">2차시 분량 통합본(기존 59장 통합) — 일원 · 이원분산분석과 관광 빅데이터 사례.</span>
-        </li>
-        <li class="fresh">
-          <a href="anova-17-voice-recording-lecture.html" target="_blank" rel="noopener">⑤ 일원배치 분산분석 17장 — 교수자 대본 · 장별 음성 낭독 · 녹음 ↗</a>
-          <span class="desc">17장마다 대본 자동 낭독(Chrome · Edge 한국어 음성) · 마이크 녹음 · MP3 연결 · 재생 끝나면 다음 장으로 자동 넘김.</span>
-        </li>
-        <li class="fresh">
-          <a href="anova-capture-script-hypotheses.html" target="_blank" rel="noopener">⑥ 분산분석 ANOVA — 원본 캡처 · 설명 대본 · 귀무가설 / 대립가설 ↗</a>
-          <span class="desc">캡처 화면과 강의 대본을 나란히 — 01~05 핵심 개념, <strong>귀무가설(H₀)</strong>과 <strong>대립가설(H₁)</strong>을 어떻게 세우고 읽는지.</span>
-        </li>
-        <li>
-          <a href="anova-posthoc-11-lecture.html" target="_blank" rel="noopener">⑦ ANOVA · 사후검정 11장 — 목표 · 쉬운 설명 · 교수자 대본 · 음성 · 퀴즈 ↗</a>
+          <a href="anova-posthoc-11-lecture.html" target="_blank" rel="noopener"><i class="qz-b" title="퀴즈 포함">퀴</i>⑤ ANOVA · 사후검정 11장 — 목표 · 쉬운 설명 · 교수자 대본 · 음성 · 퀴즈 ↗</a>
           <span class="desc">전체 차이 = ANOVA · 집단별 차이 = 사후검정 · 다중비교 보정. 등분산이면 <strong>Tukey</strong>, 아니면 <strong>Games–Howell</strong>.</span>
         </li>
+      </ul>
+      <p class="an-g"><b>3 · SPSS로 직접 — 표 읽기 실습</b><span>손으로 해 보기</span></p>
+      <ul class="reslist tight">
         <li class="fresh">
-          <a href="spss-anova-00-12-voice-lecture.html" target="_blank" rel="noopener">⑧ SPSS 일원배치 분산분석 00~12 — Levene · ANOVA · Scheffé · 음성 설명 ↗</a>
+          <a href="spss-anova-00-12-voice-lecture.html" target="_blank" rel="noopener">⑥ SPSS 일원배치 분산분석 00~12 — Levene · ANOVA · Scheffé · 음성 설명 ↗</a>
           <span class="desc">SPSS 클릭 순서 → 기술통계 → Levene(p=.240) → ANOVA(p=.001) → Scheffé 사후검정. 섹션별 · 전체 연속 듣기(Chrome · Edge 한국어 음성).</span>
         </li>
         <li class="fresh">
-          <a href="anova-spss-20-compact-voice.html" target="_blank" rel="noopener">⑨ ANOVA · SPSS 20강 — 컴팩트 · 원문 전체 · 좌우 음성 대본 ↗</a>
+          <a href="anova-spss-20-compact-voice.html" target="_blank" rel="noopener">⑦ ANOVA · SPSS 20강 — 컴팩트 · 원문 전체 · 좌우 음성 대본 ↗</a>
           <span class="desc">분산분석 SPSS 강의 20개 내용 단위를 한 페이지에 — 왼쪽 자료 · 오른쪽 교수자 대본, 장마다 음성으로 듣기.</span>
         </li>
         <li>
-          <a href="manova-spss-9-captures.html" target="_blank" rel="noopener">⑩ MANOVA · SPSS 영상 구간별 해설 — 캡처 9장 ↗</a>
+          <a href="manova-spss-9-captures.html" target="_blank" rel="noopener">⑧ MANOVA · SPSS 영상 구간별 해설 — 캡처 9장 ↗</a>
           <span class="desc">종속변수가 둘 이상일 때 — Box의 M · 다변량 검정(Pillai · Wilks) → 사후검정 → 논문 결과표. SPSS 화면 9장과 영상 시각 연결.</span>
         </li>
+      </ul>
+      <p class="an-g"><b>4 · 통합 강의본 — 처음부터 끝까지</b><span>복습 · 교수자 대본</span></p>
+      <ul class="reslist tight">
         <li class="fresh">
-          <a href="bigdata-anova-cases-lecture.html" target="_blank" rel="noopener">⑪ 빅데이터 분석에서 분산분석이 필요한 사례 — 8가지 사례 · F검정 실습 · 퀴즈 ↗</a>
-          <span class="desc">관광 · 호텔 · 축제 · 스마트관광 · 항공 · 외식 등 <strong>여덟 사례</strong>로 「무엇을 집단으로 나누고 무엇을 비교하나」 → 관광객 소비 예시 → F검정 인터랙티브 실습 → 분석방법 비교 · 절차와 주의점 → 수업 퀴즈. 수치는 모두 가상 예시입니다.</span>
+          <a href="anova-59-easy-script-lecture.html" target="_blank" rel="noopener">⑨ 분산분석 ANOVA 59장 — 학생용 · 쉬운 설명 · 교수자 강의대본(겹침 수정판) ↗</a>
+          <span class="desc">59장을 한 장씩 넘기며 <strong>쉬운 설명 · 교수자가 그대로 읽는 대본 · 학생에게 던질 질문 · 다음 장 연결 말</strong>을 함께 봅니다. ← → 키로 넘기고, 장 번호로 바로 이동합니다.</span>
+        </li>
+        <li>
+          <a href="anova-73-two-session-lecture.html" target="_blank" rel="noopener">⑩ 분산분석 ANOVA 2차시 73장 — 빅데이터 · 학습목표 · 음성 대본 ↗</a>
+          <span class="desc">2차시 분량 통합본(기존 59장 통합) — 일원 · 이원분산분석과 관광 빅데이터 사례.</span>
         </li>
         <li class="fresh">
-          <a href="anova-59-easy-script-lecture.html" target="_blank" rel="noopener">⑫ 분산분석 ANOVA 59장 — 학생용 · 쉬운 설명 · 교수자 강의대본(겹침 수정판) ↗</a>
-          <span class="desc">59장을 한 장씩 넘기며 <strong>쉬운 설명 · 교수자가 그대로 읽는 대본 · 학생에게 던질 질문 · 다음 장 연결 말</strong>을 함께 봅니다. ← → 키로 넘기고, 장 번호로 바로 이동합니다.</span>
+          <a href="anova-17-voice-recording-lecture.html" target="_blank" rel="noopener">⑪ 일원배치 분산분석 17장 — 교수자 대본 · 장별 음성 낭독 · 녹음 ↗</a>
+          <span class="desc">17장마다 대본 자동 낭독(Chrome · Edge 한국어 음성) · 마이크 녹음 · MP3 연결 · 재생 끝나면 다음 장으로 자동 넘김.</span>
         </li>
       </ul>
       <p class="mini-note">11/9 보충 영상 — <a href="https://www.youtube.com/live/5WfShfnMD50?si=amYKtbQ0J0D8SBTO&amp;t=47" target="_blank" rel="noopener">분산분석 개괄설명 ▶ ↗</a> · <a href="https://www.youtube.com/live/5WfShfnMD50?si=k9JHiAo4dKrbtCYK&amp;t=1132" target="_blank" rel="noopener">주효과검정 · 이원분산분석 ▶ ↗</a> · 교재는 아래 파트 14의 「제대로 알고 쓰는 논문 통계분석」(노경섭) ANOVA 장.</p>
