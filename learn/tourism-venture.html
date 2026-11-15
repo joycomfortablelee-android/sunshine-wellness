@@ -856,7 +856,7 @@
     .learn-article .reslist.grid3.one { grid-template-columns: 1fr; }
     .learn-article .reslist.grid3.one a { font-size: 15px; }
     .learn-article .reslist.grid3.one .desc { font-size: 13px; }
-    @media (max-width: 760px) { .learn-article .reslist.grid3 { grid-template-columns: 1fr; } }
+    @media (max-width: 760px) { .learn-article .reslist.grid3, .learn-article .reslist.grid3.two { grid-template-columns: 1fr; } }
 
     /* ── 이론 장 제목(01~06) — 라운딩 테두리 + 동그라미 숫자 ── */
     .learn-article .learn-part.lp-core {
@@ -1919,6 +1919,23 @@
     .learn-article #wk2.wk-fold.today > summary { color: #52697f; }
     .learn-article #wk2.wk-fold.today > summary b.wk-tag { background: #e6eef6; color: #3d5772; }
     .learn-article #wk2.wk-fold.today > summary::after { color: #8b9aab; }
+    /* 주차별 빌드업은 모두 1주차와 같은 연한 파란색 겉모양(2026-11-15) — today · key · exam 표시는 class로 남기되 겉 색만 통일. */
+    .learn-article [id^="wk"].wk-fold.today,
+    .learn-article [id^="wk"].wk-fold.key,
+    .learn-article [id^="wk"].wk-fold.exam { border-color: #dfe6ee; background: #fafcfe; }
+    .learn-article [id^="wk"].wk-fold.today > summary,
+    .learn-article [id^="wk"].wk-fold.key > summary,
+    .learn-article [id^="wk"].wk-fold.exam > summary { color: #52697f; }
+    .learn-article [id^="wk"].wk-fold.today > summary b.wk-tag,
+    .learn-article [id^="wk"].wk-fold.key > summary b.wk-tag,
+    .learn-article [id^="wk"].wk-fold.exam > summary b.wk-tag { background: #e6eef6; color: #3d5772; }
+    .learn-article [id^="wk"].wk-fold.today > summary::after,
+    .learn-article [id^="wk"].wk-fold.key > summary::after,
+    .learn-article [id^="wk"].wk-fold.exam > summary::after { color: #8b9aab; }
+    .learn-article [id^="wk"].wk-fold.today > summary .wk-sub,
+    .learn-article [id^="wk"].wk-fold.key > summary .wk-sub,
+    .learn-article [id^="wk"].wk-fold.exam > summary .wk-sub { color: #14508f; background: linear-gradient(transparent 60%, #cfe6fa 60%); }
+    .learn-article [id^="wk"].wk-fold.next3 { border-width: 1px; }
     .learn-article .wk-fold.today .tf-body .nx-h { margin: 0 0 10px; }
     .learn-article .wk-fold.today .tf-body .nx-lb { margin-top: 12px; }
 
@@ -3850,7 +3867,7 @@
         </div>
       </details>
       <p class="learn-part lp-sub bmk" id="benchmarking"><span class="ptag">벤치마킹</span>남들은 무엇을 냈나 — 회사를 고르고 아이템을 찾는다<span class="lp-when">9월 8일 진행함</span></p>
-      <ul class="reslist grid3 one">
+      <ul class="reslist grid3 two">
         <li class="t-yellow">
           <span class="bmk-pill">벤치마킹</span><a href="https://thevc.kr/collections/658cc3f1d24fe033f079e788" target="_blank" rel="noopener">관광·여행 스타트업 모음 ↗</a>
           <span class="desc">관광·여행 분야 스타트업을 한데 모아 볼 수 있는 큐레이션. 실제 기업들의 사업 아이템과 비즈니스 모델, 투자 현황을 훑어보며 "관광벤처가 시장에서 어떤 모습으로 존재하는지" 감을 잡기 좋은 자료입니다.</span>
