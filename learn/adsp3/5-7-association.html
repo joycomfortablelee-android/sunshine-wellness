@@ -79,7 +79,7 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
   .question-card{box-shadow:none}
 }
 </style>
-</head>
+<style>.option{cursor:pointer;transition:background .15s}.option:hover{background:#eef4fb}.option.pick-ok{background:#e6f4ec!important;border-color:#1f7a52!important;color:#1d5e3a;font-weight:800}.option.pick-no{background:#fdecea!important;border-color:#c0392b!important;color:#8c2b20;text-decoration:line-through}.ar-calc{max-width:980px;margin:24px auto 40px;background:#fff;border:2px dashed #2e78b7;border-radius:16px;padding:16px 18px}.ar-calc h2{margin:0 0 6px;font-size:19px;color:#17365d}.ar-lead,.ar-tip{font-size:14px;color:#33475b}.ar-t{border-collapse:collapse;width:100%;font-size:14px;margin:6px 0}.ar-t th,.ar-t td{border:1px solid #d6e2ef;padding:4px 6px}.ar-t th{background:#eef4fb}.ar-t input{width:100%;border:1px solid #c9d6e2;border-radius:6px;padding:5px 7px;font:inherit;box-sizing:border-box}.ar-t td.n{width:110px}.ar-t td.x{width:36px;text-align:center}.ar-calc button{border:1px solid #c9d6e2;background:#f3f7fb;border-radius:8px;padding:5px 11px;font:inherit;font-weight:700;cursor:pointer}.ar-pick{margin:10px 0;font-weight:800;font-size:15px}.ar-pick select{font:inherit;padding:4px 8px;border-radius:8px;border:1px solid #9fb3c6}.ar-out{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.ar-out div{background:#f7fafd;border:1px solid #e3eaf2;border-radius:12px;padding:10px 12px}.ar-out b{display:block;color:#2e78b7;font-size:13px}.ar-out big{display:block;font-size:24px;font-weight:900;color:#17365d}.ar-out small{display:block;font-size:12.5px;color:#4a5a6a;line-height:1.6}@media(max-width:700px){.ar-out{grid-template-columns:1fr}}</style></head>
 <body>
 <div class="app">
   <header class="header">
@@ -182,6 +182,18 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
   <div class="help">좌우 버튼 · 키보드 ← → · 하단 점을 눌러 화면을 이동할 수 있습니다.</div>
 </div>
 
+
+<section class="ar-calc" id="arCalc" aria-label="연관규칙 계산기">
+  <h2>🧮 직접 해 보기 — 연관규칙 계산기</h2>
+  <p class="ar-lead">거래 묶음과 건수를 바꾸고 A · B 품목을 고르면 <b>지지도 · 신뢰도 · 향상도</b>가 풀이 과정과 함께 바로 계산됩니다. 처음 값은 기출 2번 문제 그대로입니다. 위 문제의 보기도 눌러서 바로 채점할 수 있습니다.</p>
+  <div class="ar-wrap">
+    <table class="ar-t"><thead><tr><th>거래 묶음(쉼표로 품목)</th><th>건수</th><th></th></tr></thead><tbody id="arRows"></tbody></table>
+    <button type="button" id="arAdd">+ 거래 추가</button> <button type="button" id="arReset">처음 값으로</button>
+  </div>
+  <div class="ar-pick">규칙 <select id="arA"></select> → <select id="arB"></select></div>
+  <div class="ar-out" id="arOut"></div>
+  <p class="ar-tip">해석 — 향상도 &gt; 1 이면 A를 산 사람이 B를 더 산다(양의 관계), = 1 이면 서로 상관없음(독립), &lt; 1 이면 오히려 덜 산다(음의 관계).</p>
+</section>
 <script>
 let current = 0;
 const slides = [...document.querySelectorAll('.slide')];
@@ -209,5 +221,21 @@ document.addEventListener('keydown',e=>{
 });
 showSlide(0);
 </script>
-</body>
+<script>(function(){
+document.querySelectorAll(".options").forEach(function(box){var ans=box.parentElement.querySelector(".answer-title strong");var right=ans?ans.textContent.trim():"";box.querySelectorAll(".option").forEach(function(o){o.addEventListener("click",function(){box.querySelectorAll(".option").forEach(function(x){x.classList.remove("pick-ok","pick-no")});var ok=o.textContent.trim().indexOf(right)===0;o.classList.add(ok?"pick-ok":"pick-no");if(ok){var btn=box.parentElement.querySelector(".answer-btn");if(btn&&btn.nextElementSibling.style.display!=="block")btn.click();}})})});
+var DEF=[["A",100],["B,C",100],["C",100],["A,B,C,D",50],["B,D",200],["A,B,D",250],["A,C",200]];var rows=DEF.map(function(r){return r.slice()});
+var tb=document.getElementById("arRows"),sa=document.getElementById("arA"),sb=document.getElementById("arB"),out=document.getElementById("arOut");
+function split(r){return String(r[0]).split(",").map(function(x){return x.trim()}).filter(Boolean)}
+function items(){var set={};rows.forEach(function(r){split(r).forEach(function(x){set[x]=1})});return Object.keys(set).sort()}
+function draw(){tb.innerHTML="";rows.forEach(function(r,i){var tr=document.createElement("tr");var td1=document.createElement("td"),td2=document.createElement("td"),td3=document.createElement("td");td2.className="n";td3.className="x";var a=document.createElement("input");a.value=r[0];var b=document.createElement("input");b.type="number";b.min="0";b.value=r[1];var x=document.createElement("button");x.type="button";x.textContent="×";x.title="삭제";a.oninput=function(){r[0]=a.value;opts();calc()};b.oninput=function(){r[1]=+b.value||0;calc()};x.onclick=function(){rows.splice(i,1);draw();opts();calc()};td1.appendChild(a);td2.appendChild(b);td3.appendChild(x);tr.appendChild(td1);tr.appendChild(td2);tr.appendChild(td3);tb.appendChild(tr)})}
+function opts(){var it=items(),va=sa.value||"A",vb=sb.value||"B";[sa,sb].forEach(function(s,k){s.innerHTML=it.map(function(x){return "<option>"+x+"</option>"}).join("");var want=k?vb:va;s.value=it.indexOf(want)>=0?want:(it[k]||it[0])})}
+function has(r,x){return split(r).indexOf(x)>=0}
+function sum(f){return rows.filter(f).reduce(function(t,r){return t+(+r[1]||0)},0)}
+function pct(v){return (v*100).toFixed(1)+"%"}
+function calc(){var N=sum(function(){return true}),A=sa.value,B=sb.value;if(!N||!A||!B||A===B){out.innerHTML="<div><small>서로 다른 A와 B를 고르세요.</small></div>";return}
+var nA=sum(function(r){return has(r,A)}),nB=sum(function(r){return has(r,B)}),nAB=sum(function(r){return has(r,A)&&has(r,B)});
+var sup=nAB/N,conf=nA?nAB/nA:0,pB=nB/N,lift=pB?conf/pB:0;
+out.innerHTML="<div><b>지지도 P(A∩B)</b><big>"+pct(sup)+"</big><small>"+A+"·"+B+" 함께 "+nAB+" ÷ 전체 "+N+"</small></div><div><b>신뢰도 P(B|A)</b><big>"+pct(conf)+"</big><small>"+A+"·"+B+" 함께 "+nAB+" ÷ "+A+" 포함 "+nA+"</small></div><div><b>향상도 P(B|A) ÷ P(B)</b><big>"+lift.toFixed(2)+" ("+pct(lift)+")</big><small>신뢰도 "+pct(conf)+" ÷ P(B) "+nB+"/"+N+" = "+pct(pB)+(lift>1?" → 양의 관계":lift<1?" → 음의 관계":" → 독립")+"</small></div>"}
+sa.onchange=calc;sb.onchange=calc;document.getElementById("arAdd").onclick=function(){rows.push(["",0]);draw()};document.getElementById("arReset").onclick=function(){rows=DEF.map(function(r){return r.slice()});draw();opts();sa.value="A";sb.value="B";calc()};
+draw();opts();sa.value="A";sb.value="B";calc();})();</script></body>
 </html>
