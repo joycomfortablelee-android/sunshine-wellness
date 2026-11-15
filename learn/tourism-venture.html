@@ -1193,6 +1193,11 @@
     .sub-hex-go a.hv .blink-star { color: #5c3ca4; }
     @media (prefers-reduced-motion: reduce) { .sub-hex-go a.hv { animation: none; } }
     .sub-hex-go .blink-star { animation: blink-star 1.6s ease-in-out infinite; display: inline-block; }
+    /* 5·6·7차 자료 알약 — 아래 1~7차 연결 그림의 알약과 같은 모양(회차 색 테두리 · 흰 바탕). */
+    .sub-hex-go a.cfp { background: #fff; border: 1px solid var(--c); color: var(--c); border-radius: 8px; padding: 4px 10px; font-size: 12px; line-height: 1.35; }
+    .sub-hex-go a.cfp:hover { background: var(--c); color: #fff; }
+    .sub-hex-go span a { background: none; padding: 0; border-radius: 0; color: #1f6f5c; font-weight: 700; text-decoration: underline; font-size: inherit; }
+    .sub-hex-go span a:hover { background: none; color: #0f4d3f; }
     /* 사업계획서 제출 6각형 — 3차 ~ 최종, 시계 방향 */
     figure.sub-hex { margin: 12px 0 0; background: #fff; border-radius: 10px; }
     figure.sub-hex svg { width: 100%; height: auto; display: block; }
@@ -3356,10 +3361,10 @@
               <figcaption><b>제출 6각형</b> — 화요일 수업에서 쓰고 <b>그 주 일요일 자정</b>까지 한글 파일로. 시계 방향으로 한 칸씩 쌓아 <b>최종(12/15)</b>에 한 부로 묶습니다. 최종은 <b>제18회 공식 양식 그대로</b>.</figcaption>
             </figure>
             <p class="sub-hex-go sub-hex-violet"><a class="hv" href="tv-task-progress-tracker.html" target="_blank" rel="noopener" title="학생별 3-1~6-1 제출 진도 · 첨삭 기록 — 교수자 전용(브라우저 로컬 저장)"><span class="blink-star" aria-hidden="true">★</span> 과제 진도관리 · 교수자용 ↗</a></p>
-            <p class="sub-hex-go"><a href="tv-5th-budget-schedule-worksheet.html" target="_blank" rel="noopener"><span class="blink-star" aria-hidden="true">✦</span> 5차 · 3-3 · 3-4 — 자금 · 일정 워크북 ↗</a><span><b class="role">맡는 부분</b> 3-3 자금 계획 [표1] · 3-4 추진 일정 [표2] 전체 · [표3] 협약기간 — 3-3 [표1] 자금 합계 자동 계산 · 정부지원금 7천만 원 한도 점검 · 3-4 [표2 · 3] 클릭형 월별 일정 · 제출 점검표</span></p>
-            <p class="sub-hex-go"><a href="tv-6th-growth-tourism-workbook.html" target="_blank" rel="noopener"><span class="blink-star" aria-hidden="true">✦</span> 6차 · 3-5 · 4-1 · 4-2 — 성장 · 연관성 워크북 ↗</a><span><b class="role">맡는 부분</b> 3-5 성장전략 [표4] 3개년 · 4-1 시장 · 트렌드 · 4-2 관광산업 연관성 — 3-5 · 표4 자동 계산 · 4-2 · 4-1 보완 · 사례 4종 · 섹션별 3분 대본 — <a href="tv-6th-section-3min-scripts.html" target="_blank" rel="noopener">대본만 보기 ↗</a> · <a href="tv-6th-growth-tourism-workbook.html" download="6차_성장전략_섹션별3분요약_대본포함.html">⤓ 내려받기</a></span></p>
-            <p class="sub-hex-go"><a href="tv-7th-team-building-ideas.html" target="_blank" rel="noopener"><span class="blink-star" aria-hidden="true">✦</span> 7차 · 5-1~5-3 · 표5 — 팀 역량 아이디어 ↗</a><span><b class="role">맡는 부분</b> 5장 팀 역량(대표자 · 팀원 · 협력 네트워크 · [표5]) — 무엇을 적을지 아이디어 · <b>4 · 5 · 6 · 7차 눌러서 보는 양식별 세부 구조</b> · 항목별 작성 아이디어 · [표5] 팀 구성 예시 · 5장과 6-1의 차이</span></p>
-            <p class="sub-hex-go"><a href="tv-7th-team-kpi-table-guide.html" target="_blank" rel="noopener"><span class="blink-star" aria-hidden="true">✦</span> 7차 · 5-1~5-3 · 6-1 — 팀 · KPI 작성표 ↗</a><span><b class="role">맡는 부분</b> 5장 팀 역량 표에 직접 쓰기 + 6-1 성과지표(KPI) · 협약목표 — 전체 안내표 → 5-1 · 5-2 · 5-3 · [표5] · KPI · 6-1 직접 입력 · 20항목 체크 · 자동 저장 · CSV</span></p>
+            <p class="sub-hex-go"><a class="cfp" style="--c:#2e78b7" href="tv-5th-budget-schedule-worksheet.html" target="_blank" rel="noopener">✦ 5차 · 3-3 · 3-4 — 자금 · 일정 워크북 ↗</a><span><b class="role">맡는 부분</b> 3-3 자금 계획 [표1] · 3-4 추진 일정 [표2] 전체 · [표3] 협약기간 — 3-3 [표1] 자금 합계 자동 계산 · 정부지원금 7천만 원 한도 점검 · 3-4 [표2 · 3] 클릭형 월별 일정 · 제출 점검표</span></p>
+            <p class="sub-hex-go"><a class="cfp" style="--c:#278868" href="tv-6th-growth-tourism-workbook.html" target="_blank" rel="noopener">✦ 6차 · 3-5 · 4-1 · 4-2 — 성장 · 연관성 워크북 ↗</a><span><b class="role">맡는 부분</b> 3-5 성장전략 [표4] 3개년 · 4-1 시장 · 트렌드 · 4-2 관광산업 연관성 — 3-5 · 표4 자동 계산 · 4-2 · 4-1 보완 · 사례 4종 · 섹션별 3분 대본 — <a href="tv-6th-section-3min-scripts.html" target="_blank" rel="noopener">대본만 보기 ↗</a> · <a href="tv-6th-growth-tourism-workbook.html" download="6차_성장전략_섹션별3분요약_대본포함.html">⤓ 내려받기</a></span></p>
+            <p class="sub-hex-go"><a class="cfp" style="--c:#7a4fa3" href="tv-7th-team-building-ideas.html" target="_blank" rel="noopener">✦ 7차 · 5-1~5-3 · 표5 — 팀 역량 아이디어 ↗</a><span><b class="role">맡는 부분</b> 5장 팀 역량(대표자 · 팀원 · 협력 네트워크 · [표5]) — 무엇을 적을지 아이디어 · <b>4 · 5 · 6 · 7차 눌러서 보는 양식별 세부 구조</b> · 항목별 작성 아이디어 · [표5] 팀 구성 예시 · 5장과 6-1의 차이</span></p>
+            <p class="sub-hex-go"><a class="cfp" style="--c:#7a4fa3" href="tv-7th-team-kpi-table-guide.html" target="_blank" rel="noopener">✦ 7차 · 5-1~5-3 · 6-1 — 팀 · KPI 작성표 ↗</a><span><b class="role">맡는 부분</b> 5장 팀 역량 표에 직접 쓰기 + 6-1 성과지표(KPI) · 협약목표 — 전체 안내표 → 5-1 · 5-2 · 5-3 · [표5] · KPI · 6-1 직접 입력 · 20항목 체크 · 자동 저장 · CSV</span></p>
           </div>
         </div>
       </div>
