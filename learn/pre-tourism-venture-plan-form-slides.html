@@ -647,8 +647,8 @@ wireAutosave();
   function calc(){
     const v=A.map(x=>parseFloat(x&&x.value)||0);const sum=v.reduce((a,b)=>a+b,0);const gov=v[4]+v[5]+v[6];
     T.value=sum||'';try{localStorage.setItem(STORE_PREFIX+'s10-total',T.value)}catch(e){}
-    const ok=gov<=70000;
-    C.innerHTML='정부지원금 <b class="'+(ok?'ok':'bad')+'">'+gov.toLocaleString()+' / 70,000천원 '+(ok?'한도 안':'한도 초과')+'</b> · 합계 <b class="ok">'+sum.toLocaleString()+'천원</b>';
+    const ok=gov<=30000;
+    C.innerHTML='정부지원금 <b class="'+(ok?'ok':'bad')+'">'+gov.toLocaleString()+' / 30,000천원(예비 일반) '+(ok?'한도 안':'한도 초과')+'</b> · 합계 <b class="ok">'+sum.toLocaleString()+'천원</b>';
   }
   A.forEach(x=>x&&x.addEventListener('input',calc));calc();
 })();

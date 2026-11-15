@@ -62,7 +62,7 @@ table.ft{width:100%;border-collapse:collapse;table-layout:fixed;font-size:13px}
 <a class="back" href="tourism-venture.html#budget-5th">← 관광벤처창업론 03-G로</a>
 <header class="top">
   <h1>3-3 자금운용계획 · 3-4 일정계획 — 웹에서 바로 쓰기</h1>
-  <p>제18회 예비관광벤처 사업계획서 양식 그대로 · 쓰는 즉시 이 브라우저에 자동 저장 · [표1] 합계와 정부지원금 7천만 원 한도 자동 점검 · [표3]은 칸을 눌러 칠합니다.</p>
+  <p>제18회 예비관광벤처 사업계획서 양식 그대로 · 쓰는 즉시 이 브라우저에 자동 저장 · [표1] 합계와 정부지원금 3천만 원 한도 자동 점검 · [표3]은 칸을 눌러 칠합니다.</p>
 </header>
 
 <div class="bar">
@@ -91,7 +91,7 @@ table.ft{width:100%;border-collapse:collapse;table-layout:fixed;font-size:13px}
   </table>
   <button type="button" class="addl" id="t1add" style="margin-top:6px">+ 행 추가</button>
   <div class="chk" id="t1chk"></div>
-  <p class="tip">산출근거는 「단가 × 수량」으로 — 예: 예약 페이지 1식 × 견적 2곳 비교 = 5,000. 조달방법은 투자 · 매출 · 차입 · 자기자금 · 정부지원금 중에서.</p>
+  <p class="tip"><b>한도 주의</b> — 양식 원문에는 「정부지원금 7천만원 한도」라고 적혀 있지만 유형별 최대 한도일 뿐입니다. 우리 수업은 <b>예비관광벤처 일반 유형 · 정부지원금 3,000만 원(30,000천원)</b>으로 맞춰 점검합니다. 실제 지원 금액은 그해 공고로 확인하십시오.<br>산출근거는 「단가 × 수량」으로 — 예: 예약 페이지 1식 × 견적 2곳 비교 = 5,000. 조달방법은 투자 · 매출 · 차입 · 자기자금 · 정부지원금 중에서.</p>
 </section>
 
 <!-- 3-4-1 -->
@@ -162,7 +162,7 @@ const fmt=n=>n.toLocaleString('ko-KR');
 const num=v=>{const n=parseFloat(String(v).replace(/[^\d.\-]/g,''));return isNaN(n)?0:n;};
 function calc1(){let s=0,g=0,self=0;D.t1.forEach(r=>{const n=num(r.d);s+=n;if(/정부/.test(r.a))g+=n;else self+=n;});
  document.getElementById('t1sum').textContent=fmt(s);
- const lim=70000;document.getElementById('t1chk').innerHTML='<span>정부지원금 <b class="'+(g<=lim?'ok':'bad')+'">'+fmt(g)+' / 70,000천원 '+(g<=lim?'한도 안':'한도 초과')+'</b></span><span>그 밖의 조달 <b class="ok">'+fmt(self)+'천원</b></span><span>합계 <b class="ok">'+fmt(s)+'천원</b></span>'+(D.t1.some(r=>num(r.d)&&!r.c.trim())?'<span><b class="bad">금액만 있고 산출근거가 빈 행이 있습니다</b></span>':'');}
+ const lim=30000;document.getElementById('t1chk').innerHTML='<span>정부지원금 <b class="'+(g<=lim?'ok':'bad')+'">'+fmt(g)+' / 30,000천원(예비 일반) '+(g<=lim?'한도 안':'한도 초과')+'</b></span><span>그 밖의 조달 <b class="ok">'+fmt(self)+'천원</b></span><span>합계 <b class="ok">'+fmt(s)+'천원</b></span>'+(D.t1.some(r=>num(r.d)&&!r.c.trim())?'<span><b class="bad">금액만 있고 산출근거가 빈 행이 있습니다</b></span>':'');}
 function render1(){const tb=document.querySelector('#t1 tbody');tb.innerHTML='';
  D.t1.forEach((r,i)=>{const tr=el('tr');
   [['a','input'],['b','input'],['c','textarea'],['d','input']].forEach(([f,t])=>{const td=el('td',{className:f==='d'?'num':''});const x=el(t,{value:r[f]});if(t==='textarea')x.rows=1;if(f==='d'){x.inputMode='numeric';x.placeholder='0';}
