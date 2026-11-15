@@ -117,6 +117,22 @@ ul.check-ask li.done label{color:var(--muted);text-decoration:line-through}
   .slide{flex:none;height:auto;page-break-after:always;overflow:visible}
   .fill,table input.cf,table textarea.cf,table select.cf{border-color:#8a96a4!important}
 }
+
+/* 남은 차시 띠 · 알약 */
+.chasi-bar{margin:16px 0 0;padding:10px 14px;border:1.5px dashed var(--c);border-radius:12px;background:linear-gradient(120deg,#fff 0%,color-mix(in srgb,var(--c) 7%,#fff) 100%)}
+.chasi-bar .cb-h{margin:0 0 6px;display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;font-size:13px;color:#33475b}
+.chasi-bar .cb-t{background:var(--c);color:#fff;border-radius:99px;padding:2px 11px;font-size:12.5px}
+.chasi-bar .cb-d{color:var(--c);font-weight:700}
+.chasi-bar .cb-pills{margin:0;display:flex;flex-wrap:wrap;gap:6px}
+.cb-p{position:relative;overflow:hidden;display:inline-block;border:1px solid var(--c);border-radius:8px;padding:4px 11px;color:var(--c);font-size:12.5px;font-weight:800;text-decoration:none;background:linear-gradient(120deg,#fff 0%,#fff 35%,color-mix(in srgb,var(--c) 16%,#fff) 100%)}
+.cb-p.w{border-style:dashed}
+.cb-p::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.85),transparent);transform:skewX(-20deg);animation:cb-sh 2.8s ease-in-out infinite;pointer-events:none}
+@keyframes cb-sh{0%{left:-60%}55%,100%{left:130%}}
+.cb-p:hover{background:var(--c);color:#fff}
+@media (prefers-reduced-motion:reduce){.cb-p::after{animation:none}}
+.chasi-all{margin-top:14px}.chasi-all .ca-h{margin:0;font-weight:900;color:var(--blue);font-size:14px}
+.t1chk{font-size:13px;margin:6px 0 0}.t1chk b{padding:1px 8px;border-radius:99px}.t1chk .ok{background:#e6f4ec;color:#1f7a52}.t1chk .bad{background:#fdecea;color:#b0302a}
+@media print{.chasi-bar,.chasi-all{display:none}}
 </style>
 </head>
 <body>
@@ -137,7 +153,11 @@ ul.check-ask li.done label{color:var(--muted);text-decoration:line-through}
     <div class="tip"><b>이 화면에서 바로 연습하기</b> — 점선 테두리 칸에 직접 입력할 수 있습니다.
     입력한 내용은 <b>이 브라우저에만 자동 저장</b>되며(서버로 전송되지 않습니다), 실제 제출 서식(.hwp/.pdf)에는 내용을 옮겨 적어야 합니다.</div>
     <p class="small">한국관광공사 예비관광벤처 부문 사업계획서 양식을 수업용으로 정리한 판입니다. 실제 제출 시에는 <b>해당 회차 공고의 원본 서식</b>을 내려받아 쓰십시오.</p>
-    <div class="pg">1 / 16</div>
+    <div class="chasi-all"><p class="ca-h">앞으로 남은 차시 — 이 화면에서 바로 쓰고, 자료 알약으로 깊이 쓰기</p><div class="chasi-bar" style="--c:#2e78b7"><p class="cb-h"><b class="cb-t">남은 차시 · 5차</b><span>3-3 · [표1] · 3-4 · [표2 · 3]</span><span class="cb-d">11/24(화) 수업 → <b>11/29(일) 자정</b> 제출</span></p><p class="cb-pills"><a class="cb-p w" style="--c:#2e78b7" href="tv-form-3-3-3-4-write.html" target="_blank" rel="noopener">✍ 3-3 · 3-4 공식 양식 — 웹에서 바로 쓰기 ↗</a><a class="cb-p " style="--c:#2e78b7" href="tv-5th-budget-schedule-worksheet.html" target="_blank" rel="noopener">✦ 5차 · 3-3 · 3-4 — 자금 · 일정 워크북 ↗</a><a class="cb-p w" style="--c:#2e78b7" href="tv-form-wb/3-4-2.html" target="_blank" rel="noopener">✍ 3-4-2 협약기간 일정 개별 워크북 ↗</a></p></div>
+<div class="chasi-bar" style="--c:#278868"><p class="cb-h"><b class="cb-t">남은 차시 · 6차</b><span>3-5 · [표4] · 4-2 · 4-1 보완</span><span class="cb-d">12/1(화) 수업 → <b>12/6(일) 자정</b> 제출</span></p><p class="cb-pills"><a class="cb-p " style="--c:#278868" href="tv-6th-growth-tourism-workbook.html" target="_blank" rel="noopener">✦ 6차 · 3-5 · 4-1 · 4-2 — 성장 · 연관성 워크북 ↗</a><a class="cb-p w" style="--c:#278868" href="tv-form-wb/3-5.html" target="_blank" rel="noopener">✍ 3-5 성장전략 개별 워크북 ↗</a><a class="cb-p w" style="--c:#278868" href="tv-form-wb/4-2.html" target="_blank" rel="noopener">✍ 4-2 관광산업 연관성 개별 워크북 ↗</a><a class="cb-p w" style="--c:#278868" href="tv-form-wb/4-1.html" target="_blank" rel="noopener">✍ 4-1 시장 트렌드 개별 워크북 ↗</a></p></div>
+<div class="chasi-bar" style="--c:#7a4fa3"><p class="cb-h"><b class="cb-t">남은 차시 · 7차</b><span>5-1~5-3 · [표5] · 6-1 · 협약목표</span><span class="cb-d">12/8(화) 보강 주간 → <b>12/13(일) 자정</b> 제출</span></p><p class="cb-pills"><a class="cb-p " style="--c:#7a4fa3" href="tv-7th-team-building-ideas.html" target="_blank" rel="noopener">✦ 7차 · 5-1~5-3 · 표5 — 팀 역량 아이디어 ↗</a><a class="cb-p " style="--c:#7a4fa3" href="tv-7th-team-kpi-table-guide.html" target="_blank" rel="noopener">✦ 7차 · 5-1~5-3 · 6-1 — 팀 · KPI 작성표 ↗</a><a class="cb-p w" style="--c:#7a4fa3" href="tv-form-wb/5-1.html" target="_blank" rel="noopener">✍ 5-1 워크북 ↗</a><a class="cb-p w" style="--c:#7a4fa3" href="tv-form-wb/5-2.html" target="_blank" rel="noopener">✍ 5-2 워크북 ↗</a><a class="cb-p w" style="--c:#7a4fa3" href="tv-form-wb/5-3.html" target="_blank" rel="noopener">✍ 5-3 · [표5] 워크북 ↗</a><a class="cb-p w" style="--c:#7a4fa3" href="tv-form-wb/6-1.html" target="_blank" rel="noopener">✍ 6-1 KPI 워크북 ↗</a></p></div>
+<p class="small">최종 제출 <b>12/15(화) 자정</b> — 1-1 ~ 6-1 한 부, 공식 양식(한글 파일)에 옮겨 냅니다.</p></div>
+<div class="pg">1 / 16</div>
   </div></section>
 
   <!-- 2 -->
@@ -349,7 +369,11 @@ ul.check-ask li.done label{color:var(--muted);text-decoration:line-through}
     <div class="kicker">3. 사업화 역량</div>
     <h2>3-3. 자금운용계획</h2>
     <p class="blue">(1) 회사 설립 등 소요자금 및 투자유치 등 자본금 조달 목표와 전략 &nbsp;(2) 정부지원금(사업화지원금)과 그 이외 소요자금 집행계획</p>
-    <h3>[표1] 자금집행계획 <span class="small">— 정부지원금 <b>7천만원 한도</b> 내</span></h3>
+    <div class="fill-label">(1) 자본금 조달 목표와 전략 — 설립 소요자금 · 투자유치</div>
+<textarea class="fill" rows="3" placeholder="회사 설립 등에 드는 돈과 자본금을 어떻게 마련할지(투자 · 자기자금 · 차입) 목표와 전략을 적습니다." data-save="s10-p1"></textarea>
+<div class="fill-label">(2) 정부지원금 및 그 외 소요자금 집행계획 — [표1] 요약</div>
+<textarea class="fill" rows="3" placeholder="정부지원금과 그 밖의 돈을 어디에, 언제 쓰는지 [표1]을 문장으로 요약합니다." data-save="s10-p2"></textarea>
+<h3>[표1] 자금집행계획 <span class="small">— 정부지원금 <b>7천만원 한도</b> 내</span></h3>
     <table>
       <tr><th>조달방법</th><th>용도</th><th>산출근거</th><th>금액(천원)</th></tr>
       <tr><td class="k">투자</td><td><input class="cf" type="text" value="대표 인건비" data-save="s10-r1-use"></td><td><input class="cf" type="text" placeholder="산출근거" data-save="s10-r1-basis"></td><td><input class="cf" type="number" placeholder="0" data-save="s10-r1-amt"></td></tr>
@@ -359,10 +383,12 @@ ul.check-ask li.done label{color:var(--muted);text-decoration:line-through}
       <tr><td class="k" rowspan="3">정부지원금</td><td><input class="cf" type="text" value="신규고용" data-save="s10-r5-use"></td><td><input class="cf" type="text" placeholder="산출근거" data-save="s10-r5-basis"></td><td><input class="cf" type="number" placeholder="0" data-save="s10-r5-amt"></td></tr>
       <tr><td><input class="cf" type="text" value="홈페이지 제작" data-save="s10-r6-use"></td><td><input class="cf" type="text" placeholder="산출근거" data-save="s10-r6-basis"></td><td><input class="cf" type="number" placeholder="0" data-save="s10-r6-amt"></td></tr>
       <tr><td><input class="cf" type="text" value="사무실 임차" data-save="s10-r7-use"></td><td><input class="cf" type="text" placeholder="산출근거" data-save="s10-r7-basis"></td><td><input class="cf" type="number" placeholder="0" data-save="s10-r7-amt"></td></tr>
-      <tr><th colspan="3">합계</th><th><input class="cf" type="number" placeholder="0" style="font-weight:800" data-save="s10-total"></th></tr>
+      <tr><th colspan="3">합계</th><th><input class="cf" type="number" placeholder="자동 합계" style="font-weight:800" data-save="s10-total" readonly title="금액 칸을 넣으면 자동으로 더해집니다"></th></tr>
     </table>
-    <p class="small">표는 예시이므로 <b>사업 특성에 맞게 가감</b>합니다. 산출근거 칸이 비면 금액은 신뢰를 잃습니다.</p>
-    <div class="pg">10 / 16</div>
+    <p class="t1chk" id="t1chk"></p>
+<p class="small">표는 예시이므로 <b>사업 특성에 맞게 가감</b>합니다. 산출근거 칸이 비면 금액은 신뢰를 잃습니다.</p>
+    <div class="chasi-bar" style="--c:#2e78b7"><p class="cb-h"><b class="cb-t">남은 차시 · 5차</b><span>3-3 · [표1] · 3-4 · [표2 · 3]</span><span class="cb-d">11/24(화) 수업 → <b>11/29(일) 자정</b> 제출</span></p><p class="cb-pills"><a class="cb-p w" style="--c:#2e78b7" href="tv-form-3-3-3-4-write.html" target="_blank" rel="noopener">✍ 3-3 · 3-4 공식 양식 — 웹에서 바로 쓰기 ↗</a><a class="cb-p " style="--c:#2e78b7" href="tv-5th-budget-schedule-worksheet.html" target="_blank" rel="noopener">✦ 5차 · 3-3 · 3-4 — 자금 · 일정 워크북 ↗</a><a class="cb-p w" style="--c:#2e78b7" href="tv-form-wb/3-4-2.html" target="_blank" rel="noopener">✍ 3-4-2 협약기간 일정 개별 워크북 ↗</a></p></div>
+<div class="pg">10 / 16</div>
   </div></section>
 
   <!-- 11 -->
@@ -370,13 +396,17 @@ ul.check-ask li.done label{color:var(--muted);text-decoration:line-through}
     <div class="kicker">3. 사업화 역량</div>
     <h2>3-4. 일정계획 — 전체와 협약기간</h2>
     <p class="blue">3-4-1 사업화 전략을 수행하는 <b>전체 사업단계</b> 일정 &nbsp;/&nbsp; 3-4-2 <b>협약기간 내(2026.5~11월)</b> 일정</p>
-    <h3>[표2] 사업추진 일정 — 전체 단계</h3>
+    <div class="fill-label">3-4-1 전체 사업단계 일정 — 상품 · 서비스 개발 · 홍보 · 판로 · 인력 · 조직</div>
+<textarea class="fill" rows="3" placeholder="개발 → 시범 운영 → 출시 → 확장까지 전체 단계를 ◦ / - 로 적고 [표2]로 정리합니다." data-save="s11-body1"></textarea>
+<h3>[표2] 사업추진 일정 — 전체 단계</h3>
     <table>
       <tr><th>추진기간</th><th>추진내용</th><th>세부내용</th></tr>
       <tr><td class="k"><input class="cf" type="text" placeholder="00년 00월 ~ 00년 00월" data-save="s11-p1-period"></td><td><input class="cf" type="text" placeholder="추진내용" data-save="s11-p1-title"></td><td><input class="cf" type="text" placeholder="세부내용" data-save="s11-p1-detail"></td></tr>
       <tr><td class="k"><input class="cf" type="text" placeholder="00년 00월 ~ 00년 00월" data-save="s11-p2-period"></td><td><input class="cf" type="text" placeholder="추진내용" data-save="s11-p2-title"></td><td><input class="cf" type="text" placeholder="세부내용" data-save="s11-p2-detail"></td></tr>
     </table>
-    <h3>[표3] 사업추진 일정 — 협약기간 내(2026년)</h3>
+    <div class="fill-label">3-4-2 협약기간(2026.5~11월) 일정 — 창업 · 업종추가/변경 계획 포함</div>
+<textarea class="fill" rows="3" placeholder="협약기간 일곱 달 동안 무엇을 끝내는지(결과물 · 담당자) 적고 [표3]에 달을 표시합니다." data-save="s11-body2"></textarea>
+<h3>[표3] 사업추진 일정 — 협약기간 내(2026년)</h3>
     <table class="month-grid">
       <tr><th>추진내용</th><th>5월</th><th>6월</th><th>7월</th><th>8월</th><th>9월</th><th>10월</th><th>11월</th></tr>
       <tr><td class="k">상품·서비스 개발</td>
@@ -400,7 +430,8 @@ ul.check-ask li.done label{color:var(--muted);text-decoration:line-through}
         <td class="mo"><input type="checkbox" data-save="s11-m4-9"></td><td class="mo"><input type="checkbox" data-save="s11-m4-10"></td>
         <td class="mo"><input type="checkbox" data-save="s11-m4-11"></td></tr>
     </table>
-    <div class="pg">11 / 16</div>
+    <div class="chasi-bar" style="--c:#2e78b7"><p class="cb-h"><b class="cb-t">남은 차시 · 5차</b><span>3-3 · [표1] · 3-4 · [표2 · 3]</span><span class="cb-d">11/24(화) 수업 → <b>11/29(일) 자정</b> 제출</span></p><p class="cb-pills"><a class="cb-p w" style="--c:#2e78b7" href="tv-form-3-3-3-4-write.html" target="_blank" rel="noopener">✍ 3-3 · 3-4 공식 양식 — 웹에서 바로 쓰기 ↗</a><a class="cb-p " style="--c:#2e78b7" href="tv-5th-budget-schedule-worksheet.html" target="_blank" rel="noopener">✦ 5차 · 3-3 · 3-4 — 자금 · 일정 워크북 ↗</a><a class="cb-p w" style="--c:#2e78b7" href="tv-form-wb/3-4-2.html" target="_blank" rel="noopener">✍ 3-4-2 협약기간 일정 개별 워크북 ↗</a></p></div>
+<div class="pg">11 / 16</div>
   </div></section>
 
   <!-- 12 -->
@@ -408,7 +439,9 @@ ul.check-ask li.done label{color:var(--muted);text-decoration:line-through}
     <div class="kicker">3. 사업화 역량</div>
     <h2>3-5. 성장전략(Scale-up 계획)</h2>
     <p class="blue">사업화 이후 <b>3년간</b> 예상 매출 · 고용 · 투자유치 등 Scale-up 계획 제시(<b>추정 근거를 상세히</b>), <b>손익분기점 달성 시점</b> 제시</p>
-    <h3>[표4] Scale-up 계획</h3>
+    <div class="fill-label">3-5 성장전략 본문 — 3년 Scale-up · 추정 근거 · 손익분기 시점</div>
+<textarea class="fill" rows="4" placeholder="첫 판매 뒤 3년 동안 어떻게 커지는지, 숫자의 근거 식(이용자 × 객단가 × 재구매)과 손익분기 시점을 적습니다." data-save="s12-body"></textarea>
+<h3>[표4] Scale-up 계획</h3>
     <table>
       <tr><th>구분</th><th>2027년</th><th>2028년</th><th>2029년</th><th>근거</th></tr>
       <tr><td class="k">1. 매출액(백만원)</td><td><input class="cf" type="number" data-save="s12-r1-27"></td><td><input class="cf" type="number" data-save="s12-r1-28"></td><td><input class="cf" type="number" data-save="s12-r1-29"></td><td><input class="cf" type="text" placeholder="근거" data-save="s12-r1-basis"></td></tr>
@@ -418,7 +451,8 @@ ul.check-ask li.done label{color:var(--muted);text-decoration:line-through}
       <tr><td class="k">5. 서비스이용자(명)</td><td><input class="cf" type="number" data-save="s12-r5-27"></td><td><input class="cf" type="number" data-save="s12-r5-28"></td><td><input class="cf" type="number" data-save="s12-r5-29"></td><td><input class="cf" type="text" placeholder="근거" data-save="s12-r5-basis"></td></tr>
     </table>
     <div class="warn"><b>근거 칸이 본체입니다</b> — 숫자는 누구나 적습니다. <b>「가동률 몇 %, 객단가 얼마, 회차 몇 번」</b>처럼 계산식이 보이게 쓰십시오.</div>
-    <div class="pg">12 / 16</div>
+    <div class="chasi-bar" style="--c:#278868"><p class="cb-h"><b class="cb-t">남은 차시 · 6차</b><span>3-5 · [표4] · 4-2 · 4-1 보완</span><span class="cb-d">12/1(화) 수업 → <b>12/6(일) 자정</b> 제출</span></p><p class="cb-pills"><a class="cb-p " style="--c:#278868" href="tv-6th-growth-tourism-workbook.html" target="_blank" rel="noopener">✦ 6차 · 3-5 · 4-1 · 4-2 — 성장 · 연관성 워크북 ↗</a><a class="cb-p w" style="--c:#278868" href="tv-form-wb/3-5.html" target="_blank" rel="noopener">✍ 3-5 성장전략 개별 워크북 ↗</a><a class="cb-p w" style="--c:#278868" href="tv-form-wb/4-2.html" target="_blank" rel="noopener">✍ 4-2 관광산업 연관성 개별 워크북 ↗</a><a class="cb-p w" style="--c:#278868" href="tv-form-wb/4-1.html" target="_blank" rel="noopener">✍ 4-1 시장 트렌드 개별 워크북 ↗</a></p></div>
+<div class="pg">12 / 16</div>
   </div></section>
 
   <!-- 13 -->
@@ -429,9 +463,13 @@ ul.check-ask li.done label{color:var(--muted);text-decoration:line-through}
     <p class="blue">4-2 아이템과 관광산업의 <b>연관성</b>과, 관광산업 발전에 <b>어떻게 기여</b>할 수 있는지 설명</p>
     <div class="tip"><b>이 절이 관광벤처 공모의 관문입니다</b> — 좋은 아이템이어도 <b>관광과의 연결</b>이 약하면 다른 부처 공모로 가라는 말을 듣습니다.
     <b>방문 · 체류 · 소비</b> 가운데 내 아이템이 무엇을 늘리는지 한 문장으로 적으십시오.</div>
-    <div class="fill-label">관광시장 이해 · 아이템과의 연관성 — 방문·체류·소비 가운데 무엇을 늘리는지 밝혀 씁니다</div>
-    <textarea class="fill" rows="5" placeholder="4-1 관광산업 및 시장 트렌드 / 4-2 아이템과 관광산업의 연관성, 관광산업 발전에 기여하는 방법" data-save="s13-tourism"></textarea>
-    <div class="pg">13 / 16</div>
+    <div class="fill-label">4-1 관광시장 이해도 — 관광산업 · 시장 트렌드와 근거(6차에 보완)</div>
+    <textarea class="fill" rows="5" placeholder="관련 관광산업 · 시장 트렌드를 통계 · 보고서 근거와 함께 적습니다. 1차에 낸 내용을 지금의 상품 · 일정 · 예산과 맞춰 고칩니다." data-save="s13-tourism"></textarea>
+<div class="fill-label">4-2 아이템과 관광산업의 연관성 — 방문 · 체류 · 소비 가운데 무엇을 늘리나</div>
+<textarea class="fill" rows="4" placeholder="① 관광객 경험이 어떻게 바뀌나 ② 지역 관광사업자와 어떻게 이어지나 ③ 관광산업 · 지역에 무엇을 보태나 — 세 문장으로." data-save="s13-link"></textarea>
+
+    <div class="chasi-bar" style="--c:#278868"><p class="cb-h"><b class="cb-t">남은 차시 · 6차</b><span>3-5 · [표4] · 4-2 · 4-1 보완</span><span class="cb-d">12/1(화) 수업 → <b>12/6(일) 자정</b> 제출</span></p><p class="cb-pills"><a class="cb-p " style="--c:#278868" href="tv-6th-growth-tourism-workbook.html" target="_blank" rel="noopener">✦ 6차 · 3-5 · 4-1 · 4-2 — 성장 · 연관성 워크북 ↗</a><a class="cb-p w" style="--c:#278868" href="tv-form-wb/3-5.html" target="_blank" rel="noopener">✍ 3-5 성장전략 개별 워크북 ↗</a><a class="cb-p w" style="--c:#278868" href="tv-form-wb/4-2.html" target="_blank" rel="noopener">✍ 4-2 관광산업 연관성 개별 워크북 ↗</a><a class="cb-p w" style="--c:#278868" href="tv-form-wb/4-1.html" target="_blank" rel="noopener">✍ 4-1 시장 트렌드 개별 워크북 ↗</a></p></div>
+<div class="pg">13 / 16</div>
   </div></section>
 
   <!-- 14 -->
@@ -441,7 +479,13 @@ ul.check-ask li.done label{color:var(--muted);text-decoration:line-through}
     <p class="blue">5-1 대표자의 전문성과 운영 능력, 해당 분야 경험·경력·전문지식·기술역량, 사업화 의지, 도전정신과 장애극복 능력</p>
     <p class="blue">5-2 팀 빌딩 배경, 조직 문화 등 <b>신뢰 구축 능력</b></p>
     <p class="blue">5-3 (1) 경영원칙 · 조직과 인력 구성 방안 · 보유역량 활용과 <b>부족한 역량의 극복방안</b> · 창업준비 계획 &nbsp;(2) 팀 구성 현황</p>
-    <h3>[표5] 팀 구성 현황</h3>
+    <div class="fill-label">5-1 대표자의 전문성 및 운영 능력</div>
+<textarea class="fill" rows="3" placeholder="관련 경험 · 전문지식 · 실행 실적 · 문제 극복 — 대표자가 왜 이 사업을 잘할 수 있는지 근거로." data-save="s14-51"></textarea>
+<div class="fill-label">5-2 팀원과의 신뢰 구축 능력</div>
+<textarea class="fill" rows="3" placeholder="팀 결성 배경 · 공동 목표 · 협업 방식 · 조직문화." data-save="s14-52"></textarea>
+<div class="fill-label">5-3 인력 및 조직 운영계획</div>
+<textarea class="fill" rows="3" placeholder="경영원칙 · 역할 분담 · 보유 역량 활용 · 부족 역량 보완(채용 · 외주 · 자문) · 창업준비 계획." data-save="s14-53"></textarea>
+<h3>[표5] 팀 구성 현황</h3>
     <table>
       <tr><th>성명</th><th>직위</th><th>담당업무</th><th>보유역량(경력/학력 등)</th><th>구성상태</th></tr>
       <tr>
@@ -467,7 +511,8 @@ ul.check-ask li.done label{color:var(--muted);text-decoration:line-through}
       </tr>
     </table>
     <div class="tip"><b>없는 역량을 감추지 마십시오</b> — 「못한다」가 아니라 <b>「누구와 함께 한다」</b>로 씁니다. 실제로 물어본 흔적(자문 · 협의 · 견적)이 있으면 더 강해집니다.</div>
-    <div class="pg">14 / 16</div>
+    <div class="chasi-bar" style="--c:#7a4fa3"><p class="cb-h"><b class="cb-t">남은 차시 · 7차</b><span>5-1~5-3 · [표5] · 6-1 · 협약목표</span><span class="cb-d">12/8(화) 보강 주간 → <b>12/13(일) 자정</b> 제출</span></p><p class="cb-pills"><a class="cb-p " style="--c:#7a4fa3" href="tv-7th-team-building-ideas.html" target="_blank" rel="noopener">✦ 7차 · 5-1~5-3 · 표5 — 팀 역량 아이디어 ↗</a><a class="cb-p " style="--c:#7a4fa3" href="tv-7th-team-kpi-table-guide.html" target="_blank" rel="noopener">✦ 7차 · 5-1~5-3 · 6-1 — 팀 · KPI 작성표 ↗</a><a class="cb-p w" style="--c:#7a4fa3" href="tv-form-wb/5-1.html" target="_blank" rel="noopener">✍ 5-1 워크북 ↗</a><a class="cb-p w" style="--c:#7a4fa3" href="tv-form-wb/5-2.html" target="_blank" rel="noopener">✍ 5-2 워크북 ↗</a><a class="cb-p w" style="--c:#7a4fa3" href="tv-form-wb/5-3.html" target="_blank" rel="noopener">✍ 5-3 · [표5] 워크북 ↗</a><a class="cb-p w" style="--c:#7a4fa3" href="tv-form-wb/6-1.html" target="_blank" rel="noopener">✍ 6-1 KPI 워크북 ↗</a></p></div>
+<div class="pg">14 / 16</div>
   </div></section>
 
   <!-- 15 -->
@@ -491,7 +536,8 @@ ul.check-ask li.done label{color:var(--muted);text-decoration:line-through}
       <div class="card"><b>개발</b> 배포 빈도 · 버그 수정 소요 시간</div>
     </div>
     <p class="small">정의 · 분야별 예시 · OKR과의 차이까지 — <a href="https://asana.com/ko/resources/key-performance-indicator-kpi" target="_blank" rel="noopener">Asana · 핵심 성과 지표(KPI) 가이드 ↗</a></p>
-    <div class="pg">15 / 16</div>
+    <div class="chasi-bar" style="--c:#7a4fa3"><p class="cb-h"><b class="cb-t">남은 차시 · 7차</b><span>5-1~5-3 · [표5] · 6-1 · 협약목표</span><span class="cb-d">12/8(화) 보강 주간 → <b>12/13(일) 자정</b> 제출</span></p><p class="cb-pills"><a class="cb-p " style="--c:#7a4fa3" href="tv-7th-team-building-ideas.html" target="_blank" rel="noopener">✦ 7차 · 5-1~5-3 · 표5 — 팀 역량 아이디어 ↗</a><a class="cb-p " style="--c:#7a4fa3" href="tv-7th-team-kpi-table-guide.html" target="_blank" rel="noopener">✦ 7차 · 5-1~5-3 · 6-1 — 팀 · KPI 작성표 ↗</a><a class="cb-p w" style="--c:#7a4fa3" href="tv-form-wb/5-1.html" target="_blank" rel="noopener">✍ 5-1 워크북 ↗</a><a class="cb-p w" style="--c:#7a4fa3" href="tv-form-wb/5-2.html" target="_blank" rel="noopener">✍ 5-2 워크북 ↗</a><a class="cb-p w" style="--c:#7a4fa3" href="tv-form-wb/5-3.html" target="_blank" rel="noopener">✍ 5-3 · [표5] 워크북 ↗</a><a class="cb-p w" style="--c:#7a4fa3" href="tv-form-wb/6-1.html" target="_blank" rel="noopener">✍ 6-1 KPI 워크북 ↗</a></p></div>
+<div class="pg">15 / 16</div>
   </div></section>
 
   <!-- 16 -->
@@ -592,6 +638,20 @@ function wireAutosave(){
   });
 }
 wireAutosave();
+
+// ---- [표1] 합계 · 정부지원금 7천만 원 한도 자동 점검 ----
+(function(){
+  const A=[1,2,3,4,5,6,7].map(n=>document.querySelector('[data-save="s10-r'+n+'-amt"]'));
+  const T=document.querySelector('[data-save="s10-total"]');const C=document.getElementById('t1chk');
+  if(!T||!C)return;
+  function calc(){
+    const v=A.map(x=>parseFloat(x&&x.value)||0);const sum=v.reduce((a,b)=>a+b,0);const gov=v[4]+v[5]+v[6];
+    T.value=sum||'';try{localStorage.setItem(STORE_PREFIX+'s10-total',T.value)}catch(e){}
+    const ok=gov<=70000;
+    C.innerHTML='정부지원금 <b class="'+(ok?'ok':'bad')+'">'+gov.toLocaleString()+' / 70,000천원 '+(ok?'한도 안':'한도 초과')+'</b> · 합계 <b class="ok">'+sum.toLocaleString()+'천원</b>';
+  }
+  A.forEach(x=>x&&x.addEventListener('input',calc));calc();
+})();
 const resetBtn = document.getElementById('resetBtn');
 if (resetBtn) resetBtn.onclick = () => {
   if (!confirm('작성한 모든 내용을 지웁니다. 계속할까요?')) return;
