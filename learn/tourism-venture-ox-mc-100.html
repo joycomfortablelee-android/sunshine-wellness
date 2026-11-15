@@ -75,7 +75,7 @@ h2{font-size:20px;margin:30px 0 12px}
 .ex p{margin:0 0 6px}.ex .ref{font-size:13px}
 .chip,.btn{font-size:13.5px;padding:6px 13px}
 @media (max-width:600px){body{font-size:16px}.wrap{padding:0 16px}.q{padding:14px 15px}.qt{font-size:16.5px}}
-</style>
+.resume{margin:0 0 12px;padding:10px 14px;background:#fff8e1;border:1px solid #f0d58a;border-radius:10px;font-size:14px;line-height:1.6;color:#4a3b10;display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}.resume .rs-btns{display:inline-flex;flex-wrap:wrap;gap:6px;margin-left:auto}.resume .rs{border:1px solid #d9b85a;background:#fff;color:#5c4a12;border-radius:99px;padding:5px 12px;font:inherit;font-size:13px;font-weight:800;cursor:pointer}.resume .rs.pri{background:#b0302a;border-color:#b0302a;color:#fff}.ex .retry{margin-top:8px;border:1px solid #c3d0dd;background:#fff;color:#17365d;border-radius:99px;padding:4px 12px;font:inherit;font-size:12.5px;font-weight:800;cursor:pointer}.ex .retry:hover{background:#17365d;color:#fff}</style>
 </head>
 <body>
 <header class="wrap">
@@ -151,7 +151,7 @@ function paint(q){
  if(done)p.appendChild(el('span','v',isRight(q)?'맞음 · ':'틀림 · '));p.appendChild(el('b',null,'정답 '+ansLabel(q)));ex.appendChild(p);
  ex.appendChild(el('p',null,q.e));
  if(q.w.length){ex.appendChild(el('p',null,q.t==='ox'?q.w[0][0]+'가 오답인 이유':'오답 이유'));const ul=el('ul');q.w.forEach(([k,s])=>ul.appendChild(el('li',null,(q.t==='mc'?k+' ':'')+s)));ex.appendChild(ul)}
- ex.appendChild(el('p','ref','근거: '+q.r));card.appendChild(ex);
+ ex.appendChild(el('p','ref','근거: '+q.r));if(done){const rb=el('button','retry','↻ 이 문제 다시 풀기');rb.type='button';rb.addEventListener('click',()=>{delete A[q.n];save();paint(q);stats();applyFilter()});ex.appendChild(rb)}card.appendChild(ex);
 }
 function stats(){const d=Q.filter(q=>A[q.n]!==undefined),ok=d.filter(isRight).length;
  document.getElementById('score').innerHTML='<b>'+d.length+'</b> / 100 풀이 · 맞음 <b>'+ok+'</b>'+(d.length?' ('+Math.round(ok/d.length*100)+'%)':'');
@@ -162,6 +162,18 @@ document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{fi
 document.getElementById('showAll').addEventListener('click',e=>{showAll=!showAll;e.target.textContent=showAll?'해설 접기':'해설 모두 보기';Q.forEach(paint)});
 document.getElementById('reset').addEventListener('click',()=>{if(Object.keys(A).length&&!confirm('고른 답을 모두 지울까요?'))return;A={};save();Q.forEach(paint);stats();applyFilter();scrollTo(0,0)});
 Q.forEach(paint);stats();applyFilter();
+(function(){
+ const d=Q.filter(q=>A[q.n]!==undefined);if(!d.length)return;
+ const no=d.filter(q=>!isRight(q)).length;
+ const b=el('div','resume');
+ b.innerHTML='<b>지난번에 푼 기록이 남아 있어요</b> — '+d.length+'문항 풀이 · 맞음 '+(d.length-no)+' · 틀림 '+no+'<span class="rs-btns"></span>';
+ const box=b.querySelector('.rs-btns');
+ const mk=(t,fn,p)=>{const x=el('button',p?'rs pri':'rs',t);x.type='button';x.addEventListener('click',()=>{fn();b.remove()});box.appendChild(x)};
+ mk('이어서 풀기',()=>{});
+ if(no)mk('틀린 문제만 다시 풀기',()=>{Q.forEach(q=>{if(A[q.n]!==undefined&&!isRight(q))delete A[q.n]});save();Q.forEach(paint);stats();filter='todo';document.querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.f==='todo')));applyFilter()},true);
+ mk('처음부터 새로 풀기',()=>{A={};save();Q.forEach(paint);stats();applyFilter()});
+ list.insertBefore(b,list.firstChild);
+})();
 document.getElementById('saCheck').addEventListener('click',()=>{
  const target=['구체성','현실성','시장성','필요성','차별성'];
  const given=document.getElementById('saInput').value.split(/[,\s·\/]+/).map(s=>s.trim()).filter(Boolean);
