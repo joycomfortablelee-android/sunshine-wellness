@@ -1426,6 +1426,15 @@
 .d16-part{background:#fff;border:2px dashed #e0b43a;border-radius:16px;padding:14px 16px 12px;margin:16px 0 22px}.d16-h{font-weight:900;color:#17365d;font-size:16px;margin:0 0 10px}.d16-tag{display:inline-block;background:#e0b43a;color:#3d2a00;border-radius:999px;padding:2px 11px;font-size:12.5px;margin-right:8px}.d16-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.d16-col{background:#fbfcfe;border:1px solid #e3eaf2;border-radius:11px;padding:8px 10px}.d16-t{font-weight:900;color:#17365d;margin:4px 0 6px;font-size:14px}.d16-pills{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 6px}.d16-p{display:inline-flex;align-items:center;padding:4px 11px;border-radius:999px;font-size:12.8px;font-weight:800;text-decoration:none;border:1px solid #c9d6e2;background:#fff;color:#17365d}.d16-p.hot{background:linear-gradient(115deg,#0f766e,#14a38f 55%,#0f766e);color:#fff;border-color:#0f766e}.d16-p.g{background:#e9f6ef;border-color:#9fd1b4;color:#1d5e3a}.d16-p.y{background:#fff6cf;border-color:#e6cd6a;color:#5a4300}.d16-p.nav{background:#eef2f7;border-style:dashed}.d16-p:hover{filter:brightness(.95)}.d16-part .d16-figs{display:grid;grid-template-columns:1.6fr 1fr;gap:10px;margin:10px 0}.d16-part .d16-figs figure{margin:0;background:#fff;border:1px solid #e3eaf2;border-radius:11px;padding:8px;text-align:center}.d16-part .d16-figs img{max-width:100%;height:auto;border-radius:6px}.d16-part .d16-figs figcaption{font-size:12.5px;color:#4a5a6a;margin-top:4px;text-align:left}@media(max-width:820px){.d16-grid,.d16-part .d16-figs{grid-template-columns:1fr}}
 
 .learn-article a.hl-yl{background:#ffe14d!important;border-color:#e0b43a!important;color:#3d2a00!important;font-weight:800}
+
+    .learn-article .reslist a.hl-pill { position: relative; overflow: hidden; display: inline-block; background: linear-gradient(120deg, #fff6c2 0%, #ffe45c 100%); border: 1px solid #e0b800; color: #4a3a00; border-radius: 999px; padding: 3px 12px; font-weight: 800; text-decoration: none; box-shadow: 0 1px 5px rgba(224,184,0,.35); }
+    .learn-article .reslist a.hl-pill::after { content: ""; position: absolute; top: 0; bottom: 0; left: -60%; width: 40%; background: linear-gradient(100deg, transparent, rgba(255,255,255,.85), transparent); transform: skewX(-20deg); animation: shine-sweep 2.8s ease-in-out infinite; pointer-events: none; }
+    .learn-article .reslist a.hl-pill.sub { background: #fff; border: 1.5px dashed #e0b800; box-shadow: none; margin-left: 4px; }
+    .learn-article .reslist a.hl-pill.sub::after { content: none; }
+    .learn-article .reslist a.hl-pill:hover { filter: brightness(.95); }
+    @keyframes shine-sweep { 0% { left: -60%; } 55%, 100% { left: 130%; } }
+
+.or-part{background:#fff;border:2px solid #f5a623;border-radius:16px;padding:14px 16px 12px;margin:0 0 22px}.or-h{font-weight:900;color:#7a4a00;font-size:16px;margin:0 0 6px}.or-tag{display:inline-block;background:#f5a623;color:#fff;border-radius:999px;padding:2px 11px;font-size:12.5px;margin-right:8px}.or-lead{font-size:14px;color:#4a3a1a;margin:0 0 10px}.or-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}.or-card{display:flex;gap:9px;align-items:flex-start;background:#fffaf0;border:1px solid #f3dcae;border-radius:12px;padding:10px;text-decoration:none;color:#3a2c10;transition:transform .15s,box-shadow .15s}.or-card:hover{transform:translateY(-2px);box-shadow:0 6px 14px rgba(245,166,35,.25)}.or-card.now{background:linear-gradient(135deg,#fff3d6,#ffe1a3);border-color:#f5a623;box-shadow:0 0 0 2px #f5a623 inset}.or-ico{font-size:24px;line-height:1}.or-tx{display:flex;flex-direction:column;gap:2px;min-width:0}.or-tx small{font-size:11px;font-weight:800;color:#b86a00}.or-tx b{font-size:14px;color:#3a2c10}.or-tx em{font-style:normal;font-size:12px;color:#6b5a3a;line-height:1.5}.or-pills{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.or-pills a{border:1px solid #f3dcae;background:#fff;border-radius:999px;padding:4px 11px;font-size:12.5px;font-weight:800;color:#7a4a00;text-decoration:none}.or-pills a:hover{background:#fff3d6}.or-t{border-collapse:collapse;width:100%;font-size:13px}.or-t caption{text-align:left;font-weight:800;color:#7a4a00;padding-bottom:4px}.or-t th,.or-t td{border:1px solid #f0e2c4;padding:5px 9px;text-align:left}.or-t thead th{background:#fff3d6}.or-t tbody th{background:#fffaf0;white-space:nowrap}@media(max-width:900px){.or-grid{grid-template-columns:1fr 1fr}}@media(max-width:560px){.or-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body class="mod-bigdata">
@@ -1610,9 +1619,9 @@
     <div class="d16-col"><p class="d16-t">① 데이터 마이닝 전체 그림</p>
       <p class="d16-pills"><a class="d16-p hot" href="data-mining-mindmap.html" target="_blank" rel="noopener">✦ 데이터 마이닝 마인드맵 — 6영역 · 기법 · CRISP-DM ↗</a><a class="d16-p g" href="data-mining-6-chapters-demo.html" target="_blank" rel="noopener">데이터 마이닝 시범수업 6개 장 — 음성 · 속도 조절 · F분포 기각역 ↗</a></p></div>
     <div class="d16-col"><p class="d16-t">② 분산분석(ANOVA) — 세 집단 이상의 평균 비교</p>
-      <p class="d16-pills"><a class="d16-p y" href="https://www.youtube.com/live/5WfShfnMD50?si=amYKtbQ0J0D8SBTO&amp;t=47" target="_blank" rel="noopener">▶ 분산분석 개괄설명 · 영상 ↗</a><a class="d16-p y" href="anova-capture-script-hypotheses.html" target="_blank" rel="noopener">ANOVA 캡처 · 대본 — 귀무가설 / 대립가설 ↗</a><a class="d16-p y" href="anova-17-voice-recording-lecture.html" target="_blank" rel="noopener">일원배치 분산분석 17장 — 대본 · 낭독 · 녹음 ↗</a><a class="d16-p y" href="anova-posthoc-11-lecture.html" target="_blank" rel="noopener">ANOVA · 사후검정 11장 ↗</a></p></div>
+      <p class="d16-pills"><a class="d16-p y" href="https://www.youtube.com/live/5WfShfnMD50?si=amYKtbQ0J0D8SBTO&amp;t=47" target="_blank" rel="noopener">▶ 분산분석 개괄설명 · 영상 ↗</a><a class="d16-p y" href="anova-capture-script-hypotheses.html" target="_blank" rel="noopener">ANOVA 캡처 · 대본 — 귀무가설 / 대립가설 ↗</a><a class="d16-p y" href="anova-17-voice-recording-lecture.html" target="_blank" rel="noopener">일원배치 분산분석 17장 — 대본 · 낭독 · 녹음 ↗</a><a class="d16-p y" href="anova-posthoc-11-lecture.html" target="_blank" rel="noopener">ANOVA · 사후검정 11장 ↗</a><a class="d16-p hot" href="data-mining-6-chapters-demo.html" target="_blank" rel="noopener" title="F = 집단 간 평균제곱 ÷ 집단 내 평균제곱 — 시끄러운 카페 이야기 · 왜 분자 · 분모인가 · 관광지 만족도 예시">🎧 F를 이야기로 — 관광지 만족도 예시 · 시범수업 6개 장 ↗</a><a class="d16-p hot" href="fisher-f-df-spss-voice.html" target="_blank" rel="noopener">피셔의 F공식과 자유도 — SPSS 두 표 · 음성 ↗</a></p></div>
     <div class="d16-col"><p class="d16-t">③ 회귀분석(Orange) — House 데이터로 MEDV 예측</p>
-      <p class="d16-pills"><a class="d16-p hot" href="orange-regression-house-captures.html" target="_blank" rel="noopener">✦ Orange 회귀분석 캡처 9장 — House 데이터 · 모델 비교 · 오류지표 ↗</a></p></div>
+      <p class="d16-pills"><a class="d16-p hot" href="orange-regression-house-captures.html" target="_blank" rel="noopener">✦ Orange 회귀분석 캡처 9장 — House 데이터 · 모델 비교 · 오류지표 ↗</a><a class="d16-p g" href="orange-regression-guide.html" target="_blank" rel="noopener">🍊 Orange 회귀분석 가이드 9장 ↗</a></p></div>
   </div>
   <div class="d16-figs">
     <figure><a href="images/anova-oneway-figure.webp" target="_blank" rel="noopener"><img src="images/anova-oneway-figure.webp" width="1049" height="622" alt="일원분산분석 그림 — 세 집단의 평균과 흩어짐(집단 간 분산 · 집단 내 분산)을 비교해 F값을 구하는 구조"></a><figcaption><b>일원분산분석</b> — 집단 사이의 차이(집단 간) ÷ 집단 안의 흩어짐(집단 내) = <b>F</b>. F가 크면 「적어도 한 집단의 평균은 다르다」.</figcaption></figure>
@@ -1621,6 +1630,23 @@
   <p class="d16-t">④ 군집분석 복습 — 지난주 내용</p>
   <p class="d16-pills"><a class="d16-p nav" href="#cluster">↑ 파트 05 군집분석으로 올라가기</a><a class="d16-p nav" href="#adsp-p446">↓ ADsP 3과목 6절 군집분석 알약 모음으로 내려가기</a><a class="d16-p y" href="adsp3/5-deep-38-cluster-easy6.html" target="_blank" rel="noopener">⭐ 쉬운 문제 6선 ↗</a><a class="d16-p g" href="adsp3/5-6-clustering.html" target="_blank" rel="noopener">연결법 · 덴드로그램 · K-means + 기출 4문제 ↗</a><a class="d16-p g" href="adsp3/5-deep-36-priority-figures.html" target="_blank" rel="noopener">핵심 4가지 그림(K-means · Ward · DBSCAN · GMM) ↗</a><a class="d16-p g" href="adsp3/5-deep-37-orange-distmap.html" target="_blank" rel="noopener">Orange Distance Map 완전해설(Iris) ↗</a><a class="d16-p hot" href="orange-widget-learning-quiz9-spaced-parts.html" target="_blank" rel="noopener">✦ Orange 위젯 기초 · 지도/비지도 · 회귀평가 — 통합 퀴즈 9문제 ↗</a></p>
 </section>
+<section class="or-part" id="orange-part" aria-label="Orange 실습 파트">
+  <p class="or-h"><span class="or-tag">🍊 Orange 실습</span>코딩 없이 위젯을 선으로 이어 분석하기 — 분류 · 회귀 · 군집</p>
+  <p class="or-lead">Orange는 위젯(상자)을 끌어다 선으로 이으면 데이터 불러오기 → 모델 → 평가가 끝나는 무료 데이터마이닝 도구입니다. 실습은 늘 같은 뼈대 — <b>불러오기 → 여러 모델 → Test and Score로 비교 → 평가</b>.</p>
+  <div class="or-grid">
+    <a class="or-card now" href="orange-regression-guide.html" target="_blank" rel="noopener"><span class="or-ico">📈</span><span class="or-tx"><small>오늘 · 11/16 · 지도학습(숫자)</small><b>회귀분석 — 집값(MEDV) 예측</b><em>Boston House · 모델 7개 · MAE · RMSE · R² · Feature Importance</em></span></a>
+    <a class="or-card" href="orange-image-analytics-guide.html" target="_blank" rel="noopener"><span class="or-ico">🖼</span><span class="or-tx"><small>지난 시간 · 지도 + 비지도</small><b>이미지 분석 — 분류 · 군집화</b><em>Image Embedding · Cat&amp;Dog · 패션 8종 · Confusion Matrix</em></span></a>
+    <a class="or-card" href="cluster-analysis-orange-guide.html" target="_blank" rel="noopener"><span class="or-ico">🧩</span><span class="or-tx"><small>비지도학습</small><b>군집분석 — K-means · 계층적</b><em>거리 · 덴드로그램 · 실루엣 · ANOVA 연결</em></span></a>
+    <a class="or-card" href="orange-widget-learning-quiz9-spaced-parts.html" target="_blank" rel="noopener"><span class="or-ico">✅</span><span class="or-tx"><small>퀴즈</small><b>위젯 기초 · 지도/비지도 · 회귀평가 퀴즈 9</b><em>배운 것을 한 번에 점검</em></span></a>
+  </div>
+  <p class="or-pills"><a href="orange-regression-house-captures.html" target="_blank" rel="noopener">회귀 캡처 9장 넘겨 보기 ↗</a><a href="adsp3/5-deep-37-orange-distmap.html" target="_blank" rel="noopener">Orange Distance Map 완전해설(Iris) ↗</a><a href="orange-ml-software.html" target="_blank" rel="noopener">교재 · Orange와 머신러닝 소프트웨어 ↗</a><a href="https://orangedatamining.com/download/" target="_blank" rel="noopener">Orange 내려받기 ↗</a><a href="https://orangedatamining.com/widget-catalog/" target="_blank" rel="noopener">위젯 목록 ↗</a></p>
+  <table class="or-t"><caption>분류 · 회귀 · 군집 — 무엇이 다른가</caption><thead><tr><th></th><th>맞히는 것</th><th>Orange 예</th><th>평가 지표</th></tr></thead><tbody>
+    <tr><th>분류</th><td>범주(cat / dog, 만족 / 불만)</td><td>이미지 분류</td><td>CA · AUC · F1 · Confusion Matrix</td></tr>
+    <tr><th>회귀</th><td>숫자(집값, 숙박 요금, 방문객 수)</td><td>Boston House MEDV</td><td>MAE · MSE · RMSE · R²</td></tr>
+    <tr><th>군집</th><td>정답 없이 비슷한 것끼리</td><td>K-means · 계층적 군집</td><td>실루엣 · 던 지수</td></tr>
+  </tbody></table>
+</section>
+      
       <h2 class="learn-part pt-part pp-1" id="p01"><span class="pt"><i>파트</i><b>01</b></span><span class="pt-ti">빅데이터란</span><span class="pt-sub">세 개의 V에 둘을 더한 <strong>5V</strong>, 데이터가 결정이 되는 <strong>DIKW</strong>, 지식이 조직 안에서 도는 <strong>SECI</strong> — 세 모형으로 시작합니다.</span></h2>
       <p class="mdl-h"><b class="mdl-n">①</b> 5V — 데이터가 어떤 모습인가</p>
       <p>빅데이터는 흔히 <strong>세 개의 V</strong>로 설명됩니다. 여기에 둘을 더해 <strong>5V</strong>라 부르기도 합니다.</p>
@@ -2690,7 +2716,7 @@
           <span class="desc">캡처 화면과 강의 대본을 나란히 — 01~05 핵심 개념, <strong>귀무가설(H₀)</strong>과 <strong>대립가설(H₁)</strong>을 어떻게 세우고 읽는지.</span>
         </li>
         <li class="fresh">
-          <a href="fisher-f-df-spss-voice.html" target="_blank" rel="noopener">④ 피셔의 F공식과 자유도 — SPSS 두 표 · 상세 음성 강의 ↗</a>
+          <a class="hl-pill" href="fisher-f-df-spss-voice.html" target="_blank" rel="noopener">④ 피셔의 F공식과 자유도 — SPSS 두 표 · 상세 음성 강의 ↗</a> <a class="hl-pill sub" href="data-mining-6-chapters-demo.html" target="_blank" rel="noopener" title="F = 집단 간 평균제곱 ÷ 집단 내 평균제곱 — 시끄러운 카페 이야기 · 왜 분자 · 분모인가">🎧 F를 이야기로 — 시범수업 6개 장 ↗</a>
           <span class="desc">F = 집단 간 평균제곱 ÷ 집단 내 평균제곱, 자유도는 왜 k−1 · N−k인가 — SPSS의 <strong>Levene 표</strong>와 <strong>ANOVA 표</strong> 두 장을 한 칸씩 읽기. 성인학습자용 친절한 설명 · 음성.</span>
         </li>
         <li>
