@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Orange 회귀분석 | 관광빅데이터분석 실습 가이드</title>
+<style>
+:root{--ink:#16233f;--muted:#5d6d89;--line:#dde6f2;--bg:#eef3fb;--paper:#fff;--blue:#2056c7;--blue2:#e7effd;--deep:#102a5e;--mint:#0f8f6c;--mint2:#e3f7f0;--amber:#b4660c;--amber2:#fff2dd;--violet:#6a3fb0;--violet2:#f1eafb;--radius:20px;--shadow:0 16px 42px rgba(16,42,94,.1)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Pretendard","Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;font-size:16px;line-height:1.63}
+button{font:inherit;cursor:pointer}button:focus-visible{outline:3px solid #8fb3ff;outline-offset:2px}
+.shell{max-width:1500px;margin:0 auto;display:grid;grid-template-columns:260px minmax(0,1fr);gap:20px;padding:18px 20px 26px}
+.sidebar{position:sticky;top:18px;height:calc(100vh - 36px);display:flex;flex-direction:column;background:#102a5e;color:#e7eeff;border-radius:22px;padding:22px 14px 16px;box-shadow:var(--shadow);overflow:auto}
+.brand{padding:0 10px 17px;border-bottom:1px solid #ffffff24}
+.brand .eyebrow{font-size:11px;letter-spacing:.14em;color:#9fc0ff;font-weight:800}
+.brand h1{font-size:19px;line-height:1.4;margin:8px 0 6px}
+.brand p{margin:0;font-size:11.5px;color:#aec1e6}
+.navlabel{color:#8da4d2;letter-spacing:.08em;font-size:10.5px;font-weight:800;padding:16px 10px 6px}
+.navlinks{display:grid;gap:4px}
+.navlink{display:flex;align-items:center;gap:9px;width:100%;border:0;border-radius:11px;background:transparent;color:#c4d3f3;text-align:left;padding:9px 10px;font-size:12.6px;font-weight:650}
+.navlink .n{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:7px;background:#ffffff14;color:#b7cbf5;font-size:10.5px;font-weight:800;flex:none}
+.navlink:hover{background:#ffffff14}
+.navlink.active{background:#e7effd;color:#13306b;font-weight:800}
+.navlink.active .n{background:#2056c7;color:#fff}
+.sidefoot{margin-top:auto;padding:15px 10px 2px;font-size:11px;color:#9fb3da;border-top:1px solid #ffffff20;line-height:1.6}
+.content{min-width:0}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:4px 6px 14px;flex-wrap:wrap}
+.crumb{font-size:12.5px;font-weight:700;color:#58699057}
+.crumb{color:#4a5c82}
+.crumb b{color:var(--ink)}
+.progress-wrap{display:flex;align-items:center;gap:10px}
+.pagenum{font-weight:800;font-size:12.5px;color:var(--blue);white-space:nowrap}
+.progress{width:150px;height:6px;background:#d8e3f6;border-radius:99px;overflow:hidden}
+.progress>div{height:100%;width:0;background:linear-gradient(90deg,#2056c7,#20b5a5);transition:width .25s}
+.slide{display:none;background:var(--paper);min-height:calc(100vh - 150px);border-radius:24px;box-shadow:var(--shadow);padding:clamp(18px,3vw,38px);animation:in .22s ease}
+.slide.active{display:block}
+@keyframes in{from{opacity:.4;transform:translateY(6px)}to{opacity:1;transform:none}}
+.kicker{display:inline-flex;gap:7px;align-items:center;background:#e7effd;color:#13459b;padding:5px 11px;border-radius:99px;font-weight:850;font-size:11.5px}
+h2{font-size:clamp(23px,2.6vw,32px);line-height:1.28;letter-spacing:-.04em;margin:10px 0 9px}
+.lead{max-width:880px;color:#425575;font-size:15px;margin:0 0 18px}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.panel{border:1px solid var(--line);border-radius:16px;background:#fff;padding:17px 18px;min-width:0}
+.panel.soft{background:#f6f9fd}
+.panel.blue{background:var(--blue2);border-color:#c8daf8}
+.panel.mint{background:var(--mint2);border-color:#aee4cf}
+.panel.amber{background:var(--amber2);border-color:#f2d6a0}
+.panel.violet{background:var(--violet2);border-color:#d9c8f3}
+.panel h3{font-size:15.5px;margin:0 0 8px;letter-spacing:-.01em}
+.panel p{margin:4px 0;color:#49597c;font-size:13.6px}
+.sectionlabel{margin:22px 0 10px;font-size:13px;font-weight:900;color:#2c4f93;display:flex;align-items:center;gap:8px}
+.sectionlabel:after{content:"";height:1px;background:var(--line);flex:1}
+.goal{display:flex;gap:11px;align-items:flex-start;border:1px solid var(--line);border-radius:14px;padding:13px 14px;background:#fff}
+.goal b{display:block;font-size:14px;color:#1b3c82}
+.goal small{color:#5d6d89;font-size:12.3px}
+.kw-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.kw{background:#f6f9fd;border:1px solid #e1eaf7;border-radius:13px;padding:12px;min-height:76px}
+.kw b{display:block;font-size:13px;color:#1c4aa0;margin-bottom:4px}
+.kw span{font-size:12px;color:#5a6a8c}
+/* widget flow */
+.flow{display:flex;flex-wrap:wrap;gap:0;align-items:center;margin:14px 0 6px}
+.wnode{background:#fff;border:2px solid #9fbdf0;border-radius:13px;padding:10px 13px;text-align:center;min-width:112px;font-weight:800;font-size:12.6px;color:#1c3f86;box-shadow:0 3px 0 #dbe6fa}
+.wnode small{display:block;font-weight:650;color:#6c7ba0;font-size:10.6px;margin-top:3px}
+.wnode.model{border-color:#f0b6cf;color:#9a2362;box-shadow:0 3px 0 #fbe0ec}
+.wnode.eval{border-color:#9fe0cf;color:#0f6b50;box-shadow:0 3px 0 #dcf5ec}
+.warr{color:#8ba0c9;font-size:19px;font-weight:900;padding:0 7px}
+.flow-wrap{overflow-x:auto;padding-bottom:6px}
+.modelgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:12px 0}
+.mchip{background:#fdf1f7;border:1.5px solid #f0b6cf;border-radius:11px;padding:8px 9px;text-align:center;font-weight:800;font-size:12px;color:#9a2362}
+.steps{counter-reset:s;display:grid;gap:9px;margin:10px 0}
+.step{counter-increment:s;display:flex;gap:11px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:11px 13px;background:#fff}
+.step:before{content:counter(s);flex:none;display:grid;place-items:center;width:26px;height:26px;border-radius:9px;background:#2056c7;color:#fff;font-weight:900;font-size:12.5px}
+.step b{display:block;font-size:13.8px;color:#1c3f86}
+.step span{font-size:12.6px;color:#5a6a8c}
+.folder-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:14px 0}
+.folder{background:#fff6da;border:1px solid #e9d28e;border-radius:11px;padding:12px 16px;font-weight:800;color:#6c4e0c;text-align:center;min-width:108px}
+.folder small{display:block;font-weight:650;color:#8a6c2a;font-size:11px;margin-top:3px}
+.farrow{color:#9aa6c4;font-size:20px;font-weight:900}
+table.cm{border-collapse:collapse;width:100%;font-size:12.8px}
+table.cm th,table.cm td{border:1px solid #e1e9f6;padding:7px 8px;text-align:center}
+table.cm thead th{background:#eaf1fd;color:#1c3f86}
+table.cm td.diag{background:#dff3ea;font-weight:800;color:#0f6b50}
+table.cm td.sum{background:#f5f7fb;font-weight:800}
+.notebox{border-left:4px solid var(--blue);background:#eef4ff;color:#28437d;border-radius:0 12px 12px 0;padding:11px 14px;margin:13px 0;font-size:13.3px}
+.notebox.warn{border-color:var(--amber);background:var(--amber2);color:#7a4d0b}
+.notebox.ok{border-color:var(--mint);background:var(--mint2);color:#115e45}
+.comic{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-top:12px}
+.scene{border:1px solid #d7e4f2;border-radius:15px;padding:11px;background:#f8fbff;position:relative;min-width:0}
+.scene:nth-child(2){background:#f1fcfa}.scene:nth-child(3){background:#fffbf0}.scene:nth-child(4){background:#f6f2ff}
+.scene .no{position:absolute;right:10px;top:8px;font-size:10.5px;color:#8493a9;font-weight:900}
+.scene .act{display:block;font-size:30px;margin:6px 0 4px}
+.scene b{display:block;color:#203650;font-size:12.6px}
+.scene span{display:block;color:#64758f;font-size:11.4px;margin-top:5px}
+.quizbox{border:1px solid #cadcf0;border-radius:18px;background:#f8fbff;padding:18px;margin-top:12px}
+.qtitle{font-size:15.5px;font-weight:850;margin:0 0 11px}
+.opts{display:grid;gap:7px}
+.opt{border:1px solid #d6e4f3;background:#fff;border-radius:11px;padding:10px 13px;font-size:13.3px;color:#28415f;text-align:left;font-weight:650}
+.opt:hover{border-color:#86aef6;background:#f2f7ff}
+.opt.correct{background:#e1f7ee;border-color:#36b587}
+.opt.wrong{background:#fdecee;border-color:#e27687}
+.qans{display:none;margin-top:11px;background:#eef9f2;border:1px solid #bfe6d0;border-radius:11px;padding:11px 13px;font-size:13px;color:#19603f}
+.qans.show{display:block}
+.footerNav{display:flex;align-items:center;justify-content:space-between;margin-top:18px;gap:12px}
+.bigbtn{border:1px solid #cbdaed;background:#fff;color:#255189;padding:11px 18px;border-radius:12px;font-weight:850;min-width:104px}
+.bigbtn.primary{background:#2056c7;border-color:#2056c7;color:#fff}
+.bigbtn:disabled{opacity:.35;cursor:not-allowed}
+.kbdhint{color:#8694ab;font-size:11.6px}
+.summary-row{display:flex;gap:13px;padding:12px 0;border-bottom:1px dashed #dbe5f0}
+.summary-row:last-child{border-bottom:0}
+.summary-row .sym{font-size:25px;width:38px;text-align:center;flex:none}
+.summary-row b{font-size:14.3px;color:#1c3f86}
+.summary-row p{margin:3px 0 0;color:#546786;font-size:12.8px}
+@media(max-width:980px){.shell{grid-template-columns:1fr}.sidebar{position:static;height:auto}.g2,.g3,.kw-grid,.modelgrid{grid-template-columns:repeat(2,1fr)}.comic{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.kw-grid,.modelgrid,.g3{grid-template-columns:1fr}}
+@media print{.sidebar,.topbar,.footerNav{display:none!important}.shell{display:block}.slide{display:block!important;box-shadow:none;break-after:page}}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside class="sidebar">
+  <div class="brand"><div class="eyebrow">관광빅데이터분석 · 실습 · 11/16</div><h1>Orange 회귀분석<br>집값(MEDV) 예측</h1><p>Boston House · 회귀 모델 7개 · MAE · RMSE · R² · Feature Importance</p></div>
+  <div class="navlabel">학습 안내</div>
+  <nav class="navlinks" id="nav0"></nav>
+  <div class="navlabel">① 데이터 준비</div>
+  <nav class="navlinks" id="nav1"></nav>
+  <div class="navlabel">② 모델 비교</div>
+  <nav class="navlinks" id="nav2"></nav>
+  <div class="navlabel">③ 평가 지표 읽기</div>
+  <nav class="navlinks" id="nav3"></nav>
+  <div class="navlabel">정리</div>
+  <nav class="navlinks" id="nav4"></nav>
+  <div class="sidefoot">⌨️ ← → 키로 이동 · 📱 좌우 스와이프<br>원본: 세종대 「빅데이터와 인공지능 마케팅 2」 Orange 회귀분석 실습 영상 캡처를 관광빅데이터분석 수업용으로 재구성했습니다. · <a href="orange-regression-house-captures.html">캡처 9장만 넘겨 보기 ↗</a></div>
+</aside>
+<main class="content">
+  <div class="topbar"><div class="crumb">관광빅데이터분석 / Orange 회귀분석 <b id="topTitle">학습 안내</b></div><div class="progress-wrap"><span class="pagenum" id="pagenum">01 / 13</span><div class="progress"><div id="progressbar"></div></div></div></div>
+  <div id="stage"></div>
+  <div class="footerNav"><button type="button" class="bigbtn" id="prev">← 이전</button><span class="kbdhint">← → 키 · 좌우 스와이프로도 이동합니다</span><button type="button" class="bigbtn primary" id="next">다음 →</button></div>
+</main>
+</div>
+<script>
+'use strict';
+const slides = [
+{sec:0,name:'학습 안내',html:`
+<span class="kicker">COURSE GUIDE · 11/16 시범 수업</span>
+<h2>Orange로 집값을 숫자로 예측해 보기 — 회귀분석</h2>
+<p class="lead">지난 시간의 이미지 분류가 <b>「무엇인가?」(범주)</b>를 맞혔다면, 오늘은 <b>「얼마인가?」(숫자)</b>를 맞힙니다. Boston House 데이터로 <b>주택 가치(MEDV)</b>를 예측하고, 일곱 가지 모델을 한 번에 비교합니다.</p>
+<div class="g2">
+  <div class="goal"><span>🎯</span><div><b>학습목표 1 — 예측</b><small>File → Select Columns → 회귀 모델 → Test and Score 흐름으로 MEDV를 예측할 수 있다.</small></div></div>
+  <div class="goal"><span>🎯</span><div><b>학습목표 2 — 평가</b><small>MAE · MSE · RMSE · R²로 모델을 비교하고, Feature Importance로 중요한 변수를 찾을 수 있다.</small></div></div>
+</div>
+<div class="sectionlabel">핵심 키워드</div>
+<div class="kw-grid">
+  <div class="kw"><b>Regression</b><span>숫자(연속형) 값을 예측하는 지도학습</span></div>
+  <div class="kw"><b>Target · MEDV</b><span>맞히고 싶은 값 = 종속변수(주택 평균 가치)</span></div>
+  <div class="kw"><b>Test and Score</b><span>여러 모델을 같은 데이터로 한 번에 비교</span></div>
+  <div class="kw"><b>R² · RMSE</b><span>얼마나 잘 설명하나 · 얼마나 틀리나</span></div>
+</div>
+<div class="notebox">관광 분야 적용 예시 — 객실 수 · 위치 · 리뷰 점수로 <b>숙박 요금</b>을, 날씨 · 요일 · 행사로 <b>관광지 방문객 수</b>를, 체류 일수 · 동반 인원으로 <b>1인 지출액</b>을 예측하는 것이 모두 같은 회귀 구조입니다.</div>
+`},
+{sec:1,name:'데이터 불러오기',html:`
+<span class="kicker">STEP 01 · 영상 7분</span>
+<h2>File 위젯으로 Boston House 데이터 불러오기</h2>
+<p class="lead">「데이터와 모델」 폴더의 여러 데이터 가운데 <b>House(학습데이터)</b>를 고릅니다. 테스트 데이터 · MEDV 없는 데이터는 나중에 예측해 볼 때 씁니다.</p>
+<figure class="panel soft" style="margin:10px 0;text-align:center"><a href="images/orange-regression/01-house-data-load.png" target="_blank" rel="noopener"><img src="images/orange-regression/01-house-data-load.png" alt="File 위젯으로 House 학습데이터를 불러오는 화면" style="max-width:100%;height:auto;border-radius:10px;border:1px solid #dde6f2"></a></figure>
+<div class="g2">
+  <div class="panel blue"><h3>Features 13개</h3><p>CRIM(범죄율) · ZN · INDUS · CHAS · NOX · <b>RM(방 개수)</b> · AGE · <b>DIS(고용센터 거리)</b> · RAD · TAX · PTRATIO · B · <b>LSTAT(저소득층 비율)</b></p></div>
+  <div class="panel mint"><h3>Target 1개</h3><p><b>MEDV</b> — 주택의 평균 가치(단위: 천 달러). 우리가 맞히려는 숫자입니다.</p></div>
+</div>
+`},
+{sec:1,name:'Target 지정',html:`
+<span class="kicker">STEP 02 · Select Columns</span>
+<h2>Select Columns — 무엇을 맞힐지(Target) 정하기</h2>
+<p class="lead">회귀에서는 <b>Target(종속변수)을 직접 지정</b>해야 모델이 무엇을 예측할지 압니다. MEDV를 Target 칸으로 옮기고, 나머지 13개는 Features에 둡니다.</p>
+<figure class="panel soft" style="margin:10px 0;text-align:center"><a href="images/orange-regression/02-select-columns-medv-target.png" target="_blank" rel="noopener"><img src="images/orange-regression/02-select-columns-medv-target.png" alt="Select Columns에서 MEDV를 Target으로 지정하는 화면" style="max-width:100%;height:auto;border-radius:10px;border:1px solid #dde6f2"></a></figure>
+<div class="notebox">분류(이미지 cat/dog)와의 차이 — Target이 <b>범주</b>면 분류, <b>숫자</b>면 회귀입니다. 같은 Orange 캔버스라도 Target 종류에 따라 쓸 수 있는 모델과 평가 지표가 바뀝니다.</div>
+`},
+{sec:2,name:'모델 7개 비교',html:`
+<span class="kicker">STEP 03 · 영상 약 12분</span>
+<h2>Test and Score — 회귀 모델 일곱 개를 한 번에</h2>
+<div class="flow-wrap"><div class="flow">
+  <div class="wnode">File<small>House 학습데이터</small></div><span class="warr">→</span>
+  <div class="wnode">Select Columns<small>Target = MEDV</small></div><span class="warr">→</span>
+  <div class="wnode model">Linear Regression · SVM<br>Neural Network · Tree<br>AdaBoost · Gradient Boosting<br>Random Forest</div><span class="warr">→</span>
+  <div class="wnode eval">Test and Score</div><span class="warr">→</span>
+  <div class="wnode eval">Feature Importance</div>
+</div></div>
+<figure class="panel soft" style="margin:10px 0;text-align:center"><a href="images/orange-regression/03-test-and-score-models.png" target="_blank" rel="noopener"><img src="images/orange-regression/03-test-and-score-models.png" alt="Test and Score에서 7개 회귀 모델을 MSE RMSE MAE MAPE R2로 비교한 화면" style="max-width:100%;height:auto;border-radius:10px;border:1px solid #dde6f2"></a></figure>
+<div class="notebox">「Stratification is ignored for regression」 경고 — 층화 샘플링은 <b>분류에서만</b> 쓰는 옵션이라 회귀에서는 무시된다는 뜻입니다. 오류가 아니니 그대로 진행합니다.</div>
+`},
+{sec:3,name:'오류 지표 읽기',html:`
+<span class="kicker">STEP 04 · 영상 14분</span>
+<h2>얼마나 틀렸나 — MAE · MSE · RMSE</h2>
+<div class="g2">
+  <div class="panel amber"><h3>MAE</h3><p>예측값 − 실제값의 <b>절댓값 평균</b>. 「평균적으로 이만큼 틀린다」 — 가장 읽기 쉽다.</p></div>
+  <div class="panel amber"><h3>MSE</h3><p>차이를 <b>제곱해 평균</b>. 크게 틀린 것에 벌점이 커진다.</p></div>
+  <div class="panel amber"><h3>RMSE</h3><p>MSE의 <b>제곱근</b> — 원래 단위(천 달러)로 돌아와 해석이 쉽다.</p></div>
+  <div class="panel violet"><h3>읽는 법</h3><p>MAE · MSE · RMSE는 <b>작을수록 좋다</b>. 모델끼리 비교할 때 같은 데이터 · 같은 검증 방식이어야 공정하다.</p></div>
+</div>
+<figure class="panel soft" style="margin:10px 0;text-align:center"><a href="images/orange-regression/04-error-metrics-basic.png" target="_blank" rel="noopener"><img src="images/orange-regression/04-error-metrics-basic.png" alt="회귀 모델 오류 지표 이름 정리 화면" style="max-width:100%;height:auto;border-radius:10px;border:1px solid #dde6f2"></a></figure>
+<figure class="panel soft" style="margin:10px 0;text-align:center"><a href="images/orange-regression/07-error-metrics-summary.png" target="_blank" rel="noopener"><img src="images/orange-regression/07-error-metrics-summary.png" alt="MAE MSE RMSE R2 정의 정리 화면" style="max-width:100%;height:auto;border-radius:10px;border:1px solid #dde6f2"></a></figure>
+`},
+{sec:3,name:'R² 해석',html:`
+<span class="kicker">STEP 05 · 정리</span>
+<h2>얼마나 잘 설명하나 — R²(결정계수)</h2>
+<div class="g2">
+  <div class="panel mint"><h3>R² = 1</h3><p>완벽한 예측</p></div>
+  <div class="panel"><h3>R² = 0</h3><p>전혀 예측하지 못함(평균만 쓴 것과 같음)</p></div>
+  <div class="panel blue"><h3>0 &lt; R² &lt; 1</h3><p>일부만 설명 — 예: <b>R² = 0.7</b> → 집값 변화의 70%를 설명, 30%는 오차</p></div>
+  <div class="panel violet"><h3>읽는 법</h3><p>R²는 <b>클수록 좋다</b>. RMSE는 작고 R²는 큰 모델이 가장 나은 모델.</p></div>
+</div>
+<figure class="panel soft" style="margin:10px 0;text-align:center"><a href="images/orange-regression/06-r-squared-explained.png" target="_blank" rel="noopener"><img src="images/orange-regression/06-r-squared-explained.png" alt="R제곱 결정계수 해석 화면" style="max-width:100%;height:auto;border-radius:10px;border:1px solid #dde6f2"></a></figure>
+`},
+{sec:3,name:'중요한 변수',html:`
+<span class="kicker">STEP 06 · 영상 24분</span>
+<h2>Feature Importance — 집값을 가장 크게 흔드는 변수</h2>
+<p class="lead">변수를 하나씩 섞었을 때 <b>R²가 얼마나 떨어지나(Decrease in R²)</b>로 중요도를 잽니다. 많이 떨어질수록 중요한 변수입니다.</p>
+<figure class="panel soft" style="margin:10px 0;text-align:center"><a href="images/orange-regression/05-feature-importance-lstat.png" target="_blank" rel="noopener"><img src="images/orange-regression/05-feature-importance-lstat.png" alt="Feature Importance에서 LSTAT RM DIS CRIM 순으로 중요한 화면" style="max-width:100%;height:auto;border-radius:10px;border:1px solid #dde6f2"></a></figure>
+<div class="steps">
+  <div class="step"><b>1위 LSTAT — 저소득층 비율</b><span>비율이 높을수록 집값이 낮아지는 가장 강한 변수</span></div>
+  <div class="step"><b>2위 RM — 방 개수</b><span>방이 많을수록 집값이 높다</span></div>
+  <div class="step"><b>3 · 4위 DIS · CRIM</b><span>고용센터까지 거리, 범죄율</span></div>
+</div>
+`},
+{sec:4,name:'한눈에 복습',html:`
+<span class="kicker">REVIEW</span>
+<h2>한눈에 복습하기</h2>
+<div class="quizbox">
+  <p class="qtitle">Q1. 회귀(Regression)가 예측하는 것은?</p>
+  <div class="opts" data-q="1">
+    <button class="opt" data-c="0">고양이인지 개인지(범주)</button>
+    <button class="opt" data-c="1">집값 같은 숫자(연속형 값)</button>
+    <button class="opt" data-c="0">비슷한 것끼리의 묶음</button>
+  </div>
+  <div class="qans" id="ans1"><b>정답: 숫자(연속형 값).</b> 범주는 분류, 묶음은 군집(비지도)입니다.</div>
+</div>
+<div class="quizbox">
+  <p class="qtitle">Q2. Orange에서 MEDV를 맞힐 값으로 지정하는 위젯은?</p>
+  <div class="opts" data-q="2">
+    <button class="opt" data-c="1">Select Columns(Target)</button>
+    <button class="opt" data-c="0">Test and Score</button>
+    <button class="opt" data-c="0">Feature Importance</button>
+  </div>
+  <div class="qans" id="ans2"><b>정답: Select Columns.</b> MEDV를 Target 칸으로 옮겨야 모델이 무엇을 예측할지 압니다.</div>
+</div>
+<div class="quizbox">
+  <p class="qtitle">Q3. 가장 좋은 회귀 모델은?</p>
+  <div class="opts" data-q="3">
+    <button class="opt" data-c="0">RMSE가 크고 R²가 작다</button>
+    <button class="opt" data-c="1">RMSE가 작고 R²가 크다</button>
+    <button class="opt" data-c="0">MAE와 R²가 모두 크다</button>
+  </div>
+  <div class="qans" id="ans3"><b>정답: RMSE ↓ · R² ↑.</b> 오류 지표는 작을수록, R²는 클수록 좋습니다.</div>
+</div>
+<div class="quizbox">
+  <p class="qtitle">Q4. Boston House에서 집값에 가장 중요한 변수로 나온 것은?</p>
+  <div class="opts" data-q="4">
+    <button class="opt" data-c="1">LSTAT(저소득층 비율)</button>
+    <button class="opt" data-c="0">CHAS(강 인접 여부)</button>
+    <button class="opt" data-c="0">ZN(주거지 비율)</button>
+  </div>
+  <div class="qans" id="ans4"><b>정답: LSTAT.</b> Feature Importance에서 R² 감소폭이 가장 컸습니다(다음은 RM · DIS · CRIM).</div>
+</div>
+`},
+{sec:4,name:'출처 · 이어 보기',html:`
+<span class="kicker">SOURCE · NEXT</span>
+<h2>오늘 실습 자료 출처와 이어 보기</h2>
+<figure class="panel soft" style="margin:10px 0;text-align:center"><a href="images/orange-regression/08-data-source-links.png" target="_blank" rel="noopener"><img src="images/orange-regression/08-data-source-links.png" alt="Orange 위젯 목록과 내려받기 출처 화면" style="max-width:100%;height:auto;border-radius:10px;border:1px solid #dde6f2"></a></figure>
+<p class="lead">출처 — <a href="https://orangedatamining.com/widget-catalog/" target="_blank" rel="noopener">Orange 위젯 목록 ↗</a> · <a href="https://orangedatamining.com/download/" target="_blank" rel="noopener">Orange 내려받기 ↗</a>. 세종대 「빅데이터와 인공지능 마케팅 2」 Orange 회귀분석 실습 영상을 관광빅데이터분석 수업용으로 재구성했습니다.</p>
+<figure class="panel soft" style="margin:10px 0;text-align:center"><a href="images/orange-regression/09-image-embedding-bonus.png" target="_blank" rel="noopener"><img src="images/orange-regression/09-image-embedding-bonus.png" alt="이미지 임베딩 모델 비교 보너스 화면" style="max-width:100%;height:auto;border-radius:10px;border:1px solid #dde6f2"></a></figure>
+<div class="notebox">이어 보기 — 지난 시간 <a href="orange-image-analytics-guide.html">Orange 이미지 분석</a>에서도 같은 <b>「여러 모델 → Test and Score로 비교 → 평가」</b> 패턴이 나옵니다. 분류든 회귀든 Orange 실습의 뼈대는 같습니다.</div>
+`}
+];
+const nav = [[],[],[],[],[]]; // grouped by sec for sidebar
+slides.forEach((s,i)=>nav[s.sec].push({i,name:s.name}));
+for(let g=0; g<5; g++){
+  const el = document.getElementById('nav'+g);
+  el.innerHTML = nav[g].map(item=>`<button type="button" class="navlink" data-i="${item.i}"><span class="n">${item.i+1}</span><span>${item.name}</span></button>`).join('');
+}
+const stage = document.getElementById('stage');
+let cur = 0;
+function render(){
+  stage.innerHTML = `<section class="slide active">${slides[cur].html}</section>`;
+  document.getElementById('topTitle').textContent = slides[cur].name;
+  document.getElementById('pagenum').textContent = String(cur+1).padStart(2,'0')+' / '+slides.length;
+  document.getElementById('progressbar').style.width = ((cur+1)/slides.length*100)+'%';
+  document.querySelectorAll('.navlink').forEach(b=>b.classList.toggle('active', Number(b.dataset.i)===cur));
+  document.getElementById('prev').disabled = cur===0;
+  document.getElementById('next').disabled = cur===slides.length-1;
+  stage.querySelectorAll('.opts').forEach(group=>{
+    const q = group.dataset.q;
+    group.querySelectorAll('.opt').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        group.querySelectorAll('.opt').forEach(b=>b.classList.remove('correct','wrong'));
+        btn.classList.add(btn.dataset.c==='1' ? 'correct' : 'wrong');
+        document.getElementById('ans'+q).classList.add('show');
+      });
+    });
+  });
+  window.scrollTo({top:0,behavior:'instant'});
+}
+document.querySelectorAll('.navlink').forEach(b=>{}); // delegation below via re-render
+document.addEventListener('click', e=>{
+  const nl = e.target.closest('.navlink');
+  if(nl){ cur = Number(nl.dataset.i); render(); }
+});
+document.getElementById('prev').addEventListener('click',()=>{ if(cur>0){cur--;render();} });
+document.getElementById('next').addEventListener('click',()=>{ if(cur<slides.length-1){cur++;render();} });
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowLeft' && cur>0){cur--;render();}
+  if(e.key==='ArrowRight' && cur<slides.length-1){cur++;render();}
+});
+let tx=0;
+document.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
+document.addEventListener('touchend',e=>{
+  const dx = e.changedTouches[0].clientX - tx;
+  if(dx>60 && cur>0){cur--;render();}
+  if(dx<-60 && cur<slides.length-1){cur++;render();}
+},{passive:true});
+render();
+</script>
+</body>
+</html>
