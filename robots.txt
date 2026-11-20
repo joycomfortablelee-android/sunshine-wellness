@@ -19,6 +19,7 @@ Disallow: /learn/trade-tourism-fnb-workbook.html
 Disallow: /learn/mice-management-mis-workbook.html
 Disallow: /learn/trade-tourism-mis-workbook.html
 Disallow: /learn/hr-management-14chapter-workbook.html
+Disallow: /learn/hr-management-kangseongchun-12chapter-workbook.html
 Disallow: /learn/trade-tourism-mgmt-workbook.html
 Disallow: /learn/mice-management-mgmt-workbook.html
 Disallow: /learn/hrm-sustainable-growth-3rd-toc.html

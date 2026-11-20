@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<title>인적자원관리 요약노트(강성춘 외)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
+<style>
+  :root { --ink:#14243A; --ink-2:#44566B; --ink-3:#7C8A99; --line:#DBE4EE; --navy:#17365D; --sky:#e8f1fb;
+    --gold:#FFF3B0; --ground:#F4F7FB; --ok:#1f5a3f; --ok-bg:#e3f4ea; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--ground); color:var(--ink); font-family:'Noto Sans KR',system-ui,sans-serif; font-size:14px; line-height:1.6; }
+  .sheet { max-width:1120px; margin:0 auto; padding:24px 16px 56px; display:grid; gap:20px; }
+  .eyebrow { display:inline-block; background:var(--gold); color:var(--navy); font-size:11px; font-weight:700; padding:2px 10px; border-radius:999px; }
+  h1 { margin:6px 0 4px; font-size:clamp(20px,3vw,26px); }
+  .lede { margin:0; color:var(--ink-2); }
+  .tools { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; align-items:center; }
+  .tools button { font:inherit; font-size:12px; font-weight:700; border:1px solid var(--navy); color:var(--navy); background:#fff; border-radius:999px; padding:3px 12px; cursor:pointer; }
+  .tools button:hover { background:var(--sky); }
+  .prog { margin-left:auto; font-size:12px; color:var(--ink-3); font-weight:700; }
+  .prog b { color:var(--navy); }
+
+  .grid-nav { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+  .grid-nav a { display:block; background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px 14px; text-decoration:none; color:var(--ink); border-top:3px solid var(--navy); }
+  .grid-nav a:hover { background:var(--sky); }
+  .grid-nav .n { font-size:11px; font-weight:800; color:var(--navy); }
+  .grid-nav .t { font-size:13px; font-weight:700; margin:3px 0 4px; }
+  .grid-nav .h { font-size:11px; color:var(--ink-3); }
+  @media (max-width:860px) { .grid-nav { grid-template-columns:repeat(2,1fr); } }
+
+  .jump { display:flex; flex-wrap:wrap; gap:5px; position:sticky; top:0; background:var(--ground); padding:8px 0; z-index:5; }
+  .jump a { font-size:11.5px; font-weight:700; color:var(--navy); background:#fff; border:1px solid var(--line); border-radius:7px; padding:4px 8px; text-decoration:none; }
+  .jump a:hover { background:var(--sky); }
+
+  .chap { background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 18px; scroll-margin-top:52px; }
+  .chap > .head { display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; border-bottom:2px solid var(--navy); padding-bottom:8px; margin-bottom:10px; }
+  .chap .num { font-size:20px; font-weight:800; color:var(--navy); }
+  .chap h2 { margin:0; font-size:16.5px; }
+  .chap .ov { margin:0 0 12px; font-size:12.5px; color:var(--ink-2); }
+
+  .block { margin-bottom:12px; }
+  .block h3 { margin:0 0 6px; font-size:12.5px; color:var(--navy); display:flex; align-items:center; gap:6px; }
+  .block h3::before { content:""; width:4px; height:4px; border-radius:50%; background:var(--navy); }
+
+  .outline { display:grid; gap:6px; }
+  .outline .sec { font-size:12.5px; }
+  .outline .sec b { color:var(--ink); }
+  .outline .sec ul { margin:3px 0 0; padding-left:16px; color:var(--ink-2); font-size:12px; }
+  .outline .sec li { margin:1px 0; }
+
+  .terms { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:7px; }
+  .term { background:var(--sky); border-radius:8px; padding:7px 10px; }
+  .term b { display:block; font-size:12px; color:var(--navy); }
+  .term span { font-size:11.5px; color:var(--ink-2); }
+
+  .checks { display:grid; gap:5px; }
+  .chk { display:flex; gap:7px; align-items:flex-start; font-size:12.5px; color:var(--ink-2); }
+  .chk input { margin-top:3px; transform:scale(1.1); flex-shrink:0; }
+  .chk.done span { color:var(--ok); text-decoration:line-through; text-decoration-color:var(--line); }
+
+  footer.note { font-size:11.5px; color:var(--ink-3); text-align:center; padding:6px 0 0; }
+
+  @media (max-width:860px) { .terms { grid-template-columns:1fr; } }
+  @media print { .jump, .tools, .grid-nav { display:none; } .chap { break-inside:avoid; } body { background:#fff; } }
+</style>
+</head>
+<body>
+<main class="sheet">
+  <header>
+    <span class="eyebrow">인적자원관리론 · 인적자원관리(역사·이론·제도·쟁점) 강성춘외</span>
+    <h1>인적자원관리 12장 요약노트(강성춘 외) — 핵심 구조 · 용어 · 셀프 체크</h1>
+    <p class="lede">인적자원관리의 역사부터 미시적 기초(AMO모델)·인재확보·선발·인재개발·이직관리·성과관리·보상관리(기본급·성과급)·전략적 인적자원관리·국제인적자원관리·노사관계까지, 강성춘·권기욱·김광현·노현탁·정선욱 「인적자원관리: 역사, 이론, 제도, 쟁점」(율곡출판사)의 체계를 12개 장으로 정리했습니다. 체크 표시는 이 브라우저에만 저장됩니다.</p>
+    <div class="tools">
+      <button type="button" onclick="window.print()">인쇄 / PDF</button>
+      <button type="button" id="resetAll">체크 전체 지우기</button>
+      <span class="prog">체크 <b id="progNum">0</b> / <span id="progMax">0</span></span>
+    </div>
+  </header>
+
+  <nav class="jump">
+    <a href="hr-management-14chapter-workbook.html" target="_blank" rel="noopener">다른 교재 — 인적자원관리[제4판](박성환 외) 14장 요약노트 ↗</a>
+    <a href="hrm-sustainable-growth-3rd-toc.html" target="_blank" rel="noopener">다른 교재 — 지속가능 성장을 위한 인적자원관리(3판) 목차 지도 ↗</a>
+    <a href="smart-hrm-visual-roadmap.html" target="_blank" rel="noopener">다른 교재 — 스마트 인적자원관리 4PART·13CHAPTER 지식 지도 ↗</a>
+    <a href="ai-hrm-integrated-lecture-guide.html" target="_blank" rel="noopener">AI 시대의 인적자원관리 — 통합 특강·수업·연구 가이드 ↗</a>
+    <a href="hrm-job-postings-14-remember.html" target="_blank" rel="noopener">리멤버 채용공고 12건 · 상세 8사례 — 15주 실무 강의안 ↗</a>
+    <a href="hrm-publy-162-cases.html" target="_blank" rel="noopener">퍼블리 HR 콘텐츠 162건 — 주제별 분류·강의 우선순위 ↗</a>
+    <a href="hrm-lean-hr-lesson-grid.html" target="_blank" rel="noopener">Lean HR과 조직성과 — 90분 수업 그리드(학술근거 검증·보상제도 비교·퀴즈) ↗</a>
+  </nav>
+
+  <nav class="grid-nav" id="gridNav"></nav>
+
+  <nav class="jump" id="jump"></nav>
+
+  <div id="chapters"></div>
+
+  <footer class="note">강성춘·권기욱·김광현·노현탁·정선욱, 「인적자원관리: 역사, 이론, 제도, 쟁점」(율곡출판사) 강의자료 기반 학습용 요약 — 인적자원관리론 자습용</footer>
+</main>
+
+<script>
+const CHAPTERS = [
+{num:1, title:"인적자원관리의 역사",
+  ov:"인사관리→인적자원관리→사람경영의 세 시대 구분과 각 시대의 이론적 기반(테일러리즘·호손실험·전략적 HRM·자원기반이론·탤런트 매니지먼트), 미시적·거시적 분석수준의 차이를 다룬다.",
+  outline:[
+    ["인사관리의 시대(1910s~1970s)", ["테일러의 과학적 관리론 — 시간·동작연구를 통한 일의 단순화·표준화, 베들레헴 제철소 생산성 3.7배", "호손실험과 인간관계운동 — 호손효과, 비공식조직의 발견", "노사관계론의 대두와 행동과학·조직과학의 등장"]],
+    ["인적자원관리의 시대(1980s~1990s초)", ["일본 기업과의 경쟁력 격차 → 전략경영 관점의 대두", "전략적 인적자원관리(SHRM) — 외적(수직적)·내적(수평적) 적합성", "고몰입(High-Commitment) HRM의 7대 고용관행"]],
+    ["사람경영의 시대(1990s중반~현재)", ["자원기반이론(RBV)과 VRIO — 지속적 경쟁우위의 조건", "조직학습 — 활용(exploitation)과 탐험(exploration)의 양면성(ambidexterity)", "맥킨지 '인재전쟁'(1997) 이후의 탤런트 매니지먼트"]],
+    ["분석수준별 접근", ["미시적 HRM(개별 인사제도 중심) vs 거시적/전략적 HRM(시스템-전략-성과 연계)", "한국 기업은 두 접근의 전략적 참여가 아직 낮은 수준(WPS 2021)"]]
+  ],
+  terms:[
+    ["VRIO","가치성·희소성·비모방성·조직활용가능성을 모두 충족한 자원이 지속적 경쟁우위의 원천이 된다는 자원기반이론의 분석틀"],
+    ["호손효과(Hawthorne effect)","제3자의 관찰과 관심 자체가 생산성을 높인다는, 호손실험에서 발견된 현상"],
+    ["전략적 인적자원관리(SHRM)","조직 목표 달성을 위해 의도적으로 계획된 인적자원의 배치와 활동의 유형"],
+    ["탤런트 매니지먼트","맥킨지의 '인재전쟁' 보고서(1997) 이후 부각된, 핵심인재를 차별적으로 확보·육성·유지하는 관리방식"]
+  ],
+  checks:["인사관리·인적자원관리·사람경영 세 시대의 구분 기준과 특징을 설명할 수 있다","테일러의 과학적 관리론 4대 원칙과 호손실험의 발견을 설명할 수 있다","전략적 인적자원관리의 외적 적합성과 내적 적합성의 차이를 설명할 수 있다","VRIO의 네 가지 요건과 미시적·거시적 인적자원관리의 차이를 설명할 수 있다"]
+},
+{num:2, title:"미시적 인적자원관리의 기초",
+  ov:"AMO 모델(능력-동기-기회)을 토대로 직무성과의 다차원 구조, 직무설계·직무분석, 역량의 개념과 역량모델링, 동기·업무태도·조직공정성을 다룬다.",
+  outline:[
+    ["AMO 모델과 직무성과", ["HR제도(채용·평가·보상)→능력·동기·기회→직무성과로 이어지는 인과 흐름", "직무성과의 4차원 — 과업성과·맥락성과(OCB)·반생산적 업무행동(CWB)·적응적 성과"]],
+    ["직무", ["직무설계의 네 접근 — 기계론적·생물학적·지각적·동기부여적(허즈버그 이요인이론, 직무특성이론)", "능동적 직무설계 — 잡 크래프팅과 탈직무화", "직무분석의 5단계 절차(목적설정→배경검토→자료수집→검토분석→문서작성)"]],
+    ["역량과 동기", ["역량(competency) = KSAOs를 넘어 실제 행동으로 발현되는 특성(맥클리랜드)", "역량모델링 — 전문가패널·행동사건면접법·일반역량사전", "외재적·내재적 동기, 업무태도 4유형(만족·관여·몰입·열의), 조직공정성(분배·절차·상호작용)"]]
+  ],
+  terms:[
+    ["AMO 모델","능력(Ability)·동기(Motivation)·기회(Opportunity)가 HR제도와 직무성과를 매개한다는 모델"],
+    ["조직시민행동(OCB)","공식적 보상체계에 포함되지 않지만 조직의 효과적 기능을 촉진하는 자발적 행동(오건)"],
+    ["직무특성이론","해크먼과 올덤이 제시한, 핵심 직무특성이 심리적 상태를 거쳐 성과·만족에 이른다는 모델"],
+    ["잡 크래프팅(Job Crafting)","구성원이 직무의 과업·관계·의미를 스스로 조정하는 능동적 직무설계 행동"]
+  ],
+  checks:["AMO 모델의 세 구성요소와 각각에 대응하는 대표 HR 기능을 설명할 수 있다","직무성과의 네 가지 차원(과업·맥락·CWB·적응적 성과)을 구분할 수 있다","직무설계의 네 접근법과 잡 크래프팅의 개념을 설명할 수 있다","역량(competency)이 KSAOs와 어떻게 다른지, 분배·절차·상호작용 공정성의 차이를 설명할 수 있다"]
+},
+{num:3, title:"인재확보 및 모집",
+  ov:"채용(모집+선발+배치) 중 인재확보 전략(Make·Buy·Borrow)과 모집 활동을 다루며, 거래비용·자원기반·실물옵션이론과 신호이론·적합성(fit) 개념을 중심으로 설명한다.",
+  outline:[
+    ["인재확보 전략", ["내부채용(Make)·외부영입(Buy)·외부인력활용(Borrow) 세 축", "이론적 기반 — 거래비용이론(효율성)·자원기반이론(경쟁우위)·실물옵션이론(유연성)", "내부채용 vs 외부영입의 장단점과 적합 직무 비교"]],
+    ["모집", ["모집 수단 — 직접/간접 × 전통/디지털의 2x2 분류", "신호이론·기업평판·고용브랜드가 지원자 유인의 핵심 기제"]],
+    ["모집 활동", ["적합성(fit) — 개인-직무/개인-조직, 보충적/보완적 적합성", "개방형 모집 vs 맞춤형 모집의 장단점", "모집 영향요인 5개 모델(Chapman et al.)과 현실적 직무소개(RJP)"]]
+  ],
+  terms:[
+    ["Make·Buy·Borrow","내부 육성(Make)·외부 영입(Buy)·외부 인력 활용(Borrow)으로 구분되는 인재확보 전략의 세 축"],
+    ["신호이론(Signaling Theory)","정보 비대칭 상황에서 조직이 보내는 신호가 지원자의 판단·행동에 영향을 미친다는 이론(Spence)"],
+    ["개인-직무 적합성 vs 개인-조직 적합성","직무 요구사항과 개인 KSA의 일치 vs 조직문화·가치와 개인 성향의 일치"],
+    ["현실적 직무소개(RJP)","지원자에게 직무의 긍정·부정적 측면을 있는 그대로 전달해 자기선발과 기대일치를 촉진하는 기법"]
+  ],
+  checks:["채용(staffing)을 구성하는 모집·선발·배치의 개념을 설명할 수 있다","거래비용·자원기반·실물옵션이론이 인재확보 전략에 주는 시사점을 설명할 수 있다","내부 채용과 외부 영입의 핵심 장단점을 비교할 수 있다","개인-직무 적합성과 개인-조직 적합성, 개방형·맞춤형 모집의 차이를 설명할 수 있다"]
+},
+{num:4, title:"선발",
+  ov:"선발 도구를 평가하는 다섯 가지 기준(타당성·신뢰성·효용성·적법성과 공정성·수용성)과 서류심사·선발검사·면접·평판조회의 절차, 다단계·보상적·혼합 선발 의사결정 방식을 다룬다.",
+  outline:[
+    ["선발 도구의 평가 기준", ["타당성(내용·기준·구성 타당성)과 신뢰성(재검사·동형검사·반분·평가자간 방법)", "효용성(경제적 가치)·적법성과 공정성(법적 요건·절차적 공정)·수용성(표면타당도)"]],
+    ["선발 절차 및 도구", ["서류심사(이력서·자기소개서·포트폴리오, 블라인드 채용)", "선발검사 비교 — 인지능력·성격·상황판단·신체능력·정직성·직무표본검사, 평가센터", "면접(구조화 수준·질문구성·참여형태)과 평판조회"]],
+    ["선발 의사결정", ["다단계·보상적·혼합 방식의 원리와 장단점", "선발 오류의 사분면(True/False Positive/Negative) — 스타직무 vs 가디언직무", "채용제안과 AI 채용의 기회·과제"]]
+  ],
+  terms:[
+    ["구성 타당성","내용 타당성·기준 타당성을 모두 포함하는, 이론적 개념을 제대로 측정하는지에 대한 가장 포괄적인 타당성 개념"],
+    ["평가센터(Assessment Center)","서류함기법·리더리스 그룹토의·역할연기 등 여러 기법을 결합해 다수 평가자가 복수 지원자를 종합평가하는 선발 방법"],
+    ["다단계 선발 vs 보상적 선발","각 단계 최소기준 통과가 필수인 방식 vs 모든 항목 점수를 합산한 총점으로 결정하는 방식"],
+    ["스타 직무 vs 가디언 직무","잘못된 탈락(False Negative) 최소화가 중요한 직무 vs 잘못된 채용(False Positive) 최소화가 중요한 직무"]
+  ],
+  checks:["선발 도구의 다섯 가지 평가 기준을 각각 정의할 수 있다","타당성의 세 유형(내용·기준·구성)과 신뢰성의 차이를 설명할 수 있다","인지능력검사·성격검사·직무표본검사의 예측타당도와 장단점을 비교할 수 있다","다단계·보상적 선발 방식의 차이와 선발 오류의 네 유형을 스타·가디언 직무 관점에서 설명할 수 있다"]
+},
+{num:5, title:"인재개발",
+  ov:"인재개발(HRD)을 구성하는 교육훈련·개발(70-20-10)·경력개발·핵심인재관리 네 축을 인적자본이론·자원기반관점·AMO모델로 뒷받침해 설명한다.",
+  outline:[
+    ["교육훈련", ["요구분석 3단계(조직분석·직무분석·개인분석)", "콜브의 경험학습 사이클과 학습전이 4원리(실습기회·즉각피드백·행동모델링·현장적용지원)", "교육방법 비교(강의실·OJT·이러닝·시뮬레이션)와 커크패트릭 4단계 평가(반응·학습·행동·결과)"]],
+    ["개발", ["70-20-10 모델 — 경험(직무순환·도전과제·액션러닝)·관계(멘토링·코칭)·공식교육", "멘토링(지도받는 대상)과 코칭(스스로 답을 찾도록 지원)의 차이"]],
+    ["경력개발과 핵심인재관리", ["전통적 경력관(조직주도) → 현대적 경력관(개인주도) — 프로티언 경력·무경계 경력", "제너럴리스트 vs 스페셜리스트, 이중경력경로, 샤인의 경력닻 8유형", "GE 9-블록 매트릭스(성과×잠재력)와 승계계획"]]
+  ],
+  terms:[
+    ["70-20-10 모델","경험 70%·관계 20%·공식교육 10%로 구성된, 개발 경험의 비중을 보여주는 CCL의 프레임워크"],
+    ["프로티언 경력 vs 무경계 경력","자기주도적·가치지향적 경력관리(Hall) vs 단일 조직에 얽매이지 않는 이동성 기반 경력(Arthur)"],
+    ["경력닻(Career Anchors)","샤인이 제시한, 경력 선택의 기로에서 포기하지 않는 개인의 핵심가치·재능·욕구 8가지 유형"],
+    ["GE 9-블록 매트릭스","성과와 잠재력 두 축으로 핵심인재를 식별하는 매트릭스로, 승계계획과 연계해 육성한다"]
+  ],
+  checks:["교육훈련 요구분석의 3단계(조직·직무·개인분석)를 설명할 수 있다","70-20-10 모델의 구성요소와 시사점을 설명할 수 있다","프로티언 경력과 무경계 경력의 핵심 개념 차이를 설명할 수 있다","GE 9-블록 매트릭스의 두 축과 핵심인재 선발·승계계획의 연계를 설명할 수 있다"]
+},
+{num:6, title:"이직관리",
+  ov:"자발적·비자발적 이직, 순기능적·역기능적 이직의 유형을 구분하고, 자발적 이직을 설명하는 이론(푸시-풀·이직전개모형·직무배태성)과 비자발적 이직의 공정성 관리, 전략적 이직관리 방안을 다룬다.",
+  outline:[
+    ["이직의 유형", ["자발적 이직 vs 비자발적 이직", "순기능적 이직 vs 역기능적 이직 — 2x2 전략적 유형화"]],
+    ["자발적 이직 이론", ["초기 모형 — 푸시-풀 모형(March&Simon)·기대충족이론·이직 의사결정 과정모델(Mobley)", "이직전개모형(Lee&Mitchell) — 충격·스크립트·적합성에 따른 네 가지 경로", "직무배태성 이론(연결성·적합성·희생)과 이직전염 이론"]],
+    ["비자발적 이직과 전략적 관리", ["비자발적 이직 유형(징계해고·권고사직·정리해고·다운사이징)과 생존자 증후군", "절차·상호작용 공정성이 해고 수용도를 좌우", "이직 유형별·상황별 전략적 대응, 대퇴사에서 대잔류로의 최근 동향"]]
+  ],
+  terms:[
+    ["직무배태성(Job Embeddedness)","연결성·적합성·희생 세 요소가 높을수록 구성원을 조직에 머무르게 한다는 이론(Mitchell et al.)"],
+    ["이직전개모형","충격(shock)이라는 촉발사건을 계기로 네 가지 경로를 거쳐 이직이 결정된다는 모형(Lee&Mitchell)"],
+    ["생존자 증후군(Survivor Syndrome)","다운사이징에서 살아남은 구성원이 겪는 불안·죄책감·업무과부하"],
+    ["순기능적 이직 vs 역기능적 이직","조직성과에 긍정적 영향을 주는 이직(저성과자 퇴사 등) vs 핵심자산을 상실시키는 이직(고성과자 퇴사)"]
+  ],
+  checks:["자발적/비자발적, 순기능적/역기능적 이직의 2x2 유형화를 설명할 수 있다","이직전개모형의 충격과 스크립트 개념, 직무배태성의 세 구성요소를 설명할 수 있다","비자발적 이직에서 절차 공정성과 상호작용 공정성의 역할을 설명할 수 있다","이직 유형별 전략적 대응방안과 최적 이직률 개념을 설명할 수 있다"]
+},
+{num:7, title:"성과관리",
+  ov:"성과관리의 역사(책임과 개발 사이의 진자운동)와 성과관리·성과평가의 구분, 목표설정(MBO·OKR)과 평가방식·평가오류, 성과 피드백을 다룬다.",
+  outline:[
+    ["개념과 역사", ["인사관리시대(강제등급)→개발로의 선회(맥그리거 Y이론)→책임으로 회귀(GE 강제등급제)→애자일 성과관리(연례평가 폐지)", "성과관리(연중 순환 프로세스) ⊃ 성과평가(연1~2회 등급부여)", "전략적·관리적·개발적 세 가지 목적"]],
+    ["성과관리 프로세스", ["성과 정의 — 결핍(deficiency)과 오염(contamination)의 함정, 정량·정성 지표", "목표설정이론(Locke&Latham), 도전적 목표 vs 스트레치 목표, MBO vs OKR", "목표설정의 행태적 왜곡 — 래칫효과·대리효과·샌드배깅"]],
+    ["평가와 피드백", ["상대평가(강제배분) vs 절대평가, 다섯 가지 평가주체(상사·동료·부하·자기·다면)", "평가오류(후광효과·중심화경향 등)와 최소화 전략(보정회의 등)", "지지적·교정적 피드백과 5단계 면담 프로세스"]]
+  ],
+  terms:[
+    ["성과관리 vs 성과평가","목표설정·피드백·개발계획까지 아우르는 연중 순환 프로세스 vs 특정 시점의 과거 성과 측정·등급부여"],
+    ["목표설정이론(Locke&Latham)","구체적이고 도전적인 목표가 막연한 지시나 쉬운 목표보다 더 높은 성과를 이끈다는 이론"],
+    ["결핍과 오염","실제로 중요한 성과요소가 지표에서 누락된 상태(deficiency) vs 직무성과와 무관한 요소가 평가에 포함된 상태(contamination)"],
+    ["래칫효과(Ratchet Effect)","올해의 높은 성과가 내년 더 높은 목표로 이어질 것을 우려해 의도적으로 성과를 조절하는 현상"]
+  ],
+  checks:["성과관리와 성과평가의 차이를 예를 들어 설명할 수 있다","목표설정이론과 MBO·OKR의 핵심 차이를 설명할 수 있다","성과지표의 결핍·오염 개념과 평가오류(후광효과·대비오류 등)를 구분할 수 있다","지지적 피드백과 교정적 피드백의 효과적 전달방법을 설명할 수 있다"]
+},
+{num:8, title:"보상관리(1) 총보상관리 및 기본급 체계",
+  ov:"총체적 보상(직접·간접·비금전적)의 구성, 보상체계 설계의 3대 의사결정(보상수준·인센티브강도·보상분포), 연공급·직무급·직능급·역할급 기본급 체계를 다룬다.",
+  outline:[
+    ["총체적 보상", ["직접보상(기본급·수당·성과급)·간접보상(복리후생)·비금전적 보상", "보상의 근로자·기업 측 의미(생계수단·동기부여·전략적 메시지)"]],
+    ["보상체계 설계의 3대 의사결정", ["보상수준 전략 — 시장선도·매칭·시장하회", "인센티브 강도 — 기본급 대비 성과급 비중", "보상분포 — 수직적·수평적 급여격차(Pay Dispersion)"]],
+    ["기본급 체계", ["연공급(속인주의) vs 직무급(속직주의) — 급여-생산성 곡선, 직무평가 절차", "직능급·역할급 — 일본식 절충형 기본급 체계", "네 체계의 비교(속인적↔속직적 스펙트럼)"]]
+  ],
+  terms:[
+    ["총체적 보상(Total Reward)","고용관계를 전제로 지급되는 모든 금전적·비금전적 대가를 포괄하는 개념"],
+    ["인센티브 강도(Incentive Intensity)","기본급 대비 성과급의 상대적 비율로, 높을수록 위험회피 성향이 낮은 인재를 유인"],
+    ["연공급 vs 직무급","근속연수(시간)에 기반한 속인적 임금체계 vs 직무의 시장가치에 기반한 속직적 임금체계"],
+    ["직능급·역할급","연공급에서 직무급으로 전환하는 과정에서 일본 기업이 고안한 절충형 기본급 체계(각각 능력·역할 기준)"]
+  ],
+  checks:["총체적 보상의 세 가지 구성요소(직접·간접·비금전적)를 설명할 수 있다","보상수준 전략 세 가지(시장선도·매칭·하회)의 차이와 적합 상황을 설명할 수 있다","연공급과 직무급의 차이를 속인·속직 개념으로 설명할 수 있다","직능급과 역할급이 실제로 '연공급화'되는 한계를 설명할 수 있다"]
+},
+{num:9, title:"보상관리(2) 성과급과 비금전적 보상",
+  ov:"성과급의 이론적 토대(강화·기대·형평성·대리인·인지적평가이론)와 개인·집단 성과급, 주식기반 보상, 비금전적 보상을 다룬다.",
+  outline:[
+    ["성과급의 이론적 토대", ["성과연동형·변동적·위험내재형 보수(pay-for-performance)라는 정의", "다섯 가지 이론 — 강화이론·기대이론(기대감×도구성×유의성)·형평성이론·대리인이론·인지적평가/자기결정이론"]],
+    ["성과급 체계", ["개인 성과급(메리트페이·개수급·커미션·인센티브)과 무임승차자 문제가 있는 집단 성과급(팀인센티브·집단성과배분제·이익배분제)", "주식기반 보상 — 스톡옵션·스톡그랜트·RSU·PSU"]],
+    ["비금전적 보상", ["자율성과 도전적 직무, 성장기회, 인정(Recognition)이 내재적 동기를 보완"]]
+  ],
+  terms:[
+    ["기대이론(Vroom)","동기 = 기대감×도구성×유의성의 함수로 설명하는, 노력-성과-보상 인식이 동기를 결정한다는 이론"],
+    ["형평성이론(Equity Theory)","보상의 공정성에 대한 '인식'과 비교(준거대상)가 핵심이라는 이론으로, 과소보상이 과대보상보다 더 민감하게 반응됨"],
+    ["대리인 이론(Agency Theory)","소유자-대리인 간 정보비대칭에서 발생하는 대리인 비용을, 성과급이라는 대용지표로 통제한다는 이론"],
+    ["무임승차자(Free Rider) 문제","집단 성과급에서 충분히 기여하지 않은 구성원도 집단 보상을 함께 수령하는 문제"]
+  ],
+  checks:["성과급의 정의와 기본급과의 차이를 설명할 수 있다","기대이론에서 동기를 결정하는 세 가지 요소를 설명할 수 있다","개인 성과급과 집단 성과급의 대표적 장점과 한계를 서술할 수 있다","스톡옵션과 RSU의 차이, 비금전적 보상이 필요한 이론적 근거를 설명할 수 있다"]
+},
+{num:10, title:"전략적 인적자원관리",
+  ov:"SHRM의 세 가지 이론적 접근(보편적·상황적·구성형태적)과 영향요인→시스템→블랙박스→성과로 이어지는 SHRM 프로세스, HR 시스템의 내재화, HR 애널리틱스를 다룬다.",
+  outline:[
+    ["이론적 접근법", ["보편적 접근(Best Practice, Pfeffer의 고성과 HR 8대 관행)", "상황적 접근(외적 적합성) — 원가우위 vs 차별화 전략별 인사관리", "구성형태적 접근(내적 적합성) — HPWS, Miles&Snow 전략유형별 인사제도"]],
+    ["SHRM 프로세스와 실행", ["영향요인(외부환경·산업·경영전략 등 7가지)→HR시스템→블랙박스(인적·사회적·조직자본)→조직성과", "HRM 시스템의 강도(명확성·일관성·동일성)를 통한 내재화", "인사담당자의 4가지 역할(Ulrich) — 전략적동반자·변화주도자·관리전문가·직원옹호자"]],
+    ["HR 애널리틱스", ["기술적·예측적·처방적 애널리틱스로의 진화", "올바른 문제정의·이론적 사고·고객관점·정확성이 핵심 성공요인"]]
+  ],
+  terms:[
+    ["외적 적합성 vs 내적 적합성","인적자원관리와 사업전략 간의 연계(외적) vs 인사제도 간의 상호보완적 일관성(내적)"],
+    ["고성과 작업시스템(HPWS)","능력·동기·기회를 높이는 인사제도들의 결합으로, 구성형태적 접근의 대표 사례"],
+    ["HRM 시스템의 강도","명확성·일관성·동일성으로 구성되는, 구성원이 인사제도의 목적을 얼마나 명확히 공유하는지의 정도(Bowen&Ostroff)"],
+    ["HR 애널리틱스","구성원의 역할을 계량화·분석·해석해 전략 실행과 가치창출에 활용하는 과정(Huselid)"]
+  ],
+  checks:["보편적·상황적·구성형태적 접근법의 핵심 차이를 설명할 수 있다","SHRM 프로세스에서 블랙박스의 세 가지 매개 자본을 설명할 수 있다","HRM 시스템의 강도를 결정하는 세 요소와 인사담당자의 4가지 역할을 설명할 수 있다","기술적·예측적·처방적 HR 애널리틱스의 차이를 설명할 수 있다"]
+},
+{num:11, title:"국제인적자원관리",
+  ov:"국제인적자원관리(IHRM)의 개념과 국내HRM과의 차이, 다섯 가지 이론적 기초(이문화·비교정치경제·제도·외국비용·주재원이론), EPRG 정책모델과 한국 기업의 과제를 다룬다.",
+  outline:[
+    ["이론적 기초", ["IHRM = 글로벌 통합과 현지 대응 사이의 균형 추구", "발전 4단계 — 주재원관리→현지화·이문화관리→전략적IHRM→디지털·ESG", "호프스테더 문화차원이론·트롬페나스 모델·GLOBE 연구", "자본주의 다양성론(LME vs CME), 제도이론, 외국비용이론(LOF)", "주재원 이론 — U/W커브, 문화적응 3차원모형, 지식이전"]],
+    ["주요 이슈", ["EPRG 정책모델(본국중심·현지중심·지역중심·세계중심)", "글로벌 인재확보·현지인력육성, ESG 연계(Green HRM·DEI)와 디지털전환"]],
+    ["한국 기업의 IHRM", ["과거 — 본사중심 접근, 주재원 기피 현상", "최근 개선노력 — 이문화교육·현지인력 위임·귀임 경력관리"]]
+  ],
+  terms:[
+    ["EPRG 모델","펄뮤터가 제시한 다국적기업의 글로벌 인사정책 유형 — 본국중심·현지중심·지역중심·세계중심 접근"],
+    ["호프스테더 문화차원이론","IBM 전세계 자회사 설문을 통해 국가 문화를 권력격차 등 여섯 차원으로 수치화한 최초의 정량적 비교틀"],
+    ["외국비용 이론(Liability of Foreignness)","외국 기업이라는 이유만으로 현지에서 겪는 추가비용과 불이익(Hymer)"],
+    ["U-커브·W-커브 이론","주재원의 이문화 적응(허니문→위기→회복→완숙) 및 귀국 후 재적응까지 포괄하는 적응 모형"]
+  ],
+  checks:["국제인적자원관리와 국내인적자원관리의 차이를 네 가지 이상 관점에서 설명할 수 있다","IHRM 발전과정 4단계를 시기순으로 설명할 수 있다","호프스테더 문화차원이론의 여섯 차원과 EPRG 모델 네 접근법을 설명할 수 있다","제도이론의 순응·균형·변화 개념과 한국 기업 IHRM의 과거 한계·최근 개선노력을 설명할 수 있다"]
+},
+{num:12, title:"노사관계",
+  ov:"노사관계를 보는 네 가지 접근법(HRM·주류경제학·비판적·제도주의)과 노동조합·사용자·정부라는 주체, 단체교섭·노동쟁의·경영참가라는 상호작용, 최근 변화흐름을 다룬다.",
+  outline:[
+    ["노사관계의 이해", ["집단 중심 분석과 경로의존적 발전이라는 두 특징", "네 가지 접근법 — HRM(협력적파트너)·경제학(시장상품)·비판적(착취대상)·제도주의(이해상충주체)", "시스템이론(던롭)과 전략적선택이론(코칸)"]],
+    ["노사관계의 주체", ["노동조합(산업별·직종별·기업별·일반)과 숍제도(클로즈드숍~오픈숍)", "노동조합의 3대 기능(경제적·공제적·정치사회적)과 프리만의 독점역할·소통역할", "사용자의 전략(수용과협력 vs 회피와배제)과 정부의 비교국가론적 역할"]],
+    ["상호작용과 최근 변화", ["단체교섭의 5대 기능과 분배적·통합적 교섭", "노동쟁의(파업·태업·직장폐쇄)의 정당성 요건", "경영참가 3유형(의사결정·자본·이익참가)", "새로운 행위자·신세대 보이스·AI 도입과 노사갈등"]]
+  ],
+  terms:[
+    ["제도주의적 노사관계 접근법","노사를 이해관계가 상충하는 주체로 보고, 노동조합·단체교섭·노동법을 통한 균형을 강조하는 접근"],
+    ["숍제도","클로즈드숍·유니언숍·에이전시숍·오픈숍으로 구분되는 노동조합 가입방식 제도"],
+    ["프리만의 독점역할·소통역할","시장독점적 교섭력으로 임금을 상승시키는 역할 vs 노동자 의견을 집단적으로 전달하는 창구 역할"],
+    ["분배적 교섭 vs 통합적 교섭","제로섬·몫 확대를 다투는 교섭 vs 비제로섬·공동이익을 추구하는 교섭"]
+  ],
+  checks:["노사관계를 이해하는 네 가지 접근법의 노동조합에 대한 입장 차이를 비교할 수 있다","노동조합의 형태별 구분과 숍제도 네 유형을 설명할 수 있다","단체교섭의 5대 기능과 분배적·통합적 교섭의 차이를 설명할 수 있다","경영참가의 3대 유형과 노사관계의 최근 변화 흐름을 설명할 수 있다"]
+}
+];
+
+const $ = id => document.getElementById(id);
+
+$('gridNav').innerHTML = CHAPTERS.map(c => `
+  <a href="#c${c.num}">
+    <div class="n">${c.num}장</div>
+    <div class="t">${c.title}</div>
+    <div class="h">${c.ov.slice(0, 30)}…</div>
+  </a>
+`).join('');
+
+$('jump').innerHTML = CHAPTERS.map(c => `<a href="#c${c.num}">${c.num}장</a>`).join('');
+
+$('chapters').innerHTML = CHAPTERS.map(c => `
+  <section class="chap" id="c${c.num}">
+    <div class="head">
+      <span class="num">${c.num}장</span>
+      <h2>${c.title}</h2>
+    </div>
+    <p class="ov">${c.ov}</p>
+    <div class="block">
+      <h3>핵심 구조</h3>
+      <div class="outline">
+        ${c.outline.map(([h, items]) => `<div class="sec"><b>${h}</b><ul>${items.map(i => `<li>${i}</li>`).join('')}</ul></div>`).join('')}
+      </div>
+    </div>
+    <div class="block">
+      <h3>꼭 기억할 용어</h3>
+      <div class="terms">
+        ${c.terms.map(([t, d]) => `<div class="term"><b>${t}</b><span>${d}</span></div>`).join('')}
+      </div>
+    </div>
+    <div class="block">
+      <h3>셀프 체크</h3>
+      <div class="checks">
+        ${c.checks.map((t, i) => `<label class="chk" data-id="c${c.num}_${i}"><input type="checkbox" class="cb"><span>${t}</span></label>`).join('')}
+      </div>
+    </div>
+  </section>
+`).join('');
+
+/* 체크 상태 — 이 브라우저에만(localStorage) */
+const KEY = 'hrManagementWorkbookKangSC_v1';
+function allBoxes() { return [...document.querySelectorAll('.cb')]; }
+function save() {
+  try { localStorage.setItem(KEY, JSON.stringify(allBoxes().map(b => b.checked))); } catch (e) {}
+}
+function load() {
+  let d = null; try { d = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) {}
+  if (!Array.isArray(d)) return;
+  allBoxes().forEach((b, i) => { if (d[i]) b.checked = true; });
+}
+function refresh() {
+  const boxes = allBoxes();
+  const n = boxes.filter(b => b.checked).length;
+  $('progNum').textContent = n;
+  $('progMax').textContent = boxes.length;
+  boxes.forEach(b => b.closest('.chk').classList.toggle('done', b.checked));
+}
+document.addEventListener('change', e => { if (e.target.classList.contains('cb')) { refresh(); save(); } });
+$('resetAll').addEventListener('click', () => {
+  if (!confirm('체크한 내용을 모두 지울까요?')) return;
+  try { localStorage.removeItem(KEY); } catch (e) {}
+  allBoxes().forEach(b => b.checked = false);
+  refresh();
+});
+load(); refresh();
+</script>
+</body>
+</html>
