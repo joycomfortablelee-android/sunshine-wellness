@@ -27,6 +27,42 @@
     .hmr-row .hmr-svg { width: 148px; flex: none; }
     .hmr-row .hmr-svg svg { width: 100%; height: auto; display: block; }
     @media (max-width: 760px) { .hmr-row { flex-wrap: wrap; } .hmr-row .hmr-svg { order: 3; width: 128px; margin: 4px auto 0; } }
+
+    /* ===== 파트 머리글 — tourism-venture.html과 같은 양식 ===== */
+    .learn-article .learn-part.pt-part {
+      display: grid; grid-template-columns: 56px minmax(0, 1fr);
+      align-items: stretch; gap: 0;
+      margin: 36px 0 16px; padding: 0; overflow: hidden;
+      border: 1px solid var(--pp-ln, var(--pp-ac)); border-radius: 10px;
+      background: var(--pp-bg); color: var(--pp-dk);
+      font-size: 17px; font-weight: 800; letter-spacing: -.3px;
+      box-shadow: 0 1px 0 rgba(16,32,48,.04);
+    }
+    .learn-article .learn-part.pt-part:first-of-type { margin-top: 10px; }
+    .learn-article .learn-part.pt-part .pt {
+      grid-column: 1; grid-row: 1 / span 2;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      background: var(--pp-ac); color: #fff; line-height: 1;
+    }
+    .learn-article .learn-part.pt-part .pt i { font-style: normal; font-size: 9px; font-weight: 700; letter-spacing: .12em; opacity: .78; margin-bottom: 3px; }
+    .learn-article .learn-part.pt-part .pt b { font-size: 24px; font-weight: 800; letter-spacing: -.02em; }
+    .learn-article .learn-part.pt-part.pp-x { --pp-ac:#66788a; --pp-bg:#f2f5f8; --pp-dk:#3f4d5a; --pp-ln:#d3dce4; }
+    .learn-article .learn-part.pt-part.pp-1 { --pp-ac:#c0392b; --pp-bg:#fbeeec; --pp-dk:#8c3b30; --pp-ln:#eec9c3; }
+    .learn-article .learn-part.pt-part.pp-2 { --pp-ac:#17365d; --pp-bg:#eef3f9; --pp-dk:#123054; --pp-ln:#c3d2e2; }
+    .learn-article .learn-part.pt-part.pp-3 { --pp-ac:#3B6259; --pp-bg:#eef4f1; --pp-dk:#234b41; --pp-ln:#c6d8d1; }
+    .learn-article .learn-part.pt-part.pp-4 { --pp-ac:#2563a8; --pp-bg:#eff5fa; --pp-dk:#1c4e8a; --pp-ln:#c3daee; }
+    .learn-article .learn-part.pt-part.pp-5 { --pp-ac:#8a5a17; --pp-bg:#fdf6ea; --pp-dk:#7a4e12; --pp-ln:#e8d3ae; }
+    .learn-article .learn-part.pt-part.pp-6 { --pp-ac:#5b3f7a; --pp-bg:#f4eff8; --pp-dk:#4a3363; --pp-ln:#d8cbe6; }
+    .learn-article .learn-part.pt-part.pp-7 { --pp-ac:#7a6417; --pp-bg:#fdf8e8; --pp-dk:#5c4a10; --pp-ln:#e3d79a; }
+    .learn-article .learn-part.pt-part .pt-ti { grid-column: 2; grid-row: 1; display: block; padding: 10px 15px 0; line-height: 1.35; }
+    .learn-article .learn-part.pt-part .pt-sub { grid-column: 2; grid-row: 2; display: block; padding: 4px 15px 10px; min-width: 0; font-size: 11.5px; font-weight: 500; line-height: 1.6; letter-spacing: -.2px; color: var(--pp-dk); opacity: .82; }
+    @media (max-width: 620px) {
+      .learn-article .learn-part.pt-part { grid-template-columns: 1fr; font-size: 15px; }
+      .learn-article .learn-part.pt-part .pt { grid-column: 1; grid-row: 1; flex-direction: row; justify-content: flex-start; gap: 7px; padding: 5px 14px; }
+      .learn-article .learn-part.pt-part .pt i { margin-bottom: 0; }
+      .learn-article .learn-part.pt-part .pt-ti { grid-column: 1; grid-row: 2; }
+      .learn-article .learn-part.pt-part .pt-sub { grid-column: 1; grid-row: 3; }
+    }
   </style>
 </head>
 <body class="mod-hotel">
@@ -55,6 +91,8 @@
       <p class="lead">제조업의 HRM은 '생산성을 높이는 사람 관리'에 가깝지만, 호텔·관광업의 HRM은 조금 다릅니다. 서비스는 만들어지는 순간 소비되고, 고객은 그 생산 과정을 직접 지켜봅니다. 그래서 직원이 곧 상품이자 브랜드가 됩니다.</p>
 
       <p class="lead" style="background:#fff7e6;border-left:4px solid #d98a00;padding:12px 16px;border-radius:8px;font-size:15px;">📋 <a href="gknu-attendance-grading-guide.html" target="_blank" rel="noopener"><strong>출석 · 지각 · 결석과 성적평가 안내</strong> — 학칙 제64~66조 원문 · 결석시수 1/4 계산기 · 3차시 연속수업 지각 사례 · 출석인정(공결) 절차 · 헤이영 전자출결 ↗</a><br /><span style="font-size:13px;color:#5b6b7b;">첫 시간에 함께 읽습니다. 15주 · 주 3시수 수업은 <b>12시수(4주) 결석부터 성적 불인정</b>입니다.</span></p>
+      <p class="learn-part">오리엔테이션 · 1주차</p>
+      <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">📑 <a href="hrm-job-postings-14-remember.html" target="_blank" rel="noopener"><strong>리멤버 채용공고 사례 — 15주 실무 강의안</strong> ↗</a> — 1주차 "HRM의 개념과 인사담당자 직무" 수업에서 상세 공고문 8건을 비교하며 시작합니다.</p>
       <p class="learn-part">호텔산업 강의자료 모음</p>
       <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">📚 <a href="hotel-industry-1-intro.html" target="_blank" rel="noopener"><strong>제1강 · 호스피탈리티와 호텔산업의 이해</strong> — 전체 강의자료(영상 · 슬라이드 · 퀴즈) 보기 ↗</a></p>
       <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">🏨 <a href="marriott-hotel-brand-strategy.html" target="_blank" rel="noopener"><strong>메리어트의 진짜 사업</strong> — 호텔 경영형태 · 브랜드 전략 수업 ↗</a></p>
@@ -63,17 +101,22 @@
       <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">🏨 <a href="hotel-industry-structure-lecture.html" target="_blank" rel="noopener"><strong>호텔 산업의 구조 변화와 운영 방식</strong> — 소유·위탁운영·프랜차이즈 통합 강의노트 ↗</a></p>
       <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">🏨 <a href="hotel-divestment-chaebol-2026.html" target="_blank" rel="noopener"><strong>대기업의 특급호텔 매각 — 왜 잘되는 호텔을 팔까? ↗</strong></a> · KT · DL · 롯데 거래 사례와 국내 대기업 10곳의 호텔 <b>소유 · 운영 구조</b>, 자산유동화 · Asset Light · 호텔 리츠 · 기업지배구조(노조)까지 14개 절로 묶은 심층 교안입니다. 토론 · 퀴즈 · 메모 · 인쇄 지원.</p>
 
-      <p class="learn-part">조직 · 인사관리 교재 요약노트</p>
-      <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">🏢 <a href="org-theory-14chapter-workbook.html" target="_blank" rel="noopener"><strong>조직론[제3판](임창희 외) 14장 요약노트</strong> — 핵심 구조 · 용어 · 셀프 체크 ↗</a></p>
-      <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">🧑‍🤝‍🧑 <a href="org-behavior-13chapter-workbook.html" target="_blank" rel="noopener"><strong>조직행동론(김경수·김공수) 13장 요약노트</strong> — 핵심 구조 · 용어 · 셀프 체크 ↗</a></p>
-      <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">📇 <a href="hr-management-14chapter-workbook.html" target="_blank" rel="noopener"><strong>인적자원관리(박성환외 4판) 14장 요약노트</strong> ↗</a></p>
-      <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">🗺️ <a href="hrm-sustainable-growth-3rd-toc.html" target="_blank" rel="noopener"><strong>지속가능 성장을 위한 인적자원관리(3판) 목차 지도</strong> ↗</a></p>
-      <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">🧭 <a href="smart-hrm-visual-roadmap.html" target="_blank" rel="noopener"><strong>스마트 인적자원관리 4PART·13CHAPTER 지식 지도</strong> ↗</a></p>
-      <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">📑 <a href="hrm-job-postings-14-remember.html" target="_blank" rel="noopener"><strong>리멤버 채용공고 사례 — 15주 실무 강의안</strong> ↗</a></p>
-      <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">🗂️ <a href="hrm-publy-162-cases.html" target="_blank" rel="noopener"><strong>퍼블리 HR 콘텐츠 162건 — 주제별 분류·강의 우선순위</strong> ↗</a></p>
-      <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">📇 <a href="hr-management-kangseongchun-12chapter-workbook.html" target="_blank" rel="noopener"><strong>인적자원관리(강성춘외) 12장 요약노트</strong> ↗</a> — 역사·이론·제도·쟁점 중심의 또 다른 교재. AMO모델·직무배태성·IHRM 등 이론적 깊이가 더해진 체계입니다.</p>
+      <p class="learn-part">📌 이번 학기 주교재 — 교재 소개 · 목차</p>
+      <p class="lead" style="background:#fff7e6;border-left:4px solid #d98a00;padding:12px 16px;border-radius:8px;font-size:15px;">🗺️ <a href="hrm-sustainable-growth-3rd-toc.html" target="_blank" rel="noopener"><strong>지속가능 성장을 위한 인적자원관리(3판)</strong> — 목차 지도(5부 12장) ↗</a></p>
+      <p class="lead" style="background:#fff7e6;border-left:4px solid #d98a00;padding:12px 16px;border-radius:8px;font-size:15px;">🧭 <a href="smart-hrm-visual-roadmap.html" target="_blank" rel="noopener"><strong>스마트 인적자원관리</strong> — 4PART·13CHAPTER 인터랙티브 지식 지도 ↗</a></p>
 
-      <p class="learn-part" id="basics">00 · HRM 핵심기능 다섯 가지</p>
+      <p class="learn-part">수업에서 바로 쓰는 우리 소스</p>
+      <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">🤖 <a href="ai-hrm-integrated-lecture-guide.html" target="_blank" rel="noopener"><strong>AI 시대의 인적자원관리 — 통합 특강·수업·연구 가이드</strong> ↗</a></p>
+      <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">🗂️ <a href="hrm-publy-162-cases.html" target="_blank" rel="noopener"><strong>퍼블리 HR 콘텐츠 162건 — 주제별 분류·강의 우선순위</strong> ↗</a></p>
+      <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">⚙️ <a href="hrm-lean-hr-lesson-grid.html" target="_blank" rel="noopener"><strong>Lean HR과 조직성과</strong> — 90분 수업 그리드(학술근거 검증·보상제도 비교·퀴즈) ↗</a></p>
+
+      <p class="learn-part">그 외 참고 교재 요약노트(보조)</p>
+      <p class="lead" style="background:#f7f9fb;border-left:4px solid #94a3b8;padding:12px 16px;border-radius:8px;font-size:15px;">📇 <a href="hr-management-14chapter-workbook.html" target="_blank" rel="noopener"><strong>인적자원관리(박성환외 4판) 14장 요약노트</strong> ↗</a></p>
+      <p class="lead" style="background:#f7f9fb;border-left:4px solid #94a3b8;padding:12px 16px;border-radius:8px;font-size:15px;">📇 <a href="hr-management-kangseongchun-12chapter-workbook.html" target="_blank" rel="noopener"><strong>인적자원관리(강성춘외) 12장 요약노트</strong> ↗</a> — 역사·이론·제도·쟁점 중심의 또 다른 교재. AMO모델·직무배태성·IHRM 등 이론적 깊이가 더해진 체계입니다.</p>
+      <p class="lead" style="background:#f7f9fb;border-left:4px solid #94a3b8;padding:12px 16px;border-radius:8px;font-size:15px;">🏢 <a href="org-theory-14chapter-workbook.html" target="_blank" rel="noopener"><strong>조직론[제3판](임창희 외) 14장 요약노트</strong> — 핵심 구조 · 용어 · 셀프 체크 ↗</a></p>
+      <p class="lead" style="background:#f7f9fb;border-left:4px solid #94a3b8;padding:12px 16px;border-radius:8px;font-size:15px;">🧑‍🤝‍🧑 <a href="org-behavior-13chapter-workbook.html" target="_blank" rel="noopener"><strong>조직행동론(김경수·김공수) 13장 요약노트</strong> — 핵심 구조 · 용어 · 셀프 체크 ↗</a></p>
+
+      <p class="learn-part pt-part pp-x" id="basics"><span class="pt"><i>파트</i><b>00</b></span><span class="pt-ti">HRM 핵심기능 다섯 가지</span><span class="pt-sub">확보 · 개발 · 평가 · 보상 · 유지 — HRM을 다섯 동사로 압축합니다</span></p>
       <p>인적자원관리(HRM)란 조직의 목표를 이루기 위해 사람(인적자원)을 <strong>확보 · 개발 · 평가 · 보상 · 유지</strong>하는 경영 활동입니다. <a href="https://ko.wikipedia.org/wiki/인적자원관리" target="_blank" rel="noopener">위키백과 · 인적자원관리 ↗</a></p>
       <div style="display:flex;flex-wrap:wrap;gap:7px;margin:4px 0 16px;">
         <span style="display:inline-flex;align-items:center;gap:5px;background:#f7f9fb;border:1px solid #dde3e8;border-radius:999px;padding:5px 11px;font-size:12.5px;color:#374151;">📋 임용(모집 · 배치)</span>
@@ -175,7 +218,7 @@
       </div>
       <p class="mini-note">서문·특징 등 교재 세부 서지정보는 담당 교수님 확인 후 채워 넣어 주세요.</p>
 
-      <p class="learn-part">01 · 왜 환대산업에서 사람이 자원인가</p>
+      <p class="learn-part pt-part pp-1"><span class="pt"><i>파트</i><b>01</b></span><span class="pt-ti">왜 환대산업에서 사람이 자원인가</span><span class="pt-sub">서비스의 세 특성(무형성 · 비분리성 · 이질성)이 사람을 핵심 변수로 만듭니다</span></p>
       <p>서비스의 세 가지 특성 — <strong>무형성(만질 수 없음), 비분리성(생산과 소비가 동시에 일어남), 이질성(사람마다 품질이 달라짐)</strong> — 은 모두 '사람'을 핵심 변수로 만듭니다.</p>
       <ul>
         <li>같은 매뉴얼로 교육받아도, 응대하는 직원에 따라 고객이 느끼는 서비스 품질이 달라집니다.</li>
@@ -187,14 +230,14 @@
       ▶ <a href="https://youtube.com/shorts/gdrWB6LvYEU" target="_blank" rel="noopener">「인바디 회사의 연매출이 궁금한 기안84」 (예능한바퀴) ↗</a><br />
       <span class="mini-note">보고 나서 — 이 CEO의 고민은 사람(직원 · 조직)과 관련된 것인가? 경영자가 구성원의 아이디어를 듣는 태도가 HRM의 어느 기능과 이어질까?</span></p>
 
-      <p class="learn-part">02 · 감정노동과 고객접점(MOT)</p>
+      <p class="learn-part pt-part pp-2"><span class="pt"><i>파트</i><b>02</b></span><span class="pt-ti">감정노동과 고객접점(MOT)</span><span class="pt-sub">진실의 순간(MOT)과 감정노동, 소진(burnout) 관리</span></p>
       <ul>
         <li><strong>진실의 순간(Moment of Truth, MOT)</strong> — 고객이 직원과 마주치는 짧은 순간들이 전체 서비스 경험의 인상을 결정한다는 개념.</li>
         <li><strong>감정노동(Emotional Labor)</strong> — 실제 감정과 무관하게 정해진 표정·태도를 유지해야 하는 노동. 호텔·항공·여행업은 감정노동 강도가 높은 대표 업종으로 꼽힙니다.</li>
         <li>감정노동자 보호는 산업안전보건법 등 제도의 영역이기도 하며, 조직 차원의 소진(burnout) 관리와 함께 다뤄야 합니다.</li>
       </ul>
 
-      <p class="learn-part" id="recruit-training">03 · 채용과 교육훈련</p>
+      <p class="learn-part pt-part pp-3" id="recruit-training"><span class="pt"><i>파트</i><b>03</b></span><span class="pt-ti">채용과 교육훈련</span><span class="pt-sub">직무기술서 · 온보딩 · OJT · 서비스 표준(SOP)</span></p>
       <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">💼 <a href="hotel-career-guide-beyond-frontdesk.html" target="_blank" rel="noopener"><strong>호텔 취업 진로 가이드 — 프론트 밖에도 기회는 많습니다</strong></a> — 마케팅·연회MICE·수익관리·예약관리·인사(HR) 5개 직무 소개, 성향별 적성 찾기, 채용사이트 바로가기 ↗</p>
       <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">🗺️ <a href="hotel-department-interactive-map.html" target="_blank" rel="noopener"><strong>호텔 12개 부서 인터랙티브 맵</strong></a> — 아이콘을 클릭해 기획·영업 4개 · 운영·서비스 4개 · 경영지원 4개 부서의 업무 · 고객 대면도 · 준비 역량 · 협업 관계를 한눈에 탐색 ↗<br /><span style="font-size:13px;color:#5b6b7b;">위 두 자료의 원본 상담지 — <a href="assets/hotel-career-guide-beyond-frontdesk.docx" download="호텔_프론트_외_직무_진로상담_통합가이드.docx">호텔 진로상담 통합가이드 ⤓ Word로 내려받기</a></span></p>
       <ul>
@@ -207,14 +250,14 @@
       ▶ <a href="https://youtube.com/shorts/7UI-P9QRPcI" target="_blank" rel="noopener">「솔비 엄마를 통해 알 수 있는 솔비 인성이 바른 이유」 (예능바다) ↗</a><br />
       <span class="mini-note">보고 나서 — 고객을 대하는 직원의 사회성은 면접에서 어떻게 확인할 수 있을까? 교육훈련으로 기를 수 있는 부분과 처음부터 뽑아야 하는 부분은 무엇일까?</span></p>
 
-      <p class="learn-part" id="performance-reward">04 · 성과관리와 보상</p>
+      <p class="learn-part pt-part pp-4" id="performance-reward"><span class="pt"><i>파트</i><b>04</b></span><span class="pt-ti">성과관리와 보상</span><span class="pt-sub">금전적 · 비금전적 보상과 주관적 성과 측정의 어려움</span></p>
       <ul>
         <li><strong>금전적 보상</strong> — 기본급·인센티브·팁(국가·업장에 따라 제도가 다름).</li>
         <li><strong>비금전적 보상</strong> — 우수직원 표창, 승진 경로, 교육 기회 제공.</li>
         <li><strong>평가의 어려움</strong> — 고객 만족이라는 '주관적 성과'를 어떻게 공정하게 측정할지가 호텔 HRM의 오래된 과제입니다.</li>
       </ul>
 
-      <p class="learn-part" id="retention">05 · 고이직률과 리텐션</p>
+      <p class="learn-part pt-part pp-5" id="retention"><span class="pt"><i>파트</i><b>05</b></span><span class="pt-ti">고이직률과 리텐션</span><span class="pt-sub">호텔 · 외식업 고이직률의 원인과 리텐션 전략</span></p>
       <p>호텔·외식업은 전통적으로 이직률이 높은 산업입니다. 교대근무·낮은 초임·감정노동 강도가 주요 원인으로 꼽힙니다.</p>
       <ul>
         <li><strong>리텐션 전략</strong> — 경력 개발 경로 제시, 유연 근무, 심리적 지지 체계 마련.</li>
@@ -224,11 +267,11 @@
       ▶ <a href="https://youtube.com/shorts/lX8ptvG0gJA" target="_blank" rel="noopener">「엔비디아 전 대표가 얘기하는 실제 젠슨황 성격」 (Turbo832 TV) ↗</a><br />
       <span class="mini-note">보고 나서 — 리더의 높은 기준은 직원을 붙잡는 힘일까, 떠나게 하는 이유일까? 호텔 총지배인이 이런 스타일이라면 이직률과 서비스 품질은 어떻게 달라질까?</span></p>
 
-      <p class="learn-part" id="labor-law">06 · 근로조건과 노동법</p>
+      <p class="learn-part pt-part pp-6" id="labor-law"><span class="pt"><i>파트</i><b>06</b></span><span class="pt-ti">근로조건과 노동법</span><span class="pt-sub">교대근무 · 주52시간제 등 환대산업 특유의 노동법 쟁점</span></p>
       <p class="lead" style="background:#fff7e6;border-left:4px solid #e0a106;padding:12px 16px;border-radius:8px;font-size:15px;">✍️ <strong>검수 요청</strong> — 이 모듈은 신설 과목의 초안 개요입니다. 주52시간제, 교대제 설계, 최신 노동법 적용 사례는 담당 교수님 확인 후 보강해 주세요.</p>
       <p>호텔은 365일 24시간 운영되는 업종 특성상 교대근무가 필수입니다. 주52시간제, 연장·휴일근로 수당, 야간근로자 보호 등 일반 제조업과 다른 방식으로 노동법을 적용해야 하는 지점들이 있습니다.</p>
 
-      <p class="learn-part" id="scholars">07 · 미국 대표 HRM 학자 — 누구부터 읽을까</p>
+      <p class="learn-part pt-part pp-7" id="scholars"><span class="pt"><i>파트</i><b>07</b></span><span class="pt-ti">미국 대표 HRM 학자 — 누구부터 읽을까</span><span class="pt-sub">Cappelli · Ulrich · Wright 등 선행연구를 찾을 때 시작할 이름들</span></p>
       <p>경제학의 맨큐처럼, 인적자원관리(HRM)에도 강의 · 이론 · 기업 실무를 함께 움직인 학자들이 있습니다. 보고서 · 논문의 선행연구를 찾을 때 이 이름에서 시작하면 길을 덜 잃습니다.</p>
       <table class="hrm-sch">
         <thead><tr><th>분야</th><th>학자 · 소속</th><th>무엇으로 유명한가</th><th>이럴 때 먼저</th></tr></thead>
