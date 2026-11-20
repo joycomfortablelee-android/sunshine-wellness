@@ -12,6 +12,52 @@
   <link rel="icon" href="data:," />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="learn.css?v=167" />
+  <style>
+  /* 파트 00 · 관광학원론 기초 지도 — tourism-venture.html 「파트 머리글」· 「장 지도」 스타일을 그대로 차용 (2026-11-20) */
+  .learn-article .learn-part.pt-part{display:grid;grid-template-columns:56px minmax(0,1fr);align-items:stretch;gap:0;margin:46px 0 18px;padding:0;overflow:hidden;border:1px solid var(--pp-ln,var(--pp-ac));border-radius:10px;background:var(--pp-bg);color:var(--pp-dk);font-size:19px;font-weight:800;letter-spacing:-.3px;box-shadow:0 1px 0 rgba(16,32,48,.04)}
+  .learn-article .learn-part.pt-part:first-of-type{margin-top:14px}
+  .learn-article .pt-div{display:flex;align-items:center;gap:14px;margin:52px 0 0;color:#8fa3b8}
+  .learn-article .pt-div::before,.learn-article .pt-div::after{content:"";flex:1;border-top:2px dashed #c3d2e2}
+  .learn-article .pt-div span{font-size:15px;line-height:1}
+  .learn-article .pt-div+.learn-part.pt-part{margin-top:14px}
+  .learn-article .learn-part.pt-part .pt{grid-column:1;grid-row:1/span 2;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--pp-ac);color:#fff;line-height:1}
+  .learn-article .learn-part.pt-part .pt i{font-style:normal;font-size:9px;font-weight:700;letter-spacing:.12em;opacity:.78;margin-bottom:3px}
+  .learn-article .learn-part.pt-part .pt b{font-size:26px;font-weight:800;letter-spacing:-.02em}
+  .learn-article .learn-part.pt-part.pp-x{--pp-ac:#66788a;--pp-bg:#f2f5f8;--pp-dk:#3f4d5a;--pp-ln:#d3dce4}
+  .learn-article .learn-part.pt-part .pt-ti{grid-column:2;grid-row:1;display:block;padding:11px 16px 0;line-height:1.35}
+  .learn-article .learn-part.pt-part .pt-sub{grid-column:2;grid-row:2;display:block;padding:5px 16px 11px;min-width:0;font-size:11.5px;font-weight:500;line-height:1.6;letter-spacing:-.2px;color:var(--pp-dk);opacity:.82}
+  .learn-article .learn-part.pt-part .pt-sub strong,.learn-article .learn-part.pt-part .pt-sub b{font-weight:800;opacity:1}
+  .learn-article .learn-part:target{scroll-margin-top:78px}
+  @media (max-width:620px){
+    .learn-article .learn-part.pt-part{grid-template-columns:1fr;font-size:16px}
+    .learn-article .learn-part.pt-part .pt{grid-column:1;grid-row:1;flex-direction:row;justify-content:flex-start;gap:7px;padding:5px 14px}
+    .learn-article .learn-part.pt-part .pt-ti{grid-column:1;grid-row:2;padding:10px 14px 0}
+    .learn-article .learn-part.pt-part .pt-sub{grid-column:1;grid-row:3;padding:5px 14px 10px}
+    .learn-article .learn-part.pt-part .pt i{margin-bottom:0}
+    .learn-article .learn-part.pt-part .pt b{font-size:15px}
+  }
+  .learn-article .pmap{margin:0}
+  .learn-article .pmap-t{margin:0 0 10px;text-align:left;font-size:12.5px;color:#14243a}
+  .learn-article .pmap-t span{display:block;margin-top:5px;font-size:11.3px;line-height:1.6;color:#5d6d7e}
+  .learn-article .pmap-t span b{color:#14243a}
+  .learn-article .pmap-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+  .learn-article .pmap-grid>li{margin:0;padding:0;position:relative}
+  .learn-article .pmap-grid>li::before{content:none}
+  .learn-article .pmap-grid>li+li::before{content:"↓";position:absolute;left:28px;top:-14px;font-size:13px;line-height:14px;font-weight:900;color:#9aa9b8}
+  .learn-article .pmap-grid a{display:grid;grid-template-columns:minmax(170px,230px) minmax(0,1fr);gap:4px 16px;align-items:start;padding:10px 14px;border-radius:10px;border:1px solid color-mix(in srgb,var(--ac) 28%,#fff);border-top:4px solid var(--ac);background:var(--bg);text-decoration:none;color:#33475b;transition:transform .12s,box-shadow .12s}
+  .learn-article .pmap-grid a:hover{transform:translateY(-2px);box-shadow:0 6px 16px -10px rgba(20,36,58,.45)}
+  .learn-article .pmap-grid .pm-head{display:flex;flex-direction:column;gap:2px}
+  .learn-article .pmap-grid .pm-n{font-size:11px;font-weight:900;color:var(--ac);letter-spacing:.5px}
+  .learn-article .pmap-grid .pm-n::before{content:"장 ";font-weight:700}
+  .learn-article .pmap-grid .pm-t{font-size:14.5px;font-weight:800;color:#14243a;line-height:1.35}
+  .learn-article .pmap-grid .pm-x{font-size:12.3px;line-height:1.6;color:#2b3a4a;border-left:2px solid color-mix(in srgb,var(--ac) 30%,#fff);padding-left:12px}
+  .learn-article .pmap-grid .pm-x .pm-note{display:block;margin-top:3px;font-style:normal;font-size:11.3px;color:#6b7a88}
+  @media (max-width:620px){
+    .learn-article .pmap-grid a{grid-template-columns:1fr}
+    .learn-article .pmap-grid .pm-x{border-left:0;padding-left:0}
+  }
+  .learn-article .cb-todo{margin:0 0 20px;padding:8px 12px;border:1px dashed #c3d2e2;border-radius:8px;font-size:12.5px;color:#6b7a88;background:#f8fafc}
+  </style>
 </head>
 <body class="mod-trade">
 
@@ -39,6 +85,71 @@
       <p class="lead">관광경영 전공 1학년이 가장 먼저 궁금해하는 것은 '그래서 나는 어디에 취업할 수 있나'입니다. 이 모듈은 그 질문부터 먼저 답하고, 관광을 '무역'의 눈으로 읽는 이론은 뒤쪽 부록으로 모아두었습니다.</p>
 
       <p class="lead" style="background:#fff7e6;border-left:4px solid #d98a00;padding:12px 16px;border-radius:8px;font-size:15px;">📋 <a href="gknu-attendance-grading-guide.html" target="_blank" rel="noopener"><strong>출석 · 지각 · 결석과 성적평가 안내</strong> — 학칙 제64~66조 원문 · 결석시수 1/4 계산기 · 3차시 연속수업 지각 사례 · 출석인정(공결) 절차 · 헤이영 전자출결 ↗</a><br /><span style="font-size:13px;color:#5b6b7b;">첫 시간에 함께 읽습니다. 15주 · 주 3시수 수업은 <b>12시수(4주) 결석부터 성적 불인정</b>입니다.</span></p>
+      <div class="pt-div" aria-hidden="true"><span>✦</span></div>
+      <p class="learn-part pt-part pp-x" id="part00"><span class="pt"><i>파트</i><b>00</b></span><span class="pt-ti">관광학원론 기초 — 전체 지도</span><span class="pt-sub"><strong>두 교재 목차를 한 지도로</strong> — 관광경영 전공의 뿌리인 관광학원론 두 교재(1차·2차)의 장을 묶어 정리했습니다. 아래 「01 관광산업 직업탐색」에 들어가기 전에, 관광이라는 산업 자체를 이론으로 먼저 봅니다. 본문은 차례로 채울 예정이고, 지금은 목차 지도만 먼저 둡니다.</span></p>
+
+      <figure class="pmap" id="cb-overview">
+        <figcaption class="pmap-t"><b>관광학원론 18장 지도</b><span>두 교재(1차 13장 · 2차 14장)에서 겹치는 장은 하나로 묶고, 한쪽에만 있는 장은 그대로 살렸습니다. 누르면 그 장으로 갑니다.</span></figcaption>
+        <ol class="pmap-grid">
+          <li style="--ac:#c0392b;--bg:#fbeeec"><a href="#cb01"><span class="pm-head"><b class="pm-n">01</b><span class="pm-t">관광의 이해</span></span><span class="pm-x">개념·어원·유사개념·구성요소·관광학 연구방법<span class="pm-note">1차 1장 · 2차 1장</span></span></a></li>
+          <li style="--ac:#17365d;--bg:#eef3f9"><a href="#cb02"><span class="pm-head"><b class="pm-n">02</b><span class="pm-t">관광의 역사</span></span><span class="pm-x">관광 발전단계 · 세계관광 발달사 · 한국관광 발달사<span class="pm-note">1차 2장 · 2차 2장</span></span></a></li>
+          <li style="--ac:#3B6259;--bg:#eef4f1"><a href="#cb03"><span class="pm-head"><b class="pm-n">03</b><span class="pm-t">관광동기</span></span><span class="pm-x">욕구·동기이론(매슬로우) · 여행의 장애요인 · 관광목적지 유형<span class="pm-note">2차 3장</span></span></a></li>
+          <li style="--ac:#2563a8;--bg:#eff5fa"><a href="#cb04"><span class="pm-head"><b class="pm-n">04</b><span class="pm-t">관광과 여가</span></span><span class="pm-x">여가의 의의 · 여가행동이론 · 여가산업<span class="pm-note">2차 4장</span></span></a></li>
+          <li style="--ac:#8a5a17;--bg:#fdf6ea"><a href="#cb05"><span class="pm-head"><b class="pm-n">05</b><span class="pm-t">관광사업 개관</span></span><span class="pm-x">관광사업의 분류와 효과<span class="pm-note">1차 3장</span></span></a></li>
+          <li style="--ac:#5b3f7a;--bg:#f4eff8"><a href="#cb06"><span class="pm-head"><b class="pm-n">06</b><span class="pm-t">문화관광</span></span><span class="pm-x">문화관광의 개념·구성요소 · 개발 및 촉진방법<span class="pm-note">1차 8장 · 2차 5장</span></span></a></li>
+          <li style="--ac:#7a6417;--bg:#fdf8e8"><a href="#cb07"><span class="pm-head"><b class="pm-n">07</b><span class="pm-t">관광자원과 개발</span></span><span class="pm-x">관광자원의 분류 · 관광개발의 조건과 유형<span class="pm-note">1차 12장 · 2차 6장</span></span></a></li>
+          <li style="--ac:#a8431f;--bg:#fbeee6"><a href="#cb08"><span class="pm-head"><b class="pm-n">08</b><span class="pm-t">관광과 환경</span></span><span class="pm-x">생태관광의 의의 · 생태관광의 개발과 관리<span class="pm-note">2차 7장</span></span></a></li>
+          <li style="--ac:#1f6a73;--bg:#eaf5f4"><a href="#cb09"><span class="pm-head"><b class="pm-n">09</b><span class="pm-t">관광마케팅</span></span><span class="pm-x">마케팅 개념의 변천 · STP전략 · 마케팅믹스<span class="pm-note">1차 9장 · 2차 8장</span></span></a></li>
+          <li style="--ac:#4338a0;--bg:#f0eefb"><a href="#cb10"><span class="pm-head"><b class="pm-n">10</b><span class="pm-t">관광과 경제</span></span><span class="pm-x">관광수요와 공급 · 관광의 경제효과<span class="pm-note">1차 10장</span></span></a></li>
+          <li style="--ac:#0f5e7a;--bg:#eaf4f8"><a href="#cb11"><span class="pm-head"><b class="pm-n">11</b><span class="pm-t">여행업</span></span><span class="pm-x">여행업의 업무 · 여행사 경영조직 · 여행상품 · 국외여행 인솔자<span class="pm-note">1차 5장 · 2차 9장</span></span></a></li>
+          <li style="--ac:#c0392b;--bg:#fbeeec"><a href="#cb12"><span class="pm-head"><b class="pm-n">12</b><span class="pm-t">호텔과 외식업</span></span><span class="pm-x">호텔의 분류 · 호텔경영의 특성 · 외식산업 현황<span class="pm-note">1차 4장 · 2차 10장</span></span></a></li>
+          <li style="--ac:#17365d;--bg:#eef3f9"><a href="#cb13"><span class="pm-head"><b class="pm-n">13</b><span class="pm-t">국제회의업 · 이벤트</span></span><span class="pm-x">컨벤션 산업의 구성요소 · 이벤트산업의 활성화<span class="pm-note">1차 6장 · 2차 11장</span></span></a></li>
+          <li style="--ac:#3B6259;--bg:#eef4f1"><a href="#cb14"><span class="pm-head"><b class="pm-n">14</b><span class="pm-t">리조트업 · 테마파크 · 관광교통업</span></span><span class="pm-x">리조트 사업 현황 · 주제공원의 구성요소 · 관광교통업<span class="pm-note">1차 7장 · 2차 13장</span></span></a></li>
+          <li style="--ac:#2563a8;--bg:#eff5fa"><a href="#cb15"><span class="pm-head"><b class="pm-n">15</b><span class="pm-t">카지노사업</span></span><span class="pm-x">카지노 사업의 기능과 현황 · 관련법규<span class="pm-note">2차 12장</span></span></a></li>
+          <li style="--ac:#8a5a17;--bg:#fdf6ea"><a href="#cb16"><span class="pm-head"><b class="pm-n">16</b><span class="pm-t">관광과 정보</span></span><span class="pm-x">관광정보의 이해 · 관광정보업의 전망<span class="pm-note">1차 11장</span></span></a></li>
+          <li style="--ac:#5b3f7a;--bg:#f4eff8"><a href="#cb17"><span class="pm-head"><b class="pm-n">17</b><span class="pm-t">관광정책과 관광행정</span></span><span class="pm-x">관광정책의 기본이념 · 관광행정조직과 관광기구<span class="pm-note">1차 13장</span></span></a></li>
+          <li style="--ac:#7a6417;--bg:#fdf8e8"><a href="#cb18"><span class="pm-head"><b class="pm-n">18</b><span class="pm-t">의료관광</span></span><span class="pm-x">의료관광의 등장배경 · 의료관광정책 · 활성화 방안<span class="pm-note">2차 14장</span></span></a></li>
+        </ol>
+      </figure>
+
+      <p class="learn-part" id="cb01">장 01 · 관광의 이해</p>
+      <p class="cb-todo">본문 정리 예정 — 1차 교재 1장(관광의 개요 · 관광과 유사개념 · 구성요소 · 학문적 성격 및 연구방법) · 2차 교재 1장(관광의 개념 · 관광학 연구의 성립배경과 접근방법) 기준</p>
+      <p class="learn-part" id="cb02">장 02 · 관광의 역사</p>
+      <p class="cb-todo">본문 정리 예정 — 1차 교재 2장(관광의 발전단계 · 세계관광의 발전과정 · 우리나라 관광의 발전과정) · 2차 교재 2장(세계관광의 발달사 · 한국관광의 발달사) 기준</p>
+      <p class="learn-part" id="cb03">장 03 · 관광동기</p>
+      <p class="cb-todo">본문 정리 예정 — 2차 교재 3장(욕구·욕망과 관광동기 · 매슬로우의 욕구이론 · 인구통계적 변수 · 여행의 장애요인 · 관광목적지의 유형 · 관광객 유형) 기준</p>
+      <p class="learn-part" id="cb04">장 04 · 관광과 여가</p>
+      <p class="cb-todo">본문 정리 예정 — 2차 교재 4장(여가의 의의 · 여가행동이론 · 여가산업) 기준</p>
+      <p class="learn-part" id="cb05">장 05 · 관광사업 개관</p>
+      <p class="cb-todo">본문 정리 예정 — 1차 교재 3장(관광사업의 개요 · 관광사업의 분류 · 관광의 효과) 기준</p>
+      <p class="learn-part" id="cb06">장 06 · 문화관광</p>
+      <p class="cb-todo">본문 정리 예정 — 1차 교재 8장(문화의 개요 · 문화관광의 이해) · 2차 교재 5장(문화관광의 개념 및 중요성 · 구성요소 · 개발 및 촉진방법) 기준</p>
+      <p class="learn-part" id="cb07">장 07 · 관광자원과 개발</p>
+      <p class="cb-todo">본문 정리 예정 — 1차 교재 12장(관광자원의 개요 · 관광개발의 개요) · 2차 교재 6장(관광자원의 개념·분류·종류 · 관광개발의 목적·조건·유형) 기준</p>
+      <p class="learn-part" id="cb08">장 08 · 관광과 환경</p>
+      <p class="cb-todo">본문 정리 예정 — 2차 교재 7장(환경의 중요성 · 관광현상과 환경문제 · 생태관광의 의의와 특성 · 개발·관리방안) 기준</p>
+      <p class="learn-part" id="cb09">장 09 · 관광마케팅</p>
+      <p class="cb-todo">본문 정리 예정 — 1차 교재 9장(관광마케팅의 개요·특성·믹스) · 2차 교재 8장(마케팅 정의 · 개념의 변천과정 · STP전략 · 마케팅 계획수립 과정) 기준</p>
+      <p class="learn-part" id="cb10">장 10 · 관광과 경제</p>
+      <p class="cb-todo">본문 정리 예정 — 1차 교재 10장(관광경제의 개요 · 관광수요와 공급 · 관광의 경제효과) 기준</p>
+      <p class="learn-part" id="cb11">장 11 · 여행업</p>
+      <p class="cb-todo">본문 정리 예정 — 1차 교재 5장(여행업의 개요 · 공통업무 · 등록 및 보험 · 기획여행 및 국외여행 인솔자) · 2차 교재 9장(여행업의 의의와 업무내용 · 여행사 경영조직과 여행상품) 기준</p>
+      <p class="learn-part" id="cb12">장 12 · 호텔과 외식업</p>
+      <p class="cb-todo">본문 정리 예정 — 1차 교재 4장(호텔업의 개요·분류·특성 · 외식업의 개요·특성 및 분류) · 2차 교재 10장(호텔산업 · 외식산업) 기준</p>
+      <p class="learn-part" id="cb13">장 13 · 국제회의업 · 이벤트</p>
+      <p class="cb-todo">본문 정리 예정 — 1차 교재 6장(국제회의 개요 · 국제회의시설) · 2차 교재 11장(국제회의산업 · 이벤트산업) 기준</p>
+      <p class="learn-part" id="cb14">장 14 · 리조트업 · 테마파크 · 관광교통업</p>
+      <p class="cb-todo">본문 정리 예정 — 1차 교재 7장(리조트업의 개념 · 관광교통업의 개념) · 2차 교재 13장(주제공원 · 리조트 사업) 기준</p>
+      <p class="learn-part" id="cb15">장 15 · 카지노사업</p>
+      <p class="cb-todo">본문 정리 예정 — 2차 교재 12장(카지노의 개요 · 국내 카지노 사업 현황 · 관련법규 · 경영) 기준</p>
+      <p class="learn-part" id="cb16">장 16 · 관광과 정보</p>
+      <p class="cb-todo">본문 정리 예정 — 1차 교재 11장(관광정보의 이해 · 관광정보업의 이해와 전망) 기준</p>
+      <p class="learn-part" id="cb17">장 17 · 관광정책과 관광행정</p>
+      <p class="cb-todo">본문 정리 예정 — 1차 교재 13장(관광정책의 의의와 기본이념 · 관광행정조직과 관광기구) 기준</p>
+      <p class="learn-part" id="cb18">장 18 · 의료관광</p>
+      <p class="cb-todo">본문 정리 예정 — 2차 교재 14장(의료관광의 등장배경과 의의 · 개요 · 정책 · 활성화 방안) 기준</p>
+
+      <div class="pt-div" aria-hidden="true"><span>✦</span></div>
       <p class="learn-part">호텔산업 강의자료</p>
       <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">📚 <a href="hotel-industry-1-intro.html" target="_blank" rel="noopener"><strong>제1강 · 호스피탈리티와 호텔산업의 이해</strong> — 전체 강의자료(영상 · 슬라이드 · 퀴즈) 보기 ↗</a></p>
       <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">🏨 <a href="marriott-hotel-brand-strategy.html" target="_blank" rel="noopener"><strong>메리어트의 진짜 사업</strong> — 호텔 경영형태 · 브랜드 전략 수업 ↗</a></p>
