@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="light" name="color-scheme"/><title>호텔·리조트·MICE 취업 안내 | 좌우로 넘기는 학생 안내장</title><style>
+:root { --navy:#142b49;--navy2:#203d5d;--blue:#285e96;--teal:#127d7a;--gold:#e5aa48;--ink:#223448;--muted:#697b8f;--line:#dce5ee;--bg:#f3f6f9;--paper:#fff;--soft:#eef5fa;--radius:17px; }
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:var(--ink);font-size:14px;line-height:1.75;letter-spacing:-.02em}
+a{color:#165b95}a:hover{text-decoration-color:var(--gold)}button,select,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #efb54d;outline-offset:3px}
+.shell{max-width:1300px;padding:0 28px;margin:0 auto}.top-nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);border-bottom:1px solid #e1e8ef;backdrop-filter:blur(16px)}.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:22px;min-height:64px}.brand{font-size:12px;font-weight:850;letter-spacing:.08em;color:var(--navy);white-space:nowrap}.brand span{color:var(--teal)}.nav-links{display:flex;align-items:center;gap:15px;flex-wrap:wrap}.nav-links a{font-size:12px;font-weight:700;color:#53677c;text-decoration:none}.nav-links a:hover{color:var(--teal)}.nav-action{border:1px solid #cbd8e4;background:white;color:var(--navy);border-radius:9px;padding:6px 11px;font-size:12px;font-weight:700;white-space:nowrap}
+.hero{background:linear-gradient(117deg,#142c49 12%,#205274 70%,#167473 125%);color:white;position:relative;overflow:hidden}.hero:after{content:"";display:block;position:absolute;inset:-100px -80px auto auto;width:500px;height:470px;border-radius:50%;border:1px solid rgba(255,255,255,.13);box-shadow:0 0 0 70px rgba(255,255,255,.02),0 0 0 140px rgba(255,255,255,.025);pointer-events:none}.hero-in{position:relative;z-index:1;padding:63px 0 51px}.eyebrow{font-size:12px;letter-spacing:.16em;font-weight:800;color:#c2e2e8}.hero h1{font-size:clamp(30px,4.3vw,52px);font-weight:850;letter-spacing:-.055em;line-height:1.25;margin:14px 0 13px}.hero h1 em{font-style:normal;color:#f4bd67}.hero-sub{color:#e0ecf3;max-width:720px;font-size:16px;line-height:1.85}.hero-meta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:29px}.meta-chip{padding:7px 12px;border:1px solid rgba(255,255,255,.28);border-radius:999px;color:#f1f6fa;font-size:12px;font-weight:650}.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:27px}.btn{border:1px solid #bdcfe0;padding:10px 17px;background:#fff;color:#1e496c;text-decoration:none;border-radius:10px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;gap:6px}.btn-accent{background:#f2b451;color:#1f3241;border-color:#f2b451}.btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+.quickstrip{margin:-24px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:15px;position:relative;z-index:2}.stat{background:white;border:1px solid #e2eaf0;border-radius:15px;box-shadow:0 8px 22px rgba(36,60,86,.05);padding:18px 22px}.stat .k{display:block;color:#6c8193;font-size:12px;font-weight:700}.stat b{display:block;color:#1b466a;font-size:29px;line-height:1.22;margin:5px 0}.stat small{color:#708195;font-size:12px}
+main{padding:36px 0 60px}.letter{padding:32px 37px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 6px 22px rgba(25,47,75,.035)}.letter-label{display:flex;align-items:center;gap:9px;color:var(--teal);font-weight:850;font-size:12px;letter-spacing:.02em}.letter-subject{font-size:18px;line-height:1.5;color:#203d5c;font-weight:800;margin:10px 0 24px;border-bottom:1px solid #e4ebf2;padding-bottom:19px}.letter p{margin:0 0 12px;max-width:1030px}.letter strong{color:var(--navy)}.letter-sig{font-size:13px;font-weight:750;margin-top:17px!important;color:var(--navy)}
+.section{scroll-margin-top:85px;margin-top:48px}.section-head{display:flex;gap:14px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;margin-bottom:19px}.section-heading{display:flex;align-items:center;gap:13px}.section-number{width:40px;height:40px;border-radius:12px;background:#e0eeef;color:#177879;display:grid;place-items:center;font-size:16px;font-weight:900}.section h2{font-size:25px;letter-spacing:-.05em;line-height:1.4;margin:0;color:var(--navy)}.section-desc{color:var(--muted);margin:4px 0 0;font-size:13px}.note{border-radius:11px;padding:13px 17px;background:#edf6f7;color:#355e67;border:1px solid #d4e9e8;font-size:13px}.note strong{color:#176d6d}.note-warn{background:#fff8ed;border-color:#f2e4c9;color:#7a6141;margin-top:16px}
+.sheet-box{background:#fff;border-radius:15px;border:1px solid var(--line);overflow:hidden;box-shadow:0 4px 22px rgba(31,56,84,.025)}.sheet-tools{display:flex;gap:12px;justify-content:space-between;align-items:center;flex-wrap:wrap;padding:16px 19px;background:#fff;border-bottom:1px solid var(--line)}.filters{display:flex;gap:6px;flex-wrap:wrap}.filter{border:1px solid #d6e1eb;border-radius:100px;padding:6px 12px;background:white;color:#526b81;font-size:12px;font-weight:750}.filter.active{background:#1a547a;border-color:#1a547a;color:#fff}.searchbox{position:relative;display:flex;align-items:center;gap:7px;border:1px solid #cad9e6;background:#fafcfe;border-radius:9px;padding:0 11px;color:#718297}.searchbox input{padding:9px 0;border:0;background:transparent;width:min(260px,40vw);outline:none;color:var(--ink)}.searchbox input:focus{outline:none}.table-wrap{overflow-x:auto;scrollbar-color:#b2cadc #f1f5f8}.tbl{width:100%;border-collapse:separate;border-spacing:0;table-layout:auto;font-size:12.3px;line-height:1.55}.tbl thead th{position:sticky;top:0;background:#eaf0f6;color:#24435e;text-align:left;font-weight:850;white-space:nowrap;padding:12px 13px;border-bottom:2px solid #cddbe7}.tbl td{border-bottom:1px solid #e7ecf1;padding:14px 13px;vertical-align:top;min-width:88px;overflow-wrap:anywhere}.tbl tbody tr:last-child td{border-bottom:none}.tbl tbody tr:nth-child(even){background:#f8fafc}.tbl tbody tr:hover{background:#eef6fa}.tbl strong{color:#193d5e}.tbl a{font-weight:650}.site-table{min-width:1260px}.site-table th:nth-child(1){min-width:120px}.site-table th:nth-child(2){min-width:88px}.site-table th:nth-child(3){min-width:152px}.site-table th:nth-child(4){min-width:148px}.site-table th:nth-child(5){min-width:173px}.site-table th:nth-child(6){min-width:158px}.site-table th:nth-child(7){min-width:208px}.site-table th:nth-child(8){min-width:185px}.role-table{min-width:1050px}.role-table th{min-width:150px}.role-table th:first-child{min-width:158px}.role-table th:nth-child(3),.role-table th:nth-child(4){min-width:175px}.check-table{min-width:1020px}.check-table th:first-child{min-width:55px}.check-table th:nth-child(2){min-width:160px}.check-table th:nth-child(3){min-width:235px}.check-table th:nth-child(4){min-width:188px}.check-table th:nth-child(5){min-width:120px}.check-table th:nth-child(6){min-width:110px}.name-cell strong{display:block;margin-bottom:7px;font-size:13px}.link-sub{display:inline-flex;font-size:11.4px;text-decoration:none;white-space:nowrap}.url-cell a{font-size:10.8px;font-weight:500;word-break:break-all;color:#47728c}.cell-num{font-family:ui-monospace,Consolas,monospace;color:#9aabb9;font-size:11px;font-weight:800}.keyword{color:#355c75}.english{color:#466878}.rank-pill,.type-pill,.time-pill{display:inline-block;font-size:10.8px;font-weight:800;border-radius:7px;padding:3px 7px;margin-top:6px;white-space:nowrap}.type-pill.special{background:#e3f4ef;color:#087b68}.type-pill.general{background:#edf1ff;color:#4856a4}.type-pill.group{background:#f5eefd;color:#74539b}.rank-pill.recommend{color:#20745c;background:#e2f4ec}.rank-pill.select{color:#77642f;background:#f6eecf}.time-pill{background:#eaf0f6;color:#496881}.step-num{display:inline-grid;place-items:center;background:#e9f1f7;color:#26618c;width:29px;height:29px;border-radius:50%;font-weight:900}.task-status{background:#f4f7f9;border:1px solid #d0dce5;border-radius:9px;padding:6px;color:#294a65;max-width:115px;min-width:94px}.task-status[data-state="완료"]{background:#e5f4ec;color:#0d7354;border-color:#b8dfd0}.task-status[data-state="진행 중"]{background:#fff2d9;color:#906310;border-color:#ecd79c}.empty-state{display:none;text-align:center;padding:24px;color:#687c8e}.inline-insight{margin-top:11px;font-size:12px;color:#71859b}
+.two-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}.info-card{padding:21px 23px;background:#fff;border-radius:13px;border:1px solid #dce6ef}.info-card h3{font-size:17px;margin:0 0 10px;color:#1b4164}.info-card p{margin:0;color:#506a80}.info-card ul{margin:0;padding-left:19px;color:#506a80}.info-card li+li{margin-top:7px}.kpi-bar{display:flex;gap:17px;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-bottom:13px;background:linear-gradient(110deg,#e6f2f6,#f5f8fd);border:1px solid #d2e4ed;border-radius:13px;padding:18px 21px}.kpi-bar strong{color:#153e61}.progress-num{font-size:21px;font-weight:900;color:#0a766b}.progress-line{height:8px;overflow:hidden;border-radius:100px;background:#d5e4eb;flex:1;min-width:170px;max-width:350px}.progress-fill{height:100%;width:0;background:linear-gradient(90deg,#3b87a3,#26a78d);border-radius:100px;transition:width .25s}.mini-reset{border:0;background:transparent;color:#6b8296;text-decoration:underline;font-size:12px}.closing{border-top:1px solid #dbe6ee;margin-top:46px;padding-top:25px;color:#506679}.closing strong{color:#173e62}.footer{color:#7c8e9d;font-size:11.5px;margin-top:19px}.sr-only{position:absolute;clip:rect(0,0,0,0);width:1px;height:1px;overflow:hidden;white-space:nowrap}.hidden-row{display:none!important}
+@media(max-width:880px){.nav-links a:nth-child(n+3){display:none}.shell{padding:0 18px}.hero-in{padding:47px 0 48px}.hero-sub{font-size:14px}.quickstrip{grid-template-columns:repeat(3,1fr);gap:7px}.stat{padding:14px}.stat b{font-size:23px}.letter{padding:24px}.section h2{font-size:21px}.two-cards{grid-template-columns:1fr}.sheet-tools{align-items:stretch}.searchbox{width:100%}.searchbox input{width:100%;flex:1}}
+@media(max-width:550px){.nav-links a{display:none}.quickstrip{margin-top:-18px}.stat .k{font-size:10px}.stat b{font-size:21px}.stat small{font-size:10px}.letter-subject{font-size:16px}.hero h1{font-size:30px}.hero-actions{gap:6px}.btn{font-size:12px;padding:8px 10px}.section{margin-top:38px}}
+@media print{@page{size:A4 landscape;margin:11mm}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}html,body{background:#fff!important;font-size:10px}body{line-height:1.48}.top-nav,.hero-actions,.sheet-tools,.mini-reset{display:none!important}.hero{background:#173953!important}.hero-in{padding:16px 0 14px}.hero h1{font-size:23px;margin:4px 0}.hero-sub{font-size:10px;line-height:1.5}.hero-meta{margin-top:7px}.meta-chip{font-size:8px;padding:2px 5px}.quickstrip{margin:9px auto 0;gap:5px}.stat{padding:7px}.stat b{font-size:16px}.stat small,.stat .k{font-size:9px}.shell{max-width:none;padding:0 4mm}.letter{border-radius:0;padding:10px 13px}.letter-subject{font-size:13px;margin:3px 0 8px;padding-bottom:8px}.letter p{margin:0 0 5px}.section{margin-top:12px;scroll-margin-top:0;break-before:auto}.section h2{font-size:16px}.section-desc{font-size:10px}.section-head{margin-bottom:5px}.section-number{width:23px;height:23px;font-size:11px;border-radius:5px}.sheet-box{overflow:visible;box-shadow:none}.table-wrap{overflow:visible}.tbl{font-size:8px;line-height:1.38;table-layout:fixed;min-width:0!important}.tbl td,.tbl th{padding:4px 5px;min-width:0!important;overflow-wrap:anywhere}.tbl thead th{white-space:normal}.site-table th:nth-child(1){width:9%}.site-table th:nth-child(2){width:7%}.site-table th:nth-child(3){width:14%}.site-table th:nth-child(4){width:12%}.site-table th:nth-child(5){width:15%}.site-table th:nth-child(6){width:14%}.site-table th:nth-child(7){width:14%}.site-table th:nth-child(8){width:15%}.tbl .type-pill,.tbl .rank-pill,.tbl .time-pill{white-space:normal;font-size:7px;padding:2px 4px}.name-cell strong{font-size:9px}.url-cell a{font-size:7px}.note{padding:5px 8px;font-size:9px}.info-card{padding:10px}.info-card h3{font-size:11px}.info-card li,.info-card p{font-size:9px}.two-cards{gap:9px}.kpi-bar{padding:8px;margin-bottom:7px}.progress-num{font-size:13px}.task-status{font-size:8px;padding:2px;min-width:0;width:75px}tr{break-inside:avoid}thead{display:table-header-group}.section-head{break-after:avoid}.closing{margin-top:14px;padding-top:8px}.footer{font-size:8px}}
+
+/* 편지형 안내문을 맨 처음에 표시 */
+.letter-top-wrap{padding-top:30px;padding-bottom:28px}
+.letter-top{max-width:1090px;margin:0 auto;padding:42px 57px 33px;border-top:5px solid #227b86;box-shadow:0 15px 42px rgba(24,50,82,.075);border-radius:12px;background:linear-gradient(180deg,#fff 0%,#fff 91%,#fcfeff 100%)}
+.letter-topline{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.letter-mark{font-size:12px;letter-spacing:.045em;font-weight:850;color:#0f777b}
+.letter-date{font-size:12px;color:#748399;font-variant-numeric:tabular-nums}
+.letter-meta{display:flex;align-items:baseline;gap:18px;padding:5px 0;font-size:13px;color:#4a6076}
+.letter-meta-key{flex:none;width:62px;font-size:11px;color:#8493a5;font-weight:800}
+.letter-meta-title{font-size:17px;line-height:1.65;color:#1d4162!important}
+.letter-rule{height:1px;background:#dce5ec;margin:22px 0 30px}
+.letter-body{max-width:930px;margin:auto;font-size:14.2px;line-height:1.95;color:#344d63;letter-spacing:-.018em}
+.letter-top .letter-body p{max-width:none;margin:0 0 16px}
+.letter-top .letter-greeting{font-size:16px;color:#1d4363;margin-bottom:22px!important}
+.letter-top .letter-signoff{margin:25px 0 0!important;line-height:2.1}
+.letter-bottom{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-top:20px;margin-top:27px;border-top:1px dashed #dce4ec;color:#728498;font-size:12px}
+.letter-jump{display:flex;flex-wrap:wrap;gap:9px}.letter-jump a{background:#edf5f7;border:1px solid #d1e4e7;text-decoration:none;color:#206878;border-radius:8px;padding:7px 10px;font-weight:800}
+.letter-jump a:hover{background:#dceef0}
+.hero-in{padding:39px 0 40px}.hero h1{font-size:clamp(27px,3.8vw,43px)}.hero-sub{font-size:14px}.hero-meta{margin-top:19px}.hero-actions{margin-top:20px}
+#intro{scroll-margin-top:90px}
+@media(max-width:880px){.letter-top-wrap{padding-top:20px;padding-bottom:20px}.letter-top{padding:29px 27px 25px}}
+@media(max-width:550px){.letter-top{padding:25px 19px 21px}.letter-meta{gap:9px}.letter-meta-key{width:49px}.letter-meta-title{font-size:15px}.letter-body{font-size:13.6px;line-height:1.86}.letter-top .letter-greeting{font-size:15px}.letter-bottom{align-items:flex-start}.letter-jump a{font-size:11px}}
+@media print{.letter-top-wrap{padding:3mm 0 4mm}.letter-top{padding:7mm 8mm;border-top:3px solid #227b86;box-shadow:none;break-after:page}.letter-topline{margin-bottom:4mm}.letter-rule{margin:4mm 0 5mm}.letter-body{font-size:10px;line-height:1.65}.letter-top .letter-body p{margin-bottom:2.6mm}.letter-greeting{font-size:11px!important}.letter-bottom{padding-top:3mm;margin-top:3mm}.letter-jump{display:none}.hero{margin-top:0}}
+
+</style><style>
+/* Horizontal card/pages edition: standalone browser-based student handout */
+:root{--deck-shadow:0 16px 50px rgba(24,52,77,.12)}
+html,body{height:100%;overflow:hidden;scroll-behavior:auto}
+body{background:linear-gradient(140deg,#e9f1f6 0%,#f6f9fb 50%,#e8f2f2 100%)}
+.deck-app{height:100dvh;min-height:490px;display:flex;flex-direction:column;gap:0}
+.deck-top{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:12px 28px;background:#fff;border-bottom:1px solid #e1e9f0;min-height:63px}
+.brand-block{display:flex;align-items:center;gap:14px;min-width:0}.brand-icon{display:grid;place-items:center;width:36px;height:36px;flex:none;border-radius:11px;background:#e0f1f0;font-size:19px;color:#0c7475}
+.deck-brand-title{font-size:14px;font-weight:900;color:#153b59;line-height:1.3}.deck-brand-sub{font-size:11px;color:#7890a0;margin-top:2px}
+.deck-tools{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.tool-link{border:1px solid #d5e2eb;border-radius:8px;background:white;color:#315773;display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:5px 11px;text-decoration:none;gap:5px;font-size:12px;font-weight:750;white-space:nowrap}.tool-link:hover{background:#f0f7fa}
+.stage-shell{flex:1;min-height:0;width:100%;max-width:1500px;margin:0 auto;padding:18px 26px 10px;display:flex;flex-direction:column}
+.deck-stage{flex:1;min-height:0;border:1px solid #dbe6ed;border-radius:21px;background:#fff;box-shadow:var(--deck-shadow);overflow:hidden;position:relative}
+.deck-track{height:100%;display:flex;transform:translate3d(0,0,0);transition:transform .44s cubic-bezier(.22,.75,.26,1);will-change:transform}
+.deck-slide{flex:0 0 100%;width:100%;min-width:0;height:100%;overflow-y:auto;overscroll-behavior:contain;padding:29px clamp(18px,3vw,46px) 36px;scrollbar-color:#b4cbd9 transparent;scrollbar-width:thin;outline:none}
+.deck-slide:focus-visible{outline:3px solid #dda447;outline-offset:-3px}
+.slide-top{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:22px;padding-bottom:17px;border-bottom:1px solid #e8eef3}
+.slide-kicker{font-size:11px;font-weight:900;letter-spacing:.10em;color:#0d7e7b;text-transform:uppercase}
+.slide-headline{margin:5px 0 0;color:#173753;font-size:clamp(22px,2.7vw,32px);letter-spacing:-.055em;line-height:1.4}
+.slide-description{margin:5px 0 0;color:#758597;font-size:13px;line-height:1.6}
+.slide-count{font-size:30px;font-weight:900;letter-spacing:-.05em;white-space:nowrap;color:#d0e0e9;line-height:1.1;padding-top:8px}
+/* First slide is the teacher's letter, not a generic cover. */
+#page-intro{background:linear-gradient(125deg,#f5f9fc 0%,#ffffff 49%,#f7fbf9 100%)}
+#page-intro .slide-top{margin-bottom:14px}
+#page-intro .letter-top-wrap{max-width:1100px;padding:0;margin:0 auto}
+#page-intro .letter-top{box-shadow:0 6px 26px rgba(22,57,82,.035);border:1px solid #dfe8ed;border-top:5px solid #167d80;border-radius:14px;padding:27px 35px 22px}
+#page-intro .letter-body{max-width:965px;line-height:1.86}
+#page-intro .letter-top .letter-body p{margin-bottom:11px}
+#page-intro .letter-rule{margin:15px 0 18px}
+#page-intro .letter-bottom{margin-top:15px;padding-top:14px}
+#page-intro .letter-topline{margin-bottom:10px}
+#page-intro .letter-jump a{text-decoration:none}
+#page-intro .quickstrip{margin:16px auto 0;max-width:1100px;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+#page-intro .quickstrip .stat{padding:12px 18px;border-radius:12px;box-shadow:none}
+#page-intro .quickstrip .stat b{font-size:22px}
+#page-intro .quickstrip .stat .k{font-size:11px}
+#page-intro .quickstrip .stat small{font-size:11px}
+.deck-slide .section{margin-top:0;scroll-margin-top:0}
+.deck-slide .section-head{margin-bottom:15px}
+.deck-slide .section-head .section-heading{display:none}
+.deck-slide .section-head .section-desc{font-size:13px;margin:0}
+.deck-slide .section-head .note{padding:5px 12px;font-size:12px}
+.deck-slide .sheet-box{box-shadow:none;border:1px solid #d9e4ec}
+.deck-slide .tbl td{padding:11px 10px}.deck-slide .tbl thead th{padding:11px 10px}
+.deck-slide .table-wrap{max-height:none}
+.deck-slide .inline-insight{margin:8px 0}
+.deck-slide .note-warn{padding:11px 14px}
+#page-plan .kpi-bar{padding:14px 19px}
+#page-tips .closing{margin-top:23px;padding-top:15px}
+.end-note{background:#eef7f6;padding:15px 18px;margin-top:23px;border:1px solid #cfe8e2;border-radius:11px;color:#325d63;font-weight:700;font-size:13px}
+/* Bottom navigation always remains visible, including when a page scrolls vertically. */
+.deck-bottom{flex:none;width:100%;display:flex;align-items:center;justify-content:space-between;gap:13px;padding:11px clamp(16px,2.8vw,26px) 13px}
+.slide-nav{border:1px solid #ccdae4;border-radius:10px;padding:9px 15px;display:flex;align-items:center;justify-content:center;gap:7px;color:#1b4d70;background:#fff;font-size:13px;font-weight:850;min-width:105px;min-height:42px;box-shadow:0 3px 8px rgba(33,60,82,.025)}
+.slide-nav.primary{background:#1b5677;border-color:#1b5677;color:#fff}.slide-nav:disabled{opacity:.34;cursor:not-allowed;background:#e8eef2;color:#597487;border-color:#d2dfe7}
+.pager-center{display:flex;align-items:center;flex-direction:column;gap:8px;flex:1;min-width:0}
+.pager-track{display:flex;align-items:center;gap:6px;max-width:100%;overflow-x:auto;scrollbar-width:none}
+.pager-track::-webkit-scrollbar{display:none}
+.pager-tab{border:1px solid transparent;background:transparent;color:#7d90a1;padding:5px 9px;font-size:11.5px;line-height:1.35;font-weight:780;white-space:nowrap;border-radius:8px}
+.pager-tab.active{border-color:#b6dadd;background:#dcefed;color:#0c7371}
+.pager-meta{display:flex;align-items:center;gap:11px;font-size:11px;color:#778b9c}.pager-meta strong{font-variant-numeric:tabular-nums;color:#27556c;font-size:11.5px}
+.progress-dashes{display:flex;gap:4px}.progress-dashes span{width:17px;height:4px;background:#d2dfe8;border-radius:5px}.progress-dashes span.active{background:#268c89}
+.slide-nav:hover:not(:disabled),.pager-tab:hover{filter:brightness(.96)}
+@media(max-width:900px){.stage-shell{padding:10px 13px 0}.deck-slide{padding:20px 18px 30px}.slide-top{margin-bottom:14px}.deck-bottom{padding:8px 13px 11px}.pager-tab{padding:5px 6px;font-size:10.5px}.deck-slide .site-table,.deck-slide .role-table,.deck-slide .check-table{min-width:1050px}}
+@media(max-width:700px){
+ .deck-app{min-height:380px}.deck-top{padding:8px 13px;min-height:55px}.deck-brand-sub{font-size:10px}.deck-brand-title{font-size:12px}.brand-icon{width:31px;height:31px;font-size:15px}.deck-tools{gap:5px}.tool-link{padding:4px 8px;font-size:10.5px;min-height:29px}
+ .stage-shell{padding:9px 7px 0}.deck-stage{border-radius:14px}.deck-slide{padding:16px 13px 26px}.slide-top{padding-bottom:11px;margin-bottom:12px}.slide-kicker{font-size:9.8px}.slide-headline{font-size:20px}.slide-description{font-size:11.5px}.slide-count{font-size:21px}
+ #page-intro .letter-top{padding:16px 14px;border-radius:10px}#page-intro .letter-topline{margin-bottom:10px}#page-intro .letter-rule{margin:12px 0 16px}#page-intro .letter-body{font-size:12.7px;line-height:1.72}#page-intro .letter-top .letter-body p{margin-bottom:11px}#page-intro .letter-meta-title{font-size:13px}
+ #page-intro .quickstrip{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}#page-intro .quickstrip .stat{padding:8px}#page-intro .quickstrip .stat b{font-size:17px}#page-intro .quickstrip .stat small{font-size:9px}
+ .deck-slide .section-head{gap:8px}.deck-slide .section-head .note{font-size:10px;padding:4px 7px}
+ .deck-slide .sheet-tools{padding:10px;gap:8px}.deck-slide .searchbox{width:100%}.deck-slide .searchbox input{width:100%}
+ .deck-slide .table-wrap{overflow-x:visible}.deck-slide .tbl{min-width:0!important;width:100%;display:block}.deck-slide .tbl thead{display:none}.deck-slide .tbl tbody{display:grid;gap:11px;padding:10px}
+ .deck-slide .tbl tbody tr{display:block;background:#fff!important;border:1px solid #dce6ec;border-radius:10px;padding:4px 10px;box-shadow:0 2px 5px rgba(28,64,91,.025)}
+ .deck-slide .tbl tbody tr td{display:grid;grid-template-columns:minmax(86px,34%) minmax(0,1fr);align-items:start;gap:9px;min-width:0!important;border-bottom:1px dashed #e7edf2;padding:9px 2px;font-size:12px;line-height:1.55}
+ .deck-slide .tbl tbody tr td:last-child{border:0}.deck-slide .tbl tbody tr td:before{content:attr(data-label);font-size:10.8px;color:#657e90;font-weight:800;padding-top:2px}
+ .deck-slide .tbl tbody tr td.name-cell strong{font-size:13px}.deck-slide .tbl a{overflow-wrap:anywhere}
+ .deck-slide .tbl tbody tr .cell-num{display:inline}.deck-slide .url-cell a{font-size:10.5px}
+ .deck-slide .two-cards{grid-template-columns:1fr;gap:10px}.deck-slide .info-card{padding:16px}.deck-slide .info-card h3{font-size:14px}
+ .deck-slide .kpi-bar{gap:9px}.deck-slide .progress-line{min-width:80px}.deck-slide .progress-num{font-size:17px}
+ .pager-meta > span{display:none}.deck-bottom{padding:7px 6px 10px;gap:5px}.slide-nav{min-width:67px;padding:7px 7px;min-height:42px;font-size:11px}.pager-track{gap:1px}.pager-tab{font-size:0;padding:6px 5px;border-radius:6px}.pager-tab:after{content:attr(data-short);font-size:10px}.pager-meta{font-size:10px;gap:5px}.progress-dashes span{width:9px}
+}
+@media(max-width:430px){.deck-brand-sub{display:none}.tool-link{padding:5px 6px}.slide-nav{min-width:59px;font-size:10px}.pager-tab{padding:5px 3px}.pager-tab:after{font-size:9px}.deck-bottom{gap:3px}.slide-count{font-size:18px}}
+@media(prefers-reduced-motion:reduce){.deck-track{transition:none!important}}
+@media print{
+ @page{size:A4;margin:12mm}
+ html,body{height:auto!important;overflow:visible!important;background:white!important}
+ .deck-app,.stage-shell,.deck-stage,.deck-track{display:block!important;height:auto!important;min-height:0!important;max-width:none!important;overflow:visible!important;padding:0!important;border:0!important;box-shadow:none!important;transform:none!important}
+ .deck-top,.deck-bottom{display:none!important}
+ .deck-slide{height:auto!important;overflow:visible!important;display:block!important;width:100%!important;max-width:none!important;padding:0 0 12mm!important;break-after:page;page-break-after:always;outline:0!important}
+ .deck-slide:last-child{break-after:auto;page-break-after:auto}
+ .slide-top{padding-top:5mm}.slide-count{font-size:18px}
+ .sheet-box,.table-wrap{overflow:visible!important;max-width:none!important}
+ .deck-slide .tbl{width:100%;min-width:0!important;font-size:9px}
+ .deck-slide .site-table{font-size:8px}.deck-slide .tbl td,.deck-slide .tbl th{padding:4px 5px!important;min-width:0!important;word-break:break-word}
+ .deck-slide .quickstrip{margin:6mm auto!important}.deck-slide .letter-top{break-after:auto!important;page-break-after:auto!important}
+ .filter,.searchbox,.mini-reset{display:none!important}
+ .section, .info-card,.stat{break-inside:avoid}
+}
+</style></head><body><div class="deck-app">
+<header class="deck-top">
+<div class="brand-block"><span aria-hidden="true" class="brand-icon">✉</span><div><div class="deck-brand-title">호텔 · 리조트 · MICE 취업 안내</div><div class="deck-brand-sub">관광경영학과 학생을 위한 5장 진로 안내장</div></div></div>
+<div class="deck-tools"><a class="tool-link" download="호텔_리조트_MICE_취업사이트_학생안내_20261120.xlsx" href="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,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" id="excelDownload">▦ 엑셀 받기</a><button class="tool-link" onclick="window.print()" type="button">⎙ 인쇄 / PDF</button></div>
+</header>
+<div class="stage-shell">
+<main aria-label="좌우로 넘기는 호텔 취업 안내장" class="deck-stage" id="deckStage">
+<div class="deck-track" id="deckTrack">
+<article aria-labelledby="slideTitle0" class="deck-slide" id="page-intro"><div class="slide-top"><div><div class="slide-kicker">LETTER · 01</div><h1 class="slide-headline" id="slideTitle0">학생 여러분께 드리는 편지</h1><p class="slide-description">취업 준비를 시작할 때 먼저 읽어보세요.</p></div><span aria-hidden="true" class="slide-count">01 / 05</span></div><div class="shell letter-top-wrap">
+<section aria-labelledby="intro-head" class="letter letter-top" id="intro">
+<div class="letter-topline"><span class="letter-mark">✉  학생 여러분께 드리는 편지</span><span class="letter-date">2026년 11월 20일</span></div>
+<div class="letter-meta"><span class="letter-meta-key">받는 사람</span><span>관광경영학과 학생 여러분</span></div>
+<div class="letter-meta"><span class="letter-meta-key">제목</span><strong class="letter-meta-title" id="intro-head">[취업정보 안내] 호텔·리조트·MICE 분야 취업사이트 및 취업 준비 방법</strong></div>
+<div class="letter-rule"></div>
+<div class="letter-body">
+<p class="letter-greeting"><strong>관광경영학과 학생 여러분께,</strong></p>
+<p>안녕하세요.</p>
+<p>호텔·리조트·MICE 분야의 취업이나 인턴십을 준비하는 학생들에게 도움이 될 만한 정보를 공유하고자 합니다. 어디에서 채용공고를 찾아야 할지, 또 어떤 부서와 직무를 선택할 수 있을지 고민하는 학생들은 이번 자료를 참고하기 바랍니다.</p>
+<p>호텔 취업은 사람인·잡코리아 같은 일반 채용사이트뿐 아니라 <strong>호텔 전문 채용 플랫폼과 각 호텔 그룹의 공식 채용 홈페이지</strong>를 함께 살펴보는 것이 좋습니다. 특히 졸업을 앞둔 3·4학년 학생들은 정규직 채용과 함께 <strong>신입사원·인턴십·현장실습</strong> 공고도 확인해 보세요.</p>
+<p>호텔에는 프런트 외에도 객실관리, 예약, 식음료(F&amp;B), 연회·웨딩, 마케팅·영업, 인사·경영지원 등 다양한 부서가 있습니다. MICE 분야 역시 국제회의 기획(PCO), 전시 기획(PEO), 컨벤션센터 운영, 호텔 행사 운영 등 여러 진로로 이어집니다. <strong>‘어느 호텔에 들어갈까?’에 앞서 ‘어떤 일을 해보고 싶은가?’</strong>를 생각해 보면 취업 준비의 방향이 더 분명해질 것입니다.</p>
+<p>아래 자료에는 <strong>채용사이트별 특징과 공식 링크, 직무별 검색 키워드와 준비 역량, 취업 준비 체크리스트</strong>를 표로 정리했습니다. 관심 있는 직무를 1~2개 골라 관련 공고를 직접 찾아보고, 이력서·자기소개서와 영어·현장 경험도 차근차근 준비하기 바랍니다.</p>
+<p>4학년 학생들은 실제 지원 가능한 공고와 마감일을 확인하고, 1~3학년 학생들도 관심 기업과 필요한 역량을 미리 탐색해 보세요. 취업 준비는 작은 정보 탐색과 실천에서 시작됩니다.</p>
+<p>여러분이 각자의 관심과 강점에 맞는 좋은 기회를 찾기를 바랍니다.</p>
+<p class="letter-signoff">감사합니다.<br/><strong>관광경영학과 담당교수 드림</strong></p>
+</div>
+<div class="letter-bottom">
+<span>아래에서 채용사이트·직무별 검색표를 바로 확인할 수 있습니다.</span>
+<div class="letter-jump"><a href="#sites">채용사이트 비교표 보기 ↓</a><a href="#roles">직무별 검색표 보기 ↓</a></div>
+</div>
+</section>
+</div><div aria-label="자료 구성" class="shell quickstrip"><div class="stat"><span class="k">채용사이트 비교</span><b>09<small>개</small></b><small>호텔·관광 전문 / 종합 / 공식 채용</small></div><div class="stat"><span class="k">직무별 검색 가이드</span><b>08<small>분야</small></b><small>프런트·F&amp;B·경영지원·MICE</small></div><div class="stat"><span class="k">취업준비 실행표</span><b>08<small>단계</small></b><small>직접 진행상태 기록 가능</small></div></div></article>
+<article aria-labelledby="slideTitle1" class="deck-slide" id="page-sites"><div class="slide-top"><div><div class="slide-kicker">CAREER PLATFORMS · 02</div><h1 class="slide-headline" id="slideTitle1">채용사이트 비교표</h1><p class="slide-description">호텔 전문 플랫폼부터 국내외 호텔 그룹까지 9개 채용 경로</p></div><span aria-hidden="true" class="slide-count">02 / 05</span></div><section class="section" id="sites"><div class="section-head"><div><div class="section-heading"><div class="section-number">01</div><h2>호텔·관광·MICE 채용사이트 비교</h2></div><p class="section-desc">호텔 전문 플랫폼과 종합 채용사이트, 국내외 호텔 그룹 공식 채용페이지를 함께 활용하세요.</p></div><span class="note">엑셀 1번 시트 · <strong>9개 채용 채널</strong></span></div>
+<div class="sheet-box"><div class="sheet-tools"><div aria-label="채용사이트 유형 필터" class="filters" id="siteFilters" role="group"><button aria-pressed="true" class="filter active" data-filter="all" type="button">전체 9곳</button><button aria-pressed="false" class="filter" data-filter="special" type="button">호텔·관광 전문</button><button aria-pressed="false" class="filter" data-filter="general" type="button">종합 채용</button><button aria-pressed="false" class="filter" data-filter="group" type="button">호텔 그룹 공식</button></div><label class="searchbox"><span aria-hidden="true">⌕</span><input aria-label="사이트 표 검색" id="siteSearch" placeholder="사이트·직무·키워드 검색" type="search"/></label></div>
+<div aria-label="가로 스크롤 가능한 호텔 채용사이트 비교표" class="table-wrap" tabindex="0"><table class="tbl site-table"><thead><tr><th scope="col">유형</th><th scope="col">추천도</th><th scope="col">채용사이트 / 기업</th><th scope="col">주요 대상</th><th scope="col">추천 직무·분야</th><th scope="col">검색 키워드</th><th scope="col">공식 URL</th><th scope="col">학생 활용 팁</th></tr></thead><tbody id="siteBody"><tr data-search="호텔·관광 전문 높음 호텔인네트워크 호텔·리조트·관광 취업 희망자 프런트, 객실, F&amp;B, 연회, 인턴, 현장실습 호텔 프런트 / 호텔 인턴 / F&amp;B 관심 직무를 선택하고 신입·인턴 공고를 주 1회 확인" data-type="special">
+<td data-label="유형"><span class="cell-num">01</span><br/><span class="type-pill special">호텔·관광 전문</span></td>
+<td data-label="추천도"><span class="rank-pill recommend">우선 추천</span></td>
+<td class="name-cell" data-label="채용사이트 / 기업"><strong>호텔인네트워크</strong><a class="link-sub" href="https://www.hotelinnetwork.com/recruit/" rel="noopener noreferrer" target="_blank">사이트 열기 ↗</a></td>
+<td data-label="주요 대상">호텔·리조트·관광 취업 희망자</td><td data-label="추천 직무·분야">프런트, 객실, F&amp;B, 연회, 인턴, 현장실습</td><td data-label="검색 키워드"><span class="keyword">호텔 프런트 / 호텔 인턴 / F&amp;B</span></td>
+<td class="url-cell" data-label="공식 URL"><a href="https://www.hotelinnetwork.com/recruit/" rel="noopener noreferrer" target="_blank">https://www.hotelinnetwork.com/recruit/</a></td><td data-label="학생 활용 팁">관심 직무를 선택하고 신입·인턴 공고를 주 1회 확인</td>
+</tr>
+<tr data-search="관광 분야 전문 높음 관광전문인력포털 (관광인) 관광학 전공 학생 전반 관광호텔업, 국제회의업, 관광·여행 서비스 관광호텔업 / 국제회의업 / 신입 직종·지역·고용형태로 필터링, 취업컨설팅·멘토링도 참고" data-type="special">
+<td data-label="유형"><span class="cell-num">02</span><br/><span class="type-pill special">관광 분야 전문</span></td>
+<td data-label="추천도"><span class="rank-pill recommend">우선 추천</span></td>
+<td class="name-cell" data-label="채용사이트 / 기업"><strong>관광전문인력포털 (관광인)</strong><a class="link-sub" href="https://academy.visitkorea.or.kr/job/recruit/list.do" rel="noopener noreferrer" target="_blank">사이트 열기 ↗</a></td>
+<td data-label="주요 대상">관광학 전공 학생 전반</td><td data-label="추천 직무·분야">관광호텔업, 국제회의업, 관광·여행 서비스</td><td data-label="검색 키워드"><span class="keyword">관광호텔업 / 국제회의업 / 신입</span></td>
+<td class="url-cell" data-label="공식 URL"><a href="https://academy.visitkorea.or.kr/job/recruit/list.do" rel="noopener noreferrer" target="_blank">https://academy.visitkorea.or.kr/job/recruit/list.do</a></td><td data-label="학생 활용 팁">직종·지역·고용형태로 필터링, 취업컨설팅·멘토링도 참고</td>
+</tr>
+<tr data-search="숙박업 특화 선택 호텔업 (Hotelup) 중소형 숙박시설 취업 관심자 중소형 호텔·모텔 프런트, 운영, 객실관리 프런트 / 지배인 / 객실관리 특급호텔과 공고 성격이 다르므로 기업 및 근무조건 확인" data-type="special">
+<td data-label="유형"><span class="cell-num">03</span><br/><span class="type-pill special">숙박업 특화</span></td>
+<td data-label="추천도"><span class="rank-pill select">선택 활용</span></td>
+<td class="name-cell" data-label="채용사이트 / 기업"><strong>호텔업 (Hotelup)</strong><a class="link-sub" href="https://www.hotelup.com/" rel="noopener noreferrer" target="_blank">사이트 열기 ↗</a></td>
+<td data-label="주요 대상">중소형 숙박시설 취업 관심자</td><td data-label="추천 직무·분야">중소형 호텔·모텔 프런트, 운영, 객실관리</td><td data-label="검색 키워드"><span class="keyword">프런트 / 지배인 / 객실관리</span></td>
+<td class="url-cell" data-label="공식 URL"><a href="https://www.hotelup.com/" rel="noopener noreferrer" target="_blank">https://www.hotelup.com/</a></td><td data-label="학생 활용 팁">특급호텔과 공고 성격이 다르므로 기업 및 근무조건 확인</td>
+</tr>
+<tr data-search="종합 채용 높음 사람인 (호텔리어) 호텔 취업·마케팅·경영지원 희망자 호텔리어, 예약, 객실, 마케팅, 인사 호텔리어 / 연회 / 호텔마케팅 관심 기업 알림 설정, 신입·지역·고용형태 필터 활용" data-type="general">
+<td data-label="유형"><span class="cell-num">04</span><br/><span class="type-pill general">종합 채용</span></td>
+<td data-label="추천도"><span class="rank-pill recommend">우선 추천</span></td>
+<td class="name-cell" data-label="채용사이트 / 기업"><strong>사람인 (호텔리어)</strong><a class="link-sub" href="https://www.saramin.co.kr/zf_user/jobs/list/job-category?cat_kewd=918&amp;nomo=1" rel="noopener noreferrer" target="_blank">사이트 열기 ↗</a></td>
+<td data-label="주요 대상">호텔 취업·마케팅·경영지원 희망자</td><td data-label="추천 직무·분야">호텔리어, 예약, 객실, 마케팅, 인사</td><td data-label="검색 키워드"><span class="keyword">호텔리어 / 연회 / 호텔마케팅</span></td>
+<td class="url-cell" data-label="공식 URL"><a href="https://www.saramin.co.kr/zf_user/jobs/list/job-category?cat_kewd=918&amp;nomo=1" rel="noopener noreferrer" target="_blank">https://www.saramin.co.kr/zf_user/jobs/list/job-category?cat_kewd=918&amp;nomo=1</a></td><td data-label="학생 활용 팁">관심 기업 알림 설정, 신입·지역·고용형태 필터 활용</td>
+</tr>
+<tr data-search="종합 채용 높음 잡코리아 (호텔 분야) 호텔·리조트·MICE 취업 희망자 호텔 서비스, 예약, 마케팅, 컨벤션 호텔 / PCO / PEO / 컨벤션 PCO·PEO는 일반 검색창에 키워드별 검색 권장" data-type="general">
+<td data-label="유형"><span class="cell-num">05</span><br/><span class="type-pill general">종합 채용</span></td>
+<td data-label="추천도"><span class="rank-pill recommend">우선 추천</span></td>
+<td class="name-cell" data-label="채용사이트 / 기업"><strong>잡코리아 (호텔 분야)</strong><a class="link-sub" href="https://www.jobkorea.co.kr/Recruit/JobList?duty=1000311&amp;menucode=duty" rel="noopener noreferrer" target="_blank">사이트 열기 ↗</a></td>
+<td data-label="주요 대상">호텔·리조트·MICE 취업 희망자</td><td data-label="추천 직무·분야">호텔 서비스, 예약, 마케팅, 컨벤션</td><td data-label="검색 키워드"><span class="keyword">호텔 / PCO / PEO / 컨벤션</span></td>
+<td class="url-cell" data-label="공식 URL"><a href="https://www.jobkorea.co.kr/Recruit/JobList?duty=1000311&amp;menucode=duty" rel="noopener noreferrer" target="_blank">https://www.jobkorea.co.kr/Recruit/JobList?duty=1000311&amp;menucode=duty</a></td><td data-label="학생 활용 팁">PCO·PEO는 일반 검색창에 키워드별 검색 권장</td>
+</tr>
+<tr data-search="호텔그룹 공식 높음 Marriott International 국내외 글로벌 호텔 취업 희망자 호텔 운영, Front Office, F&amp;B, 객실 등 Korea / Front Office / Internship 국가·도시·부서로 검색, 영어 이력서 준비" data-type="group">
+<td data-label="유형"><span class="cell-num">06</span><br/><span class="type-pill group">호텔그룹 공식</span></td>
+<td data-label="추천도"><span class="rank-pill recommend">우선 추천</span></td>
+<td class="name-cell" data-label="채용사이트 / 기업"><strong>Marriott International</strong><a class="link-sub" href="https://careers.marriott.com/jobs" rel="noopener noreferrer" target="_blank">사이트 열기 ↗</a></td>
+<td data-label="주요 대상">국내외 글로벌 호텔 취업 희망자</td><td data-label="추천 직무·분야">호텔 운영, Front Office, F&amp;B, 객실 등</td><td data-label="검색 키워드"><span class="keyword">Korea / Front Office / Internship</span></td>
+<td class="url-cell" data-label="공식 URL"><a href="https://careers.marriott.com/jobs" rel="noopener noreferrer" target="_blank">https://careers.marriott.com/jobs</a></td><td data-label="학생 활용 팁">국가·도시·부서로 검색, 영어 이력서 준비</td>
+</tr>
+<tr data-search="호텔그룹 공식 높음 Hilton 국내외 글로벌 호텔 취업 희망자 객실, 식음, 서비스, 경영지원 등 Korea / Graduate / Hotel 학생·초기경력 전용 안내 및 호텔별 공고 확인" data-type="group">
+<td data-label="유형"><span class="cell-num">07</span><br/><span class="type-pill group">호텔그룹 공식</span></td>
+<td data-label="추천도"><span class="rank-pill recommend">우선 추천</span></td>
+<td class="name-cell" data-label="채용사이트 / 기업"><strong>Hilton</strong><a class="link-sub" href="https://jobs.hilton.com/" rel="noopener noreferrer" target="_blank">사이트 열기 ↗</a></td>
+<td data-label="주요 대상">국내외 글로벌 호텔 취업 희망자</td><td data-label="추천 직무·분야">객실, 식음, 서비스, 경영지원 등</td><td data-label="검색 키워드"><span class="keyword">Korea / Graduate / Hotel</span></td>
+<td class="url-cell" data-label="공식 URL"><a href="https://jobs.hilton.com/" rel="noopener noreferrer" target="_blank">https://jobs.hilton.com/</a></td><td data-label="학생 활용 팁">학생·초기경력 전용 안내 및 호텔별 공고 확인</td>
+</tr>
+<tr data-search="호텔그룹 공식 높음 Accor 글로벌 호텔 취업 희망자 Sofitel·Novotel·ibis 등 호텔 직무 South Korea / Food &amp; Beverage 지역·브랜드·부서별 필터를 조합해 검색" data-type="group">
+<td data-label="유형"><span class="cell-num">08</span><br/><span class="type-pill group">호텔그룹 공식</span></td>
+<td data-label="추천도"><span class="rank-pill recommend">우선 추천</span></td>
+<td class="name-cell" data-label="채용사이트 / 기업"><strong>Accor</strong><a class="link-sub" href="https://careers.accor.com/jobs" rel="noopener noreferrer" target="_blank">사이트 열기 ↗</a></td>
+<td data-label="주요 대상">글로벌 호텔 취업 희망자</td><td data-label="추천 직무·분야">Sofitel·Novotel·ibis 등 호텔 직무</td><td data-label="검색 키워드"><span class="keyword">South Korea / Food &amp; Beverage</span></td>
+<td class="url-cell" data-label="공식 URL"><a href="https://careers.accor.com/jobs" rel="noopener noreferrer" target="_blank">https://careers.accor.com/jobs</a></td><td data-label="학생 활용 팁">지역·브랜드·부서별 필터를 조합해 검색</td>
+</tr>
+<tr data-search="국내 호텔 공식 높음 조선호텔앤리조트 국내 대형 호텔 취업 희망자 객실, 식음, 조리, 연회, 경영지원 등 조선호텔 채용 / 객실 / 연회 공식 채용안내에서 채용정보 링크 확인" data-type="group">
+<td data-label="유형"><span class="cell-num">09</span><br/><span class="type-pill group">국내 호텔 공식</span></td>
+<td data-label="추천도"><span class="rank-pill recommend">우선 추천</span></td>
+<td class="name-cell" data-label="채용사이트 / 기업"><strong>조선호텔앤리조트</strong><a class="link-sub" href="https://josunhotel.com/recruit/employment.do" rel="noopener noreferrer" target="_blank">사이트 열기 ↗</a></td>
+<td data-label="주요 대상">국내 대형 호텔 취업 희망자</td><td data-label="추천 직무·분야">객실, 식음, 조리, 연회, 경영지원 등</td><td data-label="검색 키워드"><span class="keyword">조선호텔 채용 / 객실 / 연회</span></td>
+<td class="url-cell" data-label="공식 URL"><a href="https://josunhotel.com/recruit/employment.do" rel="noopener noreferrer" target="_blank">https://josunhotel.com/recruit/employment.do</a></td><td data-label="학생 활용 팁">공식 채용안내에서 채용정보 링크 확인</td>
+</tr></tbody></table><div class="empty-state" id="siteEmpty">일치하는 채용사이트가 없습니다. 검색어를 변경해 보세요.</div></div></div><p class="inline-insight">※ 표가 길면 가로로 움직여 확인할 수 있습니다. 모든 링크는 새로운 창에서 열립니다.</p>
+<div class="note note-warn"><strong>반드시 확인하세요.</strong> 이 안내문은 취업정보를 탐색하기 위한 자료이며, 현재 모집 중인 기업·인원·마감일을 확정한 채용공고 목록이 아닙니다. 지원 전 각 기업의 최신 원문 공고에서 자격 요건, 근무지, 고용형태, 접수기간을 확인하세요.</div></section></article>
+<article aria-labelledby="slideTitle2" class="deck-slide" id="page-roles"><div class="slide-top"><div><div class="slide-kicker">JOB SEARCH · 03</div><h1 class="slide-headline" id="slideTitle2">직무별 검색 가이드</h1><p class="slide-description">원하는 부서·직무를 찾을 수 있도록 8개 진로 분야를 정리했습니다.</p></div><span aria-hidden="true" class="slide-count">03 / 05</span></div><section class="section" id="roles"><div class="section-head"><div><div class="section-heading"><div class="section-number">02</div><h2>희망 직무별 검색 가이드</h2></div><p class="section-desc">‘호텔에 취업’보다 ‘어떤 부서에서 어떤 일을 할지’를 먼저 정하면 채용공고를 더 정확하게 찾을 수 있습니다.</p></div><span class="note">엑셀 2번 시트 · <strong>8개 직무 분야</strong></span></div>
+<div class="sheet-box"><div class="sheet-tools"><div class="note" style="border:0;padding:0;background:transparent">검색어는 예시이며, 채용이 진행 중이라는 의미는 아닙니다.</div><label class="searchbox"><span aria-hidden="true">⌕</span><input aria-label="직무 표 검색" id="roleSearch" placeholder="프런트, 마케팅, PCO 등 검색" type="search"/></label></div><div aria-label="가로 스크롤 가능한 직무별 검색표" class="table-wrap" tabindex="0"><table class="tbl role-table"><thead><tr><th scope="col">진로 분야</th><th scope="col">대표 직무</th><th scope="col">한국어 검색어</th><th scope="col">영어 검색어</th><th scope="col">우선 확인 사이트</th><th scope="col">학생 준비 역량</th></tr></thead><tbody id="roleBody"><tr data-search="호텔 객실·프런트 Front Desk / Guest Relations 호텔 프런트, 객실팀, 예약, 컨시어지 Front Office, Receptionist, Guest Relations 호텔인네트워크 · Marriott · Hilton 고객 응대, 영어 회화, PMS 기초 이해">
+<td data-label="진로 분야"><span class="cell-num">01</span> <strong>호텔 객실·프런트</strong></td>
+<td data-label="대표 직무">Front Desk / Guest Relations</td><td data-label="한국어 검색어">호텔 프런트, 객실팀, 예약, 컨시어지</td><td class="english" data-label="영어 검색어">Front Office, Receptionist, Guest Relations</td>
+<td data-label="우선 확인 사이트">호텔인네트워크 · Marriott · Hilton</td><td data-label="학생 준비 역량">고객 응대, 영어 회화, PMS 기초 이해</td></tr>
+<tr data-search="식음료(F&amp;B) 레스토랑 서비스 / 바 / 식음 운영 호텔 식음료, F&amp;B, 레스토랑 서비스 Food &amp; Beverage, Restaurant Service 호텔인네트워크 · Accor · 조선호텔 고객 서비스, 메뉴·식음 지식, 외국어">
+<td data-label="진로 분야"><span class="cell-num">02</span> <strong>식음료(F&amp;B)</strong></td>
+<td data-label="대표 직무">레스토랑 서비스 / 바 / 식음 운영</td><td data-label="한국어 검색어">호텔 식음료, F&amp;B, 레스토랑 서비스</td><td class="english" data-label="영어 검색어">Food &amp; Beverage, Restaurant Service</td>
+<td data-label="우선 확인 사이트">호텔인네트워크 · Accor · 조선호텔</td><td data-label="학생 준비 역량">고객 서비스, 메뉴·식음 지식, 외국어</td></tr>
+<tr data-search="호텔 연회·웨딩 Banquet / Event Service 호텔 연회, 웨딩, 행사 운영 Banquet, Event Service, Catering 호텔인네트워크 · 조선호텔 · 사람인 행사 운영, 현장 협업, 응대">
+<td data-label="진로 분야"><span class="cell-num">03</span> <strong>호텔 연회·웨딩</strong></td>
+<td data-label="대표 직무">Banquet / Event Service</td><td data-label="한국어 검색어">호텔 연회, 웨딩, 행사 운영</td><td class="english" data-label="영어 검색어">Banquet, Event Service, Catering</td>
+<td data-label="우선 확인 사이트">호텔인네트워크 · 조선호텔 · 사람인</td><td data-label="학생 준비 역량">행사 운영, 현장 협업, 응대</td></tr>
+<tr data-search="호텔 마케팅·경영지원 Marketing / HR / Sales 호텔 마케팅, 호텔 인사, 세일즈 Hotel Marketing, Human Resources, Sales 사람인 · 잡코리아 · 호텔 공식사이트 기획서, 엑셀, 콘텐츠·데이터 활용">
+<td data-label="진로 분야"><span class="cell-num">04</span> <strong>호텔 마케팅·경영지원</strong></td>
+<td data-label="대표 직무">Marketing / HR / Sales</td><td data-label="한국어 검색어">호텔 마케팅, 호텔 인사, 세일즈</td><td class="english" data-label="영어 검색어">Hotel Marketing, Human Resources, Sales</td>
+<td data-label="우선 확인 사이트">사람인 · 잡코리아 · 호텔 공식사이트</td><td data-label="학생 준비 역량">기획서, 엑셀, 콘텐츠·데이터 활용</td></tr>
+<tr data-search="국제회의 기획(PCO) 컨퍼런스 기획·운영 PCO, 국제회의기획, 학술대회 운영 Conference, Meeting Planner 잡코리아 · 사람인 · 관광인 행사기획, 영어 이메일, 일정·예산 관리">
+<td data-label="진로 분야"><span class="cell-num">05</span> <strong>국제회의 기획(PCO)</strong></td>
+<td data-label="대표 직무">컨퍼런스 기획·운영</td><td data-label="한국어 검색어">PCO, 국제회의기획, 학술대회 운영</td><td class="english" data-label="영어 검색어">Conference, Meeting Planner</td>
+<td data-label="우선 확인 사이트">잡코리아 · 사람인 · 관광인</td><td data-label="학생 준비 역량">행사기획, 영어 이메일, 일정·예산 관리</td></tr>
+<tr data-search="전시 기획(PEO) 박람회·전시회 기획 PEO, 전시기획, 박람회 운영 Exhibition, Trade Show 잡코리아 · 사람인 · 관광인 전시기획, 현장 운영, 대외 커뮤니케이션">
+<td data-label="진로 분야"><span class="cell-num">06</span> <strong>전시 기획(PEO)</strong></td>
+<td data-label="대표 직무">박람회·전시회 기획</td><td data-label="한국어 검색어">PEO, 전시기획, 박람회 운영</td><td class="english" data-label="영어 검색어">Exhibition, Trade Show</td>
+<td data-label="우선 확인 사이트">잡코리아 · 사람인 · 관광인</td><td data-label="학생 준비 역량">전시기획, 현장 운영, 대외 커뮤니케이션</td></tr>
+<tr data-search="컨벤션센터·MICE 시설 운영·마케팅·행사 유치 컨벤션센터, MICE, 전시장 운영 Convention Center, MICE, Venue 잡코리아 · 관광인 · 기업 공식사이트 행사 제안, 고객관리, 영어·문서">
+<td data-label="진로 분야"><span class="cell-num">07</span> <strong>컨벤션센터·MICE</strong></td>
+<td data-label="대표 직무">시설 운영·마케팅·행사 유치</td><td data-label="한국어 검색어">컨벤션센터, MICE, 전시장 운영</td><td class="english" data-label="영어 검색어">Convention Center, MICE, Venue</td>
+<td data-label="우선 확인 사이트">잡코리아 · 관광인 · 기업 공식사이트</td><td data-label="학생 준비 역량">행사 제안, 고객관리, 영어·문서</td></tr>
+<tr data-search="중소형 숙박업 호텔 운영·프런트·객실 지배인, 프런트, 객실관리 Hotel Operations, Front Desk 호텔업 · 사람인 운영 실무, 교대근무 조건 확인, 현장 서비스">
+<td data-label="진로 분야"><span class="cell-num">08</span> <strong>중소형 숙박업</strong></td>
+<td data-label="대표 직무">호텔 운영·프런트·객실</td><td data-label="한국어 검색어">지배인, 프런트, 객실관리</td><td class="english" data-label="영어 검색어">Hotel Operations, Front Desk</td>
+<td data-label="우선 확인 사이트">호텔업 · 사람인</td><td data-label="학생 준비 역량">운영 실무, 교대근무 조건 확인, 현장 서비스</td></tr></tbody></table><div class="empty-state" id="roleEmpty">일치하는 직무가 없습니다. 검색어를 변경해 보세요.</div></div></div>
+<div class="two-cards" style="margin-top:16px"><article class="info-card"><h3>호텔 직무는 프런트만 있는 것이 아닙니다</h3><p>고객 응대가 적성에 맞지 않는 학생도 <strong>마케팅, 세일즈, 인사, 회계, 객실관리, 연회 기획</strong> 등 여러 직무를 탐색할 수 있습니다. 다만 직무별 현장 업무와 고객 접점은 기업에 따라 다를 수 있습니다.</p></article><article class="info-card"><h3>PCO · PEO · MICE 차이 이해하기</h3><p><strong>PCO</strong>는 국제회의·학술대회 기획·운영, <strong>PEO</strong>는 전시회·박람회 기획·운영을 의미합니다. 컨벤션센터는 행사 유치·시설 운영·마케팅 등과 관련됩니다.</p></article></div></section></article>
+<article aria-labelledby="slideTitle3" class="deck-slide" id="page-plan"><div class="slide-top"><div><div class="slide-kicker">MY ACTION PLAN · 04</div><h1 class="slide-headline" id="slideTitle3">나의 취업준비 체크리스트</h1><p class="slide-description">8가지 준비 항목의 상태를 표시하고 완료율을 확인하세요.</p></div><span aria-hidden="true" class="slide-count">04 / 05</span></div><section class="section" id="plan"><div class="section-head"><div><div class="section-heading"><div class="section-number">03</div><h2>나의 취업준비 체크리스트</h2></div><p class="section-desc">단순히 사이트를 보는 것에서 끝내지 말고 실제 지원 준비로 연결해 보세요.</p></div><span class="note">엑셀 3번 시트 · <strong>8단계 실행표</strong></span></div>
+<div class="kpi-bar"><div><strong>나의 준비 진행 현황</strong><div style="font-size:11px;color:#658095">상태를 바꾸면 아래 진행률이 반영됩니다.</div></div><div aria-hidden="true" class="progress-line"><div class="progress-fill" id="progressFill"></div></div><div><span class="progress-num" id="progressCount">0 / 8 완료</span></div><button class="mini-reset" id="resetChecklist" type="button">기록 초기화</button></div>
+<div class="sheet-box"><div aria-label="가로 스크롤 가능한 취업준비 체크리스트" class="table-wrap" tabindex="0"><table class="tbl check-table"><thead><tr><th scope="col">순서</th><th scope="col">실행 항목</th><th scope="col">완료 기준 / 결과물</th><th scope="col">추천 활용처</th><th scope="col">권장 시점·주기</th><th scope="col">나의 진행상태</th></tr></thead><tbody><tr><td data-label="순서"><span class="step-num">1</span></td><td class="task-cell" data-label="실행 항목"><strong>희망 직무 1~2개 선정</strong></td><td data-label="완료 기준 / 결과물">관심 직무·선호 지역·기업 적기</td><td data-label="추천 활용처">02_직무별_검색 시트</td><td data-label="권장 시점·주기"><span class="time-pill">취업 탐색 시작 시</span></td>
+<td data-label="나의 진행상태"><label class="sr-only" for="status-1">희망 직무 1~2개 선정 진행 상태</label><select aria-label="희망 직무 1~2개 선정 진행 상태" class="task-status" data-task="1" id="status-1"><option value="미착수">미착수</option><option value="진행 중">진행 중</option><option value="완료">완료</option></select></td></tr>
+<tr><td data-label="순서"><span class="step-num">2</span></td><td class="task-cell" data-label="실행 항목"><strong>전문 사이트 회원가입·검색</strong></td><td data-label="완료 기준 / 결과물">관심 사이트 2곳 이상 확인</td><td data-label="추천 활용처">호텔인네트워크 / 관광인</td><td data-label="권장 시점·주기"><span class="time-pill">이번 주</span></td>
+<td data-label="나의 진행상태"><label class="sr-only" for="status-2">전문 사이트 회원가입·검색 진행 상태</label><select aria-label="전문 사이트 회원가입·검색 진행 상태" class="task-status" data-task="2" id="status-2"><option value="미착수">미착수</option><option value="진행 중">진행 중</option><option value="완료">완료</option></select></td></tr>
+<tr><td data-label="순서"><span class="step-num">3</span></td><td class="task-cell" data-label="실행 항목"><strong>희망 호텔 공식사이트 확인</strong></td><td data-label="완료 기준 / 결과물">희망 호텔 그룹 2~3곳 목록 작성</td><td data-label="추천 활용처">Marriott / Hilton / Accor / 조선호텔</td><td data-label="권장 시점·주기"><span class="time-pill">이번 주</span></td>
+<td data-label="나의 진행상태"><label class="sr-only" for="status-3">희망 호텔 공식사이트 확인 진행 상태</label><select aria-label="희망 호텔 공식사이트 확인 진행 상태" class="task-status" data-task="3" id="status-3"><option value="미착수">미착수</option><option value="진행 중">진행 중</option><option value="완료">완료</option></select></td></tr>
+<tr><td data-label="순서"><span class="step-num">4</span></td><td class="task-cell" data-label="실행 항목"><strong>이력서·자기소개서 준비</strong></td><td data-label="완료 기준 / 결과물">국문 이력서 1부, 필요 시 영문 이력서</td><td data-label="추천 활용처">학교 취업지원부서</td><td data-label="권장 시점·주기"><span class="time-pill">지원 전</span></td>
+<td data-label="나의 진행상태"><label class="sr-only" for="status-4">이력서·자기소개서 준비 진행 상태</label><select aria-label="이력서·자기소개서 준비 진행 상태" class="task-status" data-task="4" id="status-4"><option value="미착수">미착수</option><option value="진행 중">진행 중</option><option value="완료">완료</option></select></td></tr>
+<tr><td data-label="순서"><span class="step-num">5</span></td><td class="task-cell" data-label="실행 항목"><strong>채용알림·스크랩 설정</strong></td><td data-label="완료 기준 / 결과물">지원 후보 공고 3건 이상 저장</td><td data-label="추천 활용처">사람인 / 잡코리아</td><td data-label="권장 시점·주기"><span class="time-pill">매주 1회</span></td>
+<td data-label="나의 진행상태"><label class="sr-only" for="status-5">채용알림·스크랩 설정 진행 상태</label><select aria-label="채용알림·스크랩 설정 진행 상태" class="task-status" data-task="5" id="status-5"><option value="미착수">미착수</option><option value="진행 중">진행 중</option><option value="완료">완료</option></select></td></tr>
+<tr><td data-label="순서"><span class="step-num">6</span></td><td class="task-cell" data-label="실행 항목"><strong>직무 관련 실무 역량 정리</strong></td><td data-label="완료 기준 / 결과물">실습·아르바이트·대외활동 경험 기술</td><td data-label="추천 활용처">수업·현장실습·행사 참여</td><td data-label="권장 시점·주기"><span class="time-pill">지원 전</span></td>
+<td data-label="나의 진행상태"><label class="sr-only" for="status-6">직무 관련 실무 역량 정리 진행 상태</label><select aria-label="직무 관련 실무 역량 정리 진행 상태" class="task-status" data-task="6" id="status-6"><option value="미착수">미착수</option><option value="진행 중">진행 중</option><option value="완료">완료</option></select></td></tr>
+<tr><td data-label="순서"><span class="step-num">7</span></td><td class="task-cell" data-label="실행 항목"><strong>영어·면접 질문 연습</strong></td><td data-label="완료 기준 / 결과물">30초 자기소개와 직무 지원동기 준비</td><td data-label="추천 활용처">취업지원부서·모의면접</td><td data-label="권장 시점·주기"><span class="time-pill">매주 1회</span></td>
+<td data-label="나의 진행상태"><label class="sr-only" for="status-7">영어·면접 질문 연습 진행 상태</label><select aria-label="영어·면접 질문 연습 진행 상태" class="task-status" data-task="7" id="status-7"><option value="미착수">미착수</option><option value="진행 중">진행 중</option><option value="완료">완료</option></select></td></tr>
+<tr><td data-label="순서"><span class="step-num">8</span></td><td class="task-cell" data-label="실행 항목"><strong>지원 공고 조건 최종 확인</strong></td><td data-label="완료 기준 / 결과물">모집기간·근무지·고용형태·필수조건 점검</td><td data-label="추천 활용처">각 기업 공식 공고 원문</td><td data-label="권장 시점·주기"><span class="time-pill">지원 직전</span></td>
+<td data-label="나의 진행상태"><label class="sr-only" for="status-8">지원 공고 조건 최종 확인 진행 상태</label><select aria-label="지원 공고 조건 최종 확인 진행 상태" class="task-status" data-task="8" id="status-8"><option value="미착수">미착수</option><option value="진행 중">진행 중</option><option value="완료">완료</option></select></td></tr></tbody></table></div></div><p class="inline-insight">진행상태는 이 브라우저에만 저장됩니다. 다른 기기나 브라우저로 옮겨지지 않으며, 별도 제출·전송되지 않습니다.</p></section></article>
+<article aria-labelledby="slideTitle4" class="deck-slide" id="page-tips"><div class="slide-top"><div><div class="slide-kicker">FINAL GUIDE · 05</div><h1 class="slide-headline" id="slideTitle4">취업 준비 방법과 유의사항</h1><p class="slide-description">지원 전에 점검할 내용과 학생들에게 전하는 마지막 안내</p></div><span aria-hidden="true" class="slide-count">05 / 05</span></div><section class="section" id="tips"><div class="section-head"><div><div class="section-heading"><div class="section-number">04</div><h2>취업 준비를 위한 추가 안내</h2></div><p class="section-desc">지원서 작성뿐 아니라 현장 경험과 면접 역량을 함께 준비해 보세요.</p></div></div>
+<div class="two-cards"><article class="info-card"><h3>① 자신에게 맞는 직무와 기업 정하기</h3><ul><li>관심 직무 <strong>1~2개</strong>와 희망 지역을 적기</li><li>전문 채용사이트 1곳 + 종합 채용사이트 1곳 + 희망 호텔 공식사이트 방문</li><li>신입·인턴·현장실습 여부, 교대근무, 근무조건 구분하기</li></ul></article><article class="info-card"><h3>② 영어·현장 경험·면접 준비하기</h3><ul><li>30초 자기소개와 직무 지원동기 준비</li><li>관광 행사, 호텔 현장실습, 대외활동을 구체적인 경험으로 기록</li><li>대학 취업지원부서의 이력서·자기소개서 첨삭, 모의면접, 취업상담 활용</li></ul></article></div></section><section class="closing" id="closing">
+<p><strong>자료 이용 안내</strong></p>
+<p>채용정보는 수시로 변경됩니다. 지원하기 전에는 반드시 해당 기업의 공식 공고에서 모집기간, 지원 자격, 근무지역, 고용형태 및 제출서류를 확인하세요.</p>
+<div class="footer">자료 기준일: 2026년 11월 20일 · 학생 진로 탐색을 위한 교육용 참고자료입니다. · 표에 소개된 사이트는 취업 준비용 경로이며, 현재 채용 진행 여부를 보장하지 않습니다.</div>
+</section><div class="end-note">작은 탐색부터 시작해 보세요. 관심 직무를 정하고 이번 주 안에 채용사이트 2곳에서 실제 공고를 살펴보는 것을 추천합니다.</div></article>
+</div>
+</main>
+<nav aria-label="페이지 좌우 넘기기" class="deck-bottom">
+<button class="slide-nav" id="prevSlide" type="button">←   이전</button>
+<div class="pager-center">
+<div aria-label="바로 가기" class="pager-track" role="group">
+<button class="pager-tab active" data-short="편지" type="button">① 편지</button>
+<button class="pager-tab" data-short="사이트" type="button">② 채용사이트</button>
+<button class="pager-tab" data-short="직무" type="button">③ 직무별 검색</button>
+<button class="pager-tab" data-short="체크" type="button">④ 준비 체크</button>
+<button class="pager-tab" data-short="안내" type="button">⑤ 마무리 안내</button>
+</div>
+<div class="pager-meta"><strong id="pagerCounter">01 / 05</strong><span>버튼 · 키보드 ← → · 모바일 좌우 스와이프</span><div aria-hidden="true" class="progress-dashes"><span class="active"></span><span></span><span></span><span></span><span></span></div></div>
+</div>
+<button class="slide-nav primary" id="nextSlide" type="button">다음   →</button>
+</nav>
+</div>
+<div aria-live="polite" class="sr-only" id="slideAnnouncer"></div>
+</div><script>
+(function(){
+  const siteRows=Array.from(document.querySelectorAll('#siteBody tr'));
+  const roleRows=Array.from(document.querySelectorAll('#roleBody tr'));
+  let currentFilter='all';
+  const normalize=s=>(s||'').toLocaleLowerCase('ko').replace(/\s+/g,' ').trim();
+  function updateSite(){
+    const q=normalize(document.getElementById('siteSearch').value);let count=0;
+    siteRows.forEach(row=>{const visible=(currentFilter==='all'||row.dataset.type===currentFilter)&&normalize(row.dataset.search).includes(q);row.classList.toggle('hidden-row',!visible);if(visible)count++});
+    document.getElementById('siteEmpty').style.display=count?'none':'block';
+  }
+  document.getElementById('siteSearch').addEventListener('input',updateSite);
+  document.querySelectorAll('[data-filter]').forEach(btn=>btn.addEventListener('click',()=>{
+    currentFilter=btn.dataset.filter;
+    document.querySelectorAll('[data-filter]').forEach(b=>{b.classList.toggle('active',b===btn);b.setAttribute('aria-pressed',String(b===btn));});
+    updateSite();
+  }));
+  document.getElementById('roleSearch').addEventListener('input',e=>{
+    const q=normalize(e.target.value);let count=0;
+    roleRows.forEach(row=>{const show=normalize(row.dataset.search).includes(q);row.classList.toggle('hidden-row',!show);if(show)count++});
+    document.getElementById('roleEmpty').style.display=count?'none':'block';
+  });
+  const storageKey='tourism-career-checklist-20261120';
+  const selects=Array.from(document.querySelectorAll('.task-status'));
+  function refresh(){
+    const done=selects.filter(s=>s.value==='완료').length;
+    document.getElementById('progressCount').textContent=`${done} / ${selects.length} 완료`;
+    document.getElementById('progressFill').style.width=`${done/selects.length*100}%`;
+    selects.forEach(s=>s.dataset.state=s.value);
+  }
+  try{
+    const saved=JSON.parse(localStorage.getItem(storageKey)||'{}');
+    selects.forEach(s=>{if(['미착수','진행 중','완료'].includes(saved[s.dataset.task]))s.value=saved[s.dataset.task]});
+  }catch(e){}
+  selects.forEach(s=>s.addEventListener('change',()=>{
+    const obj=Object.fromEntries(selects.map(i=>[i.dataset.task,i.value]));
+    try{localStorage.setItem(storageKey,JSON.stringify(obj))}catch(e){}
+    refresh();
+  }));
+  document.getElementById('resetChecklist').addEventListener('click',()=>{
+    if(!window.confirm('진행상태 8개 항목을 모두 미착수로 초기화할까요?'))return;
+    selects.forEach(s=>s.value='미착수');try{localStorage.removeItem(storageKey)}catch(e){}refresh();
+  });
+  refresh();
+})();
+</script><script>
+(function(){
+  'use strict';
+  const pages = Array.from(document.querySelectorAll('.deck-slide'));
+  const tabs  = Array.from(document.querySelectorAll('.pager-tab'));
+  const track = document.getElementById('deckTrack');
+  const prev  = document.getElementById('prevSlide');
+  const next  = document.getElementById('nextSlide');
+  const count = document.getElementById('pagerCounter');
+  const bars  = Array.from(document.querySelectorAll('.progress-dashes span'));
+  const announcer = document.getElementById('slideAnnouncer');
+  let active=0;
+  const clamp = n=>Math.min(pages.length-1,Math.max(0,n));
+  function show(index){
+    const target=clamp(index);
+    if (target!==active){ pages[active].scrollTop=0; }
+    active=target;
+    track.style.transform='translate3d(-'+(active*100)+'%,0,0)';
+    pages.forEach((page,i)=>{
+      page.setAttribute('aria-hidden',String(i!==active));
+      if ('inert' in page) page.inert=(i!==active);
+    });
+    tabs.forEach((tab,i)=>{
+      tab.classList.toggle('active',i===active);
+      tab.setAttribute('aria-current',i===active?'page':'false');
+      tab.setAttribute('aria-pressed',String(i===active));
+    });
+    bars.forEach((bar,i)=>bar.classList.toggle('active',i<=active));
+    prev.disabled=active===0;
+    next.disabled=active===pages.length-1;
+    next.innerHTML=active===pages.length-1?'마지막 장 ✓':'다음 &nbsp; →';
+    count.textContent=String(active+1).padStart(2,'0')+' / '+String(pages.length).padStart(2,'0');
+    if(announcer) announcer.textContent=(active+1)+'번째 장: '+tabs[active].textContent;
+  }
+  prev.addEventListener('click',()=>show(active-1));
+  next.addEventListener('click',()=>show(active+1));
+  tabs.forEach((tab,i)=>tab.addEventListener('click',()=>show(i)));
+  const pageById={intro:0,sites:1,roles:2,plan:3,tips:4,closing:4};
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',ev=>{
+    const name=decodeURIComponent((a.getAttribute('href')||'').slice(1));
+    if (pageById[name]!==undefined){ev.preventDefault();show(pageById[name]);}
+  }));
+  document.addEventListener('keydown',e=>{
+    if(e.altKey||e.ctrlKey||e.metaKey||e.shiftKey)return;
+    if(['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName) || e.target.isContentEditable)return;
+    if(e.target.closest('.table-wrap'))return;
+    if(e.key==='ArrowRight' || e.key==='PageDown'){e.preventDefault();show(active+1);}
+    if(e.key==='ArrowLeft' || e.key==='PageUp'){e.preventDefault();show(active-1);}
+  });
+  const stage=document.getElementById('deckStage');
+  let start=null;
+  stage.addEventListener('touchstart',e=>{
+    if(e.touches.length!==1 || e.target.closest('select,input,textarea,button,a') || (window.innerWidth>700 && e.target.closest('.table-wrap'))){start=null;return;}
+    start={x:e.touches[0].clientX,y:e.touches[0].clientY};
+  },{passive:true});
+  stage.addEventListener('touchend',e=>{
+    if(!start || e.changedTouches.length!==1)return;
+    const dx=e.changedTouches[0].clientX-start.x, dy=e.changedTouches[0].clientY-start.y;
+    if(Math.abs(dx)>=65 && Math.abs(dx)>Math.abs(dy)*1.4){ show(active+(dx<0?1:-1)); }
+    start=null;
+  },{passive:true});
+  stage.addEventListener('touchcancel',()=>{start=null;},{passive:true});
+  const hash=decodeURIComponent(location.hash.replace(/^#/,''));
+  show(pageById[hash]===undefined?0:pageById[hash]);
+})();
+</script></body></html>
