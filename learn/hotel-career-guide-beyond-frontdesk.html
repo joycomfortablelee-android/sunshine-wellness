@@ -19,11 +19,23 @@ main{padding-bottom:65px}section{scroll-margin-top:20px;margin:56px auto}.sectio
 .dialog{border:0;padding:0;background:transparent;max-width:min(94vw,1100px);max-height:92vh;box-shadow:0 30px 70px rgba(0,0,0,.25);border-radius:18px;overflow:hidden}.dialog::backdrop{background:rgba(2,20,24,.85)}.dialog img{display:block;width:100%;max-height:83vh;object-fit:contain;background:#0d2730}.dialog .close{position:absolute;top:12px;right:12px;background:white;color:#174856;border:0;border-radius:99px;cursor:pointer;font-size:13px;font-weight:900;padding:7px 14px}.dialog .caption{background:white;padding:12px 18px;font-size:13px;color:#4d6770}
 @media(max-width:780px){.wrap{padding:0 19px}.topbar{height:58px}.toplinks a{display:none}.hero-grid{grid-template-columns:1fr;min-height:0;padding-top:50px;padding-bottom:50px}.hero-art{display:none}.hero h1{letter-spacing:-1.4px}.hero{border-radius:0 0 20px 20px}.section-head{display:block}.section-sub{margin-top:10px}.choice-buttons{grid-template-columns:repeat(2,minmax(0,1fr))}.choice-answer{grid-template-columns:1fr}.department-table th,.department-table td{padding:11px 10px;font-size:12px}.department-table{font-size:12px}.card-grid{grid-template-columns:1fr}.photo{height:300px}.portal-grid{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:480px){.department-table th:nth-child(3),.department-table td:nth-child(3){min-width:84px}.table-scroll{overflow-x:auto}.department-table{min-width:550px}.choice-buttons button{min-height:71px;font-size:12px}.portal-grid{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.intro{padding:21px}.career-content{padding:20px}.photo{height:250px}.hero h1{font-size:34px}}
-@media print{@page{size:A4;margin:13mm}html{scroll-behavior:auto}body{background:white;color:#111;font-size:11pt}.wrap{max-width:none;padding:0}.hero{border-radius:0;background:#174b5d!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.hero-grid{min-height:220px}.hero-quote{display:none}.hero h1{font-size:32px}.toplinks,.print-btn,.photo-tip,.back{display:none!important}section{margin:26px auto;break-inside:auto}.intro,.career-card,.choice-box,.notice,.portal-card,.step{box-shadow:none}.card-grid{gap:14px}.career-card,.step{break-inside:avoid}.photo{height:180px}.photo img{print-color-adjust:exact}.department-table th,.department-table td{padding:7px;font-size:10px}.choice-answer{display:block}.portal-grid{grid-template-columns:repeat(3,1fr)}.portal-card{min-height:70px}.steps{grid-template-columns:repeat(4,1fr)}.step{min-height:115px;padding:13px}.section-head h2{font-size:23px}.photo-label{print-color-adjust:exact}}
+@media print{@page{size:A4;margin:13mm}html{scroll-behavior:auto}body{background:white;color:#111;font-size:11pt}.wrap{max-width:none;padding:0}.hero{border-radius:0;background:#174b5d!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.hero-grid{min-height:220px}.hero-quote{display:none}.hero h1{font-size:32px}.toplinks,.print-btn,.photo-tip,.back,.letter-actions{display:none!important}section{margin:26px auto;break-inside:auto}.intro,.career-card,.choice-box,.notice,.portal-card,.step,.letter{box-shadow:none}.card-grid{gap:14px}.career-card,.step{break-inside:avoid}.photo{height:180px}.photo img{print-color-adjust:exact}.department-table th,.department-table td{padding:7px;font-size:10px}.choice-answer{display:block}.portal-grid{grid-template-columns:repeat(3,1fr)}.portal-card{min-height:70px}.steps{grid-template-columns:repeat(4,1fr)}.step{min-height:115px;padding:13px}.section-head h2{font-size:23px}.photo-label{print-color-adjust:exact}}
+.letter{background:#fffdf8;border:1px solid #e7e0cc;border-radius:20px;box-shadow:var(--shadow);padding:34px 38px;max-width:720px;margin:0 auto;position:relative;overflow:hidden}
+.letter:before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--blue),var(--teal))}
+.letter-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;border-bottom:1px dashed #e1d8bb;padding-bottom:14px;margin-bottom:18px}
+.letter-head b{display:block;color:var(--blue);font-size:15px}
+.letter-head span{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+.letter-body p{margin:0 0 13px;line-height:1.85;font-size:14px}
+.letter-body ul{margin:0 0 13px;padding-left:20px;font-size:14px}
+.letter-sign{margin-top:22px;padding-top:14px;border-top:1px dashed #e1d8bb;color:var(--muted);font-size:13px}
+.letter-draft{display:inline-flex;align-items:center;gap:6px;margin-top:16px;padding:6px 11px;border-radius:99px;background:#fff3e0;color:#8a5a1f;font-size:12px;font-weight:700}
+.letter-actions{margin-top:18px}
+.letter-actions button{border:1px solid #cbdad9;background:white;border-radius:50px;cursor:pointer;padding:8px 16px;color:#1d5960;font-size:13px;font-weight:800}
+.letter-actions button:hover{background:#e9f5f1}
 </style>
 </head>
 <body id="top">
-<div class="wrap topbar"><div class="brand">HOTEL CAREER <i>GUIDE</i></div><nav class="toplinks"><a href="#departments">호텔 부서</a><a href="#fit">직무 찾기</a><a href="#five">추천 직무 5선</a><a href="#recruit">채용정보</a><button type="button" class="print-btn" onclick="window.print()">⎙ 인쇄 / PDF 저장</button></nav></div>
+<div class="wrap topbar"><div class="brand">HOTEL CAREER <i>GUIDE</i></div><nav class="toplinks"><a href="#departments">호텔 부서</a><a href="#fit">직무 찾기</a><a href="#five">추천 직무 5선</a><a href="#recruit">채용정보</a><a href="#letter">안내 메일</a><button type="button" class="print-btn" onclick="window.print()">⎙ 인쇄 / PDF 저장</button></nav></div>
 <header class="hero"><div class="wrap hero-grid"><div><div class="eyebrow">TOURISM & HOSPITALITY CAREER</div><h1>호텔에서 일하고 싶지만<br/><em>프론트는 아니어도 괜찮아요.</em></h1><p>호텔은 고객 서비스만으로 운영되지 않습니다. 마케팅부터 MICE, 수익관리, 예약, 인사까지 나의 적성에 맞는 다양한 직무를 알아보세요.</p><div class="hero-chips"><span class="hero-chip">12개 주요 부서</span><span class="hero-chip">추천 직무 5가지</span><span class="hero-chip">적성별 진로 탐색</span><span class="hero-chip">채용사이트 바로가기</span></div></div><div class="hero-art"><div class="hero-quote"><div class="num">05</div><div class="statement">프론트 밖에서 만나는<br/>다섯 가지 커리어</div><small>Marketing · MICE · Revenue · Reservations · HR</small></div></div></div></header>
 <main class="wrap">
 <div class="intro"><p>안녕하세요, 여러분.</p><p>호텔 취업에 관심은 있지만 프론트 데스크 업무가 적성에 맞지 않을 것 같아 고민하는 학생들을 위해 진로 정보를 준비했습니다.</p><p><strong>호텔 취업이 반드시 프론트 데스크 근무를 의미하는 것은 아닙니다.</strong> 호텔은 하나의 기업으로서 영업, 마케팅, 수익관리, 인사, 회계, 이벤트 기획 등 다양한 직무로 구성되어 있습니다. 호텔이라는 근무 장소뿐 아니라 <strong>호텔에서 어떤 업무를 하고 싶은지</strong> 함께 고민해 보세요.</p></div>
@@ -59,6 +71,54 @@ main{padding-bottom:65px}section{scroll-margin-top:20px;margin:56px auto}.sectio
 </div><div class="keyword-box"><strong>추천 검색어</strong> &nbsp; <code>호텔 마케팅</code><code>호텔 영업</code><code>연회영업</code><code>호텔 예약</code><code>Revenue Management</code><code>호텔 HR</code><code>MICE</code></div></section>
 <section id="caution"><div class="section-head"><div><div class="section-kicker">05 / REAL-WORLD CHECK</div><h2>채용공고를 읽을 때 주의할 점</h2></div></div><div class="notice"><h3>⚠️ 부서명만 보고 근무 조건을 판단하지 마세요.</h3><p>호텔의 사무·전문 직무는 신입 채용이 제한적일 수 있으며, 해당 직무에 바로 배치되지 않고 현장 OJT나 순환근무를 거칠 수도 있습니다. 예를 들어 <a href="https://recruit.lotte.co.kr/apply/announcement/detail/21934486" target="_blank" rel="noopener">롯데그룹 호텔 채용공고 사례(2026)</a>에서도 지원 분야에 따라 교대근무가 안내된 바 있습니다. 공고별 채용 시기·담당 업무·OJT·교대근무·우대역량을 반드시 직접 확인하세요.</p></div></section>
 <section id="next"><div class="section-head"><div><div class="section-kicker">06 / MY CAREER PLAN</div><h2>나에게 맞는 호텔 직무 찾기, 이렇게 시작하세요</h2></div></div><div class="steps"><div class="step"><div class="step-no">STEP 01</div><h4>관심 분야 선택</h4><p>마케팅, MICE, 영업, 예약관리, 수익관리, 인사 등 관심 직무를 2개 고르세요.</p></div><div class="step"><div class="step-no">STEP 02</div><h4>근무환경 확인</h4><p>고객 응대 여부, 교대·야간근무, 사무업무 비중을 비교하세요.</p></div><div class="step"><div class="step-no">STEP 03</div><h4>실제 공고 검색</h4><p>담당 업무, 지원 조건, 우대사항을 확인하고 기록하세요.</p></div><div class="step"><div class="step-no">STEP 04</div><h4>역량 준비</h4><p>영어, 엑셀, PPT, 데이터 분석, 행사기획 등 필요한 역량을 쌓으세요.</p></div></div><div class="closing">호텔에 취업하는 것보다 중요한 것은<br/>호텔 안에서 <span style="color:#bff0dd">나에게 맞는 일</span>을 찾는 것입니다.</div><a class="back" href="#top">↑ 맨 위로 돌아가기</a></section>
+<section id="letter"><div class="section-head"><div><div class="section-kicker">07 / STUDENT LETTER</div><h2>학생 안내 메일 초안</h2></div><p class="section-sub">위 내용을 바탕으로 작성한 공지용 메일입니다. 그대로 복사해 학생들에게 전달할 수 있습니다.</p></div>
+<div class="letter">
+<div class="letter-head"><div><b>호텔 프론트 외 직무 안내</b><span>관광경영 전공 학생 여러분께</span></div><span>작성일 2026.11.20</span></div>
+<div class="letter-body" id="letterBody">
+<p>안녕하세요, 여러분.</p>
+<p>호텔 취업에 관심은 있지만 프론트 데스크 업무가 적성에 맞지 않을 것 같아 고민하는 학생들을 위해 관련 진로 정보를 공유합니다.</p>
+<p>호텔 취업이 반드시 프론트 데스크 근무를 의미하는 것은 아닙니다.</p>
+<p>호텔은 하나의 기업으로서 고객서비스뿐 아니라 마케팅, 영업, 인사, 회계, 수익관리, 행사기획 등 다양한 직무로 구성되어 있습니다.</p>
+<p><strong>1. 호텔에서 선택할 수 있는 주요 직무</strong></p>
+<ul>
+<li>마케팅·홍보: SNS 운영, 호텔 브랜드 홍보, 상품 및 프로모션 기획</li>
+<li>영업·판촉: 기업고객 유치, 여행사 제휴, 객실 판매 전략</li>
+<li>연회영업·MICE: 국제회의, 기업행사, 세미나, 웨딩 등 행사 유치 및 운영</li>
+<li>예약관리: 객실 예약, 단체예약, 예약시스템 관리</li>
+<li>수익관리(Revenue Management): 객실 가격 분석, 수요예측, 매출관리</li>
+<li>인사·교육(HR): 직원 채용, 인력관리, 교육훈련</li>
+<li>재무·회계: 예산관리, 매출 및 비용 분석</li>
+<li>객실관리·구매·시설관리: 객실 품질관리, 자재 구매, 시설 운영</li>
+</ul>
+<p><strong>2. 자신의 성향에 맞는 직무를 찾아보세요.</strong></p>
+<ul>
+<li>고객 대면 업무가 부담스럽다면 → 수익관리, 인사, 회계, 구매</li>
+<li>마케팅과 콘텐츠 제작을 좋아한다면 → 호텔 마케팅·홍보</li>
+<li>행사기획과 MICE 산업에 관심이 있다면 → 연회영업, 이벤트 기획</li>
+<li>숫자와 데이터 분석을 좋아한다면 → 수익관리, 예약 데이터 관리</li>
+</ul>
+<p>다만 각 직무의 채용 규모와 자격요건은 호텔마다 다르며, 일부 직무는 교대근무나 고객 응대가 포함될 수 있습니다.</p>
+<p><strong>3. 호텔 취업정보를 확인해 보세요.</strong></p>
+<ul>
+<li>메리어트 채용: careers.marriott.com</li>
+<li>힐튼 채용: jobs.hilton.com</li>
+<li>롯데그룹 채용: recruit.lotte.co.kr</li>
+<li>사람인: saramin.co.kr</li>
+<li>잡코리아: jobkorea.co.kr</li>
+</ul>
+<p>채용사이트에서 &lsquo;호텔 마케팅&rsquo;, &lsquo;호텔 영업&rsquo;, &lsquo;연회영업&rsquo;, &lsquo;호텔 예약&rsquo;, &lsquo;Revenue Management&rsquo; 등의 키워드로 검색해 보시기 바랍니다.</p>
+<p><strong>4. 첨부자료를 확인하세요.</strong></p>
+<p>첨부한 「호텔 프론트 외 직무·진로상담 통합 가이드」에는 호텔 부서별 업무, 적성에 따른 추천 직무, 필요한 역량, 취업정보 및 진로 탐색 활동을 정리했습니다.</p>
+<p>여러분이 희망하는 직무를 먼저 선택하고, 해당 직무에서 요구하는 역량과 준비사항을 확인해 보시기 바랍니다.</p>
+<p>중요한 것은 단순히 호텔에 취업하는 것이 아니라, 호텔 안에서 자신에게 적합한 직무를 찾는 것입니다.</p>
+<p>취업이나 진로와 관련하여 궁금한 점이 있으면 상담을 요청해도 좋습니다.</p>
+<p>감사합니다.</p>
+</div>
+<div class="letter-sign">관광경영학과 취업지도 담당</div>
+<div class="letter-draft">✉ 메일은 작성만 했으며 발송하지 않았습니다</div>
+<div class="letter-actions"><button type="button" id="copyLetterBtn">📋 메일 본문 복사</button></div>
+</div>
+</section>
 </main>
 <footer class="footer">관광경영학 전공 학생 진로·취업 참고자료 · 2026.11<br/>채용사이트의 실제 공고·조건은 수시로 변경될 수 있습니다.</footer>
 <dialog id="photo-dialog" class="dialog" aria-label="직무 사진 확대"><button class="close" type="button" onclick="document.getElementById('photo-dialog').close()">✕ 닫기</button><img id="dialog-img" alt="확대 사진"/><div class="caption" id="dialog-caption"></div></dialog>
@@ -69,5 +129,6 @@ function openPhoto(el){const img=el.querySelector('img');if(!img)return;const dl
 // 외부 이미지 주소가 일시적으로 접근 불가능할 때는 대체 이미지 시도.
 document.querySelectorAll('.photo img').forEach(img=>{img.onerror=function(){if(!this.dataset.triedFallback&&this.dataset.fallback){this.dataset.triedFallback='true';this.src=this.dataset.fallback;}else{this.style.opacity='0';this.alt+=' (이미지 연결을 확인해 주세요)';}};});
 document.getElementById('photo-dialog').addEventListener('click',e=>{if(e.target.id==='photo-dialog')e.target.close();});
+document.getElementById('copyLetterBtn').addEventListener('click',async(e)=>{const text=document.getElementById('letterBody').innerText;const btn=e.currentTarget;const done=()=>{btn.textContent='✅ 복사됨';setTimeout(()=>btn.textContent='📋 메일 본문 복사',1800)};try{await navigator.clipboard.writeText(text);done()}catch(err){const ta=document.createElement('textarea');ta.value=text;document.body.append(ta);ta.select();document.execCommand('copy');ta.remove();done()}});
 </script>
 </body></html>
