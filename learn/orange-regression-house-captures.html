@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Orange 회귀분석 캡처 9장 | 빅데이터 분석 시범 수업</title>
+<title>Orange 회귀분석 캡처 10장 | 빅데이터 분석 시범 수업</title>
 <style>
   :root{
     --deep:#17365d; --accent:#0f766e; --accent-l:#e9f6ef; --line:#dbe4ee;
@@ -58,7 +58,7 @@
 
   <header>
     <div class="k">ORANGE · REGRESSION</div>
-    <h1>Orange 회귀분석(Regression) — House 데이터 실습 캡처 9장</h1>
+    <h1>Orange 회귀분석(Regression) — House 데이터 실습 캡처 10장</h1>
     <p>지도학습 Regression · Boston House 데이터로 MEDV(주택가치) 예측 · 11/16 2 · 3차시</p>
   </header>
 
@@ -108,32 +108,38 @@ const slides = [
     desc: "MAE(Mean Absolute Error) · MSE(Mean Square Error) · RMSE(Root Mean Squared Error) · R²(R-squared, Coefficient of determination) — 앞으로 비교할 네 가지 오류·설명력 지표의 이름을 먼저 짚고 갑니다."
   },
   {
+    src: "images/orange-regression/05-feature-importance-canvas.png",
+    step: "05 · 영상 약 24분",
+    title: "전체 연결 구조 — 모델 일곱 개와 Feature Importance",
+    desc: "File → Select Columns에서 뻗어나가 Linear Regression · SVM · Neural Network · Tree · AdaBoost · Gradient Boosting · Random Forest 7개 Learner가 Test and Score로 모이고, 같은 Select Columns의 Data가 Feature Importance로도 연결됩니다 — 「학습은 모델별로, 중요도 분석은 데이터 전체로」 두 갈래 흐름을 한 캔버스에서 봅니다."
+  },
+  {
     src: "images/orange-regression/05-feature-importance-lstat.png",
-    step: "05 · 영상 24분",
+    step: "06 · 영상 24분",
     title: "Feature Importance — 어떤 변수가 가장 중요한가",
     desc: "위젯을 더블클릭해 결과를 확인하면, R² 감소폭(Decrease in R2) 기준으로 LSTAT(저소득층 비율)이 가장 중요한 변수로 나타나고, 이어서 RM(방 개수) · DIS(고용센터까지 거리) · CRIM(범죄율) 순으로 이어집니다."
   },
   {
     src: "images/orange-regression/06-r-squared-explained.png",
-    step: "06 · 정리",
+    step: "07 · 정리",
     title: "R-squared(결정계수) 해석하는 법",
     desc: "R²는 모델이 데이터를 얼마나 잘 설명하는지 나타내는 지표입니다. R²=1이면 완벽한 예측, R²=0이면 전혀 예측하지 못함, 0<R²<1이면 일부만 예측(예: R²=0.7 → 70%를 예측하고 나머지 30%는 오차). R² 값이 클수록 모델의 예측이 정확합니다."
   },
   {
     src: "images/orange-regression/07-error-metrics-summary.png",
-    step: "07 · 정리",
+    step: "08 · 정리",
     title: "회귀모델의 오류 지표 — 정의로 다시 정리",
     desc: "MAE는 예측값과 실제값 차이의 절댓값을 평균한 값, MSE는 그 차이를 제곱해 평균한 값, RMSE는 MSE의 제곱근, R²는 모델이 데이터의 변화를 얼마나 잘 설명하는지 나타내는 지표입니다."
   },
   {
     src: "images/orange-regression/08-data-source-links.png",
-    step: "08 · 출처",
+    step: "09 · 출처",
     title: "오늘 실습에 쓴 Orange 자료 출처",
     desc: "출처 01 — orangedatamining.com/widget-catalog/ (위젯 목록) · 출처 02 — orangedatamining.com/download/ (Orange 내려받기)."
   },
   {
     src: "images/orange-regression/09-image-embedding-bonus.png",
-    step: "09 · 보너스",
+    step: "10 · 보너스",
     title: "(이어 보기) 이미지 임베딩과 모델 비교",
     desc: "지난주 이미지 분석 실습처럼, Inception v3 · SqueezeNet · VGG16 · Painters · DeepLoc · Openface 등 여러 사전학습 임베딩을 Neural Network + Test and Score + Confusion Matrix로 나란히 비교할 수 있습니다 — 회귀뿐 아니라 분류 구조에서도 같은 「비교 → 평가」 패턴이 반복됩니다."
   }
