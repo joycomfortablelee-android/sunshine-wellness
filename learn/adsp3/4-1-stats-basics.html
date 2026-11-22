@@ -41,6 +41,15 @@ body{overflow-x:hidden}
 .label{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
 .question{font-size:19px;line-height:1.62;font-weight:800;margin:7px 0 16px}
 .option{font-size:16px;line-height:1.5;padding:11px 14px;border:1px solid #e0e8ef;background:#fafcfe;border-radius:11px;margin:8px 0}
+.option:hover:not(:disabled){border-color:var(--blue)}
+.option[aria-pressed="true"]{border-color:var(--navy);background:#eef6ff;box-shadow:0 0 0 1px var(--navy) inset}
+.option.correct{border-color:#4caf7d;background:#eaf8f0;color:var(--green);font-weight:800}
+.option.wrong{border-color:#e08a8a;background:#fdecec;color:#b23b3b;font-weight:800}
+.option:disabled{cursor:default}
+.q-controls{margin-top:18px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.check-btn:disabled{opacity:.4;cursor:not-allowed}
+.reset-btn{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.status-msg{font-size:13.5px;font-weight:800;color:var(--muted)}
 .subbox{background:#f8fafc;border-left:5px solid var(--gold);padding:15px 17px;border-radius:10px;margin:15px 0;line-height:1.65}
 .answer-btn{margin-top:18px;border:0;border-radius:11px;background:var(--navy);color:white;font-size:14px;font-weight:900;padding:11px 17px;cursor:pointer}
 .answer{display:none;margin-top:13px;background:#eef8f6;border:1px solid #c7e6df;border-radius:13px;padding:16px 17px;line-height:1.65}
@@ -121,7 +130,7 @@ svg.curve{width:100%;max-width:420px;height:150px}
         <p class="d-note">측정 척도 4가지 — 명목(분류) · 순서(서열) · 구간(간격, 0이 상대적) · 비율(절대 0 존재, 사칙연산 가능)</p>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 1번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="2">
         <div class="question-head">
           <div><div class="qnum">QUESTION 01</div><h3>실제 사용되는 표본추출법이 아닌 것</h3></div>
           <div class="source">36회 기출</div>
@@ -129,9 +138,9 @@ svg.curve{width:100%;max-width:420px;height:150px}
         <div class="label">관련 문제</div>
         <div class="question">모집단에서 표본을 선택하는 다양한 방법이 존재한다. 다음 중 실제로 표본을 추출하는 데 사용되는 방법으로 적절하지 않은 것은 무엇인가?</div>
         <div class="options">
-          <div class="option">① 층화추출법</div><div class="option">② 집단추출법</div><div class="option">③ 집락추출법</div><div class="option">④ 단순무작위추출법</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① 층화추출법</button><button type="button" class="option" data-choice="2" aria-pressed="false">② 집단추출법</button><button type="button" class="option" data-choice="3" aria-pressed="false">③ 집락추출법</button><button type="button" class="option" data-choice="4" aria-pressed="false">④ 단순무작위추출법</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>②</strong></div>
           <p>표본 추출 방법에는 다양한 기법이 존재하지만, "집단추출법"은 통계학적으로 정식 용어가 아니며 실제 사용되는 표본 추출 방법이 아니다. 주어진 선택지 중 층화추출법, 집락추출법, 단순무작위추출법은 모두 실무와 이론에서 사용되는 표본 추출 방법이다.</p>
@@ -161,7 +170,7 @@ svg.curve{width:100%;max-width:420px;height:150px}
         <p class="d-note">기술통계는 표본 자체를 요약·정리, 추론통계는 표본으로 모집단의 특성(모수)을 추정·검정·예측한다.</p>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 2번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="4">
         <div class="question-head">
           <div><div class="qnum">QUESTION 02</div><h3>추론통계의 명칭</h3></div>
           <div class="source">33회 기출</div>
@@ -169,9 +178,9 @@ svg.curve{width:100%;max-width:420px;height:150px}
         <div class="label">관련 문제</div>
         <div class="question">모집단으로부터 추출된 표본의 표본통계량으로부터 모집단의 특성인 모수에 관해 통계적으로 추론하는 통계를 무엇이라고 하는가?</div>
         <div class="options">
-          <div class="option">① 가공 통계</div><div class="option">② 기술 통계</div><div class="option">③ 통계분석</div><div class="option">④ 추론 통계</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① 가공 통계</button><button type="button" class="option" data-choice="2" aria-pressed="false">② 기술 통계</button><button type="button" class="option" data-choice="3" aria-pressed="false">③ 통계분석</button><button type="button" class="option" data-choice="4" aria-pressed="false">④ 추론 통계</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>④</strong></div>
           <p>추론 통계는 표본을 기반으로 모집단의 특성을 추론하거나 검정하는 통계 방법이다. 기술 통계는 데이터를 요약하고 설명하는 데 사용되며, 가공 통계는 데이터 정제에 사용된다. 통계분석은 일반적인 분석 과정으로, 추론 통계에 비해 구체성이 부족하다.</p>
@@ -194,7 +203,7 @@ svg.curve{width:100%;max-width:420px;height:150px}
         </div>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 3번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="1">
         <div class="question-head">
           <div><div class="qnum">QUESTION 03</div><h3>조건부 확률 식</h3></div>
           <div class="source">14회 기출</div>
@@ -203,9 +212,9 @@ svg.curve{width:100%;max-width:420px;height:150px}
         <div class="question">아래 조건부 확률에서 사건 A가 일어났다는 가정하에 사건 B의 확률을 조건부 확률이라고 하고 아래의 식으로 표현한다. 다음 중 아래의 계산식을 표현하기 위해 (가)에 들어갈 식으로 적절한 것은?</div>
         <div class="subbox">P(B|A) = (가) / P(A)</div>
         <div class="options">
-          <div class="option">① P(A∩B)</div><div class="option">② P(A)</div><div class="option">③ P(B)</div><div class="option">④ P(A∪B)</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① P(A∩B)</button><button type="button" class="option" data-choice="2" aria-pressed="false">② P(A)</button><button type="button" class="option" data-choice="3" aria-pressed="false">③ P(B)</button><button type="button" class="option" data-choice="4" aria-pressed="false">④ P(A∪B)</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>①</strong></div>
           <p>조건부 확률 P(B|A)는 사건 A가 발생했을 때 사건 B가 발생할 확률로, 다음과 같이 정의된다. P(B|A)=P(A∩B)/P(A). 따라서 (가)에 들어갈 수식은 P(A∩B)이다.</p>
@@ -229,7 +238,7 @@ svg.curve{width:100%;max-width:420px;height:150px}
         <p class="d-note">지수분포는 "연속형" 확률분포이며, 사건 간의 시간 간격을 모델링할 때 쓴다 — 이산형으로 착각하기 쉬운 단골 오답.</p>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 4번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="3">
         <div class="question-head">
           <div><div class="qnum">QUESTION 04</div><h3>이산형 확률분포가 아닌 것</h3></div>
           <div class="source">23회 기출</div>
@@ -237,9 +246,9 @@ svg.curve{width:100%;max-width:420px;height:150px}
         <div class="label">관련 문제</div>
         <div class="question">다음 중 이산형 확률분포에 해당하지 않는 것은 무엇인가?</div>
         <div class="options">
-          <div class="option">① 기하분포</div><div class="option">② 이항분포</div><div class="option">③ 지수분포</div><div class="option">④ 초기하분포</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① 기하분포</button><button type="button" class="option" data-choice="2" aria-pressed="false">② 이항분포</button><button type="button" class="option" data-choice="3" aria-pressed="false">③ 지수분포</button><button type="button" class="option" data-choice="4" aria-pressed="false">④ 초기하분포</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>③</strong></div>
           <p>지수분포는 연속형 확률분포로, 주로 사건 간의 시간 간격을 모델링하는 데 사용된다. 기하분포, 이항분포, 초기하분포는 모두 이산형 확률분포로, 각각 성공 횟수나 성공 전에 실패한 횟수 등 변수의 값이 유한하거나 셀 수 있는 경우를 다룬다.</p>
@@ -270,7 +279,7 @@ svg.curve{width:100%;max-width:420px;height:150px}
         </div>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 5번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="4">
         <div class="question-head">
           <div><div class="qnum">QUESTION 05</div><h3>확률 및 확률분포 설명 중 틀린 것</h3></div>
           <div class="source">30회 기출</div>
@@ -278,12 +287,12 @@ svg.curve{width:100%;max-width:420px;height:150px}
         <div class="label">관련 문제</div>
         <div class="question">확률 및 확률분포에 대한 설명으로 가장 부적절한 것을 고르시오.</div>
         <div class="options">
-          <div class="option">① 모든 사건의 확률값은 0 이상 1 이하이다.</div>
-          <div class="option">② 서로 배반인 사건들의 합집합의 확률은 각 사건의 확률을 더한 값과 같다.</div>
-          <div class="option">③ 두 사건 A와 B가 독립이면, P(B|A)=P(B)가 성립한다.</div>
-          <div class="option">④ 확률변수가 연속적인 값을 가지는 경우를 이산형 확률분포라 한다.</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① 모든 사건의 확률값은 0 이상 1 이하이다.</button>
+          <button type="button" class="option" data-choice="2" aria-pressed="false">② 서로 배반인 사건들의 합집합의 확률은 각 사건의 확률을 더한 값과 같다.</button>
+          <button type="button" class="option" data-choice="3" aria-pressed="false">③ 두 사건 A와 B가 독립이면, P(B|A)=P(B)가 성립한다.</button>
+          <button type="button" class="option" data-choice="4" aria-pressed="false">④ 확률변수가 연속적인 값을 가지는 경우를 이산형 확률분포라 한다.</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>④</strong></div>
           <p>확률변수가 연속적인 값을 가지는 경우는 연속형 확률분포로 설명된다. 모든 사건의 확률이 0에서 1 사이라는 점, 서로 배반인 사건의 합집합 확률은 개별 확률의 합이라는 점, 두 독립 사건 A와 B에서 P(B|A)=P(B)가 성립한다는 점은 모두 옳은 설명이다.</p>
@@ -321,12 +330,51 @@ function showSlide(i){
 }
 function goPrev(){ showSlide(current-1); }
 function goNext(){ showSlide(current+1); }
-function toggleAnswer(btn){
-  const box = btn.nextElementSibling;
-  const open = box.style.display === 'block';
-  box.style.display = open ? 'none' : 'block';
-  btn.textContent = open ? '정답 · 해설 확인' : '정답 · 해설 닫기';
+function initQuizCards(){
+  document.querySelectorAll('.question-card').forEach(card=>{
+    const answer = card.dataset.answer;
+    const options = [...card.querySelectorAll('.option')];
+    const checkBtn = card.querySelector('.check-btn');
+    const resetBtn = card.querySelector('.reset-btn');
+    const status = card.querySelector('.status-msg');
+    const answerBox = card.querySelector('.answer');
+    let selected = null;
+    options.forEach(opt=>{
+      opt.addEventListener('click', ()=>{
+        selected = opt.dataset.choice;
+        options.forEach(o=>o.setAttribute('aria-pressed', String(o===opt)));
+        checkBtn.disabled = false;
+        status.textContent = '';
+      });
+    });
+    checkBtn.addEventListener('click', ()=>{
+      if(!selected) return;
+      options.forEach(o=>{
+        o.disabled = true;
+        if(o.dataset.choice === answer) o.classList.add('correct');
+        else if(o.dataset.choice === selected) o.classList.add('wrong');
+      });
+      status.textContent = selected === answer ? '✓ 정답입니다' : '✕ 오답입니다 — 정답은 초록색으로 표시됩니다';
+      answerBox.style.display = 'block';
+      checkBtn.hidden = true;
+      resetBtn.hidden = false;
+    });
+    resetBtn.addEventListener('click', ()=>{
+      selected = null;
+      options.forEach(o=>{
+        o.disabled = false;
+        o.classList.remove('correct','wrong');
+        o.setAttribute('aria-pressed','false');
+      });
+      status.textContent = '';
+      answerBox.style.display = 'none';
+      checkBtn.hidden = false;
+      checkBtn.disabled = true;
+      resetBtn.hidden = true;
+    });
+  });
 }
+initQuizCards();
 document.addEventListener('keydown',e=>{
   if(e.key==='ArrowLeft') goPrev();
   if(e.key==='ArrowRight') goNext();

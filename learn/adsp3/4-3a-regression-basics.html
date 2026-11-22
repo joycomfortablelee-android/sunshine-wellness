@@ -41,6 +41,15 @@ body{overflow-x:hidden}
 .label{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
 .question{font-size:19px;line-height:1.62;font-weight:800;margin:7px 0 16px}
 .option{font-size:16px;line-height:1.5;padding:11px 14px;border:1px solid #e0e8ef;background:#fafcfe;border-radius:11px;margin:8px 0}
+.option:hover:not(:disabled){border-color:var(--blue)}
+.option[aria-pressed="true"]{border-color:var(--navy);background:#eef6ff;box-shadow:0 0 0 1px var(--navy) inset}
+.option.correct{border-color:#4caf7d;background:#eaf8f0;color:var(--green);font-weight:800}
+.option.wrong{border-color:#e08a8a;background:#fdecec;color:#b23b3b;font-weight:800}
+.option:disabled{cursor:default}
+.q-controls{margin-top:18px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.check-btn:disabled{opacity:.4;cursor:not-allowed}
+.reset-btn{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.status-msg{font-size:13.5px;font-weight:800;color:var(--muted)}
 .subbox{background:#f8fafc;border-left:5px solid var(--gold);padding:15px 17px;border-radius:10px;margin:15px 0;line-height:1.65}
 .answer-btn{margin-top:18px;border:0;border-radius:11px;background:var(--navy);color:white;font-size:14px;font-weight:900;padding:11px 17px;cursor:pointer}
 .answer{display:none;margin-top:13px;background:#eef8f6;border:1px solid #c7e6df;border-radius:13px;padding:16px 17px;line-height:1.65}
@@ -113,7 +122,7 @@ svg.scatter{width:100%;max-width:360px;height:170px}
         <p class="d-note">회귀분석은 독립변수가 종속변수에 미치는 영향을 추정하는 통계기법 — 인과관계를 "밝히고" 모형을 적합해 변수를 예측·추론하는 분석방법이다.</p>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 1번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="2">
         <div class="question-head">
           <div><div class="qnum">QUESTION 01</div><h3>회귀분석 설명 중 부적절한 것</h3></div>
           <div class="source">34회 기출</div>
@@ -121,12 +130,12 @@ svg.scatter{width:100%;max-width:360px;height:170px}
         <div class="label">관련 문제</div>
         <div class="question">다음 중 회귀분석에 대한 설명 중 부적절한 것은?</div>
         <div class="options">
-          <div class="option">① 독립변수가 많아질수록 모델의 설명력은 증가할 수 있으나, 다중공선성 문제가 발생할 가능성이 있어 조정이 필요하다.</div>
-          <div class="option">② 잔차와 독립변수는 상관관계가 있다면 분석이 잘 된 모형이라고 할 수 있다.</div>
-          <div class="option">③ 명목형 변수는 회귀분석에서 더미변수로 변환하여 사용할 수 있다.</div>
-          <div class="option">④ 회귀분석 결과는 총변동 중 회귀식으로 설명된 변동 비율로 모델의 설명력을 평가할 수 있다.</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① 독립변수가 많아질수록 모델의 설명력은 증가할 수 있으나, 다중공선성 문제가 발생할 가능성이 있어 조정이 필요하다.</button>
+          <button type="button" class="option" data-choice="2" aria-pressed="false">② 잔차와 독립변수는 상관관계가 있다면 분석이 잘 된 모형이라고 할 수 있다.</button>
+          <button type="button" class="option" data-choice="3" aria-pressed="false">③ 명목형 변수는 회귀분석에서 더미변수로 변환하여 사용할 수 있다.</button>
+          <button type="button" class="option" data-choice="4" aria-pressed="false">④ 회귀분석 결과는 총변동 중 회귀식으로 설명된 변동 비율로 모델의 설명력을 평가할 수 있다.</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>②</strong></div>
           <p>회귀분석에서 잔차(오차항)는 독립변수와 상관관계가 없어야 한다. 잔차와 독립변수 간 상관이 존재하면, 해당 모델은 독립변수가 종속변수를 제대로 설명하지 못하거나 중요한 변수를 누락했을 가능성이 있다.</p>
@@ -151,7 +160,7 @@ svg.scatter{width:100%;max-width:360px;height:170px}
         <p class="d-note">Durbin-Watson 검정(독립성), Q-Q plot·Shapiro-Wilk 검정(정규성)으로 가정을 확인한다.</p>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 2번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="4">
         <div class="question-head">
           <div><div class="qnum">QUESTION 02</div><h3>회귀분석의 가정이 아닌 것</h3></div>
           <div class="source">10회 기출</div>
@@ -159,9 +168,9 @@ svg.scatter{width:100%;max-width:360px;height:170px}
         <div class="label">관련 문제</div>
         <div class="question">다음 중 회귀분석의 가정으로 부적절한 것은?</div>
         <div class="options">
-          <div class="option">① 독립성</div><div class="option">② 선형성</div><div class="option">③ 정규성</div><div class="option">④ 이분산성</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① 독립성</button><button type="button" class="option" data-choice="2" aria-pressed="false">② 선형성</button><button type="button" class="option" data-choice="3" aria-pressed="false">③ 정규성</button><button type="button" class="option" data-choice="4" aria-pressed="false">④ 이분산성</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>④</strong></div>
           <p>회귀분석의 가정에는 독립성, 선형성, 정규성이 포함되며, 이분산성은 오히려 가정에 위배된다. 이분산성이 존재하면 잔차의 분산이 일정하지 않아 회귀분석의 결과가 왜곡될 수 있다. 나머지 선택지들은 모두 회귀분석에서 요구되는 가정이다.</p>
@@ -191,7 +200,7 @@ svg.scatter{width:100%;max-width:360px;height:170px}
         <p class="d-note">독립변수를 추가하면 R²은 항상 증가(또는 유지)한다 — 불필요한 변수를 넣어도 오르는 함정. 그래서 다중회귀에서는 "수정된 결정계수(Adjusted R²)"를 기준으로 삼는다.</p>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 3번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="1">
         <div class="question-head">
           <div><div class="qnum">QUESTION 03</div><h3>결정계수(R²) 설명으로 부적절한 것</h3></div>
           <div class="source">18회 기출</div>
@@ -199,12 +208,12 @@ svg.scatter{width:100%;max-width:360px;height:170px}
         <div class="label">관련 문제</div>
         <div class="question">회귀분석에서 결정계수(R²)에 대한 설명으로 부적절한 것은?</div>
         <div class="options">
-          <div class="option">① 총 변동 중에서 설명이 되지 않는 오차에 의한 변동이 차지하는 비율이다.</div>
-          <div class="option">② 회귀모형에서 입력 변수가 증가하면 결정계수도 증가한다.</div>
-          <div class="option">③ 다중회귀분석에서는 최적 모형의 선정기준으로 결정계수 값보다는 수정된 결정계수 값을 사용하는 것이 적절하다.</div>
-          <div class="option">④ 수정된 결정계수는 유의하지 않은 독립변수들이 회귀식에 포함되었을 때 그 값이 감소한다.</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① 총 변동 중에서 설명이 되지 않는 오차에 의한 변동이 차지하는 비율이다.</button>
+          <button type="button" class="option" data-choice="2" aria-pressed="false">② 회귀모형에서 입력 변수가 증가하면 결정계수도 증가한다.</button>
+          <button type="button" class="option" data-choice="3" aria-pressed="false">③ 다중회귀분석에서는 최적 모형의 선정기준으로 결정계수 값보다는 수정된 결정계수 값을 사용하는 것이 적절하다.</button>
+          <button type="button" class="option" data-choice="4" aria-pressed="false">④ 수정된 결정계수는 유의하지 않은 독립변수들이 회귀식에 포함되었을 때 그 값이 감소한다.</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>①</strong></div>
           <p>결정계수는 총 변동 중에서 회귀모형에 의해 설명되는 변동의 비율을 나타낸다. 오차에 의한 변동이 아닌 설명된 변동에 초점을 두며, 오차에 의한 변동이 차지하는 비율은 잔차 제곱합(SSE)을 의미한다. 입력 변수가 증가하면 결정계수가 증가하지만, 이는 불필요한 변수를 추가했을 때 발생할 수 있는 문제이므로 수정된 결정계수를 사용하는 것으로 해결한다. 유의하지 않은 독립변수 포함 시 수정된 결정계수 값은 감소한다.</p>
@@ -240,12 +249,51 @@ function showSlide(i){
 }
 function goPrev(){ showSlide(current-1); }
 function goNext(){ showSlide(current+1); }
-function toggleAnswer(btn){
-  const box = btn.nextElementSibling;
-  const open = box.style.display === 'block';
-  box.style.display = open ? 'none' : 'block';
-  btn.textContent = open ? '정답 · 해설 확인' : '정답 · 해설 닫기';
+function initQuizCards(){
+  document.querySelectorAll('.question-card').forEach(card=>{
+    const answer = card.dataset.answer;
+    const options = [...card.querySelectorAll('.option')];
+    const checkBtn = card.querySelector('.check-btn');
+    const resetBtn = card.querySelector('.reset-btn');
+    const status = card.querySelector('.status-msg');
+    const answerBox = card.querySelector('.answer');
+    let selected = null;
+    options.forEach(opt=>{
+      opt.addEventListener('click', ()=>{
+        selected = opt.dataset.choice;
+        options.forEach(o=>o.setAttribute('aria-pressed', String(o===opt)));
+        checkBtn.disabled = false;
+        status.textContent = '';
+      });
+    });
+    checkBtn.addEventListener('click', ()=>{
+      if(!selected) return;
+      options.forEach(o=>{
+        o.disabled = true;
+        if(o.dataset.choice === answer) o.classList.add('correct');
+        else if(o.dataset.choice === selected) o.classList.add('wrong');
+      });
+      status.textContent = selected === answer ? '✓ 정답입니다' : '✕ 오답입니다 — 정답은 초록색으로 표시됩니다';
+      answerBox.style.display = 'block';
+      checkBtn.hidden = true;
+      resetBtn.hidden = false;
+    });
+    resetBtn.addEventListener('click', ()=>{
+      selected = null;
+      options.forEach(o=>{
+        o.disabled = false;
+        o.classList.remove('correct','wrong');
+        o.setAttribute('aria-pressed','false');
+      });
+      status.textContent = '';
+      answerBox.style.display = 'none';
+      checkBtn.hidden = false;
+      checkBtn.disabled = true;
+      resetBtn.hidden = true;
+    });
+  });
 }
+initQuizCards();
 document.addEventListener('keydown',e=>{
   if(e.key==='ArrowLeft') goPrev();
   if(e.key==='ArrowRight') goNext();

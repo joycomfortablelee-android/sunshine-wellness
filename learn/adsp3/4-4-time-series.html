@@ -41,6 +41,15 @@ body{overflow-x:hidden}
 .label{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
 .question{font-size:19px;line-height:1.62;font-weight:800;margin:7px 0 16px}
 .option{font-size:16px;line-height:1.5;padding:11px 14px;border:1px solid #e0e8ef;background:#fafcfe;border-radius:11px;margin:8px 0}
+.option:hover:not(:disabled){border-color:var(--blue)}
+.option[aria-pressed="true"]{border-color:var(--navy);background:#eef6ff;box-shadow:0 0 0 1px var(--navy) inset}
+.option.correct{border-color:#4caf7d;background:#eaf8f0;color:var(--green);font-weight:800}
+.option.wrong{border-color:#e08a8a;background:#fdecec;color:#b23b3b;font-weight:800}
+.option:disabled{cursor:default}
+.q-controls{margin-top:18px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.check-btn:disabled{opacity:.4;cursor:not-allowed}
+.reset-btn{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.status-msg{font-size:13.5px;font-weight:800;color:var(--muted)}
 .subbox{background:#f8fafc;border-left:5px solid var(--gold);padding:15px 17px;border-radius:10px;margin:15px 0;line-height:1.65}
 .answer-btn{margin-top:18px;border:0;border-radius:11px;background:var(--navy);color:white;font-size:14px;font-weight:900;padding:11px 17px;cursor:pointer}
 .answer{display:none;margin-top:13px;background:#eef8f6;border:1px solid #c7e6df;border-radius:13px;padding:16px 17px;line-height:1.65}
@@ -115,7 +124,7 @@ svg.wave{width:100%;max-width:400px;height:130px}
         </div>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 1번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="3">
         <div class="question-head">
           <div><div class="qnum">QUESTION 01</div><h3>시계열 데이터 설명으로 부적절한 것</h3></div>
           <div class="source">32회 기출</div>
@@ -123,12 +132,12 @@ svg.wave{width:100%;max-width:400px;height:130px}
         <div class="label">관련 문제</div>
         <div class="question">시계열 데이터는 시간에 따라 관측된 값을 나타낸다. 다음 중 시계열 데이터에 대한 설명으로 부적절한 것은?</div>
         <div class="options">
-          <div class="option">① 시계열 데이터 모델링은 탐색 목적과 예측 목적으로 나눌 수 있다.</div>
-          <div class="option">② 계절변동은 짧은 기간 동안 반복적으로 나타나는 주기적인 패턴을 의미한다.</div>
-          <div class="option">③ 잡음(noise)은 무작위적인 변동이지만 일반적으로 그 원인은 알려져 있다.</div>
-          <div class="option">④ 시계열 분석은 계절적 패턴과 추세를 설명하고 외부 요인과 관련된 모델을 구축하는 데 목적이 있다.</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① 시계열 데이터 모델링은 탐색 목적과 예측 목적으로 나눌 수 있다.</button>
+          <button type="button" class="option" data-choice="2" aria-pressed="false">② 계절변동은 짧은 기간 동안 반복적으로 나타나는 주기적인 패턴을 의미한다.</button>
+          <button type="button" class="option" data-choice="3" aria-pressed="false">③ 잡음(noise)은 무작위적인 변동이지만 일반적으로 그 원인은 알려져 있다.</button>
+          <button type="button" class="option" data-choice="4" aria-pressed="false">④ 시계열 분석은 계절적 패턴과 추세를 설명하고 외부 요인과 관련된 모델을 구축하는 데 목적이 있다.</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>③</strong></div>
           <p>시계열 데이터는 시간의 흐름에 따라 연속적으로 관측된 데이터를 의미하며 탐색 목적과 예측 목적으로 나뉜다. 잡음은 시계열 데이터에서 불규칙하고 예측 불가능한 변동을 의미하며 측정 오류, 외부 요인의 영향, 모델링되지 않은 변수 등 다양한 요인이 잡음의 원인이 될 수 있기 때문에 이러한 요인들을 모두 파악하는 것은 어렵다.</p>
@@ -157,7 +166,7 @@ svg.wave{width:100%;max-width:400px;height:130px}
         </div>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 2번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="4">
         <div class="question-head">
           <div><div class="qnum">QUESTION 02</div><h3>정상성 설명으로 가장 적절하지 않은 것</h3></div>
           <div class="source">35회 기출</div>
@@ -165,12 +174,12 @@ svg.wave{width:100%;max-width:400px;height:130px}
         <div class="label">관련 문제</div>
         <div class="question">시계열 데이터의 정상성(stationary)은 분석에 중요한 요소이다. 다음 중 시계열 데이터의 정상성에 대한 설명으로 가장 적절하지 않은 것은?</div>
         <div class="options">
-          <div class="option">① 정상 시계열 데이터는 평균과 분산이 시간에 따라 변하지 않는 특성을 가진다.</div>
-          <div class="option">② 비정상 시계열 데이터를 정상으로 변환하기 위해서는 로그 변환이나 차분을 사용할 수 있다.</div>
-          <div class="option">③ 정상성을 확인하기 위해 시계열 데이터의 분산과 평균을 시각적으로 확인하거나 통계적 검정을 사용할 수 있다.</div>
-          <div class="option">④ 시계열 자료가 정상성을 만족하는지 판단하기 위해 시계열 자료 그림을 통해 자료의 이상점 등을 살핀다.</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① 정상 시계열 데이터는 평균과 분산이 시간에 따라 변하지 않는 특성을 가진다.</button>
+          <button type="button" class="option" data-choice="2" aria-pressed="false">② 비정상 시계열 데이터를 정상으로 변환하기 위해서는 로그 변환이나 차분을 사용할 수 있다.</button>
+          <button type="button" class="option" data-choice="3" aria-pressed="false">③ 정상성을 확인하기 위해 시계열 데이터의 분산과 평균을 시각적으로 확인하거나 통계적 검정을 사용할 수 있다.</button>
+          <button type="button" class="option" data-choice="4" aria-pressed="false">④ 시계열 자료가 정상성을 만족하는지 판단하기 위해 시계열 자료 그림을 통해 자료의 이상점 등을 살핀다.</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>④</strong></div>
           <p>시계열 자료의 이상점은 정상성을 판단하는 주요 기준이 아니다. 정상성 판단은 평균, 분산의 시간적 변화 및 ADF 검정과 같은 통계적 검정을 통해 이루어진다. 나머지 시계열 데이터에 대한 설명은 모두 올바르다.</p>
@@ -195,7 +204,7 @@ svg.wave{width:100%;max-width:400px;height:130px}
         <p class="d-note">이동평균법은 계절변동·추세를 제거해 순환변동만 남기는 방식으로, 데이터를 근본적으로 변환하지는 않는다 — 단기 변동만 제거해 추세를 식별하는 데 사용된다.</p>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 3번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="2">
         <div class="question-head">
           <div><div class="qnum">QUESTION 03</div><h3>평활법 설명으로 부적절한 것</h3></div>
           <div class="source">33회 기출</div>
@@ -203,12 +212,12 @@ svg.wave{width:100%;max-width:400px;height:130px}
         <div class="label">관련 문제</div>
         <div class="question">평활법(Smoothing Method)은 시계열 데이터를 조정하여 패턴을 분석하고 예측하는 데 사용된다. 다음 중 평활법에 대한 설명으로 부적절한 것은?</div>
         <div class="options">
-          <div class="option">① 이동평균법은 시계열 데이터가 일정한 주기를 갖고 반복적인 패턴을 보일 때 효과적으로 사용될 수 있다.</div>
-          <div class="option">② 이동평균법은 시계열에서 계절 변동과 추세를 제거하고 순환 변동만 남기는 방식으로 데이터를 변환한다.</div>
-          <div class="option">③ 단순지수평활법은 계절성과 추세가 없는 시계열 데이터에서 변동성을 줄이는 데 사용된다.</div>
-          <div class="option">④ 이중지수평활법은 평균을 평활하는 매개변수와 추세를 평활하는 또 다른 매개변수를 사용하는 방법이다.</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① 이동평균법은 시계열 데이터가 일정한 주기를 갖고 반복적인 패턴을 보일 때 효과적으로 사용될 수 있다.</button>
+          <button type="button" class="option" data-choice="2" aria-pressed="false">② 이동평균법은 시계열에서 계절 변동과 추세를 제거하고 순환 변동만 남기는 방식으로 데이터를 변환한다.</button>
+          <button type="button" class="option" data-choice="3" aria-pressed="false">③ 단순지수평활법은 계절성과 추세가 없는 시계열 데이터에서 변동성을 줄이는 데 사용된다.</button>
+          <button type="button" class="option" data-choice="4" aria-pressed="false">④ 이중지수평활법은 평균을 평활하는 매개변수와 추세를 평활하는 또 다른 매개변수를 사용하는 방법이다.</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>②</strong></div>
           <p>이동평균법(Moving Average Method)은 단기적인 변동만을 제거하여 추세를 식별하는 데 사용되며 계절 변동이나 추세를 제거하는 방식으로 데이터를 변환하지는 않는다. 또한 반복 패턴을 가지는 데이터에서 노이즈를 제거해 전체적인 흐름을 파악하는 데 유용하다. 이중지수평활법(Double Exponential Smoothing)은 추세가 있는 시계열 데이터에 적합하다.</p>
@@ -233,7 +242,7 @@ svg.wave{width:100%;max-width:400px;height:130px}
         <p class="d-note">분해시계열 Z_t = f(T_t, S_t, C_t, I_t) — 추세(Trend)·계절(Seasonal)·순환(Cyclical)·불규칙(Irregular) 4요인으로 분리. ARIMA에서 p=0일 때 IMA(d,q) 모형, d번 차분하면 MA(q) 모형을 따른다.</p>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 4번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="4">
         <div class="question-head">
           <div><div class="qnum">QUESTION 04</div><h3>시계열 모형 설명으로 적절한 것</h3></div>
           <div class="source">34회 기출</div>
@@ -241,12 +250,12 @@ svg.wave{width:100%;max-width:400px;height:130px}
         <div class="label">관련 문제</div>
         <div class="question">시계열 모형에 대한 설명으로 적절한 것을 고르시오.</div>
         <div class="options">
-          <div class="option">① ARIMA 모형은 차분(d)과 자기회귀(AR)만을 결합하여 사용하며, 이동평균(MA)은 포함되지 않는다.</div>
-          <div class="option">② 분해시계열은 데이터의 계절성을 분리하는 방법이며, 트렌드 성분은 크게 고려하지 않는다.</div>
-          <div class="option">③ ARIMA 모형에서는 정상성 조건이 항상 만족되므로, 비정상성을 다룰 필요가 없다.</div>
-          <div class="option">④ ARIMA 모형에서 p=0일 때, IMA(d,q) 모형이라고 부르고, d번 차분하면 MA(q)모형을 따른다.</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① ARIMA 모형은 차분(d)과 자기회귀(AR)만을 결합하여 사용하며, 이동평균(MA)은 포함되지 않는다.</button>
+          <button type="button" class="option" data-choice="2" aria-pressed="false">② 분해시계열은 데이터의 계절성을 분리하는 방법이며, 트렌드 성분은 크게 고려하지 않는다.</button>
+          <button type="button" class="option" data-choice="3" aria-pressed="false">③ ARIMA 모형에서는 정상성 조건이 항상 만족되므로, 비정상성을 다룰 필요가 없다.</button>
+          <button type="button" class="option" data-choice="4" aria-pressed="false">④ ARIMA 모형에서 p=0일 때, IMA(d,q) 모형이라고 부르고, d번 차분하면 MA(q)모형을 따른다.</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>④</strong></div>
           <p>ARIMA 모형은 비정상성을 다루기 위해 차분(d)을 사용하며, 특정 조건에서 단순한 MA 모형으로 변환될 수 있으며 MA를 포함한다. 분해시계열은 트렌드 성분을 고려한다. ARIMA는 차분을 통해 "비정상 시계열을 정상으로" 바꾸는 과정이 핵심이므로 정상성 조건이 항상 저절로 만족되는 것은 아니다.</p>
@@ -283,12 +292,51 @@ function showSlide(i){
 }
 function goPrev(){ showSlide(current-1); }
 function goNext(){ showSlide(current+1); }
-function toggleAnswer(btn){
-  const box = btn.nextElementSibling;
-  const open = box.style.display === 'block';
-  box.style.display = open ? 'none' : 'block';
-  btn.textContent = open ? '정답 · 해설 확인' : '정답 · 해설 닫기';
+function initQuizCards(){
+  document.querySelectorAll('.question-card').forEach(card=>{
+    const answer = card.dataset.answer;
+    const options = [...card.querySelectorAll('.option')];
+    const checkBtn = card.querySelector('.check-btn');
+    const resetBtn = card.querySelector('.reset-btn');
+    const status = card.querySelector('.status-msg');
+    const answerBox = card.querySelector('.answer');
+    let selected = null;
+    options.forEach(opt=>{
+      opt.addEventListener('click', ()=>{
+        selected = opt.dataset.choice;
+        options.forEach(o=>o.setAttribute('aria-pressed', String(o===opt)));
+        checkBtn.disabled = false;
+        status.textContent = '';
+      });
+    });
+    checkBtn.addEventListener('click', ()=>{
+      if(!selected) return;
+      options.forEach(o=>{
+        o.disabled = true;
+        if(o.dataset.choice === answer) o.classList.add('correct');
+        else if(o.dataset.choice === selected) o.classList.add('wrong');
+      });
+      status.textContent = selected === answer ? '✓ 정답입니다' : '✕ 오답입니다 — 정답은 초록색으로 표시됩니다';
+      answerBox.style.display = 'block';
+      checkBtn.hidden = true;
+      resetBtn.hidden = false;
+    });
+    resetBtn.addEventListener('click', ()=>{
+      selected = null;
+      options.forEach(o=>{
+        o.disabled = false;
+        o.classList.remove('correct','wrong');
+        o.setAttribute('aria-pressed','false');
+      });
+      status.textContent = '';
+      answerBox.style.display = 'none';
+      checkBtn.hidden = false;
+      checkBtn.disabled = true;
+      resetBtn.hidden = true;
+    });
+  });
 }
+initQuizCards();
 document.addEventListener('keydown',e=>{
   if(e.key==='ArrowLeft') goPrev();
   if(e.key==='ArrowRight') goNext();

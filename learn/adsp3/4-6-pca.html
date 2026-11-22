@@ -41,6 +41,15 @@ body{overflow-x:hidden}
 .label{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
 .question{font-size:19px;line-height:1.62;font-weight:800;margin:7px 0 16px}
 .option{font-size:16px;line-height:1.5;padding:11px 14px;border:1px solid #e0e8ef;background:#fafcfe;border-radius:11px;margin:8px 0}
+.option:hover:not(:disabled){border-color:var(--blue)}
+.option[aria-pressed="true"]{border-color:var(--navy);background:#eef6ff;box-shadow:0 0 0 1px var(--navy) inset}
+.option.correct{border-color:#4caf7d;background:#eaf8f0;color:var(--green);font-weight:800}
+.option.wrong{border-color:#e08a8a;background:#fdecec;color:#b23b3b;font-weight:800}
+.option:disabled{cursor:default}
+.q-controls{margin-top:18px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.check-btn:disabled{opacity:.4;cursor:not-allowed}
+.reset-btn{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.status-msg{font-size:13.5px;font-weight:800;color:var(--muted)}
 .subbox{background:#f8fafc;border-left:5px solid var(--gold);padding:15px 17px;border-radius:10px;margin:15px 0;line-height:1.65}
 .answer-btn{margin-top:18px;border:0;border-radius:11px;background:var(--navy);color:white;font-size:14px;font-weight:900;padding:11px 17px;cursor:pointer}
 .answer{display:none;margin-top:13px;background:#eef8f6;border:1px solid #c7e6df;border-radius:13px;padding:16px 17px;line-height:1.65}
@@ -112,7 +121,7 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         <p class="d-note">PCA로 만든 주성분은 원본 변수와는 "독립적인" 새 변수이지만, 원 변수들로부터 유도된 것이라 완전히 독립적이지는 않다 — 함정 포인트.</p>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 1번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="3">
         <div class="question-head">
           <div><div class="qnum">QUESTION 01</div><h3>주성분분석 설명으로 적절하지 않은 것</h3></div>
           <div class="source">34회 기출</div>
@@ -120,12 +129,12 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         <div class="label">관련 문제</div>
         <div class="question">주성분분석에 대한 설명 중 적절하지 않은 것은 무엇인가?</div>
         <div class="options">
-          <div class="option">① 주성분분석은 데이터의 차원을 축소하여 변수 간 상관관계를 시각적으로 확인할 수 있는 방법이다.</div>
-          <div class="option">② 주성분분석은 원래 변수들이 설명하는 총 변동의 대부분을 보존하는 새로운 주성분들을 생성한다.</div>
-          <div class="option">③ 주성분분석을 통해 얻은 주성분은 원본 변수들과는 독립적인 새로운 변수로, 데이터의 구조를 단순화하는 데 유용하다.</div>
-          <div class="option">④ p개의 변수를 중요한 m(&lt;p)개의 주성분으로 요약하여 전체 변동 대부분을 설명할 수 있다.</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① 주성분분석은 데이터의 차원을 축소하여 변수 간 상관관계를 시각적으로 확인할 수 있는 방법이다.</button>
+          <button type="button" class="option" data-choice="2" aria-pressed="false">② 주성분분석은 원래 변수들이 설명하는 총 변동의 대부분을 보존하는 새로운 주성분들을 생성한다.</button>
+          <button type="button" class="option" data-choice="3" aria-pressed="false">③ 주성분분석을 통해 얻은 주성분은 원본 변수들과는 독립적인 새로운 변수로, 데이터의 구조를 단순화하는 데 유용하다.</button>
+          <button type="button" class="option" data-choice="4" aria-pressed="false">④ p개의 변수를 중요한 m(&lt;p)개의 주성분으로 요약하여 전체 변동 대부분을 설명할 수 있다.</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>③</strong></div>
           <p>PCA를 통해 생성된 주성분은 원래 변수들의 선형 결합으로 구성되며, 원래 변수와는 완전히 독립적인 관계가 아니다. 주성분 분석은 원 변수 간의 상관관계를 줄이거나 제거하지만, 변수들로부터 유도된 새로운 변수라는 점에서 완전히 독립적이지 않다.</p>
@@ -151,7 +160,7 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         </table>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 2번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="3">
         <div class="question-head">
           <div><div class="qnum">QUESTION 02</div><h3>설명에 해당하는 분석 기법</h3></div>
           <div class="source">38회 기출</div>
@@ -160,9 +169,9 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         <div class="question">다음은 특정 통계 분석 방법에 대한 설명이다. 이를 가장 잘 설명하는 기법은 무엇인가?</div>
         <div class="subbox">— 데이터의 변수를 축소하면서도 정보의 손실을 최소화하는 방법<br>— 기존 변수들의 선형 결합을 통해 새로운 변수들을 생성함<br>— 축소된 차원으로도 주요한 패턴이나 특성을 유지하며 분석이 가능함</div>
         <div class="options">
-          <div class="option">① 군집 분석</div><div class="option">② 회귀 분석</div><div class="option">③ 주성분 분석</div><div class="option">④ 판별 분석</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① 군집 분석</button><button type="button" class="option" data-choice="2" aria-pressed="false">② 회귀 분석</button><button type="button" class="option" data-choice="3" aria-pressed="false">③ 주성분 분석</button><button type="button" class="option" data-choice="4" aria-pressed="false">④ 판별 분석</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>③</strong></div>
           <p>주성분 분석은 데이터의 차원을 줄이면서 정보 손실을 최소화하는 방법으로, 여러 변수를 선형 결합해 새로운 변수(주성분)를 생성하는 기법이다. 이를 통해 변수 축소와 차원 감소에 효과적으로 활용할 수 있다. 반면, 군집 분석, 회귀 분석, 판별 분석은 각각 서로 다른 분석 목적을 가진 별도의 통계 분석 기법이다.</p>
@@ -192,7 +201,7 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         <p class="d-note">고윳값(Eigenvalue) 기준 — 급격히 감소하다가 완만해지는 지점(elbow) 직전까지를 주성분 개수로 선택. 누적기여율 85% 이상 기준도 함께 쓴다.</p>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 3번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="1">
         <div class="question-head">
           <div><div class="qnum">QUESTION 03</div><h3>주성분의 중요도 판단 기준</h3></div>
           <div class="source">30회 기출</div>
@@ -200,12 +209,12 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         <div class="label">관련 문제</div>
         <div class="question">다음 중 주성분분석(PCA)에서 각 주성분의 중요도를 판단하는 기준으로 가장 적절한 것은?</div>
         <div class="options">
-          <div class="option">① 고윳값(Eigenvalue)</div>
-          <div class="option">② 주성분의 평균값(Mean of Principal Components)</div>
-          <div class="option">③ 데이터의 표준편차(Standard Deviation of Variables)</div>
-          <div class="option">④ 특이값(Singular Value)</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① 고윳값(Eigenvalue)</button>
+          <button type="button" class="option" data-choice="2" aria-pressed="false">② 주성분의 평균값(Mean of Principal Components)</button>
+          <button type="button" class="option" data-choice="3" aria-pressed="false">③ 데이터의 표준편차(Standard Deviation of Variables)</button>
+          <button type="button" class="option" data-choice="4" aria-pressed="false">④ 특이값(Singular Value)</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>①</strong></div>
           <p>주성분분석(PCA)에서 각 주성분의 중요도는 고윳값(Eigenvalue)을 기준으로 판단한다. 고윳값은 해당 주성분이 데이터의 총 분산에서 차지하는 비율을 나타내며, 값이 클수록 중요도가 높다. 평균값, 표준편차, 특이값은 중요도를 직접적으로 판단하는 기준이 아니다.</p>
@@ -227,7 +236,7 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         <p class="d-note">누적분산비율이 1.0000(100%)에 도달하면 "주성분 전체"로는 데이터 분산을 모두 설명할 수 있다는 뜻 — 다만 어느 특정 주성분 하나가 "다른 원변수와 꼭 양의 상관관계"를 갖는다고 단정할 수는 없다.</p>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 4번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="3">
         <div class="question-head">
           <div><div class="qnum">QUESTION 04</div><h3>headsize 데이터 PCA 결과 해석</h3></div>
           <div class="source">25회 기출</div>
@@ -240,12 +249,12 @@ Std deviation   15.1   5.42   4.12   3.000
 Prop. of Var.   0.8    0.10   0.06   0.032
 Cumulative      0.8    0.91   0.97   1.000</div>
         <div class="options">
-          <div class="option">① 주성분 분석의 결과를 보여준다.</div>
-          <div class="option">② 첫 두 개의 주성분으로 전체 데이터 분산의 91%를 설명할 수 있다.</div>
-          <div class="option">③ 두 번째 주성분은 네 개의 원변수와 양의 상관관계를 가진다.</div>
-          <div class="option">④ 네 개의 주성분을 사용하면 전체 데이터 분산을 모두 설명할 수 있다.</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① 주성분 분석의 결과를 보여준다.</button>
+          <button type="button" class="option" data-choice="2" aria-pressed="false">② 첫 두 개의 주성분으로 전체 데이터 분산의 91%를 설명할 수 있다.</button>
+          <button type="button" class="option" data-choice="3" aria-pressed="false">③ 두 번째 주성분은 네 개의 원변수와 양의 상관관계를 가진다.</button>
+          <button type="button" class="option" data-choice="4" aria-pressed="false">④ 네 개의 주성분을 사용하면 전체 데이터 분산을 모두 설명할 수 있다.</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>③</strong></div>
           <p>주성분 분석에서 두 번째 주성분은 보통 첫 번째 주성분과 직교하며, 원변수와의 상관관계가 양의 값만 가진다고 단정할 수 없다. 제시된 결과는 주성분 분석을 수행하여 도출된 데이터의 특성을 보여주며, Comp.2의 누적 분산 비율이 0.91이므로 두 개의 주성분으로 90%의 분산을 설명할 수 있다. Comp.4 또한 누적 분산 비율이 1.0000이므로, 전체 데이터의 분산을 모두 설명할 수 있다.</p>
@@ -282,12 +291,51 @@ function showSlide(i){
 }
 function goPrev(){ showSlide(current-1); }
 function goNext(){ showSlide(current+1); }
-function toggleAnswer(btn){
-  const box = btn.nextElementSibling;
-  const open = box.style.display === 'block';
-  box.style.display = open ? 'none' : 'block';
-  btn.textContent = open ? '정답 · 해설 확인' : '정답 · 해설 닫기';
+function initQuizCards(){
+  document.querySelectorAll('.question-card').forEach(card=>{
+    const answer = card.dataset.answer;
+    const options = [...card.querySelectorAll('.option')];
+    const checkBtn = card.querySelector('.check-btn');
+    const resetBtn = card.querySelector('.reset-btn');
+    const status = card.querySelector('.status-msg');
+    const answerBox = card.querySelector('.answer');
+    let selected = null;
+    options.forEach(opt=>{
+      opt.addEventListener('click', ()=>{
+        selected = opt.dataset.choice;
+        options.forEach(o=>o.setAttribute('aria-pressed', String(o===opt)));
+        checkBtn.disabled = false;
+        status.textContent = '';
+      });
+    });
+    checkBtn.addEventListener('click', ()=>{
+      if(!selected) return;
+      options.forEach(o=>{
+        o.disabled = true;
+        if(o.dataset.choice === answer) o.classList.add('correct');
+        else if(o.dataset.choice === selected) o.classList.add('wrong');
+      });
+      status.textContent = selected === answer ? '✓ 정답입니다' : '✕ 오답입니다 — 정답은 초록색으로 표시됩니다';
+      answerBox.style.display = 'block';
+      checkBtn.hidden = true;
+      resetBtn.hidden = false;
+    });
+    resetBtn.addEventListener('click', ()=>{
+      selected = null;
+      options.forEach(o=>{
+        o.disabled = false;
+        o.classList.remove('correct','wrong');
+        o.setAttribute('aria-pressed','false');
+      });
+      status.textContent = '';
+      answerBox.style.display = 'none';
+      checkBtn.hidden = false;
+      checkBtn.disabled = true;
+      resetBtn.hidden = true;
+    });
+  });
 }
+initQuizCards();
 document.addEventListener('keydown',e=>{
   if(e.key==='ArrowLeft') goPrev();
   if(e.key==='ArrowRight') goNext();

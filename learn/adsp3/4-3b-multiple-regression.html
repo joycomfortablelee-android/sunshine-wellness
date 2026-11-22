@@ -41,6 +41,15 @@ body{overflow-x:hidden}
 .label{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
 .question{font-size:19px;line-height:1.62;font-weight:800;margin:7px 0 16px}
 .option{font-size:16px;line-height:1.5;padding:11px 14px;border:1px solid #e0e8ef;background:#fafcfe;border-radius:11px;margin:8px 0}
+.option:hover:not(:disabled){border-color:var(--blue)}
+.option[aria-pressed="true"]{border-color:var(--navy);background:#eef6ff;box-shadow:0 0 0 1px var(--navy) inset}
+.option.correct{border-color:#4caf7d;background:#eaf8f0;color:var(--green);font-weight:800}
+.option.wrong{border-color:#e08a8a;background:#fdecec;color:#b23b3b;font-weight:800}
+.option:disabled{cursor:default}
+.q-controls{margin-top:18px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.check-btn:disabled{opacity:.4;cursor:not-allowed}
+.reset-btn{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.status-msg{font-size:13.5px;font-weight:800;color:var(--muted)}
 .subbox{background:#f8fafc;border-left:5px solid var(--gold);padding:15px 17px;border-radius:10px;margin:15px 0;line-height:1.65}
 .answer-btn{margin-top:18px;border:0;border-radius:11px;background:var(--navy);color:white;font-size:14px;font-weight:900;padding:11px 17px;cursor:pointer}
 .answer{display:none;margin-top:13px;background:#eef8f6;border:1px solid #c7e6df;border-radius:13px;padding:16px 17px;line-height:1.65}
@@ -112,7 +121,7 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         <p class="d-note">다중공선성 = 독립변수들 사이에 강한 선형관계가 존재하는 현상. 해결책은 상관관계 높은 변수 제거, 주성분회귀, 능형(Ridge)회귀.</p>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 1번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="2">
         <div class="question-head">
           <div><div class="qnum">QUESTION 01</div><h3>다중공선성 설명으로 옳지 않은 것</h3></div>
           <div class="source">43회 기출</div>
@@ -120,12 +129,12 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         <div class="label">관련 문제</div>
         <div class="question">다음 중 다중공선성에 대한 설명으로 옳지 않은 것은?</div>
         <div class="options">
-          <div class="option">① 다중공선성 여부는 분산팽창요인(VIF)으로 진단할 수 있으며, 일반적으로 VIF 값이 10을 넘으면 심각한 다중공선성을 의심한다.</div>
-          <div class="option">② 다중공선성이 발생한 경우, 독립변수를 추가하여 모형을 더 복잡하게 만들면 문제가 해결될 수 있다.</div>
-          <div class="option">③ 다중공선성은 독립변수들 사이에 강한 선형 관계가 존재할 때 발생하는 현상이다.</div>
-          <div class="option">④ 다중공선성이 심하면 회귀계수 추정의 분산이 커져 개별 회귀계수의 통계적 유의성이 떨어질 수 있다.</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① 다중공선성 여부는 분산팽창요인(VIF)으로 진단할 수 있으며, 일반적으로 VIF 값이 10을 넘으면 심각한 다중공선성을 의심한다.</button>
+          <button type="button" class="option" data-choice="2" aria-pressed="false">② 다중공선성이 발생한 경우, 독립변수를 추가하여 모형을 더 복잡하게 만들면 문제가 해결될 수 있다.</button>
+          <button type="button" class="option" data-choice="3" aria-pressed="false">③ 다중공선성은 독립변수들 사이에 강한 선형 관계가 존재할 때 발생하는 현상이다.</button>
+          <button type="button" class="option" data-choice="4" aria-pressed="false">④ 다중공선성이 심하면 회귀계수 추정의 분산이 커져 개별 회귀계수의 통계적 유의성이 떨어질 수 있다.</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>②</strong></div>
           <p>다중공선성(Multicollinearity)은 다중 회귀 분석에서 독립변수 간에 강한 선형 상관관계가 존재하는 현상이다. 다중공선성은 회귀 계수의 표준 오차를 증가시켜 통계적 유의성(p-값)을 낮추고, 계수 추정치의 해석을 어렵게 만든다. 다중공선성을 제거하기 위해서는 상관관계가 높은 독립변수 중 일부를 제거하거나, 변수를 새롭게 조합하는 등의 방법을 사용해야 하며, 독립변수를 더 추가하는 것은 문제 해결에 도움이 되지 않고 오히려 악화시킬 수 있으므로 옳지 않은 설명이다.</p>
@@ -148,7 +157,7 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         </div>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 2번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="1">
         <div class="question-head">
           <div><div class="qnum">QUESTION 02</div><h3>모델 전체 유의성 평가 통계량</h3></div>
           <div class="source">35회 기출</div>
@@ -156,9 +165,9 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         <div class="label">관련 문제</div>
         <div class="question">선형회귀모형에서 모델 전체의 유의성을 평가하는 데 가장 적절한 통계량은 무엇인가?</div>
         <div class="options">
-          <div class="option">① F-statistics</div><div class="option">② T-statistics</div><div class="option">③ P-value</div><div class="option">④ AIC</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① F-statistics</button><button type="button" class="option" data-choice="2" aria-pressed="false">② T-statistics</button><button type="button" class="option" data-choice="3" aria-pressed="false">③ P-value</button><button type="button" class="option" data-choice="4" aria-pressed="false">④ AIC</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>①</strong></div>
           <p>F-statistics는 전체 모델이 유의미한지 평가하는 데 사용되며, 회귀모형에서 독립변수들이 종속변수에 미치는 집합적 영향을 검증한다. T-statistics는 개별 변수의 유의성을 평가하고, P-value는 F-statistics 결과의 유의성을 판단하고, AIC는 모델 적합도를 비교하는 지표로 사용된다.</p>
@@ -180,7 +189,7 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         </div>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 3번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="1">
         <div class="question-head">
           <div><div class="qnum">QUESTION 03</div><h3>Cook's Distance 설명</h3></div>
           <div class="source">41회 기출</div>
@@ -188,12 +197,12 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         <div class="label">관련 문제</div>
         <div class="question">Cook's Distance에 대한 설명으로 옳지 않은 것은?</div>
         <div class="options">
-          <div class="option">① Cook's Distance에서는 거리가 기준값인 1보다 작을 경우 영향치로 간주한다.</div>
-          <div class="option">② Cook's Distance는 데이터 포인트가 모델에 미치는 영향을 평가한다.</div>
-          <div class="option">③ 높은 Cook's Distance를 가지는 데이터는 모델에 큰 영향을 미친다.</div>
-          <div class="option">④ Cook's Distance는 회귀 모델에서 이상치를 탐지하는 데 사용된다.</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① Cook's Distance에서는 거리가 기준값인 1보다 작을 경우 영향치로 간주한다.</button>
+          <button type="button" class="option" data-choice="2" aria-pressed="false">② Cook's Distance는 데이터 포인트가 모델에 미치는 영향을 평가한다.</button>
+          <button type="button" class="option" data-choice="3" aria-pressed="false">③ 높은 Cook's Distance를 가지는 데이터는 모델에 큰 영향을 미친다.</button>
+          <button type="button" class="option" data-choice="4" aria-pressed="false">④ Cook's Distance는 회귀 모델에서 이상치를 탐지하는 데 사용된다.</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>①</strong></div>
           <p>Cook's Distance는 데이터 포인트가 회귀 모델에 미치는 영향을 평가하는 지표로, 값이 1보다 큰 경우 해당 데이터가 모델에 과도한 영향을 미치는 것으로 간주된다. 높은 Cook's Distance를 가지는 데이터는 이상치로 판별될 가능성이 있으며, 회귀 모델의 적합성에 영향을 줄 수 있다.</p>
@@ -216,7 +225,7 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         <p class="d-note">정규성을 만족하지 않으면 로그 변환 등 변수 변환이나 비선형 모델을 고려하는 것이 일반적 — "종속변수와 상관계수 높은 독립변수를 제거"하는 것과는 직접 관련이 없다.</p>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 4번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="4">
         <div class="question-head">
           <div><div class="qnum">QUESTION 04</div><h3>잔차의 오차 정규성 검정</h3></div>
           <div class="source">34회 기출</div>
@@ -224,12 +233,12 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         <div class="label">관련 문제</div>
         <div class="question">오차의 정규성은 모델의 신뢰도를 평가하는 데 있어 필수적인 요소이다. 다음 중 잔차 분석의 오차 정규성 검정에 대한 설명으로 옳지 않은 것은?</div>
         <div class="options">
-          <div class="option">① Q-Q Plot을 통해 잔차가 정규 분포를 따르는지 시각적으로 확인할 수 있다.</div>
-          <div class="option">② 잔차의 히스토그램은 잔차의 분포 형태를 보여주어 정규성 여부를 판단하는 데 도움을 준다.</div>
-          <div class="option">③ Shapiro-Wilk 검정과 같은 통계적 검정을 통해 잔차의 정규성을 수치적으로 확인할 수 있다.</div>
-          <div class="option">④ 정상성을 만족하지 않을 때는 종속변수와 상관계수가 높은 독립변수를 제거한다.</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① Q-Q Plot을 통해 잔차가 정규 분포를 따르는지 시각적으로 확인할 수 있다.</button>
+          <button type="button" class="option" data-choice="2" aria-pressed="false">② 잔차의 히스토그램은 잔차의 분포 형태를 보여주어 정규성 여부를 판단하는 데 도움을 준다.</button>
+          <button type="button" class="option" data-choice="3" aria-pressed="false">③ Shapiro-Wilk 검정과 같은 통계적 검정을 통해 잔차의 정규성을 수치적으로 확인할 수 있다.</button>
+          <button type="button" class="option" data-choice="4" aria-pressed="false">④ 정상성을 만족하지 않을 때는 종속변수와 상관계수가 높은 독립변수를 제거한다.</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>④</strong></div>
           <p>잔차의 정규성 검정을 위해 Q-Q Plot, 히스토그램, Shapiro-Wilk 검정과 같은 방법을 사용하며, 잔차가 정규성을 따르지 않는 경우에는 변수 변환(예: 로그 변환)이나 다른 비선형 모델을 고려하는 것이 일반적이다. 종속변수와 상관계수가 높은 독립변수를 제거하는 방식은 오차 정규성과 직접적인 연관이 없다.</p>
@@ -266,12 +275,51 @@ function showSlide(i){
 }
 function goPrev(){ showSlide(current-1); }
 function goNext(){ showSlide(current+1); }
-function toggleAnswer(btn){
-  const box = btn.nextElementSibling;
-  const open = box.style.display === 'block';
-  box.style.display = open ? 'none' : 'block';
-  btn.textContent = open ? '정답 · 해설 확인' : '정답 · 해설 닫기';
+function initQuizCards(){
+  document.querySelectorAll('.question-card').forEach(card=>{
+    const answer = card.dataset.answer;
+    const options = [...card.querySelectorAll('.option')];
+    const checkBtn = card.querySelector('.check-btn');
+    const resetBtn = card.querySelector('.reset-btn');
+    const status = card.querySelector('.status-msg');
+    const answerBox = card.querySelector('.answer');
+    let selected = null;
+    options.forEach(opt=>{
+      opt.addEventListener('click', ()=>{
+        selected = opt.dataset.choice;
+        options.forEach(o=>o.setAttribute('aria-pressed', String(o===opt)));
+        checkBtn.disabled = false;
+        status.textContent = '';
+      });
+    });
+    checkBtn.addEventListener('click', ()=>{
+      if(!selected) return;
+      options.forEach(o=>{
+        o.disabled = true;
+        if(o.dataset.choice === answer) o.classList.add('correct');
+        else if(o.dataset.choice === selected) o.classList.add('wrong');
+      });
+      status.textContent = selected === answer ? '✓ 정답입니다' : '✕ 오답입니다 — 정답은 초록색으로 표시됩니다';
+      answerBox.style.display = 'block';
+      checkBtn.hidden = true;
+      resetBtn.hidden = false;
+    });
+    resetBtn.addEventListener('click', ()=>{
+      selected = null;
+      options.forEach(o=>{
+        o.disabled = false;
+        o.classList.remove('correct','wrong');
+        o.setAttribute('aria-pressed','false');
+      });
+      status.textContent = '';
+      answerBox.style.display = 'none';
+      checkBtn.hidden = false;
+      checkBtn.disabled = true;
+      resetBtn.hidden = true;
+    });
+  });
 }
+initQuizCards();
 document.addEventListener('keydown',e=>{
   if(e.key==='ArrowLeft') goPrev();
   if(e.key==='ArrowRight') goNext();

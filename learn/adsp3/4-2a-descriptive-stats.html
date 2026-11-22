@@ -41,6 +41,15 @@ body{overflow-x:hidden}
 .label{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
 .question{font-size:19px;line-height:1.62;font-weight:800;margin:7px 0 16px}
 .option{font-size:16px;line-height:1.5;padding:11px 14px;border:1px solid #e0e8ef;background:#fafcfe;border-radius:11px;margin:8px 0}
+.option:hover:not(:disabled){border-color:var(--blue)}
+.option[aria-pressed="true"]{border-color:var(--navy);background:#eef6ff;box-shadow:0 0 0 1px var(--navy) inset}
+.option.correct{border-color:#4caf7d;background:#eaf8f0;color:var(--green);font-weight:800}
+.option.wrong{border-color:#e08a8a;background:#fdecec;color:#b23b3b;font-weight:800}
+.option:disabled{cursor:default}
+.q-controls{margin-top:18px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.check-btn:disabled{opacity:.4;cursor:not-allowed}
+.reset-btn{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.status-msg{font-size:13.5px;font-weight:800;color:var(--muted)}
 .subbox{background:#f8fafc;border-left:5px solid var(--gold);padding:15px 17px;border-radius:10px;margin:15px 0;line-height:1.65}
 .answer-btn{margin-top:18px;border:0;border-radius:11px;background:var(--navy);color:white;font-size:14px;font-weight:900;padding:11px 17px;cursor:pointer}
 .answer{display:none;margin-top:13px;background:#eef8f6;border:1px solid #c7e6df;border-radius:13px;padding:16px 17px;line-height:1.65}
@@ -114,7 +123,7 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         <p class="d-note">데이터 분석에 앞서 대략적인 통계 수치를 계산해 두면, 데이터에 대한 이해와 앞으로의 분석 방향에 대한 통찰을 얻기 유리하다.</p>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 1번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="2">
         <div class="question-head">
           <div><div class="qnum">QUESTION 01</div><h3>히스토그램 설명</h3></div>
           <div class="source">17회 기출</div>
@@ -122,12 +131,12 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         <div class="label">관련 문제</div>
         <div class="question">히스토그램은 표로 되어 있는 도수분포표를 그래프로 나타낸 것이다. 다음 중 히스토그램에 대한 설명으로 부적절한 것은?</div>
         <div class="options">
-          <div class="option">① 히스토그램에는 가로축이 계급, 세로축이 도수를 나타낸다. 계급은 보통 변수의 구간이며, 서로 겹치지 않는다.</div>
-          <div class="option">② 히스토그램은 표본의 크기가 작아도 각 막대의 높이가 데이터 분포의 형상을 잘 표현해낸다.</div>
-          <div class="option">③ 그래프의 모양이 치우쳐있거나 봉우리가 여러 개 있는 그래프는 비정규 데이터일 수 있다.</div>
-          <div class="option">④ 봉우리가 여러 개 있는 데이터는 일반적으로 2개 이상의 공정이나 조건에서 데이터가 수집되는 경우 발생한다.</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① 히스토그램에는 가로축이 계급, 세로축이 도수를 나타낸다. 계급은 보통 변수의 구간이며, 서로 겹치지 않는다.</button>
+          <button type="button" class="option" data-choice="2" aria-pressed="false">② 히스토그램은 표본의 크기가 작아도 각 막대의 높이가 데이터 분포의 형상을 잘 표현해낸다.</button>
+          <button type="button" class="option" data-choice="3" aria-pressed="false">③ 그래프의 모양이 치우쳐있거나 봉우리가 여러 개 있는 그래프는 비정규 데이터일 수 있다.</button>
+          <button type="button" class="option" data-choice="4" aria-pressed="false">④ 봉우리가 여러 개 있는 데이터는 일반적으로 2개 이상의 공정이나 조건에서 데이터가 수집되는 경우 발생한다.</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>②</strong></div>
           <p>히스토그램은 표본 크기가 충분히 커야 데이터의 분포를 신뢰성 있게 나타낼 수 있으며 표본 크기가 작을 경우 분포의 형상을 왜곡할 가능성이 크다. 나머지 선택지는 히스토그램의 기본 구성 요소와 관찰 가능한 데이터 특성을 정확히 설명하고 있다.</p>
@@ -153,7 +162,7 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         </div>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 2번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="1">
         <div class="question-head">
           <div><div class="qnum">QUESTION 02</div><h3>분포 파악용 R 함수</h3></div>
           <div class="source">16회 기출</div>
@@ -161,9 +170,9 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         <div class="label">관련 문제</div>
         <div class="question">다음 중 연속형 변수의 경우 4분위수, 최솟값, 최댓값, 중앙값, 평균 등을 출력하고 범주형 변수의 경우 각 범주에 대한 빈도수를 출력하여 데이터의 분포를 파악할 수 있게 하는 함수로 적절한 것은?</div>
         <div class="options">
-          <div class="option">① summary 함수</div><div class="option">② ddply 함수</div><div class="option">③ cast 함수</div><div class="option">④ aggregate 함수</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① summary 함수</button><button type="button" class="option" data-choice="2" aria-pressed="false">② ddply 함수</button><button type="button" class="option" data-choice="3" aria-pressed="false">③ cast 함수</button><button type="button" class="option" data-choice="4" aria-pressed="false">④ aggregate 함수</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>①</strong></div>
           <p>summary 함수는 연속형 변수의 경우 최솟값, 최댓값, 중앙값, 평균, 4분위수를 제공하며, 범주형 변수의 경우 각 범주의 빈도수를 출력하여 데이터의 분포를 파악하는 데 유용하다. ddply는 그룹별 요약, cast는 데이터의 재구조화, aggregate는 요약 통계 변환에 쓰이지만 summary처럼 한 번에 여러 정보를 주지는 않는다.</p>
@@ -188,7 +197,7 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         <p class="d-note">박스 가운데 선은 "평균"이 아니라 "중앙값(Median)"이다 — 가장 흔히 틀리는 포인트.</p>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 3번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="4">
         <div class="question-head">
           <div><div class="qnum">QUESTION 03</div><h3>Box Plot 설명</h3></div>
           <div class="source">28회 기출</div>
@@ -196,12 +205,12 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         <div class="label">관련 문제</div>
         <div class="question">아래의 box plot에 대한 설명 중 적절한 것은 무엇인가?</div>
         <div class="options">
-          <div class="option">① box plot에서 나타나는 가운데 선은 평균이다.</div>
-          <div class="option">② box plot의 네모박스 내의 가장 아래와 위는 각각 Q3, Q2이다.</div>
-          <div class="option">③ box plot의 상단 수염을 벗어나는 값이 Q3 + 1.5×IQR 보다 작으면 이상치라고 할 수 있다.</div>
-          <div class="option">④ box plot에서 약 0.5 이후 값들은 데이터의 50%이다.</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① box plot에서 나타나는 가운데 선은 평균이다.</button>
+          <button type="button" class="option" data-choice="2" aria-pressed="false">② box plot의 네모박스 내의 가장 아래와 위는 각각 Q3, Q2이다.</button>
+          <button type="button" class="option" data-choice="3" aria-pressed="false">③ box plot의 상단 수염을 벗어나는 값이 Q3 + 1.5×IQR 보다 작으면 이상치라고 할 수 있다.</button>
+          <button type="button" class="option" data-choice="4" aria-pressed="false">④ box plot에서 약 0.5 이후 값들은 데이터의 50%이다.</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>④</strong></div>
           <p>박스 플롯에서 중앙값 이후 값들은 데이터의 상위 50%를 나타내고 가운데 선은 평균이 아니라 중앙값(Median)을 나타내며 박스의 하단은 1사분위(Q1), 상단은 3사분위(Q3)를 나타낸다. 이상치는 Box plot 상단 수염을 벗어나는 값으로 Q3 + 1.5×IQR(사분위범위)보다 큰 값이다.</p>
@@ -237,12 +246,51 @@ function showSlide(i){
 }
 function goPrev(){ showSlide(current-1); }
 function goNext(){ showSlide(current+1); }
-function toggleAnswer(btn){
-  const box = btn.nextElementSibling;
-  const open = box.style.display === 'block';
-  box.style.display = open ? 'none' : 'block';
-  btn.textContent = open ? '정답 · 해설 확인' : '정답 · 해설 닫기';
+function initQuizCards(){
+  document.querySelectorAll('.question-card').forEach(card=>{
+    const answer = card.dataset.answer;
+    const options = [...card.querySelectorAll('.option')];
+    const checkBtn = card.querySelector('.check-btn');
+    const resetBtn = card.querySelector('.reset-btn');
+    const status = card.querySelector('.status-msg');
+    const answerBox = card.querySelector('.answer');
+    let selected = null;
+    options.forEach(opt=>{
+      opt.addEventListener('click', ()=>{
+        selected = opt.dataset.choice;
+        options.forEach(o=>o.setAttribute('aria-pressed', String(o===opt)));
+        checkBtn.disabled = false;
+        status.textContent = '';
+      });
+    });
+    checkBtn.addEventListener('click', ()=>{
+      if(!selected) return;
+      options.forEach(o=>{
+        o.disabled = true;
+        if(o.dataset.choice === answer) o.classList.add('correct');
+        else if(o.dataset.choice === selected) o.classList.add('wrong');
+      });
+      status.textContent = selected === answer ? '✓ 정답입니다' : '✕ 오답입니다 — 정답은 초록색으로 표시됩니다';
+      answerBox.style.display = 'block';
+      checkBtn.hidden = true;
+      resetBtn.hidden = false;
+    });
+    resetBtn.addEventListener('click', ()=>{
+      selected = null;
+      options.forEach(o=>{
+        o.disabled = false;
+        o.classList.remove('correct','wrong');
+        o.setAttribute('aria-pressed','false');
+      });
+      status.textContent = '';
+      answerBox.style.display = 'none';
+      checkBtn.hidden = false;
+      checkBtn.disabled = true;
+      resetBtn.hidden = true;
+    });
+  });
 }
+initQuizCards();
 document.addEventListener('keydown',e=>{
   if(e.key==='ArrowLeft') goPrev();
   if(e.key==='ArrowRight') goNext();

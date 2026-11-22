@@ -41,6 +41,15 @@ body{overflow-x:hidden}
 .label{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
 .question{font-size:19px;line-height:1.62;font-weight:800;margin:7px 0 16px}
 .option{font-size:16px;line-height:1.5;padding:11px 14px;border:1px solid #e0e8ef;background:#fafcfe;border-radius:11px;margin:8px 0}
+.option:hover:not(:disabled){border-color:var(--blue)}
+.option[aria-pressed="true"]{border-color:var(--navy);background:#eef6ff;box-shadow:0 0 0 1px var(--navy) inset}
+.option.correct{border-color:#4caf7d;background:#eaf8f0;color:var(--green);font-weight:800}
+.option.wrong{border-color:#e08a8a;background:#fdecec;color:#b23b3b;font-weight:800}
+.option:disabled{cursor:default}
+.q-controls{margin-top:18px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.check-btn:disabled{opacity:.4;cursor:not-allowed}
+.reset-btn{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.status-msg{font-size:13.5px;font-weight:800;color:var(--muted)}
 .subbox{background:#f8fafc;border-left:5px solid var(--gold);padding:15px 17px;border-radius:10px;margin:15px 0;line-height:1.65}
 .answer-btn{margin-top:18px;border:0;border-radius:11px;background:var(--navy);color:white;font-size:14px;font-weight:900;padding:11px 17px;cursor:pointer}
 .answer{display:none;margin-top:13px;background:#eef8f6;border:1px solid #c7e6df;border-radius:13px;padding:16px 17px;line-height:1.65}
@@ -113,7 +122,7 @@ body{overflow-x:hidden}
         </div>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 1번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="2">
         <div class="question-head">
           <div><div class="qnum">QUESTION 01</div><h3>변수 선택법 설명으로 부적절한 것</h3></div>
           <div class="source">33회 기출</div>
@@ -121,12 +130,12 @@ body{overflow-x:hidden}
         <div class="label">관련 문제</div>
         <div class="question">회귀분석에서 변수 선택법은 모델의 성능을 향상시키는 데 중요한 역할을 한다. 다음 중 변수 선택법에 대한 설명으로 부적절한 것은?</div>
         <div class="options">
-          <div class="option">① 전진 선택법은 중요하다고 판단되는 설명 변수를 하나씩 추가하는 방식이다.</div>
-          <div class="option">② 전진 선택법으로 변수를 추가할 때 기존 선택된 변수들의 중요도에 영향을 받지 않는다.</div>
-          <div class="option">③ 후진 제거법은 설명 변수의 개수가 많을 경우 사용이 까다로울 수 있다.</div>
-          <div class="option">④ 전진 선택법은 입력 변수의 작은 변동에도 민감하여 결과가 크게 달라질 수 있다.</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① 전진 선택법은 중요하다고 판단되는 설명 변수를 하나씩 추가하는 방식이다.</button>
+          <button type="button" class="option" data-choice="2" aria-pressed="false">② 전진 선택법으로 변수를 추가할 때 기존 선택된 변수들의 중요도에 영향을 받지 않는다.</button>
+          <button type="button" class="option" data-choice="3" aria-pressed="false">③ 후진 제거법은 설명 변수의 개수가 많을 경우 사용이 까다로울 수 있다.</button>
+          <button type="button" class="option" data-choice="4" aria-pressed="false">④ 전진 선택법은 입력 변수의 작은 변동에도 민감하여 결과가 크게 달라질 수 있다.</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>②</strong></div>
           <p>전진 선택법은 기존에 선택된 변수와 새로 추가되는 변수의 관계를 고려하여 변수를 추가한다. 기존 변수들의 중요도가 추가 변수 선택에 영향을 미친다. 나머지 선택지는 전진 선택법과 후진 제거법의 특징을 올바르게 설명하고 있다.</p>
@@ -151,7 +160,7 @@ body{overflow-x:hidden}
         <p class="d-note">AIC·BIC는 값이 작을수록 좋은 모델. Cp값이 변수 개수(p)와 비슷하면 편향이 작은 우수한 모델을 의미한다.</p>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 2번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="4">
         <div class="question-head">
           <div><div class="qnum">QUESTION 02</div><h3>변수 선택법 설명으로 부적절한 것</h3></div>
           <div class="source">5회 기출</div>
@@ -159,12 +168,12 @@ body{overflow-x:hidden}
         <div class="label">관련 문제</div>
         <div class="question">회귀분석에서 변수 선택법에 대한 설명으로 가장 부적절한 것은?</div>
         <div class="options">
-          <div class="option">① 전진선택법은 중요하다고 생각되는 설명변수부터 차례로 선택하는 방법이다.</div>
-          <div class="option">② 전진선택법과 후진선택법의 결과가 항상 동일하지는 않다.</div>
-          <div class="option">③ 모든 가능한 회귀모형은 독립변수들의 조합으로 이루어진 회귀모형 중 가장 적합하게 나타난 모형을 선택하는 방법이다.</div>
-          <div class="option">④ 전진선택법으로 변수를 추가할 때 기존 변수들의 중요도는 영향을 받지 않는다.</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① 전진선택법은 중요하다고 생각되는 설명변수부터 차례로 선택하는 방법이다.</button>
+          <button type="button" class="option" data-choice="2" aria-pressed="false">② 전진선택법과 후진선택법의 결과가 항상 동일하지는 않다.</button>
+          <button type="button" class="option" data-choice="3" aria-pressed="false">③ 모든 가능한 회귀모형은 독립변수들의 조합으로 이루어진 회귀모형 중 가장 적합하게 나타난 모형을 선택하는 방법이다.</button>
+          <button type="button" class="option" data-choice="4" aria-pressed="false">④ 전진선택법으로 변수를 추가할 때 기존 변수들의 중요도는 영향을 받지 않는다.</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>④</strong></div>
           <p>전진선택법은 변수를 하나씩 추가하며 모형의 적합도를 평가하는 방법으로, 새 변수를 추가할 때 기존 변수들의 중요도나 설명력은 변동될 수 있다. 기존 변수의 중요도가 변경될 가능성을 고려하지 않는 것은 오류를 유발할 수 있다. 1번과 2번 선택지는 전진선택법과 후진선택법의 개념을 정확히 설명하고 있으며, 3번 선택지는 회귀모형을 검토하는 방법에 대한 정의를 적절히 기술하고 있다.</p>
@@ -191,7 +200,7 @@ F-statistic: 232.7 on 1 and 10 DF,  p-value: 2.974e-08</div>
         <p class="d-note">기울기(Time 계수) p-value(2.97e-08) ≪ 0.05 → 매우 유의. F-statistic의 p-value도 ≪ 0.05 → 모형 전체가 통계적으로 유의. Intercept의 p-value(0.00456)도 0.05보다는 작아 유의하지만 0.001보다는 커서 "0.1% 이하로 매우 유의"는 과장된 해석.</p>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 3번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="3">
         <div class="question-head">
           <div><div class="qnum">QUESTION 03</div><h3>코드 실행 결과 해석</h3></div>
           <div class="source">36회 기출</div>
@@ -208,12 +217,12 @@ Residual standard error: 12.29 on 10 degrees of freedom
 Multiple R-squared: 0.9588, Adjusted R-squared: 0.9547
 F-statistic: 232.7 on 1 and 10 DF,  p-value: 2.974e-08</div>
         <div class="options">
-          <div class="option">① 위의 모델은 단순 선형 회귀가 아닌 다항 회귀 모델이다.</div>
-          <div class="option">② 추정된 회귀식의 기울기는 7.98790이지만, Time 변수의 계수는 유의하지 않으며 모델 설명력에 큰 영향을 주지 않는다.</div>
-          <div class="option">③ 회귀모형은 유의수준 5% 하에서 통계적으로 유의미하다.</div>
-          <div class="option">④ Intercept의 p-value가 유의수준 0.1% 이하이므로 매우 유의미한 값이다.</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① 위의 모델은 단순 선형 회귀가 아닌 다항 회귀 모델이다.</button>
+          <button type="button" class="option" data-choice="2" aria-pressed="false">② 추정된 회귀식의 기울기는 7.98790이지만, Time 변수의 계수는 유의하지 않으며 모델 설명력에 큰 영향을 주지 않는다.</button>
+          <button type="button" class="option" data-choice="3" aria-pressed="false">③ 회귀모형은 유의수준 5% 하에서 통계적으로 유의미하다.</button>
+          <button type="button" class="option" data-choice="4" aria-pressed="false">④ Intercept의 p-value가 유의수준 0.1% 이하이므로 매우 유의미한 값이다.</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>③</strong></div>
           <p>주어진 코드는 단순 선형 회귀 모델로, 독립 변수로 Chick$Time만 사용하고 있으며 F-statistic 값이 232.70이며, p-value가 0.05보다 작으므로 5% 유의수준에서 회귀모형이 통계적으로 유의미하다는 것을 나타낸다. Chick$Time의 p-value는 0.05보다 작아 통계적으로 매우 유의하다. Intercept의 p-value는 0.00456으로 0.001보다 크므로 유의수준 0.1%이하에서 통계적으로 유의하지 않다.</p>
@@ -236,7 +245,7 @@ F-statistic: 232.7 on 1 and 10 DF,  p-value: 2.974e-08</div>
         <p class="d-note">정규화 회귀는 계수에 제약을 추가해 과적합(Overfitting)을 막는 방법 — 학습데이터 설명력을 조금 포기하고 미래 데이터에 안정적인 결과를 낸다.</p>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 4번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="4">
         <div class="question-head">
           <div><div class="qnum">QUESTION 04</div><h3>Lasso 회귀모형 설명</h3></div>
           <div class="source">35회 기출</div>
@@ -244,12 +253,12 @@ F-statistic: 232.7 on 1 and 10 DF,  p-value: 2.974e-08</div>
         <div class="label">관련 문제</div>
         <div class="question">다음 중 Lasso 회귀모형에 대한 설명으로 부적절한 것은?</div>
         <div class="options">
-          <div class="option">① 회귀계수에 비례하여 가중치를 부여하는 방식이다.</div>
-          <div class="option">② 중요한 변수를 선택하고 불필요한 변수를 제거하는 효과가 있다.</div>
-          <div class="option">③ penalty 조정 파라미터가 존재한다.</div>
-          <div class="option">④ L2 penalty를 사용한다.</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① 회귀계수에 비례하여 가중치를 부여하는 방식이다.</button>
+          <button type="button" class="option" data-choice="2" aria-pressed="false">② 중요한 변수를 선택하고 불필요한 변수를 제거하는 효과가 있다.</button>
+          <button type="button" class="option" data-choice="3" aria-pressed="false">③ penalty 조정 파라미터가 존재한다.</button>
+          <button type="button" class="option" data-choice="4" aria-pressed="false">④ L2 penalty를 사용한다.</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>④</strong></div>
           <p>Lasso 회귀모형은 L1 penalty를 사용하여 가중치를 조정하며, 불필요한 변수를 제거하고 중요한 변수를 선택하는 데 효과적이다. L2 penalty는 Ridge 회귀모형에서 사용된다.</p>
@@ -286,12 +295,51 @@ function showSlide(i){
 }
 function goPrev(){ showSlide(current-1); }
 function goNext(){ showSlide(current+1); }
-function toggleAnswer(btn){
-  const box = btn.nextElementSibling;
-  const open = box.style.display === 'block';
-  box.style.display = open ? 'none' : 'block';
-  btn.textContent = open ? '정답 · 해설 확인' : '정답 · 해설 닫기';
+function initQuizCards(){
+  document.querySelectorAll('.question-card').forEach(card=>{
+    const answer = card.dataset.answer;
+    const options = [...card.querySelectorAll('.option')];
+    const checkBtn = card.querySelector('.check-btn');
+    const resetBtn = card.querySelector('.reset-btn');
+    const status = card.querySelector('.status-msg');
+    const answerBox = card.querySelector('.answer');
+    let selected = null;
+    options.forEach(opt=>{
+      opt.addEventListener('click', ()=>{
+        selected = opt.dataset.choice;
+        options.forEach(o=>o.setAttribute('aria-pressed', String(o===opt)));
+        checkBtn.disabled = false;
+        status.textContent = '';
+      });
+    });
+    checkBtn.addEventListener('click', ()=>{
+      if(!selected) return;
+      options.forEach(o=>{
+        o.disabled = true;
+        if(o.dataset.choice === answer) o.classList.add('correct');
+        else if(o.dataset.choice === selected) o.classList.add('wrong');
+      });
+      status.textContent = selected === answer ? '✓ 정답입니다' : '✕ 오답입니다 — 정답은 초록색으로 표시됩니다';
+      answerBox.style.display = 'block';
+      checkBtn.hidden = true;
+      resetBtn.hidden = false;
+    });
+    resetBtn.addEventListener('click', ()=>{
+      selected = null;
+      options.forEach(o=>{
+        o.disabled = false;
+        o.classList.remove('correct','wrong');
+        o.setAttribute('aria-pressed','false');
+      });
+      status.textContent = '';
+      answerBox.style.display = 'none';
+      checkBtn.hidden = false;
+      checkBtn.disabled = true;
+      resetBtn.hidden = true;
+    });
+  });
 }
+initQuizCards();
 document.addEventListener('keydown',e=>{
   if(e.key==='ArrowLeft') goPrev();
   if(e.key==='ArrowRight') goNext();
