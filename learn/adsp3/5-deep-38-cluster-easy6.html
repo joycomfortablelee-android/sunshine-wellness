@@ -61,6 +61,12 @@ body{overflow-x:hidden}
 .dot{width:12px;height:12px;border:0;border-radius:50%;background:#bdccda;cursor:pointer;padding:0}
 .dot.active{background:var(--blue);transform:scale(1.2)}
 .help{font-size:12px;color:#718397;text-align:center;margin:0 0 22px}
+.distmap{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:4px 0 16px}
+.distmap .dcard{background:#fff;border:1px solid #dbe8e3;border-radius:12px;padding:12px 13px 11px}
+.distmap .dcard h4{margin:0 0 7px;font-size:13px;font-weight:900;color:var(--navy);text-align:center}
+.distmap .dcard svg{width:100%;height:auto;display:block}
+.distmap .dcard p{margin:7px 0 0;font-size:12px;color:var(--muted);line-height:1.55}
+@media(max-width:600px){.distmap{grid-template-columns:1fr}}
 @media(max-width:850px){
   .stage{grid-template-columns:1fr;padding:10px}
   .nav-btn{position:fixed;z-index:40;bottom:20px;top:auto;width:48px;height:48px}
@@ -156,6 +162,68 @@ body{overflow-x:hidden}
             <div class="crow no"><b>② 오답</b>맨해튼 거리는 각 축 방향 거리의 <em>절댓값 합</em>으로, 상관성과 무관하다.</div>
             <div class="crow ok"><b>③ 정답</b>공분산행렬을 반영하는 유일한 선택지 — 상관성이 있는 변수에 적합하다.</div>
             <div class="crow no"><b>④ 오답</b>코사인 유사도는 벡터의 <em>방향</em>을 비교하는 척도로, 상관성 보정과는 다른 개념이다.</div>
+          </div>
+          <div class="distmap">
+            <div class="dcard">
+              <h4>① 유클리디안 거리</h4>
+              <svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">
+                <rect x="1" y="1" width="198" height="138" rx="10" fill="#f7fafc" stroke="#e1e8ef"/>
+                <line x1="40" y1="110" x2="155" y2="35" stroke="#2c6cab" stroke-width="3"/>
+                <circle cx="40" cy="110" r="5" fill="#14385f"/>
+                <circle cx="155" cy="35" r="5" fill="#14385f"/>
+                <text x="40" y="126" font-size="11" fill="#5f7285" text-anchor="middle">A</text>
+                <text x="155" y="23" font-size="11" fill="#5f7285" text-anchor="middle">B</text>
+                <text x="80" y="62" font-size="12" font-weight="800" fill="#2c6cab" text-anchor="middle" transform="rotate(-34 80 62)">직선거리</text>
+              </svg>
+              <p>두 점을 잇는 최단 직선 길이. 축 간 상관관계는 전혀 고려하지 않는다.</p>
+            </div>
+            <div class="dcard">
+              <h4>② 맨해튼 거리</h4>
+              <svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">
+                <rect x="1" y="1" width="198" height="138" rx="10" fill="#f7fafc" stroke="#e1e8ef"/>
+                <line x1="40" y1="110" x2="155" y2="35" stroke="#d7e2ea" stroke-width="1.5" stroke-dasharray="4 3"/>
+                <line x1="40" y1="110" x2="155" y2="110" stroke="#2c6cab" stroke-width="3"/>
+                <line x1="155" y1="110" x2="155" y2="35" stroke="#2c6cab" stroke-width="3"/>
+                <circle cx="40" cy="110" r="5" fill="#14385f"/>
+                <circle cx="155" cy="35" r="5" fill="#14385f"/>
+                <text x="40" y="126" font-size="11" fill="#5f7285" text-anchor="middle">A</text>
+                <text x="155" y="23" font-size="11" fill="#5f7285" text-anchor="middle">B</text>
+                <text x="97" y="124" font-size="11" font-weight="800" fill="#2c6cab" text-anchor="middle">|Δx|</text>
+                <text x="178" y="75" font-size="11" font-weight="800" fill="#2c6cab" text-anchor="middle">|Δy|</text>
+              </svg>
+              <p>x축 이동거리 + y축 이동거리의 합 — 격자를 직각으로 걷는 거리다.</p>
+            </div>
+            <div class="dcard">
+              <h4>③ 마할라노비스 거리</h4>
+              <svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">
+                <rect x="1" y="1" width="198" height="138" rx="10" fill="#f7fafc" stroke="#e1e8ef"/>
+                <circle cx="100" cy="78" r="38" fill="none" stroke="#d7e2ea" stroke-width="1.5" stroke-dasharray="4 3"/>
+                <ellipse cx="100" cy="78" rx="58" ry="24" fill="none" stroke="#1c8f8b" stroke-width="3" transform="rotate(-32 100 78)"/>
+                <circle cx="100" cy="78" r="4" fill="#14385f"/>
+                <line x1="100" y1="78" x2="148" y2="48" stroke="#c69a3b" stroke-width="2"/>
+                <circle cx="148" cy="48" r="5" fill="#c69a3b"/>
+                <text x="100" y="94" font-size="10" fill="#5f7285" text-anchor="middle">평균</text>
+                <text x="155" y="42" font-size="11" fill="#5f7285" text-anchor="middle">B</text>
+              </svg>
+              <p>공분산으로 축을 보정해, <em>상관된 방향</em>은 '덜 멀게' 측정한다 — 등고선이 원이 아닌 타원이다.</p>
+            </div>
+            <div class="dcard">
+              <h4>④ 코사인 유사도</h4>
+              <svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">
+                <rect x="1" y="1" width="198" height="138" rx="10" fill="#f7fafc" stroke="#e1e8ef"/>
+                <line x1="30" y1="120" x2="140" y2="35" stroke="#2c6cab" stroke-width="3"/>
+                <line x1="30" y1="120" x2="168" y2="82" stroke="#c69a3b" stroke-width="3"/>
+                <path d="M 62 110 A 34 34 0 0 0 72 93" fill="none" stroke="#14385f" stroke-width="2"/>
+                <text x="76" y="101" font-size="12" font-weight="800" fill="#14385f">θ</text>
+                <circle cx="30" cy="120" r="4" fill="#14385f"/>
+                <circle cx="140" cy="35" r="5" fill="#2c6cab"/>
+                <circle cx="168" cy="82" r="5" fill="#c69a3b"/>
+                <text x="18" y="132" font-size="10" fill="#5f7285">O</text>
+                <text x="146" y="28" font-size="11" fill="#5f7285">A</text>
+                <text x="174" y="76" font-size="11" fill="#5f7285">B</text>
+              </svg>
+              <p>두 벡터가 이루는 각도 θ로 <em>방향</em>의 유사성만 비교 — 길이(거리)는 보지 않는다.</p>
+            </div>
           </div>
           <div class="memory">핵심 암기 · "상관관계·공분산" → 마할라노비스 거리</div>
         </div>
