@@ -41,6 +41,15 @@ body{overflow-x:hidden}
 .label{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
 .question{font-size:19px;line-height:1.62;font-weight:800;margin:7px 0 16px}
 .option{font-size:16px;line-height:1.5;padding:11px 14px;border:1px solid #e0e8ef;background:#fafcfe;border-radius:11px;margin:8px 0}
+.option:hover:not(:disabled){border-color:var(--blue)}
+.option[aria-pressed="true"]{border-color:var(--navy);background:#eef6ff;box-shadow:0 0 0 1px var(--navy) inset}
+.option.correct{border-color:#4caf7d;background:#eaf8f0;color:var(--green);font-weight:800}
+.option.wrong{border-color:#e08a8a;background:#fdecec;color:#b23b3b;font-weight:800}
+.option:disabled{cursor:default}
+.q-controls{margin-top:18px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.check-btn:disabled{opacity:.4;cursor:not-allowed}
+.reset-btn{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.status-msg{font-size:13.5px;font-weight:800;color:var(--muted)}
 .subbox{background:#f8fafc;border-left:5px solid var(--gold);padding:15px 17px;border-radius:10px;margin:15px 0;line-height:1.65}
 .answer-btn{margin-top:18px;border:0;border-radius:11px;background:var(--navy);color:white;font-size:14px;font-weight:900;padding:11px 17px;cursor:pointer}
 .answer{display:none;margin-top:13px;background:#eef8f6;border:1px solid #c7e6df;border-radius:13px;padding:16px 17px;line-height:1.65}
@@ -110,7 +119,7 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         <p class="d-note">분할표(교차표)는 범주형 변수를 기준으로 빈도를 표 형태로 나타낸 것 — 모두 카이제곱(χ²) 검정통계량을 사용한다.</p>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 1번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="1">
         <div class="question-head">
           <div><div class="qnum">QUESTION 01</div><h3>독립성 검정 설명</h3></div>
           <div class="source">17회 기출</div>
@@ -118,12 +127,12 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         <div class="label">관련 문제</div>
         <div class="question">다음 중 독립성 검정에 대한 설명으로 가장 부적절한 것은?</div>
         <div class="options">
-          <div class="option">① 귀무가설은 "두 변수 사이에는 연관이 있다."이다.</div>
-          <div class="option">② 가설과 해석은 다르지만 검정통계량을 계산하는 방법은 동질성 검정과 차이가 없다.</div>
-          <div class="option">③ 모집단을 범주화하는 기준이 되는 두 변수 A, B가 서로 독립적으로 관측값에 영향을 미치는지 여부를 검정하는 것이다.</div>
-          <div class="option">④ 검정통계량이 클수록 두 변수는 종속관계라고 해석될 수 있다.</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① 귀무가설은 "두 변수 사이에는 연관이 있다."이다.</button>
+          <button type="button" class="option" data-choice="2" aria-pressed="false">② 가설과 해석은 다르지만 검정통계량을 계산하는 방법은 동질성 검정과 차이가 없다.</button>
+          <button type="button" class="option" data-choice="3" aria-pressed="false">③ 모집단을 범주화하는 기준이 되는 두 변수 A, B가 서로 독립적으로 관측값에 영향을 미치는지 여부를 검정하는 것이다.</button>
+          <button type="button" class="option" data-choice="4" aria-pressed="false">④ 검정통계량이 클수록 두 변수는 종속관계라고 해석될 수 있다.</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>①</strong></div>
           <p>독립성 검정의 귀무가설은 두 변수 사이에 연관이 없고 서로 독립적이라는 가정을 의미한다. 동질성 검정과의 차이는 가설의 의미일 뿐 두 검정통계량의 계산은 동일하며, 검정통계량이 클수록 귀무가설을 기각하고 대립가설을 채택할 가능성이 높아지므로, 두 변수가 종속 관계일 가능성이 높아진다.</p>
@@ -150,7 +159,7 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         <p class="d-note">기대빈도가 5 미만인 셀이 20%를 넘으면 카이제곱분포에 근사하지 않아 조치(표본 확대, 범주 합치기 등)가 필요하다.</p>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 2번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="2">
         <div class="question-head">
           <div><div class="qnum">QUESTION 02</div><h3>교차분석 설명</h3></div>
           <div class="source">17회 기출</div>
@@ -158,12 +167,12 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         <div class="label">관련 문제</div>
         <div class="question">교차분석은 2개 이상의 변수를 결합하여 자료의 빈도를 살펴보는 기법이다. 다음 중 교차분석에 대한 설명으로 부적절한 것은 무엇인가?</div>
         <div class="options">
-          <div class="option">① 범주의 관찰도수에 비교할 수 있는 기대도수를 계산한다.</div>
-          <div class="option">② 교차분석은 두 문항 모두 범주형 변수가 아니어도 사용할 수 있으며, 두 변수 간 관계를 보기 위해 실시한다.</div>
-          <div class="option">③ 교차분석은 교차표를 작성하여 교차빈도를 집계할 뿐 아니라 두 변수들 간의 독립성 검정을 할 수 있다.</div>
-          <div class="option">④ 기대빈도가 5 미만인 셀의 비율이 20%를 넘으면 카이제곱분포에 근사하지 않아 이런 경우 표본의 크기를 늘리거나 변수의 수준을 합쳐 셀의 수를 줄이는 방법 등을 사용한다.</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① 범주의 관찰도수에 비교할 수 있는 기대도수를 계산한다.</button>
+          <button type="button" class="option" data-choice="2" aria-pressed="false">② 교차분석은 두 문항 모두 범주형 변수가 아니어도 사용할 수 있으며, 두 변수 간 관계를 보기 위해 실시한다.</button>
+          <button type="button" class="option" data-choice="3" aria-pressed="false">③ 교차분석은 교차표를 작성하여 교차빈도를 집계할 뿐 아니라 두 변수들 간의 독립성 검정을 할 수 있다.</button>
+          <button type="button" class="option" data-choice="4" aria-pressed="false">④ 기대빈도가 5 미만인 셀의 비율이 20%를 넘으면 카이제곱분포에 근사하지 않아 이런 경우 표본의 크기를 늘리거나 변수의 수준을 합쳐 셀의 수를 줄이는 방법 등을 사용한다.</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>②</strong></div>
           <p>교차분석은 두 변수 모두 범주형 변수일 때 사용하는 기법이며, 수치형 변수나 연속형 변수는 적합하지 않다. 교차표를 작성해 관찰도수와 기대도수를 비교하고, 두 변수 간 독립성 여부를 검정하는 데 활용된다. 기대빈도가 5 미만인 셀이 많을 경우 카이제곱 검정의 정확도가 떨어질 수 있어 조치가 필요하다.</p>
@@ -194,7 +203,7 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         </div>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 3번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="2">
         <div class="question-head">
           <div><div class="qnum">QUESTION 03</div><h3>실험계획법의 개념</h3></div>
           <div class="source">19회 기출</div>
@@ -202,12 +211,12 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         <div class="label">관련 문제</div>
         <div class="question">다음 중 실험계획법의 개념에 대한 설명으로 가장 적절한 것은 무엇인가?</div>
         <div class="options">
-          <div class="option">① 데이터를 수집한 후 통계적 기법을 활용하여 분석하는 과정이다.</div>
-          <div class="option">② 실험을 체계적으로 설계하여 최소한의 자원으로 최적의 결과를 도출하는 방법이다.</div>
-          <div class="option">③ 변수 간의 상관관계를 분석하여 인과관계를 명확히 규명하는 방법이다.</div>
-          <div class="option">④ 데이터를 시각화하여 결과를 직관적으로 이해할 수 있도록 돕는 방법이다.</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① 데이터를 수집한 후 통계적 기법을 활용하여 분석하는 과정이다.</button>
+          <button type="button" class="option" data-choice="2" aria-pressed="false">② 실험을 체계적으로 설계하여 최소한의 자원으로 최적의 결과를 도출하는 방법이다.</button>
+          <button type="button" class="option" data-choice="3" aria-pressed="false">③ 변수 간의 상관관계를 분석하여 인과관계를 명확히 규명하는 방법이다.</button>
+          <button type="button" class="option" data-choice="4" aria-pressed="false">④ 데이터를 시각화하여 결과를 직관적으로 이해할 수 있도록 돕는 방법이다.</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>②</strong></div>
           <p>실험계획법은 실험을 체계적으로 설계하여 효율적으로 데이터를 수집하고 분석함으로써 최적의 결과를 도출하는 통계적 방법이다. 다른 선택지들은 데이터 분석, 상관관계 분석, 시각화 등 다른 개념을 설명하고 있다.</p>
@@ -243,12 +252,51 @@ function showSlide(i){
 }
 function goPrev(){ showSlide(current-1); }
 function goNext(){ showSlide(current+1); }
-function toggleAnswer(btn){
-  const box = btn.nextElementSibling;
-  const open = box.style.display === 'block';
-  box.style.display = open ? 'none' : 'block';
-  btn.textContent = open ? '정답 · 해설 확인' : '정답 · 해설 닫기';
+function initQuizCards(){
+  document.querySelectorAll('.question-card').forEach(card=>{
+    const answer = card.dataset.answer;
+    const options = [...card.querySelectorAll('.option')];
+    const checkBtn = card.querySelector('.check-btn');
+    const resetBtn = card.querySelector('.reset-btn');
+    const status = card.querySelector('.status-msg');
+    const answerBox = card.querySelector('.answer');
+    let selected = null;
+    options.forEach(opt=>{
+      opt.addEventListener('click', ()=>{
+        selected = opt.dataset.choice;
+        options.forEach(o=>o.setAttribute('aria-pressed', String(o===opt)));
+        checkBtn.disabled = false;
+        status.textContent = '';
+      });
+    });
+    checkBtn.addEventListener('click', ()=>{
+      if(!selected) return;
+      options.forEach(o=>{
+        o.disabled = true;
+        if(o.dataset.choice === answer) o.classList.add('correct');
+        else if(o.dataset.choice === selected) o.classList.add('wrong');
+      });
+      status.textContent = selected === answer ? '✓ 정답입니다' : '✕ 오답입니다 — 정답은 초록색으로 표시됩니다';
+      answerBox.style.display = 'block';
+      checkBtn.hidden = true;
+      resetBtn.hidden = false;
+    });
+    resetBtn.addEventListener('click', ()=>{
+      selected = null;
+      options.forEach(o=>{
+        o.disabled = false;
+        o.classList.remove('correct','wrong');
+        o.setAttribute('aria-pressed','false');
+      });
+      status.textContent = '';
+      answerBox.style.display = 'none';
+      checkBtn.hidden = false;
+      checkBtn.disabled = true;
+      resetBtn.hidden = true;
+    });
+  });
 }
+initQuizCards();
 document.addEventListener('keydown',e=>{
   if(e.key==='ArrowLeft') goPrev();
   if(e.key==='ArrowRight') goNext();

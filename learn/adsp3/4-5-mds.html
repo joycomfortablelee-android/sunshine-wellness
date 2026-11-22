@@ -41,6 +41,15 @@ body{overflow-x:hidden}
 .label{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
 .question{font-size:19px;line-height:1.62;font-weight:800;margin:7px 0 16px}
 .option{font-size:16px;line-height:1.5;padding:11px 14px;border:1px solid #e0e8ef;background:#fafcfe;border-radius:11px;margin:8px 0}
+.option:hover:not(:disabled){border-color:var(--blue)}
+.option[aria-pressed="true"]{border-color:var(--navy);background:#eef6ff;box-shadow:0 0 0 1px var(--navy) inset}
+.option.correct{border-color:#4caf7d;background:#eaf8f0;color:var(--green);font-weight:800}
+.option.wrong{border-color:#e08a8a;background:#fdecec;color:#b23b3b;font-weight:800}
+.option:disabled{cursor:default}
+.q-controls{margin-top:18px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.check-btn:disabled{opacity:.4;cursor:not-allowed}
+.reset-btn{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.status-msg{font-size:13.5px;font-weight:800;color:var(--muted)}
 .subbox{background:#f8fafc;border-left:5px solid var(--gold);padding:15px 17px;border-radius:10px;margin:15px 0;line-height:1.65}
 .answer-btn{margin-top:18px;border:0;border-radius:11px;background:var(--navy);color:white;font-size:14px;font-weight:900;padding:11px 17px;cursor:pointer}
 .answer{display:none;margin-top:13px;background:#eef8f6;border:1px solid #c7e6df;border-radius:13px;padding:16px 17px;line-height:1.65}
@@ -114,7 +123,7 @@ svg.mapviz{width:100%;max-width:340px;height:200px}
         <p class="d-note">개체 간 근접성(Proximity)을 2~3차원 공간에 점으로 표현 — 가까운 점끼리는 유사, 먼 점끼리는 비유사한 개체다. 커피 브랜드 포지셔닝 맵이 대표적인 예.</p>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 1번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="4">
         <div class="question-head">
           <div><div class="qnum">QUESTION 01</div><h3>MDS 설명으로 적절하지 않은 것</h3></div>
           <div class="source">41회 기출</div>
@@ -122,12 +131,12 @@ svg.mapviz{width:100%;max-width:340px;height:200px}
         <div class="label">관련 문제</div>
         <div class="question">다차원척도법(MDS)에 대한 설명 중 적절하지 않은 것은 무엇인가?</div>
         <div class="options">
-          <div class="option">① 고차원 데이터를 저차원으로 축소할 수 있다.</div>
-          <div class="option">② 유사도 또는 거리 데이터를 시각적으로 표현한다.</div>
-          <div class="option">③ 데이터 간 상대적 거리를 보존하려 한다.</div>
-          <div class="option">④ 다차원척도법(MDS)은 상대적 거리를 실수의 범위에서 완전히 보존할 수 있는 분석 기법이다.</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① 고차원 데이터를 저차원으로 축소할 수 있다.</button>
+          <button type="button" class="option" data-choice="2" aria-pressed="false">② 유사도 또는 거리 데이터를 시각적으로 표현한다.</button>
+          <button type="button" class="option" data-choice="3" aria-pressed="false">③ 데이터 간 상대적 거리를 보존하려 한다.</button>
+          <button type="button" class="option" data-choice="4" aria-pressed="false">④ 다차원척도법(MDS)은 상대적 거리를 실수의 범위에서 완전히 보존할 수 있는 분석 기법이다.</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>④</strong></div>
           <p>다차원척도법(MDS)은 데이터 간의 유사성이나 거리 정보를 활용하여 고차원의 데이터를 저차원(주로 2차원 또는 3차원) 공간에 시각적으로 표현하는 차원 축소 기법이다. MDS의 목표는 축소된 저차원 공간에서도 원래 데이터가 가지고 있던 상대적 거리를 최대한 보존하는 것이지만, 차원이 축소되는 과정에서 정보 손실이 불가피하므로 거리를 실수의 범위에서 완전히 보존하는 것은 불가능하다. MDS는 이 손실을 최소화하는 방향으로 최적화하는 분석 기법이다.</p>
@@ -149,7 +158,7 @@ svg.mapviz{width:100%;max-width:340px;height:200px}
         <p class="d-note">MDS는 개체 사이의 유사성·비유사성을 측정해 차원을 축소하기 위해 사용 — "데이터 그룹화"는 MDS가 아니라 군집분석의 목적이다.</p>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 2번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="4">
         <div class="question-head">
           <div><div class="qnum">QUESTION 02</div><h3>MDS 설명으로 가장 적절하지 않은 것</h3></div>
           <div class="source">36회 기출</div>
@@ -157,12 +166,12 @@ svg.mapviz{width:100%;max-width:340px;height:200px}
         <div class="label">관련 문제</div>
         <div class="question">다차원척도법에 대한 설명으로 가장 적절하지 않은 것은?</div>
         <div class="options">
-          <div class="option">① 데이터에 잠재해 있는 패턴이나 구조를 찾아내는 것이다.</div>
-          <div class="option">② 찾아낸 구조나 패턴을 소수 차원의 공간에 기하학적으로 표현한다.</div>
-          <div class="option">③ 개체들 사이의 유사성과 비유사성을 측정하여 차원을 축소하기 위해 사용한다.</div>
-          <div class="option">④ 데이터의 그룹화를 목적으로 사용한다.</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① 데이터에 잠재해 있는 패턴이나 구조를 찾아내는 것이다.</button>
+          <button type="button" class="option" data-choice="2" aria-pressed="false">② 찾아낸 구조나 패턴을 소수 차원의 공간에 기하학적으로 표현한다.</button>
+          <button type="button" class="option" data-choice="3" aria-pressed="false">③ 개체들 사이의 유사성과 비유사성을 측정하여 차원을 축소하기 위해 사용한다.</button>
+          <button type="button" class="option" data-choice="4" aria-pressed="false">④ 데이터의 그룹화를 목적으로 사용한다.</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>④</strong></div>
           <p>다차원척도법(MDS)은 데이터의 유사성과 비유사성을 기반으로 고차원 데이터를 저차원 공간에 기하학적으로 표현하여 잠재적인 패턴과 구조를 시각화하는 기법이다. 이는 차원 축소를 주요 목적으로 하며, 데이터의 구조를 이해하는 데 사용된다. 반면 데이터 그룹화는 군집 분석과 같은 다른 기법의 주된 목적에 해당하므로 "데이터 그룹화를 목적으로 사용한다"는 다차원척도법에 적절하지 않다.</p>
@@ -197,12 +206,51 @@ function showSlide(i){
 }
 function goPrev(){ showSlide(current-1); }
 function goNext(){ showSlide(current+1); }
-function toggleAnswer(btn){
-  const box = btn.nextElementSibling;
-  const open = box.style.display === 'block';
-  box.style.display = open ? 'none' : 'block';
-  btn.textContent = open ? '정답 · 해설 확인' : '정답 · 해설 닫기';
+function initQuizCards(){
+  document.querySelectorAll('.question-card').forEach(card=>{
+    const answer = card.dataset.answer;
+    const options = [...card.querySelectorAll('.option')];
+    const checkBtn = card.querySelector('.check-btn');
+    const resetBtn = card.querySelector('.reset-btn');
+    const status = card.querySelector('.status-msg');
+    const answerBox = card.querySelector('.answer');
+    let selected = null;
+    options.forEach(opt=>{
+      opt.addEventListener('click', ()=>{
+        selected = opt.dataset.choice;
+        options.forEach(o=>o.setAttribute('aria-pressed', String(o===opt)));
+        checkBtn.disabled = false;
+        status.textContent = '';
+      });
+    });
+    checkBtn.addEventListener('click', ()=>{
+      if(!selected) return;
+      options.forEach(o=>{
+        o.disabled = true;
+        if(o.dataset.choice === answer) o.classList.add('correct');
+        else if(o.dataset.choice === selected) o.classList.add('wrong');
+      });
+      status.textContent = selected === answer ? '✓ 정답입니다' : '✕ 오답입니다 — 정답은 초록색으로 표시됩니다';
+      answerBox.style.display = 'block';
+      checkBtn.hidden = true;
+      resetBtn.hidden = false;
+    });
+    resetBtn.addEventListener('click', ()=>{
+      selected = null;
+      options.forEach(o=>{
+        o.disabled = false;
+        o.classList.remove('correct','wrong');
+        o.setAttribute('aria-pressed','false');
+      });
+      status.textContent = '';
+      answerBox.style.display = 'none';
+      checkBtn.hidden = false;
+      checkBtn.disabled = true;
+      resetBtn.hidden = true;
+    });
+  });
 }
+initQuizCards();
 document.addEventListener('keydown',e=>{
   if(e.key==='ArrowLeft') goPrev();
   if(e.key==='ArrowRight') goNext();

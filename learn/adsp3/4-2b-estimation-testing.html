@@ -41,6 +41,15 @@ body{overflow-x:hidden}
 .label{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
 .question{font-size:19px;line-height:1.62;font-weight:800;margin:7px 0 16px}
 .option{font-size:16px;line-height:1.5;padding:11px 14px;border:1px solid #e0e8ef;background:#fafcfe;border-radius:11px;margin:8px 0}
+.option:hover:not(:disabled){border-color:var(--blue)}
+.option[aria-pressed="true"]{border-color:var(--navy);background:#eef6ff;box-shadow:0 0 0 1px var(--navy) inset}
+.option.correct{border-color:#4caf7d;background:#eaf8f0;color:var(--green);font-weight:800}
+.option.wrong{border-color:#e08a8a;background:#fdecec;color:#b23b3b;font-weight:800}
+.option:disabled{cursor:default}
+.q-controls{margin-top:18px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.check-btn:disabled{opacity:.4;cursor:not-allowed}
+.reset-btn{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.status-msg{font-size:13.5px;font-weight:800;color:var(--muted)}
 .subbox{background:#f8fafc;border-left:5px solid var(--gold);padding:15px 17px;border-radius:10px;margin:15px 0;line-height:1.65}
 .answer-btn{margin-top:18px;border:0;border-radius:11px;background:var(--navy);color:white;font-size:14px;font-weight:900;padding:11px 17px;cursor:pointer}
 .answer{display:none;margin-top:13px;background:#eef8f6;border:1px solid #c7e6df;border-radius:13px;padding:16px 17px;line-height:1.65}
@@ -112,7 +121,7 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         <p class="d-note">점추정은 모수를 하나의 값으로, 구간추정은 모수가 포함될 범위(신뢰구간)로 추정한다. 가설검정은 표본 데이터로 H₀의 기각 여부를 통계적으로 판단하는 절차다.</p>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 1번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="1">
         <div class="question-head">
           <div><div class="qnum">QUESTION 01</div><h3>증거로 채택되는 가설</h3></div>
           <div class="source">38회 기출</div>
@@ -120,9 +129,9 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         <div class="label">관련 문제</div>
         <div class="question">확신을 가지고 입증하고자 할 때, 명확한 증거를 통해 채택할 수 있는 가설은 무엇인가?</div>
         <div class="options">
-          <div class="option">① 대립 가설</div><div class="option">② 귀무 가설</div><div class="option">③ 반대 가설</div><div class="option">④ 연구 가설</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① 대립 가설</button><button type="button" class="option" data-choice="2" aria-pressed="false">② 귀무 가설</button><button type="button" class="option" data-choice="3" aria-pressed="false">③ 반대 가설</button><button type="button" class="option" data-choice="4" aria-pressed="false">④ 연구 가설</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>①</strong></div>
           <p>대립 가설은 연구자가 검정을 통해 입증하고자 하는 주장으로, 충분한 통계적 증거가 확보되었을 때 채택되는 가설이다. 귀무 가설은 효과나 차이가 없는 상태를 가정하는, 검정의 기준이 되는 가설이며, "반대 가설"과 "연구 가설"이라는 표현은 일상적으로 대립 가설과 비슷한 의미로 쓰이기도 하지만, 통계적 가설검정에서의 공식 용어는 "대립가설(H₁)"과 "귀무가설(H₀)"이므로 정답은 대립 가설로 보는 것이 타당하다.</p>
@@ -147,7 +156,7 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         <p class="d-note">제1종 오류(α) = 옳은 H₀를 잘못 기각. 제2종 오류(β) = 틀린 H₀를 잘못 채택. 유의수준 α는 곧 제1종 오류의 최대 허용 확률이다.</p>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 2번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="1">
         <div class="question-head">
           <div><div class="qnum">QUESTION 02</div><h3>제1종 오류의 최대 확률</h3></div>
           <div class="source">18회 기출</div>
@@ -155,9 +164,9 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         <div class="label">관련 문제</div>
         <div class="question">귀무가설이 사실인데도 불구하고 사실이 아니라고 판정할 때(귀무가설을 기각하는 오류) 이를 제1종 오류라고 한다. 이때 우리가 내린 판정이 잘못될 최대 확률은 무엇으로 나타낼 수 있는가?</div>
         <div class="options">
-          <div class="option">① α(알파)</div><div class="option">② p-value</div><div class="option">③ 검정통계량</div><div class="option">④ 1−α</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① α(알파)</button><button type="button" class="option" data-choice="2" aria-pressed="false">② p-value</button><button type="button" class="option" data-choice="3" aria-pressed="false">③ 검정통계량</button><button type="button" class="option" data-choice="4" aria-pressed="false">④ 1−α</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>①</strong></div>
           <p>α(알파)는 일반적으로 연구자가 설정하는 유의수준으로 제1종 오류의 최대 확률이다. 이는 귀무가설이 참일 때 가설을 기각할 확률, 즉 잘못 기각할 확률이라고 볼 수 있다. p-value는 유의확률, 검정통계량은 데이터와 귀무가설의 차이를 나타내는 지표로 둘 다 기각 여부를 결정하는 데 사용되는 값이다.</p>
@@ -180,7 +189,7 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         </div>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 3번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="4">
         <div class="question-head">
           <div><div class="qnum">QUESTION 03</div><h3>귀무가설 기각 여부를 정하는 기법</h3></div>
           <div class="source">34회 기출</div>
@@ -188,9 +197,9 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         <div class="label">관련 문제</div>
         <div class="question">표본 데이터를 기반으로 귀무가설의 기각 여부를 결정하는 분석 기법은 무엇인가?</div>
         <div class="options">
-          <div class="option">① 분산분석</div><div class="option">② 최우추정</div><div class="option">③ 신뢰구간 설정</div><div class="option">④ 가설검정</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① 분산분석</button><button type="button" class="option" data-choice="2" aria-pressed="false">② 최우추정</button><button type="button" class="option" data-choice="3" aria-pressed="false">③ 신뢰구간 설정</button><button type="button" class="option" data-choice="4" aria-pressed="false">④ 가설검정</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>④</strong></div>
           <p>가설검정은 표본 데이터를 사용해 통계적으로 귀무가설을 기각할지 여부를 판단하는 기법이다. 이를 통해 모집단에서 특정 가설이 얼마나 타당한지 평가할 수 있다. 분산분석은 그룹 간 평균의 차이를 비교하고, 최우추정은 모수를 추정하는 방법이며, 신뢰구간 설정은 모집단의 모수가 포함될 가능성이 높은 범위를 추정하는 것이다.</p>
@@ -218,7 +227,7 @@ mean in group 1  mean in group 2
         <p class="d-note">유의수준 5%(α=0.05) 기준, p-value(0.07939) &gt; α 이므로 "두 그룹의 평균이 같다"는 귀무가설을 기각하지 못한다 — 통계적으로 유의한 차이라고 단정할 수 없다.</p>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 4번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="1">
         <div class="question-head">
           <div><div class="qnum">QUESTION 04</div><h3>t-test 결과 해석</h3></div>
           <div class="source">19회 기출</div>
@@ -234,12 +243,12 @@ sample estimates:
 mean in group 1  mean in group 2
            0.75             2.33</div>
         <div class="options">
-          <div class="option">① 유의수준 1%하에서 수면유도제 2가 수면유도제 1보다 통계적으로 유의하게 평균 수면시간을 증가시킨다고 결론지을 수 있다. 즉, 수면유도제 2가 수면유도제 1보다 더 효과적이다.</div>
-          <div class="option">② 수면유도제 1에 의해 평균적으로 0.75시간의 수면시간이 증가하였다.</div>
-          <div class="option">③ 수면유도제 2에 의해 평균적으로 2.33시간의 수면시간이 증가하였다.</div>
-          <div class="option">④ 두 수면유도제에 의해 증가된 평균 수면시간의 차이는 -3.37시간에서 0.21시간 사이에 있다고 95% 확신할 수 있다.</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① 유의수준 1%하에서 수면유도제 2가 수면유도제 1보다 통계적으로 유의하게 평균 수면시간을 증가시킨다고 결론지을 수 있다. 즉, 수면유도제 2가 수면유도제 1보다 더 효과적이다.</button>
+          <button type="button" class="option" data-choice="2" aria-pressed="false">② 수면유도제 1에 의해 평균적으로 0.75시간의 수면시간이 증가하였다.</button>
+          <button type="button" class="option" data-choice="3" aria-pressed="false">③ 수면유도제 2에 의해 평균적으로 2.33시간의 수면시간이 증가하였다.</button>
+          <button type="button" class="option" data-choice="4" aria-pressed="false">④ 두 수면유도제에 의해 증가된 평균 수면시간의 차이는 -3.37시간에서 0.21시간 사이에 있다고 95% 확신할 수 있다.</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>①</strong></div>
           <p>p-value(0.07939)가 유의수준 1%(0.01)는 물론 5%(0.05)보다도 크므로 귀무가설(두 그룹 평균이 같다)을 기각할 수 없다. 즉, 두 수면유도제의 평균 수면시간 차이가 통계적으로 유의하다고 결론지을 수 없다. 각 그룹의 평균값(0.75, 2.33)과 95% 신뢰구간(-3.37~0.21시간) 설명은 출력 결과를 그대로 읽은 것으로 옳다.</p>
@@ -276,12 +285,51 @@ function showSlide(i){
 }
 function goPrev(){ showSlide(current-1); }
 function goNext(){ showSlide(current+1); }
-function toggleAnswer(btn){
-  const box = btn.nextElementSibling;
-  const open = box.style.display === 'block';
-  box.style.display = open ? 'none' : 'block';
-  btn.textContent = open ? '정답 · 해설 확인' : '정답 · 해설 닫기';
+function initQuizCards(){
+  document.querySelectorAll('.question-card').forEach(card=>{
+    const answer = card.dataset.answer;
+    const options = [...card.querySelectorAll('.option')];
+    const checkBtn = card.querySelector('.check-btn');
+    const resetBtn = card.querySelector('.reset-btn');
+    const status = card.querySelector('.status-msg');
+    const answerBox = card.querySelector('.answer');
+    let selected = null;
+    options.forEach(opt=>{
+      opt.addEventListener('click', ()=>{
+        selected = opt.dataset.choice;
+        options.forEach(o=>o.setAttribute('aria-pressed', String(o===opt)));
+        checkBtn.disabled = false;
+        status.textContent = '';
+      });
+    });
+    checkBtn.addEventListener('click', ()=>{
+      if(!selected) return;
+      options.forEach(o=>{
+        o.disabled = true;
+        if(o.dataset.choice === answer) o.classList.add('correct');
+        else if(o.dataset.choice === selected) o.classList.add('wrong');
+      });
+      status.textContent = selected === answer ? '✓ 정답입니다' : '✕ 오답입니다 — 정답은 초록색으로 표시됩니다';
+      answerBox.style.display = 'block';
+      checkBtn.hidden = true;
+      resetBtn.hidden = false;
+    });
+    resetBtn.addEventListener('click', ()=>{
+      selected = null;
+      options.forEach(o=>{
+        o.disabled = false;
+        o.classList.remove('correct','wrong');
+        o.setAttribute('aria-pressed','false');
+      });
+      status.textContent = '';
+      answerBox.style.display = 'none';
+      checkBtn.hidden = false;
+      checkBtn.disabled = true;
+      resetBtn.hidden = true;
+    });
+  });
 }
+initQuizCards();
 document.addEventListener('keydown',e=>{
   if(e.key==='ArrowLeft') goPrev();
   if(e.key==='ArrowRight') goNext();

@@ -41,6 +41,15 @@ body{overflow-x:hidden}
 .label{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
 .question{font-size:19px;line-height:1.62;font-weight:800;margin:7px 0 16px}
 .option{font-size:16px;line-height:1.5;padding:11px 14px;border:1px solid #e0e8ef;background:#fafcfe;border-radius:11px;margin:8px 0}
+.option:hover:not(:disabled){border-color:var(--blue)}
+.option[aria-pressed="true"]{border-color:var(--navy);background:#eef6ff;box-shadow:0 0 0 1px var(--navy) inset}
+.option.correct{border-color:#4caf7d;background:#eaf8f0;color:var(--green);font-weight:800}
+.option.wrong{border-color:#e08a8a;background:#fdecec;color:#b23b3b;font-weight:800}
+.option:disabled{cursor:default}
+.q-controls{margin-top:18px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.check-btn:disabled{opacity:.4;cursor:not-allowed}
+.reset-btn{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.status-msg{font-size:13.5px;font-weight:800;color:var(--muted)}
 .subbox{background:#f8fafc;border-left:5px solid var(--gold);padding:15px 17px;border-radius:10px;margin:15px 0;line-height:1.65}
 .answer-btn{margin-top:18px;border:0;border-radius:11px;background:var(--navy);color:white;font-size:14px;font-weight:900;padding:11px 17px;cursor:pointer}
 .answer{display:none;margin-top:13px;background:#eef8f6;border:1px solid #c7e6df;border-radius:13px;padding:16px 17px;line-height:1.65}
@@ -114,7 +123,7 @@ svg.scatter{width:100%;max-width:360px;height:160px}
         </table>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 1번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="4">
         <div class="question-head">
           <div><div class="qnum">QUESTION 01</div><h3>비모수적 방법의 특징</h3></div>
           <div class="source">18회 기출</div>
@@ -122,12 +131,12 @@ svg.scatter{width:100%;max-width:360px;height:160px}
         <div class="label">관련 문제</div>
         <div class="question">통계적 추론에서 모집단의 모수를 검증하기 위해 사용하는 모수적 방법과 비교하여 비모수적 방법의 특징으로 가장 부적절한 것은?</div>
         <div class="options">
-          <div class="option">① 비모수적 검정은 모집단의 분포에 대해 아무런 제약을 가하지 않는다.</div>
-          <div class="option">② 관측된 자료가 특정 분포를 따른다고 가정할 수 없는 경우에 이용된다.</div>
-          <div class="option">③ 분포의 모수에 대한 가설을 설정하지 않고 분포의 형태에 대해 가설을 설정한다.</div>
-          <div class="option">④ 비모수 검정에서는 관측값의 절대적 크기에 의존하여 평균, 분산 등을 이용해 검정을 실시한다.</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① 비모수적 검정은 모집단의 분포에 대해 아무런 제약을 가하지 않는다.</button>
+          <button type="button" class="option" data-choice="2" aria-pressed="false">② 관측된 자료가 특정 분포를 따른다고 가정할 수 없는 경우에 이용된다.</button>
+          <button type="button" class="option" data-choice="3" aria-pressed="false">③ 분포의 모수에 대한 가설을 설정하지 않고 분포의 형태에 대해 가설을 설정한다.</button>
+          <button type="button" class="option" data-choice="4" aria-pressed="false">④ 비모수 검정에서는 관측값의 절대적 크기에 의존하여 평균, 분산 등을 이용해 검정을 실시한다.</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>④</strong></div>
           <p>비모수적 검정은 평균이나 분산 같은 모집단 모수의 가정을 하지 않고, 순위 또는 순서 정보를 이용하여 검정을 실시한다. 나머지 선택지들은 비모수적 방법의 특징을 정확히 설명하며, 모집단 분포에 대한 가정을 하지 않음을 잘 나타내고 있다.</p>
@@ -153,7 +162,7 @@ svg.scatter{width:100%;max-width:360px;height:160px}
         </table>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 2번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="4">
         <div class="question-head">
           <div><div class="qnum">QUESTION 02</div><h3>비모수 검정 방법이 아닌 것</h3></div>
           <div class="source">32회 기출</div>
@@ -161,9 +170,9 @@ svg.scatter{width:100%;max-width:360px;height:160px}
         <div class="label">관련 문제</div>
         <div class="question">다음 중 비모수 검정 방법으로 부적절한 것은?</div>
         <div class="options">
-          <div class="option">① 만-위트니 U검정</div><div class="option">② 런검정</div><div class="option">③ 윌콕슨의 순위합 검정</div><div class="option">④ t검정</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① 만-위트니 U검정</button><button type="button" class="option" data-choice="2" aria-pressed="false">② 런검정</button><button type="button" class="option" data-choice="3" aria-pressed="false">③ 윌콕슨의 순위합 검정</button><button type="button" class="option" data-choice="4" aria-pressed="false">④ t검정</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>④</strong></div>
           <p>t검정은 모평균에 대한 검정으로, 비모수적 방법으로 분류되지 않는다. 만-위트니 U검정, 런 검정, 윌콕슨의 순위합 검정은 모두 분포에 대한 가정을 하지 않는 비모수적 방법에 해당한다.</p>
@@ -192,7 +201,7 @@ svg.scatter{width:100%;max-width:360px;height:160px}
         <p class="d-note">피어슨 상관계수는 "선형" 관계의 크기만 측정한다. 두 변수가 강한 비선형 관계를 가져도 피어슨 계수는 낮게 나올 수 있다.</p>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 3번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="3">
         <div class="question-head">
           <div><div class="qnum">QUESTION 03</div><h3>연비 ↔ 마력 데이터 해석</h3></div>
           <div class="source">35회 기출</div>
@@ -200,12 +209,12 @@ svg.scatter{width:100%;max-width:360px;height:160px}
         <div class="label">관련 문제</div>
         <div class="question">392대의 자동차에 대한 연비(mpg)와 엔진 마력(horsepower)에 대한 데이터 분석을 통해 얻은 결과에 대한 설명으로 가장 적절하지 않은 것은?</div>
         <div class="options">
-          <div class="option">① mpg를 설명하기 위해 horsepower를 설명변수로 하는 비선형 회귀모형이 적합할 수 있다.</div>
-          <div class="option">② horsepower가 증가할수록 mpg가 감소하는 경향이 있다.</div>
-          <div class="option">③ mpg와 horsepower 간의 피어슨 상관계수는 두 변수의 관계를 잘 설명하지 못할 수도 있다.</div>
-          <div class="option">④ mpg와 horsepower는 음의 상관관계를 가진다.</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① mpg를 설명하기 위해 horsepower를 설명변수로 하는 비선형 회귀모형이 적합할 수 있다.</button>
+          <button type="button" class="option" data-choice="2" aria-pressed="false">② horsepower가 증가할수록 mpg가 감소하는 경향이 있다.</button>
+          <button type="button" class="option" data-choice="3" aria-pressed="false">③ mpg와 horsepower 간의 피어슨 상관계수는 두 변수의 관계를 잘 설명하지 못할 수도 있다.</button>
+          <button type="button" class="option" data-choice="4" aria-pressed="false">④ mpg와 horsepower는 음의 상관관계를 가진다.</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>③</strong></div>
           <p>주어진 산점도에서 mpg(연비)와 horsepower(마력) 사이의 관계는 명확히 음의 상관관계를 나타낸다. 피어슨 상관계수는 선형 관계를 측정하는 도구로, 두 변수 사이의 음의 선형 관계가 이 경우 강하게 보이므로 적절히 관계를 설명할 수 있다. mpg를 예측하기 위해 비선형 회귀모형이 적합할 수 있고, horsepower가 증가할수록 mpg는 감소하며, 두 변수 간 음의 상관관계가 존재한다는 사실은 산점도를 통해 확인할 수 있다.</p>
@@ -228,7 +237,7 @@ svg.scatter{width:100%;max-width:360px;height:160px}
         <p class="d-note">상관분석은 "관계의 정도"를 측정할 뿐 — 인과관계를 추론하거나 특정 값에 대응하는 값을 예측하는 것은 회귀분석의 역할이다.</p>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 4번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="4">
         <div class="question-head">
           <div><div class="qnum">QUESTION 04</div><h3>상관분석 설명으로 부적절한 것</h3></div>
           <div class="source">18회 기출</div>
@@ -236,12 +245,12 @@ svg.scatter{width:100%;max-width:360px;height:160px}
         <div class="label">관련 문제</div>
         <div class="question">상관분석에 대한 설명으로 가장 부적절한 것은?</div>
         <div class="options">
-          <div class="option">① 등간척도 및 비율척도로 측정된 변수들 간의 상관계수를 측정하는데 피어슨 상관계수를 이용한다.</div>
-          <div class="option">② 서열척도로 측정된 변수들 간의 상관계수를 측정하는데 스피어만 상관계수를 이용한다.</div>
-          <div class="option">③ 상관분석은 변수들 간의 연관성을 파악하기 위해 사용하는 분석 기법 중 하나로 변수 간의 선형 관계 정도를 분석하는 통계기법이다.</div>
-          <div class="option">④ 상관분석은 종속변수에 미치는 영향력의 크기를 파악하여 독립변수의 특정한 값에 대응하는 종속 변수값을 예측하는 선형모형을 산출하는 방법이다.</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① 등간척도 및 비율척도로 측정된 변수들 간의 상관계수를 측정하는데 피어슨 상관계수를 이용한다.</button>
+          <button type="button" class="option" data-choice="2" aria-pressed="false">② 서열척도로 측정된 변수들 간의 상관계수를 측정하는데 스피어만 상관계수를 이용한다.</button>
+          <button type="button" class="option" data-choice="3" aria-pressed="false">③ 상관분석은 변수들 간의 연관성을 파악하기 위해 사용하는 분석 기법 중 하나로 변수 간의 선형 관계 정도를 분석하는 통계기법이다.</button>
+          <button type="button" class="option" data-choice="4" aria-pressed="false">④ 상관분석은 종속변수에 미치는 영향력의 크기를 파악하여 독립변수의 특정한 값에 대응하는 종속 변수값을 예측하는 선형모형을 산출하는 방법이다.</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>④</strong></div>
           <p>상관분석은 변수 간의 선형적 관계 정도를 측정하는 방법으로, 독립변수와 종속변수 간의 원인과 결과를 추론하거나 예측하는 데 사용되지 않는다. 그것은 회귀분석의 역할이다. 나머지 선택지들은 상관분석의 정의와 특징을 정확히 설명하고 있다.</p>
@@ -278,12 +287,51 @@ function showSlide(i){
 }
 function goPrev(){ showSlide(current-1); }
 function goNext(){ showSlide(current+1); }
-function toggleAnswer(btn){
-  const box = btn.nextElementSibling;
-  const open = box.style.display === 'block';
-  box.style.display = open ? 'none' : 'block';
-  btn.textContent = open ? '정답 · 해설 확인' : '정답 · 해설 닫기';
+function initQuizCards(){
+  document.querySelectorAll('.question-card').forEach(card=>{
+    const answer = card.dataset.answer;
+    const options = [...card.querySelectorAll('.option')];
+    const checkBtn = card.querySelector('.check-btn');
+    const resetBtn = card.querySelector('.reset-btn');
+    const status = card.querySelector('.status-msg');
+    const answerBox = card.querySelector('.answer');
+    let selected = null;
+    options.forEach(opt=>{
+      opt.addEventListener('click', ()=>{
+        selected = opt.dataset.choice;
+        options.forEach(o=>o.setAttribute('aria-pressed', String(o===opt)));
+        checkBtn.disabled = false;
+        status.textContent = '';
+      });
+    });
+    checkBtn.addEventListener('click', ()=>{
+      if(!selected) return;
+      options.forEach(o=>{
+        o.disabled = true;
+        if(o.dataset.choice === answer) o.classList.add('correct');
+        else if(o.dataset.choice === selected) o.classList.add('wrong');
+      });
+      status.textContent = selected === answer ? '✓ 정답입니다' : '✕ 오답입니다 — 정답은 초록색으로 표시됩니다';
+      answerBox.style.display = 'block';
+      checkBtn.hidden = true;
+      resetBtn.hidden = false;
+    });
+    resetBtn.addEventListener('click', ()=>{
+      selected = null;
+      options.forEach(o=>{
+        o.disabled = false;
+        o.classList.remove('correct','wrong');
+        o.setAttribute('aria-pressed','false');
+      });
+      status.textContent = '';
+      answerBox.style.display = 'none';
+      checkBtn.hidden = false;
+      checkBtn.disabled = true;
+      resetBtn.hidden = true;
+    });
+  });
 }
+initQuizCards();
 document.addEventListener('keydown',e=>{
   if(e.key==='ArrowLeft') goPrev();
   if(e.key==='ArrowRight') goNext();
