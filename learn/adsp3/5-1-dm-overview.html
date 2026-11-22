@@ -40,7 +40,16 @@ body{overflow-x:hidden}
 .source{font-size:12px;font-weight:800;background:#f4f7fa;border:1px solid #dde6ee;color:#647689;border-radius:999px;padding:7px 10px;white-space:nowrap}
 .label{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
 .question{font-size:19px;line-height:1.62;font-weight:800;margin:7px 0 16px}
-.option{font-size:16px;line-height:1.5;padding:11px 14px;border:1px solid #e0e8ef;background:#fafcfe;border-radius:11px;margin:8px 0}
+.option{display:block;width:100%;text-align:left;font-family:inherit;font-size:16px;line-height:1.5;padding:11px 14px;border:1.5px solid #e0e8ef;background:#fafcfe;border-radius:11px;margin:8px 0;cursor:pointer;color:inherit}
+.option:hover:not(:disabled){border-color:var(--blue)}
+.option[aria-pressed="true"]{border-color:var(--navy);background:#eef6ff;box-shadow:0 0 0 1px var(--navy) inset}
+.option.correct{border-color:#4caf7d;background:#eaf8f0;color:var(--green);font-weight:800}
+.option.wrong{border-color:#e08a8a;background:#fdecec;color:#b23b3b;font-weight:800}
+.option:disabled{cursor:default}
+.q-controls{margin-top:18px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.check-btn:disabled{opacity:.4;cursor:not-allowed}
+.reset-btn{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.status-msg{font-size:13.5px;font-weight:800;color:var(--muted)}
 .subbox{background:#f8fafc;border-left:5px solid var(--gold);padding:15px 17px;border-radius:10px;margin:15px 0;line-height:1.65}
 .answer-btn{margin-top:18px;border:0;border-radius:11px;background:var(--navy);color:white;font-size:14px;font-weight:900;padding:11px 17px;cursor:pointer}
 .answer{display:none;margin-top:13px;background:#eef8f6;border:1px solid #c7e6df;border-radius:13px;padding:16px 17px;line-height:1.65}
@@ -115,7 +124,7 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         <p class="d-note">통계분석은 가설·가정에 따른 분석·검증인 반면, 데이터 마이닝은 다양한 수리 알고리즘으로 데이터베이스에서 의미있는 정보를 찾아내는 방법을 통칭한다. 뿌리는 머신러닝에 있다.</p>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 1번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="1">
         <div class="question-head">
           <div><div class="qnum">QUESTION 01</div><h3>진화를 모방한 최적화 탐색 알고리즘</h3></div>
           <div class="source">38회 기출</div>
@@ -123,12 +132,12 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         <div class="label">관련 문제</div>
         <div class="question">다음 중 생물 진화의 과정을 모방하여 근삿값에 가까운 해답을 도출하는 최적화 탐색 분류 분석 알고리즘은 무엇인가?</div>
         <div class="options">
-          <div class="option">① 유전자 알고리즘(Genetic Algorithm)</div>
-          <div class="option">② 심층 신경망(Deep Neural Network)</div>
-          <div class="option">③ 의사결정나무(Decision Tree)</div>
-          <div class="option">④ 랜덤 포레스트(Random Forest)</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① 유전자 알고리즘(Genetic Algorithm)</button>
+          <button type="button" class="option" data-choice="2" aria-pressed="false">② 심층 신경망(Deep Neural Network)</button>
+          <button type="button" class="option" data-choice="3" aria-pressed="false">③ 의사결정나무(Decision Tree)</button>
+          <button type="button" class="option" data-choice="4" aria-pressed="false">④ 랜덤 포레스트(Random Forest)</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>①</strong></div>
           <p>유전자 알고리즘은 자연 선택과 유전 법칙을 모방하여 최적화 문제를 해결하는 탐색 알고리즘이다. 심층 신경망은 복잡한 데이터 표현을 학습하는 데 사용되며, 의사결정나무와 랜덤 포레스트는 분류와 회귀 문제에 활용되지만 생물 진화 과정을 모방하지 않는다.</p>
@@ -156,7 +165,7 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         </table>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 2번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="3">
         <div class="question-head">
           <div><div class="qnum">QUESTION 02</div><h3>데이터 분할 설명으로 부적절한 것</h3></div>
           <div class="source">38회 기출</div>
@@ -164,12 +173,12 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         <div class="label">관련 문제</div>
         <div class="question">데이터 분할에 대한 설명 중 가장 부적절한 것은 무엇인가?</div>
         <div class="options">
-          <div class="option">① 테스트용 데이터와 학습용 데이터는 섞여서는 안된다.</div>
-          <div class="option">② 학습용 데이터는 모델의 가중치를 조정하는 데 사용된다.</div>
-          <div class="option">③ 테스트용 데이터는 모델 훈련 중간 모델의 성능 평가에 사용된다.</div>
-          <div class="option">④ 데이터가 제한적인 경우, K-Fold 교차검증을 통해 다양한 학습-평가 조합을 활용한다.</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① 테스트용 데이터와 학습용 데이터는 섞여서는 안된다.</button>
+          <button type="button" class="option" data-choice="2" aria-pressed="false">② 학습용 데이터는 모델의 가중치를 조정하는 데 사용된다.</button>
+          <button type="button" class="option" data-choice="3" aria-pressed="false">③ 테스트용 데이터는 모델 훈련 중간 모델의 성능 평가에 사용된다.</button>
+          <button type="button" class="option" data-choice="4" aria-pressed="false">④ 데이터가 제한적인 경우, K-Fold 교차검증을 통해 다양한 학습-평가 조합을 활용한다.</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>③</strong></div>
           <p>테스트 데이터는 모델의 최종 평가에 사용되며 성능 평가에 사용되는 데이터는 학습 중간에 사용하는 검증용 데이터이다. 학습용 데이터는 모델 훈련에 사용되고, K-Fold 교차검증은 데이터가 제한적일 때 유용하다.</p>
@@ -195,7 +204,7 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         </table>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 3번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="4">
         <div class="question-head">
           <div><div class="qnum">QUESTION 03</div><h3>민감도와 동일한 지표</h3></div>
           <div class="source">19회 기출</div>
@@ -203,9 +212,9 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         <div class="label">관련 문제</div>
         <div class="question">오분류표(Confusion Matrix)를 사용하여 계산할 수 있는 평가 지표 중 민감도와 동일하며 모형의 완전성(Completeness)을 평가하는 지표는?</div>
         <div class="options">
-          <div class="option">① F1 지표</div><div class="option">② 정밀도(Precision)</div><div class="option">③ 특이도(Specificity)</div><div class="option">④ 재현율(Recall)</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① F1 지표</button><button type="button" class="option" data-choice="2" aria-pressed="false">② 정밀도(Precision)</button><button type="button" class="option" data-choice="3" aria-pressed="false">③ 특이도(Specificity)</button><button type="button" class="option" data-choice="4" aria-pressed="false">④ 재현율(Recall)</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>④</strong></div>
           <p>재현율은 실제로 양성인 데이터 중에서 모델이 양성으로 올바르게 예측한 비율로, 민감도와 동일한 개념이다. 정밀도는 양성으로 예측한 데이터 중에서 실제로 양성인 비율을 나타내며, F1 지표는 정밀도와 재현율의 조화 평균이다. 특이도는 음성인 데이터를 올바르게 음성으로 예측한 비율이다.</p>
@@ -231,7 +240,7 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         </table>
       </div>
       <div class="connection"><div class="line"></div><div class="connection-pill">↓ &nbsp; 기출 4번 연결 &nbsp; ↓</div><div class="line"></div></div>
-      <article class="question-card">
+      <article class="question-card" data-answer="2">
         <div class="question-head">
           <div><div class="qnum">QUESTION 04</div><h3>오분류표로 특이도 계산</h3></div>
           <div class="source">22회 기출</div>
@@ -240,9 +249,9 @@ table.d-table th{background:#edf3f8;color:var(--navy)}
         <div class="question">아래는 오분류표를 나타낸 것이다. 다음 중 특이도(Specificity)는 얼마인가?</div>
         <div class="subbox">실제값 TRUE: 예측 TRUE 30 / 예측 FALSE 70 (합계 100)<br>실제값 FALSE: 예측 TRUE 60 / 예측 FALSE 40 (합계 100)</div>
         <div class="options">
-          <div class="option">① 3/10</div><div class="option">② 4/10</div><div class="option">③ 13/20</div><div class="option">④ 7/11</div>
+          <button type="button" class="option" data-choice="1" aria-pressed="false">① 3/10</button><button type="button" class="option" data-choice="2" aria-pressed="false">② 4/10</button><button type="button" class="option" data-choice="3" aria-pressed="false">③ 13/20</button><button type="button" class="option" data-choice="4" aria-pressed="false">④ 7/11</button>
         </div>
-        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="q-controls"><button type="button" class="answer-btn check-btn" disabled>정답 확인</button><button type="button" class="answer-btn reset-btn" hidden>다시 풀기</button><span class="status-msg" aria-live="polite"></span></div>
         <div class="answer">
           <div class="answer-title">정답 <strong>②</strong></div>
           <p>특이도는 실제 음성(FALSE) 중에서 올바르게 FALSE로 예측한 비율이다. 실제값이 FALSE인 100명 중 모델이 FALSE로 예측한 경우는 40명이므로, 특이도 = 40/100 = 4/10이다.</p>
@@ -279,12 +288,51 @@ function showSlide(i){
 }
 function goPrev(){ showSlide(current-1); }
 function goNext(){ showSlide(current+1); }
-function toggleAnswer(btn){
-  const box = btn.nextElementSibling;
-  const open = box.style.display === 'block';
-  box.style.display = open ? 'none' : 'block';
-  btn.textContent = open ? '정답 · 해설 확인' : '정답 · 해설 닫기';
+function initQuizCards(){
+  document.querySelectorAll('.question-card').forEach(card=>{
+    const answer = card.dataset.answer;
+    const options = [...card.querySelectorAll('.option')];
+    const checkBtn = card.querySelector('.check-btn');
+    const resetBtn = card.querySelector('.reset-btn');
+    const status = card.querySelector('.status-msg');
+    const answerBox = card.querySelector('.answer');
+    let selected = null;
+    options.forEach(opt=>{
+      opt.addEventListener('click', ()=>{
+        selected = opt.dataset.choice;
+        options.forEach(o=>o.setAttribute('aria-pressed', String(o===opt)));
+        checkBtn.disabled = false;
+        status.textContent = '';
+      });
+    });
+    checkBtn.addEventListener('click', ()=>{
+      if(!selected) return;
+      options.forEach(o=>{
+        o.disabled = true;
+        if(o.dataset.choice === answer) o.classList.add('correct');
+        else if(o.dataset.choice === selected) o.classList.add('wrong');
+      });
+      status.textContent = selected === answer ? '✓ 정답입니다' : '✕ 오답입니다 — 정답은 초록색으로 표시됩니다';
+      answerBox.style.display = 'block';
+      checkBtn.hidden = true;
+      resetBtn.hidden = false;
+    });
+    resetBtn.addEventListener('click', ()=>{
+      selected = null;
+      options.forEach(o=>{
+        o.disabled = false;
+        o.classList.remove('correct','wrong');
+        o.setAttribute('aria-pressed','false');
+      });
+      status.textContent = '';
+      answerBox.style.display = 'none';
+      checkBtn.hidden = false;
+      checkBtn.disabled = true;
+      resetBtn.hidden = true;
+    });
+  });
 }
+initQuizCards();
 document.addEventListener('keydown',e=>{
   if(e.key==='ArrowLeft') goPrev();
   if(e.key==='ArrowRight') goNext();
