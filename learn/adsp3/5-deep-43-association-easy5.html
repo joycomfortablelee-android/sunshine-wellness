@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>연관분석 쉬운 문제 5선 · 7절 알약 모음에서 바로 풀리는 것만</title>
+<style>
+:root {
+  --navy:#14385f; --navy2:#1e527f; --blue:#2c6cab; --teal:#1c8f8b;
+  --gold:#c69a3b; --bg:#eef4fa; --line:#d9e3ed; --text:#1f2d3d; --muted:#687b8e; --green:#0f766e;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:"Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",Arial,sans-serif;background:linear-gradient(180deg,#eaf2fb,#f8fbff);color:var(--text)}
+body{overflow-x:hidden}
+.app{min-height:100vh}
+.header{position:sticky;top:0;z-index:30;background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:15px 22px 13px;box-shadow:0 5px 18px rgba(10,40,70,.16)}
+.header-inner{max-width:1280px;margin:auto;display:flex;justify-content:space-between;gap:18px;align-items:center}
+.header h1{font-size:23px;margin:0 0 4px;line-height:1.25}
+.header p{margin:0;font-size:13px;opacity:.9}
+.header-badge{font-size:12px;font-weight:800;white-space:nowrap;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:7px 10px}
+.stage{display:grid;grid-template-columns:62px minmax(0,1280px) 62px;gap:12px;justify-content:center;align-items:start;padding:18px 14px 12px}
+.nav-btn{position:sticky;top:48vh;width:54px;height:54px;border:0;border-radius:50%;background:var(--navy);color:white;font-size:28px;font-weight:900;cursor:pointer;box-shadow:0 8px 20px rgba(20,56,95,.2)}
+.nav-btn:hover{transform:translateY(-2px)}
+.nav-btn:disabled{opacity:.28;cursor:not-allowed;transform:none}
+.viewer{min-width:0}
+.slide{display:none}
+.slide.active{display:block}
+.slide-head{background:#fff;border:1px solid var(--line);border-radius:18px 18px 0 0;padding:15px 20px;display:flex;justify-content:space-between;align-items:center}
+.eyebrow{font-size:11px;font-weight:900;letter-spacing:.12em;color:var(--blue)}
+.slide-head h2{margin:3px 0 0;font-size:21px;color:var(--navy)}
+.count{background:#f1f6fb;color:#5f7285;border:1px solid #dce6ef;border-radius:999px;padding:6px 10px;font-size:13px;font-weight:800;white-space:nowrap}
+.question-card{background:#fff;border:1px solid var(--line);border-radius:0 0 18px 18px;padding:24px 26px 27px;box-shadow:0 14px 34px rgba(20,56,95,.08);margin-bottom:16px}
+.question-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;padding-bottom:15px;border-bottom:2px solid #edf3f8;margin-bottom:19px}
+.qnum{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
+.question-head h3{font-size:22px;margin:4px 0 0;color:var(--navy)}
+.source{font-size:12px;font-weight:800;background:#f4f7fa;border:1px solid #dde6ee;color:#647689;border-radius:999px;padding:7px 10px;white-space:nowrap}
+.label{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
+.question{font-size:18px;line-height:1.6;font-weight:800;margin:7px 0 16px}
+.subbox{background:#f6f9fc;border:1px solid var(--line);border-radius:10px;padding:10px 13px;font-size:13.5px;line-height:1.7;margin:0 0 16px;color:#3a4b5c}
+.options{display:flex;flex-direction:column}
+.option{display:block;width:100%;text-align:left;font-family:inherit;font-size:16px;line-height:1.5;padding:11px 14px;border:1px solid #e0e8ef;background:#fafcfe;border-radius:11px;margin:8px 0;cursor:pointer;color:inherit;transition:border-color .15s,background .15s}
+.option:hover{border-color:var(--blue);background:#f2f8fd}
+.option.selected{border-color:var(--blue);background:#e9f3fc;font-weight:800}
+.option.correct{border-color:#2fa875;background:#eafaf1;font-weight:800}
+.option.wrong{border-color:#d9704a;background:#fdf1ec}
+.answer-btn{margin-top:18px;border:0;border-radius:11px;background:var(--navy);color:white;font-size:14px;font-weight:900;padding:11px 17px;cursor:pointer}
+.answer{display:none;margin-top:13px;background:#eef8f6;border:1px solid #c7e6df;border-radius:13px;padding:16px 17px;line-height:1.65}
+.answer-title{font-weight:800}
+.answer strong{font-size:23px;color:var(--green)}
+.answer p{margin:8px 0 11px}
+.memory{background:#fff8e7;border:1px solid #f0ddb0;border-radius:10px;padding:11px 13px;font-weight:800}
+.fromtag{display:inline-block;margin:0 0 14px;font-size:11.5px;font-weight:800;color:#5b3aa3;background:#ece4fb;border:1px solid #cbb8ef;border-radius:999px;padding:5px 11px}
+.bottom-nav{max-width:1280px;margin:0 auto 28px;display:flex;justify-content:center;align-items:center;gap:12px;padding:0 12px}
+.dots{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.dot{width:12px;height:12px;border:0;border-radius:50%;background:#bdccda;cursor:pointer;padding:0}
+.dot.active{background:var(--blue);transform:scale(1.2)}
+.help{font-size:12px;color:#718397;text-align:center;margin:0 0 22px}
+@media(max-width:850px){
+  .stage{grid-template-columns:1fr;padding:10px}
+  .nav-btn{position:fixed;z-index:40;bottom:20px;top:auto;width:48px;height:48px}
+  #prevBtn{left:12px} #nextBtn{right:12px}
+  .header-inner{align-items:flex-start}
+  .header-badge{display:none}
+  .question-card{padding:19px 17px 22px}
+  .question{font-size:17px}
+  .question-head h3{font-size:19px}
+}
+@media print{
+  .header,.nav-btn,.bottom-nav,.help{display:none!important}
+  .slide{display:block!important;page-break-after:always}
+  .question-card{box-shadow:none}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="header-inner">
+      <div>
+        <h1>5장 7절 연관분석 · 쉬운 문제 5선</h1>
+        <p>7절의 알약 4개(개념+기출2문제, 연관분석·동향·Apriori실습 슬라이드)를 전부 살펴 "바로 답이 보이는" 문제만 추렸습니다. 전체 복습 전 가볍게 먼저 풀어보세요.</p>
+      </div>
+      <div class="header-badge">← → 방향키 지원</div>
+    </div>
+  </header>
+
+  <main class="stage">
+    <button class="nav-btn" id="prevBtn" onclick="goPrev()" aria-label="이전 화면">‹</button>
+    <div class="viewer">
+
+    <section class="slide active" data-index="0">
+      <div class="slide-head">
+        <div><div class="eyebrow">EASY 01 / 지지도</div><h2>지지도의 정의 고르기</h2></div>
+        <div class="count">1 / 5</div>
+      </div>
+      <article class="question-card">
+        <span class="fromtag">출처 · 지지도·신뢰도·향상도 개념 + 기출 2문제</span>
+        <div class="question-head">
+          <div><div class="qnum">QUESTION 01</div><h3>A·B 동시발생 건수 ÷ 전체 건수</h3></div>
+          <div class="source">31회 기출</div>
+        </div>
+        <div class="label">문제</div>
+        <div class="question">연관성 분석에서 특정 규칙의 중요도를 평가하기 위해 사용하는 측도(criterion) 중, "데이터 전체에서 항목 A와 항목 B가 동시에 발생하는 빈도를 데이터 전체 건수로 나누어 계산한 값"에 해당하는 것으로 가장 적절한 것은?</div>
+        <div class="options" data-correct="0">
+          <button type="button" class="option" data-i="0" onclick="selectOption(this)">① 지지도</button>
+          <button type="button" class="option" data-i="1" onclick="selectOption(this)">② 신뢰도</button>
+          <button type="button" class="option" data-i="2" onclick="selectOption(this)">③ 향상도</button>
+          <button type="button" class="option" data-i="3" onclick="selectOption(this)">④ 민감도</button>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>①</strong></div>
+          <p>지지도는 전체 데이터에서 특정 항목 집합이 동시에 발생하는 빈도를 데이터 전체 건수로 나눈 값이다. 신뢰도는 조건부 확률, 향상도는 규칙의 유용성 비율이며, 민감도는 분류모형 평가 지표다.</p>
+          <div class="memory">핵심 암기 · 지지도 = P(A∩B) / 신뢰도 = P(B|A) / 향상도 = P(B|A)÷P(B)</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="1">
+      <div class="slide-head">
+        <div><div class="eyebrow">EASY 02 / 특징</div><h2>연관분석의 특징 고르기</h2></div>
+        <div class="count">2 / 5</div>
+      </div>
+      <article class="question-card">
+        <span class="fromtag">출처 · 연관분석 슬라이드 (p467–472 · 기출52)</span>
+        <div class="question-head">
+          <div><div class="qnum">QUESTION 02</div><h3>연관분석 결과가 이해하기 쉬운 이유</h3></div>
+          <div class="source">35회 기출</div>
+        </div>
+        <div class="label">문제</div>
+        <div class="question">연관분석의 특징으로 가장 적절한 것은?</div>
+        <div class="options" data-correct="3">
+          <button type="button" class="option" data-i="0" onclick="selectOption(this)">① 거래 데이터의 양에 상관없이 계산 복잡도가 일정하다.</button>
+          <button type="button" class="option" data-i="1" onclick="selectOption(this)">② 세분화된 품목의 연관 규칙 분석에 항상 적절하다.</button>
+          <button type="button" class="option" data-i="2" onclick="selectOption(this)">③ 모든 관계를 도출하며 항상 높은 정확도를 제공한다.</button>
+          <button type="button" class="option" data-i="3" onclick="selectOption(this)">④ 조건–반응(if–then) 형태라 결과를 이해하기 쉽다.</button>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>④</strong></div>
+          <p>연관규칙은 "A이면 B" 형태의 조건–반응(IF–THEN)으로 표현되어 직관적으로 이해하기 쉽다. 품목·거래가 늘면 계산 부담이 커지고, 모든 관계의 정확성이 항상 보장되지는 않는다.</p>
+          <div class="memory">핵심 암기 · IF–THEN 형태 → 연관규칙의 장점은 "이해하기 쉬움"</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="2">
+      <div class="slide-head">
+        <div><div class="eyebrow">EASY 03 / 부적절한 설명</div><h2>연관규칙 장점 중 틀린 설명 찾기</h2></div>
+        <div class="count">3 / 5</div>
+      </div>
+      <article class="question-card">
+        <span class="fromtag">출처 · 연관분석 슬라이드 (p467–472 · 기출53)</span>
+        <div class="question-head">
+          <div><div class="qnum">QUESTION 03</div><h3>품목 수가 늘어도 계산량이 그대로라는 설명</h3></div>
+          <div class="source">38회 기출</div>
+        </div>
+        <div class="label">문제</div>
+        <div class="question">연관규칙의 장점에 대한 설명 중 부적절한 것은?</div>
+        <div class="options" data-correct="3">
+          <button type="button" class="option" data-i="0" onclick="selectOption(this)">① 최소 지지도·최소 신뢰도를 설정할 수 있다.</button>
+          <button type="button" class="option" data-i="1" onclick="selectOption(this)">② 거래 데이터를 비교적 간단한 구조로 활용할 수 있다.</button>
+          <button type="button" class="option" data-i="2" onclick="selectOption(this)">③ 조건–반응 형태로 표현되어 이해하기 쉽다.</button>
+          <button type="button" class="option" data-i="3" onclick="selectOption(this)">④ 품목 수가 늘어도 계산량은 증가하지 않는다.</button>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>④</strong></div>
+          <p>품목 수가 많아지면 가능한 품목 조합이 급격히 늘어나 계산량도 함께 증가한다. 따라서 "계산량이 증가하지 않는다"는 설명이 부적절하다.</p>
+          <div class="memory">핵심 암기 · 품목 증가 → 후보 조합 수 증가 → 계산량 증가</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="3">
+      <div class="slide-head">
+        <div><div class="eyebrow">EASY 04 / 활용 분야</div><h2>추천·진열·교차판매에 맞는 기법</h2></div>
+        <div class="count">4 / 5</div>
+      </div>
+      <article class="question-card">
+        <span class="fromtag">출처 · 연관성분석 동향 슬라이드 (p473–474 · 기출58)</span>
+        <div class="question-head">
+          <div><div class="qnum">QUESTION 04</div><h3>소매점 추천시스템에 적합한 기법</h3></div>
+          <div class="source">31회 기출</div>
+        </div>
+        <div class="label">문제</div>
+        <div class="question">소매점의 상품 추천 시스템, 물건 배열, 교차판매 등에 가장 적합한 데이터 마이닝 기법은?</div>
+        <div class="options" data-correct="2">
+          <button type="button" class="option" data-i="0" onclick="selectOption(this)">① 데이터 분류 (Classification)</button>
+          <button type="button" class="option" data-i="1" onclick="selectOption(this)">② 데이터 예측 (Prediction)</button>
+          <button type="button" class="option" data-i="2" onclick="selectOption(this)">③ 연관분석 (Association Analysis)</button>
+          <button type="button" class="option" data-i="3" onclick="selectOption(this)">④ 데이터 군집화 (Clustering)</button>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>③</strong></div>
+          <p>함께 구매되는 품목 사이의 관계를 활용하는 연관분석이 추천·진열·교차판매에 가장 적합하다. Apriori·FP-Growth가 대표 알고리즘이다.</p>
+          <div class="memory">핵심 암기 · "같이 산다" 키워드 → 연관분석</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-index="4">
+      <div class="slide-head">
+        <div><div class="eyebrow">EASY 05 / 향상도 계산</div><h2>거래표로 향상도 구하기</h2></div>
+        <div class="count">5 / 5</div>
+      </div>
+      <article class="question-card">
+        <span class="fromtag">출처 · 지지도·신뢰도·향상도 개념 + 기출 2문제 (향상도 계산)</span>
+        <div class="question-head">
+          <div><div class="qnum">QUESTION 05</div><h3>연관 규칙 A→B의 향상도 계산</h3></div>
+          <div class="source">31회 기출</div>
+        </div>
+        <div class="label">문제</div>
+        <div class="question">아래의 거래 데이터를 바탕으로 연관 규칙 A→B의 향상도를 계산하시오.</div>
+        <div class="subbox">{A}:100 · {B,C}:100 · {C}:100 · {A,B,C,D}:50 · {B,D}:200 · {A,B,D}:250 · {A,C}:200 (전체 1,000건)</div>
+        <div class="options" data-correct="2">
+          <button type="button" class="option" data-i="0" onclick="selectOption(this)">① 33%</button>
+          <button type="button" class="option" data-i="1" onclick="selectOption(this)">② 50%</button>
+          <button type="button" class="option" data-i="2" onclick="selectOption(this)">③ 83%</button>
+          <button type="button" class="option" data-i="3" onclick="selectOption(this)">④ 93%</button>
+        </div>
+        <button class="answer-btn" onclick="toggleAnswer(this)">정답 · 해설 확인</button>
+        <div class="answer">
+          <div class="answer-title">정답 <strong>③</strong></div>
+          <p>A 포함 거래 600건 중 B도 포함 300건 → P(B|A)=300/600=0.5. 전체 1,000건 중 B 포함 600건 → P(B)=600/1,000=0.6. 향상도 = 0.5/0.6 ≈ 0.833(83%).</p>
+          <div class="memory">핵심 암기 · 향상도 계산 전 "A 포함 거래"와 "B 포함 거래"를 먼저 분모·분자로 정리</div>
+        </div>
+      </article>
+    </section>
+
+    </div>
+    <button class="nav-btn" id="nextBtn" onclick="goNext()" aria-label="다음 화면">›</button>
+  </main>
+
+  <div class="bottom-nav"><div class="dots">
+    <button class="dot active" onclick="showSlide(0)" aria-label="1번 화면"></button>
+    <button class="dot" onclick="showSlide(1)" aria-label="2번 화면"></button>
+    <button class="dot" onclick="showSlide(2)" aria-label="3번 화면"></button>
+    <button class="dot" onclick="showSlide(3)" aria-label="4번 화면"></button>
+    <button class="dot" onclick="showSlide(4)" aria-label="5번 화면"></button>
+  </div></div>
+  <div class="help">좌우 버튼 · 키보드 ← → · 하단 점을 눌러 화면을 이동할 수 있습니다. Apriori 단계 순서(34회 57번)와 41회 59번(Groceries 결과표 해석)은 계산·순서 판단이 더 필요해 이 5문제에는 넣지 않았습니다 — 심화는 각 슬라이드 원본에서 확인하세요.</div>
+</div>
+
+<script>
+let current = 0;
+const slides = [...document.querySelectorAll('.slide')];
+const dots = [...document.querySelectorAll('.dot')];
+function showSlide(i){
+  if(i < 0 || i >= slides.length) return;
+  current = i;
+  slides.forEach((s,idx)=>s.classList.toggle('active', idx===i));
+  dots.forEach((d,idx)=>d.classList.toggle('active', idx===i));
+  document.getElementById('prevBtn').disabled = i===0;
+  document.getElementById('nextBtn').disabled = i===slides.length-1;
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function goPrev(){ showSlide(current-1); }
+function goNext(){ showSlide(current+1); }
+function selectOption(btn){
+  const group = btn.parentElement;
+  group.querySelectorAll('.option').forEach(o=>o.classList.remove('selected','correct','wrong'));
+  btn.classList.add('selected');
+}
+function toggleAnswer(btn){
+  const box = btn.nextElementSibling;
+  const open = box.style.display === 'block';
+  box.style.display = open ? 'none' : 'block';
+  btn.textContent = open ? '정답 · 해설 확인' : '정답 · 해설 닫기';
+  const group = btn.closest('.question-card').querySelector('.options');
+  const correctI = group.dataset.correct;
+  group.querySelectorAll('.option').forEach(o=>{
+    o.classList.remove('correct','wrong');
+    if(!open){
+      if(o.dataset.i === correctI) o.classList.add('correct');
+      else if(o.classList.contains('selected')) o.classList.add('wrong');
+    }
+  });
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowLeft') goPrev();
+  if(e.key==='ArrowRight') goNext();
+});
+showSlide(0);
+</script>
+</body>
+</html>
