@@ -1,9 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>팀 레이더 | AI 기반 학원가 교통안전 분석 — 1행 3열 좌우넘김 연구노트</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>팀 레이더 연구노트 | 1행 3열 전자책 · 음성 해설·녹음 통합본</title>
 <style>
 :root{--ink:#203246;--muted:#617286;--paper:#fffdf8;--bg:#e8edf2;--line:#dce4e8;--navy:#123b59;--yellow:#ffe27a;--yellowlight:#fff0ad;--coral:#b24a32;--teal:#1f776d;--font:1rem;}
 *{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:var(--ink)}body{background:radial-gradient(circle at 10% 5%,#f7f4e9 0,transparent 29%),linear-gradient(135deg,#dfe8ef,#e8edf2 48%,#e3e8ed);}
@@ -14,139 +15,373 @@ mark,.hl{background:linear-gradient(transparent 15%,var(--yellowlight) 15%,var(-
 .sheet.cover:not(.active){display:none}.sheet.cover.active{display:flex}
 @media(max-width:1120px){.book-frame{padding:0 10px}.topbar{padding:10px 12px;align-items:start}.brand small{max-width:180px;line-height:1.5}.bar-actions{justify-content:flex-end}.ui-btn{padding:7px;font-size:11px}.book{display:block;height:calc(100dvh - 172px);min-height:420px}.book:before,.book:after{display:none}.sheet.active{width:100%;height:100%}.sheet.first,.sheet.middle,.sheet.last{border-right:0;box-shadow:none}.page-inner{padding:27px 27px 55px}.cover h1{font-size:31px}.metric b{font-size:26px}.footer-controls{padding:0 10px;margin:12px auto 13px;gap:8px}.nav-btn{min-width:74px;padding:10px 6px;font-size:11px}.progress-area{min-width:90px;gap:7px}.help-note{font-size:10px;padding:0 12px}}@media(max-width:480px){.metric-row.three-up{gap:5px}.metric-row.three-up .metric{padding:10px 4px}.metric-row.three-up .metric small{font-size:9px;line-height:1.45}.metric-row.three-up .metric b{font-size:22px}}@media(max-width:480px){.brand small{display:none}.topbar{align-items:center}.bar-actions .smallhide{display:none}.book{height:calc(100dvh - 140px)}.page-inner{padding:25px 22px 47px}.sheet p,.sheet li{font-size:14px}.sheet .lead{font-size:13px}.metric-row{gap:7px}.metric{padding:10px}.chapter-title{font-size:24px}.book-frame{padding:0 6px}}
 @media print{body{background:white}.topbar,.footer-controls,.help-note,.drawer{display:none!important}.book-frame{margin:0;max-width:none;padding:0}.book{display:block;box-shadow:none;border:0;overflow:visible;height:auto;min-height:0}.book:before,.book:after{display:none}.sheet{display:block!important;box-shadow:none!important;border:0!important;overflow:visible!important;page-break-after:always;break-after:page;min-height:230mm}.page-inner{padding:17mm 14mm 12mm;max-width:none}.cover{height:250mm}.cover .page-inner{height:100%}.hl,mark{background:#ffe27a!important;print-color-adjust:exact;-webkit-print-color-adjust:exact}.metric,.box,.key,.alert-scenario{break-inside:avoid}h3{break-after:avoid}}
+
+/* Two new self-contained visual pages */
+.visual-sheet .page-inner{padding-top:25px;padding-bottom:30px}
+.visual-sheet .folio{margin-bottom:15px}
+.visual-sheet .chapter-title{font-size:clamp(19px,1.7vw,26px);line-height:1.35;margin-bottom:8px}
+.visual-sheet .lead{font-size:12px;line-height:1.55;margin-bottom:11px}
+.figure-button{display:block;width:100%;border:1px solid #c7d4dd;padding:0;border-radius:10px;overflow:hidden;background:white;box-shadow:0 4px 11px #163b5314;cursor:zoom-in}
+.figure-button:hover{outline:3px solid #ffe27a;outline-offset:1px}
+.research-figure{width:100%;height:auto;display:block}
+.figure-caption{font-size:12px!important;line-height:1.65!important;color:#2d5268;margin:10px 0!important}
+.yellow-note{background:#fff4be;border-left:4px solid #e8b730;padding:8px;border-radius:3px;font-size:11px!important;color:#6b5114}
+.figure-shortcuts{display:grid;gap:7px;margin:9px 0 14px}
+.figure-shortcuts a{display:flex;align-items:center;gap:6px;color:#1b4865;text-decoration:none;background:#fff6cf;border:1px solid #eddda0;border-radius:8px;padding:8px 11px;font-size:12px;font-weight:750}
+.figure-shortcuts a:hover{background:#ffe899}
+.figure-shortcuts a span{margin-left:auto;color:#856420;font-size:11px}
+.image-viewer{border:0;border-radius:11px;padding:18px;background:#fff;max-width:min(95vw,1020px);max-height:94vh;box-shadow:0 20px 80px #061e2d80;overflow:auto}
+.image-viewer::backdrop{background:#102334e6}
+.image-viewer .viewer-top{display:flex;gap:10px;align-items:center;justify-content:space-between;margin-bottom:10px;color:#183b53;font-weight:800}
+.image-viewer .viewer-top button{background:#153f5e;color:white;border:0;border-radius:8px;padding:8px 11px}
+.image-viewer img{display:block;height:auto;width:auto;max-width:100%;max-height:calc(94vh - 95px);margin:auto}
+@media(max-width:1120px){.visual-sheet .page-inner{padding-top:22px}.visual-sheet .chapter-title{font-size:23px}.visual-sheet .lead{font-size:13px}}
+@media print{.figure-button{border:0;box-shadow:none}.visual-sheet .page-inner{padding:12mm 12mm}.visual-sheet img{max-height:210mm;width:auto;max-width:100%;margin:auto}.image-viewer{display:none!important}}
+
+/* Added method teaching pages */
+.sheet code{font-family:Consolas,"SFMono-Regular",monospace;font-size:12px;word-break:break-word;white-space:normal;background:#edf4f7;padding:4px 6px;border-radius:5px}
+.sheet .simple-list strong{font-weight:800}
+.sheet .page-inner .note{font-size:11.5px}
+@media print{.sheet{break-inside:avoid}}
+
+/* 3 new illustrated, method-specific pages aligned into one 1×3 row */
+.method-visual-sheet .page-inner{padding-top:24px;padding-bottom:36px}
+.method-visual-sheet .folio{margin-bottom:14px}
+.method-visual-sheet .chapter-kicker{margin-bottom:7px}
+.method-visual-sheet .chapter-title{font-size:clamp(18px,1.63vw,25px);margin-bottom:6px;line-height:1.35}
+.method-visual-sheet .lead{font-size:12px;line-height:1.5;margin-bottom:12px}
+.method-visual-sheet .figure-button{max-width:100%;box-shadow:0 5px 20px #26496320;border:1px solid #c4d5e4}
+.method-visual-sheet .method-process{margin:13px 0 10px;padding:10px 12px}
+.method-visual-sheet .method-process h4{font-size:12px;margin:0 0 5px}
+.method-visual-sheet .method-process p{font-size:12px;line-height:1.6;margin:0}
+.method-visual-sheet .key{margin:9px 0 8px;padding:11px;font-size:12px;line-height:1.55}
+.method-visual-sheet .method-visual-actions{display:flex;gap:7px;flex-wrap:wrap;padding-top:6px}
+.method-visual-sheet .method-visual-actions button,.method-visual-sheet .method-visual-actions a{border-radius:7px;background:#194562;color:white;text-decoration:none;border:0;font-size:11px;font-weight:800;cursor:pointer;padding:8px 10px}
+.method-visual-sheet .method-visual-actions a{background:#fff1ba;color:#513f19;border:1px solid #eed07b}
+.method-visual-sheet .method-visual-actions button:hover{background:#2e678b}
+.method-visual-sheet .method-visual-actions a:hover{background:#ffdf74}
+@media(min-width:1121px){.method-visual-sheet .page-inner{padding-left:clamp(13px,1.45vw,24px);padding-right:clamp(13px,1.45vw,24px)}}
+@media print{.method-visual-sheet .figure-button{max-height:none}.method-visual-sheet .method-visual-actions{display:none}}
+
+/* Voice narration and recording panel */
+.voice-open-btn{background:#fff2bd;border-color:#e6c568;color:#593b08}
+.voice-panel{position:fixed;right:22px;top:70px;width:min(430px,calc(100vw - 20px));max-height:calc(100dvh - 90px);display:none;flex-direction:column;z-index:160;background:#fffdf9;border:1px solid #b8cbd6;border-radius:17px;box-shadow:0 18px 55px #0d2e4870;overflow:hidden}
+.voice-panel.open{display:flex}
+.voice-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 17px;background:#153f5b;color:white}
+.voice-head strong{display:block;font-size:15px}.voice-head small{display:block;color:#bcd7e5;margin-top:3px;font-size:11px}
+.voice-head button{border:1px solid #ffffff5e;background:transparent;color:white;width:28px;height:28px;border-radius:7px}
+.voice-body{overflow:auto;padding:13px 17px 18px;display:flex;flex-direction:column;gap:9px}
+.voice-label{display:block;font-size:12px;font-weight:800;color:#234057}.voice-label-side{font-size:10px;color:#647a8e;font-weight:500}
+.voice-row{display:grid;grid-template-columns:1fr 1.25fr;gap:9px}.voice-field{min-width:0;font-size:11px;color:#29495f;font-weight:750}.voice-field>span{display:block;margin-bottom:5px}
+.voice-control,.voice-script{width:100%;border:1px solid #c6d2dc;background:white;color:#203b51;border-radius:8px;padding:8px;font-size:12px}
+.voice-control:focus-visible,.voice-script:focus-visible{outline:2px solid #ebc650}
+.voice-script{min-height:145px;max-height:260px;resize:vertical;line-height:1.65;font-size:13px}
+.voice-buttons{display:flex;gap:7px;flex-wrap:wrap}.voice-buttons button{background:#f5f8fb;border:1px solid #c5d3de;color:#1a435e;padding:9px 10px;border-radius:8px;font-weight:750;font-size:12px;flex:1;min-width:max-content}.voice-buttons button:hover:not(:disabled){background:#e5f0f6}.voice-buttons button:disabled{opacity:.38;cursor:not-allowed}
+.voice-buttons button.voice-primary{background:#194c6e;color:white;border-color:#194c6e}
+.voice-buttons #voiceRecord{color:#9c2d20;border-color:#e1b3aa;background:#fff2ef}
+.voice-checks{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:11px;color:#3a5266}.voice-checks label{display:flex;align-items:center;gap:5px}.voice-text-btn{background:transparent;border:none;text-decoration:underline;color:#536e7f;font-size:11px}
+.voice-divider{height:1px;background:#dce4e7;margin:4px 0}
+.voice-section-title{font-size:13px;color:#143e5a}.voice-help{font-size:11px;color:#536779;line-height:1.55;margin:0}
+.voice-recorded-audio{width:100%;height:35px}.voice-file-label{font-size:11px;display:flex;flex-direction:column;gap:4px;border:1px dashed #a0bdca;border-radius:9px;padding:9px;color:#31546c;cursor:pointer}.voice-file-label input{font-size:11px;max-width:100%}
+.voice-status{font-size:11px;font-weight:800;background:#eff4f7;border-radius:8px;color:#20425b;padding:8px 10px;margin:0;line-height:1.5}
+.voice-fineprint{font-size:10px;color:#718295;margin:0;line-height:1.5}
+.voice-page-button{position:sticky;top:8px;float:right;margin:9px 9px -48px 3px;z-index:7;border:1px solid #ead38d;border-radius:18px;padding:6px 8px;background:#ffed9e;color:#5f4609;font-size:10px;font-weight:900;box-shadow:0 2px 6px #193e5525;cursor:pointer}
+.voice-page-button:hover{background:#ffe075}
+@media(max-width:1120px){.voice-panel{top:58px;right:10px;max-height:calc(100dvh - 76px)}.voice-page-button{position:sticky;top:7px}}
+@media print{.voice-panel,.voice-page-button{display:none!important}}
+
 </style>
 </head>
 <body>
 <header class="topbar">
-  <div class="brand"><span class="brand-mark">R</span><div><strong>TEAM RADAR · 학원가 교통안전 분석</strong><small>1행 3열 좌우넘김 연구노트 · 발표 구간별 상세 해설</small></div></div>
-  <div class="bar-actions">
-    <button class="ui-btn accent" id="tocButton">☷ 목차</button>
-    <button class="ui-btn smallhide" id="highlightButton" aria-pressed="true">🟨 강조 켜짐</button>
-    <button class="ui-btn smallhide" id="fontMinus" aria-label="글씨 작게">가−</button>
-    <button class="ui-btn smallhide" id="fontPlus" aria-label="글씨 크게">가+</button>
-    <button class="ui-btn" id="printButton">⎙ 인쇄/PDF</button>
-  </div>
+<div class="brand"><span class="brand-mark">R</span><div><strong>TEAM RADAR · 학원가 교통안전 분석</strong><small>1행 3열 좌우넘김 연구노트 · 발표 구간별 상세 해설</small></div></div>
+<div class="bar-actions">
+<button class="ui-btn accent" id="tocButton">☷ 목차</button>
+<button aria-pressed="true" class="ui-btn smallhide" id="highlightButton">🟨 강조 켜짐</button>
+<button aria-label="글씨 작게" class="ui-btn smallhide" id="fontMinus">가−</button>
+<button aria-label="글씨 크게" class="ui-btn smallhide" id="fontPlus">가+</button>
+<button class="ui-btn voice-open-btn" id="voiceOpenButton" type="button" aria-controls="voicePanel" aria-expanded="false">🔊 음성 해설</button><button class="ui-btn" id="printButton">⎙ 인쇄/PDF</button>
+</div>
 </header>
-<main class="book-frame"><div class="book" id="book" aria-label="한 줄 세 쪽 좌우넘김 발표 요약책">
-<section class="sheet cover" id="p0" data-title="표지"><div class="page-inner"><div><div class="folio">TEAM RADAR <span style="float:right">RESEARCH NOTEBOOK · 2026</span></div><div style="margin-top:45px" class="decor">AI × SPATIAL DATA × TRAFFIC SAFETY</div><div class="cover-line"></div><h1>아이들은 학원가에,<br><span>안전망은 아직 학교 앞에.</span></h1><p class="cover-sub">AI 기반 학원가 교통안전 사각지대 분석<br>및 티맵 맞춤형 위험 알림 서비스</p><div class="chips"><span class="chip">DBSCAN</span><span class="chip">엔트로피 가중법</span><span class="chip">XGBoost</span><span class="chip">집계구 분석</span></div></div><div class="cover-bottom"><strong>발표자 김민서 · 팀 레이더</strong><br>발표 구간별 상세 요약 · 핵심 수치/방법/제안 노란색 강조<br><span style="color:#b6d5e0">화면 좌우 버튼 또는 키보드 ← → 로 페이지를 넘길 수 있습니다.</span></div></div></section>
-<section class="sheet" id="p1" data-title="목차 1"><div class="page-inner"><div class="folio">CONTENTS <span>01 / 02</span></div><span class="chapter-kicker">CONTENTS</span><h2 class="chapter-title">목차 <span style="color:#b98b25">01</span></h2><p class="lead">제목을 클릭하면 해당 장으로 이동합니다. 넓은 화면에서는 한 줄에 세 쪽이 나란히 표시되고 작은 화면에서는 한 쪽씩 넘깁니다.</p><div class="toc-rows">
-<a class="toc-link" href="#p3" data-go="3"><b>01</b><span>연구 도입과 문제의식<br><small>사교육 참여율 증가와 학생 이동 공간</small></span><em>04</em></a>
-<a class="toc-link" href="#p4" data-go="4"><b>02</b><span>스쿨존 밖 공간적 사각지대<br><small>강남구 사고 다발 지점 17곳</small></span><em>05</em></a>
-<a class="toc-link" href="#p5" data-go="5"><b>03</b><span>대치동 사고 증가와 시간적 위험<br><small>연평균 11.6% 증가</small></span><em>06</em></a>
-<a class="toc-link" href="#p6" data-go="6"><b>04</b><span>기존 정책의 한계와 연구 필요성</span><em>07</em></a>
-<a class="toc-link" href="#p7" data-go="7"><b>05</b><span>연구 질문과 전체 모형<br><small>어디·왜·언제·어떻게</small></span><em>08</em></a>
-<a class="toc-link" href="#p8" data-go="8"><b>06</b><span>1단계 DBSCAN 학원가 군집화<br><small>EPS 150m, MinPts 10</small></span><em>09</em></a>
-<a class="toc-link" href="#p9" data-go="9"><b>07</b><span>세 가지 위험지표와 엔트로피 가중법</span><em>10</em></a>
-<a class="toc-link" href="#p10" data-go="10"><b>08</b><span>1단계 결과: 위험 학원가 선정<br><small>72개 군집·대치동 최상위</small></span><em>11</em></a>
-<a class="toc-link" href="#p11" data-go="11"><b>09</b><span>2단계 집계구 정밀 분석<br><small>대치동 117개 집계구</small></span><em>12</em></a>
+
+<aside class="voice-panel" id="voicePanel" aria-label="페이지별 음성 해설 및 녹음" aria-hidden="true">
+  <div class="voice-head"><div><strong>🎧 페이지별 음성 해설</strong><small>30쪽 해설 대본 · 기본 1.5배속</small></div><button type="button" id="voiceCloseButton" aria-label="음성 패널 닫기">✕</button></div>
+  <div class="voice-body">
+    <label class="voice-label" for="voicePageSelect">해설할 페이지</label>
+    <select id="voicePageSelect" class="voice-control"></select>
+    <div class="voice-row">
+      <label class="voice-field" for="voiceSpeed"><span>재생 속도</span><select id="voiceSpeed" class="voice-control"><option value="0.75">0.75×</option><option value="1">1.0×</option><option value="1.25">1.25×</option><option value="1.5" selected>1.5× (기본)</option><option value="1.75">1.75×</option><option value="2">2.0×</option><option value="2.5">2.5×</option><option value="3">3.0×</option></select></label>
+      <label class="voice-field" for="voiceChoice"><span>읽는 목소리</span><select class="voice-control" id="voiceChoice"><option value="">기본 한국어 음성</option></select></label>
+    </div>
+    <label class="voice-label" for="voiceScript">음성 해설 대본 <span class="voice-label-side">수정 후 바로 낭독 가능</span></label>
+    <textarea id="voiceScript" class="voice-script" spellcheck="false"></textarea>
+    <div class="voice-buttons"><button type="button" id="voicePlay" class="voice-primary">▶ 해설 듣기</button><button type="button" id="voicePause">⏸ 일시정지</button><button type="button" id="voiceStop">■ 중지</button></div>
+    <div class="voice-checks"><label><input type="checkbox" id="voiceAutoNext"/> 다음 페이지 연속 듣기</label><button type="button" id="voiceResetScript" class="voice-text-btn">기본 대본 복원</button></div>
+    <div class="voice-divider"></div>
+    <strong class="voice-section-title">🎙 직접 음성 녹음</strong>
+    <p class="voice-help">마이크로 페이지별 대본을 녹음하고 재생하거나 파일로 저장할 수 있습니다. 사용자의 브라우저에서만 처리합니다.</p>
+    <div class="voice-buttons"><button type="button" id="voiceRecord">● 녹음 시작</button><button type="button" id="voiceRecordStop" disabled>■ 녹음 종료</button><button type="button" id="voiceDownload" disabled>⇩ 녹음 저장</button></div>
+    <audio id="voiceRecordedAudio" controls preload="none" class="voice-recorded-audio" style="display:none"></audio>
+    <label class="voice-file-label" for="voiceAudioFile">📂 저장한 음성 파일 불러오기 <input id="voiceAudioFile" type="file" accept="audio/*"/></label>
+    <p id="voiceStatus" class="voice-status" aria-live="polite">해설할 페이지를 선택한 뒤 ▶ 해설 듣기를 누르세요.</p>
+    <p class="voice-fineprint">읽어주기는 브라우저의 한국어 음성을 이용합니다. 마이크 녹음은 권한 허용이 필요하며, 녹음한 파일은 저장 버튼으로 별도 보관해 주세요. 브라우저에 한국어 음성이 없으면 읽기가 제한될 수 있습니다.</p>
+  </div>
+</aside>
+
+<main class="book-frame"><div aria-label="한 줄 세 쪽 좌우넘김 발표 요약책" class="book" id="book">
+<section class="sheet cover" data-title="표지" id="p0"><button type="button" class="voice-page-button" data-voice-page="0" title="1쪽 음성 해설 듣기" aria-label="1쪽 음성 해설 듣기">🔊 해설</button><div class="page-inner"><div><div class="folio">TEAM RADAR <span style="float:right">RESEARCH NOTEBOOK · 2026</span></div><div class="decor" style="margin-top:45px">AI × SPATIAL DATA × TRAFFIC SAFETY</div><div class="cover-line"></div><h1>아이들은 학원가에,<br/><span>안전망은 아직 학교 앞에.</span></h1><p class="cover-sub">AI 기반 학원가 교통안전 사각지대 분석<br/>및 티맵 맞춤형 위험 알림 서비스</p><div class="chips"><span class="chip">DBSCAN</span><span class="chip">엔트로피 가중법</span><span class="chip">XGBoost</span><span class="chip">집계구 분석</span></div></div><div class="cover-bottom"><strong>발표자 김민서 · 팀 레이더</strong><br/>발표 구간별 상세 요약 · 핵심 수치/방법/제안 노란색 강조<br/><span style="color:#b6d5e0">화면 좌우 버튼 또는 키보드 ← → 로 페이지를 넘길 수 있습니다.</span></div></div></section>
+<section class="sheet" data-title="목차 1" id="p1"><button type="button" class="voice-page-button" data-voice-page="1" title="2쪽 음성 해설 듣기" aria-label="2쪽 음성 해설 듣기">🔊 해설</button><div class="page-inner"><div class="folio">CONTENTS <span>01 / 02</span></div><span class="chapter-kicker">CONTENTS</span><h2 class="chapter-title">목차 <span style="color:#b98b25">01</span></h2><p class="lead">제목을 클릭하면 해당 장으로 이동합니다. 넓은 화면에서는 한 줄에 세 쪽이 나란히 표시되고 작은 화면에서는 한 쪽씩 넘깁니다.</p><div aria-label="시각 자료 바로가기" class="figure-shortcuts">
+<a data-go="3" href="#p3">🟨 그림 1 · 연구 흐름 4컷 만화 <span>04</span></a>
+<a data-go="4" href="#p4">🟨 그림 2 · 분석 요약 인포그래픽 <span>05</span></a>
+<a data-go="15" href="#p15">🟨 그림 3 · DBSCAN 방법론 <span>16</span></a><a data-go="16" href="#p16">🟨 그림 4 · 엔트로피 가중법 방법론 <span>17</span></a><a data-go="17" href="#p17">🟨 그림 5 · XGBoost 방법론 <span>18</span></a></div><div class="toc-rows">
+<a class="toc-link" data-go="5" href="#p5"><b>01</b><span>연구 도입과 문제의식<br/><small>사교육 참여율 증가와 학생 이동 공간</small></span><em>06</em></a>
+<a class="toc-link" data-go="6" href="#p6"><b>02</b><span>스쿨존 밖 공간적 사각지대<br/><small>강남구 사고 다발 지점 17곳</small></span><em>07</em></a>
+<a class="toc-link" data-go="7" href="#p7"><b>03</b><span>대치동 사고 증가와 시간적 위험<br/><small>연평균 11.6% 증가</small></span><em>08</em></a>
+<a class="toc-link" data-go="8" href="#p8"><b>04</b><span>기존 정책의 한계와 연구 필요성</span><em>09</em></a>
+<a class="toc-link" data-go="9" href="#p9"><b>05</b><span>연구 질문과 전체 모형<br/><small>어디·왜·언제·어떻게</small></span><em>10</em></a>
+<a class="toc-link" data-go="10" href="#p10"><b>06</b><span>1단계 DBSCAN 학원가 군집화<br/><small>EPS 150m, MinPts 10</small></span><em>11</em></a>
+<a class="toc-link" data-go="11" href="#p11"><b>07</b><span>세 가지 위험지표와 엔트로피 가중법</span><em>12</em></a>
+<a class="toc-link" data-go="12" href="#p12"><b>08</b><span>1단계 결과: 위험 학원가 선정<br/><small>72개 군집·대치동 최상위</small></span><em>13</em></a>
+<a class="toc-link" data-go="13" href="#p13"><b>09</b><span>2단계 집계구 정밀 분석<br/><small>대치동 117개 집계구</small></span><em>14</em></a>
 </div><div class="footnote">표지와 목차를 제외한 본문은 발표 내용의 논리 전개 순서를 유지했습니다.</div></div></section>
-<section class="sheet" id="p2" data-title="목차 2"><div class="page-inner"><div class="folio">CONTENTS <span>02 / 02</span></div><span class="chapter-kicker">CONTENTS</span><h2 class="chapter-title">목차 <span style="color:#b98b25">02</span></h2><p class="lead">분석 방법의 검토부터 실제 서비스 적용 및 교수자 질문까지 이어집니다.</p><div class="toc-rows">
-<a class="toc-link" href="#p12" data-go="12"><b>10</b><span>엔트로피 가중법과 XGBoost 비교<br><small>상위 위험지역 일치율 90.9%</small></span><em>13</em></a>
-<a class="toc-link" href="#p13" data-go="13"><b>11</b><span>사고 유형 분석: 왜 위험한가?</span><em>14</em></a>
-<a class="toc-link" href="#p14" data-go="14"><b>12</b><span>시간대별 분석: 언제 위험한가?</span><em>15</em></a>
-<a class="toc-link" href="#p15" data-go="15"><b>13</b><span>정책적 기대효과와 티맵 연계 전략</span><em>16</em></a>
-<a class="toc-link" href="#p16" data-go="16"><b>14</b><span>티맵 알림 서비스 시나리오 3개</span><em>17</em></a>
-<a class="toc-link" href="#p17" data-go="17"><b>15</b><span>대치동 현장 조사와 발표 결론</span><em>18</em></a>
-<a class="toc-link" href="#p18" data-go="18"><b>16</b><span>전체 핵심 수치·방법론 정리표</span><em>19</em></a>
-<a class="toc-link" href="#p19" data-go="19"><b>17</b><span>교수자 관점 핵심 검토 질문</span><em>20</em></a>
-<a class="toc-link" href="#p20" data-go="20"><b>18</b><span>녹취 원본 확인이 필요한 사항</span><em>21</em></a>
-<a class="toc-link" href="#p21" data-go="21"><b>+</b><span>핵심 결론과 발표 논리 한눈에 보기</span><em>22</em></a>
-</div><div class="key"><strong>노란색 하이라이트</strong><br><span class="hl">핵심 발견, 주요 분석조건, 중요 수치, 실무적 시사점</span>을 표시합니다.</div></div></section>
-<section class="sheet" id="p3" data-title="01 연구 도입"><div class="page-inner"><div class="folio">CHAPTER 01 · RESEARCH BACKGROUND</div><span class="chapter-kicker">01 / 연구 주제와 문제의식</span><h2 class="chapter-title">학생 이동공간은 학원가로 확대되지만 안전관리는 학교 중심</h2><p class="lead">연구팀이 출발한 문제는 실제 학생들의 이동 공간과 어린이 교통안전 정책이 보호하는 공간 사이의 불일치이다.</p>
+<section class="sheet" data-title="목차 2" id="p2"><button type="button" class="voice-page-button" data-voice-page="2" title="3쪽 음성 해설 듣기" aria-label="3쪽 음성 해설 듣기">🔊 해설</button><div class="page-inner"><div class="folio">CONTENTS <span>02 / 02</span></div><span class="chapter-kicker">CONTENTS</span><h2 class="chapter-title">목차 <span style="color:#b98b25">02</span></h2><p class="lead">분석방법을 실제로 계산하는 3개 실습 페이지를 추가했습니다. 방법론 설명 이후 사고 유형·시간·서비스 설계로 이어집니다.</p><div class="toc-rows">
+<a class="toc-link" data-go="14" href="#p14"><b>10</b><span>엔트로피 가중법과 XGBoost 비교<br/><small>상위 위험지역 일치율 90.9%</small></span><em>15</em></a>
+<a class="toc-link" data-go="15" href="#p15"><b>그림 3</b><span>DBSCAN · 그림으로 이해하는 방법론<br/><small>입력 → 처리 → 결과 도식</small></span><em>16</em></a><a class="toc-link" data-go="16" href="#p16"><b>그림 4</b><span>엔트로피 가중법 · 그림으로 이해하는 방법론<br/><small>입력 → 처리 → 결과 도식</small></span><em>17</em></a><a class="toc-link" data-go="17" href="#p17"><b>그림 5</b><span>XGBoost · 그림으로 이해하는 방법론<br/><small>입력 → 처리 → 결과 도식</small></span><em>18</em></a><a class="toc-link" data-go="18" href="#p18"><b>실습 1</b><span>DBSCAN 실습: 150m·10개 기준의 군집 생성<br/><small>학원 위치 → 72개 군집</small></span><em>19</em></a>
+<a class="toc-link" data-go="19" href="#p19"><b>실습 2</b><span>엔트로피 가중법: 정규화·가중치·위험점수<br/><small>수식과 가상 계산 예시</small></span><em>20</em></a>
+<a class="toc-link" data-go="20" href="#p20"><b>실습 3</b><span>XGBoost: 학습과 검증, 90.9%의 의미<br/><small>정답변수와 정보누수 점검</small></span><em>21</em></a>
+<a class="toc-link" data-go="21" href="#p21"><b>11</b><span>사고 유형 분석: 왜 위험한가?</span><em>22</em></a>
+<a class="toc-link" data-go="22" href="#p22"><b>12</b><span>시간대별 분석: 언제 위험한가?</span><em>23</em></a>
+<a class="toc-link" data-go="23" href="#p23"><b>13</b><span>정책적 기대효과와 티맵 연계 전략</span><em>24</em></a>
+<a class="toc-link" data-go="24" href="#p24"><b>14</b><span>티맵 알림 서비스 시나리오 3개</span><em>25</em></a>
+<a class="toc-link" data-go="25" href="#p25"><b>15</b><span>대치동 현장 조사와 발표 결론</span><em>26</em></a>
+<a class="toc-link" data-go="26" href="#p26"><b>16</b><span>전체 핵심 수치·방법론 정리표</span><em>27</em></a>
+<a class="toc-link" data-go="27" href="#p27"><b>17</b><span>교수자 관점 핵심 검토 질문</span><em>28</em></a>
+<a class="toc-link" data-go="28" href="#p28"><b>18</b><span>녹취 원본 확인이 필요한 사항</span><em>29</em></a>
+<a class="toc-link" data-go="29" href="#p29"><b>+</b><span>핵심 결론과 발표 논리 한눈에 보기</span><em>30</em></a>
+</div><div class="key"><strong>노란색 하이라이트</strong><br/><span class="hl">핵심 발견, 주요 분석조건, 중요 수치, 실무적 시사점</span>을 표시합니다.</div></div></section>
+<section class="sheet visual-sheet" data-title="그림 1 · 4컷 만화" id="p3"><button type="button" class="voice-page-button" data-voice-page="3" title="4쪽 음성 해설 듣기" aria-label="4쪽 음성 해설 듣기">🔊 해설</button>
+<div class="page-inner">
+<div class="folio">TEAM RADAR · VISUAL RESEARCH NOTE</div>
+<span class="chapter-kicker">ILLUSTRATION 01 · FOUR-PANEL COMIC</span>
+<h2 class="chapter-title">문제 발견 → 데이터 수집 → 분석 → 해결 제안</h2>
+<p class="lead">팀 레이더의 연구 흐름을 네 컷의 만화로 설명합니다. 이미지 클릭 시 확대할 수 있습니다.</p>
+<button aria-label="그림 크게 보기" class="figure-button" title="그림을 클릭하면 크게 볼 수 있습니다" type="button"><img alt="팀 레이더의 문제 발견, 데이터 수집, 분석 수행, 해결 제안을 순서대로 보여주는 4컷 만화" class="research-figure" loading="lazy" src="images/team-radar-4panel-comic.png"/></button>
+<p class="figure-caption"><mark>학교 밖 안전 사각지대</mark>를 발견하고, 데이터 분석을 거쳐 티맵 기반 예방 서비스까지 제안하는 과정입니다.</p>
+</div>
+</section><section class="sheet visual-sheet" data-title="그림 2 · 데이터 분석 한눈에" id="p4"><button type="button" class="voice-page-button" data-voice-page="4" title="5쪽 음성 해설 듣기" aria-label="5쪽 음성 해설 듣기">🔊 해설</button>
+<div class="page-inner">
+<div class="folio">TEAM RADAR · VISUAL RESEARCH NOTE</div>
+<span class="chapter-kicker">ILLUSTRATION 02 · ANALYTICAL SUMMARY</span>
+<h2 class="chapter-title">데이터 → 전처리 → 방법론 → 프로그램 → 결과</h2>
+<p class="lead">어떤 데이터를 어떻게 가공하고 분석하여 어떤 결과를 도출했는지 한눈에 볼 수 있습니다.</p>
+<button aria-label="그림 크게 보기" class="figure-button" title="그림을 클릭하면 크게 볼 수 있습니다" type="button"><img alt="학원 위치, 교통사고, 청소년 인구, 보호구역, 단속 및 도로시설 데이터와 전처리, DBSCAN, 엔트로피, XGBoost, 결과를 요약한 인포그래픽" class="research-figure" loading="lazy" src="images/team-radar-analysis-infographic.png"/></button>
+<p class="figure-caption"><mark>72개 학원가 군집</mark> · <mark>대치동 위험도 1위</mark> · <mark>117개 집계구</mark> · <mark>90.9% 일치율</mark></p>
+<p class="note yellow-note">※ 프로그램에 표시된 Python·QGIS·Excel은 활용 가능한 도구의 예시이며, 발표 녹취만으로 실제 사용 여부는 확인되지 않았습니다.</p>
+</div>
+</section><section class="sheet" data-title="01 연구 도입" id="p5"><button type="button" class="voice-page-button" data-voice-page="5" title="6쪽 음성 해설 듣기" aria-label="6쪽 음성 해설 듣기">🔊 해설</button><div class="page-inner"><div class="folio">CHAPTER 01 · RESEARCH BACKGROUND</div><span class="chapter-kicker">01 / 연구 주제와 문제의식</span><h2 class="chapter-title">학생 이동공간은 학원가로 확대되지만 안전관리는 학교 중심</h2><p class="lead">연구팀이 출발한 문제는 실제 학생들의 이동 공간과 어린이 교통안전 정책이 보호하는 공간 사이의 불일치이다.</p>
 <h3>1. 연구 주제</h3><p>발표팀은 어린이 보호를 위한 <strong>AI 기반 학원가 교통안전 사각지대 분석 및 티맵 실시간 위험 알림 서비스</strong>를 제안한다. 기존 정책은 학교 주변 어린이보호구역을 중심으로 운영되지만 학생의 활동과 이동은 수업이 끝난 뒤에도 학원가에서 이어진다.</p>
-<h3>2. 사교육 참여율 증가</h3><div class="metric-row"><div class="metric"><small>2020년 사교육 참여율</small><b>74.9%</b></div><div class="metric"><small>2024년 발표 수치</small><b>86% 초과</b></div></div><p>발표자는 사교육 참여율의 상승을 들어 <mark>학생의 주요 일상 활동이 학교만으로 설명되지 않는다</mark>고 주장했다. 학교와 학원을 오가는 이동 경로가 실질적인 안전관리 대상이라는 것이다.</p>
-<div class="key"><strong>핵심 메시지</strong><br><span class="hl">학생의 주요 활동 범위는 학원가까지 넓어졌지만, 교통안전 정책은 여전히 학교 주변 스쿨존에 집중되어 있다.</span></div>
+<h3>2. 사교육 참여율 증가</h3><div class="metric-row"><div class="metric"><small>2020년 사교육 참여율</small><b>74.9%</b></div><div class="metric"><small>2024년 발표 수치</small><b>86% 초과</b></div></div><p>발표자는 사교육 참여율의 상승을 들어 학생의 주요 일상 활동이 학교만으로 설명되지 않는다고 주장했다. 학교와 학원을 오가는 이동 경로가 실질적인 안전관리 대상이라는 것이다.</p>
+<div class="key"><strong>핵심 메시지</strong><br/><span class="hl">학생의 주요 활동 범위는 학원가까지 넓어졌지만, 교통안전 정책은 여전히 학교 주변 스쿨존에 집중되어 있다.</span></div>
 <h3>3. 해석 시 주의할 점</h3><p>사교육 참여율 상승이 곧 학생의 주된 활동 반경이 학교에서 학원가로 완전히 이동했다는 뜻은 아니다. 이 수치는 학원가 안전관리의 정책적 필요성을 보여주는 <strong>배경 지표</strong>로 사용하는 것이 타당하다.</p><p class="note">※ 2024년 참여율 수치는 녹취의 발표 수치이며, 최종 인용 전 공식 통계와 대조해야 한다.</p></div></section>
-<section class="sheet" id="p4" data-title="02 공간적 사각지대"><div class="page-inner"><div class="folio">CHAPTER 02 · SPATIAL GAP</div><span class="chapter-kicker">02 / 스쿨존과 실제 사고 지점</span><h2 class="chapter-title">어린이 보행사고 다발 지역 대부분이 스쿨존 밖</h2><p class="lead">사고 분포의 공간적 위치를 비교해 학교 중심 보호체계의 포괄성 문제를 제시하였다.</p>
-<h3>강남구 사고 다발 지점 분석</h3><div class="metric-row"><div class="metric"><small>어린이 보행사고 다발 지점</small><b>17곳</b></div><div class="metric"><small>스쿨존 외곽에 위치</small><b>15곳</b></div></div><div class="box"><strong>스쿨존 밖 비율</strong><div class="bar"><span style="width:88.2%"></span><span class="other" style="width:11.8%"></span></div><div class="barlabels"><span>외곽 15곳 · 88.2%</span><span>나머지 2곳 · 11.8%</span></div></div><p>연구팀은 강남구 어린이 보행사고 다발 지점 <mark>17곳 가운데 15곳이 스쿨존 외곽</mark>에 위치했다고 설명하였다. 이 결과는 기존의 학교 앞 보호체계만으로 실제 어린이 보행 위험지역을 충분히 포함하지 못할 수 있음을 보여준다.</p>
-<div class="callout">“아이들은 학원가에 있는데 우리의 안전망은 아직 학교 앞에만 쳐져 있다.”</div><div class="key"><strong>핵심 발견</strong><br><span class="hl">17곳 중 15곳, 약 88.2%가 스쿨존 외곽에 존재한다.</span> 따라서 학교를 벗어난 학원가까지 안전관리 공간을 확장할 근거가 제시되었다.</div>
+<section class="sheet" data-title="02 공간적 사각지대" id="p6"><button type="button" class="voice-page-button" data-voice-page="6" title="7쪽 음성 해설 듣기" aria-label="7쪽 음성 해설 듣기">🔊 해설</button><div class="page-inner"><div class="folio">CHAPTER 02 · SPATIAL GAP</div><span class="chapter-kicker">02 / 스쿨존과 실제 사고 지점</span><h2 class="chapter-title">어린이 보행사고 다발 지역 대부분이 스쿨존 밖</h2><p class="lead">사고 분포의 공간적 위치를 비교해 학교 중심 보호체계의 포괄성 문제를 제시하였다.</p>
+<h3>강남구 사고 다발 지점 분석</h3><div class="metric-row"><div class="metric"><small>어린이 보행사고 다발 지점</small><b>17곳</b></div><div class="metric"><small>스쿨존 외곽에 위치</small><b>15곳</b></div></div><div class="box"><strong>스쿨존 밖 비율</strong><div class="bar"><span style="width:88.2%"></span><span class="other" style="width:11.8%"></span></div><div class="barlabels"><span>외곽 15곳 · 88.2%</span><span>나머지 2곳 · 11.8%</span></div></div><p>연구팀은 강남구 어린이 보행사고 다발 지점 17곳 가운데 15곳이 스쿨존 외곽에 위치했다고 설명하였다. 이 결과는 기존의 학교 앞 보호체계만으로 실제 어린이 보행 위험지역을 충분히 포함하지 못할 수 있음을 보여준다.</p>
+<div class="callout">“아이들은 학원가에 있는데 우리의 안전망은 아직 학교 앞에만 쳐져 있다.”</div><div class="key"><strong>핵심 발견</strong><br/><span class="hl">17곳 중 15곳, 약 88.2%가 스쿨존 외곽에 존재한다.</span> 따라서 학교를 벗어난 학원가까지 안전관리 공간을 확장할 근거가 제시되었다.</div>
 <h3>정책 연결</h3><p>스쿨존 밖에서 나타나는 사고 위험을 확인하면 학원 밀집지역, 실제 학생 이동 동선, 보호시설이 부족한 지역을 추가로 조사해야 할 이유가 생긴다. 다음 단계에서는 사고의 공간만이 아니라 <strong>사고가 증가하는 지역과 시간</strong>을 살펴본다.</p></div></section>
-<section class="sheet" id="p5" data-title="03 대치동 사고와 시간"><div class="page-inner"><div class="folio">CHAPTER 03 · TREND & TIME</div><span class="chapter-kicker">03 / 사고 추세와 취약 시간대</span><h2 class="chapter-title">서울 전체 사고는 감소, 대치동 학원가 사고는 증가</h2><p class="lead">지역별 변화와 시간대별 집중이라는 두 가지 비교를 통해 학원가 안전정책의 필요성을 강화했다.</p>
+<section class="sheet" data-title="03 대치동 사고와 시간" id="p7"><button type="button" class="voice-page-button" data-voice-page="7" title="8쪽 음성 해설 듣기" aria-label="8쪽 음성 해설 듣기">🔊 해설</button><div class="page-inner"><div class="folio">CHAPTER 03 · TREND &amp; TIME</div><span class="chapter-kicker">03 / 사고 추세와 취약 시간대</span><h2 class="chapter-title">서울 전체 사고는 감소, 대치동 학원가 사고는 증가</h2><p class="lead">지역별 변화와 시간대별 집중이라는 두 가지 비교를 통해 학원가 안전정책의 필요성을 강화했다.</p>
 <h3>2022~2024년 보행자 사고 비교</h3><div class="metric-row"><div class="metric"><small>서울시 전체 연평균 변화율</small><b class="down">−1.4%</b><p>감소 추세</p></div><div class="metric"><small>대치동 학원가 연평균 변화율</small><b class="up">+11.6%</b><p>증가 추세</p></div></div><p>서울시의 보행사고가 감소하더라도 특정 학원가에서는 사고가 집중적으로 증가할 수 있다는 사실을 강조한다. 발표에서는 대치동 학원가 보행사고 피해자 중 <mark>약 절반이 20세 이하</mark>이고 청소년의 비중이 높았다고 설명하였다.</p>
-<div class="key"><strong>핵심 발견</strong><br><span class="hl">서울시 전체 보행자 교통사고는 연평균 1.4% 감소한 반면 대치동 학원가에서는 연평균 11.6% 증가했다.</span></div>
+<div class="key"><strong>핵심 발견</strong><br/><span class="hl">서울시 전체 보행자 교통사고는 연평균 1.4% 감소한 반면 대치동 학원가에서는 연평균 11.6% 증가했다.</span></div>
 <h3>강남구 미성년자 사고 집중 시간</h3><div class="timeline"><div class="timeblock"><div class="timetag">15–18시</div><div><strong>학원 이동 집중</strong><p>학교 수업 후 학생이 학원으로 이동하며 보행 수요와 차량 이동이 겹치는 시간대.</p></div></div><div class="timeblock"><div class="timetag">21시 이후</div><div><strong>하원·학부모 픽업 집중</strong><p>픽업 차량이 집중되며 혼잡, 주정차 및 보행 시야 문제가 두드러질 수 있는 시간대.</p></div></div></div>
-<p>발표팀은 이 결과를 <strong>공간적 사각지대와 시간적 사각지대의 중첩</strong>으로 해석했다. 학생의 등·하원 시각에 따라 위험이 변하는데도 동일한 장소에서 늘 같은 방식으로 관리하는 정책에는 한계가 있다는 것이다.</p><div class="key"><strong>정책적 시사점</strong><br><span class="hl">고정된 장소에 상시 동일한 규제만 적용하는 것이 아니라, 학원 이동과 픽업이 집중되는 시간에 맞춘 탄력적 관리가 필요하다.</span></div></div></section>
-<section class="sheet" id="p6" data-title="04 정책 필요성"><div class="page-inner"><div class="folio">CHAPTER 04 · POLICY GAP</div><span class="chapter-kicker">04 / 기존 정책과 연구 필요성</span><h2 class="chapter-title">정적인 교통안전 정책에서 데이터 기반 맞춤형 관리로</h2><p class="lead">발표에서는 학원가 교통안전 문제가 정책적으로 논의되고 있으며, 실제 우선순위를 제시할 정밀 분석이 필요하다고 보았다.</p>
-<h3>정책 논의와 분석의 필요성</h3><p>발표자는 서울시의회에서 학원가 교통안전 대책에 관한 논의가 진행되고 있다고 소개했다. 대치동 학원가 보행사고 증가 사례를 통해 <mark>학교 중심 보호체계를 학원가로 확대할 필요성</mark>을 언급했다.</p><p>그러나 단순한 보호구역 확대 주장만으로는 어디에 예산을 집중해야 하는지, 어떤 시간에 무엇을 운영해야 하는지 판단하기 어렵다. 따라서 <strong>실제 사고·학원·인구·시설·단속 정보</strong>를 결합해 우선순위와 처방을 결정하는 분석이 요구된다.</p>
+<p>발표팀은 이 결과를 <strong>공간적 사각지대와 시간적 사각지대의 중첩</strong>으로 해석했다. 학생의 등·하원 시각에 따라 위험이 변하는데도 동일한 장소에서 늘 같은 방식으로 관리하는 정책에는 한계가 있다는 것이다.</p><div class="key"><strong>정책적 시사점</strong><br/><span class="hl">고정된 장소에 상시 동일한 규제만 적용하는 것이 아니라, 학원 이동과 픽업이 집중되는 시간에 맞춘 탄력적 관리가 필요하다.</span></div></div></section>
+<section class="sheet" data-title="04 정책 필요성" id="p8"><button type="button" class="voice-page-button" data-voice-page="8" title="9쪽 음성 해설 듣기" aria-label="9쪽 음성 해설 듣기">🔊 해설</button><div class="page-inner"><div class="folio">CHAPTER 04 · POLICY GAP</div><span class="chapter-kicker">04 / 기존 정책과 연구 필요성</span><h2 class="chapter-title">정적인 교통안전 정책에서 데이터 기반 맞춤형 관리로</h2><p class="lead">발표에서는 학원가 교통안전 문제가 정책적으로 논의되고 있으며, 실제 우선순위를 제시할 정밀 분석이 필요하다고 보았다.</p>
+<h3>정책 논의와 분석의 필요성</h3><p>발표자는 서울시의회에서 학원가 교통안전 대책에 관한 논의가 진행되고 있다고 소개했다. 대치동 학원가 보행사고 증가 사례를 통해 학교 중심 보호체계를 학원가로 확대할 필요성을 언급했다.</p><p>그러나 단순한 보호구역 확대 주장만으로는 어디에 예산을 집중해야 하는지, 어떤 시간에 무엇을 운영해야 하는지 판단하기 어렵다. 따라서 <strong>실제 사고·학원·인구·시설·단속 정보</strong>를 결합해 우선순위와 처방을 결정하는 분석이 요구된다.</p>
 <h3>기존 방식과 제안 방식 비교</h3><div class="tblwrap"><table><thead><tr><th>비교</th><th>기존 방식</th><th>연구팀의 제안</th></tr></thead><tbody><tr><td>공간</td><td>학교 주변 스쿨존</td><td>학원 밀집지역과 집계구</td></tr><tr><td>위험 판단</td><td>사고·시설 중심</td><td>복수 위험지표 결합</td></tr><tr><td>시간</td><td>고정·상시형</td><td>학생 이동에 따른 시간대별 관리</td></tr><tr><td>대응</td><td>시설·단속 중심</td><td>맞춤 정책과 플랫폼 경고</td></tr></tbody></table></div>
-<div class="key"><strong>분석의 필요성</strong><br><span class="hl">위험 학원가를 정밀하게 찾아내고, 지역마다 다른 위험 원인과 시간대를 구분해야 동일 예산으로도 효과적인 안전대책을 설계할 수 있다.</span></div>
+<div class="key"><strong>분석의 필요성</strong><br/><span class="hl">위험 학원가를 정밀하게 찾아내고, 지역마다 다른 위험 원인과 시간대를 구분해야 동일 예산으로도 효과적인 안전대책을 설계할 수 있다.</span></div>
 <p class="note">※ 시의회 활동 및 대책 논의의 구체적인 시점·명칭은 발표 녹취로만 확인할 수 있으므로 공식 자료와 별도 대조가 필요하다.</p></div></section>
-<section class="sheet" id="p7" data-title="05 전체 분석 설계"><div class="page-inner"><div class="folio">CHAPTER 05 · RESEARCH DESIGN</div><span class="chapter-kicker">05 / 질문 3개 · 분석 2단계 · 실행 1단계</span><h2 class="chapter-title">어느 학원가가, 어디가, 왜, 언제 위험하며 어떻게 보호할 것인가?</h2><h3>세 가지 연구 질문</h3><ol class="simple-list"><li><span><strong>어느 학원가가 위험한가?</strong><br>서울시 전체 학원 밀집지역 중 위험도가 높은 학원가를 선별한다.</span></li><li><span><strong>그 학원가의 어디가·왜·언제 위험한가?</strong><br>선정된 지역 내부를 집계구 단위로 분해해 위험 위치와 사고 원인, 시간대를 진단한다.</span></li><li><span><strong>어떻게 보호할 것인가?</strong><br>지역·유형·시간대별 정책을 제안하고 티맵과 연계한 위험 알림을 구상한다.</span></li></ol>
+<section class="sheet" data-title="05 전체 분석 설계" id="p9"><button type="button" class="voice-page-button" data-voice-page="9" title="10쪽 음성 해설 듣기" aria-label="10쪽 음성 해설 듣기">🔊 해설</button><div class="page-inner"><div class="folio">CHAPTER 05 · RESEARCH DESIGN</div><span class="chapter-kicker">05 / 질문 3개 · 분석 2단계 · 실행 1단계</span><h2 class="chapter-title">어느 학원가가, 어디가, 왜, 언제 위험하며 어떻게 보호할 것인가?</h2><h3>세 가지 연구 질문</h3><ol class="simple-list"><li><span><strong>어느 학원가가 위험한가?</strong><br/>서울시 전체 학원 밀집지역 중 위험도가 높은 학원가를 선별한다.</span></li><li><span><strong>그 학원가의 어디가·왜·언제 위험한가?</strong><br/>선정된 지역 내부를 집계구 단위로 분해해 위험 위치와 사고 원인, 시간대를 진단한다.</span></li><li><span><strong>어떻게 보호할 것인가?</strong><br/>지역·유형·시간대별 정책을 제안하고 티맵과 연계한 위험 알림을 구상한다.</span></li></ol>
 <h3>연구 수행의 전체 흐름</h3><div class="pipeline"><div class="pipe-item"><strong>1단계 · 위험 학원가 선정</strong><span>DBSCAN 군집화 → 세 가지 위험지표 → 정규화 → 엔트로피 가중치</span></div><span class="pipe-arrow">↓</span><div class="pipe-item"><strong>2단계 · 집계구 정밀 진단</strong><span>다섯 가지 변수 → 엔트로피·XGBoost 결과 비교 → 사고 유형·시간대 분석</span></div><span class="pipe-arrow">↓</span><div class="pipe-item"><strong>적용 · 맞춤형 예방 서비스</strong><span>시간 × 위치 × 원인에 맞춘 운전자 경고 및 탄력형 정책</span></div></div>
-<div class="key"><strong>핵심 논리</strong><br><span class="hl">'위험 학원가 선정 → 위험 집계구 진단 → 맞춤형 예방 서비스'를 하나의 정책 설계 과정으로 연결한다.</span></div></div></section>
-<section class="sheet" id="p8" data-title="06 DBSCAN 군집화"><div class="page-inner"><div class="folio">CHAPTER 06 · DBSCAN</div><span class="chapter-kicker">06 / 1단계 군집화 방법</span><h2 class="chapter-title">경계가 없는 '학원가'를 학원의 실제 밀집도로 정의하다</h2><p class="lead">학원가에는 스쿨존처럼 통일된 법적 경계가 없고, 실제 학원의 분포도 불규칙하다.</p>
+<div class="key"><strong>핵심 논리</strong><br/><span class="hl">'위험 학원가 선정 → 위험 집계구 진단 → 맞춤형 예방 서비스'를 하나의 정책 설계 과정으로 연결한다.</span></div></div></section>
+<section class="sheet" data-title="06 DBSCAN 군집화" id="p10"><button type="button" class="voice-page-button" data-voice-page="10" title="11쪽 음성 해설 듣기" aria-label="11쪽 음성 해설 듣기">🔊 해설</button><div class="page-inner"><div class="folio">CHAPTER 06 · DBSCAN</div><span class="chapter-kicker">06 / 1단계 군집화 방법</span><h2 class="chapter-title">경계가 없는 '학원가'를 학원의 실제 밀집도로 정의하다</h2><p class="lead">학원가에는 스쿨존처럼 통일된 법적 경계가 없고, 실제 학원의 분포도 불규칙하다.</p>
 <h3>왜 DBSCAN인가?</h3><p>행정동 전체를 학원가로 간주하면 학원이 드문 지역까지 포함될 수 있다. <strong>DBSCAN</strong>은 일정 거리 내에 충분한 학원이 모여 있는 공간을 군집으로 구분하고 밀도가 낮은 개별 지점은 군집에서 제외할 수 있다. 따라서 불규칙한 형태의 학원 밀집지역을 찾는 데 활용되었다.</p>
 <div class="metric-row three-up"><div class="metric"><small>EPS · 공간 이웃 반경</small><b>150m</b></div><div class="metric"><small>MinPts · 최소 밀집 기준</small><b>10</b></div><div class="metric"><small>최종 학원가 군집 수</small><b>72개</b></div></div>
 <h3>학원가 선정 절차</h3><ol class="simple-list"><li><span>학원 위치 데이터를 수집하여 공간 좌표를 준비한다.</span></li><li><span><mark>EPS 150m / MinPts 10</mark> 조건으로 밀집 학원 군집을 찾는다.</span></li><li><span>각 군집의 이용 인원 관련 합계를 계산하여 일정 규모 이상인 군집을 실질 학원가로 정의한다.</span></li><li><span>그 결과 <mark>총 72개 학원가 군집</mark>을 도출한다.</span></li></ol>
-<div class="key"><strong>핵심 방법</strong><br><span class="hl">학원가를 행정동 경계가 아니라 실제 학원의 공간적 밀집 형태로 정의하여 위험 분석의 기본 공간 단위를 만들었다.</span></div><p class="note">※ 이용 인원 합계의 최소 기준은 원 녹취에서 “2,명 이상”으로 들려 정확한 값은 원본 슬라이드 확인이 필요합니다.</p></div></section>
-<section class="sheet" id="p9" data-title="07 위험지표와 가중법"><div class="page-inner"><div class="folio">CHAPTER 07 · RISK INDEX</div><span class="chapter-kicker">07 / 세 지표 + 정규화 + 엔트로피 가중법</span><h2 class="chapter-title">사고 심각성, 보호 공백, 인구 대비 위험을 결합하다</h2><p class="lead">72개 학원가 군집의 상대적인 위험을 비교하기 위한 종합 점수를 산출했다.</p>
+<div class="key"><strong>핵심 방법</strong><br/><span class="hl">학원가를 행정동 경계가 아니라 실제 학원의 공간적 밀집 형태로 정의하여 위험 분석의 기본 공간 단위를 만들었다.</span></div><p class="note">※ 이용 인원 합계의 최소 기준은 원 녹취에서 “2,명 이상”으로 들려 정확한 값은 원본 슬라이드 확인이 필요합니다.</p></div></section>
+<section class="sheet" data-title="07 위험지표와 가중법" id="p11"><button type="button" class="voice-page-button" data-voice-page="11" title="12쪽 음성 해설 듣기" aria-label="12쪽 음성 해설 듣기">🔊 해설</button><div class="page-inner"><div class="folio">CHAPTER 07 · RISK INDEX</div><span class="chapter-kicker">07 / 세 지표 + 정규화 + 엔트로피 가중법</span><h2 class="chapter-title">사고 심각성, 보호 공백, 인구 대비 위험을 결합하다</h2><p class="lead">72개 학원가 군집의 상대적인 위험을 비교하기 위한 종합 점수를 산출했다.</p>
 <h3>위험점수를 구성한 세 가지 지표</h3><div class="tblwrap"><table><thead><tr><th>지표</th><th>정의</th><th>정책적 의미</th></tr></thead><tbody><tr><td>① 사고 심각도 반영 지표</td><td>단순 사고 건수 대신 사고의 심각성을 반영한 가중합</td><td>사고 피해 수준 포함</td></tr><tr><td>② 보호구역 공백률</td><td>군집 내 스쿨존 밖 학원의 비율</td><td>보호체계 외 지역 파악</td></tr><tr><td>③ 실질 위험도</td><td>사고 관련 지표를 청소년 인구로 나누어 보정</td><td>인구 규모 차이 반영</td></tr></tbody></table></div>
 <h3>종합 점수 산출</h3><div class="pipeline"><div class="pipe-item"><strong>세 가지 원자료 지표</strong></div><span class="pipe-arrow">↓</span><div class="pipe-item"><strong>Min-Max 정규화</strong><span>서로 다른 지표를 같은 범위로 변환</span></div><span class="pipe-arrow">↓</span><div class="pipe-item"><strong>엔트로피 가중법</strong><span>자료 분포에 따라 지표별 가중치 산출</span></div><span class="pipe-arrow">↓</span><div class="pipe-item"><strong>학원가별 최종 위험점수</strong></div></div>
-<p>엔트로피 가중법은 변수의 분포·정보량 차이를 이용해 가중치를 구하므로 <mark>분석자가 가중치를 직접 정하는 정도를 줄일 수 있다</mark>. 연구팀은 공공정책 우선순위의 투명성을 위해 이 방식을 선택했다고 설명했다.</p>
-<div class="key"><strong>핵심 분석 논리</strong><br><span class="hl">사고의 심각성 + 스쿨존 보호 공백 + 청소년 인구 대비 위험을 동시에 고려해 학원가별 상대 위험점수를 계산한다.</span></div>
+<p>엔트로피 가중법은 변수의 분포·정보량 차이를 이용해 가중치를 구하므로 분석자가 가중치를 직접 정하는 정도를 줄일 수 있다. 연구팀은 공공정책 우선순위의 투명성을 위해 이 방식을 선택했다고 설명했다.</p>
+<div class="key"><strong>핵심 분석 논리</strong><br/><span class="hl">사고의 심각성 + 스쿨존 보호 공백 + 청소년 인구 대비 위험을 동시에 고려해 학원가별 상대 위험점수를 계산한다.</span></div>
 <p class="note">※ 가중치가 자료로부터 계산되더라도 어떤 변수를 사용할지, 어떻게 정규화할지는 연구자의 선택이므로 '주관 완전 배제'는 엄밀한 표현이 아닙니다.</p></div></section>
-<section class="sheet" id="p10" data-title="08 1단계 결과"><div class="page-inner"><div class="folio">CHAPTER 08 · FIRST-STAGE RESULTS</div><span class="chapter-kicker">08 / 위험 학원가 선정</span><h2 class="chapter-title">대치동 위험도가 가장 높았다 — 위험 원인은 지역마다 다르다</h2><p class="lead">전 지역의 위험순위를 산출하고 2차 분석에 사용할 우선 대상 지역을 결정했다.</p>
+<section class="sheet" data-title="08 1단계 결과" id="p12"><button type="button" class="voice-page-button" data-voice-page="12" title="13쪽 음성 해설 듣기" aria-label="13쪽 음성 해설 듣기">🔊 해설</button><div class="page-inner"><div class="folio">CHAPTER 08 · FIRST-STAGE RESULTS</div><span class="chapter-kicker">08 / 위험 학원가 선정</span><h2 class="chapter-title">대치동 위험도가 가장 높았다 — 위험 원인은 지역마다 다르다</h2><p class="lead">전 지역의 위험순위를 산출하고 2차 분석에 사용할 우선 대상 지역을 결정했다.</p>
 <div class="metric-row"><div class="metric"><small>서울시 학원가 군집</small><b>72개</b></div><div class="metric"><small>최상위 위험 학원가</small><b>대치동</b></div><div class="metric"><small>위험 상위 지역 제시</small><b>10개</b></div><div class="metric"><small>2단계 정밀 분석 지역</small><b>7개</b></div></div>
 <h3>결과 해석</h3><p>엔트로피 기반 위험점수 분석에서 대치동이 최고 위험지역으로 나타났다. 종로·신정 등도 상위 학원가로 언급되었다. 발표자는 차트를 통해 지역별로 위험에 기여하는 요인이 서로 다르다는 점을 보였다.</p><p>예를 들어 어떤 지역에서는 사고 심각도가 상대적으로 두드러질 수 있고, 다른 지역에서는 스쿨존 밖 학원 비율이나 인구 대비 사고의 집중이 위험점수를 높일 수 있다. 따라서 <strong>동일하게 위험도가 높더라도 필요한 안전대책은 지역마다 달라진다.</strong></p>
 <h3>왜 2차 분석이 필요한가?</h3><p>학원가 전체의 종합 위험점수만으로는 학원가의 어느 길목에 집중해야 하는지, 어떤 시설이나 운전자 행동에 개입할지 알기 어렵다. 이 때문에 상위 <mark>7개 지역</mark>에 한해 더 작은 집계구를 분석하였다.</p>
-<div class="key"><strong>핵심 발견</strong><br><span class="hl">대치동이 위험도 1위이고 지역별 위험 요인의 기여가 달라, 거시적인 학원가 점수만으로는 맞춤 대책을 설계하기 어렵다.</span></div><p class="note">※ 상위 10개 지역의 전체 순위와 정확한 지명은 원본 발표 자료와 대조해야 합니다.</p></div></section>
-<section class="sheet" id="p11" data-title="09 집계구 정밀분석"><div class="page-inner"><div class="folio">CHAPTER 09 · SMALL-AREA ANALYSIS</div><span class="chapter-kicker">09 / 2단계 집계구 분석</span><h2 class="chapter-title">대치동 391개 집계구 중 학원이 있는 117개를 분석</h2><p class="lead">행정동보다 더 작은 공간 단위에서 사고, 학원, 단속, 안전시설의 취약성을 진단한다.</p>
+<div class="key"><strong>핵심 발견</strong><br/><span class="hl">대치동이 위험도 1위이고 지역별 위험 요인의 기여가 달라, 거시적인 학원가 점수만으로는 맞춤 대책을 설계하기 어렵다.</span></div><p class="note">※ 상위 10개 지역의 전체 순위와 정확한 지명은 원본 발표 자료와 대조해야 합니다.</p></div></section>
+<section class="sheet" data-title="09 집계구 정밀분석" id="p13"><button type="button" class="voice-page-button" data-voice-page="13" title="14쪽 음성 해설 듣기" aria-label="14쪽 음성 해설 듣기">🔊 해설</button><div class="page-inner"><div class="folio">CHAPTER 09 · SMALL-AREA ANALYSIS</div><span class="chapter-kicker">09 / 2단계 집계구 분석</span><h2 class="chapter-title">대치동 391개 집계구 중 학원이 있는 117개를 분석</h2><p class="lead">행정동보다 더 작은 공간 단위에서 사고, 학원, 단속, 안전시설의 취약성을 진단한다.</p>
 <div class="metric-row"><div class="metric"><small>대치동 전체 집계구</small><b>391개</b></div><div class="metric"><small>학원 존재 분석 집계구</small><b>117개</b></div></div><p>대치동 전체 집계구의 약 <mark>29.9%</mark>를 분석 대상으로 삼았다. 학원이 있는 집계구를 선택함으로써 학원 활동과 직접 연결된 지역에 분석을 집중하였다.</p>
 <h3>정밀 분석에 활용한 5개 변수</h3><div class="tblwrap"><table><thead><tr><th>변수</th><th>측정 취지</th><th>정책적 해석</th></tr></thead><tbody><tr><td>사고 밀도</td><td>사고의 공간적 집중</td><td>사고 발생 위험</td></tr><tr><td>학원 밀집도</td><td>학원의 공간적 집중</td><td>학생 이동 수요</td></tr><tr><td>단속 건수</td><td>교통법규 단속 실적</td><td>교통질서 취약 가능성</td></tr><tr><td>횡단보도 예고 공백</td><td>횡단보도 사전 안내 관련 시설 공백</td><td>보행자 인지 위험</td></tr><tr><td>험프 공백</td><td>과속방지턱 등 속도저감시설의 공백</td><td>차량 감속 유도 부족</td></tr></tbody></table></div>
 <p>발표에서는 엔트로피 가중치가 <strong>사고 밀도 → 학원 밀집도 → 단속 건수 → 횡단보도 예고 공백 → 험프 공백</strong>의 순으로 나타났다고 설명하였다.</p>
-<div class="key"><strong>핵심 방법</strong><br><span class="hl">대치동 117개 집계구에 5개 위험변수를 적용하여 학원가 내부에서도 우선 관리할 위험 구역을 찾았다.</span></div><p class="note">※ 횡단보도 예고/험프 공백의 정확한 변수 이름과 조작적 정의는 원 슬라이드 확인이 필요합니다.</p></div></section>
-<section class="sheet" id="p12" data-title="10 방법 교차비교"><div class="page-inner"><div class="folio">CHAPTER 10 · METHOD AGREEMENT</div><span class="chapter-kicker">10 / 엔트로피 가중법과 XGBoost 비교</span><h2 class="chapter-title">서로 다른 분석방법의 상위 위험지역 일치율 90.9%</h2><p class="lead">동일 자료에 두 접근을 적용해 위험 집계구 선정 결과가 얼마나 유사한지 확인하였다.</p>
+<div class="key"><strong>핵심 방법</strong><br/><span class="hl">대치동 117개 집계구에 5개 위험변수를 적용하여 학원가 내부에서도 우선 관리할 위험 구역을 찾았다.</span></div><p class="note">※ 횡단보도 예고/험프 공백의 정확한 변수 이름과 조작적 정의는 원 슬라이드 확인이 필요합니다.</p></div></section>
+<section class="sheet" data-title="10 방법 교차비교" id="p14"><button type="button" class="voice-page-button" data-voice-page="14" title="15쪽 음성 해설 듣기" aria-label="15쪽 음성 해설 듣기">🔊 해설</button><div class="page-inner"><div class="folio">CHAPTER 10 · METHOD AGREEMENT</div><span class="chapter-kicker">10 / 엔트로피 가중법과 XGBoost 비교</span><h2 class="chapter-title">서로 다른 분석방법의 상위 위험지역 일치율 90.9%</h2><p class="lead">동일 자료에 두 접근을 적용해 위험 집계구 선정 결과가 얼마나 유사한지 확인하였다.</p>
 <div class="box soft"><h4>엔트로피 가중법</h4><p>변수들의 자료 분포를 바탕으로 지표별 가중치를 산출하고, 이를 결합해 집계구 위험점수를 계산한다. 연구팀의 <strong>최종 위험도 산출 방법</strong>으로 채택되었다.</p></div>
 <div class="box soft"><h4>XGBoost</h4><p>여러 의사결정나무를 순차적으로 결합해 변수 관계를 학습하는 머신러닝 방법이다. 발표에서는 <strong>엔트로피 기반 결과와의 비교·검토 목적</strong>으로 활용되었다.</p></div>
 <div class="metric-row"><div class="metric wide"><small>상위 위험도 10% 집계구 비교</small><b style="font-size:43px">90.9%</b><div class="bar"><span style="width:90.9%"></span></div><p>두 분석방법의 위험지역 선정 결과 일치율</p></div></div>
 <p>발표팀은 '서로 다른 방법이 같은 위험 구역을 지목했다'는 점에서 선정 결과의 일관성을 강조했다.</p>
-<div class="key"><strong>핵심 결과</strong><br><span class="hl">엔트로피 가중법과 XGBoost로 선정한 상위 10% 위험 집계구의 일치율은 90.9%였다.</span></div>
+<div class="key"><strong>핵심 결과</strong><br/><span class="hl">엔트로피 가중법과 XGBoost로 선정한 상위 10% 위험 집계구의 일치율은 90.9%였다.</span></div>
 <h3>중요한 방법론적 구분</h3><p><mark>선정 결과가 일치한다는 것과 미래 사고를 정확하게 예측한다는 것은 다르다.</mark> 예측 검증이라고 주장하려면 정답변수(실제 사고 등), 학습·검증 자료의 분리, 예측 성능지표가 필요하다. 따라서 이 결과는 두 방법 간 위험지역 선정의 <strong>일치성</strong>으로 해석하는 것이 더 정확하다.</p></div></section>
-<section class="sheet" id="p13" data-title="11 사고 유형"><div class="page-inner"><div class="folio">CHAPTER 11 · ACCIDENT TYPES</div><span class="chapter-kicker">11 / 왜 위험한가?</span><h2 class="chapter-title">위험지역이 같아도 사고 원인이 다르면 처방이 달라진다</h2><p class="lead">사고 건수만으로는 구체적인 대책이 나오지 않으므로 법규 위반 내용과 가해 차종을 추가 분석했다.</p>
+<section class="sheet method-visual-sheet" data-title="방법론 그림 1 · DBSCAN" id="p15"><button type="button" class="voice-page-button" data-voice-page="15" title="16쪽 음성 해설 듣기" aria-label="16쪽 음성 해설 듣기">🔊 해설</button>
+<div class="page-inner">
+<div class="folio">TEAM RADAR · 시각자료 · 01 / 03</div>
+<span class="chapter-kicker">METHOD VISUAL · DBSCAN</span>
+<h2 class="chapter-title">DBSCAN · 학원가 군집화 그림</h2>
+<p class="lead">그림을 누르면 원본 크기로 확대됩니다.</p>
+<button aria-label="DBSCAN 그림 확대" class="figure-button method-picture" title="DBSCAN 그림 확대" type="button"><img alt="DBSCAN · 학원가 군집화 그림: 위치 좌표 → 반경 150m 내 밀도 탐색 → 군집 연결 → 72개 학원가 도출" class="research-figure" loading="lazy" src="images/team-radar-dbscan-method.png"/></button>
+<div class="box soft method-process"><h4>입력 데이터 → 분석 과정 → 결과</h4><p>위치 좌표 → 반경 150m 내 밀도 탐색 → 군집 연결 → 72개 학원가 도출</p></div>
+<div class="key"><strong>핵심 이해</strong><br/><mark>EPS 150m</mark>와 <mark>MinPts 10</mark>으로 학원 위치의 밀집지역을 식별합니다. 군집 외 학원은 노이즈로 구분할 수 있습니다.</div>
+<div class="method-visual-actions"><button class="method-full-figure" type="button">세 방법론을 한 장으로 크게 보기</button>
+<a data-go="18" href="#p18">자세한 분석 절차 보기</a></div>
+</div></section><section class="sheet method-visual-sheet" data-title="방법론 그림 2 · 엔트로피 가중법" id="p16"><button type="button" class="voice-page-button" data-voice-page="16" title="17쪽 음성 해설 듣기" aria-label="17쪽 음성 해설 듣기">🔊 해설</button>
+<div class="page-inner">
+<div class="folio">TEAM RADAR · 시각자료 · 02 / 03</div>
+<span class="chapter-kicker">METHOD VISUAL · 엔트로피 가중법</span>
+<h2 class="chapter-title">엔트로피 가중법 · 위험점수 계산 그림</h2>
+<p class="lead">그림을 누르면 원본 크기로 확대됩니다.</p>
+<button aria-label="엔트로피 가중법 그림 확대" class="figure-button method-picture" title="엔트로피 가중법 그림 확대" type="button"><img alt="엔트로피 가중법 · 위험점수 계산 그림: 위험지표 수집 → Min–Max 정규화 → 정보량 계산 → 가중합 위험점수" class="research-figure" loading="lazy" src="images/team-radar-entropy-method.png"/></button>
+<div class="box soft method-process"><h4>입력 데이터 → 분석 과정 → 결과</h4><p>위험지표 수집 → Min–Max 정규화 → 정보량 계산 → 가중합 위험점수</p></div>
+<div class="key"><strong>핵심 이해</strong><br/><mark>서로 다른 위험지표를 0~1로 정규화</mark>하고 자료의 분포를 반영한 가중치를 적용하여 학원가·집계구 위험점수를 계산합니다.</div>
+<div class="method-visual-actions"><button class="method-full-figure" type="button">세 방법론을 한 장으로 크게 보기</button>
+<a data-go="19" href="#p19">자세한 분석 절차 보기</a></div>
+</div></section><section class="sheet method-visual-sheet" data-title="방법론 그림 3 · XGBoost" id="p17"><button type="button" class="voice-page-button" data-voice-page="17" title="18쪽 음성 해설 듣기" aria-label="18쪽 음성 해설 듣기">🔊 해설</button>
+<div class="page-inner">
+<div class="folio">TEAM RADAR · 시각자료 · 03 / 03</div>
+<span class="chapter-kicker">METHOD VISUAL · XGBOOST</span>
+<h2 class="chapter-title">XGBoost · 머신러닝 결과 비교 그림</h2>
+<p class="lead">그림을 누르면 원본 크기로 확대됩니다.</p>
+<button aria-label="XGBoost 그림 확대" class="figure-button method-picture" title="XGBoost 그림 확대" type="button"><img alt="XGBoost · 머신러닝 결과 비교 그림: 집계구 설명변수 → 나무모형 학습 → 위험지역 예측 → 엔트로피 결과와 비교" class="research-figure" loading="lazy" src="images/team-radar-xgboost-method.png"/></button>
+<div class="box soft method-process"><h4>입력 데이터 → 분석 과정 → 결과</h4><p>집계구 설명변수 → 나무모형 학습 → 위험지역 예측 → 엔트로피 결과와 비교</p></div>
+<div class="key"><strong>핵심 이해</strong><br/>발표의 <mark>90.9%</mark>는 상위 위험 집계구 선정 결과의 <strong>두 방법 간 일치율</strong>입니다. 사고 예측 정확도가 아닙니다.</div>
+<div class="method-visual-actions"><button class="method-full-figure" type="button">세 방법론을 한 장으로 크게 보기</button>
+<a data-go="20" href="#p20">자세한 분석 절차 보기</a></div>
+</div></section><section class="sheet" data-title="실습 1 DBSCAN 상세" id="p18"><button type="button" class="voice-page-button" data-voice-page="18" title="19쪽 음성 해설 듣기" aria-label="19쪽 음성 해설 듣기">🔊 해설</button>
+<div class="page-inner">
+<div class="folio">METHOD LAB · 01 / 03</div>
+<span class="chapter-kicker">DBSCAN · 밀도 기반 공간 군집분석</span>
+<h2 class="chapter-title">흩어진 학원 좌표를 어떻게 72개 학원가로 묶을까?</h2>
+<p class="lead">학원가의 행정적 경계가 없으므로, 가까이 모여 있는 학원들의 실제 공간 분포를 이용해 군집을 만든다.</p>
+<div class="metric-row three-up">
+<div class="metric"><small>탐색 거리 (EPS)</small><b>150m</b><small>학원 간 근접 범위</small></div>
+<div class="metric"><small>최소 표본 수 (MinPts)</small><b>10</b><small>핵심점의 밀도 기준</small></div>
+<div class="metric"><small>발표 결과</small><b>72개</b><small>학원가 군집</small></div>
+</div>
+<h3>STEP 1 · 입력 데이터와 좌표 준비</h3>
+<p>학원별 <mark>위도·경도(위치 좌표)</mark>를 준비하고 중복·오류 좌표를 점검한다. 실제 거리 150m를 적용하려면 좌표를 <strong>미터 단위의 투영 좌표계</strong>로 변환한다. 위도·경도 숫자에 150을 직접 넣으면 150m가 되지 않는다.</p>
+<h3>STEP 2 · 핵심점과 군집 생성</h3>
+<div class="pipeline">
+<div class="pipe-item"><strong>학원 하나를 기준점으로 선택</strong><span>반경 <mark>150m</mark> 안에 학원이 몇 개 있는지 계산</span></div>
+<span class="pipe-arrow">↓</span>
+<div class="pipe-item"><strong>주변 학원 수 ≥ <mark>10개</mark>이면 핵심점</strong><span>서로 연결된 핵심점을 하나의 밀집 군집으로 확장</span></div>
+<span class="pipe-arrow">↓</span>
+<div class="pipe-item"><strong>군집 번호 부여 · 잡음점 분리</strong><span>군집에 속하지 않은 외딴 학원은 노이즈(−1) 처리</span></div>
+</div>
+<h3>STEP 3 · 연구용 학원가 선정</h3>
+<p>각 군집에 속한 학원을 합산하여 연구팀이 정한 <strong>규모 기준</strong>을 추가 적용한다. 발표에서는 최종 <mark>72개 학원가</mark>를 도출했다고 설명했다. 단, 최소 이용인원 기준의 정확한 숫자는 녹취만으로 확인되지 않는다.</p>
+<div class="box soft"><h4>프로그램에서 실행하려면 (예시)</h4><p><code>DBSCAN(eps=150, min_samples=10).fit_predict(X_meter)</code></p><p class="note">Python scikit-learn 예시. X_meter는 미터 좌표로 변환된 학원 위치 배열이다. 실제 사용 프로그램은 발표에서 확인되지 않았다.</p></div>
+<div class="key"><strong>학생이 기억할 포인트</strong><br/><span class="hl">DBSCAN은 위험도를 계산하는 기법이 아니라, 우선 학원들이 밀집한 공간적 범위를 찾아내는 기법이다.</span> 이후 별도 지표로 각 군집의 위험도를 비교한다.</div>
+</div>
+</section><section class="sheet" data-title="실습 2 엔트로피 가중법 상세" id="p19"><button type="button" class="voice-page-button" data-voice-page="19" title="20쪽 음성 해설 듣기" aria-label="20쪽 음성 해설 듣기">🔊 해설</button>
+<div class="page-inner">
+<div class="folio">METHOD LAB · 02 / 03</div>
+<span class="chapter-kicker">ENTROPY WEIGHTING · 객관적 가중치 산출</span>
+<h2 class="chapter-title">여러 위험지표를 하나의 점수로 어떻게 합칠까?</h2>
+<p class="lead">학원가별 위험지표는 단위가 다르므로 정규화한 뒤, 지표의 분포 차이에 따라 가중치를 산출한다.</p>
+<h3>STEP 1 · 분석 표를 만든다</h3>
+<div class="tblwrap"><table><thead><tr><th>행 (분석 단위)</th><th>열 (위험지표)</th></tr></thead><tbody>
+<tr><td>1단계 · <mark>72개 학원가</mark></td><td>사고 심각도 / 보호구역 공백률 / 실질 위험도</td></tr>
+<tr><td>2단계 · 대치동 <mark>117개 집계구</mark></td><td>사고 밀도 / 학원 밀집도 / 단속 건수 / 횡단보도 예고 공백 / 험프 공백</td></tr>
+</tbody></table></div>
+<h3>STEP 2 · Min–Max 정규화</h3>
+<p>각 위험변수를 0~1 범위로 바꾼다. <strong>값이 클수록 위험</strong>하도록 지표의 방향을 먼저 통일한다.</p>
+<div class="box soft"><h4>정규화 공식 (위험 증가형)</h4><p style="text-align:center;font-size:16px"><strong>zᵢⱼ = (xᵢⱼ − min xⱼ) / (max xⱼ − min xⱼ)</strong></p><p class="note">모든 관측치가 같은 값을 가지면 분모가 0이므로 해당 지표 처리 규칙이 필요하다.</p></div>
+<h3>STEP 3 · 엔트로피로 가중치 계산</h3>
+<ol class="simple-list"><li><span>각 변수의 정규화 값으로 <strong>비중 pᵢⱼ = zᵢⱼ / Σᵢzᵢⱼ</strong>를 구한다.</span></li>
+<li><span>변수별 엔트로피 <strong>eⱼ = −(1/ln n) Σᵢ pᵢⱼ ln pᵢⱼ</strong>를 계산한다.</span></li>
+<li><span>차별화 정보량 <strong>dⱼ = 1 − eⱼ</strong>로 가중치 <strong>wⱼ = dⱼ / Σⱼdⱼ</strong>를 구한다.</span></li>
+<li><span>최종 위험점수는 <mark>Rᵢ = Σⱼ wⱼ zᵢⱼ</mark>로 산출한다.</span></li></ol>
+<h3>STEP 4 · 계산 예시 (가상 수치)</h3>
+<p>어떤 학원가의 정규화 값이 <strong>사고 0.90, 보호공백 0.80, 실질위험 0.70</strong>, 산출 가중치가 <strong>0.40, 0.35, 0.25</strong>라면:</p>
+<div class="box yellow"><p style="font-size:16px;text-align:center"><strong>0.90×0.40 + 0.80×0.35 + 0.70×0.25 = <mark>0.815</mark></strong></p><p class="note">위 가중치와 점수는 설명용 가상 예시이며 실제 팀 레이더 계산값이 아니다.</p></div>
+<div class="key"><strong>해석상의 주의</strong><br/><span class="hl">엔트로피 가중치가 높다는 것은 지표가 지역을 잘 구분한다는 뜻이지, 사고의 인과적 원인이나 예측력이 가장 크다는 뜻은 아니다.</span></div>
+</div>
+</section><section class="sheet" data-title="실습 3 XGBoost 상세" id="p20"><button type="button" class="voice-page-button" data-voice-page="20" title="21쪽 음성 해설 듣기" aria-label="21쪽 음성 해설 듣기">🔊 해설</button>
+<div class="page-inner">
+<div class="folio">METHOD LAB · 03 / 03</div>
+<span class="chapter-kicker">XGBOOST · 감독학습과 결과 비교</span>
+<h2 class="chapter-title">위험 집계구를 머신러닝으로 어떻게 찾고 비교할까?</h2>
+<p class="lead">XGBoost는 여러 의사결정나무를 순차적으로 결합하는 <strong>감독학습 기법</strong>이다. 실제 모델을 만들려면 어떤 값(y)을 예측할지 먼저 정해야 한다.</p>
+<h3>STEP 1 · 설명변수(X)와 정답(y)을 구별</h3>
+<div class="box soft"><h4>설명변수 X · 발표에서 제시된 5개 지표</h4><p>사고 밀도 · 학원 밀집도 · 단속 건수 · 횡단보도 예고 공백 · 험프 공백</p><h4>정답변수 y · <mark>발표 녹취로 미확인</mark></h4><p>예를 들어 후속 기간의 사고 발생 여부, 사고 건수 또는 사고 심각도 등을 목표변수로 정할 수 있으나, 팀 레이더가 실제 무엇을 학습했는지는 확인되지 않는다.</p></div>
+<h3>STEP 2 · 학습과 평가의 기본 흐름</h3>
+<div class="pipeline">
+<div class="pipe-item"><strong>집계구별 X와 y 결합</strong><span>결측값, 시간·공간 단위, 표본 수 검토</span></div>
+<span class="pipe-arrow">↓</span>
+<div class="pipe-item"><strong>학습 / 평가 자료 분리</strong><span>미래 예측이라면 과거로 학습하고 이후 기간으로 평가</span></div>
+<span class="pipe-arrow">↓</span>
+<div class="pipe-item"><strong>XGBoost 학습 · 위험점수 예측</strong><span>나무 모델이 이전 모델의 오차를 보완하도록 반복 학습</span></div>
+<span class="pipe-arrow">↓</span>
+<div class="pipe-item"><strong>고위험 집계구 순위 정렬</strong><span>상위 10%를 엔트로피 가중법 선정 결과와 비교</span></div></div>
+<h3>STEP 3 · 발표의 90.9%를 정확히 해석</h3>
+<div class="metric-row"><div class="metric"><small>대치동 학원 존재 집계구</small><b>117개</b></div><div class="metric"><small>두 방식의 상위 집계구 일치율</small><b>90.9%</b></div></div>
+<p><mark>90.9%는 두 방법의 '상위 위험집계구 선정 결과 일치율'</mark>이지, 미래 사고를 맞힌 정확도(Accuracy)가 아니다. 실제 검증에는 목표변수와 독립적인 평가자료, 적절한 예측 성능지표가 필요하다.</p>
+<div class="box yellow"><h4>논문·발표 검토 시 필수 확인</h4><p>① <strong>y는 무엇인가?</strong> ② 학습·검증 자료를 어떻게 나눴는가? ③ 사고 밀도를 입력과 정답 양쪽에 썼다면 <strong>정보누수</strong>가 없는가? ④ 상위 10%의 정확한 집계구 수는 몇 개인가?</p><p class="note">117개의 10%는 11.7개다. 발표의 90.9%가 어떤 분모와 교집합 수에서 나온 것인지 원표로 확인해야 한다.</p></div>
+<div class="key"><strong>결론</strong><br/><span class="hl">DBSCAN = 학원가의 경계 찾기 / 엔트로피 = 상대 위험도 점수화 / XGBoost = 학습된 목표에 따른 예측 및 순위 비교.</span> 세 방법은 역할이 다르다.</div>
+</div>
+</section><section class="sheet" data-title="11 사고 유형" id="p21"><button type="button" class="voice-page-button" data-voice-page="21" title="22쪽 음성 해설 듣기" aria-label="22쪽 음성 해설 듣기">🔊 해설</button><div class="page-inner"><div class="folio">CHAPTER 11 · ACCIDENT TYPES</div><span class="chapter-kicker">11 / 왜 위험한가?</span><h2 class="chapter-title">위험지역이 같아도 사고 원인이 다르면 처방이 달라진다</h2><p class="lead">사고 건수만으로는 구체적인 대책이 나오지 않으므로 법규 위반 내용과 가해 차종을 추가 분석했다.</p>
 <h3>세 가지 사고 유형</h3><div class="box"><h4>유형 A · 안전운전 불이행</h4><p>전방주시 태만이나 운전 부주의 등과 관련한 사고. 보행자 밀집 경고, 학원가 진입 전 사전 주의, 서행 유도와 연결할 수 있다.</p></div><div class="box"><h4>유형 B · 보행자 보호의무 위반 및 신호 위반</h4><p>횡단보도와 교차로에서 보행자 보호를 지키지 않거나 신호를 위반하는 사고. 보행자 우선 경고, 횡단보도 접근 주의 안내 등이 필요하다.</p></div><div class="box"><h4>유형 C · PM·이륜차·자전거 관련 사고</h4><p>개인형 이동장치(PM), 이륜차, 자전거와 관련된 사고. 이동수단이 혼재하는 도로구간에 대한 안전 안내가 요구된다.</p></div>
-<div class="key"><strong>핵심 논리</strong><br><span class="hl">위험도가 같은 지역이라도 사고 발생의 원인이 다르면 정책 수단과 위험 알림 문구도 다르게 설계해야 한다.</span></div><p>이 단계에서 연구는 위험점수 산출을 넘어서, 각 집계구에서 <mark>어떤 상황을 예방해야 하는지 구체적인 대응책을 설계하는 단계</mark>로 진전한다.</p></div></section>
-<section class="sheet" id="p14" data-title="12 시간대별 분석"><div class="page-inner"><div class="folio">CHAPTER 12 · TEMPORAL RISK</div><span class="chapter-kicker">12 / 언제 위험한가?</span><h2 class="chapter-title">사고 기록과 생활인구를 함께 본 시간대별 위험 분석</h2><p class="lead">사고가 발생하지 않았더라도 학생과 보행자가 많이 몰리는 곳은 잠재적인 위험을 가질 수 있다.</p>
+<div class="key"><strong>핵심 논리</strong><br/><span class="hl">위험도가 같은 지역이라도 사고 발생의 원인이 다르면 정책 수단과 위험 알림 문구도 다르게 설계해야 한다.</span></div><p>이 단계에서 연구는 위험점수 산출을 넘어서, 각 집계구에서 어떤 상황을 예방해야 하는지 구체적인 대응책을 설계하는 단계로 진전한다.</p></div></section>
+<section class="sheet" data-title="12 시간대별 분석" id="p22"><button type="button" class="voice-page-button" data-voice-page="22" title="23쪽 음성 해설 듣기" aria-label="23쪽 음성 해설 듣기">🔊 해설</button><div class="page-inner"><div class="folio">CHAPTER 12 · TEMPORAL RISK</div><span class="chapter-kicker">12 / 언제 위험한가?</span><h2 class="chapter-title">사고 기록과 생활인구를 함께 본 시간대별 위험 분석</h2><p class="lead">사고가 발생하지 않았더라도 학생과 보행자가 많이 몰리는 곳은 잠재적인 위험을 가질 수 있다.</p>
 <h3>두 종류의 데이터 결합</h3><div class="tblwrap"><table><thead><tr><th>데이터</th><th>분석 목적</th></tr></thead><tbody><tr><td>교통사고 데이터</td><td>실제 사고가 발생한 시간대 파악</td></tr><tr><td>생활인구 데이터</td><td>시간에 따라 사람이 집중되는 정도 파악</td></tr></tbody></table></div>
 <h3>대치동의 두 시간대</h3><div class="timeline"><div class="timeblock"><div class="timetag">14–18시</div><div><strong>대치동 전체의 주요 피크</strong><p>학원 이동이 집중되고 보행 활동이 활발한 오후 시간대.</p></div></div><div class="timeblock"><div class="timetag">18–23시</div><div><strong>일부 집계구에서 나타난 별도 피크</strong><p>저녁 수업·학원 하원·픽업 등과 연계될 가능성이 있는 시간대.</p></div></div></div>
-<p>전체 대치동에서는 오후 시간대가 두드러지지만, <mark>일부 집계구는 저녁 이후에 위험 신호가 집중</mark>되는 것으로 나타났다. 이 차이는 동일 학원가 내부에서도 시간대별 관리가 달라져야 한다는 주장을 뒷받침한다.</p>
-<div class="key"><strong>핵심 발견</strong><br><span class="hl">대치동 전체는 14~18시가 주요 피크였으나, 일부 집계구에서는 18~23시의 피크가 나타났다.</span></div>
+<p>전체 대치동에서는 오후 시간대가 두드러지지만, 일부 집계구는 저녁 이후에 위험 신호가 집중되는 것으로 나타났다. 이 차이는 동일 학원가 내부에서도 시간대별 관리가 달라져야 한다는 주장을 뒷받침한다.</p>
+<div class="key"><strong>핵심 발견</strong><br/><span class="hl">대치동 전체는 14~18시가 주요 피크였으나, 일부 집계구에서는 18~23시의 피크가 나타났다.</span></div>
 <p class="note">※ 초반에는 15~18시 및 21시 이후 사고 집중을, 정밀 분석에서는 14~18시 및 18~23시 구간을 제시했습니다. 서로 다른 분석 단계의 시간 기준입니다.</p></div></section>
-<section class="sheet" id="p15" data-title="13 기대효과와 티맵"><div class="page-inner"><div class="folio">CHAPTER 13 · POLICY & PLATFORM</div><span class="chapter-kicker">13 / 정책적 기대효과와 구현 전략</span><h2 class="chapter-title">시설 신설만이 아니라 기존 티맵 플랫폼에 위험정보를 전달한다</h2><p class="lead">정밀 분석의 결과를 실제 운전자에게 전달하기 위한 저비용·고도달률 서비스 방안을 제안했다.</p>
+<section class="sheet" data-title="13 기대효과와 티맵" id="p23"><button type="button" class="voice-page-button" data-voice-page="23" title="24쪽 음성 해설 듣기" aria-label="24쪽 음성 해설 듣기">🔊 해설</button><div class="page-inner"><div class="folio">CHAPTER 13 · POLICY &amp; PLATFORM</div><span class="chapter-kicker">13 / 정책적 기대효과와 구현 전략</span><h2 class="chapter-title">시설 신설만이 아니라 기존 티맵 플랫폼에 위험정보를 전달한다</h2><p class="lead">정밀 분석의 결과를 실제 운전자에게 전달하기 위한 저비용·고도달률 서비스 방안을 제안했다.</p>
 <h3>세 가지 기대효과</h3><div class="tblwrap"><table><thead><tr><th>효과</th><th>구체적 의미</th></tr></thead><tbody><tr><td>① 사고 감소</td><td>위험구간 진입 전 운전자 감속과 주의 행동 유도</td></tr><tr><td>② 사각지대 해소</td><td>스쿨존 밖 학원가에 대한 안전정보 제공</td></tr><tr><td>③ 예산 효율화</td><td>위험도가 높은 구역과 시간에 정책 우선순위 집중</td></tr></tbody></table></div>
 <h3>왜 티맵인가?</h3><p>새로운 도로 시설물을 광범위하게 설치하려면 예산과 시간이 필요하다. 반면 기존 내비게이션 플랫폼을 활용하면 위험 알림을 운전자에게 전달하는 비용 대비 실행 가능성이 높다고 판단했다. 티맵의 운전자 접점이 많다는 점도 장점으로 설명했다.</p><p>발표에서는 공공 주차정보를 내비게이션과 연계한 서울시 사례가 이미 존재한다는 점을 언급하며, 학원가 위험정보 연계의 기술적 가능성을 제시했다.</p>
-<div class="key"><strong>핵심 정책 제안</strong><br><span class="hl">위치·시간·사고 유형에 따라 달라지는 맞춤형 위험 메시지를 티맵을 통해 운전자에게 제공한다.</span></div>
+<div class="key"><strong>핵심 정책 제안</strong><br/><span class="hl">위치·시간·사고 유형에 따라 달라지는 맞춤형 위험 메시지를 티맵을 통해 운전자에게 제공한다.</span></div>
 <h3>실현 가능성 검토</h3><p>기존 데이터 연계 사례가 존재하더라도 실제 구현을 위해서는 데이터 갱신주기, 서비스 제휴, 위치 정확도, 경고의 안전성, 효과 평가가 필요하다. 발표의 서비스는 <strong>실제 상용화 확인이 아니라 도입 제안</strong>이다.</p></div></section>
-<section class="sheet" id="p16" data-title="14 티맵 시나리오"><div class="page-inner"><div class="folio">CHAPTER 14 · SERVICE SCENARIOS</div><span class="chapter-kicker">14 / 운전자 상황별 맞춤형 알림</span><h2 class="chapter-title">낮 택배 차량·퇴근 차량·야간 픽업 차량에 서로 다른 경고</h2><p class="lead">운전자 유형과 이동 시간, 학원가 교통상황을 결합해 세 가지 시나리오를 제시했다.</p>
+<section class="sheet" data-title="14 티맵 시나리오" id="p24"><button type="button" class="voice-page-button" data-voice-page="24" title="25쪽 음성 해설 듣기" aria-label="25쪽 음성 해설 듣기">🔊 해설</button><div class="page-inner"><div class="folio">CHAPTER 14 · SERVICE SCENARIOS</div><span class="chapter-kicker">14 / 운전자 상황별 맞춤형 알림</span><h2 class="chapter-title">낮 택배 차량·퇴근 차량·야간 픽업 차량에 서로 다른 경고</h2><p class="lead">운전자 유형과 이동 시간, 학원가 교통상황을 결합해 세 가지 시나리오를 제시했다.</p>
 <div class="alert-scenario"><div class="s-title">01 / 낮 시간대 택배 차량</div><p>학생 보행량이 많은 학원가로 진입할 때 주의·서행 메시지를 제공해 선제적인 감속을 유도한다.</p><div class="message">⚠ 전방 학원 밀집지역입니다. 학생 보행에 주의하고 서행해 주세요.</div><div class="goal">목적 · 학원가 진입 전 감속 유도</div></div>
 <div class="alert-scenario"><div class="s-title">02 / 퇴근 시간대 직장인 차량</div><p>학원 차량과 퇴근 차량이 중첩되어 혼잡한 도로에 접근하면 혼잡 및 우회 안내를 제공한다.</p><div class="message">⚠ 전방 학원가 차량 혼잡 구간입니다. 안전운전 및 우회 경로를 확인해 주세요.</div><div class="goal">목적 · 교통량 분산과 혼잡 완화</div></div>
 <div class="alert-scenario"><div class="s-title">03 / 야간 학부모 픽업 차량</div><p>불법 주정차로 인한 시야 가림과 학생 하원 시 보행 혼잡을 고려한 주정차·보행자 주의 알림을 제시한다.</p><div class="message">⚠ 학생 하원 집중 시간입니다. 불법 주정차에 주의하고 보행자의 안전을 확인해 주세요.</div><div class="goal">목적 · 안전한 픽업 환경과 시야 확보</div></div>
-<div class="key"><strong>핵심 차별성</strong><br><span class="hl">기존 스쿨존의 고정형 알림과 달리 동일 학원가에서도 위치, 시간대, 위험 유형에 따라 경고 내용을 달리한다.</span></div><p class="note">※ 위 경고 문구는 발표 요지에 맞추어 구성한 예시이며 실제 티맵 서비스 문구가 아닙니다.</p></div></section>
-<section class="sheet" id="p17" data-title="15 현장과 결론"><div class="page-inner"><div class="folio">CHAPTER 15 · FIELD & CONCLUSION</div><span class="chapter-kicker">15 / 현장 확인과 발표 마무리</span><h2 class="chapter-title">대치동에서의 개인적 경험과 데이터 분석을 연결하다</h2><p class="lead">발표자는 스스로 대치동에서 공부했던 학생이었다는 경험을 밝히며 연구의 현장성을 강조했다.</p>
-<h3>현장 관찰</h3><p>발표 약 일주일 전 학원 하원 시간대의 대치동을 방문했다. 학생들이 학원에서 나오는 시간에 학부모의 픽업 차량이 몰리고 도로가 혼잡해지는 상황을 확인했다고 설명했다. 발표자는 학생 시절과 비교해 <mark>위험한 현장 상황이 크게 변하지 않았다</mark>고 느꼈다.</p>
-<h3>분석의 세 가지 성과</h3><ol class="simple-list"><li><span><strong>학원가 정의 및 위험지역 선정</strong><br>학원 위치 자료를 바탕으로 72개 학원가 군집을 정의하고 상대 위험도를 비교하였다.</span></li><li><span><strong>집계구별 위험·원인·시간 진단</strong><br>위험지역 내부를 정밀 분석하여 사고 유형과 시간 집중을 구분하였다.</span></li><li><span><strong>데이터 기반 예방 서비스 제안</strong><br>분석 결과를 탄력형 관리방안과 티맵 위험 알림 서비스에 연결하였다.</span></li></ol>
+<div class="key"><strong>핵심 차별성</strong><br/><span class="hl">기존 스쿨존의 고정형 알림과 달리 동일 학원가에서도 위치, 시간대, 위험 유형에 따라 경고 내용을 달리한다.</span></div><p class="note">※ 위 경고 문구는 발표 요지에 맞추어 구성한 예시이며 실제 티맵 서비스 문구가 아닙니다.</p></div></section>
+<section class="sheet" data-title="15 현장과 결론" id="p25"><button type="button" class="voice-page-button" data-voice-page="25" title="26쪽 음성 해설 듣기" aria-label="26쪽 음성 해설 듣기">🔊 해설</button><div class="page-inner"><div class="folio">CHAPTER 15 · FIELD &amp; CONCLUSION</div><span class="chapter-kicker">15 / 현장 확인과 발표 마무리</span><h2 class="chapter-title">대치동에서의 개인적 경험과 데이터 분석을 연결하다</h2><p class="lead">발표자는 스스로 대치동에서 공부했던 학생이었다는 경험을 밝히며 연구의 현장성을 강조했다.</p>
+<h3>현장 관찰</h3><p>발표 약 일주일 전 학원 하원 시간대의 대치동을 방문했다. 학생들이 학원에서 나오는 시간에 학부모의 픽업 차량이 몰리고 도로가 혼잡해지는 상황을 확인했다고 설명했다. 발표자는 학생 시절과 비교해 위험한 현장 상황이 크게 변하지 않았다고 느꼈다.</p>
+<h3>분석의 세 가지 성과</h3><ol class="simple-list"><li><span><strong>학원가 정의 및 위험지역 선정</strong><br/>학원 위치 자료를 바탕으로 72개 학원가 군집을 정의하고 상대 위험도를 비교하였다.</span></li><li><span><strong>집계구별 위험·원인·시간 진단</strong><br/>위험지역 내부를 정밀 분석하여 사고 유형과 시간 집중을 구분하였다.</span></li><li><span><strong>데이터 기반 예방 서비스 제안</strong><br/>분석 결과를 탄력형 관리방안과 티맵 위험 알림 서비스에 연결하였다.</span></li></ol>
 <div class="callout">사고가 난 뒤 대응하는 정책에서, 위험을 미리 알리고 줄이는 교통안전 체계로.</div>
-<div class="key"><strong>최종 발표 메시지</strong><br><span class="hl">학원가 중심의 어린이 교통안전 사각지대를 데이터·AI로 세분화해 분석하고, 각 구역에 최적화한 실시간 맞춤형 안전망 도입이 필요하다.</span></div><p>개인적 관찰은 실제 사고 감소 효과를 입증하는 자료는 아니지만, 데이터 분석의 정책적 필요성을 청중에게 전달하는 현장 사례로 기능한다.</p></div></section>
-<section class="sheet" id="p18" data-title="16 핵심 수치 정리"><div class="page-inner"><div class="folio">CHAPTER 16 · FACT SHEET</div><span class="chapter-kicker">16 / 전체 발표 핵심 수치 요약</span><h2 class="chapter-title">연구에 등장한 주요 수치·방법론 한눈에 보기</h2><div class="tblwrap"><table><thead><tr><th>분석 주제</th><th>발표 수치·방법</th><th>해석</th></tr></thead><tbody>
+<div class="key"><strong>최종 발표 메시지</strong><br/><span class="hl">학원가 중심의 어린이 교통안전 사각지대를 데이터·AI로 세분화해 분석하고, 각 구역에 최적화한 실시간 맞춤형 안전망 도입이 필요하다.</span></div><p>개인적 관찰은 실제 사고 감소 효과를 입증하는 자료는 아니지만, 데이터 분석의 정책적 필요성을 청중에게 전달하는 현장 사례로 기능한다.</p></div></section>
+<section class="sheet" data-title="16 핵심 수치 정리" id="p26"><button type="button" class="voice-page-button" data-voice-page="26" title="27쪽 음성 해설 듣기" aria-label="27쪽 음성 해설 듣기">🔊 해설</button><div class="page-inner"><div class="folio">CHAPTER 16 · FACT SHEET</div><span class="chapter-kicker">16 / 전체 발표 핵심 수치 요약</span><h2 class="chapter-title">연구에 등장한 주요 수치·방법론 한눈에 보기</h2><div class="tblwrap"><table><thead><tr><th>분석 주제</th><th>발표 수치·방법</th><th>해석</th></tr></thead><tbody>
 <tr><td>2020 사교육 참여율</td><td>74.9%</td><td>배경</td></tr><tr><td>2024 사교육 참여율</td><td>86% 초과</td><td>배경</td></tr><tr><td>강남구 사고 다발</td><td><span class="hl">17곳 중 외곽 15곳</span></td><td>공간적 사각지대</td></tr><tr><td>서울 전체 보행사고</td><td>연평균 −1.4%</td><td>감소</td></tr><tr><td>대치동 학원가 보행사고</td><td><span class="hl">연평균 +11.6%</span></td><td>증가</td></tr><tr><td>초기 사고 집중 시간</td><td>15~18시, 21시 이후</td><td>이동·픽업</td></tr><tr><td>1차 군집화</td><td><span class="hl">DBSCAN</span></td><td>밀집지역 정의</td></tr><tr><td>군집 조건</td><td>EPS 150m / MinPts 10</td><td>거리·밀도</td></tr><tr><td>최종 학원가</td><td><span class="hl">72개</span></td><td>1차 분석 단위</td></tr><tr><td>1차 위험지표</td><td>사고 심각성·보호 공백·실질 위험</td><td>3개 지표</td></tr><tr><td>1차 최고 위험</td><td>대치동</td><td>대표 사례</td></tr><tr><td>2차 지역</td><td>상위 7개 학원가</td><td>정밀 분석</td></tr><tr><td>대치동 전체 집계구</td><td>391개</td><td>모집 공간</td></tr><tr><td>대치동 분석 집계구</td><td><span class="hl">117개</span></td><td>학원 존재</td></tr><tr><td>2차 위험지표</td><td>사고·학원·단속·횡단보도·험프</td><td>5개 지표</td></tr><tr><td>모형 결과 비교</td><td><span class="hl">일치율 90.9%</span></td><td>상위 10% 지역</td></tr><tr><td>집계구 시간 분석</td><td>14~18시 / 18~23시</td><td>피크 차이</td></tr><tr><td>최종 제안</td><td>티맵 시간·위치·유형별 알림</td><td>활용 서비스</td></tr></tbody></table></div>
-<div class="key"><strong>반드시 기억할 다섯 숫자</strong><br><span class="hl">15/17곳 · 대치동 +11.6% · 72개 학원가 · 117개 집계구 · 90.9% 일치율</span></div><p class="note">※ 표의 수치는 발표 녹취에 기반하며 공식 원자료 재검증 완료를 의미하지 않습니다.</p></div></section>
-<section class="sheet" id="p19" data-title="17 교수자 검토 질문"><div class="page-inner"><div class="folio">CHAPTER 17 · TEACHING QUESTIONS</div><span class="chapter-kicker">17 / 교수자·심사자 관점의 질문</span><h2 class="chapter-title">방법론을 한 단계 더 깊게 검토하는 질문</h2><p class="lead">수업과 발표 토론에서 학생들이 공간통계·모형 검증·정책 실행의 차이를 구분하도록 돕는 질문들이다.</p>
+<div class="key"><strong>반드시 기억할 다섯 숫자</strong><br/><span class="hl">15/17곳 · 대치동 +11.6% · 72개 학원가 · 117개 집계구 · 90.9% 일치율</span></div><p class="note">※ 표의 수치는 발표 녹취에 기반하며 공식 원자료 재검증 완료를 의미하지 않습니다.</p></div></section>
+<section class="sheet" data-title="17 교수자 검토 질문" id="p27"><button type="button" class="voice-page-button" data-voice-page="27" title="28쪽 음성 해설 듣기" aria-label="28쪽 음성 해설 듣기">🔊 해설</button><div class="page-inner"><div class="folio">CHAPTER 17 · TEACHING QUESTIONS</div><span class="chapter-kicker">17 / 교수자·심사자 관점의 질문</span><h2 class="chapter-title">방법론을 한 단계 더 깊게 검토하는 질문</h2><p class="lead">수업과 발표 토론에서 학생들이 공간통계·모형 검증·정책 실행의 차이를 구분하도록 돕는 질문들이다.</p>
 <div class="tblwrap"><table><thead><tr><th>주제</th><th>발표팀 질문</th></tr></thead><tbody><tr><td>DBSCAN 설정</td><td>EPS 150m와 MinPts 10의 선정 근거는 무엇인가?</td></tr><tr><td>군집 규모</td><td>학원 정원과 실제 이용 인원의 차이는 어떻게 고려했는가?</td></tr><tr><td>가중치</td><td>엔트로피 가중치가 높은 변수가 실제 사고를 더 잘 설명한다는 뜻인가?</td></tr><tr><td>인구 보정</td><td>거주 청소년 인구보다 학원 이용인구나 유동인구가 더 적절하지 않은가?</td></tr><tr><td>XGBoost</td><td>어떤 종속변수로 학습했으며 검증 데이터는 무엇인가?</td></tr><tr><td>공간 누락</td><td>학원이 없지만 학생들이 통과하는 도로는 어떻게 반영했는가?</td></tr><tr><td>시간 위험률</td><td>보행량·통행량을 반영한 노출량 대비 사고 위험은 계산했는가?</td></tr><tr><td>서비스 효과</td><td>티맵 협력 및 운전자 행동 변화는 어떻게 검증할 것인가?</td></tr></tbody></table></div>
-<h3>강의에서 특히 강조할 세 가지 쟁점</h3><ol class="simple-list"><li><span><strong>일치율 ≠ 예측 정확도</strong><br>두 방법의 위험지역 선정이 90.9% 일치한다고 실제 미래 사고에 대한 예측 성능이 입증된 것은 아니다.</span></li><li><span><strong>사고 건수 ≠ 사고 위험률</strong><br>10건 발생 구역이 5건 발생 구역보다 반드시 위험하지는 않다. 보행자·차량 통행량을 고려해야 한다.</span></li><li><span><strong>실시간 경고 ≠ 실시간 위험 예측</strong><br>과거 산출 위험지도를 현재 위치에 맞춰 알리는 것과 실시간 정보를 학습해 현재 위험을 예측하는 것은 구별된다.</span></li></ol>
-<div class="key"><strong>핵심 토론 질문</strong><br><span class="hl">“두 분석방법의 결과가 90.9% 일치한다는 사실만으로 실제 위험지역이 검증되었다고 말할 수 있을까요?”</span></div></div></section>
-<section class="sheet" id="p20" data-title="18 원본 검증사항"><div class="page-inner"><div class="folio">CHAPTER 18 · DATA VERIFICATION</div><span class="chapter-kicker">18 / 원자료 검증이 필요한 부분</span><h2 class="chapter-title">녹취 오류 가능성과 확인이 필요한 항목</h2><p class="lead">발표 녹취의 음성인식 오류를 고려해 불명확한 숫자와 지표를 추정으로 확정하지 않았다.</p>
+<h3>강의에서 특히 강조할 세 가지 쟁점</h3><ol class="simple-list"><li><span><strong>일치율 ≠ 예측 정확도</strong><br/>두 방법의 위험지역 선정이 90.9% 일치한다고 실제 미래 사고에 대한 예측 성능이 입증된 것은 아니다.</span></li><li><span><strong>사고 건수 ≠ 사고 위험률</strong><br/>10건 발생 구역이 5건 발생 구역보다 반드시 위험하지는 않다. 보행자·차량 통행량을 고려해야 한다.</span></li><li><span><strong>실시간 경고 ≠ 실시간 위험 예측</strong><br/>과거 산출 위험지도를 현재 위치에 맞춰 알리는 것과 실시간 정보를 학습해 현재 위험을 예측하는 것은 구별된다.</span></li></ol>
+<div class="key"><strong>핵심 토론 질문</strong><br/><span class="hl">“두 분석방법의 결과가 90.9% 일치한다는 사실만으로 실제 위험지역이 검증되었다고 말할 수 있을까요?”</span></div></div></section>
+<section class="sheet" data-title="18 원본 검증사항" id="p28"><button type="button" class="voice-page-button" data-voice-page="28" title="29쪽 음성 해설 듣기" aria-label="29쪽 음성 해설 듣기">🔊 해설</button><div class="page-inner"><div class="folio">CHAPTER 18 · DATA VERIFICATION</div><span class="chapter-kicker">18 / 원자료 검증이 필요한 부분</span><h2 class="chapter-title">녹취 오류 가능성과 확인이 필요한 항목</h2><p class="lead">발표 녹취의 음성인식 오류를 고려해 불명확한 숫자와 지표를 추정으로 확정하지 않았다.</p>
 <div class="tblwrap"><table><thead><tr><th>항목</th><th>확인해야 할 내용</th></tr></thead><tbody><tr><td>2024년 사교육 참여율</td><td>“86% 초과”가 공식 통계와 일치하는가?</td></tr><tr><td>학원가 최소 이용인원</td><td>“2,명 이상”으로 인식된 정확한 군집 규모 조건은?</td></tr><tr><td>사고 심각도 지표</td><td>“이디오”, “DO” 등으로 인식된 지표의 정식 명칭은?</td></tr><tr><td>상위 학원가 순위</td><td>대치동 외 10개 지역의 정확한 이름·순위는?</td></tr><tr><td>안전시설 변수</td><td>횡단보도 예고 공백·험프 공백의 조작적 정의는?</td></tr><tr><td>90.9% 일치율</td><td>상위 집계구 개수와 분모·분자, 일치율 산출 방식은?</td></tr><tr><td>XGBoost</td><td>종속변수·학습 데이터·검증 설계는?</td></tr><tr><td>실시간 서비스</td><td>현재 연계 가능한 데이터와 티맵 협력 범위는?</td></tr></tbody></table></div>
 <div class="box yellow"><h4>자료 이용 유의사항</h4><p>이 책은 <strong>제공된 발표 녹취를 바탕으로 한 상세 요약</strong>입니다. 원 발표의 수치를 보존하려고 노력했지만, 원본 슬라이드나 원데이터와 대조하지 않은 값까지 객관적 사실로 검증한 것은 아닙니다.</p><p>논문, 정책보고서, 학술발표에 인용할 경우 <mark>정확한 데이터 출처, 산출기간, 변수 정의, 모형 검증 절차</mark>를 확인해야 합니다.</p></div>
-<div class="key"><strong>최종 검증 포인트</strong><br><span class="hl">핵심 수치의 출처 확인, 변수 조작적 정의 명시, XGBoost 정답변수 및 예측 성능 평가가 가장 중요하다.</span></div></div></section>
-<section class="sheet" id="p21" data-title="핵심 결론"><div class="page-inner"><div class="folio">FINAL SUMMARY · TAKEAWAYS</div><span class="chapter-kicker">FINAL / 연구의 논리적 기여</span><h2 class="chapter-title">위험의 위치를 찾는 데서 끝나지 않고 예방 행동으로 연결하다</h2><p class="lead">팀 레이더 발표의 핵심은 데이터를 활용해 안전관리의 범위·우선순위·대응 시점을 세분화한 데 있다.</p>
+<div class="key"><strong>최종 검증 포인트</strong><br/><span class="hl">핵심 수치의 출처 확인, 변수 조작적 정의 명시, XGBoost 정답변수 및 예측 성능 평가가 가장 중요하다.</span></div></div></section>
+<section class="sheet" data-title="핵심 결론" id="p29"><button type="button" class="voice-page-button" data-voice-page="29" title="30쪽 음성 해설 듣기" aria-label="30쪽 음성 해설 듣기">🔊 해설</button><div class="page-inner"><div class="folio">FINAL SUMMARY · TAKEAWAYS</div><span class="chapter-kicker">FINAL / 연구의 논리적 기여</span><h2 class="chapter-title">위험의 위치를 찾는 데서 끝나지 않고 예방 행동으로 연결하다</h2><p class="lead">팀 레이더 발표의 핵심은 데이터를 활용해 안전관리의 범위·우선순위·대응 시점을 세분화한 데 있다.</p>
 <div class="pipeline"><div class="pipe-item"><strong>① 어느 학원가가 위험한가?</strong><span>DBSCAN 72개 학원가 → 종합 위험점수 → 대치동 등 7개 정밀 분석지역</span></div><span class="pipe-arrow">↓</span><div class="pipe-item"><strong>② 어디가·왜·언제 위험한가?</strong><span>집계구 5개 위험변수 → 분석결과 비교 → 사고 유형·시간대 분류</span></div><span class="pipe-arrow">↓</span><div class="pipe-item"><strong>③ 어떻게 보호할 것인가?</strong><span>티맵 기반 위치·시간·사고 유형별 맞춤형 위험 알림 제안</span></div></div>
 <div class="box yellow"><h4>한 문장으로 정리</h4><p>팀 레이더의 연구는 기존 스쿨존 중심 교통안전 정책의 한계를 지적하고, <mark>DBSCAN으로 서울시 학원가 72개를 식별</mark>한 뒤 <mark>엔트로피 가중법과 XGBoost를 활용하여 위험 집계구를 정밀 분석</mark>하고, <mark>위치·시간·사고 유형에 따른 티맵 맞춤형 위험 알림 서비스</mark>로 연결한 데이터 기반 정책 제안이다.</p></div>
 <div class="callout">“어디가 위험한가 → 왜 위험한가 → 언제 위험한가 → 어떻게 대응할 것인가”</div><p>핵심 의의는 단순 통계와 위험지역 선정에서 멈추지 않고, 공간·시간·원인에 따라 실행 가능한 대책을 연결했다는 데 있다. 향후에는 실제 사고 예방 효과를 실증적으로 검증하는 후속 연구가 요구된다.</p>
 <div class="chips"><span class="chip">공간 사각지대</span><span class="chip">시간 사각지대</span><span class="chip">위험지표 통합</span><span class="chip">방법 간 결과 일치</span><span class="chip">맞춤형 예방</span></div><button class="ui-btn accent" data-go="1" style="margin-top:26px">↩ 목차로 돌아가기</button></div></section>
 </div></main>
-<div class="footer-controls"><button class="nav-btn" id="prevButton" aria-label="이전 페이지">← 이전</button><div class="progress-area"><div class="progress-track" id="progressTrack" role="progressbar" aria-label="책 진행률" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-fill" id="progressFill"></div></div><span class="page-label" id="pageLabel">01–02 / 22</span></div><button class="nav-btn" id="nextButton" aria-label="다음 페이지">다음 →</button></div>
-<div class="help-note">데스크톱: 한 번에 2쪽 · 모바일: 1쪽 · ← → 키로 넘김 · 목차 클릭 이동 · 인쇄/PDF 저장 가능</div>
-<div class="drawer" id="drawer" aria-hidden="true"><div class="drawer-panel"><div class="drawer-head"><h2>☷ 전체 목차</h2><button class="ui-btn" id="drawerClose" aria-label="목차 닫기">✕ 닫기</button></div><nav id="drawerLinks"></nav></div></div>
-<script>
+<div class="footer-controls"><button aria-label="이전 페이지" class="nav-btn" id="prevButton">← 이전</button><div class="progress-area"><div aria-label="책 진행률" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" class="progress-track" id="progressTrack" role="progressbar"><div class="progress-fill" id="progressFill"></div></div><span class="page-label" id="pageLabel">01–03 / 24</span></div><button aria-label="다음 페이지" class="nav-btn" id="nextButton">다음 →</button></div>
+<div class="help-note">데스크톱: 한 번에 3쪽 · 모바일: 1쪽 · ← → 키로 넘김 · 목차 클릭 이동 · 인쇄/PDF 저장 가능</div>
+<div aria-hidden="true" class="drawer" id="drawer"><div class="drawer-panel"><div class="drawer-head"><h2>☷ 전체 목차</h2><button aria-label="목차 닫기" class="ui-btn" id="drawerClose">✕ 닫기</button></div><nav id="drawerLinks"></nav></div></div>
+<dialog aria-label="그림 확대 보기" class="image-viewer" id="researchImageViewer">
+<div class="viewer-top"><span id="viewerTitle">시각자료 확대 보기</span><button id="viewerClose" type="button">닫기 ✕</button></div>
+<img alt="확대된 그림" id="viewerImage"/>
+</dialog><script>
 (()=>{
 const pages=[...document.querySelectorAll('.sheet')];const book=document.querySelector('#book');const prev=document.querySelector('#prevButton');const next=document.querySelector('#nextButton');const label=document.querySelector('#pageLabel');const fill=document.querySelector('#progressFill');const track=document.querySelector('#progressTrack');const drawer=document.querySelector('#drawer');const links=document.querySelector('#drawerLinks');let current=0;let mobile=window.matchMedia('(max-width: 1120px)').matches;
 const columnCount=()=>mobile?1:3;
@@ -163,6 +398,162 @@ track.onclick=e=>{const r=track.getBoundingClientRect();const f=Math.max(0,Math.
 let startX=0,startY=0;book.addEventListener('touchstart',e=>{if(e.touches.length===1){startX=e.touches[0].clientX;startY=e.touches[0].clientY}},{passive:true});book.addEventListener('touchend',e=>{if(!startX)return;const dx=e.changedTouches[0].clientX-startX;const dy=e.changedTouches[0].clientY-startY;if(Math.abs(dx)>85&&Math.abs(dx)>Math.abs(dy)*1.7){show(current+(dx<0?step():-step()))}startX=0},{passive:true});
 window.matchMedia('(max-width: 1120px)').addEventListener('change',e=>{mobile=e.matches;show(current)});let hash=location.hash.match(/^#p(\d+)$/);show(hash?Number(hash[1]):0,false);
 })();
+
+(()=>{const dialog=document.getElementById('researchImageViewer');const zoomImage=document.getElementById('viewerImage');document.querySelectorAll('.figure-button').forEach(btn=>btn.addEventListener('click',()=>{const im=btn.querySelector('img');zoomImage.src=im.src;zoomImage.alt=im.alt;document.getElementById('viewerTitle').textContent=btn.closest('.sheet')?.dataset.title||'시각자료 확대 보기';dialog.showModal()}));document.getElementById('viewerClose').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close()})})();
+
+(()=>{const fullFigureSrc="images/team-radar-methods-full-infographic.png";const modal=document.getElementById('researchImageViewer');
+  document.querySelectorAll('.method-full-figure').forEach(button=>button.addEventListener('click',()=>{
+    const viewer=document.getElementById('viewerImage'); viewer.src=fullFigureSrc;
+    viewer.alt='DBSCAN, 엔트로피 가중법, XGBoost를 차례로 설명하는 전체 방법론 인포그래픽';
+    document.getElementById('viewerTitle').textContent='방법론 3가지 · 전체 그림'; modal.showModal();
+  }));
+})();
+</script>
+<script>
+
+(()=>{
+  'use strict';
+  const sourceNarrations=["안녕하세요. 팀 레이더 연구노트입니다. 이번 발표는 아이들은 학원가에 있지만 교통안전 보호체계는 여전히 학교 주변에 집중되어 있다는 문제에서 출발합니다. 학원가의 위험한 장소와 시간대를 찾아 티맵 맞춤형 알림으로 연결하는 연구를 살펴보겠습니다.", "첫 번째 목차입니다. 처음에는 문제 발견과 4컷 만화를 살펴보고, 데이터와 전처리, 분석방법을 요약한 그림을 확인합니다. 이어서 학원가 안전의 문제점, 스쿨존 밖 사고, 시간대별 위험, 정책 공백을 분석합니다.", "두 번째 목차입니다. 학원가의 군집을 정의하는 디비스캔, 엔트로피 가중법, 엑스지부스트를 순서대로 공부합니다. 이후 사고 원인과 시간대 분석, 티맵 알림 서비스, 연구의 의의와 검증해야 할 사항까지 이어집니다.", "이 네 컷 만화는 연구의 전체 흐름을 보여줍니다. 첫째, 보호가 충분하지 않은 학원가 문제를 발견합니다. 둘째, 학원과 사고, 인구, 단속, 도로시설 데이터를 모읍니다. 셋째, 학원가 군집과 위험지역을 분석합니다. 넷째, 운전자에게 시간과 장소에 맞는 위험 알림을 제안합니다.", "이 그림은 데이터, 전처리, 방법론, 프로그램, 결과를 정리합니다. 학원 위치와 사고 데이터 등을 준비하고, 좌표를 정리해 집계구와 시간대를 맞춥니다. 디비스캔, 엔트로피 가중법, 엑스지부스트를 활용해 위험을 살펴봅니다. 실제 사용 프로그램은 발표 녹취만으로 확인되지 않아 그림의 프로그램명은 가능한 예시로 이해해야 합니다.", "첫 번째 구간, 연구 배경입니다. 발표에 따르면 사교육 참여율은 2020년 74점 9퍼센트에서 2024년 86퍼센트 이상으로 높아졌습니다. 학생들이 학교를 마친 후 학원가를 오가는 상황에서, 학교 주변 중심의 안전대책만으로 충분한지 질문합니다. 여기서 핵심은 활동 공간과 보호 범위의 불일치입니다.", "두 번째 구간, 공간적 사각지대입니다. 발표팀의 강남구 분석에서는 어린이 보행사고 다발 지점 17곳 가운데 15곳이 스쿨존 외곽에 있었습니다. 이것은 사고 위험이 법정 어린이보호구역 밖에도 존재할 수 있음을 보여줍니다. 따라서 학원가를 포함한 학교 밖 이동 경로를 살펴봐야 합니다.", "세 번째 구간, 사고와 시간의 변화입니다. 2022년부터 2024년 사이 서울시 보행사고는 연평균 1점 4퍼센트 감소한 반면, 대치동 학원가 사고는 11점 6퍼센트 증가했다고 발표했습니다. 학원 이동이 많은 오후 3시에서 6시, 학부모 픽업이 몰리는 밤 9시 이후의 위험도 강조했습니다.", "네 번째 구간, 정책 공백입니다. 기존의 정적인 교통안전 정책은 학원가의 장소별, 시간별 위험 차이를 충분히 반영하기 어렵습니다. 발표팀은 사고, 학원, 인구, 교통단속, 시설 정보를 결합해 우선순위를 정하고 각 지역에 알맞은 정책을 설계해야 한다고 주장합니다.", "다섯 번째 구간, 연구 설계입니다. 첫 번째 질문은 어느 학원가가 위험한가입니다. 두 번째는 그 학원가의 어디가, 왜, 언제 위험한가입니다. 세 번째는 어떻게 보호할 것인가입니다. 이에 따라 학원가 선별, 집계구 정밀 진단, 맞춤형 예방 서비스 제안의 흐름을 구성했습니다.", "여섯 번째 구간, 디비스캔 군집화입니다. 학원가는 법적인 경계가 명확하지 않기 때문에 학원 위치의 밀집도를 이용해 범위를 정의했습니다. 반경 150미터와 최소 학원 10개라는 기준을 적용하여 군집을 찾았고, 추가 규모 조건을 거쳐 72개 학원가 군집을 도출했습니다. 디비스캔은 위험점수가 아니라 학원가의 공간적 묶음을 찾습니다.", "일곱 번째 구간, 학원가 위험지표입니다. 발표팀은 사고의 심각도를 반영한 지표, 어린이보호구역 밖 학원의 비율인 보호구역 공백률, 청소년 인구를 고려해 보정한 실질 위험도를 결합했습니다. 각 지표를 최소 최대 정규화한 후 엔트로피 가중치를 계산하고 종합 위험점수를 구했습니다.", "여덟 번째 구간, 1단계 결과입니다. 72개 학원가의 위험도를 비교한 결과, 대치동이 가장 높은 위험점수로 나타났습니다. 발표에서는 상위 10개 학원가를 확인하고, 그 가운데 상위 7개 지역을 대상으로 더 작은 공간 단위의 정밀 분석을 했습니다. 지역에 따라 주요 위험요인이 다르다는 점이 후속 분석의 출발점입니다.", "아홉 번째 구간, 집계구 분석입니다. 대치동 전체 집계구 391개 가운데 학원이 있는 117개를 분석 대상으로 선정했습니다. 사고 밀도, 학원 밀집도, 교통단속 건수, 횡단보도 관련 시설 공백, 속도저감시설 공백 등 다섯 지표를 이용했습니다. 시설 변수의 정확한 명칭은 원본 자료 확인이 필요합니다.", "열 번째 구간, 분석방법 비교입니다. 엔트로피 가중법과 엑스지부스트가 선택한 위험도 상위 10퍼센트 집계구의 일치율은 90점 9퍼센트였습니다. 발표팀은 엔트로피 가중법을 최종 위험점수 계산에, 엑스지부스트를 결과 비교에 활용했습니다. 주의할 점은 두 방법의 일치율이 실제 사고에 대한 예측 정확도를 의미하지 않는다는 것입니다.", "이 그림은 디비스캔을 시각적으로 설명합니다. 학원 좌표를 지도에 점으로 표시한 뒤, 주변에 충분한 학원이 모여 있는 점을 찾습니다. 밀집한 점들을 연결하면 불규칙한 모양의 학원가 군집이 만들어집니다. 반경 150미터와 최소 10개가 이 연구의 군집화 기준이며, 발표의 결과는 72개 군집입니다.", "이 그림은 엔트로피 가중법을 설명합니다. 먼저 사고 심각도와 보호구역 공백률 등 서로 다른 지표를 같은 척도로 정규화합니다. 다음으로 지표별 정보의 차이를 계산해 가중치를 얻습니다. 마지막으로 정규화 값에 가중치를 곱해 더하면 지역별 종합 위험점수가 됩니다. 가중치가 높다고 사고의 원인이라고 단정할 수는 없습니다.", "이 그림은 엑스지부스트를 설명합니다. 집계구의 사고 밀도와 학원 밀집도 등 여러 설명변수를 준비합니다. 정답에 해당하는 목표변수를 정의한 뒤 의사결정나무를 순차적으로 학습합니다. 연구 발표에서는 이 방식으로 선택한 위험지역을 엔트로피 결과와 비교했으며, 상위 집계구 일치율은 90점 9퍼센트였습니다. 모델의 목표변수는 확인이 필요합니다.", "디비스캔 계산 실습입니다. 첫째, 학원의 주소를 위도와 경도로 변환합니다. 둘째, 거리 계산에 적합한 좌표계를 사용합니다. 셋째, 각 학원에서 150미터 이내의 이웃을 세고 기준을 충족하는 핵심점을 찾습니다. 넷째, 연결된 핵심점과 주변 학원을 군집으로 묶습니다. 다섯째, 결과를 지도로 표현하고 추가 인원 조건을 검토합니다.", "엔트로피 가중법 계산 실습입니다. 여러 지역의 위험지표를 정규화하여 0부터 1 사이에 맞춥니다. 지표별 관측치의 비중을 계산하고, 이를 바탕으로 엔트로피와 차별화 정도를 구합니다. 차별화 정도를 상대적으로 표준화하면 가중치가 됩니다. 마지막으로 각 지표의 정규화 값에 가중치를 곱해 합산하면 위험점수가 만들어집니다.", "엑스지부스트 계산 실습입니다. 분석의 출발점은 설명변수와 목표변수를 명확히 정하는 것입니다. 데이터를 학습용과 평가용으로 분리하고, 여러 의사결정나무를 순차적으로 학습합니다. 예측점수로 위험지역을 정렬한 뒤 엔트로피 방식의 상위 집계구와 비교할 수 있습니다. 다만 학습 데이터 구성과 성능 검증을 먼저 확인해야 결과를 올바르게 해석할 수 있습니다.", "열한 번째 구간, 사고 유형 분석입니다. 사고 건수만으로는 적절한 처방을 정하기 어렵습니다. 발표팀은 안전운전 불이행, 보행자 보호의무 위반과 신호 위반, 그리고 개인형 이동장치와 이륜차 및 자전거 관련 사고를 구분했습니다. 위험의 원인이 다르면 운전자에게 보여줄 경고 내용도 달라져야 합니다.", "열두 번째 구간, 시간대별 분석입니다. 발표팀은 사고 기록과 생활인구 자료를 함께 사용했습니다. 오후 2시부터 6시, 오후 6시부터 밤 11시를 비교한 결과, 대치동 전체에서는 앞 시간대의 위험이 두드러졌지만 일부 집계구에서는 저녁과 야간의 위험이 높았습니다. 따라서 집계구별로 다른 시간대의 대응이 필요합니다.", "열세 번째 구간, 정책과 서비스입니다. 위험지역 분석을 통해 사고를 줄이고 사각지대를 해소하며 예산을 효율적으로 투입하는 효과를 기대했습니다. 특히 새 시설물을 모두 설치하는 대신 기존 내비게이션인 티맵과 연계한 위험 알림을 제안했습니다. 실제 서비스 구현에는 별도의 데이터 연동과 플랫폼 협력이 필요합니다.", "열네 번째 구간, 세 가지 알림 시나리오입니다. 낮에 학원가를 지나는 택배 차량에는 서행과 보행자 주의 안내를 제공합니다. 퇴근 차량에는 학원가 혼잡과 우회 경로를 안내합니다. 밤에 학생을 데리러 오는 학부모에게는 불법 주정차와 보행자 시야 가림 위험을 경고합니다. 시간과 위치와 사고 유형에 따라 서로 다른 정보를 전달하는 것이 핵심입니다.", "열다섯 번째 구간, 현장 확인입니다. 발표자는 과거 대치동에서 공부했던 학생이며, 최근 하원 시간대에 다시 학원가를 방문했다고 설명했습니다. 학생과 픽업 차량이 혼재하는 모습을 통해 분석의 필요성을 강조했습니다. 연구의 목표는 위험지역을 찾는 데서 끝나지 않고 실제 안전 행동을 유도하는 데 있습니다.", "열여섯 번째 구간, 수치 요약입니다. 핵심 숫자는 스쿨존 밖 사고 다발 지점 15곳, 대치동 보행사고 연평균 증가율 11점 6퍼센트, 서울시 학원가 군집 72개, 대치동 분석 집계구 117개, 두 분석방법의 상위 위험지역 일치율 90점 9퍼센트입니다. 모든 수치는 발표에서 제시된 값이며 원본 통계와 대조가 필요할 수 있습니다.", "열일곱 번째 구간, 수업에서 토론할 질문입니다. 디비스캔의 거리와 밀도 기준은 왜 선택했는지 질문할 수 있습니다. 또한 청소년 거주인구보다 실제 학원 유동인구가 더 적절한 분모인지, 엑스지부스트의 목표변수가 무엇인지, 위험지역 일치율이 실제 사고를 얼마나 설명하는지 검토하는 것이 중요합니다.", "열여덟 번째 구간, 원자료 검증입니다. 학원가 최소 인원 기준과 일부 지표의 정확한 명칭은 녹취가 불분명합니다. 엔트로피와 엑스지부스트의 일치율 계산 방식, 실제 사용 프로그램, 실시간 데이터 연동 여부도 자료 확인이 필요합니다. 교육자료와 연구에 활용할 때에는 확인된 사실과 분석상 추정을 구분해야 합니다.", "마지막 정리입니다. 이 연구의 장점은 학교 밖 학원가의 위험을 공간과 시간과 사고 원인으로 나누어 분석하고, 결과를 티맵 위험 알림이라는 정책 아이디어로 연결했다는 점입니다. 앞으로 실제 사고 예방 효과를 검증하는 후속 연구가 이어지면 더 설득력 있는 교통안전 모델로 발전할 수 있습니다. 감사합니다."];
+  const titles=["표지", "목차 1", "목차 2", "그림 1 · 4컷 만화", "그림 2 · 데이터 분석 한눈에", "01 연구 도입", "02 공간적 사각지대", "03 대치동 사고와 시간", "04 정책 필요성", "05 전체 분석 설계", "06 DBSCAN 군집화", "07 위험지표와 가중법", "08 1단계 결과", "09 집계구 정밀분석", "10 방법 교차비교", "방법론 그림 1 · DBSCAN", "방법론 그림 2 · 엔트로피 가중법", "방법론 그림 3 · XGBoost", "실습 1 DBSCAN 상세", "실습 2 엔트로피 가중법 상세", "실습 3 XGBoost 상세", "11 사고 유형", "12 시간대별 분석", "13 기대효과와 티맵", "14 티맵 시나리오", "15 현장과 결론", "16 핵심 수치 정리", "17 교수자 검토 질문", "18 원본 검증사항", "핵심 결론"];
+  const scripts=sourceNarrations.slice();
+  const $=id=>document.getElementById(id);
+  const panel=$('voicePanel'), select=$('voicePageSelect'), script=$('voiceScript');
+  const status=$('voiceStatus'), speed=$('voiceSpeed'), voiceChoice=$('voiceChoice');
+  const recAudio=$('voiceRecordedAudio');
+  const allPages=Array.from(document.querySelectorAll('.sheet'));
+  const setStatus=(value)=>{status.textContent=value};
+  let selected=0, playing=false, paused=false, readToken=0, recorder=null, stream=null, chunks=[], recordPage=0;
+  const recordings=new Map(); // Session-local mic recordings; use download for persistence.
+  const voiceAvailable=('speechSynthesis' in window) && ('SpeechSynthesisUtterance' in window);
+  const recorderAvailable=('MediaRecorder' in window) && !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
+  const escapeName=(v)=>v.replace(/[\\/:*?"<>|]/g,'_');
+  const pad=i=>String(i+1).padStart(2,'0');
+  titles.forEach((title,i)=>{
+    const opt=document.createElement('option');opt.value=String(i);opt.textContent=pad(i)+'쪽 · '+title;select.appendChild(opt)
+  });
+  function setOpen(on){panel.classList.toggle('open',on);panel.setAttribute('aria-hidden',String(!on));$('voiceOpenButton').setAttribute('aria-expanded',String(on));}
+  $('voiceOpenButton').addEventListener('click',()=>setOpen(!panel.classList.contains('open')));
+  $('voiceCloseButton').addEventListener('click',()=>setOpen(false));
+  function stopSpeech(clearStatus=true){
+    readToken++;playing=false;paused=false;
+    if(voiceAvailable)window.speechSynthesis.cancel();
+    $('voicePause').textContent='⏸ 일시정지';
+    if(clearStatus)setStatus('음성 해설을 중지했습니다.');
+  }
+  function loadRecording(){
+    const item=recordings.get(selected);
+    recAudio.pause();
+    if(item){recAudio.src=item.url;recAudio.style.display='block';$('voiceDownload').disabled=false}
+    else{recAudio.removeAttribute('src');recAudio.load();recAudio.style.display='none';$('voiceDownload').disabled=true}
+  }
+  function setSelected(i,doStop=true){
+    if(!Number.isFinite(i)||i<0||i>=titles.length)return;
+    if(doStop && (playing||paused))stopSpeech(false);
+    selected=i;select.value=String(i);script.value=scripts[i];loadRecording();
+    if(doStop)setStatus(pad(i)+'쪽 해설이 선택되었습니다.');
+  }
+  function openPageNarration(i){setSelected(i);setOpen(true);playSpeech()}
+  document.querySelectorAll('[data-voice-page]').forEach(b=>b.addEventListener('click',()=>openPageNarration(Number(b.dataset.voicePage))));
+  select.addEventListener('change',()=>setSelected(Number(select.value)));
+  script.addEventListener('input',()=>{scripts[selected]=script.value});
+  $('voiceResetScript').addEventListener('click',()=>{scripts[selected]=sourceNarrations[selected];script.value=scripts[selected];setStatus('기본 해설 대본으로 복원했습니다.')});
+  function voices(){return voiceAvailable?window.speechSynthesis.getVoices():[]}
+  function refreshVoiceList(){
+    if(!voiceAvailable){voiceChoice.innerHTML='<option>브라우저 읽기 미지원</option>';return}
+    const prior=voiceChoice.value;voiceChoice.innerHTML='';
+    const all=voices();const korean=all.filter(v=>v.lang.toLowerCase().startsWith('ko'));
+    const usable=korean.length?korean:all;
+    const base=document.createElement('option');base.value='';base.textContent=korean.length?'자동 한국어 음성':'브라우저 기본 음성';voiceChoice.appendChild(base);
+    usable.forEach(v=>{let opt=document.createElement('option');opt.value=v.voiceURI;opt.textContent=v.name+' ('+v.lang+')';voiceChoice.appendChild(opt)});
+    if(Array.from(voiceChoice.options).some(o=>o.value===prior))voiceChoice.value=prior;
+  }
+  refreshVoiceList();if(voiceAvailable)window.speechSynthesis.onvoiceschanged=refreshVoiceList;
+  function playSpeech(){
+    if(!voiceAvailable){setStatus('이 브라우저는 음성 읽기 기능을 지원하지 않습니다. 크롬이나 엣지에서 열어 주세요.');return}
+    const content=script.value.trim();if(!content){setStatus('대본을 입력하면 음성으로 읽어 줍니다.');return}
+    stopSpeech(false);
+    const token=readToken;
+    const utter=new SpeechSynthesisUtterance(content);
+    utter.lang='ko-KR';utter.rate=Number(speed.value)||1.5;utter.pitch=1;
+    const picked=voices().find(v=>v.voiceURI===voiceChoice.value);
+    const ko=voices().find(v=>v.lang.toLowerCase().startsWith('ko'));
+    if(picked)utter.voice=picked;else if(ko)utter.voice=ko;
+    utter.onstart=()=>{if(token!==readToken)return;playing=true;paused=false;setStatus(pad(selected)+'쪽 해설 재생 중 · '+speed.value+'배속')};
+    utter.onerror=ev=>{if(token!==readToken)return;playing=false;paused=false;setStatus('음성 재생 오류: '+(ev.error||'알 수 없음')+'. 한국어 음성 설정을 확인해 주세요.')};
+    utter.onend=()=>{
+      if(token!==readToken)return;
+      playing=false;paused=false;
+      setStatus(pad(selected)+'쪽 해설이 끝났습니다.');
+      if($('voiceAutoNext').checked && selected<titles.length-1){
+        const next=selected+1;
+        setSelected(next,false);
+        const nav=document.querySelector('[data-go="'+next+'"]');
+        if(nav && !allPages[next].classList.contains('active'))nav.click();
+        playSpeech();
+      }
+    };
+    try{window.speechSynthesis.speak(utter);playing=true;setStatus(pad(selected)+'쪽 음성 해설을 준비하고 있습니다.')}catch(e){setStatus('음성 읽기를 시작할 수 없습니다: '+e.message)}
+  }
+  $('voicePlay').addEventListener('click',playSpeech);
+  $('voicePause').addEventListener('click',()=>{
+    if(!voiceAvailable)return;
+    if(playing&&!paused){window.speechSynthesis.pause();paused=true;$('voicePause').textContent='▶ 계속 듣기';setStatus('일시정지했습니다.')}
+    else if(paused){window.speechSynthesis.resume();paused=false;$('voicePause').textContent='⏸ 일시정지';setStatus(pad(selected)+'쪽 계속 듣는 중')}
+  });
+  $('voiceStop').addEventListener('click',()=>stopSpeech());
+  speed.addEventListener('change',()=>{if(playing||paused)playSpeech();else setStatus('재생 속도 '+speed.value+'배로 설정했습니다.')});
+  // Follow visible page group, without preventing user from selecting the middle or right page.
+  const observer=new MutationObserver(()=>{
+    const visible=allPages.map((el,i)=>el.classList.contains('active')?i:-1).filter(i=>i>=0);
+    if(visible.length && !visible.includes(selected) && !playing && !paused)setSelected(visible[0],false);
+  });
+  allPages.forEach(p=>observer.observe(p,{attributes:true,attributeFilter:['class']}));
+  $('voiceRecord').addEventListener('click',async()=>{
+    if(!recorderAvailable){setStatus('마이크 녹음을 지원하지 않는 환경입니다. 크롬·엣지에서 열고 마이크 접근을 허용해 주세요.');return}
+    try{
+      stopSpeech(false);
+      stream=await navigator.mediaDevices.getUserMedia({audio:true});
+      const types=['audio/webm;codecs=opus','audio/mp4','audio/webm','audio/ogg;codecs=opus'];
+      const mime=types.find(t=>MediaRecorder.isTypeSupported(t))||'';
+      recorder=new MediaRecorder(stream,mime?{mimeType:mime}:undefined);
+      chunks=[];recordPage=selected;
+      recorder.ondataavailable=e=>{if(e.data && e.data.size)chunks.push(e.data)};
+      recorder.onerror=()=>setStatus('녹음 처리 중 오류가 발생했습니다.');
+      recorder.onstop=()=>{
+        const blob=new Blob(chunks,{type:recorder.mimeType||'audio/webm'});
+        const old=recordings.get(recordPage);if(old)URL.revokeObjectURL(old.url);
+        recordings.set(recordPage,{blob,url:URL.createObjectURL(blob)});
+        if(selected===recordPage)loadRecording();
+        if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}
+        $('voiceRecord').disabled=false;$('voiceRecordStop').disabled=true;
+        setStatus(pad(recordPage)+'쪽 녹음이 완료되었습니다. 재생하거나 파일로 저장할 수 있습니다.');
+      };
+      recorder.start(250);$('voiceRecord').disabled=true;$('voiceRecordStop').disabled=false;
+      setStatus('● '+pad(recordPage)+'쪽 마이크 녹음 중입니다. ■ 녹음 종료를 눌러주세요.');
+    }catch(e){
+      if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}
+      setStatus('마이크 사용을 시작할 수 없습니다. 브라우저 권한 및 파일 실행 환경을 확인해 주세요. ('+e.name+')');
+    }
+  });
+  $('voiceRecordStop').addEventListener('click',()=>{if(recorder && recorder.state==='recording')recorder.stop()});
+  $('voiceDownload').addEventListener('click',()=>{
+    const item=recordings.get(selected);if(!item)return;
+    const ext=item.blob.type.includes('mp4')?'m4a':item.blob.type.includes('ogg')?'ogg':'webm';
+    const a=document.createElement('a');a.href=item.url;a.download='팀레이더_'+pad(selected)+'쪽_'+escapeName(titles[selected]).slice(0,30)+'.'+ext;
+    document.body.appendChild(a);a.click();a.remove();setStatus('현재 페이지의 녹음 파일을 내려받았습니다.');
+  });
+  $('voiceAudioFile').addEventListener('change',e=>{
+    const file=e.target.files&&e.target.files[0];if(!file)return;
+    if(!(file.type.startsWith('audio/')||/\.(mp3|wav|m4a|ogg|webm)$/i.test(file.name))){setStatus('오디오 파일을 선택해 주세요.');return}
+    const old=recordings.get(selected);if(old)URL.revokeObjectURL(old.url);
+    recordings.set(selected,{blob:file,url:URL.createObjectURL(file)});
+    loadRecording();setStatus(pad(selected)+'쪽 녹음 파일을 불러왔습니다.');e.target.value='';
+  });
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&panel.classList.contains('open'))setOpen(false)});
+  if(!voiceAvailable)setStatus('브라우저가 음성 읽기를 지원하지 않습니다.');
+  setSelected(0,false);
+})();
+
 </script>
 </body>
 </html>
