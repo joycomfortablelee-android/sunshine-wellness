@@ -13,6 +13,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="learn.css?v=167" />
   <style>
+    /* ── 스마트 호텔 통합교안 — 11/26 수업 예고용 강조 카드 ── */
+    .learn-article .reslist li.smart-hotel-feature {
+      background: linear-gradient(135deg,#0f2f4d,#1d5f8f);
+      border-left: 4px solid #ffd54a;
+      border-radius: 14px;
+      padding: 18px 20px 16px;
+    }
+    .learn-article .reslist li.smart-hotel-feature a.smart-hotel-pill {
+      display: inline-flex; align-items: center; flex-wrap: wrap; gap: 8px;
+      color: #fff; font-size: 17px; font-weight: 900; text-decoration: none; line-height: 1.4;
+    }
+    .learn-article .reslist li.smart-hotel-feature a.smart-hotel-pill:hover { color: #ffe14d; text-decoration: none; }
+    .learn-article .reslist li.smart-hotel-feature .date-tag {
+      display: inline-block; background: #ffe14d; color: #3d3200;
+      border-radius: 999px; padding: 3px 12px; font-size: 11.5px; font-weight: 800; white-space: nowrap;
+    }
+    .learn-article .reslist li.smart-hotel-feature .desc { color: #dce8f2; }
+    .learn-article .reslist li.smart-hotel-feature .meta { color: #ffe14d; }
+
     /* ── 과제 넷을 한 줄로 — 흐름 지도 바로 아래, 누르면 그 과제 상자로 뛴다 ── */
     .learn-article .tflow {
       display: flex; flex-wrap: nowrap; align-items: center; gap: 6px;
@@ -3671,8 +3690,8 @@
           <span class="desc">관광·호텔·여행 업계에 AI가 어떻게 쓰이는지 22개 장으로 정리한 슬라이드 자료. 장마다 <strong>교수자 강의 대본</strong>이 함께 붙어 있어, 발표·수업 진행용으로 그대로 읽으며 쓸 수 있습니다. 07~10장이 <strong>호텔업의 AI</strong>를 개괄로 다루며, 호텔 한 업종을 깊이 보려면 바로 아래 스마트 호텔 통합교안으로 이어집니다.</span>
           <span class="meta">선샤인 웰니스 · 자체 제작 자료 · 22장 · 좌우 넘김</span>
         </li>
-        <li class="fresh">
-          <a href="smart-hotel.html" target="_blank" rel="noopener">🏨 스마트 호텔 통합교안 — 12개 영역 · 44개 장면 · 좌우 넘김 ↗</a>
+        <li class="fresh smart-hotel-feature">
+          <a class="smart-hotel-pill" href="smart-hotel.html" target="_blank" rel="noopener">🏨 스마트 호텔 통합교안 — 12개 영역 · 44개 장면 · 좌우 넘김 ↗<span class="date-tag">11/26 수업</span></a>
           <span class="desc">호텔 한 업종만 떼어 깊이 보는 자료 — 개념 → 7대 핵심 기술 → 고객여정 → 경영 · 수익관리(ADR · OCC · RevPAR 컬러 대시보드) → 국내외 사례 → 미래 직무. 4컷 만화 · 영상 라이브러리 · 퀴즈까지 갖췄고, 모범답안마다 오른쪽에 교수자 대본과 음성 재생이 붙어 있습니다.</span>
           <span class="meta">선샤인 웰니스 · 자체 제작 자료 · 12개 영역 · 44개 장면 · 좌우 넘김</span>
         </li>
