@@ -129,11 +129,11 @@ const forms = [
 const formBy = Object.fromEntries(forms.map(f=>[f.code,f]));
 const guideLink = 'https://chatgpt.com/library?file_id=libfile_fc2382b6129c81919f62a71d6af22ad0&account_id=personal';
 const legacyLink = 'https://chatgpt.com/library?file_id=libfile_439a411241ac8191bae040ed553a1e85&account_id=personal';
-const views = {board:['board','전체 현황'],schedule:['calendar','제출 일정'],student:['users','학생별 상세'],weekly:['calendar','주차별 점검'],priority:['flag','지도 우선순위'],guide:['book','작성지도'],data:['folder','자료·백업']};
+const views = {submissions:['flag','1~4차 제출 현황'],board:['board','전체 현황'],schedule:['calendar','제출 일정'],student:['users','학생별 상세'],weekly:['calendar','주차별 점검'],priority:['flag','지도 우선순위'],guide:['book','작성지도'],data:['folder','자료·백업']};
 const blank = () => ({version:1,revision:0,students:[],tasks:{},docs:[],logs:[]});
 const freshTask = () => ({status:'check',basis:'',done:'',gaps:'',risk:'',next:'',gapsResolved:false,riskResolved:false,resolved:[]});
 let db, actual = blank(), example = null, demo = false, writing = false;
-let view='board', selected='', code='3-1', toastTimer;
+let view='submissions', selected='', code='3-1', toastTimer;
 const filters = {board:{q:'',week:'',code:'',status:'',kind:'',field:''},priority:{q:'',week:'',code:'',status:'',kind:'',field:''},weekly:{q:'',week:'',student:'',code:''},data:{q:'',kind:''}};
 const current = () => demo ? example : actual;
 const taskKey = (sid,f) => sid+'|'+f;
@@ -297,16 +297,25 @@ function matrix(records){
   const help=current().students.length?empty('일치하는 과제가 없습니다','검색어나 필터를 조정하면 다른 과제를 볼 수 있습니다.','','search'):empty('등록된 학생이 없습니다','학생을 직접 추가하거나 기존 학생별 HTML을 가져오면 양식별 진도표가 채워집니다.',btn('기존 HTML 가져오기','import-source',{style:'minor',glyph:'upload'}),'users');
   return '<p class="filters-meta">'+visibleStudents.length+'명 · 과제 '+records.length+'건</p><div class="table-wrap" tabindex="0" aria-label="양식별 전체 현황표"><table class="matrix" style="min-width:'+Math.max(310,145+formCols.length*61)+'px"><caption class="visually-hidden">학생별 과제 진행 상태</caption><thead><tr class="group"><th class="sticky" rowspan="2" scope="col">학생 / 사업명</th>'+groupHeads+'</tr><tr>'+formCols.map(f=>'<th scope="col"><button type="button" class="form-link" title="'+h(f.title)+'" data-action="filter-code" data-code="'+f.code+'">'+f.code+'</button></th>').join('')+'</tr></thead><tbody>'+rows+'</tbody></table></div>'+(rows?'':help);
 }
-function schedulePage(){
-  const rows=submissions.map(item=>{
+function scheduleRows(items){
+  return items.map(item=>{
     const classInfo=item.week?item.week+'주차 · '+item.classDay:'—';
     const scope=item.range.map(line=>'<span>'+h(line)+'</span>').join('');
     return '<tr><th scope="row">'+h(item.round)+'</th><td>'+h(classInfo)+'</td><td>'+h(item.due)+'</td><td><div class="schedule-scope">'+scope+'</div></td></tr>';
   }).join('');
+}
+function schedulePage(){
   return head('사업계획서 제출 일정',submissionRule,'','2026년 2학기 · 경국대학교')+
     '<section class="panel" id="submission-schedule">'+panelHead('1차~최종 제출 안내')+
     '<div class="schedule-wrap" tabindex="0" role="region" aria-label="회차별 제출 일정"><table class="schedule-table">'+
-    '<thead><tr><th scope="col">회차</th><th scope="col">주차·수업일</th><th scope="col">제출 기한</th><th scope="col">작성 범위</th></tr></thead><tbody>'+rows+'</tbody></table></div></section>'+
+    '<thead><tr><th scope="col">회차</th><th scope="col">주차·수업일</th><th scope="col">제출 기한</th><th scope="col">작성 범위</th></tr></thead><tbody>'+scheduleRows(submissions)+'</tbody></table></div></section>';
+}
+function submissionsPage(){
+  const upcoming=submissions.filter(item=>['3차','4차','5차','6차','7차','최종'].includes(item.round));
+  return head('1~4차 제출 현황','제출된 과제의 실제 체크 결과와, 앞으로 남은 제출 일정을 한 화면에서 봅니다.','',  '2026년 2학기 · 경국대학교')+
+    '<section class="panel" id="upcoming-schedule">'+panelHead('남은 제출 일정 · 3차~최종',submissionRule,btn('1차~최종 전체 일정','go',{style:'small',data:{view:'schedule'}}))+
+    '<div class="schedule-wrap" tabindex="0" role="region" aria-label="남은 제출 일정"><table class="schedule-table">'+
+    '<thead><tr><th scope="col">회차</th><th scope="col">주차·수업일</th><th scope="col">제출 기한</th><th scope="col">작성 범위</th></tr></thead><tbody>'+scheduleRows(upcoming)+'</tbody></table></div></section>'+
     submissionReportPanel();
 }
 function submissionReportPanel(){
@@ -441,7 +450,7 @@ function render(focus=false){
     if(nav.dataset.view===view)nav.setAttribute('aria-current','page');else nav.removeAttribute('aria-current');
   }
   const top=demo?'<div class="demo">예시 데이터 · 실제 학생 기록과 분리된 가상 작업공간입니다.'+btn('예시 종료','toggle-demo',{style:'small'})+'</div>':'';
-  const page={board:boardPage,schedule:schedulePage,student:studentPage,weekly:logPage,priority:priorityPage,guide:guidePage,data:dataPage}[view];
+  const page={submissions:submissionsPage,board:boardPage,schedule:schedulePage,student:studentPage,weekly:logPage,priority:priorityPage,guide:guidePage,data:dataPage}[view];
   $('#page').innerHTML=top+page()+foot();
   updateResults();
   if(focus){window.scrollTo(0,0);$('#page').focus({preventScroll:true});}
