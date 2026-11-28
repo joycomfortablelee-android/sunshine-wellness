@@ -57,6 +57,14 @@
     .learn-article .pmap-grid .pm-x{border-left:0;padding-left:0}
   }
   .learn-article .cb-todo{margin:0 0 20px;padding:8px 12px;border:1px dashed #c3d2e2;border-radius:8px;font-size:12.5px;color:#6b7a88;background:#f8fafc}
+  /* 부록-1~5 · 다섯 절을 한 그리드로 묶어 접이식에 넣는다 (2026-11-28) */
+  .learn-article details.fold .apdx-grid{list-style:none;margin:4px 0 2px;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .learn-article details.fold .apdx-grid>li{margin:0;padding:13px 15px 14px;border-radius:10px;border:1px solid color-mix(in srgb,var(--ac) 28%,#fff);border-top:4px solid var(--ac);background:var(--bg)}
+  .learn-article details.fold .apdx-grid .ap-t{display:block;font-size:13.5px;font-weight:800;color:#14243a;margin-bottom:6px}
+  .learn-article details.fold .apdx-grid .ap-d{font-size:12.3px;line-height:1.68;color:#33475b;margin:0 0 7px}
+  .learn-article details.fold .apdx-grid ul{margin:0;padding-left:17px}
+  .learn-article details.fold .apdx-grid ul li{font-size:11.8px;line-height:1.65;color:#33475b;margin-bottom:5px}
+  @media (max-width:620px){.learn-article details.fold .apdx-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body class="mod-trade">
@@ -240,43 +248,55 @@
       <p class="learn-part">부록 · 무역이론으로 보는 관광</p>
       <p class="lead">'무역과 관광'이라는 모듈 이름은 협력학과 간 개설 명칭에서 온 것이고, 이 수업은 실질적으로 1학년 1학기 관광학원론 수준의 관광 진로 수업입니다. 다만 관광을 서비스 무역의 한 형태로 보는 시각도 교양 삼아 가볍게 짚어둡니다. <strong>관광은 서비스 무역의 한 형태</strong>이기 때문입니다. 공장에서 만든 물건을 배에 실어 보내는 대신, 여행자가 직접 국경을 넘어와 그 나라의 숙박·식사·관광지를 '현지에서' 구매합니다.</p>
 
-      <p class="learn-part">부록-1 · 관광은 왜 '무역'인가</p>
-      <p>세계무역기구(WTO)의 <strong>서비스무역에 관한 일반협정(GATS)</strong>은 서비스 무역을 네 가지 방식(Mode)으로 나눕니다. 관광은 그중 <strong>Mode 2 — 해외소비(Consumption Abroad)</strong>에 해당합니다. 소비자(여행자)가 공급국으로 이동해 그 자리에서 서비스를 소비하는 방식입니다.</p>
-      <ul>
-        <li><strong>보이지 않는 수출 (Invisible Export)</strong> — 외국인 관광객이 국내에서 쓰는 돈은 통계상 상품 수출과 똑같이 외화를 벌어들이지만, 컨테이너에 실려 나가지 않기 때문에 '보이지 않는' 수출이라 부릅니다.</li>
-        <li><strong>보이지 않는 수입</strong> — 반대로 우리 국민이 해외여행에서 쓰는 돈은 외화가 빠져나가는 '보이지 않는 수입'입니다.</li>
-      </ul>
-
-      <p class="learn-part">부록-2 · 관광의 국제수지</p>
-      <p>한 나라의 국제수지표에서 관광은 <strong>서비스수지</strong> 안의 <strong>여행(Travel) 계정</strong>으로 집계됩니다.</p>
-      <ul>
-        <li><strong>관광수입</strong> — 외국인 관광객이 국내에서 지출한 금액 (인바운드)</li>
-        <li><strong>관광지출</strong> — 국민이 해외에서 지출한 금액 (아웃바운드)</li>
-        <li><strong>관광수지</strong> — 관광수입 − 관광지출. 한국은 오랫동안 아웃바운드가 인바운드보다 많아 관광수지 적자를 기록해 온 구조입니다.</li>
-      </ul>
-
-      <p class="learn-part">부록-3 · 환율과 관광수요</p>
-      <p>관광은 가격에 민감한 소비이기 때문에 <strong>환율</strong>이 수요를 직접 흔듭니다.</p>
-      <ul>
-        <li><strong>원화 약세(환율 상승)</strong> — 외국인에게는 한국 여행이 싸져 인바운드가 늘고, 내국인에게는 해외여행이 비싸져 아웃바운드가 줄어드는 경향.</li>
-        <li><strong>원화 강세(환율 하락)</strong> — 반대로 인바운드는 둔화되고 아웃바운드(해외여행·해외 직구형 소비)가 늘어나는 경향.</li>
-        <li>실제로는 환율 외에도 안전·비자·항공 노선 등 여러 변수가 함께 작용합니다.</li>
-      </ul>
-
-      <p class="learn-part">부록-4 · 무역정책이 관광을 움직인다</p>
-      <p>국가 간 무역·통상 협정은 사람의 이동 조건을 함께 바꾸는 경우가 많습니다.</p>
-      <ul>
-        <li><strong>사증(비자) 면제·간소화</strong> — 협정으로 상호 비자가 면제되면 그 자체로 관광 진입장벽이 낮아집니다.</li>
-        <li><strong>항공자유화(Open Skies)</strong> — 항공 노선·운항 횟수에 대한 규제를 완화하는 협정으로, 직항 노선 증가는 곧 관광객 증가로 이어집니다.</li>
-        <li><strong>FTA와 서비스 시장 개방</strong> — 자유무역협정은 상품 관세뿐 아니라 관광·운송 같은 서비스 분야의 상호 개방도 함께 다루는 경우가 많습니다.</li>
-      </ul>
-
-      <p class="learn-part">부록-5 · 면세산업 — 무역과 관광이 만나는 지점</p>
-      <p>면세점은 무역과 관광이 가장 눈에 보이게 겹치는 산업입니다.</p>
-      <ul>
-        <li><strong>보세구역</strong> — 관세가 보류된 채 물품이 보관·판매되는 구역으로, 면세점은 법적으로 '수출'에 준하는 거래가 이뤄지는 공간입니다.</li>
-        <li><strong>시내면세점 / 출국장면세점</strong> — 외국인·출국자를 대상으로 한 사실상의 소매 수출. 관광객의 쇼핑 지출은 관광수입이자 동시에 무역 통계의 일부입니다.</li>
-      </ul>
+      <p class="learn-part">부록-1~5 · 관광과 무역이 겹치는 다섯 지점</p>
+      <details class="fold">
+        <summary>Mode 2 해외소비부터 면세산업까지 — 표로 모아보기</summary>
+        <ul class="apdx-grid">
+          <li style="--ac:#2563a8;--bg:#eff5fa">
+            <span class="ap-t">부록-1 · 관광은 왜 '무역'인가</span>
+            <p class="ap-d">WTO의 <strong>서비스무역에 관한 일반협정(GATS)</strong>은 서비스 무역을 네 가지 방식(Mode)으로 나눕니다. 관광은 그중 <strong>Mode 2 — 해외소비(Consumption Abroad)</strong>에 해당합니다. 소비자(여행자)가 공급국으로 이동해 그 자리에서 서비스를 소비하는 방식입니다.</p>
+            <ul>
+              <li><strong>보이지 않는 수출(Invisible Export)</strong> — 외국인 관광객이 국내에서 쓰는 돈은 통계상 상품 수출과 똑같이 외화를 벌어들이지만, 컨테이너에 실려 나가지 않기 때문에 '보이지 않는' 수출이라 부릅니다.</li>
+              <li><strong>보이지 않는 수입</strong> — 반대로 우리 국민이 해외여행에서 쓰는 돈은 외화가 빠져나가는 '보이지 않는 수입'입니다.</li>
+            </ul>
+          </li>
+          <li style="--ac:#1f6a73;--bg:#eaf5f4">
+            <span class="ap-t">부록-2 · 관광의 국제수지</span>
+            <p class="ap-d">한 나라의 국제수지표에서 관광은 <strong>서비스수지</strong> 안의 <strong>여행(Travel) 계정</strong>으로 집계됩니다.</p>
+            <ul>
+              <li><strong>관광수입</strong> — 외국인 관광객이 국내에서 지출한 금액(인바운드)</li>
+              <li><strong>관광지출</strong> — 국민이 해외에서 지출한 금액(아웃바운드)</li>
+              <li><strong>관광수지</strong> — 관광수입 − 관광지출. 한국은 오랫동안 아웃바운드가 인바운드보다 많아 관광수지 적자를 기록해 온 구조입니다.</li>
+            </ul>
+          </li>
+          <li style="--ac:#8a5a17;--bg:#fdf6ea">
+            <span class="ap-t">부록-3 · 환율과 관광수요</span>
+            <p class="ap-d">관광은 가격에 민감한 소비이기 때문에 <strong>환율</strong>이 수요를 직접 흔듭니다.</p>
+            <ul>
+              <li><strong>원화 약세(환율 상승)</strong> — 외국인에게는 한국 여행이 싸져 인바운드가 늘고, 내국인에게는 해외여행이 비싸져 아웃바운드가 줄어드는 경향.</li>
+              <li><strong>원화 강세(환율 하락)</strong> — 반대로 인바운드는 둔화되고 아웃바운드(해외여행·해외 직구형 소비)가 늘어나는 경향.</li>
+              <li>실제로는 환율 외에도 안전·비자·항공 노선 등 여러 변수가 함께 작용합니다.</li>
+            </ul>
+          </li>
+          <li style="--ac:#5b3f7a;--bg:#f4eff8">
+            <span class="ap-t">부록-4 · 무역정책이 관광을 움직인다</span>
+            <p class="ap-d">국가 간 무역·통상 협정은 사람의 이동 조건을 함께 바꾸는 경우가 많습니다.</p>
+            <ul>
+              <li><strong>사증(비자) 면제·간소화</strong> — 협정으로 상호 비자가 면제되면 그 자체로 관광 진입장벽이 낮아집니다.</li>
+              <li><strong>항공자유화(Open Skies)</strong> — 항공 노선·운항 횟수에 대한 규제를 완화하는 협정으로, 직항 노선 증가는 곧 관광객 증가로 이어집니다.</li>
+              <li><strong>FTA와 서비스 시장 개방</strong> — 자유무역협정은 상품 관세뿐 아니라 관광·운송 같은 서비스 분야의 상호 개방도 함께 다루는 경우가 많습니다.</li>
+            </ul>
+          </li>
+          <li style="--ac:#c0392b;--bg:#fbeeec">
+            <span class="ap-t">부록-5 · 면세산업 — 무역과 관광이 만나는 지점</span>
+            <p class="ap-d">면세점은 무역과 관광이 가장 눈에 보이게 겹치는 산업입니다.</p>
+            <ul>
+              <li><strong>보세구역</strong> — 관세가 보류된 채 물품이 보관·판매되는 구역으로, 면세점은 법적으로 '수출'에 준하는 거래가 이뤄지는 공간입니다.</li>
+              <li><strong>시내면세점 / 출국장면세점</strong> — 외국인·출국자를 대상으로 한 사실상의 소매 수출. 관광객의 쇼핑 지출은 관광수입이자 동시에 무역 통계의 일부입니다.</li>
+            </ul>
+          </li>
+        </ul>
+      </details>
 
       <p class="learn-part">부록-6 · 호텔산업 — 브랜드와 자본이 오가는 무역</p>
       <p>관광객의 지출만 무역이 아닙니다. 호텔 산업 자체가 <strong>서비스와 자본이 국경을 넘는 또 다른 무역</strong>의 현장입니다.</p>
