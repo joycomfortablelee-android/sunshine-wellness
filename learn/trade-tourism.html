@@ -65,6 +65,18 @@
   .learn-article details.fold .apdx-grid ul{margin:0;padding-left:17px}
   .learn-article details.fold .apdx-grid ul li{font-size:11.8px;line-height:1.65;color:#33475b;margin-bottom:5px}
   @media (max-width:620px){.learn-article details.fold .apdx-grid{grid-template-columns:1fr}}
+  /* 파트 02 · JOB FOCUS — 참고교재 책 카드 · 목차 접이식 (2026-11-28) */
+  .learn-article .pt-ti .pt-en{display:block;font-size:11px;letter-spacing:.08em;color:#8599ab;font-weight:700;margin-bottom:2px}
+  .learn-article .book-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:16px;margin:10px 0 20px}
+  .learn-article .book-card{display:flex;flex-direction:column;text-decoration:none;color:#172b40}
+  .learn-article .book-cover{position:relative;width:100%;aspect-ratio:3/4.2;border-radius:6px;overflow:hidden;background:#dfe6ef;box-shadow:0 5px 14px rgba(20,35,60,.18);transition:transform .15s,box-shadow .15s}
+  .learn-article .book-cover img{width:100%;height:100%;object-fit:cover;display:block}
+  .learn-article .book-card:hover .book-cover{transform:translateY(-4px) rotate(-.4deg);box-shadow:0 10px 20px rgba(20,35,60,.26)}
+  .learn-article .book-tt{font-size:13px;font-weight:800;margin-top:9px;line-height:1.35}
+  .learn-article .book-by{font-size:11.5px;color:#5d6d7e;margin-top:2px}
+  .learn-article details.fold .toc-list{list-style:none;margin:6px 0 2px;padding:0;display:grid;gap:7px}
+  .learn-article details.fold .toc-list li{font-size:12.3px;line-height:1.65;color:#33475b;padding:8px 10px;border-radius:7px;background:#f6f8fa;border:1px solid #e7ecf1}
+  .learn-article details.fold .toc-list li b{color:#14243a;margin-right:6px}
   </style>
 </head>
 <body class="mod-trade">
@@ -163,15 +175,18 @@
 
       <div class="pt-div" aria-hidden="true"><span>✦</span></div>
       <p class="learn-part pt-part pp-x" id="part01"><span class="pt"><i>파트</i><b>01</b></span><span class="pt-ti">취업 비전 — 실제 채용공고로 보는 진로</span><span class="pt-sub"><strong>'이 전공으로 어디까지 갈 수 있나'를 실제 공고로</strong> — 위 관광학원론 지도가 이론의 전체 그림이라면, 여기서부터는 그 이론이 실제로 이어지는 취업 자료입니다. 호텔·문화재단·10개 업종 개관까지, 실제 채용공고 원문을 근거로 모았습니다.</span></p>
-      <p class="learn-part">호텔산업 강의자료</p>
-      <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">📚 <a href="hotel-industry-1-intro.html" target="_blank" rel="noopener"><strong>제1강 · 호스피탈리티와 호텔산업의 이해</strong> — 전체 강의자료(영상 · 슬라이드 · 퀴즈) 보기 ↗</a></p>
-      <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">🏨 <a href="marriott-hotel-brand-strategy.html" target="_blank" rel="noopener"><strong>메리어트의 진짜 사업</strong> — 호텔 경영형태 · 브랜드 전략 수업 ↗</a></p>
-      <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">🏨 <a href="marriott-hotel-business-model.html" target="_blank" rel="noopener"><strong>메리어트 비즈니스 모델 강의노트</strong> — 자산 경량화 · 위탁경영 · 프랜차이즈 · 본보이 · OTA · 스타우드 인수(10구간 · 퀴즈 5문항) ↗</a></p>
-      <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">🏛️ <a href="hotel-5star-lecture-complete.html" target="_blank" rel="noopener"><strong>왜 5성급 호텔에 집착할까?</strong> — 영상 핵심 내용 완전 정리 ↗</a></p>
-      <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">🏨 <a href="hotel-industry-structure-lecture.html" target="_blank" rel="noopener"><strong>호텔 산업의 구조 변화와 운영 방식</strong> — 소유·위탁운영·프랜차이즈 통합 강의노트 ↗</a></p>
-      <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">💼 <a href="hotel-career-guide-beyond-frontdesk.html" target="_blank" rel="noopener"><strong>호텔 취업 진로 가이드 — 프론트 밖에도 기회는 많습니다</strong></a> — 마케팅·연회MICE·수익관리·예약관리·인사(HR) 5개 직무 소개, 성향별 적성 찾기 ↗</p>
-      <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">🗺️ <a href="hotel-department-interactive-map.html" target="_blank" rel="noopener"><strong>호텔 12개 부서 인터랙티브 맵</strong></a> — 아이콘을 클릭해 기획·영업 · 운영·서비스 · 경영지원 12개 부서의 업무 · 고객 대면도 · 협업 관계를 탐색 ↗<br /><span style="font-size:13px;color:#5b6b7b;">위 두 자료의 원본 상담지 — <a href="assets/hotel-career-guide-beyond-frontdesk.docx" download="호텔_프론트_외_직무_진로상담_통합가이드.docx">호텔 진로상담 통합가이드 ⤓ Word로 내려받기</a></span></p>
-      <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">🏢 <a href="hotel-divestment-chaebol-2026.html" target="_blank" rel="noopener"><strong>대기업은 왜 특급호텔을 파는가</strong> — 산업 · 경영 전략 심층 교안 2026 ↗</a><br /><span style="font-size:13px;color:#5b6b7b;">「왜 잘되는 호텔을 팔까?」 — 외국인 관광객 회복으로 오른 호텔 자산가치를 현금화하는 흐름(자산유동화 · Asset Light)을 <b>KT · DL · 롯데</b> 거래와 국내 대기업 10곳의 소유 · 운영 구조, 호텔 리츠 · 재임차, 경영 · 재무 원리와 토론 활동으로 읽는 교안 — 위 메리어트 강의의 「호텔을 소유하지 않는 사업」이 국내에서 어떻게 나타나는지 봅니다.</span></p>
+      <p class="learn-part" id="hotel-lectures">호텔산업 강의자료</p>
+      <details class="fold">
+        <summary>호텔산업 강의자료 7종 보기 — 호스피탈리티 개론부터 특급호텔 매각 교안까지</summary>
+        <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">📚 <a href="hotel-industry-1-intro.html" target="_blank" rel="noopener"><strong>제1강 · 호스피탈리티와 호텔산업의 이해</strong> — 전체 강의자료(영상 · 슬라이드 · 퀴즈) 보기 ↗</a></p>
+        <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">🏨 <a href="marriott-hotel-brand-strategy.html" target="_blank" rel="noopener"><strong>메리어트의 진짜 사업</strong> — 호텔 경영형태 · 브랜드 전략 수업 ↗</a></p>
+        <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">🏨 <a href="marriott-hotel-business-model.html" target="_blank" rel="noopener"><strong>메리어트 비즈니스 모델 강의노트</strong> — 자산 경량화 · 위탁경영 · 프랜차이즈 · 본보이 · OTA · 스타우드 인수(10구간 · 퀴즈 5문항) ↗</a></p>
+        <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">🏛️ <a href="hotel-5star-lecture-complete.html" target="_blank" rel="noopener"><strong>왜 5성급 호텔에 집착할까?</strong> — 영상 핵심 내용 완전 정리 ↗</a></p>
+        <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">🏨 <a href="hotel-industry-structure-lecture.html" target="_blank" rel="noopener"><strong>호텔 산업의 구조 변화와 운영 방식</strong> — 소유·위탁운영·프랜차이즈 통합 강의노트 ↗</a></p>
+        <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">💼 <a href="hotel-career-guide-beyond-frontdesk.html" target="_blank" rel="noopener"><strong>호텔 취업 진로 가이드 — 프론트 밖에도 기회는 많습니다</strong></a> — 마케팅·연회MICE·수익관리·예약관리·인사(HR) 5개 직무 소개, 성향별 적성 찾기 ↗</p>
+        <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">🗺️ <a href="hotel-department-interactive-map.html" target="_blank" rel="noopener"><strong>호텔 12개 부서 인터랙티브 맵</strong></a> — 아이콘을 클릭해 기획·영업 · 운영·서비스 · 경영지원 12개 부서의 업무 · 고객 대면도 · 협업 관계를 탐색 ↗<br /><span style="font-size:13px;color:#5b6b7b;">위 두 자료의 원본 상담지 — <a href="assets/hotel-career-guide-beyond-frontdesk.docx" download="호텔_프론트_외_직무_진로상담_통합가이드.docx">호텔 진로상담 통합가이드 ⤓ Word로 내려받기</a></span></p>
+        <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">🏢 <a href="hotel-divestment-chaebol-2026.html" target="_blank" rel="noopener"><strong>대기업은 왜 특급호텔을 파는가</strong> — 산업 · 경영 전략 심층 교안 2026 ↗</a><br /><span style="font-size:13px;color:#5b6b7b;">「왜 잘되는 호텔을 팔까?」 — 외국인 관광객 회복으로 오른 호텔 자산가치를 현금화하는 흐름(자산유동화 · Asset Light)을 <b>KT · DL · 롯데</b> 거래와 국내 대기업 10곳의 소유 · 운영 구조, 호텔 리츠 · 재임차, 경영 · 재무 원리와 토론 활동으로 읽는 교안 — 위 메리어트 강의의 「호텔을 소유하지 않는 사업」이 국내에서 어떻게 나타나는지 봅니다.</span></p>
+      </details>
 
       <p class="learn-part">문화재단 취업 자료</p>
       <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">🏛️ <a href="culture-foundation-career-guide.html" target="_blank" rel="noopener"><strong>문화재단 취업 가이드</strong> — 채용공고 원문 × 취업정보 엑셀</a><br /><span style="font-size:13px;color:#5b6b7b;">태백시문화재단 2026년도 제3회 직원채용 공고 원문 캡처 4장, <b>영월문화관광재단(일반직 3급·6급) · 서울연구원(연구직 — 문화·관광·여가정책)</b> 채용공고 분석과 문화재단·문화관광재단 취업정보 엑셀 4개 시트를 통합. 응시자격·채용절차 읽는 법, 채용정보 검색 플랫폼 7곳, 관광·MICE 연계 직무 가이드까지 ↗</span></p>
@@ -186,6 +201,55 @@
       <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">🧭 <a href="tourism-career-roadmap-flipbook.html" target="_blank" rel="noopener"><strong>관광산업 취업 로드맵</strong> — 10개 업종 좌우 넘김 안내 ↗</a><br /><span style="font-size:13px;color:#5b6b7b;">PC·모바일 양쪽에서 좌우로 넘기며 보는 전자 안내책자입니다. 들어가는 글 1장 + 01-1 여행업~01-10 국제회의업 10장 + 마무리(이어서 볼 자료) 1장, 총 12장으로 묶었습니다.</span></p>
       <p class="lead" style="background:#eef6ff;border-left:4px solid #2459b5;padding:12px 16px;border-radius:8px;font-size:15px;">🏛️ <a href="https://www.mcst.go.kr/site/s_notice/notice/jobList.jsp" target="_blank" rel="noopener"><strong>문화체육관광부 채용정보 게시판</strong> ↗</a><br /><span style="font-size:13px;color:#5b6b7b;">문체부 본부·소속기관뿐 아니라 한국관광공사 등 산하 공공기관의 채용공고까지 모아 볼 수 있는 공식 창구입니다. 10개 업종 중 공공기관 쪽(철도교통업·국제회의업 등)을 희망한다면 수시로 확인하세요.</span></p>
       <p class="mini-note">01-1~01-4, 01-6의 구체적 연봉·채용경로는 이강일, 「한눈에 보는 관광산업 취업 로드맵」(좋은땅)을 참고해 정리했습니다. 각 업종은 모두 <a href="careers.html" target="_blank" rel="noopener">관광산업 진로·취업 가이드</a>와 <a href="culture-foundation-career-guide.html" target="_blank" rel="noopener">문화재단 취업 가이드</a>, 호텔업·리조트업·MICE는 <a href="hotel-resort-mice-career-flipbook.html" target="_blank" rel="noopener">호텔·리조트·MICE 취업 안내</a>에서 채용사이트·자격증·공공기관 정보와 함께 더 자세히 이어집니다.</p>
+
+      <div class="pt-div" aria-hidden="true"><span>✦</span></div>
+      <p class="learn-part pt-part pp-x" id="part02"><span class="pt"><i>파트</i><b>02</b></span><span class="pt-ti"><small class="pt-en">JOB FOCUS</small>업종별 취업 방법 장단점</span><span class="pt-sub"><strong>어느 업종이 나와 맞을까, 어떤 경로로 들어갈까</strong> — 업종마다 「대형 여행사 vs 스타트업」·「정규직 공채 vs 인턴십」처럼 서로 다른 취업 경로가 있고, 그 경로마다 장단점이 갈립니다. 아래 두 책의 목차를 먼저 펼쳐 어느 책에 무슨 내용이 있는지 확인하고, 업종별 장단점 본문은 차례로 채웁니다.</span></p>
+
+      <p class="learn-part">참고 교재 — 책 표지로 보기</p>
+      <div class="book-grid">
+        <a class="book-card" href="https://www.yes24.com/product/goods/117827163" target="_blank" rel="noopener">
+          <span class="book-cover"><img src="https://image.yes24.com/goods/117827163/XL" alt="관광직업탐색과 취업전략 표지" loading="lazy"></span>
+          <span class="book-tt">관광직업탐색과 취업전략</span>
+          <span class="book-by">김난영 · 새로미 · 2023</span>
+        </a>
+        <a class="book-card" href="https://www.yes24.com/product/goods/189406921" target="_blank" rel="noopener">
+          <span class="book-cover"><img src="https://image.yes24.com/goods/189406921/XL" alt="한눈에 보는 관광산업 취업 로드맵 표지" loading="lazy"></span>
+          <span class="book-tt">한눈에 보는 관광산업 취업 로드맵</span>
+          <span class="book-by">이강일 글 · 좋은땅 · 2026</span>
+        </a>
+      </div>
+
+      <p class="learn-part">책 1 · 「관광직업탐색과 취업전략」 목차 — 10개 업종 전부</p>
+      <details class="fold">
+        <summary>CHAPTER 01~11 전체 목차 보기</summary>
+        <ul class="toc-list">
+          <li><b>01</b> 관광산업 동향 및 고용전망 — 관광 동향·경쟁력·경제적·고용창출 효과·발전 및 고용전망·다양한 취업가능 분야(14쪽~)</li>
+          <li><b>02</b> 여행업 직업탐색 — 개요·조직 및 업무특성·근무 및 환경특징·취업 전략·비전 및 전망·종사자 인터뷰 및 지원서 사례(36쪽~)</li>
+          <li><b>03</b> 항공업 직업탐색 — 개요·조직 및 업무특성·근무 및 환경특징·취업 전략·비전 및 전망·종사자 인터뷰 사례(84쪽~)</li>
+          <li><b>04</b> 철도교통업 직업탐색 — 개요·조직 및 업무특성·근무 및 환경특징·취업 전략·비전 및 전망·종사자 인터뷰 사례(114쪽~)</li>
+          <li><b>05</b> 호텔업 직업탐색 — 개요·조직 및 업무특성·근무 및 환경특성·취업 전략·비전 및 전망·종사자 인터뷰 및 지원서 사례(132쪽~)</li>
+          <li><b>06</b> 리조트업 직업탐색 — 개요·조직 및 업무특징·근무 및 환경특징·취업 전략·비전 및 전망·종사자 인터뷰 사례(158쪽~)</li>
+          <li><b>07</b> 크루즈업 직업탐색 — 개요·조직 및 업무특성·근무 및 환경특징·취업 전략·비전 및 전망·종사자 인터뷰 사례(178쪽~)</li>
+          <li><b>08</b> 외식업 직업탐색 — 개요·조직 및 업무특성·근무 및 환경특징·취업 전략·비전 및 전망·종사자 인터뷰 사례(204쪽~)</li>
+          <li><b>09</b> 면세점업 직업탐색 — 개요·조직 및 업무특징·근무 및 환경특징·취업 전략·비전 및 전망·종사자 인터뷰 사례(228쪽~)</li>
+          <li><b>10</b> 카지노업 직업탐색 — 개요·조직 및 업무특성·근무 및 환경특징·취업 전략·비전 및 전망·종사자 인터뷰 사례(250쪽~)</li>
+          <li><b>11</b> 국제회의업 직업탐색 — 개요·조직 및 업무특성·근무 및 환경특징·취업 전략·비전 및 전망·종사자 인터뷰 사례(278쪽~)</li>
+        </ul>
+      </details>
+
+      <p class="learn-part">책 2 · 「한눈에 보는 관광산업 취업 로드맵」 목차 — 업종 일부 + 취업 실무 전반</p>
+      <details class="fold">
+        <summary>Part 1~4 전체 목차 보기</summary>
+        <ul class="toc-list">
+          <li><b>Part 1</b> 핵심 업계 취업 전략 — 여행업계 완전정복(대형 여행사 vs 스타트업·OTA 취업전략·B2B·인바운드, 12쪽~) · 호텔업계 현실 가이드(급여와 커리어패스·부서별 맞춤 전략·신입 생존법, 33쪽~) · 항공업계 진출 로드맵(승무원 vs 지상직·FSC·LCC별 전략·공항 관련직종, 47쪽~)</li>
+          <li><b>Part 2</b> 공공부문 및 신영역 진출 — 관광 공공기관 합격법(한국관광공사·지자체·공기업·국제기구, 66쪽~) · 관광 신직업군·창업(디지털 노마드·로컬 크리에이터·데이터 분석가·프리랜서, 83쪽~)</li>
+          <li><b>Part 3</b> 해외진출 및 실전준비 — 해외 관광업계 취업(아시아·중동 허브·유럽 인턴십·크루즈 글로벌 커리어, 118쪽~) · 완벽한 취업준비(서류·면접·네트워킹, 134쪽~) · 입사 후 성공 로드맵(첫 100일·전문성 개발·이직 타이밍, 167쪽~)</li>
+          <li><b>Part 4</b> 실전 취업 준비와 커리어 관리 — 완벽한 취업 서류 만들기(자기소개서·포트폴리오·디지털 이력서·추천서, 190쪽~) · 면접과 실무진 만나기(면접 대응·네트워킹·인턴십·연봉 협상, 218쪽~)</li>
+        </ul>
+        <p class="mini-note">이 책은 10개 업종 중 여행업·호텔업·항공업·크루즈업 네 업종을 직접 다루고, 나머지는 공공기관·창업·서류·면접 같은 업종 공통 실무로 구성되어 있습니다.</p>
+      </details>
+
+      <p class="cb-todo">본문 정리 예정 — 두 책의 「취업 전략」·「조직 및 업무특성」·「대형 vs 스타트업」 같은 절을 교차로 묶어, 업종별로 「이 방법의 장점 / 이 방법의 단점」을 정리합니다.</p>
 
       <p class="learn-part">부록 · 무역이론으로 보는 관광</p>
       <p class="lead">'무역과 관광'이라는 모듈 이름은 협력학과 간 개설 명칭에서 온 것이고, 이 수업은 실질적으로 1학년 1학기 관광학원론 수준의 관광 진로 수업입니다. 다만 관광을 서비스 무역의 한 형태로 보는 시각도 교양 삼아 가볍게 짚어둡니다. <strong>관광은 서비스 무역의 한 형태</strong>이기 때문입니다. 공장에서 만든 물건을 배에 실어 보내는 대신, 여행자가 직접 국경을 넘어와 그 나라의 숙박·식사·관광지를 '현지에서' 구매합니다.</p>
