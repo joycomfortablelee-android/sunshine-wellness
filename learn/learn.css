@@ -730,6 +730,7 @@ body.mod-smart .learn-article .lw > p.mini-note { max-width: 820px; }
 .learn-article li { font-size: 15px; line-height: 1.9; margin-bottom: 6px; }
 .learn-article .lead { font-family: 'Merriweather', Georgia, serif; font-size: 17px; color: var(--muted); line-height: 1.95; margin-bottom: 28px; }
 .learn-article .lead.sm { font-size: 14.5px; line-height: 1.85; margin-bottom: 22px; }  /* 히어로 소제목과 크기를 맞춘 리드 */
+.learn-article .lead[style] { font-family: 'Noto Sans KR', sans-serif; }  /* 배경 상자형 링크 카드(인라인 style 사용)는 본문체로, 순수 리드문단만 세리프 유지 */
 .learn-article code { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; font-size: 13px; background: var(--gray); color: var(--deep); padding: 2px 6px; border-radius: 5px; overflow-wrap: anywhere; }
 /* ===== 사례 상자 — 바깥은 연한 파랑 테두리, 안은 흰 바탕 =====
    지도나 그림 아래에 「이 도시를 더 보려면」 식의 참고 링크를 모아 둘 때 쓴다.
